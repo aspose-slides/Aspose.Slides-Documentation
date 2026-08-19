@@ -1,295 +1,274 @@
 ---
-title: .NET में प्रस्तुतियों में छवि प्रबंधन को अनुकूलित करें
-linktitle: छवियों को प्रबंधित करें
+title: .NET में प्रस्तुतियों में इमेज प्रबंधन का अनुकूलन
+linktitle: इमेज प्रबंधित करें
 type: docs
 weight: 10
 url: /hi/net/image/
 keywords:
-- छवि जोड़ें
+- इमेज जोड़ें
 - चित्र जोड़ें
-- बिटमैप जोड़ें
-- छवि बदलें
-- चित्र बदलें
-- वेब से
+- इमेज बदलें
+- इमेज संग्रह
+- चित्र फ़्रेम
+- लिंक्ड इमेज
 - पृष्ठभूमि
 - PNG जोड़ें
 - JPG जोड़ें
 - SVG जोड़ें
-- EMF जोड़ें
-- WMF जोड़ें
-- TIFF जोड़ें
+- SVG से शैप्स
+- बाहरी SVG रिसोर्सेज
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument में छवि प्रबंधन को सरल बनाएं, प्रदर्शन को अनुकूलित करें और आपके कार्यप्रवाह को स्वचालित करें।"
+description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों में रास्टर और SVG इमेजेज़ को जोड़ना, पुन: उपयोग करना, लिंक करना, बदलना और प्रबंधित करना सीखें।"
 ---
 ## **परिचय**
 
-छवियां प्रस्तुतियों को अधिक आकर्षक और रोचक बनाती हैं। Microsoft PowerPoint में, आप फ़ाइल, इंटरनेट या अन्य स्थानों से चित्रों को स्लाइड्स में सम्मिलित कर सकते हैं। इसी तरह, Aspose.Slides आपको विभिन्न प्रक्रियाओं के माध्यम से अपनी प्रस्तुतियों में स्लाइड्स पर छवियां जोड़ने की अनुमति देता है।
+Aspose.Slides for .NET कई तरीकों से इमेजेज़ के साथ काम करने के विकल्प प्रदान करता है, और प्रत्येक का अलग उद्देश्य है। आप एक इमेज को प्रेजेंटेशन में स्टोर कर सकते हैं, इसे एक पिक्चर फ्रेम में प्रदर्शित कर सकते हैं, स्लाइड बैकग्राउंड के रूप में उपयोग कर सकते हैं, बाहरी इमेज का लिंक दे सकते हैं, शेयर किए गए इमेज रिसोर्स को बदल सकते हैं, या SVG कंटेंट को एडिटेबल शेप्स में कनवर्ट कर सकते हैं।
 
-{{% alert  title="टिप" color="primary" %}} 
+यह लेख इमेज रिसोर्सेज़ और उनके प्रेजेंटेशन में उपयोग पर केंद्रित है। व्यक्तिगत पिक्चर फ्रेम में लागू किए गए क्रॉपिंग, ट्रांसपैरेंसी, इफ़ेक्ट्स, स्ट्रेचिंग और अन्य फॉर्मेटिंग के लिए देखें [Picture Frame](/slides/hi/net/picture-frame/)।
 
-Aspose मुफ्त रूपांतरण उपकरण प्रदान करता है—[JPEG से PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG से PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो लोगों को छवियों से तेज़ी से प्रस्तुतियां बनाने में सक्षम बनाते हैं। 
+## **इमेज मॉडल को समझें**
 
-{{% /alert %}} 
+निम्नलिखित API अवधारणाएँ निकटता से जुड़ी हुई हैं लेकिन परस्पर विनिमेय नहीं हैं:
 
-{{% alert title="जानकारी" color="info" %}}
+- [presentation image collection](https://reference.aspose.com/slides/hi/net/aspose.slides/iimagecollection/) प्रस्तुति द्वारा उपयोग किए गए इमेज रिसोर्सेज़ को संग्रहीत करता है। इमेज डेटा जोड़ने और एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) रिसोर्स प्राप्त करने के लिए [ImageCollection.AddImage](https://reference.aspose.com/slides/hi/net/aspose.slides/imagecollection/addimage/) का उपयोग करें।
+- एक [picture frame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) एक शैप है जो स्लाइड, लेआउट या मास्टर पर इमेज को प्रदर्शित करता है। स्लाइड पर इमेज रिसोर्स रखने के लिए [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addpictureframe/) का उपयोग करें।
+- स्लाइड बैकग्राउंड इमेज को स्लाइड फिल का हिस्सा बनाता है, न कि एक शैप के रूप में। इसलिए यह पिक्चर फ्रेम जैसा व्यवहार नहीं करता।
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/replaceimage/) इमेज रिसोर्स को बदलता है। यदि कई प्रस्तुति तत्व उस रिसोर्स का उपयोग कर रहे हैं, तो वे सभी प्रतिस्थापन का उपयोग करेंगे।
+- SVG को शेप्स में बदलने से एडिटेबल स्लाइड शेप्स बनते हैं। परिवर्तन के बाद कंटेंट अब एक ही पिक्चर रिसोर्स के रूप में प्रबंधित नहीं रहता।
 
-यदि आप किसी छवि को फ़्रेम ऑब्जेक्ट के रूप में जोड़ना चाहते हैं—विशेषकर यदि आप इसका आकार बदलने, प्रभाव जोड़ने आदि के लिए मानक फ़ॉर्मेटिंग विकल्पों का उपयोग करने की योजना बनाते हैं—तो देखें [चित्र फ़्रेम](https://docs.aspose.com/slides/hi/net/picture-frame/). 
+एक सामान्य वर्कफ़्लो इस प्रकार है: इमेज डेटा को इमेज कलेक्शन में जोड़ें, एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) प्राप्त करें, और फिर उस रिसोर्स को एक या अधिक पिक्चर फ्रेम या फिल में उपयोग करें।
 
-{{% /alert %}} 
+## **एक एम्बेडेड इमेज जोड़ें**
 
-{{% alert title="नोट" color="warning" %}}
+स्थानीय इमेज डालने के लिए फ़ाइल पढ़ें, उसके डेटा को इमेज कलेक्शन में जोड़ें, और लौटाए गए `IPPImage` का उपयोग करके एक पिक्चर फ्रेम बनाएं।
 
-आप छवियों और PowerPoint प्रस्तुतियों के बीच इनपुट/आउटपुट संचालन को नियंत्रित करके एक छवि को एक स्वरूप से दूसरे स्वरूप में बदल सकते हैं। इन पृष्ठों को देखें: रूपांतरण [छवि से JPG](https://products.aspose.com/slides/hi/net/conversion/image-to-jpg/); रूपांतरण [JPG से छवि](https://products.aspose.com/slides/hi/net/conversion/jpg-to-image/); रूपांतरण [JPG से PNG](https://products.aspose.com/slides/hi/net/conversion/jpg-to-png/), रूपांतरण [PNG से JPG](https://products.aspose.com/slides/hi/net/conversion/png-to-jpg/); रूपांतरण [PNG से SVG](https://products.aspose.com/slides/hi/net/conversion/png-to-svg/), रूपांतरण [SVG से PNG](https://products.aspose.com/slides/hi/net/conversion/svg-to-png/).
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% /alert %}}
+using var presentation = new Presentation();
 
-Aspose.Slides इन लोकप्रिय स्वरूपों में छवियों के साथ संचालन का समर्थन करता है: JPEG, PNG, BMP, GIF, और अन्य। 
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-## **स्थानीय रूप से संग्रहीत छवियां स्लाइड्स में जोड़ें**
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-आप अपने कंप्यूटर पर एक या कई छवियों को प्रस्तुति की स्लाइड पर जोड़ सकते हैं। C# में यह नमूना कोड आपको दिखाता है कि स्लाइड में छवि कैसे जोड़ें:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **वेब से छवियां स्लाइड्स में जोड़ें**
+इस प्रकार जोड़ी गई इमेज प्रस्तुति में एम्बेडेड रहती है, इसलिए परिणामी फ़ाइल मूल इमेज फ़ाइल की उपलब्धता पर निर्भर नहीं करती।
 
-यदि आप जिस छवि को स्लाइड में जोड़ना चाहते हैं वह आपके कंप्यूटर पर उपलब्ध नहीं है, तो आप छवि को सीधे वेब से जोड़ सकते हैं। 
+### **वेब से इमेज जोड़ें**
 
-यह नमूना कोड C# में वेब से छवि को स्लाइड में जोड़ने का तरीका दिखाता है:
+जब इमेज HTTP या HTTPS के माध्यम से उपलब्ध हो, तो उसके बाइट्स को `HttpClient` से डाउनलोड करें, उन्हें प्रस्तुति इमेज कलेक्शन में जोड़ें, और स्थानीय इमेज की तरह ही लौटाए गए इमेज रिसोर्स का उपयोग करें।
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **स्लाइड मास्टर में छवियां जोड़ें**
+दीर्घकालिक एप्लिकेशन में प्रत्येक अनुरोध के लिए नया इंस्टेंस बनाने के बजाय `HttpClient` को पुन: उपयोग करें। जब स्रोत विश्वसनीय न हो तो रिमोट URL, प्रतिक्रियाकी आकार, और कंटेंट टाइप की भी जाँच करें।
 
-स्लाइड मास्टर वह शीर्ष स्लाइड है जो उसके तहत सभी स्लाइड्स की जानकारी (थीम, लेआउट आदि) संग्रहित और नियंत्रित करता है। इसलिए, जब आप स्लाइड मास्टर में छवि जोड़ते हैं, तो वह छवि उस स्लाइड मास्टर के तहत सभी स्लाइड्स में दिखाई देती है। 
+## **स्लाइड्स में इमेजेज़ को पुन: उपयोग करें**
 
-यह C# नमूना कोड दिखाता है कि स्लाइड मास्टर में छवि कैसे जोड़ें:
+यदि एक ही इमेज कई बार चाहिए, तो उसे प्रस्तुति में एक बार जोड़ें और अतिरिक्त पिक्चर फ्रेम बनाते समय लौटाए गए [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) का पुन: उपयोग करें। इससे समान स्रोत डेटा को बार-बार लोड करने से बचा जा सकता है और शेयर किए गए इमेज रिसोर्स और उसके उपयोगों के बीच का संबंध स्पष्ट हो जाता है।
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+कई स्लाइड्स पर स्वचालित रूप से दिखाई देना चाहिए ऐसी ग्राफ़िक्स, जैसे कंपनी लोगो, को प्रत्येक स्लाइड में समान शैप जोड़ने के बजाय [slide master](/slides/hi/net/slide-master/) या लेआउट पर पिक्चर फ्रेम रखने पर विचार करें।
+
+## **इमेज को स्लाइड बैकग्राउंड के रूप में उपयोग करें**
+
+बैकग्राउंड इमेज स्लाइड फिल को असाइन की जाती है; इसे पिक्चर-फ़्रेम शैप के रूप में नहीं जोड़ा जाता। यह तब उपयोगी होता है जब चित्र को स्लाइड बैकग्राउंड को कवर करना हो और उसे सामान्य स्लाइड ऑब्जेक्ट की तरह नहीं बदलना हो।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
-## **स्लाइड पृष्ठभूमि के रूप में छवियां जोड़ें**
+अतिरिक्त बैकग्राउंड विकल्पों के लिए, जिसमें मास्टर और लेआउट बैकग्राउंड शामिल हैं, देखें [Presentation Background](/slides/hi/net/presentation-background/)।
 
-आप किसी विशेष स्लाइड या कई स्लाइड्स की पृष्ठभूमि के रूप में चित्र का उपयोग करने का निर्णय ले सकते हैं। ऐसे में, आपको *[स्लाइड पृष्ठभूमि के रूप में छवियों का सेट करना](https://docs.aspose.com/slides/hi/net/presentation-background/#setting-images-as-background-for-slides)* देखना चाहिए।
+## **एम्बेडेड इमेजेज़ और लिंक्ड इमेजेज़**
 
-## **प्रस्तुतियों में SVG जोड़ें**
+एम्बेडेड और लिंक्ड इमेजेज़ के पोर्टेबिलिटी और फ़ाइल‑साइज़ ट्रेड‑ऑफ़ अलग होते हैं:
 
-आप [AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/methods/addpictureframe) मेथड का उपयोग करके, जो [IShapeCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection) इंटरफ़ेस से संबंधित है, किसी भी छवि को प्रस्तुति में जोड़ या सम्मिलित कर सकते हैं।
+- **Embedded image:** इमेज डेटा प्रस्तुति के अंदर संग्रहीत होता है। प्रस्तुति स्वयं‑समावेशी होती है, लेकिन फ़ाइल आकार में इमेज डेटा शामिल होता है।
+- **Linked image:** प्रस्तुति बाहरी इमेज का पाथ या URL संग्रहीत करती है। इससे प्रस्तुति आकार कम हो सकता है, लेकिन बाहरी रिसोर्स का एक्सेस आवश्यक रहता है।
 
-SVG छवि पर आधारित एक इमेज ऑब्जेक्ट बनाने के लिए, आप इसे इस प्रकार कर सकते हैं:
+एक लिंक्ड पिक्चर को [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/linkpathlong/) के माध्यम से बाहरी पाथ या URL असाइन करके बनाया जा सकता है, बजाय इमेज डेटा को एम्बेड किए।
 
-1. ImageShapeCollection में सम्मिलित करने के लिए SvgImage ऑब्जेक्ट बनाएं
-2. ISvgImage से PPImage ऑब्जेक्ट बनाएं
-3. IPPImage इंटरफ़ेस का उपयोग करके PictureFrame ऑब्जेक्ट बनाएं
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-यह नमूना कोड उपरोक्त चरणों को लागू करके प्रस्तुति में SVG छवि जोड़ने का तरीका दिखाता है:
-``` csharp 
-// दस्तावेज़ निर्देशिका का पथ
-string dataDir = @"D:\Documents\";
+using var presentation = new Presentation();
 
-// स्रोत SVG फ़ाइल नाम
-string svgFileName = dataDir + "sample.svg";
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-// आउटपुट प्रस्तुति फ़ाइल नाम
-string outPptxPath = dataDir + "presentation.pptx";
-
-// नई प्रस्तुति बनाएं
-using (var p = new Presentation())
-{
-    // SVG फ़ाइल की सामग्री पढ़ें
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // SvgImage ऑब्जेक्ट बनाएं
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // PPImage ऑब्जेक्ट बनाएं
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // एक नया PictureFrame बनाता है
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // प्रस्तुति को PPTX प्रारूप में सहेजें
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **SVG को आकारों के सेट में बदलें**
+केवल तभी लिंक्ड इमेजेज़ प्रयोग करें जब डिप्लॉयमेंट वातावरण बाहरी रिसोर्स को विश्वसनीय रूप से एक्सेस कर सके। उन प्रस्तुतियों के लिए जो ऑफ़लाइन काम करनी हों या सिस्टम के बीच ले जानी हों, एम्बेडेड इमेजेज़ आमतौर पर सुरक्षित होते हैं।
 
-Aspose.Slides का SVG को आकारों के सेट में रूपांतरण PowerPoint की SVG छवियों के साथ काम करने की कार्यक्षमता के समान है:
+## **SVG इमेजेज़ के साथ काम करें**
 
-![PowerPoint पॉपअप मेन्यू](img_01_01.png)
+SVG एक वेक्टर फ़ॉर्मेट है, इसलिए यह आइकन, डायग्राम और अन्य ग्राफ़िक्स के लिए उपयोगी है जिन्हें रास्टर इमेजेज़ की तरह विवरण की हानि के बिना स्केल किया जा सके। Aspose.Slides SVG को इमेज रिसोर्स और एडिटेबल स्लाइड शेप्स के स्रोत दोनों के रूप में समर्थन करता है।
 
-यह कार्यक्षमता [IShapeCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection) इंटरफ़ेस के [AddGroupShape](https://reference.aspose.com/slides/hi/net/aspose.slides.ishapecollection/addgroupshape/methods/1) मेथड के एक ओवरलोड द्वारा प्रदान की जाती है जो पहले तर्क के रूप में एक [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage) ऑब्जेक्ट लेता है।
+### **SVG को इमेज के रूप में जोड़ें**
 
-यह नमूना कोड दिखाता है कि वर्णित मेथड का उपयोग करके SVG फ़ाइल को आकारों के सेट में कैसे बदलें:
+एक [SvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/svgimage/) बनाएं, उसे इमेज कलेक्शन में जोड़ें, और परिणामस्वरूप इमेज रिसोर्स को पिक्चर फ्रेम में रखें।
 
-``` csharp 
-// दस्तावेज़ निर्देशिका का पथ
-string dataDir = @"D:\Documents\";
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// स्रोत SVG फ़ाइल नाम
-string svgFileName = dataDir + "sample.svg";
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
 
-// आउटपुट प्रस्तुति फ़ाइल नाम
-string outPptxPath = dataDir + "presentation.pptx";
+using var presentation = new Presentation();
 
-// नई प्रस्तुति बनाएं
-using (IPresentation presentation = new Presentation())
-{
-    // SVG फ़ाइल की सामग्री पढ़ें
-    string svgContent = File.ReadAllText(svgFileName);
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // SvgImage ऑब्जेक्ट बनाएं
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // स्लाइड आकार प्राप्त करें
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // SVG छवि को आकारों के समूह में बदलें और इसे स्लाइड आकार के अनुसार स्केल करें
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // प्रस्तुति को PPTX स्वरूप में सहेजें
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
 ```
 
-## **छवियों को EMF के रूप में स्लाइड्स में जोड़ें**
+### **बाहरी रिसोर्सेज़ वाले SVG फ़ाइलें**
 
-Aspose.Slides for .NET आपको Excel शीट्स से EMF छवियां उत्पन्न करने और Aspose.Cells के साथ स्लाइड्स में उन्हें EMF के रूप में जोड़ने की अनुमति देता है।  
+एक SVG बाहरी इमेजेज़, स्टाइलशीट्स या फ़ॉन्ट्स को रेफ़र कर सकता है। ऐसे मामलों के लिए, [SvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/svgimage/) ऐसे कन्स्ट्रक्टर प्रदान करता है जो एक [IExternalResourceResolver](https://reference.aspose.com/slides/hi/net/aspose.slides.import/iexternalresourceresolver/) और बेस URI को स्वीकार करता है। रेज़ॉल्वर रिलेटिव URI को अनुमति प्राप्त एब्सोल्यूट URI में मैप कर सकता है और अनुरोधित रिसोर्स के लिए स्ट्रीम रिटर्न कर सकता है।
 
-यह नमूना कोड दिखाता है कि वर्णित कार्य कैसे किया जाए:
+रेज़ॉल्वर बाहरी रिसोर्सेज़ को SVG प्रक्रिया के दौरान उपलब्ध कराता है, लेकिन यह SVG को स्वयं‑समावेशी दस्तावेज़ में पुनः लिखता नहीं है। यदि SVG को पोर्टेबल रखना है, तो आवश्यक रिसोर्सेज़ को स्वयं SVG में एम्बेड करें, जैसे लिंक्ड इमेजेज़ के लिए `data:` URI का प्रयोग करें।
 
-``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+जब SVG फ़ाइलें अविश्वसनीय स्रोतों से आती हैं, तो रेज़ॉल्वर द्वारा एक्सेस किए जा सकने वाले स्कीम, फ़ाइल लोकेशन और होस्ट को प्रतिबंधित करें। नेटवर्क रेज़ॉल्वर को टाइमआउट, रिस्पॉन्स‑साइज़ लिमिट और कंटेंट वैलिडेशन भी लागू करना चाहिए।
 
-    //वर्कबुक को स्ट्रीम में सहेजें
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+### **SVG को एडिटेबल शेप्स में बदलें**
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+Aspose.Slides SVG को एडिटेबल स्लाइड शेप्स के समूह में बदल सकता है, जो संबंधित PowerPoint कमांड के समान है।
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
+![PowerPoint Popup Menu](img_01_01.png)
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
+परिवर्तन करने के लिए [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addgroupshape/) ओवरलोड का उपयोग करें जो एक [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) को स्वीकार करता है।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
+
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **इमेज कलेक्शन में छवियों को बदलें**
+SVG‑से‑शेप्स परिवर्तन तब उपयोग करें जब व्यक्तिगत वेक्टर एलिमेंट्स को PowerPoint शैप्स के रूप में संपादित करने की आवश्यकता हो। यदि SVG केवल प्रदर्शित करनी है, तो उसे इमेज के रूप में रखना सरल है और कई अलग‑अलग शैप्स बनाने से बचाता है।
 
-Aspose.Slides आपको प्रस्तुति के इमेज कलेक्शन में संग्रहीत छवियों (स्लाइड शेप्स द्वारा उपयोग की गई सहित) को बदलने देता है। यह अनुभाग कलेक्शन में छवियों को अपडेट करने के कई तरीके दिखाता है। API सीधे तरीकों से छवि को कच्चे बाइट डेटा, एक [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) इंस्टेंस, या कलेक्शन में पहले से मौजूद दूसरी छवि का उपयोग करके बदलने की सुविधा देता है।
+## **मौजूद इमेज रिसोर्स को बदलें**
 
-नीचे दिए गए कदमों का पालन करें:
+जब आप किसी मौजूदा इमेज रिसोर्स को बदलना चाहते हैं तो [IPPImage.ReplaceImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/replaceimage/) का उपयोग करें। यह विशेष रूप से साझा ग्राफ़िक्स जैसे लोगो के लिए उपयोगी है।
 
-1. प्रस्तुति फ़ाइल को जिसमें छवियां हैं, [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का उपयोग करके लोड करें।
-2. फ़ाइल से नई छवि को बाइट एरे में लोड करें।
-3. बाइट एरे का उपयोग करके लक्ष्य छवि को नई छवि से बदलें।
-4. दूसरे तरीके में, छवि को एक [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) ऑब्जेक्ट में लोड करें और लक्ष्य छवि को उस ऑब्जेक्ट से बदलें।
-5. तीसरे तरीके में, लक्ष्य छवि को प्रस्तुति के इमेज कलेक्शन में पहले से मौजूद छवि से बदलें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```cs
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation("input.pptx");
 
-// पहला तरीका।
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-// दूसरा तरीका।
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// तीसरा तरीका।
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// प्रस्तुति को फ़ाइल में सहेजें।
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="जानकारी" color="info" %}}
+यदि कई पिक्चर फ्रेम, बैकग्राउंड, मास्टर या लेआउट एक ही इमेज रिसोर्स का उपयोग करते हैं, तो उस रिसोर्स को बदलने से सभी स्थानों पर अपडेट हो जाता है। यदि केवल एक पिक्चर फ्रेम को बदलना है, तो साझा रिसोर्स को बदलने के बजाय उस फ्रेम को अलग इमेज असाइन करें।
 
-Aspose FREE [Text to GIF](https://products.aspose.app/slides/hi/text-to-gif) कनवर्टर का उपयोग करके, आप आसानी से पाठों को एनीमेट कर सकते हैं, पाठों से GIF बना सकते हैं, आदि। 
+`ReplaceImage` ऐसे ओवरलोड भी प्रदान करता है जो एक [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) या अन्य [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) को स्वीकार करते हैं।
 
-{{% /alert %}}
+## **व्यावहारिक इमेज प्रबंधन गाइडेंस**
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+### **प्रेजेंटेशन साइज़ को नियंत्रित करें**
 
-**क्या मूल छवि का रिज़ॉल्यूशन सम्मिलन के बाद भी बरकरार रहता है?**
+बड़ी रास्टर इमेजेज़ प्रस्तुति को अनावश्यक रूप से बड़ा बना सकती हैं। लक्ष्यित डिस्प्ले साइज़ के अनुसार उपयुक्त डाइमेंशन वाली स्रोत इमेजेज़ उपयोग करें, संभव हो तो साझा इमेज रिसोर्सेज़ को पुन: उपयोग करें, और एक ही हाई‑रिज़ॉल्यूशन ग्राफ़िक की कई कॉपी एम्बेड करने से बचें।
 
-हाँ। स्रोत पिक्सेल संरक्षित रहते हैं, लेकिन अंतिम रूप से दिखावट इस पर निर्भर करती है कि स्लाइड पर [चित्र](/slides/hi/net/picture-frame/) को कैसे स्केल किया गया है और सहेजते समय कौन सी संपीड़न लागू हुई है।
+रास्टर चित्र जो पहले से पिक्चर फ्रेम में रखे गए हैं, उनके लिए [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/compressimage/) चयनित रेजोल्यूशन और क्रॉप सेटिंग के अनुसार इमेज डेटा को कम कर सकता है। यह पिक्चर‑फ़्रेम प्रोसेसिंग है, इमेज‑कलेक्शन मैनेजमेंट नहीं, इसलिए संबंधित फॉर्मैटिंग ऑपरेशन्स के लिए देखें [Picture Frame](/slides/hi/net/picture-frame/)।
 
-**कई स्लाइड्स में एक ही लोगो को एक साथ बदलने का सबसे अच्छा तरीका क्या है?**
+### **एम्बेडेड और लिंक्ड कंटेंट के बीच चयन करें**
 
-लोगो को मास्टर स्लाइड या लेआउट पर रखें और प्रस्तुति के इमेज कलेक्शन में इसे बदलें—अपडेट्स उन सभी तत्वों तक पहुँचेंगे जो उस संसाधन का उपयोग करते हैं।
+एम्बेडिंग प्रस्तुति को पोर्टेबल बनाता है क्योंकि सभी आवश्यक इमेज डेटा फ़ाइल के साथ चलता है। लिंकिंग फ़ाइल साइज़ को घटा सकता है, लेकिन यह बाहरी निर्भरता लाता है। लिंक केवल तभी उपयोग करें जब वह निर्भरता स्वीकार्य और स्थिर हो।
 
-**क्या सम्मिलित SVG को संपाद्य आकारों में बदला जा सकता है?**
+### **शेयर किए गए ब्रांडिंग का पुन: उपयोग करें**
 
-हां। आप SVG को आकारों के समूह में बदल सकते हैं, जिसके बाद व्यक्तिगत भाग मानक आकार गुणों के साथ संपादन योग्य हो जाते हैं।
+बार‑बार उपयोग होने वाले लोगो, वाटरमार्क या सजावटी ग्राफ़िक्स के लिए एक इमेज रिसोर्स बनाकर उसे पुन: उपयोग करें। यदि ग्राफ़िक स्लाइड सामग्री के बजाय प्रस्तुति डिज़ाइन का हिस्सा है, तो उसे मास्टर या लेआउट पर रखें ताकि उपयुक्त स्लाइड्स द्वारा इनहेरीट किया जा सके।
 
-**मैं कैसे एक ही समय में कई स्लाइड्स की पृष्ठभूमि के रूप में एक चित्र सेट कर सकता हूँ?**
+### **SVG रिसोर्सेज़ को पोर्टेबल रखें**
 
-[चित्र को पृष्ठभूमि के रूप में असाइन करें](/slides/hi/net/presentation-background/) मास्टर स्लाइड या संबंधित लेआउट पर—उस मास्टर/लेआउट का उपयोग करने वाली सभी स्लाइड्स पृष्ठभूमि को विरासत में प्राप्त करेंगी।
+एक सेल्फ‑कंटेनड SVG को ले जाना और लगातार रेंडर करना आसान होता है बनिस्पत ऐसी SVG के जो बाहरी फ़ाइलों या नेटवर्क रिसोर्सेज़ पर निर्भर हो। संभव हो तो SVG आयात करने से पहले आवश्यक रिसोर्सेज़ को एम्बेड करें। केवल तब SVG को शैप्स में बदलें जब व्यक्तिगत वेक्टर एलिमेंट्स को संपादित करने की आवश्यकता हो।
 
-**कई चित्रों के कारण प्रस्तुति का आकार बहुत बड़ा होने से कैसे बचें?**
+### **आधुनिक क्रॉस‑प्लेटफ़ॉर्म इमेज API का उपयोग करें**
 
-डुप्लिकेट के बजाय एक ही छवि संसाधन को पुन: उपयोग करें, उचित रिज़ॉल्यूशन चुनें, सहेजते समय संपीड़न लागू करें, और जहाँ उपयुक्त हो वहाँ दोहराए गए ग्राफिक्स को मास्टर पर रखें।
+नए .NET कोड के लिए, `System.Drawing.Image` या `Bitmap` पर निर्भर रहने के बजाय Aspose.Slides के [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) और [Images](https://reference.aspose.com/slides/hi/net/aspose.slides/images/) API का उपयोग करें। माइग्रेशन गाइडेंस के लिए देखें [Modern API](/slides/hi/net/modern-api/)।
+
+WMF और EMF को विशेष ध्यान देना पड़ता है। जब इन फ़ॉर्मेट्स को एक [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) के माध्यम से पास किया जाता है, तो [ImageCollection.AddImage](https://reference.aspose.com/slides/hi/net/aspose.slides/imagecollection/addimage/) मेटाफाइल को PNG रास्टर प्रतिनिधित्व में बदल देता है। यदि मेटाफाइल डेटा को संरक्षित रखना महत्वपूर्ण है, तो स्ट्रीम‑आधारित [ImageCollection.AddImage](https://reference.aspose.com/slides/hi/net/aspose.slides/imagecollection/addimage/) ओवरलोड का उपयोग करें। स्प्रेडशीट या अन्य प्रोडक्ट्स से EMF कंटेंट जेनरेट करना एक अलग इंटीग्रेशन वर्कफ़्लो है और इस लेख के दायरे से बाहर है।
+
+## **FAQ**
+
+**इमेज कलेक्शन और पिक्चर फ्रेम में क्या अंतर है?**
+
+इमेज कलेक्शन पुन: उपयोग योग्य इमेज रिसोर्सेज़ को संग्रहीत करता है। पिक्चर फ्रेम एक स्लाइड शैप है जो उन रिसोर्सेज़ में से एक को प्रदर्शित करता है और क्रॉपिंग व इफ़ेक्ट्स जैसी पिक्चर‑स्पेसिफिक फ़ॉर्मेटिंग प्रदान करता है।
+
+**सभी स्थानों पर एक ही लोगो बदलने का सबसे अच्छा तरीका क्या है?**
+
+यदि लोगो पहले से एक इमेज रिसोर्स के रूप में साझा किया गया है, तो उसे [IPPImage.ReplaceImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/replaceimage/) से बदलें। प्रेज़ेंटेशन‑व्यापी ब्रांडिंग के लिए लोगो को मास्टर या लेआउट पर रखने से डुप्लिकेट स्लाइड कंटेंट कम हो सकता है।
+
+**लिंक्ड इमेज दूसरे कंप्यूटर पर क्यों नहीं दिखती?**
+
+लिंक्ड पिक्चर अपने बाहरी फ़ाइल या URL पर निर्भर करता है। यदि वह रिसोर्स दूसरे कंप्यूटर से पहुँचा नहीं जा सकता, तो लिंक्ड इमेज उपलब्ध नहीं होगी। जब प्रस्तुति को स्वयं‑समावेशी होना आवश्यक हो, तो इमेज को एम्बेड करें।
+
+**क्या डाली गई SVG को PowerPoint शैप्स के रूप में संपादित किया जा सकता है?**
+
+हां। SVG को [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addgroupshape/) से बदलें; परिणामी समूह में एडिटेबल स्लाइड शैप्स होते हैं, न कि एक SVG पिक्चर।
+
+**बहुत सारी इमेजेज़ वाली प्रस्तुतियों को छोटा कैसे रखें?**
+
+शेयर किए गए इमेज रिसोर्सेज़ को पुन: उपयोग करें, अनावश्यक रूप से बड़े रास्टर स्रोतों से बचें, उपयुक्त समय पर रास्टर चित्रों को संकुचित करें, पुन: उपयोग योग्य ब्रांडिंग को मास्टर या लेआउट पर रखें, और लिंक्ड इमेजेज़ का उपयोग केवल तभी करें जब बाहरी निर्भरता स्वीकार्य हो।

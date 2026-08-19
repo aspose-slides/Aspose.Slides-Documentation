@@ -1,292 +1,274 @@
 ---
-title: Optimizar o gerenciamento de imagens em apresentações no .NET
-linktitle: Gerenciar imagens
+title: Otimizar o gerenciamento de imagens em apresentações em .NET
+linktitle: Gerenciar Imagens
 type: docs
 weight: 10
 url: /pt/net/image/
 keywords:
 - adicionar imagem
-- adicionar foto
-- adicionar bitmap
+- adicionar imagem
 - substituir imagem
-- substituir foto
-- da web
-- plano de fundo
+- coleção de imagens
+- quadro de imagem
+- imagem vinculada
+- fundo
 - adicionar PNG
 - adicionar JPG
 - adicionar SVG
-- adicionar EMF
-- adicionar WMF
-- adicionar TIFF
+- SVG para formas
+- recursos SVG externos
 - PowerPoint
 - OpenDocument
 - apresentação
 - .NET
 - C#
 - Aspose.Slides
-description: "Simplifique o gerenciamento de imagens no PowerPoint e OpenDocument com Aspose.Slides para .NET, otimizando o desempenho e automatizando seu fluxo de trabalho."
+description: "Aprenda como adicionar, reutilizar, vincular, substituir e gerenciar imagens raster e SVG em apresentações PowerPoint e OpenDocument com Aspose.Slides para .NET."
 ---
 ## **Introdução**
 
-Imagens tornam as apresentações mais envolventes e interessantes. No Microsoft PowerPoint, você pode inserir imagens de um arquivo, da internet ou de outros locais em slides. Da mesma forma, o Aspose.Slides permite que você adicione imagens aos slides em suas apresentações por meio de diferentes procedimentos.
+Aspose.Slides for .NET oferece várias maneiras de trabalhar com imagens, e cada uma atende a um propósito diferente. Você pode armazenar uma imagem em uma apresentação, exibí‑la em um quadro de imagem, usá‑la como fundo de slide, vincular a uma imagem externa, substituir um recurso de imagem compartilhado ou converter conteúdo SVG em formas editáveis.
 
-{{% alert  title="Tip" color="primary" %}} 
+Este artigo foca em recursos de imagem e como eles são usados em toda a apresentação. Para recorte, transparência, efeitos, esticamento e outras formatações aplicadas a um quadro de imagem individual, consulte [Quadro de Imagem](/slides/pt/net/picture-frame/).
 
-A Aspose oferece conversores gratuitos—[JPEG para PowerPoint](https://products.aspose.app/slides/pt/import/jpg-to-ppt) e [PNG para PowerPoint](https://products.aspose.app/slides/pt/import/png-to-ppt)—que permitem que as pessoas criem apresentações rapidamente a partir de imagens. 
+## **Entenda o Modelo de Imagem**
 
-{{% /alert %}} 
+Os conceitos de API a seguir são intimamente relacionados, mas não intercambiáveis:
 
-{{% alert title="Info" color="info" %}}
+- A [coleção de imagens da apresentação](https://reference.aspose.com/slides/pt/net/aspose.slides/iimagecollection/) armazena recursos de imagem usados pela apresentação. Use [ImageCollection.AddImage](https://reference.aspose.com/slides/pt/net/aspose.slides/imagecollection/addimage/) para adicionar dados de imagem e obter um recurso [IPPImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/).
+- Um [quadro de imagem](https://reference.aspose.com/slides/pt/net/aspose.slides/ipictureframe/) é uma forma que exibe uma imagem em um slide, layout ou mestre. Use [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/addpictureframe/) para colocar um recurso de imagem em um slide.
+- Um fundo de slide usa uma imagem como parte do preenchimento do slide, em vez de como uma forma. Portanto, não se comporta como um quadro de imagem.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/replaceimage/) substitui um recurso de imagem. Se vários elementos da apresentação usarem esse recurso, todos usarão a substituição.
+- Converter um SVG em formas cria formas editáveis no slide. Após a conversão, o conteúdo não é mais gerenciado como um único recurso de imagem.
 
-Se você quiser adicionar uma imagem como um objeto de quadro—especialmente se pretender usar opções de formatação padrão nela para alterar seu tamanho, adicionar efeitos etc.—veja [Picture Frame](https://docs.aspose.com/slides/pt/net/picture-frame/). 
+Um fluxo de trabalho típico, portanto, é: adicionar dados de imagem à coleção de imagens, receber um [IPPImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/), e então usar esse recurso em um ou mais quadros de imagem ou preenchimentos.
 
-{{% /alert %}} 
+## **Adicionar uma Imagem Incorporada**
 
-{{% alert title="Note" color="warning" %}}
+Para inserir uma imagem local, leia o arquivo, adicione seus dados à coleção de imagens e crie um quadro de imagem que use o `IPPImage` retornado.
 
-Você pode manipular operações de entrada/saída envolvendo imagens e apresentações PowerPoint para converter uma imagem de um formato para outro. Veja estas páginas: converter [imagem para JPG](https://products.aspose.com/slides/pt/net/conversion/image-to-jpg/); converter [JPG para imagem](https://products.aspose.com/slides/pt/net/conversion/jpg-to-image/); converter [JPG para PNG](https://products.aspose.com/slides/pt/net/conversion/jpg-to-png/), converter [PNG para JPG](https://products.aspose.com/slides/pt/net/conversion/png-to-jpg/); converter [PNG para SVG](https://products.aspose.com/slides/pt/net/conversion/png-to-svg/), converter [SVG para PNG](https://products.aspose.com/slides/pt/net/conversion/svg-to-png/).
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% /alert %}}
+using var presentation = new Presentation();
 
-O Aspose.Slides oferece suporte a operações com imagens nesses formatos populares: JPEG, PNG, BMP, GIF e outros. 
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-## **Adicionar Imagens Armazenadas Localmente a Slides**
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-Você pode adicionar uma ou várias imagens do seu computador a um slide em uma apresentação. Este código de exemplo em C# mostra como adicionar uma imagem a um slide:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Imagens da Web a Slides**
+A imagem adicionada dessa forma fica incorporada na apresentação, de modo que o arquivo resultante não depende da disponibilidade do arquivo de imagem original.
 
-Se a imagem que você deseja adicionar a um slide não estiver disponível no seu computador, você pode adicioná‑la diretamente da web. 
+### **Adicionar uma Imagem da Web**
 
-Este código de exemplo mostra como adicionar uma imagem da web a um slide em C#:
+Quando uma imagem está disponível via HTTP ou HTTPS, baixe seus bytes com `HttpClient`, adicione‑os à coleção de imagens da apresentação e use o recurso de imagem retornado da mesma forma que uma imagem local.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Imagens aos Mestres de Slides**
+Em aplicações de longa duração, reutilize `HttpClient` em vez de criar uma nova instância para cada solicitação. Também valide URLs remotas, tamanhos de resposta e tipos de conteúdo quando a origem não for confiável.
 
-Um mestre de slide é o slide superior que armazena e controla informações (tema, layout, etc.) sobre todos os slides abaixo dele. Portanto, ao adicionar uma imagem a um mestre de slide, essa imagem aparece em cada slide que utiliza esse mestre. 
+## **Reutilizar Imagens em Vários Slides**
 
-Este código de exemplo em C# mostra como adicionar uma imagem a um mestre de slide:
+Se a mesma imagem for necessária mais de uma vez, adicione‑a à apresentação uma única vez e reutilize o [IPPImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/) retornado ao criar quadros de imagem adicionais. Isso evita carregar repetidamente os mesmos dados de origem e torna explícita a relação entre o recurso de imagem compartilhado e seus usos.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+Para gráficos que devam aparecer automaticamente em muitos slides, como o logotipo da empresa, considere colocar o quadro de imagem em um [mestre de slide](/slides/pt/net/slide-master/) ou layout em vez de adicionar uma forma equivalente a cada slide.
+
+## **Usar uma Imagem como Fundo de Slide**
+
+Uma imagem de fundo é atribuída ao preenchimento do slide; não é adicionada como forma de quadro de imagem. Isso é útil quando a imagem deve cobrir todo o fundo do slide e não deve ser manipulada como um objeto de slide normal.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Imagens como Plano de Fundo de Slides**
+Para opções adicionais de fundo, incluindo fundos de mestre e layout, consulte [Fundo da Apresentação](/slides/pt/net/presentation-background/).
 
-Você pode decidir usar uma imagem como plano de fundo para um slide específico ou vários slides. Nesse caso, você deve ver *[Definindo Imagens como Plano de Fundo para Slides](https://docs.aspose.com/slides/pt/net/presentation-background/#setting-images-as-background-for-slides)*.
+## **Imagens Incorporadas e Imagens Vinculadas**
 
-## **Adicionar SVG a Apresentações**
-Você pode adicionar ou inserir qualquer imagem em uma apresentação usando o método [AddPictureFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/methods/addpictureframe) que pertence à interface [IShapeCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection).
+Imagens incorporadas e vinculadas têm diferentes compensações de portabilidade e tamanho de arquivo:
 
-Para criar um objeto de imagem baseado em uma imagem SVG, você pode fazer assim:
+- **Imagem incorporada:** os dados da imagem são armazenados dentro da apresentação. A apresentação é autônoma, mas o tamanho do arquivo inclui os dados da imagem.
+- **Imagem vinculada:** a apresentação armazena um caminho ou URL para uma imagem externa. Isso pode reduzir o tamanho da apresentação, mas o recurso externo deve permanecer acessível quando a apresentação for aberta ou renderizada.
 
-1. Crie um objeto SvgImage para inseri‑lo em ImageShapeCollection
-2. Crie um objeto PPImage a partir de ISvgImage
-3. Crie um objeto PictureFrame usando a interface IPPImage
+Uma imagem vinculada pode ser criada atribuindo o caminho ou URL externo através de [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/pt/net/aspose.slides/islidespicture/linkpathlong/) em vez de incorporar os dados da imagem.
 
-Este código de exemplo mostra como implementar as etapas acima para adicionar uma imagem SVG a uma apresentação:
-``` csharp 
-// O caminho para o diretório de documentos
-string dataDir = @"D:\Documents\";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Nome do arquivo SVG de origem
-string svgFileName = dataDir + "sample.svg";
+using var presentation = new Presentation();
 
-// Nome do arquivo de apresentação de saída
-string outPptxPath = dataDir + "presentation.pptx";
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-// Criar nova apresentação
-using (var p = new Presentation())
-{
-    // Ler o conteúdo do arquivo SVG
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // Criar objeto SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Criar objeto PPImage
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // Cria um novo PictureFrame 
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // Salvar a apresentação no formato PPTX
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **Converter SVG em um Conjunto de Formas**
-A conversão de SVG para um conjunto de formas do Aspose.Slides é semelhante à funcionalidade do PowerPoint usada para trabalhar com imagens SVG:
+Use imagens vinculadas somente quando o ambiente de implantação puder acessar confiavelmente o recurso externo. Para apresentações que precisam funcionar offline ou ser movidas entre sistemas, imagens incorporadas são geralmente mais seguras.
+
+## **Trabalhar com Imagens SVG**
+
+SVG é um formato vetorial, podendo ser útil para ícones, diagramas e outros gráficos que devem ser dimensionados sem perda de detalhe como ocorre com imagens raster. Aspose.Slides oferece suporte a SVG tanto como recurso de imagem quanto como fonte para formas editáveis no slide.
+
+### **Adicionar um SVG como Imagem**
+
+Crie um [SvgImage](https://reference.aspose.com/slides/pt/net/aspose.slides/svgimage/), adicione‑o à coleção de imagens e coloque o recurso de imagem resultante em um quadro de imagem.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **Arquivos SVG com Recursos Externos**
+
+Um SVG pode referenciar imagens externas, folhas de estilo ou fontes. Nesses casos, [SvgImage](https://reference.aspose.com/slides/pt/net/aspose.slides/svgimage/) fornece construtores que aceitam um [IExternalResourceResolver](https://reference.aspose.com/slides/pt/net/aspose.slides.import/iexternalresourceresolver/) e uma URI base. O resolvedor pode mapear uma URI relativa para uma URI absoluta permitida e devolver um stream para o recurso solicitado.
+
+O resolvedor disponibiliza recursos externos enquanto o Aspose.Slides processa o SVG, mas não reescreve o SVG em um documento autocontido. Se o SVG precisar permanecer portátil, incorpore os recursos necessários no próprio SVG, por exemplo usando URIs `data:` para imagens vinculadas.
+
+Quando arquivos SVG provêm de fontes não confiáveis, restrinja os esquemas, locais de arquivo e hosts que o resolvedor pode acessar. Resolvedores de rede também devem aplicar limites de tempo, tamanho de resposta e validação de conteúdo.
+
+### **Converter SVG em Formas Editáveis**
+
+Aspose.Slides pode converter um SVG em um grupo de formas editáveis no slide, similar ao comando correspondente do PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-A funcionalidade é fornecida por uma das sobrecargas do método [AddGroupShape](https://reference.aspose.com/slides/pt/net/aspose.slides.ishapecollection/addgroupshape/methods/1) da interface [IShapeCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection) que aceita um objeto [ISvgImage](https://reference.aspose.com/slides/pt/net/aspose.slides/isvgimage) como primeiro argumento.
+Use a sobrecarga [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/addgroupshape/) que aceita um [ISvgImage](https://reference.aspose.com/slides/pt/net/aspose.slides/isvgimage/) para realizar a conversão.
 
-Este código de exemplo mostra como usar o método descrito para converter um arquivo SVG em um conjunto de formas:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-``` csharp 
-// O caminho para o diretório de documentos
-string dataDir = @"D:\Documents\";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// Nome do arquivo SVG de origem
-string svgFileName = dataDir + "sample.svg";
+using var presentation = new Presentation();
 
-// Nome do arquivo de apresentação de saída
-string outPptxPath = dataDir + "presentation.pptx";
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-// Criar nova apresentação
-using (IPresentation presentation = new Presentation())
-{
-    // Ler o conteúdo do arquivo SVG
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // Criar objeto SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Obter tamanho do slide
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Converter imagem SVG em grupo de formas dimensionando-a ao tamanho do slide
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Salvar a apresentação no formato PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Imagens como EMF a Slides**
-O Aspose.Slides para .NET permite gerar imagens EMF a partir de planilhas Excel e adicionar as imagens como EMF em slides com o Aspose.Cells. 
+Use a conversão SVG‑para‑formas quando elementos vetoriais individuais precisarem ser editados como formas do PowerPoint. Se o SVG for exibido apenas, mantê‑lo como imagem é mais simples e evita a criação de muitas formas separadas.
 
-Este código de exemplo mostra como executar a tarefa descrita:
+## **Substituir um Recurso de Imagem Existente**
 
-``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+Use [IPPImage.ReplaceImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/replaceimage/) quando precisar substituir um recurso de imagem existente. Isso é especialmente útil para gráficos compartilhados, como logos.
 
-    //Salvar a pasta de trabalho no fluxo
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+using var presentation = new Presentation("input.pptx");
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Substituir Imagens na Coleção de Imagens**
-
-O Aspose.Slides permite substituir imagens armazenadas na coleção de imagens de uma apresentação (incluindo aquelas usadas por formas de slide). Esta seção mostra várias abordagens para atualizar imagens na coleção. A API fornece métodos simples para substituir uma imagem usando dados brutos de byte, uma instância [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/) ou outra imagem que já exista na coleção.
-
-Siga os passos abaixo:
-
-1. Carregue o arquivo de apresentação que contém imagens usando a classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
-2. Carregue uma nova imagem de um arquivo em um array de bytes.
-3. Substitua a imagem alvo pela nova imagem usando o array de bytes.
-4. Na segunda abordagem, carregue a imagem em um objeto [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/) e substitua a imagem alvo por esse objeto.
-5. Na terceira abordagem, substitua a imagem alvo por uma imagem que já exista na coleção de imagens da apresentação.
-6. Grave a apresentação modificada como um arquivo PPTX.
-
-```cs
-// Instanciar a classe Presentation que representa um arquivo de apresentação.
-using Presentation presentation = new Presentation("sample.pptx");
-
-// A primeira maneira.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
-
-// A segunda maneira.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// A terceira maneira.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// Salvar a apresentação em um arquivo.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
+Se vários quadros de imagem, fundos, mestres ou layouts usarem o mesmo recurso de imagem, substituir esse recurso atualiza todos esses usos. Se apenas um quadro de imagem deve mudar, atribua uma imagem diferente a esse quadro em vez de substituir o recurso compartilhado.
 
-Usando o conversor GRATUITO Aspose [Text to GIF](https://products.aspose.app/slides/pt/text-to-gif), você pode animar textos facilmente, criar GIFs a partir de textos, etc. 
+`ReplaceImage` também oferece sobrecargas que aceitam um [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/) ou outro [IPPImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **Orientações Práticas de Gerenciamento de Imagens**
+
+### **Controlar o Tamanho da Apresentação**
+
+Imagens raster grandes podem tornar uma apresentação desnecessariamente pesada. Use imagens de origem com dimensões adequadas ao tamanho de exibição pretendido, reutilize recursos de imagem compartilhados sempre que possível e evite incorporar cópias repetidas do mesmo gráfico em alta resolução.
+
+Para imagens raster que já foram inseridas em quadros de imagem, [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ipicturefillformat/compressimage/) pode reduzir os dados da imagem conforme a resolução e configurações de recorte selecionadas. Isso é um processamento de quadro de imagem, não de gerenciamento da coleção de imagens, portanto consulte [Quadro de Imagem](/slides/pt/net/picture-frame/) para operações de formatação relacionadas.
+
+### **Escolher Entre Conteúdo Incorporado e Vinculado**
+
+Incorporar torna a apresentação portátil porque todos os dados de imagem necessários viajam com o arquivo. Vincular pode reduzir o tamanho do arquivo, mas introduz uma dependência externa. Use links somente quando essa dependência for aceitável e estável.
+
+### **Reutilizar Identidade Visual Compartilhada**
+
+Para logos, marcas d’água ou gráficos decorativos recorrentes, use um único recurso de imagem e reutilize‑o. Se o gráfico fizer parte do design da apresentação e não do conteúdo dos slides, coloque‑o em um mestre ou layout para que seja herdado pelos slides apropriados.
+
+### **Manter Recursos SVG Portáteis**
+
+Um SVG autocontido é mais fácil de mover e renderizar de forma consistente do que um SVG que depende de arquivos externos ou recursos de rede. Quando possível, incorpore os recursos necessários antes de importar o SVG. Converta SVG em formas apenas quando os elementos vetoriais individuais precisarem ser editados.
+
+### **Usar a API de Imagem Multiplataforma Moderna**
+
+Para código .NET novo, use as APIs [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/) e [Images](https://reference.aspose.com/slides/pt/net/aspose.slides/images/) do Aspose.Slides em vez de depender de `System.Drawing.Image` ou `Bitmap`. Consulte [API Moderna](/slides/pt/net/modern-api/) para orientações de migração.
+
+WMF e EMF exigem considerações especiais. Quando esses formatos são passados através de um [IImage](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/), [ImageCollection.AddImage](https://reference.aspose.com/slides/pt/net/aspose.slides/imagecollection/addimage/) converte o metarquivo em uma representação PNG raster antes da inserção. Se a preservação dos dados do metarquivo for importante, use a sobrecarga baseada em stream de [ImageCollection.AddImage](https://reference.aspose.com/slides/pt/net/aspose.slides/imagecollection/addimage/). Gerar conteúdo EMF a partir de planilhas ou outros produtos é um fluxo de integração separado e está fora do escopo deste artigo.
 
 ## **FAQ**
 
-**A resolução original da imagem permanece intacta após a inserção?**
+**Qual a diferença entre a coleção de imagens e um quadro de imagem?**
 
-Sim. Os pixels originais são preservados, mas a aparência final depende de como o [picture](/slides/pt/net/picture-frame/) é dimensionado no slide e de qualquer compressão aplicada ao salvar.
+A coleção de imagens armazena recursos de imagem reutilizáveis. Um quadro de imagem é uma forma de slide que exibe um desses recursos e fornece formatação específica de imagem, como recorte e efeitos.
 
-**Qual é a melhor maneira de substituir o mesmo logotipo em dezenas de slides de uma só vez?**
+**Qual a melhor forma de substituir o mesmo logo em todos os lugares?**
 
-Coloque o logotipo no slide mestre ou em um layout e substitua‑o na coleção de imagens da apresentação—as alterações se propagarão a todos os elementos que utilizam esse recurso.
+Se o logo já estiver compartilhado como um recurso de imagem, substitua esse recurso com [IPPImage.ReplaceImage](https://reference.aspose.com/slides/pt/net/aspose.slides/ippimage/replaceimage/). Para branding em toda a apresentação, colocar o logo em um mestre ou layout também pode reduzir conteúdo duplicado nos slides.
 
-**Um SVG inserido pode ser convertido em formas editáveis?**
+**Por que uma imagem vinculada desaparece em outro computador?**
 
-Sim. Você pode converter um SVG em um grupo de formas, após o que as partes individuais se tornam editáveis com as propriedades padrão de forma.
+Uma imagem vinculada depende de seu arquivo externo ou URL. Se esse recurso não puder ser alcançado a partir do outro computador, a imagem vinculada pode ficar indisponível. Incorpore a imagem quando a apresentação precisar ser autônoma.
 
-**Como posso definir uma imagem como plano de fundo para vários slides de uma vez?**
+**É possível editar um SVG inserido como formas do PowerPoint?**
 
-[Defina a imagem como plano de fundo](/slides/pt/net/presentation-background/) no slide mestre ou no layout correspondente—qualquer slide que use esse mestre/layout herdará o plano de fundo.
+Sim. Converta o SVG com [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/addgroupshape/); o grupo resultante contém formas editáveis do slide em vez de uma única imagem SVG.
 
-**Como evitar que a apresentação “infle” de tamanho por causa de muitas imagens?**
+**Como manter apresentações com muitas imagens menores?**
 
-Reutilize um único recurso de imagem em vez de duplicados, escolha resoluções razoáveis, aplique compressão ao salvar e mantenha gráficos repetidos no mestre onde for apropriado.
+Reutilize recursos de imagem compartilhados, evite fontes raster excessivamente grandes, compacte imagens raster adequadas quando apropriado, mantenha branding repetido em mestres ou layouts e use imagens vinculadas apenas quando uma dependência externa for aceitável.

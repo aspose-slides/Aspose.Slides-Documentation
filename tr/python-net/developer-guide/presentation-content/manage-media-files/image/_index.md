@@ -1,247 +1,254 @@
 ---
-title: Python ile PowerPoint'te Görsel Yönetimini Optimize Edin
-linktitle: Görselleri Yönetin
+title: Python ile Sunumlarda Görüntü Yönetimini Optimize Etme
+linktitle: Görüntüleri Yönet
 type: docs
 weight: 10
 url: /tr/python-net/image/
 keywords:
-- görsel ekle
+- görüntü ekle
 - resim ekle
-- bitmap ekle
-- görsel değiştir
-- resim değiştir
-- web'den
-- arkaplan
+- görüntüyü değiştir
+- görüntü koleksiyonu
+- resim çerçevesi
+- bağlantılı görüntü
+- arka plan
 - PNG ekle
 - JPG ekle
 - SVG ekle
-- EMF ekle
-- WMF ekle
-- TIFF ekle
+- SVG'den şekillere
+- harici SVG kaynakları
 - PowerPoint
+- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument'te görsel yönetimini kolaylaştırın, performansı optimize edin ve iş akışınızı otomatikleştirin."
+description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument sunumlarında raster ve SVG görüntülerini ekleme, yeniden kullanma, bağlama, değiştirme ve yönetme konusunda bilgi edinin."
 ---
 ## **Giriş**
 
-Görseller, sunumları daha etkileyici ve ilgi çekici hâle getirir. Microsoft PowerPoint’te bir dosyadan, internetten ya da diğer kaynaklardan slaytlara resim ekleyebilirsiniz. Benzer şekilde Aspose.Slides de resimleri slaytlara çeşitli yollarla eklemenizi sağlar.
+Aspose.Slides for Python via .NET, görüntülerle çalışmanın çeşitli yollarını sunar ve her biri farklı bir amaca hizmet eder. Bir görüntüyü sunuya kaydedebilir, bir resim çerçevesinde görüntüleyebilir, slayt arka planı olarak kullanabilir, harici bir görüntüye bağlayabilir, paylaşılan bir görüntü kaynağını değiştirebilir veya SVG içeriğini düzenlenebilir şekillere dönüştürebilirsiniz.
 
-{{% alert title="İpucu" color="primary" %}}
-Aspose, resimlerden hızlıca sunum oluşturmanıza olanak tanıyan ücretsiz dönüştürücüler—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—sağlar.
-{{% /alert %}}
+Bu makale, görüntü kaynaklarına ve bunların bir sunu içinde nasıl kullanıldığına odaklanır. Bir resim çerçevesine uygulanan kırpma, şeffaflık, efektler, uzatma ve diğer biçimlendirmeler için [Picture Frame](/slides/tr/python-net/picture-frame/) bölümüne bakın.
 
-{{% alert title="Bilgi" color="info" %}}
-Resmi bir çerçeve nesnesi olarak eklemek istiyorsanız—özellikle yeniden boyutlandırma veya efekt uygulama gibi standart biçimlendirme seçeneklerini kullanmayı planlıyorsanız—[Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/tr/python-net/picture-frame/) bölümüne bakın.
-{{% /alert %}}
+## **Görüntü Modelini Anlamak**
 
-{{% alert title="Not" color="warning" %}}
-Resim ve sunum I/O işlemlerini kullanarak resimleri formatlar arasında dönüştürebilirsiniz. Şu sayfalara bakın: [image to JPG](https://products.aspose.com/slides/tr/python-net/conversion/image-to-jpg/) dönüştürme; [JPG to image](https://products.aspose.com/slides/tr/python-net/conversion/jpg-to-image/) dönüştürme; [JPG to PNG](https://products.aspose.com/slides/tr/python-net/conversion/jpg-to-png/) dönüştürme; [PNG to JPG](https://products.aspose.com/slides/tr/python-net/conversion/png-to-jpg/) dönüştürme; [PNG to SVG](https://products.aspose.com/slides/tr/python-net/conversion/png-to-svg/) dönüştürme; ve [SVG to PNG](https://products.aspose.com/slides/tr/python-net/conversion/svg-to-png/) dönüştürme.
-{{% /alert %}}
+- [sunum görüntü koleksiyonu](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) sunumda kullanılan görüntü kaynaklarını saklar. Görüntü verisini eklemek ve bir [IPPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/) kaynağı elde etmek için [ImageCollection.add_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/add_image/) kullanın.
+- [resim çerçevesi](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ipictureframe/) bir slayt, yerleşim veya ana taslak üzerine bir görüntüyü gösteren bir şekildir. Görüntü kaynağını bir slayta yerleştirmek için [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) kullanın.
+- Bir slayt arka planı, görüntüyü bir şekil olarak değil, slayt dolgusunun bir parçası olarak kullanır. Bu nedenle bir resim çerçevesi gibi davranmaz.
+- [IPPImage.replace_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/replace_image/) bir görüntü kaynağını değiştirir. Birden fazla sunu öğesi aynı kaynağı kullanıyorsa, hepsi değiştirilmiş versiyonu kullanır.
+- SVG'yi şekillere dönüştürmek, düzenlenebilir slayt şekilleri oluşturur. Dönüştürmeden sonra içerik artık tek bir resim kaynağı olarak yönetilmez.
 
-Aspose.Slides, JPEG, PNG, BMP, GIF ve diğer popüler formatlarda resimlerle çalışmayı destekler.
+Bu nedenle tipik bir iş akışı şudur: görüntü verisini görüntü koleksiyonuna ekleyin, bir [IPPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/) alın ve ardından bu kaynağı bir veya daha fazla resim çerçevesinde veya dolgu içinde kullanın.
 
-## **Yerel Olarak Depolanan Resimleri Slaytlara Ekleyin**
+## **Gömülü Görüntü Ekleme**
 
-Bilgisayarınızdan bir veya birden fazla resmi bir sunumun slaytına ekleyebilirsiniz. Aşağıdaki Python örneği bir resmi slayta nasıl ekleyeceğinizi gösterir:
+Yerel bir görüntüyü eklemek için dosyayı okuyun, verisini görüntü koleksiyonuna ekleyin ve döndürülen `IPPImage`ı kullanan bir resim çerçevesi oluşturun.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Web’den Resim Ekleyin**
-
-Eklemek istediğiniz resim bilgisayarınızda bulunmuyorsa, doğrudan web’den ekleyebilirsiniz.
-
-Aşağıdaki Python örneği bir URL’den bir resmi slayta nasıl ekleyeceğinizi gösterir:
-
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slayt Üstatlarına Resim Ekleyin**
+Bu şekilde eklenen görüntü sunuya gömülür, böylece ortaya çıkan dosya orijinal görüntü dosyasının hâlâ mevcut olmasına bağlı kalmaz.
 
-Slayt üstatı, altındaki tüm slaytlar için tema, düzen gibi bilgileri depolayan ve kontrol eden üst düzey slayttır. Bir slayt üstatına resmi eklerseniz, bu resim o üstatı kullanan her slaytta görünür.
+### **Web'den Görüntü Ekleme**
 
-Aşağıdaki Python örneği bir slayt üstatına resmi nasıl ekleyeceğinizi gösterir:
+Bir görüntü HTTP veya HTTPS üzerinden erişilebiliyorsa, baytlarını indirin, bunları sunum görüntü koleksiyonuna ekleyin ve döndürülen görüntü kaynağını yerel bir görüntü gibi kullanın.
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Uzun süren uygulamalarda, her istekte yeni bir bağlantı oluşturmaktansa uygun olduğunda bir HTTP istemcisi veya bağlantı havuzu yeniden kullanın. Kaynak güvenilir değilse uzaktaki URL'leri, yanıt boyutlarını ve içerik türlerini de doğrulayın.
+
+## **Slaytlar Arasında Görüntüleri Yeniden Kullanma**
+
+Aynı görüntü birden fazla kez gerekiyorsa, görüntüyü sunuya bir kez ekleyin ve ek resim çerçeveleri oluştururken döndürülen [IPPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/)ı yeniden kullanın. Bu, aynı kaynak verisinin tekrar tekrar yüklenmesini önler ve paylaşılan görüntü kaynağı ile kullanımları arasındaki ilişkiyi açık hâle getirir.
+
+Birçok slaytta otomatik olarak görünmesi gereken grafikler (örneğin şirket logosu) için, her slayta eşdeğer bir şekil eklemek yerine resim çerçevesini bir [slide master](/slides/tr/python-net/slide-master/) veya yerleşim üzerine yerleştirmeyi düşünün.
+
+## **Görüntüyü Slayt Arka Planı Olarak Kullanma**
+
+Arka plan görüntüsü slayt dolgusuna atanır; bir resim çerçevesi şekli olarak eklenmez. Bu, resmin slayt arka planını kaplaması ve normal bir slayt nesnesi gibi manipüle edilmemesi gerektiğinde kullanışlıdır.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ek arka plan seçenekleri, ana taslak ve yerleşim arka planları dahil, için [Presentation Background](/slides/tr/python-net/presentation-background/) bölümüne bakın.
+
+## **Gömülü Görüntüler ve Bağlantılı Görüntüler**
+
+Gömülü ve bağlantılı görüntülerin taşınabilirlik ve dosya boyutu açısından farklı ticaretleri vardır:
+
+- **Gömülü görüntü:** görüntü verisi sununun içinde saklanır. Sunu tek başına çalışır, ancak dosya boyutu görüntü verisini içerir.
+- **Bağlantılı görüntü:** sunu, harici bir görüntünün yolunu veya URL'sini saklar. Bu, sunu boyutunu küçültebilir, ancak dış kaynağın sunu açıldığında veya işlendiğinde erişilebilir olması gerekir.
+
+Bir bağlantılı resim, görüntü verisini gömmek yerine [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/tr/python-net/aspose.slides/islidespicture/link_path_long/) aracılığıyla dış yol veya URL atayarak oluşturulabilir.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Resmi Slayt Arka Planı Olarak Ayarlayın**
+Bağlantılı görüntüleri yalnızca dağıtım ortamı dış kaynağa güvenilir bir şekilde erişebildiğinde kullanın. Çevrimdışı çalışması veya sistemler arasında taşınması gereken sunular için gömülü görüntüler genellikle daha güvenlidir.
 
-Belirli bir slayt veya birden çok slayt için resmi arka plan olarak kullanmak isteyebilirsiniz. Ayrıntılar için [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/tr/python-net/presentation-background/#set-image-as-background-for-slide) bölümüne bakın.
+## **SVG Görüntülerle Çalışma**
 
-## **Sunumlara SVG Ekleyin**
+SVG bir vektör biçimidir; bu, ikonlar, diyagramlar ve raster görüntülerdeki detay kaybı olmadan ölçeklenmesi gereken diğer grafikler için faydalı olabilir. Aspose.Slides, SVG'yi hem bir görüntü kaynağı olarak hem de düzenlenebilir slayt şekilleri için bir kaynak olarak destekler.
 
-[ShapeCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/) sınıfının [add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) yöntemini kullanarak herhangi bir resmi bir sunuma ekleyebilirsiniz.
+### **SVG'yi Görüntü Olarak Ekleme**
 
-SVG’den bir resim nesnesi oluşturmak için şu adımları izleyin:
+Bir [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) oluşturun, görüntü koleksiyonuna ekleyin ve ortaya çıkan görüntü kaynağını bir resim çerçevesine yerleştirin.
 
-1. Bir [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) oluşturun ve sunumun resim koleksiyonuna ekleyin.  
-2. [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) üzerinden bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) nesnesi oluşturun.  
-3. [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) kullanarak bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) nesnesi oluşturun.
-
-Aşağıdaki Python örneği bu adımları kullanarak bir SVG resmini sunuma nasıl ekleyeceğinizi gösterir:
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # SVG dosyasının içeriğini oku.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Bir SvgImage nesnesi oluştur.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Bir PPImage nesnesi oluştur.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Yeni bir PictureFrame oluştur.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Sunumu PPTX formatında kaydet.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **SVG’yi Şekil Kümesine Dönüştürün**
+### **SVG'yi Düzenlenebilir Şekillere Dönüştürme**
 
-Aspose.Slides, SVG’leri PowerPoint’in SVG işleme şeklinde bir şekil kümesine dönüştürür.
+Aspose.Slides, bir SVG'yi düzenlenebilir slayt şekilleri grubuna, ilgili PowerPoint komutuna benzer şekilde dönüştürebilir.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Bu işlevsellik, [ShapeCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/) sınıfındaki [add_group_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_group_shape/) yönteminin bir [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) alarak aşırı yüklenmiş sürümüyle sağlanır.
+Dönüştürmeyi gerçekleştirmek için bir [ISvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/isvgimage/) kabul eden [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_group_shape/) aşırı yüklemesini kullanın.
 
-Aşağıdaki örnek kod bir SVG dosyasını şekil kümesine nasıl dönüştüreceğinizi gösterir:
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # SVG dosya içeriğini oku.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # Bir SvgImage nesnesi oluştur.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Slayt boyutunu al.
-        slide_size = presentation.slide_size.size
-
-        # SVG görüntüsünü şekil grubuna dönüştür ve slayt boyutuna ölçeklendir.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # Sunumu PPTX formatında kaydet.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Resimleri EMF Olarak Slaytlara Ekleyin**
-
-Aspose.Slides for Python, sunumlara Enhanced Metafile (EMF) resimleri eklemenizi sağlar.
-
-Aşağıdaki Python örneği bunu gösterir:
-
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Resim Koleksiyonundaki Resimleri Değiştirin**
+Bireysel vektör öğelerinin PowerPoint şekilleri olarak düzenlenmesi gerektiğinde SVG‑den‑şekil dönüşümünü kullanın. SVG yalnızca görüntülenmesi gerekiyorsa, onu bir resim olarak tutmak daha basittir ve birçok ayrı şekil oluşturmayı önler.
 
-Aspose.Slides, slayt şekilleri tarafından kullanılanlar da dahil olmak üzere bir sunumun resim koleksiyonunda depolanan resimleri değiştirmenize olanak tanır. Bu bölüm, koleksiyondaki resimleri güncellemenin çeşitli yaklaşımlarını açıklar. API, ham bayt verisi, bir [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) örneği veya koleksiyonda zaten bulunan başka bir resimle bir resmi değiştirmek için doğrudan yöntemler sunar.
+## **Mevcut Bir Görüntü Kaynağını Değiştirme**
 
-Şu adımları izleyin:
+Mevcut bir görüntü kaynağını değiştirmek istediğinizde [IPPImage.replace_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/replace_image/) kullanın. Bu, özellikle logolar gibi paylaşılan grafikler için yararlıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfını kullanarak resimleri içeren sunumu yükleyin.  
-2. Yeni resmi bir dosyadan bayt dizisine yükleyin.  
-3. Bayt dizisini kullanarak hedef resmi yeni resimle değiştirin.  
-4. Alternatif olarak, resmi bir [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) nesnesine yükleyin ve hedef resmi bu nesneyle değiştirin.  
-5. Veya hedef resmi, sunumun resim koleksiyonunda zaten var olan bir resimle değiştirin.  
-6. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+```python
+import aspose.slides as slides
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-# Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
-with slides.Presentation("sample.pptx") as presentation:
-
-    # İlk yöntem.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # İkinci yöntem.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # Üçüncü yöntem.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # Sunumu bir dosyaya kaydet.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Aspose’un ücretsiz [Text to GIF](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüsü ile metni kolayca canlandırabilir ve metinden GIF oluşturabilirsiniz.
-{{% /alert %}}
+Birden fazla resim çerçevesi, arka plan, ana taslak veya yerleşim aynı görüntü kaynağını kullanıyorsa, kaynağı değiştirmek tüm bu kullanımları günceller. Sadece bir resim çerçevesi değişecekse, paylaşılan kaynağı değiştirmek yerine o çerçeveye farklı bir görüntü atayın.
+
+`replace_image` ayrıca bir [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) veya başka bir [IPPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/) kabul eden aşırı yüklemeler sunar.
+
+## **Pratik Görüntü Yönetimi Rehberi**
+
+### **Sunum Boyutunu Kontrol Etme**
+
+Büyük raster görüntüler sunuyu gereksiz yere şişirebilir. Hedeflenen gösterim boyutuna uygun boyutlarda kaynak görüntüler kullanın, mümkün olduğunca paylaşılan görüntü kaynaklarını yeniden kullanın ve aynı yüksek çözünürlüklü grafiğin tekrar tekrar gömülmesinden kaçının.
+
+Resim çerçevelerine zaten yerleştirilmiş raster resimler için [PictureFillFormat.compress_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/compress_image/) seçilen çözünürlük ve kırpma ayarlarına göre görüntü verisini küçültebilir. Bu, resim çerçevesi işleme olup görüntü koleksiyonu yönetimi değildir; ilgili biçimlendirme işlemleri için [Picture Frame](/slides/tr/python-net/picture-frame/) bölümüne bakın.
+
+### **Gömülü ve Bağlantılı İçerik Arasında Seçim Yapma**
+
+Gömme, tüm gerekli görüntü verileri dosyayla birlikte taşındığı için sununun taşınabilirliğini artırır. Bağlantı dosya boyutunu azaltabilir, ancak dış bir bağımlılık oluşturur. Bağlantıyı yalnızca bu bağımlılığın kabul edilebilir ve istikrarlı olduğu durumlarda kullanın.
+
+### **Paylaşılan Markayı Yeniden Kullanma**
+
+Tekrarlanan logolar, filigranlar veya dekoratif grafikler için tek bir görüntü kaynağı oluşturun ve yeniden kullanın. Grafik, slayt içeriğinden ziyade sunu tasarımına aitse, uygun slaytlar tarafından kalıtılacak şekilde bir ana taslak veya yerleşime yerleştirin.
+
+### **SVG Kaynaklarını Taşınabilir Tutma**
+
+Kendine ait bir SVG, dış dosyalara veya ağ kaynaklarına bağımlı bir SVG'den daha kolay taşınır ve tutarlı şekilde işlenir. Mümkün olduğunda SVG'yi içe aktarmadan önce gerekli kaynakları gömün. SVG'yi yalnızca bireysel vektör öğelerinin düzenlenmesi gerektiğinde şekillere dönüştürün.
+
+### **Modern Çapraz Platform Görüntü API'sini Kullanma**
+
+Yeni Python via .NET kodu için, eski `aspose.pydrawing.Image` veya `aspose.pydrawing.Bitmap` API'leri yerine Aspose.Slides [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) ve [Images](https://reference.aspose.com/slides/tr/python-net/aspose.slides/images/) API'lerini kullanın. Geçiş rehberi için [Modern API](/slides/tr/python-net/modern-api/) bölümüne bakın.
+
+WMF ve EMF özel bir dikkate ihtiyaç duyar. Bu formatlar bir [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) aracılığıyla geçirildiğinde, [ImageCollection.add_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/add_image/) metafili PNG raster temsiline dönüştürür. Metafili verisini korumak önemliyse, akış tabanlı [ImageCollection.add_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/add_image/) aşırı yüklemesini kullanın. Elektronik tablolar veya diğer ürünlerden EMF içeriği oluşturmak ayrı bir bütünleştirme iş akışıdır ve bu makalenin kapsamı dışındadır.
 
 ## **SSS**
 
-**Ekleme sonrası orijinal resim çözünürlüğü korunur mu?**  
-Evet. Kaynak pikseller korunur, ancak son görünüm resmin slayt üzerindeki [picture](/slides/tr/python-net/picture-frame/) ölçeklendirilme biçimine ve kaydedilirken uygulanan sıkıştırmaya bağlıdır.
+**Görüntü koleksiyonu ile resim çerçevesi arasındaki fark nedir?**
 
-**Yüzlerce slaytta aynı logoyu toplu olarak nasıl değiştiririm?**  
-Logoyu ana slayta veya bir düzen şemasına yerleştirin ve sunumun resim koleksiyonunda değiştirin—güncellemeler bu kaynağı kullanan tüm öğelere yayılır.
+Görüntü koleksiyonu yeniden kullanılabilir görüntü kaynaklarını saklar. Resim çerçevesi ise bu kaynaklardan birini gösteren ve kırpma, efekt gibi resme özgü biçimlendirmeler sağlayan bir slayt şeklidir.
 
-**Eklenen SVG düzenlenebilir şekillere dönüştürülebilir mi?**  
-Evet. SVG bir şekil grubuna dönüştürülebilir; ardından bireysel parçalar standart şekil özellikleriyle düzenlenebilir hâle gelir.
+**Her yerde aynı logoyu değiştirmek için en iyi yol nedir?**
 
-**Bir resmi birden çok slaytın arka planı olarak aynı anda nasıl ayarlarım?**  
-Resmi ana slaytta veya ilgili düzen şemasında arka plan olarak atayın; bu master/düzeni kullanan tüm slaytlar arka planı miras alır.
+Logo zaten tek bir görüntü kaynağı olarak paylaşılıyorsa, o kaynağı [IPPImage.replace_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ippimage/replace_image/) ile değiştirin. Sunu genelinde markalaşma için logoyu bir ana taslak veya yerleşime yerleştirmek de tekrarlanan slayt içeriğini azaltır.
 
-**Sunum çok sayıda resim nedeniyle şişmemesi için ne yapmalıyım?**  
-Tek bir resim kaynağını yeniden kullanın, makul çözünürlükler seçin, kaydederken sıkıştırma uygulayın ve tekrarlanan grafiklerinizi mümkün olduğunca master’da tutun.
+**Bağlantılı bir görüntü başka bir bilgisayarda neden kaybolur?**
+
+Bağlantılı resim, dış dosya veya URL'ye bağımlıdır. Bu kaynak diğer bilgisayardan erişilemezse, bağlantılı görüntü kullanılamaz hale gelir. Sununun kendine ait olması gerekiyorsa görüntüyü gömün.
+
+**Eklentilen bir SVG PowerPoint şekilleri olarak düzenlenebilir mi?**
+
+Evet. SVG'yi [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_group_shape/) ile dönüştürün; ortaya çıkan grup tek bir SVG resmi yerine düzenlenebilir slayt şekilleri içerir.
+
+**Birçok görüntülü sunuları nasıl daha küçük tutabilirim?**
+
+Paylaşılan görüntü kaynaklarını yeniden kullanın, gereksiz büyük raster kaynaklardan kaçının, uygun olduğunda uygun raster resimleri sıkıştırın, tekrarlanan markaları ana taslak veya yerleşimlerde tutun ve dış bağımlılık kabul edilebilir olduğunda sadece bağlantılı görüntüler kullanın.

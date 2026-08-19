@@ -1,260 +1,256 @@
 ---
-title: "Tối ưu Quản lý Hình ảnh trong PowerPoint với Python"
-linktitle: "Quản lý Hình ảnh"
+title: Tối ưu quản lý hình ảnh trong bản trình chiếu bằng Python
+linktitle: Quản lý hình ảnh
 type: docs
 weight: 10
 url: /vi/python-net/image/
 keywords:
-- "thêm hình ảnh"
-- "thêm ảnh"
-- "thêm bitmap"
-- "thay thế hình ảnh"
-- "thay thế ảnh"
-- "từ web"
-- "nền"
-- "thêm PNG"
-- "thêm JPG"
-- "thêm SVG"
-- "thêm EMF"
-- "thêm WMF"
-- "thêm TIFF"
-- "PowerPoint"
-- "bản thuyết trình"
-- "Python"
-- "Aspose.Slides"
-description: "Tối ưu hoá việc quản lý hình ảnh trong PowerPoint và OpenDocument với Aspose.Slides cho Python thông qua .NET, nâng cao hiệu suất và tự động hoá quy trình làm việc của bạn."
+- thêm hình ảnh
+- thêm ảnh
+- thay thế hình ảnh
+- bộ sưu tập hình ảnh
+- khung hình
+- hình ảnh liên kết
+- nền
+- thêm PNG
+- thêm JPG
+- thêm SVG
+- SVG thành hình dạng
+- nguồn tài nguyên SVG bên ngoài
+- PowerPoint
+- OpenDocument
+- bản trình chiếu
+- Python
+- Aspose.Slides
+description: "Tìm hiểu cách thêm, tái sử dụng, liên kết, thay thế và quản lý các hình ảnh raster và SVG trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Python qua .NET."
 ---
 ## **Giới thiệu**
 
-Hình ảnh giúp các bản thuyết trình trở nên hấp dẫn và thú vị hơn. Trong Microsoft PowerPoint, bạn có thể chèn ảnh từ tệp, internet hoặc các nguồn khác vào các slide. Tương tự, Aspose.Slides cho phép bạn thêm hình ảnh vào slide theo nhiều cách.
+Aspose.Slides cho Python thông qua .NET cung cấp một số cách làm việc với hình ảnh, và mỗi cách phục vụ một mục đích khác nhau. Bạn có thể lưu trữ một hình ảnh trong bản trình chiếu, hiển thị nó trong khung hình, sử dụng nó làm nền slide, liên kết tới một hình ảnh bên ngoài, thay thế một tài nguyên hình ảnh dùng chung, hoặc chuyển đổi nội dung SVG thành các hình dạng có thể chỉnh sửa.
 
-{{% alert  title="Mẹo" color="primary" %}}
+Bài viết này tập trung vào các tài nguyên hình ảnh và cách chúng được sử dụng trong toàn bộ bản trình chiếu. Đối với việc cắt, độ trong suốt, hiệu ứng, kéo giãn và các định dạng khác được áp dụng cho một khung hình riêng lẻ, hãy xem [Picture Frame](/slides/vi/python-net/picture-frame/).
 
-Aspose cung cấp các bộ chuyển đổi miễn phí—[JPEG sang PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG sang PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—giúp bạn nhanh chóng tạo bản thuyết trình từ hình ảnh.
+## **Hiểu mô hình hình ảnh**
 
-{{% /alert %}}
+Các khái niệm API sau đây có liên quan chặt chẽ nhưng không thể hoán đổi cho nhau:
 
-{{% alert title="Thông tin" color="info" %}}
+- [Bộ sưu tập hình ảnh bản trình chiếu](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/) lưu trữ các tài nguyên hình ảnh được bản trình chiếu sử dụng. Sử dụng [ImageCollection.add_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/add_image/) để thêm dữ liệu hình ảnh và nhận một tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/).
+- [Khung hình ảnh](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ipictureframe/) là một hình dạng hiển thị hình ảnh trên slide, bố cục hoặc master. Sử dụng [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_picture_frame/) để đặt một tài nguyên hình ảnh lên slide.
+- Nền slide sử dụng hình ảnh như một phần của việc lấp đầy slide thay vì là một hình dạng. Do đó nó không hoạt động như một khung hình.
+- [IPPImage.replace_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/replace_image/) thay thế một tài nguyên hình ảnh. Nếu nhiều phần tử trong bản trình chiếu sử dụng tài nguyên đó, chúng đều sẽ dùng tài nguyên thay thế.
+- Chuyển đổi SVG thành các hình dạng tạo ra các hình dạng slide có thể chỉnh sửa. Sau khi chuyển đổi, nội dung không còn được quản lý như một tài nguyên hình ảnh duy nhất.
 
-Nếu bạn muốn thêm hình ảnh dưới dạng đối tượng khung—đặc biệt khi muốn sử dụng các tùy chọn định dạng tiêu chuẩn như thay đổi kích thước hoặc áp dụng hiệu ứng—xem [Thêm Khung Hình Ảnh vào Bài Thuyết Trình với Python](/slides/vi/python-net/picture-frame/).
+Do đó một quy trình điển hình là: thêm dữ liệu hình ảnh vào bộ sưu tập hình ảnh, nhận một [IPPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/), và sau đó sử dụng tài nguyên đó trong một hoặc nhiều khung hình hoặc việc lấp đầy.
 
-{{% /alert %}}
+## **Thêm hình ảnh được nhúng**
 
-{{% alert title="Lưu ý" color="warning" %}}
+Để chèn một hình ảnh cục bộ, đọc tệp, thêm dữ liệu của nó vào bộ sưu tập hình ảnh và tạo một khung hình sử dụng `IPPImage` trả về.
 
-Bạn có thể sử dụng các thao tác I/O hình ảnh và bản thuyết trình để chuyển đổi hình ảnh giữa các định dạng. Xem các trang này: chuyển đổi [hình ảnh sang JPG](https://products.aspose.com/slides/vi/python-net/conversion/image-to-jpg/); chuyển đổi [JPG sang hình ảnh](https://products.aspose.com/slides/vi/python-net/conversion/jpg-to-image/); chuyển đổi [JPG sang PNG](https://products.aspose.com/slides/vi/python-net/conversion/jpg-to-png/); chuyển đổi [PNG sang JPG](https://products.aspose.com/slides/vi/python-net/conversion/png-to-jpg/); chuyển đổi [PNG sang SVG](https://products.aspose.com/slides/vi/python-net/conversion/png-to-svg/); và chuyển đổi [SVG sang PNG](https://products.aspose.com/slides/vi/python-net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides hỗ trợ làm việc với hình ảnh ở các định dạng phổ biến như JPEG, PNG, BMP, GIF và các định dạng khác.
-
-## **Thêm Hình Ảnh Lưu Trữ Cục Bộ Vào Các Slide**
-
-Bạn có thể thêm một hoặc nhiều hình ảnh từ máy tính vào một slide trong bản thuyết trình. Ví dụ Python sau cho thấy cách thêm hình ảnh vào slide:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Thêm Hình Ảnh Từ Web Vào Các Slide**
-
-Nếu hình ảnh bạn muốn thêm vào slide không có sẵn trên máy tính, bạn có thể chèn trực tiếp từ web.
-
-Ví dụ Python sau cho thấy cách thêm hình ảnh từ URL vào slide:
-
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Hình Ảnh Vào Slide Master**
+Hình ảnh được thêm theo cách này sẽ được nhúng trong bản trình chiếu, vì vậy tệp kết quả không phụ thuộc vào việc tệp hình ảnh gốc còn tồn tại hay không.
 
-Slide master là slide cấp cao nhất lưu trữ và kiểm soát thông tin—giao diện, bố cục, v.v.—cho tất cả các slide bên dưới nó. Khi bạn thêm một hình ảnh vào slide master, hình ảnh đó sẽ xuất hiện trên mọi slide sử dụng master đó.
+### **Thêm hình ảnh từ web**
 
-Ví dụ Python sau cho thấy cách thêm hình ảnh vào slide master:
+Khi một hình ảnh có sẵn qua HTTP hoặc HTTPS, tải xuống các byte của nó, thêm chúng vào bộ sưu tập hình ảnh của bản trình chiếu và sử dụng tài nguyên hình ảnh trả về theo cùng cách như hình ảnh cục bộ.
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Trong các ứng dụng chạy lâu, nên tái sử dụng client HTTP hoặc pool kết nối khi thích hợp thay vì tạo kết nối mới cho mỗi yêu cầu. Ngoài ra, hãy xác thực URL từ xa, kích thước phản hồi và kiểu nội dung khi nguồn không đáng tin cậy.
+
+## **Tái sử dụng hình ảnh trên nhiều slide**
+
+Nếu cùng một hình ảnh cần được sử dụng hơn một lần, hãy thêm nó vào bản trình chiếu một lần và tái sử dụng [IPPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/) khi tạo các khung hình bổ sung. Điều này tránh tải lại dữ liệu nguồn cùng một lần và làm cho mối quan hệ giữa tài nguyên hình ảnh chia sẻ và các lần sử dụng của nó trở nên rõ ràng.
+
+Đối với các đồ họa nên xuất hiện tự động trên nhiều slide, chẳng hạn như logo công ty, hãy cân nhắc đặt khung hình trên một [slide master](/slides/vi/python-net/slide-master/) hoặc layout thay vì thêm một hình dạng tương đương vào mỗi slide.
+
+## **Sử dụng hình ảnh làm nền slide**
+
+Hình ảnh nền được gán vào phần lấp đầy của slide; nó không được thêm như một hình dạng khung hình. Điều này hữu ích khi hình ảnh cần phủ toàn bộ nền slide và không nên được thao tác như một đối tượng slide thông thường.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Đối với các tùy chọn nền bổ sung, bao gồm nền master và layout, hãy xem [Presentation Background](/slides/vi/python-net/presentation-background/).
+
+## **Hình ảnh nhúng và hình ảnh liên kết**
+
+Hình ảnh nhúng và hình ảnh liên kết có các cân nhắc khác nhau về khả năng di chuyển và kích thước tệp:
+
+- **Hình ảnh nhúng:** dữ liệu hình ảnh được lưu trong bản trình chiếu. Bản trình chiếu là tự chứa, nhưng kích thước tệp bao gồm dữ liệu hình ảnh.
+- **Hình ảnh liên kết:** bản trình chiếu lưu đường dẫn hoặc URL tới hình ảnh bên ngoài. Điều này có thể giảm kích thước bản trình chiếu, nhưng tài nguyên bên ngoài phải vẫn có thể truy cập khi bản trình chiếu được mở hoặc render.
+
+Một hình ảnh liên kết có thể được tạo bằng cách gán đường dẫn hoặc URL bên ngoài thông qua [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/vi/python-net/aspose.slides/islidespicture/link_path_long/) thay vì nhúng dữ liệu hình ảnh.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Đặt Hình Ảnh Là Nền Cho Slide**
+Chỉ sử dụng hình ảnh liên kết khi môi trường triển khai có thể tin cậy truy cập tài nguyên bên ngoài. Đối với các bản trình chiếu phải hoạt động offline hoặc được chuyển đổi giữa các hệ thống, hình ảnh nhúng thường an toàn hơn.
 
-Bạn có thể muốn sử dụng một hình ảnh làm nền cho một slide cụ thể hoặc nhiều slide. Để biết chi tiết, xem [Đặt Hình Ảnh Là Nền Cho Slide](/slides/vi/python-net/presentation-background/#set-image-as-background-for-slide).
+## **Làm việc với hình ảnh SVG**
 
-## **Thêm SVG Vào Bản Thuyết Trình**
+SVG là định dạng vector, do đó nó hữu ích cho các biểu tượng, sơ đồ và các đồ họa khác cần phóng to mà không mất chi tiết như ảnh raster. Aspose.Slides hỗ trợ SVG cả như tài nguyên hình ảnh và như nguồn để tạo các hình dạng slide có thể chỉnh sửa.
 
-Bạn có thể chèn bất kỳ hình ảnh nào vào bản thuyết trình bằng phương thức [add_picture_frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_picture_frame/) của lớp [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/).
+### **Thêm SVG làm hình ảnh**
 
-Để tạo đối tượng hình ảnh từ SVG, thực hiện các bước sau:
+Tạo một [SvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/), thêm nó vào bộ sưu tập hình ảnh và đặt tài nguyên hình ảnh kết quả vào một khung hình.
 
-1. Tạo một [SvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/) và thêm nó vào bộ sưu tập hình ảnh của bản thuyết trình.  
-2. Tạo đối tượng [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) từ [SvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/).  
-3. Tạo đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) bằng cách sử dụng [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/).
-
-Mẫu Python sau cho thấy cách thêm hình ảnh SVG vào bản thuyết trình bằng các bước trên:
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # Đọc nội dung của tệp SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Tạo đối tượng SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Tạo đối tượng PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Tạo một PictureFrame mới.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Lưu bản thuyết trình ở định dạng PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Chuyển Đổi SVG Thành Tập Hình Dạng**
+### **Chuyển đổi SVG thành các hình dạng có thể chỉnh sửa**
 
-Aspose.Slides chuyển đổi SVG thành một tập hợp các hình dạng theo cách tương tự như cách PowerPoint xử lý SVG.
+Aspose.Slides có thể chuyển đổi một SVG thành một nhóm các hình dạng slide có thể chỉnh sửa, tương tự lệnh PowerPoint tương ứng.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Chức năng này được cung cấp bởi một overload của phương thức [add_group_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_group_shape/) trong lớp [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/) nhận một [SvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/) làm đối số đầu tiên.  
+Sử dụng overload [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_group_shape/) chấp nhận một [ISvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/isvgimage/) để thực hiện việc chuyển đổi.
 
-Mã mẫu dưới đây cho thấy cách chuyển đổi tệp SVG thành một tập hợp các hình dạng.
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # Đọc nội dung tệp SVG.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # Tạo đối tượng SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Lấy kích thước slide.
-        slide_size = presentation.slide_size.size
-
-        # Chuyển đổi hình ảnh SVG thành một nhóm các hình dạng và thu phóng nó theo kích thước slide.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # Lưu bản thuyết trình ở định dạng PPTX.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Thêm Hình Ảnh Dưới Dạng EMF Vào Các Slide**
-
-Aspose.Slides for Python cho phép bạn chèn hình ảnh Enhanced Metafile (EMF) vào bản thuyết trình.
-
-Ví dụ Python sau minh họa cách thực hiện:
-
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thay Thế Hình Ảnh Trong Bộ Sưu Tập Hình Ảnh**
+Sử dụng chuyển đổi SVG thành hình dạng khi các phần tử vector riêng lẻ cần được chỉnh sửa như các hình dạng PowerPoint. Nếu SVG chỉ cần được hiển thị, giữ nó dưới dạng hình ảnh sẽ đơn giản hơn và tránh việc tạo ra nhiều hình dạng riêng biệt.
 
-Aspose.Slides cho phép bạn thay thế các hình ảnh được lưu trong bộ sưu tập hình ảnh của bản thuyết trình, bao gồm các hình ảnh được sử dụng bởi các hình dạng slide. Phần này trình bày một số cách tiếp cận để cập nhật hình ảnh trong bộ sưu tập. API cung cấp các phương thức đơn giản để thay thế một hình ảnh bằng dữ liệu byte thô, một thể hiện [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) hoặc một hình ảnh khác đã tồn tại trong bộ sưu tập.
+## **Thay thế tài nguyên hình ảnh hiện có**
 
-Thực hiện các bước sau:
+Sử dụng [IPPImage.replace_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/replace_image/) khi bạn muốn thay thế một tài nguyên hình ảnh hiện có. Điều này đặc biệt hữu ích cho các đồ họa chia sẻ như logo.
 
-1. Tải bản thuyết trình chứa các hình ảnh bằng lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).  
-2. Tải một hình ảnh mới từ tệp vào một mảng byte.  
-3. Thay thế hình ảnh mục tiêu bằng hình ảnh mới sử dụng mảng byte.  
-4. Ngoài ra, tải hình ảnh vào một đối tượng [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) và thay thế hình ảnh mục tiêu bằng đối tượng đó.  
-5. Hoặc thay thế hình ảnh mục tiêu bằng một hình ảnh đã tồn tại trong bộ sưu tập hình ảnh của bản thuyết trình.  
-6. Lưu bản thuyết trình đã sửa đổi dưới dạng tệp PPTX.
+```python
+import aspose.slides as slides
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-# Khởi tạo lớp Presentation đại diện cho tệp bản thuyết trình.
-with slides.Presentation("sample.pptx") as presentation:
-
-    # Cách thứ nhất.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # Cách thứ hai.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # Cách thứ ba.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # Lưu bản thuyết trình vào tệp.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Thông tin" color="info" %}}
+Nếu nhiều khung hình, nền, master hoặc layout sử dụng cùng một tài nguyên hình ảnh, việc thay thế tài nguyên đó sẽ cập nhật tất cả các lần sử dụng. Nếu chỉ một khung hình cần thay đổi, hãy gán một hình ảnh khác cho khung đó thay vì thay thế tài nguyên chia sẻ.
 
-Với trình chuyển đổi miễn phí [Text to GIF](https://products.aspose.app/slides/vi/text-to-gif) của Aspose, bạn có thể dễ dàng tạo hoạt ảnh văn bản và tạo GIF từ văn bản.
+`replace_image` cũng cung cấp các overload chấp nhận một [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) hoặc một [IPPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/) khác.
 
-{{% /alert %}}
+## **Hướng dẫn thực tế về quản lý hình ảnh**
 
-## **Câu Hỏi Thường Gặp**
+### **Kiểm soát kích thước bản trình chiếu**
 
-**Độ phân giải gốc của hình ảnh có giữ nguyên sau khi chèn không?**
+Các hình ảnh raster lớn có thể làm cho bản trình chiếu trở nên quá lớn không cần thiết. Sử dụng hình ảnh nguồn với kích thước phù hợp với kích thước hiển thị dự kiến, tái sử dụng các tài nguyên hình ảnh chia sẻ khi có thể, và tránh nhúng các bản sao lặp lại của cùng một đồ họa độ phân giải cao.
 
-Có. Các pixel nguồn được bảo tồn, nhưng diện mạo cuối cùng phụ thuộc vào cách [picture](/slides/vi/python-net/picture-frame/) được thu phóng trên slide và bất kỳ nén nào được áp dụng khi lưu.
+Đối với các hình ảnh raster đã được đặt trong khung hình, [PictureFillFormat.compress_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/compress_image/) có thể giảm dữ liệu hình ảnh dựa trên độ phân giải và cài đặt cắt đã chọn. Đây là xử lý khung hình chứ không phải quản lý bộ sưu tập hình ảnh, vì vậy xem [Picture Frame](/slides/vi/python-net/picture-frame/) để biết các thao tác định dạng liên quan.
 
-**Cách tốt nhất để thay thế cùng một logo trên hàng chục slide một lúc là gì?**
+### **Chọn giữa nội dung nhúng và liên kết**
 
-Đặt logo trên slide master hoặc layout và thay thế nó trong bộ sưu tập hình ảnh của bản thuyết trình—các cập nhật sẽ lan tới mọi phần tử sử dụng tài nguyên đó.
+Việc nhúng làm cho bản trình chiếu dễ di chuyển vì tất cả dữ liệu hình ảnh cần thiết đi kèm với tệp. Liên kết có thể giảm kích thước tệp, nhưng nó tạo ra một phụ thuộc bên ngoài. Chỉ sử dụng liên kết khi phụ thuộc đó chấp nhận được và ổn định.
 
-**SVG đã chèn có thể được chuyển đổi thành các hình dạng có thể chỉnh sửa không?**
+### **Tái sử dụng thương hiệu chia sẻ**
 
-Có. Bạn có thể chuyển đổi SVG thành một nhóm các hình dạng, sau đó các phần riêng lẻ có thể chỉnh sửa bằng các thuộc tính hình dạng tiêu chuẩn.
+Đối với các logo, watermark hoặc đồ họa trang trí lặp lại, sử dụng một tài nguyên hình ảnh và tái sử dụng nó. Nếu đồ họa thuộc về thiết kế bản trình chiếu hơn là nội dung slide, hãy đặt nó trên master hoặc layout để các slide thích hợp kế thừa.
 
-**Làm thế nào để đặt một hình ảnh làm nền cho nhiều slide cùng lúc?**
+### **Giữ tài nguyên SVG di động**
 
-[Chỉ định hình ảnh làm nền](/slides/vi/python-net/presentation-background/) trên slide master hoặc layout liên quan—bất kỳ slide nào sử dụng master/layout đó sẽ kế thừa nền.
+Một SVG tự chứa dễ dàng di chuyển và render nhất quán hơn so với SVG phụ thuộc vào các tệp hoặc tài nguyên mạng bên ngoài. Khi có thể, hãy nhúng các tài nguyên cần thiết trước khi nhập SVG. Chuyển đổi SVG thành các hình dạng chỉ khi các phần tử vector riêng lẻ cần được chỉnh sửa.
 
-**Làm sao ngăn bản thuyết trình “phình to” kích thước do quá nhiều hình ảnh?**
+### **Sử dụng API hình ảnh đa nền tảng hiện đại**
 
-Sử dụng lại một tài nguyên hình ảnh duy nhất thay vì sao chép, chọn độ phân giải hợp lý, áp dụng nén khi lưu và giữ các đồ họa lặp lại trên master khi thích hợp.
+Đối với mã Python mới thông qua .NET, hãy sử dụng các API Aspose.Slides [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) và [Images](https://reference.aspose.com/slides/vi/python-net/aspose.slides/images/) thay vì các API hình ảnh đã lỗi thời `aspose.pydrawing.Image` hoặc `aspose.pydrawing.Bitmap`. Xem [Modern API](/slides/vi/python-net/modern-api/) để biết hướng dẫn di chuyển.
+
+WMF và EMF cần lưu ý đặc biệt. Khi các định dạng này được truyền qua một [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/), [ImageCollection.add_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/add_image/) chuyển đổi metafile sang đại diện PNG raster trước khi chèn. Nếu việc giữ nguyên dữ liệu metafile quan trọng, hãy sử dụng overload [ImageCollection.add_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/add_image/) dựa trên stream thay thế. Tạo nội dung EMF từ bảng tính hoặc các sản phẩm khác là một quy trình tích hợp riêng và nằm ngoài phạm vi của bài viết này.
+
+## **Câu hỏi thường gặp**
+
+**Sự khác biệt giữa bộ sưu tập hình ảnh và khung hình là gì?**
+
+Bộ sưu tập hình ảnh lưu trữ các tài nguyên hình ảnh có thể tái sử dụng. Khung hình là một hình dạng slide hiển thị một trong các tài nguyên đó và cung cấp định dạng riêng cho hình ảnh như cắt và hiệu ứng.
+
+**Cách tốt nhất để thay thế cùng một logo ở mọi nơi là gì?**
+
+Nếu logo đã được chia sẻ dưới dạng một tài nguyên hình ảnh, hãy thay thế tài nguyên đó bằng [IPPImage.replace_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ippimage/replace_image/). Đối với thương hiệu trên toàn bộ bản trình chiếu, việc đặt logo trên master hoặc layout cũng có thể giảm nội dung slide trùng lặp.
+
+**Tại sao một hình ảnh liên kết lại biến mất trên máy tính khác?**
+
+Một hình ảnh liên kết phụ thuộc vào tệp hoặc URL bên ngoài. Nếu tài nguyên đó không thể truy cập từ máy tính khác, hình ảnh liên kết có thể không có sẵn. Nhúng hình ảnh khi bản trình chiếu phải tự chứa.
+
+**Có thể chỉnh sửa SVG đã chèn thành các hình dạng PowerPoint không?**
+
+Có. Chuyển đổi SVG bằng [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_group_shape/); nhóm kết quả chứa các hình dạng slide có thể chỉnh sửa thay vì một hình ảnh SVG duy nhất.
+
+**Làm sao tôi có thể giữ bản trình chiếu với nhiều hình ảnh nhỏ hơn?**
+
+Tái sử dụng các tài nguyên hình ảnh chia sẻ, tránh các nguồn raster quá lớn không cần thiết, nén các hình raster phù hợp khi cần, giữ các thương hiệu lặp lại trên master hoặc layout, và chỉ sử dụng hình ảnh liên kết khi phụ thuộc bên ngoài là chấp nhận được.

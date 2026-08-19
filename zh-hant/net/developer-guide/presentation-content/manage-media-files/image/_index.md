@@ -7,272 +7,268 @@ url: /zh-hant/net/image/
 keywords:
 - 新增圖像
 - 新增圖片
-- 新增位圖
-- 替換圖像
-- 替換圖片
-- 來自網路
+- 取代圖像
+- 圖像集合
+- 圖片框
+- 連結圖像
 - 背景
 - 新增 PNG
 - 新增 JPG
 - 新增 SVG
-- 新增 EMF
-- 新增 WMF
-- 新增 TIFF
+- SVG 轉形狀
+- 外部 SVG 資源
 - PowerPoint
 - OpenDocument
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 簡化 PowerPoint 與 OpenDocument 中的圖像管理，優化效能並自動化工作流程。"
+description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 與 OpenDocument 簡報中新增、重複使用、連結、取代與管理點陣圖與 SVG 圖像。"
 ---
 ## **簡介**
 
-圖像使簡報更具吸引力和趣味性。在 Microsoft PowerPoint 中，您可以從檔案、網際網路或其他位置將圖片插入投影片。類似地，Aspose.Slides 允許您通過不同的方式將圖像添加到簡報的投影片中。
+Aspose.Slides for .NET 提供多種處理圖像的方法，每種方法都有不同的用途。您可以將圖像儲存在簡報中、在圖片框中顯示、用作投影片背景、連結到外部圖像、取代共用圖像資源，或將 SVG 內容轉換為可編輯的形狀。
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose 提供免費轉換器——[JPEG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 和 [PNG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)——讓使用者能夠快速從圖像建立簡報。 
-{{% /alert %}} 
+本文聚焦於圖像資源以及它們在整個簡報中的使用方式。關於對個別圖片框套用的裁切、透明度、效果、拉伸及其他格式設定，請參閱[圖片框](/slides/zh-hant/net/picture-frame/)。
 
-{{% alert title="Info" color="info" %}}
-如果您想將圖像作為框架物件添加——尤其是計畫使用標準格式化選項變更其大小、添加效果等——請參閱 [圖片框架](https://docs.aspose.com/slides/zh-hant/net/picture-frame/)。 
-{{% /alert %}} 
+## **了解圖像模型**
 
-{{% alert title="Note" color="warning" %}}
-您可以操作涉及圖像和 PowerPoint 簡報的輸入/輸出，以將圖像從一種格式轉換為另一種格式。請參閱以下頁面：轉換 [圖像至 JPG](https://products.aspose.com/slides/zh-hant/net/conversion/image-to-jpg/); 轉換 [JPG 至圖像](https://products.aspose.com/slides/zh-hant/net/conversion/jpg-to-image/); 轉換 [JPG 至 PNG](https://products.aspose.com/slides/zh-hant/net/conversion/jpg-to-png/), 轉換 [PNG 至 JPG](https://products.aspose.com/slides/zh-hant/net/conversion/png-to-jpg/); 轉換 [PNG 至 SVG](https://products.aspose.com/slides/zh-hant/net/conversion/png-to-svg/), 轉換 [SVG 至 PNG](https://products.aspose.com/slides/zh-hant/net/conversion/svg-to-png/). 
-{{% /alert %}}
+以下 API 概念密切相關，但不可互換：
 
-Aspose.Slides 支援這些常見格式的圖像操作：JPEG、PNG、BMP、GIF 等。 
+- [簡報圖像集合](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimagecollection/) 儲存簡報使用的圖像資源。使用 [ImageCollection.AddImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imagecollection/addimage/) 新增圖像資料並取得 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/) 資源。
+- [圖片框](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/) 是一個在投影片、版面配置或母片上顯示圖像的形狀。使用 [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addpictureframe/) 在投影片上放置圖像資源。
+- 投影片背景使用圖像作為投影片填充的一部分，而不是作為形狀。因此其行為不同於圖片框。
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/replaceimage/) 取代圖像資源。如果多個簡報元素使用該資源，皆會使用已取代的圖像。
+- 將 SVG 轉換為形狀會產生可編輯的投影片形狀。轉換後，內容不再作為單一圖片資源管理。
 
-## **將本機儲存的圖像添加至投影片**
+因此，一般的工作流程如下：將圖像資料新增至圖像集合，取得 IPPImage，然後在一個或多個圖片框或填充中使用該資源。
 
-您可以將電腦上的一張或多張圖像添加到簡報的投影片中。以下 C# 範例程式碼示範如何將圖像添加至投影片：
+## **新增嵌入式圖像**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+要插入本機圖像，先讀取檔案，將其資料新增至圖像集合，然後建立使用返回的 `IPPImage` 的圖片框。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **從網路將圖像添加至投影片**
+以此方式新增的圖像會嵌入至簡報中，因此產生的檔案不依賴原始圖像檔案的可用性。
 
-如果您想要添加至投影片的圖像在電腦上不存在，您可以直接從網路添加圖像。 
-以下範例程式碼示範如何在 C# 中從網路將圖像添加至投影片：
+### **從網路新增圖像**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+當圖像可透過 HTTP 或 HTTPS 取得時，使用 `HttpClient` 下載其位元組，將其加入簡報圖像集合，並以與本機圖像相同的方式使用返回的圖像資源。
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **將圖像添加至投影片主版**
+在長時間執行的應用程式中，請重複使用 `HttpClient`，而非為每個請求建立新實例。當來源不可信時，也要驗證遠端 URL、回應大小與內容類型。
 
-投影片主版是位於最上層的投影片，用於儲存與控制其下所有投影片的資訊（主題、版面配置等）。因此，當您將圖像添加至投影片主版時，該圖像會出現在該主版下的所有投影片上。 
-以下 C# 範例程式碼示範如何將圖像添加至投影片主版：
+## **在投影片間重複使用圖像**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+如果同一圖像需要多次使用，只需在簡報中新增一次，並在建立其他圖片框時重複使用返回的 [IPPImage]。如此可避免重複載入相同來源資料，並明確展現共享圖像資源與其使用之間的關係。
+
+對於應自動出現在多張投影片上的圖形（例如公司標誌），請考慮將圖片框放置於[投影片母片](/slides/zh-hant/net/slide-master/)或版面配置上，而不是在每張投影片中加入相同的形狀。
+
+## **將圖像作為投影片背景**
+
+背景圖像會指定給投影片填充，而不是以圖片框形狀加入。當圖像需要覆蓋整個投影片背景且不應被視為一般投影片物件進行操作時，此方式很有用。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
-## **將圖像設為投影片背景**
+若需其他背景選項（包括母片與版面配置背景），請參閱[簡報背景](/slides/zh-hant/net/presentation-background/)。
 
-您可能會決定將圖片用作特定投影片或多張投影片的背景。在此情況下，請參閱 *[將圖像設為投影片背景](https://docs.aspose.com/slides/zh-hant/net/presentation-background/#setting-images-as-background-for-slides)*。
+## **嵌入式圖像與連結圖像**
 
-## **將 SVG 添加至簡報**
+嵌入式圖像與連結圖像在可移植性與檔案大小上有不同的取捨：
 
-您可以使用屬於 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection) 介面的 [AddPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/methods/addpictureframe) 方法，將任意圖像添加或插入至簡報中。 
-若要根據 SVG 圖像建立圖像物件，您可以這樣做： 
-1. 建立 SvgImage 物件以插入至 ImageShapeCollection 
-2. 從 ISvgImage 建立 PPImage 物件 
-3. 使用 IPPImage 介面建立 PictureFrame 物件 
-以下範例程式碼示範如何實作上述步驟，將 SVG 圖像添加至簡報中：
+- **嵌入式圖像：** 圖像資料儲存在簡報內。簡報是自包含的，但檔案大小會包含圖像資料。
+- **連結圖像：** 簡報僅儲存外部圖像的路徑或 URL。此方式可減少簡報大小，但在開啟或呈現簡報時，必須能存取外部資源。
 
-``` csharp 
-// 文件目錄的路徑
-string dataDir = @"D:\Documents\";
+可透過 [ISlidesPicture.LinkPathLong] 指定外部路徑或 URL，建立連結圖片，而非嵌入圖像資料。
 
-// 原始 SVG 檔案名稱
-string svgFileName = dataDir + "sample.svg";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 輸出簡報檔案名稱
-string outPptxPath = dataDir + "presentation.pptx";
+using var presentation = new Presentation();
 
-// 建立新簡報
-using (var p = new Presentation())
-{
-    // 讀取 SVG 檔案內容
-    string svgContent = File.ReadAllText(svgFileName);
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-    // 建立 SvgImage 物件
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // 建立 PPImage 物件
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // 建立新的圖片框架 
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // 以 PPTX 格式儲存簡報
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **將 SVG 轉換為形狀集合**
+僅在部署環境能可靠存取外部資源時才使用連結圖像。對於必須離線使用或在系統間搬移的簡報，嵌入式圖像通常較安全。
 
-Aspose.Slides 將 SVG 轉換為形狀集合的功能類似於 PowerPoint 用於處理 SVG 圖像的功能：
+## **處理 SVG 圖像**
+
+SVG 是向量格式，可用於圖示、圖表及其他需要在放大縮小時仍保持細節的圖形。Aspose.Slides 同時支援將 SVG 作為圖像資源以及可編輯投影片形狀的來源。
+
+### **將 SVG 新增為圖像**
+
+建立 [SvgImage]，將其加入圖像集合，並將產生的圖像資源放入圖片框中。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **含外部資源的 SVG 檔案**
+
+SVG 可以參照外部圖像、樣式表或字型。對於這類情況，[SvgImage] 提供接受 [IExternalResourceResolver] 與基礎 URI 的建構函式。解析器可將相對 URI 映射為允許的絕對 URI，並回傳請求資源的串流。
+
+解析器在 Aspose.Slides 處理 SVG 時使外部資源可用，但不會將 SVG 重新寫成自包含的文件。若 SVG 必須保持可移植，請將所需資源直接嵌入 SVG，例如使用 `data:` URI 來連結圖像。
+
+當 SVG 檔案來源不可信時，請限制解析器可存取的協議、檔案位置與主機。網路解析器亦應設定逾時、回應大小上限與內容驗證。
+
+### **將 SVG 轉換為可編輯形狀**
+
+Aspose.Slides 可以將 SVG 轉換為一組可編輯的投影片形狀，類似 PowerPoint 的對應指令。
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-此功能由 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection) 介面的 [AddGroupShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.ishapecollection/addgroupshape/methods/1) 方法的其中一個重載提供，該重載以 [ISvgImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/isvgimage) 物件作為第一個參數。 
-以下範例程式碼示範如何使用上述方法將 SVG 檔案轉換為形狀集合：
+使用接受 [ISvgImage] 的 [IShapeCollection.AddGroupShape] 重載來執行轉換。
 
-``` csharp 
-// 文件目錄的路徑
-string dataDir = @"D:\Documents\";
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 原始 SVG 檔案名稱
-string svgFileName = dataDir + "sample.svg";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// 輸出簡報檔案名稱
-string outPptxPath = dataDir + "presentation.pptx";
+using var presentation = new Presentation();
 
-// 建立新簡報
-using (IPresentation presentation = new Presentation())
-{
-    // 讀取 SVG 檔案內容
-    string svgContent = File.ReadAllText(svgFileName);
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-    // 建立 SvgImage 物件
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // 取得投影片大小
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // 將 SVG 圖片轉換為形狀群組，並按投影片大小縮放
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // 以 PPTX 格式儲存簡報
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **將圖像作為 EMF 添加至投影片**
+當需要將個別向量元素編輯為 PowerPoint 形狀時，使用 SVG 轉形狀的轉換。如果 SVG 只需顯示，保留為圖像較為簡單，且可避免建立大量獨立形狀。
 
-Aspose.Slides for .NET 允許您從 Excel 工作表生成 EMF 圖像，並使用 Aspose.Cells 將這些圖像作為 EMF 添加至投影片中。 
-以下範例程式碼示範如何執行上述任務：
+## **取代現有圖像資源**
 
-``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+當需要取代現有圖像資源時，使用 [IPPImage.ReplaceImage]。這對於共用圖形（例如標誌）特別有用。
 
-    //將工作簿儲存至串流
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+using var presentation = new Presentation("input.pptx");
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **取代圖像集合中的圖像**
-
-Aspose.Slides 允許您取代儲存在簡報圖像集合中的圖像（包括投影片形狀使用的圖像）。本節展示了更新集合中圖像的多種方法。API 提供直接的方式，可使用原始位元組資料、[IImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/) 實例，或集合中已存在的其他圖像來取代圖像。 
-請依照以下步驟： 
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別載入包含圖像的簡報檔案。 
-2. 從檔案載入新圖像至位元組陣列。 
-3. 使用位元組陣列將目標圖像取代為新圖像。 
-4. 在第二種方法中，將圖像載入 [IImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/) 物件，並使用該物件取代目標圖像。 
-5. 在第三種方法中，使用簡報圖像集合中已存在的圖像取代目標圖像。 
-6. 將修改後的簡報寫入為 PPTX 檔案。 
-```cs
-// 實例化代表簡報檔案的 Presentation 類別。
-using Presentation presentation = new Presentation("sample.pptx");
-
-// 第一種方法。
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
-
-// 第二種方法。
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// 第三種方法。
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// 將簡報儲存為檔案。
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
-使用 Aspose 免費的 [Text to GIF](https://products.aspose.app/slides/zh-hant/text-to-gif) 轉換器，您可以輕鬆地對文字進行動畫化、從文字建立 GIF 等。 
-{{% /alert %}}
+如果多個圖片框、背景、母片或版面配置使用相同的圖像資源，取代該資源會更新所有使用處。若僅需更改單一圖片框，請為該框指派不同圖像，而非取代共享資源。
+
+`ReplaceImage` 也提供接受 [IImage] 或其他 [IPPImage] 的重載。
+
+## **實務圖像管理指引**
+
+### **控制簡報大小**
+
+大型點陣圖會使簡報過於龐大。請使用符合預期顯示尺寸的來源圖像，盡可能重複使用共享圖像資源，並避免嵌入相同全解析度圖形的多個副本。
+
+對於已放入圖片框的點陣圖，可使用 [IPictureFillFormat.CompressImage] 根據選取的解析度與裁切設定壓縮圖像資料。這屬於圖片框處理而非圖像集合管理，相關格式操作請參閱[圖片框](/slides/zh-hant/net/picture-frame/)。
+
+### **在嵌入與連結內容之間選擇**
+
+嵌入可使簡報具可移植性，因為所有必要的圖像資料隨檔案一起攜帶。連結可減小檔案大小，但會產生外部依賴。僅在該依賴可接受且穩定時才使用連結。
+
+### **重複使用共享品牌資源**
+
+對於重複使用的標誌、水印或裝飾圖形，請使用單一圖像資源並重複使用。若圖形屬於簡報設計而非投影片內容，請將其放置於母片或版面配置，以便被相應投影片繼承。
+
+### **保持 SVG 資源可移植**
+
+自包含的 SVG 較易搬移且能一致渲染，較不依賴外部檔案或網路資源。盡可能在匯入 SVG 前嵌入必要資源。僅在需要編輯個別向量元素時才將 SVG 轉換為形狀。
+
+### **使用現代跨平台圖像 API**
+
+對於新的 .NET 程式碼，請使用 Aspose.Slides 的 [IImage] 與 [Images] API，而非依賴 `System.Drawing.Image` 或 `Bitmap`。遷移指引請參閱[現代 API](/slides/zh-hant/net/modern-api/)。
+
+WMF 與 EMF 需要特別注意。當這些格式透過 [IImage] 傳遞時，[ImageCollection.AddImage] 會在插入前將中繼檔轉換為點陣 PNG 表示。若需保留中繼檔資料，請改用基於串流的 [ImageCollection.AddImage] 重載。從試算表或其他產品產生 EMF 內容屬於另一個整合工作流程，超出本文範圍。
 
 ## **常見問題**
 
-**插入後原始圖像解析度是否保持完整？**
+**圖像集合與圖片框有何不同？**
 
-是。保留原始像素，但最終顯示效果取決於投影片上 [picture](/slides/zh-hant/net/picture-frame/) 的縮放方式以及儲存時所套用的壓縮。 
+圖像集合儲存可重複使用的圖像資源。圖片框則是投影片形狀，用於顯示其中一項資源，並提供裁切、效果等圖片專屬的格式設定。
 
-**一次取代數十張投影片中的相同標誌的最佳方法是什麼？**
+**在所有位置取代相同標誌的最佳方法是什麼？**
 
-將標誌放置於主投影片或版面配置上，並在簡報的圖像集合中取代它——更新將會傳播到所有使用該資源的元素。 
+如果標誌已作為單一圖像資源共享，請使用 [IPPImage.ReplaceImage] 取代該資源。若需全簡報的品牌統一，也可將標誌放置於母片或版面配置上，以減少投影片內容的重複。
 
-**插入的 SVG 可以轉換為可編輯的形狀嗎？**
+**為什麼連結圖像在其他電腦上會消失？**
 
-可以。您可以將 SVG 轉換為形狀群組，之後各個部件即可使用標準形狀屬性進行編輯。 
+連結圖片依賴外部檔案或 URL。若其他電腦無法存取該資源，連結圖像就會失效。當簡報必須自包含時，請嵌入圖像。
 
-**如何一次為多張投影片設定圖片背景？**
+**插入的 SVG 能否編輯為 PowerPoint 形狀？**
 
-在主投影片或相關版面配置上 [Assign the image as the background](/slides/zh-hant/net/presentation-background/)，使用該主版/版面的投影片皆會繼承此背景。 
+可以。使用 [IShapeCollection.AddGroupShape] 轉換 SVG；產生的群組包含可編輯的投影片形狀，而非單一 SVG 圖片。
 
-**如何防止因大量圖片導致簡報檔案尺寸急遽增大？**
+**如何讓含有大量圖像的簡報保持較小尺寸？**
 
-重複使用單一圖像資源而非多次複製，選擇合理的解析度，儲存時套用壓縮，並在適當情況下將重複圖形放置於主投影片上。
+重複使用共享圖像資源、避免使用過大的點陣來源、在適當時壓縮相應的點陣圖、將重複的品牌圖放在母片或版面配置上，僅在外部依賴可接受時才使用連結圖像。

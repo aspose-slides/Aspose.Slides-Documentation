@@ -1,5 +1,5 @@
 ---
-title: Βελτιστοποίηση Διαχείρισης Εικόνων σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
+title: Βελτιστοποίηση Διαχείρισης Εικόνων σε Παρουσιάσεις χρησιμοποιώντας JavaScript
 linktitle: Διαχείριση Εικόνων
 type: docs
 weight: 10
@@ -7,297 +7,333 @@ url: /el/nodejs-java/image/
 keywords:
 - προσθήκη εικόνας
 - προσθήκη φωτογραφίας
-- προσθήκη bitmap
 - αντικατάσταση εικόνας
-- αντικατάσταση φωτογραφίας
-- από το διαδίκτυο
+- συλλογή εικόνων
+- κάδρο εικόνας
+- συνδεδεμένη εικόνα
 - φόντο
 - προσθήκη PNG
 - προσθήκη JPG
 - προσθήκη SVG
-- προσθήκη EMF
-- προσθήκη WMF
-- προσθήκη TIFF
+- SVG σε σχήματα
+- εξωτερικοί πόροι SVG
 - PowerPoint
 - OpenDocument
 - παρουσίαση
-- EMF
-- SVG
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Απλοποιήστε τη διαχείριση εικόνων σε PowerPoint και OpenDocument με JavaScript και Aspose.Slides για Node.js, βελτιώνοντας την απόδοση και αυτοματοποιώντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να προσθέτετε, να επαναχρησιμοποιείτε, να συνδέετε, να αντικαθιστάτε και να διαχειρίζεστε raster και SVG εικόνες σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Εισαγωγή**
 
-Οι εικόνες καθιστούν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες. Στο Microsoft PowerPoint, μπορείτε να εισάγετε εικόνες από αρχείο, το Διαδίκτυο ή άλλες τοποθεσίες στις διαφάνειες. Παρομοίως, το Aspose.Slides επιτρέπει την προσθήκη εικόνων στις διαφάνειες των παρουσιάσεών σας μέσω διαφορετικών διαδικασιών. 
+Το Aspose.Slides για Node.js μέσω Java παρέχει αρκετούς τρόπους εργασίας με εικόνες, και κάθε ένας εξυπηρετεί διαφορετικό σκοπό. Μπορείτε να αποθηκεύσετε μια εικόνα σε μια παρουσίαση, να την εμφανίσετε σε ένα καρέ εικόνας, να τη χρησιμοποιήσετε ως φόντο διαφάνειας, να συνδέσετε σε εξωτερική εικόνα, να αντικαταστήσετε έναν κοινόχρηστο πόρο εικόνας ή να μετατρέψετε περιεχόμενο SVG σε επεξεργάσιμα σχήματα.
 
-{{% alert  title="Tip" color="primary" %}} 
+Αυτό το άρθρο εστιάζει στους πόρους εικόνας και στο πώς χρησιμοποιούνται σε μια παρουσίαση. Για περικοπή, διαφάνεια, εφέ, επέκταση και άλλες μορφοποιήσεις που εφαρμόζονται σε ένα μεμονωμένο καρέ εικόνας, δείτε [Καρέ εικόνας](/slides/el/nodejs-java/picture-frame/).
 
-Η Aspose παρέχει δωρεάν μετατροπείς—[JPEG to PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG to PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που επιτρέπουν στους χρήστες να δημιουργούν παρουσιάσεις γρήγορα από εικόνες. 
+## **Κατανόηση του Μοντέλου Εικόνας**
 
-{{% /alert %}} 
+Οι ακόλουθες έννοιες API σχετίζονται στενά αλλά δεν είναι εναλλάξιμες:
 
-{{% alert title="Info" color="info" %}}
+- Η [συλλογή εικόνων παρουσίασης](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imagecollection/) αποθηκεύει τους πόρους εικόνας που χρησιμοποιεί η παρουσίαση. Χρησιμοποιήστε το [ImageCollection.addImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imagecollection/) για να προσθέσετε δεδομένα εικόνας και να λάβετε έναν πόρο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/).
+- Ένα [καρέ εικόνας](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) είναι ένα σχήμα που εμφανίζει μια εικόνα σε μια διαφάνεια, διάταξη ή master. Χρησιμοποιήστε το [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/) για να τοποθετήσετε έναν πόρο εικόνας σε μια διαφάνεια.
+- Το φόντο μιας διαφάνειας χρησιμοποιεί μια εικόνα ως μέρος της γέμισης της διαφάνειας αντί για σχήμα. Επομένως δεν συμπεριφέρεται όπως ένα καρέ εικόνας.
+- Το [PPImage.replaceImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) αντικαθιστά έναν πόρο εικόνας. Εάν αρκετά στοιχεία παρουσίασης χρησιμοποιούν αυτόν τον πόρο, όλα χρησιμοποιούν την αντικατάσταση.
+- Η μετατροπή ενός SVG σε σχήματα δημιουργεί επεξεργάσιμα σχήματα διαφάνειας. Μετά τη μετατροπή, το περιεχόμενο δεν διαχειρίζεται πλέον ως ένας ενιαίος πόρος εικόνας.
 
-Αν θέλετε να προσθέσετε μια εικόνα ως αντικείμενο πλαισίου—ιδιαίτερα αν σκοπεύετε να χρησιμοποιήσετε τις τυπικές επιλογές μορφοποίησης για να αλλάξετε το μέγεθός της, να προσθέσετε εφέ κ.λπ.—δείτε το [Picture Frame](https://docs.aspose.com/slides/el/nodejs-java/picture-frame/). 
+Έτσι, μια τυπική ροή εργασίας είναι: προσθέστε δεδομένα εικόνας στη συλλογή εικόνων, λάβετε ένα [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/), και στη συνέχεια χρησιμοποιήστε αυτόν τον πόρο σε ένα ή περισσότερα καρέ εικόνας ή γέμιση.
 
-{{% /alert %}} 
+## **Προσθήκη ενσωματωμένης εικόνας**
 
-Το Aspose.Slides υποστηρίζει λειτουργίες με εικόνες σε αυτές τις δημοφιλείς μορφές: JPEG, PNG, GIF και άλλες. 
-
-## **Προσθήκη Εικόνων που Αποθηκεύονται Τοπικά στις Διαφάνειες**
-
-Μπορείτε να προσθέσετε μία ή περισσότερες εικόνες από τον υπολογιστή σας σε μια διαφάνεια μιας παρουσίασης. Αυτό το παράδειγμα κώδικα σε JavaScript δείχνει πώς να προσθέσετε μια εικόνα σε μια διαφάνεια:
+Για να εισαγάγετε μια τοπική εικόνα, φορτώστε το αρχείο, προσθέστε το στη συλλογή εικόνων και δημιουργήστε ένα καρέ εικόνας που χρησιμοποιεί τον επιστρεφθέν πόρο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/).
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
     }
-    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Προσθήκη Εικόνων από Ροή στις Διαφάνειες**
+Η εικόνα που προστέθηκε με αυτόν τον τρόπο είναι ενσωματωμένη στην παρουσίαση, έτσι το παραγόμενο αρχείο δεν εξαρτάται από τη διαθεσιμότητα του αρχικού αρχείου εικόνας.
 
-Αν η εικόνα που θέλετε να προσθέσετε σε μια διαφάνεια δεν είναι διαθέσιμη στον υπολογιστή σας, μπορείτε να την προσθέσετε απευθείας από το διαδίκτυο.
+### **Προσθήκη εικόνας από το Διαδίκτυο**
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να προσθέσετε μια εικόνα από το διαδίκτυο σε μια διαφάνεια σε JavaScript:
+Όταν μια εικόνα είναι διαθέσιμη μέσω HTTP ή HTTPS, κατεβάστε τα byte της, προσθέστε τα στη συλλογή εικόνων της παρουσίασης και χρησιμοποιήστε τον επιστρεφθέν πόρο εικόνας με τον ίδιο τρόπο όπως μια τοπική εικόνα.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Φορτώνει ένα αρχείο Excel σε ροή
-    var readStream = fs.readFileSync("book1.xlsx");
-    var byteArray = Array.from(readStream);
-    // Δημιουργεί ένα αντικείμενο δεδομένων για ενσωμάτωση
-    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // Προσθέτει σχήμα Ole Object Frame
-    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
+const java = require("java");
+
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
+            }
+
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
+    });
 }
-```
 
-## **Προσθήκη Εικόνων σε Κύριες Διαφάνειες**
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
 
-Ένας master slide είναι η κορυφαία διαφάνεια που αποθηκεύει και ελέγχει πληροφορίες (θέμα, διάταξη κ.λπ.) για όλες τις διαφάνειες που βρίσκονται κάτω από αυτήν. Έτσι, όταν προσθέτετε μια εικόνα σε έναν master slide, η εικόνα αυτή εμφανίζεται σε κάθε διαφάνεια κάτω από αυτόν τον master slide.
-
-Αυτό το παράδειγμα κώδικα JavaScript δείχνει πώς να προσθέσετε μια εικόνα σε έναν master slide:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var masterSlide = slide.getLayoutSlide().getMasterSlide();
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    const presentation = new aspose.slides.Presentation();
     try {
-        picture = pres.getImages().addImage(image);
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    masterSlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Προσθήκη Εικόνων ως Φόντο Διαφάνειας**
-
-Μπορείτε να αποφασίσετε να χρησιμοποιήσετε μια εικόνα ως φόντο για μια συγκεκριμένη διαφάνεια ή για πολλές διαφάνειες. Σε αυτήν την περίπτωση, πρέπει να δείτε το *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/el/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Προσθήκη SVG σε Παρουσιάσεις**
-
-Μπορείτε να προσθέσετε ή να εισάγετε οποιαδήποτε εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [addPictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) που ανήκει στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection).
-
-Για να δημιουργήσετε ένα αντικείμενο εικόνας βασισμένο σε εικόνα SVG, μπορείτε να το κάνετε με αυτόν τον τρόπο:
-
-1. Δημιουργήστε αντικείμενο SvgImage για να το εισάγετε στο ImageShapeCollection
-2. Δημιουργήστε αντικείμενο PPImage από το ISvgImage
-3. Δημιουργήστε αντικείμενο PictureFrame χρησιμοποιώντας την κλάση PPImage
-
-Αυτό το παράδειγμα κώδικα δείχνει πώς να υλοποιήσετε τα παραπάνω βήματα για να προσθέσετε μια εικόνα SVG σε μια παρουσίαση:
-```javascript
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει αρχείο PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    var ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Μετατροπή SVG σε Σύνολο Σχημάτων**
-
-Η μετατροπή SVG σε σύνολο σχημάτων του Aspose.Slides είναι παρόμοια με τη λειτουργικότητα του PowerPoint που χρησιμοποιείται για την εργασία με εικόνες SVG:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Η λειτουργία παρέχεται από μία από τις υπερφορτώσεις της μεθόδου [addGroupShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) της κλάσης [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection) που δέχεται ως πρώτο όρισμα ένα αντικείμενο [SvgImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SvgImage).
-
-Αυτό το παράδειγμα κώδικα δείχνει πώς να χρησιμοποιήσετε τη περιγραφόμενη μέθοδο για να μετατρέψετε ένα αρχείο SVG σε σύνολο σχημάτων:
-
-```javascript
-// Δημιουργία νέας παρουσίασης
-var presentation = new aspose.slides.Presentation();
-try {
-    // Ανάγνωση περιεχομένου αρχείου SVG
-    var svgContent = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg"));
-    // Δημιουργία αντικειμένου SvgImage
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    // Λήψη μεγέθους διαφάνειας
-    var slideSize = presentation.getSlideSize().getSize();
-    // Μετατροπή εικόνας SVG σε ομάδα σχημάτων κλιμακώνοντάς τη στο μέγεθος της διαφάνειας
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-    // Αποθήκευση παρουσίασης σε μορφή PPTX
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
         presentation.dispose();
     }
-}
+})();
 ```
 
-## **Προσθήκη Εικόνων ως EMF στις Διαφάνειες**
+Σε εφαρμογές μακράς διάρκειας, επαναχρησιμοποιήστε έναν πελάτη HTTP ή μια στρατηγική διαχείρισης συνδέσεων κατάλληλη για την εφαρμογή αντί να δημιουργείτε επανειλημμένα περιττές δικτυακές υποδομές. Επίσης, επαληθεύστε απομακρυσμένα URLs, τα μεγέθη των αποκρίσεων και τους τύπους περιεχομένου όταν η πηγή δεν είναι αξιόπιστη.
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να δημιουργήσετε εικόνες EMF από φύλλα Excel και να προσθέσετε τις εικόνες ως EMF στις διαφάνειες με το Aspose.Cells. 
+## **Επαναχρησιμοποίηση εικόνων σε πολλές διαφάνειες**
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να εκτελέσετε την περιγραφόμενη εργασία:
+Αν η ίδια εικόνα απαιτείται περισσότερες από μία φορές, προσθέστε την στην παρουσίαση μία φορά και επαναχρησιμοποιήστε το επιστρεφθέν [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) κατά τη δημιουργία πρόσθετων καρέ εικόνας. Αυτό αποτρέπει τη συνεχή φόρτωση των ίδιων πηγαίων δεδομένων και κάνει τη σχέση μεταξύ του κοινόχρηστου πόρου εικόνας και των χρήσεων του σαφώς ορατή.
+
+Για γραφικά που πρέπει να εμφανίζονται αυτόματα σε πολλές διαφάνειες, όπως το λογότυπο της εταιρείας, σκεφτείτε να τοποθετήσετε το καρέ εικόνας σε ένα [master διαφάνειας](/slides/el/nodejs-java/slide-master/) ή διάταξη αντί να προσθέτετε ένα ισοδύναμο σχήμα σε κάθε διαφάνεια.
+
+## **Χρήση εικόνας ως φόντο διαφάνειας**
+
+Μια εικόνα φόντου εκχωρείται στη γέμιση της διαφάνειας· δεν προστίθεται ως σχήμα καρέ εικόνας. Αυτό είναι χρήσιμο όταν η εικόνα πρέπει να καλύπτει το φόντο της διαφάνειας και δεν πρέπει να επεξεργάζεται ως κανονικό αντικείμενο διαφάνειας.
 
 ```javascript
-var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-var sheet = book.getWorksheets().get(0);
-var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-var sr = java.newInstanceSync("SheetRender", sheet, options);
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    pres.getSlides().removeAt(0);
-    var EmfSheetName = "";
-    for (var j = 0; j < sr.getPageCount(); j++) {
-        EmfSheetName = ((("test" + sheet.getName()) + " Page") + (j + 1)) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-        var picture;
-        var image = aspose.slides.Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
-        var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        var m = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αντικατάσταση Εικόνων στη Συλλογή Εικόνων**
+Για πρόσθετες επιλογές φόντου, συμπεριλαμβανομένων φόντων master και διάταξης, δείτε [Φόντο Παρουσίασης](/slides/el/nodejs-java/presentation-background/).
 
-Το Aspose.Slides σας επιτρέπει να αντικαταστήσετε εικόνες που είναι αποθηκευμένες στη συλλογή εικόνων μιας παρουσίασης (συμπεριλαμβανομένων αυτών που χρησιμοποιούνται από σχήματα διαφανειών). Αυτή η ενότητα παρουσιάζει αρκετές προσεγγίσεις για την ενημέρωση των εικόνων στη συλλογή. Το API παρέχει απλές μεθόδους για την αντικατάσταση μιας εικόνας χρησιμοποιώντας ακατέργαστα δεδομένα byte, ένα στιγμιότυπο [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/), ή άλλη εικόνα που υπάρχει ήδη στη συλλογή.
+## **Ενσωματωμένες και Συνδεδεμένες Εικόνες**
 
-Ακολουθήστε τα παρακάτω βήματα:
+Οι ενσωματωμένες και οι συνδεδεμένες εικόνες έχουν διαφορετικές ανταλλαγές φορητότητας και μεγέθους αρχείου:
 
-1. Φορτώστε το αρχείο παρουσίασης που περιέχει εικόνες χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-2. Φορτώστε μια νέα εικόνα από αρχείο σε έναν πίνακα byte.
-3. Αντικαταστήστε την εικόνα-στόχο με τη νέα εικόνα χρησιμοποιώντας τον πίνακα byte.
-4. Στη δεύτερη προσέγγιση, φορτώστε την εικόνα σε ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/) και αντικαταστήστε την εικόνα-στόχο με αυτό το αντικείμενο.
-5. Στην τρίτη προσέγγιση, αντικαταστήστε την εικόνα-στόχο με μια εικόνα που υπάρχει ήδη στη συλλογή εικόνων της παρουσίασης.
-6. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+- **Ενσωματωμένη εικόνα:** τα δεδομένα της εικόνας αποθηκεύονται μέσα στην παρουσίαση. Η παρουσίαση είναι αυτόνομη, αλλά το μέγεθος του αρχείου περιλαμβάνει τα δεδομένα της εικόνας.
+- **Συνδεδεμένη εικόνα:** η παρουσίαση αποθηκεύει μια διαδρομή ή URL σε εξωτερική εικόνα. Αυτό μπορεί να μειώσει το μέγεθος της παρουσίασης, αλλά ο εξωτερικός πόρος πρέπει να παραμένει προσβάσιμος όταν η παρουσίαση ανοίγεται ή αποδίδεται.
 
-```js
-// Δημιουργία του αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-const presentation = new aspose.slides.Presentation("sample.pptx");
+Μια συνδεδεμένη εικόνα μπορεί να δημιουργηθεί αναθέτοντας τη εξωτερική διαδρομή ή URL μέσω του [Picture.setLinkPathLong](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picture/) αντί να ενσωματώνετε τα δεδομένα της εικόνας.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Ο πρώτος τρόπος.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // Ο δεύτερος τρόπος.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // Ο τρίτος τρόπος.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // Αποθήκευση της παρουσίασης σε αρχείο.
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Χρησιμοποιήστε συνδεδεμένες εικόνες μόνο όταν το περιβάλλον ανάπτυξης μπορεί αξιόπιστα να έχει πρόσβαση στον εξωτερικό πόρο. Για παρουσιάσεις που πρέπει να λειτουργούν εκτός σύνδεσης ή να μετακινούνται μεταξύ συστημάτων, οι ενσωματωμένες εικόνες είναι συνήθως πιο ασφαλείς.
+
+## **Εργασία με SVG Εικόνες**
+
+Το SVG είναι μορφή διανυσματικού τύπου, επομένως μπορεί να είναι χρήσιμο για εικονίδια, διαγράμματα και άλλα γραφικά που πρέπει να κλιμακώνονται χωρίς την ίδια απώλεια λεπτομέρειας όπως οι raster εικόνες. Το Aspose.Slides υποστηρίζει το SVG τόσο ως πόρο εικόνας όσο και ως πηγή για επεξεργάσιμα σχήματα διαφάνειας.
+
+### **Προσθήκη SVG ως εικόνα**
+
+Δημιουργήστε ένα [SvgImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/), προσθέστε το στη συλλογή εικόνων και τοποθετήστε τον προκύπτων πόρο εικόνας σε ένα καρέ εικόνας.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Αρχεία SVG με εξωτερικούς πόρους**
+
+Ένα SVG μπορεί να αναφέρει εξωτερικές εικόνες, φύλλα στιλ ή γραμματοσειρές. Για αυτές τις περιπτώσεις, το [SvgImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/) παρέχει κατασκευαστές που δέχονται έναν [ExternalResourceResolver](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/externalresourceresolver/) και μια βασική URI. Ο resolver μπορεί να χαρτογραφήσει μια σχετική URI σε μια επιτρεπόμενη απόλυτη URI και να επιστρέψει ένα ρεύμα για τον ζητούμενο πόρο.
+
+Ο resolver καθιστά τους εξωτερικούς πόρους διαθέσιμους ενώ το Aspose.Slides επεξεργάζεται το SVG, αλλά δεν ξαναγράφει το SVG σε ένα αυτόνομα έγγραφο. Εάν το SVG πρέπει να παραμείνει φορητό, ενσωματώστε τους απαιτούμενους πόρους μέσα στο ίδιο το SVG, για παράδειγμα χρησιμοποιώντας URIs `data:` για συνδεδεμένες εικόνες.
+
+Όταν τα αρχεία SVG προέρχονται από μη αξιόπιστες πηγές, περιορίστε τα σχήματα, τις θέσεις αρχείων και τους κεντρικούς υπολογιστές που μπορεί να προσπελάσει ο resolver. Οι resolver δικτύου θα πρέπει επίσης να εφαρμόζουν χρονικά όρια, όρια μεγέθους απάντησης και επαλήθευση περιεχομένου.
+
+### **Μετατροπή SVG σε επεξεργάσιμα σχήματα**
+
+Το Aspose.Slides μπορεί να μετατρέψει ένα SVG σε μια ομάδα επεξεργάσιμων σχημάτων διαφάνειας, παρόμοια με την αντίστοιχη εντολή του PowerPoint.
+
+![Μενού αναδυόμενου παραθύρου PowerPoint](img_01_01.png)
+
+Χρησιμοποιήστε την υπερφόρτωση του [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/) που δέχεται μια SVG εικόνα για να εκτελέσετε τη μετατροπή.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Χρησιμοποιήστε τη μετατροπή SVG-σε-σχήματα όταν μεμονωμένα διάνυσμα στοιχεία χρειάζεται να επεξεργαστούν ως σχήματα PowerPoint. Εάν το SVG χρειάζεται μόνο να εμφανιστεί, η διατήρησή του ως εικόνα είναι πιο απλή και αποφεύγει τη δημιουργία πολλών ξεχωριστών σχημάτων.
+
+## **Αντικατάσταση υπάρχοντος πόρου εικόνας**
+
+Χρησιμοποιήστε το [PPImage.replaceImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) όταν θέλετε να αντικαταστήσετε έναν υπάρχοντα πόρο εικόνας. Αυτό είναι ιδιαίτερα χρήσιμο για κοινόχρηστα γραφικά όπως λογότυπα.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) {
+            replacementImage.dispose();
+        }
+    }
+
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Αν πολλά καρέ εικόνας, φόντα, master ή διατάξεις χρησιμοποιούν τον ίδιο πόρο εικόνας, η αντικατάσταση του πόρου ενημερώνει όλες αυτές τις χρήσεις. Εάν πρέπει να αλλάξει μόνο ένα καρέ εικόνας, αντιστοιχίστε μια διαφορετική εικόνα σε εκείνο το καρέ αντί να αντικαταστήσετε τον κοινόχρηστο πόρο.
 
-Χρησιμοποιώντας το ΔΩΡΕΑΝ μετατροπέα Aspose [Text to GIF](https://products.aspose.app/slides/el/text-to-gif), μπορείτε εύκολα να δημιουργήσετε κείμενα σε κίνηση, να φτιάξετε GIF από κείμενα κ.λπ. 
+Το [PPImage.replaceImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) παρέχει επίσης υπερφορτώσεις που δέχονται έναν πίνακα byte ή ένα άλλο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Πρακτικές Συμβουλές Διαχείρισης Εικόνων**
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+### **Έλεγχος μεγέθους παρουσίασης**
 
-**Παραμένει η αρχική ανάλυση της εικόνας αμετάβλητη μετά την εισαγωγή;**
+Μεγάλες raster εικόνες μπορούν να κάνουν μια παρουσίαση περιττά μεγάλη. Χρησιμοποιήστε πηγαίες εικόνες με διαστάσεις κατάλληλες για το προοριζόμενο μέγεθος προβολής, επαναχρησιμοποιήστε κοινόχρηστους πόρους εικόνας όπου είναι δυνατόν και αποφύγετε την ενσωμάτωση επαναλαμβανόμενων αντιγράφων του ίδιου γραφικού σε πλήρη ανάλυση.
 
-Ναι. Τα αρχικά pixel διατηρούνται, αλλά η τελική εμφάνιση εξαρτάται από το πώς η [picture](/slides/el/nodejs-java/picture-frame/) κλιμακώνεται στη διαφάνεια και από τυχόν συμπίεση που εφαρμόζεται κατά την αποθήκευση.
+Για raster εικόνες που έχουν ήδη τοποθετηθεί σε καρέ εικόνας, το [PictureFillFormat.compressImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/) μπορεί να μειώσει τα δεδομένα εικόνας σύμφωνα με την επιλεγμένη ανάλυση και τις ρυθμίσεις περικοπής. Αυτό είναι επεξεργασία καρέ εικόνας και όχι διαχείριση συλλογής εικόνων, επομένως δείτε το [Καρέ εικόνας](/slides/el/nodejs-java/picture-frame/) για σχετιζόμενες λειτουργίες μορφοποίησης.
 
-**Ποιος είναι ο καλύτερος τρόπος για να αντικαταστήσετε το ίδιο λογότυπο σε δεκάδες διαφάνειες ταυτόχρονα;**
+### **Επιλογή μεταξύ ενσωματωμένου και συνδεδεμένου περιεχομένου**
 
-Τοποθετήστε το λογότυπο στον master slide ή σε μια διάταξη και αντικαταστήστε το στη συλλογή εικόνων της παρουσίασης—οι ενημερώσεις θα διαδοθούν σε όλα τα στοιχεία που χρησιμοποιούν αυτόν τον πόρο.
+Η ενσωμάτωση κάνει την παρουσίαση φορητή επειδή όλα τα απαιτούμενα δεδομένα εικόνας μεταφέρονται με το αρχείο. Η σύνδεση μπορεί να μειώσει το μέγεθος του αρχείου, αλλά εισάγει μια εξωτερική εξάρτηση. Χρησιμοποιήστε συνδέσμους μόνο όταν αυτή η εξάρτηση είναι αποδεκτή και σταθερή.
 
-**Μπορεί μια εισαχθείσα SVG να μετατραπεί σε επεξεργάσιμα σχήματα;**
+### **Επαναχρησιμοποίηση κοινόχρηστων στοιχείων ταυτότητας**
 
-Ναι. Μπορείτε να μετατρέψετε ένα SVG σε ομάδα σχημάτων, μετά τα οποία τα επιμέρους μέρη γίνονται επεξεργάσιμα με τις τυπικές ιδιότητες σχήματος.
+Για επαναλαμβανόμενα λογότυπα, υδατογραφήματα ή διακοσμητικά γραφικά, χρησιμοποιήστε έναν πόρο εικόνας και επαναχρησιμοποιήστε τον. Εάν το γραφικό ανήκει στο σχεδιασμό της παρουσίασης και όχι στο περιεχόμενο των διαφανειών, τοποθετήστε το σε ένα master ή διάταξη ώστε να κληρονομείται από τις κατάλληλες διαφάνειες.
 
-**Πώς μπορώ να ορίσω μια εικόνα ως φόντο για πολλαπλές διαφάνειες ταυτόχρονα;**
+### **Διατήρηση φορητότητας των πόρων SVG**
 
-[Ορίστε την εικόνα ως φόντο](/slides/el/nodejs-java/presentation-background/) στον master slide ή στην αντίστοιχη διάταξη—όλες οι διαφάνειες που χρησιμοποιούν αυτόν τον master/διάταξη θα κληρονομήσουν το φόντο.
+Ένα αυτόνομο SVG είναι πιο εύκολο να μεταφερθεί και να αποδοθεί σταθερά από ένα SVG που εξαρτάται από εξωτερικά αρχεία ή δικτυακούς πόρους. Όταν είναι δυνατόν, ενσωματώστε τους απαιτούμενους πόρους πριν εισάγετε το SVG. Μετατρέψτε το SVG σε σχήματα μόνο όταν τα μεμονωμένα διανυσματικά στοιχεία χρειάζεται να επεξεργαστούν.
 
-**Πώς μπορώ να αποτρέψω την παρουσίαση να «φουσκώνει» σε μέγεθος λόγω πολλών εικόνων;**
+### **Χρήση του σύγχρονου διασυστηματικού API εικόνας**
 
-Ξαναχρησιμοποιήστε έναν μόνο πόρο εικόνας αντί για διπλότυπα, επιλέξτε λογικές αναλύσεις, εφαρμόστε συμπίεση κατά την αποθήκευση και διατηρήστε τα επαναλαμβανόμενα γραφικά στον master όπου είναι κατάλληλο.
+Για νέο κώδικα Node.js μέσω Java, χρησιμοποιήστε τα API Aspose.Slides [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/) και [Images](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/images/) αντί του παλαιού δημόσιου API που βασίζεται σε `java.awt.image.BufferedImage`. Δείτε το [Σύγχρονο API](/slides/el/nodejs-java/modern-api/) για οδηγίες μετάβασης.
+
+Τα WMF και EMF απαιτούν ειδική προσοχή. Όταν αυτές οι μορφές περνούν μέσω ενός [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/), το [ImageCollection.addImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imagecollection/) μετατρέπει το μετααρχείο σε μια raster αναπαράσταση PNG πριν την εισαγωγή. Εάν η διατήρηση των δεδομένων του μετααρχείου είναι σημαντική, χρησιμοποιήστε μια υπερφόρτωση του [ImageCollection.addImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imagecollection/) βασισμένη σε ροή (stream). Η δημιουργία περιεχομένου EMF από λογιστικά φύλλα ή άλλα προϊόντα είναι ξεχωριστή διαδικασία ενσωμάτωσης και δεν καλύπτεται από αυτό το άρθρο.
+
+## **Συχνές Ερωτήσεις**
+
+**Ποια είναι η διαφορά μεταξύ της συλλογής εικόνων και ενός καρέ εικόνας;**
+
+Η συλλογή εικόνων αποθηκεύει επαναχρησιμοποιήσιμους πόρους εικόνας. Ένα καρέ εικόνας είναι ένα σχήμα διαφάνειας που εμφανίζει έναν από αυτούς τους πόρους και παρέχει μορφοποίηση ειδική για εικόνες όπως περικοπή και εφέ.
+
+**Ποιος είναι ο καλύτερος τρόπος για να αντικαταστήσετε το ίδιο λογότυπο παντού;**
+
+Εάν το λογότυπο είναι ήδη κοινόχρηστο ως ένας πόρος εικόνας, αντικαταστήστε τον πόρο με το [PPImage.replaceImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/). Για branding σε όλη την παρουσίαση, η τοποθέτηση του λογότυπου σε ένα master ή διάταξη μπορεί επίσης να μειώσει το διπλό περιεχόμενο διαφανειών.
+
+**Γιατί μια συνδεδεμένη εικόνα εξαφανίζεται σε άλλο υπολογιστή;**
+
+Μια συνδεδεμένη εικόνα εξαρτάται από το εξωτερικό της αρχείο ή URL. Εάν αυτός ο πόρος δεν είναι προσβάσιμος από τον άλλο υπολογιστή, η συνδεδεμένη εικόνα μπορεί να μην είναι διαθέσιμη. Ενσωματώστε την εικόνα όταν η παρουσίαση πρέπει να είναι αυτόνομη.
+
+**Μπορεί ένα εισαχθέν SVG να επεξεργαστεί ως σχήματα PowerPoint;**
+
+Ναι. Μετατρέψτε το SVG με το [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/); η προκύπτουσα ομάδα περιέχει επεξεργάσιμα σχήματα διαφάνειας αντί για μία εικόνα SVG.
+
+**Πώς μπορώ να διατηρήσω τις παρουσιάσεις με πολλές εικόνες μικρότερες;**
+
+Επαναχρησιμοποιήστε κοινόχρηστους πόρους εικόνας, αποφύγετε υπερβολικά μεγάλες raster πηγές, συμπιέστε κατάλληλες raster εικόνες όταν είναι σκόπιμο, διατηρήστε επαναλαμβανόμενο branding σε master ή διατάξεις και χρησιμοποιήστε συνδεδεμένες εικόνες μόνο όταν μια εξωτερική εξάρτηση είναι αποδεκτή.

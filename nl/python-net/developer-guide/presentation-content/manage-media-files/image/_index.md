@@ -1,260 +1,256 @@
 ---
-title: Optimaliseer afbeeldingbeheer in PowerPoint met Python
+title: Optimaliseer afbeeldingsbeheer in presentaties met Python
 linktitle: Afbeeldingen beheren
 type: docs
 weight: 10
 url: /nl/python-net/image/
 keywords:
 - afbeelding toevoegen
-- foto toevoegen
-- bitmap toevoegen
+- afbeelding invoegen
 - afbeelding vervangen
-- foto vervangen
-- van internet
+- afbeeldingencollectie
+- afbeeldingkader
+- gekoppelde afbeelding
 - achtergrond
 - PNG toevoegen
 - JPG toevoegen
 - SVG toevoegen
-- EMF toevoegen
-- WMF toevoegen
-- TIFF toevoegen
+- SVG naar vormen
+- externe SVG-bronnen
 - PowerPoint
+- OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Stroomlijn het beheer van afbeeldingen in PowerPoint en OpenDocument met Aspose.Slides voor Python via .NET, optimaliseer de prestaties en automatiseer je workflow."
+description: "Leer hoe u raster- en SVG-afbeeldingen kunt toevoegen, hergebruiken, koppelen, vervangen en beheren in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via .NET."
 ---
-## **Inleiding**
+## **Introductie**
 
-Afbeeldingen maken presentaties boeiender en interessanter. In Microsoft PowerPoint kun je afbeeldingen vanuit een bestand, internet of andere bronnen op dia's invoegen. Op dezelfde manier kun je met Aspose.Slides afbeeldingen aan dia's toevoegen op verschillende manieren.
+Aspose.Slides for Python via .NET biedt verschillende manieren om met afbeeldingen te werken, en elke manier dient een ander doel. Je kunt een afbeelding opslaan in een presentatie, weergeven in een afbeeldingkader, gebruiken als slide‑achtergrond, koppelen aan een externe afbeelding, een gedeelde afbeeldingsbron vervangen, of SVG‑inhoud omzetten naar bewerkbare vormen.
 
-{{% alert  title="Tip" color="primary" %}}
+Dit artikel richt zich op afbeeldingsbronnen en hoe ze in een presentatie worden gebruikt. Voor bijsnijden, transparantie, effecten, uitrekken en andere opmaak die op een individueel afbeeldingkader wordt toegepast, zie [Afbeeldingskader](/slides/nl/python-net/picture-frame/).
 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die je snel presentaties uit afbeeldingen laten maken.
+## **Begrijp het afbeeldingsmodel**
 
-{{% /alert %}}
+De volgende API‑concepten zijn nauw verwant, maar niet inwisselbaar:
 
-{{% alert title="Info" color="info" %}}
+- De [presentation image collection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/) slaat afbeeldingsbronnen op die door de presentatie worden gebruikt. Gebruik [ImageCollection.add_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/add_image/) om afbeeldingsdata toe te voegen en een [IPPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/) bron te verkrijgen.
+- Een [picture frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ipictureframe/) is een vorm die een afbeelding weergeeft op een slide, lay‑out of master. Gebruik [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_picture_frame/) om een afbeeldingsbron op een slide te plaatsen.
+- Een slide‑achtergrond gebruikt een afbeelding als onderdeel van de slide‑vulling in plaats van als een vorm. Het gedraagt zich dus niet als een afbeeldingkader.
+- [IPPImage.replace_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/replace_image/) vervangt een afbeeldingsbron. Als verschillende presentatie‑elementen die bron gebruiken, maken ze allemaal gebruik van de vervanging.
+- Het converteren van een SVG naar vormen maakt bewerkbare slide‑vormen. Na de conversie wordt de inhoud niet langer beheerd als één afbeeldingbron.
 
-Wil je een afbeelding als frame‑object toevoegen—bijvoorbeeld wanneer je standaard opmaakopties zoals schalen of effecten wilt gebruiken—zie dan [Afbeeldingsframes toevoegen aan presentaties met Python](https://docs.aspose.com/slides/nl/python-net/picture-frame/).
+Een typisch werkproces is daarom: afbeeldingsdata toevoegen aan de afbeeldingverzameling, een [IPPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/) ontvangen, en die bron vervolgens gebruiken in één of meer afbeeldingkaders of vullingen.
 
-{{% /alert %}}
+## **Voeg een ingesloten afbeelding toe**
 
-{{% alert title="Opmerking" color="warning" %}}
+Om een lokale afbeelding in te voegen, lees je het bestand, voeg je de data toe aan de afbeeldingverzameling en maak je een afbeeldingkader dat de geretourneerde `IPPImage` gebruikt.
 
-Je kunt afbeelding‑ en presentatie‑I/O‑bewerkingen gebruiken om afbeeldingen tussen formaten te converteren. Zie deze pagina’s: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/python-net/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/python-net/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/python-net/conversion/jpg-to-png/); converteer [PNG naar JPG](https://products.aspose.com/slides/nl/python-net/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/python-net/conversion/png-to-svg/); en converteer [SVG naar PNG](https://products.aspose.com/slides/nl/python-net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides ondersteunt het werken met afbeeldingen in gangbare formaten zoals JPEG, PNG, BMP, GIF en anderen.
-
-## **Afbeeldingen die lokaal zijn opgeslagen aan dia's toevoegen**
-
-Je kunt één of meer afbeeldingen van je computer aan een dia in een presentatie toevoegen. Het volgende Python‑voorbeeld laat zien hoe je een afbeelding aan een dia toevoegt:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Afbeeldingen van het internet aan dia's toevoegen**
-
-Als de afbeelding die je aan een dia wilt toevoegen niet op je computer beschikbaar is, kun je deze direct van het internet invoegen.
-
-Het volgende Python‑voorbeeld laat zien hoe je een afbeelding vanaf een URL aan een dia toevoegt:
-
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Afbeeldingen aan dia‑masters toevoegen**
+De afbeelding die op deze manier wordt toegevoegd, is ingesloten in de presentatie, zodat het uiteindelijke bestand niet afhankelijk is van de beschikbaarheid van het oorspronkelijke afbeeldingsbestand.
 
-Een dia‑master is de bovenste dia die informatie—thema, lay‑out, enzovoort—voor alle onderliggende dia's opslaat en beheert. Wanneer je een afbeelding aan een dia‑master toevoegt, verschijnt die afbeelding op elke dia die die master gebruikt.
+### **Voeg een afbeelding van het web toe**
 
-Het volgende Python‑voorbeeld laat zien hoe je een afbeelding aan een dia‑master toevoegt:
+Wanneer een afbeelding beschikbaar is via HTTP of HTTPS, download je de bytes, voeg je ze toe aan de presentatie‑afbeeldingsverzameling en gebruik je de geretourneerde afbeeldingsbron op dezelfde manier als een lokale afbeelding.
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In langdurige applicaties hergebruik je een HTTP‑client of verbindingen‑pool waar passend, in plaats van voor elke aanvraag een nieuwe verbinding te maken. Valideer ook externe URL’s, responsgroottes en content‑types wanneer de bron niet vertrouwd is.
+
+## **Afbeeldingen hergebruiken over meerdere dia's**
+
+Als dezelfde afbeelding meer dan eens nodig is, voeg je deze één keer toe aan de presentatie en hergebruik je de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/) bij het maken van extra afbeeldingkaders. Dit voorkomt herhaaldelijk laden van dezelfde bron‑data en maakt de relatie tussen de gedeelde afbeeldingsbron en het gebruik expliciet.
+
+Voor graphics die automatisch op veel dia’s moeten verschijnen, zoals een bedrijfslogo, overweeg je om het afbeeldingkader op een [slide master](/slides/nl/python-net/slide-master/) of lay‑out te plaatsen in plaats van een gelijkwaardige vorm aan elke dia toe te voegen.
+
+## **Een afbeelding gebruiken als slide‑achtergrond**
+
+Een achtergrondafbeelding wordt toegewezen aan de slide‑vulling; hij wordt niet toegevoegd als een afbeeldingkader‑vorm. Dit is nuttig wanneer de afbeelding de volledige slide‑achtergrond moet bedekken en niet als een normaal slide‑object moet worden gemanipuleerd.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Voor extra achtergrondopties, inclusief master‑ en lay‑out‑achtergronden, zie [Presentation Background](/slides/nl/python-net/presentation-background/).
+
+## **Ingesloten afbeeldingen en gekoppelde afbeeldingen**
+
+Ingesloten en gekoppelde afbeeldingen hebben verschillende draagbaarheids‑ en bestandsgrootte‑afwegingen:
+
+- **Ingesloten afbeelding:** de afbeeldingsdata wordt opgeslagen binnen de presentatie. De presentatie is zelf‑voorzienend, maar de bestandsgrootte omvat de afbeeldingsdata.
+- **Gekoppelde afbeelding:** de presentatie slaat een pad of URL op naar een externe afbeelding. Dit kan de presentatiegrootte verkleinen, maar de externe bron moet toegankelijk blijven wanneer de presentatie wordt geopend of gerenderd.
+
+Een gekoppelde afbeelding kan worden aangemaakt door het externe pad of de URL toe te wijzen via [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/nl/python-net/aspose.slides/islidespicture/link_path_long/) in plaats van de afbeeldingsdata in te sluiten.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Een afbeelding als dia‑achtergrond instellen**
+Gebruik gekoppelde afbeeldingen alleen wanneer de implementatie‑omgeving betrouwbaar toegang heeft tot de externe bron. Voor presentaties die offline moeten werken of tussen systemen moeten worden verplaatst, zijn ingesloten afbeeldingen meestal veiliger.
 
-Je wilt misschien een afbeelding als achtergrond voor een specifieke dia of meerdere dia’s gebruiken. Voor details, zie [Een afbeelding als achtergrond voor een dia instellen](https://docs.aspose.com/slides/nl/python-net/presentation-background/#set-image-as-background-for-slide).
+## **Werken met SVG-afbeeldingen**
 
-## **SVG aan presentaties toevoegen**
+SVG is een vectorformaat, waardoor het handig kan zijn voor iconen, diagrammen en andere graphics die moeten schalen zonder hetzelfde detailverlies als raster‑afbeeldingen. Aspose.Slides ondersteunt SVG zowel als een afbeeldingsbron als bron voor bewerkbare slide‑vormen.
 
-Je kunt elke afbeelding in een presentatie invoegen met de [add_picture_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_picture_frame/)‑methode van de [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑klasse.
+### **Voeg een SVG toe als afbeelding**
 
-Om een afbeeldingsobject van een SVG te maken, volg je deze stappen:
+Maak een [SvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/), voeg deze toe aan de afbeeldingverzameling en plaats de resulterende afbeeldingsbron in een afbeeldingkader.
 
-1. Maak een [SvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/) en voeg deze toe aan de afbeeldingscollectie van de presentatie.  
-2. Maak een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/)‑object van de [SvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/).  
-3. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/)‑object met behulp van de [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/).
-
-Het volgende Python‑voorbeeld laat zien hoe je een SVG‑afbeelding aan een presentatie toevoegt met deze stappen:
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # Lees de inhoud van een SVG‑bestand.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Maak een SvgImage‑object aan.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Maak een PPImage‑object aan.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Maak een nieuw PictureFrame‑object aan.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Sla de presentatie op in PPTX‑formaat.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **SVG converteren naar een reeks vormen**
+### **Converteer SVG naar bewerkbare vormen**
 
-Aspose.Slides zet SVG‑bestanden om in een reeks vormen, op een manier die vergelijkbaar is met de SVG‑verwerking in PowerPoint.
+Aspose.Slides kan een SVG omzetten in een groep bewerkbare slide‑vormen, vergelijkbaar met de overeenkomstige PowerPoint‑opdracht.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Deze functionaliteit wordt geleverd door een overload van de [add_group_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_group_shape/)‑methode in de [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑klasse die een [SvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/) als eerste argument accepteert.  
+Gebruik de [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_group_shape/) overload die een [ISvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/isvgimage/) accepteert om de conversie uit te voeren.
 
-De voorbeeldcode hieronder laat zien hoe je een SVG‑bestand converteert naar een reeks vormen.
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # Lees de inhoud van het SVG‑bestand.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # Maak een SvgImage‑object aan.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Haal de dia‑grootte op.
-        slide_size = presentation.slide_size.size
-
-        # Converteer de SVG‑afbeelding naar een groep vormen en schaal deze naar de dia‑grootte.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # Sla de presentatie op in PPTX‑formaat.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Afbeeldingen als EMF in dia's toevoegen**
-
-Aspose.Slides voor Python laat je Enhanced Metafile (EMF)‑afbeeldingen in presentaties invoegen.
-
-Het volgende Python‑voorbeeld demonstreert dit:
-
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Afbeeldingen in de afbeeldingscollectie vervangen**
+Gebruik SVG‑naar‑vormen conversie wanneer individuele vector‑elementen moeten worden bewerkt als PowerPoint‑vormen. Als de SVG alleen moet worden weergegeven, is het eenvoudiger om deze als afbeelding te behouden en vermijd je het creëren van vele afzonderlijke vormen.
 
-Aspose.Slides maakt het mogelijk om afbeeldingen die in de afbeeldingscollectie van een presentatie zijn opgeslagen te vervangen, inclusief die welke door dia‑vormen worden gebruikt. Deze sectie beschrijft diverse methoden om afbeeldingen in de collectie bij te werken. De API biedt eenvoudige methoden om een afbeelding te vervangen door ruwe byte‑data, een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/)‑instantie, of een andere afbeelding die al in de collectie aanwezig is.
+## **Een bestaande afbeeldingsbron vervangen**
 
-Volg deze stappen:
+Gebruik [IPPImage.replace_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/replace_image/) wanneer je een bestaande afbeeldingsbron wilt vervangen. Dit is vooral nuttig voor gedeelde graphics zoals logo’s.
 
-1. Laad de presentatie die de afbeeldingen bevat via de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.  
-2. Laad een nieuwe afbeelding vanuit een bestand in een byte‑array.  
-3. Vervang de doelafbeelding door de nieuwe afbeelding met behulp van de byte‑array.  
-4. Of laad de afbeelding in een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/)‑object en vervang de doelafbeelding hiermee.  
-5. Of vervang de doelafbeelding door een afbeelding die al in de afbeeldingscollectie van de presentatie bestaat.  
-6. Sla de aangepaste presentatie op als een PPTX‑bestand.
+```python
+import aspose.slides as slides
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-# Maak een instantie van de Presentation‑klasse die een presentatiedossier vertegenwoordigt.
-with slides.Presentation("sample.pptx") as presentation:
-
-    # De eerste manier.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # De tweede manier.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # De derde manier.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # Sla de presentatie op naar een bestand.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
+Als meerdere afbeeldingkaders, achtergronden, masters of lay‑outs dezelfde afbeeldingsbron gebruiken, werkt het vervangen van die bron al deze gebruiken bij. Als slechts één afbeeldingkader moet veranderen, wijs je een andere afbeelding toe aan dat kader in plaats van de gedeelde bron te vervangen.
 
-Met de gratis [Text to GIF](https://products.aspose.app/slides/nl/text-to-gif) converter van Aspose kun je eenvoudig tekst animeren en GIF‑bestanden van tekst maken.
+`replace_image` biedt daarnaast overloads die een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) of een andere [IPPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/) accepteren.
 
-{{% /alert %}}
+## **Praktische richtlijnen voor afbeeldingsbeheer**
+
+### **Presentatiegrootte beheersen**
+
+Grote raster‑afbeeldingen kunnen een presentatie onnodig groot maken. Gebruik bron‑afbeeldingen met afmetingen die passen bij de beoogde weergavegrootte, hergebruik gedeelde afbeeldingsbronnen waar mogelijk, en vermijd het insluiten van meerdere kopieën van dezelfde afbeelding met volledige resolutie.
+
+Voor raster‑afbeeldingen die al in afbeeldingkaders zijn geplaatst, kan [PictureFillFormat.compress_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/compress_image/) de afbeeldingsdata reduceren volgens de geselecteerde resolutie en bijsnijdinstellingen. Dit is bewerking op afbeeldingkader‑niveau, niet beheer van de afbeeldingverzameling, dus zie [Afbeeldingskader](/slides/nl/python-net/picture-frame/) voor gerelateerde opmaakacties.
+
+### **Kies tussen ingesloten en gekoppelde inhoud**
+
+Insluiten maakt de presentatie draagbaar omdat alle benodigde afbeeldingsdata met het bestand meereizen. Koppelen kan de bestandsgrootte verkleinen, maar introduceert een externe afhankelijkheid. Gebruik koppelingen alleen wanneer die afhankelijkheid acceptabel en stabiel is.
+
+### **Gedeelde branding hergebruiken**
+
+Voor terugkerende logo’s, watermerken of decoratieve graphics, gebruik één afbeeldingsbron en hergebruik deze. Als de graphic deel uitmaakt van het presentatiedesign in plaats van van de slide‑inhoud, plaats deze dan op een master of lay‑out zodat deze wordt overgenomen door de relevante dia’s.
+
+### **SVG‑bronnen draagbaar houden**
+
+Een zelf‑containende SVG is makkelijker te verplaatsen en consistent te renderen dan een SVG die afhankelijk is van externe bestanden of netwerkbronnen. Werk waar mogelijk benodigde resources in voordat je de SVG importeert. Converteer SVG naar vormen alleen wanneer de individuele vector‑elementen bewerkt moeten worden.
+
+### **Gebruik de moderne cross‑platform afbeeldings‑API**
+
+Voor nieuwe Python via .NET‑code, gebruik de Aspose.Slides [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) en [Images](https://reference.aspose.com/slides/nl/python-net/aspose.slides/images/) API’s in plaats van de verouderde `aspose.pydrawing.Image` of `aspose.pydrawing.Bitmap` API’s. Zie [Modern API](/slides/nl/python-net/modern-api/) voor migratierichtlijnen.
+
+WMF‑ en EMF‑formaten vereisen speciale aandacht. Wanneer deze formaten via een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) worden doorgegeven, converteert [ImageCollection.add_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/add_image/) de metafile naar een raster‑PNG‑representatie vóór invoeging. Als het behouden van de metafile‑data belangrijk is, gebruik dan een stream‑gebaseerde [ImageCollection.add_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/add_image/) overload. Het genereren van EMF‑content vanuit spreadsheets of andere producten is een apart integratiewerkproces en valt buiten de reikwijdte van dit artikel.
 
 ## **FAQ**
 
-**Blijft de oorspronkelijke resolutie van de afbeelding behouden na het invoegen?**
+**Wat is het verschil tussen de afbeeldingverzameling en een afbeeldingkader?**
 
-Ja. De bron‑pixels worden bewaard, maar het uiteindelijke uiterlijk hangt af van hoe het [picture](/slides/nl/python-net/picture-frame/) op de dia wordt geschaald en van eventuele compressie bij het opslaan.
+De afbeeldingverzameling slaat herbruikbare afbeeldingsbronnen op. Een afbeeldingkader is een slide‑vorm die een van die bronnen weergeeft en picture‑specifieke opmaak biedt zoals bijsnijden en effecten.
 
-**Wat is de beste manier om hetzelfde logo in tientallen dia’s tegelijk te vervangen?**
+**Wat is de beste manier om hetzelfde logo overal te vervangen?**
 
-Plaats het logo op de master‑dia of een lay‑out en vervang het in de afbeeldingscollectie van de presentatie—updates worden doorgevoerd naar alle elementen die die bron gebruiken.
+Als het logo al gedeeld wordt als één afbeeldingsbron, vervang die bron met [IPPImage.replace_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ippimage/replace_image/). Voor branding door de hele presentatie kan het plaatsen van het logo op een master of lay‑out ook dubbele slide‑inhoud verminderen.
 
-**Kan een ingevoegde SVG worden omgezet in bewerkbare vormen?**
+**Waarom verdwijnt een gekoppelde afbeelding op een andere computer?**
 
-Ja. Je kunt een SVG omzetten naar een groep vormen; vervolgens kunnen individuele onderdelen bewerkt worden met de gebruikelijke vorm‑eigenschappen.
+Een gekoppelde afbeelding hangt af van een extern bestand of URL. Als die bron niet bereikbaar is vanaf de andere computer, is de gekoppelde afbeelding niet beschikbaar. Sluit de afbeelding in wanneer de presentatie zelf‑voorzienend moet zijn.
 
-**Hoe kan ik één afbeelding als achtergrond voor meerdere dia’s tegelijk instellen?**
+**Kan een ingevoegde SVG worden bewerkt als PowerPoint‑vormen?**
 
-[Stel de afbeelding in als achtergrond](/slides/nl/python-net/presentation-background/) op de master‑dia of de betreffende lay‑out—alle dia’s die die master/lay‑out gebruiken, krijgen de achtergrond overgenomen.
+Ja. Converteer de SVG met [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_group_shape/); de resulterende groep bevat bewerkbare slide‑vormen in plaats van één SVG‑afbeelding.
 
-**Hoe voorkom ik dat de presentatie “opschroeft” door veel afbeeldingen?**
+**Hoe kan ik presentaties met veel afbeeldingen kleiner houden?**
 
-Herbruik één afbeelding‑resource in plaats van duplicaten, kies redelijke resoluties, pas compressie toe bij het opslaan, en houd herhaalde grafieken bij voorkeur op de master.
+Hergebruik gedeelde afbeeldingsbronnen, vermijd onnodig grote raster‑bronnen, comprimeer geschikte raster‑afbeeldingen wanneer gepast, plaats herhaalde branding op masters of lay‑outs, en gebruik gekoppelde afbeeldingen alleen wanneer een externe afhankelijkheid acceptabel is.

@@ -1,5 +1,5 @@
 ---
-title: Tối ưu hóa quản lý hình ảnh trong bài thuyết trình bằng C++
+title: Tối ưu hóa quản lý hình ảnh trong bản trình chiếu bằng C++
 linktitle: Quản lý hình ảnh
 type: docs
 weight: 10
@@ -7,284 +7,343 @@ url: /vi/cpp/image/
 keywords:
 - thêm hình ảnh
 - thêm ảnh
-- thêm bitmap
 - thay thế hình ảnh
-- thay thế ảnh
-- từ web
+- bộ sưu tập hình ảnh
+- khung ảnh
+- hình ảnh liên kết
 - nền
 - thêm PNG
 - thêm JPG
 - thêm SVG
-- thêm EMF
-- thêm WMF
-- thêm TIFF
+- SVG thành hình dạng
+- tài nguyên SVG bên ngoài
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
-- EMF
-- SVG
+- bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Tinh giản quy trình quản lý hình ảnh trong PowerPoint và OpenDocument với Aspose.Slides cho C++, tối ưu hiệu năng và tự động hóa quy trình làm việc của bạn."
+description: "Tìm hiểu cách thêm, tái sử dụng, liên kết, thay thế và quản lý hình ảnh raster và SVG trong các bản trình chiếu PowerPoint và OpenDocument với Aspose.Slides cho C++."
 ---
 ## **Giới thiệu**
 
-Hình ảnh làm cho bài thuyết trình trở nên thu hút và thú vị hơn. Trong Microsoft PowerPoint, bạn có thể chèn hình ảnh từ tệp, internet hoặc các vị trí khác vào các slide. Tương tự, Aspose.Slides cho phép bạn thêm hình ảnh vào các slide trong bài thuyết trình của mình thông qua các cách thức khác nhau. 
+Aspose.Slides cho C++ cung cấp nhiều cách để làm việc với hình ảnh, mỗi cách phục vụ một mục đích khác nhau. Bạn có thể lưu trữ một hình ảnh trong bản trình chiếu, hiển thị nó trong khung ảnh, sử dụng nó làm nền slide, liên kết tới hình ảnh bên ngoài, thay thế tài nguyên hình ảnh được chia sẻ, hoặc chuyển nội dung SVG thành các hình dạng có thể chỉnh sửa.
 
-{{% alert title="Tip" color="primary" %}} 
+Bài viết này tập trung vào tài nguyên hình ảnh và cách chúng được sử dụng trong toàn bộ bản trình chiếu. Đối với việc cắt, trong suốt, hiệu ứng, kéo dài và các định dạng khác được áp dụng cho một khung ảnh riêng lẻ, xem [Khung ảnh](/slides/vi/cpp/picture-frame/).
 
-Aspose cung cấp các công cụ chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—cho phép người dùng tạo bài thuyết trình nhanh chóng từ hình ảnh. 
+## **Hiểu mô hình hình ảnh**
 
-{{% /alert %}} 
+Các khái niệm API sau liên quan chặt chẽ nhưng không thể thay thế cho nhau:
 
-{{% alert title="Info" color="info" %}}
+- [bộ sưu tập hình ảnh của bản trình chiếu](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimagecollection/) lưu trữ các tài nguyên hình ảnh được sử dụng trong bản trình chiếu. Sử dụng [IImageCollection::AddImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimagecollection/addimage/) để thêm dữ liệu hình ảnh và nhận một tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/).
+- Một [khung ảnh](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipictureframe/) là một hình dạng hiển thị hình ảnh trên slide, bố cục hoặc master. Sử dụng [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addpictureframe/) để đặt tài nguyên hình ảnh lên một slide.
+- Nền slide sử dụng hình ảnh như một phần của việc lấp đầy slide thay vì là một hình dạng. Do đó, nó không hoạt động giống như một khung ảnh.
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/replaceimage/) thay thế một tài nguyên hình ảnh. Nếu nhiều thành phần trong bản trình chiếu sử dụng tài nguyên đó, chúng tất cả sẽ sử dụng bản thay thế.
+- Chuyển đổi SVG thành các hình dạng tạo ra các hình dạng slide có thể chỉnh sửa. Sau khi chuyển đổi, nội dung không còn được quản lý như một tài nguyên hình ảnh duy nhất.
 
-Nếu bạn muốn thêm hình ảnh dưới dạng đối tượng khung—đặc biệt nếu bạn dự định sử dụng các tùy chọn định dạng chuẩn để thay đổi kích thước, thêm hiệu ứng, v.v.—hãy xem [Picture Frame](/slides/vi/cpp/picture-frame/). 
+Do đó, quy trình làm việc điển hình là: thêm dữ liệu hình ảnh vào bộ sưu tập hình ảnh, nhận một [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/), và sau đó sử dụng tài nguyên đó trong một hoặc nhiều khung ảnh hoặc phần lấp đầy.
 
-{{% /alert %}} 
+## **Thêm hình ảnh nhúng**
 
-{{% alert title="Note" color="warning" %}}
+Để chèn một hình ảnh cục bộ, đọc tệp, thêm dữ liệu của nó vào bộ sưu tập hình ảnh và tạo một khung ảnh sử dụng tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/) trả về.
 
-Bạn có thể thao tác các hoạt động nhập/xuất liên quan đến hình ảnh và bài thuyết trình PowerPoint để chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Xem các trang sau: chuyển đổi [hình ảnh sang JPG] (https://products.aspose.com/slides/vi/cpp/conversion/image-to-jpg/); chuyển đổi [JPG sang hình ảnh] (https://products.aspose.com/slides/vi/cpp/conversion/jpg-to-image/); chuyển đổi [JPG sang PNG] (https://products.aspose.com/slides/vi/cpp/conversion/jpg-to-png/), chuyển đổi [PNG sang JPG] (https://products.aspose.com/slides/vi/cpp/conversion/png-to-jpg/); chuyển đổi [PNG sang SVG] (https://products.aspose.com/slides/vi/cpp/conversion/png-to-svg/), chuyển đổi [SVG sang PNG] (https://products.aspose.com/slides/vi/cpp/conversion/svg-to-png/).
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-{{% /alert %}}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-Aspose.Slides hỗ trợ các thao tác với hình ảnh trong các định dạng phổ biến này: JPEG, PNG, GIF và các định dạng khác. 
+auto presentation = MakeObject<Presentation>();
 
-## **Thêm Hình Ảnh Được Lưu Trên Máy Vào Slide**
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-Bạn có thể thêm một hoặc nhiều hình ảnh trên máy tính vào một slide trong bài thuyết trình. Đoạn mã mẫu bằng C++ dưới đây cho bạn cách thêm hình ảnh vào một slide:
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Thêm Hình Ảnh Từ Web Vào Slide**
+Hình ảnh được thêm theo cách này được nhúng trong bản trình chiếu, vì vậy tệp kết quả không phụ thuộc vào việc tệp hình ảnh gốc còn tồn tại hay không.
 
-Nếu hình ảnh bạn muốn thêm vào slide không có trên máy tính, bạn có thể thêm hình ảnh trực tiếp từ web. 
+### **Thêm hình ảnh từ web**
 
-Đoạn mã mẫu dưới đây cho bạn cách thêm hình ảnh từ web vào một slide bằng C++:
+Khi một hình ảnh có sẵn qua HTTP hoặc HTTPS, tải xuống các byte của nó, thêm chúng vào bộ sưu tập hình ảnh của bản trình chiếu, và sử dụng tài nguyên hình ảnh trả về tương tự như hình ảnh cục bộ.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
 
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Net;
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Thêm Hình Ảnh Vào Slide Master**
+Xác thực URL từ xa, kích thước phản hồi và kiểu nội dung khi nguồn không đáng tin cậy. Trong các ứng dụng đã sử dụng một client HTTP khác, bạn có thể tải hình ảnh bằng client đó và truyền các byte hoặc luồng kết quả cho [IImageCollection::AddImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimagecollection/addimage/).
 
-Slide master là slide cấp cao nhất lưu trữ và kiểm soát thông tin (chủ đề, bố cục, v.v.) cho tất cả các slide dưới nó. Vì vậy, khi bạn thêm một hình ảnh vào slide master, hình ảnh đó sẽ xuất hiện trên mọi slide thuộc slide master đó. 
+## **Tái sử dụng hình ảnh trên nhiều slide**
 
-Đoạn mã mẫu C++ dưới đây cho bạn cách thêm hình ảnh vào slide master:
+Nếu cùng một hình ảnh cần được sử dụng hơn một lần, thêm nó vào bản trình chiếu một lần và tái sử dụng [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/) khi tạo các khung ảnh bổ sung. Điều này tránh việc tải lại cùng dữ liệu nguồn và làm cho mối quan hệ giữa tài nguyên hình ảnh chia sẻ và các lần sử dụng của nó trở nên rõ ràng.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
+Đối với các đồ họa cần xuất hiện tự động trên nhiều slide, chẳng hạn như logo công ty, hãy cân nhắc đặt khung ảnh trên một [slide master](/slides/vi/cpp/slide-master/) hoặc bố cục thay vì thêm một hình dạng tương đương vào từng slide.
 
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+## **Sử dụng hình ảnh làm nền slide**
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+Một hình ảnh nền được gán cho phần lấp đầy slide; nó không được thêm như một hình dạng khung ảnh. Điều này hữu ích khi hình ảnh cần bao phủ nền slide và không nên được thao tác như một đối tượng slide thông thường.
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Thêm Hình Ảnh Là Nền Cho Slide**
+Đối với các tùy chọn nền bổ sung, bao gồm nền master và bố cục, xem [Nền bản trình chiếu](/slides/vi/cpp/presentation-background/).
 
-Bạn có thể muốn sử dụng một bức ảnh làm nền cho một slide cụ thể hoặc nhiều slide. Trong trường hợp đó, bạn cần xem *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/vi/cpp/presentation-background/#setting-images-as-background-for-slides)*.
+## **Hình ảnh nhúng và hình ảnh liên kết**
 
-## **Thêm SVG Vào Bài Thuyết Trình**
-Bạn có thể thêm hoặc chèn bất kỳ hình ảnh nào vào một bài thuyết trình bằng cách sử dụng phương thức [AddPictureFrame](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) thuộc giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_shape_collection).
+Embedded and linked images have different portability and file-size tradeoffs:
 
-Để tạo một đối tượng hình ảnh dựa trên SVG, bạn có thể làm như sau:
+- **Hình ảnh nhúng:** dữ liệu hình ảnh được lưu trong bản trình chiếu. Bản trình chiếu độc lập, nhưng kích thước tệp bao gồm dữ liệu hình ảnh.
+- **Hình ảnh liên kết:** bản trình chiếu lưu trữ đường dẫn hoặc URL tới một hình ảnh bên ngoài. Điều này có thể giảm kích thước bản trình chiếu, nhưng tài nguyên bên ngoài phải vẫn có thể truy cập khi bản trình chiếu được mở hoặc hiển thị.
 
-1. Tạo đối tượng SvgImage để chèn vào ImageShapeCollection
-2. Tạo đối tượng PPImage từ ISvgImage
-3. Tạo đối tượng PictureFrame bằng giao diện IPPImage
+Một hình ảnh liên kết có thể được tạo bằng cách gán đường dẫn hoặc URL bên ngoài thông qua [ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islidespicture/set_linkpathlong/) thay vì nhúng dữ liệu hình ảnh.
 
-Đoạn mã mẫu dưới đây cho bạn cách thực hiện các bước trên để thêm hình ảnh SVG vào một bài thuyết trình:
-``` cpp 
-// Đường dẫn tới thư mục tài liệu
-System::String dataDir = u"D:\\Documents\\";
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-// Tên tệp SVG nguồn
-System::String svgFileName = dataDir + u"sample.svg";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Tên tệp bài thuyết trình đầu ra
-System::String outPptxPath = dataDir + u"presentation.pptx";
+auto presentation = MakeObject<Presentation>();
 
-// Tạo bài thuyết trình mới
-auto p = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
 
-// Đọc nội dung tệp SVG
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// Tạo đối tượng SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Tạo đối tượng PPImage
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// Tạo một PictureFrame mới 
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// Lưu bài thuyết trình ở định dạng PPTX
-p->Save(outPptxPath, SaveFormat::Pptx);
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Chuyển Đổi SVG Thành Một Tập Hình Dạng**
-Quá trình chuyển đổi SVG thành một tập hợp các hình dạng của Aspose.Slides tương tự như chức năng trong PowerPoint được dùng để làm việc với hình ảnh SVG:
+Chỉ sử dụng hình ảnh liên kết khi môi trường triển khai có thể truy cập đáng tin cậy tài nguyên bên ngoài. Đối với các bản trình chiếu cần hoạt động offline hoặc di chuyển giữa các hệ thống, hình ảnh nhúng thường an toàn hơn.
+
+## **Làm việc với hình ảnh SVG**
+
+SVG là định dạng vector, vì vậy nó hữu ích cho biểu tượng, sơ đồ và các đồ họa khác cần phóng to mà không mất chi tiết như hình ảnh raster. Aspose.Slides hỗ trợ SVG cả như một tài nguyên hình ảnh và như nguồn cho các hình dạng slide có thể chỉnh sửa.
+
+### **Thêm SVG làm hình ảnh**
+
+Tạo một [SvgImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/svgimage/), thêm nó vào bộ sưu tập hình ảnh, và đặt tài nguyên hình ảnh kết quả vào một khung ảnh.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
+
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Tệp SVG với tài nguyên bên ngoài**
+
+Một SVG có thể tham chiếu đến các hình ảnh, stylesheet hoặc phông chữ bên ngoài. Đối với những trường hợp này, [SvgImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/svgimage/) cung cấp các constructor nhận một [IExternalResourceResolver](https://reference.aspose.com/slides/vi/cpp/aspose.slides.import/iexternalresourceresolver/) và một URI cơ sở. Bộ giải quyết có thể ánh xạ một URI tương đối sang một URI tuyệt đối được phép và trả về một luồng cho tài nguyên được yêu cầu.
+
+Bộ giải quyết làm cho các tài nguyên bên ngoài có sẵn trong khi Aspose.Slides xử lý SVG, nhưng nó không ghi lại SVG thành một tài liệu tự chứa. Nếu SVG cần duy trì tính di động, hãy nhúng các tài nguyên cần thiết vào chính SVG, ví dụ bằng cách sử dụng URI `data:` cho các hình ảnh liên kết.
+
+Khi các tệp SVG xuất phát từ nguồn không đáng tin cậy, hạn chế các scheme, vị trí tệp và máy chủ mà bộ giải quyết có thể truy cập. Bộ giải quyết mạng cũng nên áp dụng thời gian chờ, giới hạn kích thước phản hồi và xác thực nội dung.
+
+### **Chuyển đổi SVG thành các hình dạng có thể chỉnh sửa**
+
+Aspose.Slides có thể chuyển đổi một SVG thành một nhóm các hình dạng slide có thể chỉnh sửa, tương tự như lệnh PowerPoint tương ứng.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Chức năng này được cung cấp bởi một trong các overload của phương thức [AddGroupShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) của giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_shape_collection), phương thức này nhận một đối tượng [ISvgImage](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_svg_image) làm đối số đầu tiên.
-
-Đoạn mã mẫu dưới đây cho bạn cách sử dụng phương pháp đã mô tả để chuyển đổi tệp SVG thành một tập hợp các hình dạng:
-
-``` cpp 
-// Đường dẫn tới thư mục tài liệu
-System::String dataDir = u"D:\\Documents\\";
-
-// Tên tệp SVG nguồn
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Tên tệp bài thuyết trình đầu ra
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Tạo bài thuyết trình mới
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
-
-// Đọc nội dung tệp SVG
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// Tạo đối tượng SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Lấy kích thước slide
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
-
-// Chuyển đổi ảnh SVG thành nhóm hình dạng, co giãn theo kích thước slide
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// Lưu bài thuyết trình ở định dạng PPTX
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Thêm Hình Ảnh Dưới Dạng EMF Vào Slide**
-Aspose.Slides cho C++ cho phép bạn tạo hình ảnh EMF từ các trang tính Excel và thêm các hình ảnh dưới dạng EMF vào slide bằng Aspose.Cells. 
-
-Đoạn mã mẫu dưới đây cho bạn cách thực hiện tác vụ đã mô tả:
-
-``` cpp 
-System::String dataDir = u"D:\\Documents\\";
-
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
-
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
-
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-pres->get_Slides()->RemoveAt(0);
-
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
-{
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
-
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
-```
-
-## **Thay Thế Hình Ảnh Trong Bộ Sưu Tập Hình Ảnh**
-
-Aspose.Slides cho phép bạn thay thế các hình ảnh được lưu trong bộ sưu tập hình ảnh của một bài thuyết trình (bao gồm những hình được sử dụng bởi các hình dạng slide). Phần này trình bày một số cách tiếp cận để cập nhật hình ảnh trong bộ sưu tập. API cung cấp các phương thức đơn giản để thay thế một hình ảnh bằng dữ liệu byte thô, một thể hiện [IImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/) , hoặc một hình ảnh khác đã tồn tại trong bộ sưu tập.
-
-Thực hiện các bước sau:
-
-1. Tải tệp bài thuyết trình chứa hình ảnh bằng lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-1. Tải một hình ảnh mới từ tệp vào một mảng byte.
-1. Thay thế hình ảnh mục tiêu bằng hình ảnh mới sử dụng mảng byte.
-1. Trong cách tiếp cận thứ hai, tải hình ảnh vào một đối tượng [IImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/) , rồi thay thế hình ảnh mục tiêu bằng đối tượng đó.
-1. Trong cách thứ ba, thay thế hình ảnh mục tiêu bằng một hình ảnh đã tồn tại trong bộ sưu tập hình ảnh của bài thuyết trình.
-1. Ghi lại bài thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
+Sử dụng overload [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addgroupshape/) nhận một [ISvgImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/isvgimage/) để thực hiện chuyển đổi.
 
 ```cpp
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Cách đầu tiên.
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Cách thứ hai.
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
 
-// Cách thứ ba.
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+auto presentation = MakeObject<Presentation>();
 
-// Lưu bài thuyết trình vào tệp.
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
+
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sử dụng chuyển đổi SVG‑to‑shapes khi các phần tử vector riêng lẻ cần được chỉnh sửa dưới dạng các hình dạng PowerPoint. Nếu SVG chỉ cần hiển thị, giữ nó dưới dạng hình ảnh sẽ đơn giản hơn và tránh tạo ra nhiều hình dạng riêng biệt.
+
+## **Thay thế một tài nguyên hình ảnh hiện có**
+
+Sử dụng [IPPImage::ReplaceImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/replaceimage/) khi bạn muốn thay thế một tài nguyên hình ảnh hiện có. Điều này đặc biệt hữu ích cho các đồ họa chia sẻ như logo.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
+Nếu nhiều khung ảnh, nền, master hoặc bố cục sử dụng cùng một tài nguyên hình ảnh, việc thay thế tài nguyên đó sẽ cập nhật tất cả các lần sử dụng. Nếu chỉ một khung ảnh cần thay đổi, hãy gán một hình ảnh khác cho khung đó thay vì thay thế tài nguyên chia sẻ.
 
-Sử dụng công cụ chuyển đổi Aspose FREE [Text to GIF](https://products.aspose.app/slides/vi/text-to-gif) , bạn có thể dễ dàng hoạt hình hóa văn bản, tạo GIF từ văn bản, v.v. 
+[IPPImage::ReplaceImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/replaceimage/) cũng cung cấp các overload nhận một [IImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/) hoặc một [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/) khác.
 
-{{% /alert %}}
+## **Hướng dẫn quản lý hình ảnh thực tiễn**
 
-## **Câu Hỏi Thường Gặp**
+### **Kiểm soát kích thước bản trình chiếu**
 
-**Độ phân giải hình ảnh gốc có giữ nguyên sau khi chèn không?**
+Các hình ảnh raster lớn có thể làm cho bản trình chiếu trở nên quá lớn. Sử dụng hình ảnh nguồn có kích thước phù hợp với kích thước hiển thị dự định, tái sử dụng các tài nguyên hình ảnh chia sẻ khi có thể, và tránh nhúng các bản sao lặp lại của cùng một đồ họa độ phân giải đầy đủ.
 
-Có. Các pixel nguồn được giữ lại, nhưng diện mạo cuối cùng phụ thuộc vào cách [picture](/slides/vi/cpp/picture-frame/) được phóng to/thu nhỏ trên slide và bất kỳ mức nén nào được áp dụng khi lưu.
+Đối với các hình ảnh raster đã được đặt trong các khung ảnh, [IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipicturefillformat/compressimage/) có thể giảm dữ liệu hình ảnh dựa trên độ phân giải và cài đặt cắt đã chọn. Đây là xử lý khung ảnh chứ không phải quản lý bộ sưu tập hình ảnh, vì vậy xem [Khung ảnh](/slides/vi/cpp/picture-frame/) để biết các thao tác định dạng liên quan.
 
-**Cách tốt nhất để thay thế cùng một logo trên hàng chục slide cùng một lúc là gì?**
+### **Chọn giữa nội dung nhúng và liên kết**
 
-Đặt logo trên slide master hoặc một layout và thay thế nó trong bộ sưu tập hình ảnh của bài thuyết trình — các cập nhật sẽ lan tới tất cả các yếu tố sử dụng tài nguyên đó.
+Việc nhúng làm cho bản trình chiếu di động vì tất cả dữ liệu hình ảnh cần thiết đi kèm với tệp. Việc liên kết có thể giảm kích thước tệp, nhưng nó tạo ra một phụ thuộc bên ngoài. Chỉ sử dụng liên kết khi phụ thuộc đó chấp nhận được và ổn định.
 
-**Hình SVG chèn vào có thể chuyển đổi thành các hình dạng có thể chỉnh sửa không?**
+### **Tái sử dụng thương hiệu chia sẻ**
 
-Có. Bạn có thể chuyển đổi SVG thành một nhóm các hình dạng, sau đó mỗi phần riêng lẻ có thể chỉnh sửa bằng các thuộc tính hình dạng tiêu chuẩn.
+Đối với các logo, watermark hoặc đồ họa trang trí lặp lại, sử dụng một tài nguyên hình ảnh và tái sử dụng nó. Nếu đồ họa thuộc về thiết kế bản trình chiếu hơn là nội dung slide, đặt nó trên một master hoặc layout để nó được kế thừa bởi các slide phù hợp.
 
-**Làm sao để đặt một bức ảnh làm nền cho nhiều slide cùng một lúc?**
+### **Giữ tài nguyên SVG di động**
 
-[Gán hình ảnh làm nền](/slides/vi/cpp/presentation-background/) trên slide master hoặc layout liên quan — bất kỳ slide nào sử dụng master/layout đó sẽ kế thừa nền.
+Một SVG tự chứa dễ dàng di chuyển và hiển thị nhất quán hơn so với SVG phụ thuộc vào các tệp hoặc tài nguyên mạng bên ngoài. Khi có thể, nhúng các tài nguyên cần thiết trước khi nhập SVG. Chuyển đổi SVG thành các hình dạng chỉ khi các phần tử vector riêng lẻ cần được chỉnh sửa.
 
-**Làm sao để ngăn bài thuyết trình "phình to" kích thước do có quá nhiều hình ảnh?**
+### **Sử dụng API hình ảnh Aspose.Slides**
 
-Tái sử dụng một tài nguyên hình ảnh duy nhất thay vì nhân bản, chọn độ phân giải hợp lý, áp dụng nén khi lưu, và giữ các đồ họa lặp lại trên master khi cần.
+Đối với quy trình làm việc hình ảnh C++, sử dụng các API Aspose.Slides [IImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimage/) và [Images](https://reference.aspose.com/slides/vi/cpp/aspose.slides/images/) khi bạn cần một đối tượng hình ảnh, và sử dụng [IImageCollection::AddImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimagecollection/addimage/) khi bạn cần đăng ký dữ liệu hình ảnh dưới dạng tài nguyên bản trình chiếu. Các overload của bộ sưu tập cũng hỗ trợ mảng byte và luồng, hữu ích khi dữ liệu hình ảnh đến từ tệp, client mạng, cơ sở dữ liệu hoặc các thư viện khác.
+
+Tạo nội dung EMF từ bảng tính hoặc sản phẩm khác là một quy trình tích hợp riêng và nằm ngoài phạm vi của bài viết này. Nếu một tệp WMF hoặc EMF hiện có chỉ cần được chèn vào bản trình chiếu, truyền dữ liệu của nó tới một overload thích hợp của [IImageCollection::AddImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iimagecollection/addimage/) mà không thêm phụ thuộc sản phẩm thứ hai vào quy trình quản lý hình ảnh.
+
+## **Câu hỏi thường gặp**
+
+**Sự khác nhau giữa bộ sưu tập hình ảnh và khung ảnh là gì?**
+
+Bộ sưu tập hình ảnh lưu trữ các tài nguyên hình ảnh có thể tái sử dụng. Khung ảnh là một hình dạng slide hiển thị một trong các tài nguyên đó và cung cấp các định dạng đặc thù cho hình ảnh như cắt và hiệu ứng.
+
+**Cách tốt nhất để thay thế cùng một logo ở mọi nơi là gì?**
+
+Nếu logo đã được chia sẻ dưới dạng một tài nguyên hình ảnh, hãy thay thế tài nguyên đó bằng [IPPImage::ReplaceImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/replaceimage/). Đối với thương hiệu toàn bộ bản trình chiếu, đặt logo trên một master hoặc layout cũng có thể giảm nội dung slide trùng lặp.
+
+**Tại sao hình ảnh liên kết lại biến mất trên máy tính khác?**
+
+Một hình ảnh liên kết phụ thuộc vào tệp hoặc URL bên ngoài của nó. Nếu tài nguyên đó không thể truy cập được từ máy tính khác, hình ảnh liên kết có thể không khả dụng. Nhúng hình ảnh khi bản trình chiếu phải tự chứa.
+
+**Có thể chỉnh sửa SVG chèn vào dưới dạng các hình dạng PowerPoint không?**
+
+Có. Chuyển đổi SVG bằng [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addgroupshape/); nhóm kết quả chứa các hình dạng slide có thể chỉnh sửa thay vì một hình SVG duy nhất.
+
+**Làm sao để giữ các bản trình chiếu có nhiều hình ảnh nhỏ hơn?**
+
+Tái sử dụng các tài nguyên hình ảnh chia sẻ, tránh các nguồn raster quá lớn không cần thiết, nén các hình raster phù hợp khi cần, giữ các thương hiệu lặp lại trên master hoặc layout, và chỉ sử dụng hình ảnh liên kết khi phụ thuộc bên ngoài được chấp nhận.

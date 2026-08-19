@@ -7,321 +7,328 @@ url: /zh-hant/php-java/image/
 keywords:
 - 新增影像
 - 新增圖片
-- 新增點陣圖
 - 取代影像
-- 取代圖片
-- 來自網路
+- 影像集合
+- 圖片框
+- 連結影像
 - 背景
 - 新增 PNG
 - 新增 JPG
 - 新增 SVG
-- 新增 EMF
-- 新增 WMF
-- 新增 TIFF
+- SVG 轉形狀
+- 外部 SVG 資源
 - PowerPoint
 - OpenDocument
 - 簡報
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 簡化 PowerPoint 與 OpenDocument 中的影像管理，提升效能並自動化工作流程。"
+description: "了解如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 與 OpenDocument 簡報中新增、重複使用、連結、取代與管理點陣圖與 SVG 影像。"
 ---
 ## **簡介**
 
-圖片讓簡報更具吸引力且更有趣味。在 Microsoft PowerPoint 中，您可以從檔案、網路或其他位置將圖片插入投影片。類似地，Aspose.Slides 允許您透過不同方式將圖片加入簡報的投影片中。
+Aspose.Slides for PHP via Java 提供多種操作影像的方式，每種方式都有不同的用途。您可以將影像儲存在簡報中、在圖片框中顯示、作為投影片背景、連結至外部影像、取代共享的影像資源，或將 SVG 內容轉換為可編輯的形狀。  
+本文聚焦於影像資源以及它們在整個簡報中的使用方式。若需了解針對單一圖片框的裁切、透明度、效果、拉伸以及其他格式設定，請參閱[Picture Frame](/slides/zh-hant/php-java/picture-frame/)。
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose 提供免費的轉換工具——[JPEG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 和 [PNG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)——讓使用者可以快速從圖片建立簡報。 
-{{% /alert %}} 
+## **了解影像模型**
 
-{{% alert title="Info" color="info" %}}
-如果您想將圖片作為框架物件加入——尤其是計畫使用標準格式選項來調整大小、添加效果等——請參閱 [Picture Frame](/slides/zh-hant/php-java/picture-frame/)。 
-{{% /alert %}} 
+以下 API 概念密切相關，但不可互換：
 
-{{% alert title="Note" color="warning" %}}
-您可以操作涉及圖片和 PowerPoint 簡報的輸入/輸出，以將圖片從一種格式轉換為另一種格式。請參閱以下頁面：轉換 [image to JPG](https://products.aspose.com/slides/zh-hant/php-java/conversion/image-to-jpg/)；轉換 [JPG to image](https://products.aspose.com/slides/zh-hant/php-java/conversion/jpg-to-image/)；轉換 [JPG to PNG](https://products.aspose.com/slides/zh-hant/php-java/conversion/jpg-to-png/)、轉換 [PNG to JPG](https://products.aspose.com/slides/zh-hant/php-java/conversion/png-to-jpg/)；轉換 [PNG to SVG](https://products.aspose.com/slides/zh-hant/php-java/conversion/png-to-svg/)、轉換 [SVG to PNG](https://products.aspose.com/slides/zh-hant/php-java/conversion/svg-to-png/)。 
-{{% /alert %}}
+- [presentation image collection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/imagecollection/) 用於儲存簡報使用的影像資源。使用 [ImageCollection::addImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/imagecollection/) 可加入影像資料並取得 [PPImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/) 資源。
+- [picture frame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/pictureframe/) 是在投影片、版面配置或母片上顯示影像的形狀。使用 [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addpictureframe/) 可將影像資源放置於投影片上。
+- 投影片背景會將影像作為投影片填充的一部分，而非作為形狀。因此其行為不同於圖片框。
+- [PPImage::replaceImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/) 會取代影像資源。如果多個簡報元素使用該資源，皆會改用新的影像。
+- 將 SVG 轉換為形狀會產生可編輯的投影片形狀。轉換後，內容不再以單一圖片資源管理。
 
-Aspose.Slides 支援以下常見格式的圖片操作：JPEG、PNG、GIF 等等。
+因此，一般的工作流程為：將影像資料加入影像集合，取得一個 [PPImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/)，然後在一個或多個圖片框或填充中使用該資源。
 
-## **將本機儲存的圖片加入投影片**
+## **新增嵌入式影像**
 
-您可以將電腦上的一張或多張圖片加入簡報的投影片。本範例程式碼示範如何將圖片加入投影片：
+要插入本機影像，請載入檔案、將其加入影像集合，然後建立使用返回的 `PPImage` 的圖片框。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **將 Web 圖片加入投影片**
+以此方式加入的影像會嵌入於簡報中，因此最終檔案不依賴原始影像檔案仍然可用。
 
-如果您想加入的圖片在電腦上找不到，您可以直接從網路將圖片加入投影片。
+### **從網路新增影像**
 
-以下範例程式碼示範如何從 Web 加入圖片至投影片：
+當影像可透過 HTTP 或 HTTPS 取得時，下載其位元組，將其加入簡報的影像集合，並以與本機影像相同的方式使用返回的影像資源。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
+
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
+        }
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-## **將圖片加入投影片母版**
-
-投影片母版是最高階的投影片，負責儲存與控制其下所有投影片的資訊（佈景主題、版面配置等）。因此，當您將圖片加入投影片母版時，該圖片會出現在該母版所屬的所有投影片上。
-
-以下 Java 範例程式碼示範如何將圖片加入投影片母版：
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **將圖片設定為投影片背景**
-
-您可能會想將圖片設定為單一投影片或多張投影片的背景。此情況下，請參考[設定圖片為投影片背景](/slides/zh-hant/php-java/presentation-background/#set-an-image-as-a-slide-background)。
-
-## **將 SVG 新增至簡報**
-您可以使用屬於 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/) 類別的 [addPictureFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addpictureframe/) 方法，將任何圖片插入簡報。
-
-若要根據 SVG 圖片建立圖像物件，可依照下列步驟：
-
-1. 建立 SvgImage 物件以插入至 ImageShapeCollection  
-2. 從 ISvgImage 建立 PPImage 物件  
-3. 使用 PPImage 類別建立 PictureFrame 物件  
-
-以下範例程式碼示範如何實作上述步驟，將 SVG 圖片加入簡報：
-
-```php
-  # 實例化表示 PPTX 檔案的 Presentation 類別
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    $presentation->dispose();
 }
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
 ```
 
-## **將 SVG 轉換為形狀集合**
-Aspose.Slides 將 SVG 轉換為形狀集合的功能與 PowerPoint 處理 SVG 圖片的功能相似：
+在長時間執行的應用程式中，應重複使用適合該應用程式的 HTTP 客戶端或連線管理策略，而非不斷建立不必要的網路基礎設施。當來源未受信任時，亦請驗證遠端 URL、回應大小與內容類型。
+
+## **跨投影片重複使用影像**
+
+如果同一影像需要多次使用，請僅在簡報中加入一次，然後在建立其他圖片框時重複使用返回的 [PPImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/)。 這可避免重複載入相同來源資料，並明確呈現共享影像資源與其使用之間的關係。  
+對於應自動出現在多張投影片上的圖形（例如公司商標），請考慮將圖片框放置於[slide master](/slides/zh-hant/php-java/slide-master/)或版面配置上，而非在每張投影片中加入等同的形狀。
+
+## **將影像作為投影片背景使用**
+
+背景影像會指派給投影片填色；它不會以圖片框形狀加入。當圖片需要覆蓋整個投影片背景且不應被當作一般投影片物件操作時，此方式很有用。
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+欲了解更多背景選項（包括母片與版面配置背景），請參閱[Presentation Background](/slides/zh-hant/php-java/presentation-background/)。
+
+## **嵌入式影像與連結影像**
+
+嵌入式影像與連結影像有不同的可移植性與檔案大小取捨：
+
+- **Embedded image:** 影像資料儲存在簡報內部。簡報為自包含，但檔案大小會包括影像資料。
+- **Linked image:** 簡報會儲存指向外部影像的路徑或 URL。這可減少簡報大小，但在開啟或渲染簡報時，外部資源必須仍可存取。
+
+可透過 [Picture::setLinkPathLong](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/picture/) 指定外部路徑或 URL，建立連結圖片，而非嵌入影像資料。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+僅在部署環境能可靠存取外部資源時才使用連結影像。對於必須離線使用或在系統間移動的簡報，嵌入式影像通常較安全。
+
+## **處理 SVG 影像**
+
+SVG 為向量格式，適合用於圖示、圖表及其他需在放大縮小時仍保有細節的圖形。Aspose.Slides 同時支援將 SVG 作為影像資源與可編輯投影片形狀的來源。
+
+### **將 SVG 作為影像新增**
+
+建立一個 [SvgImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/svgimage/)，將其加入影像集合，並在圖片框中放置產生的影像資源。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **含外部資源的 SVG 檔案**
+
+SVG 可引用外部影像、樣式表或字型。對於此類情況，[SvgImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/svgimage/) 提供接受 [ExternalResourceResolver](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/externalresourceresolver/) 與基礎 URI 的建構子。解析器可將相對 URI 映射為允許的絕對 URI，並回傳請求資源的串流。  
+解析器在 Aspose.Slides 處理 SVG 時提供外部資源，但不會將 SVG 重新寫成自包含文件。若 SVG 必須保持可移植，請將所需資源嵌入 SVG 本身，例如使用 `data:` URI 來連結影像。  
+當 SVG 檔案來源未受信任時，應限制解析器可存取的協定、檔案位置與主機。網路解析器亦應套用逾時、回應大小限制與內容驗證。
+
+### **將 SVG 轉換為可編輯形狀**
+
+Aspose.Slides 能將 SVG 轉換為一組可編輯的投影片形狀，類似於 PowerPoint 相對的指令。
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-此功能由 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/) 類別的其中一個 [addGroupShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addgroupshape/) 方法重載提供，該方法的第一個參數接受 [SvgImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/svgimage/) 物件。
-
-以下範例程式碼示範如何使用上述方法將 SVG 檔案轉換為形狀集合：
+使用接受 [SvgImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/svgimage/) 的 [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addgroupshape/) 多載以執行轉換。
 
 ```php
-  # 建立新的簡報
-  $presentation = new Presentation();
-  try {
-    # 讀取 SVG 檔案內容
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-    # 建立 SvgImage 物件
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
-    # 取得投影片尺寸
+
     $slideSize = $presentation->getSlideSize()->getSize();
-    # 將 SVG 圖片轉換為形狀群組，並縮放至投影片尺寸
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # 以 PPTX 格式儲存簡報
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **將圖片以 EMF 形式加入投影片**
-Aspose.Slides for PHP via Java 允許您從 Excel 工作表產生 EMF 圖片，並搭配 Aspose.Cells 將 EMF 圖片加入投影片。
+當個別向量元素需要以 PowerPoint 形狀編輯時，請使用 SVG 轉形狀的轉換。若 SVG 僅需顯示，保留為影像較為簡單，且可避免產生大量獨立形狀。
 
-以下範例程式碼示範如何完成上述工作：
+## **取代現有影像資源**
 
-```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # 將工作簿儲存至串流
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
-        }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
-    }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **取代影像集合中的圖片**
-
-Aspose.Slides 讓您能取代簡報影像集合中儲存的圖片（包含投影片形狀使用的圖片）。本節說明多種更新集合中圖片的方法。API 提供簡單的方法，讓您使用原始位元組資料、[IImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/iimage/) 實例，或是已存在於集合中的其他圖片來取代圖片。
-
-請依照下列步驟操作：
-
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別載入包含圖片的簡報檔案。  
-2. 從檔案載入新圖片至位元組陣列。  
-3. 使用位元組陣列將目標圖片取代為新圖片。  
-4. 在第二種方法中，將圖片載入至 [IImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/iimage/) 物件，並以該物件取代目標圖片。  
-5. 在第三種方法中，使用已存在於簡報影像集合中的圖片取代目標圖片。  
-6. 將修改後的簡報寫出為 PPTX 檔案。  
+當您想取代現有影像資源時，請使用 [PPImage::replaceImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/)。此功能對於共享圖形（如商標）特別有用。
 
 ```php
-// 實例化表示簡報檔案的 Presentation 類別。
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // 第一種方式。
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+    $imageToReplace = $presentation->getImages()->get_Item(0);
 
-    // 第二種方式。
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // 第三種方式。
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // 將簡報儲存至檔案。
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-使用 Aspose FREE [Text to GIF](https://products.aspose.app/slides/zh-hant/text-to-gif) 轉換器，您可以輕鬆為文字製作動畫、從文字建立 GIF 等。 
-{{% /alert %}}
+若多個圖片框、背景、母片或版面配置使用相同的影像資源，取代該資源會同時更新所有使用處。若僅需變更單一圖片框，請為該框指派不同的影像，而非取代共享資源。  
+`PPImage::replaceImage` 亦提供接受位元組陣列或其他 [PPImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/) 的多載。
+
+## **實務影像管理指引**
+
+### **控制簡報大小**
+
+大型點陣圖可能導致簡報體積過大。請使用尺寸符合預期顯示大小的來源影像，盡可能重複使用共享影像資源，並避免嵌入相同全解析度圖形的多重副本。  
+對於已置於圖片框中的點陣圖，[PictureFillFormat::compressImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/picturefillformat/) 可依選取的解析度與裁切設定減少影像資料。此屬於圖片框處理而非影像集合管理，相關格式化操作請參閱[Picture Frame](/slides/zh-hant/php-java/picture-frame/)。
+
+### **選擇嵌入或連結內容**
+
+嵌入可使簡報具備可移植性，因為所有必要的影像資料皆隨檔案一起傳遞。連結能減少檔案大小，但會產生外部相依性。僅在該相依性可接受且穩定時才使用連結。
+
+### **重複使用共享品牌資源**
+
+對於重複使用的商標、水印或裝飾圖形，請使用單一影像資源並重複使用。若圖形屬於簡報設計而非投影片內容，請將其放置於母片或版面配置，以便被相應投影片繼承。
+
+### **保持 SVG 資源的可移植性**
+
+自包含的 SVG 較易於搬移且能一致呈現，較之依賴外部檔案或網路資源的 SVG。若可能，請在匯入 SVG 前嵌入所需資源。僅在需要編輯個別向量元素時才將 SVG 轉換為形狀。
+
+### **使用現代跨平台影像 API**
+
+對於新的 PHP via Java 程式碼，請使用 Aspose.Slides 的 [IImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/iimage/) 與 [Images](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/images/) API，取代以 `java.awt.image.BufferedImage` 為基礎的舊版公開 API。請參閱[Modern API](/slides/zh-hant/php-java/modern-api/) 取得遷移指南。  
+WMF 與 EMF 需要特別考量。當這些格式透過 [IImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/iimage/) 傳遞時，[ImageCollection::addImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/imagecollection/) 會在插入前將中繼檔轉換為點陣 PNG 表示。若必須保留中繼檔資料，請改用基於串流的 [ImageCollection::addImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/imagecollection/) 多載。從試算表或其他產品產生 EMF 內容屬於獨立的整合工作流程，超出本文範圍。
 
 ## **常見問題**
 
-**插入後原始圖片解析度是否保持不變？**  
-是的。來源像素會被保留，但最終顯示效果取決於 [picture](/slides/zh-hant/php-java/picture-frame/) 在投影片上的縮放方式以及儲存時是否套用了壓縮。
+**影像集合與圖片框之間有何差異？**
 
-**如何一次取代多張投影片中的相同標誌？**  
-將標誌放置於母版投影片或版面配置上，並在影像集合中取代它——所有使用該資源的元素都會同步更新。
+影像集合用於儲存可重複使用的影像資源。圖片框則是投影片形狀，用於顯示其中一項資源，並提供如裁切與效果等圖片專屬的格式設定。
 
-**插入的 SVG 能否轉換為可編輯的形狀？**  
-可以。您可以將 SVG 轉換為形狀群組，之後各個部件即可透過標準形狀屬性進行編輯。
+**如何在所有位置取代相同的商標？**
 
-**如何一次為多張投影片設定相同的背景圖片？**  
-在母版投影片或相關版面配置上[指派圖片為背景](/slides/zh-hant/php-java/presentation-background/)，使用該母版/版面的所有投影片都會繼承該背景。
+若商標已以單一影像資源共享，請使用 [PPImage::replaceImage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ppimage/) 取代該資源。若要在整份簡報中統一品牌，將商標放置於母片或版面配置亦可減少重複的投影片內容。
 
-**如何避免因大量圖片導致簡報檔案體積暴增？**  
-重複使用單一圖片資源、選擇適當解析度、儲存時套用壓縮，並在適當情況下將重複圖形放在母版上。
+**為何連結影像在其他電腦上會消失？**
+
+連結圖片依賴其外部檔案或 URL。若其他電腦無法存取該資源，連結影像就會不可用。當簡報必須自包含時，請嵌入影像。
+
+**插入的 SVG 能否編輯成 PowerPoint 形狀？**
+
+可以。使用 [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/addgroupshape/) 轉換 SVG；產生的群組包含可編輯的投影片形狀，而非單一 SVG 圖片。
+
+**如何讓包含大量影像的簡報保持較小體積？**
+
+重複使用共享影像資源、避免使用過大點陣來源、在適當情況壓縮符合條件的點陣圖、將重複的品牌資源放在母片或版面配置上，且僅在外部相依性可接受時才使用連結影像。

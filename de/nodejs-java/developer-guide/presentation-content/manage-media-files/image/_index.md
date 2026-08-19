@@ -7,297 +7,333 @@ url: /de/nodejs-java/image/
 keywords:
 - Bild hinzufügen
 - Bild hinzufügen
-- Bitmap hinzufügen
 - Bild ersetzen
-- Bild ersetzen
-- aus dem Web
+- Bildsammlung
+- Bildrahmen
+- Verknüpftes Bild
 - Hintergrund
 - PNG hinzufügen
 - JPG hinzufügen
 - SVG hinzufügen
-- EMF hinzufügen
-- WMF hinzufügen
-- TIFF hinzufügen
+- SVG zu Formen
+- externe SVG-Ressourcen
 - PowerPoint
 - OpenDocument
 - Präsentation
-- EMF
-- SVG
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Vereinfachen Sie die Bildverwaltung in PowerPoint und OpenDocument mit JavaScript und Aspose.Slides für Node.js, optimieren Sie die Leistung und automatisieren Sie Ihren Arbeitsablauf."
+description: "Erfahren Sie, wie Sie Raster- und SVG-Bilder in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Node.js über Java hinzufügen, wiederverwenden, verknüpfen, ersetzen und verwalten."
 ---
+## **Einleitung**
 
-## **Bilder in Folien in Präsentationen**
+Aspose.Slides für Node.js über Java bietet mehrere Möglichkeiten, mit Bildern zu arbeiten, und jede dient einem anderen Zweck. Sie können ein Bild in einer Präsentation speichern, es in einem Bildrahmen anzeigen, als Folienhintergrund verwenden, zu einem externen Bild verlinken, eine gemeinsam genutzte Bildressource ersetzen oder SVG‑Inhalte in editierbare Formen konvertieren.
 
-Bilder machen Präsentationen ansprechender und interessanter. In Microsoft PowerPoint können Sie Bilder aus einer Datei, dem Internet oder anderen Orten auf Folien einfügen. Ebenso ermöglicht Aspose.Slides das Hinzufügen von Bildern zu Folien in Ihren Präsentationen durch verschiedene Verfahren. 
+Dieser Artikel konzentriert sich auf Bildressourcen und deren Verwendung in einer Präsentation. Für Zuschneiden, Transparenz, Effekte, Dehnung und weitere Formatierungen, die auf einen einzelnen Bildrahmen angewendet werden, siehe [Picture Frame](/slides/de/nodejs-java/picture-frame/).
 
-{{% alert  title="Tip" color="primary" %}} 
+## **Verstehen des Bildmodells**
 
-Aspose stellt kostenlose Konverter bereit—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—die es ermöglichen, Präsentationen schnell aus Bildern zu erstellen. 
+Die folgenden API‑Konzepte stehen in engem Zusammenhang, sind jedoch nicht austauschbar:
 
-{{% /alert %}} 
+- Die [presentation image collection](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/imagecollection/) speichert Bildressourcen, die von der Präsentation verwendet werden. Verwenden Sie [ImageCollection.addImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/imagecollection/), um Bilddaten hinzuzufügen und eine [PPImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/)-Ressource zu erhalten.
+- Ein [picture frame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pictureframe/) ist eine Form, die ein Bild auf einer Folie, einem Layout oder einer Master‑Folie anzeigt. Verwenden Sie [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/), um eine Bildressource auf einer Folie zu platzieren.
+- Ein Folienhintergrund verwendet ein Bild als Teil der Folienfüllung und nicht als Form. Er verhält sich daher nicht wie ein Bildrahmen.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/) ersetzt eine Bildressource. Wenn mehrere Präsentationselemente diese Ressource verwenden, nutzen sie alle die Ersetzung.
+- Die Konvertierung eines SVG in Formen erzeugt editierbare Folienformen. Nach der Konvertierung wird der Inhalt nicht mehr als eine Bildressource verwaltet.
 
-{{% alert title="Info" color="info" %}}
+Ein typischer Arbeitsablauf ist daher: Bilddaten zur ImageCollection hinzufügen, ein [PPImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/) erhalten und diese Ressource dann in einem oder mehreren Bildrahmen oder Füllungen verwenden.
 
-Wenn Sie ein Bild als Rahmenobjekt hinzufügen möchten – insbesondere wenn Sie beabsichtigen, Standardformatierungsoptionen zu verwenden, um seine Größe zu ändern, Effekte hinzuzufügen usw. – siehe [Picture Frame](https://docs.aspose.com/slides/nodejs-java/picture-frame/).
+## **Ein eingebettetes Bild hinzufügen**
 
-{{% /alert %}} 
+Um ein lokales Bild einzufügen, laden Sie die Datei, fügen sie der ImageCollection hinzu und erstellen einen Bildrahmen, der die zurückgegebene [PPImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/)-Ressource verwendet.
 
-Aspose.Slides unterstützt Operationen mit Bildern in diesen gängigen Formaten: JPEG, PNG, GIF und weitere. 
-
-## **Hinzufügen von lokal gespeicherten Bildern zu Folien**
-
-Sie können ein oder mehrere Bilder von Ihrem Computer zu einer Folie in einer Präsentation hinzufügen. Dieser Beispielcode in JavaScript zeigt, wie man ein Bild zu einer Folie hinzufügt:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
     }
-    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Das auf diese Weise hinzugefügte Bild ist in die Präsentation eingebettet, sodass die resultierende Datei nicht von der Verfügbarkeit der ursprünglichen Bilddatei abhängt.
 
-## **Hinzufügen von Bildern aus einem Stream zu Folien**
+### **Ein Bild aus dem Web hinzufügen**
 
-Wenn das Bild, das Sie zu einer Folie hinzufügen möchten, nicht auf Ihrem Computer verfügbar ist, können Sie das Bild direkt aus dem Web hinzufügen. 
+Wenn ein Bild über HTTP oder HTTPS verfügbar ist, laden Sie dessen Bytes herunter, fügen sie der Präsentations‑ImageCollection hinzu und verwenden die zurückgegebene Bildressource auf dieselbe Weise wie ein lokales Bild.
 
-Dieser Beispielcode zeigt, wie man ein Bild aus dem Web zu einer Folie in JavaScript hinzufügt:
 ```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Greift auf die erste Folie zu
-    var sld = pres.getSlides().get_Item(0);
-    // Lädt eine Excel-Datei in einen Stream
-    var readStream = fs.readFileSync("book1.xlsx");
-    var byteArray = Array.from(readStream);
-    // Erstellt ein Datenobjekt zum Einbetten
-    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // Fügt ein Ole-Object-Frame-Shape hinzu
-    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
-    // Schreibt die PPTX-Datei auf die Festplatte
-    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
+const java = require("java");
+
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
+            }
+
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
+    });
 }
-```
 
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
 
-## **Hinzufügen von Bildern zu Folienmaster**
-
-Ein Folienmaster ist die übergeordnete Folie, die Informationen (Design, Layout usw.) über alle darunterliegenden Folien speichert und steuert. Wenn Sie also ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf jeder Folie, die diesem Folienmaster zugeordnet ist. 
-
-Dieser JavaScript-Beispielcode zeigt, wie man ein Bild zu einem Folienmaster hinzufügt:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var masterSlide = slide.getLayoutSlide().getMasterSlide();
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    const presentation = new aspose.slides.Presentation();
     try {
-        picture = pres.getImages().addImage(image);
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
-        if (image != null) {
-            image.dispose();
+        presentation.dispose();
+    }
+})();
+```
+
+In langfristig laufenden Anwendungen sollten Sie einen HTTP‑Client oder eine Verbindungs‑Management‑Strategie wiederverwenden, die für die Anwendung geeignet ist, anstatt wiederholt unnötige Netzwerk‑Infrastruktur zu erzeugen. Validieren Sie außerdem Remote‑URLs, Antwortgrößen und Inhaltstypen, wenn die Quelle nicht vertrauenswürdig ist.
+
+## **Bilder über Folien hinweg wiederverwenden**
+
+Wenn dasselbe Bild mehr als einmal benötigt wird, fügen Sie es einmal zur Präsentation hinzu und verwenden das zurückgegebene [PPImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/) erneut, wenn weitere Bildrahmen erstellt werden. So vermeiden Sie das wiederholte Laden derselben Quelldaten und machen die Beziehung zwischen der gemeinsam genutzten Bildressource und ihren Verwendungen explizit.
+
+Für Grafiken, die automatisch auf vielen Folien erscheinen sollen, z. B. ein Firmenlogo, sollten Sie den Bildrahmen auf einem [slide master](/slides/de/nodejs-java/slide-master/) oder Layout platzieren, anstatt in jeder Folie eine entsprechende Form hinzuzufügen.
+
+## **Ein Bild als Folienhintergrund verwenden**
+
+Ein Hintergrundbild wird der Folienfüllung zugewiesen; es wird nicht als Bildrahmen‑Form hinzugefügt. Dies ist nützlich, wenn das Bild den Folienhintergrund abdecken soll und nicht wie ein normales Folienobjekt manipuliert werden soll.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
     }
-    masterSlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Weitere Hintergrundoptionen, einschließlich Master‑ und Layout‑Hintergründen, finden Sie unter [Presentation Background](/slides/de/nodejs-java/presentation-background/).
 
-## **Hinzufügen von Bildern als Folienhintergrund**
+## **Eingebettete und verlinkte Bilder**
 
-Sie können entscheiden, ein Bild als Hintergrund für eine bestimmte Folie oder mehrere Folien zu verwenden. In diesem Fall sollten Sie *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)* ansehen.
+Eingebettete und verlinkte Bilder weisen unterschiedliche Portabilitäts‑ und Dateigrößen‑Abwägungen auf:
 
-## **Hinzufügen von SVG zu Präsentationen**
-Sie können jedes Bild in eine Präsentation einfügen, indem Sie die Methode [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) verwenden, die zur Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) gehört.
+- **Eingebettetes Bild:** Die Bilddaten werden innerhalb der Präsentation gespeichert. Die Präsentation ist eigenständig, jedoch enthält die Dateigröße die Bilddaten.
+- **Verlinktes Bild:** Die Präsentation speichert einen Pfad oder eine URL zu einem externen Bild. Dadurch kann die Präsentationsgröße reduziert werden, aber die externe Ressource muss beim Öffnen oder Rendern der Präsentation zugänglich bleiben.
 
-Um ein Bildobjekt basierend auf einem SVG-Bild zu erstellen, können Sie wie folgt vorgehen:
+Ein verlinktes Bild kann erstellt werden, indem der externe Pfad oder die URL über [Picture.setLinkPathLong](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/picture/) zugewiesen wird, anstatt die Bilddaten einzubetten.
 
-1. Erstellen Sie ein SvgImage-Objekt, um es in die ImageShapeCollection einzufügen.
-2. Erstellen Sie ein PPImage-Objekt aus ISvgImage.
-3. Erstellen Sie ein PictureFrame-Objekt mit der PPImage-Klasse.
-
-Dieser Beispielcode zeigt, wie Sie die obigen Schritte implementieren, um ein SVG-Bild in eine Präsentation einzufügen:
 ```javascript
-// Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    var ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Verwenden Sie verlinkte Bilder nur, wenn die Bereitstellungsumgebung zuverlässig auf die externe Ressource zugreifen kann. Für Präsentationen, die offline funktionieren oder zwischen Systemen verschoben werden müssen, sind eingebettete Bilder in der Regel sicherer.
 
-## **Konvertieren von SVG in ein Satz von Formen**
-Die Konvertierung von SVG in ein Satz von Formen durch Aspose.Slides ist ähnlich der PowerPoint-Funktionalität, die zum Arbeiten mit SVG-Bildern verwendet wird:
+## **Mit SVG‑Bildern arbeiten**
+
+SVG ist ein Vektorformat und eignet sich daher für Symbole, Diagramme und andere Grafiken, die ohne denselben Detailverlust wie Rasterbilder skalieren sollen. Aspose.Slides unterstützt SVG sowohl als Bildressource als auch als Quelle für editierbare Folienformen.
+
+### **Ein SVG als Bild hinzufügen**
+
+Erstellen Sie ein [SvgImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/svgimage/), fügen Sie es der ImageCollection hinzu und platzieren Sie die resultierende Bildressource in einem Bildrahmen.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **SVG‑Dateien mit externen Ressourcen**
+
+Ein SVG kann externe Bilder, Stylesheets oder Schriftarten referenzieren. Für diese Fälle bietet [SvgImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/svgimage/) Konstruktoren, die einen [ExternalResourceResolver](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/externalresourceresolver/) und einen Basis‑URI akzeptieren. Der Resolver kann einen relativen URI in einen zulässigen absoluten URI umwandeln und einen Stream für die angeforderte Ressource zurückgeben.
+
+Der Resolver stellt externe Ressourcen während der Verarbeitung des SVG durch Aspose.Slides bereit, schreibt das SVG jedoch nicht in ein eigenständiges Dokument um. Wenn das SVG portabel bleiben muss, betten Sie die erforderlichen Ressourcen im SVG selbst ein, z. B. durch Verwendung von `data:`‑URIs für verlinkte Bilder.
+
+Stammen SVG‑Dateien aus nicht vertrauenswürdigen Quellen, beschränken Sie die Schemas, Dateipfade und Hosts, auf die der Resolver zugreifen darf. Netzwerk‑Resolver sollten zudem Zeitüberschreitungen, Begrenzungen der Antwortgröße und Inhaltsvalidierungen anwenden.
+
+### **SVG in editierbare Formen konvertieren**
+
+Aspose.Slides kann ein SVG in eine Gruppe editierbarer Folienformen konvertieren, ähnlich dem entsprechenden PowerPoint‑Befehl.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Die Funktion wird von einer der Überladungen der [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-)‑Methode der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) bereitgestellt, die ein [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage)-Objekt als erstes Argument erwartet.
+Verwenden Sie die Überladung [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/), die ein SVG‑Bild akzeptiert, um die Konvertierung durchzuführen.
 
-Dieser Beispielcode zeigt, wie Sie die beschriebene Methode verwenden, um eine SVG‑Datei in ein Satz von Formen zu konvertieren:
 ```javascript
-// Neue Präsentation erstellen
-var presentation = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // SVG-Dateiinhalt lesen
-    var svgContent = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg"));
-    // SvgImage-Objekt erstellen
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    // Foliengröße abrufen
-    var slideSize = presentation.getSlideSize().getSize();
-    // SVG-Bild in eine Gruppe von Formen konvertieren und an die Foliengröße anpassen
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-    // Präsentation im PPTX-Format speichern
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Verwenden Sie die SVG‑zu‑Formen‑Konvertierung, wenn einzelne Vektorelemente als PowerPoint‑Formen bearbeitet werden sollen. Wenn das SVG nur angezeigt werden muss, ist das Beibehalten als Bild einfacher und vermeidet die Erstellung vieler separater Formen.
 
-## **Hinzufügen von Bildern als EMF in Folien**
-Aspose.Slides für Node.js via Java ermöglicht das Erzeugen von EMF‑Bildern aus Excel‑Tabellen und das Hinzufügen dieser Bilder als EMF in Folien mit Aspose.Cells. 
+## **Eine vorhandene Bildressource ersetzen**
 
-Dieser Beispielcode zeigt, wie Sie die beschriebene Aufgabe ausführen:
+Verwenden Sie [PPImage.replaceImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/), wenn Sie eine vorhandene Bildressource ersetzen möchten. Dies ist besonders nützlich für gemeinsam genutzte Grafiken wie Logos.
+
 ```javascript
-var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-var sheet = book.getWorksheets().get(0);
-var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
- // Speichert die Arbeitsmappe in einen Stream
-var sr = java.newInstanceSync("SheetRender", sheet, options);
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    pres.getSlides().removeAt(0);
-    var EmfSheetName = "";
-    for (var j = 0; j < sr.getPageCount(); j++) {
-        EmfSheetName = ((("test" + sheet.getName()) + " Page") + (j + 1)) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-        var picture;
-        var image = aspose.slides.Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
-        var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        var m = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
 
-
-## **Ersetzen von Bildern in der Bildersammlung**
-
-Aspose.Slides ermöglicht das Ersetzen von Bildern, die in der Bildersammlung einer Präsentation gespeichert sind (einschließlich der von Folienformen verwendeten). Dieser Abschnitt zeigt verschiedene Ansätze zum Aktualisieren von Bildern in der Sammlung. Die API bietet einfache Methoden zum Ersetzen eines Bildes mithilfe von rohen Byte‑Daten, einer [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/)-Instanz oder eines anderen Bildes, das bereits in der Sammlung vorhanden ist.
-
-Führen Sie die folgenden Schritte aus:
-
-1. Laden Sie die Präsentationsdatei, die Bilder enthält, mit der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Laden Sie ein neues Bild aus einer Datei in ein Byte‑Array.
-3. Ersetzen Sie das Zielbild durch das neue Bild mithilfe des Byte‑Arrays.
-4. Im zweiten Ansatz laden Sie das Bild in ein [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/)-Objekt und ersetzen das Zielbild durch dieses Objekt.
-5. Im dritten Ansatz ersetzen Sie das Zielbild durch ein Bild, das bereits in der Bildersammlung der Präsentation vorhanden ist.
-6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
-```js
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    // Der erste Weg.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // Der zweite Weg.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // Der dritte Weg.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // Speichern Sie die Präsentation in einer Datei.
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Wenn mehrere Bildrahmen, Hintergründe, Master‑Folien oder Layouts dieselbe Bildressource verwenden, aktualisiert das Ersetzen dieser Ressource alle diese Verwendungen. Soll nur ein Bildrahmen geändert werden, weisen Sie diesem Rahmen ein anderes Bild zu, anstatt die gemeinsam genutzte Ressource zu ersetzen.
 
-{{% alert title="Info" color="info" %}}
+[PPImage.replaceImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/) bietet außerdem Überladungen, die ein Byte‑Array oder ein anderes [PPImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/) akzeptieren.
 
-Mit dem kostenlosen Aspose [Text to GIF](https://products.aspose.app/slides/text-to-gif)-Konverter können Sie Texte leicht animieren, GIFs aus Texten erstellen usw. 
+## **Praktische Anleitung zur Bildverwaltung**
 
-{{% /alert %}}
+### **Präsentationsgröße kontrollieren**
+
+Große Rasterbilder können eine Präsentation unnötig groß machen. Verwenden Sie Quellbilder mit Abmessungen, die für die beabsichtigte Anzeigegröße geeignet sind, wiederverwenden Sie gemeinsam genutzte Bildressourcen, wo möglich, und vermeiden Sie das Einbetten mehrfacher Kopien derselben Bilddatei in voller Auflösung.
+
+Für Rasterbilder, die bereits in Bildrahmen platziert wurden, kann [PictureFillFormat.compressImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/picturefillformat/) Bilddaten basierend auf der gewählten Auflösung und den Zuschnittseinstellungen reduzieren. Dies ist eine Bildrahmen‑Verarbeitung und keine Verwaltung der ImageCollection, siehe daher [Picture Frame](/slides/de/nodejs-java/picture-frame/) für zugehörige Formatierungs‑Operationen.
+
+### **Auswahl zwischen eingebettetem und verlinktem Inhalt**
+
+Einbetten macht die Präsentation portabel, da alle erforderlichen Bilddaten mit der Datei mitgeliefert werden. Verlinken kann die Dateigröße reduzieren, führt jedoch eine externe Abhängigkeit ein. Verwenden Sie Links nur, wenn diese Abhängigkeit akzeptabel und stabil ist.
+
+### **Gemeinsames Branding wiederverwenden**
+
+Für wiederholte Logos, Wasserzeichen oder dekorative Grafiken verwenden Sie eine Bildressource und nutzen sie wieder. Gehört die Grafik zum Design der Präsentation und nicht zum Folieninhalt, platzieren Sie sie auf einem Master oder Layout, sodass sie von den entsprechenden Folien geerbt wird.
+
+### **SVG‑Ressourcen portabel halten**
+
+Ein eigenständiges SVG ist leichter zu verschieben und konsistent zu rendern als ein SVG, das von externen Dateien oder Netzwerkressourcen abhängt. Betten Sie nach Möglichkeit erforderliche Ressourcen ein, bevor Sie das SVG importieren. Konvertieren Sie SVG zu Formen nur, wenn einzelne Vektorelemente bearbeitet werden müssen.
+
+### **Die moderne plattformübergreifende Image‑API verwenden**
+
+Für neuen Node.js‑via‑Java‑Code verwenden Sie die Aspose.Slides‑APIs [IImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/) und [Images](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/images/) anstelle der veralteten öffentlichen API, die auf `java.awt.image.BufferedImage` basiert. Siehe [Modern API](/slides/de/nodejs-java/modern-api/) für Migrationshinweise.
+
+WMF‑ und EMF‑Formate erfordern besondere Berücksichtigung. Wenn diese Formate über ein [IImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/) übergeben werden, konvertiert [ImageCollection.addImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/imagecollection/) die Metadatei vor dem Einfügen in eine rasterbasierte PNG‑Darstellung. Wenn das Beibehalten der Metadatei wichtig ist, verwenden Sie stattdessen eine stream‑basierte Überladung von [ImageCollection.addImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/imagecollection/). Das Erzeugen von EMF‑Inhalten aus Tabellenkalkulationen oder anderen Produkten ist ein separater Integrations‑Arbeitsablauf und liegt außerhalb des Umfangs dieses Artikels.
 
 ## **FAQ**
 
-**Bleibt die ursprüngliche Bildauflösung nach dem Einfügen erhalten?**
+**Was ist der Unterschied zwischen der ImageCollection und einem Bildrahmen?**
 
-Ja. Die ursprünglichen Pixeldaten bleiben erhalten, aber das endgültige Erscheinungsbild hängt davon ab, wie das [picture](/slides/de/nodejs-java/picture-frame/) auf der Folie skaliert wird und welche Kompression beim Speichern angewendet wird.
+Die ImageCollection speichert wiederverwendbare Bildressourcen. Ein Bildrahmen ist eine Folienform, die eine dieser Ressourcen anzeigt und bildspezifische Formatierungen wie Zuschneiden und Effekte bereitstellt.
 
-**Was ist der beste Weg, um dasselbe Logo gleichzeitig auf Dutzenden von Folien zu ersetzen?**
+**Was ist der beste Weg, dasselbe Logo überall zu ersetzen?**
 
-Platzieren Sie das Logo auf der Masterfolie oder einem Layout und ersetzen Sie es in der Bildersammlung der Präsentation – die Änderungen werden an alle Elemente, die diese Ressource verwenden, weitergegeben.
+Wenn das Logo bereits als eine Bildressource gemeinsam genutzt wird, ersetzen Sie diese Ressource mit [PPImage.replaceImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ppimage/). Für eine Präsentations‑weite Markenbildung kann das Platzieren des Logos auf einem Master oder Layout ebenfalls duplizierten Folieninhalt reduzieren.
 
-**Kann ein eingefügtes SVG in editierbare Formen konvertiert werden?**
+**Warum verschwindet ein verlinktes Bild auf einem anderen Computer?**
 
-Ja. Sie können ein SVG in eine Gruppe von Formen konvertieren, wobei einzelne Teile anschließend mit den Standard-Shape-Eigenschaften editierbar sind.
+Ein verlinktes Bild hängt von seiner externen Datei oder URL ab. Wenn diese Ressource vom anderen Computer aus nicht erreichbar ist, kann das verlinkte Bild nicht verfügbar sein. Betten Sie das Bild ein, wenn die Präsentation eigenständig sein muss.
 
-**Wie kann ich ein Bild gleichzeitig als Hintergrund für mehrere Folien festlegen?**
+**Kann ein eingefügtes SVG als PowerPoint‑Formen bearbeitet werden?**
 
-[Weisen Sie das Bild als Hintergrund](/slides/de/nodejs-java/presentation-background/) auf der Masterfolie oder dem entsprechenden Layout zu – alle Folien, die diesen Master/Layout verwenden, übernehmen den Hintergrund.
+Ja. Konvertieren Sie das SVG mit [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/); die resultierende Gruppe enthält editierbare Folienformen anstelle eines einzigen SVG‑Bildes.
 
-**Wie verhindere ich, dass die Präsentation durch viele Bilder stark anwächst?**
+**Wie kann ich Präsentationen mit vielen Bildern klein halten?**
 
-Verwenden Sie eine einzelne Bildressource mehrfach anstelle von Duplikaten, wählen Sie angemessene Auflösungen, wenden Sie Kompression beim Speichern an und behalten Sie wiederholte Grafiken nach Möglichkeit im Master.
+Wiederverwenden Sie gemeinsam genutzte Bildressourcen, vermeiden Sie unnötig große Rasterquellen, komprimieren Sie geeignete Rasterbilder, wenn es passt, halten Sie wiederholtes Branding auf Mastern oder Layouts und verwenden Sie verlinkte Bilder nur, wenn eine externe Abhängigkeit akzeptabel ist.

@@ -7,284 +7,343 @@ url: /pl/cpp/image/
 keywords:
 - dodaj obraz
 - dodaj zdjęcie
-- dodaj bitmapę
-- zamień obraz
-- zamień zdjęcie
-- z internetu
+- zastąp obraz
+- kolekcja obrazów
+- ramka obrazu
+- powiązany obraz
 - tło
 - dodaj PNG
 - dodaj JPG
 - dodaj SVG
-- dodaj EMF
-- dodaj WMF
-- dodaj TIFF
+- SVG na kształty
+- zewnętrzne zasoby SVG
 - PowerPoint
 - OpenDocument
 - prezentacja
-- EMF
-- SVG
 - C++
 - Aspose.Slides
-description: "Usprawnij zarządzanie obrazami w PowerPoint i OpenDocument za pomocą Aspose.Slides dla C++, optymalizując wydajność i automatyzując swój przepływ pracy."
+description: "Dowiedz się, jak dodawać, ponownie używać, łączyć, zastępować i zarządzać obrazami rastrowymi oraz SVG w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla C++."
 ---
 ## **Wprowadzenie**
 
-Obrazy sprawiają, że prezentacje są bardziej angażujące i interesujące. W programie Microsoft PowerPoint można wstawiać obrazy z pliku, Internetu lub innych lokalizacji na slajdy. Podobnie, Aspose.Slides pozwala dodawać obrazy do slajdów w prezentacjach za pomocą różnych metod. 
+Aspose.Slides for C++ oferuje kilka sposobów pracy z obrazami, przy czym każdy ma inny cel. Możesz przechowywać obraz w prezentacji, wyświetlać go w ramce obrazu, używać jako tła slajdu, łączyć się z zewnętrznym obrazem, zastępować współdzielony zasób obrazu lub konwertować treść SVG na edytowalne kształty.
 
-{{% alert title="Wskazówka" color="primary" %}} 
+Ten artykuł koncentruje się na zasobach obrazu i ich użyciu w całej prezentacji. Informacje o przycinaniu, przezroczystości, efektach, rozciąganiu i innych formatach stosowanych do pojedynczej ramki obrazu znajdziesz w sekcji [Picture Frame](/slides/pl/cpp/picture-frame/).
 
-Aspose udostępnia darmowe konwertery — [JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt) — które umożliwiają szybkie tworzenie prezentacji z obrazów. 
+## **Zrozumienie modelu obrazu**
 
-{{% /alert %}} 
+Poniższe pojęcia API są ze sobą powiązane, ale nie są wymienne:
 
-{{% alert title="Informacja" color="info" %}}
+- Kolekcja obrazów prezentacji ([presentation image collection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/)) przechowuje zasoby obrazów używane w prezentacji. Użyj [IImageCollection::AddImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/addimage/), aby dodać dane obrazu i uzyskać zasób [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/).
+- [Picture frame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframe/) to kształt wyświetlający obraz na slajdzie, układzie lub szablonie. Użyj [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addpictureframe/), aby umieścić zasób obrazu na slajdzie.
+- Tło slajdu używa obrazu jako części wypełnienia slajdu, a nie jako kształtu. Dlatego nie zachowuje się jak ramka obrazu.
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/replaceimage/) zastępuje zasób obrazu. Jeśli kilka elementów prezentacji korzysta z tego zasobu, wszystkie użyją zamiany.
+- Konwersja SVG na kształty tworzy edytowalne kształty slajdu. Po konwersji treść nie jest już zarządzana jako pojedynczy zasób obrazu.
 
-Jeśli chcesz dodać obraz jako obiekt ramki — szczególnie jeśli planujesz używać standardowych opcji formatowania, aby zmienić jego rozmiar, dodać efekty itp. — zobacz [Ramka obrazu](/slides/pl/cpp/picture-frame/). 
+Typowy przepływ pracy wygląda więc następująco: dodaj dane obrazu do kolekcji, otrzymaj [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/), a następnie użyj tego zasobu w jednej lub kilku ramkach obrazu lub wypełnieniach.
 
-{{% /alert %}} 
+## **Dodaj osadzony obraz**
 
-{{% alert title="Uwaga" color="warning" %}}
-
-Możesz manipulować operacjami wejścia/wyjścia związanymi z obrazami i prezentacjami PowerPoint, aby konwertować obraz z jednego formatu na inny. Zobacz te strony: konwertuj [image to JPG](https://products.aspose.com/slides/pl/cpp/conversion/image-to-jpg/); konwertuj [JPG to image](https://products.aspose.com/slides/pl/cpp/conversion/jpg-to-image/); konwertuj [JPG to PNG](https://products.aspose.com/slides/pl/cpp/conversion/jpg-to-png/), konwertuj [PNG to JPG](https://products.aspose.com/slides/pl/cpp/conversion/png-to-jpg/); konwertuj [PNG to SVG](https://products.aspose.com/slides/pl/cpp/conversion/png-to-svg/), konwertuj [SVG to PNG](https://products.aspose.com/slides/pl/cpp/conversion/svg-to-png/). 
-
-{{% /alert %}}
-
-Aspose.Slides obsługuje operacje na obrazach w tych popularnych formatach: JPEG, PNG, GIF i inne. 
-
-## **Dodawanie obrazów przechowywanych lokalnie do slajdów**
-
-Możesz dodać jeden lub kilka obrazów z komputera na slajd w prezentacji. Ten przykładowy kod w C++ pokazuje, jak dodać obraz do slajdu:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-
-
-## **Dodawanie obrazów z sieci do slajdów**
-
-Jeśli obraz, który chcesz dodać do slajdu, nie jest dostępny na komputerze, możesz dodać go bezpośrednio z sieci. 
-
-Ten przykładowy kod pokazuje, jak dodać obraz z sieci do slajdu w C++:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
-
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Dodawanie obrazów do mistrza slajdów**
-
-Mistrz slajdu to górny slajd, który przechowuje i kontroluje informacje (temat, układ itp.) o wszystkich slajdach pod nim. Dlatego, gdy dodasz obraz do mistrza slajdów, obraz ten pojawia się na każdym slajdzie pod tym mistrzem. 
-
-Ten przykładowy kod w C++ pokazuje, jak dodać obraz do mistrza slajdów:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
-
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Dodawanie obrazów jako tło slajdów**
-
-Możesz zdecydować się użyć obrazu jako tła dla konkretnego slajdu lub kilku slajdów. W takim przypadku należy zobaczyć *[Ustawianie obrazów jako tła slajdów](https://docs.aspose.com/slides/pl/cpp/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Dodawanie SVG do prezentacji**
-Możesz dodać lub wstawić dowolny obraz do prezentacji, używając metody [AddPictureFrame](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9), która należy do interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection).
-
-Aby utworzyć obiekt obrazu na podstawie obrazu SVG, możesz zrobić to w następujący sposób:
-
-1. Utwórz obiekt SvgImage, aby wstawić go do ImageShapeCollection
-2. Utwórz obiekt PPImage z ISvgImage
-3. Utwórz obiekt PictureFrame przy użyciu interfejsu IPPImage
-
-Ten przykładowy kod pokazuje, jak wdrożyć powyższe kroki, aby dodać obraz SVG do prezentacji:
-``` cpp 
-// Ścieżka do katalogu dokumentów
-System::String dataDir = u"D:\\Documents\\";
-
-// Nazwa pliku SVG źródłowego
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Nazwa pliku wyjściowej prezentacji
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Utwórz nową prezentację
-auto p = System::MakeObject<Presentation>();
-
-// Odczytaj zawartość pliku SVG
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// Utwórz obiekt SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Utwórz obiekt PPImage
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// Tworzy nową ramkę obrazu 
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// Zapisz prezentację w formacie PPTX
-p->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Konwertowanie SVG na zestaw kształtów**
-Konwersja SVG na zestaw kształtów w Aspose.Slides jest podobna do funkcjonalności PowerPoint używanej do pracy z obrazami SVG:
-
-![Menu podręczne PowerPoint](img_01_01.png)
-
-Funkcjonalność jest zapewniona przez jedną z przeciążeń metody [AddGroupShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_shape_collection), która przyjmuje obiekt [ISvgImage](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_svg_image) jako pierwszy argument.
-
-Ten przykładowy kod pokazuje, jak użyć opisanego sposobu, aby przekonwertować plik SVG na zestaw kształtów:
-
-``` cpp 
-// Ścieżka do katalogu dokumentów
-System::String dataDir = u"D:\\Documents\\";
-
-// Nazwa pliku SVG źródłowego
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Nazwa pliku wyjściowej prezentacji
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Utwórz nową prezentację
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
-
-// Odczytaj zawartość pliku SVG
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// Utwórz obiekt SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Pobierz rozmiar slajdu
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
-
-// Konwertuj obraz SVG na grupę kształtów skalując go do rozmiaru slajdu
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// Zapisz prezentację w formacie PPTX
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Dodawanie obrazów jako EMF do slajdów**
-Aspose.Slides for C++ umożliwia generowanie obrazów EMF z arkuszy Excel i dodawanie ich jako EMF do slajdów przy użyciu Aspose.Cells. 
-
-Ten przykładowy kod pokazuje, jak wykonać opisaną czynność:
-
-``` cpp 
-System::String dataDir = u"D:\\Documents\\";
-
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
-
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
-
-// Zapisz skoroszyt do strumienia
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-pres->get_Slides()->RemoveAt(0);
-
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
-{
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
-
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
-```
-
-## **Zastępowanie obrazów w kolekcji obrazów**
-
-Aspose.Slides pozwala zastąpić obrazy przechowywane w kolekcji obrazów prezentacji (w tym te używane przez kształty slajdów). Ten rozdział przedstawia kilka podejść do aktualizacji obrazów w kolekcji. API udostępnia proste metody do zastąpienia obrazu przy użyciu surowych danych bajtowych, instancji [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/) lub innego obrazu, który już istnieje w kolekcji.
-
-1. Załaduj plik prezentacji zawierający obrazy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-1. Załaduj nowy obraz z pliku do tablicy bajtów.
-1. Zastąp docelowy obraz nowym obrazem przy użyciu tablicy bajtów.
-1. W drugim podejściu załaduj obraz do obiektu [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/) i zastąp docelowy obraz tym obiektem.
-1. W trzecim podejściu zastąp docelowy obraz obrazem, który już istnieje w kolekcji obrazów prezentacji.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Aby wstawić lokalny obraz, odczytaj plik, dodaj jego dane do kolekcji obrazów i utwórz ramkę obrazu, która używa zwróconego zasobu [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/).
 
 ```cpp
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Pierwszy sposób.
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Drugi sposób.
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto presentation = MakeObject<Presentation>();
 
-// Trzeci sposób.
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-// Zapisz prezentację do pliku.
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Obraz dodany w ten sposób jest osadzony w prezentacji, więc wynikowy plik nie zależy od dostępności oryginalnego pliku obrazu.
+
+### **Dodaj obraz z sieci**
+
+Gdy obraz jest dostępny przez HTTP lub HTTPS, pobierz jego bajty, dodaj je do kolekcji obrazów prezentacji i użyj zwróconego zasobu obrazu w taki sam sposób, jak przy obrazie lokalnym.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Net;
+
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sprawdzaj zdalne adresy URL, rozmiary odpowiedzi i typy treści, gdy źródło nie jest zaufane. W aplikacjach, które już używają innego klienta HTTP, możesz pobrać obraz tym klientem i przekazać otrzymane bajty lub strumień do [IImageCollection::AddImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/addimage/).
+
+## **Ponowne użycie obrazów na wielu slajdach**
+
+Jeśli ten sam obraz jest potrzebny wielokrotnie, dodaj go raz do prezentacji i ponownie użyj zwróconego [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/) przy tworzeniu kolejnych ramek obrazu. Dzięki temu unikniesz wielokrotnego ładowania tych samych danych źródłowych i jasno określisz zależność między współdzielonym zasobem obrazu a jego użyciem.
+
+W przypadku grafik, które mają pojawiać się automatycznie na wielu slajdach, np. logo firmy, rozważ umieszczenie ramki obrazu na [slide master](/slides/pl/cpp/slide-master/) lub układzie zamiast dodawania równoważnego kształtu do każdego slajdu.
+
+## **Użyj obrazu jako tła slajdu**
+
+Obraz tła jest przypisywany do wypełnienia slajdu; nie jest dodawany jako kształt ramki obrazu. Jest to przydatne, gdy obraz ma pokrywać tło slajdu i nie powinien być manipulowany jak zwykły obiekt slajdu.
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Dodatkowe opcje tła, w tym tła szablonów i układów, znajdziesz w sekcji [Presentation Background](/slides/pl/cpp/presentation-background/).
+
+## **Obrazy osadzone i powiązane**
+
+Obrazy osadzone i powiązane mają różne kompromisy pod względem przenośności i rozmiaru pliku:
+
+- **Obraz osadzony:** dane obrazu są przechowywane wewnątrz prezentacji. Prezentacja jest samodzielna, ale rozmiar pliku obejmuje dane obrazu.
+- **Obraz powiązany:** prezentacja przechowuje ścieżkę lub URL do zewnętrznego obrazu. To może zmniejszyć rozmiar prezentacji, ale zewnętrzny zasób musi pozostać dostępny podczas otwierania lub renderowania prezentacji.
+
+Powiązany obraz można utworzyć, przypisując zewnętrzną ścieżkę lub URL za pomocą [ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidespicture/set_linkpathlong/), zamiast osadzania danych obrazu.
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Używaj obrazów powiązanych tylko wtedy, gdy środowisko wdrożeniowe może niezawodnie uzyskać dostęp do zewnętrznego zasobu. Dla prezentacji, które muszą działać offline lub być przenoszone między systemami, obrazy osadzone są zazwyczaj bezpieczniejsze.
+
+## **Praca z obrazami SVG**
+
+SVG jest formatem wektorowym, więc może być przydatny dla ikon, diagramów i innych grafik, które powinny skalować się bez utraty szczegółów charakterystycznych dla obrazów rastrowych. Aspose.Slides obsługuje SVG zarówno jako zasób obrazu, jak i jako źródło edytowalnych kształtów slajdu.
+
+### **Dodaj SVG jako obraz**
+
+Utwórz [SvgImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/svgimage/), dodaj go do kolekcji obrazów i umieść wynikowy zasób obrazu w ramce obrazu.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
+
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Pliki SVG z zasobami zewnętrznymi**
+
+SVG może odwoływać się do zewnętrznych obrazów, arkuszy stylów lub czcionek. W takich przypadkach [SvgImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/svgimage/) udostępnia konstruktory przyjmujące [IExternalResourceResolver](https://reference.aspose.com/slides/pl/cpp/aspose.slides.import/iexternalresourceresolver/) oraz bazowy URI. Resolver może mapować względny URI na dozwolony bezwzględny URI i zwracać strumień żądanego zasobu.
+
+Resolver udostępnia zasoby zewnętrzne podczas przetwarzania SVG przez Aspose.Slides, ale nie przepisuje SVG na dokument samodzielny. Jeśli SVG musi pozostać przenośny, osadź wymagane zasoby w samym pliku SVG, np. używając URI `data:` dla powiązanych obrazów.
+
+Gdy pliki SVG pochodzą z niepewnych źródeł, ogranicz schematy, lokalizacje plików i hosty, do których resolver może mieć dostęp. Rozwiązywacze sieciowe powinny również stosować timeouty, limity rozmiaru odpowiedzi i walidację treści.
+
+### **Konwertuj SVG na edytowalne kształty**
+
+Aspose.Slides może konwertować SVG na grupę edytowalnych kształtów slajdu, podobnie jak odpowiednia komenda w PowerPoint.
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+Użyj przeciążenia [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addgroupshape/) przyjmującego [ISvgImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/isvgimage/), aby wykonać konwersję.
+
+```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
+
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Używaj konwersji SVG‑do‑kształtów, gdy poszczególne elementy wektorowe muszą być edytowane jako kształty PowerPoint. Jeśli SVG ma być jedynie wyświetlony, pozostawienie go jako obrazu jest prostsze i unika tworzenia wielu osobnych kształtów.
+
+## **Zastąp istniejący zasób obrazu**
+
+Użyj [IPPImage::ReplaceImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/replaceimage/), gdy chcesz zamienić istniejący zasób obrazu. Jest to szczególnie przydatne w przypadku współdzielonych grafik, takich jak loga.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Informacja" color="info" %}}
+Jeśli wiele ramek obrazu, teł, szablonów lub układów używa tego samego zasobu, jego zamiana aktualizuje wszystkie te użycia. Jeśli ma się zmienić tylko jedną ramkę obrazu, przypisz inną grafikę do tej ramki zamiast zastępować współdzielony zasób.
 
-Korzystając z darmowego konwertera Aspose FREE [Text to GIF](https://products.aspose.app/slides/pl/text-to-gif), możesz łatwo animować teksty, tworzyć GIF‑y z tekstów itp. 
+[IPPImage::ReplaceImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/replaceimage/) oferuje także przeciążenia przyjmujące [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/) lub inny [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **Praktyczne wskazówki zarządzania obrazami**
+
+### **Kontrola rozmiaru prezentacji**
+
+Duże obrazy rastrowe mogą niepotrzebnie zwiększać rozmiar prezentacji. Używaj obrazów o wymiarach odpowiednich do zamierzonego rozmiaru wyświetlania, ponownie wykorzystuj współdzielone zasoby obrazu tam, gdzie to możliwe, i unikaj osadzania wielu kopii tej samej grafiki w pełnej rozdzielczości.
+
+Dla obrazów rastrowych już umieszczonych w ramkach, [IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/compressimage/) może zmniejszyć dane obrazu zgodnie z wybraną rozdzielczością i ustawieniami przycinania. Jest to przetwarzanie ramki obrazu, a nie zarządzanie kolekcją obrazów, więc zobacz [Picture Frame](/slides/pl/cpp/picture-frame/) pod kątem powiązanych operacji formatowania.
+
+### **Wybór między zawartością osadzoną a powiązaną**
+
+Osadzanie sprawia, że prezentacja jest przenośna, ponieważ wszystkie wymagane dane obrazu podróżują z plikiem. Łączenie może zmniejszyć rozmiar pliku, ale wprowadza zależność zewnętrzną. Używaj linków tylko wtedy, gdy taka zależność jest akceptowalna i stabilna.
+
+### **Ponowne użycie udostępnionej identyfikacji wizualnej**
+
+Dla powtarzających się logotypów, znaków wodnych lub elementów dekoracyjnych użyj jednego zasobu obrazu i wykorzystuj go wielokrotnie. Jeśli grafika należy do projektu prezentacji, a nie do treści slajdów, umieść ją na szablonie lub układzie, aby była dziedziczona przez odpowiednie slajdy.
+
+### **Utrzymuj zasoby SVG przenośne**
+
+Samodzielny SVG jest łatwiejszy do przenoszenia i renderowania konsekwentnie niż SVG zależny od plików zewnętrznych lub zasobów sieciowych. Gdy to możliwe, osadź wymagane zasoby przed importem SVG. Konwertuj SVG na kształty tylko wtedy, gdy poszczególne elementy wektorowe muszą być edytowane.
+
+### **Użyj API obrazu Aspose.Slides**
+
+W przepływach pracy z obrazami w C++ używaj interfejsów Aspose.Slides [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/) i [Images](https://reference.aspose.com/slides/pl/cpp/aspose.slides/images/), gdy potrzebny jest obiekt obrazu, oraz [IImageCollection::AddImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/addimage/), gdy trzeba zarejestrować dane obrazu jako zasób prezentacji. Przeciążenia kolekcji obsługują także tablice bajtów i strumienie, co jest przydatne, gdy dane obrazu pochodzą z plików, klientów sieciowych, baz danych lub innych bibliotek.
+
+Generowanie treści EMF z arkuszy kalkulacyjnych lub innego produktu to odrębny przepływ integracji i wykracza poza zakres tego artykułu. Jeśli istniejący plik WMF lub EMF ma zostać jedynie wstawiony do prezentacji, przekaż jego dane do odpowiedniego przeciążenia [IImageCollection::AddImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/addimage/) bez wprowadzania dodatkowej zależności produktu do workflow zarządzania obrazami.
 
 ## **FAQ**
 
-**Czy oryginalna rozdzielczość obrazu pozostaje niezmieniona po wstawieniu?**
+**Jaka jest różnica między kolekcją obrazów a ramką obrazu?**
 
-Tak. Piksele źródłowe są zachowane, ale ostateczny wygląd zależy od tego, jak [obraz](/slides/pl/cpp/picture-frame/) jest skalowany na slajdzie oraz od ewentualnej kompresji przy zapisie.
+Kolekcja obrazów przechowuje wielokrotnie używalne zasoby obrazów. Ramka obrazu to kształt slajdu, który wyświetla jeden z tych zasobów i zapewnia formatowanie specyficzne dla obrazu, takie jak przycinanie i efekty.
 
-**Jaki jest najlepszy sposób na jednoczesne zastąpienie tego samego logo na dziesiątkach slajdów?**
+**Jaki jest najlepszy sposób, aby zastąpić to samo logo wszędzie?**
 
-Umieść logo na master‑slajdzie lub układzie i zastąp je w kolekcji obrazów prezentacji — aktualizacje zostaną rozpropagowane do wszystkich elementów korzystających z tego zasobu.
+Jeśli logo jest już współdzielone jako jeden zasób obrazu, zastąp ten zasób metodą [IPPImage::ReplaceImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/replaceimage/). Dla identyfikacji wizualnej obowiązującej w całej prezentacji można również umieścić logo na szablonie lub układzie, co zmniejsza duplikację treści slajdów.
 
-**Czy wstawiony SVG może zostać przekonwertowany na edytowalne kształty?**
+**Dlaczego powiązany obraz znika na innym komputerze?**
 
-Tak. Możesz skonwertować SVG na grupę kształtów, po czym poszczególne części stają się edytowalne przy użyciu standardowych właściwości kształtów.
+Powiązany obraz zależy od zewnętrznego pliku lub URL. Jeśli zasób nie jest dostępny z innego komputera, powiązany obraz może być niedostępny. Osadź obraz, gdy prezentacja musi być samodzielna.
 
-**Jak ustawić obraz jako tło dla wielu slajdów jednocześnie?**
+**Czy wstawiony SVG można edytować jako kształty PowerPoint?**
 
-[Przypisz obraz jako tło](/slides/pl/cpp/presentation-background/) na master‑slajdzie lub odpowiednim układzie — wszystkie slajdy korzystające z tego mastera/układu odziedziczą tło.
+Tak. Konwertuj SVG przy użyciu [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addgroupshape/); otrzymana grupa zawiera edytowalne kształty slajdu zamiast jednego obrazu SVG.
 
-**Jak zapobiec nadmiernemu rozrostowi rozmiaru prezentacji z powodu wielu obrazów?**
+**Jak mogę utrzymać prezentacje z wieloma obrazami w mniejszym rozmiarze?**
 
-Używaj jednego zasobu obrazu zamiast duplikatów, wybieraj rozsądne rozdzielczości, stosuj kompresję przy zapisie i umieszczaj powtarzające się grafiki na master‑slajdzie tam, gdzie to ma sens.
+Ponownie wykorzystuj współdzielone zasoby obrazu, unikaj niepotrzebnie dużych źródeł rastrowych, kompresuj odpowiednie obrazy rastrowe w razie potrzeby, przechowuj powtarzające się elementy graficzne na szablonach lub układach oraz używaj obrazów powiązanych wyłącznie wtedy, gdy zewnętrzna zależność jest akceptowalna.

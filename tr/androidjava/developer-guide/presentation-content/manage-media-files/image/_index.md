@@ -1,315 +1,322 @@
 ---
-title: Android'de Sunumlarda Görsel Yönetimini Optimize Edin
+title: Android Sunularında Görüntü Yönetimini Optimize Etme
 linktitle: Görselleri Yönet
 type: docs
 weight: 10
 url: /tr/androidjava/image/
 keywords:
-- görsel ekle
+- görüntü ekle
 - resim ekle
-- bitmap ekle
-- görsel değiştir
-- resim değiştir
-- webden
-- arkaplan
+- görüntüyü değiştir
+- görüntü koleksiyonu
+- resim çerçevesi
+- bağlantılı görüntü
+- arka plan
 - PNG ekle
 - JPG ekle
 - SVG ekle
-- EMF ekle
-- WMF ekle
-- TIFF ekle
+- SVG'den şekillere
+- harici SVG kaynakları
 - PowerPoint
 - OpenDocument
-- sunum
+- sunu
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile PowerPoint ve OpenDocument'te görsel yönetimini hızlandırın, performansı optimize edin ve iş akışınızı otomatikleştirin."
+description: "Aspose.Slides for Android via Java ile PowerPoint ve OpenDocument sunularında raster ve SVG görüntülerini eklemeyi, yeniden kullanmayı, bağlamayı, değiştirmeyi ve yönetmeyi öğrenin."
 ---
 ## **Giriş**
 
-Görseller, sunumları daha çekici ve ilgi çekici hâle getirir. Microsoft PowerPoint’te, bir dosyadan, internetten veya diğer konumlardan slaytlara resim ekleyebilirsiniz. Benzer şekilde, Aspose.Slides sunumlarınızdaki slaytlara görüntü eklemenizi farklı prosedürler aracılığıyla sağlar. 
+Aspose.Slides for Android via Java, görüntülerle çalışmak için çeşitli yollar sunar ve her biri farklı bir amaç hizmet eder. Bir görüntüyü sunuya depolayabilir, bir resim çerçevesinde görüntüleyebilir, slayt arka planı olarak kullanabilir, harici bir görüntüye bağlayabilir, paylaşılan bir görüntü kaynağını değiştirebilir veya SVG içeriğini düzenlenebilir şekillere dönüştürebilirsiniz.
 
-{{% alert  title="İpucu" color="primary" %}} 
+Bu makale, görüntü kaynaklarına ve bunların bir sunu içinde nasıl kullanıldığına odaklanır. Bir resim çerçevesine uygulanan kırpma, şeffaflık, efektler, uzatma ve diğer biçimlendirmeler için, bakınız [Picture Frame](/slides/tr/androidjava/picture-frame/).
 
-Aspose, [JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt) gibi ücretsiz dönüştürücüler sağlar; bu sayede kullanıcılar görüntülerden hızlıca sunum oluşturabilir. 
+## **Görüntü Modelini Anlayın**
 
-{{% /alert %}} 
+Aşağıdaki API kavramları yakından ilişkilidir ancak birbirinin yerine kullanılamaz:
 
-{{% alert title="Bilgi" color="info" %}}
+- [presentation image collection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagecollection/) sununun kullandığı görüntü kaynaklarını depolar. Görüntü verisini eklemek ve bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) kaynağı elde etmek için [ImageCollection.addImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imagecollection/) kullanın.
+- Bir [picture frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) bir slayt, düzen veya master üzerinde bir görüntüyü gösteren bir şekildir. Görüntü kaynağını bir slayta yerleştirmek için [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) kullanın.
+- Bir slayt arka planı, görüntüyü bir şekil yerine slayt doldurmasının bir parçası olarak kullanır. Bu nedenle bir picture frame gibi davranmaz.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) bir görüntü kaynağını değiştirir. Birkaç sunu öğesi bu kaynağı kullanıyorsa, hepsi değiştirilmiş olanı kullanır.
+- Bir SVG'yi şekillere dönüştürmek, düzenlenebilir slayt şekilleri oluşturur. Dönüştürmeden sonra içerik artık tek bir resim kaynağı olarak yönetilmez.
 
-Bir resmi çerçeve nesnesi olarak eklemek istiyorsanız—özellikle boyutunu değiştirmek, efekt eklemek vb. için standart biçimlendirme seçeneklerini kullanmayı planlıyorsanız—[Picture Frame](https://docs.aspose.com/slides/tr/androidjava/picture-frame/) sayfasına bakın. 
+Tipik bir iş akışı şu şekildedir: görüntü verisini görüntü koleksiyonuna ekleyin, bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) alın ve ardından bu kaynağı bir veya daha fazla picture frame veya doldurma içinde kullanın.
 
-{{% /alert %}} 
+## **Gömülü Görüntü Ekleme**
 
-Aspose.Slides, JPEG, PNG, GIF ve diğer popüler formatlarda görüntülerle işlemleri destekler. 
-
-## **Slaytlara Yerel Olarak Depolanan Görselleri Ekle**
-
-Bilgisayarınızdaki bir veya birden fazla görüntüyü bir sunumdaki slayta ekleyebilirsiniz. Java’daki bu örnek kod, bir görüntüyü slayta nasıl ekleyeceğinizi gösterir:
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Web'den Slaytlara Görsel Ekle**
-
-Bir slayta eklemek istediğiniz görüntü bilgisayarınızda bulunmuyorsa, görüntüyü doğrudan web üzerinden ekleyebilirsiniz. 
-
-Bu örnek kod, web’den bir görüntüyü Java’daki bir slayta nasıl ekleyeceğinizi gösterir:
+Yerel bir görüntü eklemek için, dosyayı yükleyin, görüntü koleksiyonuna ekleyin ve döndürülen `IPPImage` kullanan bir picture frame oluşturun.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	URL imageUrl = new URL("[REPLACE WITH URL]");
-	URLConnection connection = imageUrl.openConnection();
-	InputStream inputStream = connection.getInputStream();
-
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	try {
-		byte[] buffer = new byte[1024];
-		int read;
-
-		while ((read = inputStream.read(buffer, 0, buffer.length)) != -1)
-			outputStream.write(buffer, 0, read);
-
-		outputStream.flush();
-
-		IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-	} finally {
-		if (inputStream != null) inputStream.close();
-		outputStream.close();
-	}
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Slayt Üstlerine Görseller Ekle**
-
-Bir slide master, altında bulunan tüm slaytların (tema, düzen vb.) bilgilerini depolayan ve kontrol eden en üst slayttır. Bu nedenle, bir slide master’a görüntü eklediğinizde, o görüntü ilgili slide master altındaki her slaytta görünür. 
-
-Bu Java örnek kodu, bir slide master’a nasıl görüntü ekleyeceğinizi gösterir:
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
-	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
-	pres.save("pres.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Görselleri Slayt Arka Planı Olarak Ekle**
+Bu şekilde eklenen görüntü, sunuya gömülür, bu nedenle ortaya çıkan dosya, özgün görüntü dosyasının hâlâ mevcut olmasına bağlı değildir.
 
-Belirli bir slayt ya da birden fazla slayt için resmi arka plan olarak kullanmaya karar verebilirsiniz. Bu durumda *[Slaytlar İçin Görselleri Arka Plan Olarak Ayarlama](https://docs.aspose.com/slides/tr/androidjava/presentation-background/#setting-images-as-background-for-slides)* bölümüne bakmanız gerekir.
+### **Web'den Görüntü Ekleme**
 
-## **Sunumlara SVG Ekle**
+Bir görüntü HTTP veya HTTPS üzerinden erişilebilir olduğunda, baytlarını indirin, sunu görüntü koleksiyonuna ekleyin ve döndürülen görüntü kaynağını yerel görüntü gibi aynı şekilde kullanın.
 
-Herhangi bir görüntüyü, [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShapeCollection) arayüzüne ait olan ve [addPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metodunu kullanarak bir sunuma ekleyebilirsiniz. 
-
-SVG görüntüsü temelinde bir görüntü nesnesi oluşturmak için şu adımları izleyebilirsiniz: 
-
-1. ImageShapeCollection’a eklemek için SvgImage nesnesi oluşturun  
-2. ISvgImage’den PPImage nesnesi oluşturun  
-3. IPPImage arayüzünü kullanarak PictureFrame nesnesi oluşturun  
-
-Bu örnek kod, yukarıdaki adımları uygulayarak bir SVG görüntüsünü sunuma nasıl ekleyeceğinizi gösterir:
 ```java
-// PPTX dosyasını temsil eden Presentation sınıfını örnekleyin
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
 try {
-    String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
+
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
+
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **SVG'yi Şekiller Kümesine Dönüştür**
+Uzun süren uygulamalarda, gereksiz ağ altyapısını tekrar tekrar oluşturmak yerine, uygulamaya uygun bir HTTP istemcisi veya bağlantı yönetim stratejisini yeniden kullanın. Ayrıca kaynak güvenilir değilse uzak URL'leri, yanıt boyutlarını ve içerik türlerini doğrulayın.
 
-Aspose.Slides’ın SVG’yi şekiller kümesine dönüştürmesi, SVG görüntüleriyle çalışmak için PowerPoint işlevselliğine benzer: 
+## **Slaytlar Arasında Görüntüleri Yeniden Kullanma**
+
+Aynı görüntü birden fazla kez gerekliyse, görüntüyü sunuya bir kez ekleyin ve ek picture frame'ler oluştururken döndürülen [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) yeniden kullanın. Bu, aynı kaynak verisinin tekrar tekrar yüklenmesini önler ve paylaşılan görüntü kaynağı ile kullanım ilişkisini açık hale getirir.
+
+Birçok slaytta otomatik olarak görünmesi gereken grafikler, örneğin bir şirket logosu, her slayta eşdeğer bir şekil eklemek yerine picture frame'i bir [slide master](/slides/tr/androidjava/slide-master/) veya düzen üzerine yerleştirmeyi düşünün.
+
+## **Görüntüyü Slayt Arka Planı Olarak Kullanma**
+
+Bir arka plan görüntüsü slayt doldurmasına atanır; picture-frame şekli olarak eklenmez. Bu, görüntünün slayt arka planını kaplaması ve normal bir slayt nesnesi gibi işlenmemesi gerektiğinde kullanışlıdır.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Master ve düzen arka planları dahil ek arka plan seçenekleri için, bakınız [Presentation Background](/slides/tr/androidjava/presentation-background/).
+
+## **Gömülü Görüntüler ve Bağlantılı Görüntüler**
+
+Gömülü ve bağlantılı görüntülerin taşınabilirlik ve dosya boyutu açısından farklı denge noktaları vardır:
+
+- **Embedded image:** görüntü verisi sunu içinde depolanır. Sunu kendi kendine yeterlidir, ancak dosya boyutu görüntü verisini içerir.
+- **Linked image:** sunu, harici bir görüntünün yolunu veya URL'sini saklar. Bu, sunu boyutunu azaltabilir, ancak dış kaynak, sunu açıldığında veya renderlanırken erişilebilir olmalıdır.
+
+Bir bağlantılı resim, görüntü verisini gömmek yerine dış yolu veya URL'yi [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidespicture/) aracılığıyla atayarak oluşturulabilir.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bağlantılı görüntüleri yalnızca dağıtım ortamı dış kaynağa güvenilir bir şekilde erişebildiğinde kullanın. Çevrim dışı çalışması veya sistemler arasında taşınması gereken sunular için gömülü görüntüler genellikle daha güvenlidir.
+
+## **SVG Görüntüleriyle Çalışma**
+
+SVG vektör formatıdır, bu nedenle ikonlar, diyagramlar ve raster görüntüler gibi ayrıntı kaybı olmadan ölçeklenmesi gereken diğer grafikler için faydalı olabilir. Aspose.Slides, SVG'yi hem bir görüntü kaynağı hem de düzenlenebilir slayt şekilleri kaynağı olarak destekler.
+
+### **SVG'yi Görüntü Olarak Ekleme**
+
+Bir [SvgImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/svgimage/) oluşturun, görüntü koleksiyonuna ekleyin ve ortaya çıkan görüntü kaynağını bir picture frame içinde yerleştirin.
+
+```java
+import com.aspose.slides.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Dış Kaynaklı SVG Dosyaları**
+
+Bir SVG, dış görüntüler, stil sayfaları veya yazı tiplerine referans verebilir. Bu durumlar için, [SvgImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/svgimage/) bir [IExternalResourceResolver](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iexternalresourceresolver/) ve bir temel URI kabul eden yapıcılar sağlar. Çözücü, göreli bir URI'yi izin verilen mutlak bir URI'ye eşleyebilir ve istenen kaynak için bir akış döndürebilir.
+
+Çözücü, Aspose.Slides SVG'yi işlerken dış kaynakları kullanılabilir kılar, ancak SVG'yi kendine yeterli bir belgeye yeniden yazmaz. SVG'nin taşınabilir kalması gerekiyorsa, gerekli kaynakları doğrudan SVG içinde gömün; örneğin bağlantılı görüntüler için `data:` URI'lerini kullanabilirsiniz.
+
+SVG dosyaları güvenilmeyen kaynaklardan geldiğinde, çözücünün erişebileceği şemaları, dosya konumlarını ve hostları kısıtlayın. Ağ çözücüleri ayrıca zaman aşımı, yanıt boyutu limitleri ve içerik doğrulaması uygulamalıdır.
+
+### **SVG'yi Düzenlenebilir Şekillere Dönüştürme**
+
+Aspose.Slides, bir SVG'yi ilgili PowerPoint komutuna benzer şekilde düzenlenebilir slayt şekilleri grubuna dönüştürebilir.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Bu işlevsellik, [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShapeCollection) arayüzünün, ilk parametre olarak bir [ISvgImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ISvgImage) nesnesi alan [addGroupShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) metodunun bir aşırı yüklemesi tarafından sağlanır. 
+Dönüşümü gerçekleştirmek için bir [ISvgImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/) kabul eden [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) aşırı yüklemesini kullanın.
 
-Bu örnek kod, belirtilen yöntemi kullanarak bir SVG dosyasını şekiller kümesine nasıl dönüştüreceğinizi gösterir:
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-```java 
-// Yeni bir sunum oluştur
-IPresentation presentation = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // SVG dosya içeriğini oku
-    byte[] svgContent = Files.readAllBytes(Paths.get("image.svg"));
-
-    // SvgImage nesnesi oluştur
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Slayt boyutunu al
-    Dimension2D slideSize = presentation.getSlideSize().getSize();
+    SizeF slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // SVG görüntüsünü slayt boyutuna ölçeklendirerek şekil grubuna dönüştür
-    presentation.getSlides().get_Item(0).getShapes().
-            addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
-
-    // Sunumu PPTX formatında kaydet
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Görselleri EMF Olarak Slaytlara Ekle**
+Tek tek vektör öğelerinin PowerPoint şekilleri gibi düzenlenmesi gerektiğinde SVG'den şekillere dönüşümü kullanın. SVG yalnızca görüntülenmesi gerekiyorsa, onu bir görüntü olarak tutmak daha basittir ve birçok ayrı şekil oluşturmayı önler.
 
-Aspose.Slides for Android via Java, Excel sayfalarından EMF görüntüleri oluşturmanıza ve bu görüntüleri Aspose.Cells ile slaytlara EMF olarak eklemenize olanak tanır.  
+## **Mevcut Bir Görüntü Kaynağını Değiştirme**
 
-Bu örnek kod, belirtilen görevi nasıl gerçekleştireceğinizi gösterir:
+Mevcut bir görüntü kaynağını değiştirmek istediğinizde [IPPImage.replaceImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) kullanın. Bu, logolar gibi paylaşılan grafikler için özellikle faydalıdır.
 
 ```java
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
+import com.aspose.slides.*;
 
-//Çalışma kitabını akışa kaydet
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("input.pptx");
 try {
-    pres.getSlides().removeAt(0);
-    
-    String EmfSheetName = "";
-    for (int j = 0; j < sr.getPageCount(); j++)
-    {
-    
-        EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
 
-        IPPImage picture;
-        IImage image = Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-        ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-					(float)pres.getSlideSize().getSize().getWidth(), 
-					(float)pres.getSlideSize().getSize().getHeight(), 
-					picture);
+    IImage replacementImage = Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) replacementImage.dispose();
     }
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-## **Görsel Koleksiyonundaki Görselleri Değiştir**
-
-Aspose.Slides, bir sunumun görsel koleksiyonunda (slayt şekilleri tarafından kullanılanlar dahil) depolanan görüntüleri değiştirmenize olanak tanır. Bu bölüm, koleksiyondaki görüntüleri güncellemenin çeşitli yaklaşımlarını gösterir. API, ham bayt verisi, bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) örneği veya koleksiyonda zaten bulunan başka bir görüntü kullanarak bir resmi değiştirmek için doğrudan yöntemler sunar.  
-
-Aşağıdaki adımları izleyin: 
-
-1. Görüntü içeren sunum dosyasını [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfı ile yükleyin.  
-2. Yeni bir görüntüyü dosyadan bayt dizisine yükleyin.  
-3. Hedef görüntüyü bayt dizisini kullanarak yeni görüntüyle değiştirin.  
-4. İkinci yaklaşımlarda, görüntüyü bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) nesnesine yükleyin ve hedef görüntüyü bu nesneyle değiştirin.  
-5. Üçüncü yaklaşımlarda, hedef görüntüyü sunumun görsel koleksiyonunda zaten mevcut olan bir görüntüyle değiştirin.  
-6. Değiştirilmiş sunumu PPTX dosyası olarak yazın.  
-
-```java
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // İlk yöntem.
-    IImage imageData = Images.fromStream(new FileInputStream("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // İkinci yöntem.
-    IImage newImage = Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // Üçüncü yöntem.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // Sunumu bir dosyaya kaydet.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
+Birden fazla picture frame, arka plan, master veya düzen aynı görüntü kaynağını kullanıyorsa, kaynağın değiştirilmesi bu kullanımların tümünü günceller. Sadece bir picture frame'in değişmesi gerekiyorsa, paylaşılan kaynağı değiştirmek yerine o frame'e farklı bir görüntü atayın.
 
-Aspose ÜCRETSİZ [Text to GIF](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüsü sayesinde metinleri kolayca canlandırabilir, metinlerden GIF oluşturabilir vb. işlemleri yapabilirsiniz. 
+`replaceImage` ayrıca bir bayt dizisi veya başka bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) kabul eden aşırı yüklemeler sağlar.
 
-{{% /alert %}}
+## **Uygulamalı Görüntü Yönetimi Rehberi**
+
+### **Sunu Boyutunu Kontrol Etme**
+
+Büyük raster görüntüler bir sunuyu gereksiz yere büyük yapabilir. Kaynak görüntüleri, amaçlanan gösterim boyutuna uygun boyutlarda kullanın, mümkün olduğunca paylaşılan görüntü kaynaklarını yeniden kullanın ve aynı tam çözünürlüklü grafiğin tekrar tekrar gömülmesinden kaçının.
+
+Picture frame içinde zaten yerleştirilmiş raster resimler için, [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) seçilen çözünürlük ve kırpma ayarlarına göre görüntü verisini azaltabilir. Bu, görüntü koleksiyonu yönetimi değil picture-frame işleme olduğundan, ilgili biçimlendirme işlemleri için [Picture Frame](/slides/tr/androidjava/picture-frame/) bölümüne bakın.
+
+### **Gömülü ve Bağlantılı İçerik Arasından Seçim**
+
+Gömme, sununun taşınabilir olmasını sağlar çünkü gerekli tüm görüntü verileri dosyayla birlikte taşınır. Bağlantı dosya boyutunu azaltabilir, ancak dış bir bağımlılık getirir. Bağlantıları, bu bağımlılığın kabul edilebilir ve istikrarlı olduğu durumlarda kullanın.
+
+### **Paylaşılan Marka Unsurlarını Yeniden Kullanma**
+
+Tekrarlanan logolar, filigranlar veya dekoratif grafikler için tek bir görüntü kaynağı kullanın ve yeniden kullanın. Grafik, slayt içeriği yerine sunu tasarımına aitse, ilgili slaytlar tarafından miras alınması için bir master veya düzen üzerine yerleştirin.
+
+### **SVG Kaynaklarını Taşınabilir Tutma**
+
+Kendine yeterli bir SVG, dış dosya veya ağ kaynaklarına bağımlı bir SVG'den daha kolay taşınabilir ve tutarlı olarak renderlanabilir. Mümkün olduğunda, SVG'yi içe aktarmadan önce gerekli kaynakları gömün. SVG'yi şekillere dönüştürmek, tek tek vektör öğelerinin düzenlenmesi gerektiğinde yapılmalıdır.
+
+### **Modern Çapraz Platform Görüntü API'sını Kullanma**
+
+Yeni Android via Java kodu için, `android.graphics.Bitmap` tabanlı eski genel API yerine Aspose.Slides [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) ve [Images](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/images/) API'lerini kullanın. Geçiş kılavuzu için [Modern API](/slides/tr/androidjava/modern-api/) bölümüne bakın.
+
+WMF ve EMF özel bir dikkate ihtiyaç duyar. Bu formatlar bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) aracılığıyla geçirildiğinde, [ImageCollection.addImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imagecollection/) ekleme öncesinde metafili rastgele bir PNG temsiline dönüştürür. Metafile verisini korumak önemliyse, akış tabanlı bir [ImageCollection.addImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imagecollection/) aşırı yüklemesini kullanın. Elektronik tablo veya diğer ürünlerden EMF içeriği oluşturmak ayrı bir entegrasyon iş akışıdır ve bu makalenin kapsamı dışındadır.
 
 ## **SSS**
 
-**Eklemeden sonra orijinal görüntü çözünürlüğü korunur mu?**
+**Görüntü koleksiyonu ile picture frame arasındaki fark nedir?**
 
-Evet. Kaynak pikseller korunur, ancak nihai görünüm, slayt üzerindeki [picture](/slides/tr/androidjava/picture-frame/) nasıl ölçeklendirildiğine ve kaydedilirken uygulanan sıkıştırmaya bağlıdır.
+Görüntü koleksiyonu, yeniden kullanılabilir görüntü kaynaklarını depolar. Picture frame, bu kaynaklardan birini gösteren bir slayt şekli olup kırpma ve efektler gibi resme özgü biçimlendirme sağlar.
 
-**Yüzlerce slaytta aynı logoyu aynı anda değiştirmek için en iyi yöntem nedir?**
+**Aynı logoyu her yerde değiştirmek için en iyi yol nedir?**
 
-Logoyu master slayta veya bir düzene yerleştirin ve sunumun görsel koleksiyonunda değiştirin—güncellemeler, bu kaynağı kullanan tüm öğelere yayılır.
+Logo zaten tek bir görüntü kaynağı olarak paylaşılıyorsa, o kaynağı [IPPImage.replaceImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) ile değiştirin. Sunu genelinde marka için, logoyu bir master veya düzen üzerine yerleştirmek, yinelenen slayt içeriğini de azaltabilir.
 
-**Eklenen bir SVG düzenlenebilir şekillere dönüştürülebilir mi?**
+**Bağlantılı bir görüntü başka bir bilgisayarda neden kaybolur?**
 
-Evet. Bir SVG’yi bir grup şekle dönüştürebilirsiniz; ardından bireysel parçalar standart şekil özellikleriyle düzenlenebilir hâle gelir.
+Bağlantılı bir resim, dış dosya veya URL'ye bağlıdır. Bu kaynak diğer bilgisayardan erişilemezse, bağlantılı görüntü kullanılamaz olabilir. Sunu kendine yeterli olmalıysa görüntüyü gömün.
 
-**Bir resmi birden fazla slaytın arka planı olarak aynı anda nasıl ayarlayabilirim?**
+**Eklenen bir SVG PowerPoint şekilleri olarak düzenlenebilir mi?**
 
-[Görseli arka plan olarak ata](/slides/tr/androidjava/presentation-background/) komutunu master slayta veya ilgili düzene uygulayın—bu master/duzen’i kullanan tüm slaytlar arka planı devralır.
+Evet. SVG'yi [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) ile dönüştürün; ortaya çıkan grup, tek bir SVG resmi yerine düzenlenebilir slayt şekilleri içerir.
 
-**Birçok resim nedeniyle sunumun boyutunun “şişmesi” nasıl önlenir?**
+**Çok sayıda görüntü içeren sunuları daha küçük nasıl tutabilirim?**
 
-Tek bir görüntü kaynağını tekrar kullanın, makul çözünürlükler seçin, kaydederken sıkıştırma uygulayın ve gerektiğinde yinelenen grafikleri master’da tutun.
+Paylaşılan görüntü kaynaklarını yeniden kullanın, gereksiz yere büyük raster kaynaklardan kaçının, uygun olduğunda raster resimleri sıkıştırın, tekrarlanan marka unsurlarını master veya düzenlerde tutun ve dış bağımlılık kabul edilebilir olduğunda yalnızca bağlantılı görüntüleri kullanın.

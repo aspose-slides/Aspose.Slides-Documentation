@@ -1,252 +1,256 @@
 ---
-title: 使用 Python 優化 PowerPoint 中的影像管理
-linktitle: 管理影像
+title: 使用 Python 優化簡報中的圖像管理
+linktitle: 管理圖像
 type: docs
 weight: 10
 url: /zh-hant/python-net/image/
 keywords:
-- 新增影像
+- 新增圖像
 - 新增圖片
-- 新增位圖
-- 取代影像
-- 取代圖片
-- 來自網路
+- 替換圖像
+- 圖像集合
+- 圖片框
+- 連結圖像
 - 背景
 - 新增 PNG
 - 新增 JPG
 - 新增 SVG
-- 新增 EMF
-- 新增 WMF
-- 新增 TIFF
+- SVG 轉圖形
+- 外部 SVG 資源
 - PowerPoint
+- OpenDocument
 - 簡報
 - Python
 - Aspose.Slides
-description: "透過 Aspose.Slides for Python 於 .NET，簡化 PowerPoint 和 OpenDocument 中的影像管理，提升效能並自動化工作流程。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 與 OpenDocument 簡報中新增、重複使用、連結、替換與管理點陣圖與 SVG 圖像。"
 ---
 ## **簡介**
 
-影像讓簡報更具吸引力與趣味性。在 Microsoft PowerPoint 中，您可以從檔案、網路或其他來源插入圖片至投影片。類似地，Aspose.Slides 也允許以多種方式將影像加入投影片。
+Aspose.Slides for Python via .NET 提供了多種操作圖像的方式，每種方式都有其不同的用途。您可以將圖像儲存在簡報中、在圖片框中顯示、作為投影片背景、連結到外部圖像、替換共享的圖像資源，或將 SVG 內容轉換為可編輯的圖形。
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose 提供免費的轉換工具—[JPEG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 以及 [PNG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)—讓您能快速從影像建立簡報。
-{{% /alert %}}
+本文聚焦於圖像資源以及它們在整個簡報中的使用方式。若要了解對單一圖片框進行裁剪、透明度、效果、拉伸等格式設定，請參閱 [圖片框](/slides/zh-hant/python-net/picture-frame/)。
 
-{{% alert title="Info" color="info" %}}
-如果您想將影像作為框架物件加入—特別是您計畫使用調整大小或套用效果等標準格式選項—請參考[使用 Python 將圖片框架加入簡報](https://docs.aspose.com/slides/zh-hant/python-net/picture-frame/)。
-{{% /alert %}}
+## **了解圖像模型**
 
-{{% alert title="Note" color="warning" %}}
-您可以使用影像與簡報的 I/O 操作在不同格式之間轉換影像。請參閱以下頁面：轉換[影像 轉 JPG](https://products.aspose.com/slides/zh-hant/python-net/conversion/image-to-jpg/); 轉換[JPG 轉 影像](https://products.aspose.com/slides/zh-hant/python-net/conversion/jpg-to-image/); 轉換[JPG 轉 PNG](https://products.aspose.com/slides/zh-hant/python-net/conversion/jpg-to-png/); 轉換[PNG 轉 JPG](https://products.aspose.com/slides/zh-hant/python-net/conversion/png-to-jpg/); 轉換[PNG 轉 SVG](https://products.aspose.com/slides/zh-hant/python-net/conversion/png-to-svg/); 以及轉換[SVG 轉 PNG](https://products.aspose.com/slides/zh-hant/python-net/conversion/svg-to-png/)。
-{{% /alert %}}
+以下 API 概念密切相關但不可互換：
 
-Aspose.Slides 支援使用 JPEG、PNG、BMP、GIF 等常見格式的影像。
+- 簡報圖像集合（[presentation image collection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/)）儲存簡報使用的圖像資源。使用 [ImageCollection.add_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/add_image/) 新增圖像資料並取得 [IPPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ippimage/) 資源。
+- 圖片框（[picture frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ipictureframe/)）是一個在投影片、版面或母片上顯示圖像的形狀。使用 [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_picture_frame/) 將圖像資源放置於投影片。
+- 投影片背景使用圖像作為投影片填充的一部分，而非作為形狀。因此其行為不同於圖片框。
+- [IPPImage.replace_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ippimage/replace_image/) 可替換圖像資源。如果多個簡報元素使用該資源，全部都會使用替換後的圖像。
+- 將 SVG 轉換為圖形會產生可編輯的投影片圖形。轉換後，內容不再作為單一圖片資源管理。
 
-## **將本機儲存的影像加入投影片**
+典型的工作流程如下：將圖像資料加入圖像集合，取得一個 [IPPImage]，然後在一個或多個圖片框或填充中使用該資源。
 
-您可以將一或多個電腦中的影像加入簡報的投影片。以下 Python 範例示範如何將影像加入投影片：
+## **新增嵌入式圖像**
 
-```py
+要插入本機圖像，請讀取檔案、將其資料加入圖像集合，並建立使用返回的 `IPPImage` 的圖片框。
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **從網路將影像加入投影片**
-
-如果您想加入投影片的影像在電腦上沒有，可直接從網路插入。
-
-以下 Python 範例示範如何從 URL 將影像加入投影片：
-
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **將影像加入投影片母片**
+以此方式加入的圖像會嵌入簡報中，因而最終檔案不依賴原始圖像檔仍然可用。
 
-投影片母片是最高層的投影片，儲存並控制所有下層投影片的資訊—主題、版面配置等。當您將影像加入投影片母片時，該影像會出現在使用該母片的每張投影片上。
+### **從網路新增圖像**
 
-以下 Python 範例示範如何將影像加入投影片母片：
+當圖像可透過 HTTP 或 HTTPS 取得時，下載其位元組、將它們加入簡報圖像集合，並以與本機圖像相同的方式使用返回的圖像資源。
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+在長時間執行的應用程式中，請酌情重複使用 HTTP 用戶端或連線池，而非為每個請求建立新連線。當來源不受信任時，亦請驗證遠端 URL、回應大小與內容類型。
+
+## **跨投影片重複使用圖像**
+
+如果同一圖像需要使用多次，請僅在簡報中加入一次，然後在建立其他圖片框時重用返回的 [IPPImage]。這可避免重複載入相同的來源資料，並使共享圖像資源與其使用情形更為明確。
+
+對於應自動出現在多張投影片上的圖形（例如公司商標），建議將圖片框放在 [投影片母片](/slides/zh-hant/python-net/slide-master/) 或版面上，而不是在每張投影片中加入等效形狀。
+
+## **將圖像作為投影片背景使用**
+
+背景圖像會指定給投影片填充；它不是以圖片框形狀加入。當圖像需要覆蓋整個投影片背景且不應被當作普通投影片物件操作時，這種做法相當有用。
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+欲取得更多背景選項（包括母片與版面背景），請參閱 [簡報背景](/slides/zh-hant/python-net/presentation-background/)。
+
+## **嵌入式圖像與連結圖像**
+
+嵌入式與連結圖像在可移植性與檔案大小上各有取捨：
+
+- **嵌入式圖像**：圖像資料儲存在簡報內。簡報是自包含的，但檔案大小會包含圖像資料。
+- **連結圖像**：簡報僅儲存指向外部圖像的路徑或 URL。這可以減少簡報大小，但外部資源必須在開啟或轉譯簡報時仍可存取。
+
+可以透過 [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/islidespicture/link_path_long/) 指定外部路徑或 URL，來建立連結圖片，而非嵌入圖像資料。
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **將影像設為投影片背景**
+僅在部署環境能可靠存取外部資源時才使用連結圖像。對於必須離線使用或在不同系統間搬遷的簡報，嵌入式圖像通常較為安全。
 
-您可能想將影像作為特定投影片或多張投影片的背景。詳情請參閱[將影像設為投影片背景](https://docs.aspose.com/slides/zh-hant/python-net/presentation-background/#set-image-as-background-for-slide)。
+## **使用 SVG 圖像**
 
-## **將 SVG 加入簡報**
+SVG 為向量格式，適用於圖示、圖表以及其他需要在不失真情況下縮放的圖形。Aspose.Slides 同時支援 SVG 作為圖像資源與可編輯的投影片圖形來源。
 
-您可以使用 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/) 類別的 [add_picture_frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_picture_frame/) 方法將任意影像插入簡報。
+### **將 SVG 作為圖像新增**
 
-若要從 SVG 建立影像物件，請依照以下步驟：
+建立 [SvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/)，將其加入圖像集合，並將產生的圖像資源放入圖片框。
 
-1. 建立 [SvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/) 並將其加入簡報的影像集合。
-2. 從 [SvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/) 建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/) 物件。
-3. 使用 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/) 建立 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 物件。
-
-以下 Python 範例示範如何依上述步驟將 SVG 影像加入簡報：
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # 讀取 SVG 檔案的內容。
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # 建立 SvgImage 物件。
-        svg_image = slides.SvgImage(svg_content)
-
-        # 建立 PPImage 物件。
-        pp_image = presentation.images.add_image(svg_image)
-
-        # 建立新的 PictureFrame。
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # 以 PPTX 格式儲存簡報。
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **將 SVG 轉換為一組圖形**
+### **將 SVG 轉換為可編輯圖形**
 
-Aspose.Slides 會將 SVG 轉換為一組圖形，方式類似於 PowerPoint 的 SVG 處理。
+Aspose.Slides 可以將 SVG 轉換為一組可編輯的投影片圖形，類似對應的 PowerPoint 指令。
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-此功能由 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/) 類別中 [add_group_shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_group_shape/) 方法的重載提供，該方法的第一個參數為 [SvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/)。
+使用接受 [ISvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/isvgimage/) 的 [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_group_shape/) 重載來執行轉換。
 
-以下範例程式碼示範如何將 SVG 檔案轉換為一組圖形。
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # 讀取 SVG 檔案內容。
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # 建立 SvgImage 物件。
-        svg_image = slides.SvgImage(svg_content)
-
-        # 取得投影片大小。
-        slide_size = presentation.slide_size.size
-
-        # 將 SVG 影像轉換為一組圖形，並依投影片大小縮放。
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # 以 PPTX 格式儲存簡報。
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **在投影片中以 EMF 形式加入影像**
-
-Aspose.Slides for Python 允許您在簡報中插入增強型中繼檔案 (EMF) 影像。
-
-以下 Python 範例示範此功能：
-
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMM.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **取代影像集合中的影像**
+當需要將單獨的向量元素編輯為 PowerPoint 圖形時，請使用 SVG 轉圖形的方式。若 SVG 僅需顯示，保留為圖像較為簡單，亦可避免產生大量獨立圖形。
 
-Aspose.Slides 允許您取代儲存在簡報影像集合中的影像，包含投影片圖形使用的影像。此章節說明了更新集合中影像的幾種方法。API 提供簡易的方法，可使用原始位元組資料、[IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/) 實例，或集合中已存在的其他影像來取代影像。
+## **替換現有圖像資源**
 
-請依以下步驟執行：
+當您想要替換現有圖像資源時，使用 [IPPImage.replace_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ippimage/replace_image/)。此功能對於共享圖形（例如商標）特別有用。
 
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別載入包含影像的簡報。
-2. 從檔案載入新影像至位元組陣列。
-3. 使用位元組陣列將目標影像取代為新影像。
-4. 或者，將影像載入 [IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/) 物件，並以該物件取代目標影像。
-5. 或以簡報影像集合中已存在的影像取代目標影像。
-6. 將修改後的簡報儲存為 PPTX 檔案。
+```python
+import aspose.slides as slides
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-# 實例化代表簡報檔案的 Presentation 類別。
-with slides.Presentation("sample.pptx") as presentation:
-
-    # 第一種方法。
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # 第二種方法。
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # 第三種方法。
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # 將簡報儲存為檔案。
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
-使用 Aspose 提供的免費 [文字轉 GIF](https://products.aspose.app/slides/zh-hant/text-to-gif) 轉換工具，您可以輕鬆為文字製作動畫並產生 GIF。
-{{% /alert %}}
+如果多個圖片框、背景、母片或版面使用相同的圖像資源，替換該資源會同時更新全部使用處。若僅需變更單一圖片框，請為該框指派不同的圖像，而非替換共享資源。
+
+`replace_image` 亦提供接受 [IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/) 或另一個 [IPPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ippimage/) 的重載。
+
+## **實務圖像管理建議**
+
+### **控制簡報尺寸**
+
+大型點陣圖會使簡報尺寸過大。請使用與預期顯示尺寸相稱的來源圖像、盡可能重複使用共享圖像資源，並避免嵌入相同全解析度圖形的多個副本。
+
+對於已放入圖片框的點陣圖，您可以使用 [PictureFillFormat.compress_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/compress_image/) 依選取的解析度與裁切設定壓縮圖像資料。這屬於圖片框處理而非圖像集合管理，相關格式化操作請參閱 [圖片框](/slides/zh-hant/python-net/picture-frame/)。
+
+### **在嵌入與連結內容之間做選擇**
+
+嵌入使簡報可攜，因為所有必需的圖像資料都隨檔案一起傳遞。連結可減少檔案大小，但會產生外部相依性。僅在相依性可接受且穩定時才使用連結。
+
+### **重複使用共享品牌圖示**
+
+對於重複出現的商標、水印或裝飾圖形，請使用單一圖像資源並重複使用。若圖形屬於簡報設計而非投影片內容，請將其放在母片或版面上，以便被相應投影片繼承。
+
+### **保持 SVG 資源可移植**
+
+自包含的 SVG 比依賴外部檔案或網路資源的 SVG 更易搬移與一致渲染。若可能，請在匯入 SVG 前先嵌入所需資源。僅在需要編輯個別向量元素時才將 SVG 轉為圖形。
+
+### **使用現代跨平台圖像 API**
+
+對於新的 Python via .NET 程式碼，請使用 Aspose.Slides 的 [IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/) 與 [Images](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/images/) API，取代已棄用的 `aspose.pydrawing.Image` 或 `aspose.pydrawing.Bitmap` 圖像 API。遷移指南請參閱 [現代 API](/slides/zh-hant/python-net/modern-api/)。
+
+WMF 與 EMF 需要特別考量。當這些格式透過 [IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/) 傳遞時，[ImageCollection.add_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/add_image/) 會先將中繼檔轉換為點陣 PNG 後再插入。如果必須保留中繼檔資料，請改用以串流為參數的 [ImageCollection.add_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/add_image/) 重載。從試算表或其他產品產生 EMF 內容屬於獨立的整合工作流程，本文不予討論。
 
 ## **常見問題**
 
-**插入後原始影像解析度是否保持不變？**
+**圖像集合與圖片框有何差別？**
 
-是的。原始像素會被保留，但最終顯示效果取決於投影片上 [圖片框架](/slides/zh-hant/python-net/picture-frame/) 的縮放方式以及儲存時的壓縮情況。
+圖像集合儲存可重複使用的圖像資源。圖片框則是投影片形狀，用於顯示其中一個資源，並提供裁切、效果等圖片專屬的格式設定。
 
-**一次取代多張投影片中相同標誌的最佳方法是什麼？**
+**要在所有位置替換相同的商標，最佳方式是？**
 
-將標誌放置於母片或版面配置，並在簡報的影像集合中取代；更新會傳播到所有使用該資源的元素。
+若商標已作為單一圖像資源共享，請使用 [IPPImage.replace_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ippimage/replace_image/) 替換該資源。若欲於整個簡報進行品牌統一，也可將商標放在母片或版面上，以減少重複的投影片內容。
 
-**插入的 SVG 能否轉換為可編輯的圖形？**
+**為何連結圖像在其他電腦上會消失？**
 
-可以。您可以將 SVG 轉換為一組圖形，之後各個部件即可使用標準圖形屬性進行編輯。
+連結圖片依賴其外部檔案或 URL。如果該資源在其他電腦上無法存取，連結圖像就會無法顯示。當簡報必須自包含時，請將圖像嵌入。
 
-**如何一次為多張投影片設定圖片背景？**
+**插入的 SVG 可以編輯成 PowerPoint 圖形嗎？**
 
-在母片或相關版面配置上[將影像指定為背景](/slides/zh-hant/python-net/presentation-background/)，使用該母片/版面的投影片皆會繼承此背景。
+可以。使用 [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_group_shape/) 轉換 SVG；產生的群組包含可編輯的投影片圖形，而非單一 SVG 圖片。
 
-**如何避免因大量圖片而使簡報檔案大小膨脹？**
+**如何讓含有大量圖像的簡報保持較小？**
 
-使用單一影像資源取代重複，選擇合適的解析度，儲存時使用壓縮，並在可能的情況下將重複的圖形放置於母片上。
+重複使用共享圖像資源、避免使用過大的點陣來源、在適當時壓縮點陣圖、將重覆的品牌圖示放在母片或版面上，並僅在外部依賴可接受時使用連結圖像。

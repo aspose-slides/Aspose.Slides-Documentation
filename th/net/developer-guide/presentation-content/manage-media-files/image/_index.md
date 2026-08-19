@@ -1,282 +1,274 @@
 ---
-title: เพิ่มประสิทธิภาพการจัดการภาพในงานนำเสนอด้วย .NET
-linktitle: จัดการภาพ
+title: เพิ่มประสิทธิภาพการจัดการรูปภาพในงานนำเสนอด้วย .NET
+linktitle: จัดการรูปภาพ
 type: docs
 weight: 10
 url: /th/net/image/
 keywords:
-- เพิ่มภาพ
 - เพิ่มรูปภาพ
-- เพิ่มบิตแมพ
-- แทนที่ภาพ
+- เพิ่มรูป
 - แทนที่รูปภาพ
-- จากเว็บ
+- คอลเลกชันรูปภาพ
+- กรอบรูป
+- รูปภาพเชื่อมโยง
 - พื้นหลัง
 - เพิ่ม PNG
 - เพิ่ม JPG
 - เพิ่ม SVG
-- เพิ่ม EMF
-- เพิ่ม WMF
-- เพิ่ม TIFF
+- SVG เป็นรูปร่าง
+- แหล่ง SVG ภายนอก
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ทำให้การจัดการภาพใน PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET มีประสิทธิภาพมากขึ้น ทั้งการเพิ่มประสิทธิภาพการทำงานและอัตโนมัติกระบวนการของคุณ."
+description: "เรียนรู้วิธีเพิ่ม ใช้ซ้ำ เชื่อมโยง แทนที่ และจัดการรูปภาพแบบแรสเตอร์และ SVG ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET."
 ---
-## **บทนำ**
+## **คำนำ**
 
-ภาพทำให้การนำเสนอมีความน่าสนใจและดึงดูดมากขึ้น ใน Microsoft PowerPoint คุณสามารถแทรกรูปภาพจากไฟล์ อินเทอร์เน็ต หรือแหล่งอื่น ๆ ลงในสไลด์ได้เช่นกัน อย่างเดียวกัน Aspose.Slides ก็อนุญาตให้คุณเพิ่มภาพลงในสไลด์ของการนำเสนอผ่านขั้นตอนต่าง ๆ
+Aspose.Slides for .NET มีวิธีการทำงานกับรูปภาพหลายวิธี ซึ่งแต่ละวิธีมีจุดประสงค์ที่แตกต่างกัน คุณสามารถเก็บรูปภาพไว้ในงานนำเสนอ แสดงในกรอบรูป ใช้เป็นพื้นหลังสไลด์ เชื่อมโยงไปยังรูปภาพภายนอก แทนที่แหล่งข้อมูลรูปภาพที่ใช้ร่วมกัน หรือแปลงเนื้อหา SVG เป็นรูปร่างที่แก้ไขได้
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose มีตัวแปลงฟรี—[JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ซึ่งช่วยให้ผู้ใช้สร้างการนำเสนออย่างรวดเร็วจากภาพ 
-{{% /alert %}} 
+บทความนี้มุ่งเน้นที่แหล่งข้อมูลรูปภาพและวิธีการใช้ในงานนำเสนอทั้งหมด สำหรับการครอบตัด ความโปร่งใส การใส่เอฟเฟ็กต์ การยืดและการจัดรูปแบบอื่น ๆ ที่ใช้กับกรอบรูปแต่ละกรอบ ดูที่ [Picture Frame](/slides/th/net/picture-frame/)
 
-{{% alert title="Info" color="info" %}}
-หากคุณต้องการเพิ่มภาพเป็นออบเจกต์กรอบ—โดยเฉพาะหากคุณตั้งใจใช้ตัวเลือกการจัดรูปแบบมาตรฐานเพื่อปรับขนาด เพิ่มเอฟเฟกต์ ฯลฯ—ดูที่ [Picture Frame](https://docs.aspose.com/slides/th/net/picture-frame/) 
-{{% /alert %}} 
+## **ทำความเข้าใจโมเดลรูปภาพ**
 
-{{% alert title="Note" color="warning" %}}
-คุณสามารถจัดการการดำเนินการอินพุต/เอาต์พุตที่เกี่ยวกับภาพและการนำเสนอ PowerPoint เพื่อแปลงภาพจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่งได้ ดูหน้าต่อไปนี้: แปลง [image to JPG](https://products.aspose.com/slides/th/net/conversion/image-to-jpg/); แปลง [JPG to image](https://products.aspose.com/slides/th/net/conversion/jpg-to-image/); แปลง [JPG to PNG](https://products.aspose.com/slides/th/net/conversion/jpg-to-png/), แปลง [PNG to JPG](https://products.aspose.com/slides/th/net/conversion/png-to-jpg/); แปลง [PNG to SVG](https://products.aspose.com/slides/th/net/conversion/png-to-svg/), แปลง [SVG to PNG](https://products.aspose.com/slides/th/net/conversion/svg-to-png/) 
-{{% /alert %}}
+แนวคิด API ต่อไปนี้เกี่ยวข้องกันอย่างใกล้ชิดแต่ไม่สามารถทดแทนกันได้:
 
-Aspose.Slides รองรับการดำเนินการกับภาพในรูปแบบที่เป็นที่นิยมเหล่านี้: JPEG, PNG, BMP, GIF, และอื่น ๆ 
+- [presentation image collection](https://reference.aspose.com/slides/th/net/aspose.slides/iimagecollection/) เก็บแหล่งข้อมูลรูปภาพที่ใช้ในงานนำเสนอ ใช้ [ImageCollection.AddImage](https://reference.aspose.com/slides/th/net/aspose.slides/imagecollection/addimage/) เพื่อเพิ่มข้อมูลรูปภาพและรับแหล่งข้อมูล [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/)
+- [picture frame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) คือรูปร่างที่แสดงรูปภาพบนสไลด์ เลย์เอาต์ หรือมาสเตอร์ ใช้ [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addpictureframe/) เพื่อวางแหล่งข้อมูลรูปภาพบนสไลด์
+- พื้นหลังสไลด์ใช้รูปภาพเป็นส่วนหนึ่งของการเติมสไลด์ ไม่ได้ทำงานเหมือนกรอบรูป
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/replaceimage/) แทนที่แหล่งข้อมูลรูปภาพ หากหลายองค์ประกอบของงานนำใช้แหล่งนั้นทั้งหมดจะใช้ภาพที่แทนที่
+- การแปลง SVG เป็นรูปร่างจะสร้างรูปร่างสไลด์ที่แก้ไขได้ หลังการแปลง เนื้อหาไม่ถูกจัดการเป็นรูปภาพเดียวอีกต่อไป
 
-## **เพิ่มภาพที่จัดเก็บไว้ในเครื่องลงสไลด์**
+กระบวนการทำงานทั่วไปคือ: เพิ่มข้อมูลรูปภาพเข้าสู่คอลเล็กชัน รับ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) แล้วใช้แหล่งนั้นในกรอบรูปหรือการเติมหลาย ๆ รูป
 
-คุณสามารถเพิ่มภาพหนึ่งหรือหลายภาพจากคอมพิวเตอร์ของคุณลงในสไลด์ของการนำเสนอ โค้ดตัวอย่างใน C# แสดงวิธีการเพิ่มภาพลงในสไลด์:
+## **เพิ่มรูปภาพที่ฝังไว้**
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+เพื่อแทรกรูปภาพจากไฟล์ท้องถิ่น อ่านไฟล์ เพิ่มข้อมูลลงในคอลเล็กชันรูปภาพ และสร้างกรอบรูปที่ใช้ `IPPImage` ที่คืนค่า
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มภาพจากเว็บลงสไลด์**
+รูปภาพที่เพิ่มด้วยวิธีนี้จะฝังอยู่ในงานนำเสนอ ดังนั้นไฟล์ที่ได้จึงไม่พึ่งพาไฟล์รูปภาพต้นฉบับที่ยังคงอยู่
 
-หากภาพที่คุณต้องการเพิ่มลงในสไลด์ไม่มีในคอมพิวเตอร์ของคุณคุณสามารถเพิ่มภาพโดยตรงจากเว็บได้
+### **เพิ่มรูปภาพจากเว็บ**
 
-โค้ดตัวอย่างนี้แสดงวิธีการเพิ่มภาพจากเว็บลงในสไลด์ด้วย C#:
+เมื่อรูปภาพสามารถเข้าถึงได้ผ่าน HTTP หรือ HTTPS ให้ดาวน์โหลดไบต์ด้วย `HttpClient` เพิ่มลงในคอลเล็กชันรูปภาพของงานนำเสนอ และใช้แหล่งรูปภาพที่คืนค่าเช่นเดียวกับรูปภาพท้องถิ่น
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มภาพลงใน Slide Master**
+ในแอปพลิเคชันที่ทำงานเป็นเวลานาน ควรใช้ `HttpClient` ซ้ำแทนการสร้างอินสแตนซ์ใหม่สำหรับทุกคำขอ นอกจากนี้ควรตรวจสอบ URL ระยะไกล ขนาดการตอบสนอง และประเภทเนื้อหาเมื่อแหล่งที่มามิ่นเชื่อถือ
 
-Slide Master คือสไลด์ระดับบนสุดที่เก็บและควบคุมข้อมูล (ธีม, เค้าโครง ฯลฯ) ของสไลด์ทั้งหมดใต้มัน ดังนั้นเมื่อคุณเพิ่มภาพลงใน Slide Master ภาพนั้นจะปรากฏบนทุกสไลด์ที่ใช้ Slide Master นั้น
+## **ใช้รูปภาพซ้ำในหลายสไลด์**
 
-โค้ดตัวอย่าง C# นี้แสดงวิธีการเพิ่มภาพลงใน Slide Master:
+หากต้องการใช้รูปเดียวกันหลายครั้ง ให้เพิ่มภาพนั้นเข้าสู่งานนำเสนอครั้งเดียวแล้วใช้ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ที่รับคืนเมื่อต้องสร้างกรอบรูปเพิ่มเติม วิธีนี้ช่วยหลีกเลี่ยงการโหลดข้อมูลแหล่งเดียวกันซ้ำหลายครั้ง และทำให้ความสัมพันธ์ระหว่างแหล่งรูปภาพที่ใช้ร่วมกันกับการใช้ของมันชัดเจน
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+สำหรับกราฟิกที่ควรปรากฏอัตโนมัติบนหลายสไลด์ เช่น โลโก้บริษัท ให้พิจารณาวางกรอบรูปบน [slide master](/slides/th/net/slide-master/) หรือเลย์เอาต์ แทนการเพิ่มรูปร่างที่เทียบเท่าในแต่ละสไลด์
+
+## **ใช้รูปภาพเป็นพื้นหลังสไลด์**
+
+รูปภาพพื้นหลังถูกกำหนดให้กับการเติมสไลด์ ไม่ได้ถูกเพิ่มเป็นรูปร่างกรอบรูป วิธีนี้เหมาะเมื่อต้องการให้รูปภาพครอบพื้นหลังสไลด์และไม่ต้องการจัดการเป็นออบเจกต์สไลด์ปกติ
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มภาพเป็นพื้นหลังของสไลด์**
+สำหรับตัวเลือกพื้นหลังเพิ่มเติม รวมถึงพื้นหลังมาสเตอร์และเลย์เอาต์ ให้ดูที่ [Presentation Background](/slides/th/net/presentation-background/)
 
-คุณอาจต้องการใช้รูปภาพเป็นพื้นหลังสำหรับสไลด์เดียวหรือหลายสไลด์ ในกรณีนั้นคุณต้องดู *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/th/net/presentation-background/#setting-images-as-background-for-slides)*
+## **รูปภาพฝังและรูปภาพเชื่อมโยง**
 
-## **เพิ่ม SVG ลงในงานนำเสนอ**
+รูปภาพฝังและรูปภาพเชื่อมโยงมีข้อดีข้อเสียเรื่องความพกพาและขนาดไฟล์ต่างกัน:
 
-คุณสามารถเพิ่มหรือแทรกรูปภาพใด ๆ ลงในงานนำเสนอโดยใช้เมธอด [AddPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/methods/addpictureframe) ที่เป็นส่วนหนึ่งของอินเทอร์เฟซ [IShapeCollection](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection)
+- **รูปภาพฝัง:** ข้อมูลรูปภาพถูกเก็บอยู่ภายในงานนำเสนอ งานนำเสนอเป็นไฟล์เดียวแต่ขนาดไฟล์รวมข้อมูลรูปภาพ
+- **รูปภาพเชื่อมโยง:** งานนำจัดเก็บเส้นทางหรือ URL ไปยังรูปภาพภายนอก ซึ่งอาจลดขนาดงานนำเสนอได้ แต่ต้องให้แหล่งภายนอกสามารถเข้าถึงได้เมื่อเปิดหรือแสดงผลงานนำเสนอ
 
-เพื่อสร้างออบเจกต์ภาพจาก SVG ให้ทำตามขั้นตอนต่อไปนี้:
+สามารถสร้างรูปภาพเชื่อมโยงโดยกำหนดเส้นทางหรือ URL ภายนอกผ่าน [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/th/net/aspose.slides/islidespicture/linkpathlong/) แทนการฝังข้อมูลรูปภาพ
 
-1. สร้างออบเจกต์ SvgImage เพื่อนำเข้าไปยัง ImageShapeCollection  
-2. สร้างออบเจกต์ PPImage จาก ISvgImage  
-3. สร้างออบเจกต์ PictureFrame ด้วยการใช้ IPPImage interface  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-โค้ดตัวอย่างนี้แสดงวิธีการดำเนินการตามขั้นตอนข้างต้นเพื่อเพิ่มภาพ SVG ลงในงานนำเสนอ:
-``` csharp 
-// เส้นทางไปยังไดเรกทอรีเอกสาร
-string dataDir = @"D:\Documents\";
+using var presentation = new Presentation();
 
-// ชื่อไฟล์ SVG ต้นฉบับ
-string svgFileName = dataDir + "sample.svg";
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-// ชื่อไฟล์งานนำเสนอผลลัพธ์
-string outPptxPath = dataDir + "presentation.pptx";
-
-// สร้างงานนำเสนอใหม่
-using (var p = new Presentation())
-{
-    // อ่านเนื้อหาไฟล์ SVG
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // สร้างอ็อบเจกต์ SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // สร้างอ็อบเจกต์ PPImage
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // สร้าง PictureFrame ใหม่
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // บันทึกงานนำเสนอในรูปแบบ PPTX
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **แปลง SVG เป็นชุดของรูปทรง**
+ใช้รูปภาพเชื่อมโยงเฉพาะเมื่อสภาพแวดล้อมการปรับใช้เข้าถึงแหล่งภายนอกได้อย่างเชื่อถือได้ สำหรับงานนำเสนอที่ต้องทำงานแบบออฟไลน์หรือย้ายระหว่างระบบ รูปภาพฝังมักปลอดภัยกว่า
 
-การแปลง SVG เป็นชุดของรูปทรงของ Aspose.Slides มีลักษณะคล้ายกับฟังก์ชันของ PowerPoint ที่ใช้ทำงานกับภาพ SVG:
+## **ทำงานกับรูปภาพ SVG**
+
+SVG เป็นฟอร์แมตเวกเตอร์ จึงเหมาะสำหรับไอคอน ไดอะแกรม และกราฟิกอื่น ๆ ที่ต้องการขยายโดยไม่สูญเสียรายละเอียดเหมือนรูปภาพแรสเตอร์ Aspose.Slides รองรับ SVG ทั้งเป็นแหล่งข้อมูลรูปภาพและเป็นแหล่งสำหรับรูปร่างสไลด์ที่แก้ไขได้
+
+### **เพิ่ม SVG เป็นรูปภาพ**
+
+สร้าง [SvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/svgimage/) เพิ่มลงในคอลเล็กชันรูปภาพ และวางแหล่งข้อมูลรูปภาพที่ได้ในกรอบรูป
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **ไฟล์ SVG ที่มีแหล่งภายนอก**
+
+SVG สามารถอ้างอิงรูปภาพ สไตล์ชีต หรือฟอนต์จากภายนอก สำหรับกรณีเหล่านี้ [SvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/svgimage/) มีคอนสตรัคเตอร์ที่รับ [IExternalResourceResolver](https://reference.aspose.com/slides/th/net/aspose.slides.import/iexternalresourceresolver/) และ URI พื้นฐาน ตัวแก้ไขสามารถแมป URI เชิงสัมพันธ์เป็น URI เชิงสัมบูรณ์ที่อนุญาตและคืนสตรีมสำหรับแหล่งที่ร้องขอ
+
+ตัวแก้ไขทำให้แหล่งภายนอกพร้อมใช้งานขณะ Aspose.Slides ประมวลผล SVG แต่จะไม่เขียนใหม่ SVG ให้เป็นเอกสารที่แยกตัวเองได้ หาก SVG ต้องคงความพกพา ให้ฝังแหล่งที่จำเป็นไว้ใน SVG เอง เช่น ใช้ URI แบบ `data:` สำหรับรูปภาพเชื่อมโยง
+
+เมื่อไฟล์ SVG มาจากแหล่งที่ไม่เชื่อถือ ควรจำกัดสกีม ไฟล์โลเคชัน และโฮสต์ที่ตัวแก้ไขสามารถเข้าถึงได้ ตัวแก้ไขเครือข่ายควรกำหนด timeout ขีดจำกัดขนาดการตอบสนองและการตรวจสอบความถูกต้องของเนื้อหา
+
+### **แปลง SVG เป็นรูปร่างแก้ไขได้**
+
+Aspose.Slides สามารถแปลง SVG เป็นกลุ่มรูปร่างสไลด์ที่แก้ไขได้ คล้ายกับคำสั่งใน PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-ฟังก์ชันนี้ให้บริการโดยหนึ่งใน overload ของเมธอด [AddGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides.ishapecollection/addgroupshape/methods/1) ของอินเทอร์เฟซ [IShapeCollection](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection) ที่รับออบเจกต์ [ISvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/isvgimage) เป็นอาร์กิวเมนต์แรก
+ใช้ [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addgroupshape/) ที่รับ [ISvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/isvgimage/) เพื่อทำการแปลง
 
-โค้ดตัวอย่างนี้แสดงวิธีใช้เมธอดที่อธิบายเพื่อแปลงไฟล์ SVG เป็นชุดของรูปทรง:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-``` csharp 
-// เส้นทางไปยังไดเรกทอรีเอกสาร
-string dataDir = @"D:\Documents\";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// ชื่อไฟล์ SVG ต้นฉบับ
-string svgFileName = dataDir + "sample.svg";
+using var presentation = new Presentation();
 
-// ชื่อไฟล์งานนำเสนอผลลัพธ์
-string outPptxPath = dataDir + "presentation.pptx";
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-// สร้างงานนำเสนอใหม่
-using (IPresentation presentation = new Presentation())
-{
-    // อ่านเนื้อหาไฟล์ SVG
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // สร้างอ็อบเจกต์ SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // รับขนาดสไลด์
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // แปลงภาพ SVG เป็นกลุ่มรูปทรงและปรับขนาดให้พอดีกับสไลด์
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // บันทึกงานนำเสนอในรูปแบบ PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มภาพเป็น EMF ลงสไลด์**
+ใช้การแปลง SVG‑to‑shapes เมื่อองค์ประกอบเวกเตอร์แต่ละอันต้องการการแก้ไขเป็นรูปร่าง PowerPoint หาก SVG ต้องการเพียงแสดงผล การเก็บไว้เป็นรูปภาพจะง่ายกว่าและหลีกเลี่ยงการสร้างรูปร่างแยกหลายอัน
 
-Aspose.Slides for .NET อนุญาตให้คุณสร้างภาพ EMF จากแผ่นงาน Excel และเพิ่มภาพเหล่านั้นเป็น EMF ลงในสไลด์โดยใช้ Aspose.Cells  
+## **แทนที่แหล่งรูปภาพที่มีอยู่**
 
-โค้ดตัวอย่างนี้แสดงวิธีทำตามขั้นตอนที่อธิบายไว้:
+ใช้ [IPPImage.ReplaceImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/replaceimage/) เมื่อคุณต้องการแทนที่แหล่งรูปภาพที่มีอยู่ ซึ่งเป็นประโยชน์มากสำหรับกราฟิกที่ใช้ร่วมกันเช่นโลโก้
 
-``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    //บันทึกเวิร์กบุ๊กไปยังสตรีม
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+using var presentation = new Presentation("input.pptx");
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **แทนที่ภาพใน Image Collection**
-
-Aspose.Slides ให้คุณแทนที่ภาพที่จัดเก็บใน Image Collection ของงานนำเสนอ (รวมถึงภาพที่ใช้โดยรูปทรงสไลด์) ส่วนนี้แสดงวิธีการอัปเดตภาพในคอลเลกชันหลายวิธี API มีเมธอดที่ใช้งานง่ายเพื่อแทนที่ภาพโดยใช้ข้อมูลไบต์ดิบ, อินสแตนซ์ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) หรือภาพอื่นที่มีอยู่แล้วในคอลเลกชัน
-
-ทำตามขั้นตอนต่อไปนี้:
-
-1. โหลดไฟล์งานนำเสนอที่มีภาพโดยใช้คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
-2. โหลดภาพใหม่จากไฟล์เข้าสู่ byte array  
-3. แทนที่ภาพเป้าหมายด้วยภาพใหม่โดยใช้ byte array  
-4. แนวทางที่สอง โหลดภาพเข้าสู่อ็อบเจกต์ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) แล้วแทนที่ภาพเป้าหมายด้วยอ็อบเจกต์นั้น  
-5. แนวทางที่สาม แทนที่ภาพเป้าหมายด้วยภาพที่มีอยู่แล้วใน Image Collection ของงานนำเสนอ  
-6. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
-
-```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ.
-using Presentation presentation = new Presentation("sample.pptx");
-
-// วิธีแรก.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
-
-// วิธีที่สอง.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// วิธีที่สาม.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// บันทึกการนำเสนอลงไฟล์.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
-โดยใช้ตัวแปลงฟรีของ Aspose [Text to GIF](https://products.aspose.app/slides/th/text-to-gif) คุณสามารถทำให้ข้อความเคลื่อนไหวสร้าง GIF จากข้อความ ฯลฯ ได้อย่างง่ายดาย 
-{{% /alert %}}
+หากหลายกรอบรูป พื้นหลัง มาสเตอร์ หรือเลย์เอาต์ใช้แหล่งรูปเดียวกัน การแทนที่แหล่งนั้นจะอัปเดตการใช้ทั้งหมด หากต้องการเปลี่ยนกรอบรูปเพียงอันเดียว ให้กำหนดรูปภาพอื่นให้กับกรอบนั้นแทนการแทนที่แหล่งที่ใช้ร่วมกัน
+
+`ReplaceImage` ยังมีโอเวอร์โหลดที่รับ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) หรือ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) อื่น ๆ อีกด้วย
+
+## **แนวทางการจัดการรูปภาพเชิงปฏิบัติ**
+
+### **ควบคุมขนาดงานนำเสนอ**
+
+รูปแรสเตอร์ที่มีขนาดใหญ่ทำให้งานนำเสนอใหญ่เกินจำเป็น ใช้รูปภาพต้นฉบับที่มีมิติเหมาะสมกับขนาดการแสดงที่ต้องการ ใช้แหล่งรูปภาพที่ใช้ร่วมกันเมื่อทำได้ และหลีกเลี่ยงการฝังสำเนาเต็มความละเอียดเดียวกันหลายครั้ง
+
+สำหรับรูปแรสเตอร์ที่ได้ถูกวางไว้ในกรอบรูปแล้ว [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/compressimage/) สามารถลดข้อมูลรูปภาพตามความละเอียดและการครอบที่เลือกได้ สิ่งนี้เป็นการประมวลผลกรอบรูป ไม่ใช่การจัดการคอลเล็กชันรูปภาพ ดังนั้นดูที่ [Picture Frame](/slides/th/net/picture-frame/) เพื่อทำการจัดรูปแบบที่เกี่ยวข้อง
+
+### **เลือกใช้ระหว่างเนื้อหาแบบฝังและแบบเชื่อมโยง**
+
+การฝังทำให้งานนำเสนอพกพาได้ง่ายเนื่องจากข้อมูลรูปทั้งหมดอยู่ในไฟล์เดียว การเชื่อมโยงอาจลดขนาดไฟล์แต่เพิ่มการพึ่งพาแหล่งภายนอก ใช้ลิงก์เฉพาะเมื่อการพึ่งพานั้นยอมรับได้และเสถียร
+
+### **ใช้แบรนด์ที่แชร์ร่วมกัน**
+
+สำหรับโลโก้ น้ำหนักน้ำ หรือกราฟิกตกแต่งที่ใช้ซ้ำ ให้ใช้แหล่งรูปภาพเดียวและนำกลับมาใช้ใหม่ หากกราฟิกเป็นส่วนของการออกแบบงานนำเสนอ มากกว่าข้อความสไลด์ ให้วางไว้บนมาสเตอร์หรือเลย์เอาต์เพื่อให้สไลด์ที่เกี่ยวข้องสืบทอดอัตโนมัติ
+
+### **ทำให้แหล่ง SVG พกพาได้**
+
+SVG ที่เป็นไฟล์เดียวทำให้ย้ายและแสดงผลได้สม่ำเสมอกว่าที่ต้องพึ่งพาไฟล์หรือแหล่งเครือข่ายภายนอก หากทำได้ ให้ฝังแหล่งที่จำเป็นก่อนนำเข้า SVG แปลง SVG เป็นรูปร่างเฉพาะเมื่อจำเป็นต้องแก้ไของค์ประกอบเวกเตอร์แต่ละอัน
+
+### **ใช้ Modern Cross-Platform Image API**
+
+สำหรับโค้ด .NET ใหม่ ให้ใช้ API ของ Aspose.Slides ได้แก่ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) และ [Images](https://reference.aspose.com/slides/th/net/aspose.slides/images/) แทนการพึ่งพา `System.Drawing.Image` หรือ `Bitmap` ดูที่ [Modern API](/slides/th/net/modern-api/) เพื่อแนวทางการย้าย
+
+WMF และ EMF ต้องพิจารณาเป็นพิเศษ เมื่อฟอร์แมตเหล่านี้ถูกส่งผ่าน [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) การใช้ [ImageCollection.AddImage](https://reference.aspose.com/slides/th/net/aspose.slides/imagecollection/addimage/) จะเปลี่ยนเมตาไฟล์เป็น PNG แรสเตอร์ก่อนแทรก หากต้องการรักษาข้อมูลเมตาไฟล์ ควรใช้โอเวอร์โหลดแบบสตรีมของ [ImageCollection.AddImage](https://reference.aspose.com/slides/th/net/aspose.slides/imagecollection/addimage/) การสร้างเนื้อหา EMF จากสเปรดชีตหรือผลิตภัณฑ์อื่นเป็นเวิร์กโฟลว์การรวมแยกต่างหากและอยู่นอกขอบเขตของบทความนี้
 
 ## **คำถามที่พบบ่อย**
 
-**ความละเอียดของภาพต้นฉบับจะคงเดิมหลังจากแทรกหรือไม่?**  
-ใช่ พิกเซลต้นฉบับจะถูกเก็บไว้ แต่การแสดงผลสุดท้ายขึ้นอยู่กับว่าภาพ [picture](/slides/th/net/picture-frame/) ถูกสเกลบนสไลด์อย่างไรและการบีบอัดใด ๆ ที่ใช้เมื่อบันทึก
+**ความแตกต่างระหว่าง image collection กับ picture frame คืออะไร?**
 
-**วิธีที่ดีที่สุดในการแทนที่โลโกเดียวกันในหลายสิบสไลด์พร้อมกันคืออะไร?**  
-วางโลโกบน master slide หรือ layout แล้วแทนที่ใน Image Collection ของงานนำเสนอ—การเปลี่ยนแปลงจะกระจายไปยังทุกองค์ประกอบที่ใช้ทรัพยากรนั้น
+image collection เก็บแหล่งรูปภาพที่สามารถใช้ซ้ำได้ picture frame เป็นรูปร่างบนสไลด์ที่แสดงหนึ่งในแหล่งเหล่านั้นและให้การจัดรูปแบบเฉพาะของรูปภาพเช่นการครอบและเอฟเฟ็กต์
 
-**SVG ที่แทรกเข้ามาสามารถแปลงเป็นรูปทรงที่แก้ไขได้หรือไม่?**  
-ได้ คุณสามารถแปลง SVG เป็นกลุ่มรูปทรงได้ หลังจากนั้นแต่ละส่วนจะสามารถแก้ไขได้ด้วยคุณสมบัติมาตรฐานของรูปทรง
+**วิธีที่ดีที่สุดในการแทนที่โลโก้เดียวกันทั่วทั้งงานนำเสนอคืออะไร?**
 
-**จะตั้งค่าภาพเป็นพื้นหลังของหลายสไลด์พร้อมกันอย่างไร?**  
-[Assign the image as the background](/slides/th/net/presentation-background/) บน master slide หรือ layout ที่เกี่ยวข้อง—สไลด์ใด ๆ ที่ใช้ master/layout นั้นจะสืบทอดพื้นหลังโดยอัตโนมัติ
+หากโลโก้ถูกแชร์เป็นแหล่งรูปภาพเดียว ให้แทนที่แหล่งนั้นด้วย [IPPImage.ReplaceImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/replaceimage/) สำหรับการแบรนด์ระดับงานนำเสนอ การวางโลโก้บนมาสเตอร์หรือเลย์เอาต์ก็ช่วยลดเนื้อหาซ้ำในสไลด์ได้เช่นกัน
 
-**ทำอย่างไรเพื่อป้องกันไม่ให้ไฟล์งานนำเสนอขยายขนาดมากเกินไปจากภาพจำนวนมาก?**  
-ใช้ภาพเดียวซ้ำแทนการทำสำเนา, เลือกความละเอียดที่เหมาะสม, บีบอัดเมื่อบันทึก, และเก็บกราฟิกที่ซ้ำกันไว้บน master slide เมื่อเป็นไปได้
+**ทำไมรูปภาพเชื่อมโยงถึงหายไปบนคอมพิวเตอร์เครื่องอื่น?**
+
+รูปภาพเชื่อมโยงพึ่งพาไฟล์หรือ URL ภายนอก หากแหล่งนั้นไม่สามารถเข้าถึงได้จากคอมพิวเตอร์เครื่องอื่น รูปภาพเชื่อมโยงอาจไม่ปรากฏ ให้ฝังรูปภาพเมื่อจำเป็นต้องให้งานนำเสนอเป็นไฟล์เดียว
+
+**สามารถแก้ไข SVG ที่แทรกแล้วเป็นรูปร่าง PowerPoint ได้หรือไม่?**
+
+ได้ ใช้ [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addgroupshape/) เพื่อแปลง SVG; กลุ่มที่ได้จะมีรูปร่างสไลด์ที่แก้ไขได้แทนการเป็นรูป SVG เดียว
+
+**จะทำอย่างไรให้งานนำเสนอที่มีรูปภาพหลายรูปมีขนาดเล็กลง?**
+
+ใช้แหล่งรูปภาพที่ใช้ร่วมกัน หลีกเลี่ยงแหล่งแรสเตอร์ที่ใหญ่เกินจำเป็น บีบอัดรูปแรสเตอร์ที่เหมาะสมเมื่อจำเป็น เก็บแบรนด์ที่ซ้ำกันบนมาสเตอร์หรือเลย์เอาต์ และใช้รูปภาพเชื่อมโยงเฉพาะเมื่อการพึ่งพาแหล่งภายนอกรับได้

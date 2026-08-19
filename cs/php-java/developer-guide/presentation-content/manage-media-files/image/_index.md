@@ -1,339 +1,339 @@
 ---
-title: "Optimalizace správy obrázků v prezentacích pomocí PHP"
-linktitle: "Správa obrázků"
+title: Optimalizace správy obrázků v prezentacích pomocí PHP
+linktitle: Správa obrázků
 type: docs
 weight: 10
 url: /cs/php-java/image/
 keywords:
-- přidat obrázek
-- přidat obrázek
-- přidat bitmapu
-- nahradit obrázek
-- nahradit obrázek
-- z webu
-- pozadí
-- přidat PNG
-- přidat JPG
-- přidat SVG
-- přidat EMF
-- přidat WMF
-- přidat TIFF
-- PowerPoint
-- OpenDocument
-- prezentace
-- EMF
-- SVG
-- PHP
-- Aspose.Slides
-description: "Zefektivněte správu obrázků v PowerPointu a OpenDocument pomocí Aspose.Slides pro PHP přes Java, optimalizujte výkon a automatizujte svůj pracovní postup."
+  - přidat obrázek
+  - přidat obrázek
+  - nahradit obrázek
+  - kolekce obrázků
+  - rámeček obrázku
+  - odkazovaný obrázek
+  - pozadí
+  - přidat PNG
+  - přidat JPG
+  - přidat SVG
+  - SVG na tvary
+  - externí SVG zdroje
+  - PowerPoint
+  - OpenDocument
+  - prezentace
+  - PHP
+  - Aspose.Slides
+description: "Naučte se, jak přidávat, znovu používat, odkazovat, nahrazovat a spravovat rastrové i SVG obrázky v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java."
 ---
 ## **Úvod**
 
-Obrázky činí prezentace poutavějšími a zajímavějšími. V Microsoft PowerPoint můžete do snímků vložit obrázky ze souboru, internetu nebo jiných míst. Podobně Aspose.Slides umožňuje přidávat obrázky do snímků ve vašich prezentacích různými postupy. 
+Aspose.Slides pro PHP přes Java poskytuje několik způsobů práce s obrázky a každý slouží jinému účelu. Můžete uložit obrázek v prezentaci, zobrazit jej v rámečku obrázku, použít jej jako pozadí snímku, odkazovat na externí obrázek, nahradit sdílený zdroj obrázku nebo převést obsah SVG na editovatelné tvary.
 
-{{% alert  title="Tip" color="primary" %}} 
+Tento článek se zaměřuje na zdroje obrázků a jak jsou používány v celé prezentaci. Pro oříznutí, průhlednost, efekty, roztažení a další formátování aplikované na jednotlivý rámeček obrázku viz [Rámeček obrázku](/slides/cs/php-java/picture-frame/).
 
-Aspose poskytuje bezplatné převodníky—[JPEG do PowerPointu](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPointu](https://products.aspose.app/slides/cs/import/png-to-ppt)—které umožňují rychle vytvořit prezentace z obrázků. 
+## **Pochopení modelu obrázku**
 
-{{% /alert %}} 
+- [Kolekce obrázků prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/) ukládá obrazové zdroje používané v prezentaci. Použijte [ImageCollection::addImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/) k přidání dat obrázku a získání zdroje [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/).
+- [Rámeček obrázku](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) je tvar, který zobrazuje obrázek na snímku, rozložení nebo hlavě. Použijte [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addpictureframe/) k umístění zdroje obrázku na snímek.
+- Pozadí snímku používá obrázek jako součást výplně snímku místo tvaru. Proto se nebehová jako rámeček obrázku.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) nahradí zdroj obrázku. Pokud několik prvků prezentace používá tento zdroj, všichni používají náhradu.
+- Převod SVG na tvary vytvoří editovatelné tvary snímku. Po převodu není obsah již spravován jako jeden obrázkový zdroj.
 
-{{% alert title="Info" color="info" %}}
+Typický postup je tedy: přidat data obrázku do kolekce obrázků, získat [PPImage] a následně použít tento zdroj v jednom nebo více rámečcích obrázků nebo výplních.
 
-Pokud chcete přidat obrázek jako objekt rámce—zejména pokud plánujete použít standardní možnosti formátování k úpravě jeho velikosti, přidání efektů atd.—podívejte se na [Rámec obrázku](/slides/cs/php-java/picture-frame/).
+## **Přidání vloženého obrázku**
 
-{{% /alert %}} 
-
-{{% alert title="Poznámka" color="warning" %}}
-
-Můžete manipulovat s operacemi vstupu/výstupu zahrnujícími obrázky a PowerPoint prezentace pro převod obrázku z jednoho formátu do druhého. Viz tyto stránky: převod [obrázku na JPG](https://products.aspose.com/slides/cs/php-java/conversion/image-to-jpg/); převod [JPG na obrázek](https://products.aspose.com/slides/cs/php-java/conversion/jpg-to-image/); převod [JPG na PNG](https://products.aspose.com/slides/cs/php-java/conversion/jpg-to-png/), převod [PNG na JPG](https://products.aspose.com/slides/cs/php-java/conversion/png-to-jpg/); převod [PNG na SVG](https://products.aspose.com/slides/cs/php-java/conversion/png-to-svg/), převod [SVG na PNG](https://products.aspose.com/slides/cs/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides podporuje operace s obrázky v těchto populárních formátech: JPEG, PNG, GIF a dalších. 
-
-## **Přidání lokálně uložených obrázků do snímků**
-
-Můžete na snímek v prezentaci přidat jeden nebo několik obrázků z vašeho počítače. Tento ukázkový kód vám ukazuje, jak přidat obrázek do snímku:
+Pro vložení lokálního obrázku načtěte soubor, přidejte jej do kolekce obrázků a vytvořte rámeček obrázku, který používá vrácený `PPImage`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Přidání obrázků z webu do snímků**
+Obrázek přidaný tímto způsobem je vložen do prezentace, takže výsledný soubor nezávisí na tom, zda je původní soubor obrázku nadále k dispozici.
 
-Pokud obrázek, který chcete do snímku přidat, není k dispozici ve vašem počítači, můžete jej přidat přímo z webu. 
+### **Přidání obrázku z webu**
 
-Tento ukázkový kód vám ukazuje, jak přidat obrázek z webu do snímku :
+Když je obrázek dostupný prostřednictvím HTTP nebo HTTPS, stáhněte jeho bajty, přidejte je do kolekce obrázků prezentace a použijte vrácený zdroj obrázku stejným způsobem jako lokální obrázek.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
-    } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
-    }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
 
-## **Přidání obrázků do hlavních snímků (Slide Masters)**
-
-Hlavní snímek je vrchní snímek, který ukládá a řídí informace (téma, rozvržení, atd.) o všech snímcích pod ním. Když tedy přidáte obrázek do hlavního snímku, tento obrázek se objeví na každém snímku pod tímto hlavním snímkem. 
-
-Tento Java ukázkový kód vám ukazuje, jak přidat obrázek do hlavního snímku:
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Přidání obrázků jako pozadí snímků**
-
-Můžete se rozhodnout použít obrázek jako pozadí pro konkrétní snímek nebo několik snímků. V takovém případě se podívejte, jak [nastavit obrázek jako pozadí snímku](/slides/cs/php-java/presentation-background/#set-an-image-as-a-slide-background).
-
-## **Přidání SVG do prezentací**
-Můžete přidat nebo vložit jakýkoli obrázek do prezentace pomocí metody [addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addpictureframe/) patřící do třídy [ShapeCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/).
-
-Pro vytvoření objektu obrázku založeného na SVG obrázku můžete postupovat takto:
-
-1. Vytvořte objekt SvgImage pro vložení do ImageShapeCollection
-2. Vytvořte objekt PPImage z ISvgImage
-3. Vytvořte objekt PictureFrame pomocí třídy PPImage
-
-Tento ukázkový kód vám ukazuje, jak implementovat výše uvedené kroky pro přidání SVG obrázku do prezentace:
-```php
-  # Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Převod SVG na sadu tvarů**
-Převod SVG na sadu tvarů v Aspose.Slides je podobný funkčnosti PowerPointu používané pro práci s SVG obrázky:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Funkčnost je poskytována jednou z přetížených metod [addGroupShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addgroupshape/) třídy [ShapeCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/), která přijímá objekt [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/) jako první argument.
-
-Tento ukázkový kód vám ukazuje, jak použít popsanou metodu k převodu SVG souboru na sadu tvarů:
-
-```php
-  # Vytvořit novou prezentaci
-  $presentation = new Presentation();
-  try {
-    # Načíst obsah souboru SVG
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
-
-    # Vytvořit objekt SvgImage
-    $svgImage = new SvgImage($svgContent);
-    # Získat velikost snímku
-    $slideSize = $presentation->getSlideSize()->getSize();
-    # Převést SVG obrázek na skupinu tvarů a přizpůsobit jej velikosti snímku
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # Uložit prezentaci ve formátu PPTX
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Přidání obrázků jako EMF do snímků**
-Aspose.Slides for PHP via Java umožňuje generovat EMF obrázky z excelových listů a přidávat je jako EMF do snímků pomocí Aspose.Cells. 
-
-Tento ukázkový kód vám ukazuje, jak provést popsaný úkol:
-
-```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # Uložit sešit do proudu
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
         }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+    } finally {
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Nahrazení obrázků ve sbírce obrázků**
+V dlouhodobých aplikacích opakovaně používejte HTTP klienta nebo strategii správy připojení vhodnou pro aplikaci, namísto opakovaného vytváření zbytečné síťové infrastruktury. Také ověřujte vzdálené URL, velikosti odpovědí a typy obsahu, pokud zdroj není důvěryhodný.
 
-Aspose.Slides umožňuje nahradit obrázky uložené v kolekci obrázků prezentace (včetně těch, které používají tvary snímků). Tato sekce ukazuje několik přístupů k aktualizaci obrázků v kolekci. API poskytuje jednoduché metody pro nahrazení obrázku pomocí surových bajtových dat, instance [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/) nebo jiného obrázku, který již v kolekci existuje.
+## **Znovupoužití obrázků napříč snímky**
 
-Postupujte podle následujících kroků:
+Pokud je stejný obrázek potřeba více než jednou, přidejte jej do prezentace jednou a znovu použijte vrácený [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) při vytváření dalších rámečků obrázku. Tím se vyhnete opakovanému načítání stejných zdrojových dat a vztah mezi sdíleným zdrojem obrázku a jeho použitím se stane explicitním.
 
-1. Načtěte soubor prezentace, který obsahuje obrázky, pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Načtěte nový obrázek ze souboru do bajtového pole.
-1. Nahraďte cílový obrázek novým obrázkem pomocí bajtového pole.
-1. Ve druhém přístupu načtěte obrázek do objektu [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/) a nahraďte cílový obrázek tímto objektem.
-1. Ve třetím přístupu nahraďte cílový obrázek obrázkem, který již v kolekci prezentace existuje.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+Pro grafiku, která by se měla automaticky objevovat na mnoha snímcích, například firemní logo, zvažte umístění rámečku obrázku na [hlavní snímek](/slides/cs/php-java/slide-master/) nebo rozložení místo přidávání ekvivalentního tvaru na každý snímek.
+
+## **Použití obrázku jako pozadí snímku**
+
+Obrázek pozadí je přiřazen k výplni snímku; není přidán jako tvar rámečku obrázku. To je užitečné, když má obrázek pokrýt pozadí snímku a neměl by být manipulován jako běžný objekt snímku.
 
 ```php
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-$presentation = new Presentation("sample.pptx");
-try {
-    // První způsob.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    // Druhý způsob.
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // Třetí způsob.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // Uložit prezentaci do souboru.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Další možnosti pozadí, včetně pozadí hlav a rozložení, viz [Pozadí prezentace](/slides/cs/php-java/presentation-background/).
+
+## **Vložené a odkazované obrázky**
+
+Vložené a odkazované obrázky mají odlišné kompromisy v přenositelnosti a velikosti souboru:
+
+- **Vložený obrázek:** data obrázku jsou uložena uvnitř prezentace. Prezentace je samostatná, ale velikost souboru zahrnuje data obrázku.
+- **Odkazovaný obrázek:** prezentace ukládá cestu nebo URL k externímu obrázku. To může snížit velikost prezentace, ale externí zdroj musí být přístupný při otevírání nebo vykreslování prezentace.
+
+Odkazovaný obrázek lze vytvořit přiřazením externí cesty nebo URL pomocí [Picture::setLinkPathLong](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picture/) místo vložení dat obrázku.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Používejte odkazované obrázky pouze tehdy, když nasazovací prostředí může spolehlivě přistupovat k externímu zdroji. Pro prezentace, které musí fungovat offline nebo být přesouvány mezi systémy, jsou vložené obrázky obvykle bezpečnější.
+
+## **Práce s SVG obrázky**
+
+SVG je vektorový formát, takže je užitečný pro ikony, diagramy a další grafiku, která by se měla škálovat bez ztráty detailů jako rastrové obrázky. Aspose.Slides podporuje SVG jak jako zdroj obrázku, tak jako zdroj pro editovatelné tvary snímku.
+
+### **Přidání SVG jako obrázku**
+
+Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/), přidejte jej do kolekce obrázků a umístěte vzniklý zdroj obrázku do rámečku obrázku.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **SVG soubory s externími zdroji**
+
+SVG může odkazovat na externí obrázky, styly nebo fonty. Pro tyto případy [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/) poskytuje konstruktory, které přijímají [ExternalResourceResolver](https://reference.aspose.com/slides/cs/php-java/aspose.slides/externalresourceresolver/) a základní URI. Resolver může převést relativní URI na povolené absolutní URI a vrátit stream požadovaného zdroje.
+
+Resolver zpřístupní externí zdroje během zpracování SVG v Aspose.Slides, ale nepřepíše SVG na samostatný dokument. Pokud SVG musí zůstat přenosný, vložte požadované zdroje přímo do SVG, například pomocí `data:` URI pro odkazované obrázky.
+
+Když SVG soubory pocházejí z nedůvěryhodných zdrojů, omezte schémata, umístění souborů a hosty, ke kterým může resolver přistupovat. Síťové resolvery by také měly aplikovat časové limity, limity velikosti odpovědi a validaci obsahu.
+
+### **Převod SVG na editovatelné tvary**
+
+Aspose.Slides může převést SVG na skupinu editovatelných tvarů snímku, podobně jako odpovídající příkaz PowerPoint.
+
+![PowerPoint vyskakovací nabídka](img_01_01.png)
+
+Použijte přetížení [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addgroupshape/), které přijímá [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/), k provedení převodu.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $slideSize = $presentation->getSlideSize()->getSize();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Používejte převod SVG na tvary, když je potřeba jednotlivé vektorové elementy upravovat jako tvary PowerPointu. Pokud je potřeba SVG pouze zobrazit, je jednodušší nechat jej jako obrázek a vyhnout se vytváření mnoha samostatných tvarů.
+
+## **Nahrazení existujícího zdroje obrázku**
+
+Použijte [PPImage::replaceImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) když chcete nahradit existující zdroj obrázku. To je obzvláště užitečné pro sdílenou grafiku, jako jsou loga.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $imageToReplace = $presentation->getImages()->get_Item(0);
+
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Pokud několik rámečků obrázků, pozadí, hlav nebo rozložení používá stejný zdroj obrázku, jeho nahrazení aktualizuje všechny tyto použití. Pokud má být změněn jen jeden rámeček obrázku, přiřaďte tomuto rámečku jiný obrázek místo nahrazení sdíleného zdroje.
 
-Pomocí Aspose FREE [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) převodníku můžete snadno animovat texty, vytvářet GIFy z textu atd. 
+`PPImage::replaceImage` také poskytuje přetížení, která přijímají pole bajtů nebo jiný [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Praktické pokyny pro správu obrázků**
 
-## **Často kladené otázky**
+### **Kontrola velikosti prezentace**
 
-**Zůstane po vložení původní rozlišení obrázku zachováno?**
+Velké rastrové obrázky mohou způsobit zbytečně velkou prezentaci. Používejte zdrojové obrázky s rozměry odpovídajícími zamýšlené velikosti zobrazení, opakovaně využívejte sdílené zdroje obrázků, kde je to možné, a vyhněte se vkládání opakovaných kopií stejné grafiky ve vysokém rozlišení.
 
-Ano. Původní pixely jsou zachovány, ale finální vzhled závisí na tom, jak je [obrázek](/slides/cs/php-java/picture-frame/) škálován na snímku a jaká komprese je aplikována při uložení.
+Pro rastrové obrázky, které již byly umístěny v rámečcích obrázků, může [PictureFillFormat::compressImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) snížit data obrázku podle zvolené rozlišení a nastavení ořezu. Jedná se o zpracování rámečku obrázku, nikoli o správu kolekce obrázků, proto viz [Rámeček obrázku](/slides/cs/php-java/picture-frame/) pro související operace formátování.
 
-**Jaký je nejlepší způsob, jak najednou nahradit stejné logo na desítkách snímků?**
+### **Volba mezi vloženým a odkazovaným obsahem**
 
-Umístěte logo na hlavní snímek nebo rozvržení a nahraďte jej v kolekci obrázků prezentace — aktualizace se projeví ve všech prvcích, které tento zdroj používají.
+Vložení činí prezentaci přenosnou, protože všechna potřebná data obrázku jsou součástí souboru. Odkazování může snížit velikost souboru, ale zavádí externí závislost. Odkazy používejte pouze tehdy, když je tato závislost přijatelná a stabilní.
 
-**Může být vložený SVG převeden na editovatelné tvary?**
+### **Opakované použití sdílené značky**
 
-Ano. SVG můžete převést na skupinu tvarů, po čemž se jednotlivé části stanou editovatelnými pomocí standardních vlastností tvaru.
+Pro opakovaná loga, vodoznaky nebo dekorativní grafiku použijte jeden zdroj obrázku a opakujte jej. Pokud grafika patří do návrhu prezentace spíše než do obsahu snímku, umístěte ji na hlavní snímek nebo rozložení, aby ji dědily příslušné snímky.
 
-**Jak nastavit obrázek jako pozadí pro více snímků najednou?**
+### **Udržujte SVG zdroje přenosné**
 
-[Přiřaďte obrázek jako pozadí](/slides/cs/php-java/presentation-background/) na hlavním snímku nebo příslušném rozvržení — všechny snímky používající tento hlavní snímek/rozvržení zdědí pozadí.
+Samostatný SVG je snazší přesunout a vykreslovat konzistentně než SVG, který závisí na externích souborech nebo síťových zdrojích. Kdy je to možné, vložte požadované zdroje před importem SVG. Převádějte SVG na tvary pouze tehdy, když je potřeba jednotlivé vektorové elementy upravovat.
 
-**Jak zabránit „nafouknutí“ prezentace kvůli mnoha obrázkům?**
+### **Použijte moderní multiplatformní Image API**
 
-Znovu použijte jediný zdroj obrázku místo duplicit, zvolte rozumná rozlišení, aplikujte kompresi při ukládání a opakovanou grafiku umístěte na hlavní snímek, kde je to vhodné.
+Pro nový kód PHP přes Java použijte Aspose.Slides API [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/) a [Images](https://reference.aspose.com/slides/cs/php-java/aspose.slides/images/) namísto zastaralého veřejného API založeného na `java.awt.image.BufferedImage`. Viz [Moderní API](/slides/cs/php-java/modern-api/) pro pokyny k migraci.
+
+Formáty WMF a EMF vyžadují zvláštní úvahu. Když jsou tyto formáty předány přes [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/), [ImageCollection::addImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/) převádí metafile na rastrovou PNG reprezentaci před vložením. Pokud je důležité zachovat data metafile, použijte místo toho přetížení [ImageCollection::addImage] založené na streamu. Generování EMF obsahu z tabulek nebo jiných produktů je samostatný integrační postup a není součástí tohoto článku.
+
+## **Časté otázky**
+
+**Jaký je rozdíl mezi kolekcí obrázků a rámečkem obrázku?**
+
+Kolekce obrázků ukládá znovu použitelné zdroje obrázků. Rámeček obrázku je tvar na snímku, který zobrazuje jeden z těchto zdrojů a poskytuje specifické formátování obrázku, jako je ořez a efekty.
+
+**Jaký je nejlepší způsob, jak nahradit stejné logo všude?**
+
+Pokud je logo již sdílené jako jeden zdroj obrázku, nahraďte tento zdroj pomocí [PPImage::replaceImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/). Pro značku napříč celou prezentací může umístění loga na hlavní snímek nebo rozložení také snížit duplicitní obsah snímků.
+
+**Proč odkazovaný obrázek zmizí na jiném počítači?**
+
+Odkazovaný obrázek závisí na externím souboru nebo URL. Pokud tento zdroj není z jiného počítače dosažitelný, odkazovaný obrázek může být nedostupný. Vložte obrázek, když musí být prezentace samostatná.
+
+**Lze vložené SVG upravit jako tvary PowerPointu?**
+
+Ano. Převod SVG pomocí [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addgroupshape/); výsledná skupina obsahuje editovatelné tvary snímku namísto jednoho SVG obrázku.
+
+**Jak mohu udržet prezentace s mnoha obrázky menší?**
+
+Opakovaně používejte sdílené zdroje obrázků, vyhněte se zbytečně velkým rastrovým zdrojům, komprimujte vhodné rastrové obrázky podle potřeby, udržujte opakovanou značku na hlavních snímcích nebo rozloženích a používejte odkazované obrázky pouze tehdy, když je externí závislost přijatelná.

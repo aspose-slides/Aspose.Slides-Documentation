@@ -1,281 +1,349 @@
 ---
-title: Optimaliseer Beeldbeheer in Presentaties met C++
-linktitle: Beheer Afbeeldingen
+title: Optimaliseer beheer van afbeeldingen in presentaties met C++
+linktitle: Afbeeldingen beheren
 type: docs
 weight: 10
 url: /nl/cpp/image/
 keywords:
 - afbeelding toevoegen
 - foto toevoegen
-- bitmap toevoegen
 - afbeelding vervangen
-- foto vervangen
-- van internet
+- afbeeldingscollectie
+- afbeeldingskader
+- gelinkte afbeelding
 - achtergrond
 - PNG toevoegen
 - JPG toevoegen
 - SVG toevoegen
-- EMF toevoegen
-- WMF toevoegen
-- TIFF toevoegen
+- SVG naar vormen
+- externe SVG‑bronnen
 - PowerPoint
 - OpenDocument
 - presentatie
-- EMF
-- SVG
 - C++
 - Aspose.Slides
-description: "Versnel het beheer van afbeeldingen in PowerPoint en OpenDocument met Aspose.Slides voor C++, optimaliseer de prestaties en automatiseer uw workflow."
+description: "Leer hoe u raster‑ en SVG‑afbeeldingen kunt toevoegen, hergebruiken, linken, vervangen en beheren in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor C++."
 ---
-## **Inleiding**
+## **Introductie**
 
-Afbeeldingen maken presentaties boeiender en interessanter. In Microsoft PowerPoint kunt u afbeeldingen invoegen vanaf een bestand, internet of andere locaties op dia's. Evenzo stelt Aspose.Slides u in staat afbeeldingen toe te voegen aan dia's in uw presentaties via verschillende procedures. 
+Aspose.Slides for C++ biedt verschillende manieren om met afbeeldingen te werken, en elke manier heeft een ander doel. U kunt een afbeelding opslaan in een presentatie, weergeven in een afbeeldingskader, gebruiken als dia‑achtergrond, linken naar een externe afbeelding, een gedeelde afbeeldingsbron vervangen, of SVG‑inhoud omzetten naar bewerkbare vormen.
 
-{{% alert title="Tip" color="primary" %}} 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die mensen in staat stellen snel presentaties te maken vanuit afbeeldingen. 
-{{% /alert %}} 
+Dit artikel richt zich op afbeeldingsbronnen en hoe ze door een presentatie heen worden gebruikt. Voor bijsnijden, transparantie, effecten, uitrekken en andere opmaak die op een individueel afbeeldingskader wordt toegepast, zie [Afbeeldingskader](/slides/nl/cpp/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Als u een afbeelding wilt toevoegen als een frame‑object—vooral wanneer u van plan bent standaard opmaakopties te gebruiken om de grootte te wijzigen, effecten toe te voegen, enzovoort—zie [Beeldframe](/slides/nl/cpp/picture-frame/). 
-{{% /alert %}} 
+## **Begrijp het afbeeldingsmodel**
 
-{{% alert title="Note" color="warning" %}}
-U kunt in‑ en uitvoerbewerkingen met afbeeldingen en PowerPoint‑presentaties manipuleren om een afbeelding van het ene formaat naar het andere te converteren. Zie de volgende pagina’s: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/cpp/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/cpp/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/cpp/conversion/jpg-to-png/); converteer [PNG naar JPG](https://products.aspose.com/slides/nl/cpp/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/cpp/conversion/png-to-svg/); converteer [SVG naar PNG](https://products.aspose.com/slides/nl/cpp/conversion/svg-to-png/).
-{{% /alert %}}
+De volgende API‑concepten zijn nauw verwant maar niet uitwisselbaar:
 
-Aspose.Slides ondersteunt bewerkingen met afbeeldingen in deze populaire formaten: JPEG, PNG, GIF en andere. 
+- De [presentatie‑afbeeldingscollectie](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/) slaat afbeeldingsbronnen op die door de presentatie worden gebruikt. Gebruik [IImageCollection::AddImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/addimage/) om afbeeldingsgegevens toe te voegen en een [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/)‑resource te verkrijgen.
+- Een [afbeeldingskader](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) is een vorm die een afbeelding op een dia, lay‑out of master weergeeft. Gebruik [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addpictureframe/) om een afbeeldingsresource op een dia te plaatsen.
+- Een dia‑achtergrond gebruikt een afbeelding als deel van de dia‑vulling in plaats van als een vorm. Het gedraagt zich daarom niet als een afbeeldingskader.
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/replaceimage/) vervangt een afbeeldingsresource. Als verschillende presentatie‑elementen die resource gebruiken, gebruiken ze allemaal de vervanging.
+- Het converteren van een SVG naar vormen creëert bewerkbare dia‑vormen. Na conversie wordt de inhoud niet langer beheerd als één afbeeldingsresource.
 
-## **Afbeeldingen lokaal toevoegen aan dia's**
+Een typische werkwijze is daarom: afbeeldingsgegevens toevoegen aan de collectie, een [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) ontvangen, en die resource vervolgens gebruiken in één of meerdere afbeeldingskaders of vullingen.
 
-U kunt één of meerdere afbeeldingen van uw computer aan een dia in een presentatie toevoegen. Deze voorbeeldcode in C++ laat zien hoe u een afbeelding aan een dia toevoegt:
+## **Een ingebedde afbeelding toevoegen**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Afbeeldingen van het web toevoegen aan dia's**
-
-Als de afbeelding die u aan een dia wilt toevoegen niet op uw computer beschikbaar is, kunt u de afbeelding rechtstreeks van het internet toevoegen. 
-
-Deze voorbeeldcode laat zien hoe u een afbeelding van het internet aan een dia toevoegt in C++:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
-
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Afbeeldingen toevoegen aan dia‑master**
-
-Een dia‑master is de bovenliggende dia die informatie (thema, lay‑out, enz.) over alle onderliggende dia's opslaat en beheert. Dus wanneer u een afbeelding aan een dia‑master toevoegt, verschijnt die afbeelding op elke dia die onder die master valt. 
-
-Deze C++‑voorbeeldcode laat zien hoe u een afbeelding aan een dia‑master toevoegt:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
-
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Afbeeldingen gebruiken als dia‑achtergrond**
-
-U kunt ervoor kiezen een afbeelding als achtergrond voor een specifieke dia of meerdere dia's te gebruiken. In dat geval moet u *[Instellen van afbeeldingen als achtergrond voor dia's](https://docs.aspose.com/slides/nl/cpp/presentation-background/#setting-images-as-background-for-slides)* bekijken.
-
-## **SVG toevoegen aan presentaties**
-
-U kunt elke afbeelding toevoegen of invoegen in een presentatie met behulp van de methode [AddPictureFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) die behoort tot de interface [IShapeCollection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection).
-
-Om een afbeeldingsobject op basis van een SVG‑afbeelding te maken, kunt u dit op deze manier doen:
-
-1. Maak een SvgImage‑object om het in de ImageShapeCollection in te voegen
-2. Maak een PPImage‑object van ISvgImage
-3. Maak een PictureFrame‑object met behulp van de IPPImage‑interface
-
-Deze voorbeeldcode laat zien hoe u de bovenstaande stappen implementeert om een SVG‑afbeelding aan een presentatie toe te voegen:
-``` cpp 
-// Het pad naar de documentenmap
-System::String dataDir = u"D:\\Documents\\";
-
-// Bron SVG-bestandsnaam
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Uitvoerbestand voor presentatie
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Nieuwe presentatie maken
-auto p = System::MakeObject<Presentation>();
-
-// SVG-bestandsinhoud lezen
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// SvgImage-object maken
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// PPImage-object maken
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// Maak een nieuw PictureFrame 
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// Presentatie opslaan in PPTX-formaat
-p->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **SVG converteren naar een set vormen**
-
-De conversie van SVG naar een set vormen in Aspose.Slides is vergelijkbaar met de functionaliteit van PowerPoint voor het werken met SVG‑afbeeldingen:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Deze functionaliteit wordt geleverd door één van de overloads van de methode [AddGroupShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) van de interface [IShapeCollection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection) die een [ISvgImage](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_svg_image)‑object als eerste argument neemt.
-
-Deze voorbeeldcode laat zien hoe u de beschreven methode gebruikt om een SVG‑bestand te converteren naar een set vormen:
-``` cpp 
-// Het pad naar de documentenmap
-System::String dataDir = u"D:\\Documents\\";
-
-// Bron SVG-bestandsnaam
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Uitvoerbestandsnaam voor presentatie
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Nieuwe presentatie maken
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
-
-// SVG-bestandsinhoud lezen
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// SvgImage-object maken
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Diaformaat ophalen
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
-
-// Converteer SVG-afbeelding naar een groep vormen door deze te schalen naar diaformaat
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// Presentatie opslaan in PPTX-formaat
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Afbeeldingen als EMF aan dia's toevoegen**
-
-Aspose.Slides voor C++ stelt u in staat EMF‑afbeeldingen te genereren uit Excel‑bladen en de afbeeldingen als EMF aan dia's toe te voegen met Aspose.Cells. 
-
-Deze voorbeeldcode laat zien hoe u de beschreven taak uitvoert:
-``` cpp 
-System::String dataDir = u"D:\\Documents\\";
-
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
-
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
-
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-pres->get_Slides()->RemoveAt(0);
-
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
-{
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
-
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
-```
-
-## **Afbeeldingen vervangen in de afbeeldingcollectie**
-
-Aspose.Slides stelt u in staat afbeeldingen die zijn opgeslagen in de afbeeldingcollectie van een presentatie (inclusief die gebruikt door dia‑vormen) te vervangen. Deze sectie toont verschillende benaderingen om afbeeldingen in de collectie bij te werken. De API biedt eenvoudige methoden om een afbeelding te vervangen met ruwe byte‑data, een [IImage]‑instantie of een andere afbeelding die al in de collectie bestaat.
-
-1. Laad het presentatie‑bestand dat afbeeldingen bevat met de klasse [Presentation].
-2. Laad een nieuwe afbeelding vanuit een bestand in een byte‑array.
-3. Vervang de doelafbeelding door de nieuwe afbeelding met behulp van de byte‑array.
-4. In de tweede benadering laadt u de afbeelding in een [IImage]‑object en vervangt u de doelafbeelding door dat object.
-5. In de derde benadering vervangt u de doelafbeelding door een afbeelding die al bestaat in de afbeeldingcollectie van de presentatie.
-6. Schrijf de aangepaste presentatie weg als een PPTX‑bestand.
+Om een lokale afbeelding in te voegen, leest u het bestand, voegt u de gegevens toe aan de afbeeldingscollectie en maakt u een afbeeldingskader dat de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/)‑resource gebruikt.
 
 ```cpp
-// Instantieer de Presentation-klasse die een presentatiebestand voorstelt.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// De eerste manier.
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// De tweede manier.
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto presentation = MakeObject<Presentation>();
 
-// De derde manier.
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-// Sla de presentatie op in een bestand.
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+De op deze manier toegevoegde afbeelding is ingebed in de presentatie, zodat het resulterende bestand niet afhankelijk is van de oorspronkelijke afbeeldings­bestand die nog beschikbaar moet zijn.
+
+### **Een afbeelding van internet toevoegen**
+
+Wanneer een afbeelding beschikbaar is via HTTP of HTTPS, downloadt u de bytes, voegt u ze toe aan de presentatie‑afbeeldingscollectie en gebruikt u de geretourneerde afbeeldingsresource op dezelfde manier als een lokale afbeelding.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Net;
+
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Valideer externe URL’s, responsgroottes en content‑types wanneer de bron niet vertrouwd is. In applicaties die al een andere HTTP‑client gebruiken, kunt u de afbeelding met die client downloaden en de resulterende bytes of stream doorgeven aan [IImageCollection::AddImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/addimage/).
+
+## **Afbeeldingen hergebruiken tussen dia’s**
+
+Als dezelfde afbeelding meer dan één keer nodig is, voegt u deze één keer toe aan de presentatie en hergebruikt u de verkregen [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) bij het maken van extra afbeeldingskaders. Dit voorkomt herhaaldelijk laden van dezelfde brongegevens en maakt de relatie tussen de gedeelde afbeeldingsresource en het gebruik ervan expliciet.
+
+Voor grafische elementen die automatisch op veel dia’s moeten verschijnen, zoals een bedrijfslogo, overweeg om het afbeeldingskader op een [dia‑master](/slides/nl/cpp/slide-master/) of lay‑out te plaatsen in plaats van een gelijkwaardige vorm op elke dia toe te voegen.
+
+## **Een afbeelding als dia‑achtergrond gebruiken**
+
+Een achtergrondafbeelding wordt toegewezen aan de dia‑vulling; hij wordt niet toegevoegd als een afbeeldingskader‑vorm. Dit is nuttig wanneer de afbeelding de hele dia‑achtergrond moet bedekken en niet moet worden gemanipuleerd als een normaal dia‑object.
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Voor extra achtergrondopties, inclusief master‑ en lay‑out‑achtergronden, zie [Presentatie‑achtergrond](/slides/nl/cpp/presentation-background/).
+
+## **Ingebedde en gelinkte afbeeldingen**
+
+Ingebedde en gelinkte afbeeldingen hebben verschillende draagbaarheid‑ en bestandsgrootte‑afwegingen:
+
+- **Ingebedde afbeelding:** de afbeeldingsgegevens worden opgeslagen in de presentatie. De presentatie is zelf‑containend, maar de bestandsgrootte omvat de afbeeldingsgegevens.
+- **Gelinkte afbeelding:** de presentatie slaat een pad of URL op naar een externe afbeelding. Dit kan de presentatiegrootte verkleinen, maar de externe bron moet toegankelijk blijven wanneer de presentatie wordt geopend of gerenderd.
+
+Een gelinkte afbeelding kan worden aangemaakt door het externe pad of de URL toe te wijzen via [ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidespicture/set_linkpathlong/) in plaats van de afbeeldingsgegevens in te bedden.
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Gebruik gelinkte afbeeldingen alleen wanneer de implementatie‑omgeving de externe bron betrouwbaar kan benaderen. Voor presentaties die offline moeten werken of tussen systemen verplaatst worden, zijn ingebedde afbeeldingen doorgaans veiliger.
+
+## **Werken met SVG‑afbeeldingen**
+
+SVG is een vectorformaat, waardoor het nuttig kan zijn voor iconen, diagrammen en andere graphics die moeten schalen zonder hetzelfde detailverlies als rasterafbeeldingen. Aspose.Slides ondersteunt SVG zowel als afbeeldingsresource als bron voor bewerkbare dia‑vormen.
+
+### **Een SVG als afbeelding toevoegen**
+
+Maak een [SvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/svgimage/), voeg deze toe aan de afbeeldingscollectie en plaats de resulterende afbeeldingsresource in een afbeeldingskader.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
+
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **SVG‑bestanden met externe bronnen**
+
+Een SVG kan externe afbeeldingen, stylesheets of lettertypen refereren. Voor deze gevallen biedt [SvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/svgimage/) constructors die een [IExternalResourceResolver](https://reference.aspose.com/slides/nl/cpp/aspose.slides.import/iexternalresourceresolver/) en een basis‑URI accepteren. De resolver kan een relatieve URI omzetten naar een toegestane absolute URI en een stream retourneren voor de gevraagde bron.
+
+De resolver maakt externe bronnen beschikbaar terwijl Aspose.Slides de SVG verwerkt, maar herschrijft de SVG niet naar een zelf‑containend document. Als de SVG draagbaar moet blijven, embed dan de vereiste bronnen in de SVG zelf, bijvoorbeeld door `data:`‑URI’s te gebruiken voor gelinkte afbeeldingen.
+
+Wanneer SVG‑bestanden afkomstig zijn van onbetrouwbare bronnen, beperk dan de schema’s, bestandslocaties en hosts die de resolver mag benaderen. Netwerk‑resolvers moeten tevens time‑outs, limieten voor respons‑grootte en content‑validatie toepassen.
+
+### **SVG naar bewerkbare vormen converteren**
+
+Aspose.Slides kan een SVG omzetten naar een groep bewerkbare dia‑vormen, vergelijkbaar met de overeenkomstige PowerPoint‑opdracht.
+
+![PowerPoint‑pop‑upmenu](img_01_01.png)
+
+Gebruik de [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addgroupshape/) overload die een [ISvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/isvgimage/) accepteert om de conversie uit te voeren.
+
+```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
+
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Gebruik SVG‑naar‑vormen‑conversie wanneer individuele vector‑elementen moeten worden bewerkt als PowerPoint‑vormen. Als de SVG alleen moet worden weergegeven, is het eenvoudiger deze als afbeelding te laten staan en vermijdt u het aanmaken van veel losse vormen.
+
+## **Een bestaande afbeeldingsresource vervangen**
+
+Gebruik [IPPImage::ReplaceImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/replaceimage/) wanneer u een bestaande afbeeldingsresource wilt vervangen. Dit is vooral nuttig voor gedeelde graphics zoals logo’s.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Met de GRATIS Aspose [Text to GIF] converter kunt u eenvoudig teksten animeren, GIF‑bestanden van teksten maken, enz.
-{{% /alert %}}
+Als meerdere afbeeldingskaders, achtergronden, masters of lay‑outs dezelfde afbeeldingsresource gebruiken, werkt het vervangen van die resource al hun gebruik bij. Als slechts één afbeeldingskader moet wijzigen, ken dan een andere afbeelding toe aan dat kader in plaats van de gedeelde resource te vervangen.
+
+[IPPImage::ReplaceImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/replaceimage/) biedt ook overloads die een [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/) of een andere [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) accepteren.
+
+## **Praktisch advies voor afbeeldingsbeheer**
+
+### **Presentatiegrootte beheersen**
+
+Grote rasterafbeeldingen kunnen een presentatie onnodig groot maken. Gebruik bronafbeeldingen met afmetingen die passen bij de beoogde weergavegrootte, hergebruik gedeelde afbeeldingsbronnen waar mogelijk, en vermijd het inbedden van herhaalde kopieën van dezelfde hoge‑resolutie‑grafiek.
+
+Voor raster‑afbeeldingen die al in afbeeldingskaders staan, kan [IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/compressimage/) de afbeeldingsdata reduceren volgens de geselecteerde resolutie en bijsnijd‑instellingen. Dit is verwerking van een afbeeldingskader en geen beheer van de afbeeldingscollectie, dus zie [Afbeeldingskader](/slides/nl/cpp/picture-frame/) voor gerelateerde opmaakbewerkingen.
+
+### **Kiezen tussen ingebedde en gelinkte inhoud**
+
+Inbedden maakt de presentatie draagbaar omdat alle benodigde afbeeldingsgegevens met het bestand meereizen. Linken kan de bestandsgrootte verkleinen, maar introduceert een externe afhankelijkheid. Gebruik links alleen wanneer die afhankelijkheid acceptabel en stabiel is.
+
+### **Gedeelde branding hergebruiken**
+
+Voor herhaalde logo’s, watermerken of decoratieve graphics, gebruik één afbeeldingsresource en hergebruik deze. Als de graphic tot het presentatiedesign behoort in plaats van tot de dia‑inhoud, plaats deze dan op een master of lay‑out zodat ze wordt geërfd door de betreffende dia’s.
+
+### **SVG‑bronnen draagbaar houden**
+
+Een zelf‑containende SVG is makkelijker te verplaatsen en consequent te renderen dan een SVG die afhankelijk is van externe bestanden of netwerkbronnen. Wanneer mogelijk, embed de vereiste bronnen voordat u de SVG importeert. Converteer SVG naar vormen alleen wanneer de individuele vector‑elementen bewerkt moeten worden.
+
+### **De Aspose.Slides‑afbeeldings‑API gebruiken**
+
+Voor C++‑afbeeldingsworkflows, gebruik de Aspose.Slides [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/)‑ en [Images](https://reference.aspose.com/slides/nl/cpp/aspose.slides/images/)‑APIs wanneer u een afbeeldingsobject nodig hebt, en gebruik [IImageCollection::AddImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/addimage/) wanneer u afbeeldingsdata wilt registreren als presentatie‑resource. De collectie‑overloads ondersteunen ook byte‑arrays en streams, wat nuttig is wanneer afbeeldingsdata afkomstig is van bestanden, netwerk‑clients, databases of andere bibliotheken.
+
+Het genereren van EMF‑inhoud uit spreadsheets of een ander product is een apart integratie‑scenario en valt buiten de scope van dit artikel. Als een bestaand WMF‑ of EMF‑bestand alleen in een presentatie moet worden ingevoegd, geef de data dan door aan een geschikte [IImageCollection::AddImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/addimage/) overload zonder een tweede product‑afhankelijkheid toe te voegen aan de workflow voor afbeeldingsbeheer.
 
 ## **FAQ**
 
-**Blijft de oorspronkelijke beeldresolutie intact na invoegen?**
+**Wat is het verschil tussen de afbeeldingscollectie en een afbeeldingskader?**
 
-Ja. De oorspronkelijke pixels worden behouden, maar het uiteindelijke uiterlijk hangt af van hoe de [picture] op de dia wordt geschaald en van eventuele compressie bij het opslaan.
+De afbeeldingscollectie slaat herbruikbare afbeeldingsbronnen op. Een afbeeldingskader is een dia‑vorm die één van die bronnen weergeeft en beeld‑specifieke opmaak biedt zoals bijsnijden en effecten.
 
-**Wat is de beste manier om hetzelfde logo in tientallen dia's tegelijk te vervangen?**
+**Wat is de beste manier om hetzelfde logo overal te vervangen?**
 
-Plaats het logo op de master‑dia of een lay‑out en vervang het in de afbeeldingcollectie van de presentatie—wijzigingen worden doorgevoerd naar alle elementen die die bron gebruiken.
+Als het logo al gedeeld wordt als één afbeeldingsresource, vervang die resource met [IPPImage::ReplaceImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/replaceimage/). Voor presentatie‑brede branding kan het plaatsen van het logo op een master of lay‑out ook dubbele dia‑inhoud verminderen.
 
-**Kan een ingevoegde SVG worden omgezet in bewerkbare vormen?**
+**Waarom verdwijnt een gelinkte afbeelding op een andere computer?**
 
-Ja. U kunt een SVG converteren naar een groep vormen, waarna individuele onderdelen bewerkbaar worden met standaard vorm‑eigenschappen.
+Een gelinkte afbeelding hangt af van zijn externe bestand of URL. Als die bron vanaf de andere computer niet bereikbaar is, is de afbeelding niet beschikbaar. Embed de afbeelding wanneer de presentatie zelf‑containend moet zijn.
 
-**Hoe kan ik een afbeelding in één keer als achtergrond voor meerdere dia's instellen?**
+**Kan een ingevoegde SVG worden bewerkt als PowerPoint‑vormen?**
 
-Wijs de afbeelding toe als achtergrond op de master‑dia of de desbetreffende lay‑out—alle dia's die die master/lay‑out gebruiken, nemen de achtergrond over.
+Ja. Converteer de SVG met [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addgroupshape/); de resulterende groep bevat bewerkbare dia‑vormen in plaats van één SVG‑afbeelding.
 
-**Hoe voorkom ik dat de presentatie enorm in omvang groeit door veel afbeeldingen?**
+**Hoe kan ik presentaties met veel afbeeldingen kleiner houden?**
 
-Herbruik één enkele afbeeldingsbron in plaats van duplicaten, kies een redelijke resolutie, pas compressie toe bij het opslaan en houd herhaalde grafieken op de master waar gepast.
+Herbruik gedeelde afbeeldingsbronnen, vermijd onnodig grote rasterbronnen, comprimeer raster‑afbeeldingen wanneer gepast, plaats herhaalde branding op masters of lay‑outs, en gebruik gelinkte afbeeldingen alleen wanneer een externe afhankelijkheid acceptabel is.

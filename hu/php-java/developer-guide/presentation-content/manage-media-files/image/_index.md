@@ -1,339 +1,341 @@
 ---
-title: Képek kezelésének optimalizálása prezentációkban PHP segítségével
+title: Képműveletek optimalizálása a prezentációkban PHP használatával
 linktitle: Képek kezelése
 type: docs
 weight: 10
 url: /hu/php-java/image/
 keywords:
 - kép hozzáadása
-- kép beszúrása
-- bitmap hozzáadása
+- kép beillesztése
 - kép cseréje
-- kép helyettesítése
-- webről
+- képgyűjtemény
+- képkeret
+- hivatkozott kép
 - háttér
 - PNG hozzáadása
 - JPG hozzáadása
 - SVG hozzáadása
-- EMF hozzáadása
-- WMF hozzáadása
-- TIFF hozzáadása
+- SVG alakzatokká
+- külső SVG erőforrások
 - PowerPoint
 - OpenDocument
 - prezentáció
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "Egyszerűsítse a képek kezelését PowerPoint és OpenDocument dokumentumokban az Aspose.Slides for PHP via Java segítségével, optimalizálva a teljesítményt és automatizálva a munkafolyamatot."
+description: "Ismerje meg, hogyan lehet raster- és SVG-képeket hozzáadni, újra felhasználni, hivatkozni, cserélni és kezelni PowerPoint és OpenDocument prezentációkban az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Bevezetés**
 
-A képek élénkebbé és érdekesebbé teszik az előadásokat. A Microsoft PowerPointban képeket szúrhat be egy fájlból, az internetről vagy más helyekről a diákra. Hasonlóan, az Aspose.Slides lehetővé teszi képek hozzáadását a diákkhoz a prezentációkban különböző módokon.
+Az Aspose.Slides for PHP via Java többféle módot biztosít a képekkel való munkához, és mindegyik más célra szolgál. Képet tárolhat egy prezentációban, megjelenítheti képkeretben, használhatja diák háttérképként, hivatkozhat külső képre, cserélhet megosztott kép erőforrást, vagy SVG tartalmat konvertálhat szerkeszthető alakzatokká.
 
-{{% alert  title="Tipp" color="primary" %}} 
+Ez a cikk a kép erőforrásokra és azok prezentációbeli használatára összpontosít. A képkeretekre alkalmazott vágás, átlátszóság, effektusok, nyújtás és egyéb formázások tekintetében lásd a [Képkeret](/slides/hu/php-java/picture-frame/) oldalt.
 
-Az Aspose ingyenes konvertereket kínál — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyekkel gyorsan készíthet előadásokat képekből. 
+## **A képmodell megértése**
 
-{{% /alert %}} 
+Az alábbi API fogalmak szorosan kapcsolódnak, de nem cserélhetők fel:
 
-{{% alert title="Info" color="info" %}}
+- A [prezentáció képgyűjtemény](https://reference.aspose.com/slides/hu/php-java/aspose.slides/imagecollection/) tárolja a prezentáció által használt kép erőforrásokat. Az [ImageCollection::addImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/imagecollection/) segítségével adhat hozzá képadatot, és kaphat egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) erőforrást.
+- A [képkeret](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) egy alakzat, amely egy képet jelenít meg egy dián, elrendezésen vagy főoldalon. Az [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addpictureframe/) segítségével helyezhet el egy kép erőforrást a dián.
+- A diak háttér egy képet használ a dia kitöltésének részeként, nem alakzatként. Ennek következtében nem úgy viselkedik, mint egy képkeret.
+- A [PPImage::replaceImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) kicserél egy kép erőforrást. Ha több prezentációelemt használja azt, mindegyik az új képet fogja használni.
+- Az SVG alakzatokká konvertálása szerkeszthető diák alakzatokat hoz létre. A konvertálás után a tartalom már nem egyetlen kép erőforrásként van kezelve.
 
-Ha képet szeretne hozzáadni képkocka objektumként — különösen, ha szabványos formázási lehetőségeket szeretne használni a méretezéshez, hatások hozzáadásához stb. — lásd a(z) [Picture Frame](/slides/hu/php-java/picture-frame/) oldalt.
+Egy tipikus munkafolyamat ezért: adja hozzá a képadatot a képgyűjteményhez, kapjon egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) objektumot, majd használja azt egy vagy több képkeretben vagy kitöltésben.
 
-{{% /alert %}} 
+## **Beágyazott kép hozzáadása**
 
-{{% alert title="Megjegyzés" color="warning" %}}
-
-Képek és PowerPoint-prezentációk bemeneti/kimeneti műveleteit kezelve konvertálhat egy képet egyik formátumból a másikba. Lásd ezeket az oldalakat: konvertálás [image to JPG](https://products.aspose.com/slides/hu/php-java/conversion/image-to-jpg/); konvertálás [JPG to image](https://products.aspose.com/slides/hu/php-java/conversion/jpg-to-image/); konvertálás [JPG to PNG](https://products.aspose.com/slides/hu/php-java/conversion/jpg-to-png/); konvertálás [PNG to JPG](https://products.aspose.com/slides/hu/php-java/conversion/png-to-jpg/); konvertálás [PNG to SVG](https://products.aspose.com/slides/hu/php-java/conversion/png-to-svg/); konvertálás [SVG to PNG](https://products.aspose.com/slides/hu/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Az Aspose.Slides támogatja a képműveleteket a következő népszerű formátumokban: JPEG, PNG, GIF és egyebek. 
-
-## **Képek helyi tárolásból való hozzáadása a diákhoz**
-
-Egy vagy több képet adhat a számítógépéről egy diához a prezentációban. Az alábbi példakód bemutatja, hogyan adjon képet a diára:
+Helyi kép beszúrásához töltse be a fájlt, adja hozzá a képgyűjteményhez, és hozzon létre egy képkeretet, amely a visszaadott `PPImage`-t használja.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Képek hozzáadása a webről a diákhoz**
+Az így hozzáadott kép be van ágyazva a prezentációba, ezért a keletkezett fájl nem függ attól, hogy az eredeti képfájl elérhető marad-e.
 
-Ha a diára felvenni kívánt kép nem érhető el a számítógépén, közvetlenül az internetről adhatja hozzá.
+### **Kép hozzáadása a webből**
 
-Az alábbi példakód bemutatja, hogyan adjon egy képet az internetről egy diára :
+Ha egy kép HTTP vagy HTTPS protokollon keresztül érhető el, töltse le a bájtokat, adja hozzá a prezentáció képgyűjteményéhez, és használja a visszakapott kép erőforrást ugyanúgy, mint egy helyi képet.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
+
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
+        }
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-## **Képek hozzáadása dia-mesterekhez**
-
-A dia-mester a legfelső dia, amely az alatta lévő összes dia (téma, elrendezés stb.) információit tárolja és szabályozza. Így, ha képet ad a dia-mesterhez, az a kép minden alatta lévő dián megjelenik. 
-
-Az alábbi Java példakód bemutatja, hogyan adjon képet egy dia-mesterhez:
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Képek hozzáadása diák háttérként**
-
-Elhatározhatja, hogy egy képet használ háttérként egy adott dián vagy több dián. Ebben az esetben tekintse meg, hogyan [Set an Image as a Slide Background](/slides/hu/php-java/presentation-background/#set-an-image-as-a-slide-background).
-
-## **SVG hozzáadása a prezentációkhoz**
-Bármely képet hozzáadhat vagy beilleszthet egy prezentációhoz a [addPictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addpictureframe/) metódus használatával, amely a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztályhoz tartozik.
-
-SVG képen alapuló képobjektum létrehozásához ezt a módot követheti:
-
-1. Hozzon létre SvgImage objektumot az ImageShapeCollection-be való beszúráshoz
-2. Hozzon létre PPImage objektumot az ISvgImage-ből
-3. Hozzon létre PictureFrame objektumot a PPImage osztály használatával
-
-Az alábbi példakód bemutatja, hogyan valósítsa meg a fenti lépéseket egy SVG kép hozzáadásához a prezentációhoz:
-```php
-  # Példányosítsa a Presentation osztályt, amely a PPTX fájlt képviseli
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    $presentation->dispose();
 }
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
 ```
 
-## **SVG konvertálása alakzatok halmazára**
-Az Aspose.Slides SVG konvertálása alakzatok halmazára hasonló a PowerPoint SVG képekkel való munkához használt funkcióhoz:
+Hosszú futású alkalmazásokban használja újra az HTTP ügyfelet vagy a megfelelő kapcsolatkezelési stratégiát, ahelyett, hogy folyamatosan felesleges hálózati infrastruktúrát hozna létre. Emellett ellenőrizze a távoli URL-eket, a válasz méretét és a tartalomtípusokat, ha a forrás nem megbízható.
+
+## **Képek újrafelhasználása diákon át**
+
+Ha ugyanarra a képre **több alkalommal** van szükség, adja hozzá a prezentációhoz egyszer, és használja újra a visszakapott [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/)‑t további képkeretek létrehozásakor. Ez elkerüli a forrásadatok többszöri betöltését, és egyértelművé teszi a megosztott kép erőforrás és annak használata közti kapcsolatot.
+
+Az olyan grafikák esetében, amelyeknek automatikusan meg kell jelenniük sok dián, például egy vállalati logó, fontolja meg a képkeret elhelyezését egy [dia főoldalon](/slides/hu/php-java/slide-master/) vagy elrendezésen, ahelyett, hogy minden diára külön alakzatot helyezne el.
+
+## **Kép használata diák háttérképként**
+
+A háttérkép a dia kitöltéséhez van rendelve; nem kerül képkeret alakzathoz hozzáadva. Ez akkor hasznos, ha a képnek a dia teljes háttérét kell lefednie, és nem kell normál diaobjektumként manipulálni.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+További háttéropciókért, beleértve a főoldal és elrendezés háttereket, lásd a [Prezentáció Háttér](/slides/hu/php-java/presentation-background/) oldalt.
+
+## **Beágyazott és hivatkozott képek**
+
+A beágyazott és a hivatkozott képek különböző hordozhatósági és fájlméretbeli kompromisszumokkal járnak:
+
+- **Beágyazott kép:** a képadat a prezentációban tárolódik. A prezentáció önálló, de a fájlméret tartalmazza a képadatokat.
+- **Hivatkozott kép:** a prezentáció egy útvonalat vagy URL-t tárol egy külső képhez. Ez csökkentheti a prezentáció méretét, de a külső erőforrásnak hozzáférhetőnek kell maradnia a prezentáció megnyitásakor vagy renderelésekor.
+
+A hivatkozott képet úgy hozhatja létre, hogy a külső útvonalat vagy URL-t a [Picture::setLinkPathLong](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picture/) metóduson keresztül állítja be ahelyett, hogy beágyazná a képadatokat.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Használjon hivatkozott képeket csak akkor, ha a telepítési környezet megbízhatóan hozzáfér a külső erőforráshoz. Az offline működő vagy rendszerek között mozgatott prezentációk esetén a beágyazott képek általában biztonságosabbak.
+
+## **Munkavégzés SVG képekkel**
+
+Az SVG egy vektorfájlformátum, ezért hasznos lehet ikonok, diagramok és egyéb grafikák esetén, amelyeknek skálázáskor nem kell elveszíteniük a részleteket, mint a raszteres képeknél. Az Aspose.Slides támogatja az SVG-t kép erőforrásként és szerkeszthető diakép alakzatok forrásaként egyaránt.
+
+### **SVG hozzáadása képként**
+
+Hozzon létre egy [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) objektumot, adja hozzá a képgyűjteményhez, és helyezze a kapott kép erőforrást egy képkeretbe.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **SVG fájlok külső erőforrásokkal**
+
+Az SVG hivatkozhat külső képekre, stíluslapokra vagy betűtípusokra. Ezekre az esetekre a [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) konstruktoraival lehetősége van egy [ExternalResourceResolver](https://reference.aspose.com/slides/hu/php-java/aspose.slides/externalresourceresolver/) és egy alap URI megadására. A resolver egy relatív URI-t lefordíthat egy engedélyezett abszolút URI-ra, és visszaadhat egy adatfolyamot a kért erőforráshoz.
+
+A resolver elérhetővé teszi a külső erőforrásokat, miközben az Aspose.Slides feldolgozza az SVG-t, de nem írja át az SVG-t önálló dokumentummá. Ha az SVG-nek hordozhatónak kell maradnia, ágyazza be a szükséges erőforrásokat magába az SVG-be, például `data:` URI-k használatával a hivatkozott képekhez.
+
+Amikor SVG fájlok megbízhatatlan forrásból származnak, korlátozza a sémákat, fájlhelyeket és hosztokat, amelyeket a resolver elérhet. A hálózati resolvereknek időkorlátot, válaszméret‑korlátozást és tartalom‑ellenőrzést is alkalmazniuk kell.
+
+### **SVG konvertálása szerkeszthető alakzatokká**
+
+Az Aspose.Slides képes egy SVG-t szerkeszthető diák alakzatok csoportjává konvertálni, hasonlóan a megfelelő PowerPoint parancshoz.
 
 ![PowerPoint felugró menü](img_01_01.png)
 
-A funkcionalitást a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztály egyik [addGroupShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addgroupshape/) metódusának túlterhelése biztosítja, amely az első argumentumként egy [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) objektumot várja.
-
-Az alábbi példakód bemutatja, hogyan használja a leírt módszert egy SVG fájl alakzatok halmazára történő konvertálásához:
+Használja a [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addgroupshape/) túlterhelést, amely egy [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/)‑t fogad, a konverzió végrehajtásához.
 
 ```php
-  # Új prezentáció létrehozása
-  $presentation = new Presentation();
-  try {
-    # SVG fájl tartalmának beolvasása
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-    # SvgImage objektum létrehozása
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
-    # Diák méretének lekérése
+
     $slideSize = $presentation->getSlideSize()->getSize();
-    # SVG kép átalakítása alakzatcsoporttá, a diák méretére skálázva
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # Prezentáció mentése PPTX formátumban
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Képek hozzáadása EMF-ként a diákhoz**
-Az Aspose.Slides for PHP via Java lehetővé teszi EMF képek generálását Excel-munkalapokból, és a képek EMF-ként való hozzáadását a diákhoz az Aspose.Cells segítségével. 
+Az SVG‑alakzat konvertálást használja, amikor az egyes vektorelemeket PowerPoint alakzatokként kell szerkeszteni. Ha az SVG csak megjelenítésre van szükség, képként tartani egyszerűbb, és elkerüli sok különálló alakzat létrehozását.
 
-Az alábbi példakód bemutatja, hogyan hajtsa végre a leírt feladatot:
+## **Meglévő kép erőforrás cseréje**
 
-```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # A munkafüzet mentése adatfolamba
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
-        }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
-    }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Képek cseréje a képgyűjteményben**
-
-Az Aspose.Slides lehetővé teszi a prezentáció képgyűjteményében (beleértve a diák alakzataiban használt képeket) tárolt képek cseréjét. Ez a rész több megközelítést mutat be a gyűjteményben lévő képek frissítésére. Az API egyszerű módszereket kínál egy kép nyers bájtadatok, egy [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/) példány vagy egy már a gyűjteményben létező kép használatával történő cseréjére.
-
-Kövesse az alábbi lépéseket:
-
-1. Töltse be a képeket tartalmazó prezentációs fájlt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztállyal.
-2. Töltsön be egy új képet egy fájlból egy bájttömbbe.
-3. Cserélje le a célképet az új képre a bájttömb használatával.
-4. A második módszerben töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/) objektumba, és cserélje le a célképet ezzel az objektummal.
-5. A harmadik módszerben cserélje le a célképet egy már a prezentáció képgyűjteményében létező képre.
-6. Írja ki a módosított prezentációt PPTX fájlként.
+Használja a [PPImage::replaceImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) metódust, ha meglévő kép erőforrást szeretne cserélni. Ez különösen hasznos megosztott grafikák, például logók esetén.
 
 ```php
-// A Presentation osztály példányosítása, amely egy prezentációs fájlt reprezentál.
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Az első mód.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+    $imageToReplace = $presentation->getImages()->get_Item(0);
 
-    // A második mód.
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // A harmadik mód.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // A prezentáció mentése fájlba.
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Ha több képkeret, háttér, főoldal vagy elrendezés használja ugyanazt a kép erőforrást, annak cseréje frissíti az összes ilyen használatot. Ha csak egy képkeretnek kell változnia, akkor adjunk egy másik képet ahhoz a kerethez a megosztott erőforrás cseréje helyett.
 
-Az Aspose ingyenes [Text to GIF](https://products.aspose.app/slides/hu/text-to-gif) konverterrel könnyedén animálhat szövegeket, GIF-eket hozhat létre szövegekből stb. 
+`PPImage::replaceImage` további túlterheléseket is kínál, amelyek egy bájt tömböt vagy egy másik [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/)‑t fogadnak.
 
-{{% /alert %}}
+## **Gyakorlati képkezelési útmutató**
 
-## **FAQ**
+### **A prezentáció méretének szabályozása**
 
-**Megmarad az eredeti kép felbontása a beillesztés után?**
+A nagy raszteres képek a prezentációt feleslegesen nagy méretűvé tehetik. Használjon forrásképeket, amelyek méretei megfelelőek a tervezett megjelenítési mérethez, amennyiben lehetséges, használja újra a megosztott kép erőforrásokat, és kerülje el ugyanazon nagy felbontású grafika többszörös beágyazását.
 
-Igen. A forrás pixelek megmaradnak, de a végső megjelenés attól függ, hogyan van a [picture](/slides/hu/php-java/picture-frame/) méretezve a dián, illetve a mentéskor alkalmazott tömörítéstől.
+A raszteres képekhez, amelyek már képkeretbe lettek helyezve, a [PictureFillFormat::compressImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/) csökkentheti a képadatot a kiválasztott felbontás és vágási beállítások szerint. Ez képkeret‑feldolgozás, nem képgyűjtemény‑kezelés, ezért a kapcsolódó formázási műveletekért lásd a [Képkeret](/slides/hu/php-java/picture-frame/) oldalt.
 
-**Mi a legjobb módja a logó cseréjének egyszerre több tucat dián?**
+### **Válasszon beágyazott és hivatkozott tartalom között**
 
-Helyezze a logót a mesterdia vagy egy elrendezés felé, és cserélje azt a prezentáció képgyűjteményében – a frissítések minden, az erőforrást használó elemre kiterjednek.
+A beágyazás hordozhatóvá teszi a prezentációt, mivel minden szükséges kép adat a fájlban van. A hivatkozás csökkentheti a fájlméretet, de külső függőséget hoz létre. Hivatkozásokat csak akkor használjon, ha ez a függőség elfogadható és stabil.
 
-**Átalakítható-e egy beillesztett SVG szerkeszthető alakzatokká?**
+### **Megosztott márka újrafelhasználása**
 
-Igen. Egy SVG-t konvertálhat egy alakzatcsoportba, amely után az egyes részek szerkeszthetők lesznek a szokásos alakzat tulajdonságokkal.
+Ismétlődő logók, vízjelek vagy dekoratív grafikák esetén használjon egyetlen kép erőforrást, és használja újra. Ha a grafika a prezentáció tervezéséhez tartozik, nem a dia tartalmához, helyezze el egy főoldalon vagy elrendezésen, hogy az megfelelő diákra öröklődjön.
 
-**Hogyan állíthatom be egy képet háttérként egyszerre több diára?**
+### **SVG erőforrások hordozhatóságának megőrzése**
 
-[Assign the image as the background](/slides/hu/php-java/presentation-background/) a mesterdián vagy a megfelelő elrendezésen – minden, azt a mestert/elrendezést használó dia örökli a háttérképet.
+Az önálló SVG könnyebben mozgatható és következetesen renderelhető, mint egy külső fájlokra vagy hálózati erőforrásokra támaszkodó SVG. Amikor lehetséges, ágyazza be a szükséges erőforrásokat az SVG importálása előtt. Konvertálja az SVG-t alakzatokká csak akkor, ha az egyes vektorelemeket szerkeszteni kell.
 
-**Hogyan kerülhetem el, hogy a prezentáció sok kép miatt nagyon naggyá nőjön?**
+### **Modern, keresztplatformos kép API használata**
 
-Használjon egyetlen képforrást többszörös példányok helyett, válasszon ésszerű felbontásokat, alkalmazzon tömörítést mentéskor, és a gyakran ismétlődő grafikákat a mesteren tartsa, ahol szükséges.
+Új PHP via Java kódban használja az Aspose.Slides [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/) és [Images](https://reference.aspose.com/slides/hu/php-java/aspose.slides/images/) API‑kat a `java.awt.image.BufferedImage` alapú elavult nyilvános API helyett. A migrációs útmutatóért lásd a [Modern API](/slides/hu/php-java/modern-api/) oldalt.
+
+A WMF és EMF formátumok külön figyelmet igényelnek. Amikor ezek a formátumok egy [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/)‑en keresztül kerülnek át, az [ImageCollection::addImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/imagecollection/) a metafilét raszteres PNG reprezentációvá alakítja a beillesztés előtt. Ha a metafile adat megőrzése fontos, használjon adatfolyam‑alapú [ImageCollection::addImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/imagecollection/) túlterhelést helyette. Az EMF tartalom generálása táblázatkezelőkből vagy más termékekből külön integrációs folyamat, és kívül esik a cikk hatókörén.
+
+## **GYIK**
+
+**Mi a különbség a képgyűjtemény és a képkeret között?**
+
+A képgyűjtemény újrahasznosítható kép erőforrásokat tárol. A képkeret egy dia alakzat, amely megjeleníti ezek közül valamelyiket, és képre‑specifikus formázást, például vágást és effektusokat biztosít.
+
+**Mi a legjobb módja annak, hogy ugyanazt a logót mindenhol kicserélje?**
+
+Ha a logó már egy kép erőforrásként van megosztva, cserélje ki azt a [PPImage::replaceImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) segítségével. A prezentáció‑szintű márka esetén a logó elhelyezése egy főoldalon vagy elrendezésen szintén csökkentheti a duplikált diatartalmat.
+
+**Miért tűnik el egy hivatkozott kép egy másik számítógépen?**
+
+Egy hivatkozott kép a külső fájlt vagy URL‑től függ. Ha az erőforrás nem érhető el a másik számítógépről, a hivatkozott kép elérhetetlen lehet. Ágyazza be a képet, ha a prezentációnak önállónak kell lennie.
+
+**Szerkeszthető PowerPoint alakzatokként lehet‑e szerkeszteni egy beszúrt SVG‑t?**
+
+Igen. Konvertálja az SVG‑t a [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addgroupshape/) segítségével; a kapott csoport szerkeszthető diák alakzatokat tartalmaz egy SVG kép helyett.
+
+**Hogyan tarthatom kisebb méretűnek a sok képet tartalmazó prezentációkat?**
+
+Használjon újra megosztott kép erőforrásokat, kerülje a feleslegesen nagy raszteres forrásokat, tömörítse a megfelelő raszteres képeket, ha szükséges, tartsa a gyakran ismétlődő márkákat főoldalakon vagy elrendezéseken, és csak akkor használjon hivatkozott képeket, ha egy külső függőség elfogadható.

@@ -1,5 +1,5 @@
 ---
-title: بهینه‌سازی مدیریت تصویر در ارائه‌ها در .NET
+title: بهینه‌سازی مدیریت تصاویر در ارائه‌ها با .NET
 linktitle: مدیریت تصاویر
 type: docs
 weight: 10
@@ -7,290 +7,268 @@ url: /fa/net/image/
 keywords:
 - افزودن تصویر
 - افزودن عکس
-- افزودن بیت‌مپ
 - جایگزینی تصویر
-- جایگزینی عکس
-- از وب
+- مجموعه تصویر
+- قاب تصویر
+- تصویر لینک‌دار
 - پس‌زمینه
 - افزودن PNG
 - افزودن JPG
 - افزودن SVG
-- افزودن EMF
-- افزودن WMF
-- افزودن TIFF
-- پاورپوینت
+- SVG به اشکال
+- منابع خارجی SVG
+- PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "مدیریت تصویر در پاورپوینت و OpenDocument را با Aspose.Slides برای .NET ساده‌سازی کنید، عملکرد را بهینه‌سازی کرده و جریان کاری خود را خودکار کنید."
+description: "بیاموزید چگونه تصاویر رستری و SVG را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای .NET اضافه، دوباره استفاده، لینک‌دار، جایگزین و مدیریت کنید."
 ---
 ## **مقدمه**
 
-تصاویر ارائه‌ها را جذاب‌تر و جالب‌تر می‌کنند. در مایکروسافت پاورپوینت می‌توانید تصاویر را از یک فایل، اینترنت یا دیگر مکان‌ها به اسلایدها اضافه کنید. به همین ترتیب، Aspose.Slides به شما اجازه می‌دهد تا با روش‌های مختلف، تصاویر را به اسلایدهای ارائه‌ی خود اضافه کنید.
+Aspose.Slides برای .NET چندین روش برای کار با تصاویر ارائه می‌دهد و هر کدام هدف متفاوتی دارند. می‌توانید یک تصویر را در ارائه ذخیره کنید، آن را در یک قاب تصویر نمایش دهید، به عنوان پس‌زمینهٔ اسلاید استفاده کنید، به یک تصویر خارجی لینک دهید، منبع تصویر مشترک را جایگزین کنید یا محتوای SVG را به اشکال قابل ویرایش تبدیل کنید.
 
-{{% alert  title="Tip" color="primary" %}} 
+این مقاله بر روی منابع تصویر و نحوه استفادهٔ آنها در سراسر یک ارائه متمرکز است. برای برش، شفافیت، اثرات، کشیدگی و سایر قالب‌بندی‌های اعمال‌شده به یک قاب تصویر منفرد، به [قاب تصویر](/slides/fa/net/picture-frame/) مراجعه کنید.
 
-Aspose مبدل‌های رایگانی ارائه می‌دهد—[JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—که به افراد امکان می‌دهد به‌سرعت از تصاویر ارائه‌ها را ایجاد کنند. 
+## **درک مدل تصویر**
 
-{{% /alert %}} 
+مفاهیم API زیر به هم نزدیک هستند اما قابل تعویض نیستند:
 
-{{% alert title="Info" color="info" %}}
+- مجموعهٔ تصویر ارائه ([presentation image collection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection/)) منابع تصویری را که توسط ارائه استفاده می‌شوند ذخیره می‌کند. برای افزودن دادهٔ تصویر و دریافت منبع [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) از `ImageCollection.AddImage` استفاده کنید.
+- یک [قاب تصویر](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/) یک شکل است که تصویر را بر روی اسلاید، طرح‌بندی یا مستر نمایش می‌دهد. برای قرار دادن منبع تصویر بر روی اسلاید از `IShapeCollection.AddPictureFrame` استفاده کنید.
+- پس‌زمینهٔ اسلاید از یک تصویر به عنوان بخشی از پرکردن اسلاید استفاده می‌کند نه به‌عنوان یک شکل. بنابراین رفتار آن شبیه قاب تصویر نیست.
+- `[IPPImage].ReplaceImage` منبع تصویر را جایگزین می‌کند. اگر چندین عنصر ارائه از آن منبع استفاده کنند، همه آن جایگزین را به‌کار می‌گیرند.
+- تبدیل SVG به اشکال، اشکال ویرایش‌پذیر اسلاید را ایجاد می‌کند. پس از تبدیل، محتوا دیگر به‌عنوان یک منبع تصویر واحد مدیریت نمی‌شود.
 
-اگر می‌خواهید یک تصویر را به‌عنوان شیء قاب اضافه کنید—به‌ویژه اگر قصد دارید از گزینه‌های قالب‌بندی استاندارد برای تغییر اندازه، افزودن افکت‌ها و غیره استفاده کنید—به [Picture Frame](https://docs.aspose.com/slides/fa/net/picture-frame/) مراجعه کنید. 
+یک جریان کاری معمول به این صورت است: دادهٔ تصویر را به مجموعهٔ تصویر اضافه کنید، یک [IPPImage] دریافت کنید و سپس از آن منبع در یک یا چند قاب تصویر یا پرکننده استفاده کنید.
 
-{{% /alert %}} 
+## **افزودن تصویر توکار**
 
-{{% alert title="Note" color="warning" %}}
+برای افزودن یک تصویر محلی، فایل را بخوانید، دادهٔ آن را به مجموعهٔ تصویر اضافه کنید و یک قاب تصویر ایجاد کنید که `IPPImage` بازگشتی را استفاده می‌کند.
 
-می‌توانید عملیات ورودی/خروجی مرتبط با تصاویر و ارائه‌های PowerPoint را برای تبدیل یک تصویر از یک فرمت به فرمت دیگر مدیریت کنید. این صفحات را ببینید: تبدیل [image به JPG](https://products.aspose.com/slides/fa/net/conversion/image-to-jpg/); تبدیل [JPG به image](https://products.aspose.com/slides/fa/net/conversion/jpg-to-image/); تبدیل [JPG به PNG](https://products.aspose.com/slides/fa/net/conversion/jpg-to-png/), تبدیل [PNG به JPG](https://products.aspose.com/slides/fa/net/conversion/png-to-jpg/); تبدیل [PNG به SVG](https://products.aspose.com/slides/fa/net/conversion/png-to-svg/), تبدیل [SVG به PNG](https://products.aspose.com/slides/fa/net/conversion/svg-to-png/). 
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% /alert %}}
+using var presentation = new Presentation();
 
-Aspose.Slides عملیات‌های کار با تصاویر را در این فرمت‌های محبوب پشتیبانی می‌کند: JPEG, PNG, BMP, GIF و سایرین. 
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-## **افزودن تصاویر ذخیره‌شده به‌صورت محلی به اسلایدها**
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-می‌توانید یک یا چند تصویر موجود در رایانه خود را به یک اسلاید در یک ارائه اضافه کنید. این کد نمونه در C# نشان می‌دهد چگونه یک تصویر را به یک اسلاید اضافه کنید:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن تصاویر از وب به اسلایدها**
+تصویری که به این روش افزوده می‌شود در ارائه توکار می‌شود، بنابراین فایل نهایی به موجود بودن فایل تصویر اصلی وابسته نیست.
 
-اگر تصویری که می‌خواهید به اسلاید اضافه کنید بر روی رایانه شما موجود نباشد، می‌توانید آن را مستقیماً از وب اضافه کنید. 
+### **افزودن تصویر از وب**
 
-این کد نمونه نشان می‌دهد چگونه یک تصویر را از وب به یک اسلاید در C# اضافه کنید:
+زمانی که تصویر از طریق HTTP یا HTTPS در دسترس باشد، بایت‌های آن را با `HttpClient` دانلود کنید، به مجموعهٔ تصویر ارائه اضافه کنید و از منبع تصویری بازگشتی به همان شیوهٔ تصویر محلی استفاده کنید.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن تصاویر به اسلاید مسترها**
+در برنامه‌های طولانی‌مدت، به‌جای ساختن یک نمونه جدید برای هر درخواست، `HttpClient` را مجدداً استفاده کنید. همچنین URLهای دوردست، اندازهٔ پاسخ و انواع محتوا را هنگامی که منبع قابل اعتماد نیست، اعتبارسنجی کنید.
 
-اسلاید مستر بالاترین اسلاید است که اطلاعات (تم، چیدمان و غیره) تمام اسلایدهای زیرمجموعه‌اش را ذخیره و کنترل می‌کند. بنابراین، هنگامی که یک تصویر را به اسلاید مستر اضافه می‌کنید، آن تصویر در هر اسلاید زیر آن مستر ظاهر می‌شود. 
+## **استفاده مجدد از تصاویر در سراسر اسلایدها**
 
-این کد نمونه C# نشان می‌دهد چگونه یک تصویر را به اسلاید مستر اضافه کنید:
+اگر همان تصویر بیشتر از یک بار نیاز باشد، یک‌بار آن را به ارائه اضافه کنید و هنگام ایجاد قاب‌های تصویر دیگر، `IPPImage` بازگشتی را دوباره استفاده کنید. این کار از بارگذاری مکرر دادهٔ منبع جلوگیری می‌کند و رابطهٔ بین منبع تصویر مشترک و استفاده‌های آن را واضح می‌سازد.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+برای گرافیک‌هایی که باید به‌صورت خودکار در اسلایدهای متعدد ظاهر شوند، مانند لوگوی شرکت، بهتر است قاب تصویر را بر روی یک [مستری اسلاید](/slides/fa/net/slide-master/) یا طرح‌بندی قرار دهید تا نیازی به افزودن شکل معادل به هر اسلاید نباشد.
+
+## **استفاده از تصویر به‌عنوان پس‌زمینهٔ اسلاید**
+
+یک تصویر پس‌زمینه به پرکردن اسلاید اختصاص می‌یابد؛ به‌عنوان یک شکل قاب تصویر افزوده نمی‌شود. این برای مواردی مفید است که تصویر باید کل پس‌زمینهٔ اسلاید را پوشش دهد و نه به‌عنوان یک شیء اسلاید معمولی دست‌کاری شود.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن تصاویر به‌عنوان پس‌زمینه اسلایدها**
+برای گزینه‌های پس‌زمینهٔ بیشتر، شامل پس‌زمینه‌های مستر و طرح‌بندی، به [پس‌زمینهٔ ارائه](/slides/fa/net/presentation-background/) مراجعه کنید.
 
-ممکن است تصمیم بگیرید از یک تصویر به‌عنوان پس‌زمینه برای یک اسلاید خاص یا چند اسلاید استفاده کنید. در این صورت باید *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/fa/net/presentation-background/#setting-images-as-background-for-slides)* را ببینید.
+## **تصاویر توکار و تصاویر لینک‌دار**
 
-## **افزودن SVG به ارائه‌ها**
+تصاویر توکار و لینک‌دار تعادل‌های متفاوتی در قابلیت حمل‌پذیری و حجم فایل دارند:
 
-می‌توانید هر تصویری را به یک ارائه اضافه یا درج کنید با استفاده از روش [AddPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/methods/addpictureframe) که متعلق به رابط [IShapeCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection) است.
+- **تصویر توکار:** دادهٔ تصویر داخل ارائه ذخیره می‌شود. ارائه خودکفا است، اما حجم فایل شامل دادهٔ تصویر می‌شود.
+- **تصویر لینک‌دار:** ارائه مسیر یا URL یک تصویر خارجی را ذخیره می‌کند. این می‌تواند حجم ارائه را کاهش دهد، اما منبع خارجی باید هنگام باز یا رندر شدن ارائه در دسترس باشد.
 
-برای ایجاد یک شیء تصویر بر پایه تصویر SVG می‌توانید به این شکل عمل کنید:
+می‌توانید یک تصویر لینک‌دار را با اختصاص مسیر یا URL خارجی از طریق `ISlidesPicture.LinkPathLong` به جای توکار کردن دادهٔ تصویر ایجاد کنید.
 
-1. ایجاد شیء SvgImage برای درج آن در ImageShapeCollection  
-2. ایجاد شیء PPImage از ISvgImage  
-3. ایجاد شیء PictureFrame با استفاده از رابط IPPImage  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-این کد نمونه نشان می‌دهد چگونه مراحل بالا را پیاده‌سازی کنید تا یک تصویر SVG را به یک ارائه اضافه کنید:
+using var presentation = new Presentation();
 
-``` csharp 
-// مسیر به پوشه اسناد
-string dataDir = @"D:\Documents\";
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-// نام فایل SVG منبع
-string svgFileName = dataDir + "sample.svg";
-
-// نام فایل خروجی ارائه
-string outPptxPath = dataDir + "presentation.pptx";
-
-// ایجاد ارائه جدید
-using (var p = new Presentation())
-{
-    // خواندن محتوای فایل SVG
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // ایجاد شیء SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // ایجاد شیء PPImage
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // ایجاد یک PictureFrame جدید
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // ذخیره ارائه در فرمت PPTX
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **تبدیل SVG به مجموعه‌ای از شکل‌ها**
+تصاویر لینک‌دار را فقط زمانی استفاده کنید که محیط استقرار بتواند به‌طور قابل اعتماد به منبع خارجی دسترسی داشته باشد. برای ارائه‌هایی که باید آفلاین کار کنند یا بین سیستم‌ها جابجا شوند، تصاویر توکار معمولاً ایمن‌ترند.
 
-تبدیل SVG به مجموعه‌ای از شکل‌ها در Aspose.Slides شبیه به عملکرد PowerPoint است که برای کار با تصاویر SVG استفاده می‌شود:
+## **کار با تصاویر SVG**
 
-![PowerPoint Popup Menu](img_01_01.png)
+SVG یک قالب برداری است، بنابراین برای آیکن‌ها، نمودارها و گرافیک‌های دیگری که باید بدون از دست دادن جزئیات به‌صورت مقیاس‌پذیر باشند مفید است. Aspose.Slides هم به عنوان منبع تصویر و هم به‌عنوان منبعی برای اشکال ویرایش‌پذیر اسلاید از SVG پشتیبانی می‌کند.
 
-این عملکرد توسط یکی از بارگذاری‌های روش [AddGroupShape](https://reference.aspose.com/slides/fa/net/aspose.slides.ishapecollection/addgroupshape/methods/1) رابط [IShapeCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection) که یک شیء [ISvgImage](https://reference.aspose.com/slides/fa/net/aspose.slides/isvgimage) را به عنوان اولین آرگومان می‌گیرد، فراهم می‌شود.
+### **افزودن SVG به‌عنوان تصویر**
 
-این کد نمونه نشان می‌دهد چگونه از روش توصیف‌شده برای تبدیل یک فایل SVG به مجموعه‌ای از شکل‌ها استفاده کنید:
+یک `SvgImage` ایجاد کنید، آن را به مجموعهٔ تصویر اضافه کنید و منبع تصویر حاصل را در یک قاب تصویر قرار دهید.
 
-``` csharp 
-// مسیر به پوشه اسناد
-string dataDir = @"D:\Documents\";
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// نام فایل SVG منبع
-string svgFileName = dataDir + "sample.svg";
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
 
-// نام فایل خروجی ارائه
-string outPptxPath = dataDir + "presentation.pptx";
+using var presentation = new Presentation();
 
-// ایجاد ارائه جدید
-using (IPresentation presentation = new Presentation())
-{
-    // خواندن محتوای فایل SVG
-    string svgContent = File.ReadAllText(svgFileName);
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // ایجاد شیء SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // دریافت اندازه اسلاید
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // تبدیل تصویر SVG به گروهی از شکل‌ها با مقیاس‌بندی به اندازه اسلاید
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // ذخیره ارائه در فرمت PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن تصاویر به‌صورت EMF به اسلایدها**
+### **فایل‌های SVG با منابع خارجی**
 
-Aspose.Slides for .NET به شما امکان می‌دهد تصاویر EMF را از شیت‌های اکسل تولید کنید و تصاویر را به‌صورت EMF در اسلایدها با Aspose.Cells اضافه کنید.  
+یک SVG می‌تواند به تصاویر، stylesheetها یا فونت‌های خارجی ارجاع دهد. برای این موارد، `SvgImage` سازندگ‌هایی ارائه می‌دهد که یک `IExternalResourceResolver` و یک URI پایه می‌پذیرند. این حل‌کننده می‌تواند یک URI نسبی را به یک URI مطلق مجاز نگاشت کند و یک جریان برای منبع درخواست‌شده برگرداند.
 
-این کد نمونه نشان می‌دهد چگونه کار موردنظر را انجام دهید:
+حل‌کننده منابع خارجی را در حین پردازش SVG توسط Aspose.Slides در دسترس می‌گذارد، اما SVG را به یک سند خودکفا بازنویسی نمی‌کند. اگر SVG باید قابل حمل بماند، منابع مورد نیاز را در خود SVG تعبیه کنید، برای مثال با استفاده از URIهای `data:` برای تصاویر لینک‌دار.
 
-``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+هنگامی که فایل‌های SVG از منابع غیرقابل اعتماد می‌آیند، طرح‌ها، مکان‌های فایل و میزبان‌هایی را که حل‌کننده می‌تواند به آن‌ها دسترسی داشته باشد محدود کنید. حل‌کننده‌های شبکه باید همچنین زمان‌سنج‌ها، محدودیت‌های اندازهٔ پاسخ و اعتبارسنجی محتوا را اعمال کنند.
 
-    //ذخیره کتاب کار به جریان
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+### **تبدیل SVG به اشکال ویرایش‌پذیر**
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+Aspose.Slides می‌تواند یک SVG را به گروهی از اشکال ویرایش‌پذیر اسلاید تبدیل کند، مشابه دستور مربوطه در PowerPoint.
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
+![منوی پاپ‑آپ PowerPoint](img_01_01.png)
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
+برای انجام تبدیل، overload `IShapeCollection.AddGroupShape` را که یک `ISvgImage` می‌پذیرد، استفاده کنید.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
+
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **جایگزینی تصاویر در مجموعه‌ی تصویر**
+از تبدیل SVG به اشکال زمانی استفاده کنید که عناصر برداری منفرد نیاز به ویرایش به‌عنوان اشکال PowerPoint داشته باشند. اگر SVG فقط برای نمایش نیاز است، نگه داشتن آن به‌عنوان تصویر ساده‌تر است و از ایجاد تعداد زیادی شکل جداگانه جلوگیری می‌کند.
 
-Aspose.Slides به شما اجازه می‌دهد تصاویر ذخیره‌شده در مجموعه‌ی تصویر یک ارائه (از جمله آن‌هایی که توسط شکل‌های اسلاید استفاده می‌شوند) را جایگزین کنید. این بخش چندین رویکرد برای به‌روزرسانی تصاویر در مجموعه را نشان می‌دهد. API روش‌های ساده‌ای برای جایگزینی تصویر با استفاده از داده‌های بایت خام، یک نمونه [IImage](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/) یا تصویر دیگری که از قبل در مجموعه موجود است، فراهم می‌کند.
+## **جایگزینی یک منبع تصویر موجود**
 
-مراحل زیر را دنبال کنید:
+زمانی که می‌خواهید یک منبع تصویر موجود را جایگزین کنید، از `IPPImage.ReplaceImage` استفاده کنید. این کار به‌ویژه برای گرافیک‌های مشترک مانند لوگوها مفید است.
 
-1. باز کردن فایل ارائه که شامل تصاویر است با استفاده از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/).  
-2. بارگذاری یک تصویر جدید از یک فایل به یک آرایه بایت.  
-3. جایگزینی تصویر هدف با تصویر جدید با استفاده از آرایه بایت.  
-4. در رویکرد دوم، تصویر را به یک شیء [IImage](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/) بارگذاری کنید و تصویر هدف را با آن شیء جایگزین کنید.  
-5. در رویکرد سوم، تصویر هدف را با تصویری که از قبل در مجموعه‌ی تصویر ارائه وجود دارد، جایگزین کنید.  
-6. نوشتن ارائه‌ی تغییر یافته به‌صورت فایل PPTX.
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```cs
-// نمونه‌سازی کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation("input.pptx");
 
-// روش اول.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-// روش دوم.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// روش سوم.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// ذخیره ارائه به یک فایل.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
+اگر چندین قاب تصویر، پس‌زمینه، مستر یا طرح‌بندی از همان منبع تصویر استفاده می‌کنند، جایگزینی آن منبع همهٔ موارد استفاده را به‌روز می‌کند. اگر فقط یک قاب تصویر باید تغییر کند، به‌جای جایگزینی منبع مشترک، تصویر متفاوتی به آن قاب اختصاص دهید.
 
-با استفاده از مبدل رایگان Aspose [Text to GIF](https://products.aspose.app/slides/fa/text-to-gif) می‌توانید به‌راحتی متن‌ها را انیمیشن دهید، GIFهایی از متن‌ها بسازید و غیره. 
+`ReplaceImage` همچنین overloadهایی دارد که یک `IImage` یا یک `IPPImage` دیگر می‌پذیرند.
 
-{{% /alert %}}
+## **راهنمای عملی مدیریت تصویر**
 
-## **سوالات متداول**
+### **کنترل حجم ارائه**
 
-**آیا وضوح تصویر اصلی پس از درج حفظ می‌شود؟**
+تصاویر رستر بزرگ می‌توانند حجم ارائه را به‌طور غیرضروری افزایش دهند. از تصاویر منبع با ابعاد مناسب برای اندازهٔ نمایش موردنظر استفاده کنید، در صورت امکان از منابع تصویر مشترک مجدداً استفاده کنید و از توکار کردن کپی‌های تکراری یک گرافیک با وضوح کامل خودداری کنید.
 
-بله. پیکسل‌های منبع حفظ می‌شوند، اما ظاهر نهایی بستگی به این دارد که چگونه [picture](/slides/fa/net/picture-frame/) در اسلاید مقیاس‌بندی شده و چه فشرده‌سازی‌ای هنگام ذخیره اعمال می‌شود.
+برای تصاویر رستری که قبلاً در قاب‌های تصویر قرار گرفته‌اند، `IPictureFillFormat.CompressImage` می‌تواند دادهٔ تصویر را بر اساس وضوح انتخابی و تنظیمات برش کاهش دهد. این پردازش مربوط به قاب تصویر است نه مدیریت مجموعهٔ تصویر، بنابراین برای عملیات قالب‌بندی مرتبط به [قاب تصویر](/slides/fa/net/picture-frame/) مراجعه کنید.
 
-**بهترین روش برای جایگزینی یک لوگو یکسان در ده‌ها اسلاید به‌طور همزمان چیست؟**
+### **انتخاب بین محتوای توکار و لینک‌دار**
 
-لوگو را در اسلاید مستر یا یک چیدمان قرار دهید و آن را در مجموعه‌ی تصویر ارائه جایگزین کنید—به‌روزرسانی‌ها به تمام عناصری که از این منبع استفاده می‌کنند، پراکندگی می‌یابد.
+توکار کردن ارائه را قابل حمل می‌سازد زیرا تمام داده‌های تصویر موردنیاز همراه فایل می‌آیند. لینک‌دار کردن می‌تواند حجم فایل را کاهش دهد، اما وابستگی خارجی ایجاد می‌کند. لینک‌ها را فقط زمانی استفاده کنید که این وابستگی قابل قبول و پایدار باشد.
 
-**آیا می‌توان یک SVG درج‌شده را به شکل‌های قابل ویرایش تبدیل کرد؟**
+### **استفاده مجدد از برندینگ مشترک**
 
-بله. می‌توانید یک SVG را به گروهی از شکل‌ها تبدیل کنید؛ پس از آن بخش‌های جداگانه با ویژگی‌های استاندارد شکل قابلیت ویرایش پیدا می‌کنند.
+برای لوگوها، واترمارک‌ها یا گرافیک‌های تزئینی تکراری، یک منبع تصویر استفاده کنید و آن را دوباره به‌کار ببرید. اگر گرافیک متعلق به طراحی ارائه باشد نه به محتوای اسلاید، آن را بر روی مستر یا طرح‌بندی قرار دهید تا توسط اسلایدهای مربوطه به ارث برسد.
 
-**چگونه می‌توان یک تصویر را به‌عنوان پس‌زمینه برای چند اسلاید به‌صورت همزمان تنظیم کرد؟**
+### **نگهداری منابع SVG قابل حمل**
 
-*[Assign the image as the background](/slides/fa/net/presentation-background/)* را بر روی اسلاید مستر یا چیدمان مربوطه اعمال کنید—هر اسلایدی که از آن مستر/چیدمان استفاده می‌کند، پس‌زمینه را به ارث می‌برد.
+یک SVG خودکفا راحت‌تر می‌تواند جابه‌جا و به‌صورت ثابت رندر شود نسبت به SVGی که به فایل‌ها یا منابع شبکه‌ای خارجی وابسته است. در صورت امکان، پیش از وارد کردن SVG، منابع مورد نیاز را توکار کنید. تبدیل SVG به اشکال را فقط زمانی انجام دهید که عناصر برداری منفرد نیاز به ویرایش داشته باشند.
 
-**چگونه می‌توان از بزرگ شدن بیش از حد ارائه به‌دلیل تعداد زیاد تصاویر جلوگیری کرد؟**
+### **استفاده از API مدرن تصویر چندپلتفرمی**
 
-به‌جای استفاده از تصاویر تکراری، یک منبع تصویر واحد را بازاستفاده کنید، رزولوشن‌های معقول را انتخاب کنید، فشرده‌سازی را هنگام ذخیره اعمال کنید و گرافیک‌های تکراری را در مستر نگه دارید که مناسب است.
+برای کد جدید .NET، به‌جای اتکا به `System.Drawing.Image` یا `Bitmap`، از APIهای Aspose.Slides `IImage` و `Images` استفاده کنید. برای راهنمایی مهاجرت به [API مدرن](/slides/fa/net/modern-api/) مراجعه کنید.
+
+WMF و EMF نیاز به ملاحظات ویژه‌ای دارند. وقتی این قالب‌ها از طریق یک `IImage` عبور می‌کنند، `ImageCollection.AddImage` پیش از درج، متافایل را به یک نمایه PNG رستر تبدیل می‌کند. اگر حفظ دادهٔ متافایل مهم باشد، به‌جای overload مبتنی بر مسیر، overload مبتنی بر جریان `ImageCollection.AddImage` را استفاده کنید. تولید محتوای EMF از صفحات گسترده یا محصولات دیگر یک جریان یکپارچه‌سازی جداگانه است و در محدودهٔ این مقاله نمی‌باشد.
+
+## **پرسش‌های متداول**
+
+**فرق بین مجموعهٔ تصویر و قاب تصویر چیست؟**
+
+مجموعهٔ تصویر منابع تصویر قابل استفاده مجدد را ذخیره می‌کند. قاب تصویر یک شکل اسلاید است که یکی از این منابع را نمایش می‌دهد و قالب‌بندی خاص تصویر مانند برش و افکت‌ها را فراهم می‌کند.
+
+**بهترین روش برای جایگزینی یک لوگو در همه‌جا چیست؟**
+
+اگر لوگو قبلاً به‌عنوان یک منبع تصویر مشترک وجود داشته باشد، آن منبع را با `IPPImage.ReplaceImage` جایگزین کنید. برای برندینگ سراسری ارائه، قرار دادن لوگو بر روی مستر یا طرح‌بندی نیز می‌تواند محتوای تکراری اسلایدها را کاهش دهد.
+
+**چرا یک تصویر لینک‌دار در کامپیوتر دیگر ناپدید می‌شود؟**
+
+یک تصویر لینک‌دار به فایل یا URL خارجی خود وابسته است. اگر آن منبع از کامپیوتر دیگر قابل دسترسی نباشد، تصویر لینک‌دار ممکن است در دسترس نباشد. زمانی که ارائه باید خودکفا باشد، تصویر را توکار کنید.
+
+**آیا می‌توان یک SVG درج‌شده را به‌عنوان اشکال PowerPoint ویرایش کرد؟**
+
+بله. با استفاده از `IShapeCollection.AddGroupShape` SVG را تبدیل کنید؛ گروه حاصل شامل اشکال ویرایش‌پذیر اسلاید است نه یک تصویر SVG واحد.
+
+**چگونه می‌توانم ارائه‌های حاوی تصاویر متعدد را کوچکتر نگه دارم؟**
+
+از منابع تصویر مشترک استفاده مجدد کنید، از منابع رستری غیرضروری بزرگ خودداری کنید، در مواقع مناسب تصاویر رستری مناسب را فشرده کنید، برندینگ تکراری را بر روی مستر یا طرح‌بندی نگه دارید و فقط در صورت پذیرش وابستگی خارجی، از تصاویر لینک‌دار استفاده کنید.
