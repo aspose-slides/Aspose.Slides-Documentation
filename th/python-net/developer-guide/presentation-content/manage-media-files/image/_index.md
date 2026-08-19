@@ -1,5 +1,5 @@
 ---
-title: เพิ่มประสิทธิภาพการจัดการรูปภาพใน PowerPoint ด้วย Python
+title: เพิ่มประสิทธิภาพการจัดการรูปภาพในการนำเสนอด้วย Python
 linktitle: จัดการรูปภาพ
 type: docs
 weight: 10
@@ -7,252 +7,250 @@ url: /th/python-net/image/
 keywords:
 - เพิ่มรูปภาพ
 - เพิ่มรูป
-- เพิ่มบิตแมพ
 - แทนที่รูปภาพ
-- แทนที่รูป
-- จากเว็บ
+- คอลเลกชันรูปภาพ
+- กรอบรูป
+- รูปภาพแบบลิงก์
 - พื้นหลัง
 - เพิ่ม PNG
 - เพิ่ม JPG
 - เพิ่ม SVG
-- เพิ่ม EMF
-- เพิ่ม WMF
-- เพิ่ม TIFF
+- SVG เป็นรูปร่าง
+- ทรัพยากร SVG ภายนอก
 - PowerPoint
+- OpenDocument
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "ปรับกระบวนการจัดการรูปภาพใน PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python บน .NET เพื่อเพิ่มประสิทธิภาพและอัตโนมัติกระบวนการทำงานของคุณ."
+description: "เรียนรู้วิธีการเพิ่ม, ใช้ซ้ำ, ลิงก์, แทนที่และจัดการรูปภาพแรสเตอร์และ SVG ในการนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Python ผ่าน .NET."
 ---
 ## **บทนำ**
 
-รูปภาพทำให้การนำเสนอมีส่วนร่วมและน่าสนใจยิ่งขึ้น. ใน Microsoft PowerPoint คุณสามารถแทรกรูปภาพจากไฟล์ อินเทอร์เน็ต หรือแหล่งอื่น ๆ ลงบนสไลด์ได้. ในทำนองเดียวกัน Aspose.Slides ให้คุณเพิ่มรูปภาพลงในสไลด์ได้หลายวิธี.
+Aspose.Slides for Python via .NET provides several ways to work with images, and each one serves a different purpose. You can store an image in a presentation, display it in a picture frame, use it as a slide background, link to an external image, replace a shared image resource, or convert SVG content into editable shapes.
 
-{{% alert  title="Tip" color="primary" %}}
+This article focuses on image resources and how they are used across a presentation. For cropping, transparency, effects, stretching, and other formatting applied to an individual picture frame, see [กรอบรูป](/slides/th/python-net/picture-frame/).
 
-Aspose มีตัวแปลงฟรี—[JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ที่ช่วยให้คุณสร้างการนำเสนอจากรูปภาพได้อย่างรวดเร็ว.
+## **ทำความเข้าใจโมเดลภาพ**
 
-{{% /alert %}}
+The following API concepts are closely related but not interchangeable:
 
-{{% alert title="Info" color="info" %}}
+- The [presentation image collection](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/) stores image resources used by the presentation. Use [ImageCollection.add_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/add_image/) to add image data and obtain an [IPPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/) resource.
+- A [picture frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/ipictureframe/) is a shape that displays an image on a slide, layout, or master. Use [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_picture_frame/) to place an image resource on a slide.
+- A slide background uses an image as part of the slide fill rather than as a shape. It therefore does not behave like a picture frame.
+- [IPPImage.replace_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/replace_image/) replaces an image resource. If several presentation elements use that resource, they all use the replacement.
+- Converting an SVG to shapes creates editable slide shapes. After conversion, the content is no longer managed as one picture resource.
 
-หากคุณต้องการเพิ่มรูปภาพเป็นออบเจ็กต์กรอบ—โดยเฉพาะอย่างยิ่งหากคุณวางแผนที่จะใช้ตัวเลือกการจัดรูปแบบมาตรฐาน เช่น การปรับขนาดหรือการใช้เอฟเฟกต์—ดู [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/th/python-net/picture-frame/).
+A typical workflow is therefore: add image data to the image collection, receive an [IPPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/), and then use that resource in one or more picture frames or fills.
 
-{{% /alert %}}
+## **เพิ่มรูปภาพแบบฝัง**
 
-{{% alert title="Note" color="warning" %}}
+To insert a local image, read the file, add its data to the image collection, and create a picture frame that uses the returned `IPPImage`.
 
-คุณสามารถใช้การดำเนินการ I/O ของรูปภาพและการนำเสนอเพื่อแปลงรูปภาพระหว่างฟอร์แมตต่าง ๆ ดูหน้าต่อไปนี้: แปลง [image to JPG](https://products.aspose.com/slides/th/python-net/conversion/image-to-jpg/); แปลง [JPG to image](https://products.aspose.com/slides/th/python-net/conversion/jpg-to-image/); แปลง [JPG to PNG](https://products.aspose.com/slides/th/python-net/conversion/jpg-to-png/); แปลง [PNG to JPG](https://products.aspose.com/slides/th/python-net/conversion/png-to-jpg/); แปลง [PNG to SVG](https://products.aspose.com/slides/th/python-net/conversion/png-to-svg/); และแปลง [SVG to PNG](https://products.aspose.com/slides/th/python-net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides รองรับการทำงานกับรูปภาพในฟอร์แมตที่นิยม เช่น JPEG, PNG, BMP, GIF และอื่น ๆ.
-
-## **เพิ่มรูปภาพที่เก็บไว้ในเครื่องลงในสไลด์**
-
-คุณสามารถเพิ่มรูปภาพหนึ่งหรือหลายรูปจากคอมพิวเตอร์ของคุณลงในสไลด์ของการนำเสนอได้. ตัวอย่าง Python ด้านล่างแสดงวิธีเพิ่มรูปภาพลงในสไลด์:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **เพิ่มรูปภาพจากเว็บลงในสไลด์**
-
-หากรูปภาพที่คุณต้องการเพิ่มลงในสไลด์ไม่มีในคอมพิวเตอร์ของคุณ คุณสามารถแทรกโดยตรงจากเว็บได้. ตัวอย่าง Python ด้านล่างแสดงวิธีเพิ่มรูปภาพจาก URL ลงในสไลด์:
-
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เพิ่มรูปภาพลงใน Slide Master**
+The image added this way is embedded in the presentation, so the resulting file does not depend on the original image file remaining available.
 
-Slide Master คือสไลด์ระดับบนสุดที่เก็บและควบคุมข้อมูล—ธีม, เค้าโครง, เป็นต้น—สำหรับสไลด์ทั้งหมดที่อยู่ด้านล่าง เมื่อคุณเพิ่มรูปภาพลงใน Slide Master รูปภาพนั้นจะปรากฏบนทุกสไลด์ที่ใช้ Master นั้น.
+### **เพิ่มรูปภาพจากเว็บ**
 
-ตัวอย่าง Python ด้านล่างแสดงวิธีเพิ่มรูปภาพลงใน Slide Master:
+When an image is available through HTTP or HTTPS, download its bytes, add them to the presentation image collection, and use the returned image resource in the same way as a local image.
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In long-running applications, reuse an HTTP client or connection pool where appropriate rather than creating a new connection for every request. Also validate remote URLs, response sizes, and content types when the source is not trusted.
+
+## **นำรูปภาพกลับมาใช้ใหม่ข้ามสไลด์**
+
+If the same image is needed more than once, add it to the presentation once and reuse the returned [IPPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/) when creating additional picture frames. This avoids repeatedly loading the same source data and makes the relationship between the shared image resource and its uses explicit.
+
+For graphics that should appear automatically on many slides, such as a company logo, consider placing the picture frame on a [แม่แบบสไลด์](/slides/th/python-net/slide-master/) or layout instead of adding an equivalent shape to every slide.
+
+## **ใช้รูปภาพเป็นพื้นหลังสไลด์**
+
+A background image is assigned to the slide fill; it is not added as a picture-frame shape. This is useful when the picture should cover the slide background and should not be manipulated as a normal slide object.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+For additional background options, including master and layout backgrounds, see [พื้นหลังการนำเสนอ](/slides/th/python-net/presentation-background/).
+
+## **รูปภาพแบบฝังและรูปภาพแบบลิงก์**
+
+Embedded and linked images have different portability and file-size tradeoffs:
+
+- **รูปภาพแบบฝัง:** the image data is stored inside the presentation. The presentation is self-contained, but the file size includes the image data.
+- **รูปภาพแบบลิงก์:** the presentation stores a path or URL to an external image. This can reduce the presentation size, but the external resource must remain accessible when the presentation is opened or rendered.
+
+A linked picture can be created by assigning the external path or URL through [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/th/python-net/aspose.slides/islidespicture/link_path_long/) rather than embedding the image data.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งรูปภาพเป็นพื้นหลังของสไลด์**
+Use linked images only when the deployment environment can reliably access the external resource. For presentations that must work offline or be moved between systems, embedded images are usually safer.
 
-คุณอาจต้องการใช้รูปภาพเป็นพื้นหลังสำหรับสไลด์เดียวหรือหลายสไลด์ สำหรับรายละเอียดดูที่ [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/th/python-net/presentation-background/#set-image-as-background-for-slide).
+## **ทำงานกับรูปภาพ SVG**
 
-## **เพิ่ม SVG ไปยังการนำเสนอ**
+SVG is a vector format, so it can be useful for icons, diagrams, and other graphics that should scale without the same loss of detail as raster images. Aspose.Slides supports SVG both as an image resource and as a source for editable slide shapes.
 
-คุณสามารถแทรกรูปภาพใด ๆ ลงในการนำเสนอโดยใช้เมธอด [add_picture_frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_picture_frame/) ของคลาส [ShapeCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/).
+### **เพิ่ม SVG เป็นรูปภาพ**
 
-เพื่อสร้างออบเจ็กต์รูปภาพจาก SVG ให้ทำตามขั้นตอนต่อไปนี้:
+Create an [SvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/), add it to the image collection, and place the resulting image resource in a picture frame.
 
-1. สร้าง [SvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/) แล้วเพิ่มลงในคอลเลกชันรูปภาพของการนำเสนอ.
-2. สร้างออบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) จาก [SvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/).
-3. สร้างออบเจ็กต์ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ด้วยการใช้ [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/).
-
-ตัวอย่าง Python ด้านล่างแสดงวิธีเพิ่มรูปภาพ SVG ลงในการนำเสนอโดยใช้ขั้นตอนเหล่านี้:
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # อ่านเนื้อหาของไฟล์ SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # สร้างอ็อบเจ็กต์ SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # สร้างอ็อบเจ็กต์ PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # สร้าง PictureFrame ใหม่.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # บันทึกการนำเสนอในรูปแบบ PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **แปลง SVG เป็นชุดของรูปทรง**
+### **แปลง SVG เป็นรูปร่างที่แก้ไขได้**
 
-Aspose.Slides จะแปลง SVG เป็นชุดของรูปทรงในวิธีที่คล้ายกับการจัดการ SVG ของ PowerPoint.
+Aspose.Slides can convert an SVG into a group of editable slide shapes, similar to the corresponding PowerPoint command.
 
-![PowerPoint Popup Menu](img_01_01.png)
+![เมนูป๊อปอัพ PowerPoint](img_01_01.png)
 
-ฟังก์ชันนี้มาจากการโอเวอร์โหลดของเมธอด [add_group_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_group_shape/) ในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/) ที่รับอาร์กิวเมนต์แรกเป็น [SvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/).
+Use the [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_group_shape/) overload that accepts an [ISvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/isvgimage/) to perform the conversion.
 
-โค้ดตัวอย่างด้านล่างแสดงวิธีแปลงไฟล์ SVG เป็นชุดของรูปทรง.
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # อ่านเนื้อหาไฟล์ SVG.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # สร้างอ็อบเจ็กต์ SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # รับขนาดสไลด์.
-        slide_size = presentation.slide_size.size
-
-        # แปลงภาพ SVG เป็นกลุ่มของรูปทรงและปรับขนาดให้พอดีกับสไลด์.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # บันทึกการนำเสนอในรูปแบบ PPTX.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **เพิ่มรูปภาพเป็น EMF ในสไลด์**
-
-Aspose.Slides for Python ให้คุณแทรกรูปภาพ Enhanced Metafile (EMF) ลงในการนำเสนอ.
-
-ตัวอย่าง Python ด้านล่างแสดงวิธีนี้:
-
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **แทนที่รูปภาพใน Image Collection**
+Use SVG-to-shapes conversion when individual vector elements need to be edited as PowerPoint shapes. If the SVG only needs to be displayed, keeping it as an image is simpler and avoids creating many separate shapes.
 
-Aspose.Slides อนุญาตให้คุณแทนที่รูปภาพที่เก็บอยู่ในคอลเลกชันรูปภาพของการนำเสนอ รวมถึงรูปภาพที่ใช้โดยรูปทรงสไลด์ ส่วนนี้สรุปวิธีหลายวิธีในการอัปเดตรูปภาพในคอลเลกชัน API มีเมธอดที่ง่ายต่อการแทนที่รูปภาพด้วยข้อมูลไบต์ดิบ, อินสแตนซ์ของ [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) หรือรูปภาพอื่นที่มีอยู่แล้วในคอลเลกชัน.
+## **แทนที่ทรัพยากรรูปภาพที่มีอยู่**
 
-ทำตามขั้นตอนต่อไปนี้:
+Use [IPPImage.replace_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/replace_image/) when you want to replace an existing image resource. This is especially useful for shared graphics such as logos.
 
-1. โหลดการนำเสนอที่มีรูปภาพโดยใช้คลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-2. โหลดรูปภาพใหม่จากไฟล์เข้าสู่ byte array.
-3. แทนที่รูปภาพเป้าหมายด้วยรูปภาพใหม่โดยใช้ byte array.
-4. หรืออีกวิธีหนึ่ง โหลดรูปภาพเข้าสู่ออบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) และแทนที่รูปภาพเป้าหมายด้วยออบเจ็กต์นั้น.
-5. หรือแทนที่รูปภาพเป้าหมายด้วยรูปภาพที่มีอยู่แล้วในคอลเลกชันรูปภาพของการนำเสนอ.
-6. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX.
+```python
+import aspose.slides as slides
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์การนำเสนอ.
-with slides.Presentation("sample.pptx") as presentation:
-
-    # วิธีที่หนึ่ง.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # วิธีที่สอง.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # วิธีที่สาม.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # บันทึกการนำเสนอไปยังไฟล์.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
+If multiple picture frames, backgrounds, masters, or layouts use the same image resource, replacing that resource updates all of those uses. If only one picture frame should change, assign a different image to that frame instead of replacing the shared resource.
 
-ด้วยตัวแปลงฟรี [Text to GIF](https://products.aspose.app/slides/th/text-to-gif) ของ Aspose คุณสามารถทำข้อความเคลื่อนไหวและสร้าง GIF จากข้อความได้อย่างง่ายดาย.
+`replace_image` also provides overloads that accept an [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) or another [IPPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **แนวทางการจัดการรูปภาพอย่างปฏิบัติ**
+
+### **ควบคุมขนาดการนำเสนอ**
+
+Large raster images can make a presentation unnecessarily large. Use source images with dimensions appropriate for their intended display size, reuse shared image resources where possible, and avoid embedding repeated copies of the same full-resolution graphic.
+
+For raster pictures that have already been placed in picture frames, [PictureFillFormat.compress_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/compress_image/) can reduce image data according to the selected resolution and crop settings. This is picture-frame processing rather than image-collection management, so see [กรอบรูป](/slides/th/python-net/picture-frame/) for related formatting operations.
+
+### **เลือกระหว่างเนื้อหาแบบฝังและแบบลิงก์**
+
+Embedding makes the presentation portable because all required image data travels with the file. Linking can reduce file size, but it introduces an external dependency. Use links only when that dependency is acceptable and stable.
+
+### **ใช้แบรนด์ที่แชร์ซ้ำ**
+
+For repeated logos, watermarks, or decorative graphics, use one image resource and reuse it. If the graphic belongs to the presentation design rather than slide content, place it on a master or layout so it is inherited by the appropriate slides.
+
+### **ทำให้ทรัพยากร SVG พกพาได้**
+
+A self-contained SVG is easier to move and render consistently than an SVG that depends on external files or network resources. When possible, embed required resources before importing the SVG. Convert SVG to shapes only when the individual vector elements need to be edited.
+
+### **ใช้ API รูปภาพแบบข้ามแพลตฟอร์มสมัยใหม่**
+
+For new Python via .NET code, use the Aspose.Slides [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) and [Images](https://reference.aspose.com/slides/th/python-net/aspose.slides/images/) APIs instead of the deprecated `aspose.pydrawing.Image` or `aspose.pydrawing.Bitmap` image APIs. See [API สมัยใหม่](/slides/th/python-net/modern-api/) for migration guidance.
+
+WMF and EMF require special consideration. When these formats are passed through an [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/), [ImageCollection.add_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/add_image/) converts the metafile to a raster PNG representation before insertion. If preserving the metafile data is important, use a stream-based [ImageCollection.add_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/add_image/) overload instead. Generating EMF content from spreadsheets or other products is a separate integration workflow and is outside the scope of this article.
 
 ## **คำถามที่พบบ่อย**
 
-**ความละเอียดของรูปภาพต้นฉบับยังคงเหมือนเดิมหลังจากแทรกหรือไม่?**
+**รูปภาพคอลเลกชันกับกรอบรูปต่างกันอย่างไร?**
 
-ใช่ พิกเซลต้นฉบับจะถูกเก็บไว้ แต่การแสดงผลสุดท้ายขึ้นอยู่กับวิธีการปรับขนาด [picture](/slides/th/python-net/picture-frame/) บนสไลด์และการบีบอัดใด ๆ ที่ทำในขั้นตอนบันทึก.
+The image collection stores reusable image resources. A picture frame is a slide shape that displays one of those resources and provides picture-specific formatting such as cropping and effects.
 
-**วิธีที่ดีที่สุดในการแทนที่โลโก้เดียวกันในหลายสิบสไลด์พร้อมกันคืออะไร?**
+**วิธีที่ดีที่สุดในการแทนที่โลโก้เดียวกันทุกที่คืออะไร?**
 
-วางโลโก้บนสไลด์แม่หรือเลย์เอาต์และแทนที่ในคอลเลกชันรูปภาพของการนำเสนอ — การอัปเดตจะกระจายไปยังทุกองค์ประกอบที่ใช้ทรัพยากรนั้น.
+If the logo is already shared as one image resource, replace that resource with [IPPImage.replace_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/ippimage/replace_image/). For presentation-wide branding, placing the logo on a master or layout can also reduce duplicated slide content.
 
-**สามารถแปลง SVG ที่แทรกแล้วเป็นรูปทรงที่แก้ไขได้หรือไม่?**
+**ทำไมรูปภาพแบบลิงก์ถึงหายไปเมื่อเปิดบนคอมพิวเตอร์เครื่องอื่น?**
 
-ได้ คุณสามารถแปลง SVG เป็นกลุ่มของรูปทรงได้ หลังจากนั้นส่วนย่อยต่าง ๆ จะสามารถแก้ไขได้ด้วยคุณสมบัติรูปทรงมาตรฐาน.
+A linked picture depends on its external file or URL. If that resource cannot be reached from the other computer, the linked image may be unavailable. Embed the image when the presentation must be self-contained.
 
-**ฉันจะตั้งรูปภาพเป็นพื้นหลังสำหรับหลายสไลด์พร้อมกันได้อย่างไร?**
+**สามารถแก้ไข SVG ที่แทรกแล้วเป็นรูปร่าง PowerPoint ได้หรือไม่?**
 
-[กำหนดรูปภาพเป็นพื้นหลัง](/slides/th/python-net/presentation-background/) บนสไลด์แม่หรือเลย์เอาต์ที่เกี่ยวข้อง — สไลด์ใด ๆ ที่ใช้แม่/เลย์เอาต์นั้นจะสืบทอดพื้นหลัง.
+Yes. Convert the SVG with [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_group_shape/); the resulting group contains editable slide shapes rather than one SVG picture.
 
-**ฉันจะป้องกันไม่ให้การนำเสนอเพิ่มขนาดมากเกินไปเนื่องจากรูปภาพจำนวนมากได้อย่างไร?**
+**ทำอย่างไรให้การนำเสนอที่มีรูปภาพหลายรูปมีขนาดเล็กลง?**
 
-ใช้ทรัพยากรรูปภาพเดียวซ้ำแทนการทำสำเนาเลือกความละเอียดที่เหมาะสมใช้การบีบอัดเมื่อต้องการบันทึก และเก็บกราฟิกที่ใช้ซ้ำบนสไลด์แม่เมื่อเหมาะสม.
+Reuse shared image resources, avoid unnecessarily large raster sources, compress suitable raster pictures when appropriate, keep repeated branding on masters or layouts, and use linked images only when an external dependency is acceptable.

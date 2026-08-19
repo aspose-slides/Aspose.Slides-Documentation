@@ -7,286 +7,343 @@ url: /id/cpp/image/
 keywords:
 - menambahkan gambar
 - menambahkan foto
-- menambahkan bitmap
 - mengganti gambar
-- mengganti foto
-- dari web
+- koleksi gambar
+- bingkai gambar
+- gambar tertaut
 - latar belakang
 - menambahkan PNG
 - menambahkan JPG
 - menambahkan SVG
-- menambahkan EMF
-- menambahkan WMF
-- menambahkan TIFF
+- SVG menjadi bentuk
+- sumber daya SVG eksternal
 - PowerPoint
 - OpenDocument
 - presentasi
-- EMF
-- SVG
 - C++
 - Aspose.Slides
-description: "Menyederhanakan manajemen gambar dalam PowerPoint dan OpenDocument dengan Aspose.Slides untuk C++, mengoptimalkan kinerja dan mengotomatiskan alur kerja Anda."
+description: "Pelajari cara menambahkan, menggunakan kembali, menautkan, mengganti, dan mengelola gambar raster serta SVG dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk C++."
 ---
 ## **Pendahuluan**
 
-Gambar membuat presentasi menjadi lebih menarik dan menarik. Di Microsoft PowerPoint, Anda dapat menyisipkan gambar dari file, internet, atau lokasi lain ke slide. Demikian pula, Aspose.Slides memungkinkan Anda menambahkan gambar ke slide dalam presentasi Anda melalui berbagai prosedur. 
+Aspose.Slides for C++ menyediakan beberapa cara untuk bekerja dengan gambar, dan masing‑masing melayani tujuan yang berbeda. Anda dapat menyimpan gambar dalam presentasi, menampilkannya dalam bingkai gambar, menggunakannya sebagai latar belakang slide, menautkan ke gambar eksternal, mengganti sumber daya gambar bersama, atau mengonversi konten SVG menjadi bentuk yang dapat diedit.
 
-{{% alert title="Tip" color="primary" %}} 
+Artikel ini berfokus pada sumber daya gambar dan cara penggunaannya di seluruh presentasi. Untuk pemotongan, transparansi, efek, peregangan, dan pemformatan lain yang diterapkan pada satu bingkai gambar, lihat [Bingkai Gambar](/slides/id/cpp/picture-frame/).
 
-Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan orang membuat presentasi dengan cepat dari gambar. 
+## **Memahami Model Gambar**
 
-{{% /alert %}} 
+Konsep API berikut saling terkait tetapi tidak dapat dipertukarkan:
 
-{{% alert title="Info" color="info" %}}
+- [koleksi gambar presentasi](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/) menyimpan sumber daya gambar yang digunakan oleh presentasi. Gunakan [IImageCollection::AddImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/addimage/) untuk menambahkan data gambar dan memperoleh sumber daya [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/).
+- Sebuah [bingkai gambar](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipictureframe/) adalah bentuk yang menampilkan gambar pada slide, tata letak, atau master. Gunakan [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addpictureframe/) untuk menempatkan sumber daya gambar pada slide.
+- Latar belakang slide menggunakan gambar sebagai bagian dari isian slide, bukan sebagai bentuk. Oleh karena itu tidak berperilaku seperti bingkai gambar.
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/replaceimage/) mengganti sumber daya gambar. Jika beberapa elemen presentasi menggunakan sumber daya tersebut, semuanya akan menggunakan penggantiannya.
+- Mengonversi SVG menjadi bentuk membuat bentuk slide yang dapat diedit. Setelah konversi, konten tidak lagi dikelola sebagai satu sumber daya gambar.
 
-Jika Anda ingin menambahkan gambar sebagai objek bingkai—terutama jika Anda berencana menggunakan opsi pemformatan standar pada gambar tersebut untuk mengubah ukurannya, menambahkan efek, dan sebagainya—lihat [Bingkai Gambar](/slides/id/cpp/picture-frame/). 
+Alur kerja tipikal oleh karena itu: tambahkan data gambar ke koleksi gambar, terima sebuah [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/), lalu gunakan sumber daya tersebut dalam satu atau beberapa bingkai gambar atau isian.
 
-{{% /alert %}} 
+## **Menambahkan Gambar Tersemat**
 
-{{% alert title="Note" color="warning" %}}
-
-Anda dapat memanipulasi operasi input/output yang melibatkan gambar dan presentasi PowerPoint untuk mengonversi gambar dari satu format ke format lain. Lihat halaman-halaman ini: konversi [gambar ke JPG](https://products.aspose.com/slides/id/cpp/conversion/image-to-jpg/); konversi [JPG ke gambar](https://products.aspose.com/slides/id/cpp/conversion/jpg-to-image/); konversi [JPG ke PNG](https://products.aspose.com/slides/id/cpp/conversion/jpg-to-png/), konversi [PNG ke JPG](https://products.aspose.com/slides/id/cpp/conversion/png-to-jpg/); konversi [PNG ke SVG](https://products.aspose.com/slides/id/cpp/conversion/png-to-svg/), konversi [SVG ke PNG](https://products.aspose.com/slides/id/cpp/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides mendukung operasi dengan gambar dalam format populer berikut: JPEG, PNG, GIF, dan lainnya. 
-
-## **Menambahkan Gambar yang Disimpan Secara Lokal ke Slide**
-
-Anda dapat menambahkan satu atau beberapa gambar di komputer Anda ke slide dalam presentasi. Kode contoh berikut dalam C++ menunjukkan cara menambahkan gambar ke slide:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-
-
-## **Menambahkan Gambar dari Web ke Slide**
-
-Jika gambar yang ingin Anda tambahkan ke slide tidak tersedia di komputer Anda, Anda dapat menambahkan gambar tersebut langsung dari web. 
-
-Kode contoh berikut menunjukkan cara menambahkan gambar dari web ke slide dalam C++:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
-
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Menambahkan Gambar ke Slide Master**
-
-Slide master adalah slide utama yang menyimpan dan mengontrol informasi (tema, tata letak, dll.) tentang semua slide di bawahnya. Jadi, ketika Anda menambahkan gambar ke slide master, gambar tersebut muncul pada setiap slide di bawah slide master tersebut. 
-
-Kode contoh C++ berikut menunjukkan cara menambahkan gambar ke slide master:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
-
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Menambahkan Gambar sebagai Latar Belakang Slide**
-
-Anda mungkin memutuskan untuk menggunakan gambar sebagai latar belakang untuk slide tertentu atau beberapa slide. Dalam hal ini, Anda harus melihat *[Mengatur Gambar sebagai Latar Belakang untuk Slide](https://docs.aspose.com/slides/id/cpp/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Menambahkan SVG ke Presentasi**
-Anda dapat menambahkan atau menyisipkan gambar apa pun ke dalam presentasi dengan menggunakan metode [AddPictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) yang merupakan bagian dari antarmuka [IShapeCollection](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection).
-
-Untuk membuat objek gambar berdasarkan gambar SVG, Anda dapat melakukannya dengan cara berikut:
-
-1. Buat objek SvgImage untuk menyisipkannya ke ImageShapeCollection
-2. Buat objek PPImage dari ISvgImage
-3. Buat objek PictureFrame menggunakan antarmuka IPPImage
-
-Kode contoh berikut menunjukkan cara menerapkan langkah-langkah di atas untuk menambahkan gambar SVG ke dalam presentasi:
-``` cpp 
-// Jalur ke direktori dokumen
-System::String dataDir = u"D:\\Documents\\";
-
-// Nama file SVG sumber
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Nama file presentasi output
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Membuat presentasi baru
-auto p = System::MakeObject<Presentation>();
-
-// Membaca konten file SVG
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// Membuat objek SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Membuat objek PPImage
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// Membuat PictureFrame baru
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// Simpan presentasi dalam format PPTX
-p->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Mengonversi SVG menjadi Sekelompok Bentuk**
-Konversi SVG menjadi sekumpulan bentuk oleh Aspose.Slides mirip dengan fungsi PowerPoint yang digunakan untuk bekerja dengan gambar SVG:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Fungsionalitas ini disediakan oleh salah satu overload dari metode [AddGroupShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) pada antarmuka [IShapeCollection](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection) yang menerima objek [ISvgImage](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_svg_image) sebagai argumen pertama.
-
-Kode contoh berikut menunjukkan cara menggunakan metode yang dijelaskan untuk mengonversi file SVG menjadi sekumpulan bentuk:
-
-``` cpp 
-// Jalur ke direktori dokumen
-System::String dataDir = u"D:\\Documents\\";
-
-// Nama file SVG sumber
-System::String svgFileName = dataDir + u"sample.svg";
-
-// Nama file presentasi output
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// Membuat presentasi baru
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
-
-// Membaca konten file SVG
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// Membuat objek SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Dapatkan ukuran slide
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
-
-// Mengonversi gambar SVG menjadi grup bentuk dengan menskalakan ke ukuran slide
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// Simpan presentasi dalam format PPTX
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Menambahkan Gambar sebagai EMF ke Slide**
-Aspose.Slides untuk C++ memungkinkan Anda menghasilkan gambar EMF dari lembar Excel dan menambahkan gambar tersebut sebagai EMF di slide dengan Aspose.Cells. 
-
-Kode contoh berikut menunjukkan cara melakukan tugas yang dijelaskan:
-
-``` cpp 
-System::String dataDir = u"D:\\Documents\\";
-
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
-
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
-
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-pres->get_Slides()->RemoveAt(0);
-
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
-{
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
-
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
-```
-
-## **Mengganti Gambar dalam Koleksi Gambar**
-
-Aspose.Slides memungkinkan Anda mengganti gambar yang disimpan dalam koleksi gambar presentasi (termasuk yang digunakan oleh bentuk slide). Bagian ini menunjukkan beberapa pendekatan untuk memperbarui gambar dalam koleksi. API menyediakan metode sederhana untuk mengganti gambar menggunakan data byte mentah, instance [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) , atau gambar lain yang sudah ada dalam koleksi.
-
-Ikuti langkah-langkah berikut:
-
-1. Muat file presentasi yang berisi gambar menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
-2. Muat gambar baru dari file ke dalam array byte.
-3. Ganti gambar target dengan gambar baru menggunakan array byte.
-4. Pada pendekatan kedua, muat gambar ke dalam objek [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) dan ganti gambar target dengan objek tersebut.
-5. Pada pendekatan ketiga, ganti gambar target dengan gambar yang sudah ada dalam koleksi gambar presentasi.
-6. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+Untuk menyisipkan gambar lokal, baca file, tambahkan datanya ke koleksi gambar, dan buat bingkai gambar yang menggunakan sumber daya [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) yang dikembalikan.
 
 ```cpp
-// Membuat instance kelas Presentation yang mewakili file presentasi.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Cara pertama.
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Cara kedua.
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto presentation = MakeObject<Presentation>();
 
-// Cara ketiga.
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-// Simpan presentasi ke file.
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Gambar yang ditambahkan dengan cara ini tersemat dalam presentasi, sehingga berkas hasil tidak bergantung pada ketersediaan berkas gambar asli.
+
+### **Menambahkan Gambar dari Web**
+
+Ketika gambar tersedia melalui HTTP atau HTTPS, unduh bajetnya, tambahkan ke koleksi gambar presentasi, dan gunakan sumber daya gambar yang dikembalikan dengan cara yang sama seperti gambar lokal.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Net;
+
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Validasi URL remote, ukuran respons, dan tipe konten ketika sumber tidak dipercaya. Dalam aplikasi yang sudah menggunakan klien HTTP lain, Anda dapat mengunduh gambar dengan klien tersebut dan mengoper bajet atau aliran yang dihasilkan ke [IImageCollection::AddImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/addimage/).
+
+## **Menggunakan Ulang Gambar di Seluruh Slide**
+
+Jika gambar yang sama diperlukan lebih dari sekali, tambahkan sekali ke presentasi dan gunakan kembali [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) yang dikembalikan saat membuat bingkai gambar tambahan. Ini menghindari pemuatan berulang data sumber yang sama dan membuat hubungan antara sumber daya gambar bersama dan penggunaannya menjadi eksplisit.
+
+Untuk grafik yang harus muncul secara otomatis di banyak slide, seperti logo perusahaan, pertimbangkan menempatkan bingkai gambar pada [master slide](/slides/id/cpp/slide-master/) atau tata letak alih‑alih menambahkan bentuk setara ke setiap slide.
+
+## **Menggunakan Gambar sebagai Latar Belakang Slide**
+
+Gambar latar belakang ditetapkan ke isian slide; ia tidak ditambahkan sebagai bentuk bingkai gambar. Ini berguna ketika gambar harus menutupi latar belakang slide dan tidak boleh dimanipulasi sebagai objek slide biasa.
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Untuk opsi latar belakang tambahan, termasuk latar belakang master dan tata letak, lihat [Latar Belakang Presentasi](/slides/id/cpp/presentation-background/).
+
+## **Gambar Tersemat dan Gambar Tertaut**
+
+Gambar tersemat dan gambar tertaut memiliki pertukaran portabilitas dan ukuran berkas yang berbeda:
+
+- **Gambar tersemat:** data gambar disimpan di dalam presentasi. Presentasi menjadi mandiri, tetapi ukuran berkas mencakup data gambar.
+- **Gambar tertaut:** presentasi menyimpan jalur atau URL ke gambar eksternal. Ini dapat mengurangi ukuran presentasi, tetapi sumber daya eksternal harus tetap dapat diakses saat presentasi dibuka atau dirender.
+
+Gambar tertaut dapat dibuat dengan menetapkan jalur atau URL eksternal melalui [ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidespicture/set_linkpathlong/) alih‑alih menyematkan data gambar.
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Gunakan gambar tertaut hanya ketika lingkungan penyebaran dapat mengakses sumber daya eksternal dengan andal. Untuk presentasi yang harus berfungsi offline atau dipindahkan antar sistem, gambar tersemat biasanya lebih aman.
+
+## **Bekerja dengan Gambar SVG**
+
+SVG adalah format vektor, sehingga berguna untuk ikon, diagram, dan grafik lain yang harus diskalakan tanpa kehilangan detail seperti pada gambar raster. Aspose.Slides mendukung SVG baik sebagai sumber daya gambar maupun sebagai sumber untuk bentuk slide yang dapat diedit.
+
+### **Menambahkan SVG sebagai Gambar**
+
+Buat sebuah [SvgImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/svgimage/), tambahkan ke koleksi gambar, dan tempatkan sumber daya gambar yang dihasilkan dalam bingkai gambar.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
+
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **File SVG dengan Sumber Daya Eksternal**
+
+Sebuah SVG dapat merujuk gambar, stylesheet, atau font eksternal. Untuk kasus ini, [SvgImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/svgimage/) menyediakan konstruktor yang menerima sebuah [IExternalResourceResolver](https://reference.aspose.com/slides/id/cpp/aspose.slides.import/iexternalresourceresolver/) dan URI dasar. Resolver dapat memetakan URI relatif ke URI absolut yang diizinkan dan mengembalikan aliran untuk sumber daya yang diminta.
+
+Resolver membuat sumber daya eksternal tersedia saat Aspose.Slides memproses SVG, tetapi tidak menulis ulang SVG menjadi dokumen mandiri. Jika SVG harus tetap portabel, sematkan sumber daya yang dibutuhkan di dalam SVG itu sendiri, misalnya dengan menggunakan URI `data:` untuk gambar tertaut.
+
+Ketika file SVG berasal dari sumber yang tidak dipercaya, batasi skema, lokasi berkas, dan host yang dapat diakses resolver. Resolver jaringan juga harus menerapkan batas waktu, batas ukuran respons, dan validasi konten.
+
+### **Mengonversi SVG menjadi Bentuk yang Dapat Diedit**
+
+Aspose.Slides dapat mengonversi SVG menjadi sekumpulan bentuk slide yang dapat diedit, mirip dengan perintah PowerPoint yang bersangkutan.
+
+![Menu Pop-up PowerPoint](img_01_01.png)
+
+Gunakan overload [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addgroupshape/) yang menerima sebuah [ISvgImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/) untuk melakukan konversi.
+
+```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
+
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Gunakan konversi SVG‑ke‑bentuk ketika elemen vektor individu perlu diedit sebagai bentuk PowerPoint. Jika SVG hanya perlu ditampilkan, mempertahankannya sebagai gambar lebih sederhana dan menghindari pembuatan banyak bentuk terpisah.
+
+## **Mengganti Sumber Daya Gambar yang Ada**
+
+Gunakan [IPPImage::ReplaceImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/replaceimage/) ketika Anda ingin mengganti sumber daya gambar yang ada. Ini sangat berguna untuk grafik bersama seperti logo.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
+Jika beberapa bingkai gambar, latar belakang, master, atau tata letak menggunakan sumber daya gambar yang sama, mengganti sumber daya tersebut memperbarui semua penggunaan tersebut. Jika hanya satu bingkai gambar yang harus berubah, tetapkan gambar yang berbeda ke bingkai itu alih‑alih mengganti sumber daya bersama.
 
-Dengan konverter Aspose GRATIS [Text to GIF](https://products.aspose.app/slides/id/text-to-gif) , Anda dapat dengan mudah menggerakkan teks, membuat GIF dari teks, dll. 
+[IPPImage::ReplaceImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/replaceimage/) juga menyediakan overload yang menerima sebuah [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) atau [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) lain.
 
-{{% /alert %}}
+## **Panduan Praktis Manajemen Gambar**
+
+### **Mengontrol Ukuran Presentasi**
+
+Gambar raster besar dapat membuat presentasi menjadi terlalu besar. Gunakan gambar sumber dengan dimensi yang sesuai untuk ukuran tampilan yang dimaksud, gunakan kembali sumber daya gambar bersama bila memungkinkan, dan hindari menyematkan salinan berulang dari grafik resolusi penuh yang sama.
+
+Untuk gambar raster yang sudah ditempatkan dalam bingkai gambar, [IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/compressimage/) dapat mengurangi data gambar menurut resolusi dan pengaturan pemotongan yang dipilih. Ini adalah pemrosesan bingkai gambar bukan manajemen koleksi gambar, jadi lihat [Bingkai Gambar](/slides/id/cpp/picture-frame/) untuk operasi pemformatan terkait.
+
+### **Pilih Antara Konten Tersemat dan Tertaut**
+
+Menyematkan membuat presentasi portabel karena semua data gambar yang diperlukan ikut bersama berkas. Menautkan dapat mengurangi ukuran berkas, tetapi memperkenalkan ketergantungan eksternal. Gunakan tautan hanya ketika ketergantungan tersebut dapat diterima dan stabil.
+
+### **Gunakan Ulang Branding yang Dibagi**
+
+Untuk logo, watermark, atau grafik dekoratif yang berulang, gunakan satu sumber daya gambar dan gunakan kembali. Jika grafik tersebut merupakan bagian dari desain presentasi bukan konten slide, letakkan pada master atau tata letak sehingga diwariskan ke slide yang tepat.
+
+### **Jaga Sumber Daya SVG Portabel**
+
+SVG yang mandiri lebih mudah dipindahkan dan dirender secara konsisten dibandingkan SVG yang bergantung pada berkas atau sumber daya jaringan eksternal. Bila memungkinkan, sematkan sumber daya yang dibutuhkan sebelum mengimpor SVG. Konversi SVG menjadi bentuk hanya ketika elemen vektor individu perlu diedit.
+
+### **Gunakan API Gambar Aspose.Slides**
+
+Untuk alur kerja gambar C++, gunakan API Aspose.Slides [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) dan [Images](https://reference.aspose.com/slides/id/cpp/aspose.slides/images/) ketika Anda membutuhkan objek gambar, dan gunakan [IImageCollection::AddImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/addimage/) ketika Anda perlu mendaftarkan data gambar sebagai sumber daya presentasi. Overload koleksi juga mendukung array byte dan aliran, yang berguna ketika data gambar berasal dari file, klien jaringan, basis data, atau perpustakaan lain.
+
+Menghasilkan konten EMF dari spreadsheet atau produk lain adalah alur kerja integrasi terpisah dan berada di luar cakupan artikel ini. Jika file WMF atau EMF yang ada hanya perlu disisipkan ke dalam presentasi, oper data tersebut ke overload [IImageCollection::AddImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/addimage/) yang sesuai tanpa menambahkan ketergantungan produk kedua ke alur kerja manajemen gambar.
 
 ## **FAQ**
 
-**Apakah resolusi asli gambar tetap utuh setelah disisipkan?**
+**Apa perbedaan antara koleksi gambar dan bingkai gambar?**
 
-Ya. Piksel sumber dipertahankan, tetapi tampilan akhir tergantung pada bagaimana [picture](/slides/id/cpp/picture-frame/) diskalakan pada slide dan kompresi apa pun yang diterapkan saat menyimpan.
+Koleksi gambar menyimpan sumber daya gambar yang dapat digunakan kembali. Bingkai gambar adalah bentuk slide yang menampilkan salah satu sumber daya tersebut dan menyediakan pemformatan khusus gambar seperti pemotongan dan efek.
 
-**Apa cara terbaik untuk mengganti logo yang sama di puluhan slide sekaligus?**
+**Cara terbaik mengganti logo yang sama di seluruh slide apa?**
 
-Tempatkan logo pada slide master atau layout dan ganti di koleksi gambar presentasi—perubahan akan diterapkan ke semua elemen yang menggunakan sumber daya tersebut.
+Jika logo sudah dibagikan sebagai satu sumber daya gambar, ganti sumber daya tersebut dengan [IPPImage::ReplaceImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/replaceimage/). Untuk branding seluruh presentasi, menempatkan logo pada master atau tata letak juga dapat mengurangi duplikasi konten slide.
 
-**Apakah SVG yang disisipkan dapat dikonversi menjadi bentuk yang dapat diedit?**
+**Mengapa gambar tertaut menghilang di komputer lain?**
 
-Ya. Anda dapat mengonversi SVG menjadi grup bentuk, setelah itu bagian individual menjadi dapat diedit dengan properti bentuk standar.
+Gambar tertaut bergantung pada berkas atau URL eksternal. Jika sumber daya tersebut tidak dapat dijangkau dari komputer lain, gambar tertaut tidak tersedia. Sematkan gambar ketika presentasi harus mandiri.
 
-**Bagaimana saya dapat mengatur gambar sebagai latar belakang untuk beberapa slide sekaligus?**
+**Apakah SVG yang disisipkan dapat diedit sebagai bentuk PowerPoint?**
 
-[Tetapkan gambar sebagai latar belakang](/slides/id/cpp/presentation-background/) pada slide master atau layout yang relevan—semua slide yang menggunakan master/layout tersebut akan mewarisi latar belakang.
+Ya. Konversi SVG dengan [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addgroupshape/); grup yang dihasilkan berisi bentuk slide yang dapat diedit, bukan satu gambar SVG.
 
-**Bagaimana cara mencegah presentasi menjadi sangat besar karena banyak gambar?**
+**Bagaimana cara menjaga presentasi dengan banyak gambar tetap kecil?**
 
-Gunakan kembali satu sumber gambar alih-alih duplikat, pilih resolusi yang wajar, terapkan kompresi saat menyimpan, dan letakkan grafik berulang pada master bila perlu.
+Gunakan kembali sumber daya gambar bersama, hindari sumber raster yang terlalu besar, kompres gambar raster yang cocok bila diperlukan, letakkan branding berulang pada master atau tata letak, dan gunakan gambar tertaut hanya ketika ketergantungan eksternal dapat diterima.

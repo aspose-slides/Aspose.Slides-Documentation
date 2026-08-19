@@ -7,335 +7,335 @@ url: /ar/php-java/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة صورة نقطية
 - استبدال صورة
-- استبدال صورة
-- من الويب
+- مجموعة الصور
+- إطار صورة
+- صورة مرتبطة
 - خلفية
 - إضافة PNG
 - إضافة JPG
 - إضافة SVG
-- إضافة EMF
-- إضافة WMF
-- إضافة TIFF
+- SVG إلى أشكال
+- موارد SVG الخارجية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "تبسيط إدارة الصور في PowerPoint و OpenDocument باستخدام Aspose.Slides للـ PHP عبر Java، وتحسين الأداء وأتمتة سير العمل."
+description: "تعلم كيفية إضافة الصور وإعادة استخدامها وربطها واستبدالها وإدارة الصور النقطية وSVG في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java."
 ---
+## **المقدمة**
 
-## **الصور في شرائح العروض التقديمية**
+Aspose.Slides for PHP via Java يوفر عدة طرق للعمل مع الصور، وكل طريقة تخدم غرضًا مختلفًا. يمكنك تخزين صورة في العرض التقديمي، عرضها في إطار صورة، استخدامها كخلفية شريحة، ربطها بصورة خارجية، استبدال مورد صورة مشترك، أو تحويل محتوى SVG إلى أشكال قابلة للتحرير.
 
-تجعل الصور العروض أكثر جاذبية وإثارة. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مواقع أخرى على الشرائح. وبالمثل، يسمح لك Aspose.Slides بإضافة صور إلى الشرائح في عروضك من خلال إجراءات مختلفة. 
+تركز هذه المقالة على موارد الصورة وكيفية استخدامها عبر العرض التقديمي. للتقصير، الشفافية، التأثيرات، التمدد، وتنسيقات أخرى تُطبق على إطار صورة فردي، راجع [Picture Frame](/slides/ar/php-java/picture-frame/).
 
-{{% alert  title="نصيحة" color="primary" %}} 
+## **فهم نموذج الصورة**
 
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تتيح للناس إنشاء عروض تقديمية بسرعة من الصور. 
+المفاهيم التالية في API مرتبطة ارتباطًا وثيقًا لكنها ليست قابلة للاستبدال:
 
-{{% /alert %}} 
+- الـ[presentation image collection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/imagecollection/) يخزن موارد الصور المستخدمة في العرض التقديمي. استخدم [ImageCollection::addImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/imagecollection/) لإضافة بيانات الصورة والحصول على مورد [PPImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/).
+- الـ[picture frame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/pictureframe/) هو شكل يعرض صورة على شريحة أو تخطيط أو ماستر. استخدم [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addpictureframe/) لوضع مورد صورة على شريحة.
+- خلفية الشريحة تستخدم الصورة كجزء من تعبئة الشريحة بدلاً من شكل. لذلك لا تتصرف كإطار صورة.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/) يستبدل مورد صورة. إذا استخدمت عدة عناصر في العرض التقديمي ذلك المورد، فإن جميعها ستستخدم الاستبدال.
+- تحويل SVG إلى أشكال ينشئ أشكال شريحة قابلة للتحرير. بعد التحويل، لا يُدار المحتوى كموارد صورة واحدة.
 
-{{% alert title="معلومات" color="info" %}}
+وبالتالي فإن سير العمل النموذجي هو: إضافة بيانات الصورة إلى مجموعة الصور، الحصول على [PPImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/)، ثم استخدام ذلك المورد في إطار صورة واحد أو أكثر أو في تعبئات.
 
-إذا كنت ترغب في إضافة صورة ككائن إطار—خاصةً إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها، وإضافة تأثيرات، وما إلى ذلك—اطلع على [إطار الصورة](/slides/ar/php-java/picture-frame/).
+## **إضافة صورة مدمجة**
 
-{{% /alert %}} 
+لإدراج صورة محلية، حمّل الملف، أضفه إلى مجموعة الصور، وأنشئ إطار صورة يستخدم `PPImage` المرجع.
 
-{{% alert title="ملاحظة" color="warning" %}}
-
-يمكنك معالجة عمليات الإدخال/الإخراج التي تتضمن الصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/php-java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/php-java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/php-java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/php-java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/php-java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-يدعم Aspose.Slides عمليات التعامل مع الصور بالتنسيقات الشائعة: JPEG، PNG، GIF، وغيرها. 
-
-## **إضافة صور مخزنة محليًا إلى الشرائح**
-
-يمكنك إضافة صورة أو عدة صور من جهاز الكمبيوتر إلى شريحة في عرض تقديمي. يوضح لك هذا النموذج البرمجي كيفية إضافة صورة إلى شريحة:
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+الصورة التي تُضاف بهذه الطريقة مدمجة في العرض التقديمي، لذا فإن الملف الناتج لا يعتمد على بقاء ملف الصورة الأصلي متاحًا.
 
-## **إضافة صور من الويب إلى الشرائح**
+### **إضافة صورة من الويب**
 
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرةً من الويب. 
+عند توفر صورة عبر HTTP أو HTTPS، قم بتنزيل بايتاتها، أضفها إلى مجموعة صور العرض التقديمي، واستخدم مورد الصورة المرجع بنفس طريقة الصورة المحلية.
 
-يوضح لك هذا النموذج البرمجي كيفية إضافة صورة من الويب إلى شريحة:
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
+
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
+        }
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-
-## **إضافة صور إلى القوالب الرئيسية للشرائح**
-
-القالب الرئيسي للشرائح هو الشريحة العليا التي تخزن وتتحكم بالمعلومات (السمة، التخطيط، إلخ) المتعلقة بكل الشرائح تحتها. لذلك، عند إضافة صورة إلى القالب الرئيسي، تظهر تلك الصورة على كل شريحة تحت هذا القالب. 
-
-يوضح لك هذا النموذج البرمجي بلغة Java كيفية إضافة صورة إلى القالب الرئيسي للشرائح:
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **إضافة صور كخلفيات للشرائح**
-
-قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على كيفية [تعيين صورة كخلفية للشريحة](/slides/ar/php-java/presentation-background/#set-an-image-as-a-slide-background).
-
-## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) التابعة لفئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/). 
-
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
-
-1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection  
-2. إنشاء كائن PPImage من ISvgImage  
-3. إنشاء كائن PictureFrame باستخدام فئة PPImage  
-
-يوضح لك هذا النموذج البرمجي كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
-```php
-  # إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    $presentation->dispose();
 }
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
 ```
 
+في التطبيقات طويلة العمر، أعد استخدام عميل HTTP أو استراتيجية إدارة اتصالات مناسبة للتطبيق بدلاً من إنشاء بنية شبكة غير ضرورية بشكل متكرر. كما يجب التحقق من صحة عناوين URL البعيدة، أحجام الاستجابة، وأنواع المحتوى عندما يكون المصدر غير موثوق.
 
-## **تحويل SVG إلى مجموعة من الأشكال**
-تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه للوظيفة المتوفرة في PowerPoint للعمل مع صور SVG:
+## **إعادة استخدام الصور عبر الشرائح**
+
+إذا كانت هناك حاجة لاستخدام نفس الصورة أكثر من مرة، أضفها إلى العرض التقديمي مرة واحدة وأعد استخدام [PPImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/) المرجع عند إنشاء أطر صور إضافية. هذا يجنب تحميل بيانات المصدر نفسها مرارًا ويجعل العلاقة بين مورد الصورة المشترك واستخداماته واضحة.
+
+للرسومات التي يجب أن تظهر تلقائيًا على العديد من الشرائح، مثل شعار الشركة، ضع إطار الصورة على [slide master](/slides/ar/php-java/slide-master/) أو التخطيط بدلًا من إضافة شكل مكافئ إلى كل شريحة.
+
+## **استخدام صورة كخلفية شريحة**
+
+تُعيّن صورة الخلفية إلى تعبئة الشريحة؛ لا تُضاف كشكل إطار صورة. هذا مفيد عندما يجب أن تغطي الصورة خلفية الشريحة ويجب ألا تُعامل ككائن شريحة عادي.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+لخيارات خلفية إضافية، بما في ذلك خلفيات الماستر والتخطيط، راجع [Presentation Background](/slides/ar/php-java/presentation-background/).
+
+## **الصور المدمجة والمرتبطة**
+
+لدى الصور المدمجة والمرتبطة مقايضات مختلفة من حيث القابلية للنقل وحجم الملف:
+
+- **Embedded image:** تُخزن بيانات الصورة داخل العرض التقديمي. يكون العرض التقديمي معبأ ذاتيًا، لكن حجم الملف يتضمن بيانات الصورة.
+- **Linked image:** يخزن العرض التقديمي مسارًا أو URL لصورة خارجية. يمكن أن يقلل ذلك من حجم العرض التقديمي، لكن المورد الخارجي يجب أن يظل متاحًا عند فتح أو عرض العرض.
+
+يمكن إنشاء صورة مرتبطة عن طريق تعيين المسار أو URL الخارجي عبر [Picture::setLinkPathLong](https://reference.aspose.com/slides/ar/php-java/aspose.slides/picture/) بدلاً من دمج بيانات الصورة.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+استخدم الصور المرتبطة فقط عندما يكون بيئة النشر قادرة على الوصول إلى المورد الخارجي بثقة. بالنسبة للعرض التقديمي الذي يجب أن يعمل دون اتصال أو يُنقل بين الأنظمة، تكون الصور المدمجة عادةً أكثر أمانًا.
+
+## **العمل مع صور SVG**
+
+SVG هو تنسيق متجه، لذا يمكن أن يكون مفيدًا للرموز والرسومات الأخرى التي يجب أن تتوسع دون فقدان التفاصيل كما يحدث مع الصور النقطية. يدعم Aspose.Slides SVG كموارد صورة وكذلك كمصدر لأشكال شريحة قابلة للتحرير.
+
+### **إضافة SVG كصورة**
+
+أنشئ [SvgImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/svgimage/)، أضفه إلى مجموعة الصور، وضع مورد الصورة الناتج في إطار صورة.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **ملفات SVG مع موارد خارجية**
+
+يمكن لملف SVG الإشارة إلى صور أو أوراق أنماط أو خطوط خارجية. لهذا الغرض، يوفر [SvgImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/svgimage/) مُنشئات تقبل [ExternalResourceResolver](https://reference.aspose.com/slides/ar/php-java/aspose.slides/externalresourceresolver/) وURI أساسي. يمكن للمحلِّل تحويل URI نسبي إلى URI مطلق مسموح وإرجاع تدفق للمورد المطلوب.
+
+يُتيح المحلِّل الموارد الخارجية أثناء معالجة Aspose.Slides لـ SVG، لكنه لا يعيد كتابة SVG إلى مستند مستقل. إذا كان SVG يجب أن يبقى قابلاً للنقل، دمج موارده المطلوبة داخل ملف SVG نفسه، على سبيل المثال باستخدام عناوين `data:` للصور المرتبطة.
+
+عند التعامل مع ملفات SVG من مصادر غير موثوقة، قصر المخططات ومواقع الملفات والمضيفين التي يمكن للمحلِّل الوصول إليها. يجب أن تطبق حلول الشبكة مهلات، حدود حجم الاستجابة، والتحقق من صحة المحتوى.
+
+### **تحويل SVG إلى أشكال قابلة للتحرير**
+
+يمكن لـ Aspose.Slides تحويل SVG إلى مجموعة من أشكال شريحة قابلة للتحرير، مشابهة لأمر PowerPoint المقابل.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-توفر هذه الوظيفة أحد الأعبارات الزائدة لطريقة [addGroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addgroupshape/) في فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) التي تقبل كائن [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/) كوسيطة أولى. 
+استخدم تحميل [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addgroupshape/) الذي يقبل [SvgImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/svgimage/) لإجراء التحويل.
 
-يوضح لك هذا النموذج البرمجي كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
 ```php
-  # إنشاء عرض تقديمي جديد
-  $presentation = new Presentation();
-  try {
-    # قراءة محتوى ملف SVG
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-    # إنشاء كائن SvgImage
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
-    # الحصول على حجم الشريحة
+
     $slideSize = $presentation->getSlideSize()->getSize();
-    # تحويل صورة SVG إلى مجموعة من الأشكال مع تعديل حجمها لتتناسب مع حجم الشريحة
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # حفظ العرض التقديمي بصيغة PPTX
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+استخدم تحويل SVG إلى أشكال عندما تحتاج عناصر المتجه الفردية إلى تعديل كأشكال PowerPoint. إذا كان الـ SVG يقتصر على العرض فقط، يبقى الاحتفاظ به كصورة أبسط ويجنب إنشاء عدد كبير من الأشكال المنفصلة.
 
-## **إضافة صور كـ EMF إلى الشرائح**
-يسمح Aspose.Slides for PHP via Java بإنشاء صور EMF من جداول Excel وإضافة الصور كـ EMF إلى الشرائح باستخدام Aspose.Cells.  
+## **استبدال مورد صورة موجود**
 
-يوضح لك هذا النموذج البرمجي كيفية تنفيذ المهمة الموصوفة:
+استخدم [PPImage::replaceImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/) عندما تريد استبدال مورد صورة موجود. هذا مفيد بشكل خاص للرسومات المشتركة مثل الشعارات.
+
 ```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # احفظ المصنف إلى التدفق
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
-        }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
-    }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-
-## **استبدال الصور في مجموعة الصور**
-
-يتيح لك Aspose.Slides استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما في ذلك تلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة أساليب لتحديث الصور في المجموعة. توفر الـ API طرقًا مباشرةً لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة. 
-
-اتبع الخطوات أدناه:
-
-1. تحميل ملف العرض التقديمي الذي يحتوي على الصور باستخدام فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).  
-2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.  
-3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.  
-4. في النهج الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) واستبدال الصورة المستهدفة بهذا الكائن.  
-5. في النهج الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.  
-6. كتابة العرض التقديمي المعدل كملف PPTX.  
-```php
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
-    // الطريقة الأولى.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+    $imageToReplace = $presentation->getImages()->get_Item(0);
 
-    // الطريقة الثانية.
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // الطريقة الثالثة.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // حفظ العرض التقديمي إلى ملف.
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
+إذا استخدمت أطر صور أو خلفيات أو ماسترات أو تخطيطات متعددة نفس مورد الصورة، فإن استبدال ذلك المورد سيُحدّث جميع الاستخدامات. إذا كان ينبغي تغيير إطار صورة واحد فقط، عيّن صورة مختلفة لذلك الإطار بدلاً من استبدال المورد المشترك.
 
-{{% alert title="معلومات" color="info" %}}
+`PPImage::replaceImage` يوفر أيضًا تحميلات تقبل مصفوفة بايت أو [PPImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/) آخر.
 
-باستخدام أداة Aspose FREE [نص إلى GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص وإنشاء ملفات GIF من النصوص، وغيرها. 
+## **إرشادات عملية لإدارة الصور**
 
-{{% /alert %}}
+### **التحكم في حجم العرض التقديمي**
+
+يمكن للصور النقطية الكبيرة أن تجعل العرض التقديمي كبيرًا بشكل غير ضروري. استخدم صورًا بأبعاد مناسبة لحجم العرض المقصود، وأعد استعمال موارد الصور المشتركة حيثما أمكن، وتجنب دمج نسخ متكررة من نفس الرسمة عالية الدقة.
+
+بالنسبة للصور النقطية التي تم وضعها بالفعل في أطر صورة، يمكن لـ [PictureFillFormat::compressImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/picturefillformat/) تقليل بيانات الصورة وفقًا للدقة المختارة وإعدادات الاقتصاص. هذا يُعد معالجة لإطار الصورة وليس لإدارة مجموعة الصور، لذا راجع [Picture Frame](/slides/ar/php-java/picture-frame/) للعمليات التنسيقية ذات الصلة.
+
+### **اختر بين المحتوى المدمج والمرتبط**
+
+يجعل الدمج العرض التقديمي قابلًا للنقل لأن جميع بيانات الصورة المطلوبة تسافر مع الملف. يمكن للربط أن يقلل من حجم الملف، لكنه يُدخل اعتمادًا خارجيًا. استخدم الروابط فقط عندما يكون هذا الاعتماد مقبولًا وثابتًا.
+
+### **إعادة استخدام العلامة التجارية المشتركة**
+
+للشعارات أو العلامات المائية أو الرسومات الزخرفية المتكررة، استخدم مورد صورة واحد وأعد استعماله. إذا كانت الرسمة تخص تصميم العرض التقديمي بدلاً من محتوى الشرائح، ضعها على ماستر أو تخطيط لتُورث إلى الشرائح المناسبة.
+
+### **الحفاظ على موارد SVG قابلة للنقل**
+
+SVG مستقل سهل نقله وعرضه بشكل متسق مقارنةً بـ SVG يعتمد على ملفات أو موارد شبكة خارجية. عندما يكون ذلك ممكنًا، دمج الموارد المطلوبة قبل استيراد SVG. حوّل SVG إلى أشكال فقط عندما تحتاج العناصر المتجهية الفردية إلى تعديل.
+
+### **استخدام واجهة برمجة تطبيقات الصور الحديثة متعددة المنصات**
+
+للكود الجديد PHP عبر Java، استخدم واجهات Aspose.Slides [IImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/) و[Images](https://reference.aspose.com/slides/ar/php-java/aspose.slides/images/) بدلاً من API العام القديم القائم على `java.awt.image.BufferedImage`. راجع [Modern API](/slides/ar/php-java/modern-api/) للحصول على إرشادات الترحيل.
+
+تتطلب صياغات WMF وEMF اعتبارًا خاصًا. عند تمرير هذه الصيغ عبر [IImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/)، يحول [ImageCollection::addImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/imagecollection/) ملف الميتا إلى تمثيل PNG نقطي قبل الإدراج. إذا كان الحفاظ على بيانات الميتا مهمة، استخدم تحميل [ImageCollection::addImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/imagecollection/) القائم على التدفق بدلاً من ذلك. إنشاء محتوى EMF من جداول البيانات أو منتجات أخرى هو سير عمل تكاملي منفصل وخارج نطاق هذه المقالة.
 
 ## **الأسئلة الشائعة**
 
-**هل يبقى دقة الصورة الأصلية كما هي بعد الإدراج؟**
+**ما الفرق بين مجموعة الصور وإطار الصورة؟**
 
-نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم الـ [picture](/slides/ar/php-java/picture-frame/) على الشريحة وأي ضغط يتم تطبيقه عند الحفظ.
+مجموعة الصور تخزن موارد صور قابلة لإعادة الاستخدام. إطار الصورة هو شكل شريحة يعرض أحد تلك الموارد ويوفر تنسيقات خاصة بالصورة مثل الاقتصاص والتأثيرات.
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر عشرات الشرائح مرة واحدة؟**
+**ما أفضل طريقة لاستبدال الشعار نفسه في كل مكان؟**
 
-ضع الشعار على الشريحة الرئيسية أو على تخطيط، واستبدله في مجموعة صور العرض التقديمي—ستنتشر التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
+إذا كان الشعار مُشارَك كموارد صورة واحدة، استبدل ذلك المورد باستخدام [PPImage::replaceImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/). بالنسبة للعلامة التجارية على مستوى العرض، وضع الشعار على ماستر أو تخطيط يمكن أن يقلل من تكرار محتوى الشرائح.
 
-**هل يمكن تحويل SVG المدخل إلى أشكال قابلة للتحرير؟**
+**لماذا تختفي صورة مرتبطة على جهاز كمبيوتر آخر؟**
 
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
+الصورة المرتبطة تعتمد على ملفها الخارجي أو URL. إذا تعذر الوصول إلى ذلك المورد من الجهاز الآخر، قد تكون الصورة غير متوفرة. دمج الصورة عندما يجب أن يكون العرض التقديمي مستقلًا.
 
-**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
+**هل يمكن تعديل SVG مدخَل كأشكال PowerPoint؟**
 
-[عيّن الصورة كخلفية](/slides/ar/php-java/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—ست inherit جميع الشرائح التي تستخدم ذلك القالب/التخطيط الخلفية.
+نعم. حوّل SVG باستخدام [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addgroupshape/); المجموعة الناتجة تحتوي على أشكال شريحة قابلة للتحرير بدلاً من صورة SVG واحدة.
 
-**كيف أمنع تضخم حجم العرض التقديمي بسبب كثرة الصور؟**
+**كيف يمكن الحفاظ على عروض تقديمية تحتوي على العديد من الصور أصغر حجمًا؟**
 
-أعد استخدام مورد صورة واحد بدلاً من تكرارها، اختر دقة معقولة، طبق الضغط عند الحفظ، واحتفظ بالرسومات المتكررة على القالب الرئيسي حيثما كان ذلك مناسبًا.
+أعد استعمال موارد الصور المشتركة، تجنّب مصادر نقطية كبيرة الحجم غير ضرورية، ضغط الصور النقطية المناسبة عند الحاجة، وضع العلامات التجارية المتكررة على ماسترات أو تخطيطات، واستخدم الصور المرتبطة فقط عندما تكون الاعتمادية الخارجية مقبولة.

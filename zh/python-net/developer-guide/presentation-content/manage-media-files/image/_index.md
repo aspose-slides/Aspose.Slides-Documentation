@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 优化 PowerPoint 中的图像管理
+title: 使用 Python 优化演示文稿中的图像管理
 linktitle: 管理图像
 type: docs
 weight: 10
@@ -7,248 +7,250 @@ url: /zh/python-net/image/
 keywords:
 - 添加图像
 - 添加图片
-- 添加位图
 - 替换图像
-- 替换图片
-- 来自网络
+- 图像集合
+- 图片框
+- 链接图像
 - 背景
 - 添加 PNG
 - 添加 JPG
 - 添加 SVG
-- 添加 EMF
-- 添加 WMF
-- 添加 TIFF
+- SVG 转形状
+- 外部 SVG 资源
 - PowerPoint
+- OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "通过 Aspose.Slides for Python（基于 .NET），简化 PowerPoint 和 OpenDocument 中的图像管理，优化性能并自动化工作流。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中添加、复用、链接、替换和管理光栅图像及 SVG 图像。"
 ---
+## **介绍**
 
-## **概述**
+Aspose.Slides for Python via .NET 提供多种处理图像的方式，每种方式都有不同的用途。您可以将图像存储在演示文稿中，在图片框中显示，将其用作幻灯片背景，链接到外部图像，替换共享图像资源，或将 SVG 内容转换为可编辑形状。
 
-图像使演示文稿更具吸引力和趣味性。在 Microsoft PowerPoint 中，您可以从文件、互联网或其他来源向幻灯片插入图片。同样，Aspose.Slides 也允许您以多种方式向幻灯片添加图像。
+本文重点介绍图像资源及其在演示文稿中的使用方式。有关对单个图片框进行裁剪、透明度、效果、拉伸等格式设置，请参阅[Picture Frame](/slides/zh/python-net/picture-frame/)。
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose 提供免费的转换器——[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) 和 [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)——让您能够快速使用图像创建演示文稿。
-{{% /alert %}}
+## **了解图像模型**
 
-{{% alert title="Info" color="info" %}}
-如果您想将图像作为框架对象添加——尤其是计划使用诸如调整大小或应用效果等标准格式选项——请参阅 [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/python-net/picture-frame/)。
-{{% /alert %}}
+以下 API 概念密切相关但不可互换：
 
-{{% alert title="Note" color="warning" %}}
-您可以使用图像和演示文稿的 I/O 操作在不同格式之间转换图像。请参阅以下页面：将 [image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/) 转换；将 [JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/) 转换；将 [JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/) 转换；将 [PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/) 转换；将 [PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/) 转换；以及将 [SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/) 转换。
-{{% /alert %}}
+- [presentation image collection](https://reference.aspose.com/slides/zh/python-net/aspose.slides/imagecollection/) 存储演示文稿使用的图像资源。使用[ImageCollection.add_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/imagecollection/add_image/)添加图像数据并获取[IPPImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ippimage/)资源。
+- [picture frame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipictureframe/) 是在幻灯片、布局或母版上显示图像的形状。使用[ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_picture_frame/)将图像资源放置在幻灯片上。
+- 幻灯片背景使用图像作为幻灯片填充的一部分，而不是作为形状，因此其行为不同于图片框。
+- [IPPImage.replace_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ippimage/replace_image/) 替换图像资源。如果多个演示文稿元素使用该资源，它们都会使用替换后的图像。
+- 将 SVG 转换为形状会创建可编辑的幻灯片形状。转换后，内容不再作为单个图片资源进行管理。
 
-Aspose.Slides 支持使用 JPEG、PNG、BMP、GIF 等流行格式的图像。
+典型的工作流程是：将图像数据添加到图像集合，获取[IPPImage]，然后在一个或多个图片框或填充中使用该资源。
 
-## **向幻灯片添加本地存储的图像**
+## **添加嵌入图像**
 
-您可以从计算机向演示文稿中的幻灯片添加一个或多个图像。以下 Python 示例展示了如何向幻灯片添加图像：
-```py
+要插入本地图像，读取文件，将其数据添加到图像集合，并创建使用返回的`IPPImage`的图片框。
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **从网络向幻灯片添加图像**
-
-如果您要添加到幻灯片的图像在电脑上不可用，可以直接从网络插入。
-
-以下 Python 示例展示了如何从 URL 向幻灯片添加图像：
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+这种方式添加的图像会嵌入到演示文稿中，生成的文件无需原始图像文件仍然可用。
 
-## **向幻灯片母版添加图像**
+### **添加网络图片**
 
-幻灯片母版是最高层的幻灯片，存储并控制主题、布局等信息，供其下所有幻灯片使用。当您向母版添加图像时，该图像会出现在使用该母版的每一张幻灯片上。
+当图像通过 HTTP 或 HTTPS 可用时，下载其字节，将其添加到演示文稿图像集合，并以与本地图像相同的方式使用返回的图像资源。
 
-以下 Python 示例展示了如何向幻灯片母版添加图像：
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+在长时间运行的应用程序中，适当时复用 HTTP 客户端或连接池，而不是为每个请求创建新连接。同时在来源不可信时验证远程 URL、响应大小和内容类型。
+
+## **跨幻灯片复用图像**
+
+如果同一图像需要多次使用，只需在演示文稿中添加一次，并在创建其他图片框时复用返回的[IPPImage]。这样可避免重复加载相同的源数据，并明确共享图像资源与其使用之间的关系。
+
+对于应自动出现在多张幻灯片上的图形（如公司徽标），建议将图片框放置在[slide master](/slides/zh/python-net/slide-master/)或布局上，而不是在每张幻灯片中添加等效形状。
+
+## **将图像用作幻灯片背景**
+
+背景图像被分配给幻灯片填充，而不是作为图片框形状添加。当图片需要覆盖整个幻灯片背景且不应像普通幻灯片对象那样被操作时，这种方式很有用。
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+有关更多背景选项（包括母版和布局背景），请参阅[Presentation Background](/slides/zh/python-net/presentation-background/)。
+
+## **嵌入图像和链接图像**
+
+嵌入图像和链接图像在可移植性和文件大小方面各有利弊：
+
+- **嵌入图像**：图像数据存储在演示文稿内部。演示文稿是自包含的，但文件大小会包括图像数据。
+- **链接图像**：演示文稿存储外部图像的路径或 URL。可以减小演示文稿大小，但在打开或渲染时必须能够访问外部资源。
+
+可以通过为[ISlidesPicture.link_path_long](https://reference.aspose.com/slides/zh/python-net/aspose.slides/islidespicture/link_path_long/)分配外部路径或 URL 来创建链接图片，而不是嵌入图像数据。
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+仅在部署环境能够可靠访问外部资源时使用链接图像。对于必须离线使用或在系统之间移动的演示文稿，嵌入图像通常更安全。
 
-## **将图像设为幻灯片背景**
+## **使用 SVG 图像**
 
-您可能希望将图像用作特定幻灯片或多个幻灯片的背景。详情请参阅 [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/python-net/presentation-background/#set-image-as-background-for-slide)。
+SVG 是矢量格式，适合用于图标、图表和其他应在放大时保持细节的图形。Aspose.Slides 同时支持将 SVG 作为图像资源以及作为可编辑幻灯片形状的来源。
 
-## **向演示文稿添加 SVG**
+### **将 SVG 添加为图像**
 
-您可以使用 [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) 类的 [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) 方法将任意图像插入演示文稿。
+创建[SvgImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/svgimage/)，将其添加到图像集合，并在图片框中放置得到的图像资源。
 
-要从 SVG 创建图像对象，请按以下步骤操作：
-
-1. 创建一个 [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) 并将其添加到演示文稿的图像集合中。  
-2. 从 [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) 创建 [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) 对象。  
-3. 使用 [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) 创建 [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) 对象。
-
-以下 Python 示例展示了如何使用这些步骤向演示文稿添加 SVG 图像：
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # 读取 SVG 文件的内容。
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # 创建 SvgImage 对象。
-        svg_image = slides.SvgImage(svg_content)
-
-        # 创建 PPImage 对象。
-        pp_image = presentation.images.add_image(svg_image)
-
-        # 创建新的 PictureFrame。
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # 以 PPTX 格式保存演示文稿。
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **将 SVG 转换为可编辑形状**
 
-## **将 SVG 转换为形状集合**
+Aspose.Slides 可以将 SVG 转换为一组可编辑的幻灯片形状，类似于 PowerPoint 对应的命令。
 
-Aspose.Slides 将 SVG 转换为一组形状，方式类似于 PowerPoint 对 SVG 的处理。
+![PowerPoint Popup Menu](img_01_01.png)
 
-![PowerPoint 弹出菜单](img_01_01.png)
+使用接受[ISvgImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/isvgimage/)的[ShapeCollection.add_group_shape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_group_shape/)重载来执行转换。
 
-此功能由 [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) 类中重载的 [add_group_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_group_shape/) 方法提供，该方法的第一个参数接受 [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/)。
-
-下面的示例代码展示了如何将 SVG 文件转换为形状集合。
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # 读取 SVG 文件内容。
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # 创建 SvgImage 对象。
-        svg_image = slides.SvgImage(svg_content)
-
-        # 获取幻灯片尺寸。
-        slide_size = presentation.slide_size.size
-
-        # 将 SVG 图像转换为形状组并按幻灯片尺寸缩放。
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # 以 PPTX 格式保存演示文稿。
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **在幻灯片中以 EMF 形式添加图像**
-
-Aspose.Slides for Python 让您能够在演示文稿中插入增强型图元文件（EMF）图像。
-
-以下 Python 示例演示了此操作：
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+当需要对单个矢量元素进行编辑时使用 SVG 到形状的转换。如果仅需显示 SVG，保留为图像更简单，并可避免创建大量独立形状。
 
-## **替换图像集合中的图像**
+## **替换现有图像资源**
 
-Aspose.Slides 允许您替换存储在演示文稿图像集合中的图像，包括幻灯片形状使用的图像。本文档概述了多种更新集合中图像的方法。API 提供了直接使用原始字节数据、[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) 实例或集合中已有的其他图像来替换图像的简便方法。
+当需要替换已有图像资源时使用[IPPImage.replace_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ippimage/replace_image/)。这在共享图形（例如徽标）特别有用。
 
-请按以下步骤操作：
+```python
+import aspose.slides as slides
 
-1. 使用 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类加载包含图像的演示文稿。  
-2. 从文件加载新图像到字节数组中。  
-3. 使用字节数组将目标图像替换为新图像。  
-4. 或者，将图像加载到 [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) 对象中，并使用该对象替换目标图像。  
-5. 或者，用演示文稿图像集合中已存在的图像替换目标图像。  
-6. 将修改后的演示文稿保存为 PPTX 文件。
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-
-# 实例化表示演示文稿文件的 Presentation 类。
-with slides.Presentation("sample.pptx") as presentation:
-
-    # 第一种方法。
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # 第二种方法。
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # 第三种方法。
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # 将演示文稿保存到文件。
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+如果多个图片框、背景、母版或布局使用相同的图像资源，替换该资源会更新所有这些使用。如果仅需更改一个图片框，请为该框分配不同的图像，而不是替换共享资源。
 
-{{% alert title="Info" color="info" %}}
-使用 Aspose 免费的 [Text to GIF](https://products.aspose.app/slides/text-to-gif) 转换器，您可以轻松为文字添加动画并生成 GIF。
-{{% /alert %}}
+`replace_image` 还提供接受[IImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/)或其他[IPPImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ippimage/)的重载。
+
+## **实际图像管理指南**
+
+### **控制演示文稿大小**
+
+大型光栅图像会导致演示文稿体积过大。使用适合目标显示尺寸的源图像，尽可能复用共享图像资源，避免嵌入相同全分辨率图形的多个副本。
+
+对于已经放置在图片框中的光栅图片，可使用[PictureFillFormat.compress_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/picturefillformat/compress_image/)根据所选分辨率和裁剪设置压缩图像数据。这属于图片框处理而非图像集合管理，请参阅[Picture Frame](/slides/zh/python-net/picture-frame/)了解相关格式操作。
+
+### **在嵌入和链接内容之间做选择**
+
+嵌入使演示文稿便携，因为所有必要的图像数据随文件一起移动。链接可以减小文件大小，但会引入外部依赖。仅在该依赖可接受且可靠时使用链接。
+
+### **重用共享品牌标识**
+
+对于重复出现的徽标、水印或装饰性图形，使用单一图像资源并复用它。如果图形属于演示文稿设计而非幻灯片内容，请将其放在母版或布局上，以便相应幻灯片继承。
+
+### **保持 SVG 资源可移植性**
+
+自包含的 SVG 更易于移动和一致渲染，胜于依赖外部文件或网络资源的 SVG。尽可能在导入 SVG 前嵌入所需资源。仅在需要编辑单个矢量元素时才将 SVG 转换为形状。
+
+### **使用现代跨平台图像 API**
+
+对于新的 Python via .NET 代码，请使用 Aspose.Slides 的[IImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/)和[Images](https://reference.aspose.com/slides/zh/python-net/aspose.slides/images/) API，代替已弃用的`aspose.pydrawing.Image`或`aspose.pydrawing.Bitmap`图像 API。迁移指南请参阅[Modern API](/slides/zh/python-net/modern-api/)。
+
+WMF 和 EMF 需要特殊处理。当这些格式通过[IImage](https://reference.aspose.com/slides/zh/python-net/aspose.slides/iimage/)传递时，[ImageCollection.add_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/imagecollection/add_image/) 会先将元文件转换为光栅 PNG 再插入。如果需要保留元文件数据，请改用基于流的[ImageCollection.add_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/imagecollection/add_image/) 重载。通过电子表格或其他产品生成 EMF 内容属于独立的集成工作流，超出本文范围。
 
 ## **常见问题**
 
-**插入后原始图像分辨率是否保持完整？**
+**图像集合和图片框有什么区别？**
 
-是的。源像素会被保留，但最终外观取决于 [picture](/slides/zh/python-net/picture-frame/) 在幻灯片上的缩放方式以及保存时是否应用了压缩。
+图像集合存储可重用的图像资源。图片框是显示这些资源的幻灯片形状，并提供裁剪、效果等图片特定的格式设置。
 
-**一次性替换数十张幻灯片上的相同徽标的最佳方法是什么？**
+**如何在所有位置统一替换同一个徽标？**
 
-将徽标放在母版幻灯片或布局上，并在演示文稿的图像集合中替换它——所有使用该资源的元素都会自动更新。
+如果徽标已经作为单一图像资源共享，使用[IPPImage.replace_image](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ippimage/replace_image/) 替换该资源。要在演示文稿范围内统一品牌标识，也可以将徽标放在母版或布局上，从而减少重复的幻灯片内容。
 
-**插入的 SVG 能否转换为可编辑的形状？**
+**为什么链接图像在另一台电脑上消失？**
 
-可以。您可以将 SVG 转换为一组形状，之后各个部件即可通过标准形状属性编辑。
+链接图片依赖外部文件或 URL。如果在另一台电脑上无法访问该资源，链接图像将不可用。需要自包含演示文稿时请嵌入图像。
 
-**如何一次性为多张幻灯片设置图片背景？**
+**插入的 SVG 能否编辑为 PowerPoint 形状？**
 
-在母版幻灯片或相关布局上[将图像设为背景](/slides/zh/python-net/presentation-background/)，使用该母版/布局的所有幻灯片都会继承该背景。
+可以。使用[ShapeCollection.add_group_shape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_group_shape/) 将 SVG 转换；生成的组包含可编辑的幻灯片形状，而不是单一的 SVG 图片。
 
-**如何防止因大量图片导致演示文稿体积“膨胀”？**
+**如何在大量图像的演示文稿中保持体积较小？**
 
-重复使用同一图像资源而不是创建副本，选择合理的分辨率，保存时进行压缩，并在适当情况下将重复图形放在母版上。
+复用共享图像资源，避免使用不必要的大尺寸光栅源，适时压缩合适的光栅图片，将重复的品牌标识放在母版或布局上，仅在外部依赖可接受时使用链接图像。

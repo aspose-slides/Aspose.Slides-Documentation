@@ -6,312 +6,316 @@ weight: 10
 url: /pl/java/image/
 keywords:
 - dodaj obraz
-- dodaj zdjęcie
-- dodaj bitmapę
-- zamień obraz
-- zamień zdjęcie
-- z sieci
+- dodaj obraz
+- zastąp obraz
+- kolekcja obrazów
+- ramka obrazu
+- obraz linkowany
 - tło
 - dodaj PNG
 - dodaj JPG
 - dodaj SVG
-- dodaj EMF
-- dodaj WMF
-- dodaj TIFF
+- SVG na kształty
+- zewnętrzne zasoby SVG
 - PowerPoint
 - OpenDocument
 - prezentacja
-- EMF
-- SVG
 - Java
 - Aspose.Slides
-description: "Usprawnij zarządzanie obrazami w PowerPoint i OpenDocument za pomocą Aspose.Slides dla Javy, optymalizując wydajność i automatyzując przepływ pracy."
+description: "Dowiedz się, jak dodawać, ponownie wykorzystywać, linkować, zastępować i zarządzać obrazami rastrowymi oraz SVG w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Javy."
 ---
 ## **Wprowadzenie**
 
-Obrazy sprawiają, że prezentacje są bardziej angażujące i interesujące. W programie Microsoft PowerPoint możesz wstawiać obrazy z pliku, internetu lub innych miejsc na slajdy. Podobnie Aspose.Slides umożliwia dodawanie obrazów do slajdów w Twoich prezentacjach za pomocą różnych metod. 
+Aspose.Slides for Java oferuje kilka sposobów pracy z obrazami, a każdy z nich służy innemu celowi. Możesz przechowywać obraz w prezentacji, wyświetlać go w ramce obrazu, używać jako tło slajdu, linkować do zewnętrznego obrazu, zastąpić współdzielony zasób obrazu lub konwertować zawartość SVG na edytowalne kształty.
 
-{{% alert  title="Wskazówka" color="primary" %}} 
+Ten artykuł koncentruje się na zasobach obrazów i ich użyciu w całej prezentacji. Informacje o przycinaniu, przezroczystości, efektach, rozciąganiu i innych formatach stosowanych do pojedynczej ramki obrazu znajdziesz w [Picture Frame](/slides/pl/java/picture-frame/).
 
-Aspose udostępnia bezpłatne konwertery—[JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt)—które umożliwiają szybkie tworzenie prezentacji z obrazów. 
+## **Zrozum model obrazu**
 
-{{% /alert %}} 
+Poniższe pojęcia API są ze sobą ściśle powiązane, ale nie są wymienne:
 
-{{% alert title="Info" color="info" %}}
+- [kolekcja obrazów prezentacji](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimagecollection/) przechowuje zasoby obrazów używane w prezentacji. Użyj [ImageCollection.addImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imagecollection/), aby dodać dane obrazu i uzyskać zasób [IPPImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/).
+- [ramka obrazu](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipictureframe/) to kształt wyświetlający obraz na slajdzie, układzie lub masterze. Użyj [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/), aby umieścić zasób obrazu na slajdzie.
+- Tło slajdu używa obrazu jako części wypełnienia slajdu, a nie jako kształtu. Dlatego nie zachowuje się tak jak ramka obrazu.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/) zastępuje zasób obrazu. Jeśli kilka elementów prezentacji używa tego zasobu, wszystkie korzystają z zamiany.
+- Konwersja SVG do kształtów tworzy edytowalne kształty slajdów. Po konwersji zawartość nie jest już zarządzana jako pojedynczy zasób obrazu.
 
-Jeśli chcesz dodać obraz jako obiekt ramki — szczególnie jeśli zamierzasz używać standardowych opcji formatowania, aby zmienić jego rozmiar, dodać efekty itp. — zobacz [Ramka obrazu](https://docs.aspose.com/slides/pl/java/picture-frame/). 
+Typowy przepływ pracy wygląda więc następująco: dodaj dane obrazu do kolekcji obrazów, otrzymaj [IPPImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/), a następnie użyj tego zasobu w jednej lub wielu ramach obrazu lub wypełnieniach.
 
-{{% /alert %}} 
+## **Dodaj osadzony obraz**
 
-{{% alert title="Uwaga" color="warning" %}}
-
-Możesz manipulować operacjami wejścia/wyjścia dotyczącymi obrazów i prezentacji PowerPoint, aby konwertować obraz z jednego formatu na inny. Zobacz te strony: konwertuj [obraz do JPG](https://products.aspose.com/slides/pl/java/conversion/image-to-jpg/); konwertuj [JPG do obrazu](https://products.aspose.com/slides/pl/java/conversion/jpg-to-image/); konwertuj [JPG do PNG](https://products.aspose.com/slides/pl/java/conversion/jpg-to-png/), konwertuj [PNG do JPG](https://products.aspose.com/slides/pl/java/conversion/png-to-jpg/); konwertuj [PNG do SVG](https://products.aspose.com/slides/pl/java/conversion/png-to-svg/), konwertuj [SVG do PNG](https://products.aspose.com/slides/pl/java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides obsługuje operacje na obrazach w następujących popularnych formatach: JPEG, PNG, GIF i inne. 
-
-## **Dodaj obrazy przechowywane lokalnie do slajdów**
-
-Możesz dodać jeden lub kilka obrazów z komputera na slajd w prezentacji. Ten przykładowy kod w języku Java pokazuje, jak dodać obraz do slajdu:
+Aby wstawić lokalny obraz, wczytaj plik, dodaj go do kolekcji obrazów i utwórz ramkę obrazu wykorzystującą zwrócony `IPPImage`.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Dodaj obrazy z sieci do slajdów**
-
-Jeśli obraz, który chcesz dodać do slajdu, nie jest dostępny na Twoim komputerze, możesz dodać go bezpośrednio z sieci. 
-
-Ten przykładowy kod pokazuje, jak dodać obraz z sieci do slajdu w języku Java:
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	URL imageUrl = new URL("[REPLACE WITH URL]");
-	URLConnection connection = imageUrl.openConnection();
-	InputStream inputStream = connection.getInputStream();
-
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	try {
-		byte[] buffer = new byte[1024];
-		int read;
-
-		while ((read = inputStream.read(buffer, 0, buffer.length)) != -1)
-			outputStream.write(buffer, 0, read);
-
-		outputStream.flush();
-
-		IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-	} finally {
-		if (inputStream != null) inputStream.close();
-		outputStream.close();
-	}
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **Dodaj obrazy do mistrza slajdów**
-
-Mistrz slajdów to główny slajd, który przechowuje i kontroluje informacje (motyw, układ itp.) o wszystkich slajdach pod nim. Dlatego po dodaniu obrazu do mistrza slajdów, obraz ten pojawia się na każdym slajdzie pod tym mistrzem. 
-
-Ten przykładowy kod w języku Java pokazuje, jak dodać obraz do mistrza slajdów:
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
-	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
-	pres.save("pres.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Dodaj obrazy jako tła slajdów**
+Obraz dodany w ten sposób jest osadzony w prezentacji, więc wynikowy plik nie zależy od dostępności oryginalnego pliku obrazu.
 
-Możesz zdecydować się na użycie obrazu jako tła dla konkretnego slajdu lub kilku slajdów. W takim przypadku należy zobaczyć *[Ustawianie obrazów jako tła slajdów](https://docs.aspose.com/slides/pl/java/presentation-background/#setting-images-as-background-for-slides)*.
+### **Dodaj obraz z sieci**
 
-## **Dodaj SVG do prezentacji**
-Możesz dodać lub wstawić dowolny obraz do prezentacji, używając metody [addPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) należącej do interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeCollection).
+Gdy obraz jest dostępny przez HTTP lub HTTPS, pobierz jego bajty, dodaj je do kolekcji obrazów prezentacji i użyj zwróconego zasobu obrazu w taki sam sposób jak lokalny obraz.
 
-Aby utworzyć obiekt obrazu na podstawie SVG, możesz zrobić to w następujący sposób:
-
-1. Utwórz obiekt SvgImage, aby wstawić go do ImageShapeCollection
-2. Utwórz obiekt PPImage z ISvgImage
-3. Utwórz obiekt PictureFrame przy użyciu interfejsu IPPImage
-
-Ten przykładowy kod pokazuje, jak zaimplementować powyższe kroki, aby dodać obraz SVG do prezentacji:
 ```java
-// Utwórz instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
 try {
-    String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
+
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
+
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Konwertuj SVG na zestaw kształtów**
-Konwersja SVG na zestaw kształtów w Aspose.Slides jest podobna do funkcjonalności PowerPoint używanej do pracy z obrazami SVG:
+W aplikacjach działających długo, używaj ponownie klienta HTTP lub strategii zarządzania połączeniami odpowiedniej dla aplikacji, zamiast wielokrotnie tworzyć niepotrzebną infrastrukturę sieciową. Również weryfikuj zdalne adresy URL, rozmiary odpowiedzi i typy treści, gdy źródło nie jest zaufane.
+
+## **Ponowne użycie obrazów na wielu slajdach**
+
+Jeśli ten sam obraz jest potrzebny więcej niż raz, dodaj go do prezentacji raz i ponownie użyj zwróconego [IPPImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/), co unika wielokrotnego ładowania tych samych danych źródłowych i jasno określa zależność między współdzielonym zasobem obrazu a jego użyciem.
+
+Jeśli grafika ma automatycznie pojawiać się na wielu slajdach, np. logo firmy, rozważ umieszczenie ramki obrazu na [slide master](/slides/pl/java/slide-master/) lub układzie zamiast dodawania równoważnego kształtu do każdego slajdu.
+
+## **Użyj obrazu jako tło slajdu**
+
+Obraz tła jest przypisany do wypełnienia slajdu; nie jest dodawany jako kształt ramki obrazu. Jest to przydatne, gdy obraz ma pokrywać tło slajdu i nie powinien być manipulowany jak normalny obiekt slajdu.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dla dodatkowych opcji tła, w tym tła mistrza i układu, zobacz [Presentation Background](/slides/pl/java/presentation-background/).
+
+## **Obrazy osadzone i linkowane**
+
+Obrazy osadzone i linkowane mają różne kompromisy dotyczące przenośności i rozmiaru pliku:
+
+- **Obraz osadzony:** dane obrazu są przechowywane wewnątrz prezentacji. Prezentacja jest samodzielna, ale rozmiar pliku zawiera dane obrazu.
+- **Obraz linkowany:** prezentacja przechowuje ścieżkę lub adres URL do zewnętrznego obrazu. To może zmniejszyć rozmiar prezentacji, ale zasób zewnętrzny musi pozostać dostępny podczas otwierania lub renderowania prezentacji.
+
+Obraz linkowany można utworzyć, przypisując zewnętrzną ścieżkę lub URL za pomocą [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidespicture/) zamiast osadzania danych obrazu.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Używaj obrazów linkowanych tylko wtedy, gdy środowisko wdrożeniowe może wiarygodnie uzyskać dostęp do zasobu zewnętrznego. Dla prezentacji, które muszą działać offline lub być przenoszone między systemami, obrazy osadzone są zazwyczaj bezpieczniejsze.
+
+## **Praca z obrazami SVG**
+
+SVG jest formatem wektorowym, więc może być przydatny dla ikon, diagramów i innych grafiki, które powinny skalować się bez utraty szczegółów jak obrazy rastrowe. Aspose.Slides obsługuje SVG zarówno jako zasób obrazu, jak i jako źródło edytowalnych kształtów slajdu.
+
+### **Dodaj SVG jako obraz**
+
+Utwórz [SvgImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/svgimage/), dodaj go do kolekcji obrazów i umieść otrzymany zasób obrazu w ramce obrazu.
+
+```java
+import com.aspose.slides.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Pliki SVG z zasobami zewnętrznymi**
+
+SVG może odwoływać się do zewnętrznych obrazów, arkuszy stylów lub czcionek. W takich przypadkach [SvgImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/svgimage/) udostępnia konstruktory przyjmujące [IExternalResourceResolver](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iexternalresourceresolver/) oraz bazowy URI. Resolver może mapować względny URI na dozwolony absolutny URI i zwrócić strumień dla żądanego zasobu.
+
+Resolver udostępnia zasoby zewnętrzne podczas przetwarzania SVG przez Aspose.Slides, ale nie przepisuje SVG na dokument samodzielny. Jeśli SVG musi pozostać przenośny, osadź wymagane zasoby w samym SVG, na przykład używając URI `data:` dla linkowanych obrazów.
+
+Gdy pliki SVG pochodzą z niepewnych źródeł, ogranicz schematy, lokalizacje plików i hosty, do których resolver może uzyskać dostęp. Resolvery sieciowe powinny także stosować limity czasu, ograniczenia rozmiaru odpowiedzi i walidację treści.
+
+### **Konwertuj SVG na edytowalne kształty**
+
+Aspose.Slides może konwertować SVG na grupę edytowalnych kształtów slajdu, podobnie jak odpowiadające polecenie PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Funkcjonalność jest udostępniana przez jedną z przeciążonych wersji metody [addGroupShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeCollection), która przyjmuje obiekt [ISvgImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ISvgImage) jako pierwszy argument.
-
-Ten przykładowy kod pokazuje, jak użyć opisanej metody do konwersji pliku SVG na zestaw kształtów:
-
-```java 
-// Utwórz nową prezentację
-IPresentation presentation = new Presentation();
-try {
-    // Odczytaj zawartość pliku SVG
-    byte[] svgContent = Files.readAllBytes(Paths.get("image.svg"));
-
-    // Utwórz obiekt SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Pobierz rozmiar slajdu
-    Dimension2D slideSize = presentation.getSlideSize().getSize();
-
-    // Konwertuj obraz SVG na grupę kształtów skalując go do rozmiaru slajdu
-    presentation.getSlides().get_Item(0).getShapes().
-            addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
-
-    // Zapisz prezentację w formacie PPTX
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Dodaj obrazy jako EMF do slajdów**
-Aspose.Slides for Java pozwala generować obrazy EMF z arkuszy Excel i dodawać je jako EMF do slajdów przy użyciu Aspose.Cells. 
-
-Ten przykładowy kod pokazuje, jak wykonać opisaną czynność:
-
-```java 
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-// Zapisz skoroszyt do strumienia
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-    
-    String EmfSheetName = "";
-    for (int j = 0; j < sr.getPageCount(); j++)
-    {
-    
-        EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-
-        IPPImage picture;
-        IImage image = Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-        ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-					(float)pres.getSlideSize().getSize().getWidth(), 
-					(float)pres.getSlideSize().getSize().getHeight(), 
-					picture);
-    }
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Zastąp obrazy w kolekcji obrazów**
-
-Aspose.Slides pozwala zastąpić obrazy przechowywane w kolekcji obrazów prezentacji (w tym te używane przez kształty slajdów). Ta sekcja pokazuje kilka podejść do aktualizacji obrazów w kolekcji. API udostępnia proste metody zastąpienia obrazu przy użyciu surowych danych bajtowych, instancji [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/) lub innego obrazu, który już istnieje w kolekcji.
-
-1. Załaduj plik prezentacji zawierający obrazy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Załaduj nowy obraz z pliku do tablicy bajtów.
-3. Zastąp docelowy obraz nowym obrazem, używając tablicy bajtów.
-4. W drugim podejściu załaduj obraz do obiektu [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/) i zastąp docelowy obraz tym obiektem.
-5. W trzecim podejściu zastąp docelowy obraz obrazem, który już istnieje w kolekcji obrazów prezentacji.
-6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Użyj przeciążenia [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/) akceptującego [ISvgImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/isvgimage/) aby wykonać konwersję.
 
 ```java
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // Pierwszy sposób.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // Drugi sposób.
-    IImage newImage = Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // Trzeci sposób.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // Zapisz prezentację do pliku.
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Używaj konwersji SVG na kształty, gdy pojedyncze elementy wektorowe muszą być edytowane jako kształty PowerPoint. Jeśli SVG ma być tylko wyświetlany, pozostawienie go jako obrazu jest prostsze i unika tworzenia wielu osobnych kształtów.
+
+## **Zastąp istniejący zasób obrazu**
+
+Użyj [IPPImage.replaceImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/), gdy chcesz zastąpić istniejący zasób obrazu. Jest to szczególnie przydatne dla współdzielonych grafik, takich jak logotypy.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
+
+    IImage replacementImage = Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) replacementImage.dispose();
+    }
+
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Jeśli wiele ramek obrazu, tła, mistrzów lub układów używa tego samego zasobu obrazu, zastąpienie tego zasobu aktualizuje wszystkie te użycia. Jeśli ma się zmienić tylko jedną ramkę obrazu, przypisz inny obraz do tej ramki zamiast zastępować współdzielony zasób.
 
-Korzystając z darmowego konwertera Aspose FREE [Text to GIF](https://products.aspose.app/slides/pl/text-to-gif), możesz łatwo animować teksty, tworzyć GIF-y z tekstów itp. 
+`replaceImage` udostępnia także przeciążenia przyjmujące tablicę bajtów lub inny [IPPImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **Praktyczne wskazówki zarządzania obrazami**
+
+### **Kontroluj rozmiar prezentacji**
+
+Duże obrazy rastrowe mogą niepotrzebnie zwiększyć rozmiar prezentacji. Używaj obrazów źródłowych o wymiarach odpowiednich do zamierzonego rozmiaru wyświetlania, ponownie używaj współdzielonych zasobów obrazów tam, gdzie to możliwe, i unikaj osadzania wielokrotnych kopii tej samej grafiki w pełnej rozdzielczości.
+
+Dla obrazów rastrowych już umieszczonych w ramkach obrazu, [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipicturefillformat/) może zmniejszyć dane obrazu zgodnie z wybraną rozdzielczością i ustawieniami przycięcia. Jest to przetwarzanie ramki obrazu, a nie zarządzanie kolekcją obrazów, więc zobacz [Picture Frame](/slides/pl/java/picture-frame/) po związane operacje formatowania.
+
+### **Wybierz pomiędzy zawartością osadzoną a linkowaną**
+
+Osadzanie sprawia, że prezentacja jest przenośna, ponieważ wszystkie potrzebne dane obrazu podróżują z plikiem. Łączenie może zmniejszyć rozmiar pliku, ale wprowadza zależność zewnętrzną. Używaj linków tylko wtedy, gdy taka zależność jest akceptowalna i stabilna.
+
+### **Ponowne użycie wspólnego brandingu**
+
+Dla powtarzających się logotypów, znaków wodnych lub elementów dekoracyjnych, użyj jednego zasobu obrazu i ponownie go wykorzystaj. Jeśli grafika należy do projektu prezentacji, a nie do treści slajdu, umieść ją na mistrzu lub układzie, aby była dziedziczona przez odpowiednie slajdy.
+
+### **Utrzymuj zasoby SVG przenośne**
+
+Samodzielny SVG jest łatwiejszy do przenoszenia i renderowania w sposób spójny niż SVG zależny od zewnętrznych plików lub zasobów sieciowych. Gdzie to możliwe, osadź wymagane zasoby przed importem SVG. Konwertuj SVG na kształty tylko wtedy, gdy poszczególne elementy wektorowe muszą być edytowane.
+
+### **Użyj nowoczesnego, wieloplatformowego API obrazu**
+
+Dla nowego kodu Java używaj API Aspose.Slides [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/) i [Images](https://reference.aspose.com/slides/pl/java/com.aspose.slides/images/) zamiast starszego publicznego API opartego na `java.awt.image.BufferedImage`. Zobacz [Modern API](/slides/pl/java/modern-api/) po wskazówki migracji.
+
+WMF i EMF wymagają specjalnego traktowania. Gdy te formaty są przekazywane przez [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imagecollection/) konwertuje plik meta na reprezentację rastrową PNG przed wstawieniem. Jeśli zachowanie danych pliku meta jest ważne, użyj przeciążenia [ImageCollection.addImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imagecollection/) przyjmującego strumień. Generowanie treści EMF z arkuszy kalkulacyjnych lub innych produktów jest oddzielnym przepływem integracji i wykracza poza zakres tego artykułu.
 
 ## **FAQ**
 
-**Czy pierwotna rozdzielczość obrazu pozostaje niezmieniona po wstawieniu?**
+**Jaka jest różnica między kolekcją obrazów a ramką obrazu?**
 
-Tak. Piksele źródłowe są zachowane, ale ostateczny wygląd zależy od tego, jak [picture](/slides/pl/java/picture-frame/) jest skalowany na slajdzie oraz od ewentualnej kompresji przy zapisie.
+Kolekcja obrazów przechowuje wielokrotnego użytku zasoby obrazów. Ramka obrazu jest kształtem slajdu wyświetlającym jeden z tych zasobów i zapewnia specyficzne formatowanie obrazu, takie jak przycinanie i efekty.
 
-**Jaki jest najlepszy sposób na zastąpienie tego samego logo jednocześnie na dziesiątkach slajdów?**
+**Jaki jest najlepszy sposób, aby zastąpić to samo logo wszędzie?**
 
-Umieść logo na slajdzie mistrza lub układzie i zastąp je w kolekcji obrazów prezentacji — aktualizacje rozprzestrzenią się na wszystkie elementy korzystające z tego zasobu.
+Jeśli logo jest już współdzielone jako jeden zasób obrazu, zastąp ten zasób za pomocą [IPPImage.replaceImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ippimage/). Dla brandingu obejmującego całą prezentację, umieszczenie logo na mistrzu lub układzie może również zmniejszyć powielanie treści slajdów.
 
-**Czy wstawiony SVG może zostać przekonwertowany na edytowalne kształty?**
+**Dlaczego linkowany obraz znika na innym komputerze?**
 
-Tak. Możesz przekonwertować SVG na grupę kształtów, po czym poszczególne części stają się edytowalne przy użyciu standardowych właściwości kształtów.
+Obraz linkowany zależy od swojego zewnętrznego pliku lub URL. Jeśli zasób nie jest dostępny z innego komputera, linkowany obraz może być niedostępny. Osadź obraz, gdy prezentacja musi być samodzielna.
 
-**Jak mogę ustawić obraz jako tło dla wielu slajdów jednocześnie?**
+**Czy wstawiony SVG może być edytowany jako kształty PowerPoint?**
 
-[Ustaw obraz jako tło](/slides/pl/java/presentation-background/) na slajdzie mistrza lub odpowiednim układzie — wszystkie slajdy używające tego mistrza/układu odziedziczą tło.
+Tak. Konwertuj SVG przy użyciu [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/); powstała grupa zawiera edytowalne kształty slajdu zamiast jednego obrazu SVG.
 
-**Jak zapobiec „rozrostowi” prezentacji z powodu wielu obrazów?**
+**Jak mogę utrzymać prezentacje z wieloma obrazami mniejsze?**
 
-Używaj jednego zasobu obrazu zamiast duplikatów, wybieraj rozsądne rozdzielczości, stosuj kompresję przy zapisie i zachowuj powtarzające się grafiki w mistrzu, gdy jest to właściwe.
+Ponownie używaj współdzielonych zasobów obrazów, unikaj niepotrzebnie dużych źródeł rastrowych, kompresuj odpowiednie obrazy rastrowe w razie potrzeby, umieszczaj powtarzający się branding na mistrzach lub układach oraz używaj linkowanych obrazów tylko wtedy, gdy zależność zewnętrzna jest akceptowalna.

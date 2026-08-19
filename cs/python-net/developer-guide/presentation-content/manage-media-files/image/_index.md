@@ -1,5 +1,5 @@
 ---
-title: Optimalizace správy obrázků v PowerPointu pomocí Pythonu
+title: Optimalizace správy obrázků v prezentacích s Pythonem
 linktitle: Správa obrázků
 type: docs
 weight: 10
@@ -7,246 +7,250 @@ url: /cs/python-net/image/
 keywords:
 - přidat obrázek
 - přidat obrázek
-- přidat bitmapu
 - nahradit obrázek
-- nahradit obrázek
-- z webu
+- kolekce obrázků
+- rámeček obrázku
+- odkazovaný obrázek
 - pozadí
 - přidat PNG
 - přidat JPG
 - přidat SVG
-- přidat EMF
-- přidat WMF
-- přidat TIFF
+- SVG na tvary
+- externí SVG zdroje
 - PowerPoint
+- OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Zjednodušte správu obrázků v PowerPointu a OpenDocument pomocí Aspose.Slides pro Python přes .NET, optimalizujte výkon a automatizujte svůj pracovní postup."
+description: "Naučte se, jak přidávat, opakovaně používat, odkazovat, nahrazovat a spravovat rastrové a SVG obrázky v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python via .NET."
 ---
 ## **Úvod**
 
-Obrázky činí prezentace poutavějšími a zajímavějšími. V Microsoft PowerPoint můžete do snímků vložit obrázky ze souboru, internetu nebo jiných zdrojů. Podobně Aspose.Slides umožňuje přidávat obrázky do snímků několika způsoby.
+Aspose.Slides for Python via .NET poskytuje několik způsobů, jak pracovat s obrázky, a každý z nich slouží jinému účelu. Můžete uložit obrázek do prezentace, zobrazit jej v rámečku obrázku, použít jej jako pozadí snímku, odkazovat na externí obrázek, nahradit sdílený obrázkový zdroj nebo převést obsah SVG na editovatelné tvary.
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose poskytuje bezplatné převodníky — [JPEG to PowerPoint](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG to PowerPoint](https://products.aspose.app/slides/cs/import/png-to-ppt) — které vám umožní rychle vytvořit prezentace z obrázků.
-{{% /alert %}}
+Tento článek se zaměřuje na obrázkové zdroje a jejich použití v celé prezentaci. Informace o ořezu, průhlednosti, efektech, roztahování a dalších formátováních aplikovaných na jednotlivý rámeček obrázku najdete v [rámečku obrázku](/slides/cs/python-net/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Pokud chcete přidat obrázek jako rámec — zejména pokud plánujete použít standardní možnosti formátování, jako je změna velikosti nebo aplikace efektů — viz [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/cs/python-net/picture-frame/).
-{{% /alert %}}
+## **Pochopení modelu obrázku**
 
-{{% alert title="Upozornění" color="warning" %}}
-Můžete použít operace I/O pro obrázky a prezentace k převodu obrázků mezi formáty. Podívejte se na tyto stránky: převést [obrázek na JPG](https://products.aspose.com/slides/cs/python-net/conversion/image-to-jpg/); převést [JPG na obrázek](https://products.aspose.com/slides/cs/python-net/conversion/jpg-to-image/); převést [JPG na PNG](https://products.aspose.com/slides/cs/python-net/conversion/jpg-to-png/); převést [PNG na JPG](https://products.aspose.com/slides/cs/python-net/conversion/png-to-jpg/); převést [PNG na SVG](https://products.aspose.com/slides/cs/python-net/conversion/png-to-svg/); a převést [SVG na PNG](https://products.aspose.com/slides/cs/python-net/conversion/svg-to-png/).
-{{% /alert %}}
+Následující koncepty API jsou úzce související, ale nejsou zaměnitelné:
 
-Aspose.Slides podporuje práci s obrázky v populárních formátech, jako jsou JPEG, PNG, BMP, GIF a další.
+- [kolekce obrázků prezentace](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/) ukládá obrázkové zdroje používané v prezentaci. Použijte [ImageCollection.add_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/add_image/) k přidání dat obrázku a získání zdroje [IPPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/).
+- [rámeček obrázku](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ipictureframe/) je tvar, který zobrazuje obrázek na snímku, rozvržení nebo hlavě. Použijte [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_picture_frame/) k umístění obrázkového zdroje na snímek.
+- Pozadí snímku používá obrázek jako součást výplně snímku, nikoli jako tvar. Proto se nechová jako rámeček obrázku.
+- [IPPImage.replace_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/replace_image/) nahrazuje obrázkový zdroj. Pokud jej používá více prvků prezentace, všichni použijí náhradu.
+- Převod SVG na tvary vytváří editovatelné tvary snímku. Po převodu obsah již není spravován jako jeden obrázkový zdroj.
 
-## **Přidání obrázků uložených lokálně do snímků**
+Typický tok práce tedy vypadá takto: přidejte data obrázku do kolekce obrázků, získejte [IPPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/) a poté použijte tento zdroj v jednom nebo více rámečcích obrázku či výplních.
 
-Můžete přidat jeden nebo více obrázků z počítače do snímku v prezentaci. Následující příklad v Pythonu ukazuje, jak přidat obrázek do snímku:
+## **Přidání vloženého obrázku**
 
-```py
+Pro vložení místního obrázku přečtěte soubor, přidejte jeho data do kolekce obrázků a vytvořte rámeček obrázku, který použije vrácený `IPPImage`.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Přidání obrázků z webu do snímků**
-
-Není-li obrázek, který chcete přidat do snímku, k dispozici ve vašem počítači, můžete jej vložit přímo z webu.
-
-Následující příklad v Pythonu ukazuje, jak přidat obrázek z URL do snímku:
-
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání obrázků do hlavních snímků (Slide Masters)**
+Obrázek přidaný tímto způsobem je vložen do prezentace, takže výsledný soubor nevyžaduje, aby byl původní soubor obrázku nadále dostupný.
 
-Slide master je hlavní snímek nejvyšší úrovně, který ukládá a řídí informace — témata, rozvržení a podobně — pro všechny podřízené snímky. Když přidáte obrázek do slide masteru, tento obrázek se objeví na každém snímku, který tento master používá.
+### **Přidání obrázku z webu**
 
-Následující příklad v Pythonu ukazuje, jak přidat obrázek do slide masteru:
+Když je obrázek dostupný přes HTTP nebo HTTPS, stáhněte jeho bajty, přidejte je do kolekce obrázků prezentace a použijte vrácený obrázkový zdroj stejným způsobem jako místní obrázek.
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+V dlouhodobých aplikacích opakovaně používejte HTTP klienta nebo pool spojení, kde je to vhodné, místo vytváření nového spojení pro každý požadavek. Také ověřujte vzdálené URL, velikosti odpovědí a typy obsahu, pokud není zdroj důvěryhodný.
+
+## **Opětovné použití obrázků napříč snímky**
+
+Pokud je stejný obrázek potřeba vícekrát, přidejte jej do prezentace jednou a při vytváření dalších rámečků obrázku použijte vrácený [IPPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/). Tím se zabrání opakovanému načítání stejných zdrojových dat a vztah mezi sdíleným obrázkovým zdrojem a jeho použitím bude explicitní.
+
+Pro grafiku, která má automaticky vystupovat na mnoha snímcích, např. firemní logo, zvažte umístění rámečku obrázku na [hlavu snímku](/slides/cs/python-net/slide-master/) nebo rozvržení místo přidávání ekvivalentního tvaru na každý snímek.
+
+## **Použití obrázku jako pozadí snímku**
+
+Obrázek pozadí se přiřazuje výplni snímku; nepřidává se jako tvar rámečku obrázku. To je užitečné, když má obrázek pokrýt celé pozadí snímku a nemá být manipulován jako běžný objekt snímku.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Další možnosti pozadí, včetně pozadí hlav a rozvržení, najdete v [Pozadí prezentace](/slides/cs/python-net/presentation-background/).
+
+## **Vložené obrázky a odkazy na obrázky**
+
+Vložené a odkazované obrázky mají odlišné kompromisy v přenositelnosti a velikosti souboru:
+
+- **Vložený obrázek:** data obrázku jsou uložena uvnitř prezentace. Prezentace je samostatná, ale velikost souboru zahrnuje data obrázku.
+- **Odkazovaný obrázek:** prezentace ukládá cestu nebo URL k externímu obrázku. To může snížit velikost prezentace, ale externí zdroj musí být při otevření nebo vykreslení prezentace dostupný.
+
+Odkazovaný obrázek lze vytvořit přiřazením externí cesty nebo URL pomocí [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/cs/python-net/aspose.slides/islidespicture/link_path_long/) místo vložení dat obrázku.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení obrázku jako pozadí snímku**
+Používejte odkazované obrázky jen tehdy, když prostředí nasazení může spolehlivě přistupovat k externímu zdroji. Pro prezentace, které musí fungovat offline nebo být přesouvány mezi systémy, jsou vložené obrázky obvykle bezpečnější.
 
-Můžete chtít použít obrázek jako pozadí konkrétního snímku nebo více snímků. Podrobnosti najdete v [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/cs/python-net/presentation-background/#set-image-as-background-for-slide).
+## **Práce s SVG obrázky**
 
-## **Přidání SVG do prezentací**
+SVG je vektorový formát, takže může být užitečný pro ikony, diagramy a další grafiku, která by měla být škálovatelná bez ztráty detailu jako rastrové obrázky. Aspose.Slides podporuje SVG jak jako obrázkový zdroj, tak jako zdroj pro editovatelné tvary snímku.
 
-Můžete vložit libovolný obrázek do prezentace pomocí metody [add_picture_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_picture_frame/) třídy [ShapeCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/).
+### **Přidání SVG jako obrázku**
 
-Pro vytvoření objektu obrázku ze souboru SVG postupujte podle následujících kroků:
+Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/), přidejte jej do kolekce obrázků a umístěte vzniklý obrázkový zdroj do rámečku obrázku.
 
-1. Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/) a přidejte jej do kolekce obrázků prezentace.  
-2. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) z [SvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/).  
-3. Vytvořte objekt [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) pomocí [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/).
-
-Následující ukázka v Pythonu ukazuje, jak přidat SVG obrázek do prezentace pomocí těchto kroků:
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # Načtěte obsah souboru SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Vytvořte objekt SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Vytvořte objekt PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Vytvořte nový PictureFrame.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Uložte prezentaci ve formátu PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Převod SVG na sadu tvarů**
+### **Převod SVG na editovatelné tvary**
 
-Aspose.Slides převádí SVG soubory na sadu tvarů podobně jako PowerPoint.
+Aspose.Slides může převést SVG na skupinu editovatelných tvarů snímku, podobně jako odpovídající příkaz PowerPointu.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Tato funkčnost je poskytována přetížením metody [add_group_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_group_shape/) ve třídě [ShapeCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/), která jako první argument přijímá [SvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/). 
+Použijte přetížení [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_group_shape/), které přijímá [ISvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/isvgimage/), k provedení převodu.
 
-Následující ukázkový kód ukazuje, jak převést soubor SVG na sadu tvarů.
-
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # Načtěte obsah souboru SVG.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # Vytvořte objekt SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Získejte velikost snímku.
-        slide_size = presentation.slide_size.size
-
-        # Převěďte SVG obrázek na skupinu tvarů a upravte jeho měřítko podle velikosti snímku.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # Uložte prezentaci ve formátu PPTX.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Přidání obrázků jako EMF do snímků**
-
-Aspose.Slides pro Python umožňuje vkládat obrázky Enhanced Metafile (EMF) do prezentací.
-
-Následující příklad v Pythonu to demonstruje:
-
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nahrazení obrázků v kolekci obrázků**
+Použijte převod SVG na tvary, když je nutné individuální vektorové prvky upravovat jako tvary PowerPointu. Pokud má být SVG pouze zobrazen, je jednodušší ponechat jej jako obrázek a vyhnout se vytváření mnoha samostatných tvarů.
 
-Aspose.Slides vám umožňuje nahradit obrázky uložené v kolekci obrázků prezentace, včetně těch, které jsou použity tvary snímků. V této části jsou popsány různé přístupy k aktualizaci obrázků v kolekci. API poskytuje jednoduché metody pro nahrazení obrázku surovými bajty, instancí [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) nebo jiným obrázkem, který již v kolekci existuje.
+## **Nahrazení existujícího obrázkového zdroje**
 
-Postupujte podle těchto kroků:
+Použijte [IPPImage.replace_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/replace_image/), když chcete nahradit existující obrázkový zdroj. To je zvláště užitečné pro sdílenou grafiku, jako jsou loga.
 
-1. Načtěte prezentaci, která obsahuje obrázky, pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).  
-2. Načtěte nový obrázek ze souboru do pole bytů.  
-3. Nahraďte cílový obrázek novým obrázkem pomocí pole bytů.  
-4. Alternativně načtěte obrázek do objektu [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) a nahraďte cílový obrázek tímto objektem.  
-5. Nebo nahraďte cílový obrázek obrázkem, který již existuje v kolekci obrázků prezentace.  
-6. Uložte upravenou prezentaci jako soubor PPTX.
+```python
+import aspose.slides as slides
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-with slides.Presentation("sample.pptx") as presentation:
-
-    # První způsob.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # Druhý způsob.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # Třetí způsob.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # Uložte prezentaci do souboru.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
-S bezplatným převodníkem [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) od Aspose můžete snadno animovat text a vytvářet GIFy z textu.
-{{% /alert %}}
+Pokud více rámečků obrázku, pozadí, hlav nebo rozvržení používá stejný obrázkový zdroj, nahrazení tohoto zdroje aktualizuje všechny tyto použití. Pokud má změnit jen jeden rámeček obrázku, přiřaďte tomuto rámečku jiný obrázek místo nahrazení sdíleného zdroje.
 
-## **FAQ**
+`replace_image` také poskytuje přetížení, která přijímají [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) nebo jiný [IPPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/).
 
-**Zůstane po vložení zachována původní rozlišení obrázku?**
+## **Praktické pokyny pro správu obrázků**
 
-Ano. Zdrojové pixely jsou zachovány, ale konečný vzhled závisí na tom, jak je [picture](/slides/cs/python-net/picture-frame/) na snímku škálováno a jaká komprese je použita při ukládání.
+### **Kontrola velikosti prezentace**
 
-**Jaký je nejlepší způsob, jak najednou nahradit stejné logo na desítkách snímků?**
+Velké rastrové obrázky mohou prezentaci zbytečně nafouknout. Používejte zdrojové obrázky s rozměry vhodnými pro zamýšlenou velikost zobrazení, opakovaně používejte sdílené obrázkové zdroje, kde je to možné, a vyhněte se vkládání opakovaných kopií stejné grafiky v plné kvalitě.
 
-Umístěte logo na master slide nebo rozvržení a nahraďte jej v kolekci obrázků prezentace — aktualizace se projeví ve všech prvcích, které tento zdroj používají.
+Pro rastrové obrázky, které již byly umístěny v rámečcích obrázku, může [PictureFillFormat.compress_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/compress_image/) snížit data obrázku podle zvolené rozlišovací schopnosti a nastavení ořezu. Jedná se o zpracování rámečku obrázku, nikoli o správu kolekce obrázků, takže viz [rámeček obrázku](/slides/cs/python-net/picture-frame/) pro související formátovací operace.
 
-**Lze vložený SVG převést na editovatelné tvary?**
+### **Výběr mezi vloženým a odkazovaným obsahem**
 
-Ano. SVG můžete převést na skupinu tvarů, po čemž se jednotlivé části stanou editovatelnými pomocí standardních vlastností tvarů.
+Vkládání činí prezentaci přenosnou, protože všechna potřebná data obrázku jsou součástí souboru. Odkazování může snížit velikost souboru, ale zavádí externí závislost. Odkazy používejte jen tehdy, když je tato závislost přijatelná a stabilní.
 
-**Jak mohu nastavit obrázek jako pozadí pro více snímků najednou?**
+### **Opětovné použití sdíleného brandingu**
 
-[Přiřaďte obrázek jako pozadí](/slides/cs/python-net/presentation-background/) na master slide nebo příslušné rozvržení — všechny snímky používající tento master/rozvržení zdědí pozadí.
+Pro opakovaná loga, vodoznaky nebo dekorativní grafiku používejte jeden obrázkový zdroj a opakujte jeho použití. Pokud grafika patří do návrhu prezentace spíše než do obsahu snímků, umístěte ji na hlavu nebo rozvržení, aby ji zdědily příslušné snímky.
 
-**Jak zabránit tomu, aby se prezentace kvůli mnoha obrázkům „nafouklá“?**
+### **Udržování SVG zdrojů přenosných**
 
-Opakovaně používejte jeden obrazový zdroj místo duplicit, zvolte rozumná rozlišení, použijte kompresi při ukládání a opakující se grafiku umístěte na master, kde je to vhodné.
+Samostatný SVG je snazší přesunout a vykreslit konzistentně než SVG, který závisí na externích souborech nebo síťových zdrojích. Kdykoli je to možné, vložte potřebné zdroje před importem SVG. Převádějte SVG na tvary jen tehdy, když je nutné individuální vektorové prvky upravovat.
+
+### **Použití moderního multiplatformního API obrázků**
+
+Pro nový kód Python via .NET používejte API Aspose.Slides [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) a [Images](https://reference.aspose.com/slides/cs/python-net/aspose.slides/images/) místo zastaralých `aspose.pydrawing.Image` nebo `aspose.pydrawing.Bitmap`. Viz [Moderní API](/slides/cs/python-net/modern-api/) pro pokyny k migraci.
+
+WMF a EMF vyžadují zvláštní úvahu. Když jsou tyto formáty předány přes [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/), [ImageCollection.add_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/add_image/) převádí metafile na rastrovou PNG reprezentaci před vložením. Pokud je zachování dat metafile důležité, použijte přetížení založené na proudu [ImageCollection.add_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/add_image/). Generování EMF obsahu ze sešitů nebo jiných produktů je samostatný integrační tok a leží mimo rozsah tohoto článku.
+
+## **Často kladené otázky**
+
+**Jaký je rozdíl mezi kolekcí obrázků a rámečkem obrázku?**
+
+Kolekce obrázků ukládá znovu použitelné obrázkové zdroje. Rámeček obrázku je tvar na snímku, který zobrazuje jeden z těchto zdrojů a poskytuje specifické formátování obrázku, jako je ořez a efekty.
+
+**Jak nejlépe nahradit stejné logo všude?**
+
+Pokud je logo již sdíleno jako jeden obrázkový zdroj, nahraďte tento zdroj pomocí [IPPImage.replace_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ippimage/replace_image/). Pro branding napříč celou prezentací může také umístění loga na hlavu nebo rozvržení snížit duplicitní obsah snímků.
+
+**Proč odkazovaný obrázek zmizí na jiném počítači?**
+
+Odkazovaný obrázek závisí na externím souboru nebo URL. Pokud tento zdroj není z jiného počítače dosažitelný, může být odkazovaný obrázek nedostupný. Vložte obrázek, když musí být prezentace samostatná.
+
+**Lze vložené SVG upravovat jako tvary PowerPointu?**
+
+Ano. Převodem SVG pomocí [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_group_shape/) získáte skupinu editovatelných tvarů snímku místo jednoho obrázku SVG.
+
+**Jak udržet prezentace s mnoha obrázky menší?**
+
+Opakovaně používejte sdílené obrázkové zdroje, vyhýbejte se zbytečně velkým rastrovým zdrojům, při vhodných podmínkách komprimujte rastrové obrázky, umisťujte opakovaný branding na hlavy nebo rozvržení a odkazované obrázky používejte jen tehdy, když je externí závislost přijatelná.

@@ -1,295 +1,274 @@
 ---
-title: "Optimalizace správy obrázků v prezentacích v .NET"
-linktitle: "Správa obrázků"
+title: Optimalizace správy obrázků v prezentacích v .NET
+linktitle: Správa obrázků
 type: docs
 weight: 10
 url: /cs/net/image/
 keywords:
 - přidat obrázek
-- přidat fotografii
-- přidat bitmapu
+- přidat obrázek
 - nahradit obrázek
-- nahradit fotografii
-- z webu
+- kolekce obrázků
+- rámeček obrázku
+- odkazovaný obrázek
 - pozadí
 - přidat PNG
 - přidat JPG
 - přidat SVG
-- přidat EMF
-- přidat WMF
-- přidat TIFF
+- SVG na tvary
+- externí SVG zdroje
 - PowerPoint
 - OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Zjednodušte správu obrázků v PowerPointu a OpenDocument pomocí Aspose.Slides pro .NET, optimalizujte výkon a automatizujte svůj pracovní postup."
+description: "Naučte se, jak přidávat, opakovaně používat, odkazovat, nahrazovat a spravovat rastrové a SVG obrázky v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET."
 ---
 ## **Úvod**
 
-Obrázky činí prezentace poutavějšími a zajímavějšími. V aplikaci Microsoft PowerPoint můžete do snímků vkládat obrázky ze souboru, z internetu nebo z jiných míst. Podobně Aspose.Slides umožňuje přidávat obrázky do snímků vašich prezentací různými postupy.
+Aspose.Slides pro .NET poskytuje několik způsobů práce s obrázky a každý slouží jinému účelu. Můžete uložit obrázek v prezentaci, zobrazit jej v rámečku obrázku, použít jej jako pozadí snímku, odkazovat na externí obrázek, nahradit sdílený zdroj obrázku nebo převést obsah SVG na editovatelné tvary.
 
-{{% alert  title="Tip" color="primary" %}} 
+Tento článek se zaměřuje na zdroje obrázků a jak jsou používány v celé prezentaci. Pro ořez, průhlednost, efekty, natažení a další formátování aplikované na jednotlivý rámeček obrázku viz [Rámeček obrázku](/slides/cs/net/picture-frame/).
 
-Aspose poskytuje bezplatné převodníky—[JPEG na PowerPoint](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG na PowerPoint](https://products.aspose.app/slides/cs/import/png-to-ppt)—které umožňují rychle vytvářet prezentace z obrázků. 
+## **Pochopte model obrázku**
 
-{{% /alert %}} 
+Následující koncepty API jsou úzce související, ale ne zaměnitelné:
 
-{{% alert title="Info" color="info" %}}
+- [kolekce obrázků prezentace](https://reference.aspose.com/slides/cs/net/aspose.slides/iimagecollection/) ukládá zdroje obrázků používané v prezentaci. Použijte [ImageCollection.AddImage](https://reference.aspose.com/slides/cs/net/aspose.slides/imagecollection/addimage/) k přidání dat obrázku a získání zdroje [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
+- [Rámeček obrázku](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) je tvar, který zobrazuje obrázek na snímku, rozvržení nebo hlavě. Použijte [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addpictureframe/) k umístění zdroje obrázku na snímek.
+- Pozadí snímku používá obrázek jako část výplně snímku, nikoli jako tvar. Proto se nechová jako rámeček obrázku.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/replaceimage/) nahrazuje zdroj obrázku. Pokud jej používá několik prvků prezentace, všichni používají náhradu.
+- Převedení SVG na tvary vytváří editovatelné tvary snímku. Po převodu není obsah nadále spravován jako jeden zdroj obrázku.
 
-Pokud chcete přidat obrázek jako objekt rámce—zejména pokud plánujete použít standardní možnosti formátování k úpravě velikosti, přidání efektů a podobně—podívejte se na [Rámec obrázku](https://docs.aspose.com/slides/cs/net/picture-frame/). 
+Typický postup tedy je: přidat data obrázku do kolekce obrázků, získat [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/), a poté použít tento zdroj v jednom nebo více rámečcích obrázku či výplních.
 
-{{% /alert %}} 
+## **Přidání vloženého obrázku**
 
-{{% alert title="Poznámka" color="warning" %}}
+Chcete-li vložit lokální obrázek, načtěte soubor, přidejte jeho data do kolekce obrázků a vytvořte rámeček obrázku, který používá vrácený `IPPImage`.
 
-Můžete manipulovat s operacemi vstupu/výstupu zahrnujícími obrázky a prezentace PowerPointu a převádět obrázek z jednoho formátu do druhého. Viz tyto stránky: převod [obrázku na JPG](https://products.aspose.com/slides/cs/net/conversion/image-to-jpg/); převod [JPG na obrázek](https://products.aspose.com/slides/cs/net/conversion/jpg-to-image/); převod [JPG na PNG](https://products.aspose.com/slides/cs/net/conversion/jpg-to-png/), převod [PNG na JPG](https://products.aspose.com/slides/cs/net/conversion/png-to-jpg/); převod [PNG na SVG](https://products.aspose.com/slides/cs/net/conversion/png-to-svg/), převod [SVG na PNG](https://products.aspose.com/slides/cs/net/conversion/svg-to-png/).
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% /alert %}}
+using var presentation = new Presentation();
 
-Aspose.Slides podporuje operace s obrázky v těchto populárních formátech: JPEG, PNG, BMP, GIF a další. 
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-## **Přidání obrázků uložených lokálně do snímků**
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-Můžete přidat jeden nebo více obrázků z vašeho počítače na snímek v prezentaci. Tento ukázkový kód v C# ukazuje, jak přidat obrázek na snímek:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání obrázků z webu do snímků**
+Obrázek přidaný tímto způsobem je vložen v prezentaci, takže výsledný soubor nezávisí na dostupnosti původního souboru obrázku.
 
-Pokud obrázek, který chcete na snímek přidat, není k dispozici na vašem počítači, můžete jej přidat přímo z webu.
+### **Přidání obrázku z webu**
 
-Tento ukázkový kód ukazuje, jak v C# přidat obrázek z webu na snímek:
+Pokud je obrázek dostupný přes HTTP nebo HTTPS, stáhněte jeho bajty pomocí `HttpClient`, přidejte je do kolekce obrázků prezentace a použijte vrácený zdroj obrázku stejným způsobem jako lokální obrázek.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání obrázků do hlavních snímků**
+V dlouho běžících aplikacích opakovaně používejte `HttpClient` místo vytváření nové instance pro každý požadavek. Také ověřujte vzdálené URL, velikosti odpovědí a typy obsahu, pokud zdroj není důvěryhodný.
 
-Hlavní snímek (slide master) je nejvyšší snímek, který ukládá a řídí informace (téma, rozvržení atd.) o všech snímcích pod ním. Proto když přidáte obrázek do hlavního snímku, tento obrázek se objeví na každém snímku pod tímto hlavním snímkem.
+## **Opětovné použití obrázků napříč snímky**
 
-Tento ukázkový kód v C# ukazuje, jak přidat obrázek do hlavního snímku:
+Pokud je stejný obrázek potřeba vícekrát, přidejte jej do prezentace jednou a znovu použijte vrácený [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) při vytváření dalších rámečků obrázku. Tím se zabrání opakovanému načítání stejných zdrojových dat a vztah mezi sdíleným zdrojem obrázku a jeho použitím je explicitní.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+Pro grafiku, která by se měla automaticky zobrazovat na mnoha snímcích, například firemní logo, zvažte umístění rámečku obrázku na [slide master](/slides/cs/net/slide-master/) nebo rozvržení místo přidávání ekvivalentního tvaru na každý snímek.
+
+## **Použití obrázku jako pozadí snímku**
+
+Obrázek na pozadí je přiřazen k výplni snímku; není přidán jako tvar rámečku obrázku. To je užitečné, když má obrázek pokrývat pozadí snímku a neměl by být manipulován jako běžný objekt snímku.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání obrázků jako pozadí snímků**
+Pro další možnosti pozadí, včetně pozadí masteru a rozvržení, viz [Pozadí prezentace](/slides/cs/net/presentation-background/).
 
-Můžete se rozhodnout použít obrázek jako pozadí pro konkrétní snímek nebo několik snímků. V takovém případě si musíte prohlédnout *[Nastavení obrázků jako pozadí snímků](https://docs.aspose.com/slides/cs/net/presentation-background/#setting-images-as-background-for-slides)*.
+## **Vložené obrázky a odkazované obrázky**
 
-## **Přidání SVG do prezentací**
+Vložené a odkazované obrázky mají různé kompromisy v přenositelnosti a velikosti souboru:
 
-Můžete přidat nebo vložit jakýkoli obrázek do prezentace pomocí metody [AddPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/methods/addpictureframe), která patří k rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection).
+- **Vložený obrázek:** data obrázku jsou uložena uvnitř prezentace. Prezentace je samostatná, ale velikost souboru zahrnuje data obrázku.
+- **Odkazovaný obrázek:** prezentace ukládá cestu nebo URL k externímu obrázku. To může snížit velikost prezentace, ale externí zdroj musí být přístupný při otevírání nebo vykreslování prezentace.
 
-Pro vytvoření objektu obrázku založeného na SVG můžete postupovat takto:
+Odkazovaný obrázek lze vytvořit přiřazením externí cesty nebo URL přes [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/cs/net/aspose.slides/islidespicture/linkpathlong/) místo vložení dat obrázku.
 
-1. Vytvořte objekt SvgImage, který vložíte do ImageShapeCollection  
-2. Vytvořte objekt PPImage z ISvgImage  
-3. Vytvořte objekt PictureFrame pomocí rozhraní IPPImage  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Tento ukázkový kód ukazuje, jak implementovat výše uvedené kroky pro přidání SVG obrázku do prezentace:
-``` csharp 
-// Cesta k adresáři dokumentů
-string dataDir = @"D:\Documents\";
+using var presentation = new Presentation();
 
-// Název zdrojového SVG souboru
-string svgFileName = dataDir + "sample.svg";
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-// Název výstupního souboru prezentace
-string outPptxPath = dataDir + "presentation.pptx";
-
-// Vytvořit novou prezentaci
-using (var p = new Presentation())
-{
-    // Načíst obsah SVG souboru
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // Vytvořit objekt SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Vytvořit objekt PPImage
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // Vytvoří nový PictureFrame 
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // Uložit prezentaci ve formátu PPTX
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **Převod SVG na sadu tvarů**
+Používejte odkazované obrázky jen tehdy, když nasazovací prostředí může spolehlivě přistupovat k externímu zdroji. Pro prezentace, které musí fungovat offline nebo být přesouvány mezi systémy, jsou vložené obrázky obvykle bezpečnější.
 
-Převod SVG na sadu tvarů v Aspose.Slides je podobný funkci PowerPointu používané pro práci s SVG obrázky:
+## **Práce s SVG obrázky**
+
+SVG je vektorový formát, takže může být užitečný pro ikony, diagramy a další grafiku, která by se měla škálovat bez ztráty detailu jako rastrové obrázky. Aspose.Slides podporuje SVG jak jako zdroj obrázku, tak jako zdroj pro editovatelné tvary snímku.
+
+### **Přidání SVG jako obrázku**
+
+Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/svgimage/), přidejte jej do kolekce obrázků a umístěte vzniklý zdroj obrázku do rámečku obrázku.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **SVG soubory s externími zdroji**
+
+SVG může odkazovat na externí obrázky, stylové listy nebo písma. Pro tyto případy [SvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/svgimage/) poskytuje konstruktory, které přijímají [IExternalResourceResolver](https://reference.aspose.com/slides/cs/net/aspose.slides.import/iexternalresourceresolver/) a základní URI. Rozlišovač může mapovat relativní URI na povolené absolutní URI a vrátit proud pro požadovaný zdroj.
+
+Rozlišovač zpřístupňuje externí zdroje během zpracování SVG v Aspose.Slides, ale nepřepisuje SVG na samostatný dokument. Pokud musí SVG zůstat přenosný, vložte požadované zdroje přímo do SVG, například pomocí `data:` URI pro odkazované obrázky.
+
+Když SVG soubory pocházejí z nedůvěryhodných zdrojů, omezte schémata, umístění souborů a hosty, ke kterým má rozlišovač přístup. Síťové rozlišovače by měly také uplatňovat časová omezení, limity velikosti odpovědi a validaci obsahu.
+
+### **Převod SVG na editovatelné tvary**
+
+Aspose.Slides může převést SVG na skupinu editovatelných tvarů snímku, podobně jako odpovídající příkaz v PowerPointu.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Funkčnost je poskytována jednou z přetížení metody [AddGroupShape](https://reference.aspose.com/slides/cs/net/aspose.slides.ishapecollection/addgroupshape/methods/1) rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection), která přijímá objekt [ISvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/isvgimage) jako první argument.
+Použijte přetížení [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addgroupshape/) , které přijímá [ISvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/isvgimage/) , k provedení převodu.
 
-Tento ukázkový kód ukazuje, jak použít popsanou metodu pro převod SVG souboru na sadu tvarů:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-``` csharp 
-// Cesta k adresáři dokumentů
-string dataDir = @"D:\Documents\";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// Název zdrojového SVG souboru
-string svgFileName = dataDir + "sample.svg";
+using var presentation = new Presentation();
 
-// Název výstupního souboru prezentace
-string outPptxPath = dataDir + "presentation.pptx";
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-// Vytvořit novou prezentaci
-using (IPresentation presentation = new Presentation())
-{
-    // Načíst obsah SVG souboru
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // Vytvořit objekt SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Získat velikost snímku
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Převést SVG obrázek na skupinu tvarů a přizpůsobit velikosti snímku
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Uložit prezentaci ve formátu PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání obrázků jako EMF do snímků**
+Použijte převod SVG na tvary, když je potřeba jednotlivé vektorové elementy upravovat jako tvary v PowerPointu. Pokud je SVG potřeba jen zobrazit, je jednodušší ponechat jej jako obrázek a vyhnout se vytváření mnoha samostatných tvarů.
 
-Aspose.Slides pro .NET umožňuje generovat EMF obrázky z excelových listů a přidávat tyto obrázky jako EMF do snímků pomocí Aspose.Cells.  
+## **Nahrazení existujícího zdroje obrázku**
 
-Tento ukázkový kód ukazuje, jak provést popsaný úkol:
+Použijte [IPPImage.ReplaceImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/replaceimage/) , když chcete nahradit existující zdroj obrázku. To je zvláště užitečné pro sdílenou grafiku, jako jsou loga.
 
-``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    //Uložit sešit do proudu
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+using var presentation = new Presentation("input.pptx");
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Nahrazení obrázků ve sbírce obrázků**
-
-Aspose.Slides umožňuje nahradit obrázky uložené v kolekci obrázků prezentace (včetně těch, které používají tvary snímků). Tato sekce ukazuje několik přístupů k aktualizaci obrázků v kolekci. API poskytuje přímé metody pro nahrazení obrázku pomocí surových bajtových dat, instance [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) nebo jiného obrázku, který již v kolekci existuje.
-
-Postupujte podle následujících kroků:
-
-1. Načtěte soubor prezentace, který obsahuje obrázky, pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).  
-2. Načtěte nový obrázek ze souboru do pole bajtů.  
-3. Nahraďte cílový obrázek novým obrázkem pomocí pole bajtů.  
-4. Ve druhém přístupu načtěte obrázek do objektu [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) a nahraďte cílový obrázek tímto objektem.  
-5. Ve třetím přístupu nahraďte cílový obrázek obrázkem, který již v kolekci obrázků prezentace existuje.  
-6. Uložte upravenou prezentaci jako soubor PPTX.
-
-```cs
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-using Presentation presentation = new Presentation("sample.pptx");
-
-// První způsob.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
-
-// Druhý způsob.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// Třetí způsob.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// Uložit prezentaci do souboru.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
+Pokud více rámečků obrázku, pozadí, masterů nebo rozvržení používá stejný zdroj obrázku, jeho nahrazení aktualizuje všechny tyto použití. Pokud má být změněn jen jeden rámeček obrázku, přiřaďte tomuto rámečku jiný obrázek místo nahrazení sdíleného zdroje.
 
-Pomocí Aspose FREE [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) převodníku můžete snadno animovat texty, vytvářet GIFy z textu atd. 
+`ReplaceImage` také poskytuje přetížení, která přijímají [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) nebo další [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) .
 
-{{% /alert %}}
+## **Praktické doporučení pro správu obrázků**
 
-## **FAQ**
+### **Kontrola velikosti prezentace**
 
-**Zůstane původní rozlišení obrázku po vložení zachováno?**
+Velké rastrové obrázky mohou způsobit, že je prezentace zbytečně velká. Používejte zdrojové obrázky s rozměry vhodnými pro zamýšlenou velikost zobrazení, opakovaně využívejte sdílené zdroje obrázků, kde je to možné, a vyhněte se vkládání opakovaných kopií stejné grafiky v plném rozlišení.
 
-Ano. Původní pixely jsou zachovány, ale konečný vzhled závisí na tom, jak je [obrázek](/slides/cs/net/picture-frame/) na snímku škálován a jaká komprese je použita při uložení.
+Pro rastrové obrázky, které již byly umístěny v rámečcích obrázku, může [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/compressimage/) snížit data obrázku podle vybrané rozlišení a nastavení ořezu. Jedná se o zpracování rámečku obrázku, nikoli správu kolekce obrázků, takže viz [Rámeček obrázku](/slides/cs/net/picture-frame/) pro související formátovací operace.
 
-**Jaký je nejlepší způsob, jak najednou nahradit stejné logo na desítkách snímků?**
+### **Volba mezi vloženým a odkazovaným obsahem**
 
-Umístěte logo na hlavní snímek nebo rozvržení a nahraďte ho v kolekci obrázků prezentace — změna se projeví ve všech prvcích, které tento zdroj používají.
+Vkládání činí prezentaci přenosnou, protože všechna potřebná data obrázku jsou součástí souboru. Odkazování může snížit velikost souboru, ale zavádí externí závislost. Používejte odkazy jen tehdy, když je tato závislost přijatelna a stabilní.
 
-**Lze vložený SVG převést na editovatelné tvary?**
+### **Opakované použití sdílené značky**
 
-Ano. SVG můžete převést na skupinu tvarů, po čemž se jednotlivé části stanou editovatelnými pomocí standardních vlastností tvarů.
+Pro opakovaná loga, vodoznaky nebo dekorativní grafiku použijte jeden zdroj obrázku a opakujte jeho použití. Pokud grafika patří k návrhu prezentace spíše než k obsahu snímku, umístěte ji na master nebo rozvržení, aby ji zdědily příslušné snímky.
 
-**Jak mohu nastavit obrázek jako pozadí pro více snímků najednou?**
+### **Udržujte SVG zdroje přenosné**
 
-[Assign the image as the background](/slides/cs/net/presentation-background/) na hlavním snímku nebo příslušném rozvržení — všechny snímky využívající daný hlavní snímek/rozvržení zdědí toto pozadí.
+Samostatné SVG je snazší přesunout a renderovat konzistentně než SVG, které závisí na externích souborech nebo síťových zdrojích. Kdykoli je to možné, vložte požadované zdroje před importem SVG. Převádějte SVG na tvary jen tehdy, když je potřeba jednotlivé vektorové elementy upravovat.
 
-**Jak zabránit tomu, aby se prezentace „nafoukla“ kvůli mnoha obrázkům?**
+### **Použití moderního multiplatformního API obrázků**
 
-Opakovaně používejte jeden zdroj obrázku místo duplicit, zvolte rozumná rozlišení, použijte kompresi při uložení a opakovanou grafiku umístěte tam, kde to dává smysl, na hlavní snímek.
+Pro nový .NET kód používejte Aspose.Slides [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) a [Images](https://reference.aspose.com/slides/cs/net/aspose.slides/images/) API místo spoléhaní se na `System.Drawing.Image` nebo `Bitmap`. Viz [Moderní API](/slides/cs/net/modern-api/) pro postup migrace.
+
+Formáty WMF a EMF vyžadují zvláštní úvahu. Když jsou tyto formáty předány přes [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/), [ImageCollection.AddImage](https://reference.aspose.com/slides/cs/net/aspose.slides/imagecollection/addimage/) převádí metafile na rastrovou PNG reprezentaci před vložením. Pokud je důležité zachovat data metafile, použijte místo toho přetížení [ImageCollection.AddImage](https://reference.aspose.com/slides/cs/net/aspose.slides/imagecollection/addimage/) založené na proudu. Vytváření EMF obsahu ze spreadsheetů nebo jiných produktů je samostatný integrační pracovní postup a není součástí tohoto článku.
+
+## **Často kladené otázky**
+
+**Jaký je rozdíl mezi kolekcí obrázků a rámečkem obrázku?**
+
+Kolekce obrázků ukládá znovu použitelné zdroje obrázků. Rámeček obrázku je tvar na snímku, který zobrazuje jeden z těchto zdrojů a poskytuje specifické formátování obrázku, jako je ořez a efekty.
+
+**Jaký je nejlepší způsob, jak všude nahradit stejné logo?**
+
+Pokud je logo již sdíleno jako jeden zdroj obrázku, nahraďte tento zdroj pomocí [IPPImage.ReplaceImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/replaceimage/). Pro značku napříč celou prezentací může umístění loga na master nebo rozvržení také snížit duplicitní obsah snímků.
+
+**Proč se odkazovaný obrázek na jiném počítači nezobrazí?**
+
+Odkazovaný obrázek závisí na svém externím souboru nebo URL. Pokud není tento zdroj přístupný z jiného počítače, může být odkazovaný obrázek nedostupný. Vložte obrázek, pokud musí být prezentace samostatná.
+
+**Lze vložené SVG upravit jako tvary PowerPointu?**
+
+Ano. Převěďte SVG pomocí [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addgroupshape/); výsledná skupina obsahuje editovatelné tvary snímku namísto jednoho SVG obrázku.
+
+**Jak mohu udržet prezentace s mnoha obrázky menší?**
+
+Opakovaně používejte sdílené zdroje obrázků, vyhněte se zbytečně velkým rastrovým zdrojům, komprimujte vhodné rastrové obrázky, pokud je to vhodné, uchovávejte opakované značky na masterech nebo rozvrženích a používejte odkazované obrázky jen tehdy, když je externí závislost akceptovatelná.

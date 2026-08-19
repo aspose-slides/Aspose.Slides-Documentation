@@ -1,342 +1,341 @@
 ---
-title: Βελτιστοποίηση Διαχείρισης Εικόνων σε Παρουσιάσεις με χρήση PHP
+title: Βελτιστοποιήστε τη Διαχείριση Εικόνων σε Παρουσιάσεις Χρησιμοποιώντας PHP
 linktitle: Διαχείριση Εικόνων
 type: docs
 weight: 10
 url: /el/php-java/image/
 keywords:
 - προσθήκη εικόνας
-- προσθήκη φωτογραφίας
-- προσθήκη bitmap
+- προσθήκη εικόνας
 - αντικατάσταση εικόνας
-- αντικατάσταση φωτογραφίας
-- από το διαδίκτυο
+- συλλογή εικόνων
+- πλαίσιο εικόνας
+- συνδεδεμένη εικόνα
 - φόντο
 - προσθήκη PNG
 - προσθήκη JPG
 - προσθήκη SVG
-- προσθήκη EMF
-- προσθήκη WMF
-- προσθήκη TIFF
+- SVG σε σχήματα
+- εξωτερικοί πόροι SVG
 - PowerPoint
 - OpenDocument
 - παρουσίαση
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "Βελτιώστε τη διαχείριση εικόνων σε PowerPoint και OpenDocument με το Aspose.Slides για PHP μέσω Java, βελτιώνοντας την απόδοση και αυτοματοποιώντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να προσθέτετε, να επαναχρησιμοποιείτε, να συνδέετε, να αντικαθιστάτε και να διαχειρίζεστε ραστερ και SVG εικόνες σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για PHP μέσω Java."
 ---
 ## **Εισαγωγή**
 
-Οι εικόνες κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες. Στο Microsoft PowerPoint, μπορείτε να εισαγάγετε εικόνες από αρχείο, το διαδίκτυο ή άλλες τοποθεσίες στις διαφάνειες. Αντίστοιχα, το Aspose.Slides σας επιτρέπει να προσθέσετε εικόνες στις διαφάνειες των παρουσιάσεών σας μέσω διαφορετικών διαδικασιών. 
+Το Aspose.Slides για PHP μέσω Java παρέχει αρκετούς τρόπους για εργασία με εικόνες, και κάθε ένας εξυπηρετεί διαφορετικό σκοπό. Μπορείτε να αποθηκεύσετε μια εικόνα σε μια παρουσίαση, να την εμφανίσετε σε ένα πλαίσιο εικόνας, να την χρησιμοποιήσετε ως παρασκήνιο διαφάνειας, να δημιουργήσετε σύνδεσμο σε εξωτερική εικόνα, να αντικαταστήσετε έναν κοινόχρηστο πόρο εικόνας ή να μετατρέψετε περιεχόμενο SVG σε επεξεργάσιμα σχήματα.
 
-{{% alert  title="Tip" color="primary" %}} 
+Αυτό το άρθρο εστιάζει στους πόρους εικόνας και στο πώς χρησιμοποιούνται σε μια παρουσίαση. Για περικοπή, διαφάνεια, εφέ, τέντωμα και άλλες μορφοποιήσεις που εφαρμόζονται σε ένα μεμονωμένο πλαίσιο εικόνας, δείτε [Πλαίσιο Εικόνας](/slides/el/php-java/picture-frame/).
 
-Το Aspose παρέχει δωρεάν μετατροπείς —[JPEG σε PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG σε PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που επιτρέπουν στους χρήστες να δημιουργούν παρουσιάσεις γρήγορα από εικόνες. 
+## **Κατανοήστε το Μοντέλο Εικόνας**
 
-{{% /alert %}} 
+Οι παρακάτω έννοιες API σχετίζονται στενά αλλά δεν είναι εναλλάξιμες:
 
-{{% alert title="Info" color="info" %}}
+- Η [Συλλογή εικόνων παρουσίασης](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagecollection/) αποθηκεύει πόρους εικόνας που χρησιμοποιούνται από την παρουσίαση. Χρησιμοποιήστε το [ImageCollection::addImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagecollection/) για να προσθέσετε δεδομένα εικόνας και να αποκτήσετε έναν πόρο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
+- Ένα [πλαίσιο εικόνας](https://reference.aspose.com/slides/el/php-java/aspose.slides/pictureframe/) είναι ένα σχήμα που εμφανίζει μια εικόνα σε μια διαφάνεια, διάταξη ή master. Χρησιμοποιήστε το [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addpictureframe/) για να τοποθετήσετε έναν πόρο εικόνας σε μια διαφάνεια.
+- Ένα φόντο διαφάνειας χρησιμοποιεί μια εικόνα ως μέρος της γεμίσεως της διαφάνειας και όχι ως σχήμα. Συνεπώς δεν συμπεριφέρεται όπως ένα πλαίσιο εικόνας.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) αντικαθιστά έναν πόρο εικόνας. Εάν πολλά στοιχεία παρουσίασης χρησιμοποιούν αυτόν τον πόρο, όλα θα χρησιμοποιούν την αντικατάσταση.
+- Η μετατροπή ενός SVG σε σχήματα δημιουργεί επεξεργάσιμα σχήματα διαφάνειας. Μετά τη μετατροπή, το περιεχόμενο δεν διαχειρίζεται πλέον ως ένας ενιαίος πόρος εικόνας.
 
-Αν θέλετε να προσθέσετε μια εικόνα ως αντικείμενο πλαισίου —ιδιαίτερα αν σκοπεύετε να χρησιμοποιήσετε τυπικές επιλογές μορφοποίησης για να αλλάξετε το μέγεθός της, να προσθέσετε εφέ κλπ—δείτε τη σελίδα [Picture Frame](/slides/el/php-java/picture-frame/).
+Έτσι, μια τυπική ροή εργασίας είναι: προσθέστε δεδομένα εικόνας στη συλλογή εικόνων, λάβετε ένα [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/), και στη συνέχεια χρησιμοποιήστε αυτόν τον πόρο σε ένα ή περισσότερα πλαίσια εικόνας ή γεμίσματα.
 
-{{% /alert %}} 
+## **Προσθέστε μια ενσωματωμένη εικόνα**
 
-{{% alert title="Note" color="warning" %}}
-
-Μπορείτε να χειριστείτε λειτουργίες εισόδου/εξόδου που αφορούν εικόνες και παρουσιάσεις PowerPoint για να μετατρέψετε μια εικόνα από τη μια μορφή στην άλλη. Δείτε αυτές τις σελίδες: μετατροπή [εικόνα σε JPG](https://products.aspose.com/slides/el/php-java/conversion/image-to-jpg/); μετατροπή [JPG σε εικόνα](https://products.aspose.com/slides/el/php-java/conversion/jpg-to-image/); μετατροπή [JPG σε PNG](https://products.aspose.com/slides/el/php-java/conversion/jpg-to-png/), μετατροπή [PNG σε JPG](https://products.aspose.com/slides/el/php-java/conversion/png-to-jpg/); μετατροπή [PNG σε SVG](https://products.aspose.com/slides/el/php-java/conversion/png-to-svg/), μετατροπή [SVG σε PNG](https://products.aspose.com/slides/el/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Το Aspose.Slides υποστηρίζει λειτουργίες με εικόνες σε αυτές τις δημοφιλείς μορφές: JPEG, PNG, GIF και άλλα. 
-
-## **Προσθήκη Εικόνων που Αποθηκεύονται Τοπικά σε Διαφάνειες**
-
-Μπορείτε να προσθέσετε μία ή πολλές εικόνες από τον υπολογιστή σας σε μια διαφάνεια σε μια παρουσίαση. Αυτό το παράδειγμα κώδικα σας δείχνει πώς να προσθέσετε μια εικόνα σε μια διαφάνεια:
+Για να εισαγάγετε μια τοπική εικόνα, φορτώστε το αρχείο, προσθέστε το στη συλλογή εικόνων και δημιουργήστε ένα πλαίσιο εικόνας που χρησιμοποιεί το επιστρεφόμενο `PPImage`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Προσθήκη Εικών από τον Ιστό σε Διαφάνειες**
+Η εικόνα που προστίθεται με αυτόν τον τρόπο ενσωματώνεται στην παρουσίαση, έτσι το παραγόμενο αρχείο δεν εξαρτάται από το αρχείο εικόνας να παραμένει διαθέσιμο.
 
-Αν η εικόνα που θέλετε να προσθέσετε σε μια διαφάνεια δεν είναι διαθέσιμη στον υπολογιστή σας, μπορείτε να προσθέσετε την εικόνα απευθείας από το διαδίκτυο.
+### **Προσθέστε μια εικόνα από το web**
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να προσθέσετε μια εικόνα από το διαδίκτυο σε μια διαφάνεια:
+Όταν μια εικόνα είναι διαθέσιμη μέσω HTTP ή HTTPS, κατεβάστε τα byte της, προσθέστε τα στη συλλογή εικόνων παρουσίασης και χρησιμοποιήστε τον επιστρεφόμενο πόρο εικόνας με τον ίδιο τρόπο όπως μια τοπική εικόνα.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
-    } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
-    }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
 
-## **Προσθήκη Εικόνων σε Master Slides**
-
-Ένα master slide είναι η κορυφαία διαφάνεια που αποθηκεύει και ελέγχει πληροφορίες (θέμα, διάταξη κ.λπ.) για όλες τις διαφάνειες που το ακολουθούν. Έτσι, όταν προσθέτετε μια εικόνα σε ένα master slide, η εικόνα αυτή εμφανίζεται σε κάθε διαφάνεια που βασίζεται σε αυτό το master slide.
-
-Αυτό το παράδειγμα κώδικα Java σας δείχνει πώς να προσθέσετε μια εικόνα σε ένα master slide:
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Προσθήκη Εικόνων ως Φόντο Διαφάνειας**
-
-Μπορείτε να αποφασίσετε να χρησιμοποιήσετε μια εικόνα ως φόντο για μια συγκεκριμένη διαφάνεια ή για πολλές διαφάνειες. Σε αυτήν την περίπτωση, δείτε πώς να [Set an Image as a Slide Background](/slides/el/php-java/presentation-background/#set-an-image-as-a-slide-background).
-
-## **Προσθήκη SVG σε Παρουσιάσεις**
-
-Μπορείτε να προσθέσετε ή να εισάγετε οποιαδήποτε εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [addPictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addpictureframe/) που ανήκει στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/).
-
-Για να δημιουργήσετε ένα αντικείμενο εικόνας βασισμένο σε SVG εικόνα, μπορείτε να το κάνετε με τον εξής τρόπο:
-
-1. Δημιουργήστε αντικείμενο SvgImage για να το εισάγετε στο ImageShapeCollection
-2. Δημιουργήστε αντικείμενο PPImage από το ISvgImage
-3. Δημιουργήστε αντικείμενο PictureFrame χρησιμοποιώντας την κλάση PPImage
-
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να υλοποιήσετε τα παραπάνω βήματα για να προσθέσετε μια SVG εικόνα σε μια παρουσίαση:
-```php
-  # Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει αρχείο PPTX
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Μετατροπή SVG σε Σύνολο Σχημάτων**
-
-Η μετατροπή SVG σε σύνολο σχημάτων του Aspose.Slides είναι παρόμοια με τη λειτουργικότητα του PowerPoint που χρησιμοποιείται για εργασία με εικόνες SVG:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Η λειτουργικότητα παρέχεται από μία από τις υπερφορτωμένες εκδοχές της μεθόδου [addGroupShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addgroupshape/) της κλάσης [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/) που δέχεται ένα αντικείμενο [SvgImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/svgimage/) ως πρώτο όρισμα.
-
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να χρησιμοποιήσετε τη περιγραφόμενη μέθοδο για να μετατρέψετε ένα αρχείο SVG σε σύνολο σχημάτων:
-
-```php
-  # Δημιουργία νέας παρουσίασης
-  $presentation = new Presentation();
-  try {
-    # Ανάγνωση περιεχομένου αρχείου SVG
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
-
-    # Δημιουργία αντικειμένου SvgImage
-    $svgImage = new SvgImage($svgContent);
-    # Λήψη μεγέθους διαφάνειας
-    $slideSize = $presentation->getSlideSize()->getSize();
-    # Μετατροπή εικόνας SVG σε ομάδα σχημάτων κλιμακώνοντάς την στο μέγεθος της διαφάνειας
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # Αποθήκευση παρουσίασης σε μορφή PPTX
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Προσθήκη Εικόνων ως EMF σε Διαφάνειες**
-
-Το Aspose.Slides for PHP μέσω Java σας επιτρέπει να δημιουργείτε εικόνες EMF από φύλλα Excel και να προσθέτετε τις εικόνες ως EMF σε διαφάνειες με το Aspose.Cells. 
-
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να εκτελέσετε την περιγραφόμενη εργασία:
-
-```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # Αποθήκευση του βιβλίου εργασίας σε ροή
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
         }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+    } finally {
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Αντικατάσταση Εικόνων στη Συλλογή Εικόνων**
+Σε εφαρμογές που εκτελούνται για μεγάλο χρονικό διάστημα, επαναχρησιμοποιήστε έναν πελάτη HTTP ή στρατηγική διαχείρισης συνδέσεων κατάλληλη για την εφαρμογή αντί να δημιουργείτε επανειλημμένα περιττή υποδομή δικτύου. Επίσης, επικυρώστε απομακρυσμένα URLs, μεγέθη απαντήσεων και τύπους περιεχομένου όταν η πηγή δεν είναι αξιόπιστη.
 
-Το Aspose.Slides σας επιτρέπει να αντικαθιστάτε εικόνες που είναι αποθηκευμένες στη συλλογή εικόνων μιας παρουσίασης (συμπεριλαμβανομένων αυτών που χρησιμοποιούνται από σχήματα διαφανειών). Αυτή η ενότητα παρουσιάζει αρκετές προσεγγίσεις για την ενημέρωση εικόνων στη συλλογή. Το API παρέχει απλές μεθόδους για την αντικατάσταση μιας εικόνας χρησιμοποιώντας αμιγδα δεδομένων byte, ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/), ή άλλη εικόνα που ήδη υπάρχει στη συλλογή.
+## **Επαναχρησιμοποίηση εικόνων σε πολλές διαφάνειες**
 
-Ακολουθήστε τα παρακάτω βήματα:
+Εάν η ίδια εικόνα χρειάζεται περισσότερες από μία φορές, προσθέστε τη στην παρουσίαση μία φορά και επαναχρησιμοποιήστε το επιστρεφόμενο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) όταν δημιουργείτε επιπλέον πλαίσια εικόνας. Αυτό αποτρέπει τη συνεχή φόρτωση των ίδιων δεδομένων πηγής και κάνει τη σχέση μεταξύ του κοινόχρηστου πόρου εικόνας και των χρήσεών του σαφή.
 
-1. Φορτώστε το αρχείο παρουσίασης που περιέχει εικόνες χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Φορτώστε μια νέα εικόνα από αρχείο σε έναν πίνακα byte.
-3. Αντικαταστήστε την εικόνα-στόχο με τη νέα εικόνα χρησιμοποιώντας τον πίνακα byte.
-4. Στη δεύτερη προσέγγιση, φορτώστε την εικόνα σε αντικείμενο [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/) και αντικαταστήστε την εικόνα-στόχο με αυτό το αντικείμενο.
-5. Στην τρίτη προσέγγιση, αντικαταστήστε την εικόνα-στόχο με μια εικόνα που ήδη υπάρχει στη συλλογή εικόνων της παρουσίασης.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Για γραφικά που πρέπει να εμφανίζονται αυτόματα σε πολλές διαφάνειες, όπως το λογότυπο της εταιρείας, σκεφτείτε να τοποθετήσετε το πλαίσιο εικόνας σε ένα [κύρια διαφάνεια](/slides/el/php-java/slide-master/) ή διάταξη αντί να προσθέτετε ένα ισοδύναμο σχήμα σε κάθε διαφάνεια.
+
+## **Χρησιμοποιήστε μια εικόνα ως φόντο διαφάνειας**
+
+Μια εικόνα φόντου ανατίθεται στο γέμισμα της διαφάνειας· δεν προστίθεται ως σχήμα πλαισίου εικόνας. Αυτό είναι χρήσιμο όταν η εικόνα πρέπει να καλύπτει το φόντο της διαφάνειας και δεν πρέπει να επεξεργάζεται ως κανονικό αντικείμενο διαφάνειας.
 
 ```php
-// Δημιουργία του αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-$presentation = new Presentation("sample.pptx");
-try {
-    // Ο πρώτος τρόπος.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    // Ο δεύτερος τρόπος.
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // Ο τρίτος τρόπος.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // Αποθήκευση της παρουσίασης σε αρχείο.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Για πρόσθετες επιλογές φόντου, συμπεριλαμβανομένων φόντων master και διάταξης, δείτε [Φόντο Παρουσίασης](/slides/el/php-java/presentation-background/).
+
+## **Ενσωματωμένες εικόνες και συνδεδεμένες εικόνες**
+
+Οι ενσωματωμένες και οι συνδεδεμένες εικόνες έχουν διαφορετικές ανταλλαγές φορητότητας και μεγέθους αρχείου:
+
+- **Embedded image:** τα δεδομένα της εικόνας αποθηκεύονται μέσα στην παρουσίαση. Η παρουσίαση είναι ανεξάρτητη, αλλά το μέγεθος του αρχείου περιλαμβάνει τα δεδομένα της εικόνας.
+- **Linked image:** η παρουσίαση αποθηκεύει μια διαδρομή ή URL σε εξωτερική εικόνα. Αυτό μπορεί να μειώσει το μέγεθος της παρουσίασης, αλλά ο εξωτερικός πόρος πρέπει να παραμένει προσβάσιμος όταν η παρουσίαση ανοίγει ή αποδίδεται.
+
+Μια συνδεδεμένη εικόνα μπορεί να δημιουργηθεί αντιστοιχίζοντας τη εξωτερική διαδρομή ή URL μέσω του [Picture::setLinkPathLong](https://reference.aspose.com/slides/el/php-java/aspose.slides/picture/) αντί για ενσωμάτωση των δεδομένων της εικόνας.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Χρησιμοποιήστε συνδεδεμένες εικόνες μόνο όταν το περιβάλλον ανάπτυξης μπορεί αξιόπιστα να προσπελάσει τον εξωτερικό πόρο. Για παρουσιάσεις που πρέπει να λειτουργούν εκτός σύνδεσης ή να μετακινούνται μεταξύ συστημάτων, οι ενσωματωμένες εικόνες είναι συνήθως πιο ασφαλείς.
+
+## **Εργασία με SVG εικόνες**
+
+Το SVG είναι μορφή διανυσματική, επομένως μπορεί να είναι χρήσιμο για εικονίδια, διαγράμματα και άλλα γραφικά που πρέπει να κλιμακώνονται χωρίς την ίδια απώλεια λεπτομέρειας όπως τις ραστερ εικόνες. Το Aspose.Slides υποστηρίζει το SVG τόσο ως πόρο εικόνας όσο και ως πηγή για επεξεργάσιμα σχήματα διαφάνειας.
+
+### **Προσθέστε ένα SVG ως εικόνα**
+
+Δημιουργήστε ένα [SvgImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/svgimage/), προσθέστε το στη συλλογή εικόνων και τοποθετήστε τον παραγόμενο πόρο εικόνας σε ένα πλαίσιο εικόνας.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Αρχεία SVG με εξωτερικούς πόρους**
+
+Ένα SVG μπορεί να αναφέρεται σε εξωτερικές εικόνες, φύλλα στιλ ή γραμματοσειρές. Για αυτές τις περιπτώσεις, το [SvgImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/svgimage/) παρέχει κατασκευαστές που δέχονται έναν [ExternalResourceResolver](https://reference.aspose.com/slides/el/php-java/aspose.slides/externalresourceresolver/) και μια βασική URI. Ο resolver μπορεί να χαρτογραφήσει μια σχετική URI σε μια επιτρεπόμενη απόλυτη URI και να επιστρέψει μια ροή για τον ζητούμενο πόρο.
+
+Ο resolver καθιστά τους εξωτερικούς πόρους διαθέσιμους κατά τη διαδικασία του SVG από το Aspose.Slides, αλλά δεν ξαναγράφει το SVG σε ένα αυτόνομο έγγραφο. Εάν το SVG πρέπει να παραμείνει φορητό, ενσωματώστε τους απαιτούμενους πόρους στο ίδιο το SVG, για παράδειγμα χρησιμοποιώντας `data:` URIs για συνδεδεμένες εικόνες.
+
+Όταν τα αρχεία SVG προέρχονται από μη αξιόπιστες πηγές, περιορίστε τα σχήματα, τις θέσεις αρχείων και τους κεντρικούς υπολογιστές που μπορεί να προσπελάσει ο resolver. Οι δικτυακοί resolvers πρέπει επίσης να εφαρμόζουν χρονικά όρια, περιορισμούς μεγέθους απάντησης και επικύρωση περιεχομένου.
+
+### **Μετατροπή SVG σε επεξεργάσιμα σχήματα**
+
+Το Aspose.Slides μπορεί να μετατρέψει ένα SVG σε μια ομάδα επεξεργάσιμων σχημάτων διαφάνειας, παρόμοια με την αντίστοιχη εντολή του PowerPoint.
+
+![Μενού αναδυόμενο του PowerPoint](img_01_01.png)
+
+Χρησιμοποιήστε το υπερφόρτωμα του [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addgroupshape/) που δέχεται ένα [SvgImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/svgimage/) για να εκτελέσετε τη μετατροπή.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $slideSize = $presentation->getSlideSize()->getSize();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Χρησιμοποιήστε τη μετατροπή SVG-σε-σχήματα όταν τα μεμονωμένα διανυσματικά στοιχεία χρειάζεται να επεξεργαστούν ως σχήματα PowerPoint. Εάν το SVG χρειάζεται μόνο να εμφανιστεί, η διατήρησή του ως εικόνα είναι πιο απλή και αποφεύγει τη δημιουργία πολλών ξεχωριστών σχημάτων.
+
+## **Αντικατάσταση υπάρχοντος πόρου εικόνας**
+
+Χρησιμοποιήστε το [PPImage::replaceImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) όταν θέλετε να αντικαταστήσετε έναν υπάρχοντα πόρο εικόνας. Αυτό είναι ιδιαίτερα χρήσιμο για κοινά γραφικά όπως λογότυπα.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $imageToReplace = $presentation->getImages()->get_Item(0);
+
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Εάν πολλά πλαίσια εικόνας, φόντα, master ή διατάξεις χρησιμοποιούν τον ίδιο πόρο εικόνας, η αντικατάσταση του πόρου ενημερώνει όλες τις χρήσεις του. Εάν πρέπει να αλλάξει μόνο ένα πλαίσιο εικόνας, αντιστοιχίστε μια διαφορετική εικόνα σε αυτό το πλαίσιο αντί για την αντικατάσταση του κοινόχρηστου πόρου.
 
-Χρησιμοποιώντας το ΔΩΡΕΑΝ μετατροπέα Aspose [Text to GIF](https://products.aspose.app/slides/el/text-to-gif), μπορείτε εύκολα να δημιουργήσετε κινούμενα κείμενα, GIF από κείμενα κλπ. 
+`PPImage::replaceImage` παρέχει επίσης υπερφορτώσεις που δέχονται έναν πίνακα byte ή ένα άλλο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Πρακτικές οδηγίες διαχείρισης εικόνων**
 
-## **Συχνές Ερωτήσεις**
+### **Έλεγχος μεγέθους παρουσίασης**
 
-**Παραμένει η αρχική ανάλυση της εικόνας ανέπαφη μετά την εισαγωγή;**
+Οι μεγάλες ραστερ εικόνες μπορούν να κάνουν μια παρουσίαση ανεξήγητα μεγάλη. Χρησιμοποιήστε εικόνες πηγής με διαστάσεις κατάλληλες για το προβλεπόμενο μέγεθος εμφάνισης, επαναχρησιμοποιείστε κοινά πόρους εικόνας όπου είναι δυνατόν, και αποφύγετε την ενσωμάτωση επαναλαμβανόμενων αντιγράφων του ίδιου γραφικού υψηλής ανάλυσης.
 
-Ναι. Τα αρχικά pixel διατηρούνται, αλλά η τελική εμφάνιση εξαρτάται από το πώς η [picture](/slides/el/php-java/picture-frame/) κλιμακώνεται στη διαφάνεια και τυχόν συμπίεση που εφαρμόζεται κατά την αποθήκευση.
+Για ραστερ εικόνες που έχουν ήδη τοποθετηθεί σε πλαίσια εικόνας, το [PictureFillFormat::compressImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/picturefillformat/) μπορεί να μειώσει τα δεδομένα της εικόνας σύμφωνα με την επιλεγμένη ανάλυση και τις ρυθμίσεις περικοπής. Αυτό είναι επεξεργασία πλαισίου εικόνας και όχι διαχείριση συλλογής εικόνων, οπότε δείτε το [Picture Frame](/slides/el/php-java/picture-frame/) για σχετικές λειτουργίες μορφοποίησης.
 
-**Ποιος είναι ο καλύτερος τρόπος για να αντικαταστήσετε το ίδιο λογότυπο σε δεκάδες διαφάνειες ταυτόχρονα;**
+### **Επιλογή μεταξύ ενσωματωμένου και συνδεδεμένου περιεχομένου**
 
-Τοποθετήστε το λογότυπο στο master slide ή σε μια διάταξη και αντικαταστήστε το στη συλλογή εικόνων της παρουσίασης — οι ενημερώσεις θα διανεμηθούν σε όλα τα στοιχεία που χρησιμοποιούν αυτόν τον πόρο.
+Η ενσωμάτωση κάνει την παρουσίαση φορητή επειδή όλα τα απαιτούμενα δεδομένα εικόνας μεταφέρονται με το αρχείο. Η σύνδεση μπορεί να μειώσει το μέγεθος του αρχείου, αλλά εισάγει μια εξωτερική εξάρτηση. Χρησιμοποιήστε συνδέσμους μόνο όταν αυτή η εξάρτηση είναι αποδεκτή και σταθερή.
 
-**Μπορεί ένα εισαχθέν SVG να μετατραπεί σε επεξεργάσιμα σχήματα;**
+### **Επαναχρησιμοποίηση κοινής επωνυμίας**
 
-Ναι. Μπορείτε να μετατρέψετε ένα SVG σε ομάδα σχημάτων, μετέπειτα τα επιμέρους μέρη γίνονται επεξεργάσιμα με τις τυπικές ιδιότητες σχήματος.
+Για επαναλαμβανόμενα λογότυπα, υδατογραφήματα ή διακοσμητικά γραφικά, χρησιμοποιήστε έναν πόρο εικόνας και επαναχρησιμοποιήστε τον. Εάν το γραφικό ανήκει στο σχεδιασμό της παρουσίασης και όχι στο περιεχόμενο της διαφάνειας, τοποθετήστε το σε ένα master ή διάταξη ώστε να κληρονομείται από τις αντίστοιχες διαφάνειες.
 
-**Πώς μπορώ να ορίσω μια εικόνα ως φόντο για πολλές διαφάνειες ταυτόχρονα;**
+### **Διατηρήστε τους πόρους SVG φορητούς**
 
-[Assign the image as the background](/slides/el/php-java/presentation-background/) στο master slide ή στη σχετική διάταξη — οποιεσδήποτε διαφάνειες που χρησιμοποιούν αυτό το master/layout θα κληρονομήσουν το φόντο.
+Ένα αυτόνομο SVG είναι πιο εύκολο να μεταφερθεί και να αποδοθεί σταθερά από ένα SVG που εξαρτάται από εξωτερικά αρχεία ή δικτυακούς πόρους. Όταν είναι δυνατόν, ενσωματώστε τους απαιτούμενους πόρους πριν την εισαγωγή του SVG. Μετατρέψτε το SVG σε σχήματα μόνο όταν τα μεμονωμένα διανυσματικά στοιχεία χρειάζεται να επεξεργαστούν.
 
-**Πώς μπορώ να αποτρέψω την παρουσίαση από το «φούσκωμα» σε μέγεθος λόγω πολλών εικόνων;**
+### **Χρησιμοποιήστε το σύγχρονο διασυνοριακό API εικόνων**
 
-Επαναχρησιμοποιήστε έναν ενιαίο πόρο εικόνας αντί για αντίγραφα, επιλέξτε λογικές αναλύσεις, εφαρμόστε συμπίεση κατά την αποθήκευση και διατηρήστε τα επαναλαμβανόμενα γραφικά στο master όπου είναι κατάλληλο.
+Για νέο κώδικα PHP μέσω Java, χρησιμοποιήστε τα APIs Aspose.Slides [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/) και [Images](https://reference.aspose.com/slides/el/php-java/aspose.slides/images/) αντί του παλαιού δημόσιου API που βασίζεται στο `java.awt.image.BufferedImage`. Δείτε το [Modern API](/slides/el/php-java/modern-api/) για οδηγίες μετάβασης.
+
+Τα WMF και EMF απαιτούν ειδική προσοχή. Όταν αυτές οι μορφές περνούν μέσω ενός [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/), το [ImageCollection::addImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagecollection/) μετατρέπει το μετααρχείο σε αναπαράσταση raster PNG πριν την εισαγωγή. Εάν η διατήρηση των δεδομένων του μετααρχείου είναι σημαντική, χρησιμοποιήστε μια υπερφόρτωση του [ImageCollection::addImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagecollection/) που βασίζεται σε ροή. Η δημιουργία περιεχομένου EMF από υπολογιστικά φύλλα ή άλλα προϊόντα είναι μια ξεχωριστή ροή ενσωμάτωσης και βρίσκεται εκτός του πεδίου αυτού του άρθρου.
+
+## **FAQ**
+
+**Ποια είναι η διαφορά μεταξύ της συλλογής εικόνων και ενός πλαισίου εικόνας;**
+
+Η συλλογή εικόνων αποθηκεύει επαναχρησιμοποιήσιμους πόρους εικόνας. Ένα πλαίσιο εικόνας είναι ένα σ_shape διαφάνειας που εμφανίζει έναν από τους πόρους αυτούς και παρέχει μορφοποίηση ειδική για εικόνα όπως περικοπή και εφέ.
+
+**Ποιος είναι ο καλύτερος τρόπος να αντικαταστήσετε το ίδιο λογότυπο παντού;**
+
+Εάν το λογότυπο είναι ήδη κοινόχρηστο ως ένας πόρος εικόνας, αντικαταστήστε αυτόν τον πόρο με το [PPImage::replaceImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/). Για εταιρική επωνυμία σε ολόκληρη την παρουσίαση, η τοποθέτηση του λογότυπου σε ένα master ή διάταξη μπορεί επίσης να μειώσει το διπλό περιεχόμενο διαφάνειας.
+
+**Γιατί μια συνδεδεμένη εικόνα εξαφανίζεται σε έναν άλλο υπολογιστή;**
+
+Μια συνδεδεμένη εικόνα εξαρτάται από το εξωτερικό αρχείο ή URL της. Εάν αυτός ο πόρος δεν μπορεί να προσεγγιστεί από τον άλλο υπολογιστή, η συνδεδεμένη εικόνα ενδέχεται να μην υπάρχει. Ενσωματώστε την εικόνα όταν η παρουσίαση πρέπει να είναι αυτόνομη.
+
+**Μπορεί ένα εισαχθέν SVG να επεξεργαστεί ως σχήματα PowerPoint;**
+
+Ναι. Μετατρέψτε το SVG με το [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addgroupshape/); η παραγόμενη ομάδα περιέχει επεξεργάσιμα σχήματα διαφάνειας αντί για μια ενιαία εικόνα SVG.
+
+**Πώς μπορώ να διατηρήσω τις παρουσιάσεις με πολλές εικόνες μικρότερες;**
+
+Επαναχρησιμοποιήστε κοινά πόρους εικόνας, αποφύγετε τα περιττά μεγάλα ραστερ αρχεία, συμπιέστε κατάλληλες ραστερ εικόνες όταν είναι σκόπιμο, διατηρήστε την επαναλαμβανόμενη επωνυμία σε master ή διατάξεις, και χρησιμοποιήστε συνδεδεμένες εικόνες μόνο όταν αποδεκτή είναι μια εξωτερική εξάρτηση.

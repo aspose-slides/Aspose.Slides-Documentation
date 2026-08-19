@@ -1,5 +1,5 @@
 ---
-title: تحسين إدارة الصور في PowerPoint باستخدام Python
+title: تحسين إدارة الصور في العروض التقديمية باستخدام Python
 linktitle: إدارة الصور
 type: docs
 weight: 10
@@ -7,248 +7,250 @@ url: /ar/python-net/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة بت ماب
 - استبدال صورة
-- استبدال صورة
-- من الويب
+- مجموعة الصور
+- إطار الصورة
+- صورة مرتبطة
 - خلفية
 - إضافة PNG
 - إضافة JPG
 - إضافة SVG
-- إضافة EMF
-- إضافة WMF
-- إضافة TIFF
+- SVG إلى أشكال
+- موارد SVG الخارجية
 - PowerPoint
+- OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تبسيط إدارة الصور في PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET، مع تحسين الأداء وأتمتة سير العمل الخاص بك."
+description: "تعرّف على كيفية إضافة وإعادة استخدام وربط واستبدال وإدارة الصور النقطية وSVG في عروض PowerPoint وOpenDocument مع Aspose.Slides للبايثون عبر .NET."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+توفر Aspose.Slides for Python عبر .NET عدة طرق للعمل مع الصور، ويؤدي كل منها غرضًا مختلفًا. يمكنك تخزين صورة في العرض التقديمي، عرضها في إطار صورة، استخدامها كخلفية شريحة، ربطها بصورة خارجية، استبدال مورد صورة مشترك، أو تحويل محتوى SVG إلى أشكال قابلة للتعديل.
 
-تجعل الصور العروض التقديمية أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مصادر أخرى إلى الشرائح. وبالمثل، يتيح لك Aspose.Slides إضافة الصور إلى الشرائح بطرق متعددة.
+تركّز هذه المقالة على موارد الصورة وكيفية استخدامها عبر العرض التقديمي. لتقليل القص، الشفافية، التأثيرات، التمدد، وغيرها من التنسيقات المطبقة على إطار صورة فردي، راجع [إطار الصورة](/slides/ar/python-net/picture-frame/).
 
-{{% alert  title="نصيحة" color="primary" %}}
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تتيح لك إنشاء عروض تقديمية بسرعة من الصور.
-{{% /alert %}}
+## **فهم نموذج الصورة**
 
-{{% alert title="معلومات" color="info" %}}
-إذا كنت ترغب في إضافة صورة ككائن إطار—خاصة إذا كنت تخطط لاستخدام خيارات تنسيق قياسية مثل تغيير الحجم أو تطبيق التأثيرات—انظر إلى [إضافة إطارات صور إلى العروض التقديمية باستخدام Python](https://docs.aspose.com/slides/python-net/picture-frame/).
-{{% /alert %}}
+المفاهيم التالية في واجهة برمجة التطبيقات مرتبطة ارتباطًا وثيقًا لكنها ليست قابلة للتبادل:
 
-{{% alert title="ملاحظة" color="warning" %}}
-يمكنك استخدام عمليات الإدخال والإخراج للصور والعروض التقديمية لتحويل الصور بين الصيغ. راجع هذه الصفحات: تحويل [صورة إلى JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/); تحويل [PNG إلى JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/); وتحويل [SVG إلى PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
-{{% /alert %}}
+- تخزن [مجموعة صور العرض التقديمي](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imagecollection/) موارد الصور المستخدمة في العرض التقديمي. استخدم [ImageCollection.add_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imagecollection/add_image/) لإضافة بيانات الصورة والحصول على مورد [IPPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ippimage/).
+- [إطار صورة](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ipictureframe/) هو شكل يعرض صورة على شريحة أو تخطيط أو ماستر. استخدم [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_picture_frame/) لوضع مورد صورة على شريحة.
+- خلفية الشريحة تستخدم صورة كجزء من تعبئة الشريحة بدلاً من كونها شكلاً. لذلك لا تتصرف كإطار صورة.
+- تستبدل [IPPImage.replace_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ippimage/replace_image/) مورد صورة. إذا استخدم عدة عناصر في العرض التقديمي ذلك المورد، فستستعمل جميعها البديل.
+- تحويل SVG إلى أشكال ينشئ أشكال شريحة قابلة للتعديل. بعد التحويل، لا يُدار المحتوى كموارد صورة واحدة.
 
-يدعم Aspose.Slides العمل مع الصور في الصيغ الشائعة مثل JPEG وPNG وBMP وGIF وغير ذلك.
+لذلك فإن سير العمل النموذجي هو: إضافة بيانات الصورة إلى مجموعة الصور، الحصول على [IPPImage]، ثم استخدام ذلك المورد في إطار صورة واحد أو أكثر أو تعبئات.
 
-## **إضافة الصور المخزنة محليًا إلى الشرائح**
+## **إضافة صورة مضمّنة**
 
-يمكنك إضافة صورة أو أكثر من جهاز الكمبيوتر الخاص بك إلى شريحة في عرض تقديمي. يوضح المثال التالي بلغة Python كيفية إضافة صورة إلى شريحة:
-```py
+لإدراج صورة محلية، اقرأ الملف، أضف بياناته إلى مجموعة الصور، وأنشئ إطار صورة يستخدم الـ`IPPImage` المرجع.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **إضافة الصور من الويب إلى الشرائح**
-
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إدراجها مباشرةً من الويب.
-
-يعرض المثال التالي بلغة Python كيفية إضافة صورة من URL إلى شريحة:
-```py
-import aspose.slides as slides
-import urllib2
-import base64
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الصورة التي تُضاف بهذه الطريقة تكون مضمّنة في العرض التقديمي، وبالتالي لا يعتمد الملف الناتج على توافر ملف الصورة الأصلي.
 
-## **إضافة الصور إلى ماستر الشرائح**
+### **إضافة صورة من الويب**
 
-ماستر الشريحة هو الشريحة العليا التي تخزن وتتحكم في المعلومات—المظهر، التخطيط، وما إلى ذلك—لجميع الشرائح تحته. عندما تضيف صورة إلى ماستر الشريحة، تظهر تلك الصورة في كل شريحة تستخدم ذلك الماستر.
+عند توفر صورة عبر HTTP أو HTTPS، قم بتنزيل بايتاتها، أضفها إلى مجموعة صور العرض التقديمي، واستخدم مورد الصورة المرجع بنفس طريقة الصورة المحلية.
 
-يعرض المثال التالي بلغة Python كيفية إضافة صورة إلى ماستر الشريحة:
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+في التطبيقات طويلة الأمد، أعد استخدام عميل HTTP أو مجموعة اتصالات حيثما كان ذلك مناسبًا بدلاً من إنشاء اتصال جديد لكل طلب. كما يجب التحقق من صحة عناوين URL البعيدة، أحجام الاستجابات، وأنواع المحتوى عندما لا يكون المصدر موثوقًا.
+
+## **إعادة استخدام الصور عبر الشرائح**
+
+إذا كانت الصورة نفسها مطلوبة أكثر من مرة، أضفها إلى العرض التقديمي مرة واحدة وأعد استخدام الـ[IPPImage] المرجع عند إنشاء إطارات صور إضافية. يؤدي ذلك إلى تجنب تحميل بيانات المصدر نفسها مرارًا ويجعل العلاقة بين مورد الصورة المشترك واستخداماته واضحة.
+
+للرسوم التي يجب أن تظهر تلقائيًا على العديد من الشرائح، مثل شعار الشركة، ضع إطار الصورة على [ماستر الشريحة](/slides/ar/python-net/slide-master/) أو التخطيط بدلاً من إضافة شكل مكافئ إلى كل شريحة.
+
+## **استخدام صورة كخلفية شريحة**
+
+يُعين صورة الخلفية لتعبئة الشريحة؛ ولا تُضاف كقالب إطار صورة. يكون ذلك مفيدًا عندما يجب أن تغطي الصورة خلفية الشريحة ولا ينبغي تعديلها ككائن شريحة عادي.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+لخيارات خلفية إضافية، بما في ذلك خلفيات الماستر والتخطيط، راجع [خلفية العرض التقديمي](/slides/ar/python-net/presentation-background/).
+
+## **الصور المضمّنة والروابط**
+
+تتميز الصور المضمّنة والمرتبطة بمقايضات مختلفة من حيث القابلية للنقل وحجم الملف:
+
+- **الصورة المضمّنة:** يتم تخزين بيانات الصورة داخل العرض التقديمي. يكون العرض التقديمي مستقلًا، لكن حجم الملف يتضمن بيانات الصورة.
+- **الصورة المرتبطة:** يخزن العرض التقديمي مسارًا أو عنوان URL لصورة خارجية. يمكن لهذا أن يقلل من حجم العرض التقديمي، لكن يجب أن يظل المورد الخارجي متاحًا عند فتح أو عرض العرض.
+
+يمكن إنشاء صورة مرتبطة عن طريق تعيين المسار أو URL الخارجي عبر [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/ar/python-net/aspose.slides/islidespicture/link_path_long/) بدلاً من تضمين بيانات الصورة.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+استخدم الصور المرتبطة فقط عندما يمكن لبيئة النشر الوصول إلى المورد الخارجي بموثوقية. بالنسبة للعرض التقديمي الذي يجب أن يعمل دون اتصال أو يتم نقله بين الأنظمة، تكون الصور المضمّنة عادةً أكثر أمانًا.
 
-## **تعيين صورة كخلفية للشريحة**
+## **العمل مع صور SVG**
 
-قد ترغب في استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. للتفاصيل، انظر إلى [تعيين صورة كخلفية للشرائح](https://docs.aspose.com/slides/python-net/presentation-background/#set-image-as-background-for-slide).
+SVG هو تنسيق متجه، لذا يمكن أن يكون مفيدًا للأيقونات، المخططات، والرسومات الأخرى التي يجب أن تتوسع دون فقدان التفاصيل كما في الصور النقطية. يدعم Aspose.Slides تنسيق SVG كموارد صورة ومصدر لأشكال شريحة قابلة للتعديل.
 
-## **إضافة SVG إلى العروض التقديمية**
+### **إضافة SVG كصورة**
 
-يمكنك إدراج أي صورة في عرض تقديمي باستخدام طريقة [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) من الفئة [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
+أنشئ [SvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/)، أضفه إلى مجموعة الصور، وضع مورد الصورة الناتج في إطار صورة.
 
-لإنشاء كائن صورة من SVG، اتبع الخطوات التالية:
-
-1. إنشاء كائن [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) وإضافته إلى مجموعة صور العرض.  
-2. إنشاء كائن [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) من [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/).  
-3. إنشاء كائن [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) باستخدام [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-
-يعرض المثال التالي بلغة Python كيفية إضافة صورة SVG إلى عرض تقديمي باستخدام هذه الخطوات:
-```py 
+```python
 import aspose.slides as slides
 
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
+    image = presentation.images.add_image(svg_image)
     slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
 
-    # اقرأ محتوى ملف SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # أنشئ كائن SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # أنشئ كائن PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # أنشئ PictureFrame جديد.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # احفظ العرض التقديمي بتنسيق PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **تحويل SVG إلى أشكال قابلة للتعديل**
 
-## **تحويل SVG إلى مجموعة من الأشكال**
+يمكن لـ Aspose.Slides تحويل SVG إلى مجموعة من الأشكال القابلة للتعديل في الشريحة، مماثلة للأمر المقابل في PowerPoint.
 
-يقوم Aspose.Slides بتحويل ملفات SVG إلى مجموعة من الأشكال بطريقة مشابهة لمعالجة SVG في PowerPoint.
+![PowerPoint Popup Menu](img_01_01.png)
 
-![قائمة منبثقة في PowerPoint](img_01_01.png)
+استخدم الحمولة الزائدة لـ [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_group_shape/) التي تقبل [ISvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/isvgimage/) لتنفيذ التحويل.
 
-توفر هذه الوظيفة عبر نسخة مُحمّلة من طريقة [add_group_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_group_shape/) في الفئة [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) التي تقبل كمعامل أول كائن [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/).
-
-يعرض رمز العينة أدناه كيفية تحويل ملف SVG إلى مجموعة من الأشكال.
-```py 
+```python
 import aspose.slides as slides
 
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
+
 with slides.Presentation() as presentation:
-    # اقرأ محتوى ملف SVG.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # أنشئ كائن SvgImage.
-        svg_image = slides.SvgImage(svg_content)
-
-        # احصل على حجم الشريحة.
-        slide_size = presentation.slide_size.size
-
-        # حوّل صورة SVG إلى مجموعة من الأشكال وقم بتعديل الحجم ليتناسب مع حجم الشريحة.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # احفظ العرض التقديمي بتنسيق PPTX.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **إضافة الصور كـ EMF في الشرائح**
-
-يتيح Aspose.Slides for Python إدراج صور Enhanced Metafile (EMF) في العروض التقديمية.
-
-يعرض المثال التالي بلغة Python ذلك:
-```py 
-with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMM.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
+
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+استخدم تحويل SVG إلى أشكال عندما تحتاج العناصر المتجهة الفردية إلى تعديل كأشكال PowerPoint. إذا كان الهدف فقط عرض SVG، فإن إبقائه كصورة يكون أبسط ويتجنب إنشاء العديد من الأشكال المنفصلة.
 
-## **استبدال الصور في مجموعة الصور**
+## **استبدال مورد صورة موجود**
 
-يتيح Aspose.Slides لك استبدال الصور المخزنة في مجموعة صور العرض التقديمي، بما في ذلك تلك المستخدمة في أشكال الشرائح. يوضح هذا القسم عدة طرق لتحديث الصور في المجموعة. توفر API طرقًا بسيطة لاستبدال صورة ببيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة.
+استخدم [IPPImage.replace_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ippimage/replace_image/) عندما ترغب في استبدال مورد صورة موجود. يكون هذا مفيدًا خاصة للرسومات المشتركة مثل الشعارات.
 
-اتبع الخطوات التالية:
+```python
+import aspose.slides as slides
 
-1. حمِّل العرض التقديمي الذي يحتوي على الصور باستخدام الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
-2. حمِّل صورة جديدة من ملف إلى مصفوفة بايت.  
-3. استبدل الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.  
-4. بدلاً من ذلك، حمِّل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) واستبدل الصورة المستهدفة بذلك الكائن.  
-5. أو استبدل الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض.  
-6. احفظ العرض التقديمي المعدل كملف PPTX.
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
-```py
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
 
-
-# إنشاء كائن الفئة Presentation الذي يمثل ملف عرض تقديمي.
-with slides.Presentation("sample.pptx") as presentation:
-
-    # الطريقة الأولى.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
-
-    # الطريقة الثانية.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
-
-    # الطريقة الثالثة.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
-
-    # حفظ العرض التقديمي إلى ملف.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+إذا استخدمت إطارات صور متعددة، خلفيات، ماسترات أو تخطيطات نفس مورد الصورة، فإن استبدال ذلك المورد سيحدّث جميع الاستخدامات. إذا كان يجب تغيير إطار صورة واحد فقط، فقم بتعيين صورة مختلفة لذلك الإطار بدلاً من استبدال المورد المشترك.
 
-{{% alert title="معلومات" color="info" %}}
-مع محول Aspose المجاني [Text to GIF](https://products.aspose.app/slides/text-to-gif)، يمكنك بسهولة تحريك النص وإنشاء ملفات GIF من النص.
-{{% /alert %}}
+`replace_image` توفر أيضًا أحمالًا زائدة تقبل [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) أو [IPPImage] آخر.
 
-## **الأسئلة الشائعة**
+## **إرشادات عملية لإدارة الصور**
 
-**هل تبقى دقة الصورة الأصلية محفوظة بعد الإدراج؟**
+### **التحكم في حجم العرض التقديمي**
 
-نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [الصورة](/slides/ar/python-net/picture-frame/) في الشريحة وأي ضغط يُطبق عند الحفظ.
+يمكن أن تجعل الصور النقطية الكبيرة العرض التقديمي كبيرًا جدًا دون حاجة. استخدم صورًا مصدرية بأبعاد مناسبة لحجم العرض المقصود، وأعد استخدام موارد الصور المشتركة حيثما أمكن، وتجنب تضمين نسخ مكررة من نفس الرسمة ذات الدقة الكاملة.
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر العشرات من الشرائح دفعة واحدة؟**
+لصور النقطية التي تم وضعها بالفعل في إطارات صور، يمكن لـ [PictureFillFormat.compress_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/compress_image/) تقليل بيانات الصورة وفقًا للقرار المختار وإعدادات القص. هذا معالجة لإطار الصورة وليس إدارة مجموعة الصور، لذا راجع [إطار الصورة](/slides/ar/python-net/picture-frame/) للعمليات التنسيقية ذات الصلة.
 
-ضع الشعار على ماستر الشريحة أو على تخطيط واستبدله في مجموعة صور العرض التقديمي—ستنتقل التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
+### **الاختيار بين المحتوى المضمّن والمرتبط**
 
-**هل يمكن تحويل SVG المُدرج إلى أشكال قابلة للتحرير؟**
+يجعل التضمين العرض التقديمي قابلًا للنقل لأن جميع بيانات الصورة المطلوبة تسافر مع الملف. يمكن للربط أن يقلل من حجم الملف، لكنه يضيف تبعية خارجية. استخدم الروابط فقط عندما تكون تلك التبعية مقبولة ومستقرة.
 
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، ثم تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
+### **إعادة استخدام العلامة التجارية المشتركة**
 
-**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
+للشعارات المتكررة أو العلامات المائية أو الرسومات الزخرفية، استخدم مورد صورة واحد وأعد استخدامه. إذا كانت الرسمة تتعلق بتصميم العرض التقديمي وليس بمحتوى الشريحة، ضعها على ماستر أو تخطيط لتوريثها إلى الشرائح المناسبة.
 
-[عيّن الصورة كخلفية](/slides/ar/python-net/presentation-background/) على ماستر الشريحة أو على التخطيط ذي الصلة—سيتوارث أي شريحة تستخدم ذلك الماستر/التخطيط الخلفية.
+### **اجعل موارد SVG قابلة للنقل**
 
-**كيف يمكنني منع تضخم حجم العرض التقديمي بسبب الكثير من الصور؟**
+يكون SVG المستقل أسهل في النقل والعرض بشكل متسق من SVG يعتمد على ملفات خارجية أو موارد شبكة. عندما يكون ذلك ممكنًا، قم بتضمين الموارد المطلوبة قبل استيراد SVG. حوّل SVG إلى أشكال فقط عندما تحتاج العناصر المتجهة الفردية إلى تعديل.
 
-أعد استعمال مورد صورة واحد بدلاً من النسخ المتعددة، اختر دقات معقولة، طبّق ضغطًا عند الحفظ، واحفظ الرسومات المتكررة على الماستر حيثما كان ذلك مناسبًا.
+### **استخدام واجهة برمجة التطبيقات الحديثة للصور عبر الأنظمة**
+
+لكود Python عبر .NET الجديد، استخدم واجهات Aspose.Slides [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) و[Images](https://reference.aspose.com/slides/ar/python-net/aspose.slides/images/) بدلاً من واجهات `aspose.pydrawing.Image` أو `aspose.pydrawing.Bitmap` التي عُدلت. راجع [Modern API](/slides/ar/python-net/modern-api/) لتوجيهات الترحيل.
+
+يتطلب WMF و EMF اعتبارًا خاصًا. عندما يتم تمرير هذه الصيغ عبر [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/)، تقوم [ImageCollection.add_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imagecollection/add_image/) بتحويل ملف الميتافيلي إلى تمثيل PNG نقطي قبل الإدراج. إذا كان الحفاظ على بيانات الميتافيلي مهمًا، استخدم الحمولة الزائدة القائمة على التدفق لـ [ImageCollection.add_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imagecollection/add_image/). إنشاء محتوى EMF من جداول البيانات أو منتجات أخرى هو سير عمل تكامل منفصل وخارج نطاق هذه المقالة.
+
+## **الأسئلة المتكررة**
+
+**ما الفرق بين مجموعة الصور وإطار الصورة؟**
+
+مجموعة الصور تخزن موارد صورة قابلة لإعادة الاستخدام. إطار الصورة هو شكل شريحة يعرض أحد تلك الموارد ويوفر تنسيقات خاصة بالصورة مثل القص والتأثيرات.
+
+**ما هي أفضل طريقة لاستبدال الشعار نفسه في كل مكان؟**
+
+إذا كان الشعار مشتركًا كمورد صورة واحد، استبدل ذلك المورد باستخدام [IPPImage.replace_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ippimage/replace_image/). للعلامة التجارية على مستوى كامل للعرض، يمكن أيضًا وضع الشعار على ماستر أو تخطيط لتقليل تكرار محتوى الشرائح.
+
+**لماذا تختفي صورة مرتبطة على كمبيوتر آخر؟**
+
+الصورة المرتبطة تعتمد على ملفها الخارجي أو URL. إذا لم يمكن الوصول إلى ذلك المورد من الكمبيوتر الآخر، قد تكون الصورة غير متاحة. قم بتضمين الصورة عندما يجب أن يكون العرض التقديمي ذاتيًا.
+
+**هل يمكن تحرير SVG مدخل كأشكال PowerPoint؟**
+
+نعم. حوّل SVG باستخدام [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_group_shape/)؛ المجموعة الناتجة تحتوي على أشكال شريحة قابلة للتعديل بدلاً من صورة SVG واحدة.
+
+**كيف يمكنني إبقاء العروض التقديمية التي تحتوي على الكثير من الصور أصغر حجمًا؟**
+
+أعد استخدام موارد الصور المشتركة، تجنب المصادر النقطية الكبيرة غير الضرورية، ضغط الصور النقطية المناسبة عندما يلزم، ضع العلامات التجارية المتكررة على ماسترات أو تخطيطات، واستخدم الصور المرتبطة فقط عندما تكون التبعية الخارجية مقبولة.

@@ -1,328 +1,341 @@
 ---
 title: PHP का उपयोग करके प्रस्तुतियों में छवि प्रबंधन को अनुकूलित करें
-linktitle: छवियों का प्रबंधन
+linktitle: छवियों का प्रबंधन करें
 type: docs
 weight: 10
 url: /hi/php-java/image/
 keywords:
 - छवि जोड़ें
 - चित्र जोड़ें
-- बिटमैप जोड़ें
 - छवि बदलें
-- चित्र बदलें
-- वेब से
+- छवि संग्रह
+- चित्र फ्रेम
+- लिंक्ड छवि
 - पृष्ठभूमि
 - PNG जोड़ें
 - JPG जोड़ें
 - SVG जोड़ें
-- EMF जोड़ें
-- WMF जोड़ें
-- TIFF जोड़ें
+- SVG से आकृतियों में
+- बाहरी SVG संसाधन
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "PowerPoint और OpenDocument में Aspose.Slides for PHP via Java के साथ छवि प्रबंधन को सुगम बनाएं, प्रदर्शन को अनुकूलित करें और अपने कार्यप्रवाह को स्वचालित करें।"
+description: "PowerPoint और OpenDocument प्रस्तुतियों में Aspose.Slides for PHP via Java के साथ रास्टर और SVG छवियों को जोड़ने, पुन: उपयोग करने, लिंक करने, बदलने और प्रबंधित करने के बारे में जानें।"
 ---
 ## **परिचय**
 
-छवियाँ प्रस्तुतियों को अधिक आकर्षक और रोचक बनाती हैं। Microsoft PowerPoint में, आप फ़ाइल, इंटरनेट या अन्य स्थानों से चित्रों को स्लाइड्स पर डाल सकते हैं। इसी प्रकार, Aspose.Slides आपको विभिन्न प्रक्रियाओं के माध्यम से आपके प्रस्तुतियों की स्लाइड्स में छवियां जोड़ने की अनुमति देता है।
+Aspose.Slides for PHP via Java छवियों के साथ काम करने के कई तरीके प्रदान करता है, और प्रत्येक का अलग उद्देश्य है। आप प्रस्तुति में छवि को संग्रहीत कर सकते हैं, उसे चित्र फ्रेम में प्रदर्शित कर सकते हैं, स्लाइड पृष्ठभूमि के रूप में उपयोग कर सकते हैं, बाहरी छवि के लिए लिंक बना सकते हैं, साझा छवि संसाधन को बदल सकते हैं, या SVG सामग्री को संपादन योग्य आकृतियों में बदल सकते हैं।
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose मुफ्त कनवर्टर प्रदान करता है—[JPEG to PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG to PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो लोगों को छवियों से जल्दी प्रस्तुतियों बनाने की अनुमति देते हैं। 
-{{% /alert %}} 
+यह लेख छवि संसाधनों और उनके प्रस्तुति में उपयोग पर केंद्रित है। क्रॉपिंग, पारदर्शिता, प्रभाव, स्ट्रेचिंग और व्यक्तिगत चित्र फ्रेम पर लागू अन्य स्वरूपण के लिए, देखें [Picture Frame](/slides/hi/php-java/picture-frame/)।
 
-{{% alert title="Info" color="info" %}}
-यदि आप किसी छवि को फ्रेम ऑब्जेक्ट के रूप में जोड़ना चाहते हैं—विशेषकर यदि आप इसका आकार बदलने, प्रभाव जोड़ने आदि के लिए मानक फ़ॉर्मेटिंग विकल्पों का उपयोग करने की योजना बना रहे हैं—तो देखें [Picture Frame](/slides/hi/php-java/picture-frame/)।
-{{% /alert %}} 
+## **इमेज मॉडल को समझें**
 
-{{% alert title="Note" color="warning" %}}
-आप छवियों और PowerPoint प्रस्तुतियों से संबंधित इनपुट/आउटपुट ऑपरेशन्स को संचालित कर सकते हैं ताकि एक छवि को एक फ़ॉर्मेट से दूसरे फ़ॉर्मेट में बदल सकें। इन पृष्ठों को देखें: परिवर्तित करें [image to JPG](https://products.aspose.com/slides/hi/php-java/conversion/image-to-jpg/); परिवर्तित करें [JPG to image](https://products.aspose.com/slides/hi/php-java/conversion/jpg-to-image/); परिवर्तित करें [JPG to PNG](https://products.aspose.com/slides/hi/php-java/conversion/jpg-to-png/), परिवर्तित करें [PNG to JPG](https://products.aspose.com/slides/hi/php-java/conversion/png-to-jpg/); परिवर्तित करें [PNG to SVG](https://products.aspose.com/slides/hi/php-java/conversion/png-to-svg/), परिवर्तित करें [SVG to PNG](https://products.aspose.com/slides/hi/php-java/conversion/svg-to-png/)।
-{{% /alert %}}
+निम्नलिखित API अवधारणाएँ निकटता से संबंधित हैं लेकिन आपस में बदलने योग्य नहीं हैं:
 
-Aspose.Slides इन लोकप्रिय फ़ॉर्मेट्स में छवियों के साथ ऑपरेशन्स को सपोर्ट करता है: JPEG, PNG, GIF, और अन्य। 
+- [presentation image collection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) प्रस्तुति द्वारा उपयोग की जाने वाली छवि संसाधनों को संग्रहीत करता है। छवि डेटा जोड़ने और एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) संसाधन प्राप्त करने के लिए [ImageCollection::addImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) का उपयोग करें।
+- एक [picture frame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) वह आकृति है जो स्लाइड, लेआउट या मास्टर पर छवि प्रदर्शित करती है। छवि संसाधन को स्लाइड पर रखने के लिए [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addpictureframe/) का उपयोग करें।
+- स्लाइड पृष्ठभूमि छवि को स्लाइड फ़िल के हिस्से के रूप में उपयोग करती है, न कि आकृति के रूप में। इसलिए इसका व्यवहार चित्र फ्रेम जैसा नहीं होता।
+- [PPImage::replaceImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) छवि संसाधन को बदलता है। यदि कई प्रस्तुति तत्व उस संसाधन का उपयोग करते हैं, तो वे सभी प्रतिस्थापन को अपनाते हैं।
+- SVG को आकृतियों में बदलने से संपादन योग्य स्लाइड आकृतियों का निर्माण होता है। परिवर्तन के बाद, सामग्री को अब एकल चित्र संसाधन के रूप में प्रबंधित नहीं किया जाता।
 
-## **स्थानीय रूप से संग्रहीत छवियों को स्लाइड्स में जोड़ें**
+एक सामान्य कार्यप्रवाह इस प्रकार है: छवि डेटा को इमेज कलेक्शन में जोड़ें, एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) प्राप्त करें, और फिर उस संसाधन का उपयोग एक या अधिक चित्र फ्रेम या फ़िल में करें।
 
-आप अपने कंप्यूटर की एक या कई छवियों को प्रस्तुति की स्लाइड पर जोड़ सकते हैं। यह नमूना कोड आपको दिखाता है कि एक छवि को स्लाइड में कैसे जोड़ें:
+## **एक एंबेडेड चित्र जोड़ें**
+
+स्थानीय छवि डालने के लिए फ़ाइल को लोड करें, उसे इमेज कलेक्शन में जोड़ें, और लौटाए गए `PPImage` का उपयोग करने वाला एक picture frame बनाएं।
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **वेब से छवियों को स्लाइड्स में जोड़ें**
+इस प्रकार जोड़ दी गई छवि प्रस्तुति में एंबेडेड रहती है, इसलिए परिणामस्वरूप फ़ाइल मूल छवि फ़ाइल की उपलब्धता पर निर्भर नहीं करती।
 
-यदि वह छवि जो आप स्लाइड में जोड़ना चाहते हैं आपके कंप्यूटर पर उपलब्ध नहीं है, तो आप इसे सीधे वेब से जोड़ सकते हैं। 
+### **वेब से छवि जोड़ें**
 
-यह नमूना कोड आपको दिखाता है कि वेब से छवि को स्लाइड में कैसे जोड़ें:
+जब कोई छवि HTTP या HTTPS के माध्यम से उपलब्ध हो, तो उसके बाइट्स डाउनलोड करें, उन्हें प्रस्तुति इमेज कलेक्शन में जोड़ें, और लौटाए गए छवि संसाधन का वही तरीका उपयोग करके स्थानीय छवि की तरह उपयोग करें।
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
+
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
+        }
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-## **स्लाइड मास्टर्स में छवियों को जोड़ें**
-
-स्लाइड मास्टर वह शीर्ष स्लाइड है जो इसके नीचे सभी स्लाइड्स की जानकारी (थीम, लेआउट, आदि) संग्रहीत और नियंत्रित करता है। इसलिए, जब आप स्लाइड मास्टर में एक छवि जोड़ते हैं, वह छवि उस स्लाइड मास्टर के तहत सभी स्लाइड्स पर दिखाई देती है। 
-
-यह Java नमूना कोड आपको दिखाता है कि स्लाइड मास्टर में छवि कैसे जोड़ें:
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **स्लाइड पृष्ठभूमि के रूप में छवियों को जोड़ें**
-
-आप एक विशिष्ट स्लाइड या कई स्लाइड्स की पृष्ठभूमि के रूप में चित्र का उपयोग करने का निर्णय ले सकते हैं। ऐसी स्थिति में, आपको देखना होगा कि [Set an Image as a Slide Background](/slides/hi/php-java/presentation-background/#set-an-image-as-a-slide-background) कैसे करें।
-
-## **प्रस्तुतियों में SVG जोड़ें**
-आप किसी भी छवि को प्रस्तुति में जोड़ या सम्मिलित कर सकते हैं, इसके लिए आप [addPictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addpictureframe/) मेथड का उपयोग कर सकते हैं जो [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) क्लास का हिस्सा है।
-
-SVG छवि के आधार पर एक इमेज ऑब्जेक्ट बनाने के लिए, आप इसे इस प्रकार कर सकते हैं:
-
-1. SvgImage ऑब्जेक्ट बनाएं और इसे ImageShapeCollection में डालें
-2. ISvgImage से PPImage ऑब्जेक्ट बनाएं
-3. PPImage क्लास का उपयोग करके PictureFrame ऑब्जेक्ट बनाएं
-
-यह नमूना कोड आपको दिखाता है कि ऊपर वर्णित कदमों को लागू करके SVG छवि को प्रस्तुति में कैसे जोड़ें:
-```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    $presentation->dispose();
 }
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
 ```
 
-## **SVG को आकारों के सेट में बदलें**
-Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint functionality used to work with SVG images:
+दीर्घकालिक अनुप्रयोगों में, अनावश्यक नेटवर्किंग इंफ़्रास्ट्रक्चर को बार‑बार बनाने के बजाय अनुप्रयोग के अनुकूल HTTP क्लाइंट या कनेक्शन‑मैनेजमेंट रणनीति को पुन: उपयोग करें। साथ ही जब स्रोत विश्वसनीय न हो, तो रिमोट URL, प्रतिक्रिया आकार और कंटेंट टाइप की वैधता जांचें।
+
+## **स्लाइड्स में छवियों का पुन: उपयोग करें**
+
+यदि एक ही छवि की आवश्यकता कई बार है, तो उसे प्रस्तुति में एक बार जोड़ें और अतिरिक्त picture frame बनाते समय लौटाए गए [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) को पुन: उपयोग करें। यह समान स्रोत डेटा को बार‑बार लोड करने से बचाता है और साझा छवि संसाधन व उसके उपयोगों के बीच संबंध को स्पष्ट करता है।
+
+ऐसे ग्राफ़िक्स जो कई स्लाइड्स पर स्वतः दिखने चाहिए, जैसे कंपनी का लोगो, प्रत्येक स्लाइड में समान आकृति जोड़ने के बजाय [slide master](/slides/hi/php-java/slide-master/) या लेआउट पर picture frame रखने पर विचार करें।
+
+## **छवि को स्लाइड पृष्ठभूमि के रूप में उपयोग करें**
+
+पृष्ठभूमि छवि स्लाइड फ़िल को असाइन की जाती है; इसे picture‑frame आकृति के रूप में नहीं जोड़ा जाता। यह उपयोगी है जब चित्र को स्लाइड पृष्ठभूमि पर पूरी तरह से कवर करना हो और उसे सामान्य स्लाइड ऑब्जेक्ट की तरह हेर‑फेर नहीं करना हो।
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+अधिक पृष्ठभूमि विकल्पों के लिए, जिसमें मास्टर और लेआउट पृष्ठभूमि शामिल हैं, देखें [Presentation Background](/slides/hi/php-java/presentation-background/)।
+
+## **एंबेडेड छवियाँ और लिंक्ड छवियाँ**
+
+एंबेडेड और लिंक्ड छवियों में पोर्टेबिलिटी और फ़ाइल‑आकार के अलग‑अलग व्यापार‑ऑफ़ होते हैं:
+
+- **एंबेडेड छवि:** छवि डेटा प्रस्तुति के भीतर संग्रहीत होता है। प्रस्तुति स्वयं‑समाहित होती है, पर फ़ाइल आकार में छवि डेटा शामिल होता है।
+- **लिंक्ड छवि:** प्रस्तुति बाहरी छवि के पाथ या URL को संग्रहीत करती है। यह प्रस्तुति आकार को घटा सकता है, पर बाहरी संसाधन को खोलते या रेंडर करते समय उपलब्ध होना आवश्यक है।
+
+बाहरी पाथ या URL को [Picture::setLinkPathLong](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picture/) के माध्यम से असाइन करके लिंक्ड चित्र बनाया जा सकता है, बजाय छवि डेटा को एंबेड करने के।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+केवल तब लिंक्ड छवियों का उपयोग करें जब डिप्लॉयमेंट वातावरण विश्वसनीय रूप से बाहरी संसाधन तक पहुँच सकता हो। जिन प्रस्तुतियों को ऑफलाइन काम करना है या सिस्टमों के बीच ले जाना है, उनके लिए एंबेडेड छवियां आमतौर पर सुरक्षित रहती हैं।
+
+## **SVG छवियों के साथ काम करें**
+
+SVG एक वेक्टर प्रारूप है, इसलिए आइकॉन, आरेख और अन्य ग्राफ़िक्स के लिए उपयोगी है जिन्हें रास्टर छवियों की तरह विवरण की हानि के बिना स्केल किया जा सके। Aspose.Slides SVG को छवि संसाधन और संपादन योग्य स्लाइड आकृतियों दोनों के स्रोत के रूप में समर्थन देता है।
+
+### **SVG को छवि के रूप में जोड़ें**
+
+एक [SvgImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/) बनाएं, उसे इमेज कलेक्शन में जोड़ें, और परिणामी छवि संसाधन को picture frame में रखें।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **बाहरी संसाधनों वाले SVG फ़ाइलें**
+
+एक SVG बाहरी छवियों, स्टाइलशीट्स या फ़ॉन्ट्स को संदर्भित कर सकता है। इन मामलों के लिए, [SvgImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/) ऐसे कन्स्ट्रक्टर प्रदान करता है जो एक [ExternalResourceResolver](https://reference.aspose.com/slides/hi/php-java/aspose.slides/externalresourceresolver/) और बेस URI को स्वीकार करता है। रिज़ॉल्वर रिलेटिव URI को अनुमति प्राप्त एब्सोल्यूट URI में मैप कर सकता है और अनुरोधित संसाधन के लिए स्ट्रीम वापस कर सकता है।
+
+रिज़ॉल्वर बाहरी संसाधनों को उपलब्ध कराता है जबकि Aspose.Slides SVG को प्रोसेस करता है, लेकिन यह SVG को स्वयं‑समाहित दस्तावेज़ में नहीं बदलता। यदि SVG को पोर्टेबल रखना है, तो आवश्यक संसाधनों को SVG के भीतर एंबेड करें, उदाहरण के लिए लिंक्ड छवियों के लिए `data:` URI का उपयोग करके।
+
+जब SVG फ़ाइलें अविश्वसनीय स्रोतों से आती हैं, तो रिज़ॉल्वर द्वारा एक्सेस किए जा सकने वाले स्कीम, फ़ाइल स्थान और होस्ट को सीमित करें। नेटवर्क रिज़ॉल्वर को टाइमआउट, प्रतिक्रिया‑आकार सीमाएँ और कंटेंट वैलिडेशन भी लागू करना चाहिए।
+
+### **SVG को संपादन योग्य आकृतियों में बदलें**
+
+Aspose.Slides SVG को संपादन योग्य स्लाइड आकृतियों के समूह में बदल सकता है, जो संबंधित PowerPoint कमांड जैसा है।
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addgroupshape/) method of the [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) class that takes an [SvgImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/) object as the first argument.
-
-This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
+परिवर्तन करने के लिए उस [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addgroupshape/) ओवरलोड का उपयोग करें जो एक [SvgImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/) को स्वीकार करता है।
 
 ```php
-  # नई प्रस्तुति बनाएं
-  $presentation = new Presentation();
-  try {
-    # SVG फ़ाइल सामग्री पढ़ें
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-    # SvgImage ऑब्जेक्ट बनाएं
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
-    # स्लाइड आकार प्राप्त करें
+
     $slideSize = $presentation->getSlideSize()->getSize();
-    # SVG छवि को आकारों के समूह में बदलें और स्लाइड आकार के अनुसार स्केल करें
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # प्रस्तुति को PPTX फ़ॉर्मेट में सहेजें
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **स्लाइड्स में EMF के रूप में छवियों को जोड़ें**
-Aspose.Slides for PHP via Java आपको Excel शीट्स से EMF छवियाँ उत्पन्न करने और उन्हें Aspose.Cells के साथ स्लाइड्स में EMF के रूप में जोड़ने की अनुमति देता है।  
+SVG‑to‑shapes परिवर्तन तब उपयोग करें जब व्यक्तिगत वेक्टर तत्वों को PowerPoint आकृतियों के रूप में संपादित करना हो। यदि SVG केवल दिखाने के लिए है, तो उसे छवि के रूप में रखना सरल है और अनेक अलग‑अलग आकृतियों के निर्माण से बचता है।
 
-This sample code shows you how to perform the described task:
+## **मौजूद छवि संसाधन को बदलें**
 
-```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # वर्कबुक को स्ट्रीम में सहेजें
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
-        }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
-    }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **इमेज कलेक्शन में छवियों को बदलें**
-Aspose.Slides आपको प्रस्तुति के इमेज कलेक्शन में संग्रहीत छवियों (स्लाइड आकारों द्वारा उपयोग की गई छवियों सहित) को बदलने की अनुमति देता है। इस अनुभाग में कलेक्शन में छवियों को अपडेट करने के कई तरीके दिखाए गए हैं। API कच्चे बाइट डेटा, एक [IImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/iimage/) इंस्टेंस, या कलेक्शन में पहले से मौजूद किसी अन्य छवि का उपयोग करके छवि को बदलने के सरल तरीके प्रदान करता है।
-
-1. Presentation क्लास का उपयोग करके उन छवियों वाली प्रस्तुति फ़ाइल लोड करें।
-2. फ़ाइल से एक नई छवि को बाइट ऐरे में लोड करें।
-3. बाइट ऐरे का उपयोग करके लक्ष्य छवि को नई छवि से बदलें।
-4. दूसरे तरीके में, छवि को एक IImage ऑब्जेक्ट में लोड करें और लक्ष्य छवि को उस ऑब्जेक्ट से बदलें।
-5. तीसरे तरीके में, लक्ष्य छवि को प्रस्तुति के इमेज कलेक्शन में पहले से मौजूद किसी छवि से बदलें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+जब आप कोई मौजूदा छवि संसाधन बदलना चाहते हैं, तो [PPImage::replaceImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) का उपयोग करें। यह विशेष रूप से लोगो जैसे साझा ग्राफ़िक्स के लिए उपयोगी है।
 
 ```php
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंटिएट करें।
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // पहला तरीका।
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+    $imageToReplace = $presentation->getImages()->get_Item(0);
 
-    // दूसरा तरीका।
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // तीसरा तरीका।
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // प्रस्तुति को फ़ाइल में सहेजें।
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose FREE [Text to GIF](https://products.aspose.app/slides/hi/text-to-gif) कनवर्टर का उपयोग करके, आप आसानी से टेक्स्ट को एनीमेट कर सकते हैं, टेक्स्ट से GIF बना सकते हैं, आदि। 
-{{% /alert %}}
+यदि कई picture frame, पृष्ठभूमि, मास्टर या लेआउट एक ही छवि संसाधन का उपयोग करते हैं, तो उस संसाधन को बदलने से सभी उपयोग अपडेट हो जाते हैं। यदि केवल एक picture frame को बदलना है, तो साझा संसाधन को बदलने के बजाय उस फ्रेम को अलग छवि असाइन करें।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+`PPImage::replaceImage` बाइट एरे या किसी अन्य [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) को स्वीकार करने वाले ओवरलोड भी प्रदान करता है।
 
-**क्या छवि डालने के बाद मूल रेज़ोल्यूशन बना रहता है?**
+## **व्यावहारिक छवि प्रबंधन मार्गदर्शिका**
 
-हाँ। स्रोत पिक्सेल संरक्षित रहते हैं, लेकिन अंतिम स्वरूप इस बात पर निर्भर करता है कि स्लाइड पर [picture](/slides/hi/php-java/picture-frame/) कैसे स्केल किया गया है और सहेजते समय कोई संपीड़न लागू हुआ है या नहीं।
+### **प्रस्तुति आकार को नियंत्रित करें**
 
-**कई स्लाइड्स में एक ही लोगो को एक साथ बदलने का सबसे अच्छा तरीका क्या है?**
+बड़ी रास्टर छवियां प्रस्तुति को अनावश्यक रूप से बड़े आकार की बना सकती हैं। उपयोग के उद्देश्य के अनुसार उपयुक्त आयाम वाली स्रोत छवियों का उपयोग करें, जहाँ संभव हो साझा छवि संसाधनों को पुन: उपयोग करें, और समान पूर्ण‑रिज़ॉल्यूशन ग्राफ़िक की कई प्रतियों को एंबेड करने से बचें।
 
-लोगो को मास्टर स्लाइड या लेआउट पर रखें और उसे प्रस्तुति के इमेज कलेक्शन में बदलें—अपडेट उस संसाधन का उपयोग करने वाले सभी तत्वों में फैल जाएगा।
+रास्टर चित्र जो पहले ही picture frame में रखे गए हैं, उनके लिए [PictureFillFormat::compressImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/) चयनित रिज़ॉल्यूशन और क्रॉप सेटिंग्स के आधार पर छवि डेटा को कम कर सकता है। यह picture‑frame प्रोसेसिंग है, न कि इमेज‑कलेक्शन प्रबंधन, इसलिए संबंधित फ़ॉर्मेटिंग कार्यों के लिए देखें [Picture Frame](/slides/hi/php-java/picture-frame/)।
 
-**क्या सम्मिलित SVG को संपादन योग्य आकारों में बदला जा सकता है?**
+### **एंबेडेड और लिंक्ड कंटेंट के बीच चयन करें**
 
-हाँ। आप SVG को आकारों के समूह में बदल सकते हैं, उसके बाद व्यक्तिगत भाग मानक आकार गुणों के साथ संपादन योग्य हो जाते हैं।
+एंबेडिंग प्रस्तुति को पोर्टेबल बनाता है क्योंकि सभी आवश्यक छवि डेटा फ़ाइल के साथ रहता है। लिंकिंग फ़ाइल आकार को घटा सकता है, पर एक बाहरी निर्भरता पेश करता है। लिंक केवल तभी उपयोग करें जब वह निर्भरता स्वीकार्य और स्थिर हो।
 
-**मैं कई स्लाइड्स की पृष्ठभूमि के रूप में एक चित्र को एक साथ कैसे सेट करूँ?**
+### **साझा ब्रांडिंग का पुन: उपयोग करें**
 
-[Assign the image as the background](/slides/hi/php-java/presentation-background/) को मास्टर स्लाइड या संबंधित लेआउट पर सेट करें—उस मास्टर/लेआउट का उपयोग करने वाली सभी स्लाइड्स पृष्ठभूमि को विरासत में ले लेगी।
+बार‑बार प्रयुक्त लोगो, वॉटरमार्क या सजावटी ग्राफ़िक्स के लिए एक ही छवि संसाधन का उपयोग करें। यदि ग्राफ़िक प्रस्तुति डिजाइन का भाग है न कि स्लाइड कंटेंट, तो उसे मास्टर या लेआउट पर रखें ताकि संबंधित स्लाइड्स द्वारा विरासत में मिला सके।
 
-**मैं कई चित्रों के कारण प्रस्तुति के आकार के "ballooning" को कैसे रोकूँ?**
+### **SVG संसाधनों को पोर्टेबल रखें**
 
-डुप्लिकेट की बजाय एक ही छवि संसाधन का पुन: उपयोग करें, उचित रेज़ोल्यूशन चुनें, सहेजते समय संपीड़न लागू करें, और जहाँ उचित हो दोहराई गई ग्राफिक्स को मास्टर पर रखें।
+एक स्वयं‑समाहित SVG को बाहरी फ़ाइलों या नेटवर्क संसाधनों पर निर्भर SVG की तुलना में ले जाना और स्थिर रूप से रेंडर करना आसान होता है। संभव हो तो SVG आयात करने से पहले आवश्यक संसाधनों को एंबेड करें। केवल तब SVG को आकृतियों में बदलें जब व्यक्तिगत वेक्टर तत्वों को संपादित करने की आवश्यकता हो।
+
+### **आधुनिक क्रॉस‑प्लैटफ़ॉर्म इमेज API का उपयोग करें**
+
+नए PHP via Java कोड के लिए, Aspose.Slides के [IImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/iimage/) और [Images](https://reference.aspose.com/slides/hi/php-java/aspose.slides/images/) API का उपयोग करें, न कि `java.awt.image.BufferedImage` पर आधारित पुरानी सार्वजनिक API का। माइग्रेशन मार्गदर्शन के लिए देखें [Modern API](/slides/hi/php-java/modern-api/)।
+
+WMF और EMF को विशेष विचार की आवश्यकता होती है। जब ये फ़ॉर्मेट एक [IImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/iimage/) के माध्यम से पास किए जाते हैं, तो [ImageCollection::addImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) मेटाफाइल को PNG रास्टर प्रतिनिधित्व में बदल देता है। यदि मेटाफाइल डेटा को संरक्षित रखना आवश्यक है, तो स्ट्रीम‑आधारित [ImageCollection::addImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) ओवरलोड का उपयोग करें। स्प्रेडशीट या अन्य उत्पादों से EMF सामग्री उत्पन्न करना एक अलग इंटीग्रेशन कार्यप्रवाह है और इस लेख के दायरे से बाहर है।
+
+## **FAQ**
+
+**इमेज कलेक्शन और picture frame में क्या अंतर है?**
+
+इमेज कलेक्शन पुन: उपयोग योग्य छवि संसाधनों को संग्रहीत करता है। picture frame एक स्लाइड आकृति है जो उन संसाधनों में से एक को प्रदर्शित करती है और क्रॉपिंग तथा इफ़ेक्ट जैसी चित्र‑विशिष्ट स्वरूपण प्रदान करती है।
+
+**सभी जगह एक ही लोगो बदलने का सबसे अच्छा तरीका क्या है?**
+
+यदि लोगो पहले से ही एक छवि संसाधन के रूप में साझा किया गया है, तो उसे [PPImage::replaceImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) से बदलें। प्रस्तुति‑व्यापी ब्रांडिंग के लिए, लोगो को मास्टर या लेआउट पर रखने से डुप्लिकेट स्लाइड कंटेंट कम किया जा सकता है।
+
+**लिंक्ड छवि दूसरे कंप्यूटर पर क्यों गायब हो जाती है?**
+
+लिंक्ड चित्र अपने बाहरी फ़ाइल या URL पर निर्भर करता है। यदि वह संसाधन दूसरे कंप्यूटर से पहुँचा नहीं जा सकता, तो लिंक्ड छवि अनुपलब्ध हो जाएगी। जब प्रस्तुति को स्वयं‑समाहित होना आवश्यक हो, तो छवि को एंबेड करें।
+
+**क्या डाली गई SVG को PowerPoint आकृतियों के रूप में संपादित किया जा सकता है?**
+
+हाँ। SVG को [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addgroupshape/) से बदलें; परिणामी समूह में संपादन योग्य स्लाइड आकृतियाँ होंगी, न कि एकल SVG चित्र।
+
+**मैं कई छवियों वाली प्रस्तुतियों को छोटे कैसे रख सकता हूँ?**
+
+साझा छवि संसाधनों का पुन: उपयोग करें, अनावश्यक बड़ी रास्टर स्रोतों से बचें, उपयुक्त रास्टर चित्रों को आवश्यकतानुसार संपीड़ित करें, ब्रांडिंग को मास्टर या लेआउट पर रखें, और लिंक्ड छवियों का उपयोग केवल तब करें जब बाहरी निर्भरता स्वीकार्य हो।

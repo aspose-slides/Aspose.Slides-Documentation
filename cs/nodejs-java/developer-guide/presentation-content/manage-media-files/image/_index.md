@@ -1,301 +1,339 @@
 ---
-title: Optimalizace správy obrázků v prezentacích pomocí JavaScriptu
-linktitle: Správa obrázků
+title: "Optimalizace správy obrázků v prezentacích pomocí JavaScriptu"
+linktitle: "Správa obrázků"
 type: docs
 weight: 10
 url: /cs/nodejs-java/image/
 keywords:
-- přidat obrázek
-- přidat obrázek
-- přidat bitmapu
-- nahradit obrázek
-- nahradit obrázek
-- z webu
-- pozadí
-- přidat PNG
-- přidat JPG
-- přidat SVG
-- přidat EMF
-- přidat WMF
-- přidat TIFF
-- PowerPoint
-- OpenDocument
-- prezentace
-- EMF
-- SVG
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Zefektivněte správu obrázků v PowerPointu a OpenDocument pomocí JavaScriptu a Aspose.Slides pro Node.js, optimalizujte výkon a automatizujte svůj pracovní postup."
+- "přidat obrázek"
+- "přidat grafiku"
+- "nahradit obrázek"
+- "kolekce obrázků"
+- "rámeček obrázku"
+- "propojený obrázek"
+- "pozadí"
+- "přidat PNG"
+- "přidat JPG"
+- "přidat SVG"
+- "SVG na tvary"
+- "externí SVG zdroje"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentace"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Zjistěte, jak přidávat, znovu používat, propojit, nahrazovat a spravovat rastrové i SVG obrázky v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Node.js prostřednictvím Java."
 ---
 ## **Úvod**
 
-Obrázky činí prezentace poutavějšími a zajímavějšími. V Microsoft PowerPoint můžete do snímků vložit obrázky ze souboru, internetu nebo jiných umístění. Podobně Aspose.Slides umožňuje přidávat obrázky do snímků vašich prezentací různými způsoby. 
+Aspose.Slides for Node.js via Java nabízí několik způsobů práce s obrázky a každý slouží jinému účelu. Obrázek můžete uložit v prezentaci, zobrazit ho v rámečku obrázku, použít jako pozadí snímku, odkazovat na externí obrázek, nahradit sdílený zdroj obrázku nebo převést obsah SVG na editovatelné tvary.
 
-{{% alert  title="Tip" color="primary" %}} 
+Tento článek se zaměřuje na zdroje obrázků a jejich použití v celé prezentaci. Pro ořezávání, průhlednost, efekty, roztahování a další formátování aplikované na jednotlivý rámeček obrázku viz [Rámeček obrázku](/slides/cs/nodejs-java/picture-frame/).
 
-Aspose poskytuje bezplatné převodníky — [JPEG do PowerPointu](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPointu](https://products.aspose.app/slides/cs/import/png-to-ppt) — které umožňují rychle vytvářet prezentace z obrázků. 
+## **Pochopte model obrázků**
 
-{{% /alert %}} 
+Následující pojmy API jsou úzce související, ale nejsou zaměnitelné:
 
-{{% alert title="Info" color="info" %}}
+- [Prezentační kolekce obrázků](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/imagecollection/) ukládá zdroje obrázků používané v prezentaci. Použijte [ImageCollection.addImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/imagecollection/) k přidání dat obrázku a získání zdroje [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/).
+- [Rámeček obrázku](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/) je tvar, který zobrazuje obrázek na snímku, rozvržení nebo masteru. Použijte [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/) k umístění zdroje obrázku na snímek.
+- Pozadí snímku používá obrázek jako část výplně snímku místo tvaru, a proto se nechová jako rámeček obrázku.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) nahrazuje zdroj obrázku. Pokud ho používá několik prvků prezentace, všichni používají náhradu.
+- Převod SVG na tvary vytváří editovatelné tvary snímku. Po převodu již není obsah spravován jako jeden zdroj obrázku.
 
-Pokud chcete obrázek přidat jako objekt rámce — zejména pokud plánujete použít standardní možnosti formátování k změně jeho velikosti, přidání efektů atd. — viz [Rámec obrázku](https://docs.aspose.com/slides/cs/nodejs-java/picture-frame/).
+Typický postup je tedy: přidat data obrázku do kolekce obrázků, získat [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) a poté tento zdroj použít v jednom či více rámečcích obrázku nebo výplních.
 
-{{% /alert %}} 
+## **Přidání vloženého obrázku**
 
-Aspose.Slides podporuje operace s obrázky v těchto běžných formátech: JPEG, PNG, GIF a dalších. 
-
-## **Přidávání obrázků uložených lokálně do snímků**
-
-Můžete přidat jeden nebo více obrázků z vašeho počítače na snímek v prezentaci. Tento ukázkový kód v JavaScriptu vám ukazuje, jak přidat obrázek na snímek:
+Chcete‑li vložit lokální obrázek, načtěte soubor, přidejte jej do kolekce obrázků a vytvořte rámeček obrázku, který použije vrácený zdroj [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/).
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
     }
-    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Přidávání obrázků ze streamu do snímků**
+Obrázek přidaný tímto způsobem je vložený v prezentaci, takže výsledný soubor nezávisí na tom, zda je původní soubor obrázku nadále dostupný.
 
-Pokud obrázek, který chcete přidat na snímek, není dostupný na vašem počítači, můžete jej přidat přímo z webu. 
+### **Přidání obrázku z webu**
 
-Tento ukázkový kód vám ukazuje, jak v JavaScriptu přidat obrázek z webu na snímek:
+Když je obrázek dostupný přes HTTP nebo HTTPS, stáhněte jeho bajty, přidejte je do kolekce obrázků prezentace a použijte vrácený zdroj obrázku stejným způsobem jako lokální obrázek.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Přistupuje k prvnímu snímku
-    var sld = pres.getSlides().get_Item(0);
-    // Načte soubor Excel do streamu
-    var readStream = fs.readFileSync("book1.xlsx");
-    var byteArray = Array.from(readStream);
-    // Vytvoří datový objekt pro vložení
-    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // Přidá tvar Ole Object Frame
-    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
-    // Zapíše soubor PPTX na disk
-    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
+const java = require("java");
+
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
+            }
+
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
+    });
 }
-```
 
-## **Přidávání obrázků do hlavních snímků (Slide Masters)**
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
 
-Hlavní snímek je vrchní snímek, který ukládá a řídí informace (téma, rozložení atd.) o všech snímcích pod ním. Když tedy přidáte obrázek do hlavního snímku, tento obrázek se zobrazí na každém snímku pod tímto hlavním snímkem. 
-
-Tento ukázkový kód v JavaScriptu vám ukazuje, jak přidat obrázek do hlavního snímku:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var masterSlide = slide.getLayoutSlide().getMasterSlide();
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    const presentation = new aspose.slides.Presentation();
     try {
-        picture = pres.getImages().addImage(image);
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
-        if (image != null) {
-            image.dispose();
+        presentation.dispose();
+    }
+})();
+```
+
+V dlouho běžících aplikacích znovu používejte HTTP klienta nebo strategii správy připojení vhodnou pro aplikaci místo opakovaného vytváření zbytečné síťové infrastruktury. Také validujte vzdálené URL, velikosti odpovědí a typy obsahu, pokud zdroj není důvěryhodný.
+
+## **Opětovné použití obrázků napříč snímky**
+
+Pokud je stejný obrázek potřeba vícekrát, přidejte jej do prezentace jednou a znovu použijte získaný [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) při vytváření dalších rámečků obrázku. Tím se vyhnete opakovanému načítání stejných zdrojových dat a vztah mezi sdíleným zdrojem obrázku a jeho použitím je explicitní.
+
+Pro grafiku, která by měla automaticky vystupovat na mnoha snímcích, například firemní logo, zvažte umístění rámečku obrázku na [slide master](/slides/cs/nodejs-java/slide-master/) nebo rozvržení místo přidávání ekvivalentního tvaru na každý snímek.
+
+## **Použití obrázku jako pozadí snímku**
+
+Obrázek pozadí je přiřazen k výplni snímku; není přidán jako tvar rámečku obrázku. To je užitečné, když má obrázek zakrývat pozadí snímku a neměl by být manipulován jako běžný objekt snímku.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
     }
-    masterSlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Přidávání obrázků jako pozadí snímku**
+Další možnosti pozadí, včetně pozadí masteru a rozvržení, najdete v [Presentation Background](/slides/cs/nodejs-java/presentation-background/).
 
-Můžete se rozhodnout použít obrázek jako pozadí pro konkrétní snímek nebo několik snímků. V takovém případě se podívejte na *[Nastavení obrázků jako pozadí snímků](https://docs.aspose.com/slides/cs/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
+## **Vložené obrázky a propojené obrázky**
 
-## **Přidávání SVG do prezentací**
-Můžete přidat nebo vložit libovolný obrázek do prezentace pomocí metody [addPictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) patřící do třídy [ShapeCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection).
+Vložené a propojené obrázky mají odlišné kompromisy v přenositelnosti a velikosti souboru:
 
-Pro vytvoření objektu obrázku na základě SVG můžete postupovat takto:
+- **Vložený obrázek:** data obrázku jsou uložena uvnitř prezentace. Prezentace je samostatná, ale velikost souboru zahrnuje data obrázku.
+- **Propojený obrázek:** prezentace ukládá cestu nebo URL k externímu obrázku. To může zmenšit velikost prezentace, ale externí zdroj musí zůstat přístupný při otevření nebo renderování prezentace.
 
-1. Vytvořte objekt SvgImage, který vložíte do ImageShapeCollection  
-2. Vytvořte objekt PPImage z ISvgImage  
-3. Vytvořte objekt PictureFrame pomocí třídy PPImage  
+Propojený obrázek lze vytvořit přiřazením externí cesty nebo URL pomocí [Picture.setLinkPathLong](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picture/) místo vložení dat obrázku.
 
-Tento ukázkový kód vám ukazuje, jak implementovat výše uvedené kroky a přidat SVG obrázek do prezentace:
 ```javascript
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    var ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Převod SVG na sadu tvarů**
-Převod SVG na sadu tvarů v Aspose.Slides je podobný funkci PowerPointu používané pro práci s SVG obrázky:
+Používejte propojené obrázky jen tehdy, když prostředí nasazení může spolehlivě přistupovat k externímu zdroji. Pro prezentace, které musí fungovat offline nebo být přenášeny mezi systémy, jsou vložené obrázky obvykle bezpečnější.
+
+## **Práce s SVG obrázky**
+
+SVG je vektorový formát, takže může být užitečný pro ikony, diagramy a další grafiku, která by měla být škálovatelná bez ztráty detailů, jaké mají rastrové obrázky. Aspose.Slides podporuje SVG jak jako zdroj obrázku, tak jako zdroj pro editovatelné tvary snímku.
+
+### **Přidání SVG jako obrázku**
+
+Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/svgimage/), přidejte jej do kolekce obrázků a umístěte výsledný zdroj obrázku do rámečku obrázku.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **SVG soubory s externími zdroji**
+
+SVG může odkazovat na externí obrázky, styly nebo fonty. Pro tyto případy poskytuje [SvgImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/svgimage/) konstruktory, které akceptují [ExternalResourceResolver](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/externalresourceresolver/) a základní URI. Resolver může mapovat relativní URI na povolenou absolutní URI a vrátit proud pro požadovaný zdroj.
+
+Resolver zpřístupňuje externí zdroje během zpracování SVG Aspose.Slides, ale nepřepisuje SVG na samostatný dokument. Pokud SVG musí zůstat přenosné, vložte jeho požadované zdroje přímo do SVG, například pomocí `data:` URI pro propojené obrázky.
+
+Když SVG soubory pocházejí z nedůvěryhodných zdrojů, omezte schémata, umístění souborů a hosty, ke kterým může resolver přistupovat. Síťové resolvery by měly také uplatňovat časové limity, limity velikosti odpovědi a validaci obsahu.
+
+### **Převod SVG na editovatelné tvary**
+
+Aspose.Slides dokáže převést SVG na skupinu editovatelných tvarů snímku, podobně jako odpovídající příkaz v PowerPointu.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Funkčnost je poskytována jedním z přetížení metody [addGroupShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) třídy [ShapeCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ShapeCollection), která jako první argument přijímá objekt [SvgImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/SvgImage).
-
-Tento ukázkový kód vám ukazuje, jak použít popsanou metodu k převodu SVG souboru na sadu tvarů:
+Použijte přetížení [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/) přijímající SVG obrázek k provedení převodu.
 
 ```javascript
-// Vytvořte novou prezentaci
-var presentation = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Načtěte obsah souboru SVG
-    var svgContent = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg"));
-    // Vytvořte objekt SvgImage
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    // Získejte velikost snímku
-    var slideSize = presentation.getSlideSize().getSize();
-    // Převést SVG obrázek na skupinu tvarů a přizpůsobit jej velikosti snímku
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-    // Uložte prezentaci ve formátu PPTX
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Přidávání obrázků jako EMF do snímků**
-Aspose.Slides pro Node.js přes Java umožňuje generovat EMF obrázky z listů Excelu a přidávat je jako EMF do snímků pomocí Aspose.Cells.  
+Použijte převod SVG‑na‑tvary, když je potřeba individuální vektorové elementy upravit jako tvary PowerPointu. Pokud má být SVG pouze zobrazen, je jednodušší ponechat jej jako obrázek a vyhnout se vytváření mnoha samostatných tvarů.
 
-Tento ukázkový kód vám ukazuje, jak provést popsaný úkol:
+## **Nahrazení existujícího zdroje obrázku**
+
+Použijte [PPImage.replaceImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/), když chcete nahradit existující zdroj obrázku. To je zvláště užitečné pro sdílenou grafiku, jako jsou loga.
 
 ```javascript
-var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-var sheet = book.getWorksheets().get(0);
-var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-// Save the workbook to stream
-var sr = java.newInstanceSync("SheetRender", sheet, options);
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    pres.getSlides().removeAt(0);
-    var EmfSheetName = "";
-    for (var j = 0; j < sr.getPageCount(); j++) {
-        EmfSheetName = ((("test" + sheet.getName()) + " Page") + (j + 1)) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-        var picture;
-        var image = aspose.slides.Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
-        var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        var m = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
 
-## **Nahrazování obrázků v kolekci obrázků**
-
-Aspose.Slides umožňuje nahradit obrázky uložené v kolekci obrázků prezentace (včetně těch používaných tvary snímků). Tato část ukazuje několik přístupů k aktualizaci obrázků v kolekci. API poskytuje jednoduché metody pro nahrazení obrázku pomocí surových bajtových dat, instance [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/) nebo jiného obrázku, který již v kolekci existuje.
-
-Postupujte podle následujících kroků:
-
-1. Načtěte soubor prezentace obsahující obrázky pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).  
-2. Načtěte nový obrázek ze souboru do pole bajtů.  
-3. Nahraďte cílový obrázek novým obrázkem pomocí pole bajtů.  
-4. Ve druhém přístupu načtěte obrázek do objektu [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/) a nahraďte cílový obrázek tímto objektem.  
-5. Ve třetím přístupu nahraďte cílový obrázek obrázkem, který již v kolekci prezentace existuje.  
-6. Uložte upravenou prezentaci jako soubor PPTX.
-
-```js
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    // První způsob.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // Druhý způsob.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // Třetí způsob.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // Uložte prezentaci do souboru.
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Pokud několik rámečků obrázku, pozadí, masterů nebo rozvržení používá stejný zdroj obrázku, jeho nahrazení aktualizuje všechny tyto použití. Pokud má změnit jen jeden rámeček, přiřaďte mu jiný obrázek místo nahrazení sdíleného zdroje.
 
-Pomocí bezplatného konvertoru Aspose FREE [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) můžete snadno animovat texty, vytvářet GIFy z textu atd. 
+[PPImage.replaceImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/) také poskytuje přetížení přijímající pole bajtů nebo jiný [PPImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Praktické pokyny pro správu obrázků**
+
+### **Kontrola velikosti prezentace**
+
+Velké rastrové obrázky mohou prezentaci zbytečně zvětšit. Používejte zdrojové obrázky s rozměry vhodnými pro jejich zamýšlenou velikost zobrazení, opakovaně využívejte sdílené zdroje obrázků, kde je to možné, a vyhněte se vkládání opakovaných kopií téže grafiky ve vysokém rozlišení.
+
+U rastrových obrázků, které již byly umístěny v rámečcích, může [PictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/picturefillformat/) snížit data obrázku podle vybrané rozlišení a nastavení ořezu. Jedná se o zpracování rámečku obrázku, nikoli o správu kolekce obrázků, proto viz [Rámeček obrázku](/slides/cs/nodejs-java/picture-frame/) pro související operace formátování.
+
+### **Volba mezi vloženým a propojeným obsahem**
+
+Vkládání činí prezentaci přenosnou, protože všechna potřebná data obrázku jsou součástí souboru. Propojení může zmenšit velikost souboru, ale zavádí externí závislost. Používejte odkazy jen tehdy, když je tato závislost přijatelná a stabilní.
+
+### **Opětovné použití sdílené značky**
+
+Pro opakovaná loga, vodoznaky nebo dekorativní grafiku používejte jeden zdroj obrázku a opakujte ho. Pokud grafika patří do designu prezentace spíše než do obsahu snímku, umístěte ji na master nebo rozvržení, aby ji zdědily příslušné snímky.
+
+### **Udržujte SVG zdroje přenosné**
+
+Samostatné SVG je snazší přesunout a renderovat konzistentně než SVG závislé na externích souborech nebo síťových zdrojích. Kdykoli je to možné, vložte požadované zdroje před importem SVG. Převádějte SVG na tvary jen tehdy, když je potřeba individuální vektorové elementy upravit.
+
+### **Používejte moderní multiplatformní Image API**
+
+Pro nový kód Node.js via Java používejte místo starého veřejného API založeného na `java.awt.image.BufferedImage` rozhraní Aspose.Slides [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/) a [Images](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/images/). Viz [Moderní API](/slides/cs/nodejs-java/modern-api/) pro pokyny k migraci.
+
+WMF a EMF vyžadují zvláštní zacházení. Když jsou tyto formáty předány přes [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/imagecollection/) převádí metafile na rastrovou PNG reprezentaci před vložením. Pokud je důležité zachovat data metafile, použijte přetížení [ImageCollection.addImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/imagecollection/) přijímající proud. Generování EMF obsahu ze spreadsheetů nebo jiných produktů je samostatný integrační proces a přesahuje rozsah tohoto článku.
 
 ## **Často kladené otázky**
 
-**Zůstane po vložení zachována původní rozlišení obrázku?**
+**Jaký je rozdíl mezi kolekcí obrázků a rámečkem obrázku?**
 
-Ano. Původní pixely jsou zachovány, ale konečný vzhled závisí na tom, jak je [obrázek](/slides/cs/nodejs-java/picture-frame/) na snímku škálován a na případné kompresi při uložení.
+Kolekce obrázků ukládá opakovaně použitelné zdroje obrázků. Rámeček obrázku je tvar na snímku, který zobrazuje jeden z těchto zdrojů a poskytuje specifické formátování obrázku, jako je ořez a efekty.
 
-**Jak nejlépe nahradit stejné logo na desítkách snímků najednou?**
+**Jak nejlépe nahradit stejné logo všude?**
 
-Umístěte logo na hlavní snímek nebo rozložení a nahraďte jej v kolekci obrázků prezentace — aktualizace se projeví ve všech prvcích, které používají tento zdroj.
+Pokud je logo již sdílené jako jeden zdroj obrázku, nahraďte tento zdroj pomocí [PPImage.replaceImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ppimage/). Pro značku napříč celou prezentací může také umístění loga na master nebo rozvržení snížit duplicitní obsah snímků.
 
-**Lze vložený SVG převést na editovatelné tvary?**
+**Proč se propojený obrázek na jiném počítači nezobrazí?**
 
-Ano. SVG lze převést na skupinu tvarů, po čemž se jednotlivé části stanou editovatelnými pomocí standardních vlastností tvarů.
+Propojený obrázek závisí na externím souboru nebo URL. Pokud tento zdroj není z druhého počítače dostupný, obrázek může chybět. Vložte obrázek, když musí být prezentace samostatná.
 
-**Jak nastavit obrázek jako pozadí pro více snímků najednou?**
+**Lze vložené SVG upravovat jako tvary PowerPointu?**
 
-[Zvolte obrázek jako pozadí](/slides/cs/nodejs-java/presentation-background/) na hlavním snímku nebo příslušném rozložení — všechny snímky používající tento hlavní snímek/rozložení pozadí zdědí.
+Ano. Převodem SVG pomocí [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/) získáte skupinu editovatelných tvarů snímku místo jednoho SVG obrázku.
 
-**Jak zabránit „nafouknutí“ velikosti prezentace kvůli mnoha obrázkům?**
+**Jak udržet prezentace s mnoha obrázky malé?**
 
-Znovu použijte jeden zdroj obrázku místo duplicit, zvolte rozumná rozlišení, aplikujte kompresi při uložení a opakovanou grafiku umístěte na hlavní snímek, kde je to vhodné.
+Opakovaně používejte sdílené zdroje obrázků, vyhýbejte se zbytečně velkým rastrovým zdrojům, komprimujte vhodné rastrové obrázky, umisťujte opakovanou značku na master nebo rozvržení a používejte propojené obrázky jen tehdy, když je externí závislost přijatelná.

@@ -7,269 +7,343 @@ url: /zh/cpp/image/
 keywords:
 - 添加图像
 - 添加图片
-- 添加位图
 - 替换图像
-- 替换图片
-- 来自网络
+- 图像集合
+- 图片框
+- 链接图像
 - 背景
 - 添加 PNG
 - 添加 JPG
 - 添加 SVG
-- 添加 EMF
-- 添加 WMF
-- 添加 TIFF
+- 将 SVG 转换为形状
+- 外部 SVG 资源
 - PowerPoint
 - OpenDocument
 - 演示文稿
-- EMF
-- SVG
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 中简化图像管理，优化性能并实现工作流自动化。"
+description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 演示文稿中添加、复用、链接、替换和管理光栅图像及 SVG 图像。"
 ---
+## **介绍**
 
-## **演示文稿幻灯片中的图像**
+Aspose.Slides for C++ 提供了多种处理图像的方法，每种方法都有不同的用途。您可以在演示文稿中存储图像，在图片框中显示图像，将其用作幻灯片背景，链接到外部图像，替换共享的图像资源，或将 SVG 内容转换为可编辑的形状。
 
-图像使演示文稿更具吸引力和趣味性。在 Microsoft PowerPoint 中，您可以将来自文件、互联网或其他位置的图片插入到幻灯片中。同样，Aspose.Slides 也允许您通过不同的方式向演示文稿的幻灯片添加图像。
+本文重点介绍图像资源以及它们在整个演示文稿中的使用方式。有关对单个图片框进行裁剪、透明度、效果、拉伸以及其他格式设置，请参阅[图片框](/slides/zh/cpp/picture-frame/)。
 
-{{% alert title="提示" color="primary" %}} 
-Aspose 提供免费转换器——[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) 和 [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)——可让用户快速从图像创建演示文稿。 
-{{% /alert %}} 
+## **了解图像模型**
 
-{{% alert title="信息" color="info" %}}
-如果您想将图像作为框架对象添加——尤其是计划对其使用标准格式选项来更改大小、添加效果等——请参阅 [图片框](/slides/zh/cpp/picture-frame/)。 
-{{% /alert %}} 
+以下 API 概念密切相关，但不可互换：
 
-{{% alert title="注意" color="warning" %}}
-您可以操作涉及图像和 PowerPoint 演示文稿的输入/输出，以将图像从一种格式转换为另一种格式。请参阅以下页面：将 [图像转 JPG](https://products.aspose.com/slides/cpp/conversion/image-to-jpg/) 转换；将 [JPG 转 图像](https://products.aspose.com/slides/cpp/conversion/jpg-to-image/) 转换；将 [JPG 转 PNG](https://products.aspose.com/slides/cpp/conversion/jpg-to-png/) 转换，将 [PNG 转 JPG](https://products.aspose.com/slides/cpp/conversion/png-to-jpg/) 转换；将 [PNG 转 SVG](https://products.aspose.com/slides/cpp/conversion/png-to-svg/) 转换，将 [SVG 转 PNG](https://products.aspose.com/slides/cpp/conversion/svg-to-png/) 转换。 
-{{% /alert %}}
+- [演示文稿图像集合](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimagecollection/) 存储演示文稿使用的图像资源。使用[IImageCollection::AddImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimagecollection/addimage/) 添加图像数据并获取一个[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/)资源。
+- [图片框](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/) 是一种在幻灯片、版面或母版上显示图像的形状。使用[IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapecollection/addpictureframe/)将图像资源放置在幻灯片上。
+- 幻灯片背景将图像用作幻灯片填充的一部分，而不是形状。因此它的行为不同于图片框。
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/replaceimage/) 替换图像资源。如果多个演示文稿元素使用该资源，它们都会使用替换后的图像。
+- 将 SVG 转换为形状会创建可编辑的幻灯片形状。转换后，内容不再作为单一图片资源进行管理。
 
-Aspose.Slides 支持对这些常用格式的图像进行操作：JPEG、PNG、GIF 等。
+因此，典型的工作流是：将图像数据添加到图像集合，获取一个[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/)，然后在一个或多个图片框或填充中使用该资源。
 
-## **向幻灯片添加本地存储的图像**
+## **添加嵌入式图像**
 
-您可以添加一张或多张计算机上的图像到演示文稿的幻灯片中。以下 C++ 示例代码演示如何向幻灯片添加图像：
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+要插入本地图像，请读取文件，将其数据添加到图像集合，并创建使用返回的[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/)资源的图片框。
 
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+以这种方式添加的图像会嵌入到演示文稿中，因此生成的文件不依赖原始图像文件的可用性。
 
-## **从网络向幻灯片添加图像**
+### **从网络添加图像**
 
-如果您想添加到幻灯片的图像在计算机上不可用，您可以直接从网络添加该图像。以下 C++ 示例代码演示如何从网络向幻灯片添加图像：
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
+当图像通过 HTTP 或 HTTPS 提供时，下载其字节，将其添加到演示文稿图像集合，并以与本地图像相同的方式使用返回的图像资源。
 
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Net;
+
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+在源不可信时，请验证远程 URL、响应大小和内容类型。在已经使用其他 HTTP 客户端的应用程序中，您可以使用该客户端下载图像，然后将得到的字节或流传递给[IImageCollection::AddImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimagecollection/addimage/)。
 
-## **向母版幻灯片添加图像**
+## **在幻灯片之间重复使用图像**
 
-幻灯片母版是位于顶部的幻灯片，用于存储和控制其下所有幻灯片的信息（主题、布局等）。因此，当您向幻灯片母版添加图像时，该图像会出现在该母版下的每张幻灯片上。以下 C++ 示例代码演示如何向幻灯片母版添加图像：
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
+如果同一图像需要使用多次，请在演示文稿中仅添加一次，并在创建其他图片框时复用返回的[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/)。这可以避免重复加载相同的源数据，并明确共享图像资源与其使用之间的关系。
 
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+对于应自动出现在多张幻灯片上的图形（例如公司徽标），请考虑将图片框放置在[幻灯片母版](/slides/zh/cpp/slide-master/)或版面上，而不是在每张幻灯片中添加相同的形状。
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+## **将图像用作幻灯片背景**
+
+背景图像被分配到幻灯片填充中，而不是作为图片框形状添加。当图片需要覆盖整个幻灯片背景且不应像普通幻灯片对象那样被操作时，这非常有用。
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+有关更多背景选项，包括母版和版面背景，请参阅[演示文稿背景](/slides/zh/cpp/presentation-background/)。
 
-## **将图像设为幻灯片背景**
+## **嵌入式图像和链接图像**
 
-您可能决定将图片作为特定幻灯片或多张幻灯片的背景。在这种情况下，请参阅 *[将图像设为幻灯片背景](https://docs.aspose.com/slides/cpp/presentation-background/#setting-images-as-background-for-slides)*。
+嵌入式图像和链接图像在可移植性和文件大小上存在不同的权衡：
 
-## **向演示文稿添加 SVG**
+- **嵌入式图像：** 图像数据存储在演示文稿内部。演示文稿是自包含的，但文件大小包括图像数据。
+- **链接图像：** 演示文稿存储指向外部图像的路径或 URL。这可以减小演示文稿的大小，但在打开或渲染演示文稿时必须能够访问外部资源。
 
-您可以使用属于 [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) 接口的 [AddPictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) 方法向演示文稿添加或插入任何图像。要基于 SVG 图像创建图像对象，可以按以下方式操作：
+可以通过[ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidespicture/set_linkpathlong/) 分配外部路径或 URL 来创建链接图片，而不是嵌入图像数据。
 
-1. 创建 SvgImage 对象并将其插入到 ImageShapeCollection 中
-2. 从 ISvgImage 创建 PPImage 对象
-3. 使用 IPPImage 接口创建 PictureFrame 对象
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-以下示例代码演示如何实现上述步骤，以将 SVG 图像添加到演示文稿中：
-``` cpp 
-// 文档目录的路径
-System::String dataDir = u"D:\\Documents\\";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 源 SVG 文件名
-System::String svgFileName = dataDir + u"sample.svg";
+auto presentation = MakeObject<Presentation>();
 
-// 输出演示文稿文件名
-System::String outPptxPath = dataDir + u"presentation.pptx";
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
 
-// 创建新演示文稿
-auto p = System::MakeObject<Presentation>();
-
-// 读取 SVG 文件内容
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// 创建 SvgImage 对象
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// 创建 PPImage 对象
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// 创建新的 PictureFrame 
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// 将演示文稿保存为 PPTX 格式
-p->Save(outPptxPath, SaveFormat::Pptx);
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+仅在部署环境能够可靠访问外部资源时才使用链接图像。对于必须离线使用或在系统之间移动的演示文稿，嵌入式图像通常更安全。
 
-## **将 SVG 转换为形状集合**
+## **处理 SVG 图像**
 
-Aspose.Slides 将 SVG 转换为形状集合的功能类似于 PowerPoint 用于处理 SVG 图像的功能：
+SVG 是一种矢量格式，适用于图标、图表以及其他需要在不失细节的情况下缩放的图形。Aspose.Slides 同时支持将 SVG 作为图像资源和可编辑幻灯片形状的源。
+
+### **将 SVG 添加为图像**
+
+创建一个[SvgImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/svgimage/)，将其添加到图像集合，并在图片框中放置生成的图像资源。
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+
+auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
+
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **带有外部资源的 SVG 文件**
+
+SVG 可以引用外部图像、样式表或字体。对于这些情况，[SvgImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/svgimage/) 提供接受[IExternalResourceResolver](https://reference.aspose.com/slides/zh/cpp/aspose.slides.import/iexternalresourceresolver/)和基准 URI 的构造函数。解析器可以将相对 URI 映射到允许的绝对 URI，并返回所请求资源的流。
+
+解析器在 Aspose.Slides 处理 SVG 时提供外部资源，但不会将 SVG 重写为自包含文档。如果 SVG 必须保持可移植，请在 SVG 本身中嵌入所需资源，例如使用 `data:` URI 链接图像。
+
+当 SVG 文件来自不可信来源时，限制解析器可以访问的方案、文件位置和主机。网络解析器还应应用超时、响应大小限制和内容验证。
+
+### **将 SVG 转换为可编辑形状**
+
+Aspose.Slides 可以将 SVG 转换为一组可编辑的幻灯片形状，类似于 PowerPoint 相应的命令。
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-该功能由 [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) 接口的 [AddGroupShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) 方法的其中一个重载提供，该重载以 [ISvgImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_svg_image) 对象作为第一个参数。以下示例代码演示如何使用上述方法将 SVG 文件转换为形状集合：
-``` cpp 
-// 文档目录的路径
-System::String dataDir = u"D:\\Documents\\";
+使用接受[ISvgImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/isvgimage/)的[IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapecollection/addgroupshape/) 重载来执行转换。
 
-// 源 SVG 文件名
-System::String svgFileName = dataDir + u"sample.svg";
-
-// 输出演示文稿文件名
-System::String outPptxPath = dataDir + u"presentation.pptx";
-
-// 创建新演示文稿
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
-
-// 读取 SVG 文件内容
-System::String svgContent = File::ReadAllText(svgFileName);
-
-// 创建 SvgImage 对象
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// 获取幻灯片尺寸
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
-
-// 将 SVG 图像转换为形状组，按幻灯片尺寸进行缩放
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// 将演示文稿保存为 PPTX 格式
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-
-## **将图像作为 EMF 添加到幻灯片**
-
-Aspose.Slides for C++ 允许您从 Excel 工作表生成 EMF 图像，并使用 Aspose.Cells 将这些图像作为 EMF 添加到幻灯片中。以下示例代码演示如何完成上述任务：
-``` cpp 
-System::String dataDir = u"D:\\Documents\\";
-
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
-
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
-
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-pres->get_Slides()->RemoveAt(0);
-
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
-{
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
-
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
-```
-
-
-## **替换图像集合中的图像**
-
-Aspose.Slides 允许您替换存储在演示文稿图像集合中的图像（包括幻灯片形状使用的图像）。本节展示了更新集合中图像的多种方法。API 提供了使用原始字节数据、[IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) 实例或集合中已存在的另一图像来替换图像的直接方法。
-
-1. 使用 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类加载包含图像的演示文稿文件。
-2. 将新图像从文件加载到字节数组中。
-3. 使用字节数组将目标图像替换为新图像。
-4. 在第二种方法中，将图像加载到 [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) 对象中并使用该对象替换目标图像。
-5. 在第三种方法中，将目标图像替换为演示文稿图像集合中已经存在的图像。
-6. 将修改后的演示文稿写入为 PPTX 文件。
 ```cpp
-// 实例化表示演示文稿文件的 Presentation 类。
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// 第一种方法。
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// 第二种方法。
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
 
-// 第三种方法。
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+auto presentation = MakeObject<Presentation>();
 
-// 将演示文稿保存到文件。
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
+
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+当需要将单个矢量元素编辑为 PowerPoint 形状时，请使用 SVG 到形状的转换。如果仅需显示 SVG，将其保留为图像更简单，且避免创建大量独立形状。
+
+## **替换现有图像资源**
+
+当需要替换现有图像资源时，请使用[IPPImage::ReplaceImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/replaceimage/)。这在共享图形（如徽标）时尤其有用。
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+如果多个图片框、背景、母版或版面使用相同的图像资源，替换该资源会更新所有这些使用。如果只需更改一个图片框，请为该框分配不同的图像，而不是替换共享资源。
 
-{{% alert title="信息" color="info" %}}
-使用 Aspose 免费的 [Text to GIF](https://products.aspose.app/slides/text-to-gif) 转换器，您可以轻松为文本添加动画、从文本创建 GIF 等。 
-{{% /alert %}}
+[IPPImage::ReplaceImage] 还提供接受[IImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimage/)或另一个[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/)的重载。
+
+## **实用图像管理指南**
+
+### **控制演示文稿大小**
+
+大型光栅图像会导致演示文稿体积不必要地增大。请使用尺寸适合预期显示大小的源图像，尽可能复用共享图像资源，并避免嵌入同一全分辨率图形的重复副本。
+
+对于已经放置在图片框中的光栅图片，可使用[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/compressimage/)根据所选分辨率和裁剪设置压缩图像数据。这属于图片框处理，而不是图像集合管理，请参阅[图片框](/slides/zh/cpp/picture-frame/)了解相关格式化操作。
+
+### **在嵌入和链接内容之间进行选择**
+
+嵌入使演示文稿具有可移植性，因为所有必需的图像数据随文件一起携带。链接可以减小文件大小，但会引入外部依赖。仅在该依赖可接受且稳定时才使用链接。
+
+### **复用共享品牌元素**
+
+对于重复使用的徽标、水印或装饰图形，请使用单一图像资源并复用它。如果该图形属于演示文稿设计而非幻灯片内容，请将其放置在母版或版面上，以便相应幻灯片继承。
+
+### **保持 SVG 资源可移植**
+
+自包含的 SVG 比依赖外部文件或网络资源的 SVG 更易于移动和一致渲染。尽可能在导入 SVG 前嵌入所需资源。仅在需要编辑单个矢量元素时才将 SVG 转换为形状。
+
+### **使用 Aspose.Slides 图像 API**
+
+对于 C++ 图像工作流，需要图像对象时请使用 Aspose.Slides 的[IImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimage/)和[Images](https://reference.aspose.com/slides/zh/cpp/aspose.slides/images/) API；需要将图像数据注册为演示文稿资源时使用[IImageCollection::AddImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimagecollection/addimage/)。集合的重载还支持字节数组和流，这在图像数据来自文件、网络客户端、数据库或其他库时非常有用。
+
+从电子表格或其他产品生成 EMF 内容是独立的集成工作流，超出本文范围。如果仅需将现有 WMF 或 EMF 文件插入演示文稿，请将其数据传递给合适的[IImageCollection::AddImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimagecollection/addimage/)重载，而无需在图像管理工作流中添加第二个产品依赖。
 
 ## **常见问题**
 
-**插入后原始图像分辨率是否保持不变？**
+**图像集合和图片框之间有什么区别？**
 
-是的。源像素被保留，但最终显示效果取决于在幻灯片上如何缩放 [图片](/slides/zh/cpp/picture-frame/) 以及保存时是否进行压缩。
+图像集合存储可重复使用的图像资源。图片框是一种幻灯片形状，用于显示这些资源之一，并提供如裁剪和效果等图片特定的格式设置。
 
-**一次性在数十张幻灯片中替换相同徽标的最佳方法是什么？**
+**在所有位置替换相同徽标的最佳方法是什么？**
 
-将徽标放置在母版幻灯片或布局上，并在演示文稿的图像集合中进行替换——更新将传播到所有使用该资源的元素。
+如果徽标已经作为单一图像资源共享，请使用[IPPImage::ReplaceImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/replaceimage/)替换该资源。对于全演示文稿的品牌标识，也可以将徽标放置在母版或版面上，以减少重复的幻灯片内容。
 
-**插入的 SVG 能否转换为可编辑的形状？**
+**为什么在另一台电脑上链接图像会消失？**
 
-可以。您可以将 SVG 转换为形状组，随后各个部件即可使用标准形状属性进行编辑。
+链接图片依赖其外部文件或 URL。如果在另一台电脑上无法访问该资源，链接图像可能不可用。演示文稿必须自包含时，请嵌入图像。
 
-**如何一次性将图片设置为多张幻灯片的背景？**
+**插入的 SVG 能否编辑为 PowerPoint 形状？**
 
-在母版幻灯片或相应布局上 [将图像指定为背景](/slides/zh/cpp/presentation-background/)，使用该母版/布局的所有幻灯片都会继承该背景。
+可以。使用[IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapecollection/addgroupshape/)转换 SVG；生成的组包含可编辑的幻灯片形状，而不是单个 SVG 图片。
 
-**如何防止因大量图片导致演示文稿尺寸“膨胀”？**
+**如何让包含大量图像的演示文稿保持更小？**
 
-重复使用单一图像资源而非副本，选择合理的分辨率，保存时进行压缩，并在适当情况下将重复图形放在母版上。
+复用共享图像资源，避免使用不必要的大尺寸光栅源，适时压缩合适的光栅图片，将重复的品牌元素放在母版或版面上，并仅在外部依赖可接受时使用链接图像。

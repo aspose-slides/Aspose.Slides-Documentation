@@ -1,5 +1,5 @@
 ---
-title: เพิ่มประสิทธิภาพการจัดการรูปภาพในงานนำเสนอโดยใช้ Java
+title: เพิ่มประสิทธิภาพการจัดการรูปภาพในงานนำเสนอด้วย Java
 linktitle: จัดการรูปภาพ
 type: docs
 weight: 10
@@ -7,316 +7,315 @@ url: /th/java/image/
 keywords:
 - เพิ่มรูปภาพ
 - เพิ่มรูป
-- เพิ่มบิตแมพ
 - แทนที่รูปภาพ
-- แทนที่รูป
-- จากเว็บ
+- คอลเลกชันรูปภาพ
+- กรอบรูป
+- รูปภาพลิงก์
 - พื้นหลัง
 - เพิ่ม PNG
 - เพิ่ม JPG
 - เพิ่ม SVG
-- เพิ่ม EMF
-- เพิ่ม WMF
-- เพิ่ม TIFF
+- แปลง SVG เป็นรูปร่าง
+- ทรัพยากร SVG ภายนอก
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
-- EMF
-- SVG
 - Java
 - Aspose.Slides
-description: "ทำให้การจัดการรูปภาพใน PowerPoint และ OpenDocument ง่ายขึ้นด้วย Aspose.Slides สำหรับ Java ปรับปรุงประสิทธิภาพและทำให้งานของคุณเป็นอัตโนมัติ"
+description: "เรียนรู้วิธีเพิ่ม, ใช้งานซ้ำ, ลิงก์, แทนที่และจัดการรูปภาพแรสเตอร์และ SVG ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **บทนำ**
 
-ภาพทำให้การนำเสนอมีความดึงดูดและน่าสนใจมากขึ้น ใน Microsoft PowerPoint คุณสามารถแทรกรูปภาพจากไฟล์ อินเทอร์เน็ต หรือแหล่งอื่นลงบนสไลด์ได้ เช่นเดียวกับ Aspose.Slides ที่อนุญาตให้คุณเพิ่มภาพลงในสไลด์ของการนำเสนอผ่านกระบวนการที่ต่างกัน
+Aspose.Slides for Java มีวิธีหลายวิธีในการทำงานกับรูปภาพ และแต่ละวิธีมีจุดประสงค์ที่แตกต่างกัน คุณสามารถจัดเก็บรูปภาพในงานนำเสนอ แสดงในกรอบรูป ใช้เป็นพื้นหลังของสไลด์ ลิงก์ไปยังรูปภาพภายนอก แทนที่ทรัพยากรรูปภาพที่ใช้ร่วมกัน หรือแปลงเนื้อหา SVG ให้เป็นรูปร่างที่แก้ไขได้
 
-{{% alert title="เคล็ดลับ" color="primary" %}} 
+บทความนี้มุ่งเน้นที่ทรัพยากรรูปภาพและวิธีการใช้ทั่วทั้งงานนำเสนอ สำหรับการครอบตัด ความโปร่งใส เอฟเฟกต์ การยืด และการกำหนดรูปแบบอื่น ๆ ที่ใช้กับกรอบรูปเดี่ยว ดูที่ [Picture Frame](/slides/th/java/picture-frame/).
 
-Aspose ให้บริการตัวแปลงฟรี—[JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ที่ช่วยให้ผู้ใช้สร้างการนำเสนออย่างรวดเร็วจากภาพ 
+## **ทำความเข้าใจโมเดลรูปภาพ**
 
-{{% /alert %}} 
+แนวคิด API ต่อไปนี้เกี่ยวข้องอย่างใกล้ชิดแต่ไม่สามารถใช้แทนกันได้:
 
-{{% alert title="ข้อมูล" color="info" %}}
+- คอลเลกชันรูปภาพของงานนำเสนอ ([presentation image collection](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimagecollection/)) เก็บทรัพยากรรูปภาพที่ใช้ในงานนำเสนอ ใช้ [ImageCollection.addImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/imagecollection/) เพื่อเพิ่มข้อมูลรูปภาพและรับทรัพยากร [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) 
+- กรอบรูป ([picture frame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/)) คือรูปทรงที่แสดงรูปภาพบนสไลด์, เค้าโครง หรือแม่แบบ ใช้ [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/) เพื่อวางทรัพยากรรูปภาพบนสไลด์
+- พื้นหลังสไลด์ใช้รูปภาพเป็นส่วนหนึ่งของการเติมสไลด์ แทนที่จะเป็นรูปทรง ดังนั้นจึงไม่ทำงานเช่นกรอบรูป
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) แทนที่ทรัพยากรรูปภาพ หากหลายองค์ประกอบของงานนำใช้ทรัพยากรนั้น พวกเขาจะใช้รูปภาพที่เปลี่ยนแทนทั้งหมด
+- การแปลง SVG เป็นรูปร่างจะสร้างรูปร่างสไลด์ที่สามารถแก้ไขได้ หลังจากการแปลง เนื้อหาไม่ถูกจัดการเป็นทรัพยากรรูปภาพเดียวอีกต่อไป
 
-หากคุณต้องการเพิ่มภาพเป็นอ็อบเจ็กต์กรอบ—โดยเฉพาะอย่างยิ่งหากคุณวางแผนจะใช้ตัวเลือกการจัดรูปแบบมาตรฐานเพื่อเปลี่ยนขนาด เพิ่มเอฟเฟกต์ ฯลฯ—ดูที่ [Picture Frame](https://docs.aspose.com/slides/th/java/picture-frame/) 
+ดังนั้นขั้นตอนการทำงานทั่วไปคือ: เพิ่มข้อมูลรูปภาพลงในคอลเลกชันรูปภาพ รับ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/), แล้วใช้ทรัพยากรนั้นในหนึ่งหรือหลายกรอบรูปหรือการเติม
 
-{{% /alert %}} 
+## **เพิ่มรูปภาพแบบฝัง**
 
-{{% alert title="หมายเหตุ" color="warning" %}}
-
-คุณสามารถจัดการการดำเนินการเข้า/ออกที่เกี่ยวข้องกับภาพและการนำเสนอ PowerPoint เพื่อแปลงภาพจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง ดูหน้านี้: แปลง [image to JPG](https://products.aspose.com/slides/th/java/conversion/image-to-jpg/); แปลง [JPG to image](https://products.aspose.com/slides/th/java/conversion/jpg-to-image/); แปลง [JPG to PNG](https://products.aspose.com/slides/th/java/conversion/jpg-to-png/), แปลง [PNG to JPG](https://products.aspose.com/slides/th/java/conversion/png-to-jpg/); แปลง [PNG to SVG](https://products.aspose.com/slides/th/java/conversion/png-to-svg/), แปลง [SVG to PNG](https://products.aspose.com/slides/th/java/conversion/svg-to-png/) 
-
-{{% /alert %}}
-
-Aspose.Slides รองรับการทำงานกับภาพในรูปแบบที่เป็นที่นิยม ได้แก่ JPEG, PNG, GIF และอื่น ๆ 
-
-## **เพิ่มรูปภาพที่จัดเก็บไว้ในเครื่องไปยังสไลด์**
-
-คุณสามารถเพิ่มหนึ่งหรือหลายรูปภาพจากคอมพิวเตอร์ของคุณลงบนสไลด์ในงานนำเสนอ โค้ดตัวอย่างใน Java นี้แสดงวิธีเพิ่มภาพลงบนสไลด์:
+เพื่อแทรกรูปภาพในเครื่อง ให้โหลดไฟล์ เพิ่มลงในคอลเลกชันรูปภาพ และสร้างกรอบรูปที่ใช้ `IPPImage` ที่ส่งกลับ
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **เพิ่มรูปภาพจากเว็บไปยังสไลด์**
-
-หากภาพที่คุณต้องการเพิ่มลงสไลด์ไม่มีในเครื่องของคุณ คุณสามารถเพิ่มภาพโดยตรงจากเว็บได้
-
-โค้ดตัวอย่างนี้แสดงวิธีเพิ่มภาพจากเว็บไปยังสไลด์ใน Java:
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	URL imageUrl = new URL("[REPLACE WITH URL]");
-	URLConnection connection = imageUrl.openConnection();
-	InputStream inputStream = connection.getInputStream();
-
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	try {
-		byte[] buffer = new byte[1024];
-		int read;
-
-		while ((read = inputStream.read(buffer, 0, buffer.length)) != -1)
-			outputStream.write(buffer, 0, read);
-
-		outputStream.flush();
-
-		IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-	} finally {
-		if (inputStream != null) inputStream.close();
-		outputStream.close();
-	}
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **เพิ่มรูปภาพไปยังมาสเตอร์สไลด์**
-
-มาสเตอร์สไลด์คือสไลด์บนสุดที่เก็บและควบคุมข้อมูล (ธีม,เลย์เอาต์ ฯลฯ) ของสไลด์ทั้งหมดที่อยู่ภายใต้มัน ดังนั้นเมื่อคุณเพิ่มภาพไปยังมาสเตอร์สไลด์ ภาพนั้นจะปรากฏบนทุกสไลด์ที่อยู่ภายใต้มาสเตอร์สไลด์นั้น
-
-โค้ดตัวอย่าง Java นี้แสดงวิธีเพิ่มภาพไปยังมาสเตอร์สไลด์:
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
-	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
-	pres.save("pres.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **เพิ่มรูปภาพเป็นพื้นหลังสไลด์**
+รูปภาพที่เพิ่มด้วยวิธีนี้จะถูกฝังไว้ในงานนำเสนอ ดังนั้นไฟล์ที่ได้จะไม่ขึ้นกับไฟล์รูปภาพต้นฉบับที่ยังคงอยู่
 
-คุณอาจต้องการใช้รูปเป็นพื้นหลังสำหรับสไลด์เฉพาะหรือหลายสไลด์ ในกรณีนั้นคุณต้องดู *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/th/java/presentation-background/#setting-images-as-background-for-slides)*
+### **เพิ่มรูปภาพจากเว็บ**
 
-## **เพิ่ม SVG ไปยังการนำเสนอ**
+เมื่อรูปภาพสามารถเข้าถึงได้ผ่าน HTTP หรือ HTTPS ให้ดาวน์โหลดไบต์ของรูปภาพ เพิ่มลงในคอลเลกชันรูปภาพของงานนำเสนอ และใช้ทรัพยากรรูปภาพที่ส่งกลับเช่นเดียวกับรูปภาพในเครื่อง
 
-คุณสามารถเพิ่มหรือแทรกรูปภาพใด ๆ ลงในงานนำเสนอโดยใช้เมธอด [addPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) ที่เป็นส่วนหนึ่งของอินเทอร์เฟซ [IShapeCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShapeCollection)
-
-เพื่อสร้างอ็อบเจ็กต์ภาพจาก SVG คุณสามารถทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอ็อบเจ็กต์ SvgImage เพื่อนำเข้าไปยัง ImageShapeCollection
-2. สร้างอ็อบเจ็กต์ PPImage จาก ISvgImage
-3. สร้างอ็อบเจ็กต์ PictureFrame โดยใช้อินเทอร์เฟซ IPPImage
-
-โค้ดตัวอย่างนี้แสดงวิธีดำเนินการตามขั้นตอนข้างต้นเพื่อเพิ่มภาพ SVG ลงในงานนำเสนอ:
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+Presentation presentation = new Presentation();
 try {
-    String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
+
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
+
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **แปลง SVG เป็นชุดของรูปทรง**
+ในแอปพลิเคชันที่ทำงานเป็นเวลานาน ควรใช้คลไอเอนต์ HTTP หรือกลยุทธ์การจัดการการเชื่อมต่อที่เหมาะสมกับแอปพลิเคชันแทนการสร้างโครงสร้างเครือข่ายที่ไม่จำเป็นซ้ำ ๆ นอกจากนี้ควรตรวจสอบ URL ระยะไกล ขนาดของการตอบสนอง และประเภทของเนื้อหาเมื่อแหล่งที่มามิได้รับความเชื่อถือ
 
-การแปลง SVG เป็นชุดของรูปทรงของ Aspose.Slides มีความคล้ายคลึงกับฟังก์ชัน PowerPoint ที่ใช้ทำงานกับภาพ SVG:
+## **ใช้รูปภาพซ้ำในหลายสไลด์**
+
+หากต้องการใช้รูปภาพเดียวกันหลายครั้ง ให้เพิ่มรูปนั้นลงในงานนำเสนอเพียงครั้งเดียวและใช้ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) ที่ส่งกลับเมื่อสร้างกรอบรูปเพิ่มเติม วิธีนี้ช่วยหลีกเลี่ยงการโหลดข้อมูลแหล่งเดียวซ้ำและทำให้ความสัมพันธ์ระหว่างทรัพยากรรูปภาพที่ใช้ร่วมกันกับการใช้งานของมันชัดเจน
+
+สำหรับกราฟิกที่ควรปรากฏอัตโนมัติบนหลายสไลด์ เช่นโลโก้บริษัท ให้พิจารณาวางกรอบรูปบน [slide master](/slides/th/java/slide-master/) หรือเลย์เอาต์ แทนการเพิ่มรูปทรงที่เทียบเท่าในทุกสไลด์
+
+## **ใช้รูปภาพเป็นพื้นหลังสไลด์**
+
+รูปภาพพื้นหลังจะถูกกำหนดให้กับการเติมสไลด์; ไม่ได้เพิ่มเป็นรูปทรงกรอบรูป วิธีนี้มีประโยชน์เมื่อรูปต้องครอบพื้นหลังสไลด์และไม่ควรถูกจัดการเหมือนวัตถุสไลด์ทั่วไป
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+สำหรับตัวเลือกพื้นหลังเพิ่มเติม รวมถึงพื้นหลังของมาสเตอร์และเลย์เอาต์ ดูที่ [Presentation Background](/slides/th/java/presentation-background/)
+
+## **รูปภาพฝังและรูปภาพลิงก์**
+
+รูปภาพฝังและรูปภาพลิงก์มีการพิจารณาเรื่องการพกพาและขนาดไฟล์ที่แตกต่างกัน:
+
+- **รูปภาพฝัง:** ข้อมูลรูปภาพถูกเก็บอยู่ภายในงานนำเสนอ งานนำเสนอเป็นไฟล์ที่สมบูรณ์ในตัวเอง แต่ขนาดไฟล์รวมถึงข้อมูลรูปภาพ
+- **รูปภาพลิงก์:** งานนำเสนอเก็บเส้นทางหรือ URL ไปยังรูปภาพภายนอก ซึ่งสามารถลดขนาดงานนำเสนอได้ แต่ทรัพยากรภายนอกต้องยังคงเข้าถึงได้เมื่อเปิดหรือเรนเดอร์งานนำเสนอ
+
+รูปภาพลิงก์สามารถสร้างได้โดยกำหนดเส้นทางหรือ URL ภายนอกผ่าน [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidespicture/) แทนการฝังข้อมูลรูปภาพ
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ใช้รูปภาพลิงก์เฉพาะเมื่อสภาพแวดล้อมการปรับใช้สามารถเข้าถึงทรัพยากรภายนอกได้อย่างเชื่อถือได้ สำหรับงานนำเสนอที่ต้องทำงานแบบออฟไลน์หรือย้ายระหว่างระบบ รูปภาพฝังมักจะปลอดภัยกว่า
+
+## **ทำงานกับรูปภาพ SVG**
+
+SVG เป็นรูปแบบเวกเตอร์ ทำให้เหมาะสำหรับไอคอน แผนภูมิ และกราฟิกอื่น ๆ ที่ควรขยายได้โดยไม่สูญเสียรายละเอียดเหมือนรูปภาพแรสเตอร์ Aspose.Slides รองรับ SVG ทั้งเป็นทรัพยากรรูปภาพและเป็นแหล่งสำหรับรูปร่างสไลด์ที่แก้ไขได้
+
+### **เพิ่ม SVG เป็นรูปภาพ**
+
+สร้าง [SvgImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/svgimage/), เพิ่มลงในคอลเลกชันรูปภาพ และวางทรัพยากรรูปภาพที่ได้ในกรอบรูป
+
+```java
+import com.aspose.slides.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ไฟล์ SVG กับทรัพยากรภายนอก**
+
+SVG สามารถอ้างอิงรูปภาพ ภาพสไตล์ชีต หรือฟอนต์ภายนอกได้ สำหรับกรณีเหล่านี้ [SvgImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/svgimage/) มีคอนสตรัคเตอร์ที่รับ [IExternalResourceResolver](https://reference.aspose.com/slides/th/java/com.aspose.slides/iexternalresourceresolver/) และ base URI ตัวแก้ไขสามารถแมป URI สัมพัทธ์ไปยัง URI แบบเต็มที่ได้รับอนุญาตและคืนสตรีมสำหรับทรัพยากรที่ร้องขอ
+
+ตัวแก้ไขทำให้ทรัพยากรภายนอกพร้อมใช้งานขณะที่ Aspose.Slides ประมวลผล SVG แต่ไม่ได้เขียนใหม่ SVG ให้เป็นเอกสารที่มีตัวเอง หากต้องการให้ SVG พกพาได้ ควรฝังทรัพยากรที่จำเป็นไว้ใน SVG เอง เช่นโดยใช้ URI แบบ `data:` สำหรับรูปภาพลิงก์
+
+เมื่อไฟล์ SVG มาจากแหล่งที่ไม่น่าเชื่อถือ ควรจำกัดสเคม, ตำแหน่งไฟล์, และโฮสต์ที่ตัวแก้ไขสามารถเข้าถึงได้ ตัวแก้ไขเครือข่ายควรกำหนดเวลา timeout, ขนาดการตอบสนองสูงสุด, และการตรวจสอบเนื้อหา
+
+### **แปลง SVG เป็นรูปร่างที่แก้ไขได้**
+
+Aspose.Slides สามารถแปลง SVG ให้เป็นกลุ่มของรูปร่างสไลด์ที่แก้ไขได้ คล้ายกับคำสั่งใน PowerPoint ที่สอดคล้อง
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-ฟังก์ชันนี้ให้บริการโดยหนึ่งใน overload ของเมธอด [addGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) ของอินเทอร์เฟซ [IShapeCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShapeCollection) ที่รับอ็อบเจ็กต์ [ISvgImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ISvgImage) เป็นอาร์กิวเมนต์แรก
-
-โค้ดตัวอย่างนี้แสดงวิธีใช้เมธอดที่อธิบายเพื่อแปลงไฟล์ SVG เป็นชุดของรูปทรง:
-
-```java 
-// สร้างการนำเสนอใหม่
-IPresentation presentation = new Presentation();
-try {
-    // อ่านเนื้อหาไฟล์ SVG
-    byte[] svgContent = Files.readAllBytes(Paths.get("image.svg"));
-
-    // สร้างอ็อบเจ็กต์ SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // รับขนาดสไลด์
-    Dimension2D slideSize = presentation.getSlideSize().getSize();
-
-    // แปลงภาพ SVG เป็นกลุ่มของรูปทรงโดยปรับสเกลให้พอกับขนาดสไลด์
-    presentation.getSlides().get_Item(0).getShapes().
-            addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
-
-    // บันทึกการนำเสนอในรูปแบบ PPTX
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **เพิ่มรูปภาพเป็น EMF ไปยังสไลด์**
-
-Aspose.Slides for Java อนุญาตให้คุณสร้างภาพ EMF จากชีต Excel และเพิ่มภาพเหล่านั้นเป็น EMF ในสไลด์ด้วย Aspose.Cells  
-
-โค้ดตัวอย่างนี้แสดงวิธีทำงานตามที่อธิบาย:
-
-```java 
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-//บันทึกเวิร์กบุ๊กไปยังสตรีม
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-    
-    String EmfSheetName = "";
-    for (int j = 0; j < sr.getPageCount(); j++)
-    {
-    
-        EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-
-        IPPImage picture;
-        IImage image = Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-        ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-					(float)pres.getSlideSize().getSize().getWidth(), 
-					(float)pres.getSlideSize().getSize().getHeight(), 
-					picture);
-    }
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **แทนที่รูปภาพใน Image Collection**
-
-Aspose.Slides ให้คุณแทนที่ภาพที่เก็บอยู่ใน Image Collection ของงานนำเสนอ (รวมถึงภาพที่ใช้โดยรูปทรงสไลด์) ส่วนนี้แสดงหลายวิธีการอัปเดตภาพในคอลเลกชัน API มีเมธอดที่ตรงไปตรงมาเพื่อแทนที่ภาพโดยใช้ข้อมูลไบต์ดิบ, อินสแตนซ์ [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) หรือภาพอื่นที่มีอยู่แล้วในคอลเลกชัน
-
-ทำตามขั้นตอนต่อไปนี้:
-
-1. โหลดไฟล์งานนำเสนอที่มีภาพโดยใช้คลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
-2. โหลดภาพใหม่จากไฟล์เข้าสู่ byte array
-3. แทนที่ภาพเป้าหมายด้วยภาพใหม่โดยใช้ byte array
-4. ในวิธีที่สอง โหลดภาพเข้าสู่วัตถุ [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) แล้วแทนที่ภาพเป้าหมายด้วยวัตถุนั้น
-5. ในวิธีที่สาม แทนที่ภาพเป้าหมายด้วยภาพที่มีอยู่แล้วใน Image Collection ของงานนำเสนอ
-6. เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX
+ใช้ overload ของ [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/) ที่รับ [ISvgImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/isvgimage/) เพื่อทำการแปลง
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ.
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // วิธีที่หนึ่ง.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // วิธีที่สอง.
-    IImage newImage = Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // วิธีที่สาม.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // บันทึกงานนำเสนอลงไฟล์.
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ใช้การแปลง SVG เป็นรูปร่างเมื่อองค์ประกอบเวกเตอร์แต่ละตัวต้องการแก้ไขเป็นรูปร่าง PowerPoint หาก SVG เพียงต้องการแสดงผล การเก็บไว้เป็นรูปภาพจะง่ายกว่าและหลีกเลี่ยงการสร้างรูปร่างแยกหลาย ๆ รายการ
+
+## **แทนที่ทรัพยากรรูปภาพที่มีอยู่**
+
+ใช้ [IPPImage.replaceImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) เมื่อคุณต้องการแทนที่ทรัพยากรรูปภาพที่มีอยู่ วิธีนี้มีประโยชน์เป็นพิเศษสำหรับกราฟิกที่ใช้ร่วมกันเช่นโลโก้
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
+
+    IImage replacementImage = Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) replacementImage.dispose();
+    }
+
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="ข้อมูล" color="info" %}}
+หากหลายกรอบรูป, พื้นหลัง, มาสเตอร์หรือเลย์เอ์เทใช้ทรัพยากรรูปเดียวกัน การแทนที่ทรัพยากรนั้นจะอัพเดตการใช้ทั้งหมด หากต้องการเปลี่ยนเพียงกรอบรูปเดียว ให้กำหนดรูปภาพอื่นให้กับกรอบนั้นแทนการแทนที่ทรัพยากรที่ใช้ร่วม
 
-โดยใช้ Aspose FREE [Text to GIF](https://products.aspose.app/slides/th/text-to-gif) converter คุณสามารถทำให้ข้อความเคลื่อนไหว สร้าง GIF จากข้อความ เป็นต้นได้อย่างง่ายดาย 
+`replaceImage` ยังมี overload ที่รับอาร์เรย์ไบต์หรือ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) อีกด้วย
 
-{{% /alert %}}
+## **แนวทางการจัดการรูปภาพเชิงปฏิบัติ**
 
-## **คำถามที่พบบ่อย**
+### **ควบคุมขนาดงานนำเสนอ**
 
-**ความละเอียดต้นฉบับของภาพยังคงอยู่หลังการแทรกหรือไม่?**
+รูปภาพแรสเตอร์ขนาดใหญ่สามารถทำให้ขนาดงานนำเสนอเพิ่มขึ้นโดยไม่จำเป็น ใช้รูปภาพต้นฉบับที่มีมิติที่เหมาะสมกับขนาดการแสดงที่ต้องการ ใช้ทรัพยากรรูปภาพที่ใช้ร่วมกันเมื่อเป็นไปได้ และหลีกเลี่ยงการฝังสำเนาซ้ำของกราฟิกความละเอียดเต็มเดียวกัน
 
-ใช่ พิกเซลต้นฉบับจะถูกเก็บไว้ แต่ลักษณะสุดท้ายขึ้นกับวิธีที่ [picture](/slides/th/java/picture-frame/) ถูกสเกลบนสไลด์และการบีบอัดที่ทำขณะบันทึก
+สำหรับรูปแรสเตอร์ที่ได้วางไว้ในกรอบรูปแล้ว [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/) สามารถลดข้อมูลรูปภาพตามความละเอียดและการตั้งค่าการครอบที่เลือก วิธีนี้เป็นการประมวลผลกรอบรูป ไม่ใช่การจัดการคอลเลกชันรูปภาพ ดังนั้นดูที่ [Picture Frame](/slides/th/java/picture-frame/) สำหรับการจัดรูปแบบที่เกี่ยวข้อง
 
-**วิธีที่ดีที่สุดในการแทนที่โลโก้เดียวกันบนหลายสิบสไลด์พร้อมกันคืออะไร?**
+### **เลือกระหว่างเนื้อหาแบบฝังและแบบลิงก์**
 
-ใส่โลโก้บนมาสเตอร์สไลด์หรือเลย์เอาต์และแทนที่ใน Image Collection ของงานนำเสนอ—การอัปเดตจะกระจายไปยังทุกองค์ประกอบที่ใช้ทรัพยากรนั้น
+การฝังคือทำให้งานนำเสนอพกพาได้เนื่องจากข้อมูลรูปภาพทั้งหมดอยู่ในไฟล์เดียว การลิงก์สามารถลดขนาดไฟล์ได้ แต่จะสร้างการพึ่งพาภายนอก ใช้ลิงก์เฉพาะเมื่อการพึ่งพานั้นยอมรับได้และเสถียร
 
-**สามารถแปลง SVG ที่แทรกแล้วให้เป็นรูปทรงที่สามารถแก้ไขได้หรือไม่?**
+### **ใช้แบรนด์ที่ใช้ร่วมกันซ้ำ**
 
-ได้ คุณสามารถแปลง SVG เป็นกลุ่มของรูปทรง หลังจากนั้นส่วนย่อยต่าง ๆ จะกลายเป็นรูปทรงที่แก้ไขได้ด้วยคุณสมบัติมาตรฐานของรูปทรง
+สำหรับโลโก้, ลายน้ำ หรือกราฟิกตกแต่งที่ใช้ซ้ำ ให้ใช้ทรัพยากรรูปภาพเดียวและใช้งานซ้ำ หากกราฟิกเป็นส่วนหนึ่งของการออกแบบงานนำเสนอไม่ใช่เนื้อหาสไลด์ ให้วางไว้บนมาสเตอร์หรือเลย์เอาต์เพื่อให้สไลด์ที่เหมาะสมสืบทอด
 
-**จะตั้งค่าภาพเป็นพื้นหลังสำหรับหลายสไลด์พร้อมกันอย่างไร?**
+### **ทำให้ทรัพยากร SVG พกพาได้**
 
-[Assign the image as the background](/slides/th/java/presentation-background/) บนมาสเตอร์สไลด์หรือเลย์เอาต์ที่เกี่ยวข้อง—สไลด์ใด ๆ ที่ใช้มาสเตอร์/เลย์เอาต์นั้นจะสืบทอดพื้นหลังโดยอัตโนมัติ
+SVG ที่เป็นเอกสารอิสระง่ายต่อการย้ายและเรนเดอร์อย่างสม่ำเสมอกว่า SVG ที่พึ่งพาไฟล์หรือทรัพยากรเครือข่ายภายนอก เมื่อเป็นไปได้ ควรฝังทรัพยากรที่จำเป็นก่อนนำเข้า SVG แปลง SVG เป็นรูปร่างเฉพาะเมื่อองค์ประกอบเวกเตอร์ต้องการแก้ไข
 
-**จะป้องกันไม่ให้ไฟล์งานนำเสนอขยายขนาดมากเกินไปจากภาพจำนวนมากได้อย่างไร?**
+### **ใช้ Modern Cross-Platform Image API**
 
-ใช้ทรัพยากรภาพเดียวแทนการทำซ้ำ เลือกความละเอียดที่สมเหตุสมผล ใช้การบีบอัดขณะบันทึก และเก็บกราฟิกที่ใช้บ่อยไว้บนมาสเตอร์เมื่อเหมาะสม
+สำหรับโค้ด Java ใหม่ ให้ใช้ API ของ Aspose.Slides [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) และ [Images](https://reference.aspose.com/slides/th/java/com.aspose.slides/images/) แทน API สาธารณะรุ่นเก่าที่อิงจาก `java.awt.image.BufferedImage` ดูที่ [Modern API](/slides/th/java/modern-api/) สำหรับคำแนะนำการย้าย
+
+WMF และ EMF ต้องการการพิจารณาพิเศษ เมื่อรูปแบบเหล่านี้ถูกส่งผ่าน [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/imagecollection/) จะแปลงเมตาไฟล์เป็นรูปแบบ PNG แรสเตอร์ก่อนใส่ หากต้องการรักษาข้อมูลเมตาไฟล์ ควรใช้ overload ของ [ImageCollection.addImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/imagecollection/) ที่รับสตรีม แทน การสร้างเนื้อหา EMF จากสเปรดชีตหรือผลิตภัณฑ์อื่นเป็นกระบวนการบูรณาการแยกต่างหากและอยู่นอกขอบเขตของบทความนี้
+
+## **FAQ**
+
+**ความแตกต่างระหว่างคอลเลกชันรูปภาพและกรอบรูปคืออะไร?**
+
+คอลเลกชันรูปภาพเก็บทรัพยากรรูปภาพที่ใช้ซ้ำได้ กรอบรูปเป็นรูปทรงบนสไลด์ที่แสดงหนึ่งในทรัพยากรเหล่านั้นและให้การจัดรูปแบบเฉพาะรูปภาพเช่นการครอบตัดและเอฟเฟกต์
+
+**วิธีที่ดีที่สุดในการแทนที่โลโก้เดียวกันทุกที่คืออะไร?**
+
+หากโลโก้ถูกแชร์เป็นทรัพยากรรูปภาพเดียวแล้ว ให้แทนที่ทรัพยากรนั้นด้วย [IPPImage.replaceImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) สำหรับการสร้างแบรนด์ทั่วทั้งงานนำเสนอ การวางโลโก้บนมาสเตอร์หรือเลย์เอาต์ก็สามารถลดเนื้อหาสไลด์ที่ซ้ำซ้อนได้
+
+**ทำไมรูปภาพลิงก์ถึงหายไปบนคอมพิวเตอร์เครื่องอื่น?**
+
+รูปภาพลิงก์ขึ้นกับไฟล์หรือ URL ภายนอก หากไม่สามารถเข้าถึงทรัพยากรนั้นจากคอมพิวเตอร์เครื่องอื่น รูปภาพลิงก์อาจไม่มีให้ใช้ ฝังรูปภาพเมื่อจำเป็นต้องทำให้งานนำเสนอเป็นไฟล์เดียว
+
+**สามารถแก้ไข SVG ที่แทรกเป็นรูปร่าง PowerPoint ได้หรือไม่?**
+
+ได้ ใช้แปลง SVG ด้วย [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/) ; กลุ่มที่ได้จะมีรูปร่างสไลด์ที่แก้ไขได้แทนการเป็นรูป SVG เพียงหนึ่งรูป
+
+**ทำอย่างไรให้งานนำเสนอที่มีรูปภาพจำนวนมากมีขนาดเล็กลง?**
+
+ใช้ทรัพยากรรูปภาพที่ใช้ร่วมกันซ้ำ หลีกเลี่ยงแหล่งรูปแรสเตอร์ที่ใหญ่เกินความจำเป็น บีบอัดรูปแรสเตอร์ที่เหมาะสมเมื่อจำเป็น เก็บแบรนด์ที่ซ้ำกันบนมาสเตอร์หรือเลย์เอาต์ และใช้รูปภาพลิงก์เฉพาะเมื่อการพึ่งพาภายนอกยอมรับได้

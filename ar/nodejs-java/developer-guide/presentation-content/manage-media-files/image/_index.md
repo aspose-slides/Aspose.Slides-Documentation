@@ -7,297 +7,333 @@ url: /ar/nodejs-java/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة صورة نقطية
 - استبدال صورة
-- استبدال صورة
-- من الويب
+- مجموعة الصور
+- إطار صورة
+- صورة مرتبطة
 - خلفية
 - إضافة PNG
 - إضافة JPG
 - إضافة SVG
-- إضافة EMF
-- إضافة WMF
-- إضافة TIFF
+- تحويل SVG إلى أشكال
+- موارد SVG الخارجية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- EMF
-- SVG
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تبسيط إدارة الصور في PowerPoint وOpenDocument باستخدام JavaScript وAspose.Slides لـ Node.js، مع تحسين الأداء وأتمتة سير العمل الخاص بك."
+description: "تعرّف على كيفية إضافة، وإعادة استخدام، وربط، واستبدال، وإدارة الصور النقطية و SVG في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java."
 ---
+## **المقدمة**
 
-## **الصور في الشرائح في العروض التقديمية**
+توفر Aspose.Slides لـ Node.js عبر Java عدة طرق للعمل مع الصور، وكل طريقة تخدم غرضًا مختلفًا. يمكنك تخزين صورة في العرض التقديمي، عرضها في إطار صورة، استخدامها كخلفية شريحة، الربط بصورة خارجية، استبدال مورد صورة مشاركة، أو تحويل محتوى SVG إلى أشكال قابلة للتحرير.
 
-تجعل الصور العروض التقديمية أكثر جاذبية وإثارةً للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مواقع أخرى على الشرائح. بالمثل، يتيح لك Aspose.Slides إضافة الصور إلى الشرائح في عروضك التقديمية عبر إجراءات مختلفة.
+تتركز هذه المقالة على موارد الصور وكيفية استخدامها عبر العرض التقديمي. لمعالجة القص، الشفافية، التأثيرات، التمدد، وغيرها من التنسيقات المطبقة على إطار صورة منفرد، راجع [إطار الصورة](/slides/ar/nodejs-java/picture-frame/).
 
-{{% alert title="نصيحة" color="primary" %}} 
+## **فهم نموذج الصورة**
 
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تسمح للناس بإنشاء عروض تقديمية بسرعة من الصور. 
+المفاهيم البرمجية التالية مرتبطة ارتباطًا وثيقًا ولكنها ليست قابلة للاستبدال:
 
-{{% /alert %}} 
+- تخزن [مجموعة صور العرض التقديمي](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/imagecollection/) موارد الصور المستخدمة في العرض التقديمي. استخدم [ImageCollection.addImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/imagecollection/) لإضافة بيانات الصورة والحصول على مورد [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/).
+- [إطار الصورة](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) هو شكل يعرض صورة على شريحة أو تخطيط أو رئيس. استخدم [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/) لوضع مورد صورة على شريحة.
+- خلفية الشريحة تستخدم صورة كجزء من تعبئة الشريحة بدلاً من كشكل. لذلك لا تتصرف كإطار صورة.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) يستبدل مورد صورة. إذا استخدمت عدة عناصر في العرض التقديمي ذلك المورد، فإنها جميعًا ستستخدم البديل.
+- تحويل SVG إلى أشكال ينشئ أشكال شريحة قابلة للتحرير. بعد التحويل، لا يُدار المحتوى بعد الآن كصورة واحدة.
 
-{{% alert title="معلومات" color="info" %}}
+وبالتالي يكون سير العمل النموذجي: إضافة بيانات الصورة إلى مجموعة الصور، الحصول على [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/)، ثم استخدام ذلك المورد في إطار صورة أو تعبئة واحدة أو أكثر.
 
-إذا كنت ترغب في إضافة صورة ككائن إطار—خاصةً إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها أو إضافة تأثيرات وغيرها—راجع [Picture Frame](/slides/ar/nodejs-java/picture-frame/).
+## **إضافة صورة مدمجة**
 
-{{% /alert %}} 
+لإدراج صورة محلية، حمِّل الملف، أضفه إلى مجموعة الصور، وأنشئ إطار صورة يستخدم مورد [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) الذي تم إرجاعه.
 
-يدعم Aspose.Slides عمليات مع الصور في هذه الصيغ الشائعة: JPEG, PNG, GIF، وغيرها.
-
-## **إضافة الصور المخزنة محليًا إلى الشرائح**
-
-يمكنك إضافة صورة واحدة أو عدة صور من جهاز الكمبيوتر إلى شريحة في عرض تقديمي. يوضح لك عينة الشيفرة هذه بلغة JavaScript كيفية إضافة صورة إلى شريحة:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
     }
-    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+الصورة المضافة بهذه الطريقة مدمجة في العرض التقديمي، لذا لا يعتمد الملف الناتج على توفر ملف الصورة الأصلي.
 
-## **إضافة الصور من الدفق إلى الشرائح**
+### **إضافة صورة من الويب**
 
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافتها مباشرةً من الويب.
+عندما تكون الصورة متاحة عبر HTTP أو HTTPS، قم بتحميل بايتاتها، أضفها إلى مجموعة صور العرض التقديمي، واستخدم مورد الصورة المرجع بنفس الطريقة التي تُستعمل بها الصورة المحلية.
 
-تُظهر لك عينة الشيفرة هذه كيفية إضافة صورة من الويب إلى شريحة بلغة JavaScript:
 ```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // الوصول إلى الشريحة الأولى
-    var sld = pres.getSlides().get_Item(0);
-    // تحميل ملف Excel إلى التدفق
-    var readStream = fs.readFileSync("book1.xlsx");
-    var byteArray = Array.from(readStream);
-    // إنشاء كائن بيانات للتضمين
-    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // إضافة شكل إطار كائن Ole
-    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
-    // كتابة ملف PPTX إلى القرص
-    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
+const java = require("java");
+
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
+            }
+
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
+    });
 }
-```
 
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
 
-## **إضافة الصور إلى أسس الشرائح (Slide Masters)**
-
-أساس الشريحة هو الشريحة العليا التي تخزن وتتحكم في معلومات (السمة، التخطيط، إلخ) عن جميع الشرائح التي تحته. لذلك، عندما تضيف صورة إلى أساس الشريحة، تظهر تلك الصورة على كل شريحة تحت ذلك الأساس.
-
-تُظهر لك عينة الشيفرة هذه بلغة JavaScript كيفية إضافة صورة إلى أساس شريحة:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var masterSlide = slide.getLayoutSlide().getMasterSlide();
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    const presentation = new aspose.slides.Presentation();
     try {
-        picture = pres.getImages().addImage(image);
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    masterSlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **إضافة الصور كخلفية للشرائح**
-
-قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام الطريقة [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) التابعة للفئة [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection).
-
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
-
-1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection  
-2. إنشاء كائن PPImage من ISvgImage  
-3. إنشاء كائن PictureFrame باستخدام فئة PPImage  
-
-تُظهر لك عينة الشيفرة هذه كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
-```javascript
-// إنشاء فئة Presentation التي تمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    var ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-
-## **تحويل SVG إلى مجموعة من الأشكال**
-تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه للوظيفة الموجودة في PowerPoint للعمل مع صور SVG:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-توفر هذه الوظيفة أحد التحميلات الزائدة للطريقة [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) للفئة [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) التي تأخذ كائن [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage) كوسيطة أولى.
-
-تُظهر لك عينة الشيفرة هذه كيفية استخدام الطريقة الموضحة لتحويل ملف SVG إلى مجموعة من الأشكال:
-```javascript
-// إنشاء عرض تقديمي جديد
-var presentation = new aspose.slides.Presentation();
-try {
-    // قراءة محتوى ملف SVG
-    var svgContent = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg"));
-    // إنشاء كائن SvgImage
-    var svgImage = new aspose.slides.SvgImage(svgContent);
-    // الحصول على حجم الشريحة
-    var slideSize = presentation.getSlideSize().getSize();
-    // تحويل صورة SVG إلى مجموعة من الأشكال مع تحجيمها إلى حجم الشريحة
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-    // حفظ العرض التقديمي بتنسيق PPTX
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
         presentation.dispose();
     }
-}
+})();
 ```
 
+في التطبيقات طويلة الأمد، أعد استخدام عميل HTTP أو استراتيجية إدارة الاتصالات المناسبة للتطبيق بدلاً من إنشاء بنية شبكة غير ضرورية مرارًا وتكرارًا. كما يجب التحقق من صحة عناوين URL البعيدة، أحجام الاستجابات، وأنواع المحتوى عندما لا يكون المصدر موثوقًا.
 
-## **إضافة الصور كـ EMF في الشرائح**
-يسمح Aspose.Slides for Node.js via Java بإنشاء صور EMF من جداول Excel وإضافة هذه الصور كـ EMF في الشرائح باستخدام Aspose.Cells.
+## **إعادة استخدام الصور عبر الشرائح**
 
-تُظهر لك عينة الشيفرة هذه كيفية تنفيذ المهمة الموصوفة:
+إذا كانت الصورة نفسها مطلوبة أكثر من مرة، أضفها إلى العرض التقديمي مرة واحدة وأعد استخدام [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) الذي تم إرجاعه عند إنشاء إطارات صورة إضافية. هذا يجنّب تحميل نفس البيانات المصدرية مرارًا ويجعل العلاقة بين مصدر الصورة المشترك واستخداماته صريحة.
+
+للرسوم التي يجب أن تظهر تلقائيًا على العديد من الشرائح، مثل شعار الشركة، ضع إطار الصورة على [قالب الشريحة](/slides/ar/nodejs-java/slide-master/) أو التخطيط بدلاً من إضافة شكل مكافئ إلى كل شريحة.
+
+## **استخدام صورة كخلفية شريحة**
+
+يُعيّن صورة الخلفية إلى تعبئة الشريحة؛ لا تُضاف كشكل إطار صورة. يكون هذا مفيدًا عندما يجب أن تغطي الصورة خلفية الشريحة ولا ينبغي تعديلها ككائن شريحة عادي.
+
 ```javascript
-var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-var sheet = book.getWorksheets().get(0);
-var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-// حفظ المصنف إلى تدفق
-var sr = java.newInstanceSync("SheetRender", sheet, options);
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    pres.getSlides().removeAt(0);
-    var EmfSheetName = "";
-    for (var j = 0; j < sr.getPageCount(); j++) {
-        EmfSheetName = ((("test" + sheet.getName()) + " Page") + (j + 1)) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-        var picture;
-        var image = aspose.slides.Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
         }
-        var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        var m = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
     }
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+لخيارات خلفية إضافية، بما في ذلك خلفيات القالب والتخطيط، راجع [خلفية العرض التقديمي](/slides/ar/nodejs-java/presentation-background/).
 
-## **استبدال الصور في مجموعة الصور**
+## **الصور المدمجة والصور المرتبطة**
 
-يتيح لك Aspose.Slides استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما في ذلك تلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة طرق لتحديث الصور في المجموعة. توفر واجهة API طرقًا بسيطة لاستبدال صورة باستخدام بيانات البايت الخام، أو كائن [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) ، أو صورة أخرى موجودة بالفعل في المجموعة.
+للصور المدمجة والمرتبطة مقايضات مختلفة من حيث القابلية للنقل وحجم الملف:
 
-اتبع الخطوات أدناه:
+- **صورة مدمجة:** تُخزن بيانات الصورة داخل العرض التقديمي. يكون العرض التقديمي مستقلاً، لكن حجم الملف يضم بيانات الصورة.
+- **صورة مرتبطة:** يخزن العرض التقديمي مسارًا أو عنوان URL لصورة خارجية. يمكن لهذا أن يقلل من حجم العرض، لكن المورد الخارجي يجب أن يظل متاحًا عند فتح أو عرض العرض.
 
-1. تحميل ملف العرض التقديمي الذي يحتوي على صور باستخدام الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).  
-2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.  
-3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.  
-4. في النهج الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) واستبدال الصورة المستهدفة بذلك الكائن.  
-5. في النهج الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.  
-6. كتابة العرض التقديمي المعدل كملف PPTX.  
-```js
-// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
-const presentation = new aspose.slides.Presentation("sample.pptx");
+يمكن إنشاء صورة مرتبطة عن طريق تعيين المسار أو URL الخارجي عبر [Picture.setLinkPathLong](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picture/) بدلاً من دمج بيانات الصورة.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // الطريقة الأولى.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
-    
-    // الطريقة الثانية.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
-    // الطريقة الثالثة.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
-    // حفظ العرض التقديمي إلى ملف.
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+استخدم الصور المرتبطة فقط عندما يمكن لبيئة النشر الوصول بشكل موثوق إلى المورد الخارجي. بالنسبة للعروض التي يجب أن تعمل بدون اتصال أو تُنقل بين الأنظمة، تكون الصور المدمجة عادةً أكثر أمانًا.
+
+## **العمل مع صور SVG**
+
+SVG هو تنسيق متجهي، لذا يمكن أن يكون مفيدًا للأيقونات، المخططات، وغيرها من الرسوم التي يجب أن تُقاس بدون فقدان التفاصيل كما يحدث مع الصور النقطية. تدعم Aspose.Slides SVG كموارد صورة وكمصدر لأشكال شريحة قابلة للتحرير.
+
+### **إضافة SVG كصورة**
+
+أنشئ [SvgImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/svgimage/)، أضفه إلى مجموعة الصور، وضع مورد الصورة الناتج في إطار صورة.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ملفات SVG مع موارد خارجية**
+
+يمكن أن يشير SVG إلى صور، أوراق أنماط، أو خطوط خارجية. في هذه الحالات، توفر [SvgImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/svgimage/) مُنشئات تقبل [ExternalResourceResolver](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/externalresourceresolver/) وعنوان URI أساسي. يمكن للمُحلِّل ربط URI نسبي بـ URI مطلق مسموح وإرجاع تدفق للمورد المطلوب.
+
+يسمح المُحلِّل بالوصول إلى الموارد الخارجية أثناء معالجة Aspose.Slides لملف SVG، لكنه لا يعيد كتابة SVG إلى مستند مستقل. إذا كان يجب أن يبقى SVG قابلًا للنقل، قم بدمج موارده المطلوبة داخل SVG نفسه، على سبيل المثال باستخدام عناوين `data:` للصور المرتبطة.
+
+عند جلب ملفات SVG من مصادر غير موثوقة، قيّد المخططات، مواقع الملفات، والمضيفين التي يمكن للمُحلِّل الوصول إليها. يجب أن تطبق المُحَلِّلات الشبكية أيضًا مهلات، حدود حجم الاستجابة، والتحقق من المحتوى.
+
+### **تحويل SVG إلى أشكال قابلة للتحرير**
+
+يمكن لـ Aspose.Slides تحويل SVG إلى مجموعة من أشكال شريحة قابلة للتحرير، مماثلة للأمر المقابل في PowerPoint.
+
+![قائمة منبثقة في PowerPoint](img_01_01.png)
+
+استخدم النسخة الزائدة من [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/) التي تقبل صورة SVG لإجراء التحويل.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
+
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+استخدم تحويل SVG إلى أشكال عندما تحتاج عناصر المتجه الفردية إلى تعديلها كأشكال PowerPoint. إذا كان الهدف فقط عرض SVG، فالإبقاء عليه كصورة أبسط ويتجنّب إنشاء العديد من الأشكال المنفصلة.
+
+## **استبدال مورد صورة موجود**
+
+استخدم [PPImage.replaceImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) عندما ترغب في استبدال مورد صورة موجود. يكون هذا مفيدًا خاصةً للرسوم المشتركة مثل الشعارات.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
+    try {
+        imageToReplace.replaceImage(replacementImage);
+    } finally {
+        if (replacementImage != null) {
+            replacementImage.dispose();
+        }
+    }
+
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+إذا استخدمت إطارات صور متعددة، أو خلفيات، أو قوالب، أو تخطيطات نفس المورد، فإن استبدال ذلك المورد يحدّث جميع الاستخدامات. إذا كان يجب تغيير إطار صورة واحد فقط، عيّن صورة مختلفة لذلك الإطار بدلاً من استبدال المورد المشترك.
 
-{{% alert title="معلومات" color="info" %}}
+[PPImage.replaceImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) يوفر أيضًا نسخًا زائدة تقبل مصفوفة بايت أو [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) آخر.
 
-باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص وإنشاء ملفات GIF من النصوص، وما إلى ذلك. 
+## **إرشادات عملية لإدارة الصور**
 
-{{% /alert %}}
+### **التحكم في حجم العرض التقديمي**
+
+يمكن للصور النقطية الكبيرة أن تجعل العرض التقديمي كبيرًا بصورة غير مبررة. استخدم صورًا مصدرية بأبعاد مناسبة لحجم العرض المقصود، وأعد استخدام موارد الصور المشتركة حيثما أمكن، وتجنب دمج نسخ مكررة من نفس الرسوم بدقة كاملة.
+
+للصور النقطية التي تم وضعها بالفعل في إطارات صورة، يمكن لـ [PictureFillFormat.compressImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/) تقليل بيانات الصورة وفقًا للدقة المحددة وإعدادات القص. هذا معالجة لإطار الصورة وليس إدارة مجموعة الصور، لذا راجع [إطار الصورة](/slides/ar/nodejs-java/picture-frame/) للعمليات التنسيقية ذات الصلة.
+
+### **اختر بين المحتوى المدمج والمرتبط**
+
+يجعل الدمج العرض التقديمي قابلًا للنقل لأن جميع بيانات الصور المطلوبة تسافر مع الملف. يمكن للربط أن يقلل من حجم الملف، لكنه يُدخل اعتمادًا خارجيًا. استخدم الروابط فقط عندما تكون هذه الاعتمادية مقبولة ومستقرة.
+
+### **إعادة استخدام العلامة التجارية المشتركة**
+
+لشعارات متكررة، علامات مائية، أو رسومات زخرفية، استخدم مورد صورة واحد وأعد استخدامه. إذا كان الرسم جزءًا من تصميم العرض التقديمي بدلاً من محتوى الشريحة، ضعه على قالب أو تخطيط ليُورث إلى الشرائح المناسبة.
+
+### **حافظ على موارد SVG قابلة للنقل**
+
+يكون SVG المستقل أسهل في النقل والعرض المتسق مقارنةً بـ SVG يعتمد على ملفات أو موارد شبكة خارجية. عندما يكون ذلك ممكنًا، دمج الموارد المطلوبة قبل استيراد SVG. حوّل SVG إلى أشكال فقط عندما تحتاج عناصر المتجه الفردية إلى تعديل.
+
+### **استخدام واجهة برمجة تطبيقات الصور الحديثة عبر الأنظمة**
+
+للكود الجديد لـ Node.js عبر Java، استخدم واجهات Aspose.Slides [IImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/iimage/) و[Images](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/images/) بدلاً من واجهة برمجة التطبيقات العامة القديمة المستندة إلى `java.awt.image.BufferedImage`. راجع [واجهة برمجة التطبيقات الحديثة](/slides/ar/nodejs-java/modern-api/) للحصول على إرشادات الترحيل.
+
+تتطلب صيغ WMF وEMF اعتبارًا خاصًا. عندما تُمرّر هذه الصيغ عبر [IImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/iimage/)، تقوم [ImageCollection.addImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/imagecollection/) بتحويل ملف الميتا إلى تمثيل PNG نقطي قبل الإدراج. إذا كان حفظ بيانات الميتا مهمًا، استخدم النسخة الزائدة القائمة على الدفق من [ImageCollection.addImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/imagecollection/). إنشاء محتوى EMF من جداول البيانات أو منتجات أخرى هو سير عمل تكامل منفصل وهو خارج نطاق هذه المقالة.
 
 ## **الأسئلة المتكررة**
 
-**هل يبقى دقة الصورة الأصلية دون تغيير بعد الإدراج؟**
+**ما هو الفرق بين مجموعة الصور وإطار الصورة؟**
 
-نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [picture](/slides/ar/nodejs-java/picture-frame/) على الشريحة وأي ضغط يُطبق عند الحفظ.
+تخزن مجموعة الصور موارد الصور القابلة لإعادة الاستخدام. إطار الصورة هو شكل شريحة يعرض أحد تلك الموارد ويوفر تنسيقات خاصة بالصورة مثل القص والتأثيرات.
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر العشرات من الشرائح دفعة واحدة؟**
+**ما هي الطريقة المثلى لاستبدال الشعار نفسه في كل مكان؟**
 
-ضع الشعار على الشريحة الرئيسية أو على تخطيط، واستبدله في مجموعة صور العرض التقديمي—سيتم نشر التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
+إذا كان الشعار مُشاركًا كمورد صورة واحد، استبدل ذلك المورد باستخدام [PPImage.replaceImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/). بالنسبة للعلامة التجارية على مستوى العرض، يمكن أيضًا وضع الشعار على قالب أو تخطيط لتقليل محتوى الشرائح المتكرر.
 
-**هل يمكن تحويل SVG المدخل إلى أشكال قابلة للتعديل؟**
+**لماذا تختفي الصورة المرتبطة على كمبيوتر آخر؟**
 
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتعديل باستخدام خصائص الشكل القياسية.
+تعتمد الصورة المرتبطة على ملفها الخارجي أو URL. إذا تعذر الوصول إلى ذلك المورد من الكمبيوتر الآخر، فقد تصبح الصورة غير متاحة. دمج الصورة عندما يجب أن يكون العرض مستقلاً.
 
-**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
+**هل يمكن تعديل SVG مُدرج كأشكال PowerPoint؟**
 
-[Assign the image as the background](/slides/ar/nodejs-java/presentation-background/) على الشريحة الرئيسية أو التخطيط المعني—سيتم وراثة الخلفية من قبل أي شرائح تستخدم تلك الشريحة/التخطيط.
+نعم. حوّل SVG باستخدام [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/)؛ المجموعة الناتجة تحتوي على أشكال شريحة قابلة للتحرير بدلاً من صورة SVG واحدة.
 
-**كيف أمنع تضخم حجم العرض التقديمي بسبب كثرة الصور؟**
+**كيف يمكنني الحفاظ على عروض تقديمية تحتوي على العديد من الصور أصغر حجمًا؟**
 
-أعد استخدام مورد صورة واحد بدلاً من التكرار، اختر دقة معقولة، طبّق ضغطًا عند الحفظ، واحفظ الرسومات المتكررة في الشريحة الرئيسية حيثما كان ذلك مناسبًا.
+أعد استخدام موارد الصور المشتركة، تجنّب مصادر نقطية كبيرة غير ضرورية، اضغط الصور النقطية المناسبة عندما يلزم، ضع العلامات المتكررة على القوالب أو التخطيطات، واستخدم الصور المرتبطة فقط عندما يكون الاعتماد الخارجي مقبولًا.

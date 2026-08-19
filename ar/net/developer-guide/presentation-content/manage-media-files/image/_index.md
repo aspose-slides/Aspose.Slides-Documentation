@@ -7,288 +7,268 @@ url: /ar/net/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة bitmap
 - استبدال صورة
-- استبدال صورة
-- من الويب
+- مجموعة الصور
+- إطار صورة
+- صورة مرتبطة
 - خلفية
 - إضافة PNG
 - إضافة JPG
 - إضافة SVG
-- إضافة EMF
-- إضافة WMF
-- إضافة TIFF
+- SVG إلى أشكال
+- موارد SVG الخارجية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تحسين إدارة الصور في PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET، مع تحسين الأداء وأتمتة سير العمل."
+description: "تعرّف على كيفية إضافة وإعادة استخدام وربط واستبدال وإدارة الصور النقطية و SVG في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides for .NET."
 ---
+## **المقدمة**
 
-## **الصور في شرائح العرض**
+توفر Aspose.Slides for .NET عدة طرق للعمل مع الصور، ولكل منها هدف مختلف. يمكنك تخزين صورة في العرض التقديمي، عرضها في إطار صورة، استخدامها كخلفية شريحة، الربط بصورة خارجية، استبدال مصدر صورة مشتركة، أو تحويل محتوى SVG إلى أشكال قابلة للتحرير.
 
-تجعل الصور العروض التقديمية أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو من الإنترنت أو من مواقع أخرى على الشرائح. وبالمثل، يسمح Aspose.Slides لك بإضافة الصور إلى الشرائح في عروضك التقديمية عبر إجراءات مختلفة.
+تركّز هذه المقالة على موارد الصور وكيفية استخدامها عبر العرض التقديمي. للحصول على معلومات حول القصّ، الشفافية، التأثيرات، التمدد، وتنسيق آخر يُطبق على إطار صورة فردي، راجع [Picture Frame](/slides/ar/net/picture-frame/).
 
-{{% alert  title="Tip" color="primary" %}} 
+## **فهم نموذج الصورة**
 
-يوفر Aspose محولات مجانية—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تمكن الأشخاص من إنشاء عروض تقديمية بسرعة من الصور. 
+المفاهيم البرمجية التالية مرتبطة ارتباطًا وثيقًا لكنها ليست قابلة للاستبدال:
 
-{{% /alert %}} 
+- مجموعة صور العرض التقديمي ([presentation image collection](https://reference.aspose.com/slides/ar/net/aspose.slides/iimagecollection/)) تخزن موارد الصور المستخدمة في العرض. استخدم [ImageCollection.AddImage](https://reference.aspose.com/slides/ar/net/aspose.slides/imagecollection/addimage/) لإضافة بيانات الصورة والحصول على مورد [IPPImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/).
+- إطار الصورة ([picture frame](https://reference.aspose.com/slides/ar/net/aspose.slides/ipictureframe/)) هو شكل يعرض صورة على شريحة أو تخطيط أو ماستر. استخدم [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addpictureframe/) لوضع مورد صورة على شريحة.
+- خلفية الشريحة تستخدم صورة كجزء من تعبئة الشريحة بدلاً من كونها شكلًا؛ لذلك لا تتصرف مثل إطار الصورة.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/replaceimage/) يستبدل مورد صورة. إذا استخدم عدة عناصر في العرض هذا المورد، فستُستبدل جميعها.
+- تحويل SVG إلى أشكال ينشئ أشكال شرائح قابلة للتحرير. بعد التحويل، لا تُدار المحتويات كموارد صورة واحدة.
 
-{{% alert title="Info" color="info" %}}
+وبالتالي فإن سير العمل النموذجي هو: إضافة بيانات الصورة إلى مجموعة الصور، الحصول على [IPPImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/)، ثم استخدام هذا المورد في إطار صورة أو تعبئة واحدة أو أكثر.
 
-إذا أردت إضافة صورة ككائن إطار—خاصة إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها وإضافة تأثيرات وغيرها—اطلع على [Picture Frame](https://docs.aspose.com/slides/net/picture-frame/). 
+## **إضافة صورة مضمّنة**
 
-{{% /alert %}} 
+لإدراج صورة محلية، اقرأ الملف، أضف بياناته إلى مجموعة الصور، وأنشئ إطار صورة يستخدم الـ `IPPImage` المعاد.
 
-{{% alert title="Note" color="warning" %}}
-
-يمكنك معالجة عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من صيغة إلى أخرى. راجع الصفحات التالية: تحويل [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); تحويل [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); تحويل [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/)، تحويل [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); تحويل [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/)، تحويل [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-يدعم Aspose.Slides عمليات التعامل مع الصور في هذه الصيغ الشائعة: JPEG، PNG، BMP، GIF، وغيرها. 
-
-## **إضافة صور مخزنة محليًا إلى الشرائح**
-
-يمكنك إضافة صورة واحدة أو عدة صور من جهاز الكمبيوتر إلى شريحة في عرض تقديمي. يوضح هذا المثال البرمجي بلغة C# طريقة إضافة صورة إلى شريحة:
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **إضافة صور من الويب إلى الشرائح**
-
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافتها مباشرة من الويب. 
-
-يعرض هذا المثال البرمجي طريقة إضافة صورة من الويب إلى شريحة بلغة C#:
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **إضافة صور إلى القوالب الرئيسية للشرائح**
-
-القالب الرئيسي للشرائح هو الشريحة العلوية التي تخزن وتتحكم في المعلومات (السمة، التخطيط، إلخ) الخاصة بجميع الشرائح تحته. لذلك، عندما تضيف صورة إلى قالب رئيسي، تظهر تلك الصورة على كل شريحة تحت هذا القالب. 
-
-يعرض هذا المثال البرمجي بلغة C# طريقة إضافة صورة إلى قالب رئيسي للشرائح:
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **إضافة صور كخلفيات للشرائح**
-
-قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/net/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) التي تنتمي إلى الواجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
-
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
-
-1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection  
-2. إنشاء كائن PPImage من ISvgImage  
-3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage  
-
-يعرض هذا المثال البرمجي كيفية تنفيذ الخطوات السابقة لإضافة صورة SVG إلى عرض تقديمي:
 ```csharp
-// مسار دليل المستندات
-string dataDir = @"D:\Documents\";
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// اسم ملف SVG المصدر
-string svgFileName = dataDir + "sample.svg";
+using var presentation = new Presentation();
 
-// اسم ملف عرض التقديم الناتج
-string outPptxPath = dataDir + "presentation.pptx";
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-// إنشاء عرض تقديمي جديد
-using (var p = new Presentation())
-{
-    // قراءة محتوى ملف SVG
-    string svgContent = File.ReadAllText(svgFileName);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    // إنشاء كائن SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // إنشاء كائن PPImage
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // إنشاء PictureFrame جديد
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // حفظ العرض التقديمي بتنسيق PPTX
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
+الصورة التي تُضاف بهذه الطريقة تُضمّن في العرض التقديمي، لذا فإن الملف الناتج لا يعتمد على بقاء ملف الصورة الأصلية متاحًا.
 
-## **تحويل SVG إلى مجموعة من الأشكال**
-تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه لوظيفة PowerPoint المستخدمة للتعامل مع صور SVG:
+### **إضافة صورة من الويب**
 
-![PowerPoint Popup Menu](img_01_01.png)
+عندما تكون الصورة متاحة عبر HTTP أو HTTPS، قم بتحميل بايتاتها باستخدام `HttpClient`، أضفها إلى مجموعة صور العرض، واستخدم مورد الصورة المعاد بنفس طريقة الصورة المحلية.
 
-توفر هذه الوظيفة أحد التحميلات الزائدة للطريقة [AddGroupShape](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) في الواجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) التي تقبل كائن [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage) كأول معطى.
-
-يعرض هذا المثال البرمجي طريقة استخدام الطريقة المذكورة لتحويل ملف SVG إلى مجموعة من الأشكال:
 ```csharp
-// مسار دليل المستندات
-string dataDir = @"D:\Documents\";
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// اسم ملف SVG المصدر
-string svgFileName = dataDir + "sample.svg";
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-// اسم ملف العرض التقديمي الناتج
-string outPptxPath = dataDir + "presentation.pptx";
+using var presentation = new Presentation();
 
-// إنشاء عرض تقديمي جديد
-using (IPresentation presentation = new Presentation())
-{
-    // قراءة محتوى ملف SVG
-    string svgContent = File.ReadAllText(svgFileName);
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    // إنشاء كائن SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // الحصول على حجم الشريحة
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // تحويل صورة SVG إلى مجموعة من الأشكال وتكبيرها لتناسب حجم الشريحة
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // حفظ العرض التقديمي بتنسيق PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
+في التطبيقات طويلة التشغيل، أعد استخدام `HttpClient` بدلاً من إنشاء نسخة جديدة لكل طلب. كذلك تحقق من عناوين URL البعيدة، حجميات الاستجابة، وأنواع المحتوى عندما لا يكون المصدر موثوقًا.
 
-## **إضافة صور كـ EMF إلى الشرائح**
-تتيح Aspose.Slides for .NET إنشاء صور EMF من جداول Excel وإضافة الصور كـ EMF في الشرائح باستخدام Aspose.Cells.  
+## **إعادة استخدام الصور عبر الشرائح**
 
-يعرض هذا المثال البرمجي كيفية تنفيذ المهمة المذكورة:
+إذا كانت هناك حاجة لاستخدام نفس الصورة أكثر من مرة، أضفها إلى العرض مرة واحدة وأعد استخدام الـ [IPPImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/) المعاد عند إنشاء أطر صور إضافية. يوفّر ذلك تحميل البيانات المصدرية نفسها مرارًا ويجعل العلاقة بين مورد الصورة المشترك واستخداماته واضحة.
+
+بالنسبة للرسومات التي يجب أن تظهر تلقائيًا على العديد من الشرائح، مثل شعار الشركة، ضع إطار الصورة على [slide master](/slides/ar/net/slide-master/) أو التخطيط بدلاً من إضافة شكل مكافئ إلى كل شريحة.
+
+## **استخدام صورة كخلفية شريحة**
+
+تُحدَّد صورة الخلفية لتعبئة الشريحة؛ ولا تُضاف كشكل إطار صورة. هذا مفيد عندما يجب أن تغطي الصورة خلفية الشريحة ولا تُعامل ككائن شريحة عادي.
+
 ```csharp
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // حفظ المصنف إلى التدفق
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
 
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
 ```
 
+لخيارات خلفية إضافية، بما في ذلك خلفيات الماستر والتخطيط، راجع [Presentation Background](/slides/ar/net/presentation-background/).
 
-## **استبدال الصور في مجموعة الصور**
+## **الصور المضمّنة والمرتبطة**
 
-يتيح Aspose.Slides لك استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما في ذلك تلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة أساليب لتحديث الصور في المجموعة. توفر الواجهة طرقًا مباشرة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) ، أو صورة أخرى موجودة مسبقًا في المجموعة.
+للصور المضمّنة والمرتبطة مقايضات مختلفة من حيث القابلية للنقل وحجم الملف:
 
-اتبع الخطوات التالية:
+- **صورة مضمّنة:** تُخزن بيانات الصورة داخل العرض التقديمي. يكون العرض ذاتيًا، لكن حجم الملف يتضمن بيانات الصورة.
+- **صورة مرتبطة:** يخزن العرض مسارًا أو عنوان URL لصورة خارجية. يمكن أن يقلل هذا من حجم العرض، لكن يجب أن يبقى المصدر الخارجي متاحًا عند فتح أو عرض العرض.
 
-1. تحميل ملف العرض التقديمي الذي يحتوي على الصور باستخدام الصنف [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
-2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.  
-3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.  
-4. في الأسلوب الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) واستبدال الصورة المستهدفة بهذا الكائن.  
-5. في الأسلوب الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.  
-6. كتابة العرض التقديمي المعدل كملف PPTX.  
-```cs
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
-using Presentation presentation = new Presentation("sample.pptx");
+يمكن إنشاء صورة مرتبطة عن طريق تعيين المسار أو عنوان URL الخارجي عبر [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/ar/net/aspose.slides/islidespicture/linkpathlong/) بدلاً من تضمين بيانات الصورة.
 
-// الطريقة الأولى.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// الطريقة الثانية.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
+using var presentation = new Presentation();
 
-// الطريقة الثالثة.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
 
-// حفظ العرض التقديمي إلى ملف.
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+استخدم الصور المرتبطة فقط عندما يكون ببيئة النشر إمكانية موثوقة للوصول إلى المصدر الخارجي. بالنسبة للعرض التقديمي الذي يجب أن يعمل دون اتصال أو يُنقل بين الأنظمة، تكون الصور المضمّنة عادةً أكثر أمانًا.
+
+## **العمل مع صور SVG**
+
+SVG هو تنسيق متجه، لذا يمكن أن يكون مفيدًا للأيقونات، المخططات، والرسومات الأخرى التي يجب أن تتدرّج دون فقدان التفاصيل كما هو الحال مع الصور النقطية. تدعم Aspose.Slides تنسيق SVG كموارد صورة ومصدر لأشكال شرائح قابلة للتحرير.
+
+### **إضافة SVG كصورة**
+
+أنشئ كائنًا من نوع [SvgImage](https://reference.aspose.com/slides/ar/net/aspose.slides/svgimage/)، أضفه إلى مجموعة الصور، وضع مورد الصورة الناتج في إطار صورة.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **ملفات SVG ذات الموارد الخارجية**
+
+يمكن أن يشير SVG إلى صور أو أوراق أنماط أو خطوط خارجية. لهذه الحالات، يقدم [SvgImage](https://reference.aspose.com/slides/ar/net/aspose.slides/svgimage/) مُنشئات تقبل كائنًا من نوع [IExternalResourceResolver](https://reference.aspose.com/slides/ar/net/aspose.slides.import/iexternalresourceresolver/) وعنوان URI أساسي. يمكن للمُحَلِّل ربط URI نسبي بـ URI مطلق مسموح به وإرجاع تدفق للموارد المطلوبة.
+
+يتيح المُحَلِّل الموارد الخارجية أثناء معالجة Aspose.Slides للـ SVG، لكنه لا يعيد كتابة الـ SVG إلى مستند ذاتي الاِحتواء. إذا كان من الضروري أن يظل الـ SVG قابلًا للنقل، فقم بتضمين موارده المطلوبة داخل الـ SVG نفسه، على سبيل المثال باستخدام عناوين `data:` للصور المرتبطة.
+
+عند جلب ملفات SVG من مصادر غير موثوقة، قُصِّ نطاق المخططات، مواقع الملفات، والمضيفين التي يمكن للمُحَلِّل الوصول إليها. ينبغي على المحللات الشبكية أيضًا تطبيق مهلات، حدود حجم الاستجابة، والتحقق من المحتوى.
+
+### **تحويل SVG إلى أشكال قابلة للتحرير**
+
+يمكن لـ Aspose.Slides تحويل SVG إلى مجموعة من أشكال الشرائح القابلة للتحرير، مماثلة للأمر المقابل في PowerPoint.
+
+![قائمة منبثقة في PowerPoint](img_01_01.png)
+
+استخدم الدالة الزائدة [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addgroupshape/) التي تقبل كائنًا من نوع [ISvgImage](https://reference.aspose.com/slides/ar/net/aspose.slides/isvgimage/) لتنفيذ التحويل.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
+
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+```
+
+استخدم تحويل SVG إلى أشكال عندما تحتاج العناصر المتجهة الفردية إلى تعديلها كأشكال PowerPoint. إذا كان الـ SVG يُعرض فقط، فاحتفظ به كصورة لتبسيط العملية وتفادي إنشاء العديد من الأشكال المنفصلة.
+
+## **استبدال مورد صورة موجود**
+
+استخدم [IPPImage.ReplaceImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/replaceimage/) عندما تريد استبدال مورد صورة موجود. هذا مفيد بشكل خاص للرسومات المشتركة مثل الشعارات.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
+
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+إذا كانت أطر صور، خلفيات، ماسترات أو تخطيطات متعددة تستخدم نفس مورد الصورة، فإن استبدال ذلك المورد يحدث تحديثًا لجميع تلك الاستخدامات. إذا كان يجب تغيير إطار صورة واحد فقط، فعيّن صورة مختلفة لذلك الإطار بدلاً من استبدال المورد المشترك.
 
-{{% alert title="Info" color="info" %}}
+توفر الدالة `ReplaceImage` أيضًا توابع زائدة تقبل كائنًا من نوع [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/) أو [IPPImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/) آخر.
 
-باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص وإنشاء ملفات GIF من النصوص، إلخ. 
+## **إرشادات عملية لإدارة الصور**
 
-{{% /alert %}}
+### **التحكم في حجم العرض التقديمي**
 
-## **FAQ**
+يمكن للصور النقطية الكبيرة أن تجعل العرض التقديمي كبيرًا بشكل غير ضروري. استخدم صورًا ذات أبعاد مناسبة لحجم العرض المستهدف، وأعد استخدام موارد الصور المشتركة حيثما أمكن، وتجنّب تضمين نسخ مكررة من نفس الرسوم ذات الدقة الكاملة.
 
-**هل يبقى دقة الصورة الأصلية دون تغيير بعد الإدراج؟**
+بالنسبة للصور النقطية التي تم وضعها بالفعل في أطر الصور، يمكن لـ [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ipicturefillformat/compressimage/) تقليل بيانات الصورة وفقًا للدقة وإعدادات القصّ المحددة. هذا يُعَدّ معالجة لإطار الصورة وليس لإدارة مجموعة الصور، لذا راجع [Picture Frame](/slides/ar/net/picture-frame/) للعمليات ذات الصلة.
 
-نعم. تُحافظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تعديل حجم [picture](/slides/ar/net/picture-frame/) على الشريحة وأي ضغط يتم تطبيقه عند الحفظ.
+### **الاختيار بين المحتوى المضمّن والمرتبط**
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر العشرات من الشرائح مرة واحدة؟**
+التضمين يجعل العرض قابلًا للنقل لأن جميع بيانات الصورة المطلوبة تسافر مع الملف. الربط قد يقلل من حجم الملف، لكنه يضيف اعتمادًا خارجيًا. استخدم الروابط فقط عندما يكون هذا الاعتماد مقبولًا ومستقرًا.
 
-ضع الشعار على الشريحة الرئيسة أو على تخطيط، ثم استبدله في مجموعة صور العرض التقديمي—سيتداول التحديث إلى جميع العناصر التي تستخدم هذا المورد.
+### **إعادة استخدام العلامة التجارية المشتركة**
 
-**هل يمكن تحويل SVG المدرج إلى أشكال قابلة للتحرير؟**
+للشعارات المتكررة، العلامات المائية، أو الرسومات الزخرفية، استخدم مورد صورة واحد وأعد استعماله. إذا كان الرسم جزءًا من تصميم العرض بدلاً من محتوى الشريحة، ضعّه على ماستر أو تخطيط لكي يورثه الشرائح المناسبة.
 
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
+### **الحفاظ على موارد SVG قابلة للنقل**
 
-**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
+SVG ذاتي الاِحتواء يكون أسهل للنقل والعرض المتسق مقارنةً بـ SVG يعتمد على ملفات أو موارد شبكة خارجية. عندما يكون ذلك ممكنًا، ضمّن الموارد المطلوبة قبل استيراد الـ SVG. حوِّل SVG إلى أشكال فقط عندما تحتاج إلى تعديل العناصر المتجهة الفردية.
 
-[Assign the image as the background](/slides/ar/net/presentation-background/) على الشريحة الرئيسة أو التخطيط المناسب—ستورث جميع الشرائح التي تستخدم ذلك الرئيس/التخطيط الخلفية.
+### **استخدام واجهة برمجة تطبيقات الصور الحديثة المتعددة المنصات**
 
-**كيف أمنع تضخم حجم العرض التقديمي بسبب كثرة الصور؟**
+لكود .NET الجديد، استخدم واجهات Aspose.Slides [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/) و [Images](https://reference.aspose.com/slides/ar/net/aspose.slides/images/) بدلًا من الاعتماد على `System.Drawing.Image` أو `Bitmap`. راجع [Modern API](/slides/ar/net/modern-api/) للحصول على إرشادات الترحيل.
 
-أعد استخدام مورد صورة واحد بدلاً من النسخ المتعددة، واختر دقة معقولة، وطبق ضغطًا عند الحفظ، واحتفظ بالرسومات المتكررة على القالب الرئيس حيثما كان ذلك مناسبًا.
+تتطلب تنسيقات WMF و EMF اعتبارًا خاصًا. عند تمرير هذه التنسيقات عبر كائن [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/)، يقوم [ImageCollection.AddImage](https://reference.aspose.com/slides/ar/net/aspose.slides/imagecollection/addimage/) بتحويل ملف الميتافايل إلى تمثيل PNG نقطي قبل الإدراج. إذا كان الحفاظ على بيانات الميتافايل مهمًا، استخدم نسخة الدالة الزائدة المستندة إلى تدفق من [ImageCollection.AddImage](https://reference.aspose.com/slides/ar/net/aspose.slides/imagecollection/addimage/). إنشاء محتوى EMF من جداول البيانات أو منتجات أخرى هو سير عمل تكامل منفصل وخارج نطاق هذه المقالة.
+
+## **الأسئلة الشائعة**
+
+**ما الفرق بين مجموعة الصور وإطار الصورة؟**
+
+مجموعة الصور تخزّن موارد الصور القابلة لإعادة الاستخدام. إطار الصورة هو شكل شريحة يعرض أحد هذه الموارد ويوفر تنسيقات خاصة بالصور مثل القصّ والتأثيرات.
+
+**ما هي أفضل طريقة لاستبدال الشعار نفسه في كل مكان؟**
+
+إذا كان الشعار مشتركًا كموارد صورة واحدة، استبدل ذلك المورد باستخدام [IPPImage.ReplaceImage](https://reference.aspose.com/slides/ar/net/aspose.slides/ippimage/replaceimage/). للعلامة التجارية على مستوى العرض كله، يمكن أيضًا وضع الشعار على ماستر أو تخطيط لتقليل تكرار محتوى الشرائح.
+
+**لماذا تختفي الصورة المرتبطة على كمبيوتر آخر؟**
+
+الصورة المرتبطة تعتمد على ملفها الخارجي أو عنوان URL الخاص بها. إذا تعذّر الوصول إلى ذلك المورد من الكمبيوتر الآخر، قد تصبح الصورة المرتبطة غير متاحة. قم بتضمين الصورة عندما يجب أن يكون العرض ذاتيًا.
+
+**هل يمكن تعديل SVG مُدرج كأشكال PowerPoint؟**
+
+نعم. حوّل الـ SVG باستخدام [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addgroupshape/)؛ المجموعة الناتجة تحتوي على أشكال شريحة قابلة للتحرير بدلاً من صورة SVG واحدة.
+
+**كيف يمكنني الحفاظ على حجم العروض التي تحتوي على عدد كبير من الصور؟**
+
+أعد استخدام موارد الصور المشتركة، وتجنّب مصادر نقطية كبيرة غير ضرورية، وضغط الصور النقطية المناسبة عندما يلزم، واحتفظ بالعلامات التجارية المتكررة على ماسترات أو تخطيطات، واستخدم الصور المرتبطة فقط عندما يكون الاعتماد الخارجي مقبولًا.

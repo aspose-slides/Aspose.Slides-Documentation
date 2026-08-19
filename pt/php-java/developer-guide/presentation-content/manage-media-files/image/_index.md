@@ -6,334 +6,336 @@ weight: 10
 url: /pt/php-java/image/
 keywords:
 - adicionar imagem
-- adicionar foto
-- adicionar bitmap
+- adicionar figura
 - substituir imagem
-- substituir foto
-- da web
+- coleção de imagens
+- quadro de imagem
+- imagem vinculada
 - fundo
 - adicionar PNG
 - adicionar JPG
 - adicionar SVG
-- adicionar EMF
-- adicionar WMF
-- adicionar TIFF
+- SVG para formas
+- recursos SVG externos
 - PowerPoint
 - OpenDocument
 - apresentação
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "Simplifique o gerenciamento de imagens no PowerPoint e OpenDocument com Aspose.Slides para PHP via Java, otimizando o desempenho e automatizando seu fluxo de trabalho."
+description: "Aprenda como adicionar, reutilizar, vincular, substituir e gerenciar imagens raster e SVG em apresentações PowerPoint e OpenDocument com Aspose.Slides para PHP via Java."
 ---
 ## **Introdução**
 
-Imagens tornam as apresentações mais envolventes e interessantes. No Microsoft PowerPoint, você pode inserir imagens a partir de um arquivo, da internet ou de outros locais nos slides. Da mesma forma, o Aspose.Slides permite adicionar imagens aos slides em suas apresentações por meio de diferentes procedimentos. 
+Aspose.Slides for PHP via Java oferece várias maneiras de trabalhar com imagens, e cada uma serve a um propósito diferente. Você pode armazenar uma imagem em uma apresentação, exibí‑la em um quadro de imagem, usá‑la como fundo de slide, vincular a uma imagem externa, substituir um recurso de imagem compartilhado ou converter conteúdo SVG em formas editáveis.
 
-{{% alert  title="Tip" color="primary" %}} 
+Este artigo foca em recursos de imagem e como eles são usados em toda a apresentação. Para recorte, transparência, efeitos, estiramento e outras formatações aplicadas a um quadro de imagem individual, consulte [Quadro de Imagem](/slides/pt/php-java/picture-frame/).
 
-A Aspose fornece conversores gratuitos—[JPEG para PowerPoint](https://products.aspose.app/slides/pt/import/jpg-to-ppt) e [PNG para PowerPoint](https://products.aspose.app/slides/pt/import/png-to-ppt)—que permitem criar apresentações rapidamente a partir de imagens. 
+## **Entenda o Modelo de Imagem**
 
-{{% /alert %}} 
+Os conceitos de API a seguir são intimamente relacionados, mas não intercambiáveis:
 
-{{% alert title="Info" color="info" %}}
+- A [coleção de imagens da apresentação](https://reference.aspose.com/slides/pt/php-java/aspose.slides/imagecollection/) armazena recursos de imagem usados pela apresentação. Use [ImageCollection::addImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/imagecollection/) para adicionar dados de imagem e obter um recurso [PPImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/).
+- Um [quadro de imagem](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pictureframe/) é uma forma que exibe uma imagem em um slide, layout ou mestre. Use [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addpictureframe/) para colocar um recurso de imagem em um slide.
+- Um fundo de slide usa uma imagem como parte do preenchimento do slide, e não como uma forma. Portanto, não se comporta como um quadro de imagem.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/) substitui um recurso de imagem. Se vários elementos da apresentação usarem esse recurso, todos usarão a substituição.
+- Converter um SVG em formas cria formas de slide editáveis. Após a conversão, o conteúdo não é mais gerenciado como um único recurso de imagem.
 
-Se você quiser adicionar uma imagem como um objeto de quadro—especialmente se planeja usar opções padrão de formatação para alterar seu tamanho, adicionar efeitos etc.—veja [Quadro de Imagem](/slides/pt/php-java/picture-frame/).
+Um fluxo de trabalho típico é, portanto: adicionar dados de imagem à coleção de imagens, receber um [PPImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/), e então usar esse recurso em um ou mais quadros de imagem ou preenchimentos.
 
-{{% /alert %}} 
+## **Adicionar uma Imagem Incorporada**
 
-{{% alert title="Note" color="warning" %}}
-
-Você pode manipular operações de entrada/saída envolvendo imagens e apresentações do PowerPoint para converter uma imagem de um formato para outro. Veja estas páginas: converter [imagem para JPG](https://products.aspose.com/slides/pt/php-java/conversion/image-to-jpg/); converter [JPG para imagem](https://products.aspose.com/slides/pt/php-java/conversion/jpg-to-image/); converter [JPG para PNG](https://products.aspose.com/slides/pt/php-java/conversion/jpg-to-png/), converter [PNG para JPG](https://products.aspose.com/slides/pt/php-java/conversion/png-to-jpg/); converter [PNG para SVG](https://products.aspose.com/slides/pt/php-java/conversion/png-to-svg/), converter [SVG para PNG](https://products.aspose.com/slides/pt/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-O Aspose.Slides suporta operações com imagens nesses formatos populares: JPEG, PNG, GIF e outros. 
-
-## **Adicionar Imagens Armazenadas Localmente aos Slides**
-
-Você pode adicionar uma ou várias imagens do seu computador a um slide em uma apresentação. Este código de exemplo mostra como adicionar uma imagem a um slide:
+Para inserir uma imagem local, carregue o arquivo, adicione‑o à coleção de imagens e crie um quadro de imagem que use o `PPImage` retornado.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Adicionar Imagens da Web aos Slides**
+A imagem adicionada dessa forma está incorporada na apresentação, de modo que o arquivo resultante não depende da disponibilidade do arquivo de imagem original.
 
-Se a imagem que você deseja adicionar a um slide não estiver disponível no seu computador, você pode adicioná‑la diretamente da web. 
+### **Adicionar uma Imagem da Web**
 
-Este código de exemplo mostra como adicionar uma imagem da web a um slide:
+Quando uma imagem está disponível via HTTP ou HTTPS, baixe seus bytes, adicione‑os à coleção de imagens da apresentação e use o recurso de imagem retornado da mesma forma que uma imagem local.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
+
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
-    $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+
     try {
-      $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
-        $outputStream->write($buffer, 0, $read);
-      } 
-      $outputStream->flush();
-      $image = $pres->getImages()->addImage($outputStream->toByteArray());
-      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
+
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
+        }
+
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
-      if (!java_is_null($inputStream)) {
-        $inputStream->close();
-      }
-      $outputStream->close();
+        if (!java_is_null($inputStream)) {
+            $inputStream->close();
+        }
+        $outputStream->close();
     }
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-## **Adicionar Imagens a Mestres de Slides**
-
-Um mestre de slide é o slide principal que armazena e controla informações (tema, layout, etc.) sobre todos os slides abaixo dele. Portanto, quando você adiciona uma imagem a um mestre de slide, essa imagem aparece em todos os slides sob esse mestre. 
-
-Este código de exemplo Java mostra como adicionar uma imagem a um mestre de slide:
-
-```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Adicionar Imagens como Fundos de Slides**
-
-Você pode decidir usar uma imagem como fundo de um slide específico ou de vários slides. Nesse caso, veja como [Definir uma Imagem como Fundo de Slide](/slides/pt/php-java/presentation-background/#set-an-image-as-a-slide-background).
-
-## **Adicionar SVG às Apresentações**
-Você pode adicionar ou inserir qualquer imagem em uma apresentação usando o método [addPictureFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addpictureframe/) que pertence à classe [ShapeCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/).
-
-Para criar um objeto de imagem baseado em imagem SVG, você pode fazer assim:
-
-1. Criar objeto SvgImage para inseri‑lo na ImageShapeCollection
-2. Criar objeto PPImage a partir de ISvgImage
-3. Criar objeto PictureFrame usando a classe PPImage
-
-Este código de exemplo mostra como implementar as etapas acima para adicionar uma imagem SVG em uma apresentação:
-```php
-  # Instanciar a classe Presentation que representa um arquivo PPTX
-  $pres = new Presentation();
-  try {
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($dis)) $dis->close();
+    $presentation->dispose();
 }
-    $svgContent = new String($bytes);
-
-    $svgImage = new SvgImage($svgContent);
-    $ppImage = $pres->getImages()->addImage($svgImage);
-    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
 ```
 
-## **Converter SVG para um Conjunto de Formas**
-A conversão de SVG para um conjunto de formas do Aspose.Slides é semelhante à funcionalidade do PowerPoint usada para trabalhar com imagens SVG:
+Em aplicações de longa execução, reutilize um cliente HTTP ou estratégia de gerenciamento de conexões adequada ao aplicativo, em vez de criar repetidamente infraestrutura de rede desnecessária. Também valide URLs remotos, tamanhos de resposta e tipos de conteúdo quando a origem não for confiável.
+
+## **Reutilizar Imagens em Vários Slides**
+
+Se a mesma imagem for necessária mais de uma vez, adicione‑a à apresentação uma única vez e reutilize o [PPImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/) retornado ao criar quadros de imagem adicionais. Isso evita carregar repetidamente os mesmos dados de origem e torna explícita a relação entre o recurso de imagem compartilhado e seus usos.
+
+Para gráficos que devem aparecer automaticamente em muitos slides, como o logotipo da empresa, considere colocar o quadro de imagem em um [master de slide](/slides/pt/php-java/slide-master/) ou layout em vez de adicionar uma forma equivalente a cada slide.
+
+## **Usar uma Imagem como Fundo de Slide**
+
+Uma imagem de fundo é atribuída ao preenchimento do slide; ela não é adicionada como uma forma de quadro de imagem. Isso é útil quando a imagem deve cobrir todo o fundo do slide e não deve ser manipulada como um objeto de slide normal.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
+    try {
+        $ppImage = $presentation->getImages()->addImage($image);
+    } finally {
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
+    }
+
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
+
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Para opções adicionais de fundo, incluindo fundos de mestre e layout, veja [Fundo da Apresentação](/slides/pt/php-java/presentation-background/).
+
+## **Imagens Incorporadas e Imagens Vinculadas**
+
+Imagens incorporadas e vinculadas têm diferentes compensações de portabilidade e tamanho de arquivo:
+
+- **Imagem incorporada:** os dados da imagem são armazenados dentro da apresentação. A apresentação é autocontida, mas o tamanho do arquivo inclui os dados da imagem.
+- **Imagem vinculada:** a apresentação armazena um caminho ou URL para uma imagem externa. Isso pode reduzir o tamanho da apresentação, mas o recurso externo deve permanecer acessível quando a apresentação for aberta ou renderizada.
+
+Uma imagem vinculada pode ser criada atribuindo o caminho ou URL externo através de [Picture::setLinkPathLong](https://reference.aspose.com/slides/pt/php-java/aspose.slides/picture/) em vez de incorporar os dados da imagem.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Use imagens vinculadas apenas quando o ambiente de implantação puder acessar o recurso externo de forma confiável. Para apresentações que precisam funcionar off‑line ou ser movidas entre sistemas, imagens incorporadas são geralmente mais seguras.
+
+## **Trabalhar com Imagens SVG**
+
+SVG é um formato vetorial, podendo ser útil para ícones, diagramas e outros gráficos que devem escalar sem a mesma perda de detalhe que imagens raster. Aspose.Slides suporta SVG tanto como recurso de imagem quanto como fonte de formas editáveis de slide.
+
+### **Adicionar um SVG como Imagem**
+
+Crie um [SvgImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/svgimage/), adicione‑o à coleção de imagens e coloque o recurso de imagem resultante em um quadro de imagem.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
+    $svgImage = new SvgImage($svgContent);
+
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Arquivos SVG com Recursos Externos**
+
+Um SVG pode referenciar imagens externas, folhas de estilo ou fontes. Para esses casos, [SvgImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/svgimage/) fornece construtores que aceitam um [ExternalResourceResolver](https://reference.aspose.com/slides/pt/php-java/aspose.slides/externalresourceresolver/) e um URI base. O resolvedor pode mapear um URI relativo para um URI absoluto permitido e retornar um stream para o recurso solicitado.
+
+O resolvedor disponibiliza recursos externos enquanto Aspose.Slides processa o SVG, mas não reescreve o SVG em um documento autocontido. Se o SVG precisar permanecer portátil, incorpore seus recursos necessários no próprio SVG, por exemplo usando URIs `data:` para imagens vinculadas.
+
+Quando arquivos SVG provêm de fontes não confiáveis, restrinja os esquemas, locais de arquivos e hosts que o resolvedor pode acessar. Resolvedores de rede também devem aplicar tempos limite, limites de tamanho de resposta e validação de conteúdo.
+
+### **Converter SVG em Formas Editáveis**
+
+Aspose.Slides pode converter um SVG em um grupo de formas editáveis de slide, similar ao comando correspondente do PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-A funcionalidade é fornecida por uma das sobrecargas do método [addGroupShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addgroupshape/) da classe [ShapeCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/) que aceita um objeto [SvgImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/svgimage/) como primeiro argumento.
-
-Este código de exemplo mostra como usar o método descrito para converter um arquivo SVG em um conjunto de formas:
+Use a sobrecarga [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addgroupshape/) que aceita um [SvgImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/svgimage/) para realizar a conversão.
 
 ```php
-  # Criar nova apresentação
-  $presentation = new Presentation();
-  try {
-    # Ler conteúdo do arquivo SVG
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $svgContent = $bytes;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-    # Criar objeto SvgImage
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
-    # Obter tamanho do slide
+
     $slideSize = $presentation->getSlideSize()->getSize();
-    # Converter imagem SVG em grupo de formas dimensionando-a ao tamanho do slide
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    # Salvar a apresentação no formato PPTX
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
+
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Adicionar Imagens como EMF aos Slides**
-O Aspose.Slides para PHP via Java permite gerar imagens EMF a partir de planilhas Excel e adicionar as imagens como EMF em slides com o Aspose.Cells. 
+Use a conversão SVG‑para‑formas quando elementos vetoriais individuais precisarem ser editados como formas do PowerPoint. Se o SVG precisar apenas ser exibido, mantê‑lo como imagem é mais simples e evita a criação de muitas formas separadas.
 
-Este código de exemplo mostra como executar a tarefa descrita:
+## **Substituir um Recurso de Imagem Existente**
 
-```php
-  $book = new Workbook("chart.xlsx");
-  $sheet = $book->getWorksheets()->get(0);
-  $options = new ImageOrPrintOptions();
-  $options->setHorizontalResolution(200);
-  $options->setVerticalResolution(200);
-  $options->setImageType(ImageType::EMF);
-  # Salvar a pasta de trabalho no stream
-  $sr = new SheetRender($sheet, $options);
-  $pres = new Presentation();
-  try {
-    $pres->getSlides()->removeAt(0);
-    $EmfSheetName = "";
-    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
-      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
-      $sr->toImage($j, $EmfSheetName);
-      $picture;
-      $image = Images->fromFile($EmfSheetName);
-      try {
-        $picture = $pres->getImages()->addImage($image);
-      } finally {
-        if (!java_is_null($image)) {
-          $image->dispose();
-        }
-      }
-      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
-    }
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Substituir Imagens na Coleção de Imagens**
-
-O Aspose.Slides permite substituir imagens armazenadas na coleção de imagens de uma apresentação (incluindo as usadas por formas de slide). Esta seção mostra várias abordagens para atualizar imagens na coleção. A API fornece métodos simples para substituir uma imagem usando dados brutos de bytes, uma instância de [IImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/) ou outra imagem que já exista na coleção.
-
-Siga os passos abaixo:
-
-1. Carregue o arquivo de apresentação que contém imagens usando a classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
-2. Carregue uma nova imagem de um arquivo em um array de bytes.
-3. Substitua a imagem alvo pela nova imagem usando o array de bytes.
-4. Na segunda abordagem, carregue a imagem em um objeto [IImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/) e substitua a imagem alvo por esse objeto.
-5. Na terceira abordagem, substitua a imagem alvo por uma imagem que já exista na coleção de imagens da apresentação.
-6. Grave a apresentação modificada como um arquivo PPTX.
+Use [PPImage::replaceImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/) quando quiser substituir um recurso de imagem existente. Isso é especialmente útil para gráficos compartilhados, como logotipos.
 
 ```php
-// Instanciar a classe Presentation que representa um arquivo de apresentação.
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // A primeira maneira.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new Java("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+    $imageToReplace = $presentation->getImages()->get_Item(0);
 
-    // A segunda maneira.
-    $newImage = Images::fromFile("image1.png");
-    $oldImage = $presentation->getImages()->get_Item(1);
-    $oldImage->replaceImage($newImage);
-    $newImage->dispose();
-    
-    // A terceira maneira.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-    
-    // Salvar a apresentação em um arquivo.
+    $replacementImage = Images::fromFile("new-logo.png");
+    try {
+        $imageToReplace->replaceImage($replacementImage);
+    } finally {
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
+        }
+    }
+
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Se múltiplos quadros de imagem, fundos, mestres ou layouts usarem o mesmo recurso de imagem, substituir esse recurso atualiza todos esses usos. Se apenas um quadro de imagem deve mudar, atribua uma imagem diferente a esse quadro em vez de substituir o recurso compartilhado.
 
-Usando o conversor GRATUITO [Text to GIF](https://products.aspose.app/slides/pt/text-to-gif) da Aspose, você pode animar textos facilmente, criar GIFs a partir de textos etc. 
+`PPImage::replaceImage` também fornece sobrecargas que aceitam um array de bytes ou outro [PPImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Orientação Prática de Gerenciamento de Imagens**
+
+### **Controlar o Tamanho da Apresentação**
+
+Imagens raster grandes podem tornar uma apresentação desnecessariamente grande. Use imagens de origem com dimensões adequadas ao tamanho de exibição pretendido, reutilize recursos de imagem compartilhados quando possível e evite incorporar cópias repetidas do mesmo gráfico em alta resolução.
+
+Para imagens raster que já foram colocadas em quadros de imagem, [PictureFillFormat::compressImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/picturefillformat/) pode reduzir os dados da imagem de acordo com a resolução selecionada e as configurações de recorte. Isso é processamento de quadro de imagem, não gerenciamento da coleção de imagens, portanto consulte [Quadro de Imagem](/slides/pt/php-java/picture-frame/) para operações de formatação relacionadas.
+
+### **Escolher entre Conteúdo Incorporado e Vinculado**
+
+Incorporar torna a apresentação portátil porque todos os dados de imagem necessários viajam com o arquivo. Vincular pode reduzir o tamanho do arquivo, mas introduz uma dependência externa. Use links apenas quando essa dependência for aceitável e estável.
+
+### **Reutilizar Identidade Visual Compartilhada**
+
+Para logotipos, marcas dʼágua ou gráficos decorativos recorrentes, use um recurso de imagem e reutilize‑o. Se o gráfico pertencer ao design da apresentação e não ao conteúdo dos slides, coloque‑o em um master ou layout para que seja herdado pelos slides apropriados.
+
+### **Manter Recursos SVG Portáveis**
+
+Um SVG autocontido é mais fácil de mover e renderizar consistentemente que um SVG que depende de arquivos externos ou recursos de rede. Quando possível, incorpore os recursos necessários antes de importar o SVG. Converta SVG em formas apenas quando os elementos vetoriais individuais precisarem ser editados.
+
+### **Usar a API Moderna de Imagem Multiplataforma**
+
+Para novos códigos PHP via Java, use as APIs Aspose.Slides [IImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/) e [Images](https://reference.aspose.com/slides/pt/php-java/aspose.slides/images/) em vez da API pública legada baseada em `java.awt.image.BufferedImage`. Consulte [API Moderna](/slides/pt/php-java/modern-api/) para orientações de migração.
+
+WMF e EMF requerem consideração especial. Quando esses formatos são passados através de um [IImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/), [ImageCollection::addImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/imagecollection/) converte o metarquivo em uma representação PNG raster antes da inserção. Se preservar os dados do metarquivo for importante, use a sobrecarga baseada em stream de [ImageCollection::addImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/imagecollection/) . Gerar conteúdo EMF a partir de planilhas ou outros produtos é um fluxo de integração separado e está fora do escopo deste artigo.
 
 ## **Perguntas Frequentes**
 
-**A resolução original da imagem permanece intacta após a inserção?**
+**Qual é a diferença entre a coleção de imagens e um quadro de imagem?**
 
-Sim. Os pixels originais são preservados, mas a aparência final depende de como a [imagem](/slides/pt/php-java/picture-frame/) é escalada no slide e de qualquer compressão aplicada ao salvar.
+A coleção de imagens armazena recursos de imagem reutilizáveis. Um quadro de imagem é uma forma de slide que exibe um desses recursos e fornece formatações específicas de imagem, como recorte e efeitos.
 
-**Qual é a melhor forma de substituir o mesmo logotipo em dezenas de slides de uma só vez?**
+**Qual é a melhor maneira de substituir o mesmo logo em todos os lugares?**
 
-Coloque o logotipo no slide mestre ou em um layout e substitua‑lo na coleção de imagens da apresentação—as atualizações serão propagadas para todos os elementos que utilizam esse recurso.
+Se o logo já estiver compartilhado como um recurso de imagem, substitua esse recurso com [PPImage::replaceImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/). Para branding em toda a apresentação, colocar o logo em um master ou layout também pode reduzir o conteúdo duplicado nos slides.
 
-**É possível converter um SVG inserido em formas editáveis?**
+**Por que uma imagem vinculada desaparece em outro computador?**
 
-Sim. Você pode converter um SVG em um grupo de formas, após o que as partes individuais tornam‑se editáveis com as propriedades padrão de formas.
+Uma imagem vinculada depende de seu arquivo ou URL externo. Se esse recurso não puder ser acessado a partir do outro computador, a imagem vinculada pode ficar indisponível. Incorpore a imagem quando a apresentação precisar ser autocontida.
 
-**Como posso definir uma imagem como fundo de vários slides de uma vez?**
+**É possível editar um SVG inserido como formas do PowerPoint?**
 
-[Atribua a imagem como fundo](/slides/pt/php-java/presentation-background/) no slide mestre ou no layout relevante—qualquer slide que usar esse mestre/layout herdará o fundo.
+Sim. Converta o SVG com [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addgroupshape/); o grupo resultante contém formas de slide editáveis em vez de um único SVG.
 
-**Como impedir que a apresentação aumente de tamanho devido a muitas imagens?**
+**Como posso manter apresentações com muitas imagens menores?**
 
-Reutilize um único recurso de imagem em vez de duplicados, escolha resoluções razoáveis, apllique compressão ao salvar e mantenha os gráficos repetidos no mestre quando apropriado.
+Reutilize recursos de imagem compartilhados, evite fontes raster desnecessariamente grandes, comprima imagens raster adequadas quando apropriado, mantenha branding repetido em masters ou layouts e use imagens vinculadas somente quando uma dependência externa for aceitável.
