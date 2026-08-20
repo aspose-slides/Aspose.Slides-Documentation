@@ -1,5 +1,5 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Resim Çerçevelerini Yönetme
+title: Sunumlarda Resim Çerçevelerini JavaScript Kullanarak Yönetme
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -8,530 +8,475 @@ keywords:
 - resim çerçevesi
 - resim çerçevesi ekle
 - resim çerçevesi oluştur
-- görüntü ekle
-- görüntü oluştur
-- görüntü çıkar
+- gömülü görüntü
+- bağlantılı görüntü
+- görüntüyü çıkar
 - raster görüntü
-- vektör görüntü
+- SVG görüntü
 - görüntüyü kırp
-- kırpılmış alan
-- StretchOff özelliği
+- kırpılmış alanları sil
+- görüntüyü sıkıştır
+- StretchOffset
 - resim çerçevesi biçimlendirme
-- resim çerçevesi özellikleri
 - göreli ölçek
 - görüntü efekti
-- en boy oranı
-- görüntü şeffaflığı
+- en-boy oranı
 - PowerPoint
 - OpenDocument
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile PowerPoint ve OpenDocument sunumlarına resim çerçeveleri ekleyin. İş akışınızı kolaylaştırın ve slayt tasarımlarını geliştirin."
+description: "Aspose.Slides for Node.js ile JavaScript kullanarak sunumlardaki resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Resim çerçevesi, bir resmi içeren bir şekildir—çerçeve içindeki bir resim gibidir.
+Bir resim çerçevesi, bir resmi gösteren bir slayt şeklidir. Aspose.Slides içinde, resim kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) yerleşik resim kaynaklarını [ImageCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) aracılığıyla sahiplenirken, bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) resmin konumunu, boyutunu, çizgi biçimlendirmesini, dönüşünü, kırpmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarları kontrol eder.
 
-Bir resmi slayta bir resim çerçevesi aracılığıyla ekleyebilirsiniz. Bu şekilde, resmi resim çerçevesini biçimlendirerek biçimlendirebilirsiniz.
+Bu ayrım, aynı resmin birden fazla kez gösterilmesi gerektiğinde faydalıdır. Resmi sunuma bir kez ekleyin, döndürülen [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu resim kaynağını kullanın.
 
-{{% alert  title="Tip" color="primary" %}} 
+Resim çerçeveleri PNG veya JPEG gibi raster görüntüler ve SVG gibi vektör görüntüler içerebilir. Ayrıca, görüntü baytlarını sunuma depolamak yerine bağlantılı görüntülere de başvurabilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek yararlıdır.
 
-Aspose ücretsiz dönüştürücüler—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—sağlayarak insanların görüntülerden hızlıca sunumlar oluşturmasını sağlar. 
+## **Gömülü Bir Görüntüyü Ekleyin ve Biçimlendirin**
 
-{{% /alert %}} 
+Gömülü bir görüntü için, görüntü verisini sunuma ekleyin ve bir resim çerçevesi oluşturmak için [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) kullanın. Görüntü, sunum paketinin bir parçası haline gelir, böylece sunum başka bir bilgisayara taşındığında bile kendi içinde bağımsız kalır.
 
-## **Resim Çerçevesi Oluşturma**
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını dizini üzerinden alın. 
-3. Şekli doldurmak için kullanılacak, sunum nesnesine bağlı [ImagesCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ImageCollection)'a bir resim ekleyerek bir `PPImage` nesnesi oluşturun.
-4. Resmin genişliğini ve yüksekliğini belirtin.
-5. Referans verilen slayta bağlı şekil nesnesi tarafından sunulan `addPictureFrame` yöntemiyle, resmin genişliği ve yüksekliğine dayalı bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PictureFrame) oluşturun.
-6. Slayta bir resim çerçevesi (resmi içeren) ekleyin.
-7. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.
-
-Bu JavaScript kodu, bir resim çerçevesi oluşturmayı gösterir:
+Aşağıdaki örnek bir PNG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile dönüşüm uygular:
 
 ```javascript
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk slaytı alır
-    var sld = pres.getSlides().get_Item(0);
-    // Image sınıfını örnekler
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Resmin eşdeğer yüksekliği ve genişliği ile bir resim çerçevesi ekler
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // PPTX dosyasını diske yazar
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Resim çerçeveleri, görüntülere dayalı sunum slaytlarını hızlıca oluşturmanıza olanak tanır. Resim çerçevesini Aspose.Slides'ın kaydetme seçenekleriyle birleştirdiğinizde, görüntüleri bir formatından diğerine dönüştürmek için giriş/çıkış işlemlerini yönetebilirsiniz.
+Resim çerçevesi görüntülenen geometriyi kontrol eder; çerçeve boyutunu değiştirmek, gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra bir görüntüyü kırpma veya sıkıştırma yaparken önemli hale gelir.
 
-## **Göreli Ölçekli Resim Çerçevesi Oluşturma**
+## **Göreli Ölçek Kullanımı**
 
-Bir görüntünün göreli ölçeklemesini değiştirerek daha karmaşık bir resim çerçevesi oluşturabilirsiniz. 
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını dizini üzerinden alın. 
-3. Sunumun resim koleksiyonuna bir resim ekleyin.
-4. Şekli doldurmak için kullanılacak, sunum nesnesine bağlı [ImagesCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ImageCollection)'a bir resim ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PPImage) nesnesi oluşturun.
-5. Resmin göreli genişliğini ve yüksekliğini resim çerçevesinde belirtin.
-6. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.
-
-Bu JavaScript kodu, göreli ölçekli bir resim çerçevesi oluşturmayı gösterir:
+[PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) çerçeve için göreli genişlik ve yükseklik ölçeklemesini [setRelativeScaleWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) ve [setRelativeScaleHeight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-) aracılığıyla sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreli ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuyla ilişkisini koruması gerektiğinde faydalıdır.
 
 ```javascript
-// PPTX'i temsil eden Presentation sınıfını örnekle
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk slaytı al
-    var sld = pres.getSlides().get_Item(0);
-    // Image sınıfını örnekle
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Resmin eşdeğer yüksekliği ve genişliğiyle Resim Çerçevesi ekle
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Göreli ölçek genişliği ve yüksekliğini ayarlama
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // PPTX dosyasını diske yaz
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Resim Çerçevelerinden Raster Görüntüleri Çıkarma**
+Göreli ölçek, çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örneklemez veya sıkıştırmaz.
 
-Resim çerçevelerinden raster görüntüleri çıkarabilir ve PNG, JPG ve diğer formatlarda kaydedebilirsiniz. Aşağıdaki kod örneği, "sample.pptx" belgesinden bir görüntüyü çıkarıp PNG formatında kaydetmeyi göstermektedir.
+## **Gömülü ve Bağlantılı Görüntüler**
+
+Gömülü bir resim, görüntü verilerini sunum içinde depolar ve bu nedenle taşınabilirlik ve öngörülebilir renderleme için en güvenli seçenektir. Bağlantılı bir resim ise görüntü verilerini aynı şekilde gömmek yerine [Picture.setLinkPathLong](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) yöntemiyle harici bir konumu depolar.
+
+Bağlantılı görüntüler, PPTX içinde depolanan görüntü veri miktarını azaltabilir, ancak bir dış bağımlılık getirir. Bağlantılı dosya, sunumu açan veya renderlayan uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak kullanılamazsa, bağlantılı resim beklendiği gibi gösterilmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamlarda renderlanması gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
+
+### **Bağlantılı Bir Görüntü Ekleme**
+
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir görüntü dosyasına yönlendirir. Sadece görüntü bağlantılamasıyla ilgilenir; video bağlantılaması ayrı bir medya iş akışıdır ve bu örnekte kasıtlı olarak karıştırılmamıştır.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dış dosya yönetimi kasıtlı olduğunda bağlantıları kullanın. Sıkıştırma yerine sadece bir geçici çözüm olarak kullanmayın: kırık görüntü bağımlılıkları olan küçük bir PPTX, genellikle daha büyük, kendi içinde bağımsız bir sunumdan daha az kullanışlıdır.
+
+## **Resim Çerçevelerinden Görüntüleri Çıkarma**
+
+Mevcut bir sunumdan görüntü çıkarmadan önce, şeklin gerçekten bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) olup olmadığını ve gömülü bir görüntü içerdiğini kontrol edin. Bağlantılı resim çerçeveleri aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+
+### **Raster Görüntü Çıkarma**
+
+Modern görüntü API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) kullanır. Aşağıdaki örnek, bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
+
+        const rasterImage = embeddedImage.getImage();
         try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[IImage.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/#save) ile kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunumda saklanan kodlanmış baytlara ihtiyacınız varsa, dönüştürülmüş raster dosya yerine görüntü kaynağının ikili verisini kullanın.
+
+### **SVG Görüntüsü Çıkarma**
+
+Bir SVG resmi için, [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) bir [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) nesnesi sunar. Bu, resmi önce rasterleştirmeden SVG verisini doğrudan almanızı sağlar.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SVG içeriğini SVG olarak tutmak, sunum içindeki vektör kaynağını korur. PNG veya JPEG gibi raster dışa aktarımlar, bu vektör içeriğini piksellere dönüştürmek zorundadır. PDF veya SVG slayt dışa aktarma da bir renderleme işlemidir, bu nedenle dışa aktarılan grafikler orijinal gömülü SVG'nin bayt bayt kopyası olarak ele alınmamalıdır; orijinal vektör kaynağı gerektiğinde gömülü [SvgImage.getSvgData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/#getSvgData--) verisini kullanın.
+
+## **Bir Görüntüyü Kırpma**
+
+Kırpma, bir çerçeve içinde görüntünün hangi kısmının görüneceğini değiştirir. [PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) üzerindeki kırpma değerleri, kaynak görüntünün boyutlarının yüzde oranıdır. Kırpma, başlangıçta gizli pikselleri gömülü görüntüden silmez; sadece görünür bölgeyi değiştirir.
+
+Aşağıdaki örnek, bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu geri dönüşümden daha önemliyse, kırpılmış bölgeler bir sonraki bölümde açıklandığı gibi fiziksel olarak kaldırılabilir.
+
+## **Kırpılmış Görüntü Verisini Kaldırma**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) mevcut kırpma dikdörtgeninin dışındaki görüntü verilerini kaldırır ve oluşan görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra, kaldırılan pikseller daha sonraki bir kırpma geri alma işlemi için artık mevcut değildir.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Yöntem, sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü diğer resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynaklarını gerektirir; bu yüzden kırpılmış alanların silinmesi toplam görüntü sayısını mutlaka azaltmaz. Bu yöntemle WMF veya EMF içeriğini kırpmak, kırpılmış sonucu PNG'ye rasterleştirir.
+
+## **Raster Görüntüleri Sıkıştırma**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) görüntünün gösterildiği boyuta göre raster görüntü çözünürlüğünü azaltır. Aynı işlemde kırpılmış bölgeleri de kaldırabilir. Yöntem, görüntü yeniden boyutlandırıldığında veya kırpıldığında `true`, değişiklik gerekmediğinde ise `false` döndürür.
+
+Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturescompression/) değeri kullanın:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Belirli bir hedef gerektiğinde, önceden tanımlı bir değer yerine özel pozitif DPI değeri geçirilebilir.
+
+Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca, düşük çözünürlük ve silinen kırpılmış bölgelerin optimize edilmiş sunumdan geri getirilemeyeceğini unutmayın. En düşük DPI'yi küresel olarak uygulamak yerine, görüntünün gerçekten görüntülenecek veya dışa aktarılacak en büyük boyutuna göre bir hedef çözünürlük seçin.
+
+## **Görüntü Efektlerini İnceleme**
+
+Resim efektleri, çerçeve tarafından kullanılan resimde depolanır. Görüntü dönüşüm koleksiyonu, şeffaflık için sabit alfa modülasyonu ve parlaklık ve kontrast için luminans gibi efektler içerebilir. Aşağıdaki örnek, bir slayttaki ilk resim çerçevesinden her iki tür efekti güvenli bir şekilde okur:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (let i = 0; i < imageTransform.size(); i++) {
+            const effect = imageTransform.get_Item(i);
+            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
+                const transparency = 100 - effect.getAmount();
+                console.log("Transparency: " + transparency);
+            }
+
+            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
+                const luminance = effect.getEffective();
+                console.log("Brightness: " + luminance.getBrightness());
+                console.log("Contrast: " + luminance.getContrast());
             }
         }
     }
-} catch (e) {console.log(e);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Resim Çerçevelerinden SVG Görüntüleri Çıkarma**
+Bu efektler, görüntünün çerçevede nasıl renderlendiğini değiştirir; orijinal gömülü görüntü baytlarını yeniden yazmazlar.
 
-Bir sunum, [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) şekilleri içinde yerleştirilmiş SVG grafikleri içerdiğinde, Aspose.Slides for Node.js via Java, orijinal vektör görüntülerini tam doğrulukla almanıza olanak tanır. Slaytın şekil koleksiyonunu dolaşarak her bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/)'i tanımlayabilir, altındaki [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) SVG içeriği tutuyor mu kontrol edebilir ve ardından bu görüntüyü diske veya bir akışa yerel SVG formatında kaydedebilirsiniz.
+## **Resim Çerçevesi Geometrisini Kilitleme**
 
-Aşağıdaki kod örneği, bir resim çerçevesinden bir SVG görüntüsü çıkarmayı göstermektedir:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Görüntünün Şeffaflığını Almak**
-
-Aspose.Slides, bir görüntüye uygulanan şeffaflık etkisini almanıza izin verir. Bu JavaScript kodu işlemi gösterir:
+[PictureFrameLock](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakıldığını kontrol eder. Örneğin, [setAspectRatioLocked](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) şeklin yeniden boyutlandırılması sırasında oranlarını korur.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-## **Görüntünün Parlaklık ve Kontrastını Almak**
-
-Aspose.Slides, bir görüntüye uygulanan parlaklık ve kontrast etkisini almanıza izin verir. [Luminance](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/luminance/) sınıfı bu görüntü dönüşüm etkisini temsil eder.
-
-Bu JavaScript kodu, bir resim çerçevesinden parlaklık ve kontrast ayarlarını almayı gösterir:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Resim Çerçevesi Biçimlendirme**
-
-Aspose.Slides, bir resim çerçevesine uygulanabilecek birçok biçimlendirme seçeneği sunar. Bu seçenekleri kullanarak, bir resim çerçevesini belirli gereksinimlere uyması için değiştirebilirsiniz.
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını dizini üzerinden alın. 
-3. Şekli doldurmak için kullanılacak, sunum nesnesine bağlı [ImagesCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ImageCollection)'a bir resim ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PPImage) nesnesi oluşturun.
-4. Resmin genişliğini ve yüksekliğini belirtin.
-5. Referans verilen slayta bağlı [Shapes](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ShapeCollection) nesnesi tarafından sunulan [addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) yöntemiyle, resmin genişliği ve yüksekliğine dayalı bir `PictureFrame` oluşturun.
-6. Resim çerçevesini (resmi içeren) slayta ekleyin.
-7. Resim çerçevesinin kenar rengini ayarlayın.
-8. Resim çerçevesinin kenar kalınlığını ayarlayın.
-9. Resim çerçevesini pozitif ya da negatif bir değer vererek döndürün.  
-   * Pozitif bir değer resmi saat yönünde döndürür.  
-   * Negatif bir değer resmi saat yönünün tersine döndürür.
-10. Resim çerçevesini (resmi içeren) slayta ekleyin.
-11. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.
-
-Bu JavaScript kodu, resim çerçevesi biçimlendirme sürecini gösterir:
-
-```javascript
-// PPTX'i temsil eden Presentation sınıfını örnekler
-var pres = new aspose.slides.Presentation();
-try {
-    // İlk slaytı alır
-    var sld = pres.getSlides().get_Item(0);
-    // Image sınıfını örnekler
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Resmin eşdeğer yüksekliği ve genişliğiyle Resim Çerçevesi ekler
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // PictureFrameEx'e bazı biçimlendirmeler uygular
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // PPTX dosyasını diske yazar
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose yakın zamanda ücretsiz bir [Collage Maker](https://products.aspose.app/slides/tr/collage) geliştirdi. JPG/JPEG ([birleştirme](https://products.aspose.app/slides/tr/collage/jpg)) veya PNG görüntüleri birleştirmeniz, fotoğraflardan ızgara oluşturmanız gerektiğinde bu hizmeti kullanabilirsiniz. 
-
-{{% /alert %}}
-
-## **Görüntüyü Bağlantı Olarak Ekle**
-
-Sunum boyutlarını büyük tutmamak için dosyaları doğrudan sunuma gömmek yerine görüntüleri (veya videoları) bağlantılar aracılığıyla ekleyebilirsiniz. Bu JavaScript kodu, bir yer tutucu içine bir görüntü ve video eklemeyi gösterir:
-
-```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
-            continue;
-        }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
-        }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Görüntüyü Kırpma**
-
-Bu JavaScript kodu, bir slayttaki mevcut bir görüntüyü nasıl kırpacağınızı gösterir:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// Yeni bir görüntü nesnesi oluşturur
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Bir slayta PictureFrame ekler
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Görüntüyü kırpar (yüzde değerleri)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Sonucu kaydeder
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Resmin Kırpılan Alanlarını Sil**
-
-Bir çerçevede bulunan görüntünün kırpılan alanlarını silmek istiyorsanız, [deletePictureCroppedAreas()](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) yöntemini kullanabilirsiniz. Bu yöntem, kırpma gereksizse orijinal görüntüyü, aksi takdirde kırpılmış görüntüyü döndürür.
-
-Bu JavaScript kodu işlemi gösterir:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // İlk slayttan PictureFrame'i alır
-    var picFrame = slide.getShapes().get_Item(0);
-    // PictureFrame görüntüsünün kırpılmış alanlarını siler ve kırpılmış görüntüyü döndürür
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Sonucu kaydeder
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-The [deletePictureCroppedAreas()](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) method adds the cropped image to the presentation image collection. If the image is only used in the processed [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/), this setup can reduce the presentation size. Otherwise, the number of images in the resulting presentation will increase.
-
-This method converts WMF/EMF metafiles to raster PNG image in the cropping operation. 
-
-{{% /alert %}}
-
-## **Görüntüleri Sıkıştırma**
-
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) yöntemiyle bir sunumdaki resmi sıkıştırabilirsiniz. Bu yöntem, şekil boyutuna ve belirtilen çözünürlüğe göre resmi küçülterek, kırpılmış alanları silme seçeneğiyle birlikte çalışır.
-
-Resmin boyut ve çözünürlüğünü PowerPoint'ın **Picture Format → Compress Pictures → Resolution** özelliğine benzer şekilde ayarlar.
-
-Aşağıdaki JavaScript örnekleri, hedef bir çözünürlük belirleyerek ve isteğe bağlı olarak kırpılmış alanları kaldırarak bir sunumdaki görüntüyü nasıl sıkıştıracağınızı gösterir:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // Görüntüyü 150 DPI (Web çözünürlüğü) hedef çözünürlüğüyle sıkıştırır ve kırpılmış alanları kaldırır.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Sıkıştırma sonucunu kontrol eder.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
+        sourceImage.dispose();
     }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Veya başka bir önceden tanımlanmış DPI değeri kullanarak:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // Görüntüyü 96 DPI (e-posta çözünürlüğü) sıkıştırır, kırpılmış alanları kaldırır.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
-
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-The method converts the image to a lower resolution based on the shape's size and provided DPI. Cropped regions can also be deleted to optimize file size.
-If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
-
-{{% /alert %}}
-
-## **En Boy Oranını Kilitle**
-
-Bir şeklin içinde bulunan görüntünün boyutları değiştirildiğinde bile en boy oranının korunmasını istiyorsanız, *Lock Aspect Ratio* ayarını belirlemek için [setAspectRatioLocked](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) yöntemini kullanabilirsiniz.
-
-Bu JavaScript kodu, bir şeklin en boy oranını nasıl kilitleyeceğinizi gösterir:
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // yeniden boyutlandırmada en boy oranını korumak için şekli ayarla
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch (e) {console.log(e);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Kilitleme, resim çerçevesi şekline uygulanır. Kaynak görüntünün yeniden örneklenmesini veya kalıcı olarak aynı en‑boy oranına değiştirilmesini zorlamaz.
 
-This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
+## **StretchOffset Değerlerini Ayarlama**
 
-{{% /alert %}}
+Resim dolgu modu stretch olduğunda, [PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) üzerindeki stretch‑offset değerleri, dolgu dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri bir kenardan içeriye doğru boşluk oluştururken, negatif yüzde değerleri dışarıya doğru çıkıntı oluşturur.
 
-## **StretchOff Özelliğini Kullanma**
-
-[PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PictureFillFormat) sınıfındaki [setStretchOffsetLeft](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) ve [setStretchOffsetBottom](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) yöntemlerini kullanarak bir doldurma dikdörtgeni belirleyebilirsiniz.
-
-Bir görüntü için germe belirtildiğinde, kaynak dikdörtgen belirtilen doldurma dikdörtgenine sığacak şekilde ölçeklendirilir. Doldurma dikdörtgeninin her kenarı, şeklin sınırlayıcı kutusunun ilgili kenarından bir yüzde ofsetiyle tanımlanır. Pozitif yüzde içeriği, negatif yüzde dışarıyı belirtir.
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını dizini üzerinden alın.
-3. Bir `AutoShape` dikdörtgeni ekleyin. 
-4. Bir resim oluşturun.
-5. Şeklin dolgu türünü ayarlayın.
-6. Şeklin resim dolgu modunu ayarlayın.
-7. Şekli doldurmak için bir görüntü ayarlayın.
-8. Görüntünün ofsetlerini, şeklin sınırlayıcı kutusunun ilgili kenarına göre belirtin.
-9. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.
-
-Bu JavaScript kodu, StretchOff özelliğinin kullanıldığı bir süreci gösterir:
+Bu, kırpmadan farklıdır. Kırpma değerleri, kaynak görüntünün hangi kısmının görünür olduğunu seçerken; stretch offsetleri, görünür resim dolgusunun hangi dikdörtgene gerileceğini değiştirir.
 
 ```javascript
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk slaytı alır
-    var slide = pres.getSlides().get_Item(0);
-    // ImageEx sınıfını örnekler
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        sourceImage.dispose();
     }
-    // Dikdörtgen olarak ayarlanmış bir AutoShape ekler
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Şeklin dolgu tipini ayarlar
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Şeklin resim dolgu modunu ayarlar
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Şekli dolduracak görüntüyü ayarlar
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Görüntünün ofsetlerini şeklin sınırlayıcı kutusunun ilgili kenarına göre belirtir
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // PPTX dosyasını diske yazar
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Dolgu konumlandırması için stretch offsetlerini kullanın. Kaynak görüntünün kenarlarını gizleme amacı varsa kırpma özelliklerini kullanın.
+
+## **Depolama, Dosya Boyutu ve Dışa Aktarım Hususları**
+
+Görüntü depolama ve resim çerçevesi biçimlendirme ayrı ayrı ele alındığında ana dengelemeler daha kolay yönetilir:
+
+- **Gömülü görüntüler** sunumu kendi içinde bağımsız hâle getirir ve paylaşım ve sunucu tarafı renderleme için en güvenilir olanlardır, ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görüntüler** paketi daha küçük tutabilir, ancak sunum, depolanan yollar veya konumlardaki dış dosyaların mevcut olmasına bağlıdır.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene veya sıkıştırma sırasında kaldırılana kadar gömülü kalır.
+- **Sıkıştırma**, aşırı büyük raster görüntüler için dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Bu, slayt üzerindeki hedef boyut bilindikten sonra uygulanmalıdır.
+- **SVG görüntüler**, vektör korumanın önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağına doğrudan ihtiyacınız olduğunda gömülü SVG'yi doğrudan çıkarın. Raster slayt dışa aktarımları her zaman renderlenen slaytı piksellere dönüştürür.
+- **Tekrarlanan görüntüler**, mümkün olduğunca aynı dosyayı sunum iş akışına tekrar tekrar yüklemek yerine mevcut bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kaynağını yeniden kullanmalıdır.
+
+Büyük sunumlarda, görüntü optimizasyonu genellikle seçici olarak gerçekleştirildiğinde en etkili olur: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek görüntüleme boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca sonradan düzenleme gerektiğinde kaldırın ve dış bağlantılardan kaçının, aksi takdirde bağımlılık yönetimi dağıtım tasarımının bir parçası olmalıdır.
 
 ## **SSS**
 
-**Resim Çerçevesi için hangi görüntü formatlarının desteklendiğini nasıl öğrenebilirim?**
+**Resim çerçevesi ile görüntü kaynağı arasındaki fark nedir?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) üzerine atanan görüntü nesnesi aracılığıyla raster görüntüleri (PNG, JPEG, BMP, GIF vb.) ve vektör görüntüleri (örneğin SVG) destekler. Desteklenen formatların listesi genel olarak slayt ve görüntü dönüştürme motorunun yetenekleriyle örtüşür.
+[PPImage], sunuma ilişkili bir görüntü kaynağını temsil eder. [PictureFrame] ise bir slaytta görüntüyü gösteren ve çerçeve seviyesindeki geometri ve biçimlendirmeyi (boyut, döndürme, kırpma değerleri, efektler ve kilitlemeler gibi) depolayan bir şekildir.
 
-**Yüzlerce büyük görüntü eklemek PPTX dosya boyutu ve performansı üzerinde nasıl bir etki yapar?**
+**Görüntüleri gömmeli miyim yoksa bağlamalı mı?**
 
-Büyük görüntüleri gömmek dosya boyutunu ve bellek kullanımını artırır; görüntülere bağlantı vermek sunum boyutunu düşük tutar ancak dış dosyaların erişilebilir olmasını gerektirir. Aspose.Slides, dosya boyutunu azaltmak için görüntüleri bağlantı yoluyla ekleme imkanı sunar.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan renderlanması gerektiğinde görüntüleri gömün. Görüntüleri yalnızca PPTX dışındaki dosyaları tutmak kasıtlı ve dış konumların güvenilir bir şekilde korunabileceği durumlarda bağlayın.
 
-**Bir görüntü nesnesinin yanlışlıkla taşınmasını/ölçeklenmesini nasıl kilitleyebilirim?**
+**Kırpma PPTX dosya boyutunu azaltır mı?**
 
-Bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) için [shape locks](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) (örneğin taşımayı veya yeniden boyutlandırmayı devre dışı bırakma) kullanın. Kilitleme mekanizması, [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) dahil çeşitli şekil tipleri için desteklenir.
+Kendiliğinden değil. Normal kırpma ayarları, kaynak görüntünün bölümlerini gizler ancak altındaki pikselleri tutar. Bu pikseller kalıcı olarak atılabilirse, [PictureFillFormat.deletePictureCroppedAreas] veya kırpılmış alanların kaldırıldığı görüntü sıkıştırmasını kullanın.
 
-**SVG vektör doğruluğu bir sunumu PDF/görüntülere dışa aktarırken korunur mu?**
+**Sıkıştırma sonrası görüntü kalitesini geri getirebilir miyim?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) üzerinden SVG'yi orijinal vektör olarak çıkarmanıza izin verir. PDF'ye [/slides/tr/nodejs-java/convert-powerpoint-to-pdf/] veya raster formatlara [/slides/tr/nodejs-java/convert-powerpoint-to-png/] dışa aktarırken, sonuç dışa aktarma ayarlarına bağlı olarak rasterleştirilebilir; ancak orijinal SVG'nin vektör olarak saklandığı çıkarma davranışıyla doğrulanır.
+Hayır. Sıkıştırma, saklanan raster çözünürlüğü azaltabilir ve kırpılmış bölgelerin kaldırılması görüntü verisini siler. Daha sonra yüksek çözünürlüklü düzenleme gerekebileceği durumlarda orijinal kaynak görüntüyü sunum dışında tutun.
+
+**SVG görüntüler nasıl kullanılmalı?**
+
+Vektör doğruluğunun önemli olduğu durumlarda SVG içeriğini SVG olarak tutun. Gömülü [SvgImage] doğrudan çıkarılabilir. Bir slaytı PNG veya JPEG gibi raster bir formata renderlemek, SVG'yi slayt görüntüsünün bir parçası olarak rasterleştirir.
+
+**Mevcut slaytları okurken güvensiz tip dönüşümlerinden nasıl kaçınılır?**
+
+Resim çerçevesine özgü üyeleri kullanmadan önce şekil tipini kontrol edin. [PictureFrame] karşısında bir `java.instanceOf` kontrolü, geçersiz tip dönüşümlerinden kaçınır ve kodun resim çerçevesi içermeyen slaytları işlemesine olanak tanır.

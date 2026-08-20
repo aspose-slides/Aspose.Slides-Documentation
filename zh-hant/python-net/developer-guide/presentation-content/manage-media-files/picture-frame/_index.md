@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 向簡報新增圖片框
+title: 使用 Python 在簡報中管理圖片框
 linktitle: 圖片框
 type: docs
 weight: 10
@@ -8,479 +8,358 @@ keywords:
 - 圖片框
 - 新增圖片框
 - 建立圖片框
-- 新增影像
-- 建立影像
-- 擷取影像
-- 點陣影像
-- 向量影像
-- 裁切影像
-- 裁切區域
-- StretchOff 屬性
+- 內嵌圖像
+- 連結圖像
+- 抽取圖像
+- 點陣圖像
+- SVG 圖像
+- 裁剪圖像
+- 刪除裁剪區域
+- 壓縮圖像
+- 拉伸偏移
 - 圖片框格式設定
-- 圖片框屬性
 - 相對比例
-- 影像效果
+- 圖像效果
 - 長寬比
-- 影像透明度
 - PowerPoint
 - OpenDocument
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET，為 PowerPoint 與 OpenDocument 簡報新增圖片框。簡化工作流程並提升投影片設計。"
+description: "使用 Aspose.Slides for Python via .NET 在簡報中建立、格式化、連結、裁剪、抽取與壓縮圖片框。"
 ---
-## **簡介**
+## **Overview**
 
-在 Aspose.Slides for Python 中，圖片框允許您將點陣圖與向量圖作為原生投影片形狀放置和管理。您可以從檔案或串流插入圖片，以精確座標定位與調整大小、套用旋轉、設定透明度，並與其他形狀一起控制 Z‑order。API 亦支援裁切、維持長寬比、設定邊框與效果，並可在不重新建立版面配置的情況下更換底層圖片。由於圖片框的行為如同一般形狀，您可為其加入動畫、超連結與替代文字，輕鬆打造視覺豐富且具可及性的簡報。
+圖片框是顯示圖像的投影片形狀。在 Aspose.Slides 中，圖像資源與顯示圖像的形狀是分開的物件：一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 透過其 [ImageCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/) 擁有內嵌圖像資源，而一個 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 控制圖像的位置、大小、線條格式、旋轉、裁剪、圖片效果以及其他框架層級設定。
 
-## **建立圖片框**
+當同一張圖像需要顯示多次時，這種分離非常有用。先將圖像加入簡報一次，保留回傳的 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/)，在建立圖片框時重複使用該圖像資源。
 
-本節說明如何在 Aspose.Slides for Python 中建立 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 以在投影片中插入圖片。您將學習如何載入圖片、精確放置於投影片上，以及控制其大小與格式設定。
+圖片框可以容納 PNG 或 JPEG 等點陣圖，也可以容納 SVG 向量圖。它們亦可參照連結圖像，而非將圖像位元組儲存在簡報中。此選擇會影響可攜性、檔案大小、抽取與匯出行為，因此在套用格式或最佳化之前，先決定圖像的儲存方式是很有幫助的。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-2. 依索引取得投影片。  
-3. 透過將圖片加入投影片的 [ImageCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/) 來建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/)。此圖片將用來填充形狀。  
-4. 指定框架的寬度與高度。  
-5. 使用 [add_picture_frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_picture_frame/) 方法建立相同尺寸的 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/)。  
-6. 將簡報儲存為 PPTX 檔案。
+## **Add and Format an Embedded Image**
 
-以下 Python 程式碼示範如何建立圖片框：
+對於內嵌圖像，將圖像資料加入簡報，並使用 [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_picture_frame/) 建立圖片框。圖像會成為簡報套件的一部分，因而在搬移到其他電腦時仍能保持自包含。
 
-```py
-import aspose.slides as slides
-
-# 實例化 Presentation 類別以代表 PPTX 檔案。
-with slides.Presentation() as presentation:
-    # 取得第一張投影片。
-    slide = presentation.slides[0]
-
-    # 將影像加入簡報。
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # 新增與影像尺寸相同的圖片框。
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # 將簡報儲存為 PPTX。
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-
-圖片框可讓您快速從圖片建立簡報投影片。將圖片框與 Aspose.Slides 儲存選項結合使用，您即可控制 I/O 操作，將圖片從一種格式轉換為另一種格式。您可能想參考以下頁面：轉換 [image to JPG](https://products.aspose.com/slides/zh-hant/python-net/conversion/image-to-jpg/)、轉換 [JPG to image](https://products.aspose.com/slides/zh-hant/python-net/conversion/jpg-to-image/)、轉換 [JPG to PNG](https://products.aspose.com/slides/zh-hant/python-net/conversion/jpg-to-png/)、轉換 [PNG to JPG](https://products.aspose.com/slides/zh-hant/python-net/conversion/png-to-jpg/)、轉換 [PNG to SVG](https://products.aspose.com/slides/zh-hant/python-net/conversion/png-to-svg/)、轉換 [SVG to PNG](https://products.aspose.com/slides/zh-hant/python-net/conversion/svg-to-png/)。  
-
-{{% /alert %}}
-
-## **以相對比例建立圖片框**
-
-本節示範先以固定尺寸放置圖片，然後分別以百分比方式獨立調整寬度與高度。因為百分比可能不同，長寬比會發生變化。縮放是相對於圖片原始尺寸執行。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-2. 依索引取得投影片。  
-3. 透過將圖片加入投影片的 [ImageCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/) 來建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/)。  
-4. 在投影片上加入 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/)。  
-5. 設定圖片框的相對寬度與高度。  
-6. 將簡報儲存為 PPTX 檔案。
-
-以下 Python 程式碼示範如何以相對縮放建立圖片框：
-
-```py
-import aspose.slides as slides
-
-# 實例化 Presentation 類別以代表 PPTX 檔案。
-with slides.Presentation() as presentation:
-    # 取得第一張投影片。
-    slide = presentation.slides[0]
-
-    # 將影像加入簡報的圖像集合。
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # 將圖片框新增至投影片。
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # 設定相對縮放的寬度與高度。
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # 儲存簡報。
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **從圖片框提取點陣圖**
-
-您可以從 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 物件中提取點陣圖，並以 PNG、JPG 及其他格式儲存。以下程式碼示例說明如何從文件「sample.pptx」提取圖像並以 PNG 格式儲存。
+以下範例加入 JPEG 圖像，依圖像原始尺寸建立框架，並套用線條格式與旋轉：
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **從圖片框提取 SVG 圖像**
-
-當簡報在 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 形狀內放置 SVG 圖形時，Aspose.Slides for Python via .NET 可讓您以完整保真度取得原始向量圖。透過遍歷投影片的形狀集合，您可以辨識每個 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/)，檢查其底層的 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/) 是否包含 SVG 內容，然後將該圖像以原始 SVG 格式儲存至磁碟或串流。
-
-以下程式碼示例演示如何從圖片框提取 SVG 圖像：
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **取得圖像透明度**
-
-Aspose.Slides 允許您取得套用於圖像的透明度效果。以下 Python 程式碼示範此操作：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-所有套用於圖像的效果均可在 [aspose.slides.effects](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/) 找到。  
-{{% /alert %}}
-
-## **取得圖像的亮度與對比度**
-
-Aspose.Slides 允許您取得套用於圖像的亮度與對比度效果。[Luminance](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/luminance/) 類別代表此圖像轉換效果。
-
-以下 Python 程式碼示範如何從圖片框取得亮度與對比度設定：
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **圖片框格式設定**
-
-Aspose.Slides 提供多種格式設定選項，可套用於圖片框，以符合特定需求。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-2. 依索引取得投影片。  
-3. 透過將圖片加入投影片的 [ImageCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/imagecollection/) 來建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/)。此圖片將用來填充形狀。  
-4. 指定框架的寬度與高度。  
-5. 使用投影片的 [add_picture_frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/add_picture_frame/) 方法建立相同尺寸的 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/)。  
-6. 設定圖片框的線條顏色。  
-7. 設定圖片框的線條寬度。  
-8. 以正值（順時針）或負值（逆時針）旋轉圖片框。  
-9. 將修改後的簡報儲存為 PPTX 檔案。
-
-以下 Python 程式碼示範圖片框的格式設定流程：
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# 實例化 Presentation 類別以代表 PPTX 檔案。
 with slides.Presentation() as presentation:
-    # 取得第一張投影片。
     slide = presentation.slides[0]
 
-    # 將影像加入簡報的圖像集合。
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # 新增與影像尺寸相同的圖片框。
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # 對圖片框套用格式設定。
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # 將簡報儲存為 PPTX。
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+圖片框控制顯示的幾何形狀；變更框架大小不會改變儲存在內嵌圖像資源中的原始像素尺寸。此區別在之後裁剪或壓縮圖像時變得重要。
 
-Aspose 已開發免費的 [Collage Maker](https://products.aspose.app/slides/zh-hant/collage)。若需 [合併 JPG/JPEG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG 圖片，或是 [建立相片格子](https://products.aspose.app/slides/zh-hant/collage/photo-grid)，可使用此服務。  
-{{% /alert %}}
+## **Use Relative Scale**
 
-## **將圖像作為連結加入**
-
-為了縮小簡報檔案大小，您可以透過連結方式加入圖像或影片，而非直接嵌入檔案。以下 Python 程式碼示範如何在佔位區插入圖像與影片：
+[PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 提供 [relative_scale_width](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/relative_scale_width/) 和 [relative_scale_height](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/relative_scale_height/) 供框架使用。`1.0` 的值相當於原始圖片大小的 100%。相對比例在工作流程需要保留與來源圖像尺寸關係，而非手動計算最終尺寸時非常有用。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+相對比例會變更框架的比例設定；它不會重新取樣或壓縮內嵌圖像。
+
+## **Embedded and Linked Images**
+
+內嵌圖片將圖像資料儲存在簡報內，因而是最安全的可攜性與可預測渲染選擇。連結圖片則透過 [Picture](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picture/) 連結路徑儲存外部位置，而不是以相同方式嵌入圖像資料。
+
+連結圖像可以減少 PPTX 中儲存的圖像資料量，但會產生外部相依性。開啟或渲染簡報的應用程式必須能存取該連結檔案。若路徑變更、檔案搬移或資源無法取得，連結圖片可能無法如預期顯示。對於必須以電子郵件傳送、保存或在隔離環境中渲染的簡報，內嵌圖像通常較為可靠。
+
+### **Add a Linked Image**
+
+以下範例建立圖片框並指向本機圖像檔。此範例僅處理圖像連結；視訊連結屬於另一套媒體工作流程，故未混入此範例。
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+在刻意管理外部檔案時使用連結。不要僅將其當作壓縮的替代方案：一個帶有破損圖像相依性的較小 PPTX 通常不如較大且自包含的簡報實用。
+
+## **Extract Images from Picture Frames**
+
+在從現有簡報抽取圖像之前，先確認形狀實際上是 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 且包含內嵌圖像。連結圖片框可能不包含可同樣抽取的圖像位元組。
+
+### **Extract a Raster Image**
+
+現代圖像 API 直接使用 [IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/)。以下範例在投影片上找到第一個內嵌點陣圖片，並以 PNG 格式儲存：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **裁切圖像**
+透過 [IImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iimage/) 儲存會將抽取的圖像轉換為所請求的輸出格式。如果需要簡報中儲存的編碼位元組，而非已轉換的點陣檔，請改用 [PPImage.binary_data](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/binary_data/) 屬性。
 
-本節將說明如何在不改變來源檔案的前提下，裁切圖片框內圖像的可見區域。您也會學習基本的裁切邊距設定方法，以在投影片上直接建立乾淨、聚焦的構圖。
+### **Extract an SVG Image**
 
-以下 Python 程式碼示範如何在投影片上裁切圖像：
+對於 SVG 圖片，[PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/) 會公開一個 [SvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/) 物件。這讓您能直接取得 SVG 資料，而不必先將圖片光柵化。
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+將 SVG 內容保留為 SVG 可在簡報中保留向量來源。PNG 或 JPEG 等點陣匯出必然將向量內容渲染成像素。PDF 或 SVG 投影片匯出同樣是一種渲染動作，因此匯出的圖形不應被視為原始內嵌 SVG 的位元對位元拷貝；在需要原始向量資源時，請使用內嵌的 [SvgImage.svg_data](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/svg_data/)。
+
+## **Crop an Image**
+
+裁剪會變更框架內可見的圖像部分。[PictureFillFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/) 上的裁剪值以來源圖像尺寸的百分比表示。裁剪並不會立即從內嵌圖像中刪除隱藏的像素，只是改變可見區域。
+
+以下範例安全地找到圖片框並套用裁剪值：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+因為隱藏的圖像資料仍然存在，之後仍可變更裁剪而不會失去原始像素。若檔案大小比可逆性更重要，可如下一節所述實際移除裁剪區域。
+
+## **Remove Cropped Image Data**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) 會移除目前裁剪矩形外的圖像資料，並回傳產生的圖像資源。這可以減少檔案大小，但屬於破壞性最佳化：簡報儲存後，被移除的像素將無法再用於之後的取消裁剪操作。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+此方法可能會在簡報中加入新的圖像資源。如果原始圖像同時被其他圖片框使用，這些框仍需保留其現有資源，因此刪除裁剪區域不一定會減少圖像總數。使用此方法裁剪 WMF 或 EMF 內容會將裁剪結果光柵化為 PNG。
+
+## **Compress Raster Images**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/compress_image/) 會依圖片顯示的尺寸相對降低點陣圖解析度。它也可以在同一次操作中移除裁剪區域。若圖像被重新調整大小或裁剪，方法會回傳 `True`；若未需要變更則回傳 `False`。
+
+當標準目標解析度足以時，可使用預定義的 [PicturesCompression](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.export/picturescompression/) 值：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+若需要特定目標，亦可傳入自訂的正值 DPI 取代列舉值。
+
+壓縮僅適用於點陣圖。SVG 與圖形檔內容不會因此點陣壓縮工作流程而縮小。也請記得，較低的解析度與已刪除的裁剪區域無法從最佳化後的簡報中復原。請基於圖像實際檢視或匯出時的最大尺寸選擇目標解析度，而非全局套用最低 DPI。
+
+## **Inspect Image Effects**
+
+圖片效果儲存在框架使用的圖片上。圖像變換集合可以包含例如固定透明度調變 (AlphaModulateFixed) 與亮度調整 (Luminance) 等效果。下列範例安全地從投影片上的第一個圖片框讀取這兩種效果：
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+[AlphaModulateFixed](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/alphamodulatefixed/) 與 [Luminance](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/luminance/) 會變更框架內圖像的呈現方式；它們不會重新寫入原始內嵌圖像位元組。
+
+## **Lock Picture Frame Geometry**
+
+[PictureFrameLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframelock/) 設定控制哪些編輯操作會對圖片框被停用。例如，[aspect_ratio_locked](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) 屬性能在調整大小時保持形狀比例。
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 將影像加入簡報的圖像集合。
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # 新增圖片框至投影片。
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # 裁切影像（百分比值）。
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # 儲存結果。
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **刪除圖像的裁切區域**
-
-若要刪除框中圖像的裁切區域，請使用 [delete_picture_cropped_areas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) 方法。若無需裁切，該方法會回傳原始圖像。
-
-以下 Python 程式碼示範此操作：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # 從第一張投影片取得 PictureFrame。
-    picture_frame = slides.shape[0]
-
-    # 從第一張投影片取得 PictureFrame。
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # 儲存結果。
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-
-[delete_picture_cropped_areas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) 方法會將裁切後的圖像加入簡報的圖像集合。若該圖像僅在已處理的 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 中使用，則可減少簡報大小；否則，最終簡報中的圖像數量可能會增加。
-
-在裁切過程中，此方法會將 WMF/EMF 中繪圖檔轉換為點陣 PNG 圖像。  
-{{% /alert %}}
-
-## **壓縮圖像**
-
-您可使用 [PictureFillFormat.compress_image](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/compress_image/) 方法壓縮簡報中的圖片。此方法會根據形狀大小與指定解析度減少圖像尺寸，並可選擇刪除裁切區域。
-
-它的運作方式類似 PowerPoint 中 **圖片格式 -> 壓縮圖片 -> 解析度** 功能。
-
-以下 Python 範例示範如何依目標解析度壓縮簡報中的圖像，並可選擇移除裁切區域：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # 以目標解析度 150 DPI（網路解析度）壓縮影像並移除裁切區域。
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # 檢查壓縮結果。
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-或直接使用自訂 DPI 值：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # 將影像壓縮至 150 DPI（網路解析度），並移除裁切區域。
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-
-此方法會依形狀大小與提供的 DPI 將圖像轉換為較低解析度。裁切區域亦可被刪除以最佳化檔案大小。若圖像為 WMF/EMF 中繪圖檔或 SVG，則不會套用壓縮。JPEG 的品質會依解析度略有降低，與 PowerPoint 處理高解析度 JPEG 的方式相同。  
-{{% /alert %}}
-
-## **鎖定長寬比**
-
-若您希望在變更圖像尺寸後，包含圖像的形狀仍保留其長寬比，請將 [aspect_ratio_locked](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) 屬性設為 `True`。
-
-以下 Python 程式碼示範如何鎖定形狀的長寬比：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # 在調整大小時鎖定長寬比。
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
+此鎖定套用於圖片框形狀本身，並不會強迫來源圖像重新取樣或永久改變為相同的長寬比。
 
-此 *鎖定長寬比* 設定僅保留形狀的長寬比，而不會影響其中圖像本身的長寬比。  
-{{% /alert %}}
+## **Adjust the StretchOffset Values**
 
-## **使用 Stretch Offset 屬性**
+當圖片填充模式為 stretch 時，[PictureFillFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/) 上的 stretch‑offset 值會相對於圖片框的邊界框定義填充矩形。正比例會在邊緣內縮，負比例則會向外延伸。
 
-透過 [PictureFillFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/) 類別的 `stretch_offset_left`、`stretch_offset_top`、`stretch_offset_right`、`stretch_offset_bottom` 屬性，您可以定義填充矩形。
+這與裁剪不同。裁剪值決定來源圖像哪個部分可見；stretch offset 則改變可見圖片填充被拉伸的矩形。
 
-當為圖像指定拉伸時，來源矩形會被縮放以符合填充矩形。填充矩形的每一邊皆以相對於形狀邊界框相應邊緣的百分比偏移來定義。正百分比表示內縮，負百分比表示外擴。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-2. 依索引取得投影片參考。  
-3. 新增矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)。  
-4. 設定形狀的填充類型。  
-5. 設定形狀的圖片填充模式。  
-6. 載入圖像。  
-7. 將圖像指派為形狀的填充。  
-8. 指定圖像相對於形狀邊界框各邊的偏移。  
-9. 將簡報儲存為 PPTX 檔案。
-
-以下 Python 程式碼示範如何使用 Stretch Offset 屬性：
-
-```py
+```python
 import aspose.slides as slides
 
-# 實例化代表 PPTX 檔案的 Presentation 類別。
 with slides.Presentation() as presentation:
-    # 取得第一張投影片。
     slide = presentation.slides[0]
 
-    # 新增矩形 AutoShape。
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # 設定形狀的填充類型。
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # 設定形狀的圖片填充模式。
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # 載入影像並將其加入簡報。
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # 將影像指派為形狀的填充。
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # 指定影像相對於形狀邊界框各邊的偏移量。
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # 將 PPTX 檔案儲存至磁碟。
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+使用 stretch offset 進行填充位置調整。若目標是隱藏來源圖像邊緣，則使用裁剪屬性。
 
-Aspose 提供免費的轉換工具—[JPEG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 與 [PNG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)—讓您快速從圖片建立簡報。  
-{{% /alert %}}
+## **Storage, File Size, and Export Considerations**
 
-## **常見問題集**
+當圖像儲存與圖片框格式分別處理時，主要的權衡較易管理：
 
-**如何得知 PictureFrame 支援哪些圖像格式？**
+- **Embedded images** 使簡報自包含，是分享與伺服器端渲染最可靠的選擇，但大型點陣圖會增加 PPTX 大小與記憶體使用。
+- **Linked images** 可以讓套件較小，但簡報依賴外部檔案在儲存的路徑或位置仍須可用。
+- **Cropping** 初始為非破壞性。隱藏的像素會保留在內嵌圖像中，直到明確刪除裁剪區域或在壓縮時移除。
+- **Compression** 能顯著減少過大點陣圖的檔案大小，但會犧牲來源解析度。應在確定投影片上最終顯示尺寸後再執行。
+- **SVG images** 在需要保留向量時應保持為 SVG。當需要向量資源本身時，直接抽取內嵌 SVG。點陣投影片匯出始終會將渲染的投影片轉換為像素。
+- **Repeated images** 應盡可能重複使用既有的 [PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/) 資源，而不是在簡報工作流程中重複載入相同檔案。
 
-Aspose.Slides 透過指派給 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 的圖像物件，支援點陣圖 (PNG、JPEG、BMP、GIF 等) 與向量圖 (例如 SVG)。支援的格式清單大致與投影片與圖像轉換引擎的功能相吻合。
+對於大型簡報，圖像最佳化通常在有選擇性地執行時最有效：將標誌與圖表保留為向量內容，依實際顯示尺寸壓縮照片，僅在不需日後編輯時移除裁剪像素，除非部署設計已納入相依管理，否則避免使用外部連結。
 
-**加入大量大型圖像會對 PPTX 大小與效能產生什麼影響？**
+## **FAQ**
 
-嵌入大型圖像會增加檔案大小與記憶體使用量；以連結方式加入圖像則可降低簡報大小，但需確保外部檔案仍可存取。Aspose.Slides 提供以連結方式加入圖像的功能，以減少檔案大小。
+**What is the difference between a picture frame and an image resource?**
 
-**如何防止圖像物件被意外移動或調整大小？**
+[PPImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ppimage/) 代表與簡報關聯的圖像資源。[PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 則是投影片上的形狀，用於顯示圖像並儲存框架層級的幾何與格式（例如大小、旋轉、裁剪值、效果與鎖定）。
 
-可對 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 使用 [shape locks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/picture_frame_lock/)（例如停用移動或調整大小）。鎖定機制在獨立的 [保護文章](/slides/zh-hant/python-net/applying-protection-to-presentation/) 中說明，且支援包括 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 在內的多種形狀類型。
+**Should I embed or link images?**
 
-**在將簡報匯出為 PDF/圖像時，SVG 向量的保真度是否會被保留？**
+當簡報必須具備可攜性、保存或在無外部資源存取的情況下渲染時，請嵌入圖像。僅在有意將圖像檔案保留在 PPTX 之外且能可靠維護外部位置時，才使用連結圖像。
 
-Aspose.Slides 可從 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 中提取原始 SVG 向量。若 [匯出為 PDF](/slides/zh-hant/python-net/convert-powerpoint-to-pdf/) 或 [點陣格式](/slides/zh-hant/python-net/convert-powerpoint-to-png/)，結果可能會根據匯出設定被點陣化；提取行為確認了原始 SVG 仍以向量形式儲存。
+**Does cropping reduce PPTX file size?**
+
+僅裁剪本身不會減少檔案大小。普通的裁剪設定會隱藏來源圖像的部分，但仍保留底層像素。若需要永久移除這些像素，請使用 [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) 或搭配裁剪區域刪除的圖像壓縮。
+
+**Can I restore image quality after compression?**
+
+不能。壓縮會降低儲存的點陣解析度，且刪除裁剪區域會捨棄圖像資料。若日後可能需要高解析度編輯，請將原始來源圖像保留在簡報之外。
+
+**How should SVG images be handled?**
+
+在向量保真度重要時，應將 SVG 內容保留為 SVG。內嵌的 [SvgImage](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/svgimage/) 可直接抽取。將投影片渲染為 PNG 或 JPEG 等點陣格式會將 SVG 光柵化為圖像的一部分。
+
+**How can I avoid unsafe casts when reading existing slides?**
+
+在使用圖片框相關成員之前，先檢查形狀類型。使用 `isinstance(shape, slides.PictureFrame)` 可避免無效的類型轉換，並讓程式碼能正確處理不含圖片框的投影片。

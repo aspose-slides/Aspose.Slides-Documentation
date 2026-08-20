@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理投影片的圖片框
+title: 在 .NET 中管理簡報的圖片框
 linktitle: 圖片框
 type: docs
 weight: 10
@@ -8,492 +8,385 @@ keywords:
 - 圖片框
 - 新增圖片框
 - 建立圖片框
-- 新增影像
-- 建立影像
-- 擷取影像
-- 點陣影像
-- 向量影像
-- 裁剪影像
-- 裁剪區域
-- StretchOff 屬性
-- 圖片框格式設定
-- 圖片框屬性
-- 相對比例
-- 影像效果
+- 內嵌圖片
+- 連結圖片
+- 擷取圖片
+- 點陣圖
+- SVG 圖片
+- 裁切圖片
+- 刪除裁切區域
+- 壓縮圖片
+- StretchOffset
+- 圖片框格式化
+- 相對縮放
+- 圖片效果
 - 長寬比
-- 影像透明度
 - PowerPoint
 - OpenDocument
-- 投影片
+- 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 在 PowerPoint 與 OpenDocument 投影片中新增圖片框。簡化工作流程並提升投影片設計。"
+description: "使用 Aspose.Slides for .NET 在簡報中建立、格式化、連結、裁切、擷取與壓縮圖片框。"
 ---
-## **簡介**
+## **概述**
 
-圖片框是一種包含影像的形狀——它就像是框中的圖片。
+圖片框是一種在投影片上顯示圖片的形狀。在 Aspose.Slides 中，圖片資源與顯示它的形狀是分開的物件：一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 透過其 [Images](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/images/) 集合擁有內嵌圖片資源，而一個 [IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/) 則控制圖片的位置、大小、線條格式、旋轉、裁切、圖片效果以及其他框級設定。
 
-您可以透過圖片框將影像新增至投影片。如此一來，您即能透過格式化圖片框來調整影像的格式。
+當同一張圖片需要顯示多次時，這種分離非常有用。只需將圖片加入簡報一次，保留回傳的 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/)，在建立圖片框時重複使用該圖片資源。
 
-{{% alert title="提示" color="primary" %}} 
-Aspose 提供免費的轉換工具——[JPEG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 和 [PNG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)——讓使用者能快速從影像建立投影片。 
-{{% /alert %}} 
+圖片框可以包含 PNG、JPEG 等點陣圖，也可以包含 SVG 向量圖。它們也可以參照連結圖片，而不是將圖片位元組儲存於簡報內。此選擇會影響可移植性、檔案大小、擷取與匯出行為，因此在套用格式或最佳化之前，先決定圖片的儲存方式是很重要的。
 
-## **建立圖片框**
+## **新增與格式化內嵌圖片**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的執行個體。  
-2. 透過索引取得投影片的參考。  
-3. 透過將影像新增至與投影片關聯的 [IImagescollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimagecollection)，建立 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage) 物件以填充形狀。  
-4. 指定影像的寬度與高度。  
-5. 透過參考投影片關聯的形狀物件所公開的 `AddPictureFrame` 方法，基於影像的寬度與高度建立 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe)。  
-6. 將包含圖片的圖片框新增至投影片。  
-7. 將修改後的投影片寫入為 PPTX 檔案。  
+對於內嵌圖片，將圖片資料加入簡報，然後使用 [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addpictureframe/) 建立圖片框。圖片會成為簡報套件的一部份，因而在移至其他電腦時仍保持自給自足。
 
-以下 C# 程式碼示範如何建立圖片框：
+以下範例加入 JPEG 圖片、以圖片原始尺寸建立框，並套用線條格式與旋轉：
 
-```c#
-// 實例化代表 PPTX 檔案的 Presentation 類別
-using (Presentation pres = new Presentation())
-{
-    // 取得第一張投影片
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 載入影像並將其加入投影片的影像集合
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // 新增具有相同高度與寬度的圖片框
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // 對圖片框套用一些格式設定
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // 將投影片寫入 PPTX 檔案
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-圖片框讓您能快速以影像建立投影片。結合 Aspose.Slides 的儲存選項，您可以操作輸入/輸出以將影像從一種格式轉換為另一種格式。您可能想參閱以下頁面：轉換 [image to JPG](https://products.aspose.com/slides/zh-hant/net/conversion/image-to-jpg/)；轉換 [JPG to image](https://products.aspose.com/slides/zh-hant/net/conversion/jpg-to-image/)；轉換 [JPG to PNG](https://products.aspose.com/slides/zh-hant/net/conversion/jpg-to-png/)、轉換 [PNG to JPG](https://products.aspose.com/slides/zh-hant/net/conversion/png-to-jpg/)；轉換 [PNG to SVG](https://products.aspose.com/slides/zh-hant/net/conversion/png-to-svg/)、轉換 [SVG to PNG](https://products.aspose.com/slides/zh-hant/net/conversion/svg-to-png/)。 
-{{% /alert %}}
-
-## **使用相對比例建立圖片框**
-
-透過調整影像的相對縮放，您可以建立更複雜的圖片框。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的執行個體。  
-2. 透過索引取得投影片的參考。  
-3. 將影像新增至投影片的影像集合。  
-4. 透過將影像新增至與投影片關聯的 [IImagescollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimagecollection)，建立 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage) 物件以填充形狀。  
-5. 指定圖片框中影像的相對寬度與高度。  
-6. 將修改後的投影片寫入為 PPTX 檔案。  
-
-以下 C# 程式碼示範如何使用相對比例建立圖片框：
-
-```c#
-// 實例化代表 PPTX 檔案的 Presentation 類別
-using (Presentation presentation = new Presentation())
-{
-    // 載入影像並將其加入投影片的影像集合
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // 在投影片上新增圖片框
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // 設定相對縮放的寬度與高度
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // 儲存投影片
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **從圖片框擷取點陣圖影像**
-
-您可以從 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe) 物件中擷取點陣圖影像，並以 PNG、JPG 等格式儲存。以下程式碼示範如何從文件「sample.pptx」擷取影像並以 PNG 格式儲存。
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **從圖片框擷取 SVG 影像**
-
-當投影片包含放在 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/) 形狀中的 SVG 圖形時，Aspose.Slides for .NET 可讓您以完整保真度取得原始向量影像。透過遍歷投影片的形狀集合，您可以辨識每個 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/)，檢查底層的 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/) 是否包含 SVG 內容，然後將該影像以原生 SVG 格式儲存至磁碟或串流。
-
-以下程式碼示範如何從圖片框擷取 SVG 影像：
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
+```
+
+圖片框控制顯示的幾何形狀；變更框的尺寸不會改變內嵌圖片資源中儲存的原始像素尺寸。此區別在之後裁切或壓縮圖片時相當重要。
+
+## **使用相對縮放**
+
+[IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/) 提供相對寬度與高度的縮放設定。`1.0` 代表 100% 的原始圖片大小。當工作流程需要保留與來源圖片尺寸的比例關係，而不是手動計算最終尺寸時，相對縮放非常有用。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
+```
+
+相對縮放只會變更框的縮放設定；不會重新取樣或壓縮內嵌圖片。
+
+## **內嵌與連結圖片**
+
+內嵌圖片將圖像資料儲存於簡報內，是可移植性與可預測呈現的最安全選擇。連結圖片則透過 [ISlidesPicture](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidespicture/) 的連結路徑指向外部位置，而不是將圖像資料內嵌。
+
+連結圖片可以減少 PPTX 中的圖像資料量，但會產生外部相依性。開啟或呈現簡報的應用程式必須能存取該連結檔案。若路徑變更、檔案移動或資源無法取得，連結圖片可能無法如預期顯示。對於必須以電子郵件傳送、保存或在孤立環境中呈現的簡報，內嵌圖片通常較為可靠。
+
+### **新增連結圖片**
+
+以下範例建立圖片框並指向本機圖檔。此範例僅處理圖片連結；影片連結屬於其他媒體工作流程，故未混入此例。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+當外部檔案管理是有意為之時才使用連結。不要僅將其當作壓縮的替代方案：一個因斷裂相依性而無法顯示的輕量 PPTX，通常比一個較大且自給自足的簡報更沒用。
+
+## **從圖片框擷取圖片**
+
+在從現有簡報擷取圖片之前，先確認形狀實際上是 [IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/) 且包含內嵌圖片。連結圖片框可能不含可直接擷取的圖像位元組。
+
+### **擷取點陣圖**
+
+新版圖像 API 直接使用 [IImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/)，不需舊的系統圖像封裝。以下範例在投影片上找到第一個內嵌點陣圖並以 PNG 儲存：
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
+    if (shape is not IPictureFrame pictureFrame)
     {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
+        continue;
+    }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
+
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
+}
+```
+
+透過 [IImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimage/) 儲存會將擷取的圖像轉換為要求的輸出格式。如果需要的是簡報中儲存的編碼位元組而非已轉換的點陣檔，請直接使用圖像資源的二進位資料。
+
+### **擷取 SVG 圖片**
+
+對於 SVG 圖片，[IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/) 會公開一個 [ISvgImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/isvgimage/) 物件。這讓您能直接取得 SVG 資料，而不必先將圖片光柵化。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
+
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
+}
+```
+
+將 SVG 內容保留為 SVG 可以在簡報中保留向量來源。PNG、JPEG 等光柵匯出必然將向量內容渲染成像素。PDF 或 SVG 投影片匯出同樣是渲染動作，因此匯出的圖形不應被視為原始內嵌 SVG 的逐位元拷貝；在需要原始向量資源時，請使用內嵌的 [ISvgImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/isvgimage/) 資料。
+
+## **裁切圖片**
+
+裁切會改變在框內可見的圖像區域。[IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/) 的裁切值是相對於來源圖片尺寸的百分比。裁切不會立即從內嵌圖片中刪除隱藏的像素，只是改變可見區域。
+
+以下範例安全地找到圖片框並套用裁切值：
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
+}
+```
+
+因為隱藏的圖像資料仍然存在，之後仍可變更裁切而不會遺失原始像素。若檔案大小比可逆性更重要，則可如下一節所述實際移除裁切區域。
+
+## **移除裁切圖像資料**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 會移除目前裁切矩形之外的圖像資料，並回傳結果圖像資源。此操作可減少檔案大小，但屬於破壞性最佳化：簡報儲存後，被移除的像素將無法再進行取消裁切的操作。
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-## **取得影像的透明度**
+此方法可能會在簡報中新增一個圖像資源。若原始圖片同時被其他圖片框使用，這些框仍需要其既有資源，因此刪除裁切區域不一定會減少圖像總數。使用此方法裁切 WMF 或 EMF 內容會將裁切結果光柵化為 PNG。
 
-Aspose.Slides 允許您取得套用於影像的透明度效果。以下 C# 程式碼示範此操作：
+## **壓縮點陣圖**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/compressimage/) 會根據圖片顯示的尺寸降低點陣圖解析度，亦可同時移除裁切區域。當圖像被重新調整大小或裁切時，方法會回傳 `true`；若未需變更則回傳 `false`。
+
+當標準目標解析度足夠時，可使用預先定義的 [PicturesCompression](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/picturescompression/) 值：
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+若需要特定目標解析度，也可以傳入自訂的正 DPI 數值取代列舉。
+
+壓縮僅適用於點陣圖。SVG 與圖形檔內容不會受到此點陣壓縮工作流程的影響。同時要記得，較低的解析度與已刪除的裁切區域無法從最佳化後的簡報中回復。請根據圖像實際顯示或匯出的最大尺寸來選擇目標解析度，而不是全局套用最低 DPI。
+
+## **檢查圖片效果**
+
+圖片效果儲存在框所使用的圖片上。影像變換集合可以包含透明度的固定 alpha 調變以及亮度的明暗對比等效果。以下範例安全地從投影片上第一個圖片框讀取兩種效果：
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
     {
         if (effect is IAlphaModulateFixed alphaModulateFixed)
         {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
+            var transparency = 100 - alphaModulateFixed.Amount;
+            Console.WriteLine("Transparency: " + transparency);
         }
-    }
-}
-```
 
-## **取得影像的亮度與對比度**
-
-Aspose.Slides 允許您取得套用於影像的亮度與對比度效果。[ILuminance](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.effects/iluminance/) 介面代表此影像變換效果。
-
-以下 C# 程式碼示範如何從圖片框取得亮度與對比度設定：
-
-```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
-
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
         if (effect is ILuminance luminanceEffect)
         {
             var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
-
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
+            Console.WriteLine("Brightness: " + luminance.Brightness);
+            Console.WriteLine("Contrast: " + luminance.Contrast);
         }
     }
 }
 ```
 
-{{% alert color="primary" %}} 
-所有套用於影像的效果皆可在 [Aspose.Slides.Effects](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.effects/) 中找到。 
-{{% /alert %}}
+這些效果會改變圖片在框中呈現的方式；不會重新寫入原始內嵌圖片的位元組。
 
-## **圖片框格式設定**
+## **鎖定圖片框幾何形狀**
 
-Aspose.Slides 提供許多可套用於圖片框的格式設定選項。使用這些選項，您可以調整圖片框以符合特定需求。
-
-1. 建立 [Presentation](http://www.aspose.com/api/net/slides/zh-hant/aspose.slides/) 類別的執行個體。  
-2. 透過索引取得投影片的參考。  
-3. 透過將影像新增至與投影片關聯的 [IImagescollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iimagecollection)，建立 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage) 物件以填充形狀。  
-4. 指定影像的寬度與高度。  
-5. 透過 [IShapes](http://www.aspose.com/api/net/slides/zh-hant/aspose.slides/ishapecollection) 物件的 [AddPictureFrame](http://www.aspose.com/api/net/slides/zh-hant/aspose.slides/ishapecollection/methods/addpictureframe) 方法，基於影像的寬度與高度建立 `PictureFrame`。  
-6. 將包含圖片的圖片框新增至投影片。  
-7. 設定圖片框的線條顏色。  
-8. 設定圖片框的線條寬度。  
-9. 以正值或負值旋轉圖片框。  
-   * 正值會順時針旋轉影像。  
-   * 負值會逆時針旋轉影像。  
-10. 再次將圖片框（含圖片）新增至投影片。  
-11. 將修改後的投影片寫入為 PPTX 檔案。  
-
-以下 C# 程式碼示範圖片框的格式設定流程：
-
-```c#
-// 實例化代表 PPTX 檔案的 Presentation 類別
-using (Presentation presentation = new Presentation())
-{
-    // 取得第一張投影片
-    ISlide slide = presentation.Slides[0];
-
-    // 載入影像並將其加入投影片的影像集合
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // 新增具有相同高度與寬度的圖片框
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // 對圖片框套用一些格式設定
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // 將投影片寫入 PPTX 檔案
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}} 
-Aspose 最近開發了免費的 [Collage Maker](https://products.aspose.app/slides/zh-hant/collage)。如果您需要 [合併 JPG/JPEG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG 影像、[從照片建立格線](https://products.aspose.app/slides/zh-hant/collage/photo-grid)，可使用此服務。 
-{{% /alert %}}
-
-## **以連結方式新增影像**
-
-為減少投影片檔案大小，您可以透過連結新增影像（或影片），而非直接將檔案內嵌於投影片中。以下 C# 程式碼示範如何將影像與影片新增至佔位元：
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **裁剪影像**
-
-以下 C# 程式碼示範如何裁剪投影片上現有的影像：
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // 建立新的影像物件
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // 新增 PictureFrame 到投影片
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // 裁剪影像（百分比值）
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // 儲存結果
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **刪除圖片的裁剪區域**
-
-若需刪除框中影像的裁剪區域，可使用 [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 方法。此方法會傳回裁剪後的影像，若不需要裁剪則傳回原始影像。
-
-以下 C# 程式碼示範此操作：
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // 取得第一張投影片的 PictureFrame
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // 刪除 PictureFrame 影像的裁剪區域，並回傳裁剪後的影像
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // 儲存結果
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="注意" color="warning" %}} 
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 方法會將裁剪後的影像加入投影片的影像集合。若影像僅用於已處理的 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/)，此設定可減少投影片大小；否則，最終投影片中的影像數量會增加。
-
-此方法在裁剪過程中會將 WMF/EMF 中繪圖檔轉換為點陣 PNG 影像。 
-{{% /alert %}}
-
-## **壓縮影像**
-
-您可以使用 [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/compressimage/) 方法壓縮投影片中的圖片。此方法會根據形狀大小與指定的解析度減少影像尺寸，並可選擇刪除裁剪區域。
-
-它的作用類似於 PowerPoint 的 **圖片格式 → 壓縮圖片 → 解析度** 功能。
-
-以下 C# 範例示範如何透過指定目標解析度並選擇性刪除裁剪區域來壓縮投影片中的影像：
+[IPictureFrameLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframelock/) 設定控制哪些編輯操作會被禁用。例如，比例鎖定在調整大小時會保留形狀的比例。
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 以目標解析度 150 DPI（Web 解析度）壓縮影像，並移除裁剪區域。
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 檢查壓縮的結果。
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-或直接使用自訂 DPI 值：
+此鎖定套用於圖片框形狀本身，並不會強制對來源圖片重新取樣或永久改變其比例。
+
+## **調整 StretchOffset 值**
+
+當圖片填充模式為 stretch 時，[IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/) 上的 stretch‑offset 值會相對於圖片框的邊界盒定義填充矩形。正百分比會從邊緣向內縮進，負百分比則向外延伸。
+
+這與裁切不同。裁切值決定來源圖片的哪個部分可見；stretch offset 則改變可見圖片填充被拉伸到的矩形。
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 壓縮影像至 150 DPI（網路解析度），並移除裁剪區域。
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="注意" color="warning" %}} 
-此方法會根據形狀大小與提供的 DPI 將影像轉換為較低解析度。裁剪區域亦可被刪除以優化檔案大小。  
-若影像為中繪圖檔（WMF/EMF）或 SVG，則不會套用壓縮。JPEG 的品質會根據解析度保持或略有降低，與 PowerPoint 處理高解析度 JPEG 的方式相同。 
-{{% /alert %}}
+使用 stretch offset 來調整填充位置；使用裁切屬性則是為了隱藏來源圖片的邊緣。
 
-## **鎖定長寬比**
+## **儲存、檔案大小與匯出考量**
 
-若希望包含影像的形狀在變更影像尺寸後仍保留長寬比，可使用 [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframelock/aspectratiolocked/) 屬性設定 *鎖定長寬比*。
+當將圖像儲存與圖片框格式分開處理時，主要的取捨更容易掌握：
 
-以下 C# 程式碼示範如何鎖定形狀的長寬比：
+- **內嵌圖片** 使簡報自給自足，且在分享與伺服器端渲染時最可靠；但大型點陣圖會增加 PPTX 大小與記憶體使用量。
+- **連結圖片** 可以縮小套件大小，但簡報依賴外部檔案必須保持於存放路徑或位置可存取。
+- **裁切** 起初是非破壞性的。隱藏的像素會一直保留，直至明確刪除裁切區域或在壓縮時移除。
+- **壓縮** 能大幅減少過大點陣圖的檔案大小，但會犧牲來源解析度。應在確定投影片上最終顯示尺寸後再執行。
+- **SVG 圖片** 若向量保真度重要，應保持為 SVG。需要向量資源時直接擷取內嵌的 SVG。光柵匯出（如 PNG、JPEG）始終會將 SVG 轉換為像素。PDF 或 SVG 投影片匯出同樣是渲染動作。
+- **重複圖片** 應盡可能重使用既有的 [IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/) 資源，而不是在工作流程中多次載入相同檔案。
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+對於大型簡報，圖像最佳化最有效的做法通常是選擇性執行：將標誌與圖表保留為向量內容，根據實際顯示尺寸壓縮照片，僅在不需日後編輯時移除裁切像素，並避免使用外部連結，除非相依性管理是部署設計的一部份。
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+## **常見問答**
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
+**圖片框與圖片資源有何差異？**
 
-    // 設定形狀在調整大小時保留長寬比
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
-}
-```
+[IPPImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ippimage/) 代表與簡報關聯的圖片資源。[IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/) 是投影片上的形狀，用於顯示圖片並儲存框級的幾何與格式，例如大小、旋轉、裁切值、效果與鎖定。
 
-{{% alert title="注意" color="warning" %}} 
-此 *鎖定長寬比* 設定僅保留形狀的長寬比，不會影響其所含的影像。 
-{{% /alert %}}
+**應該內嵌還是連結圖片？**
 
-## **使用 StretchOff 屬性**
+當簡報必須具備可移植性、存檔或在沒有外部資源的情況下渲染時，請內嵌圖片。僅在有意將圖片檔案保留在 PPTX 之外且外部位置能可靠維護時才使用連結。
 
-透過 [IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat) 介面與 [PictureFillFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat) 類別的 [StretchOffsetLeft](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)、[StretchOffsetTop](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat/properties/stretchoffsettop)、[StretchOffsetRight](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat/properties/stretchoffsetright) 與 [StretchOffsetBottom](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) 屬性，您可以指定填充矩形。
+**裁切會減小 PPTX 檔案大小嗎？**
 
-當對影像指定拉伸時，來源矩形會依填充矩形的比例縮放。填充矩形的每一邊皆以相對於形狀邊界盒相應邊的百分比偏移定義。正百分比表示內縮，負百分比表示外延。
+單純的裁切不會。一般裁切設定只會隱藏來源圖片的一部分，但仍保留底層像素。若想永久移除這些像素，請使用 [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 或在壓縮時一起移除裁切區域。
 
-1. 建立 [Presentation](http://www.aspose.com/api/net/slides/zh-hant/aspose.slides/) 類別的執行個體。  
-2. 透過索引取得投影片的參考。  
-3. 新增矩形 `AutoShape`。  
-4. 建立影像。  
-5. 設定形狀的填充類型。  
-6. 設定形狀的圖片填充模式。  
-7. 新增設定好的影像以填充形狀。  
-8. 依形狀邊界盒的相應邊設定影像偏移。  
-9. 將修改後的投影片寫入為 PPTX 檔案。  
+**壓縮後能恢復圖片品質嗎？**
 
-以下 C# 程式碼示範使用 StretchOff 屬性的流程：
+不能。壓縮會降低儲存的點陣解析度，且移除裁切區域會捨棄圖像資料。若日後可能需要高解析度編輯，請在簡報之外保留原始來源圖片。
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+**SVG 圖片該如何處理？**
 
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
+當向量保真度重要時，保持 SVG 內容為 SVG。內嵌的 [ISvgImage](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/isvgimage/) 可直接擷取。將投影片渲染為 PNG、JPEG 等光柵格式時，SVG 會被光柵化。
 
-    // 設定影像在形狀內部從各側拉伸
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
+**如何避免在讀取現有投影片時的 unsafe cast？**
 
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
-}
-```
-
-## **常見問題**
-
-**如何得知圖片框支援哪些影像格式？**  
-Aspose.Slides 透過指派給 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/) 的影像物件，支援點陣影像（PNG、JPEG、BMP、GIF 等）與向量影像（例如 SVG）。支援的格式列表通常與投影片與影像轉換引擎的功能相互重疊。
-
-**大量加入大型影像會如何影響 PPTX 的大小與效能？**  
-內嵌大型影像會增加檔案大小與記憶體使用量；以連結方式加入影像可減少投影片大小，但需要確保外部檔案保持可存取。Aspose.Slides 提供以連結方式加入影像的功能，以降低檔案大小。
-
-**如何防止影像物件被意外移動或調整大小？**  
-使用針對 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/) 的 [shape locks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/pictureframelock/)（例如停用移動或調整大小）。鎖定機制於形狀的「保護」相關文章中說明，適用於包括 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/) 在內的多種形狀類型。
-
-**在匯出投影片為 PDF/影像時，SVG 向量的保真度是否會保留？**  
-Aspose.Slides 允許從 [PictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pictureframe/) 擷取原始 SVG 向量。當匯出為 PDF（/slides/zh-hant/net/convert-powerpoint-to-pdf/）或點陣格式（/slides/zh-hant/net/convert-powerpoint-to-png/）時，結果可能會根據匯出設定被光柵化；然而，原始 SVG 仍以向量形式儲存，這一點可透過擷取行為得到驗證。
+在使用圖片框專屬成員之前，先檢查形狀類型。使用 [IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/) 的模式匹配或以該介面過濾形狀集合，可避免無效的轉型，並讓程式碼能妥善處理不含圖片框的投影片。

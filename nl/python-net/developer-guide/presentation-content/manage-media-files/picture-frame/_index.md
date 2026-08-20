@@ -1,469 +1,365 @@
 ---
-title: Afbeeldingsframes toevoegen aan presentaties met Python
+title: Beheer afbeeldingframes in presentaties met Python
 linktitle: Afbeeldingsframe
 type: docs
 weight: 10
 url: /nl/python-net/picture-frame/
 keywords:
-- afbeeldingsframe
-- afbeeldingsframe toevoegen
-- afbeeldingsframe maken
-- afbeelding toevoegen
-- afbeelding maken
+- afbeeldingframe
+- afbeeldingframe toevoegen
+- afbeeldingframe maken
+- ingesloten afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
 - rasterafbeelding
-- vectorafbeelding
+- SVG-afbeelding
 - afbeelding bijsnijden
-- bijgesneden gebied
-- StretchOff‑eigenschap
-- opmaak van afbeeldingsframe
-- eigenschappen van afbeeldingsframe
+- bijgesneden gebieden verwijderen
+- afbeelding comprimeren
+- StretchOffset
+- afbeeldingframe opmaak
 - relatieve schaal
 - afbeeldingseffect
 - beeldverhouding
-- afbeeldingstransparantie
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Voeg afbeeldingsframes toe aan PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Python via .NET. Vereenvoudig uw werkstroom en verbeter het ontwerp van dia’s."
+description: "Afbeeldingsframes maken, opmaken, koppelen, bijsnijden, extraheren en comprimeren in presentaties met Aspose.Slides voor Python via .NET."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Afbeeldingsframes in Aspose.Slides for Python laten je raster‑ en vectorafbeeldingen plaatsen en beheren als native dia‑vormen. Je kunt afbeeldingen invoegen vanuit bestanden of streams, ze nauwkeurig positioneren en van grootte wijzigen met precieze coördinaten, rotatie toepassen, transparantie instellen en de z‑volgorde ten opzichte van andere vormen regelen. De API ondersteunt ook bijsnijden, het behouden van beeldverhoudingen, het instellen van randen en effecten, en het vervangen van de onderliggende afbeelding zonder de lay‑out opnieuw op te bouwen. Omdat afbeeldingsframes zich gedragen als gewone vormen, kun je animaties, hyperlinks en alt‑tekst toevoegen, waardoor het eenvoudig is om visueel rijke, toegankelijke presentaties te maken.
+Een afbeeldingframe is een dia‑vorm die een afbeelding weergeeft. In Aspose.Slides zijn de afbeeldingresource en de vorm die deze weergeeft afzonderlijke objecten: een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) bezit ingesloten afbeeldingsresources via zijn [ImageCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/), terwijl een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, afbeeldingseffecten en andere frame‑specifieke instellingen van de afbeelding regelt.
 
-## **Afbeeldingsframes maken**
+Deze scheiding is nuttig wanneer dezelfde afbeelding meer dan één keer wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/), en gebruik die afbeeldingsresource bij het aanmaken van afbeeldingframes.
 
-Deze sectie toont hoe je een afbeelding in een dia plaatst door een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) te maken met Aspose.Slides for Python. Je leert hoe je de afbeelding laadt, nauwkeurig op de dia plaatst en de grootte en opmaak ervan controleert.
+Afbeeldingsframes kunnen rasterafbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gekoppelde afbeeldingen in plaats van de afbeeldingsbytes in de presentatie op te slaan. De keuze beïnvloedt de draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is handig om te bepalen hoe de afbeelding moet worden opgeslagen voordat opmaak of optimalisatie wordt toegepast.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) aan.
-2. Haal een dia op via de index.
-3. Maak een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) aan door de afbeelding toe te voegen aan de [ImageCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/) van de presentatie. Deze afbeelding wordt gebruikt om de vorm te vullen.
-4. Specificeer de breedte en hoogte van het frame.
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) van die grootte aan met de methode [add_picture_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Sla de presentatie op als een PPTX‑bestand.
+## **Een ingesloten afbeelding toevoegen en opmaken**
 
-```py
-import aspose.slides as slides
+Voor een ingesloten afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een afbeeldingframe met [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_picture_frame/). De afbeelding wordt onderdeel van het presentatiepakket, waardoor de presentatie zelf‑voorzienend blijft wanneer deze naar een andere computer wordt verplaatst.
 
-# Instantieer de Presentation-klasse om een PPTX-bestand te vertegenwoordigen.
-with slides.Presentation() as presentation:
-    # Haal de eerste dia op.
-    slide = presentation.slides[0]
-
-    # Voeg de afbeelding toe aan de presentatie.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Voeg een afbeeldingsframe toe met dezelfde afmeting als de afbeelding.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Sla de presentatie op als PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-Afbeeldingsframes laten je snel presentatiedia's maken vanuit afbeeldingen. Als je afbeeldingen combineert met Aspose.Slides‑opslagopties, kun je de I/O‑bewerkingen beheren om afbeeldingen van het ene formaat naar het andere te converteren. Zie eventueel de volgende pagina's: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/python-net/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/python-net/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/python-net/conversion/jpg-to-png/); converteer [PNG naar JPG](https://products.aspose.com/slides/nl/python-net/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/python-net/conversion/png-to-svg/); converteer [SVG naar PNG](https://products.aspose.com/slides/nl/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Afbeeldingsframes maken met relatieve schaal**
-
-Deze sectie laat zien hoe je een afbeelding op een vaste grootte plaatst en vervolgens procentueel geschaalde breedte‑ en hoogtewaarden onafhankelijk toepast. Omdat de percentages kunnen verschillen, kan de beeldverhouding wijzigen. Schalen gebeurt relatief ten opzichte van de oorspronkelijke afmetingen van de afbeelding.
-
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) aan.
-2. Haal een dia op via de index.
-3. Maak een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) aan door de afbeelding toe te voegen aan de [ImageCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/).
-4. Voeg een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) toe aan de dia.
-5. Stel de relatieve breedte en hoogte van het afbeeldingsframe in.
-6. Sla de presentatie op als een PPTX‑bestand.
-
-```py
-import aspose.slides as slides
-
-# Instantieer de Presentation-klasse om een PPTX-bestand te vertegenwoordigen.
-with slides.Presentation() as presentation:
-    # Haal de eerste dia op.
-    slide = presentation.slides[0]
-
-    # Voeg de afbeelding toe aan de afbeeldingscollectie van de presentatie.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Voeg een afbeeldingsframe toe aan de dia.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Stel de relatieve schaalbreedte en -hoogte in.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Sla de presentatie op.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Rasterafbeeldingen uit afbeeldingsframes extraheren**
-
-Je kunt rasterafbeeldingen uit [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/)-objecten extraheren en opslaan in PNG, JPG en andere formaten. Het code‑voorbeeld hieronder laat zien hoe je een afbeelding uit het document “sample.pptx” haalt en opslaat in PNG‑formaat.
+Het volgende voorbeeld voegt een JPEG‑afbeelding toe, maakt een frame met de oorspronkelijke afmetingen van de afbeelding, en past lijnopmaak en rotatie toe:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **SVG-afbeeldingen uit afbeeldingsframes extraheren**
-
-Wanneer een presentatie SVG‑graphics bevat die in [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/)-vormen zijn geplaatst, laat Aspose.Slides for Python via .NET je de oorspronkelijke vectorafbeeldingen met volledige nauwkeurigheid ophalen. Door de vormcollectie van de dia te doorlopen, kun je elk [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) identificeren, controleren of de onderliggende [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) SVG‑inhoud bevat, en vervolgens die afbeelding opslaan op schijf of in een stream in het native SVG‑formaat.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Transparantie van afbeelding ophalen**
-
-Aspose.Slides laat je het transparantie‑effect dat op een afbeelding is toegepast ophalen. Deze Python‑code demonstreert de bewerking:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Alle effecten die op afbeeldingen zijn toegepast, zijn te vinden in [aspose.slides.effects](https://reference.aspose.com/slides/nl/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Helderheid en contrast van een afbeelding ophalen**
-
-Aspose.Slides laat je het helderheids‑ en contrast‑effect dat op een afbeelding is toegepast ophalen. De klasse [Luminance](https://reference.aspose.com/slides/nl/python-net/aspose.slides.effects/luminance/) vertegenwoordigt dit afbeeldings‑transformatie‑effect.
-
-Deze Python‑code toont hoe je de helderheids‑ en contrastinstellingen van een afbeeldingsframe ophaalt:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Opmaak van afbeeldingsframes**
-
-Aspose.Slides biedt tal van opmaakopties die je op een afbeeldingsframe kunt toepassen. Met deze opties kun je een afbeeldingsframe aanpassen aan specifieke eisen.
-
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) aan.
-2. Haal een dia op via de index.
-3. Maak een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) aan door de afbeelding toe te voegen aan de [ImageCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imagecollection/) van de presentatie. Deze afbeelding wordt gebruikt om de vorm te vullen.
-4. Specificeer de breedte en hoogte van het frame.
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) van die grootte aan met de methode [add_picture_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_picture_frame/) van de dia.
-6. Stel de lijmkleur van het afbeeldingsframe in.
-7. Stel de lijnbreedte van het afbeeldingsframe in.
-8. Draai het afbeeldingsframe door een positieve (met de klok mee) of negatieve (tegen de klok in) waarde op te geven.
-9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Instantieer de Presentation-klasse om een PPTX-bestand te representeren.
 with slides.Presentation() as presentation:
-    # Haal de eerste dia op.
     slide = presentation.slides[0]
 
-    # Voeg de afbeelding toe aan de afbeeldingscollectie van de presentatie.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Voeg een afbeeldingsframe toe met dezelfde grootte als de afbeelding.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Pas opmaak toe op het afbeeldingsframe.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Sla de presentatie op als PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose heeft een gratis [Collage Maker](https://products.aspose.app/slides/nl/collage) ontwikkeld. Als je JPG/JPEG‑ of PNG‑afbeeldingen wilt samenvoegen, of foto‑raster‑layouts wilt maken, kun je deze service gebruiken.
-{{% /alert %}}
+Het afbeeldingframe bepaalt de weergegeven geometrie; het wijzigen van de framegrootte verandert niet de oorspronkelijke pixeldimensies die in de ingesloten afbeeldingsresource zijn opgeslagen. Dit onderscheid wordt belangrijk bij het later bijsnijden of comprimeren van een afbeelding.
 
-## **Afbeeldingen als koppelingen toevoegen**
+## **Relatieve schaal gebruiken**
 
-Om presentatiebestanden klein te houden, kun je afbeeldingen of video's via koppelingen toevoegen in plaats van de bestanden rechtstreeks in de presentaties te embedden. De volgende Python‑code laat zien hoe je een afbeelding en een video in een plaatshouder invoegt:
+[PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) biedt [relative_scale_width](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/relative_scale_width/) en [relative_scale_height](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/relative_scale_height/) voor het frame. Een waarde van `1.0` komt overeen met 100 % van de oorspronkelijke afbeeldinggrootte. Relatieve schaal is nuttig wanneer een workflow de verhouding tot de bronafbeeldingsgrootte moet behouden in plaats van de uiteindelijke afmetingen handmatig te berekenen.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Relatieve schaal wijzigt de schaalinstellingen van het frame; het sampled of comprimeert de ingesloten afbeelding niet.
+
+## **Ingesloten en gekoppelde afbeeldingen**
+
+Een ingesloten afbeelding slaat afbeeldingsdata op binnen de presentatie en is daardoor de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde afbeelding slaat een externe locatie op via het [Picture](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picture/)‑koppelpadhoudende pad in plaats van de afbeeldingsdata op dezelfde manier in te sluiten.
+
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeeldingsdata in de PPTX verminderen, maar ze introduceren een externe afhankelijkheid. Het gekoppelde bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of rendert. Als het pad verandert, het bestand wordt verplaatst, of de bron niet beschikbaar is, wordt de gekoppelde afbeelding mogelijk niet zoals verwacht weergegeven. Voor presentaties die moeten worden gemaild, gearchiveerd of gerenderd in geïsoleerde omgevingen, zijn ingesloten afbeeldingen doorgaans betrouwbaarder.
+
+### **Een gekoppelde afbeelding toevoegen**
+
+Het volgende voorbeeld maakt een afbeeldingframe en wijst het naar een lokaal afbeeldingsbestand. Het behandelt alleen het koppelen van afbeeldingen; video‑koppeling is een afzonderlijke media‑workflow en wordt opzettelijk niet gemengd in dit voorbeeld.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Gebruik koppelingen wanneer extern bestandsbeheer opzettelijk is. Gebruik ze niet alleen als vervanging voor compressie: een kleine PPTX met gebroken afbeeldingsafhankelijkheden is meestal minder nuttig dan een grotere zelf‑voorzienende presentatie.
+
+## **Afbeeldingen uit afbeeldingframes extraheren**
+
+Voordat je een afbeelding uit een bestaande presentatie extraheert, controleer je of een vorm daadwerkelijk een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) is en of deze een ingesloten afbeelding bevat. Gekoppelde afbeeldingframes bevatten mogelijk niet de afbeeldingsbytes die op dezelfde manier geëxtraheerd kunnen worden.
+
+### **Een rasterafbeelding extraheren**
+
+De moderne image‑API gebruikt [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) direct. Het volgende voorbeeld vindt de eerste ingesloten rasterafbeelding op een dia en slaat deze op als PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Afbeeldingen bijsnijden**
+Opslaan via [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) converteert de geëxtraheerde afbeelding naar het gevraagde uitvoerformaat. Als je de gecodeerde bytes die in de presentatie zijn opgeslagen nodig hebt in plaats van een geconverteerd rasterbestand, gebruik dan de [PPImage.binary_data](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/binary_data/)‑eigenschap.
 
-In deze sectie leer je hoe je het zichtbare deel van een afbeelding binnen een afbeeldingsframe bijsnijdt zonder het bronbestand te wijzigen. Je leert ook de basismethode voor het toepassen van bijsnijdingsmarges om een nette, gerichte compositie direct op de dia te creëren.
+### **Een SVG‑afbeelding extraheren**
 
-De volgende Python‑code laat zien hoe je een afbeelding op een dia bijsnijdt:
+Voor een SVG‑afbeelding biedt de [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) een [SvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/)‑object. Hiermee kun je de SVG‑data direct ophalen in plaats van de afbeelding eerst te rasteren.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+SVG‑inhoud als SVG behouden behoudt de vectorbron in de presentatie. Raster‑exports zoals PNG of JPEG renderen die vectorinhoud onvermijdelijk naar pixels. PDF‑ of SVG‑dia‑export is eveneens een renderoperatie, zodat de geëxporteerde graphics niet moeten worden beschouwd als een exacte byte‑voor‑byte kopie van de originele ingesloten SVG; gebruik de ingesloten [SvgImage.svg_data](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/svg_data/) wanneer de originele vectorbron zelf nodig is.
+
+## **Een afbeelding bijsnijden**
+
+Bijsnijden verandert welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijdwaarden op [PictureFillFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/) zijn percentages van de bronafbeeldingsafmetingen. Bijsnijden verwijdert aanvankelijk niet de verborgen pixels van de ingesloten afbeelding; het wijzigt alleen het zichtbare gebied.
+
+Het volgende voorbeeld vindt veilig een afbeeldingframe en past bijsnijdwaarden toe:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Omdat de verborgen afbeeldingsdata nog aanwezig is, kan de bijsnijding later worden gewijzigd zonder de originele pixels te verliezen. Als de bestandsgrootte belangrijker is dan de omkeerbaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
+
+## **Bijsnijdende afbeeldingsdata verwijderen**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) verwijdert afbeeldingsdata buiten de huidige bijsnijdrechthoek en retourneert de resulterende afbeeldingsresource. Dit kan de bestandsgrootte verkleinen, maar het is een destructieve optimalisatie: na het opslaan van de presentatie zijn de verwijderde pixels niet meer beschikbaar voor een latere 'uncrop'-bewerking.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+De methode kan een nieuwe afbeeldingsresource aan de presentatie toevoegen. Als de oorspronkelijke afbeelding ook door andere afbeeldingframes wordt gebruikt, hebben die frames hun bestaande resource nog steeds nodig, dus het verwijderen van bijgesneden gebieden vermindert niet noodzakelijk het totale aantal afbeeldingen. Het bijsnijden van WMF‑ of EMF‑content met deze methode rastert het bijgesneden resultaat naar PNG.
+
+## **Rasterafbeeldingen comprimeren**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/compress_image/) verlaagt de resolutie van rasterafbeeldingen ten opzichte van de grootte waarin de afbeelding wordt weergegeven. Het kan ook bijgesneden gebieden in dezelfde bewerking verwijderen. De methode retourneert `True` wanneer de afbeelding is aangepast of bijgesneden en `False` wanneer er geen wijziging nodig was.
+
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/picturescompression/)‑waarde wanneer een standaard doelsolutie voldoende is:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Een aangepaste positieve DPI‑waarde kan worden doorgegeven in plaats van een enum‑waarde wanneer een specifiek doel vereist is.
+
+Compressie is bedoeld voor rasterafbeeldingen. SVG‑ en metafile‑content wordt niet gereduceerd door deze raster‑compressieworkflow. Houd er ook rekening mee dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld vanuit de geoptimaliseerde presentatie. Kies een doelsolutie op basis van de grootste grootte waarop de afbeelding daadwerkelijk wordt bekeken of geëxporteerd in plaats van overal de laagste DPI toe te passen.
+
+## **Afbeeldingseffecten inspecteren**
+
+Afbeeldingseffecten worden opgeslagen op de afbeelding die door het frame wordt gebruikt. De afbeeldingstransformatiereeks kan effecten bevatten zoals vaste alfa‑modulatie voor transparantie en luminantie voor helderheid en contrast. Het voorbeeld hieronder leest veilig beide soorten effecten uit het eerste afbeeldingframe op een dia:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+[AlphaModulateFixed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.effects/alphamodulatefixed/) en [Luminance](https://reference.aspose.com/slides/nl/python-net/aspose.slides.effects/luminance/) wijzigen hoe de afbeelding in het frame wordt gerenderd; ze herschrijven de originele ingesloten afbeeldingsbytes niet.
+
+## **Afbeeldingsframe‑geometrie vergrendelen**
+
+De [PictureFrameLock](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframelock/)‑instellingen bepalen welke bewerkingsoperaties zijn uitgeschakeld voor een afbeeldingframe. Bijvoorbeeld, de [aspect_ratio_locked](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/)‑eigenschap behoudt de verhoudingen van de vorm tijdens het schalen.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Voeg de afbeelding toe aan de afbeeldingscollectie van de presentatie.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Voeg een afbeeldingsframe toe aan de dia.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Bijsnijden van de afbeelding (percentage waarden).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Sla het resultaat op.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Bijsneden delen van afbeeldingen verwijderen**
-
-Wil je de bijgesneden delen van een afbeelding in een frame verwijderen, gebruik dan de methode [delete_picture_cropped_areas](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Deze methode retourneert de bijgesneden afbeelding, of de originele afbeelding als er geen bijsnijden nodig is.
-
-De volgende Python‑code demonstreert de bewerking:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Haal het PictureFrame op van de eerste dia.
-    picture_frame = slides.shape[0]
-
-    # Haal het PictureFrame op van de eerste dia.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Sla het resultaat op.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="OPMERKING" color="warning" %}}
-De methode [delete_picture_cropped_areas](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) voegt de bijgesneden afbeelding toe aan de afbeeldingcollectie van de presentatie. Als de afbeelding alleen in het verwerkte [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) wordt gebruikt, kan dit de presentatiegrootte verkleinen; anders kan het aantal afbeeldingen in de uiteindelijke presentatie toenemen.
-
-Tijdens het bijsnijden converteert deze methode WMF/EMF‑metabestanden naar een raster‑PNG‑afbeelding.
-{{% /alert %}}
-
-## **Afbeeldingen comprimeren**
-
-Je kunt een afbeelding in een presentatie comprimeren met de methode [PictureFillFormat.compress_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/compress_image/). Deze methode verkleint een afbeelding door de grootte aan te passen aan de vormgrootte en de opgegeven resolutie, met de optie om bijgesneden delen te verwijderen.
-
-Hij past de grootte en resolutie van de afbeelding aan op dezelfde manier als de PowerPoint‑functie **Afbeeldingsopmaak → Afbeeldingen comprimeren → Resolutie**.
-
-De volgende Python‑voorbeelden tonen hoe je een afbeelding in een presentatie comprimeert door een doelformaat op te geven en eventueel bijgesneden delen te verwijderen:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Comprimeer de afbeelding met een doelresolutie van 150 DPI (webresolutie) en verwijder bijgesneden gebieden.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Controleer het resultaat van de compressie.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Of door direct een aangepaste DPI‑waarde te gebruiken:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Comprimeer de afbeelding tot 150 DPI (webresolutie), waarbij bijgesneden gebieden worden verwijderd.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="OPMERKING" color="warning" %}}
-De methode converteert de afbeelding naar een lagere resolutie op basis van de vormgrootte en de opgegeven DPI. Bijsneden regio's kunnen eveneens worden verwijderd om de bestandsgrootte te optimaliseren. Als de afbeelding een metabestand (WMF/EMF) of SVG is, wordt compressie niet toegepast. Ook wordt de JPEG‑kwaliteit bewaard of licht verminderd afhankelijk van de resolutie, vergelijkbaar met hoe PowerPoint hoge‑resolutie JPEG's behandelt.
-{{% /alert %}}
-
-## **Vergrendel de beeldverhouding**
-
-Wil je dat een vorm die een afbeelding bevat zijn beeldverhouding behoudt nadat je de afmetingen van de afbeelding wijzigt, stel dan de eigenschap [aspect_ratio_locked](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) in op `True`.
-
-De volgende Python‑code laat zien hoe je de beeldverhouding van een vorm vergrendelt:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Vergrendel de beeldverhouding bij het wijzigen van de grootte.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="OPMERKING" color="warning" %}}
-Deze instelling *Vergrendel beeldverhouding* behoudt alleen de beeldverhouding van de vorm, niet die van de afbeelding die erin zit.
-{{% /alert %}}
+De vergrendeling geldt voor de afbeeldingframe‑vorm. Het dwingt de bronafbeelding niet om gere‑sampled te worden of permanent te worden aangepast aan dezelfde beeldverhouding.
 
-## **Gebruik stretch‑offseteigenschappen**
+## **De StretchOffset‑waarden aanpassen**
 
-Met de eigenschappen `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` en `stretch_offset_bottom` van de klasse [PictureFillFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/) kun je een vulrechthoek definiëren.
+Wanneer de afbeelding‑vulmodus 'stretch' is, definiëren de stretch‑offset‑waarden op [PictureFillFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/) het vulrechthoek relatief ten opzichte van de begrenzingsbox van het afbeeldingframe. Positieve percentages creëren een inspringing vanaf een rand, terwijl negatieve percentages een uitstulping creëren.
 
-Wanneer streching voor een afbeelding wordt opgegeven, wordt de bronrechthoek geschaald om in de vulrechthoek te passen. Elke rand van de vulrechthoek wordt gedefinieerd door een procentuele offset ten opzichte van de overeenkomstige rand van de begrenzende doos van de vorm. Een positief percentage geeft een inset aan, een negatief percentage een outset.
+Dit verschilt van bijsnijden. Bijsnijdwaarden selecteren welk deel van de bronafbeelding zichtbaar is; stretch‑offsets wijzigen het rechthoek waarin de zichtbare afbeeldingsvulling wordt uitgerekt.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) aan.
-2. Haal een referentie naar een dia op via de index.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe.
-4. Stel het vultype van de vorm in.
-5. Stel de afbeeldingsvulmodus van de vorm in.
-6. Laad een afbeelding.
-7. Wijs de afbeelding toe om de vorm te vullen.
-8. Specificeer afbeeldingsoffsets ten opzichte van de bijbehorende randen van de begrenzende doos van de vorm.
-9. Sla de presentatie op als een PPTX‑bestand.
-
-```py
+```python
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse die een PPTX‑bestand representeert.
 with slides.Presentation() as presentation:
-    # Haal de eerste dia op.
     slide = presentation.slides[0]
 
-    # Voeg een rechthoekige AutoShape toe.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Stel het vultype van de vorm in.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Stel de afbeeldingsvulmethode van de vorm in.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Laad de afbeelding en voeg deze toe aan de presentatie.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Wijs de afbeelding toe om de vorm te vullen.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Specificeer afbeeldingsoffsets ten opzichte van de overeenkomstige randen van de begrenzende doos van de vorm.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Sla het PPTX‑bestand op naar de schijf.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose biedt gratis converters — [JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt) — waarmee je snel presentaties uit afbeeldingen kunt maken.
-{{% /alert %}}
+Gebruik stretch‑offsets voor het plaatsen van de vulling. Gebruik bijsnijd‑eigenschappen wanneer het doel is om de randen van de bronafbeelding te verbergen.
+
+## **Opslag, bestandsgrootte en exportoverwegingen**
+
+De belangrijkste afwegingen zijn makkelijker te beheren wanneer afbeeldingopslag en afbeeldingframe‑opmaak afzonderlijk worden behandeld:
+
+- **Ingesloten afbeeldingen** maken de presentatie zelf‑voorzienend en zijn het meest betrouwbaar voor delen en server‑side rendering, maar grote rasterafbeeldingen vergroten de PPTX‑grootte en het geheugenverbruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingesloten totdat bijgesneden gebieden expliciet worden verwijderd of tijdens compressie.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote rasterafbeeldingen, maar het verliest de bronresolutie. Het moet worden toegepast nadat de beoogde weergavegrootte op de dia bekend is.
+- **SVG‑afbeeldingen** moeten als SVG blijven wanneer vectorbehoud belangrijk is. Extraheer de ingesloten SVG direct wanneer je de vectorresource zelf nodig hebt. Raster‑dia‑exports converteren altijd de gerenderde dia naar pixels.
+- **Herhaalde afbeeldingen** moeten waar mogelijk een bestaande [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/)‑resource hergebruiken in plaats van steeds dezelfde file te laden in de presentatie‑workflow.
+
+Voor grote presentaties is afbeeldingsoptimalisatie gewoonlijk het effectiefst wanneer deze selectief wordt uitgevoerd: houd logo's en diagrammen als vectorinhoud, comprimeer foto’s volgens hun daadwerkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer latere bewerking niet nodig is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
 ## **FAQ**
 
-**Hoe kan ik achterhalen welke afbeeldingsformaten ondersteund worden voor PictureFrame?**
+**Wat is het verschil tussen een afbeeldingframe en een beeldresource?**
 
-Aspose.Slides ondersteunt zowel rasterafbeeldingen (PNG, JPEG, BMP, GIF, enz.) als vectorafbeeldingen (bijvoorbeeld SVG) via het afbeelding‑object dat aan een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) is toegewezen. De lijst met ondersteunde formaten overlapt over het algemeen met de mogelijkheden van de dia‑ en afbeelding‑conversie‑engine.
+Een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/) vertegenwoordigt een afbeeldingsresource die aan de presentatie is gekoppeld. Een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat, zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-**Hoe beïnvloedt het toevoegen van tientallen grote afbeeldingen de PPTX‑grootte en -prestaties?**
+**Moet ik afbeeldingen insluiten of koppelen?**
 
-Het insluiten van grote afbeeldingen vergroot de bestandsgrootte en het geheugenverbruik; het koppelen van afbeeldingen helpt de presentatiegrootte klein te houden, maar vereist dat de externe bestanden toegankelijk blijven. Aspose.Slides biedt de mogelijkheid om afbeeldingen via een koppeling toe te voegen om de bestandsgrootte te reduceren.
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet kunnen worden zonder toegang tot externe bronnen. Koppel afbeeldingen alleen wanneer het opzettelijk is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar beheerd kunnen worden.
 
-**Hoe kan ik een afbeeldingobject vergrendelen tegen per ongeluk verplaatsen of aanpassen van de grootte?**
+**Vermindert bijsnijden de PPTX‑bestandsgrootte?**
 
-Gebruik [shape locks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/picture_frame_lock/) voor een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) (bijvoorbeeld om verplaatsen of aanpassen van de grootte uit te schakelen). Het vergrendelingsmechanisme wordt beschreven voor vormen in een apart artikel over [bescherming](/slides/nl/python-net/applying-protection-to-presentation/) en wordt ondersteund voor diverse vormtypes, waaronder [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/).
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) of afbeeldingcompressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden weggegooid.
 
-**Wordt de vector‑fidelity van SVG behouden bij het exporteren van een presentatie naar PDF/afbeeldingen?**
+**Kan ik de beeldkwaliteit herstellen na compressie?**
 
-Aspose.Slides maakt het mogelijk een SVG uit een [PictureFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pictureframe/) te extraheren als de originele vector. Bij het [exporteren naar PDF](/slides/nl/python-net/convert-powerpoint-to-pdf/) of naar rasterformaten](/slides/nl/python-net/convert-powerpoint-to-png/) kan het resultaat worden gerasterd afhankelijk van de exportinstellingen; het feit dat de originele SVG als vector is opgeslagen, wordt bevestigd door het extractiegedrag.
+Nee. Compressie kan de opgeslagen rasterresolutie verlagen, en het verwijderen van bijgesneden regio's gooit afbeeldingsdata weg. Bewaar de originele bronafbeelding buiten de presentatie als later bewerking met hoge resolutie nodig kan zijn.
+
+**Hoe moeten SVG‑afbeeldingen worden behandeld?**
+
+Behoud SVG‑content als SVG wanneer vectornauwkeurigheid belangrijk is. De ingesloten [SvgImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/svgimage/) kan direct worden geëxtraheerd. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
+
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+
+Controleer het vormtype voordat je picture‑frame‑specifieke leden gebruikt. Het gebruik van `isinstance(shape, slides.PictureFrame)` voorkomt ongeldige casts en zorgt dat de code dia’s die geen afbeeldingframes bevatten correct afhandelt.

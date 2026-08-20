@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 在演示文稿中管理图片框
+title: 使用 C++ 管理演示文稿中的图片框
 linktitle: 图片框
 type: docs
 weight: 10
@@ -8,496 +8,577 @@ keywords:
 - 图片框
 - 添加图片框
 - 创建图片框
-- 添加图像
-- 创建图像
+- 嵌入式图像
+- 链接图像
 - 提取图像
 - 栅格图像
-- 矢量图像
+- SVG 图像
 - 裁剪图像
-- 裁剪区域
-- StretchOff 属性
+- 删除已裁剪区域
+- 压缩图像
+- StretchOffset
 - 图片框格式化
-- 图片框属性
 - 相对比例
 - 图像效果
 - 纵横比
-- 图像透明度
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 向 PowerPoint 和 OpenDocument 演示文稿添加图片框。简化工作流程并提升幻灯片设计。"
+description: "使用 Aspose.Slides for C++ 在演示文稿中创建、格式化、链接、裁剪、提取和压缩图片框。"
 ---
-## **介绍**
+## **概述**
 
-图片框是一种包含图像的形状——它就像框中的图片。
+图片框是用于显示图像的幻灯片形状。在 Aspose.Slides 中，图像资源和显示它的形状是分离的对象：一个 [演示文稿](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 通过其 [图像集合](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_images/) 拥有嵌入的图像资源，而一个 [IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/) 控制图像的位置、大小、线条格式、旋转、裁剪、图片效果以及其他框级设置。
 
-您可以通过图片框向幻灯片添加图像。通过格式化图片框来格式化图像。
+当同一图像需要显示多次时，这种分离非常有用。只需将图像添加到演示文稿一次，保留返回的 [IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/)，在创建图片框时使用该图像资源。
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose 提供免费的转换器——[JPEG 转 PowerPoint](https://products.aspose.app/slides/zh/import/jpg-to-ppt) 和 [PNG 转 PowerPoint](https://products.aspose.app/slides/zh/import/png-to-ppt)——可帮助用户快速从图像创建演示文稿。 
-{{% /alert %}} 
+图片框可以包含 PNG 或 JPEG 等栅格图像以及 SVG 矢量图像。它们也可以引用链接的图像，而不是将图像字节存储在演示文稿中。此选择会影响可移植性、文件大小、提取和导出行为，因此在应用格式或优化之前，决定图像的存储方式是有益的。
 
-## **创建图片框**
+## **添加并格式化嵌入图像**
 
-1. 创建 [Presentation 类](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 通过向与演示文稿对象关联的 [IImagescollection](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_image_collection) 添加图像来创建 [IPPImage](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_p_p_image) 对象，用于填充形状。  
-4. 指定图像的宽度和高度。  
-5. 通过引用幻灯片关联的形状对象公开的 `AddPictureFrame` 方法，基于图像的宽度和高度创建 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_frame)。  
-6. 将包含图片的图片框添加到幻灯片。  
-7. 将修改后的演示文稿写入为 PPTX 文件。  
+对于嵌入图像，将图像数据添加到演示文稿并使用 [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/shapecollection/addpictureframe/) 创建图片框。图像会成为演示文稿包的一部分，因此演示文稿在移动到另一台计算机时仍然是自包含的。
 
-下面的 C++ 代码演示如何创建图片框：
-
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/PictureFrameFormatting_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 访问第一张幻灯片
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// 加载将在演示文稿图像集合中添加的图像
-// 获取图片
-auto image = Images::FromFile(filePath);
-
-// 将图像添加到演示文稿的图像集合中
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// 向幻灯片添加图片框
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// 设置相对比例的宽度和高度
-pf->set_RelativeScaleHeight(0.8);
-pf->set_RelativeScaleWidth(1.35);
-// 对图片框应用一些格式设置
-pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-pf->get_LineFormat()->set_Width ( 20);
-pf->set_Rotation( 45);
-
-// 将 PPTX 文件写入磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert color="warning" %}} 
-图片框可以帮助您快速基于图像创建演示文稿幻灯片。当您将图片框与 Aspose.Slides 的保存选项结合使用时，可以操作输入/输出以将图像从一种格式转换为另一种格式。您可能想查看以下页面：转换 [图像转 JPG](https://products.aspose.com/slides/zh/cpp/conversion/image-to-jpg/)；转换 [JPG 转 图像](https://products.aspose.com/slides/zh/cpp/conversion/jpg-to-image/)；转换 [JPG 转 PNG](https://products.aspose.com/slides/zh/cpp/conversion/jpg-to-png/)，转换 [PNG 转 JPG](https://products.aspose.com/slides/zh/cpp/conversion/png-to-jpg/)；转换 [PNG 转 SVG](https://products.aspose.com/slides/zh/cpp/conversion/png-to-svg/)，转换 [SVG 转 PNG](https://products.aspose.com/slides/zh/cpp/conversion/svg-to-png/)。 
-{{% /alert %}} 
-
-## **创建具有相对比例的图片框**
-
-通过改变图像的相对缩放，您可以创建更复杂的图片框。
-
-1. 创建 [Presentation 类](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 将图像添加到演示文稿的图像集合中。  
-4. 通过向与演示文稿对象关联的 [IImagescollection](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_image_collection) 添加图像来创建 [IPPImage](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_p_p_image) 对象，用于填充形状。  
-5. 在图片框中指定图像的相对宽度和高度。  
-6. 将修改后的演示文稿写入为 PPTX 文件。  
-
-下面的 C++ 代码演示如何创建具有相对比例的图片框：
-
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 访问第一张幻灯片
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// 加载将在演示文稿图像集合中添加的图像
-// 获取图片
-auto image = Images::FromFile(filePath);
-
-// 将图像添加到演示文稿的图像集合中
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// 向幻灯片添加图片框
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// 设置相对比例的宽度和高度
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//将 PPTX 文件写入磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **从图片框中提取栅格图像**
-
-您可以从 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_frame) 对象提取栅格图像，并将其保存为 PNG、JPG 等格式。下面的代码示例演示如何从文档 “sample.pptx” 中提取图像并以 PNG 格式保存。
-
-```c++
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstSlide = presentation->get_Slide(0);
-auto firstShape = firstSlide->get_Shape(0);
-    
-if (ObjectExt::Is<IPictureFrame>(firstShape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
-
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
-}
-
-presentation->Dispose();
-```
-
-## **从图片框中提取 SVG 图像**
-
-当演示文稿包含放置在 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/) 形状中的 SVG 图形时，Aspose.Slides for C++ 允许您以完整保真度检索原始矢量图像。通过遍历幻灯片的形状集合，您可以识别每个 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/)，检查底层的 [IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/) 是否包含 SVG 内容，然后将该图像以其原生 SVG 格式保存到磁盘或流中。
-
-以下代码示例演示如何从图片框中提取 SVG 图像：
+以下示例添加 JPEG 图像，以图像的原始尺寸创建框，并应用线条格式和旋转：
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
 
-if (ObjectExt::Is<IPictureFrame>(shape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
-    if (svgImage != nullptr)
-    {
-        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
-    }
-}
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pictureFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pictureFrame->get_LineFormat()->set_Width(3.0);
+pictureFrame->set_Rotation(15.0f);
+
+presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **获取图像的透明度**
+图片框控制显示的几何形状；更改框的大小不会更改嵌入图像资源中存储的原始像素尺寸。当以后进行裁剪或压缩时，这一点尤为重要。
 
-Aspose.Slides 允许您获取应用于图像的透明度效果。下面的 C++ 代码演示此操作：
+## **使用相对比例**
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
-    {
-        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
-    }
-}
-```
-
-{{% alert color="primary" %}} 
-所有应用于图像的效果均可在 [Aspose::Slides::Effects](https://reference.aspose.com/slides/zh/cpp/aspose.slides.effects/) 中找到。 
-{{% /alert %}}
-
-## **获取图像的亮度和对比度**
-
-Aspose.Slides 允许您获取应用于图像的亮度和对比度效果。[ILuminance](https://reference.aspose.com/slides/zh/cpp/aspose.slides.effects/iluminance/) 接口表示此图像变换效果。
-
-下面的 C++ 代码演示如何从图片框获取亮度和对比度设置：
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-
-auto shape = slide->get_Shape(0);
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
-
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<ILuminance>(effect))
-    {
-        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
-        auto brightness = luminance->get_Brightness();
-        auto contrast = luminance->get_Contrast();
-
-        Console::WriteLine(System::String(u"Brightness: ") + brightness);
-        Console::WriteLine(System::String(u"Contrast: ") + contrast);
-    }
-}
-
-presentation->Dispose();
-```
-
-## **图片框格式化**
-
-Aspose.Slides 提供许多可应用于图片框的格式化选项。使用这些选项，您可以修改图片框以满足特定需求。
-
-1. 创建 [Presentation 类](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 通过向与演示文稿对象关联的 [IImagescollection](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_image_collection) 添加图像来创建 [IPPImage](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_p_p_image) 对象，用于填充形状。  
-4. 指定图像的宽度和高度。  
-5. 通过 [IShapes](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_shape_collection) 对象公开的 [AddPictureFrame](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) 方法，基于图像的宽度和高度创建 `PictureFrame`。  
-6. 将包含图片的图片框添加到幻灯片。  
-7. 设置图片框的线条颜色。  
-8. 设置图片框的线条宽度。  
-9. 通过给出正值或负值来旋转图片框。  
-   * 正值使图像顺时针旋转。  
-   * 负值使图像逆时针旋转。  
-10. 将图片框（包含图片）添加到幻灯片。  
-11. 将修改后的演示文稿写入为 PPTX 文件。  
-
-下面的 C++ 代码演示图片框格式化过程：
-
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// 加载所需的演示文稿
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 访问第一张幻灯片
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// 加载将在演示文稿图像集合中添加的图像
-// 获取图片
-auto image = Images::FromFile(filePath);
-
-// 将图像添加到演示文稿的图像集合中
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// 向幻灯片添加图片框
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// 设置相对比例的宽度和高度
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//将 PPTX 文件写入磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose 最近开发了一个[免费拼贴制作器](https://products.aspose.app/slides/zh/collage)。如果您需要[合并 JPG/JPEG](https://products.aspose.app/slides/zh/collage/jpg)或 PNG 图像，或[从照片创建网格](https://products.aspose.app/slides/zh/collage/photo-grid)，可以使用此服务。 
-
-{{% /alert %}}
-
-## **将图像添加为链接**
-
-为避免演示文稿体积过大，您可以通过链接方式添加图像（或视频），而不是将文件直接嵌入演示文稿。下面的 C++ 代码演示如何将图像和视频添加到占位符中：
+[IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/) 提供框的相对宽度和高度比例。值 `1.0` 对应原始图片大小的 100%。当工作流需要保留与源图像尺寸的相对关系而不是手动计算最终尺寸时，相对比例非常有用。
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"input.pptx");
-auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-for (auto& autoShape : shapes)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, image);
+pictureFrame->set_RelativeScaleWidth(1.35f);
+pictureFrame->set_RelativeScaleHeight(0.8f);
+
+presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+相对比例更改框的比例设置；它不会对嵌入图像进行重新采样或压缩。
+
+## **嵌入图像和链接图像**
+
+嵌入图片将图像数据存储在演示文稿内部，因此是可移植性和可预测渲染的最安全选择。链接图片通过 [ISlidesPicture](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidespicture/) 链接路径存储外部位置，而不是将图像数据嵌入同一文件中。
+
+链接图像可以减少 PPTX 中存储的图像数据量，但会引入外部依赖。链接文件必须对打开或渲染演示文稿的应用程序保持可访问。如果路径更改、文件移动或资源不可用，链接图片可能无法按预期显示。对于必须通过电子邮件发送、归档或在隔离环境中渲染的演示文稿，嵌入图像通常更可靠。
+
+### **添加链接图像**
+
+以下示例创建图片框并指向本地图像文件。它仅处理图像链接；视频链接是单独的媒体工作流，此示例有意未混入。
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, nullptr);
+auto linkPath = Path::GetFullPath(u"linked-image.jpg");
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(linkPath);
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+在外部文件管理是有意为之时使用链接。不要仅将其作为压缩的替代方案：带有破损图像依赖关系的“小” PPTX 往往不如较大的自包含演示文稿实用。
+
+## **从图片框提取图像**
+
+在从现有演示文稿提取图像之前，检查形状是否实际上是 [IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/) 且是否包含嵌入图像。链接图片框可能不包含可用来提取的图像字节。
+
+### **提取栅格图像**
+
+现代图像 API 直接使用 [IImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimage/)。以下示例查找幻灯片上第一个嵌入的栅格图片并将其保存为 PNG：
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
 {
-    if (autoShape->get_Placeholder() == nullptr)
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
         continue;
-
-    switch (autoShape->get_Placeholder()->get_Type())
-    {
-        case Aspose::Slides::PlaceholderType::Picture:
-        {
-            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
-            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-
-        case Aspose::Slides::PlaceholderType::Media:
-        {
-            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
-            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
     }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr || embeddedImage->get_SvgImage() != nullptr)
+    {
+        continue;
+    }
+
+    auto rasterImage = embeddedImage->get_Image();
+    rasterImage->Save(u"extracted-image.png", ImageFormat::Png);
+    break;
 }
 
-for (auto& shape : shapesToRemove)
-{
-    shapes->Remove(shape);
-}
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+通过 [IImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iimage/) 保存会将提取的图像转换为请求的输出格式。如果需要演示文稿中存储的编码字节而不是转换后的栅格文件，请使用图像资源的二进制数据。
+
+### **提取 SVG 图像**
+
+对于 SVG 图片，[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/) 暴露一个 [ISvgImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/isvgimage/) 对象。这使您可以直接检索 SVG 数据，而无需先对图片进行光栅化。
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr)
+    {
+        continue;
+    }
+
+    auto svgImage = embeddedImage->get_SvgImage();
+    if (svgImage == nullptr)
+    {
+        continue;
+    }
+
+    File::WriteAllBytes(u"extracted-image.svg", svgImage->get_SvgData());
+    break;
+}
+
+presentation->Dispose();
+```
+
+保持 SVG 内容为 SVG 可以在演示文稿内部保留矢量源。PNG 或 JPEG 等栅格导出必然将该矢量内容渲染为像素。PDF 或 SVG 幻灯片导出也是一次渲染操作，因此导出的图形不应被视为原始嵌入 SVG 的逐字节副本；当需要原始矢量资源本身时，请使用嵌入的 [ISvgImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/isvgimage/) 数据。
 
 ## **裁剪图像**
 
-下面的 C++ 代码演示如何裁剪幻灯片上的现有图像：
+裁剪更改框内可见的图像部分。[IPictureFillFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/) 上的裁剪值是相对于源图像尺寸的百分比。裁剪不会立即从嵌入图像中删除隐藏像素；它仅改变可见区域。
 
-``` CPP
+以下示例安全地查找图片框并应用裁剪值：
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
-    
-auto presentation = System::MakeObject<Presentation>();
-// 创建新的图像对象
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
+using namespace System;
 
-// 向幻灯片添加图片框
-auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
-
-// 裁剪图像（百分比值）
-picFrame->get_PictureFormat()->set_CropLeft(23.6f);
-picFrame->get_PictureFormat()->set_CropRight(21.5f);
-picFrame->get_PictureFormat()->set_CropTop(3.0f);
-picFrame->get_PictureFormat()->set_CropBottom(31.0f);
-
-// 保存结果
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **删除图片框的裁剪区域**
-
-如果您想删除框中图像的裁剪区域，可以使用 [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 方法。该方法在不需要裁剪时返回原始图像。
-
-下面的 C++ 代码演示此操作：
-
-```c++
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// 从第一张幻灯片获取 PictureFrame
-System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
-
-// 删除 PictureFrame 图像的裁剪区域并返回裁剪后的图像
-System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
-
-// 保存结果
-presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-[IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 方法会将裁剪后的图像添加到演示文稿的图像集合中。如果该图像仅在处理过的 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/) 中使用，此设置可以减小演示文稿体积。否则，生成的演示文稿中的图像数量会增加。
-
-该方法在裁剪操作中会将 WMF/EMF 元文件转换为栅格 PNG 图像。 
-{{% /alert %}}
-
-## **压缩图像**
-
-您可以使用 [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/compressimage/) 方法压缩演示文稿中的图片。该方法通过根据形状大小和指定分辨率减小图像尺寸来实现压缩，并可选择删除裁剪区域。
-
-它的工作方式类似于 PowerPoint 的 **图片格式 -> 压缩图片 -> 分辨率** 功能。
-
-以下 C++ 示例演示如何通过指定目标分辨率并可选删除裁剪区域来压缩演示文稿中的图像：
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
+SharedPtr<IPictureFrame> pictureFrame;
 
-// 使用目标分辨率 150 DPI（网页分辨率）压缩图像并删除裁剪区域。
-bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
-
-// 检查压缩结果。
-if (result)
+for (auto&& shape : slide->get_Shapes())
 {
-    System::Console::WriteLine(u"Image successfully compressed.");
-}
-else
-{
-    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
 }
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+if (pictureFrame != nullptr)
+{
+    pictureFrame->get_PictureFormat()->set_CropLeft(23.6f);
+    pictureFrame->get_PictureFormat()->set_CropRight(21.5f);
+    pictureFrame->get_PictureFormat()->set_CropTop(3.0f);
+    pictureFrame->get_PictureFormat()->set_CropBottom(31.0f);
+    presentation->Save(u"cropped-image.pptx", SaveFormat::Pptx);
+}
+
 presentation->Dispose();
 ```
 
-或直接使用自定义 DPI 值：
+由于隐藏的图像数据仍然存在，之后可以更改裁剪而不会丢失原始像素。如果文件大小比可逆性更重要，可按下一节所述物理删除裁剪区域。
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+## **删除已裁剪的图像数据**
+
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 删除当前裁剪矩形外的图像数据并返回结果图像资源。这可以减小文件大小，但属于破坏性优化：保存演示文稿后，被移除的像素不再可用于后续的取消裁剪操作。
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"cropped-image.pptx");
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
+SharedPtr<IPictureFrame> pictureFrame;
 
-// 将图像压缩到 150 DPI（网页分辨率），并删除裁剪区域。
-pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+if (pictureFrame != nullptr)
+{
+    auto croppedImage = pictureFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+    if (croppedImage != nullptr)
+    {
+        presentation->Save(u"cropped-data-removed.pptx", SaveFormat::Pptx);
+    }
+}
+
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+此方法可能会向演示文稿添加新的图像资源。如果原始图像也被其他图片框使用，这些框仍需其已有资源，因此删除裁剪区域并不一定会降低图像总数。使用此方法裁剪 WMF 或 EMF 内容会将裁剪结果光栅化为 PNG。
 
-该方法根据形状大小和提供的 DPI 将图像转换为较低分辨率。也可以删除裁剪区域以优化文件大小。若图像为元文件（WMF/EMF）或 SVG，则不会执行压缩。JPEG 的质量会根据分辨率保留或略有降低，类似于 PowerPoint 处理高分辨率 JPEG 的方式。 
-{{% /alert %}}
+## **压缩栅格图像**
 
-## **锁定纵横比**
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/compressimage/) 根据图片显示的尺寸相对降低栅格图像分辨率。它还可以在同一操作中移除裁剪区域。该方法在图像被重新尺寸化或裁剪时返回 `true`，在无需更改时返回 `false`。
 
-如果希望包含图像的形状在更改图像尺寸后仍保持其纵横比，可使用 [set_AspectRatioLocked()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) 方法设置 *锁定纵横比*。
+当标准目标分辨率足够时，可使用预定义的 [PicturesCompression](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/picturescompression/) 值：
 
-下面的 C++ 代码演示如何锁定形状的纵横比：
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
-System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
 
-System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
 
-System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
+if (pictureFrame != nullptr)
+{
+    auto compressed = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+    Console::WriteLine(compressed ? String(u"The image was compressed.") : String(u"No compression was necessary."));
+    presentation->Save(u"compressed-image.pptx", SaveFormat::Pptx);
+}
 
-// 设置形状在调整大小时保持纵横比
+presentation->Dispose();
+```
+
+如果需要特定目标，可传入自定义正 DPI 值而不是枚举值。
+
+压缩针对栅格图像。SVG 和元文件内容不会通过此栅格压缩工作流减少。还要记住，降低分辨率和删除的裁剪区域无法从已优化的演示文稿中恢复。应根据实际查看或导出的最大尺寸选择目标分辨率，而不是全局应用最低 DPI。
+
+## **检查图像效果**
+
+图片效果存储在框使用的图片上。图像变换集合可以包含透明度调制、亮度、对比度等效果。下面的示例安全地读取幻灯片上第一个图片框的两类效果：
+
+```cpp
+#include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/Effects/ILuminance.h>
+#include <DOM/Effects/ILuminanceEffectiveData.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+
+    for (auto&& effect : imageTransform)
+    {
+        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
+        {
+            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
+            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
+            Console::WriteLine(String(u"Transparency: ") + transparency);
+        }
+
+        if (ObjectExt::Is<ILuminance>(effect))
+        {
+            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
+            auto luminance = luminanceEffect->GetEffective();
+            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
+            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+这些效果改变图像在框中的渲染方式；它们不会重写原始嵌入图像的字节。
+
+## **锁定图片框几何形状**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframelock/) 设置控制对图片框禁用哪些编辑操作。例如，[纵横比锁定](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) 在调整大小时保持形状比例。
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
+
+presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+锁定作用于图片框形状本身，并不强制对源图像进行重新采样或永久更改为相同的纵横比。
 
-此 *锁定纵横比* 设置仅保留形状的纵横比，而不影响其包含的图像。 
-{{% /alert %}}
+## **调整 StretchOffset 值**
 
-## **使用 StretchOff 属性**
+当图片填充模式为拉伸时，[IPictureFillFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/) 上的 stretch‑offset 值相对于图片框的边界框定义填充矩形。正百分比在边缘产生内缩，负百分比产生外伸。
 
-使用 [StretchOffsetLeft](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471)、[StretchOffsetTop](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a)、[StretchOffsetRight](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) 和 [StretchOffsetBottom](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) 属性（来自 [IPictureFillFormat](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_picture_fill_format) 接口和 [PictureFillFormat](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.picture_fill_format) 类），可以指定填充矩形。
+这与裁剪不同。裁剪值决定源图像的哪部分可见；stretch offset 改变可见图片填充被拉伸到的矩形。
 
-当指定图像的拉伸时，源矩形会按比例缩放以适应指定的填充矩形。填充矩形的每条边由相对于形状边界框相应边缘的百分比偏移定义。正百分比表示内缩，负百分比表示外伸。
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 添加一个矩形 `AutoShape`。  
-4. 创建图像。  
-5. 设置形状的填充类型。  
-6. 设置形状的图片填充模式。  
-7. 添加已设置的图像以填充形状。  
-8. 指定图像相对于形状边界框对应边缘的偏移量。  
-9. 将修改后的演示文稿写入为 PPTX 文件。  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-下面的 C++ 代码演示使用 StretchOff 属性的过程：
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-auto slide = pres->get_Slide(0);
-auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
+auto sourceImage = Images::FromFile(u"photo.png");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-// 设置形状主体中图像在各侧的拉伸
-auto pictureFormat = pictureFrame->get_PictureFormat();
-pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
-pictureFormat->set_StretchOffsetLeft(24.0f);
-pictureFormat->set_StretchOffsetRight(24.0f);
-pictureFormat->set_StretchOffsetTop(24.0f);
-pictureFormat->set_StretchOffsetBottom(24.0f);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, image);
+pictureFrame->get_PictureFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFrame->get_PictureFormat()->set_StretchOffsetLeft(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetRight(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetTop(8.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetBottom(8.0f);
 
-pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
+presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **常见问题**
+在需要定位填充时使用 stretch offset；在需要隐藏源图像边缘时使用裁剪属性。
 
-**如何了解 PictureFrame 支持的图像格式？**  
-Aspose.Slides 通过分配给 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/) 的图像对象，支持栅格图像（PNG、JPEG、BMP、GIF 等）和矢量图像（例如 SVG）。支持的格式列表通常与幻灯片和图像转换引擎的能力重叠。
+## **存储、文件大小和导出考虑因素**
 
-**添加大量大图像会对 PPTX 大小和性能产生哪些影响？**  
-嵌入大图像会增加文件大小和内存使用；通过链接方式添加图像可保持演示文稿体积较小，但需要外部文件保持可访问。Aspose.Slides 提供通过链接添加图像的功能，以减小文件大小。
+当图像存储和图片框格式分开处理时，主要权衡更易管理：
 
-**如何防止图像对象被意外移动/缩放？**  
-对 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/) 使用 [形状锁定](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/get_pictureframelock/)（例如禁用移动或缩放）。锁定机制在单独的[保护文章](/slides/zh/cpp/applying-protection-to-presentation/)中进行描述，支持包括 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/) 在内的多种形状类型。
+- **嵌入图像** 使演示文稿自包含，是共享和服务器端渲染最可靠的选择，但大型栅格图像会增加 PPTX 大小和内存使用。
+- **链接图像** 可以保持包体更小，但演示文稿依赖外部文件在存储路径或位置保持可用。
+- **裁剪** 最初是非破坏性的。隐藏的像素会一直嵌入，直到显式删除裁剪区域或在压缩时移除。
+- **压缩** 可以显著降低过大栅格图像的文件大小，但会牺牲源分辨率。应在确定幻灯片上实际显示尺寸后再应用。
+- **SVG 图像** 在需要保留矢量的情况下应保持为 SVG。需要矢量资源本身时直接提取嵌入的 SVG。栅格幻灯片导出始终将渲染的幻灯片转换为像素。
+- **重复图像** 应尽可能复用已有的 [IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/) 资源，而不是在工作流中反复加载相同文件。
 
-**导出演示文稿为 PDF/图像时，SVG 矢量保真度是否得到保留？**  
-Aspose.Slides 允许从 [PictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pictureframe/) 中提取原始 SVG 矢量。当[导出为 PDF](/slides/zh/cpp/convert-powerpoint-to-pdf/)或[栅格格式](/slides/zh/cpp/convert-powerpoint-to-png/)时，结果可能会根据导出设置被栅格化；提取行为确认了原始 SVG 仍以矢量形式存储。
+对于大型演示文稿，图像优化通常在选择性执行时最有效：将标志和图表保留为矢量内容，根据实际显示大小压缩照片，仅在不再需要编辑时删除裁剪像素，并且除非部署设计中包含依赖管理，否则避免使用外部链接。
+
+## **常见问题解答**
+
+**图片框和图像资源之间有什么区别？**
+
+[IPPImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ippimage/) 表示与演示文稿关联的图像资源。[IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/) 是幻灯片上的形状，用于显示图像并存储框级几何和格式，如大小、旋转、裁剪值、效果和锁定。
+
+**应该嵌入还是链接图像？**
+
+当演示文稿必须可移植、归档或在没有外部资源访问的情况下渲染时，请嵌入图像。仅在有意将图像文件保持在 PPTX 之外且外部位置可以可靠维护时才链接图像。
+
+**裁剪会减小 PPTX 文件大小吗？**
+
+仅凭裁剪本身不会。普通裁剪设置隐藏源图像的部分，但保留底层像素。使用 [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) 或在压缩时删除裁剪区域，以在可以永久丢弃这些像素时减小文件。
+
+**压缩后能恢复图像质量吗？**
+
+不能。压缩会降低存储的栅格分辨率，删除裁剪区域会丢弃图像数据。如果以后可能需要高分辨率编辑，请在演示文稿外保留原始源图像。
+
+**应如何处理 SVG 图像？**
+
+在需要矢量保真度时保持 SVG 内容为 SVG。嵌入的 [ISvgImage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/isvgimage/) 可直接提取。将幻灯片渲染为 PNG 或 JPEG 等栅格格式会将 SVG 光栅化为幻灯片图像。
+
+**读取现有幻灯片时如何避免不安全的强制转换？**
+
+在使用图片框特定成员之前检查形状类型。使用 [IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/) 进行类型检测后再进行运行时强制转换，并在访问图片框特定成员之前将转换结果赋给本地变量。

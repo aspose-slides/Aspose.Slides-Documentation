@@ -1,5 +1,5 @@
 ---
-title: PHP ile Sunumlarda Resim Çerçevelerini Yönetme
+title: PHP Kullanarak Sunumlarda Resim Çerçevelerini Yönetme
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -8,153 +8,288 @@ keywords:
 - resim çerçevesi
 - resim çerçevesi ekle
 - resim çerçevesi oluştur
-- görsel ekle
-- görsel oluştur
-- görsel çıkar
-- raster görsel
-- vektör görsel
-- görsel kırp
-- kırpılmış alan
-- StretchOff özelliği
+- gömülü görüntü
+- bağlantılı görüntü
+- görüntüyü çıkart
+- raster görüntü
+- SVG görüntü
+- görüntüyü kırp
+- kırpılmış alanları sil
+- görüntüyü sıkıştır
+- StretchOffset
 - resim çerçevesi biçimlendirme
-- resim çerçevesi özellikleri
 - göreceli ölçek
-- görsel efekti
-- en boy oranı
-- görsel şeffaflığı
+- görüntü efekti
+- en-boy oranı
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PowerPoint ve OpenDocument sunumlarına resim çerçeveleri ekleyin. Çalışma akışınızı basitleştirin ve slayt tasarımlarını geliştirin."
+description: "Aspose.Slides for PHP via Java ile sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkartın ve sıkıştırın."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Resim çerçevesi, bir görüntüyü içeren bir şekildir—çerçeve içinde bir resim gibidir.  
+Resim çerçevesi, bir resim gösteren bir slayt şeklidir. Aspose.Slides içinde, resim kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yerleşik resim kaynaklarını [ImageCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) aracılığıyla sahiplenirken, bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) resmin konumunu, boyutunu, çizgi biçimini, dönüşünü, kırpmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarlarını kontrol eder.
 
-Bir slayta bir resim çerçevesi aracılığıyla görüntü ekleyebilirsiniz. Böylece, resmi resim çerçevesini biçimlendirerek biçimlendirebilirsiniz.
+Bu ayrım, aynı resmin birden fazla kez gösterilmesi gerektiğinde faydalıdır. Resmi sunuma bir kez ekleyin, döndürülen [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu resim kaynağını kullanın.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose ücretsiz dönüştürücüler sağlar—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—ki bunlar, kişilerin görüntülerden hızlıca sunum oluşturmasını sağlar. 
-{{% /alert %}} 
+Resim çerçeveleri PNG veya JPEG gibi raster görüntüleri ve SVG gibi vektör görüntüleri içerebilir. Ayrıca görüntüyü sunuma gömmek yerine bağlantılı bir resme referans verebilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkartma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek faydalıdır.
 
-## **Resim Çerçevesi Oluşturma**
+## **Gömülü Bir Görüntüyü Ekle ve Biçimlendir**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Slaytın indeksine göre bir referans alın.  
-3. Sunum nesnesine bağlı [ImageCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) içine bir görüntü ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) nesnesi oluşturun; bu nesne şekli doldurmak için kullanılacaktır.  
-4. Görüntünün genişliğini ve yüksekliğini belirtin.  
-5. Referans alınan slaytın şekil nesnesi tarafından sunulan `addPictureFrame` yöntemini kullanarak görüntünün genişliği ve yüksekliği temelinde bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) oluşturun.  
-6. Resim çerçevesini (içindeki resmi) slayta ekleyin.  
-7. Değiştirilen sunumu bir PPTX dosyası olarak yazın.  
+Gömülü bir görüntü için, görüntü verisini sunuma ekleyin ve bir resim çerçevesi oluşturmak üzere [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addpictureframe/) yöntemini kullanın. Görüntü, sunum paketinin bir parçası haline gelir, bu yüzden sunum başka bir bilgisayara taşındığında kendine yeterli kalır.
 
-Bu PHP kodu, bir resim çerçevesi oluşturmayı gösterir:
+Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün özgün boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile dönüş uygular:
 
 ```php
-  # PPTX dosyasını temsil eden Presentation sınıfını örnekler
-  $pres = new Presentation();
-  try {
-    # İlk slaytı alır
-    $sld = $pres->getSlides()->get_Item(0);
-    # Image sınıfını örnekler
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Resmin eşdeğer yüksekliği ve genişliği ile bir picture frame ekler
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # PPTX dosyasını diske yazar
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
-Resim çerçeveleri, görüntülerden hızlı bir şekilde sunum slaytları oluşturmanıza olanak tanır. Resim çerçevesini Aspose.Slides kaydetme seçenekleriyle birleştirerek giriş/çıkış işlemlerini yönlendirebilir ve görüntüleri bir formattan diğerine dönüştürebilirsiniz. Aşağıdaki sayfalara göz atabilirsiniz: [image to JPG](https://products.aspose.com/slides/tr/php-java/conversion/image-to-jpg/) dönüştürme; [JPG to image](https://products.aspose.com/slides/tr/php-java/conversion/jpg-to-image/) dönüştürme; [JPG to PNG](https://products.aspose.com/slides/tr/php-java/conversion/jpg-to-png/) dönüştürme; [PNG to JPG](https://products.aspose.com/slides/tr/php-java/conversion/png-to-jpg/) dönüştürme; [PNG to SVG](https://products.aspose.com/slides/tr/php-java/conversion/png-to-svg/) dönüştürme; [SVG to PNG](https://products.aspose.com/slides/tr/php-java/conversion/svg-to-png/) dönüştürme. 
-{{% /alert %}}
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-## **İlgili Ölçekli Resim Çerçevesi Oluşturma**
-
-Bir görüntünün ilgili ölçeklemesini değiştirerek daha karmaşık bir resim çerçevesi oluşturabilirsiniz.  
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Slaytın indeksine göre bir referans alın.  
-3. Sunum görüntü koleksiyonuna bir görüntü ekleyin.  
-4. Sunum nesnesine bağlı [ImageCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) içine bir görüntü ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) nesnesi oluşturun; bu nesne şekli doldurmak için kullanılacaktır.  
-5. Resim çerçevesindeki görüntünün ilgili genişliğini ve yüksekliğini belirtin.  
-6. Değiştirilen sunumu bir PPTX dosyası olarak yazın.  
-
-Bu PHP kodu, ilgili ölçekli bir resim çerçevesi oluşturmayı gösterir:
-
-```php
-  # PPTX'i temsil eden Presentation sınıfını örnekle
-  $pres = new Presentation();
-  try {
-    # İlk slaytı al
-    $sld = $pres->getSlides()->get_Item(0);
-    # Image sınıfını örnekle
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Resmin eşdeğer yükseklik ve genişliği ile Picture Frame ekle
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Göreceli ölçek genişliği ve yüksekliğini ayarla
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # PPTX dosyasını diske yaz
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Resim Çerçevelerinden Raster Görüntüleri Ayıklama**
-
-[PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) nesnelerinden raster görüntüleri ayıklayabilir ve PNG, JPG ve diğer biçimlerde kaydedebilirsiniz. Aşağıdaki kod örneği, “sample.pptx” belgesinden bir görüntüyü ayıklayıp PNG biçiminde kaydetmeyi gösterir.
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Resim Çerçevelerinden SVG Görüntüleri Ayıklama**
+Resim çerçevesi, görüntülenen geometrinin kontrolünü sağlar; çerçeve boyutunu değiştirmek, gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra bir görüntüyü kırpma veya sıkıştırma gerektiğinde önem kazanır.
 
-Bir sunum, [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) şekilleri içinde SVG grafikler içerdiğinde, Aspose.Slides for PHP via Java, orijinal vektör görüntülerini tam doğrulukla almanıza olanak tanır. Slaytın şekil koleksiyonunu dolaşarak her bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) tanımlayabilir, temel [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) SVG içeriği tutuyor mu kontrol edebilir ve ardından bu görüntüyü diske ya da akıma yerel SVG biçiminde kaydedebilirsiniz.
+## **Göreceli Ölçek Kullanımı**
 
-Aşağıdaki kod örneği, bir resim çerçevesinden SVG görüntüsü ayıklamayı gösterir:
+[PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) çerçeve için genişlik ve yükseklik ölçeklemesini [setRelativeScaleWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/setrelativescalewidth/) ve [setRelativeScaleHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/setrelativescaleheight/) metodlarıyla ortaya koyar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreceli ölçek, bir iş akışının kaynak görüntü boyutuna ilişkin ilişkiyi koruması gerektiğinde, nihai boyutları manuel olarak hesaplamaktan daha kullanışlıdır.
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Göreceli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örneklemez veya sıkıştırmaz.
+
+## **Gömülü ve Bağlantılı Görüntüler**
+
+Gömülü bir resim, görüntü verisini sunum içinde saklar ve bu nedenle taşınabilirlik ve öngörülebilir renderleme açısından en güvenli tercihtir. Bağlantılı bir resim ise görüntü verisini aynı şekilde gömmek yerine [Picture::setLinkPathLong](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picture/setlinkpathlong/) yöntemiyle harici bir konuma işaret eder.
+
+Bağlantılı görüntüler, PPTX içinde depolanan görüntü verisinin miktarını azaltabilir, ancak dış bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak erişilemez olursa, bağlantılı resim beklendiği gibi görüntülenmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamlarda renderlenmesi gereken sunumlar için gömülü görüntüler genellikle daha güvenilir olur.
+
+### **Bağlantılı Bir Görüntü Ekleme**
+
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir görüntü dosyasına yönlendirir. Sadece görüntü bağlantısına odaklanır; video bağlantısı ayrı bir medya iş akışıdır ve bu örneğe bilinçli olarak karıştırılmamıştır.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dış dosya yönetimi kasıtlıysa bağlantılar kullanın. Sıkıştırma yerine bir alternatif olarak kullanmayın: kırık görüntü bağımlılıkları olan küçük bir PPTX, genellikle daha büyük, kendi içinde bütünleşik bir sunumdan daha az kullanışlıdır.
+
+## **Resimleri Resim Çerçevelerinden Çıkarma**
+
+Mevcut bir sunumdan bir görüntü çıkarmadan önce, şeklin gerçekten bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) olup olmadığını ve gömülü bir görüntü içerip içermediğini kontrol edin. Bağlantılı resim çerçeveleri, aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+
+### **Raster Görüntü Çıkarma**
+
+Modern görüntü API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) kullanır. Aşağıdaki örnek, bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+[IImage::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/#save) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunum içinde depolanmış şifrelenmiş baytlara ihtiyacınız varsa, dönüştürülmüş raster dosyası yerine görüntü kaynağının ikili verisini kullanın.
+
+### **SVG Görüntüsü Çıkarma**
+
+SVG bir resim için, [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) bir [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) nesnesi sunar. Bu, resmi önce rasterleştirmeden doğrudan SVG verisini almanıza olanak tanır.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarımlar, o vektör içeriğini piksellere dönüştürür. PDF veya SVG slayt dışa aktarma da bir renderleme işlemidir; bu yüzden dışa aktarılan grafikler, orijinal gömülü SVG'nin bayt-düğüm kopyası gibi ele alınmamalıdır; orijinal vektör kaynağı gerektiğinde gömülü [SvgImage::getSvgData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/getsvgdata/) verisi kullanılmalıdır.
+
+## **Bir Görüntüyü Kırpma**
+
+Kırpma, bir görüntünün çerçeve içinde hangi kısmının görüneceğini değiştirir. [PictureFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) üzerindeki kırpma değerleri, kaynak görüntü boyutlarının yüzdesidir. Kırpma, gömülü görüntüdeki gizli pikselleri başlangıçta silmez; yalnızca görünür bölgeyi değiştirir.
+
+Aşağıdaki örnek, bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Gizli görüntü verisi hâlâ mevcut olduğu için, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu çok önemliyse ve geri dönüşebilirlik öncelik değilse, sonraki bölümde açıklandığı gibi kırpılmış bölgeler fiziksel olarak kaldırılabilir.
+
+## **Kırpılmış Görüntü Verisini Kaldırma**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) mevcut kırpma dikdörtgeninin dışındaki görüntü verisini siler ve ortaya çıkan görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir kırpma geri alma işlemi için mevcut olmaz.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -162,364 +297,204 @@ try {
 }
 ```
 
-## **Bir Görüntünün Şeffaflığını Alma**
+Yöntem, sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü başka resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynaklarını ihtiyaç duyar; bu yüzden kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterleştirir.
 
-Aspose.Slides, bir görüntüye uygulanan şeffaflık etkisini almanıza olanak tanır. Bu PHP kodu işlemi gösterir:
+## **Raster Görüntüleri Sıkıştırma**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) raster görüntü çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
 
-## **Bir Görüntünün Parlaklık ve Kontrastını Alma**
-
-Aspose.Slides, bir görüntüye uygulanan parlaklık ve kontrast etkisini almanıza izin verir. [Luminance](https://reference.aspose.com/slides/tr/php-java/aspose.slides/luminance/) sınıfı bu görüntü dönüşüm etkisini temsil eder.
-
-Bu PHP kodu, bir resim çerçevesinden parlaklık ve kontrast ayarlarını almayı gösterir:
+Standart bir hedef çözünürlük yeterli olduğunda, önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturescompression/) değeri kullanın:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **Resim Çerçevesi Biçimlendirme**
-
-Aspose.Slides, bir resim çerçevesine uygulanabilen birçok biçimlendirme seçeneği sunar. Bu seçenekleri kullanarak bir resim çerçevesini belirli gereksinimlere uyduracak şekilde değiştirebilirsiniz.  
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Slaytın indeksine göre bir referans alın.  
-3. Sunum nesnesine bağlı [ImageCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) içine bir görüntü ekleyerek bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) nesnesi oluşturun; bu nesne şekli doldurmak için kullanılacaktır.  
-4. Görüntünün genişliğini ve yüksekliğini belirtin.  
-5. Referans alınan slaytın [ShapeCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/) nesnesi tarafından sunulan [addPictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addpictureframe/) yöntemiyle bir `PictureFrame` oluşturun.  
-6. Resim çerçevesini (içindeki resmi) slayta ekleyin.  
-7. Resim çerçevesinin kenar rengini ayarlayın.  
-8. Resim çerçevesinin kenar kalınlığını ayarlayın.  
-9. Resim çerçevesini pozitif ya da negatif bir değer vererek döndürün.  
-   * Pozitif değer görüntüyü saat yönünde döndürür.  
-   * Negatif değer görüntüyü saat yönünün tersine döndürür.  
-10. Resim çerçevesini (içindeki resmi) slayta tekrar ekleyin.  
-11. Değiştirilen sunumu bir PPTX dosyası olarak yazın.  
-
-Bu PHP kodu, resim çerçevesi biçimlendirme sürecini gösterir:
-
-```php
-  # PPTX'i temsil eden Presentation sınıfını örnekler
-  $pres = new Presentation();
-  try {
-    # İlk slaytı alır
-    $sld = $pres->getSlides()->get_Item(0);
-    # Image sınıfını örnekler
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Resmin eşdeğer yükseklik ve genişliği ile Picture Frame ekler
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # PictureFrameEx'e bazı biçimlendirmeler uygular
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # PPTX dosyasını diske yazar
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-Aspose yakın zamanda ücretsiz bir [Collage Maker](https://products.aspose.app/slides/tr/collage) geliştirdi. JPG/JPEG veya PNG görüntüleri birleştirmeniz, fotoğraflardan ızgara oluşturmanız gerektiğinde bu hizmeti kullanabilirsiniz. 
-{{% /alert %}}
-
-## **Bağlantı Olarak Görüntü Ekleme**
-
-Sunum boyutlarını küçültmek için dosyaları doğrudan yerleştirmek yerine, görüntüleri (veya videoları) bağlantı yoluyla ekleyebilirsiniz. Bu PHP kodu, bir yer tutucu içine görüntü ve video eklemeyi gösterir:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Görüntü Kırpma**
-
-Bu PHP kodu, bir slayd üzerindeki mevcut bir görüntüyü nasıl kırpacağınızı gösterir:
-
-```php
-  $pres = new Presentation();
-  # Yeni görüntü nesnesi oluşturur
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Bir slayta PictureFrame ekler
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # Görüntüyü kırpar (yüzde değerleri)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # Sonucu kaydeder
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Bir Resim Çerçevesinin Kırpılmış Alanlarını Silme**
-
-Bir çerçeve içinde bulunan görüntünün kırpılmış alanlarını silmek istiyorsanız, [deletePictureCroppedAreas()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) metodunu kullanabilirsiniz. Bu metod, kırpılmış resmi ya da kırpma gereksizse orijinal resmi döndürür.
-
-Bu PHP kodu işlemi gösterir:
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # İlk slayttan PictureFrame'i alır
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # PictureFrame görüntüsünün kırpılmış alanlarını siler ve kırpılmış görüntüyü döndürür
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # Sonucu kaydeder
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-[deletePictureCroppedAreas()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) metodu, kırpılmış görüntüyü sunum görüntü koleksiyonuna ekler. Görüntü yalnızca işlenen [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) içinde kullanılıyorsa, bu ayar sunum boyutunu azaltabilir. Aksi takdirde, sonuç sunumdaki görüntü sayısı artar.  
-
-Bu metod, kırpma işlemi sırasında WMF/EMF metafilelerini raster PNG görüntüsüne dönüştürür. 
-{{% /alert %}}
-
-## **Görüntü Sıkıştırma**
-
-Bir sunumdaki resmi, [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) metoduyle sıkıştırabilirsiniz. Bu metod, şekil boyutu ve belirtilen çözünürlüğe göre görüntünün boyutunu azaltır; ayrıca kırpılmış alanları silme seçeneği sunar.  
-
-PowerPoint'in **Picture Format → Compress Pictures → Resolution** özelliğine benzer şekilde resmin boyutu ve çözünürlüğü ayarlanır.  
-
-Aşağıdaki PHP örnekleri, hedef bir çözünürlük belirleyerek ve isteğe bağlı olarak kırpılmış alanları kaldırarak bir sunumdaki görüntüyü nasıl sıkıştıracağınızı gösterir:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Görüntüyü 150 DPI (Web çözünürlüğü) hedef çözünürlük ile sıkıştır ve kırpılmış alanları kaldır.
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # Sıkıştırmanın sonucunu kontrol et.
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Veya doğrudan özel bir DPI değeri kullanarak:
+Belirli bir hedef gerektiğinde, önceden tanımlı bir değer yerine pozitif bir DPI değeri de geçirilebilir.
+
+Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metadoşya içerikleri bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinmiş kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. Hedef çözünürlüğü, görüntünün gerçekte görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; tüm sunumda en düşük DPI’yı uygulamaktan kaçının.
+
+## **Görüntü Efektlerini İnceleme**
+
+Resim efektleri, çerçeve tarafından kullanılan resimde depolanır. Görüntü dönüşüm koleksiyonu, şeffaflık için sabit alfa modülasyonu ve parlaklık ile kontrast için parlaklık gibi efektler içerebilir. Aşağıdaki örnek, bir slayttaki ilk resim çerçevesinden her iki tür efekti de güvenli bir şekilde okur:
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Görüntüyü 150 DPI (web çözünürlüğü) ile sıkıştır ve kırpılmış alanları kaldır.
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
+        $effectCount = java_values($imageTransform->size());
+
+        for ($index = 0; $index < $effectCount; $index++) {
+            $effect = $imageTransform->get_Item($index);
+
+            if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
+                $transparency = 100 - java_values($effect->getAmount());
+                echo "Transparency: " . $transparency . PHP_EOL;
+            }
+
+            if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
+                $luminance = $effect->getEffective();
+                echo "Brightness: " . java_values($luminance->getBrightness()) . PHP_EOL;
+                echo "Contrast: " . java_values($luminance->getContrast()) . PHP_EOL;
+            }
+        }
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Metod, şeklin boyutu ve sağlanan DPI değerine göre görüntüyü daha düşük bir çözünürlüğe dönüştürür. Kırpılmış bölgeler de dosya boyutunu iyileştirmek için silinebilir.  
-Görüntü bir metafile (WMF/EMF) ya da SVG ise sıkıştırma uygulanmaz. JPEG kalitesi, çözünürlüğe göre aynı PowerPoint davranışıyla korunur veya hafifçe düşürülür. 
-{{% /alert %}}
+Bu efektler, görüntünün çerçevede nasıl render edildiğini değiştirir; orijinal gömülü görüntü baytlarını yeniden yazarlar.
 
-## **En Boy Oranını Kilitleme**
+## **Resim Çerçevesi Geometrisini Kilitleme**
 
-Bir şeklin içindeki görüntünün boyutlarını değiştirdiğinizde bile en boy oranının korunmasını istiyorsanız, *Lock Aspect Ratio* ayarını ayarlamak için [setAspectRatioLocked](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) metodunu kullanabilirsiniz.
-
-Bu PHP kodu, bir şeklin en boy oranını nasıl kilitleyeceğinizi gösterir:
+[PictureFrameLock](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [setAspectRatioLocked](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) yeniden boyutlandırılırken şeklin oranını korur.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # Yeniden boyutlandırmada en boy oranını koruması için şekli ayarla
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Bu *Lock Aspect Ratio* ayarı yalnızca şeklin en boy oranını korur, içinde bulunan görüntüyü değil. 
-{{% /alert %}}
+Kilitleme, resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en-boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
 
-## **StretchOff Özelliğini Kullanma**
+## **StretchOffset Değerlerini Ayarlama**
 
-[PictureFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) sınıfındaki [setStretchOffsetLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/), [setStretchOffsetTop](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/setstretchoffsettop/), [setStretchOffsetRight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) ve [setStretchOffsetBottom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) yöntemlerini kullanarak bir doldurma dikdörtgeni belirtebilirsiniz.  
+Resim doldurma modu “stretch” olduğunda, [PictureFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzdeler bir kenardan içeriye, negatif yüzdeler ise dışarıya doğru bir genişleme oluşturur.
 
-Bir görüntü için germe belirtildiğinde, bir kaynak dikdörtgen, belirtilen doldurma dikdörtgenine sığacak şekilde ölçeklendirilir. Doldurma dikdörtgeninin her kenarı, şeklin sınır kutusunun karşılık gelen kenarından yüzde olarak bir offset ile tanımlanır. Pozitif yüzde bir içe çekme, negatif yüzde bir dışa çıkma belirtir.  
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Slaytın indeksine göre bir referans alın.  
-3. Bir `AutoShape` dikdörtgeni ekleyin.  
-4. Bir görüntü oluşturun.  
-5. Şeklin doldurma türünü ayarlayın.  
-6. Şeklin resim doldurma kipini ayarlayın.  
-7. Şekli dolduracak bir görüntü ekleyin.  
-8. Görüntünün offsetlerini, şeklin sınır kutusunun karşılık gelen kenarına göre belirtin.  
-9. Değiştirilen sunumu bir PPTX dosyası olarak yazın.  
-
-Bu PHP kodu, StretchOff özelliğinin kullanıldığı bir süreci gösterir:
+Bu, kırpmaktan farklıdır. Kırpma değerleri, kaynak görüntünün hangi kısmının görünür olduğunu seçerken; stretch offset değerleri, görünür resim doldurmasının hangi dikdörtgene uzatılacağını değiştirir.
 
 ```php
-  # PPTX dosyasını temsil eden Presentation sınıfını örnekler
-  $pres = new Presentation();
-  try {
-    # İlk slaytı alır
-    $slide = $pres->getSlides()->get_Item(0);
-    # ImageEx sınıfını örnekler
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # Rectangle olarak ayarlanmış bir AutoShape ekler
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Şeklin doldurma tipini ayarlar
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # Şeklin resim doldurma kipini ayarlar
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Şekli dolduracak resmi ayarlar
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Görüntünün, şeklin sınırlayıcı kutusunun ilgili kenarına göre offsetlerini belirtir
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # PPTX dosyasını diske yazar
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Doldurma yerleşimi için stretch offset değerlerini, kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
+
+## **Depolama, Dosya Boyutu ve Dışa Aktarma Düşünceleri**
+
+Görüntü depolama ile resim‑çerçeve biçimlendirmesinin ayrı ayrı ele alındığı zaman temel ticaret‑off’lar daha kolay yönetilir:
+
+- **Gömülü görüntüler** sunumu kendi içinde bütünleştirir ve paylaşım ile sunucu‑tarafı renderleme için en güvenilir seçenek olup, büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görüntüler** paketi daha küçük tutabilir, ancak sunum, depolanmış yollar veya konumlardaki dış dosyaların hâlâ mevcut olmasına bağımlıdır.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene kadar gömülü kalır.
+- **Sıkıştırma**, aşırı büyük raster görüntüler için dosya boyutunu büyük ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Çerçeve üzerindeki nihai boyut bilindiğinde uygulanmalıdır.
+- **SVG görüntüler** vektör korunumu önemliyse SVG olarak kalmalıdır. Vektör kaynağına ihtiyacınız olduğunda gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarımları her zaman slaytı piksellere dönüştürür.
+- **Tekrarlanan görüntüler**, mümkün olduğunda aynı [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) kaynağının yeniden kullanılmasını önerir; aynı dosyanın sunuma birden çok kez yüklenmesinden kaçının.
+
+Büyük sunumlar için, görüntü optimizasyonu genellikle seçici uygulanarak en etkili olur: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek görüntüleme boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca daha sonraki düzenleme gerekli değilse kaldırın ve dış bağlantılardan kaçının; dış bağımlılık yönetimi dağıtım tasarımının bir parçası değilse.
 
 ## **SSS**
 
-**Resim Çerçevesi için hangi görüntü formatlarının desteklendiğini nasıl öğrenebilirim?**
+**Resim çerçevesi ile görüntü kaynağı arasındaki fark nedir?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) üzerine atanan görüntü nesnesi aracılığıyla raster (PNG, JPEG, BMP, GIF vb.) ve vektör (ör. SVG) görüntüleri destekler. Desteklenen formatların listesi genel olarak slayt ve görüntü dönüştürme motorunun yetenekleriyle örtüşür.  
+[PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) sunumla ilişkili bir görüntü kaynağını temsil eder. [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) ise bir slayt üzerindeki, bir görüntüyü gösteren ve boyut, dönüş, kırpma değerleri, efektler ve kilitler gibi çerçeve‑düzeyi geometrik ve biçimsel bilgileri depolayan bir şekildir.
 
-**Büyük sayıda büyük görüntü eklemek PPTX boyutunu ve performansı nasıl etkiler?**
+**Görüntüleri gömmeli mi yoksa bağlamalı mı?**
 
-Büyük görüntülerin yerleştirilmesi dosya boyutunu ve bellek kullanımını artırır; görüntüleri bağlamak, sunum boyutunu düşük tutmaya yardımcı olur ancak dış dosyaların erişilebilir olmasını gerektirir. Aspose.Slides, dosya boyutunu azaltmak için görüntüleri bağ olarak ekleme imkanı sunar.  
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilebilir olması gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına almak kasıtlı ve dış konumların güvenilir bir şekilde korunabileceği durumlarda sadece bağlayın.
 
-**Bir görüntü nesnesinin kazara taşınmasını/yeniden boyutlandırılmasını nasıl kilitlebilirim?**
+**Kırpma PPTX dosya boyutunu azaltır mı?**
 
-[PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) için [shape locks](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/getpictureframelock/) kullanabilirsiniz (ör. taşıma veya yeniden boyutlandırmayı devre dışı bırakma). Kilitleme mekanizması, çeşitli şekil türleri için, özellikle [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) için desteklenir.  
+Tek başına hayır. Normal kırpma ayarları, kaynak görüntünün bir kısmını gizler ancak altındaki pikselleri tutar. [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) veya kırpılmış alanların kaldırıldığı görüntü sıkıştırması, bu pikseller kalıcı olarak atılabilir.
 
-**SVG vektör bütünlüğü, bir sunumu PDF/görüntülere dışa aktarırken korunur mu?**
+**Sıkıştırmadan sonra görüntü kalitesini geri getirebilir miyim?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) içindeki SVG'yi orijinal vektör olarak ayıklamayı sağlar. [PDF'ye dışa aktarırken](/slides/tr/php-java/convert-powerpoint-to-pdf/) veya [raster formatlara](/slides/tr/php-java/convert-powerpoint-to-png/) yapılan dışa aktarımda, ayarlarla rasterleştirilebilir; ancak SVG'nin vektör olarak saklandığı, ayıklama davranışıyla doğrulanır.
+Hayır. Sıkıştırma, depolanan raster çözünürlüğü düşürebilir ve kırpılmış bölgelerin kaldırılması görüntü verisini siler. Daha sonra yüksek çözünürlüklü düzenleme gerekebileceği durumlarda orijinal kaynak görüntüyü sunum dışında tutun.
+
+**SVG görüntüler nasıl ele alınmalı?**
+
+Vektör bütünlüğünün önemli olduğu durumlarda SVG içeriği SVG olarak kalmalıdır. Gömülü [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster bir formata slayt renderlemek, SVG’yi slayt görüntüsünün bir parçası olarak rasterleştirir.
+
+**Mevcut slaytları okurken güvenli olmayan cast’lerden nasıl kaçınılır?**
+
+Resim çerçevesi‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) üzerine bir `java_instanceof` kontrolü, geçersiz cast’leri önler ve resim çerçevesi içermeyen slaytları kodunuzun uygun şekilde işlemesini sağlar.

@@ -1,514 +1,392 @@
 ---
-title: مدیریت چارچوب‌های تصویر در ارائه‌ها در .NET
-linktitle: چارچوب تصویر
+title: مدیریت قاب‌های تصویر در ارائه‌ها در .NET
+linktitle: قاب تصویر
 type: docs
 weight: 10
 url: /fa/net/picture-frame/
 keywords:
-- چارچوب تصویر
-- اضافه‌کردن چارچوب تصویر
-- ایجاد چارچوب تصویر
-- اضافه‌کردن تصویر
-- ایجاد تصویر
+- قاب تصویر
+- افزودن قاب تصویر
+- ایجاد قاب تصویر
+- تصویر جاسازی‌شده
+- تصویر پیوندی
 - استخراج تصویر
-- تصویر رستر
-- تصویر برداری
+- تصویر رستری
+- تصویر SVG
 - برش تصویر
-- ناحیه برش‌خورده
-- ویژگی StretchOff
-- قالب‌بندی چارچوب تصویر
-- خصوصیات چارچوب تصویر
+- حذف نواحی برش‌خورده
+- فشرده‌سازی تصویر
+- StretchOffset
+- قالب‌بندی قاب تصویر
 - مقیاس نسبی
 - اثر تصویر
-- نسبت عرض به ارتفاع
-- شفافیت تصویر
+- نسبت ابعاد
 - PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "اضافه کردن چارچوب‌های تصویر به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای .NET. جریان کاری خود را ساده کنید و طراحی اسلایدها را بهبود ببخشید."
+description: "ایجاد، قالب‌بندی، پیوند، برش، استخراج و فشرده‌سازی قاب‌های تصویر در ارائه‌ها با Aspose.Slides برای .NET."
 ---
-## **معرفی**
+## **مروری کلی**
 
-یک چارچوب تصویر شکل است که حاوی یک تصویر می‌باشد—مانند یک تصویر در چارچوب.  
+یک قاب تصویر یک شکل اسلاید است که یک تصویر را نمایش می‌دهد. در Aspose.Slides، منبع تصویر و شکلی که آن را نمایش می‌دهد اشیای جداگانه‌ای هستند: یک [ارائه](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) منابع تصویر جاسازی‌شده را از طریق مجموعهٔ [تصاویر](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/images/) خود مالک می‌شود، در حالی که یک [IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/) موقعیت، اندازه، قالب‌بندی خط، چرخش، برش، اثرات تصویر و سایر تنظیمات سطح قاب را کنترل می‌کند.
 
-می‌توانید یک تصویر را از طریق یک چارچوب تصویر به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی چارچوب تصویر فرمت کنید.
+این جداسازی زمانی مفید است که یک تصویر بیش از یک بار نمایش داده شود. تصویر را یک‌بار به ارائه اضافه کنید، شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) برگردانده‌شده را نگه دارید و هنگام ایجاد قاب‌های تصویر از آن منبع تصویر استفاده کنید.
 
-{{% alert  title="Tip" color="primary" %}} 
+قاب‌های تصویر می‌توانند شامل تصاویر رستری مانند PNG یا JPEG و تصاویر برداری SVG باشند. همچنین می‌توانند به تصاویر پیوندی اشاره کنند به جای اینکه بایت‌های تصویر را در ارائه ذخیره کنند. این انتخاب پرتابل بودن، حجم فایل، استخراج و رفتار خروجی را تحت تأثیر قرار می‌دهد، بنابراین قبل از اعمال قالب‌بندی یا بهینه‌سازی تصمیم‌گیری دربارهٔ نحوهٔ ذخیره‌سازی تصویر مفید است.
 
-Aspose مبدل‌های رایگان—[JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—را ارائه می‌دهد که به افراد امکان می‌دهد به سرعت از تصاویر ارائه‌ها را ایجاد کنند. 
+## **افزودن و قالب‌بندی یک تصویر جاسازی‌شده**
 
-{{% /alert %}} 
+برای یک تصویر جاسازی‌شده، داده‌های تصویر را به ارائه اضافه کنید و یک قاب تصویر با [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addpictureframe/) ایجاد کنید. تصویر بخشی از بستهٔ ارائه می‌شود، بنابراین ارائه هنگام انتقال به کامپیوتر دیگر مستقل باقی می‌ماند.
 
-## **ایجاد یک چارچوب تصویر**
+مثال زیر یک تصویر JPEG اضافه می‌کند، قاب را با ابعاد اصلی تصویر ایجاد می‌کند و قالب‌بندی خط و چرخش را اعمال می‌کند:
 
-1. یک نمونه از کلاس [Presentation ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید. 
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
-3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) را با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء presentation که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید. 
-4. عرض و ارتفاع تصویر را مشخص کنید. 
-5. یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe) بر اساس عرض و ارتفاع تصویر از طریق متد `AddPictureFrame` که توسط شیء shape مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید. 
-6. یک چارچوب تصویر (حاوی تصویر) را به اسلاید اضافه کنید. 
-7. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-این کد C# نشان می‌دهد چگونه یک چارچوب تصویر ایجاد کنید:
-
-```c#
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation pres = new Presentation())
-{
-    // اسلاید اول را دریافت می‌کند
-    ISlide slide = pres.Slides[0];
-
-    // یک تصویر را بارگذاری می‌کند و آن را به مجموعه تصاویر ارائه اضافه می‌نماید
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // یک چارچوب تصویر با همان ارتفاع و عرض اضافه می‌کند
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // برخی قالب‌بندی‌ها را بر روی چارچوب تصویر اعمال می‌کند
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // ارائه را به یک فایل PPTX می‌نویسد
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-
-چارچوب‌های تصویر به شما اجازه می‌دهند به سرعت اسلایدهای ارائه مبتنی بر تصاویر ایجاد کنید. وقتی چارچوب تصویر را با گزینه‌های ذخیره Aspose.Slides ترکیب می‌کنید، می‌توانید عملیات ورودی/خروجی را برای تبدیل تصاویر از یک فرمت به فرمت دیگر دستکاری کنید. ممکن است این صفحات برای شما مفید باشند: تبدیل [تصویر به JPG](https://products.aspose.com/slides/fa/net/conversion/image-to-jpg/); تبدیل [JPG به تصویر](https://products.aspose.com/slides/fa/net/conversion/jpg-to-image/); تبدیل [JPG به PNG](https://products.aspose.com/slides/fa/net/conversion/jpg-to-png/), تبدیل [PNG به JPG](https://products.aspose.com/slides/fa/net/conversion/png-to-jpg/); تبدیل [PNG به SVG](https://products.aspose.com/slides/fa/net/conversion/png-to-svg/), تبدیل [SVG به PNG](https://products.aspose.com/slides/fa/net/conversion/svg-to-png/). 
-
-{{% /alert %}}
-
-## **ایجاد یک چارچوب تصویر با مقیاس نسبی**
-
-با تغییر مقیاس نسبی تصویر، می‌توانید یک چارچوب تصویر پیچیده‌تر ایجاد کنید. 
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید. 
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
-3. یک تصویر را به مجموعه تصاویر ارائه اضافه کنید. 
-4. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) را با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء presentation که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید. 
-5. عرض و ارتفاع نسبی تصویر را در چارچوب تصویر مشخص کنید. 
-6. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
-
-این کد C# نشان می‌دهد چگونه یک چارچوب تصویر با مقیاس نسبی ایجاد کنید:
-
-```c#
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
-{
-    // یک تصویر را بارگذاری می‌کند و آن را به مجموعه تصاویر ارائه اضافه می‌نماید
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // یک چارچوب تصویر را به اسلاید اضافه می‌کند
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // عرض و ارتفاع مقیاس نسبی را تنظیم می‌کند
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // ارائه را ذخیره می‌کند
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **استخراج تصاویر رستر از چارچوب‌های تصویر**
-
-می‌توانید تصاویر رستر را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe) استخراج کنید و در فرمت‌های PNG، JPG و سایر فرمت‌ها ذخیره نمایید. مثال کد زیر نشان می‌دهد چگونه تصویری را از سند «sample.pptx» استخراج کرده و در فرمت PNG ذخیره کنید.
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **استخراج تصاویر SVG از چارچوب‌های تصویر**
-
-هنگامی که یک ارائه شامل گرافیک‌های SVG قرار گرفته در شکل‌های [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) باشد، Aspose.Slides برای .NET به شما امکان می‌دهد تا تصاویر برداری اصلی را با تمام دقت استخراج کنید. با پیمایش مجموعه شکل‌های اسلاید، می‌توانید هر [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) را شناسایی کنید، بررسی کنید آیا [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) زیرین محتویات SVG دارد یا نه، و سپس آن تصویر را به صورت فایل SVG بومی روی دیسک یا به‌صورت جریان ذخیره کنید.
-
-کد نمونه زیر نشان می‌دهد چگونه یک تصویر SVG را از یک چارچوب تصویر استخراج کنید:
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
+```
+
+قاب تصویر هندسهٔ نمایشی را کنترل می‌کند؛ تغییر اندازهٔ قاب ابعاد پیکسلی اصلی ذخیره‌شده در منبع تصویر جاسازی‌شده را تغییر نمی‌دهد. این تمایز زمانی مهم می‌شود که بعداً تصویر را برش یا فشرده کنید.
+
+## **استفاده از مقیاس نسبی**
+
+[IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/) مقیاس‌گیری نسبی عرض و ارتفاع برای قاب را نمایش می‌دهد. مقدار `1.0` معادل 100٪ اندازهٔ اصلی تصویر است. مقیاس نسبی زمانی مفید است که یک گردش کار نیاز داشته باشد رابطهٔ آن با اندازهٔ تصویر منبع حفظ شود به جای محاسبهٔ ابعاد نهایی به صورت دستی.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
+```
+
+مقیاس نسبی تنظیمات مقیاس قاب را تغییر می‌دهد؛ تصویر جاسازی‌شده را بازنمونه‌برداری یا فشرده نمی‌کند.
+
+## **تصاویر جاسازی‌شده و پیوندی**
+
+یک تصویر جاسازی‌شده داده‌های تصویر را داخل ارائه ذخیره می‌کند و بنابراین ایمن‌ترین گزینه برای پرتابل بودن و رندر قابل پیش‌بینی است. یک تصویر پیوندی مکان خارجی را از طریق مسیر پیوند [ISlidesPicture](https://reference.aspose.com/slides/fa/net/aspose.slides/islidespicture/) ذخیره می‌کند به جای اینکه داده‌های تصویر را به همان شکل جاسازی کند.
+
+تصاویر پیوندی می‌توانند مقدار داده‌های تصویر ذخیره‌شده در PPTX را کاهش دهند، اما یک وابستگی خارجی ایجاد می‌کنند. فایل پیوندی باید برای برنامه‌ای که ارائه را باز یا رندر می‌کند در دسترس باشد. اگر مسیر تغییر کند، فایل جابجا شود یا منبع در دسترس نباشد، ممکن است تصویر پیوندی همان‌طور که انتظار می‌رود نمایش داده نشود. برای ارائه‌هایی که باید ایمیل شوند، بایگانی گردند یا در محیط‌های ایزوله رندر شوند، تصاویر جاسازی‌شده معمولاً قابل اطمینان‌تر هستند.
+
+### **افزودن یک تصویر پیوندی**
+
+مثال زیر یک قاب تصویر ایجاد می‌کند و آن را به یک فایل تصویر محلی اشاره می‌دهد. این مثال فقط به پیوند تصویر پردازش می‌کند؛ پیوند ویدیو یک گردش کار رسانه‌ای جداگانه است و عمداً با این مثال ترکیب نشده است.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+از پیوندها زمانی استفاده کنید که مدیریت فایل‌های خارجی عمدی باشد. از آنها صرفاً به‌عنوان جایگزینی برای فشرده‌سازی استفاده نکنید: یک PPTX کوچک با وابستگی‌های تصویر شکسته معمولاً کمتر کاربردی است نسبت به یک ارائهٔ بزرگ‌تر و خودمستقل.
+
+## **استخراج تصاویر از قاب‌های تصویر**
+
+قبل از استخراج یک تصویر از یک ارائه موجود، بررسی کنید که شکل واقعاً یک [IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/) باشد و شامل یک تصویر جاسازی‌شده باشد. قاب‌های تصویر پیوندی ممکن است بایت‌های تصویری که به همان روش قابلیت استخراج دارند، نداشته باشند.
+
+### **استخراج تصویر رستری**
+
+API مدرن تصویر از [IImage](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/) به‌صورت مستقیم استفاده می‌کند و نیازی به بسته‌بندی سیستم‌تصویر قدیمی نیست. مثال زیر اولین تصویر رستری جاسازی‌شده در یک اسلاید را پیدا کرده و به صورت PNG ذخیره می‌کند:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
+    if (shape is not IPictureFrame pictureFrame)
     {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
+        continue;
+    }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
+
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
+}
+```
+
+ذخیره‌سازی از طریق [IImage](https://reference.aspose.com/slides/fa/net/aspose.slides/iimage/) تصویر استخراج‌شده را به فرمت خروجی درخواست‌شده تبدیل می‌کند. اگر به بایت‌های کدگذاری‌شدهٔ ذخیره‌شده در ارائه به‌جای یک فایل رستری تبدیل‌شده نیاز دارید، به‌جای آن از داده‌های باینری منبع تصویر استفاده کنید.
+
+### **استخراج تصویر SVG**
+
+برای یک تصویر SVG، [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) یک شیء [ISvgImage](https://reference.aspose.com/slides/fa/net/aspose.slides/isvgimage/) را نشان می‌دهد. این به شما اجازه می‌دهد داده‌های SVG را به‌صورت مستقیم بازیابی کنید به‌جای اینکه ابتدا تصویر را رستر کنید.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
+
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
+}
+```
+
+نگه داشتن محتوای SVG به‌عنوان SVG، منبع برداری را در داخل ارائه حفظ می‌کند. خروجی‌های رستری مانند PNG یا JPEG به‌طور ضروری آن محتوای برداری را به پیکسل تبدیل می‌کنند. خروجی اسلاید به PDF یا SVG نیز یک عملیات رندر است، بنابراین گرافیک‌های خروجی نباید به‌عنوان نسخهٔ بایت‌به‌بایت SVG جاسازی‌شدهٔ اصلی در نظر گرفته شوند؛ زمانی که منبع برداری اصلی مورد نیاز است، از دادهٔ [ISvgImage](https://reference.aspose.com/slides/fa/net/aspose.slides/isvgimage/) جاسازی‌شده استفاده کنید.
+
+## **برش تصویر**
+
+برش بخشی از تصویر را که داخل قاب قابل رؤیت است تغییر می‌دهد. مقادیر برش در [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/) درصدی از ابعاد تصویر منبع هستند. برش در ابتدا پیکسل‌های پنهان تصویر جاسازی‌شده را حذف نمی‌کند؛ فقط ناحیهٔ قابل رؤیت را تغییر می‌دهد.
+
+مثال زیر به‌صورت ایمن یک قاب تصویر را پیدا کرده و مقادیر برش را اعمال می‌کند:
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
+}
+```
+
+از آنجا که داده‌های تصویر پنهان هنوز وجود دارد، می‌توان برش را بعداً بدون از دست دادن پیکسل‌های اصلی تغییر داد. اگر حجم فایل مهم‌تر از قابلیت برگشت‌پذیری باشد، می‌توان نواحی برش‌خورده را همان‌طور که در بخش بعدی توصیف شده فیزیکی حذف کرد.
+
+## **حذف داده‌های تصویر برش‌خورده**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) داده‌های تصویری خارج از مستطیل برش فعلی را حذف کرده و منبع تصویر حاصل را برمی‌گرداند. این می‌تواند حجم فایل را کاهش دهد، اما به‌عنوان یک بهینه‌سازی مخرب عمل می‌کند: پس از ذخیرهٔ ارائه، پیکسل‌های حذف‌شده دیگر برای عملیات برگرداندن برش در دسترس نیستند.
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-## **دریافت شفافیت تصویر**
+متد ممکن است یک منبع تصویر جدید به ارائه اضافه کند. اگر تصویر اصلی توسط قاب‌های تصویر دیگر نیز استفاده می‌شود، آن قاب‌ها همچنان به منبع موجود خود نیاز دارند، بنابراین حذف نواحی برش‌خورده لزوماً تعداد کل تصاویر را کاهش نمی‌دهد. برش محتوای WMF یا EMF با این متد، نتیجهٔ برش‌خورده را به PNG رستر می‌کند.
 
-Aspose.Slides به شما امکان می‌دهد اثر شفافیت اعمال‌شده بر یک تصویر را دریافت کنید. این کد C# عملیات را نشان می‌دهد:
+## **فشرده‌سازی تصاویر رستری**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/compressimage/) رزولوشن تصویر رستری را نسبت به اندازه‌ای که تصویر نمایش داده می‌شود کاهش می‌دهد. همچنین می‌تواند نواحی برش‌خورده را در همان عملیات حذف کند. این متد وقتی که تصویر تغییر اندازه یا برش داده شود `true` و وقتی هیچ‌گونه تغییری لازم نباشد `false` برمی‌گرداند.
+
+از یک مقدار پیش‌تعریف‌شدهٔ [PicturesCompression](https://reference.aspose.com/slides/fa/net/aspose.slides.export/picturescompression/) استفاده کنید زمانی که رزولوشن هدف استاندارد کافی باشد:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+به‌جای مقدار enum می‌توان یک مقدار DPI مثبت سفارشی را هنگام نیاز به هدف خاص پاس داد.
+
+فشرده‌سازی برای تصاویر رستری در نظر گرفته شده است. محتوای SVG و متافایل توسط این گردش کار فشرده‌سازی رستری کاهش نمی‌یابد. همچنین به‌یاد داشته باشید که رزولوشن پایین‌تر و نواحی برش‌خوردهٔ حذف‌شده را نمی‌توان از ارائهٔ بهینه‌شده بازیابی کرد. رزولوشن هدف را بر پایهٔ بزرگ‌ترین اندازه‌ای که تصویر در واقع مشاهده یا خروجی خواهد شد انتخاب کنید، نه این‌که پایین‌ترین DPI را به‌صورت سراسری اعمال کنید.
+
+## **بررسی اثرات تصویر**
+
+اثرهای تصویر بر روی تصویری که توسط قاب استفاده می‌شود ذخیره می‌شوند. مجموعهٔ تبدیل تصویر می‌تواند شامل اثرهایی مانند مدولاسیون آلفای ثابت برای شفافیت و روشنایی برای تنظیم روشنایی و کنتراست باشد. مثال زیر به‌صورت ایمن هر دو نوع اثر را از اولین قاب تصویر در یک اسلاید می‌خواند:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
     {
         if (effect is IAlphaModulateFixed alphaModulateFixed)
         {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
+            var transparency = 100 - alphaModulateFixed.Amount;
+            Console.WriteLine("Transparency: " + transparency);
         }
-    }
-}
-```
 
-## **دریافت روشنایی و کنتراست تصویر**
-
-Aspose.Slides به شما امکان می‌دهد روشنایی و کنتراست اثر اعمال‌شده بر یک تصویر را دریافت کنید. رابط [ILuminance](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iluminance/) این اثر تبدیل تصویر را نشان می‌دهد.
-
-این کد C# نشان می‌دهد چگونه تنظیمات روشنایی و کنتراست را از یک چارچوب تصویر دریافت کنید:
-
-```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
-
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
         if (effect is ILuminance luminanceEffect)
         {
             var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
-
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
+            Console.WriteLine("Brightness: " + luminance.Brightness);
+            Console.WriteLine("Contrast: " + luminance.Contrast);
         }
     }
 }
 ```
 
-{{% alert color="primary" %}} 
-تمام اثرات اعمال‌شده بر تصاویر را می‌توانید در [Aspose.Slides.Effects](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/) پیدا کنید. 
-{{% /alert %}}
+این اثرها نحوهٔ رندر تصویر در قاب را تغییر می‌دهند؛ بایت‌های تصویر جاسازی‌شدهٔ اصلی را بازنویسی نمی‌کنند.
 
-## **قالب‌بندی چارچوب تصویر**
+## **قفل‌کردن هندسهٔ قاب تصویر**
 
-Aspose.Slides گزینه‌های قالب‌بندی متعددی را که می‌توان به یک چارچوب تصویر اعمال کرد، ارائه می‌دهد. با استفاده از این گزینه‌ها می‌توانید چارچوب تصویر را به‌گونه‌ای تغییر دهید که با نیازهای خاص شما منطبق شود.
-
-1. یک نمونه از کلاس [Presentation](http://www.aspose.com/api/net/slides/fa/aspose.slides/) ایجاد کنید. 
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
-3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage) را با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/net/aspose.slides/iimagecollection) مرتبط با شیء presentation که برای پر کردن شکل استفاده خواهد شد، ایجاد کنید. 
-4. عرض و ارتفاع تصویر را مشخص کنید. 
-5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [AddPictureFrame](http://www.aspose.com/api/net/slides/fa/aspose.slides/ishapecollection/methods/addpictureframe) که توسط شیء [IShapes](http://www.aspose.com/api/net/slides/fa/aspose.slides/ishapecollection) مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید. 
-6. چارچوب تصویر (حاوی تصویر) را به اسلاید اضافه کنید. 
-7. رنگ خط چارچوب تصویر را تنظیم کنید. 
-8. ضخامت خط چارچوب تصویر را تنظیم کنید. 
-9. چارچوب تصویر را با مقدار مثبت یا منفی چرخانید. 
-   * مقدار مثبت تصویر را ساعت‌گرد می‌چرخاند. 
-   * مقدار منفی تصویر را پادساعت‌گرد می‌چرخاند. 
-10. چارچوب تصویر (حاوی تصویر) را به اسلاید اضافه کنید. 
-11. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
-
-این کد C# فرآیند قالب‌بندی چارچوب تصویر را نشان می‌دهد:
-
-```c#
- // یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
-{
-    // اسلاید اول را دریافت می‌کند
-    ISlide slide = presentation.Slides[0];
-
-    // یک تصویر را بارگذاری می‌کند و آن را به مجموعه تصاویر ارائه اضافه می‌نماید
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // یک چارچوب تصویر با همان ارتفاع و عرض تصویر اضافه می‌کند
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // برخی قالب‌بندی‌ها را بر روی چارچوب تصویر اعمال می‌کند
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // ارائه را به یک فایل PPTX می‌نویسد
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}}
-
-Aspose اخیراً یک [Collage Maker رایگان](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر ever نیاز به [ادغام JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا تصاویر PNG داشته باشید، یا [ایجاد شبکه‌های تصویری](https://products.aspose.app/slides/fa/collage/photo-grid)، می‌توانید از این سرویس استفاده کنید. 
-
-{{% /alert %}}
-
-## **افزودن تصویر به عنوان لینک**
-
-برای جلوگیری از بزرگ شدن اندازه ارائه‌ها، می‌توانید تصاویر (یا ویدیوها) را از طریق لینک‌ها اضافه کنید به‌جای اینکه فایل‌ها را مستقیماً در ارائه‌ها جاسازی کنید. این کد C# نشان می‌دهد چگونه یک تصویر و ویدیو را به یک جایگذاشتن اضافه کنید:
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **قاب‌بندی تصاویر**
-
-این کد C# نشان می‌دهد چگونه یک تصویر موجود در اسلاید را برش دهید:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // یک شیء تصویر جدید ایجاد می‌کند
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // یک PictureFrame به اسلاید اضافه می‌کند
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // تصویر را برش می‌دهد (مقادیر درصدی)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // نتیجه را ذخیره می‌کند
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **حذف نواحی برش‌خورده تصویر**
-
-اگر می‌خواهید نواحی برش‌خورده یک تصویر موجود در یک چارچوب را حذف کنید، می‌توانید از متد [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) استفاده کنید. این متد تصویر برش‌خورده یا تصویر اصلی را برمی‌گرداند اگر برش ضروری نباشد.
-
-این کد C# عملیات را نشان می‌دهد:
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // چارچوب تصویر را از اسلاید اول دریافت می‌کند
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // نواحی برش‌خورده تصویر چارچوب تصویر را حذف کرده و تصویر برش‌خورده را برمی‌گرداند
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // نتیجه را ذخیره می‌کند
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-متد [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) تصویر برش‌خورده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند اندازه ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه‌ی نهایی افزایش خواهد یافت. 
-
-این متد در عملیات برش، فایل‌های متا‌فایل WMF/EMF را به تصویر رستر PNG تبدیل می‌کند. 
-
-{{% /alert %}}
-
-## **فشرده‌سازی تصاویر**
-
-می‌توانید یک تصویر را در ارائه با استفاده از متد [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/compressimage/) فشرده کنید. این متد تصویر را با کاهش اندازه بر اساس اندازه شکل و وضوح مشخص‌شده، و با گزینه حذف نواحی برش‌خورده، فشرده می‌کند. 
-
-این روش اندازه و وضوح تصویر را مشابه ویژگی **Picture Format → Compress Pictures → Resolution** در PowerPoint تنظیم می‌کند. 
-
-کدهای C# زیر نشان می‌دهند چگونه با تعیین وضوح هدف و به‌صورت اختیاری حذف نواحی برش‌خورده، یک تصویر را در ارائه فشرده کنید:
+تنظیمات [IPictureFrameLock](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframelock/) کنترل می‌کند کدام عملیات‌های ویرایشی برای یک قاب تصویر غیرفعال هستند. به‌عنوان مثال، قفل نسبت ابعاد، نسبت‌های شکل را هنگام تغییر اندازه حفظ می‌کند.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // تصویر را با وضوح هدف 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌نماید.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // نتیجه فشرده‌سازی را بررسی کنید.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-یا با استفاده مستقیم از مقدار DPI دلخواه:
+قفل بر روی شکل قاب تصویر اعمال می‌شود. این قفل تصویر منبع را مجبور به بازنمونه‌برداری یا تغییر دائمی به همان نسبت ابعاد نمی‌کند.
+
+## **تنظیم مقادیر StretchOffset**
+
+زمانی که حالت پرشدن تصویر کشیده (stretch) است، مقادیر stretch‑offset در [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/) مستطیل پرشدن را نسبت به جعبهٔ حاشیهٔ قاب تصویر تعریف می‌کند. درصدهای مثبت از لبهٔ داخلی را ایجاد می‌کنند، در حالی که درصدهای منفی بیرون‌زدگی ایجاد می‌کنند.
+
+این متفاوت از برش است. مقادیر برش بخش قابل رؤیت تصویر منبع را انتخاب می‌کند؛ offsetهای کشسان مستطیلی را که پرشدن تصویر قابل رؤیت در آن کشیده می‌شود، تغییر می‌دهد.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // تصویر را به 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌نماید.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+از offsetهای کشسان برای جایگذاری پرشدن استفاده کنید. زمانی که هدف مخفی‌سازی لبه‌های تصویر منبع است از خصوصیات برش استفاده کنید.
 
-این متد تصویر را بر اساس اندازه شکل و DPI ارائه‌شده به وضوح پایین‌تر تبدیل می‌کند. نواحی برش‌خورده نیز می‌توانند حذف شوند تا اندازه فایل بهینه شود. اگر تصویر یک متا‌فایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نخواهد شد. همچنین کیفیت JPEG بسته به وضوح حفظ یا کمی کاهش می‌یابد، مشابه رفتار PowerPoint برای JPEGهای با وضوح بالا. 
+## **نکات مربوط به ذخیره‌سازی، حجم فایل و خروجی**
 
-{{% /alert %}}
+موازنه‌های اصلی زمانی آسان‌تر مدیریت می‌شوند که ذخیره‌سازی تصویر و قالب‌بندی قاب تصویر به‌صورت جداگانه در نظر گرفته شوند:
 
-## **قفل کردن نسبت عرض به ارتفاع**
+- **تصاویر جاسازی‌شده** ارائه را خودمستقل می‌سازند و برای اشتراک‌گذاری و رندر سمت سرور قابل اطمینان‌ترین گزینه هستند، اما تصاویر رستری بزرگ حجم PPTX و استفادهٔ حافظه را افزایش می‌دهند.
+- **تصاویر پیوندی** می‌توانند بسته را کوچکتر نگه دارند، اما ارائه به فایل‌های خارجی وابسته است که باید در مسیرهای ذخیره‌شده در دسترس بمانند.
+- **برش** در ابتدا مخرب نیست. پیکسل‌های مخفی تا زمانی که نواحی برش‌خورده صراحتاً حذف یا در زمان فشرده‌سازی حذف نشوند، درون‌رو می‌مانند.
+- **فشرده‌سازی** می‌تواند حجم فایل را برای تصاویر رستری بیش از حد بزرگ به‌طور قابل‌توجهی کاهش دهد، اما رزولوشن منبع را از بین می‌برد. این کار باید پس از دانستن اندازهٔ نهایی مورد نظر روی اسلاید اعمال شود.
+- **تصاویر SVG** باید به‌عنوان SVG باقی بمانند وقتی حفظ بردار مهم است. SVG جاسازی‌شده را مستقیماً استخراج کنید وقتی به منبع برداری نیاز دارید. خروجی‌های رستری اسلاید همیشه اسلاید رندر‌شده را به پیکسل تبدیل می‌کنند.
+- **تصاویر تکراری** باید در صورت امکان از یک منبع [IPPImage] موجود مجدداً استفاده کنند به‌جای بارگذاری مکرر همان فایل در گردش کار ارائه.
 
-اگر می‌خواهید شکلی که شامل یک تصویر است حتی پس از تغییر ابعاد تصویر، نسبت عرض به ارتفاع خود را حفظ کند، می‌توانید از ویژگی [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframelock/aspectratiolocked/) برای تنظیم ویژگی *Lock Aspect Ratio* استفاده کنید. 
-
-این کد C# نشان می‌دهد چگونه نسبت عرض به ارتفاع یک شکل را قفل کنید:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
-
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // شکل را برای حفظ نسبت عرض به ارتفاع هنگام تغییر اندازه تنظیم می‌کند
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-این تنظیم *Lock Aspect Ratio* تنها نسبت عرض به ارتفاع شکل را حفظ می‌کند و تصویر داخل آن را تحت تأثیر قرار نمی‌دهد. 
-
-{{% /alert %}}
-
-## **استفاده از ویژگی StretchOff**
-
-با استفاده از ویژگی‌های [StretchOffsetLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)، [StretchOffsetTop](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsettop)، [StretchOffsetRight](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetright) و [StretchOffsetBottom](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) از رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat) می‌توانید یک مستطیل پرکننده را مشخص کنید. 
-
-زمانی که کشش برای یک تصویر مشخص می‌شود، یک مستطیل منبع به اندازه مستطیل پرکننده مقیاس می‌شود. هر لبهٔ مستطیل پرکننده توسط درصدی نسبت به لبهٔ مربوطهٔ جعبه محدودهٔ شکل تعریف می‌شود. درصد مثبت یک حذف داخلی و درصد منفی یک گسترش خارجی را مشخص می‌کند.
-
-1. یک نمونه از کلاس [Presentation](http://www.aspose.com/api/net/slides/fa/aspose.slides/) ایجاد کنید. 
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید. 
-3. یک مستطیل `AutoShape` اضافه کنید. 
-4. یک تصویر ایجاد کنید. 
-5. نوع پر کردن شکل را تنظیم کنید. 
-6. حالت پر کردن تصویر شکل را تنظیم کنید. 
-7. یک تصویر تنظیم‌شده برای پر کردن شکل اضافه کنید. 
-8. افست‌های تصویر را از لبهٔ مربوطهٔ جعبه محدودهٔ شکل مشخص کنید. 
-9. ارائه‌ی اصلاح شده را به صورت فایل PPTX بنویسید. 
-
-این کد C# فرآیندی را نشان می‌دهد که در آن از ویژگی StretchOff استفاده می‌شود:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // تصویر را از هر طرف در بدنه شکل کشیده تنظیم می‌کند
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
-}
-```
+برای ارائه‌های بزرگ، بهینه‌سازی تصویر معمولاً زمانی مؤثرترین است که به‌صورت انتخابی انجام شود: لوگوها و نمودارها را به‌عنوان محتویات برداری نگه دارید، عکس‌ها را بر اساس اندازهٔ واقعی نمایش فشرده کنید، پیکسل‌های برش‌خورده را فقط زمانی حذف کنید که ویرایش بعدی لازم نباشد و از پیوندهای خارجی خودداری کنید مگر اینکه مدیریت وابستگی بخشی از طراحی استقرار باشد.
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بفهمم کدام فرمت‌های تصویر برای PictureFrame پشتیبانی می‌شوند؟**
+**تفاوت بین یک قاب تصویر و یک منبع تصویر چیست؟**
 
-Aspose.Slides هم تصاویر رستر (PNG، JPEG، BMP، GIF و غیره) و هم تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده معمولاً با توانمندی‌های موتور اسلاید و تبدیل تصویر همپوشانی دارد.
+[IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) نمایانگر یک منبع تصویر مرتبط با ارائه است. [IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/) یک شکل روی اسلاید است که تصویر را نمایش می‌دهد و هندسه و قالب‌بندی سطح قاب مانند اندازه، چرخش، مقادیر برش، اثرات و قفل‌ها را ذخیره می‌کند.
 
-**اضافه کردن ده‌ها تصویر بزرگ چه تأثیری بر اندازه و عملکرد PPTX دارد؟**
+**آیا باید تصاویر را جاسازی کنم یا پیوند دهم؟**
 
-جاسازی تصاویر بزرگ حجم فایل و مصرف حافظه را افزایش می‌دهد؛ لینک کردن تصاویر به کاهش حجم ارائه کمک می‌کند اما نیاز دارد فایل‌های خارجی در دسترس باقی بمانند. Aspose.Slides قابلیت افزودن تصاویر به‌صورت لینک برای کاهش حجم فایل را فراهم می‌کند.
+تصاویر را زمانی جاسازی کنید که ارائه باید پرتابل، بایگانی یا بدون دسترسی به منابع خارجی رندر شود. تصاویر را فقط زمانی پیوند دهید که نگهداری فایل‌های تصویری خارج از PPTX عمدی باشد و مکان‌های خارجی به‌طور قابل‌اعتماد در دسترس باقی بمانند.
 
-**چگونه می‌توانم یک شیء تصویر را از جابجایی/تغییر اندازه ناخواسته قفل کنم؟**
+**آیا برش حجم فایل PPTX را کاهش می‌دهد؟**
 
-برای یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) می‌توانید از [قفل‌های شکل](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/pictureframelock/) استفاده کنید (مثلاً غیر فعال کردن جابجایی یا تغییر اندازه). مکانیسم قفل‌گذاری برای اشکال در مقالهٔ جداگانهٔ [محافظت](/slides/fa/net/applying-protection-to-presentation/) شرح داده شده و برای انواع مختلف اشکال از جمله [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) پشتیبانی می‌شود.
+خود برش این کار را نمی‌کند. تنظیمات برش معمولی بخش‌های تصویر منبع را مخفی می‌کند اما پیکسل‌های زیرین را نگه می‌دارد. برای حذف دائمی پیکسل‌ها می‌توانید از [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) یا فشرده‌سازی تصویر با حذف نواحی برش‌خورده استفاده کنید.
 
-**آیا صحت برداری SVG هنگام خروجی به PDF/تصاویر حفظ می‌شود؟**
+**آیا می‌توان بعد از فشرده‌سازی کیفیت تصویر را بازیابی کرد؟**
 
-Aspose.Slides امکان استخراج یک SVG از یک [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) به‌صورت بردار اصلی را فراهم می‌کند. هنگام خروجی به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/) یا [فرمت‌های رستر](/slides/fa/net/convert-powerpoint-to-png/)، نتیجه ممکن است بسته به تنظیمات خروجی رستر شود؛ این که SVG اصلی به‌صورت بردار ذخیره شده است توسط رفتار استخراج تأیید می‌شود.
+نه. فشرده‌سازی می‌تواند رزولوشن رستری ذخیره‌شده را کاهش دهد و حذف نواحی برش داده‌ها را از بین می‌برد. اگر احتمالا بعداً به ویرایش با وضوح بالا نیاز دارید، تصویر اصلی را خارج از ارائه نگه دارید.
+
+**تصاویر SVG باید چگونه مدیریت شوند؟**
+
+محتوای SVG را به‌عنوان SVG نگه دارید وقتی که حفظ دقت برداری مهم است. می‌توانید دادهٔ [ISvgImage](https://reference.aspose.com/slides/fa/net/aspose.slides/isvgimage/) جاسازی‌شده را مستقیماً استخراج کنید. رندر اسلاید به فرمت رستری مانند PNG یا JPEG، SVG را به بخشی از تصویر اسلاید رستر می‌کند.
+
+**چگونه می‌توان از تبدیل‌های ناامن هنگام خواندن اسلایدهای موجود جلوگیری کرد؟**
+
+قبل از استفاده از اعضای مخصوص قاب تصویر، نوع شکل را بررسی کنید. استفاده از الگوی تطبیق با [IPictureFrame] یا فیلتر کردن مجموعهٔ اشکال بر اساس این رابط، از تبدیل‌های نامعتبر جلوگیری می‌کند و به کد اجازه می‌دهد اسلایدهایی که قاب تصویر ندارند را به‌صورت مناسب مدیریت کند.

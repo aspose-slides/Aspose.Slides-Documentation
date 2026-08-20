@@ -1,504 +1,584 @@
 ---
-title: Spravujte rámy obrázků v prezentacích pomocí C++
-linktitle: Rám obrázku
+title: Správa rámečků obrázků v prezentacích pomocí C++
+linktitle: Rámeček obrázku
 type: docs
 weight: 10
 url: /cs/cpp/picture-frame/
 keywords:
-- rám obrázku
-- přidat rám obrázku
-- vytvořit rám obrázku
-- přidat obrázek
-- vytvořit obrázek
+- rámeček obrázku
+- přidat rámeček obrázku
+- vytvořit rámeček obrázku
+- vložený obrázek
+- propojený obrázek
 - extrahovat obrázek
-- rastrovaný obrázek
-- vektorový obrázek
+- rastrový obrázek
+- SVG obrázek
 - oříznout obrázek
-- oříznutá oblast
-- vlastnost StretchOff
-- formátování rámu obrázku
-- vlastnosti rámu obrázku
+- smazat oříznuté oblasti
+- komprimovat obrázek
+- StretchOffset
+- formátování rámečku obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
-- průhlednost obrázku
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Přidejte rámy obrázků do prezentací PowerPoint a OpenDocument pomocí Aspose.Slides pro C++. Zefektivněte svůj pracovní proces a vylepšete návrhy snímků."
+description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámečky obrázků v prezentacích pomocí Aspose.Slides pro C++."
 ---
-## **Úvod**
+## **Přehled**
 
-Rám obrazu je tvar, který obsahuje obrázek – je to jako obrázek v rámečku.  
+Rámeček obrázku je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své [image collection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_images/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) řídí pozici obrázku, velikost, formátování čáry, rotaci, ořez, efekty obrázku a další nastavení na úrovni rámce.
 
-Obrázek můžete do snímku přidat prostřednictvím rámu obrazu. Tímto způsobem můžete formátovat obrázek formátováním rámu.
+Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/), a použijte tento zdroj obrázku při tvorbě rámečků obrázků.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose poskytuje bezplatné konvertory – [JPEG do PowerPointu](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPointu](https://products.aspose.app/slides/cs/import/png-to-ppt) – které umožňují rychle vytvářet prezentace z obrázků. 
-{{% /alert %}} 
+Rámečky obrázků mohou obsahovat rastrové obrázky, jako jsou PNG nebo JPEG, a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo uložení bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné se rozhodnout, jak má být obrázek uložen, předtím než použijete formátování nebo optimalizaci.
 
-## **Vytvoření rámu obrazu**
+## **Přidání a formátování vloženého obrázku**
 
-1. Vytvořte instanci třídy [Presentation class](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte referenci na snímek podle jeho indexu. 
-3. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_p_p_image) přidáním obrázku do [IImagescollection](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_image_collection), který je přidružen k objektu prezentace a bude použit k vyplnění tvaru.
-4. Určete šířku a výšku obrázku.
-5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_frame) založený na šířce a výšce obrázku pomocí metody `AddPictureFrame` vystavené objektem tvaru přidruženým k referencovanému snímku.
-6. Přidejte rám obrazu (obsahující obrázek) na snímek.
-7. Uložte upravenou prezentaci jako soubor PPTX.
+U vloženého obrázku přidejte data obrázku do prezentace a vytvořte rámeček obrázku pomocí [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shapecollection/addpictureframe/). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná, když bude přesunuta na jiný počítač.
 
-Tento C++ kód ukazuje, jak vytvořit rám obrazu:
-
-```c++
-// Cesta k adresáři dokumentů.
-const String outPath = u"../out/PictureFrameFormatting_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Načtěte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Načte obrázek, který bude přidán do kolekce obrázků prezentace
-// Získá obrázek
-auto image = Images::FromFile(filePath);
-
-// Přidá obrázek do kolekce obrázků prezentace
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Přidá rám obrázku na snímek
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Nastaví relativní měřítko šířky a výšky
-pf->set_RelativeScaleHeight(0.8);
-pf->set_RelativeScaleWidth(1.35);
-// Aplikuje určité formátování na rám obrázku
-pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-pf->get_LineFormat()->set_Width ( 20);
-pf->set_Rotation( 45);
-
-//Zapíše soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert color="warning" %}} 
-Rám obrazu vám umožňuje rychle vytvářet snímky prezentace na základě obrázků. Když zkombinujete rám obrazu s možnostmi ukládání Aspose.Slides, můžete manipulovat s operacemi vstupu/výstupu pro konverzi obrázků z jednoho formátu do druhého. Můžete se podívat na tyto stránky: převod [obrázku do JPG](https://products.aspose.com/slides/cs/cpp/conversion/image-to-jpg/); převod [JPG do obrázku](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-image/); převod [JPG do PNG](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-png/), převod [PNG do JPG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-jpg/); převod [PNG do SVG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-svg/), převod [SVG do PNG](https://products.aspose.com/slides/cs/cpp/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **Vytvoření rámu obrazu s relativním měřítkem**
-
-Úpravou relativního měřítka obrázku můžete vytvořit složitější rám obrazu. 
-
-1. Vytvořte instanci třídy [Presentation class](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte referenci na snímek podle jeho indexu. 
-3. Přidejte obrázek do kolekce obrázků prezentace.
-4. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_p_p_image) přidáním obrázku do [IImagescollection](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_image_collection) přidružené k objektu prezentace, který bude použit k vyplnění tvaru.
-5. Určete relativní šířku a výšku obrázku v rámu obrazu.
-6. Uložte upravenou prezentaci jako soubor PPTX.
-
-Tento C++ kód ukazuje, jak vytvořit rám obrazu s relativním měřítkem:
-
-```c++
-// Cesta k adresáři dokumentů.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Načte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Načte obrázek, který bude přidán do kolekce obrázků prezentace
-// Získá obrázek
-auto image = Images::FromFile(filePath);
-
-// Přidá obrázek do kolekce obrázků prezentace
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Přidá rám obrázku na snímek
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Nastaví relativní měřítko šířky a výšky
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//Zapíše soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Extrahování rastrových obrázků z rámů obrazu**
-
-Můžete extrahovat rastrové obrázky z objektů [PictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_frame) a uložit je ve formátech PNG, JPG a dalších. Níže uvedený příklad kódu ukazuje, jak extrahovat obrázek ze souboru „sample.pptx“ a uložit jej ve formátu PNG.
-
-```c++
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstSlide = presentation->get_Slide(0);
-auto firstShape = firstSlide->get_Shape(0);
-    
-if (ObjectExt::Is<IPictureFrame>(firstShape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
-
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
-}
-
-presentation->Dispose();
-```
-
-## **Extrahování SVG obrázků z rámů obrazu**
-
-Když prezentace obsahuje SVG grafiku umístěnou uvnitř tvarů [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/), Aspose.Slides pro C++ umožňuje získat původní vektorové obrázky s plnou věrností. Procházením kolekce tvarů snímku můžete identifikovat každý [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/), zkontrolovat, zda podkladový [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/) obsahuje SVG obsah, a následně tento obrázek uložit na disk nebo do proudu v jeho nativním SVG formátu.
-
-Následující příklad kódu ukazuje, jak extrahovat SVG obrázek z rámu obrazu:
+Následující příklad přidá JPEG obrázek, vytvoří rámec v původních rozměrech obrázku a použije formátování čáry a rotaci:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
 
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-if (ObjectExt::Is<IPictureFrame>(shape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
-    if (svgImage != nullptr)
-    {
-        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Získání průhlednosti obrázku**
-
-Aspose.Slides umožňuje získat efekt průhlednosti aplikovaný na obrázek. Tento C++ kód demonstruje operaci:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
-    {
-        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
-    }
-}
-```
-
-{{% alert color="primary" %}} 
-Všechny efekty aplikované na obrázky lze najít v [Aspose::Slides::Effects](https://reference.aspose.com/slides/cs/cpp/aspose.slides.effects/). 
-{{% /alert %}}
-
-## **Získání jasu a kontrastu obrázku**
-
-Aspose.Slides umožňuje získat efekt jasu a kontrastu aplikovaný na obrázek. Rozhraní [ILuminance](https://reference.aspose.com/slides/cs/cpp/aspose.slides.effects/iluminance/) představuje tento transformační efekt obrázku.
-
-Tento C++ kód ukazuje, jak získat nastavení jasu a kontrastu z rámu obrazu:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-
-auto shape = slide->get_Shape(0);
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
-
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<ILuminance>(effect))
-    {
-        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
-        auto brightness = luminance->get_Brightness();
-        auto contrast = luminance->get_Contrast();
-
-        Console::WriteLine(System::String(u"Brightness: ") + brightness);
-        Console::WriteLine(System::String(u"Contrast: ") + contrast);
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Formátování rámu obrazu**
-
-Aspose.Slides poskytuje mnoho možností formátování, které lze aplikovat na rám obrazu. Pomocí těchto možností můžete upravit rám obrazu tak, aby splňoval konkrétní požadavky.
-
-1. Vytvořte instanci třídy [Presentation class](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte referenci na snímek podle jeho indexu. 
-3. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_p_p_image) přidáním obrázku do [IImagescollection](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_image_collection) přidružené k objektu prezentace, který bude použit k vyplnění tvaru.
-4. Určete šířku a výšku obrázku.
-5. Vytvořte `PictureFrame` na základě šířky a výšky obrázku pomocí metody [AddPictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) vystavené objektu [IShapes](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_shape_collection) přidruženému k referencovanému snímku.
-6. Přidejte rám obrazu (obsahující obrázek) na snímek.
-7. Nastavte barvu čáry rámu obrazu.
-8. Nastavte šířku čáry rámu obrazu.
-9. Otočte rám obrazu zadáním kladné nebo záporné hodnoty.  
-   * Kladná hodnota otáčí obrázek po směru hodinových ručiček.  
-   * Záporná hodnota otáčí obrázek proti směru hodinových ručiček.
-10. Přidejte rám obrazu (obsahující obrázek) na snímek.
-11. Uložte upravenou prezentaci jako soubor PPTX.
-
-Tento C++ kód demonstruje proces formátování rámu obrazu:
-
-```c++
-// Cesta k adresáři dokumentů.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Načte požadovanou prezentaci
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Přistupuje k prvnímu snímku
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// Načte obrázek, který bude přidán do kolekce obrázků prezentace
-// Získá obrázek
-auto image = Images::FromFile(filePath);
-
-// Přidá obrázek do kolekce obrázků prezentace
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Přidá rám obrázku na snímek
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Nastaví relativní měřítko šířky a výšky
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//Zapíše soubor PPTX na disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert title="Tip" color="primary" %}} 
-Aspose nedávno vyvinulo [bezplatný Collage Maker](https://products.aspose.app/slides/cs/collage). Pokud potřebujete spojit JPG/JPEG nebo PNG obrázky, vytvořit mřížky z fotografií, můžete tento službu využít. 
-{{% /alert %}}
-
-## **Přidání obrázku jako odkazu**
-
-Aby se předešlo velkým velikostem prezentací, můžete obrázky (nebo videa) přidávat pomocí odkazů místo vkládání souborů přímo do prezentace. Tento C++ kód ukazuje, jak přidat obrázek a video do zástupce:
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"input.pptx");
-auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-
-for (auto& autoShape : shapes)
-{
-    if (autoShape->get_Placeholder() == nullptr)
-        continue;
-
-    switch (autoShape->get_Placeholder()->get_Type())
-    {
-        case Aspose::Slides::PlaceholderType::Picture:
-        {
-            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
-            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-
-        case Aspose::Slides::PlaceholderType::Media:
-        {
-            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
-            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-    }
-}
-
-for (auto& shape : shapesToRemove)
-{
-    shapes->Remove(shape);
-}
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Ořezávání obrázků**
-
-Tento C++ kód ukazuje, jak oříznout existující obrázek na snímku: 
-
-``` CPP
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
-    
-auto presentation = System::MakeObject<Presentation>();
-// Vytvoří nový objekt obrázku
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// Přidá rám obrázku na snímek
-auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
-
-// Ořeže obrázek (procentuální hodnoty)
-picFrame->get_PictureFormat()->set_CropLeft(23.6f);
-picFrame->get_PictureFormat()->set_CropRight(21.5f);
-picFrame->get_PictureFormat()->set_CropTop(3.0f);
-picFrame->get_PictureFormat()->set_CropBottom(31.0f);
-
-// Uloží výsledek
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Odstranění oříznutých oblastí obrázku**
-
-Pokud chcete odstranit oříznuté oblasti obrázku obsaženého v rámečku, můžete použít metodu [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Tato metoda vrací oříznutý obrázek nebo původní obrázek, pokud ořez není potřeba.
-
-Tento C++ kód demonstruje operaci: 
-
-```c++
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Získá PictureFrame z prvního snímku
-System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
-
-// Odstraní oříznuté oblasti obrázku v PictureFrame a vrátí oříznutý obrázek
-System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
-
-// Uloží výsledek
-presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-Metoda [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) přidává oříznutý obrázek do kolekce obrázků prezentace. Pokud je obrázek použit pouze v upraveném [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/), může tato konfigurace snížit velikost prezentace. V opačném případě se počet obrázků ve výsledné prezentaci zvýší.  
-
-Metoda při operaci ořezávání konvertuje WMF/EMF metafily na rastrový PNG obrázek. 
-{{% /alert %}}
-
-## **Komprese obrázků**
-
-Obrázek v prezentaci můžete komprimovat pomocí metody [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/compressimage/). Tato metoda komprimuje obrázek snížením jeho velikosti na základě velikosti tvaru a zadaného rozlišení, s možností odstranit oříznuté oblasti.
-
-Přizpůsobuje velikost a rozlišení obrázku podobně jako funkce PowerPointu **Formát obrázku → Komprimovat obrázky → Rozlišení**.
-
-Následující příklady v C++ ukazují, jak komprimovat obrázek v prezentaci zadáním cílového rozlišení a volitelně odstraněním oříznutých oblastí:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Zkomprimuje obrázek na cílové rozlišení 150 DPI (webové rozlišení) a odstraní oříznuté oblasti.
-bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-// Zkontrolujte výsledek komprese.
-if (result)
-{
-    System::Console::WriteLine(u"Image successfully compressed.");
-}
-else
-{
-    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
-}
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pictureFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pictureFrame->get_LineFormat()->set_Width(3.0);
+pictureFrame->set_Rotation(15.0f);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nebo pomocí přímého zadání vlastního DPI:
+Rámeček obrázku řídí zobrazovanou geometrii; změna velikosti rámce nemění původní rozměry pixelů uložené ve vloženém zdroji obrázku. Toto rozlišení je důležité při pozdějším ořezu nebo kompresi obrázku.
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+## **Použití relativní měřítka**
+
+[IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) poskytuje relativní škálování šířky a výšky pro rámec. Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Zkomprimuje obrázek na 150 DPI (webové rozlišení), odstraní oříznuté oblasti.
-pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, image);
+pictureFrame->set_RelativeScaleWidth(1.35f);
+pictureFrame->set_RelativeScaleHeight(0.8f);
+
+presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Metoda konvertuje obrázek na nižší rozlišení na základě velikosti tvaru a zadaného DPI. Oříznuté oblasti lze také odstranit pro optimalizaci velikosti souboru.  
-Pokud je obrázek metafile (WMF/EMF) nebo SVG, komprese se nepoužije. Kvalita JPEG se zachová nebo mírně sníží podle rozlišení, podobně jako PowerPoint zachází s JPEG ve vysokém rozlišení. 
-{{% /alert %}}
+Relativní měřítko mění nastavení měřítka rámce; nepřevzorkovává ani nekomprimuje vložený obrázek.
 
-## **Uzamčení poměru stran**
+## **Vložené a propojené obrázky**
 
-Pokud chcete, aby tvar obsahující obrázek zachoval poměr stran i po změně rozměrů obrázku, můžete použít metodu [set_AspectRatioLocked()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) k nastavení vlastnosti *Lock Aspect Ratio*. 
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí cesty odkazu [ISlidesPicture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidespicture/) místo vložení dat obrázku stejným způsobem.
 
-Tento C++ kód ukazuje, jak uzamknout poměr stran tvaru:
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo není zdroj dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které mají být e‑mailem odesílány, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+### **Přidání propojeného obrázku**
 
-System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
-System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
+Následující příklad vytvoří rámeček obrázku a nasměruje jej na místní soubor obrázku. Zabývá se jen odkazováním na obrázek; odkazování na video je samostatný mediální workflow a není do tohoto příkladu zamícháno.
 
-System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
 
-System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// nastavit tvar tak, aby zachovával poměr stran při změně velikosti
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, nullptr);
+auto linkPath = Path::GetFullPath(u"linked-image.jpg");
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(linkPath);
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Používejte odkazy, když je externí správa souborů úmyslná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+
+## **Extrahování obrázků z rámečků obrázků**
+
+Před extrahováním obrázku z existující prezentace zkontrolujte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené rámečky obrázků nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+
+### **Extrahování rastrového obrázku**
+
+Moderní API obrázku používá přímo [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/). Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr || embeddedImage->get_SvgImage() != nullptr)
+    {
+        continue;
+    }
+
+    auto rasterImage = embeddedImage->get_Image();
+    rasterImage->Save(u"extracted-image.png", ImageFormat::Png);
+    break;
+}
+
+presentation->Dispose();
+```
+
+Ukládání přes [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data zdroje obrázku.
+
+### **Extrahování SVG obrázku**
+
+Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/) poskytuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr)
+    {
+        continue;
+    }
+
+    auto svgImage = embeddedImage->get_SvgImage();
+    if (svgImage == nullptr)
+    {
+        continue;
+    }
+
+    File::WriteAllBytes(u"extracted-image.svg", svgImage->get_SvgData());
+    break;
+}
+
+presentation->Dispose();
+```
+
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nezbytně rendrují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také rendrovací operace, takže exportovaná grafika by neměla být považována za bit‑k‑bitovou kopii původního vloženého SVG; použijte data vloženého [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/) když je požadován samotný vektorový zdroj.
+
+## **Ořez obrázku**
+
+Ořez mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
+
+Následující příklad bezpečně najde rámeček obrázku a použije hodnoty ořezu:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    pictureFrame->get_PictureFormat()->set_CropLeft(23.6f);
+    pictureFrame->get_PictureFormat()->set_CropRight(21.5f);
+    pictureFrame->get_PictureFormat()->set_CropTop(3.0f);
+    pictureFrame->get_PictureFormat()->set_CropBottom(31.0f);
+    presentation->Save(u"cropped-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než reverzibilita, lze ořezané oblasti fyzicky odstranit, jak je popsáno v následující sekci.
+
+## **Odstranění oříznutých dat obrázku**
+
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely nadále k dispozici pro pozdější operaci uncrop.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"cropped-image.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto croppedImage = pictureFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+    if (croppedImage != nullptr)
+    {
+        presentation->Save(u"cropped-data-removed.pptx", SaveFormat::Pptx);
+    }
+}
+
+presentation->Dispose();
+```
+
+Metoda může přidat nový zdroj obrázku do prezentace. Pokud je původní obrázek také používán jinými rámečky, tyto rámečky stále potřebují svůj existující zdroj, takže mazání oříznutých oblastí nutně nesnižuje celkový počet obrázků. Ořez WMF nebo EMF pomocí této metody rasterizuje ořezaný výsledek do PNG.
+
+## **Komprese rastrových obrázků**
+
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/compressimage/) snižuje rozlišení rastrového obrázku vzhledem k velikosti, při které je obrázek zobrazen. Může také v rámci stejné operace odstranit oříznuté oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když nebyla nutná žádná změna.
+
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/picturescompression/), když je standardní cílové rozlišení dostatečné:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto compressed = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+    Console::WriteLine(compressed ? String(u"The image was compressed.") : String(u"No compression was necessary."));
+    presentation->Save(u"compressed-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Místo výčtové hodnoty lze předat vlastní kladnou hodnotu DPI, když je požadován konkrétní cíl.
+
+Kompresi je určena pro rastrové obrázky. SVG a obsah metafile nejsou tímto rastrovým kompresním workflow sníženy. Také si pamatujte, že nižší rozlišení a odstraněné oříznuté regiony nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení podle největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
+
+## **Prohlížení efektů obrázku**
+
+Efekty obrázku jsou uloženy na obrázku použitém rámečkem. Kolekce transformací obrázku může obsahovat efekty, jako je pevná alfa modulace pro průhlednost a luminance pro jas a kontrast. Níže uvedený příklad bezpečně načte oba typy efektů z první rámečku obrázku na snímku:
+
+```cpp
+#include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/Effects/ILuminance.h>
+#include <DOM/Effects/ILuminanceEffectiveData.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+
+    for (auto&& effect : imageTransform)
+    {
+        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
+        {
+            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
+            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
+            Console::WriteLine(String(u"Transparency: ") + transparency);
+        }
+
+        if (ObjectExt::Is<ILuminance>(effect))
+        {
+            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
+            auto luminance = luminanceEffect->GetEffective();
+            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
+            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+Tyto efekty mění, jak je obrázek v rámci vykreslen; nepřepisují původní bajty vloženého obrázku.
+
+## **Uzamčení geometrie rámečku obrázku**
+
+Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframelock/) řídí, které operace úprav jsou pro rámeček obrázku zakázány. Například [uzamčení poměru stran](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) zachovává proporce tvaru při jeho změně velikosti.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
+
+presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Nastavení *Lock Aspect Ratio* zachovává pouze poměr stran tvaru, nikoli obrázek, který obsahuje. 
-{{% /alert %}}
+Zámek se vztahuje na tvar rámečku obrázku. Nevyžaduje, aby byl zdrojový obrázek překreslen nebo trvale změněn na stejný poměr stran.
 
-## **Použití vlastnosti StretchOff**
+## **Úprava hodnot StretchOffset**
 
-Pomocí vlastností [StretchOffsetLeft](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) a [StretchOffsetBottom](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) z rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_picture_fill_format) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.picture_fill_format) můžete určit výplňový obdélník.  
+Když je režim výplně obrázku nastaven na stretch, hodnoty stretch-offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/) definují výplňový obdélník relativně k ohraničujícímu rámečku rámečku obrázku. Kladná procenta vytvářejí odsazení od okraje, zatímco záporná procenta vytvářejí výstup.
 
-Při specifikaci natažení obrázku se zdrojový obdélník škáluje tak, aby zaplnil zadaný výplňový obdélník. Každý okraj výplňového obdélníku je definován procentuálním posunem od odpovídajícího okraje ohraničujícího rámečku tvaru. Kladné procento určuje posun dovnitř, záporné procento posun ven.
+To se liší od ořezu. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch-offsety mění obdélník, do kterého je viditelná výplň obrázku roztahována.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte obdélník `AutoShape`. 
-4. Vytvořte obrázek.
-5. Nastavte typ výplně tvaru.
-6. Nastavte režim výplně obrázkem tvaru.
-7. Přidejte nastavený obrázek k výplni tvaru.
-8. Určete posuny obrázku od odpovídajícího okraje ohraničujícího rámečku tvaru.
-9. Uložte upravenou prezentaci jako soubor PPTX.
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-Tento C++ kód demonstruje proces, ve kterém je použita vlastnost StretchOff:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-auto slide = pres->get_Slide(0);
-auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Nastaví obrázek natažený z každé strany v těle tvaru
-auto pictureFormat = pictureFrame->get_PictureFormat();
-pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
-pictureFormat->set_StretchOffsetLeft(24.0f);
-pictureFormat->set_StretchOffsetRight(24.0f);
-pictureFormat->set_StretchOffsetTop(24.0f);
-pictureFormat->set_StretchOffsetBottom(24.0f);
+auto sourceImage = Images::FromFile(u"photo.png");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, image);
+pictureFrame->get_PictureFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFrame->get_PictureFormat()->set_StretchOffsetLeft(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetRight(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetTop(8.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetBottom(8.0f);
+
+presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Často kladené dotazy**
+Používejte stretch-offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
 
-**Jak zjistím, které formáty obrázků jsou podporovány pro PictureFrame?**
+## **Ukládání, velikost souboru a úvahy o exportu**
 
-Aspose.Slides podporuje jak rastrové obrázky (PNG, JPEG, BMP, GIF atd.), tak vektorové obrázky (například SVG) prostřednictvím objektu obrázku přiřazeného k [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/). Seznam podporovaných formátů obecně překrývá schopnosti enginu pro konverzi snímků a obrázků.
+Hlavní kompromisy jsou snáze říditelné, když jsou úložiště obrázků a formátování rámečků oddělené:
 
-**Jaký dopad má přidání desítek velkých obrázků na velikost a výkon PPTX?**
+- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a vykreslování na serveru, ale velké rastrové obrázky zvyšují velikost PPTX a paměťovou náročnost.
+- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na externích souborech, které musí zůstat dostupné na uložených cestách nebo místech.
+- **Ořez** je zpočátku neškodlivý. Skryté pixely zůstávají vložené, dokud nejsou oříznuté oblasti výslovně smazány nebo odstraněny během komprese.
+- **Kompresi** může podstatně snížit velikost souboru u příliš velkých rastrových obrázků, ale snižuje rozlišení zdroje. Měla by být použita po stanovení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstávat jako SVG, pokud je důležitá zachování vektoru. Vložte SVG přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly opětovně využívat existující zdroj [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/), pokud je to možné, místo aby se stejný soubor opakovaně načítal do workflow prezentace.
 
-Vkládání velkých obrázků zvyšuje velikost souboru a spotřebu paměti; propojení obrázků pomáhá udržet velikost prezentace nízkou, ale vyžaduje, aby externí soubory zůstaly přístupné. Aspose.Slides umožňuje přidávat obrázky jako odkazy k redukci velikosti souboru.
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když se provádí selektivně: loga a diagramy ponechte jako vektorový obsah, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte oříznuté pixely jen tehdy, když další úpravy nejsou vyžadovány, a vyhýbejte se externím odkazům, pokud správa závislostí není součástí návrhu nasazení.
 
-**Jak mohu zamknout objekt obrázku před nechtěným přesouváním/změnou velikosti?**
+## **Často kladené otázky**
 
-Použijte [zámky tvarů](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/get_pictureframelock/) pro [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/) (například zakázání přesunu nebo změny velikosti). Mechanismus zamykání je popsán pro tvary v samostatném [článku o ochraně](/slides/cs/cpp/applying-protection-to-presentation/) a je podporován pro různé typy tvarů, včetně [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/).
+**Jaký je rozdíl mezi rámečkem obrázku a zdrojem obrázku?**
 
-**Zůstane vektorová věrnost SVG zachována při exportu prezentace do PDF/obrázků?**
+[IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/) představuje zdroj obrázku přidružený k prezentaci. [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) je tvar na snímku, který zobrazí obrázek a ukládá geometrické a formátovací údaje na úrovni rámce, jako jsou velikost, rotace, hodnoty ořezu, efekty a zámky.
 
-Aspose.Slides umožňuje extrahovat SVG z [PictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pictureframe/) jako původní vektor. Při [exportu do PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/) nebo [rastrovatých formátů](/slides/cs/cpp/convert-powerpoint-to-png/) může být výsledek rasterizován v závislosti na nastavení exportu; fakt, že originální SVG je uložen jako vektor, je potvrzen chováním extrakce.
+**Mám obrázky vkládat nebo propojovat?**
+
+Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslená bez přístupu k externím zdrojům. Propojujte obrázky jen v případě, že je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
+
+**Snižuje ořez velikost souboru PPTX?**
+
+Ne samostatně. Normální nastavení ořezu skrývá části zdrojového obrázku, ale ponechává podkladové pixely. Použijte [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) nebo kompresi obrázku s odstraněním oříznutých oblastí, když lze tyto pixely trvale odstranit.
+
+**Mohu po kompresi obnovit kvalitu obrázku?**
+
+Ne. Komprese může snížit uložené rastrové rozlišení a odstranění oříznutých oblastí vymaže data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava v plném rozlišení.
+
+**Jak zacházet s SVG obrázky?**
+
+Uchovávejte SVG obsah jako SVG, když záleží na vektorové věrnosti. Vložený [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/) lze extrahovat přímo. Vykreslení snímku do rastrového formátu, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
+
+**Jak se vyhnout nebezpečným přetypováním při čtení existujících snímků?**
+
+Před použitím členů specifických pro rámeček obrázku zkontrolujte typ tvaru. Otestujte tvar pomocí [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) před provedením runtime přetypování a přiřaďte výsledek přetypování do místní proměnné před přístupem k členům specifickým pro rámeček obrázku.

@@ -5,560 +5,461 @@ type: docs
 weight: 10
 url: /ar/java/picture-frame/
 keywords:
-- إطار صورة
+- إطار الصورة
 - إضافة إطار صورة
 - إنشاء إطار صورة
-- إضافة صورة
-- إنشاء صورة
+- صورة مضمّنة
+- صورة مرتبطة
 - استخراج صورة
 - صورة نقطية
-- صورة متجهة
+- صورة SVG
 - قص صورة
-- منطقة مقطوعة
-- خاصية StretchOff
-- تنسيق إطار صورة
-- خصائص إطار صورة
+- حذف المناطق المقصوصة
+- ضغط صورة
+- StretchOffset
+- تنسيق إطار الصورة
 - مقياس نسبي
 - تأثير الصورة
 - نسبة الأبعاد
-- شفافية الصورة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "أضف إطارات صور إلى عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Java. سهل سير عملك وعزز تصاميم الشرائح."
+description: "إنشاء وتنسيق وربط وقص واستخراج وضغط إطارات الصورة في العروض التقديمية باستخدام Aspose.Slides للغة Java."
 ---
-## **المقدمة**
+## **نظرة عامة**
 
-إطار الصورة هو شكل يحتوي على صورة—إنه مثل صورة داخل إطار.
+إطار الصورة هو شكل شريحة يعرض صورة. في Aspose.Slides، مورد الصورة والشكل الذي يعرضه كائنان منفصلان: يمتلك [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) موارد الصور المضمنة عبر [IImageCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iimagecollection/)، بينما يتحكم [IPictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/) في موضع الصورة، حجمها، تنسيق الخط، الدوران، القص، تأثيرات الصورة، وإعدادات الإطار الأخرى.
 
-يمكنك إضافة صورة إلى شريحة عبر إطار صورة. بهذه الطريقة، يمكنك تنسيق الصورة من خلال تنسيق إطار الصورة.
+هذا الفصل مفيد عندما تُعرض نفس الصورة أكثر من مرة. أضف الصورة إلى العرض التقديمي مرة واحدة، احتفظ بـ [IPPImage] المسترجعة، واستخدم مورد الصورة هذا عند إنشاء إطارات الصورة.
 
-{{% alert  title="نصيحة" color="primary" %}} 
+يمكن لإطارات الصورة أن تحتوي على صور نقطية مثل PNG أو JPEG وصور SVG متجهة. ويمكن أيضًا الإشارة إلى صور مرتبطة بدلاً من تخزين بايتات الصورة في العرض التقديمي. يؤثر الاختيار على القابلية للنقل، حجم الملف، الاستخراج، وسلوك التصدير، لذا من المفيد تحديد كيفية تخزين الصورة قبل تطبيق التنسيق أو التحسين.
 
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/ar/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/ar/import/png-to-ppt)—تمكن الأشخاص من إنشاء عروض تقديمية بسرعة من الصور. 
+## **إضافة وتنسيق صورة مضمّنة**
 
-{{% /alert %}} 
-
-## **إنشاء إطار صورة**
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها. 
-3. إنشاء كائن [IPPImage]() عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IImageCollection) المرتبط بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
-4. تحديد عرض الصورة وارتفاعها.
-5. إنشاء كائن [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/PictureFrame) بناءً على عرض وارتفاع الصورة عبر طريقة `AddPictureFrame` التي يوفرها كائن الشكل المرتبط بالشريحة المرجعية.
-6. إضافة إطار صورة (الذي يحتوي على الصورة) إلى الشريحة.
-7. كتابة العرض التقديمي المعدل كملف PPTX.
-
-هذا الكود بلغة Java يوضح لك كيفية إنشاء إطار صورة:
+للصورة المضمّنة، أضف بيانات الصورة إلى العرض التقديمي وأنشئ إطار صورة باستخدام [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). تصبح الصورة جزءًا من حزمة العرض التقديمي، وبالتالي يبقى العرض التقديمي مستقلاً عند نقله إلى جهاز كمبيوتر آخر.
 
 ```java
-// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation();
-try {
-    // يحصل على الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // إنشاء كائن من الفئة Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // يضيف إطار صورة بارتفاع وعرض الصورة المتكافئين
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // حفظ ملف PPTX إلى القرص
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-
-تسمح إطارات الصورة بإنشاء شرائح عرض تقديمي بسرعة بناءً على الصور. عند دمج إطار الصورة مع خيارات الحفظ في Aspose.Slides، يمكنك التحكم في عمليات الإدخال/الإخراج لتحويل الصور من تنسيق إلى آخر. قد ترغب في زيارة هذه الصفحات: تحويل [صورة إلى JPG](https://products.aspose.com/slides/ar/java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/ar/java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/ar/java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/ar/java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/ar/java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/ar/java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-## **إنشاء إطار صورة بمقياس نسبي**
-
-عن طريق تعديل مقياس الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا.
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها. 
-3. إضافة صورة إلى مجموعة صور العرض التقديمي.
-4. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IImageCollection) المرتبط بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
-5. تحديد العرض والارتفاع النسبيين للصورة في إطار الصورة.
-6. كتابة العرض التقديمي المعدل كملف PPTX.
-
-هذا الكود بلغة Java يوضح لك كيفية إنشاء إطار صورة بمقياس نسبي:
-
-```java
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation();
-try {
-    // الحصول على الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // إنشاء كائن من فئة Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // إضافة إطار صورة بارتفاع وعرض يساويان الصورة
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // تعيين مقياس العرض والارتفاع النسبي
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // حفظ ملف PPTX إلى القرص
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **استخراج صور نقطية من إطارات الصورة**
-
-يمكنك استخراج الصور النقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/PictureFrame) وحفظها بصيغ PNG وJPG وغيرها. يوضح مثال الشيفرة أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بصيغة PNG.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **استخراج صور SVG من إطارات الصورة**
-
-عند احتواء عرض تقديمي على رسومات SVG موضوعة داخل أشكال [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/)، يتيح Aspose.Slides for Java استرجاع الصور المتجهة الأصلية بكامل الدقة. من خلال استعراض مجموعة أشكال الشريحة، يمكنك تحديد كل [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/)، والتحقق مما إذا كان [IPPImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ippimage/) الأساسي يحتوي على محتوى SVG، ثم حفظ تلك الصورة إلى القرص أو إلى تدفق بصيغة SVG الأصلية.
-
-الكود التالي يوضح كيفية استخراج صورة SVG من إطار صورة:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **الحصول على شفافية الصورة**
+يتحكم إطار الصورة في الهندسة المعروضة؛ تغيير حجم الإطار لا يغير أبعاد البكسل الأصلية المخزنة في مورد الصورة المضمّن. يصبح هذا التمييز مهمًا عند القص أو ضغط الصورة لاحقًا.
 
-يسمح Aspose.Slides لك بالحصول على تأثير الشفافية المطبق على صورة. يوضح هذا الكود بلغة Java العملية:
+## **استخدام المقياس النسبي**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **الحصول على سطوع وتباين الصورة**
-
-يسمح Aspose.Slides لك بالحصول على تأثير السطوع والتباين المطبق على صورة. تمثل الواجهة [ILuminance](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iluminance/) هذا التأثير التحويلي للصورة.
-
-يظهر هذا الكود بلغة Java كيفية الحصول على إعدادات السطوع والتباين من إطار صورة:
+[IPictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/) يوفّر مقياس العرض والارتفاع النسبي للإطار عبر [setRelativeScaleWidth](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) و[setRelativeScaleHeight](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). القيمة `1.0` تمثل 100٪ من الحجم الأصلي للصورة. المقياس النسبي مفيد عندما يحتاج سير العمل إلى الحفاظ على علاقة بحجم الصورة المصدر بدلاً من حساب الأبعاد النهائية يدويًا.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تنسيق إطار الصورة**
+تغيّر المقياس النسبي إعدادات مقياس الإطار؛ ولا يعيد تشكيل أو ضغط الصورة المضمّنة.
 
-توفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار صورة. باستخدام هذه الخيارات، يمكنك تعديل إطار الصورة ليتوافق مع المتطلبات المحددة.
+## **الصور المضمّنة والمرتبطة**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها. 
-3. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPPImage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IImageCollection) المرتبط بكائن العرض التقديمي الذي سيُستخدم لملء الشكل.
-4. تحديد عرض الصورة وارتفاعها.
-5. إنشاء `PictureFrame` بناءً على عرض وارتفاع الصورة عبر طريقة [AddPictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) التي يوفرها كائن [IShapes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeCollection) المرتبط بالشريحة المرجعية.
-6. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
-7. تعيين لون خط إطار الصورة.
-8. تعيين عرض خط إطار الصورة.
-9. تدوير إطار الصورة بإعطائه قيمة موجبة أو سالبة.
-   * القيمة الموجبة تدور الصورة في اتجاه عقارب الساعة. 
-   * القيمة السالبة تدور الصورة عكس اتجاه عقارب الساعة.
-10. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
-11. كتابة العرض التقديمي المعدل كملف PPTX.
+الصورة المضمّنة تخزن بيانات الصورة داخل العرض التقديمي وبالتالي تُعد الخيار الأكثر أمانًا للقابلية للنقل والعرض المتسق. الصورة المرتبطة تخزن موقعًا خارجيًا عبر طريقة [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) بدلاً من تضمين بيانات الصورة بنفس الطريقة.
 
-هذا الكود بلغة Java يوضح عملية تنسيق إطار الصورة:
+يمكن للصور المرتبطة تقليل كمية البيانات المخزنة في PPTX، لكنها تُدخل اعتمادًا خارجيًا. يجب أن يبقى الملف المرتبط متاحًا للتطبيق الذي يفتح أو يعرض العرض التقديمي. إذا تغير المسار أو تم نقل الملف أو كان المورد غير متاح، قد لا يتم عرض الصورة المرتبطة كما هو متوقع. بالنسبة للعرض التقديمي الذي يجب إرساله بالبريد الإلكتروني أو أرشفته أو عرضه في بيئات معزولة، تكون الصور المضمّنة عادةً أكثر موثوقية.
+
+### **إضافة صورة مرتبطة**
+
+المثال التالي ينشئ إطار صورة ويشير إلى ملف صورة محلي. يتعامل فقط مع ربط الصور؛ ربط الفيديو هو سير عمل وسائط منفصل ولا يتم دمجه في هذا المثال.
 
 ```java
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // الحصول على الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // إنشاء كائن من فئة Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // إضافة إطار صورة بارتفاع وعرض يساويان الصورة
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // تطبيق بعض التنسيقات على PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // حفظ ملف PPTX إلى القرص
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="نصيحة" color="primary" %}}
+استخدم الروابط عندما يكون إدارة الملفات الخارجية مقصودة. لا تستخدمها كبديل للضغط فقط: PPTX صغير مع تبعيات صور مكسورة عادةً ما يكون أقل فائدة من عرض تقديمي أكبر ومستقل.
 
-قامت Aspose مؤخرًا بتطوير [أداة مجانية لإنشاء الكولاج](https://products.aspose.app/slides/ar/collage). إذا احتجت إلى [دمج صور JPG/JPEG](https://products.aspose.app/slides/ar/collage/jpg) أو PNG، أو [إنشاء شبكات من الصور](https://products.aspose.app/slides/ar/collage/photo-grid)، يمكنك استخدام هذه الخدمة. 
+## **استخراج الصور من إطارات الصورة**
 
-{{% /alert %}}
+قبل استخراج صورة من عرض تقديمي موجود، تحقق من أن الشكل فعليًا هو [IPictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/) وأنه يحتوي على صورة مضمّنة. إطارات الصورة المرتبطة قد لا تحتوي على بايتات صورة يمكن استخراجها بنفس الطريقة.
 
-## **إضافة صورة كرابط**
+### **استخراج صورة نقطية**
 
-لتقليل حجم العروض التقديمية الكبيرة، يمكنك إضافة الصور (أو الفيديوهات) عبر روابط بدلاً من تضمين الملفات مباشرةً في العروض. يوضح هذا الكود بلغة Java كيفية إضافة صورة وفيديو إلى عنصر نائب:
+يستخدم API الصورة الحديث [IImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iimage/) مباشرة ولا يتطلب أداة تغليف الصورة Java القديمة. المثال التالي يجد أول صورة نقطية مضمّنة على شريحة ويحفظها كـ PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+الحفظ عبر [IImage.save](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iimage/#save-java.lang.String-int-) يحوّل الصورة المستخرجة إلى التنسيق المطلوب. إذا كنت بحاجة إلى بايتات الترميز المخزنة في العرض التقديمي بدلاً من ملف نقطي محوّل، استخدم بيانات الصورة الثنائية بدلاً من ذلك.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **استخراج صورة SVG**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+بالنسبة لصورة SVG، يوفّر [IPPImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ippimage/) كائنًا من نوع [ISvgImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isvgimage/). يتيح لك ذلك استرجاع بيانات SVG مباشرة بدلاً من تحويل الصورة إلى نقطية أولًا.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+الحفاظ على محتوى SVG كـ SVG يحافظ على المصدر المتجهي داخل العرض التقديمي. عمليات التصدير النقطية مثل PNG أو JPEG تُعيد تمثيل ذلك المحتوى المتجهي إلى بكسلات. تصدير الشريحة إلى PDF أو SVG يُعد أيضًا عملية عرض، لذا لا ينبغي اعتبار الرسومات المصدرة نسخة بايتية مطابقة للـ SVG المضمّن الأصلي؛ استخدم بيانات [ISvgImage.getSvgData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isvgimage/#getSvgData--) عندما تكون الحاجة إلى المورد المتجهي نفسه.
+
+## **قص صورة**
+
+يغيّر القص الجزء المرئي من الصورة داخل الإطار. قيم القص على [IPictureFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/) هي نسب مئوية لأبعاد الصورة المصدر. لا يحذف القص البكسلات المخفية من الصورة المضمّنة في البداية؛ بل يغيّر المنطقة المرئية فقط.
+
+المثال التالي يجد إطار صورة بأمان ويطبّق قيم القص:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **قص الصور**
-
-يظهر هذا الكود بلغة Java كيفية قص صورة موجودة على شريحة:
-
-```java
-Presentation pres = new Presentation();
-// إنشاء كائن صورة جديد
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // إضافة إطار صورة إلى شريحة
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // قص الصورة (قيم النسبة المئوية)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // حفظ النتيجة
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **حذف المناطق المقتصة من إطار الصورة**
-
-إذا رغبت في حذف المناطق المقتصة من صورة موجودة داخل إطار، يمكنك استخدام طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . تُعيد هذه الطريقة الصورة المقتصة أو الصورة الأصلية إذا كان القص غير ضروري.
-
-يُظهر هذا الكود بلغة Java العملية:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // يحصل على إطار الصورة من الشريحة الأولى
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // يحذف المناطق المقصوصة من صورة إطار الصورة ويعيد الصورة المقصوصة
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // يحفظ النتيجة
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="ملاحظة" color="warning" %}} 
-
-تضيف طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) الصورة المقتصة إلى مجموعة صور العرض التقديمي. إذا كانت الصورة تُستخدم فقط في [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/) المعالج، يمكن لهذا الإعداد تقليل حجم العرض التقديمي. وإلا، سيزيد عدد الصور في العرض التقديمي الناتج.
-
-تحول هذه الطريقة ملفات WMF/EMF الميتافيلي إلى صورة PNG نقطية أثناء عملية القص. 
-
-{{% /alert %}}
-
-## **ضغط الصور**
-
-يمكنك ضغط صورة في عرض تقديمي باستخدام طريقة [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . تقلل هذه الطريقة من حجم الصورة بناءً على حجم الشكل والدقة المحددة، مع خيار حذف المناطق المقتصة.
-
-إنها تضبط حجم الصورة ودقتها بطريقة مماثلة لميزة **Picture Format -> Compress Pictures -> Resolution** في PowerPoint.
-
-توضح الأمثلة التالية بلغة Java كيفية ضغط صورة في عرض تقديمي عبر تحديد دقة هدف وإزالة المناطق المقتصة إن رغبت:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // ضغط الصورة بدقة هدف 150 DPI (دقة الويب) وإزالة المناطق المقطوعة.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // فحص نتيجة الضغط.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-أو باستخدام قيمة DPI مخصصة مباشرةً:
+نظرًا لبقاء بيانات الصورة المخفية، يمكن تغيير القص لاحقًا دون فقد البكسلات الأصلية. إذا كان حجم الملف أكثر أهمية من إمكانية العكس، يمكن إزالة المناطق المقصوصة فعليًا كما هو موضح في القسم التالي.
+
+## **إزالة بيانات الصورة المقصوصة**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) يزيل بيانات الصورة خارج مستطيل القص الحالي ويعيد مورد الصورة الناتج. هذا قد يقلل من حجم الملف، لكنه تحسين مدمر: بعد حفظ العرض التقديمي، لا تعود البكسلات المحذوفة متاحة لعملية إلغاء القص لاحقًا.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // ضغط الصورة إلى 150 DPI (دقة الويب)، مع إزالة المناطق المقصوصة.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
+قد تضيف الطريقة مورد صورة جديد إلى العرض التقديمي. إذا كانت الصورة الأصلية مستخدمة أيضًا في إطارات صورة أخرى، فإن تلك الإطارات لا تزال تحتاج إلى موردها الحالي، لذا حذف المناطق المقصوصة لا يقلل بالضرورة من إجمالي عدد الصور. قص محتوى WMF أو EMF بهذه الطريقة يحوّل النتيجة المقصوصة إلى PNG.
 
-تحول الطريقة الصورة إلى دقة أقل بناءً على حجم الشكل و DPI المقدم. يمكن أيضًا حذف المناطق المقتصة لتحسين حجم الملف.  
-إذا كانت الصورة ملف ميتافيلي (WMF/EMF) أو SVG، لن يتم تطبيق الضغط. كما تُحافظ جودة JPEG أو تُقلل قليلًا بناءً على الدقة، كما يحدث في PowerPoint مع JPEG عالي الدقة.
+## **ضغط الصور النقطية**
 
-{{% /alert %}}
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) يقلل من دقة الصورة النقطية نسبة إلى الحجم الذي تُعرض فيه الصورة. يمكنه أيضًا حذف المناطق المقصوصة في نفس العملية. تُعيد الطريقة `true` عندما تم تغيير حجم الصورة أو قصها و`false` عندما لا يكون هناك تغيير ضروري.
 
-## **قفل نسبة الأبعاد**
-
-إذا أردت أن يحتفظ الشكل الذي يحتوي على صورة بنسبة أبعاده حتى بعد تعديل أبعاد الصورة، يمكنك استخدام طريقة [setAspectRatioLocked](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) لتعيين إعداد *قفل نسبة الأبعاد*.
-
-يظهر هذا الكود بلغة Java كيفية قفل نسبة أبعاد الشكل:
+استخدم قيمة [PicturesCompression](https://reference.aspose.com/slides/ar/java/com.aspose.slides/picturescompression/) معرفة مسبقًا عندما تكون دقة هدف قياسية كافية:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // ضبط الشكل للحفاظ على نسبة الأبعاد عند إعادة التحجيم
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكن تمرير قيمة DPI موجبة مخصصة بدلاً من القيمة المعرفة مسبقًا عندما تكون هناك حاجة إلى هدف محدد.
+
+الضغط مخصص للصور النقطية. لا يتم تقليل محتوى SVG أو ملفات الميتافايل بهذه العملية. تذكر أيضًا أن الدقة المنخفضة والمناطق المقصوصة المحذوفة لا يمكن استعادتها من العرض التقديمي المُحسّن. اختر دقة الهدف بناءً على أكبر حجم ستُعرض فيه الصورة فعليًا أو تُصدّر بدلاً من تطبيق أقل DPI عالميًا.
+
+## **فحص تأثيرات الصورة**
+
+تُخزن تأثيرات الصورة على الصورة المستخدمة في الإطار. قد يحتوي مجموعة تحويلات الصورة على تأثيرات مثل تعديل ألفا ثابت للشفافية والسطوع للتباين. يقرأ المثال أدناه بأمان كلا النوعين من التأثيرات من أول إطار صورة على شريحة:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (IImageTransformOperation effect : imageTransform) {
+            if (effect instanceof IAlphaModulateFixed) {
+                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
+                float transparency = 100 - alphaModulateFixed.getAmount();
+                System.out.println("Transparency: " + transparency);
+            }
+
+            if (effect instanceof ILuminance) {
+                ILuminance luminanceEffect = (ILuminance) effect;
+                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
+                System.out.println("Brightness: " + luminance.getBrightness());
+                System.out.println("Contrast: " + luminance.getContrast());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+تُغيّر هذه التأثيرات طريقة عرض الصورة في الإطار؛ ولا تعيد كتابة بايتات الصورة المضمّنة الأصلية.
+
+## **قفل هندسة إطار الصورة**
+
+إعدادات [IPictureFrameLock](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframelock/) تتحكم في أي عمليات تحرير تُعطل لإطار الصورة. على سبيل المثال، [setAspectRatioLocked](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) يحافظ على نسب الشكل أثناء تغيير حجمه.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
+القفل يُطبق على شكل إطار الصورة. ولا يجبر الصورة المصدر على أن تُعاد تشكيلها أو تُغيّر دائمًا لتتناسب مع نفس نسبة العرض إلى الارتفاع.
 
-إعداد *قفل نسبة الأبعاد* يحافظ فقط على نسبة أبعاد الشكل وليس الصورة التي يحتويها.
+## **ضبط قيم StretchOffset**
 
-{{% /alert %}}
+عندما يكون وضع ملء الصورة هو تمدد، تُحدد قيم الـ stretch‑offset على [IPictureFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipicturefillformat/) مستطيل الملء نسبة إلى مربع إطارات الصورة. النسب المئوية الإيجابية تُنشئ فجوة من الحافة، بينما النسب السالبة تُنشئ بروزًا.
 
-## **استخدام خاصية StretchOff**
-
-باستخدام خصائص [StretchOffsetLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) و[StretchOffsetBottom](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPictureFillFormat) والفئة [PictureFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPictureFillFormat)، يمكنك تحديد مستطيل ملئ.
-
-عند تحديد تمديد لصورة، يتم مقاس المستطيل المصدر لتناسب مستطيل الملئ المحدد. كل حافة من مستطيل الملئ تُعرف بنسبة إزاحة من الحافة المقابلة لمستطيل حدّ الشكل. النسبة الموجبة تُشير إلى تقليص، بينما النسبة السالبة تُشير إلى توسعة.
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
-3. إضافة مستطيل `AutoShape`. 
-4. إنشاء صورة.
-5. تعيين نوع ملئ الشكل.
-6. تعيين وضع ملئ صورة الشكل.
-7. إضافة صورة للملء داخل الشكل.
-8. تحديد إزاحات الصورة من الحافة المقابلة لمستطيل حدود الشكل.
-9. كتابة العرض التقديمي المعدل كملف PPTX.
-
-هذا الكود بلغة Java يوضح عملية استخدام خاصية StretchOff:
+هذا مختلف عن القص. قيم القص تحدد أي جزء من الصورة المصدر يُظهر، بينما تُغيّر قيم الـ stretch‑offset المستطيل الذي يُمدد إليه ملء الصورة المرئي.
 
 ```java
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation();
-try {
-    // الحصول على الشريحة الأولى
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // إنشاء كائن من فئة ImageEx
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // إضافة AutoShape على شكل مستطيل
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // تعيين نوع ملء الشكل
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // تعيين وضع ملء الصورة للشكل
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // تعيين الصورة لملء الشكل
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // تحديد إزاحات الصورة من الحافة المقابلة لمربع حدود الشكل
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // حفظ ملف PPTX إلى القرص
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+استخدم الـ stretch‑offset لتحديد موضع الملء. استخدم خصائص القص عندما يكون الهدف إخفاء حواف الصورة المصدر.
+
+## **الاعتبارات المتعلقة بالتخزين وحجم الملف والتصدير**
+
+تكون المقايضات الرئيسية أسهل في الإدارة عندما تُعامل تخزين الصورة وتنسيق إطار الصورة بشكل منفصل:
+
+- **الصور المضمّنة** تجعل العرض التقديمي مستقلاً وتُعد الأكثر موثوقية للمشاركة والعرض على الخادم، لكن الصور النقطية الكبيرة تزيد من حجم PPTX واستهلاك الذاكرة.
+- **الصور المرتبطة** يمكن أن تحافظ على حجم الحزمة أصغر، لكن العرض التقديمي يعتمد على بقاء الملفات الخارجية متاحة في المسارات أو المواقع المخزنة.
+- **القص** غير مدمر في البداية. تبقى البكسلات المخفية مضمّنة حتى يتم حذف المناطق المقصوصة صراحةً أو إزالتها أثناء الضغط.
+- **الضغط** يمكن أن يقلل حجم الملف بشكل كبير للصور النقطية الضخمة، لكنه يضحي بدقة المصدر. يجب تطبيقه بعد معرفة الحجم الفعلي على الشريحة.
+- **صور SVG** يجب أن تبقى كـ SVG عندما تكون المحافظة على المتجهات مهمة. استخرج SVG المضمّن مباشرة عندما تحتاج إلى المورد المتجهي نفسه. تصدير الشرائح إلى تنسيقات نقطية دائمًا ما يحوّل المحتوى المتجهي إلى بكسلات.
+- **الصور المتكررة** ينبغي إعادة استخدام مورد [IPPImage] موجود عندما يكون ذلك ممكنًا بدلاً من تحميل نفس الملف مرارًا إلى سير عمل العرض التقديمي.
+
+للعروض التقديمية الكبيرة، يكون تحسين الصور أكثر فاعلية عندما يُجرى انتقائيًا: احتفظ بالشعارات والرسوم التخطيطية كمحتوى متجهي، اضغط الصور الفوتوغرافية وفقًا لحجم عرضها الفعلي، أزل البكسلات المقصوصة فقط عندما لا تكون تعديل لاحق مطلوبًا، وتجنب الروابط الخارجية إلا إذا كان إدارة التبعيات جزءًا من تصميم النشر.
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني معرفة صيغ الصور المدعومة لإطار الصورة؟**
+**ما الفرق بين إطار الصورة ومورد الصورة؟**
 
-يدعم Aspose.Slides كلًا من الصور النقطية (PNG، JPEG، BMP، GIF، إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المعيّن إلى [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/). عادةً ما تتقاطع قائمة الصيغ المدعومة مع قدرات محرك تحويل الشرائح والصور.
+[IPPImage] يمثل مورد صورة مرتبط بالعرض التقديمي. [IPictureFrame] هو شكل على شريحة يعرض صورة ويخزن هندسة الإطار وتنسيقه مثل الحجم، الدوران، قيم القص، التأثيرات، والقفل.
 
-**كيف سيؤثر إضافة عشرات الصور الكبيرة على حجم PPTX والأداء؟**
+**هل يجب أن أضمّن الصور أم أربطها؟**
 
-يزید تضمین الصور الكبيرة من حجم الملف واستخدام الذاكرة؛ ربط الصور يقلل من حجم العرض التقديمي لكنه يتطلب بقاء الملفات الخارجية متاحة. يوفر Aspose.Slides إمكانية إضافة الصور عبر روابط لتقليل حجم الملف.
+ضمّن الصور عندما يكون العرض التقديمي بحاجة إلى أن يكون قابلًا للنقل أو مؤرشفًا أو مُعرضًا دون الاعتماد على موارد خارجية. اربط الصور فقط عندما يكون الاحتفاظ بملفات الصور خارج PPTX مقصودًا ويمكن الحفاظ على المواقع الخارجية بشكل موثوق.
 
-**كيف يمكنني قفل كائن الصورة لمنع تحريكه/تغييره عن طريق الخطأ؟**
+**هل يقلل القص من حجم ملف PPTX؟**
 
-استخدم [قفل الأشكال](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) لـ [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/) (مثل تعطيل النقل أو تغيير الحجم). تم شرح آلية القفل للأشكال في مقال [حماية العروض التقديمية](/slides/ar/java/applying-protection-to-presentation/) وتُدعم لأنواع مختلفة من الأشكال، بما في ذلك [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/).
+ليس بمفرده. إعدادات القص العادية تُخفِي أجزاء من الصورة المصدر لكن تحتفظ بالبكسلات الأساسية. استخدم [IPictureFillFormat.deletePictureCroppedAreas] أو ضغط الصورة مع حذف المناطق المقصوصة عندما يمكن التخلص من تلك البكسلات نهائيًا.
 
-**هل يتم الحفاظ على دقة المتجهات في SVG عند تصدير العرض التقديمي إلى PDF/صور؟**
+**هل يمكن استعادة جودة الصورة بعد الضغط؟**
 
-يسمح Aspose.Slides باستخراج SVG من [PictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pictureframe/) كمتجه أصلي. عند [التصدير إلى PDF](/slides/ar/java/convert-powerpoint-to-pdf/) أو [الصيغ النقطية](/slides/ar/java/convert-powerpoint-to-png/)، قد يتم تحويل النتيجة إلى نقطية بناءً على إعدادات التصدير؛ يُؤكد سلوك الاستخراج أن SVG الأصلي يبقى متجهًا.
+لا. الضغط قد يقلل من دقة الصورة المخزنة، وإزالة المناطق المقصوصة تحذف بيانات الصورة. احتفظ بالصورة الأصلية خارج العرض التقديمي إذا كان قد يلزم تحريرها بدقة عالية لاحقًا.
+
+**كيف يجب معالجة صور SVG؟**
+
+احتفظ بمحتوى SVG كـ SVG عندما تكون الدقة المتجهية مهمة. يمكن استخراج [ISvgImage] المضمّن مباشرة. تحويل الشريحة إلى تنسيق نقطي مثل PNG أو JPEG سيؤدي إلى تحويل SVG إلى بكسلات.
+
+**كيف يمكنني تجنب التحويلات غير الآمنة عند قراءة الشرائح الموجودة؟**
+
+تحقق من نوع الشكل قبل استخدام الأعضاء الخاصة بإطار الصورة. فحص `instanceof` ضد [IPictureFrame] يُجنب التحويلات غير الصالحة ويسمح للشفرة بالتعامل مع الشرائح التي لا تحتوي على إطارات صورة.

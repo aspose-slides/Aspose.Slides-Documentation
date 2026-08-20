@@ -1,558 +1,468 @@
 ---
-title: Kelola Bingkai Gambar dalam Presentasi di Android
-linktitle: Bingkai Gambar
+title: Kelola Frame Gambar dalam Presentasi di Android
+linktitle: Frame Gambar
 type: docs
 weight: 10
 url: /id/androidjava/picture-frame/
 keywords:
-- bingkai gambar
-- tambahkan bingkai gambar
-- buat bingkai gambar
-- tambahkan gambar
-- buat gambar
+- frame gambar
+- tambahkan frame gambar
+- buat frame gambar
+- gambar tersemat
+- gambar tertaut
 - ekstrak gambar
 - gambar raster
-- gambar vektor
+- gambar SVG
 - potong gambar
-- area terpotong
-- properti StretchOff
-- pemformatan bingkai gambar
-- properti bingkai gambar
+- hapus area yang dipotong
+- kompres gambar
+- StretchOffset
+- pemformatan frame gambar
 - skala relatif
 - efek gambar
 - rasio aspek
-- transparansi gambar
 - PowerPoint
 - OpenDocument
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: Tambahkan bingkai gambar ke presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Android via Java. Permudah alur kerja Anda dan tingkatkan desain slide.
+description: "Buat, format, tautkan, potong, ekstrak, dan kompres frame gambar dalam presentasi dengan Aspose.Slides untuk Android melalui Java."
 ---
-## **Pengantar**
+## **Ikhtisar**
 
-Bingkai gambar adalah bentuk yang berisi gambar—ia seperti gambar dalam sebuah bingkai. 
+Picture frame adalah bentuk slide yang menampilkan gambar. Di Aspose.Slides, sumber daya gambar dan bentuk yang menampilkannya adalah objek terpisah: sebuah [Presentasi](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) memiliki sumber daya gambar tersemat melalui [IImageCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimagecollection/), sementara sebuah [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) mengontrol posisi gambar, ukuran, pemformatan garis, rotasi, pemotongan, efek gambar, dan pengaturan tingkat frame lainnya.
 
-Anda dapat menambahkan gambar ke slide melalui bingkai gambar. Dengan cara ini, Anda dapat memformat gambar dengan memformat bingkai gambar.
+Pemecahan ini berguna ketika gambar yang sama ditampilkan lebih dari satu kali. Tambahkan gambar ke presentasi satu kali, simpan [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) yang dikembalikan, dan gunakan sumber daya gambar tersebut saat membuat picture frame.
 
-{{% alert  title="Tip" color="primary" %}} 
+Picture frame dapat berisi gambar raster seperti PNG atau JPEG serta gambar vektor SVG. Mereka juga dapat merujuk ke gambar tertaut alih-alih menyimpan byte gambar di dalam presentasi. Pilihan ini memengaruhi portabilitas, ukuran berkas, ekstraksi, dan perilaku ekspor, sehingga penting untuk memutuskan cara penyimpanan gambar sebelum menerapkan pemformatan atau optimalisasi.
 
-Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan orang membuat presentasi dengan cepat dari gambar. 
+## **Menambahkan dan Memformat Gambar Tersemat**
 
-{{% /alert %}} 
+Untuk gambar tersemat, tambahkan data gambar ke presentasi dan buat picture frame dengan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Gambar menjadi bagian dari paket presentasi, sehingga presentasi tetap mandiri ketika dipindahkan ke komputer lain.
 
-## **Buat Bingkai Gambar**
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Buat objek [IPPImage]() dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IImageCollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
-4. Tentukan lebar dan tinggi gambar.
-5. Buat sebuah [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/PictureFrame) berdasarkan lebar dan tinggi gambar melalui metode `AddPictureFrame` yang disediakan oleh objek shape yang terkait dengan slide yang direferensikan.
-6. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-7. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Java berikut menunjukkan cara membuat bingkai gambar:
+Contoh berikut menambahkan gambar JPEG, membuat frame dengan dimensi asli gambar, dan menerapkan pemformatan garis serta rotasi:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-try {
-    // Mendapatkan slide pertama
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Membuat instance kelas Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Menambahkan bingkai gambar dengan tinggi dan lebar gambar yang setara
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Menulis file PPTX ke disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-## **Buat Bingkai Gambar dengan Skala Relatif**
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan gambar ke koleksi gambar presentasi.
-4. Buat objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPPImage) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IImageCollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
-5. Tentukan lebar dan tinggi relatif gambar dalam bingkai gambar.
-6. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Java berikut menunjukkan cara membuat bingkai gambar dengan skala relatif:
-
-```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-try {
-    // Mendapatkan slide pertama
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Membuat instance kelas Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // Tambahkan Bingkai Gambar dengan tinggi dan lebar yang setara dengan Gambar
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Mengatur skala relatif lebar dan tinggi
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // Menulis file PPTX ke disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ekstrak Gambar Raster dari Bingkai Gambar**
-
-Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/PictureFrame) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah menunjukkan cara mengekstrak gambar dari dokumen "sample.pptx" dan menyimpannya dalam format PNG.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Ekstrak Gambar SVG dari Bingkai Gambar**
-
-Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/) , Aspose.Slides untuk Android via Java memungkinkan Anda mengambil kembali gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/), memeriksa apakah [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau aliran dalam format SVG aslinya.
-
-Contoh kode berikut menunjukkan cara mengekstrak gambar SVG dari sebuah bingkai gambar:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Dapatkan Transparansi Gambar**
+Picture frame mengontrol geometri yang ditampilkan; mengubah ukuran frame tidak mengubah dimensi piksel asli yang disimpan dalam sumber daya gambar tersemat. Perbedaan ini menjadi penting ketika memotong atau mengompres gambar di kemudian hari.
 
-Aspose.Slides memungkinkan Anda memperoleh efek transparansi yang diterapkan pada gambar. Kode Java berikut menunjukkan operasi tersebut:
+## **Menggunakan Skala Relatif**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Dapatkan Kecerahan dan Kontras Gambar**
-
-Aspose.Slides memungkinkan Anda memperoleh efek kecerahan dan kontras yang diterapkan pada gambar. Antarmuka [ILuminance](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iluminance/) mewakili efek transformasi gambar ini.
-
-Kode Java berikut menunjukkan cara mendapatkan pengaturan kecerahan dan kontras dari sebuah bingkai gambar:
+[IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) menyediakan skala lebar dan tinggi relatif untuk frame melalui [setRelativeScaleWidth](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) dan [setRelativeScaleHeight](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Nilai `1.0` sesuai dengan 100% ukuran gambar asli. Skala relatif berguna ketika alur kerja perlu mempertahankan hubungan dengan ukuran gambar sumber alih-alih menghitung dimensi akhir secara manual.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Pemformatan Bingkai Gambar**
+Skala relatif mengubah pengaturan skala frame; ia tidak melakukan resampling atau kompresi pada gambar tersemat.
 
-Aspose.Slides menyediakan banyak opsi pemformatan yang dapat diterapkan pada bingkai gambar. Dengan menggunakan opsi-opsi tersebut, Anda dapat mengubah bingkai gambar agar sesuai dengan persyaratan tertentu.
+## **Gambar Tersemat dan Tertaut**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Buat objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPPImage) dengan menambahkan gambar ke [IImagescollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IImageCollection) yang terkait dengan objek presentasi yang akan digunakan untuk mengisi bentuk.
-4. Tentukan lebar dan tinggi gambar.
-5. Buat sebuah `PictureFrame` berdasarkan lebar dan tinggi gambar melalui metode [AddPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) yang disediakan oleh objek [IShapes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShapeCollection) yang terkait dengan slide yang direferensikan.
-6. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-7. Atur warna garis bingkai gambar.
-8. Atur lebar garis bingkai gambar.
-9. Putar bingkai gambar dengan memberikan nilai positif atau negatif.
-   * Nilai positif memutar gambar searah jarum jam. 
-   * Nilai negatif memutar gambar berlawanan arah jarum jam.
-10. Tambahkan bingkai gambar (yang berisi gambar) ke slide.
-11. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+Gambar tersemat menyimpan data gambar di dalam presentasi dan oleh karena itu merupakan pilihan paling aman untuk portabilitas dan rendering yang dapat diprediksi. Gambar tertaut menyimpan lokasi eksternal melalui metode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) alih-alih menanamkan data gambar dengan cara yang sama.
 
-Kode Java berikut menunjukkan proses pemformatan bingkai gambar:
+Gambar tertaut dapat mengurangi jumlah data gambar yang disimpan dalam PPTX, tetapi mereka memperkenalkan ketergantungan eksternal. Berkas tertaut harus tetap dapat diakses oleh aplikasi yang membuka atau merender presentasi. Jika jalur berubah, berkas dipindahkan, atau sumber tidak tersedia, gambar tertaut mungkin tidak ditampilkan sebagaimana mestinya. Untuk presentasi yang harus dikirim lewat email, diarsipkan, atau dirender dalam lingkungan terisolasi, gambar tersemat biasanya lebih dapat diandalkan.
+
+### **Menambahkan Gambar Tertaut**
+
+Contoh berikut membuat picture frame dan menunjukannya ke berkas gambar lokal. Contoh ini hanya menangani penautan gambar; penautan video adalah alur kerja media terpisah dan sengaja tidak dicampur dalam contoh ini.
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // Mendapatkan slide pertama
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Membuat instance kelas Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Menambahkan Bingkai Gambar dengan tinggi dan lebar yang setara dengan Gambar
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Menerapkan beberapa pemformatan pada PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // Menulis file PPTX ke disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+Gunakan tautan ketika manajemen berkas eksternal memang disengaja. Jangan menggunakannya sekadar sebagai pengganti kompresi: PPTX kecil dengan ketergantungan gambar yang rusak biasanya kurang berguna dibandingkan presentasi mandiri yang lebih besar.
 
-Aspose baru-baru ini mengembangkan [Collage Maker gratis](https://products.aspose.app/slides/id/collage). Jika Anda pernah perlu [menggabungkan gambar JPG/JPEG](https://products.aspose.app/slides/id/collage/jpg) atau PNG, [membuat grid dari foto](https://products.aspose.app/slides/id/collage/photo-grid), Anda dapat menggunakan layanan ini. 
+## **Mengekstrak Gambar dari Picture Frame**
 
-{{% /alert %}}
+Sebelum mengekstrak gambar dari presentasi yang ada, pastikan bahwa sebuah bentuk memang sebuah [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) dan bahwa ia berisi gambar tersemat. Picture frame tertaut mungkin tidak berisi byte gambar yang dapat diekstrak dengan cara yang sama.
 
-## **Tambahkan Gambar sebagai Tautan**
+### **Mengekstrak Gambar Raster**
 
-Untuk menghindari ukuran presentasi yang besar, Anda dapat menambahkan gambar (atau video) melalui tautan alih-alih menyematkan file secara langsung ke dalam presentasi. Kode Java berikut menunjukkan cara menambahkan gambar dan video ke placeholder:
+API gambar modern menggunakan [IImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/) secara langsung dan tidak memerlukan pembungkus gambar Java lama. Contoh berikut menemukan gambar raster tersemat pertama pada slide dan menyimpannya sebagai PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+Menyimpan lewat [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) mengonversi gambar yang diekstrak ke format output yang diminta. Jika Anda memerlukan byte yang dikodekan yang disimpan dalam presentasi alih-alih berkas raster yang dikonversi, gunakan data biner sumber daya gambar tersebut.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **Mengekstrak Gambar SVG**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+Untuk gambar SVG, [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) menyediakan objek [ISvgImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isvgimage/). Ini memungkinkan Anda mengambil data SVG secara langsung alih-alih merasterkan gambar terlebih dahulu.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Menjaga konten SVG sebagai SVG mempertahankan sumber vektor di dalam presentasi. Ekspor raster seperti PNG atau JPEG memang harus merender konten vektor tersebut menjadi piksel. Ekspor slide ke PDF atau SVG juga merupakan operasi rendering, sehingga grafik yang diekspor tidak boleh dianggap sebagai salinan byte-per-byte dari SVG tersemat asli; gunakan data [ISvgImage.getSvgData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isvgimage/#getSvgData--) ketika sumber vektor asli diperlukan.
+
+## **Memotong Gambar**
+
+Pemotongan mengubah bagian gambar yang terlihat di dalam frame. Nilai pemotongan pada [IPictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/) adalah persentase dari dimensi gambar sumber. Pemotongan tidak menghapus piksel tersembunyi dari gambar tersemat pada awalnya; ia hanya mengubah wilayah yang terlihat.
+
+Contoh berikut menemukan picture frame dengan aman dan menerapkan nilai pemotongan:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Potong Gambar**
-
-Kode Java berikut menunjukkan cara memotong gambar yang ada pada slide:
-
-```java
-Presentation pres = new Presentation();
-// Membuat objek gambar baru
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Menambahkan PictureFrame ke Slide
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // Memotong gambar (nilai persentase)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // Menyimpan hasil
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Hapus Area yang Dipotong dari Gambar**
-
-Jika Anda ingin menghapus area yang dipotong dari gambar yang terdapat dalam bingkai, Anda dapat menggunakan metode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Metode ini mengembalikan gambar yang dipotong atau gambar asli jika pemotongan tidak diperlukan.
-
-Kode Java berikut menunjukkan operasi tersebut:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Mendapatkan PictureFrame dari slide pertama
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Menghapus area terpotong dari gambar PictureFrame dan mengembalikan gambar yang dipotong
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // Menyimpan hasil
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-[deletePictureCroppedAreas()](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) menambahkan gambar yang dipotong ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/) yang diproses, pengaturan ini dapat mengurangi ukuran presentasi. Jika tidak, jumlah gambar dalam presentasi yang dihasilkan akan meningkat.
-
-Metode ini mengonversi berkas metafile WMF/EMF menjadi gambar PNG raster pada operasi pemotongan. 
-
-{{% /alert %}}
-
-## **Kompres Gambar**
-
-Anda dapat mengompres gambar dalam sebuah presentasi menggunakan metode [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) .
-Metode ini mengompres gambar dengan mengurangi ukurannya berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi menghapus area yang dipotong.
-
-Metode ini menyesuaikan ukuran dan resolusi gambar serupa dengan fitur **Picture Format > Compress Pictures > Resolution** di PowerPoint.
-
-Contoh Java berikut menunjukkan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area yang dipotong:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Kompres gambar dengan resolusi target 150 DPI (resolusi Web) dan hapus area yang dipotong.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // Periksa hasil kompresi.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Atau menggunakan nilai DPI khusus secara langsung:
+Karena data gambar tersembunyi masih ada, pemotongan dapat diubah kemudian tanpa kehilangan piksel asli. Jika ukuran berkas lebih penting daripada kemampuan membatalkan, area yang dipotong dapat dihapus secara fisik seperti yang dijelaskan pada bagian berikutnya.
+
+## **Menghapus Data Gambar yang Dipotong**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) menghapus data gambar di luar persegi panjang pemotongan saat ini dan mengembalikan sumber daya gambar yang dihasilkan. Ini dapat mengurangi ukuran berkas, tetapi merupakan optimasi destruktif: setelah presentasi disimpan, piksel yang dihapus tidak lagi tersedia untuk operasi uncrop di masa mendatang.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // Kompres gambar ke 150 DPI (resolusi web), menghapus area yang dipotong.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Metode ini dapat menambahkan sumber daya gambar baru ke presentasi. Jika gambar asli juga digunakan oleh picture frame lain, frame‑frame tersebut masih membutuhkan sumber daya yang ada, sehingga menghapus area yang dipotong tidak selalu mengurangi total jumlah gambar. Memotong konten WMF atau EMF dengan metode ini merasterkan hasil yang dipotong menjadi PNG.
 
-Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Region yang dipotong juga dapat dihapus untuk mengoptimalkan ukuran file.  
-Jika gambar berupa metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit berkurang berdasarkan resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi. 
+## **Mengompres Gambar Raster**
 
-{{% /alert %}}
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) mengurangi resolusi gambar raster relatif terhadap ukuran saat gambar ditampilkan. Ia juga dapat menghapus area yang dipotong dalam operasi yang sama. Metode mengembalikan `true` ketika gambar diubah ukuran atau dipotong dan `false` ketika tidak ada perubahan yang diperlukan.
 
-## **Kunci Rasio Aspek**
-
-Jika Anda ingin sebuah bentuk yang berisi gambar mempertahankan rasio aspeknya bahkan setelah mengubah dimensi gambar, Anda dapat menggunakan metode [setAspectRatioLocked](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) untuk mengatur pengaturan *Lock Aspect Ratio*.
-
-Kode Java berikut menunjukkan cara mengunci rasio aspek sebuah bentuk:
+Gunakan nilai [PicturesCompression](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/picturescompression/) yang telah ditentukan sebelumnya ketika resolusi target standar sudah cukup:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // atur bentuk agar mempertahankan rasio aspek saat mengubah ukuran
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Nilai DPI positif khusus dapat diberikan alih-alih nilai yang telah ditentukan ketika target tertentu diperlukan.
+
+Kompresi ditujukan untuk gambar raster. Konten SVG dan metafile tidak berkurang oleh alur kerja kompresi raster ini. Juga ingat bahwa resolusi yang lebih rendah dan area yang dipotong yang dihapus tidak dapat dipulihkan dari presentasi yang telah dioptimalkan. Pilih resolusi target berdasarkan ukuran terbesar di mana gambar sebenarnya akan dilihat atau diekspor, bukan dengan menerapkan DPI terendah secara global.
+
+## **Memeriksa Efek Gambar**
+
+Efek gambar disimpan pada gambar yang digunakan oleh frame. Koleksi transformasi gambar dapat berisi efek seperti modulasi alfa tetap untuk transparansi dan luminansi untuk kecerahan serta kontras. Contoh di bawah ini membaca kedua jenis efek dengan aman dari picture frame pertama pada slide:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (IImageTransformOperation effect : imageTransform) {
+            if (effect instanceof IAlphaModulateFixed) {
+                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
+                float transparency = 100 - alphaModulateFixed.getAmount();
+                System.out.println("Transparency: " + transparency);
+            }
+
+            if (effect instanceof ILuminance) {
+                ILuminance luminanceEffect = (ILuminance) effect;
+                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
+                System.out.println("Brightness: " + luminance.getBrightness());
+                System.out.println("Contrast: " + luminance.getContrast());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Efek-efek ini mengubah cara gambar dirender di dalam frame; mereka tidak menulis ulang byte gambar tersemat asli.
+
+## **Mengunci Geometri Picture Frame**
+
+Pengaturan [IPictureFrameLock](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframelock/) mengontrol operasi penyuntingan mana yang dinonaktifkan untuk picture frame. Misalnya, [setAspectRatioLocked](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) mempertahankan proporsi bentuk saat diubah ukuran.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Kunci ini diterapkan pada bentuk picture frame. Ia tidak memaksa gambar sumber untuk di‑resample atau secara permanen diubah menjadi rasio aspek yang sama.
 
-Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek bentuk dan bukan gambar yang dikandungnya. 
+## **Menyesuaikan Nilai StretchOffset**
 
-{{% /alert %}}
+Ketika mode isian gambar adalah stretch, nilai stretch‑offset pada [IPictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/) menentukan persegi panjang isian relatif terhadap kotak pembatas picture frame. Persentase positif membuat inset dari tepi, sementara persentase negatif membuat outset.
 
-## **Gunakan Properti StretchOff**
-
-Dengan menggunakan properti [StretchOffsetLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) dan [StretchOffsetBottom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPictureFillFormat) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPictureFillFormat), Anda dapat menentukan sebuah persegi panjang pengisian.
-
-Ketika perataan (stretching) ditentukan untuk sebuah gambar, persegi panjang sumber diskalakan untuk menyesuaikan persegi panjang pengisian yang ditentukan. Setiap tepi persegi panjang pengisian didefinisikan oleh offset persentase dari tepi yang sesuai pada kotak pembatas bentuk. Persentase positif menunjukkan inset sementara persentase negatif menunjukkan outset.
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan persegi panjang `AutoShape`. 
-4. Buat gambar.
-5. Atur tipe isi bentuk.
-6. Atur mode isi gambar bentuk.
-7. Tambahkan gambar yang ditetapkan untuk mengisi bentuk.
-8. Tentukan offset gambar dari tepi yang sesuai pada kotak pembatas bentuk
-9. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Java berikut menunjukkan proses di mana properti StretchOff digunakan:
+Ini berbeda dari pemotongan. Nilai pemotongan memilih bagian gambar sumber yang terlihat; stretch offset mengubah persegi panjang tempat isian gambar yang terlihat diregangkan.
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-try {
-    // Mendapatkan slide pertama
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Membuat instance kelas ImageEx
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // Menambahkan AutoShape dengan tipe Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // Mengatur tipe isian bentuk
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // Mengatur mode isian gambar bentuk
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // Mengatur gambar untuk mengisi bentuk
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // Menentukan offset gambar dari tepi yang sesuai pada kotak pembatas bentuk
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // Menulis file PPTX ke disk
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Gunakan stretch offset untuk penempatan isian. Gunakan properti pemotongan ketika tujuan Anda adalah menyembunyikan tepi gambar sumber.
 
-**Bagaimana saya dapat mengetahui format gambar apa yang didukung untuk PictureFrame?**
+## **Penyimpanan, Ukuran Berkas, dan Pertimbangan Ekspor**
 
-Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya SVG) melalui objek gambar yang ditetapkan ke [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
+Pertukaran utama lebih mudah dikelola ketika penyimpanan gambar dan pemformatan picture frame diperlakukan secara terpisah:
 
-**Bagaimana penambahan puluhan gambar besar akan memengaruhi ukuran dan kinerja PPTX?**
+- **Gambar tersemat** membuat presentasi mandiri dan paling dapat diandalkan untuk berbagi serta rendering sisi server, tetapi gambar raster besar meningkatkan ukuran PPTX dan penggunaan memori.
+- **Gambar tertaut** dapat membuat paket lebih kecil, tetapi presentasi bergantung pada berkas eksternal yang tetap tersedia di jalur atau lokasi yang disimpan.
+- **Pemotongan** pada awalnya tidak destruktif. Piksel tersembunyi tetap tersemat hingga area yang dipotong secara eksplisit dihapus atau dihilangkan selama kompresi.
+- **Kompresi** dapat secara signifikan mengurangi ukuran berkas untuk gambar raster yang berukuran berlebih, tetapi mengorbankan resolusi sumber. Sebaiknya diterapkan setelah ukuran pada slide yang diinginkan diketahui.
+- **Gambar SVG** sebaiknya tetap sebagai SVG ketika preservasi vektor penting. Ekstrak SVG tersemat secara langsung ketika Anda memerlukan sumber vektor itu sendiri. Ekspor slide raster selalu mengonversi slide yang dirender menjadi piksel.
+- **Gambar berulang** sebaiknya menggunakan kembali sumber daya [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) yang ada bila memungkinkan alih-alih memuat berkas yang sama berulang kali ke dalam alur kerja presentasi.
 
-Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil namun memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran file.
+Untuk presentasi besar, optimisasi gambar biasanya paling efektif bila dilakukan secara selektif: pertahankan logo dan diagram sebagai konten vektor, kompres foto sesuai ukuran tampilan sebenarnya, hapus piksel yang dipotong hanya ketika penyuntingan selanjutnya tidak diperlukan, dan hindari tautan eksternal kecuali manajemen ketergantungan menjadi bagian dari desain penyebaran.
 
-**Bagaimana saya dapat mengunci objek gambar agar tidak secara tidak sengaja dipindahkan/diresize?**
+## **Tanya Jawab**
 
-Gunakan [shape locks](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/) (misalnya, menonaktifkan pemindahan atau pengubahan ukuran). Mekanisme penguncian ini didukung untuk berbagai jenis bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/).
+**Apa perbedaan antara picture frame dan sumber daya gambar?**
 
-**Apakah fidelitas vektor SVG dipertahankan saat mengekspor presentasi ke PDF/gambar?**
+[IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) mewakili sumber daya gambar yang terkait dengan presentasi. [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) adalah bentuk pada slide yang menampilkan gambar dan menyimpan geometri serta pemformatan tingkat frame seperti ukuran, rotasi, nilai pemotongan, efek, dan kunci.
 
-Aspose.Slides memungkinkan mengekstrak SVG dari [PictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/androidjava/convert-powerpoint-to-png/), hasilnya mungkin rasterisasi tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.
+**Haruskah saya menanamkan atau menautkan gambar?**
+
+Tanamkan gambar ketika presentasi harus portabel, diarsipkan, atau dirender tanpa akses ke sumber daya eksternal. Tautkan gambar hanya ketika menyimpan berkas gambar di luar PPTX memang disengaja dan lokasi eksternal dapat dipertahankan dengan andal.
+
+**Apakah pemotongan mengurangi ukuran berkas PPTX?**
+
+Tidak secara langsung. Pengaturan pemotongan standar menyembunyikan bagian gambar sumber tetapi tetap menyimpan piksel di bawahnya. Gunakan [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) atau kompresi gambar dengan penghapusan area yang dipotong ketika piksel tersebut dapat dibuang secara permanen.
+
+**Bisakah saya mengembalikan kualitas gambar setelah kompresi?**
+
+Tidak. Kompresi dapat mengurangi resolusi raster yang disimpan, dan penghapusan area yang dipotong membuang data gambar. Simpan gambar sumber asli di luar presentasi jika penyuntingan beresolusi tinggi di masa mendatang mungkin diperlukan.
+
+**Bagaimana cara menangani gambar SVG?**
+
+Pertahankan konten SVG sebagai SVG ketika kepresisian vektor penting. [ISvgImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isvgimage/) yang tersemat dapat diekstrak secara langsung. Merender slide ke format raster seperti PNG atau JPEG mengubah SVG menjadi piksel sebagai bagian dari gambar slide.
+
+**Bagaimana cara menghindari cast yang tidak aman saat membaca slide yang ada?**
+
+Periksa tipe bentuk sebelum menggunakan anggota khusus picture frame. Pemeriksaan `instanceof` terhadap [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) menghindari cast yang tidak valid dan memungkinkan kode menangani slide yang tidak berisi picture frame.
