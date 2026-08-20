@@ -8,155 +8,288 @@ keywords:
 - قاب تصویر
 - افزودن قاب تصویر
 - ایجاد قاب تصویر
-- افزودن تصویر
-- ایجاد تصویر
+- تصویر تعبیه‌شده
+- تصویر لینک‌دار
 - استخراج تصویر
 - تصویر رستر
-- تصویر برداری
-- برش تصویر
-- ناحیه برش‌خورده
-- ویژگی StretchOff
+- تصویر SVG
+- قلم‌برداری تصویر
+- حذف نواحی قلم‌برداری‌شده
+- فشرده‌سازی تصویر
+- StretchOffset
 - قالب‌بندی قاب تصویر
-- ویژگی‌های قاب تصویر
 - مقیاس نسبی
-- اثر تصویر
-- نسبت ابعاد
-- شفافیت تصویر
+- افکت تصویر
+- نسبت عرض به ارتفاع
 - PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "قاب‌های تصویر را به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای PHP از طریق Java اضافه کنید. جریان کاری خود را به‌صورت ساده کنید و طراحی اسلایدها را بهبود ببخشید."
+description: "قاب‌های تصویر را در ارائه‌ها ایجاد، قالب‌بندی، لینک‌گذاری، قلم‌برداری، استخراج و فشرده‌سازی کنید با Aspose.Slides برای PHP از طریق Java."
 ---
-## **مقدمه**
+## **مرور کلی**
 
-قاب تصویر یک شکل است که یک تصویر را در بر می‌گیرد—مانند یک تصویر درون قاب. 
+قاب تصویر یک شکل اسلاید است که تصویری را نمایش می‌دهد. در Aspose.Slides، منبع تصویر و شکلی که آن را نمایش می‌دهد اشیای جداگانه‌ای هستند: یک [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) منابع تصویر تعبیه‌شده را از طریق [ImageCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/imagecollection/) خود در اختیار دارد، در حالی که یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) موقعیت، اندازه، فرمت خط، چرخش، برش، افکت‌های تصویر و سایر تنظیمات سطح‑قاب را کنترل می‌کند.
 
-می‌توانید یک تصویر را از طریق یک قاب تصویر به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی قاب تصویر قالب‌بندی کنید.
+این جداسازی وقتی مفید است که همان تصویر بیش از یک بار نشان داده شود. تصویر را یک بار به ارائه اضافه کنید، شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) بازگردانده‌شده را نگه دارید و هنگام ایجاد قاب‌های تصویر از آن منبع تصویر استفاده کنید.
 
-{{% alert  title="Tip" color="primary" %}} 
+قاب‌های تصویر می‌توانند تصاویر رستر مانند PNG یا JPEG و تصاویر برداری SVG را شامل شوند. همچنین می‌توانند به تصاویر لینک‌دار اشاره کنند به‌جای این‌که بایت‌های تصویر را در ارائه ذخیره کنند. انتخاب بین این دو بر قابلیت حمل، حجم فایل، استخراج و رفتار صادرات تأثیر می‌گذارد، بنابراین قبل از اعمال فرمت‌بندی یا بهینه‌سازی تصمیم‌گیری در مورد نحوه ذخیره‌سازی تصویر مفید است.
 
-Aspose مبدل‌های رایگانی—[JPEG to PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG to PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—ارائه می‌دهد که به کاربران امکان می‌دهد به سرعت از تصاویر ارائه‌ها (پرزنتیشن) را ایجاد کنند. 
+## **افزودن و فرمت‌بندی یک تصویر تعبیه‌شده**
 
-{{% /alert %}} 
+برای یک تصویر تعبیه‌شده، داده‌های تصویر را به ارائه اضافه کنید و با استفاده از [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/addpictureframe/) یک قاب تصویر بسازید. تصویر جزو بسته ارائه می‌شود، به‌طوری که ارائه هنگام جابجایی به رایانه دیگر خود‑کافی می‌ماند.
 
-## **ایجاد یک قاب تصویر**
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به [ImageCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/imagecollection/) مربوط به شیء ارائه که برای پر کردن شکل استفاده می‌شود، ایجاد کنید.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
-5. یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) بر اساس عرض و ارتفاع تصویر از طریق متد `addPictureFrame` که توسط شیء shape مربوط به اسلاید مرجع ارائه می‌شود، ایجاد کنید.  
-6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. ارائه‌ی تغییر یافته را به عنوان فایل PPTX بنویسید.  
-
-این کد PHP نشان می‌دهد چگونه یک قاب تصویر ایجاد کنید:
+مثال زیر یک تصویر JPEG اضافه می‌کند، قاب را با ابعاد اصلی تصویر می‌سازد و فرمت خط و چرخش را اعمال می‌کند:
 
 ```php
-  # یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است
-  $pres = new Presentation();
-  try {
-    # دریافت اولین اسلاید
-    $sld = $pres->getSlides()->get_Item(0);
-    # یک نمونه از کلاس Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # یک قاب تصویر با ارتفاع و عرض معادل تصویر اضافه می‌کند
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # نوشتن فایل PPTX به دیسک
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-قاب‌های تصویر به شما امکان می‌دهند به سرعت اسلایدهای ارائه مبتنی بر تصاویر ایجاد کنید. وقتی قاب تصویر را با گزینه‌های ذخیره Aspose.Slides ترکیب می‌کنید، می‌توانید عملیات ورودی/خروجی را برای تبدیل تصاویر از یک فرمت به فرمت دیگر کنترل کنید. ممکن است این صفحات برای شما مفید باشند: تبدیل [image to JPG](https://products.aspose.com/slides/fa/php-java/conversion/image-to-jpg/); تبدیل [JPG to image](https://products.aspose.com/slides/fa/php-java/conversion/jpg-to-image/); تبدیل [JPG to PNG](https://products.aspose.com/slides/fa/php-java/conversion/jpg-to-png/), تبدیل [PNG to JPG](https://products.aspose.com/slides/fa/php-java/conversion/png-to-jpg/); تبدیل [PNG to SVG](https://products.aspose.com/slides/fa/php-java/conversion/png-to-svg/), تبدیل [SVG to PNG](https://products.aspose.com/slides/fa/php-java/conversion/svg-to-png/). 
-
-{{% /alert %}}
-
-## **ایجاد یک قاب تصویر با مقیاس نسبی**
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک تصویر را به مجموعه تصاویر ارائه اضافه کنید.  
-4. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به [ImageCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/imagecollection/) مربوط به شیء ارائه که برای پر کردن شکل استفاده می‌شود، ایجاد کنید.  
-5. عرض و ارتفاع نسبی تصویر را در قاب تصویر مشخص کنید.  
-6. ارائه‌ی تغییر یافته را به عنوان فایل PPTX بنویسید.  
-
-این کد PHP نشان می‌دهد چگونه یک قاب تصویر با مقیاس نسبی ایجاد کنید:
-
-```php
-  # یک نمونه از کلاس Presentation که نمایانگر PPTX است
-  $pres = new Presentation();
-  try {
-    # دریافت اولین اسلاید
-    $sld = $pres->getSlides()->get_Item(0);
-    # یک نمونه از کلاس Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # اضافه کردن Picture Frame با ارتفاع و عرض معادل تصویر
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # تنظیم مقیاس نسبی عرض و ارتفاع
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # نوشتن فایل PPTX به دیسک
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **استخراج تصاویر رستر از قاب‌های تصویر**
-
-می‌توانید تصاویر رستر را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) استخراج کرده و در فرمت‌های PNG، JPG و دیگر فرمت‌ها ذخیره کنید. مثال کد زیر نشان می‌دهد چگونه یک تصویر را از سند «sample.pptx» استخراج کرده و در فرمت PNG ذخیره کنید.
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **استخراج تصاویر SVG از قاب‌های تصویر**
+قاب تصویر هندسه نمایش داده‌شده را کنترل می‌کند؛ تغییر اندازه قاب باعث تغییر ابعاد پیکسل اصلی ذخیره‌شده در منبع تصویر تعبیه‌شده نمی‌شود. این تمایز هنگام برش یا فشرده‌سازی تصویر در مراحل بعدی مهم می‌شود.
 
-هنگامی که یک ارائه شامل گرافیک‌های SVG باشد که درون اشکال [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) قرار گرفته‌اند، Aspose.Slides برای PHP via Java به شما اجازه می‌دهد تا تصاویر برداری اصلی را با تمام صحت دریافت کنید. با پیمایش مجموعه اشکال اسلاید می‌توانید هر [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) را شناسایی کرده، بررسی کنید آیا [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) زیرین محتوای SVG دارد یا نه، و سپس آن تصویر را به صورت فایل SVG اصلی ذخیره کنید.
+## **استفاده از مقیاس نسبی**
 
-مثال کد زیر نشان می‌دهد چگونه یک تصویر SVG را از یک قاب تصویر استخراج کنید:
+[PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) مقیاس عرض و ارتفاع نسبی قاب را از طریق [setRelativeScaleWidth](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/setrelativescalewidth/) و [setRelativeScaleHeight](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/setrelativescaleheight/) فراهم می‌کند. مقدار `1.0` متناظر با 100٪ اندازه اصلی تصویر است. مقیاس نسبی زمانی مفید است که گردش کاری نیاز داشته باشد نسبت به اندازه منبع تصویر حفظ شود نه اینکه ابعاد نهایی به‌صورت دستی محاسبه شود.
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+مقیاس نسبی تنظیمات مقیاس قاب را تغییر می‌دهد؛ تصویر تعبیه‌شده را دوباره‌نمونه‌گیری یا فشرده نمی‌کند.
+
+## **تصاویر تعبیه‌شده و لینک‌دار**
+
+یک تصویر تعبیه‌شده داده‌های تصویر را داخل ارائه ذخیره می‌کند و بنابراین امن‌ترین گزینه برای قابلیت حمل و رندر پیش‌بینی‌پذیر است. یک تصویر لینک‌دار مسیر خارجی را از طریق متد [Picture::setLinkPathLong](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picture/setlinkpathlong/) ذخیره می‌کند به‌جای این‌که داده‌های تصویر را به همان شکل تعبیه کند.
+
+تصاویر لینک‌دار می‌توانند میزان داده‌های تصویری ذخیره‌شده در PPTX را کاهش دهند، اما یک وابستگی خارجی ایجاد می‌کنند. فایل لینک‌شده باید برای برنامه‌ای که ارائه را باز یا رندر می‌کند در دسترس بماند. اگر مسیر تغییر کند، فایل منتقل شود یا منبع در دسترس نباشد، تصویر لینک‌شده ممکن است همان‌طور که انتظار می‌رود نمایش داده نشود. برای ارائه‌هایی که باید ایمیل شوند، بایگانی شوند یا در محیط‌های ایزوله رندر شوند، تصاویر تعبیه‌شده معمولاً قابل اعتمادترند.
+
+### **افزودن یک تصویر لینک‌دار**
+
+مثال زیر یک قاب تصویر ایجاد می‌کند و آن را به یک فایل تصویر محلی ارجاع می‌دهد. این مثال فقط به لینک‌گذاری تصویر می‌پردازد؛ لینک‌گذاری ویدئو یک گردش کاری رسانه‌ای جداگانه است و عمداً در این مثال ترکیب نشده است.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+از لینک‌ها زمانی استفاده کنید که مدیریت فایل‌های خارجی هدفمند باشد. فقط برای جایگزینی فشرده‌سازی از آن‌ها استفاده نکنید: یک PPTX کوچک با وابستگی‌های تصویر شکسته معمولاً کمتر مفید است نسبت به یک ارائه بزرگ خود‑کافی.
+
+## **استخراج تصاویر از قاب‌های تصویر**
+
+قبل از استخراج تصویر از یک ارائه موجود، بررسی کنید که شکل واقعاً یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) است و حاوی تصویر تعبیه‌شده می‌باشد. قاب‌های تصویر لینک‌دار ممکن است بایت‌های تصویری نداشته باشند که بتوان به همان روش استخراج کرد.
+
+### **استخراج یک تصویر رستر**
+
+API مدرن تصویر از [IImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/iimage/) به‌صورت مستقیم استفاده می‌کند. مثال زیر اولین تصویر رستر تعبیه‌شده روی یک اسلاید را پیدا می‌کند و به‌صورت PNG ذخیره می‌نماید:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+ذخیره‌سازی از طریق [IImage::save](https://reference.aspose.com/slides/fa/php-java/aspose.slides/iimage/#save) تصویر استخراج‌شده را به فرمت خروجی موردنظر تبدیل می‌کند. اگر به بایت‌های کدگذاری‌شده‌ای که در ارائه ذخیره شده‌اند نیاز دارید نه به یک فایل رستر تبدیل‌شده، به جای آن از داده‌های باینری منبع تصویر استفاده کنید.
+
+### **استخراج یک تصویر SVG**
+
+برای یک تصویر SVG، [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) شیء [SvgImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgimage/) را در اختیار می‌گذارد. این به شما اجازه می‌دهد داده‌های SVG را مستقیماً بازیابی کنید به‌جای اینکه ابتدا تصویر را رستر کنید.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+نگه‌داشتن محتوای SVG به‌صورت SVG، منبع برداری را داخل ارائه حفظ می‌کند. صادرات رستری مانند PNG یا JPEG به‌ضرورت آن محتوا را به پیکسل تبدیل می‌کند. صادرات اسلاید به PDF یا SVG نیز یک عملیات رندرینگ است، بنابراین گرافیک‌های خروجی نباید به‌عنوان نسخه بایت‑به‑بایت SVG تعبیه‌شده اصلی در نظر گرفته شوند؛ وقتی منبع برداری اصلی موردنیاز است از داده‌ی [SvgImage::getSvgData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgimage/getsvgdata/) استفاده کنید.
+
+## **قلم‌برداری تصویر**
+
+قلم‌برداری بخشی از تصویر را که داخل قاب قابل مشاهده است تغییر می‌دهد. مقادیر قلم‌برداری در [PictureFillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/) به‌صورت درصدی از ابعاد تصویر منبع هستند. قلم‌برداری در ابتدا پیکسل‌های مخفی را از تصویر تعبیه‌شده حذف نمی‌کند؛ فقط ناحیه قابل مشاهده را تغییر می‌دهد.
+
+مثال زیر یک قاب تصویر را به‌صورت ایمن پیدا می‌کند و مقادیر قلم‌برداری را اعمال می‌نماید:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+از آنجا که داده‌های تصویر مخفی هنوز موجود‌اند، می‌توان قلم‌برداری را بعداً بدون از دست رفتن پیکسل‌های اصلی تغییر داد. اگر حجم فایل مهم‌تر از قابلیت بازگشت باشد، می‌توان نواحی قلم‌برداری را همان‌طور که در بخش بعدی شرح داده شد، به‌صورت فیزیکی حذف کرد.
+
+## **حذف داده‌های تصویر قلم‌برداری‌شده**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) داده‌های تصویری خارج از مستطیل قلم‌برداری فعلی را حذف می‌کند و منبع تصویر حاصل را برمی‌گرداند. این می‌تواند حجم فایل را کاهش دهد، اما یک بهینه‌سازی مخرب است: پس از ذخیره‌سازی ارائه، پیکسل‌های حذف‌شده دیگر برای یک عملیات «غیرقلم‌برداری» در دسترس نیستند.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -164,372 +297,204 @@ try {
 }
 ```
 
-## **دریافت شفافیت یک تصویر**
+این متد ممکن است منبع تصویر جدیدی به ارائه اضافه کند. اگر تصویر اصلی توسط قاب‌های تصویر دیگری نیز استفاده شود، آن قاب‌ها هنوز به منبع موجود خود نیاز دارند، بنابراین حذف نواحی قلم‌برداری لزوماً تعداد کل تصاویر را کاهش نمی‌دهد. قلم‌برداری محتویات WMF یا EMF با این متد نتیجه را به PNG رستر می‌کند.
 
-Aspose.Slides به شما اجازه می‌دهد تا اثر شفافیتی که بر روی یک تصویر اعمال شده است را دریافت کنید. این کد PHP عملیات را نشان می‌دهد:
+## **فشرده‌سازی تصاویر رستر**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) وضوح تصویر رستر را نسبت به اندازه‌ای که تصویر نمایش داده می‌شود کاهش می‌دهد. همچنین می‌تواند نواحی قلم‌برداری را در همان عملیات حذف کند. این متد زمانی که تصویر تغییر اندازه یا قلم‌برداری شده باشد `true` و در غیر این صورت `false` برمی‌گرداند.
 
-## **دریافت روشنایی و کنتراست یک تصویر**
-
-Aspose.Slides به شما اجازه می‌دهد تا اثر روشنایی و کنتراست که بر روی یک تصویر اعمال شده است را دریافت کنید. کلاس [Luminance](https://reference.aspose.com/slides/fa/php-java/aspose.slides/luminance/) این اثر تبدیل تصویر را نشان می‌دهد.
-
-این کد PHP نشان می‌دهد چگونه تنظیمات روشنایی و کنتراست را از یک قاب تصویر دریافت کنید:
+زمانی که یک رزولوشن هدف استاندارد کافی است، از مقدار پیش‌تعریف‌شده [PicturesCompression](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturescompression/) استفاده کنید:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **قالب‌بندی قاب تصویر**
-
-Aspose.Slides گزینه‌های قالب‌بندی متعددی را برای اعمال بر روی یک قاب تصویر فراهم می‌کند. با استفاده از این گزینه‌ها می‌توانید قاب تصویر را طوری تغییر دهید که با نیازهای خاص سازگار باشد.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به [ImageCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/imagecollection/) مربوط به شیء ارائه که برای پر کردن شکل استفاده می‌شود، ایجاد کنید.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
-5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [addPictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/addpictureframe/) که توسط شیء [ShapeCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/) مربوط به اسلاید مرجع ارائه می‌شود، ایجاد کنید.  
-6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. رنگ خط قاب تصویر را تنظیم کنید.  
-8. عرض خط قاب تصویر را تنظیم کنید.  
-9. قاب تصویر را با مقدار مثبت یا منفی چرخانده کنید.  
-   * مقدار مثبت تصویر را در جهت ساعتگرد می‌چرخاند.  
-   * مقدار منفی تصویر را در جهت پادساعتگرد می‌چرخاند.  
-10. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-11. ارائه‌ی تغییر یافته را به عنوان فایل PPTX بنویسید.  
-
-این کد PHP فرآیند قالب‌بندی قاب تصویر را نشان می‌دهد:
-
-```php
-  # یک نمونه از کلاس Presentation که نمایانگر PPTX است
-  $pres = new Presentation();
-  try {
-    # دریافت اولین اسلاید
-    $sld = $pres->getSlides()->get_Item(0);
-    # یک نمونه از کلاس Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # یک قاب تصویر با ارتفاع و عرض معادل تصویر اضافه می‌کند
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # اعمال برخی قالب‌بندی‌ها به PictureFrameEx
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # نوشتن فایل PPTX به دیسک
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose اخیراً یک [Collage Maker رایگان](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر نیاز دارید [JPG/JPEG را ادغام کنید](https://products.aspose.app/slides/fa/collage/jpg) یا تصاویر PNG، [شبکه‌ای از عکس‌ها بسازید](https://products.aspose.app/slides/fa/collage/photo-grid)، می‌توانید از این سرویس استفاده کنید. 
-
-{{% /alert %}}
-
-## **اضافه کردن تصویر به عنوان لینک**
-
-برای جلوگیری از بزرگ شدن اندازه ارائه، می‌توانید تصاویر (یا ویدیوها) را از طریق لینک اضافه کنید به جای اینکه فایل‌ها را مستقیماً در ارائه جاسازی کنید. این کد PHP نشان می‌دهد چگونه یک تصویر و ویدیو را در یک placeholder اضافه کنید:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **برش تصاویر**
-
-این کد PHP نشان می‌دهد چگونه یک تصویر موجود بر روی اسلاید را برش دهید:
-
-```php
-  $pres = new Presentation();
-  # ایجاد شیء تصویر جدید
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # اضافه کردن یک PictureFrame به یک اسلاید
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # برش تصویر (مقدارهای درصدی)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # ذخیره نتیجه
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **حذف نواحی برش‌خورده یک تصویر**
-
-اگر می‌خواهید نواحی برش‌خورده یک تصویر موجود در یک قاب را حذف کنید، می‌توانید از متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) استفاده کنید. این متد تصویر برش‌خورده یا تصویر اصلی را در صورتی که برش لازم نباشد، بر می‌گرداند.
-
-این کد PHP عملیات را نشان می‌دهد:
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # دریافت PictureFrame از اسلاید نخست
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # حذف نواحی برش‌خورده تصویر PictureFrame و بازگرداندن تصویر برش‌خورده
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # ذخیره نتیجه
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) تصویر برش‌خورده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر تنها در [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند حجم ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه نهایی افزایش می‌یابد.
-
-این متد در عملیات برش، فایل‌های متا‌فایل WMF/EMF را به تصویر PNG رستری تبدیل می‌کند. 
-
-{{% /alert %}}
-
-## **فشرده‌سازی تصاویر**
-
-می‌توانید یک تصویر موجود در یک ارائه را با استفاده از متد [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) فشرده کنید. این متد تصویر را با کاهش اندازه بر پایه اندازه شکل و وضوح تعیین‌شده فشرده می‌کند و گزینه حذف نواحی برش‌خورده را نیز داراست.
-
-این کار به‌صورت مشابه ویژگی **Picture Format -> Compress Pictures -> Resolution** در PowerPoint تنظیم می‌شود.
-
-مثال‌های PHP زیر نشان می‌دهند چگونه با تعیین وضوح هدف و حذف اختیاری نواحی برش‌خورده، یک تصویر را در یک ارائه فشرده کنید:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # فشرده‌سازی تصویر با وضوح هدف 150 DPI (وضوح وب) و حذف نواحی برش‌خورده.
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # بررسی نتیجه فشرده‌سازی.
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-یا با استفاده مستقیم از مقدار DPI دلخواه:
+به‌جای مقدار پیش‌تعریف‌شده می‌توان مقدار DPI مثبت سفارشی را زمانی که هدف خاصی موردنیاز است، ارسال کرد.
+
+فشرده‌سازی برای تصاویر رستر در نظر گرفته شده است. محتوای SVG و متافایل توسط این جریان فشرده‌سازی رستری کاهش نمی‌یابد. همچنین به یاد داشته باشید که رزولوشن پایین‌تر و نواحی قلم‌برداری حذف‌شده قابل بازیابی از ارائه بهینه‌شده نیستند. رزولوشن هدف را بر پایه بزرگ‌ترین اندازه‌ای که تصویر واقعاً مشاهده یا صادر خواهد شد، انتخاب کنید نه اینکه کم‌ترین DPI را به‌صورت سراسری اعمال کنید.
+
+## **بازرسی اثرات تصویر**
+
+افکت‌های تصویر بر روی تصویری که توسط قاب استفاده می‌شود ذخیره می‌شوند. مجموعه تبدیل تصویر می‌تواند افکت‌هایی مانند مدولاسیون آلفای ثابت برای شفافیت و روشنایی برای تنظیم روشنایی و کنتراست داشته باشد. مثال زیر به‌صورت ایمن هر دو نوع افکت را از اولین قاب تصویر روی یک اسلاید می‌خواند:
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # فشرده‌سازی تصویر به 150 DPI (وضوح وب)، حذف نواحی برش‌خورده.
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
+        $effectCount = java_values($imageTransform->size());
+
+        for ($index = 0; $index < $effectCount; $index++) {
+            $effect = $imageTransform->get_Item($index);
+
+            if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
+                $transparency = 100 - java_values($effect->getAmount());
+                echo "Transparency: " . $transparency . PHP_EOL;
+            }
+
+            if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
+                $luminance = $effect->getEffective();
+                echo "Brightness: " . java_values($luminance->getBrightness()) . PHP_EOL;
+                echo "Contrast: " . java_values($luminance->getContrast()) . PHP_EOL;
+            }
+        }
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+این افکت‌ها نحوه رندر تصویر در قاب را تغییر می‌دهند؛ بایت‌های تصویر تعبیه‌شده اصلی را بازنویسی نمی‌کنند.
 
-این متد تصویر را بر پایه اندازه شکل و DPI ارائه شده به وضوح پایین‌تری تبدیل می‌کند. نواحی برش‌خورده نیز می‌توانند برای بهینه‌سازی حجم فایل حذف شوند.  
-اگر تصویر یک متا‌فایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نمی‌شود. همچنین، کیفیت JPEG بر پایه وضوح حفظ یا کمی کاهش می‌یابد، مشابه کاری که PowerPoint با JPEGهای با وضوح بالا انجام می‌دهد. 
+## **قفل کردن هندسه قاب تصویر**
 
-{{% /alert %}}
-
-## **قفل کردن نسبت عرض به ارتفاع**
-
-اگر می‌خواهید شکلی که شامل یک تصویر است حتی پس از تغییر ابعاد تصویر، نسبت عرض به ارتفاع خود را حفظ کند، می‌توانید از متد [setAspectRatioLocked](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) برای تنظیم ویژگی *Lock Aspect Ratio* استفاده کنید.
-
-این کد PHP نشان می‌دهد چگونه نسبت عرض به ارتفاع یک شکل را قفل کنید:
+تنظیمات [PictureFrameLock](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframelock/) کنترل می‌کنند که کدام عملیات ویرایشی برای یک قاب تصویر غیرفعال باشد. به عنوان مثال، [setAspectRatioLocked](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) نسبت عرض به ارتفاع شکل را هنگام تغییر اندازه حفظ می‌کند.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # تنظیم شکل برای حفظ نسبت عرض به ارتفاع هنگام تغییر اندازه
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+قفل بر روی شکل قاب تصویر اعمال می‌شود. این به‌معنای آن نیست که تصویر منبع باید دوباره‌نمونه‌گیری یا به‌صورت دائمی به همان نسبت عرض به ارتفاع تغییر یابد.
 
-این تنظیم *Lock Aspect Ratio* فقط نسبت عرض به ارتفاع شکل را حفظ می‌کند و نه تصویری که درون آن قرار دارد. 
+## **تنظیم مقادیر StretchOffset**
 
-{{% /alert %}}
+هنگامی که حالت پر کردن تصویر «stretch» باشد، مقادیر stretch‑offset در [PictureFillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/) مستطیل پر را نسبت به جعبه محدودهٔ قاب تصویر تعریف می‌کنند. درصدهای مثبت یک توریب از لبه ایجاد می‌کنند، در حالی که درصدهای منفی یک بیرون‌زدن ایجاد می‌کند.
 
-## **استفاده از ویژگی StretchOff**
-
-با استفاده از متدهای [setStretchOffsetLeft](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/)، [setStretchOffsetTop](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/setstretchoffsettop/)، [setStretchOffsetRight](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) و [setStretchOffsetBottom](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) از کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/)، می‌توانید یک مستطیل پر کردن تعیین کنید.
-
-هنگامی که کشش برای یک تصویر مشخص می‌شود، یک مستطیل منبع به منظور متناسب شدن با مستطیل پر کردن تعریف‌شده مقیاس می‌شود. هر لبه از مستطیل پر کردن توسط درصدی از لبه متناظر جعبه محاطی شکل تعریف می‌شود. درصد مثبت یک تو رفتگی و درصد منفی یک خروجی را نشان می‌دهد.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک مستطیل `AutoShape` اضافه کنید.  
-4. یک تصویر ایجاد کنید.  
-5. نوع پر کردن شکل را تنظیم کنید.  
-6. حالت پر کردن تصویر شکل را تنظیم کنید.  
-7. تصویر تنظیم‌شده را برای پر کردن شکل اضافه کنید.  
-8. افست‌های تصویر را از لبه‌های متناظر جعبه محاطی شکل مشخص کنید.  
-9. ارائه‌ی تغییر یافته را به عنوان فایل PPTX بنویسید.  
-
-این کد PHP نشان می‌دهد که چگونه از ویژگی StretchOff استفاده شود:
+این متفاوت از قلم‌برداری است. مقادیر قلم‌برداری تعیین می‌کنند کدام بخش از تصویر منبع قابل مشاهده است؛ offsetهای کشی مستطیلی را تغییر می‌دهند که تصویر قابل مشاهده داخل آن کشیده می‌شود.
 
 ```php
-  # یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است
-  $pres = new Presentation();
-  try {
-    # دریافت اولین اسلاید
-    $slide = $pres->getSlides()->get_Item(0);
-    # یک نمونه از کلاس ImageEx
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # افزودن AutoShape به شکل Rectangle
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # تنظیم نوع پر شدن شکل
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # تنظیم حالت پر کردن تصویر برای شکل
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # تنظیم تصویر برای پر کردن شکل
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # مشخص کردن افست‌های تصویر از لبه متناظر جعبه محاطی شکل
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # نوشتن فایل PPTX به دیسک
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **سؤالات متداول**
+از offsetهای کشی برای جای‌گذاری پر استفاده کنید. هنگامی که هدف مخفی کردن لبه‌های تصویر منبع است، از خصوصیات قلم‌برداری استفاده کنید.
 
-**چگونه می‌توانم بفهمم چه فرمت‌های تصویری برای PictureFrame پشتیبانی می‌شوند؟**
+## **نگهداری، حجم فایل و ملاحظات صادرات**
 
-Aspose.Slides هر دو نوع تصویر رستری (PNG, JPEG, BMP, GIF و غیره) و تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده عموماً با توانایی‌های موتور تبدیل اسلاید و تصویر همپوشانی دارد.
+تجارت‌های اصلی زمانی راحت‌تر مدیریت می‌شوند که ذخیره‌سازی تصویر و فرمت‌بندی قاب‑تصویر جداگانه در نظر گرفته شوند:
 
-**اضافه‌کردن ده‌ها تصویر بزرگ چه تأثیری بر اندازه و عملکرد فایل PPTX دارد؟**
+- **تصاویر تعبیه‌شده** ارائه را خود‑کافی می‌کنند و برای اشتراک‌گذاری و رندر سمت سرور قابل اعتمادترین گزینه هستند، اما تصاویر رستر بزرگ حجم PPTX و مصرف حافظه را افزایش می‌دهند.
+- **تصاویر لینک‌دار** می‌توانند بسته را کوچکتر نگه دارند، اما ارائه به فایل‌های خارجی وابسته می‌شود که باید در مسیرهای ذخیره‌شده یا مکان‌ها در دسترس بمانند.
+- **قلم‌برداری** در ابتدا غیر مخرب است. پیکسل‌های مخفی تا زمانی که نواحی قلم‌برداری به‌صورت صریح حذف یا در طول فشرده‌سازی حذف نشوند، همچنان تعبیه می‌مانند.
+- **فشرده‌سازی** می‌تواند حجم فایل را برای تصاویر رستر بزرگ به‌طور قابل توجهی کاهش دهد، اما وضوح منبع را فدا می‌کند. باید پس از دانستن اندازه نهایی تصویر روی اسلاید اعمال شود.
+- **تصاویر SVG** باید به‌صورت SVG باقی بمانند وقتی حفظ بردار مهم است. هنگامی که به خود منبع برداری نیاز دارید، SVG تعبیه‌شده را مستقیماً استخراج کنید. صادرات اسلاید رستری همواره اسلاید رندرشده را به پیکسل تبدیل می‌کند.
+- **تصاویر تکراری** باید در صورت امکان از منبع [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) موجود استفاده شوند نه اینکه فایل یکسان را به‌صورت مکرر به جریان کاری ارائه بارگذاری کنند.
 
-جاسازی تصاویر بزرگ حجم فایل و استفاده از حافظه را افزایش می‌دهد؛ لینک کردن تصاویر به کاهش حجم ارائه کمک می‌کند اما فایل‌های خارجی باید در دسترس بمانند. Aspose.Slides امکان افزودن تصویر به‌صورت لینک را برای کاهش حجم فایل فراهم می‌کند.
+برای ارائه‌های بزرگ، بهینه‌سازی تصویر معمولاً زمانی مؤثر است که به‌صورت انتخابی انجام شود: لوگوها و نمودارها را به‌عنوان محتویات برداری حفظ کنید، عکس‌ها را بر اساس اندازه نمایش واقعی فشرده کنید، پیکسل‌های قلم‌برداری را فقط زمانی حذف کنید که ویرایش‌های بعدی موردنیاز نباشند و از لینک‌های خارجی صرف‌نظر کنید مگر اینکه مدیریت وابستگی بخشی از طراحی استقرار باشد.
 
-**چگونه می‌توانم یک شیء تصویری را از جابجایی/تغییر اندازه تصادفی قفل کنم؟**
+## **سوالات متداول**
 
-از [قفل‌های شکل](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/getpictureframelock/) برای یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) استفاده کنید (مثلاً غیر فعال کردن جابجایی یا تغییر اندازه). این مکانیزم قفل‌گذاری برای انواع مختلف شکل‌ها، از جمله [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) پشتیبانی می‌شود.
+**تفاوت بین قاب تصویر و منبع تصویر چیست؟**
 
-**آیا صحت برداری SVG هنگام خروجی‌گیری ارائه به PDF/تصاویر حفظ می‌شود؟**
+یک [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) نمایانگر منبع تصویر مرتبط با ارائه است. یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) شکلی روی اسلاید است که تصویر را نمایش می‌دهد و هندسه و فرمت‌بندی سطح‑قاب مانند اندازه، چرخش، مقادیر قلم‌برداری، افکت‌ها و قفل‌ها را ذخیره می‌کند.
 
-Aspose.Slides اجازه می‌دهد تا یک SVG را از یک [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) به‌عنوان بردار اصلی استخراج کنید. هنگام [خروجی‌گیری به PDF](/slides/fa/php-java/convert-powerpoint-to-pdf/) یا [فرمت‌های رستری](/slides/fa/php-java/convert-powerpoint-to-png/)، نتیجه ممکن است بسته به تنظیمات خروجی به صورت رستری شود؛ اما این که SVG اصلی به‌صورت بردار ذخیره شده است، توسط رفتار استخراج تأیید می‌شود.
+**کدامیک را باید تعبیه یا لینک کنم؟**
+
+وقتی ارائه باید قابل حمل، بایگانی یا بدون دسترسی به منابع خارجی رندر شود، تصاویر را تعبیه کنید. تصاویر را فقط زمانی لینک کنید که نگهداری فایل‌های تصویری خارج از PPTX عمدی باشد و مکان‌های خارجی به‌صورت قابل اطمینان مدیریت شوند.
+
+**آیا قلم‌برداری حجم فایل PPTX را کاهش می‌دهد؟**
+
+خود قلم‌برداری این کار را انجام نمی‌دهد. تنظیمات قلم‌برداری معمولی قسمت‌های تصویر منبع را مخفی می‌کند اما پیکسل‌های پشت آن را نگه می‌دارد. برای حذف دائمی پیکسل‌ها می‌توانید از [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) یا فشرده‌سازی تصویر با حذف نواحی قلم‌برداری استفاده کنید.
+
+**آیا می‌توان پس از فشرده‌سازی کیفیت تصویر را بازگرداند؟**
+
+نه. فشرده‌سازی می‌تواند رزولوشن رستر ذخیره‌شده را کاهش دهد و حذف نواحی قلم‌برداری داده‌های تصویر را از بین می‌برد. اگر احتمال ویرایش با وضوح بالا پس از آن وجود داشته باشد، تصویر اصلی را خارج از ارائه نگه دارید.
+
+**چگونه باید با تصاویر SVG رفتار کرد؟**
+
+وقتی دقت برداری مهم است، محتوا را به‌عنوان SVG نگه دارید. می‌توانید [SvgImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgimage/) تعبیه‌شده را مستقیماً استخراج کنید. رندر اسلاید به فرمت رستری مانند PNG یا JPEG SVG را به پیکسل تبدیل می‌کند.
+
+**چگونه می‌توان از castهای ناامن هنگام خواندن اسلایدهای موجود جلوگیری کرد؟**
+
+قبل از استفاده از اعضای خاص قاب تصویر، نوع شکل را بررسی کنید. یک چک `java_instanceof` در برابر [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/) از castهای نامعتبر جلوگیری می‌کند و به کد اجازه می‌دهد اسلایدهایی را که قاب تصویر ندارند، به‌درستی مدیریت کند.

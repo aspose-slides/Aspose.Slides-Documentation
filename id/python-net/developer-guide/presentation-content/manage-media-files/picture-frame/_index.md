@@ -1,479 +1,365 @@
 ---
-title: Menambahkan Bingkai Gambar ke Presentasi dengan Python
-linktitle: Bingkai Gambar
+title: Kelola Picture Frame dalam Presentasi dengan Python
+linktitle: Frame Gambar
 type: docs
 weight: 10
 url: /id/python-net/picture-frame/
 keywords:
-- bingkai gambar
-- tambahkan bingkai gambar
-- buat bingkai gambar
-- tambahkan gambar
-- buat gambar
+- frame gambar
+- tambahkan frame gambar
+- buat frame gambar
+- gambar tertanam
+- gambar tertaut
 - ekstrak gambar
 - gambar raster
-- gambar vektor
+- gambar SVG
 - potong gambar
-- area terpotong
-- properti StretchOff
-- pemformatan bingkai gambar
-- properti bingkai gambar
+- hapus area yang dipotong
+- kompres gambar
+- StretchOffset
+- pemformatan frame gambar
 - skala relatif
 - efek gambar
 - rasio aspek
-- transparansi gambar
 - PowerPoint
 - OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Tambahkan bingkai gambar ke presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via .NET. Permudah alur kerja Anda dan tingkatkan desain slide."
+description: "Buat, format, tautkan, potong, ekstrak, dan kompres frame gambar dalam presentasi dengan Aspose.Slides untuk Python via .NET."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-Bingkai gambar di Aspose.Slides for Python memungkinkan Anda menempatkan dan mengelola gambar raster dan vektor sebagai bentuk slide asli. Anda dapat menyisipkan gambar dari file atau aliran, memposisikan dan mengubah ukurannya dengan koordinat yang tepat, menerapkan rotasi, mengatur transparansi, dan mengontrol urutan z bersama bentuk lainnya. API juga mendukung pemotongan, mempertahankan rasio aspek, mengatur batas dan efek, serta mengganti gambar yang mendasari tanpa membangun ulang tata letak. Karena bingkai gambar berperilaku seperti bentuk biasa, Anda dapat menambahkan animasi, hyperlink, dan teks alternatif, sehingga mudah membangun presentasi yang kaya visual dan dapat diakses.
+Sebuah picture frame adalah bentuk slide yang menampilkan gambar. Dalam Aspose.Slides, sumber daya gambar dan bentuk yang menampilkannya adalah objek terpisah: sebuah [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) memiliki sumber daya gambar tertanam melalui [ImageCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/imagecollection/), sementara sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) mengontrol posisi gambar, ukuran, pemformatan garis, rotasi, pemotongan, efek gambar, dan pengaturan tingkat frame lainnya.
 
-## **Membuat Bingkai Gambar**
+Pemisahan ini berguna ketika gambar yang sama ditampilkan lebih dari satu kali. Tambahkan gambar ke presentasi sekali, simpan [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) yang dikembalikan, dan gunakan sumber daya gambar tersebut saat membuat picture frame.
 
-Bagian ini menunjukkan cara menyisipkan gambar ke dalam slide dengan membuat sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) dengan Aspose.Slides for Python. Anda akan belajar cara memuat gambar, menempatkannya secara tepat pada slide, dan mengontrol ukuran serta formatnya.
+Picture frame dapat berisi gambar raster seperti PNG atau JPEG serta gambar vektor SVG. Mereka juga dapat merujuk ke gambar yang ditautkan alih-alih menyimpan byte gambar dalam presentasi. Pilihan tersebut memengaruhi portabilitas, ukuran file, ekstraksi, dan perilaku ekspor, sehingga penting untuk memutuskan bagaimana gambar harus disimpan sebelum menerapkan pemformatan atau optimisasi.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Dapatkan slide berdasarkan indeksnya.
-3. Buat sebuah [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) dengan menambahkan gambar ke [ImageCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/imagecollection/) presentasi. Gambar ini akan digunakan untuk mengisi bentuk.
-4. Tentukan lebar dan tinggi bingkai.
-5. Buat sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) dengan ukuran tersebut menggunakan metode [add_picture_frame](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Simpan presentasi sebagai file PPTX.
+## **Tambahkan dan Format Gambar Tertanam**
 
-Kode Python berikut menunjukkan cara membuat bingkai gambar:
+Untuk gambar tertanam, tambahkan data gambar ke presentasi dan buat picture frame dengan [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_picture_frame/). Gambar menjadi bagian dari paket presentasi, sehingga presentasi tetap mandiri ketika dipindahkan ke komputer lain.
 
-```py
-import aspose.slides as slides
-
-# Membuat instance kelas Presentation untuk mewakili file PPTX.
-with slides.Presentation() as presentation:
-    # Dapatkan slide pertama.
-    slide = presentation.slides[0]
-
-    # Tambahkan gambar ke presentasi.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Tambahkan bingkai gambar dengan ukuran sesuai gambar.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Simpan presentasi sebagai PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-Bingkai gambar memungkinkan Anda dengan cepat membuat slide presentasi dari gambar. Saat Anda menggabungkan bingkai gambar dengan opsi penyimpanan Aspose.Slides, Anda dapat mengontrol operasi I/O untuk mengonversi gambar dari satu format ke format lain. Anda mungkin ingin melihat halaman ini: konversi [gambar ke JPG](https://products.aspose.com/slides/id/python-net/conversion/image-to-jpg/); konversi [JPG ke gambar](https://products.aspose.com/slides/id/python-net/conversion/jpg-to-image/); konversi [JPG ke PNG](https://products.aspose.com/slides/id/python-net/conversion/jpg-to-png/); konversi [PNG ke JPG](https://products.aspose.com/slides/id/python-net/conversion/png-to-jpg/); konversi [PNG ke SVG](https://products.aspose.com/slides/id/python-net/conversion/png-to-svg/); konversi [SVG ke PNG](https://products.aspose.com/slides/id/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Membuat Bingkai Gambar dengan Skala Relatif**
-
-Bagian ini mendemonstrasikan penempatan gambar dengan ukuran tetap, kemudian menerapkan skala berbasis persentase secara independen pada lebar dan tingginya. Karena persentase dapat berbeda, rasio aspek dapat berubah. Skala dilakukan relatif terhadap dimensi asli gambar.
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Dapatkan slide berdasarkan indeksnya.
-3. Buat sebuah [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) dengan menambahkan gambar ke [ImageCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/imagecollection/).
-4. Tambahkan sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) ke slide.
-5. Atur lebar dan tinggi relatif bingkai gambar.
-6. Simpan presentasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat bingkai gambar dengan skala relatif:
-
-```py
-import aspose.slides as slides
-
-# Membuat instance kelas Presentation untuk mewakili file PPTX.
-with slides.Presentation() as presentation:
-    # Dapatkan slide pertama.
-    slide = presentation.slides[0]
-
-    # Tambahkan gambar ke koleksi gambar presentasi.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Tambahkan bingkai gambar ke slide.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Atur lebar dan tinggi skala relatif.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Simpan presentasi.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ekstrak Gambar Raster dari Bingkai Gambar**
-
-Anda dapat mengekstrak gambar raster dari objek [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) dan menyimpannya dalam format PNG, JPG, dan format lainnya. Contoh kode di bawah ini mendemonstrasikan cara mengekstrak gambar dari dokumen "sample.pptx" dan menyimpannya dalam format PNG.
+Contoh berikut menambahkan gambar JPEG, membuat frame dengan dimensi asli gambar, dan menerapkan pemformatan garis serta rotasi:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **Ekstrak Gambar SVG dari Bingkai Gambar**
-
-Ketika sebuah presentasi berisi grafik SVG yang ditempatkan di dalam bentuk [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/), Aspose.Slides for Python via .NET memungkinkan Anda mengambil gambar vektor asli dengan fidelitas penuh. Dengan menelusuri koleksi bentuk slide, Anda dapat mengidentifikasi setiap [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/), memeriksa apakah [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) yang mendasarinya berisi konten SVG, dan kemudian menyimpan gambar tersebut ke disk atau aliran dalam format SVG aslinya.
-
-Contoh kode berikut mendemonstrasikan cara mengekstrak gambar SVG dari bingkai gambar:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Dapatkan Transparansi Gambar**
-
-Aspose.Slides memungkinkan Anda mengambil efek transparansi yang diterapkan pada sebuah gambar. Kode Python ini mendemonstrasikan operasinya:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Semua efek yang diterapkan pada gambar dapat ditemukan di [aspose.slides.effects](https://reference.aspose.com/slides/id/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Dapatkan Kecerahan dan Kontras Gambar**
-
-Aspose.Slides memungkinkan Anda mengambil efek kecerahan dan kontras yang diterapkan pada sebuah gambar. Kelas [Luminance](https://reference.aspose.com/slides/id/python-net/aspose.slides.effects/luminance/) mewakili efek transformasi gambar ini.
-
-Kode Python berikut mendemonstrasikan cara mendapatkan pengaturan kecerahan dan kontras dari bingkai gambar:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Pemformatan Bingkai Gambar**
-
-Aspose.Slides menyediakan banyak opsi pemformatan yang dapat Anda terapkan pada sebuah bingkai gambar. Dengan opsi-opsi ini, Anda dapat menyesuaikan bingkai gambar untuk memenuhi kebutuhan spesifik.
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Dapatkan slide berdasarkan indeksnya.
-3. Buat sebuah [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) dengan menambahkan gambar ke [ImageCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/imagecollection/) presentasi. Gambar ini akan digunakan untuk mengisi bentuk.
-4. Tentukan lebar dan tinggi bingkai.
-5. Buat sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) dengan ukuran tersebut menggunakan metode [add_picture_frame](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_picture_frame/) slide.
-6. Atur warna garis bingkai gambar.
-7. Atur lebar garis bingkai gambar.
-8. Putar bingkai gambar dengan memberikan nilai positif (searah jarum jam) atau negatif (berlawanan arah jarum jam).
-9. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut mendemonstrasikan proses pemformatan bingkai gambar:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Membuat instance kelas Presentation untuk mewakili file PPTX.
 with slides.Presentation() as presentation:
-    # Dapatkan slide pertama.
     slide = presentation.slides[0]
 
-    # Tambahkan gambar ke koleksi gambar presentasi.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Tambahkan bingkai gambar dengan ukuran sesuai gambar.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Terapkan format pada bingkai gambar.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Simpan presentasi sebagai PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose telah mengembangkan [Collage Maker](https://products.aspose.app/slides/id/collage) gratis. Jika Anda perlu [menggabungkan gambar JPG/JPEG](https://products.aspose.app/slides/id/collage/jpg) atau PNG, atau [membuat grid foto](https://products.aspose.app/slides/id/collage/photo-grid), Anda dapat menggunakan layanan ini.
-{{% /alert %}}
+Picture frame mengendalikan geometri yang ditampilkan; mengubah ukuran frame tidak mengubah dimensi piksel asli yang disimpan dalam sumber daya gambar tertanam. Perbedaan ini menjadi penting saat memotong atau mengompresi gambar nanti.
 
-## **Menambahkan Gambar sebagai Tautan**
+## **Gunakan Skala Relatif**
 
-Untuk menjaga ukuran file presentasi tetap kecil, Anda dapat menambahkan gambar atau video melalui tautan alih-alih menyematkan file secara langsung dalam presentasi. Kode Python berikut menunjukkan cara menyisipkan gambar dan video ke dalam placeholder:
+[PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) menyediakan [relative_scale_width](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/relative_scale_width/) dan [relative_scale_height](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/relative_scale_height/) untuk frame. Nilai `1.0` berarti 100 % dari ukuran gambar asli. Skala relatif berguna ketika alur kerja perlu mempertahankan hubungan dengan ukuran gambar sumber alih-alih menghitung dimensi akhir secara manual.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Skala relatif mengubah pengaturan skala frame; ia tidak melakukan resampling atau kompresi pada gambar tertanam.
+
+## **Gambar Tertanam dan Tertaut**
+
+Gambar tertanam menyimpan data gambar di dalam presentasi dan oleh karena itu merupakan pilihan paling aman untuk portabilitas dan rendering yang dapat diprediksi. Gambar tertaut menyimpan lokasinya secara eksternal melalui jalur tautan [Picture](https://reference.aspose.com/slides/id/python-net/aspose.slides/picture/) alih-alih menanamkan data gambar dengan cara yang sama.
+
+Gambar tertaut dapat mengurangi jumlah data gambar yang disimpan dalam PPTX, tetapi mereka menimbulkan ketergantungan eksternal. File tertaut harus tetap dapat diakses oleh aplikasi yang membuka atau merender presentasi. Jika jalur berubah, file dipindahkan, atau sumber tidak tersedia, picture frame tertaut mungkin tidak ditampilkan sebagaimana mestinya. Untuk presentasi yang harus dikirim lewat email, diarsipkan, atau dirender dalam lingkungan terisolasi, gambar tertanam biasanya lebih dapat diandalkan.
+
+### **Tambahkan Gambar Tertaut**
+
+Contoh berikut membuat picture frame dan menunjukannya ke file gambar lokal. Contoh ini hanya menangani penautan gambar; penautan video adalah alur kerja media terpisah dan sengaja tidak dicampur dalam contoh ini.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Gunakan tautan ketika manajemen file eksternal memang diinginkan. Jangan gunakan hanya sebagai pengganti kompresi: PPTX kecil dengan ketergantungan gambar yang rusak biasanya kurang berguna daripada presentasi yang lebih besar dan mandiri.
+
+## **Ekstrak Gambar dari Picture Frame**
+
+Sebelum mengekstrak gambar dari presentasi yang ada, pastikan bahwa bentuk sebenarnya adalah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) dan bahwa ia berisi gambar tertanam. Picture frame tertaut mungkin tidak berisi byte gambar yang dapat diekstrak dengan cara yang sama.
+
+### **Ekstrak Gambar Raster**
+
+API gambar modern menggunakan [IImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/iimage/) secara langsung. Contoh berikut menemukan gambar raster tertanam pertama pada slide dan menyimpannya sebagai PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Pangkas Gambar**
+Menyimpan melalui [IImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/iimage/) mengonversi gambar yang diekstrak ke format output yang diminta. Jika Anda membutuhkan byte terkode yang disimpan dalam presentasi alih-alih file raster yang dikonversi, gunakan properti [PPImage.binary_data](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/binary_data/) sebagai gantinya.
 
-Di bagian ini, Anda akan belajar cara memotong area terlihat gambar dalam bingkai gambar tanpa mengubah file sumber. Anda juga akan mempelajari metode dasar untuk menerapkan margin pemotongan guna menciptakan komposisi yang bersih dan terfokus langsung di slide.
+### **Ekstrak Gambar SVG**
 
-Kode Python berikut menunjukkan cara memotong gambar pada slide:
+Untuk gambar SVG, [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) menyediakan objek [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/). Ini memungkinkan Anda mengambil data SVG langsung alih-alih merasterkan gambar terlebih dahulu.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Mempertahankan konten SVG sebagai SVG menjaga sumber vektor di dalam presentasi. Ekspor raster seperti PNG atau JPEG secara wajib merender konten vektor tersebut ke piksel. Ekspor slide ke PDF atau SVG juga merupakan operasi rendering, sehingga grafik yang diekspor tidak boleh dianggap sebagai salinan byte-per-byte dari SVG tertanam asli; gunakan [SvgImage.svg_data](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/svg_data/) ketika sumber vektor asli diperlukan.
+
+## **Potong Gambar**
+
+Pemotongan mengubah bagian gambar yang terlihat di dalam frame. Nilai pemotongan pada [PictureFillFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/) adalah persentase dari dimensi gambar sumber. Pemotongan tidak langsung menghapus piksel tersembunyi dari gambar tertanam; ia hanya mengubah wilayah yang terlihat.
+
+Contoh berikut menemukan picture frame dengan aman dan menerapkan nilai pemotongan:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Karena data gambar tersembunyi masih ada, pemotongan dapat diubah nanti tanpa kehilangan piksel asli. Jika ukuran file lebih penting daripada kemampuan balik, wilayah yang dipotong dapat dihapus secara fisik seperti dijelaskan pada bagian berikutnya.
+
+## **Hapus Data Gambar yang Dipotong**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) menghapus data gambar di luar persegi pemotongan saat ini dan mengembalikan sumber daya gambar yang dihasilkan. Ini dapat mengurangi ukuran file, tetapi merupakan optimisasi destruktif: setelah presentasi disimpan, piksel yang dihapus tidak lagi tersedia untuk operasi un‑crop di kemudian hari.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Metode ini mungkin menambahkan sumber daya gambar baru ke presentasi. Jika gambar asli juga digunakan oleh picture frame lain, frame‑frame tersebut tetap memerlukan sumber daya yang ada, sehingga menghapus area yang dipotong tidak selalu mengurangi total jumlah gambar. Memotong konten WMF atau EMF dengan metode ini merasterkan hasil potongan ke PNG.
+
+## **Kompres Gambar Raster**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/compress_image/) mengurangi resolusi gambar raster relatif terhadap ukuran saat gambar ditampilkan. Ia juga dapat menghapus wilayah yang dipotong dalam operasi yang sama. Metode mengembalikan `True` ketika gambar diubah ukuran atau dipotong dan `False` ketika tidak ada perubahan yang diperlukan.
+
+Gunakan nilai [PicturesCompression](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/picturescompression/) yang telah ditentukan sebelumnya ketika resolusi target standar cukup:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Nilai DPI positif khusus dapat diberikan alih-alih nilai enum ketika target tertentu diperlukan.
+
+Kompresi ditujukan untuk gambar raster. Konten SVG dan metafile tidak dikurangi oleh alur kerja kompresi raster ini. Juga ingat bahwa resolusi lebih rendah dan wilayah yang dipotong yang dihapus tidak dapat dipulihkan dari presentasi yang telah dioptimalkan. Pilih resolusi target berdasarkan ukuran terbesar di mana gambar akan benar‑benar dilihat atau diekspor, bukan menerapkan DPI terendah secara global.
+
+## **Periksa Efek Gambar**
+
+Efek gambar disimpan pada gambar yang digunakan oleh frame. Koleksi transformasi gambar dapat berisi efek seperti modulasi alfa tetap untuk transparansi dan luminansi untuk kecerahan serta kontras. Contoh di bawah ini membaca dengan aman kedua jenis efek dari picture frame pertama pada slide:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+[AlphaModulateFixed](https://reference.aspose.com/slides/id/python-net/aspose.slides.effects/alphamodulatefixed/) dan [Luminance](https://reference.aspose.com/slides/id/python-net/aspose.slides.effects/luminance/) mengubah cara gambar dirender dalam frame; mereka tidak menulis ulang byte gambar tertanam asli.
+
+## **Kunci Geometri Picture Frame**
+
+Pengaturan [PictureFrameLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframelock/) mengontrol operasi pengeditan mana yang dinonaktifkan untuk picture frame. Misalnya, properti [aspect_ratio_locked](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) mempertahankan proporsi bentuk saat diubah ukurannya.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Tambahkan gambar ke koleksi gambar presentasi.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Tambahkan bingkai gambar ke slide.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Potong gambar (nilai persentase).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Simpan hasil.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Hapus Area Terpotong pada Gambar**
-
-Jika Anda ingin menghapus area terpotong gambar dalam sebuah bingkai, gunakan metode [delete_picture_cropped_areas](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Metode ini mengembalikan gambar yang telah dipotong, atau gambar asli jika tidak diperlukan pemotongan.
-
-Kode Python berikut mendemonstrasikan operasi tersebut:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Dapatkan PictureFrame dari slide pertama.
-    picture_frame = slides.shape[0]
-
-    # Dapatkan PictureFrame dari slide pertama.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Simpan hasil.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Metode [delete_picture_cropped_areas](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) menambahkan gambar yang dipotong ke koleksi gambar presentasi. Jika gambar hanya digunakan dalam [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) yang diproses, hal ini dapat mengurangi ukuran presentasi; jika tidak, jumlah gambar dalam presentasi hasil dapat meningkat.
-
-Selama pemotongan, metode ini mengonversi file metafile WMF/EMF menjadi gambar raster PNG.
-{{% /alert %}}
-
-## **Kompres Gambar**
-
-Anda dapat mengompres gambar dalam presentasi menggunakan metode [PictureFillFormat.compress_image](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/compress_image/). Metode ini mengompres gambar dengan mengurangi ukuran berdasarkan ukuran bentuk dan resolusi yang ditentukan, dengan opsi menghapus area terpotong.
-
-Ini menyesuaikan ukuran dan resolusi gambar mirip dengan fitur PowerPoint **Picture Format -> Compress Pictures -> Resolution**.
-
-Contoh Python berikut mendemonstrasikan cara mengompres gambar dalam presentasi dengan menentukan resolusi target dan secara opsional menghapus area terpotong:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Kompres gambar dengan resolusi target 150 DPI (resolusi Web) dan hapus area yang dipotong.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Periksa hasil kompresi.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Atau menggunakan nilai DPI khusus secara langsung:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Kompres gambar ke 150 DPI (resolusi web), menghapus area yang dipotong.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Metode ini mengonversi gambar ke resolusi lebih rendah berdasarkan ukuran bentuk dan DPI yang diberikan. Area terpotong juga dapat dihapus untuk mengoptimalkan ukuran file. Jika gambar adalah metafile (WMF/EMF) atau SVG, kompresi tidak akan diterapkan. Selain itu, kualitas JPEG dipertahankan atau sedikit dikurangi berdasarkan resolusi, serupa dengan cara PowerPoint menangani JPEG beresolusi tinggi.
-{{% /alert %}}
-
-## **Kunci Rasio Aspek**
-
-Jika Anda menginginkan bentuk yang berisi gambar mempertahankan rasio aspeknya setelah mengubah dimensi gambar, atur properti [aspect_ratio_locked](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) menjadi `True`.
-
-Kode Python berikut menunjukkan cara mengunci rasio aspek bentuk:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Kunci rasio aspek saat mengubah ukuran.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Pengaturan *Lock Aspect Ratio* ini hanya mempertahankan rasio aspek bentuk, bukan rasio aspek gambar di dalamnya.
-{{% /alert %}}
+Kunci berlaku untuk shape picture frame. Ia tidak memaksa gambar sumber untuk di‑resample atau secara permanen diubah menjadi rasio aspek yang sama.
 
-## **Gunakan Properti Stretch Offset**
+## **Sesuaikan Nilai StretchOffset**
 
-Dengan properti `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right`, dan `stretch_offset_bottom` pada kelas [PictureFillFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/), Anda dapat mendefinisikan sebuah persegi panjang isi.
+Ketika mode isian gambar adalah stretch, nilai stretch‑offset pada [PictureFillFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/) menentukan persegi isian relatif terhadap kotak pembatas picture frame. Persentase positif menciptakan inset dari tepi, sementara persentase negatif menciptakan outset.
 
-Ketika peregangan ditentukan untuk sebuah gambar, persegi panjang sumber diskalakan agar sesuai dengan persegi panjang isi. Setiap sisi persegi panjang isi didefinisikan oleh offset persentase dari sisi yang bersesuaian pada kotak pembatas bentuk. Persentase positif menunjukkan inset, sementara persentase negatif menunjukkan outset.
+Ini berbeda dari pemotongan. Nilai crop memilih bagian gambar sumber yang terlihat; stretch offset mengubah persegi tempat isian gambar yang terlihat diregangkan.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Dapatkan referensi ke slide berdasarkan indeksnya.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) persegi.
-4. Atur tipe isi bentuk.
-5. Atur mode isi gambar bentuk.
-6. Muat sebuah gambar.
-7. Tetapkan gambar untuk mengisi bentuk.
-8. Tentukan offset gambar dari sisi yang bersesuaian pada kotak pembatas bentuk.
-9. Simpan presentasi sebagai file PPTX.
-
-Kode Python berikut mendemonstrasikan cara menggunakan properti Stretch Offset:
-
-```py
+```python
 import aspose.slides as slides
 
-# Membuat instance kelas Presentation yang mewakili file PPTX.
 with slides.Presentation() as presentation:
-    # Dapatkan slide pertama.
     slide = presentation.slides[0]
 
-    # Tambahkan AutoShape persegi panjang.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Atur tipe isi bentuk.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Atur mode isi gambar bentuk.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Muat gambar dan tambahkan ke presentasi.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Tetapkan gambar untuk mengisi bentuk.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Tentukan offset gambar dari sisi yang bersesuaian pada kotak pembatas bentuk.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Simpan file PPTX ke disk.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan Anda dengan cepat membuat presentasi dari gambar.
-{{% /alert %}}
+Gunakan stretch offset untuk penempatan isian. Gunakan properti crop ketika tujuan Anda adalah menyembunyikan tepi gambar sumber.
+
+## **Penyimpanan, Ukuran File, dan Pertimbangan Ekspor**
+
+Pertimbangan utama lebih mudah dikelola ketika penyimpanan gambar dan pemformatan picture frame diperlakukan terpisah:
+
+- **Gambar tertanam** membuat presentasi mandiri dan paling dapat diandalkan untuk berbagi serta rendering sisi server, tetapi gambar raster besar meningkatkan ukuran PPTX dan penggunaan memori.
+- **Gambar tertaut** dapat menjaga paket tetap kecil, tetapi presentasi bergantung pada file eksternal yang tetap tersedia di jalur atau lokasi yang disimpan.
+- **Pemotongan** awalnya non‑destruktif. Piksel tersembunyi tetap tertanam hingga area yang dipotong secara eksplisit dihapus atau dihapus selama kompresi.
+- **Kompresi** dapat mengurangi ukuran file secara signifikan untuk gambar raster yang berukuran berlebih, tetapi mengorbankan resolusi sumber. Kompresi sebaiknya diterapkan setelah ukuran pada slide yang diinginkan diketahui.
+- **Gambar SVG** sebaiknya tetap sebagai SVG ketika preservasi vektor penting. Ekstrak SVG tertanam secara langsung ketika Anda membutuhkan sumber vektor itu sendiri. Ekspor slide raster selalu mengonversi slide yang dirender ke piksel.
+- **Gambar berulang** sebaiknya menggunakan kembali sumber daya [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) yang ada bila memungkinkan, alih-alih memuat file yang sama berulang kali ke alur kerja presentasi.
+
+Untuk presentasi besar, optimisasi gambar biasanya paling efektif bila dilakukan secara selektif: pertahankan logo dan diagram sebagai konten vektor, kompres foto sesuai ukuran tampilan sebenarnya, hapus piksel yang dipotong hanya jika pengeditan selanjutnya tidak diperlukan, dan hindari tautan eksternal kecuali manajemen ketergantungan merupakan bagian dari desain penyebaran.
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui format gambar apa yang didukung untuk PictureFrame?**
+**Apa perbedaan antara picture frame dan sumber daya gambar?**
 
-Aspose.Slides mendukung baik gambar raster (PNG, JPEG, BMP, GIF, dll.) maupun gambar vektor (misalnya, SVG) melalui objek gambar yang ditetapkan ke sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/). Daftar format yang didukung umumnya tumpang tindih dengan kemampuan mesin konversi slide dan gambar.
+[PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) mewakili sumber daya gambar yang terkait dengan presentasi. [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) adalah shape pada slide yang menampilkan gambar dan menyimpan geometri serta pemformatan tingkat frame seperti ukuran, rotasi, nilai crop, efek, dan kunci.
 
-**Bagaimana penambahan puluhan gambar besar memengaruhi ukuran dan kinerja PPTX?**
+**Haruskah saya menanamkan atau menautkan gambar?**
 
-Menyematkan gambar besar meningkatkan ukuran file dan penggunaan memori; menautkan gambar membantu menjaga ukuran presentasi tetap kecil namun memerlukan file eksternal tetap dapat diakses. Aspose.Slides menyediakan kemampuan menambahkan gambar melalui tautan untuk mengurangi ukuran file.
+Tanamkan gambar ketika presentasi harus portabel, diarsipkan, atau dirender tanpa akses ke sumber eksternal. Tautkan gambar hanya ketika menyimpan file gambar di luar PPTX memang diinginkan dan lokasi eksternal dapat dipelihara secara handal.
 
-**Bagaimana cara mengunci objek gambar agar tidak tergerak/terubah ukuran secara tidak sengaja?**
+**Apakah pemotongan mengurangi ukuran file PPTX?**
 
-Gunakan [shape locks](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/picture_frame_lock/) untuk sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) (misalnya, nonaktifkan pemindahan atau perubahan ukuran). Mekanisme penguncian dijelaskan untuk bentuk dalam artikel perlindungan terpisah [/slides/id/python-net/applying-protection-to-presentation/] dan didukung untuk berbagai tipe bentuk, termasuk [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/).
+Tidak secara otomatis. Pengaturan crop standar menyembunyikan bagian gambar sumber tetapi tetap menyimpan piksel di bawahnya. Gunakan [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/id/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) atau kompresi gambar dengan penghapusan area yang dipotong ketika piksel tersebut dapat dibuang secara permanen.
 
-**Apakah fidelitas vektor SVG tetap terjaga saat mengekspor presentasi ke PDF/gambar?**
+**Dapatkah saya mengembalikan kualitas gambar setelah kompresi?**
 
-Aspose.Slides memungkinkan mengekstrak SVG dari sebuah [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) sebagai vektor asli. Saat [mengekspor ke PDF](/slides/id/python-net/convert-powerpoint-to-pdf/) atau [format raster](/slides/id/python-net/convert-powerpoint-to-png/), hasilnya mungkin rasterisasi tergantung pada pengaturan ekspor; fakta bahwa SVG asli disimpan sebagai vektor dikonfirmasi oleh perilaku ekstraksi.
+Tidak. Kompresi dapat mengurangi resolusi raster yang disimpan, dan menghapus wilayah yang dipotong membuang data gambar. Simpan gambar sumber asli di luar presentasi jika pengeditan beresolusi tinggi di kemudian hari mungkin diperlukan.
+
+**Bagaimana sebaiknya menangani gambar SVG?**
+
+Pertahankan konten SVG sebagai SVG ketika fidelitas vektor penting. [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/) yang tertanam dapat diekstrak secara langsung. Merender slide ke format raster seperti PNG atau JPEG merasterkan SVG sebagai bagian dari gambar slide.
+
+**Bagaimana cara menghindari cast tidak aman saat membaca slide yang ada?**
+
+Periksa tipe shape sebelum menggunakan anggota khusus picture‑frame. Menggunakan `isinstance(shape, slides.PictureFrame)` menghindari cast yang tidak valid dan memungkinkan kode menangani slide yang tidak berisi picture frame.

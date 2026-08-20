@@ -1,532 +1,480 @@
 ---
-title: จัดการกรอบภาพในงานนำเสนอโดยใช้ JavaScript
-linktitle: กรอบภาพ
+title: จัดการกรอบรูปภาพในงานนำเสนอโดยใช้ JavaScript
+linktitle: กรอบรูปภาพ
 type: docs
 weight: 10
 url: /th/nodejs-java/picture-frame/
 keywords:
-- กรอบภาพ
-- เพิ่มกรอบภาพ
-- สร้างกรอบภาพ
-- เพิ่มภาพ
-- สร้างภาพ
-- สกัดภาพ
-- ภาพแรสเตอร์
-- ภาพเวกเตอร์
-- ตัดภาพ
-- พื้นที่ที่ถูกตัด
-- คุณสมบัติ StretchOff
-- การจัดรูปแบบกรอบภาพ
-- คุณสมบัติกรอบภาพ
-- สเกลสัมพันธ์
-- เอฟเฟกต์ภาพ
+- กรอบรูปภาพ
+- เพิ่มกรอบรูปภาพ
+- สร้างกรอบรูปภาพ
+- รูปภาพฝัง
+- รูปภาพเชื่อมโยง
+- ดึงรูปภาพ
+- รูปภาพเรสเตอร์
+- รูปภาพ SVG
+- ครอบรูปภาพ
+- ลบพื้นที่ที่ถูกครอบ
+- บีบอัดรูปภาพ
+- การยืดออฟเซ็ต
+- การจัดรูปแบบกรอบรูปภาพ
+- สเกลสัมพัทธ์
+- เอฟเฟกต์รูปภาพ
 - อัตราส่วนภาพ
-- ความโปร่งแสงของภาพ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เพิ่มกรอบภาพในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Node.js via Java. ปรับกระบวนการทำงานของคุณให้มีประสิทธิภาพและยกระดับการออกแบบสไลด์."
+description: "สร้าง, จัดรูปแบบ, เชื่อมโยง, ครอบ, ดึง, และบีบอัดกรอบรูปภาพในงานนำเสนอด้วย Aspose.Slides สำหรับ Node.js ผ่าน JavaScript."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-กรอบรูปคือรูปร่างที่บรรจุภาพ—เหมือนภาพที่อยู่ในกรอบ
+กรอบภาพเป็นรูปร่างบนสไลด์ที่แสดงรูปภาพ ใน Aspose.Slides, แหล่งข้อมูลรูปภาพและรูปร่างที่แสดงรูปนั้นเป็นออบเจกต์แยกกัน: a [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) owns embedded image resources through its [ImageCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagecollection/), while a [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) controls the image's position, size, line formatting, rotation, cropping, picture effects, and other frame-level settings.
 
-คุณสามารถเพิ่มภาพลงในสไลด์ผ่านกรอบรูปได้ วิธีนี้จะทำให้คุณสามารถจัดรูปแบบภาพโดยจัดรูปแบบกรอบรูป
+การแยกนี้เป็นประโยชน์เมื่อรูปเดียวกันถูกแสดงหลายครั้ง เพิ่มรูปภาพเข้าไปในงานนำเสนอเพียงครั้งเดียว เก็บ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) ที่ส่งคืน และใช้แหล่งข้อมูลรูปภาพนั้นเมื่อสร้างกรอบภาพ.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose ให้บริการตัวแปลงฟรี—[JPEG ไปยัง PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG ไปยัง PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ที่ช่วยให้ผู้ใช้สร้างงานนำเสนออย่างรวดเร็วจากภาพ 
-{{% /alert %}} 
+กรอบภาพสามารถบรรจุรูปภาพเรสเตอร์เช่น PNG หรือ JPEG และรูปเวกเตอร์ SVG ได้ ทั้งนี้ยังสามารถอ้างอิงรูปภาพที่เชื่อมโยงแทนการเก็บไบต์รูปภาพในงานนำเสนอ ตัวเลือกนี้ส่งผลต่อการพกพา ขนาดไฟล์ การดึงข้อมูล และพฤติกรรมการส่งออก จึงควรตัดสินใจว่ารูปภาพจะจัดเก็บอย่างไรก่อนนำไปจัดรูปแบบหรือทำให้เหมาะสม.
 
-## **สร้างกรอบรูป**
+## **เพิ่มและจัดรูปแบบรูปภาพฝัง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน 
-3. สร้างอ็อบเจกต์ `PPImage` โดยเพิ่มภาพลงใน [ImagesCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ImageCollection) ที่เชื่อมโยงกับอ็อบเจกต์ Presentation ซึ่งจะใช้เติมรูปร่าง 
-4. ระบุความกว้างและความสูงของภาพ 
-5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFrame) ตามความกว้างและความสูงของภาพผ่านเมธอด `addPictureFrame` ที่เปิดให้ใช้โดยอ็อบเจกต์ Shape ที่เชื่อมโยงกับสไลด์ที่อ้างอิง 
-6. เพิ่มกรอบรูป (ที่บรรจุภาพ) ลงในสไลด์ 
-7. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX 
+สำหรับรูปภาพฝัง ให้นำข้อมูลรูปภาพเพิ่มเข้าไปในงานนำเสนอและสร้างกรอบภาพด้วย [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). รูปภาพจะกลายเป็นส่วนหนึ่งของแพ็กเกจงานนำเสนอ ทำให้งานนำเสนอยังคงเป็นแบบอิสระเมื่อย้ายไปยังคอมพิวเตอร์เครื่องอื่น.
 
-โค้ด JavaScript นี้แสดงวิธีสร้างกรอบรูป:
+ตัวอย่างต่อไปนี้เพิ่มรูป PNG สร้างกรอบที่มีขนาดตามมิติเดิมของรูปภาพ และใช้การจัดรูปแบบเส้นและการหมุน:
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก
-    var sld = pres.getSlides().get_Item(0);
-    // สร้างอินสแตนซ์ของคลาส Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // เพิ่มกรอบรูปโดยใช้ความสูงและความกว้างที่เท่ากับของภาพ
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-กรอบรูปช่วยให้คุณสร้างสไลด์งานนำเสนอจากภาพได้อย่างรวดเร็ว เมื่อรวมกรอบรูปกับตัวเลือกการบันทึกของ Aspose.Slides คุณสามารถจัดการการทำงานเข้า/ออกเพื่อแปลงภาพจากฟอร์แมตหนึ่งเป็นอีกฟอร์แมตหนึ่งได้
+กรอบภาพควบคุมเรขาคณิตที่แสดง; การเปลี่ยนขนาดกรอบไม่ได้เปลี่ยนมิติพิกเซลเดิมที่เก็บในแหล่งข้อมูลรูปภาพฝัง ความแตกต่างนี้สำคัญเมื่อทำการครอบหรือบีบอัดรูปภาพในภายหลัง.
 
-## **สร้างกรอบรูปด้วยสเกลสัมพันธ์**
+## **ใช้สเกลสัมพัทธ์**
 
-โดยการปรับสเกลสัมพันธ์ของภาพ คุณสามารถสร้างกรอบรูปที่ซับซ้อนมากขึ้นได้ 
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน 
-3. เพิ่มภาพลงในคอลเลกชันภาพของการนำเสนอ 
-4. สร้างอ็อบเจกต์ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) โดยเพิ่มภาพลงใน [ImagesCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ImageCollection) ที่เชื่อมโยงกับอ็อบเจกต์ Presentation เพื่อใช้เติมรูปร่าง 
-5. ระบุความกว้างและความสูงสัมพันธ์ของภาพในกรอบรูป 
-6. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX 
-
-โค้ด JavaScript นี้แสดงวิธีสร้างกรอบรูปด้วยสเกลสัมพันธ์:
+[PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) เปิดเผยการสเกลความกว้างและความสูงสัมพัทธ์สำหรับกรอบผ่าน [setRelativeScaleWidth](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) และ [setRelativeScaleHeight](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). ค่า `1.0` หมายถึง 100% ของขนาดภาพต้นฉบับ สเกลสัมพัทธ์มีประโยชน์เมื่อขั้นตอนการทำงานต้องคงความสัมพันธ์กับขนาดภาพต้นฉบับแทนการคำนวณมิติสุดท้ายด้วยตนเอง.
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก
-    var sld = pres.getSlides().get_Item(0);
-    // สร้างอินสแตนซ์ของคลาส Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // เพิ่มกรอบรูปโดยมีความสูงและความกว้างเท่ากับของรูป
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // ตั้งค่าสเกลสัมพันธ์ของความกว้างและความสูง
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **สกัดภาพ Raster จากกรอบรูป**
+สเกลสัมพัทธ์เปลี่ยนการตั้งค่าขนาดของกรอบ; ไม่ทำการรีแซมเพิลหรือบีบอัดรูปภาพฝัง.
 
-คุณสามารถสกัดภาพ raster จากอ็อบเจกต์ [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFrame) แล้วบันทึกเป็น PNG, JPG หรือฟอร์แมตอื่น ๆ ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดภาพจากเอกสาร “sample.pptx” และบันทึกเป็นฟอร์แมต PNG
+## **รูปภาพฝังและเชื่อมโยง**
+
+รูปภาพฝังจะเก็บข้อมูลรูปภาพภายในงานนำเสนอ จึงเป็นตัวเลือกที่ปลอดภัยที่สุดสำหรับการพกพาและการเรนเดอร์ที่คาดเดาได้ รูปภาพเชื่อมโยงจะเก็บตำแหน่งภายนอกผ่านเมธอด [Picture.setLinkPathLong](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) แทนการฝังข้อมูลรูปภาพในลักษณะเดียวกัน.
+
+รูปภาพเชื่อมโยงสามารถลดปริมาณข้อมูลรูปภาพที่เก็บใน PPTX ได้ แต่ก็ทำให้เกิดการพึ่งพาไฟล์ภายนอก ไฟล์ที่เชื่อมโยงต้องยังคงสามารถเข้าถึงได้สำหรับแอปพลิเคชันที่เปิดหรือเรนเดอร์งานนำเสนอ หากเส้นทางเปลี่ยนแปลง ไฟล์ย้ายตำแหน่ง หรือแหล่งข้อมูลไม่พร้อมใช้งาน รูปภาพเชื่อมโยงอาจไม่แสดงตามที่คาดไว้ สำหรับงานนำเสนอที่ต้องส่งอีเมล เก็บเป็นไฟล์เก่า หรือเรนเดอร์ในสภาพแวดล้อมแยก, รูปภาพฝังมักจะเชื่อถือได้มากกว่า.
+
+### **เพิ่มรูปภาพเชื่อมโยง**
+
+ตัวอย่างต่อไปนี้สร้างกรอบภาพและชี้ไปที่ไฟล์รูปภาพในเครื่อง โดยจัดการเฉพาะการเชื่อมโยงรูปภาพ; การเชื่อมโยงวิดีโอเป็นขั้นตอนสื่อแยกต่างหากและไม่ได้รวมไว้ในตัวอย่างนี้โดยเจตนา.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ใช้ลิงก์เมื่อการจัดการไฟล์ภายนอกเป็นเจตนา อย่าใช้ลิงก์เป็นเพียงการทดแทนการบีบอัด: PPTX ขนาดเล็กที่มีการพึ่งพาภาพเสียบกพร่องมักจะใช้งานได้น้อยกว่างานนำเสนอขนาดใหญ่ที่เป็นอิสระ.
+
+## **ดึงรูปภาพจากกรอบภาพ**
+
+ก่อนดึงรูปภาพจากงานนำเสนอที่มีอยู่ ควรตรวจสอบว่ารูปร่างเป็น [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) จริงและว่ามีรูปภาพฝังอยู่หรือไม่ กรอบภาพเชื่อมโยงอาจไม่มีไบต์รูปภาพที่สามารถดึงได้ในรูปแบบเดียวกัน.
+
+### **ดึงรูปเรสเตอร์**
+
+API รูปภาพสมัยใหม่ใช้ [IImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/) โดยตรง ตัวอย่างต่อไปนี้ค้นหารูปเรสเตอร์ฝังแรกบนสไลด์และบันทึกเป็น PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
+
+        const rasterImage = embeddedImage.getImage();
         try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+การบันทึกผ่าน [IImage.save](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/#save) จะเปลี่ยนรูปที่ดึงมาเป็นรูปแบบเอาต์พุตที่ร้องขอ หากต้องการไบต์ที่เข้ารหัสเก็บไว้ในงานนำเสนอแทนไฟล์เรสเตอร์ที่แปลงแล้ว ให้ใช้ข้อมูลไบต์ของแหล่งข้อมูลรูปภาพแทน.
+
+### **ดึงรูป SVG**
+
+สำหรับรูป SVG, [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) ให้เข้าถึงอ็อบเจ็กต์ [SvgImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/svgimage/) ซึ่งทำให้คุณสามารถดึงข้อมูล SVG โดยตรงโดยไม่ต้องแรสเตอร์รูปภาพก่อน.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+การเก็บเนื้อหา SVG เป็น SVG จะรักษาแหล่งเวกเตอร์ภายในงานนำเสนอ การส่งออกแบบเรสเตอร์เช่น PNG หรือ JPEG จะต้องเรนเดอร์เนื้อหาเวกเตอร์เป็นพิกเซล การส่งออกสไลด์เป็น PDF หรือ SVG ก็เป็นการเรนเดอร์เช่นกัน ดังนั้นกราฟิกที่ส่งออกไม่ควรถือว่าเป็นสำเนาไบต์ต่อไบต์ของ SVG ฝังต้นฉบับ; ให้ใช้ข้อมูล [SvgImage.getSvgData](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/svgimage/#getSvgData--) ที่ฝังอยู่เมื่อจำเป็นต้องใช้ทรัพยากรเวกเตอร์ต้นฉบับ.
+
+## **ครอบรูปภาพ**
+
+การครอบจะเปลี่ยนส่วนของรูปภาพที่มองเห็นในกรอบ ค่าเพรเซ็นต์การครอบบน [PictureFillFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/) เป็นเปอร์เซ็นต์ของมิติภาพต้นฉบับ การครอบไม่ได้ลบพิกเซลที่ซ่อนอยู่จากรูปภาพฝังตั้งแต่แรก; เพียงเปลี่ยนบริเวณที่มองเห็น.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+เนื่องจากข้อมูลรูปภาพที่ซ่อนยังคงอยู่ การครอบสามารถเปลี่ยนได้ในภายหลังโดยไม่สูญเสียพิกเซลต้นฉบับ หากขนาดไฟล์สำคัญกว่า ความสามารถย้อนกลับ, พื้นที่ที่ครอบสามารถลบออกจริง ๆ ตามที่อธิบายในส่วนต่อไป.
+
+## **ลบข้อมูลรูปภาพที่ถูกครอบ**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) จะลบข้อมูลรูปภาพที่อยู่นอกสี่เหลี่ยมครอบปัจจุบันและคืนค่าแหล่งข้อมูลรูปภาพที่ได้ การทำเช่นนี้สามารถลดขนาดไฟล์ แต่เป็นการเพิ่มประสิทธิภาพแบบทำลาย: หลังจากบันทึกงานนำเสนอ พิกเซลที่ลบจะไม่สามารถนำกลับมาครอบใหม่ได้อีก.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+เมธอดนี้อาจเพิ่มแหล่งข้อมูลรูปภาพใหม่เข้าไปในงานนำเสนอ หากรูปภาพต้นฉบับถูกใช้โดยกรอบภาพอื่น ๆ กรอบเหล่านั้นยังคงต้องการแหล่งข้อมูลเดิม ดังนั้นการลบพื้นที่ที่ครอบไม่ได้จำเป็นต้องลดจำนวนรูปภาพทั้งหมด การครอบเนื้อหา WMF หรือ EMF ด้วยเมธอดนี้จะทำให้ผลลัพธ์ที่ครอบแรสเตอร์เป็น PNG.
+
+## **บีบอัดรูปเรสเตอร์**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) ลดความละเอียดของรูปเรสเตอร์สัมพันธ์กับขนาดที่รูปแสดง สามารถลบพื้นที่ที่ครอบได้ในขั้นตอนเดียว เมธอดจะคืนค่า `true` เมื่อรูปภาพถูกปรับขนาดหรือครอบ และ `false` เมื่อไม่จำเป็นต้องเปลี่ยนแปลง.
+
+ใช้ค่า [PicturesCompression](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturescompression/) ที่กำหนดล่วงหน้าเมื่อความละเอียดเป้าหมายมาตรฐานเพียงพอ:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+สามารถส่งค่า DPI บวกที่กำหนดเองแทนค่าเดิมเมื่อจำเป็นต้องมีเป้าหมายเฉพาะ.
+
+การบีบอัดมุ่งเน้นที่รูปเรสเตอร์ SVG และเนื้อหาเมตาไฟล์จะไม่ถูกลดโดยขั้นตอนบีบอัดเรสเตอร์นี้ นอกจากนี้ควรจำว่าความละเอียดที่ต่ำลงและพื้นที่ที่ลบจะไม่สามารถกู้คืนจากงานนำเสนอที่ปรับแล้ว เลือกความละเอียดเป้าหมายตามขนาดสูงสุดที่รูปภาพจะถูกมองหรือส่งออกจริง แทนการใช้ DPI ต่ำสุดทั่วทั้งไฟล์.
+
+## **ตรวจสอบเอฟเฟกต์รูปภาพ**
+
+เอฟเฟกต์ของรูปภาพถูกเก็บบนรูปที่ใช้โดยกรอบ คอลเลกชันการแปลงรูปภาพอาจมีเอฟเฟกต์เช่นการปรับค่าตามอัลฟ่าแบบคงที่สำหรับความโปร่งใสและการปรับความสว่างสำหรับความสว่างและความคมชัด ตัวอย่างด้านล่างอ่านเอฟเฟกต์ทั้งสองประเภทจากกรอบภาพแรกบนสไลด์อย่างปลอดภัย:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (let i = 0; i < imageTransform.size(); i++) {
+            const effect = imageTransform.get_Item(i);
+            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
+                const transparency = 100 - effect.getAmount();
+                console.log("Transparency: " + transparency);
+            }
+
+            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
+                const luminance = effect.getEffective();
+                console.log("Brightness: " + luminance.getBrightness());
+                console.log("Contrast: " + luminance.getContrast());
             }
         }
     }
-} catch (e) {console.log(e);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **สกัดภาพ SVG จากกรอบรูป**
+เอฟเฟกต์เหล่านี้เปลี่ยนวิธีการเรนเดอร์รูปภาพในกรอบ; ไม่ได้เขียนทับไบต์รูปภาพฝังต้นฉบับ.
 
-เมื่อการนำเสนอมีกราฟิก SVG อยู่ภายในรูปร่าง [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) Aspose.Slides for Node.js via Java สามารถดึงภาพเวกเตอร์ต้นฉบับด้วยความแม่นยำเต็มที่ได้ โดยการวนลูปคอลเลกชันรูปร่างของสไลด์ คุณสามารถระบุแต่ละ [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/), ตรวจสอบว่า [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) มีเนื้อหา SVG หรือไม่ แล้วบันทึกภาพนั้นลงดิสก์หรือสตรีมในฟอร์แมต SVG ดั้งเดิม
+## **ล็อกเรขาคณิตกรอบภาพ**
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีสกัดภาพ SVG จากกรอบรูป:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **รับความโปร่งใสของภาพ**
-
-Aspose.Slides อนุญาตให้คุณรับค่าผลกระทบความโปร่งใสที่ถูกนำไปใช้กับภาพ โค้ด JavaScript นี้แสดงการดำเนินการ:
+การตั้งค่า [PictureFrameLock](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframelock/) ควบคุมว่าการแก้ไขใดจะถูกปิดใช้งานสำหรับกรอบภาพ ตัวอย่างเช่น [setAspectRatioLocked](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) จะคงสัดส่วนของรูปร่างขณะปรับขนาด.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-## **รับความสว่างและคอนทราสต์ของภาพ**
-
-Aspose.Slides อนุญาตให้คุณรับค่าผลกระทบความสว่างและคอนทราสต์ที่ถูกนำไปใช้กับภาพ คลาส [Luminance](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/luminance/) แสดงถึงการแปลงผลกระทบนี้
-
-โค้ด JavaScript นี้แสดงวิธีรับการตั้งค่าความสว่างและคอนทราสต์จากกรอบรูป:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-## **การจัดรูปแบบกรอบรูป**
-
-Aspose.Slides มีตัวเลือกการจัดรูปแบบหลายอย่างที่สามารถใช้กับกรอบรูปได้ ด้วยตัวเลือกเหล่านี้คุณสามารถปรับกรอบรูปให้ตรงตามความต้องการเฉพาะได้
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน 
-3. สร้างอ็อบเจกต์ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) โดยเพิ่มภาพลงใน [ImagesCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ImageCollection) ที่เชื่อมโยงกับอ็อบเจกต์ Presentation เพื่อใช้เติมรูปร่าง 
-4. ระบุความกว้างและความสูงของภาพ 
-5. สร้าง `PictureFrame` ตามความกว้างและความสูงของภาพผ่านเมธอด [addPictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) ที่เปิดให้ใช้โดยอ็อบเจกต์ [Shapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ShapeCollection) ของสไลด์ที่อ้างอิง 
-6. เพิ่มกรอบรูป (ที่บรรจุภาพ) ลงในสไลด์ 
-7. ตั้งค่าสีของเส้นกรอบรูป 
-8. ตั้งค่าความกว้างของเส้นกรอบรูป 
-9. หมุนกรอบรูปโดยให้ค่าบวกหรือค่าลบ  
-   * ค่าบวกจะหมุนภาพตามเข็มนาฬิกา  
-   * ค่าลบจะหมุนภาพทวนเข็มนาฬิกา 
-10. เพิ่มกรอบรูป (ที่บรรจุภาพ) ลงในสไลด์ 
-11. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX 
-
-โค้ด JavaScript นี้แสดงกระบวนการจัดรูปแบบกรอบรูป:
-
-```javascript
-// สร้างอินสแทนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // ดึงสไลด์แรก
-    var sld = pres.getSlides().get_Item(0);
-    // สร้างอินสแทนซ์ของคลาส Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // เพิ่มกรอบรูปโดยใช้ความสูงและความกว้างเท่ากับของรูป
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // ใช้การจัดรูปแบบบางอย่างกับ PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-{{% alert title="Tip" color="primary" %}} 
-Aspose เพิ่งพัฒนา [เครื่องมือสร้างคอลลาจฟรี](https://products.aspose.app/slides/th/collage) หากคุณต้องการผสานรวมภาพ JPG/JPEG หรือ PNG, หรือสร้างกริดจากรูปภาพ, คุณสามารถใช้บริการนี้ได้ 
-{{% /alert %}}
-
-## **เพิ่มภาพเป็นลิงก์**
-
-เพื่อหลีกเลี่ยงขนาดการนำเสนอที่ใหญ่ คุณสามารถเพิ่มภาพ (หรือวิดีโอ) ผ่านลิงก์แทนการฝังไฟล์โดยตรงเข้าไปในงานนำเสนอ โค้ด JavaScript นี้แสดงวิธีเพิ่มภาพและวิดีโอลงในตัวเก็บข้อมูล:
-
-```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
-            continue;
-        }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
-        }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **ครอบแม่นภาพ**
-
-โค้ด JavaScript นี้แสดงวิธีครอบภาพที่มีอยู่ในสไลด์:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// Creates new image object
-// สร้างอ็อบเจกต์ภาพใหม่
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Adds a PictureFrame to a Slide
-    // เพิ่ม PictureFrame ไปยังสไลด์
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Crops the image (percentage values)
-    // ครอบตัดภาพ (ค่าร้อยละ)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Saves the result
-    // บันทึกผลลัพธ์
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **ลบพื้นที่ที่ถูกครอปของกรอบรูป**
-
-หากต้องการลบพื้นที่ที่ถูกครอปของภาพที่อยู่ในกรอบรูป คุณสามารถใช้เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) เมธอดนี้จะคืนค่าภาพที่ถูกครอปหรือภาพต้นฉบับหากไม่จำเป็นต้องครอป
-
-โค้ด JavaScript นี้แสดงการดำเนินการ:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // ดึง PictureFrame จากสไลด์แรก
-    var picFrame = slide.getShapes().get_Item(0);
-    // ลบพื้นที่ที่ถูกครอปของภาพใน PictureFrame และคืนค่าภาพที่ถูกครอป
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // บันทึกผลลัพธ์
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) จะเพิ่มภาพที่ถูกครอปไปยังคอลเลกชันภาพของการนำเสนอ หากภาพถูกใช้เฉพาะใน [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) ที่ประมวลผลแล้ว การตั้งค่านี้สามารถลดขนาดการนำเสนอได้ มิฉะนั้นจำนวนภาพในผลลัพธ์จะเพิ่มขึ้น 
-
-เมธอดนี้แปลงไฟล์เมต้าไฟล์ WMF/EMF เป็นภาพ PNG raster ในกระบวนการครอป 
-{{% /alert %}}
-
-## **บีบอัดภาพ**
-
-คุณสามารถบีบอัดรูปภาพในงานนำเสนอโดยใช้เมธอด [PictureFillFormat.compressImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-)  
-เมธอดนี้บีบอัดภาพโดยลดขนาดตามขนาดรูปร่างและความละเอียดที่ระบุ พร้อมตัวเลือกให้ลบพื้นที่ที่ถูกครอป 
-
-มันปรับขนาดและความละเอียดของภาพคล้ายกับคุณลักษณะ **Picture Format → Compress Pictures → Resolution** ของ PowerPoint
-
-ตัวอย่าง JavaScript ด้านล่างแสดงวิธีบีบอัดภาพในงานนำเสนอโดยระบุความละเอียดเป้าหมายและโดยออปชันลบพื้นที่ที่ถูกครอป:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // บีบอัดภาพด้วยความละเอียดเป้าหมาย 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอป
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // ตรวจสอบผลของการบีบอัด
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
+        sourceImage.dispose();
     }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-หรือใช้ค่า DPI ที่กำหนดไว้ล่วงหน้าอื่น:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // บีบอัดภาพเป็น 96 DPI (ความละเอียดอีเมล), ลบพื้นที่ที่ถูกครอป
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
-
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-เมธอดนี้แปลงภาพเป็นความละเอียดต่ำกว่าตามขนาดของรูปร่างและ DPI ที่ให้ไว้ พื้นที่ที่ถูกครอปสามารถลบได้เพื่อเพิ่มประสิทธิภาพขนาดไฟล์  
-หากภาพเป็นเมต้าไฟล์ (WMF/EMF) หรือ SVG การบีบอัดจะไม่ถูกนำไปใช้ และคุณภาพ JPEG จะถูกเก็บไว้หรือสูญเสียเล็กน้อยตามความละเอียด เช่นเดียวกับที่ PowerPoint จัดการกับ JPEG ความละเอียดสูง 
-{{% /alert %}}
-
-## **ล็อกอัตราส่วนภาพ**
-
-หากต้องการให้รูปร่างที่บรรจุภาพคงอัตราส่วนภาพแม้หลังจากเปลี่ยนขนาดภาพ คุณสามารถใช้เมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) เพื่อตั้งค่าการล็อกอัตราส่วนภาพ
-
-โค้ด JavaScript นี้แสดงวิธีล็อกอัตราส่วนของรูปร่าง:
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // ตั้งรูปร่างให้คงอัตราส่วนภาพเมื่อเปลี่ยนขนาด
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch (e) {console.log(e);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-การตั้งค่า *Lock Aspect Ratio* นี้รักษาเฉพาะอัตราส่วนของรูปร่าง ไม่ได้รักษาภาพที่บรรจุอยู่ 
-{{% /alert %}}
+การล็อกนี้ใช้กับรูปร่างกรอบภาพ ไม่บังคับให้รูปภาพต้นฉบับต้องรีแซมเพิลหรือเปลี่ยนสัดส่วนแบบถาวร.
 
-## **ใช้คุณสมบัติ StretchOff**
+## **ปรับค่า StretchOffset**
 
-โดยใช้เมธอด [setStretchOffsetLeft](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) และ [setStretchOffsetBottom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) จากคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PictureFillFormat) คุณสามารถกำหนดสี่เหลี่ยมเติมได้ 
+เมื่อโหมดเติมรูปภาพเป็น stretch, ค่า stretch-offset บน [PictureFillFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/) จะกำหนดสี่เหลี่ยมเติมสัมพันธ์กับกล่องขอบของกรอบภาพ ค่าเปอร์เซ็นต์บวกจะสร้างการย่อจากขอบ, ส่วนค่าเปอร์เซ็นต์ลบจะสร้างการขยายออก.
 
-เมื่อกำหนดการยืดสำหรับภาพ สี่เหลี่ยมต้นฉบับจะถูกสเกลให้พอดีกับสี่เหลี่ยมเติมที่กำหนด แต่ละขอบของสี่เหลี่ยมเติมจะถูกกำหนดโดยออฟเซ็ตเปอร์เซ็นต์จากขอบของกล่องขอบเขตของรูปร่าง ข้อบวกเป็นการย่อตรงขอบ ส่วนลบเป็นการขยายออกจากขอบ
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน 
-3. เพิ่มสี่เหลี่ยม `AutoShape` 
-4. สร้างภาพ 
-5. ตั้งค่าประเภทการเติมของรูปร่าง 
-6. ตั้งค่าโหมดการเติมภาพของรูปร่าง 
-7. เพิ่มภาพที่ตั้งค่าให้เติมรูปร่าง 
-8. ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตของรูปร่าง 
-9. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX 
-
-โค้ด JavaScript นี้แสดงกระบวนการที่ใช้คุณสมบัติ StretchOff:
+นี่แตกต่างจากการครอบ ค่าการครอบเลือกส่วนของภาพต้นฉบับที่จะแสดง; stretch offset จะเปลี่ยนสี่เหลี่ยมที่ภาพเติมที่มองเห็นถูกยืด.
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก
-    var slide = pres.getSlides().get_Item(0);
-    // สร้างอินสแตนซ์ของคลาส ImageEx
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        sourceImage.dispose();
     }
-    // เพิ่ม AutoShape ที่ตั้งค่าเป็น Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // ตั้งค่าประเภทการเติมของรูปร่าง
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // ตั้งค่าโหมดการเติมภาพของรูปร่าง
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // ตั้งค่าภาพเพื่อเติมรูปร่าง
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตของรูปร่าง
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+ใช้ stretch offset เพื่อกำหนดตำแหน่งการเติม ใช้คุณสมบัติการครอบเมื่อต้องการซ่อนขอบภาพต้นฉบับ.
+
+## **การจัดเก็บ, ขนาดไฟล์, และการพิจารณาการส่งออก**
+
+การแลกเปลี่ยนหลักจะจัดการได้ง่ายขึ้นเมื่อการจัดเก็บรูปภาพและการจัดรูปแบบกรอบภาพแยกกัน:
+
+- **รูปภาพฝัง** ทำให้งานนำเสนอเป็นอิสระและเป็นที่เชื่อถือที่สุดสำหรับการแชร์และการเรนเดอร์บนเซิร์ฟเวอร์, แต่รูปเรสเตอร์ขนาดใหญ่จะเพิ่มขนาด PPTX และการใช้หน่วยความจำ.
+- **รูปภาพเชื่อมโยง** สามารถทำให้แพคเกจมีขนาดเล็กลง, แต่งานนำเสนอจะพึ่งพาไฟล์ภายนอกที่ยังคงสามารถเข้าถึงได้ตามเส้นทางหรือที่ตั้งที่บันทึก.
+- **การครอบ** ในตอนแรกไม่ทำลายข้อมูล พิกเซลที่ซ่อนอยู่ยังคงฝังอยู่จนกว่าจะมีการลบพื้นที่ที่ครอบอย่างชัดเจนหรือระหว่างการบีบอัด.
+- **การบีบอัด** สามารถลดขนาดไฟล์อย่างมากสำหรับรูปเรสเตอร์ที่ใหญ่เกินไป, แต่จะสูญเสียความละเอียดต้นฉบับ ควรทำหลังจากทราบขนาดที่ต้องการบนสไลด์.
+- **รูปภาพ SVG** ควรเก็บเป็น SVG เมื่อการรักษาเวกเตอร์สำคัญ ดึง SVG ฝังโดยตรงเมื่อคุณต้องการทรัพยากรเวกเตอร์เอง การส่งออกสไลด์เป็นเรสเตอร์จะเปลี่ยนสไลด์ที่เรนเดอร์เป็นพิกเซลเสมอ.
+- **รูปภาพที่ใช้ซ้ำ** ควรใช้แหล่งข้อมูล [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) ที่มีอยู่แล้วเมื่อเป็นไปได้ แทนการโหลดไฟล์เดียวกันหลายครั้งเข้าสู่ขั้นตอนทำงานของงานนำเสนอ.
+
+สำหรับงานนำเสนอขนาดใหญ่ การปรับรูปภาพมักจะมีประสิทธิภาพสูงสุดเมื่อทำอย่างคัดเลือก: เก็บโลโก้และแผนภาพเป็นเนื้อหาเวกเตอร์, บีบอัดภาพถ่ายตามขนาดการแสดงจริง, ลบพิกเซลที่ถูกครอบเฉพาะเมื่อไม่ต้องการแก้ไขต่อในอนาคต, และหลีกเลี่ยงลิงก์ภายนอกหากการจัดการการพึ่งพาไม่เป็นส่วนหนึ่งของการออกแบบการใช้งาน.
 
 ## **FAQ**
 
-**ฉันจะตรวจสอบได้ว่า ฟอร์แมตภาพใดรองรับสำหรับ PictureFrame?**
+**ความแตกต่างระหว่างกรอบภาพและแหล่งข้อมูลรูปภาพคืออะไร?**
 
-Aspose.Slides รองรับทั้งภาพ raster (PNG, JPEG, BMP, GIF ฯลฯ) และภาพ vector (เช่น SVG) ผ่านอ็อบเจกต์ภาพที่กำหนดให้กับ [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) รายการฟอร์แมตที่รองรับมักสอดคล้องกับความสามารถของเอนจิ้นการแปลงสไลด์และภาพ
+[PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) แสดงถึงแหล่งข้อมูลรูปภาพที่เชื่อมโยงกับงานนำเสนอ. ส่วน [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) เป็นรูปร่างบนสไลด์ที่แสดงรูปภาพและเก็บเรขาคณิตระดับกรอบและการจัดรูปแบบเช่น ขนาด, การหมุน, ค่าการครอบ, เอฟเฟกต์, และการล็อก.
 
-**การเพิ่มรูปภาพขนาดใหญ่หลายสิบรูปจะส่งผลต่อขนาดและประสิทธิภาพของไฟล์ PPTX อย่างไร?**
+**ควรฝังรูปภาพหรือเชื่อมโยงรูปภาพ?**
 
-การฝังภาพขนาดใหญ่จะเพิ่มขนาดไฟล์และการใช้หน่วยความจำ; การเชื่อมโยงภาพช่วยลดขนาดการนำเสนอแต่ต้องให้ไฟล์ภายนอกสามารถเข้าถึงได้ Aspose.Slides มีความสามารถในการเพิ่มภาพโดยใช้ลิงก์เพื่อบรรเทาขนาดไฟล์
+ควรฝังรูปภาพเมื่อจำเป็นต้องให้งานนำเสนอพกพาได้, เก็บเป็นไฟล์เก่า, หรือเรนเดอร์โดยไม่ต้องอ้างอิงทรัพยากรภายนอก. ควรเชื่อมโยงรูปภาพเฉพาะเมื่อต้องการเก็บไฟล์รูปภาพอยู่นอก PPTX อย่างตั้งใจและตำแหน่งภายนอกสามารถจัดการได้อย่างแม่นยำ.
 
-**ฉันจะล็อกอ็อบเจกต์ภาพไม่ให้เคลื่อนย้าย/เปลี่ยนขนาดโดยไม่ตั้งใจได้อย่างไร?**
+**การครอบทำให้ขนาดไฟล์ PPTX ลดลงหรือไม่?**
 
-ใช้ [shape locks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) สำหรับ [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) (เช่น ปิดการย้ายหรือการปรับขนาด) กลไกการล็อกนี้รองรับหลายประเภทของรูปร่างรวมถึง [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/)
+ไม่โดยตรง การตั้งค่าการครอบปกติจะซ่อนส่วนของภาพต้นฉบับแต่ยังคงเก็บพิกเซลอยู่ ควรใช้ [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) หรือการบีบอัดรูปภาพพร้อมการลบพื้นที่ที่ครอบเมื่อพิกเซลเหล่านั้นสามารถลบทิ้งได้อย่างถาวร.
 
-**ความแม่นยำของเวกเตอร์ SVG จะถูกเก็บไว้เมื่อส่งออกงานนำเสนอเป็น PDF/ภาพหรือไม่?**
+**ฉันสามารถกู้คุณภาพรูปภาพหลังการบีบอัดได้หรือไม่?**
 
-Aspose.Slides อนุญาตให้สกัด SVG จาก [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) เป็นเวกเตอร์ดั้งเดิม เมื่อ [ส่งออกเป็น PDF](/slides/th/nodejs-java/convert-powerpoint-to-pdf/) หรือ [ฟอร์แมต raster](/slides/th/nodejs-java/convert-powerpoint-to-png/) ผลลัพธ์อาจถูกเรสเตอร์ไลซ์ขึ้นอยู่กับการตั้งค่าการส่งออก; การที่ SVG ดั้งเดิมถูกเก็บเป็นเวกเตอร์ได้รับการยืนยันจากพฤติกรรมการสกัดภาพ
+ไม่ได้ การบีบอัดอาจลดความละเอียดของเรสเตอร์ที่เก็บไว้, และการลบพื้นที่ที่ครอบจะทำให้ข้อมูลรูปภาพหายไป ควรเก็บรูปภาพต้นฉบับนอกงานนำเสนอหากต้องการแก้ไขคุณภาพสูงในภายหลัง.
+
+**ควรจัดการรูปภาพ SVG อย่างไร?**
+
+ควรเก็บเนื้อหา SVG เป็น SVG เมื่อความเที่ยงตรงของเวกเตอร์สำคัญ. [SvgImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/svgimage/) ที่ฝังสามารถดึงโดยตรง. การเรนเดอร์สไลด์เป็นรูปแบบเรสเตอร์เช่น PNG หรือ JPEG จะทำให้ SVG แรสเตอร์เป็นส่วนหนึ่งของรูปสไลด์.
+
+**ฉันจะหลีกเลี่ยงการแคสต์ที่ไม่ปลอดภัยเมื่ออ่านสไลด์ที่มีอยู่ได้อย่างไร?**
+
+ตรวจสอบประเภทของรูปร่างก่อนใช้สมาชิกเฉพาะกรอบภาพ การตรวจสอบ `java.instanceOf` ต่อ [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) จะหลีกเลี่ยงการแคสต์ที่ไม่ถูกต้องและให้โค้ดจัดการสไลด์ที่ไม่มีกรอบภาพได้.

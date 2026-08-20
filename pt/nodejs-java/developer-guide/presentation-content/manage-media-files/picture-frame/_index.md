@@ -8,531 +8,475 @@ keywords:
 - quadro de imagem
 - adicionar quadro de imagem
 - criar quadro de imagem
-- adicionar imagem
-- criar imagem
+- imagem incorporada
+- imagem vinculada
 - extrair imagem
 - imagem raster
-- imagem vetorial
+- imagem SVG
 - recortar imagem
-- área recortada
-- propriedade StretchOff
+- excluir áreas recortadas
+- comprimir imagem
+- StretchOffset
 - formatação de quadro de imagem
-- propriedades do quadro de imagem
 - escala relativa
 - efeito de imagem
-- proporção da imagem
-- transparência da imagem
+- proporção
 - PowerPoint
 - OpenDocument
 - apresentação
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Adicione quadros de imagem a apresentações PowerPoint e OpenDocument com Aspose.Slides para Node.js via Java. Simplifique seu fluxo de trabalho e melhore o design dos slides."
+description: "Criar, formatar, vincular, recortar, extrair e comprimir quadros de imagem em apresentações com Aspose.Slides para Node.js via Java."
 ---
-## **Introdução**
+## **Visão geral**
 
-Um quadro de imagem é uma forma que contém uma imagem — é como uma foto dentro de uma moldura.
+Um picture frame é uma forma de slide que exibe uma imagem. No Aspose.Slides, o recurso de imagem e a forma que a exibe são objetos separados: um [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) possui recursos de imagem incorporados por meio de sua [ImageCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/imagecollection/), enquanto um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) controla a posição, tamanho, formatação de linhas, rotação, recorte, efeitos de imagem e outras configurações ao nível da moldura.
 
-Você pode adicionar uma imagem a um slide por meio de um quadro de imagem. Dessa forma, você formata a imagem formatando o quadro de imagem.
+Essa separação é útil quando a mesma imagem é exibida mais de uma vez. Adicione a imagem à apresentação uma única vez, mantenha o [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/) retornado e use esse recurso de imagem ao criar quadros de imagem.
 
-{{% alert  title="Tip" color="primary" %}} 
+Quadros de imagem podem conter imagens raster, como PNG ou JPEG, e imagens vetoriais SVG. Eles também podem referenciar imagens vinculadas em vez de armazenar os bytes da imagem na apresentação. A escolha afeta portabilidade, tamanho do arquivo, extração e comportamento de exportação, portanto é útil decidir como a imagem deve ser armazenada antes de aplicar formatação ou otimização.
 
-A Aspose fornece conversores gratuitos —[JPEG para PowerPoint](https://products.aspose.app/slides/pt/import/jpg-to-ppt) e [PNG para PowerPoint](https://products.aspose.app/slides/pt/import/png-to-ppt)— que permitem criar apresentações rapidamente a partir de imagens. 
+## **Adicionar e formatar uma imagem incorporada**
 
-{{% /alert %}} 
+Para uma imagem incorporada, adicione os dados da imagem à apresentação e crie um quadro de imagem com [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). A imagem passa a fazer parte do pacote da apresentação, de modo que a apresentação permanece autocontida quando é movida para outro computador.
 
-## **Criar Quadro de Imagem**
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation).
-2. Obtenha a referência de um slide através do seu índice. 
-3. Crie um objeto `PPImage` adicionando uma imagem à [ImagesCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ImageCollection) associada ao objeto de apresentação que será usado para preencher a forma.
-4. Defina a largura e a altura da imagem.
-5. Crie um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFrame) com base na largura e altura da imagem através do método `addPictureFrame` exposto pelo objeto de forma associado ao slide referenciado.
-6. Adicione um quadro de imagem (contendo a foto) ao slide.
-7. Grave a apresentação modificada como um arquivo PPTX.
-
-Este código JavaScript mostra como criar um quadro de imagem:
+O exemplo a seguir adiciona uma imagem PNG, cria um quadro com as dimensões nativas da imagem e aplica formatação de linha e rotação:
 
 ```javascript
-// Instancia a classe Presentation que representa um arquivo PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtém o primeiro slide
-    var sld = pres.getSlides().get_Item(0);
-    // Instancia a classe Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Adiciona um quadro de imagem com a altura e largura equivalentes da imagem
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Grava o arquivo PPTX no disco
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Quadros de imagem permitem criar slides de apresentação rapidamente a partir de imagens. Quando você combina o quadro de imagem com as opções de salvamento do Aspose.Slides, pode manipular operações de entrada/saída para converter imagens de um formato para outro.
+O quadro de imagem controla a geometria exibida; alterar o tamanho do quadro não altera as dimensões de pixel originais armazenadas no recurso de imagem incorporado. Essa distinção se torna importante ao recortar ou comprimir uma imagem posteriormente.
 
-## **Criar Quadro de Imagem com Escala Relativa**
+## **Usar escala relativa**
 
-Alterando a escala relativa de uma imagem, você pode criar um quadro de imagem mais complexo. 
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation).
-2. Obtenha a referência de um slide através do seu índice. 
-3. Adicione uma imagem à coleção de imagens da apresentação.
-4. Crie um objeto [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PPImage) adicionando uma imagem à [ImagesCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ImageCollection) associada ao objeto de apresentação que será usado para preencher a forma.
-5. Defina a largura e a altura relativas da imagem no quadro de imagem.
-6. Grave a apresentação modificada como um arquivo PPTX.
-
-Este código JavaScript mostra como criar um quadro de imagem com escala relativa:
+[PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) expõe a escala relativa de largura e altura do quadro por meio de [setRelativeScaleWidth](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) e [setRelativeScaleHeight](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Um valor de `1.0` corresponde a 100 % do tamanho original da imagem. A escala relativa é útil quando um fluxo de trabalho precisa preservar a relação com o tamanho da imagem fonte em vez de calcular as dimensões finais manualmente.
 
 ```javascript
-// Instancia a classe Presentation que representa o PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtém o primeiro slide
-    var sld = pres.getSlides().get_Item(0);
-    // Instancia a classe Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Adiciona um Quadro de Imagem com altura e largura equivalentes da Imagem
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Definindo escala relativa de largura e altura
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // Grava o arquivo PPTX no disco
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Extrair Imagens Raster de Quadros de Imagem**
+A escala relativa altera as configurações de escala do quadro; ela não reamostra nem comprime a imagem incorporada.
 
-Você pode extrair imagens raster de objetos [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFrame) e salvá‑las em PNG, JPG e outros formatos. O exemplo de código abaixo demonstra como extrair uma imagem do documento “sample.pptx” e salvá‑la em formato PNG.
+## **Imagens incorporadas e vinculadas**
+
+Uma imagem incorporada armazena os dados da imagem dentro da apresentação e, portanto, é a escolha mais segura para portabilidade e renderização previsível. Uma imagem vinculada armazena um caminho externo por meio do método [Picture.setLinkPathLong](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) em vez de incorporar os dados da imagem da mesma forma.
+
+Imagens vinculadas podem reduzir a quantidade de dados de imagem armazenados no PPTX, mas introduzem uma dependência externa. O arquivo vinculado deve permanecer acessível à aplicação que abre ou renderiza a apresentação. Se o caminho mudar, o arquivo for movido ou o recurso ficar indisponível, a imagem vinculada pode não ser exibida como esperado. Para apresentações que precisam ser enviadas por e‑mail, arquivadas ou renderizadas em ambientes isolados, imagens incorporadas costumam ser mais confiáveis.
+
+### **Adicionar uma imagem vinculada**
+
+O exemplo a seguir cria um quadro de imagem e aponta para um arquivo de imagem local. Ele trata apenas de vinculação de imagem; a vinculação de vídeo é um fluxo de mídia separado e foi intencionalmente não misturada neste exemplo.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Use links quando o gerenciamento de arquivos externos for intencional. Não os use apenas como substituto da compressão: um PPTX pequeno com dependências de imagem quebradas costuma ser menos útil que uma apresentação maior e autocontida.
+
+## **Extrair imagens de quadros de imagem**
+
+Antes de extrair uma imagem de uma apresentação existente, verifique se a forma é realmente um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) e se contém uma imagem incorporada. Quadros de imagem vinculados podem não conter bytes de imagem que possam ser extraídos da mesma forma.
+
+### **Extrair uma imagem raster**
+
+A API de imagem moderna usa [IImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/iimage/) diretamente. O exemplo a seguir encontra a primeira imagem raster incorporada em um slide e a salva como PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
+
+        const rasterImage = embeddedImage.getImage();
         try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Salvar via [IImage.save](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/iimage/#save) converte a imagem extraída para o formato de saída solicitado. Se precisar dos bytes codificados armazenados na apresentação em vez de um arquivo raster convertido, use os dados binários do recurso de imagem.
+
+### **Extrair uma imagem SVG**
+
+Para uma imagem SVG, o [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/) expõe um objeto [SvgImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/svgimage/). Isso permite recuperar os dados SVG diretamente em vez de rasterizar a imagem primeiro.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Manter o conteúdo SVG como SVG preserva a fonte vetorial dentro da apresentação. Exportações raster, como PNG ou JPEG, necessariamente renderizam esse conteúdo vetorial em pixels. A exportação de slides para PDF ou SVG também é uma operação de renderização, portanto os gráficos exportados não devem ser tratados como uma cópia bit‑a‑bit do SVG incorporado original; use os dados de [SvgImage.getSvgData](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/svgimage/#getSvgData--) quando o recurso vetorial original for necessário.
+
+## **Recortar uma imagem**
+
+O recorte altera qual parte da imagem é visível dentro do quadro. Os valores de recorte em [PictureFillFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/) são porcentagens das dimensões da imagem fonte. O recorte não exclui inicialmente os pixels ocultos da imagem incorporada; ele apenas altera a região visível.
+
+O exemplo a seguir localiza um quadro de imagem de forma segura e aplica valores de recorte:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Como os dados da imagem oculta ainda estão presentes, o recorte pode ser alterado posteriormente sem perder os pixels originais. Se o tamanho do arquivo for mais importante que a reversibilidade, as regiões recortadas podem ser removidas fisicamente conforme descrito na próxima seção.
+
+## **Remover dados de imagem recortados**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) remove os dados da imagem fora do retângulo de recorte atual e devolve o recurso de imagem resultante. Isso pode reduzir o tamanho do arquivo, mas trata‑se de uma otimização destrutiva: após a apresentação ser salva, os pixels removidos não estão mais disponíveis para uma operação de desfazer recorte.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+O método pode adicionar um novo recurso de imagem à apresentação. Se a imagem original também for usada por outros quadros de imagem, esses quadros ainda precisarão do recurso existente, de modo que excluir áreas recortadas não reduz necessariamente o número total de imagens. Recortar conteúdo WMF ou EMF com este método rasteriza o resultado recortado para PNG.
+
+## **Comprimir imagens raster**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) reduz a resolução da imagem raster em relação ao tamanho em que a imagem é exibida. Ele também pode remover regiões recortadas na mesma operação. O método devolve `true` quando a imagem foi redimensionada ou recortada e `false` quando nenhuma alteração foi necessária.
+
+Use um valor predefinido de [PicturesCompression](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturescompression/) quando uma resolução alvo padrão for suficiente:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Um valor DPI positivo personalizado pode ser passado em vez de um valor predefinido quando um alvo específico for necessário.
+
+A compressão destina‑se a imagens raster. Conteúdos SVG e metafile não são reduzidos por este fluxo de compressão raster. Também lembre‑se de que resolução menor e regiões recortadas excluídas não podem ser recuperadas da apresentação otimizada. Escolha a resolução alvo com base no maior tamanho em que a imagem será realmente visualizada ou exportada, em vez de aplicar o DPI mais baixo globalmente.
+
+## **Inspecionar efeitos de imagem**
+
+Os efeitos de imagem são armazenados na imagem usada pelo quadro. A coleção de transformações da imagem pode conter efeitos como modulação alfa fixa para transparência e luminância para brilho e contraste. O exemplo abaixo lê com segurança ambos os tipos de efeitos do primeiro quadro de imagem em um slide:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (let i = 0; i < imageTransform.size(); i++) {
+            const effect = imageTransform.get_Item(i);
+            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
+                const transparency = 100 - effect.getAmount();
+                console.log("Transparency: " + transparency);
+            }
+
+            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
+                const luminance = effect.getEffective();
+                console.log("Brightness: " + luminance.getBrightness());
+                console.log("Contrast: " + luminance.getContrast());
             }
         }
     }
-} catch (e) {console.log(e);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Extrair Imagens SVG de Quadros de Imagem**
+Esses efeitos alteram como a imagem é renderizada no quadro; eles não reescrevem os bytes da imagem incorporada original.
 
-Quando uma apresentação contém gráficos SVG inseridos dentro de formas [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/), o Aspose.Slides para Node.js via Java permite recuperar as imagens vetoriais originais com total fidelidade. Ao percorrer a coleção de formas do slide, você pode identificar cada [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/), verificar se o [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/) subjacente contém conteúdo SVG e, então, salvar essa imagem em disco ou em um fluxo no seu formato SVG nativo.
+## **Bloquear a geometria do quadro de imagem**
 
-O exemplo de código a seguir demonstra como extrair uma imagem SVG de um quadro de imagem:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Obter Transparência da Imagem**
-
-O Aspose.Slides permite obter o efeito de transparência aplicado a uma imagem. Este código JavaScript demonstra a operação:
+As configurações de [PictureFrameLock](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframelock/) controlam quais operações de edição são desativadas para um quadro de imagem. Por exemplo, [setAspectRatioLocked](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) preserva as proporções da forma enquanto ela é redimensionada.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-## **Obter Brilho e Contraste de uma Imagem**
-
-O Aspose.Slides permite obter os efeitos de brilho e contraste aplicados a uma imagem. A classe [Luminance](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/luminance/) representa esse efeito de transformação da imagem.
-
-Este código JavaScript demonstra como obter as configurações de brilho e contraste de um quadro de imagem:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Formatação de Quadros de Imagem**
-
-O Aspose.Slides oferece muitas opções de formatação que podem ser aplicadas a um quadro de imagem. Usando essas opções, você pode alterar um quadro de imagem para que ele atenda a requisitos específicos.
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation).
-2. Obtenha a referência de um slide através do seu índice. 
-3. Crie um objeto [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PPImage) adicionando uma imagem à [ImagesCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ImageCollection) associada ao objeto de apresentação que será usado para preencher a forma.
-4. Defina a largura e a altura da imagem.
-5. Crie um `PictureFrame` baseado na largura e altura da imagem através do método [addPictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) exposto pelo objeto [Shapes](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ShapeCollection) associado ao slide referenciado.
-6. Adicione o quadro de imagem (contendo a foto) ao slide.
-7. Defina a cor da linha do quadro de imagem.
-8. Defina a espessura da linha do quadro de imagem.
-9. Gire o quadro de imagem fornecendo um valor positivo ou negativo.  
-   * Um valor positivo gira a imagem no sentido horário.  
-   * Um valor negativo gira a imagem no sentido anti‑horário.
-10. Adicione o quadro de imagem (contendo a foto) ao slide.
-11. Grave a apresentação modificada como um arquivo PPTX.
-
-Este código JavaScript demonstra o processo de formatação de quadros de imagem:
-
-```javascript
-// Instancia a classe Presentation que representa o PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Obtém o primeiro slide
-    var sld = pres.getSlides().get_Item(0);
-    // Instancia a classe Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Adiciona um Quadro de Imagem com altura e largura equivalentes da Imagem
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Aplica alguma formatação ao PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // Grava o arquivo PPTX no disco
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-A Aspose desenvolveu recentemente um [Criador de Colagens gratuito](https://products.aspose.app/slides/pt/collage). Se precisar [mesclar JPG/JPEG](https://products.aspose.app/slides/pt/collage/jpg) ou imagens PNG, [criar grades a partir de fotos](https://products.aspose.app/slides/pt/collage/photo-grid), pode usar este serviço. 
-
-{{% /alert %}}
-
-## **Adicionar Imagem como Link**
-
-Para evitar tamanhos grandes de apresentação, você pode adicionar imagens (ou vídeos) por meio de links em vez de incorporar os arquivos diretamente nas apresentações. Este código JavaScript mostra como adicionar uma imagem e um vídeo em um placeholder:
-
-```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
-            continue;
-        }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
-        }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Recortar Imagem**
-
-Este código JavaScript mostra como recortar uma imagem existente em um slide:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// Cria novo objeto de imagem
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Adiciona um Quadro de Imagem a um Slide
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Recorta a imagem (valores em porcentagem)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Salva o resultado
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Excluir Áreas Recortadas da Imagem**
-
-Se desejar excluir as áreas recortadas de uma imagem contida em um quadro, use o método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Esse método devolve a imagem recortada ou a imagem original se o recorte não for necessário.
-
-Este código JavaScript demonstra a operação:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Obtém o PictureFrame do primeiro slide
-    var picFrame = slide.getShapes().get_Item(0);
-    // Exclui áreas recortadas da imagem do PictureFrame e retorna a imagem recortada
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Salva o resultado
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-O método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) adiciona a imagem recortada à coleção de imagens da apresentação. Se a imagem for usada apenas no [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) processado, essa configuração pode reduzir o tamanho da apresentação. Caso contrário, o número de imagens na apresentação resultante aumentará.
-
-Esse método converte arquivos WMF/EMF em imagens raster PNG durante a operação de recorte. 
-
-{{% /alert %}}
-
-## **Compactar Imagens**
-
-Você pode compactar uma imagem em uma apresentação usando o método [PictureFillFormat.compressImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) .
-Esse método compacta a imagem reduzindo seu tamanho com base no tamanho da forma e na resolução especificada, com a opção de excluir áreas recortadas.
-
-Ele ajusta o tamanho e a resolução da imagem de forma semelhante ao recurso **Formato da Imagem → Compactar Imagens → Resolução** do PowerPoint.
-
-Os exemplos JavaScript a seguir demonstram como compactar uma imagem em uma apresentação especificando uma resolução alvo e, opcionalmente, removendo áreas recortadas:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // Compacta a imagem com resolução alvo de 150 DPI (resolução da web) e remove áreas recortadas.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Verifica o resultado da compactação.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
+        sourceImage.dispose();
     }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Ou usando outro valor DPI predefinido:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // Compacta a imagem para 96 DPI (resolução de e-mail), removendo áreas recortadas.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
-
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-O método converte a imagem para uma resolução inferior com base no tamanho da forma e no DPI fornecido. Regiões recortadas também podem ser excluídas para otimizar o tamanho do arquivo.
-Se a imagem for um metafile (WMF/EMF) ou SVG, a compactação não será aplicada. Além disso, a qualidade JPEG é preservada ou ligeiramente reduzida conforme a resolução, de modo semelhante ao tratamento do PowerPoint para JPEGs de alta resolução.
-
-{{% /alert %}}
-
-## **Bloquear Proporção da Imagem**
-
-Se desejar que uma forma contendo uma imagem mantenha sua proporção mesmo após alterar as dimensões da imagem, use o método [setAspectRatioLocked](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) para definir a configuração *Lock Aspect Ratio*.
-
-Este código JavaScript mostra como bloquear a proporção de uma forma:
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // defina a forma para preservar a proporção ao redimensionar
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch (e) {console.log(e);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+O bloqueio se aplica à forma do quadro de imagem. Ele não força a imagem fonte a ser reamostrada ou permanentemente alterada para a mesma proporção.
 
-Essa configuração *Lock Aspect Ratio* preserva apenas a proporção da forma, não a da imagem que ela contém.
+## **Ajustar os valores StretchOffset**
 
-{{% /alert %}}
+Quando o modo de preenchimento da imagem é stretch, os valores stretch‑offset em [PictureFillFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/) definem o retângulo de preenchimento relativo à caixa delimitadora do quadro de imagem. Percentuais positivos criam um recuo a partir de uma borda, enquanto percentuais negativos criam um extravasamento.
 
-## **Usar Propriedade StretchOff**
-
-Usando os métodos [setStretchOffsetLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) e [setStretchOffsetBottom](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) da classe [PictureFillFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PictureFillFormat), você pode especificar um retângulo de preenchimento.
-
-Quando o alongamento é especificado para uma imagem, um retângulo de origem é dimensionado para caber no retângulo de preenchimento especificado. Cada borda do retângulo de preenchimento é definida por um deslocamento percentual a partir da borda correspondente da caixa delimitadora da forma. Um percentual positivo indica um recuo, enquanto um percentual negativo indica um sobresbordo.
-
-1. Crie uma instância da [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation) class.
-2. Obtenha a referência de um slide através do seu índice.
-3. Adicione um retângulo `AutoShape`. 
-4. Crie uma imagem.
-5. Defina o tipo de preenchimento da forma.
-6. Defina o modo de preenchimento da forma.
-7. Adicione a imagem de preenchimento à forma.
-8. Especifique deslocamentos da imagem a partir da borda correspondente da caixa delimitadora da forma.
-9. Grave a apresentação modificada como um arquivo PPTX.
-
-Este código JavaScript demonstra um processo no qual a propriedade StretchOff é usada:
+Isso difere do recorte. Valores de recorte selecionam qual parte da imagem fonte fica visível; stretch offsets alteram o retângulo no qual o preenchimento da imagem visível é esticado.
 
 ```javascript
-// Instancia a classe Presentation que representa um arquivo PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtém o primeiro slide
-    var slide = pres.getSlides().get_Item(0);
-    // Instancia a classe ImageEx
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        sourceImage.dispose();
     }
-    // Adiciona um AutoShape definido como Retângulo
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Define o tipo de preenchimento da forma
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Define o modo de preenchimento de imagem da forma
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Define a imagem para preencher a forma
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Especifica os deslocamentos da imagem a partir da borda correspondente da caixa delimitadora da forma
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // Grava o arquivo PPTX no disco
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Use stretch offsets para posicionamento de preenchimento. Use propriedades de recorte quando o objetivo for ocultar as bordas da imagem fonte.
 
-**Como descobrir quais formatos de imagem são suportados para PictureFrame?**
+## **Considerações sobre armazenamento, tamanho de arquivo e exportação**
 
-O Aspose.Slides oferece suporte a imagens raster (PNG, JPEG, BMP, GIF etc.) e imagens vetoriais (por exemplo, SVG) por meio do objeto de imagem atribuído a um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/). A lista de formatos suportados geralmente coincide com as capacidades do mecanismo de conversão de slides e imagens.
+Os principais trade‑offs são mais fáceis de gerenciar quando o armazenamento de imagens e a formatação de quadros de imagem são tratados separadamente:
 
-**Como a inserção de dezenas de imagens grandes afeta o tamanho e o desempenho do PPTX?**
+- **Imagens incorporadas** tornam a apresentação autocontida e são as mais confiáveis para compartilhamento e renderização no servidor, mas imagens raster grandes aumentam o tamanho do PPTX e o uso de memória.
+- **Imagens vinculadas** podem manter o pacote menor, porém a apresentação depende de arquivos externos que permaneçam disponíveis nos caminhos ou locais armazenados.
+- **Recorte** é inicialmente não destrutivo. Os pixels ocultos permanecem incorporados até que áreas recortadas sejam explicitamente excluídas ou removidas durante a compressão.
+- **Compressão** pode reduzir o tamanho do arquivo substancialmente para imagens raster superdimensionadas, porém sacrifica a resolução fonte. Deve ser aplicada depois que o tamanho final na slide for conhecido.
+- **Imagens SVG** devem permanecer como SVG quando a preservação vetorial for importante. Extraia o SVG incorporado diretamente quando precisar do recurso vetorial em si. Exportações de slide raster, como PNG ou JPEG, sempre convertem o slide renderizado em pixels.
+- **Imagens repetidas** devem reutilizar um recurso [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/) existente sempre que possível, em vez de carregar o mesmo arquivo repetidamente no fluxo de trabalho da apresentação.
 
-Incorporar imagens grandes aumenta o tamanho do arquivo e o uso de memória; vincular imagens ajuda a manter o tamanho da apresentação reduzido, mas exige que os arquivos externos permaneçam acessíveis. O Aspose.Slides permite adicionar imagens por link para reduzir o tamanho do arquivo.
+Para apresentações grandes, a otimização de imagens costuma ser mais eficaz quando realizada seletivamente: mantenha logotipos e diagramas como conteúdo vetorial, comprima fotografias de acordo com seu tamanho real de exibição, remova pixels recortados somente quando edição posterior não for necessária e evite links externos, a menos que o gerenciamento de dependências faça parte do design de implantação.
 
-**Como bloquear um objeto de imagem contra movimentação/redimensionamento acidental?**
+## **Perguntas frequentes**
 
-Use [bloqueios de forma](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) para um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) (por exemplo, desativar movimentação ou redimensionamento). O mecanismo de bloqueio é suportado para vários tipos de forma, incluindo [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/).
+**Qual é a diferença entre um quadro de imagem e um recurso de imagem?**
 
-**A fidelidade vetorial do SVG é preservada ao exportar uma apresentação para PDF/imagens?**
+Um [PPImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ppimage/) representa um recurso de imagem associado à apresentação. Um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) é uma forma em um slide que exibe uma imagem e armazena geometria e formatação ao nível da moldura, como tamanho, rotação, valores de recorte, efeitos e bloqueios.
 
-O Aspose.Slides permite extrair um SVG de um [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) como o vetor original. Ao [exportar para PDF](/slides/pt/nodejs-java/convert-powerpoint-to-pdf/) ou [formatos raster](/slides/pt/nodejs-java/convert-powerpoint-to-png/), o resultado pode ser rasterizado dependendo das configurações de exportação; o fato de o SVG original ser armazenado como vetor é confirmado pelo comportamento de extração.
+**Devo incorporar ou vincular imagens?**
+
+Incorpore imagens quando a apresentação precisar ser portátil, arquivada ou renderizada sem acesso a recursos externos. Vincule imagens apenas quando manter os arquivos de imagem fora do PPTX for intencional e os locais externos puderem ser mantidos de forma confiável.
+
+**O recorte reduz o tamanho do arquivo PPTX?**
+
+Não por si só. Configurações de recorte padrão ocultam partes da imagem fonte, mas mantêm os pixels subjacentes. Use [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) ou compressão de imagem com remoção de áreas recortadas quando esses pixels puderem ser descartados permanentemente.
+
+**Posso restaurar a qualidade da imagem após a compressão?**
+
+Não. A compressão pode reduzir a resolução raster armazenada e a remoção de regiões recortadas descarta dados de imagem. Mantenha a imagem fonte original fora da apresentação se edições de alta resolução posteriores forem necessárias.
+
+**Como devo tratar imagens SVG?**
+
+Mantenha o conteúdo SVG como SVG quando a fidelidade vetorial for importante. O [SvgImage](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/svgimage/) incorporado pode ser extraído diretamente. Renderizar um slide para um formato raster, como PNG ou JPEG, rasteriza o SVG como parte da imagem do slide.
+
+**Como evitar casts inseguros ao ler slides existentes?**
+
+Verifique o tipo da forma antes de usar membros específicos de quadro de imagem. Uma verificação `java.instanceOf` contra [PictureFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pictureframe/) evita casts inválidos e permite que o código trate slides que não contenham quadros de imagem.

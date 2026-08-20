@@ -1,480 +1,365 @@
 ---
-title: Képkockák hozzáadása prezentációkhoz Pythonban
-linktitle: Képkocka
+title: Képkeretek kezelése prezentációkban Python használatával
+linktitle: Képkeret
 type: docs
 weight: 10
 url: /hu/python-net/picture-frame/
 keywords:
-- képkocka
-- képkocka hozzáadása
-- képkocka létrehozása
-- kép hozzáadása
-- kép létrehozása
+- képkeret
+- képkeret hozzáadása
+- képkeret létrehozása
+- beágyazott kép
+- linkelt kép
 - kép kinyerése
 - raszteres kép
-- vektorkép
+- SVG kép
 - kép vágása
-- vágott terület
-- StretchOff tulajdonság
-- képkocka formázása
-- képkocka tulajdonságok
+- vágott területek törlése
+- kép tömörítése
+- StretchOffset
+- képkeret formázása
 - relatív méretezés
-- kép effektus
+- kép hatás
 - oldalarány
-- kép átlátszóság
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Képkockák hozzáadása PowerPoint és OpenDocument prezentációkhoz az Aspose.Slides for Python via .NET segítségével. Egyszerűsítse a munkafolyamatot és javítsa a diaterveket."
+description: Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Python via .NET használatával.
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Aspose.Slides for Python-ban a képkockák lehetővé teszik raszteres és vektorgrafikus képek elhelyezését és kezelését natív dia alakzatokként. Beszúrhat képeket fájlokból vagy adatfolyamokból, pontos koordinátákkal pozicionálhatja és méretezheti őket, alkalmazhat forgást, beállíthatja az átlátszóságot, és szabályozhatja a z-sorrendet más alakzatokkal együtt. Az API támogatja a vágást, az oldalarányok megőrzését, keretek és effektusok beállítását, valamint az alapkép cseréjét a elrendezés újjáépítése nélkül. Mivel a képkockák szabályos alakzatokként viselkednek, animációkat, hiperhivatkozásokat és alternatív szöveget is hozzáadhat, így egyszerűen építhet vizuálisan gazdag, akadálymentes bemutatókat.
+A picture frame egy diaképdoboz, amely képet jelenít meg. Az Aspose.Slides-ben a kép erőforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) beágyazott képerny erőforrásokat birtokol a [ImageCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imagecollection/) segítségével, míg egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgatását, vágását, képhatásait és egyéb keretszintű beállításait.
 
-## **Képkockák létrehozása**
+Ez a felosztás akkor hasznos, amikor ugyanaz a kép többször jelenik meg. Adjunk hozzá a képhez egyszer a prezentációhoz, tartsuk meg a visszaadott [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/), és használjuk ezt a kép erőforrást picture frame-ek létrehozásakor.
 
-Ez a rész bemutatja, hogyan szúrhat be egy képet a diára egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) létrehozásával az Aspose.Slides for Python segítségével. Megtanulja, hogyan töltse be a képet, helyezze pontosan a diára, és szabályozza annak méretét és formázását.
+A picture frame-ek raster képeket (például PNG vagy JPEG) és vektor SVG képeket is tartalmazhatnak. Emellett hivatkozhatnak linkelt képekre is, ahelyett, hogy a kép bájtjait tárolnák a prezentációban. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért hasznos előre eldönteni, hogyan legyen a kép tárolva a formázás vagy optimalizálás előtt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzen meg egy diát az indexe alapján.
-3. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) objektumot a kép prezentáció [ImageCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imagecollection/) gyűjteményéhez adásával. Ez a kép lesz a alakzat kitöltéséhez használt.
-4. Adja meg a képkocka szélességét és magasságát.
-5. Hozzon létre egy ilyen méretű [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) objektumot az [add_picture_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_picture_frame/) metódus használatával.
-6. Mentse a prezentációt PPTX fájlként.
+## **Beágyazott kép hozzáadása és formázása**
 
-Az alábbi Python kód bemutatja, hogyan hozhat létre egy képkockát:
+Beágyazott kép esetén adjuk hozzá a kép adatot a prezentációhoz, és hozzunk létre egy picture frame-et a [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_picture_frame/) segítségével. A kép a prezentációcsomag részévé válik, így a prezentáció önálló marad, ha egy másik számítógépre kerül.
 
-```py
-import aspose.slides as slides
-
-# Példányosítsa a Presentation osztályt egy PPTX fájl reprezentálásához.
-with slides.Presentation() as presentation:
-    # Szerezze meg az első diát.
-    slide = presentation.slides[0]
-
-    # Adja hozzá a képet a prezentációhoz.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Adjon hozzá egy képkockát, amely a kép méretével egyezik.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Mentse a prezentációt PPTX formátumban.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-A képkockák lehetővé teszik, hogy gyorsan képekből készítsen bemutató diákat. Ha a képkockákat az Aspose.Slides mentési beállításaival kombinálja, szabályozhatja a I/O műveleteket a képek formátumok közötti konvertálásához. Érdemes megnézni ezeket az oldalakat: konvertáljon [képet JPG-re](https://products.aspose.com/slides/hu/python-net/conversion/image-to-jpg/); konvertáljon [JPG-t képre](https://products.aspose.com/slides/hu/python-net/conversion/jpg-to-image/); konvertáljon [JPG-t PNG-re](https://products.aspose.com/slides/hu/python-net/conversion/jpg-to-png/); konvertáljon [PNG-t JPG-re](https://products.aspose.com/slides/hu/python-net/conversion/png-to-jpg/); konvertáljon [PNG-t SVG-re](https://products.aspose.com/slides/hu/python-net/conversion/png-to-svg/); konvertáljon [SVG-t PNG-re](https://products.aspose.com/slides/hu/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Képkockák létrehozása relatív méretezéssel**
-
-Ez a rész bemutatja, hogyan helyezzen el egy képet rögzített méretben, majd alkalmazzon százalékos skálázást függetlenül a szélességre és magasságra. Mivel a százalékok eltérhetnek, az oldalarány megváltozhat. A skálázás az eredeti képméretekhez képest történik.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzen meg egy diát az indexe alapján.
-3. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) objektumot a kép prezentáció [ImageCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imagecollection/) gyűjteményéhez adásával.
-4. Adjon hozzá egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) objektumot a diához.
-5. Állítsa be a képkocka relatív szélességét és magasságát.
-6. Mentse a prezentációt PPTX fájlként.
-
-Az alábbi Python kód bemutatja, hogyan hozhat létre egy képkockát relatív méretezéssel:
-
-```py
-import aspose.slides as slides
-
-# Példányosítsa a Presentation osztályt a PPTX fájl reprezentálásához.
-with slides.Presentation() as presentation:
-    # Szerezze meg az első diát.
-    slide = presentation.slides[0]
-
-    # Adja hozzá a képet a prezentáció képgyűjteményéhez.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Adjon hozzá egy képkockát a diához.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Állítsa be a relatív méretezés szélességét és magasságát.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Mentse a prezentációt.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Raszteres képek kinyerése képkockákból**
-
-Kinyerhet raszteres képeket [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) objektumokból, és elmentheti őket PNG, JPG és más formátumokban. Az alábbi kódrészlet bemutatja, hogyan nyerjen ki egy képet a „sample.pptx” dokumentumból, és mentse PNG formátumban.
+Az alábbi példa JPEG képet ad hozzá, a kép natív méreteiben hoz létre egy keretet, és vonalformázást valamint forgatást alkalmaz:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **SVG képek kinyerése képkockákból**
-
-Amikor egy prezentáció SVG grafikát tartalmaz, amely [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) alakzatban van elhelyezve, az Aspose.Slides for Python via .NET lehetővé teszi az eredeti vektorkép teljes hitelességével történő lekérdezését. A dia alakzatgyűjteményének bejárásával azonosíthatja minden [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) elemet, ellenőrizheti, hogy a hozzákapcsolt [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) SVG tartalmat tartalmaz-e, majd elmentheti azt lemezre vagy adatfolyamra natív SVG formátumban.
-
-Az alábbi kódrészlet bemutatja, hogyan nyerjen ki egy SVG képet egy képkockából:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Kép átlátszóságának lekérése**
-
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott átlátszósági effektet. Ez a Python kód demonstrálja a műveletet:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Minden képekre alkalmazott effektus megtalálható a [aspose.slides.effects](https://reference.aspose.com/slides/hu/python-net/aspose.slides.effects/) névtérben.
-{{% /alert %}}
-
-## **Kép fényerősségének és kontrasztjának lekérése**
-
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott fényerő és kontraszt effektet. A [Luminance](https://reference.aspose.com/slides/hu/python-net/aspose.slides.effects/luminance/) osztály képviseli ezt a képátalakító effektet.
-
-Ez a Python kód bemutatja, hogyan szerezze meg egy képkocka fényerő és kontraszt beállításait:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Képkocka formázása**
-
-Az Aspose.Slides számos formázási lehetőséget kínál, amelyeket egy képkockára alkalmazhat. Ezekkel a beállításokkal a képkockát testre szabhatja a specifikus igényeknek megfelelően.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzen meg egy diát az indexe alapján.
-3. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) objektumot a kép prezentáció [ImageCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imagecollection/) gyűjteményéhez adásával. Ez a kép lesz a alakzat kitöltéséhez használt.
-4. Adja meg a képkocka szélességét és magasságát.
-5. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) objektumot a slide [add_picture_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_picture_frame/) metódusával.
-6. Állítsa be a képkocka vonalszínét.
-7. Állítsa be a képkocka vonalvastagságát.
-8. Forgassa a képkockát pozitív (óra járásával megegyező) vagy negatív (óramutatóval ellentétes) érték megadásával.
-9. Mentse a módosított prezentációt PPTX fájlként.
-
-Az alábbi Python kód demonstrálja a képkocka formázási folyamatát:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt egy PPTX fájl reprezentálásához.
 with slides.Presentation() as presentation:
-    # Szerezze meg az első diát.
     slide = presentation.slides[0]
 
-    # Adja hozzá a képet a prezentáció képgyűjteményéhez.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Adjon hozzá egy képkockát, amely a kép méretével egyezik.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Alkalmazzon formázást a képkockára.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Mentse a prezentációt PPTX formátumban.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Az Aspose kifejlesztett egy ingyenes [Collage Maker](https://products.aspose.app/slides/hu/collage) alkalmazást. Ha JPG/JPEG vagy PNG képeket szeretne egyesíteni, vagy [fotó rácsokat](https://products.aspose.app/slides/hu/collage/photo-grid) szeretne létrehozni, használhatja ezt a szolgáltatást.
-{{% /alert %}}
+A picture frame szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti pixelméreteket, amelyeket a beágyazott kép erőforrás tárol. Ez a megkülönböztetés akkor válik fontosá, ha később vágunk vagy tömörítünk egy képet.
 
-## **Képek hozzáadása hivatkozásként**
+## **Relatív méretezés használata**
 
-A prezentációk fájlméretének csökkentése érdekében képeket vagy videókat hivatkozásokként adhat hozzá ahelyett, hogy közvetlenül beágyazná őket. Az alábbi Python kód bemutatja, hogyan illesszen be egy képet és egy videót egy helyőrzőbe:
+A [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) rendelkezik a [relative_scale_width](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/relative_scale_width/) és a [relative_scale_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/relative_scale_height/) tulajdonságokkal. Az `1.0` érték az eredeti kép méretének 100%-ának felel meg. A relatív méretezés akkor hasznos, amikor egy munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével, ahelyett, hogy manuálisan számolná ki a végleges méreteket.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+A relatív méretezés megváltoztatja a keret méretbeállításait; nem mintavételezi vagy tömöríti a beágyazott képet.
+
+## **Beágyazott és linkelt képek**
+
+A beágyazott picture a kép adatot a prezentáción belül tárolja, ezért a legbiztonságosabb választás a hordozhatóság és az előre kiszámítható megjelenítés szempontjából. Egy linkelt picture a [Picture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picture/) linkútvonalon keresztül tárolja a külső helyet, ahelyett, hogy a kép adatot beágyazná ugyanúgy.
+
+A linkelt képek csökkenthetik a PPTX-ben tárolt kép adat mennyiségét, de külső függőséget hoznak be. A linkelt fájlnak elérhetőnek kell maradnia azon alkalmazás számára, amely megnyitja vagy rendereli a prezentációt. Ha az útvonal megváltozik, a fájl átkerül, vagy az erőforrás nem érhető el, a linkelt picture előre nem látható módon nem jelenik meg. Azoknál a prezentációknál, amelyeket e‑mailben kell küldeni, archiválni kell, vagy izolált környezetben kell renderelni, a beágyazott képek általában megbízhatóbbak.
+
+### **Linkelt kép hozzáadása**
+
+Az alábbi példa egy picture frame-et hoz létre, és egy helyi kép fájlra mutat. Csak a kép linkelésével foglalkozik; a video linkelés egy külön médiamunkafolyamat, és szándékosan nincs keverve ebbe a példába.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Használjunk linkeket, ha a külső fájlkezelés szándékos. Ne használjuk őket pusztán a tömörítés helyettesítésére: egy kis PPTX, amelyben törött kép függőségek vannak, általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
+
+## **Képek kinyerése picture frame-ekből**
+
+Mielőtt képet nyernénk ki egy meglévő prezentációból, ellenőrizzük, hogy a forma valóban egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/), és hogy beágyazott képet tartalmaz‑e. A linkelt picture frame-ek nem feltétlenül tartalmaznak kivonható kép bájtokat.
+
+### **Raster kép kinyerése**
+
+A modern kép API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) használja. Az alábbi példa megtalálja az első beágyazott raster képet a dián, és PNG‑ként menti el:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Képek vágása**
+A [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) használatával a kinyert kép a kért kimeneti formátumba konvertálódik. Ha a prezentációban tárolt kódolt bájtokra van szükség a konvertált raster fájl helyett, használja a [PPImage.binary_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/binary_data/) tulajdonságot.
 
-Ebben a részben megtanulja, hogyan vágja le egy kép látható területét egy képkockán belül a forrásfájl módosítása nélkül. Emellett megismerkedik a vágási margók alkalmazásának alapvető módszerével, amely tiszta, fókuszált kompozíciót eredményez közvetlenül a dián.
+### **SVG kép kinyerése**
 
-Az alábbi Python kód bemutatja, hogyan vágjon le egy képet egy dián:
+SVG picture esetén a [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) egy [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) objektumot tesz elérhetővé. Ez lehetővé teszi az SVG adat közvetlen lekérését, a picture rasterizálása előtt.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Az SVG tartalom SVG‑ként történő megtartása megőrzi a vektor forrást a prezentáción belül. A raster exportok, mint a PNG vagy JPEG, a vektort pixelekké alakítják. A PDF vagy SVG diák exportálása szintén egy renderelési művelet, ezért az exportált grafikákat nem szabad az eredeti beágyazott SVG pontos byte‑másolataként kezelni; használja a beágyazott [SvgImage.svg_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/svg_data/)‑t, ha a vektor erőforrásra magára van szükség.
+
+## **Kép vágása**
+
+A vágás megváltoztatja, hogy a kép mely része látható a kereten belül. A [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) vágási értékei a forráskép méreteinek százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható régiót változtatja meg.
+
+Az alábbi példa biztonságosan megtalál egy picture frame‑et, és alkalmaz vágási értékeket:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Mivel a rejtett képadat továbbra is jelen van, a vágás később módosítható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszavonhatóság, a vágott területek fizikai eltávolíthatók a következő szakaszban leírt módon.
+
+## **Vágott képadat eltávolítása**
+
+A [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) eltávolítja a képadatot a jelenlegi vágási téglalapon kívül, és visszaadja az eredményül kapott kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a eltávolított pixelek már nem állnak rendelkezésre későbbi visszavágási művelethez.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+A metódus új kép erőforrást adhat a prezentációhoz. Ha az eredeti kép más picture frame‑ek által is használva van, azoknak továbbra is szükségük van a meglévő erőforrásra, ezért a vágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel rasterizálja a vágott eredményt PNG‑be.
+
+## **Raster képek tömörítése**
+
+A [PictureFillFormat.compress_image](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/compress_image/) csökkenti a raster kép felbontását a kép megjelenítési méretéhez képest. Ugyanabban a műveletben eltávolíthatja a vágott területeket is. A metódus `True`‑t ad vissza, ha a kép mérete megváltozott vagy vágás történt, és `False`‑t, ha nincs szükség változtatásra.
+
+Használjon előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Egyedi pozitív DPI érték is megadható enum helyett, ha egy konkrét célra van szükség.
+
+A tömörítés raster képekre vonatkozik. SVG és metafájl tartalom nem csökken ezzel a raster tömörítési munkafolyamattal. Ne feledje, hogy az alacsonyabb felbontás és a törölt vágott régiók nem állíthatók vissza az optimalizált prezentációból. Válasszon célfelbontást a kép legnagyobb megjelenítési vagy export mérete alapján, ne pedig a legalacsonyabb DPI-t alkalmazza globálisan.
+
+## **Kép hatások vizsgálata**
+
+A kép hatásokat a frame által használt picture tárolja. A kép transzformációs gyűjtemény tartalmazhat hatásokat, mint például a fix alfa moduláció a átlátszósághoz és a luminancia a fényerő és kontraszt beállításához. Az alábbi példa biztonságosan beolvassa mindkét típusú hatást az első picture frame‑ről a dián:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+Az [AlphaModulateFixed](https://reference.aspose.com/slides/hu/python-net/aspose.slides.effects/alphamodulatefixed/) és a [Luminance](https://reference.aspose.com/slides/hu/python-net/aspose.slides.effects/luminance/) megváltoztatja, hogyan jelenik meg a kép a keretben; nem írja felül az eredeti beágyazott kép bájtjait.
+
+## **Picture Frame geometria zárolása**
+
+A [PictureFrameLock](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/) beállítások határozzák meg, hogy mely szerkesztési műveletek vannak letiltva egy picture frame‑nél. Például a [aspect_ratio_locked](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) tulajdonság megőrzi a forma arányait, amikor az méreteződik.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Adja hozzá a képet a prezentáció képgyűjteményéhez.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Adjon hozzá egy képkockát a diához.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Vágja le a képet (százalékos értékek).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Mentse az eredményt.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **A képek vágott területeinek törlése**
-
-Ha egy kép vágott területeit szeretné törölni egy keretben, használja a [delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) metódust. Ez a metódus visszaadja a vágott képet, vagy az eredeti képet, ha nincs szükség vágásra.
-
-Az alábbi Python kód demonstrálja a műveletet:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Szerezze be a PictureFrame-et az első diáról.
-    picture_frame = slides.shape[0]
-
-    # Szerezze be a PictureFrame-et az első diáról.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Mentse az eredményt.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-A [delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) metódus a vágott képet hozzáadja a prezentáció képgyűjteményéhez. Ha a képet csak a feldolgozott [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) használja, ez csökkentheti a prezentáció méretét; egyébként a végső prezentációban lévő képek száma növekedhet.
-
-A vágás során a metódus WMF/EMF metafájlokat raszteres PNG képpé konvertál.
-{{% /alert %}}
-
-## **Képek tömörítése**
-
-A [PictureFillFormat.compress_image](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/compress_image/) metódussal tömöríthet egy képet a prezentációban. Ez a metódus a kép méretét a forma mérete és a megadott felbontás alapján csökkenti, a vágott területek törlésének lehetőségével.
-
-A PowerPoint **Képformátum → Képek tömörítése → Felbontás** funkciójához hasonlóan állítja be a kép méretét és felbontását.
-
-Az alábbi Python példák bemutatják, hogyan tömörítsen egy képet a prezentációban egy célfelbontás megadásával, illetve opcionálisan a vágott területek eltávolításával:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Tömörítse a képet 150 DPI (webfelbontás) célfelbontással, és távolítsa el a vágott területeket.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Ellenőrizze a tömörítés eredményét.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Vagy közvetlenül egy egyéni DPI érték használatával:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Tömörítse a képet 150 DPI (web felbontásra), a vágott területek eltávolításával.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-A metódus a képet alacsonyabb felbontásra konvertálja a forma mérete és a megadott DPI alapján. A vágott részek is törölhetők a fájlméret optimalizálása érdekében.
-Ha a kép metafájl (WMF/EMF) vagy SVG, a tömörítés nem lesz alkalmazva. Emellett a JPEG minősége a felbontásnak megfelelően megmarad vagy enyhén csökken, hasonlóan ahhoz, ahogy a PowerPoint kezeli a nagy felbontású JPEG-eket.
-{{% /alert %}}
-
-## **Az oldalarány lezárása**
-
-Ha azt szeretné, hogy egy képet tartalmazó alakzat megőrizze az oldalarányát a kép méretének módosítása után, állítsa a [aspect_ratio_locked](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) tulajdonságot `True` értékre.
-
-Az alábbi Python kód bemutatja, hogyan zárolja egy forma oldalarányát:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Zárja le az oldalarányt átméretezéskor.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Ez a *Lock Aspect Ratio* beállítás csak a forma oldalarányát őrzi meg, nem pedig a benne lévő kép oldalarányát.
-{{% /alert %}}
+A zárolás a picture frame alakzatra vonatkozik. Nem kényszeríti a forrásképet, hogy ugyanarra az arányra legyen újramintavéve vagy végleg módosítva.
 
-## **Nyújtás eltolási tulajdonságok használata**
+## **StretchOffset értékek beállítása**
 
-A [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) osztály `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` és `stretch_offset_bottom` tulajdonságainak használatával meghatározhatja a kitöltő téglalapot.
+Amikor a kép kitöltési mód a nyújtás, a [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) stretch‑offset értékei határozzák meg a kitöltési téglalapot a picture frame körülhatároló dobozához képest. A pozitív százalékok a szél felől beljebb hoznak, míg a negatív százalékok kifelé tolásra használhatók.
 
-Ha nyújtás van megadva egy képre, a forrástéglalap a kitöltő téglalaphoz lesz átméretezve. A kitöltő téglalap minden élét a forma határoló dobozának megfelelő élétől százalékos eltolás határozza meg. A pozitív százalékos érték beszúrást, a negatív érték kitágulást jelent.
+Ez különbözik a vágástól. A vágási értékek kiválasztják, hogy a forráskép mely része látható; a stretch offsetek megváltoztatják a téglalapot, amelybe a látható kép kitöltése nyújtva kerül.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzen referenciát egy diához az indexe alapján.
-3. Adjon hozzá egy téglalap alakzatú [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) elemet.
-4. Állítsa be az alakzat kitöltéstípusát.
-5. Állítsa be az alakzat képkitöltési módját.
-6. Töltsön be egy képet.
-7. Rendelje hozzá a képet az alakzat kitöltéséhez.
-8. Adjon meg képeltolásokat az alakzat határoló dobozának megfelelő éleihez képest.
-9. Mentse a prezentációt PPTX fájlként.
-
-Az alábbi Python kód demonstrálja a Stretch Offset tulajdonságok használatát:
-
-```py
+```python
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt, amely egy PPTX fájlt reprezentál.
 with slides.Presentation() as presentation:
-    # Szerezze meg az első diát.
     slide = presentation.slides[0]
 
-    # Adjon hozzá egy téglalap AutoShape-et.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Állítsa be az alakzat kitöltési típusát.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Állítsa be az alakzat képkitöltési módját.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Töltse be a képet és adja hozzá a prezentációhoz.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Rendelje hozzá a képet az alakzat kitöltéséhez.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Adjon meg képeltolásokat az alakzat határoló dobozának megfelelő éleihez.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Mentse a PPTX fájlt lemezre.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
-Az Aspose ingyenes konvertereket biztosít — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyekkel gyorsan készíthet prezentációkat képekből.
-{{% /alert %}}
+Használja a stretch offseteket a kitöltés elhelyezéséhez. Használja a vágási tulajdonságokat, ha a cél a forráskép széleit elrejteni.
+
+## **Tárolás, fájlméret és export szempontok**
+
+A fő kompromisszumok kezelése egyszerűbb, ha a kép tárolását és a picture‑frame formázást külön kezeljük:
+
+- **Beágyazott képek** önállóvá teszik a prezentációt, és a legmegbízhatóbbak a megosztás és szerveroldali renderelés esetén, de nagy raster képek növelik a PPTX méretét és a memóriahasználatot.
+- **Linkelt képek** kisebb csomagot eredményezhetnek, de a prezentáció függ a külső fájlok elérhetőségétől a tárolt útvonalakon vagy helyeken.
+- **Vágás** kezdetben nem destruktív. A rejtett pixelek beágyazva maradnak, amíg a vágott területek kifejezetten nincsenek törölve vagy a tömörítés során el nem távolítva.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raster képek esetén, de feláldozza a forrás felbontást. A dián megjelenítendő méret ismertét követően kell alkalmazni.
+- **SVG képek** esetén a SVG megőrzése fontos, ha a vektor megőrzése lényeges. Közvetlenül kinyerhető a beágyazott SVG, ha a vektor erőforrásra van szükség. A raster diák exportok mindig a slide képeit pixelekké konvertálják.
+- **Ismétlődő képek** esetén használja újra a meglévő [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltené a prezentációs munkafolyamatba.
+
+Nagy prezentációknál a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven történik: tartsuk a logókat és diagramokat vektor tartalomként, tömörítsük a fényképeket a tényleges megjelenítési méretüknek megfelelően, távolítsuk el a vágott pixeleket csak akkor, ha a későbbi szerkesztés nem szükséges, és kerüljük a külső linkeket, hacsak a függőségkezelés nem része a telepítési tervnek.
 
 ## **GYIK**
 
-**Hogyan tudhatom meg, mely képformátumok támogatottak a PictureFrame számára?**
+**Mi a különbség a picture frame és a kép erőforrás között?**
 
-Az Aspose.Slides támogatja mind a raszteres (PNG, JPEG, BMP, GIF stb.), mind a vektorgrafikus (például SVG) képeket a [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) objektumhoz rendelt képobjektumon keresztül. A támogatott formátumok listája általában átfedésben van a dia- és képkonverziós motor képességeivel.
+Egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) kép erőforrást képvisel, amely a prezentációhoz van kapcsolva. Egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) egy alakzat a dián, amely képet jelenít meg, és a keretszintű geometriát és formázást tárolja, mint a méret, forgatás, vágási értékek, hatások és zárolások.
 
-**Hogyan befolyásolja a több tucat nagy méretű kép hozzáadása a PPTX méretét és teljesítményét?**
+**Beágyazzam vagy linkeljem a képeket?**
 
-Nagy képek beágyazása növeli a fájlméretet és a memóriahasználatot; a képek hivatkozásként való hozzáadása segít csökkenteni a prezentáció méretét, de az külső fájloknak elérhetőnek kell maradniuk. Az Aspose.Slides lehetővé teszi a képek hivatkozásként való hozzáadását a fájlméret csökkentése érdekében.
+Beágyazzon képeket, ha a prezentáció hordozhatónak, archiválhatónak vagy külső erőforrások nélkül renderelhetőnek kell lennie. Linkelje a képeket csak akkor, ha a képfájlok kívül tartása szándékos, és a külső helyek megbízhatóan karbantarthatók.
 
-**Hogyan zárhatok le egy kép objektumot a véletlen áthelyezés/átméretezés ellen?**
+**Csökkenti-e a vágás a PPTX fájlméretet?**
 
-Használja a [shape locks](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/picture_frame_lock/) funkciót egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) esetén (például a mozgatás vagy átméretezés letiltása). A zárolási mechanizmus a formákra vonatkozó külön [védelemről szóló cikkben](/slides/hu/python-net/applying-protection-to-presentation/) van leírva, és számos alakzattípusra, így a [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/)-re is alkalmazható.
+Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de a pixeleket megtartják. Használja a [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) vagy a kép tömörítést vágott terület eltávolítással, ha ezek a pixelek véglegesen eldobhatók.
 
-**Megmarad-e az SVG vektorfidelitás exportáláskor PDF/ képek formátumba?**
+**Visszaállítható-e a képminőség a tömörítés után?**
 
-Az Aspose.Slides lehetővé teszi egy SVG kinyerését egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/)-ből eredeti vektorként. PDF-re ([exportálás PDF-be](/slides/hu/python-net/convert-powerpoint-to-pdf/)) vagy raszteres formátumokba ([exportálás PNG-be](/slides/hu/python-net/convert-powerpoint-to-png/)) történő exportáláskor az eredmény a beállításoktól függően rasterizálódhat; a SVG eredeti vektorként tárolása a kinyerési viselkedésben bizonyítható.
+Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a vágott régiók eltávolítása adatvesztést eredményez. Tartsa meg az eredeti forrásképet a prezentáció kívül, ha később nagy felbontású szerkesztésre lehet szükség.
+
+**Hogyan kell kezelni az SVG képeket?**
+
+Tartsa meg az SVG tartalmat SVG‑ként, ha a vektor pontossága fontos. A beágyazott [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) közvetlenül kinyerhető. A slide raster formátumba, például PNG vagy JPEG, való exportálása rasterizálja az SVG‑t a slide képként.
+
+**Hogyan kerülhető el az unsafe cast a meglévő diák olvasásakor?**
+
+Ellenőrizze a forma típusát, mielőtt picture‑frame‑specifikus tagokat használna. Az `isinstance(shape, slides.PictureFrame)` használata elkerüli a hibás cast‑ot, és lehetővé teszi, hogy a kód kezelje azokat a diákot, amelyek nem tartalmaznak picture frame‑eket.

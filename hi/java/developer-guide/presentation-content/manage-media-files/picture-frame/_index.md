@@ -1,552 +1,467 @@
 ---
-title: जावा का उपयोग करके प्रस्तुतियों में चित्र फ्रेम प्रबंधित करें
-linktitle: चित्र फ्रेम
+title: जावा का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम को प्रबंधित करें
+linktitle: पिक्चर फ्रेम
 type: docs
 weight: 10
 url: /hi/java/picture-frame/
 keywords:
-- चित्र फ्रेम
-- चित्र फ्रेम जोड़ें
-- चित्र फ्रेम बनाएं
-- छवि जोड़ें
-- छवि बनाएं
+- पिक्चर फ्रेम
+- पिक्चर फ्रेम जोड़ें
+- पिक्चर फ्रेम बनाएं
+- एम्बेडेड छवि
+- लिंक्ड छवि
 - छवि निकालें
 - रास्टर छवि
-- वेक्टर छवि
-- छवि काटें
-- कटा हुआ क्षेत्र
-- StretchOff प्रॉपर्टी
-- चित्र फ्रेम स्वरूपण
-- चित्र फ्रेम गुण
+- SVG छवि
+- छवि क्रॉप करें
+- क्रॉप्ड क्षेत्रों को हटाएँ
+- छवि संपीड़ित करें
+- StretchOffset
+- पिक्चर फ्रेम फॉर्मेटिंग
 - सापेक्ष स्केल
 - छवि प्रभाव
 - आस्पेक्ट अनुपात
-- छवि पारदर्शिता
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में चित्र फ्रेम जोड़ें। अपने कार्यप्रवाह को सरल बनाएं और स्लाइड डिज़ाइन को सुधारें।"
+description: "Aspose.Slides for Java के साथ प्रस्तुतियों में पिक्चर फ्रेम को बनाएं, फॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संपीड़ित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-एक चित्र फ्रेम वह आकार है जिसमें छवि सम्मिलित होती है—यह फ्रेम में चित्र के समान है।
+एक picture frame वह स्लाइड आकार है जो एक छवि प्रदर्शित करता है। Aspose.Slides में, छवि संसाधन और उसे प्रदर्शित करने वाला आकार अलग-अलग वस्तुएँ हैं: एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) अपने [IImageCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimagecollection/) के माध्यम से एम्बेडेड छवि संसाधनों का स्वामित्व रखता है, जबकि एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) छवि की स्थिति, आकार, रेखा स्वरूपण, घुमाव, क्रॉपिंग, पिक्चर इफ़ेक्ट्स और अन्य फ़्रेम‑स्तरीय सेटिंग्स को नियंत्रित करता है।
 
-आप स्लाइड में एक चित्र फ्रेम के माध्यम से छवि जोड़ सकते हैं। इस प्रकार, आप चित्र फ्रेम को फॉर्मेट करके छवि को फॉर्मेट कर सकते हैं।
+यह अलगाव तब उपयोगी होता है जब एक ही छवि को एक से अधिक बार दिखाया जाता है। छवि को प्रस्तुति में केवल एक बार जोड़ें, लौटाए गए [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) को रखें, और पिक्चर फ्रेम बनाते समय उस छवि संसाधन का उपयोग करें।
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose मुफ्त कनवर्टर प्रदान करता है—[JPEG to PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG to PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो लोगों को छवियों से जल्दी प्रेजेंटेशन बनाने की अनुमति देते हैं। 
-{{% /alert %}} 
+पिक्चर फ़्रेम रास्टर छवियों जैसे PNG या JPEG और वेक्टर SVG छवियों को रख सकते हैं। वे लिंक्ड छवियों की ओर भी इशारा कर सकते हैं बजाय इसके कि छवि बाइट्स को प्रस्तुति में संग्रहीत किया जाए। यह चयन पोर्टेबिलिटी, फ़ाइल आकार, निष्कर्षण और निर्यात व्यवहार को प्रभावित करता है, इसलिए फ़ॉर्मेटिंग या अनुकूलन लागू करने से पहले यह तय करना उपयोगी है कि छवि कैसे संग्रहीत की जानी चाहिए।
 
-## **एक चित्र फ्रेम बनाएं**
+## **एम्बेडेड छवि को जोड़ें और स्वरूपित करें**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का उदाहरण बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. प्रेजेंटेशन ऑब्जेक्ट के साथ जुड़े [IImagescollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IImageCollection) में एक छवि जोड़कर एक [IPPImage]() ऑब्जेक्ट बनाएं, जिसका उपयोग आकार को भरने के लिए किया जाएगा।
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें।
-5. संदर्भित स्लाइड से जुड़े आकार ऑब्जेक्ट द्वारा प्रदान किए गए `AddPictureFrame` मेथड के माध्यम से छवि की चौड़ाई और ऊँचाई के आधार पर एक [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/PictureFrame) बनाएं।
-6. स्लाइड में एक चित्र फ्रेम (जिसमें चित्र है) जोड़ें।
-7. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
+एम्बेडेड छवि के लिए, छवि डेटा को प्रस्तुति में जोड़ें और [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) का उपयोग करके एक पिक्चर फ्रेम बनाएँ। छवि प्रस्तुति पैकेज का हिस्सा बन जाती है, इसलिए प्रस्तुति को दूसरे कंप्यूटर पर ले जाने पर वह स्व-निहित रहती है।
 
-यह Java कोड आपको दिखाता है कि एक चित्र फ्रेम कैसे बनाएं:
+निम्न उदाहरण JPEG छवि जोड़ता है, छवि के मूल आयामों पर एक फ़्रेम बनाता है, और रेखा स्वरूपण एवं घुमाव लागू करता है:
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहला स्लाइड प्राप्त करता है
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Image क्लास का उदाहरण बनाता है
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // चित्र की समान ऊँचाई और चौड़ाई के साथ एक चित्र फ्रेम जोड़ता है
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-चित्र फ्रेम आपको छवियों के आधार पर तेज़ी से प्रस्तुति स्लाइड बनाने की अनुमति देता है। जब आप चित्र फ्रेम को Aspose.Slides के सहेजने विकल्पों के साथ संयोजित करते हैं, तो आप इनपुट/आउटपुट ऑपरेशनों को नियंत्रित करके छवियों को एक फ़ॉर्मेट से दूसरे फ़ॉर्मेट में बदल सकते हैं। आप इन पृष्ठों को देख सकते हैं: बदलें [image को JPG](https://products.aspose.com/slides/hi/java/conversion/image-to-jpg/); बदलें [JPG को image](https://products.aspose.com/slides/hi/java/conversion/jpg-to-image/); बदलें [JPG को PNG](https://products.aspose.com/slides/hi/java/conversion/jpg-to-png/), बदलें [PNG को JPG](https://products.aspose.com/slides/hi/java/conversion/png-to-jpg/); बदलें [PNG को SVG](https://products.aspose.com/slides/hi/java/conversion/png-to-svg/), बदलें [SVG को PNG](https://products.aspose.com/slides/hi/java/conversion/svg-to-png/)।
-{{% /alert %}}
-
-## **सापेक्ष स्केल के साथ चित्र फ्रेम बनाएं**
-
-छवि के सापेक्ष स्केल को बदलकर आप एक अधिक जटिल चित्र फ्रेम बना सकते हैं।
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का उदाहरण बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. प्रेजेंटेशन इमेज कलेक्शन में एक छवि जोड़ें।
-4. प्रेजेंटेशन ऑब्जेक्ट के साथ जुड़े [IImagescollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IImageCollection) में एक छवि जोड़कर एक [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPPImage) ऑब्जेक्ट बनाएं, जिसका उपयोग आकार को भरने के लिए किया जाएगा।
-5. चित्र फ्रेम में छवि की सापेक्ष चौड़ाई और ऊँचाई निर्दिष्ट करें।
-6. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
-
-यह Java कोड आपको दिखाता है कि सापेक्ष स्केल के साथ चित्र फ्रेम कैसे बनाएं:
-
-```java
-// PPTX का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करें
-Presentation pres = new Presentation();
-try {
-    // पहला स्लाइड प्राप्त करें
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Image क्लास को इंस्टैंशिएट करें
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // चित्र की समान ऊँचाई और चौड़ाई के साथ चित्र फ्रेम जोड़ें
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // सापेक्ष स्केल की ऊँचाई और चौड़ाई सेट करना
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // PPTX फ़ाइल को डिस्क पर लिखें
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **चित्र फ्रेम से रास्टर छवियां निकालें**
-
-आप [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/PictureFrame) ऑब्जेक्ट्स से रास्टर छवियां निकाल सकते हैं और उन्हें PNG, JPG और अन्य फ़ॉर्मेट्स में सहेज सकते हैं। नीचे दिया गया कोड उदाहरण दिखाता है कि दस्तावेज़ "sample.pptx" से एक छवि कैसे निकालें और उसे PNG फ़ॉर्मेट में सहेजें।
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **चित्र फ्रेम से SVG छवियां निकालें**
-
-जब किसी प्रेजेंटेशन में SVG ग्राफ़िक्स [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) आकार के भीतर रखे होते हैं, तो Aspose.Slides for Java आपको मूल वेक्टर छवियों को पूरी शुद्धता के साथ प्राप्त करने देता है। स्लाइड के आकार संग्रह को ट्रवर्स करके, आप प्रत्येक [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) की पहचान कर सकते हैं, जांच सकते हैं कि अंतर्निहित [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) में SVG सामग्री है या नहीं, और फिर उस छवि को डिस्क या स्ट्रीम में उसके मूल SVG फ़ॉर्मेट में सहेज सकते हैं।
-
-निम्न कोड उदाहरण दर्शाता है कि कैसे एक चित्र फ्रेम से SVG छवि निकाली जाए:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **छवि की पारदर्शिता प्राप्त करें**
+पिक्चर फ़्रेम प्रदर्शित ज्यामिति को नियंत्रित करता है; फ़्रेम का आकार बदलने से एम्बेडेड छवि संसाधन में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर बाद में छवि को क्रॉप या संपीड़ित करते समय महत्वपूर्ण हो जाता है।
 
-Aspose.Slides आपको छवि पर लागू पारदर्शिता प्रभाव प्राप्त करने की अनुमति देता है। यह Java कोड इस ऑपरेशन को दर्शाता है:
+## **सापेक्ष स्केल का उपयोग करें**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **छवि की चमक और कंट्रास्ट प्राप्त करें**
-
-Aspose.Slides आपको छवि पर लागू चमक और कंट्रास्ट प्रभाव प्राप्त करने की अनुमति देता है। [ILuminance](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iluminance/) इंटरफ़ेस इस छवि रूपांतरण प्रभाव का प्रतिनिधित्व करता है।
-
-यह Java कोड दिखाता है कि चित्र फ्रेम से चमक और कंट्रास्ट सेटिंग्स कैसे प्राप्त करें:
+[IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) फ़्रेम के लिए सापेक्ष चौड़ाई और ऊँचाई स्केलिंग को [setRelativeScaleWidth](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) और [setRelativeScaleHeight](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) द्वारा उजागर करता है। `1.0` का मान मूल चित्र आकार के 100 % के बराबर होता है। सापेक्ष स्केल तब उपयोगी होता है जब कार्यप्रवाह को स्रोत छवि आकार के संबंध को बनाए रखना हो, न कि मैन्युअली अंतिम आयामों की गणना करनी पड़े।
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **चित्र फ्रेम का फॉर्मेटिंग**
+सापेक्ष स्केल फ़्रेम के स्केल सेटिंग्स को बदलता है; यह एम्बेडेड छवि को पुन: नमूना नहीं करता न ही संपीड़ित करता।
 
-Aspose.Slides कई फॉर्मेटिंग विकल्प प्रदान करता है जिन्हें एक चित्र फ्रेम पर लागू किया जा सकता है। इन विकल्पों का उपयोग करके आप चित्र फ्रेम को बदल सकते हैं ताकि वह विशिष्ट आवश्यकताओं के अनुरूप हो सके।
+## **एम्बेडेड और लिंक्ड छवियाँ**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का उदाहरण बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. प्रेजेंटेशन ऑब्जेक्ट के साथ जुड़े [IImagescollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IImageCollection) में एक छवि जोड़कर एक [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPPImage) ऑब्जेक्ट बनाएं, जिसका उपयोग आकार को भरने के लिए किया जाएगा।
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें।
-5. संदर्भित स्लाइड से जुड़े [IShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeCollection) द्वारा प्रदान किए गए [AddPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) मेथड के माध्यम से छवि की चौड़ाई और ऊँचाई के आधार पर एक `PictureFrame` बनाएं।
-6. स्लाइड में चित्र फ्रेम (जिसमें चित्र है) जोड़ें।
-7. चित्र फ्रेम की लाइन का रंग सेट करें।
-8. चित्र फ्रेम की लाइन की मोटाई सेट करें।
-9. चित्र फ्रेम को सकारात्मक या नकारात्मक मान देकर घुमाएँ।
-   * सकारात्मक मान चित्र को घड़ी की दिशा में घूमाता है।
-   * नकारात्मक मान चित्र को विपरीत दिशा में घूमाता है।
-10. चित्र फ्रेम (जिसमें चित्र है) को स्लाइड में फिर से जोड़ें।
-11. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
+एम्बेडेड पिक्चर छवि डेटा को प्रस्तुति के अंदर संग्रहीत करता है और इसलिए पोर्टेबिलिटी और पूर्वानुमानित रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। लिंक्ड पिक्चर [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) मेथड के माध्यम से बाहरी स्थान को संग्रहीत करता है, बजाय इसके कि छवि डेटा को उसी तरीके से एम्बेड किया जाए।
 
-यह Java कोड चित्र फ्रेम फॉर्मेटिंग प्रक्रिया को दर्शाता है:
+लिंक्ड छवियाँ PPTX में संग्रहीत छवि डेटा की मात्रा को कम कर सकती हैं, लेकिन वे एक बाहरी निर्भरता पेश करती हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन द्वारा सुलभ रहना चाहिए जो प्रस्तुति को खोलता या रेंडर करता है। यदि पथ बदल जाता है, फ़ाइल स्थानांतरित हो जाती है, या संसाधन उपलब्ध नहीं रहता, तो लिंक्ड पिक्चर अपेक्षित रूप से प्रदर्शित नहीं हो सकता। उन प्रस्तुतियों के लिए जिन्हें ई‑मेल करना, आर्काइव करना या अलग‑थलग पर्यावरण में रेंडर करना आवश्यक है, एम्बेडेड छवियाँ आमतौर पर अधिक भरोसेमंद होती हैं।
+
+### **लिंक्ड छवि जोड़ें**
+
+निम्न उदाहरण एक पिक्चर फ्रेम बनाता है और उसे स्थानीय छवि फ़ाइल की ओर इंगित करता है। यह केवल छवि लिंकिंग से निपटता है; वीडियो लिंकिंग एक अलग मीडिया कार्यप्रवाह है और जानबूझकर इस उदाहरण में शामिल नहीं किया गया है।
 
 ```java
-// PPTX का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // पहला स्लाइड प्राप्त करता है
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Image क्लास का इंस्टैंस बनाता है
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // चित्र की समान ऊँचाई और चौड़ाई के साथ चित्र फ्रेम जोड़ता है
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // PictureFrameEx पर कुछ फॉर्मेटिंग लागू करता है
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose ने हाल ही में एक [free Collage Maker](https://products.aspose.app/slides/hi/collage) विकसित किया है। यदि आपको कभी [JPG/JPEG को मिलाना](https://products.aspose.app/slides/hi/collage/jpg) या PNG छवियां चाहिए, या [फोटो से ग्रिड बनाना](https://products.aspose.app/slides/hi/collage/photo-grid) चाहते हैं, तो आप इस सेवा का उपयोग कर सकते हैं। 
-{{% /alert %}}
+बाहरी फ़ाइल प्रबंधन का इरादा हो तो लिंक का उपयोग करें। उन्हें केवल संपीड़न के विकल्प के रूप में उपयोग न करें: टूटे हुए छवि निर्भरताओं वाली छोटी PPTX अक्सर बड़ी स्व‑निहित प्रस्तुति से कम उपयोगी होती है।
 
-## **लिंक के रूप में छवि जोड़ें**
+## **पिक्चर फ़्रेम से छवियों का निष्कर्षण**
 
-बड़ी प्रेजेंटेशन फाइल आकार से बचने के लिए, आप फ़ाइलों को सीधे एम्बेड करने के बजाय लिंक के माध्यम से छवियां (या वीडियो) जोड़ सकते हैं। यह Java कोड आपको दिखाता है कि प्लेसहोल्डर में छवि और वीडियो कैसे जोड़ें:
+किसी मौजूदा प्रस्तुति से छवि निकालने से पहले यह जांचें कि आकार वास्तव में एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) है और उसमें एम्बेडेड छवि है। लिंक्ड पिक्चर फ़्रेम में ऐसे बाइट्स नहीं हो सकते जिन्हें उसी तरह निकाला जा सके।
+
+### **रास्टर छवि निकालें**
+
+आधुनिक छवि API सीधे [IImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimage/) का उपयोग करता है और पुराने जावा इमेज रैपर की आवश्यकता नहीं होती। निम्न उदाहरण स्लाइड पर पहला एम्बेडेड रास्टर चित्र खोजता है और उसे PNG के रूप में सहेजता है:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+[IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimage/#save-java.lang.String-int-) द्वारा सहेजना निकाली गई छवि को अनुरोधित आउटपुट फ़ॉर्मेट में बदल देता है। यदि आप प्रस्तुति में संग्रहीत एन्कोडेड बाइट्स चाहिए, तो परिवर्तित रास्टर फ़ाइल के बजाय छवि संसाधन के बाइनरी डेटा का उपयोग करें।
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **SVG छवि निकालें**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+SVG पिक्चर के लिए, [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) एक [ISvgImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isvgimage/) वस्तु उजागर करता है। यह आपको SVG डेटा को सीधे पुनः प्राप्त करने की अनुमति देता है, पहले चित्र को रैस्टराइज़ किए बिना।
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SVG सामग्री को SVG के रूप में रखने से वेक्टर स्रोत प्रस्तुति में बना रहता है। PNG या JPEG जैसी रास्टर निर्यात आवश्यक रूप से उस वेक्टर सामग्री को पिक्सेल में रेंडर करती हैं। PDF या SVG स्लाइड निर्यात भी एक रेंडरिंग ऑपरेशन है, इसलिए निर्यातित ग्राफ़िक्स को मूल एम्बेडेड SVG की बाइट‑फ़ॉर‑बाइट प्रतिलिपि नहीं माना जाना चाहिए; जब मूल वेक्टर संसाधन आवश्यक हो तो एम्बेडेड [ISvgImage.getSvgData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isvgimage/#getSvgData--) डेटा का उपयोग करें।
+
+## **छवि को क्रॉप करें**
+
+क्रॉपिंग फ़्रेम के भीतर छवि के कौन से भाग दिखाए जाएँगे, इसे बदलती है। [IPictureFillFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/) पर क्रॉप मान स्रोत छवि आयामों के प्रतिशत होते हैं। क्रॉपिंग प्रारंभिक रूप से एम्बेडेड छवि से छिपे पिक्सेल को नहीं हटाती; यह केवल दृश्यमान क्षेत्र को बदलती है।
+
+निम्न उदाहरण एक पिक्चर फ्रेम को सुरक्षित रूप से खोजता है और क्रॉप मान लागू करता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **छवियों को क्रॉप करें**
-
-यह Java कोड आपको दिखाता है कि स्लाइड पर मौजूदा छवि को कैसे क्रॉप करें:
-
-```java
-Presentation pres = new Presentation();
-// नया इमेज ऑब्जेक्ट बनाता है
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // स्लाइड में एक PictureFrame जोड़ता है
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // छवि को क्रॉप करता है (प्रतिशत मान)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // परिणाम सहेजता है
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **चित्र के क्रॉप किए गए क्षेत्रों को हटाएं**
-
-यदि आप फ्रेम में सम्मिलित छवि के क्रॉप किए गए क्षेत्रों को हटाना चाहते हैं, तो आप [deletePictureCroppedAreas()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) मेथड का उपयोग कर सकते हैं। यह मेथड क्रॉप की गई छवि या मूल छवि लौटाता है यदि क्रॉपिंग आवश्यक नहीं है।
-
-यह Java कोड इस ऑपरेशन को दर्शाता है:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // पहले स्लाइड से PictureFrame प्राप्त करता है
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // PictureFrame छवि के क्रॉप किए गए क्षेत्रों को हटाता है और क्रॉप की गई छवि लौटाता है
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // परिणाम को सहेजता है
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-[deletePictureCroppedAreas()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) मेथड क्रॉप की गई छवि को प्रेजेंटेशन इमेज कलेक्शन में जोड़ता है। यदि छवि केवल प्रसंस्कृत [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) में उपयोग होती है, तो यह सेटअप प्रेजेंटेशन आकार को कम कर सकता है। अन्यथा, परिणामी प्रेजेंटेशन में छवियों की संख्या बढ़ जाएगी।
-
-यह मेथड क्रॉपिंग ऑपरेशन में WMF/EMF मेटाफाइल को रास्टर PNG छवि में बदलता है। 
-{{% /alert %}}
-
-## **छवियों को संकुचित करें**
-
-आप एक प्रेजेंटेशन में चित्र को [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) मेथड का उपयोग करके संकुचित कर सकते हैं। यह मेथड आकार के आकार और निर्दिष्ट रिज़ॉल्यूशन के आधार पर छवि का आकार घटाकर उसे संकुचित करता है, और वैकल्पिक रूप से क्रॉप किए गए क्षेत्रों को हटाने का विकल्प देता है।
-
-यह चित्र के आकार और रिज़ॉल्यूशन को PowerPoint की **Picture Format -> Compress Pictures -> Resolution** फ़ीचर के समान समायोजित करता है।
-
-निम्न Java उदाहरण दिखाते हैं कि लक्ष्य रिज़ॉल्यूशन निर्दिष्ट करके और वैकल्पिक रूप से क्रॉप किए गए क्षेत्रों को हटाकर प्रेजेंटेशन में छवि को कैसे संकुचित करें:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // छवि को 150 DPI (वेब रिज़ॉल्यूशन) के लक्षित रिज़ॉल्यूशन के साथ संपीड़ित करें और क्रॉप किए गए क्षेत्रों को हटाएँ।
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // संपीड़न के परिणाम की जांच करें।
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-या सीधे एक कस्टम DPI मान का उपयोग करके:
+चूंकि छिपा हुआ छवि डेटा अभी भी मौजूद है, इसलिए क्रॉप को बाद में बदला जा सकता है बिना मूल पिक्सेल खोए। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनरावृत्ति की आवश्यकता नहीं है, तो अगले अनुभाग में वर्णित अनुसार क्रॉप किए गए क्षेत्रों को शारीरिक रूप से हटाया जा सकता है।
+
+## **क्रॉप किए गए छवि डेटा को हटाएँ**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) वर्तमान क्रॉप आयत के बाहर के छवि डेटा को हटा देता है और परिणामस्वरूप नया छवि संसाधन लौटाता है। यह फ़ाइल आकार को कम कर सकता है, लेकिन यह एक विनाशकारी अनुकूलन है: प्रस्तुति को सहेजने के बाद हटाए गए पिक्सेल बाद में अन‑क्रॉप ऑपरेशन के लिए उपलब्ध नहीं रहते।
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // छवि को 150 DPI (वेब रिज़ॉल्यूशन) तक संपीड़ित करें, क्रॉप किए गए क्षेत्रों को हटाते हुए।
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-यह मेथड आकार के आकार और प्रदान किए गए DPI के आधार पर छवि को कम रिज़ॉल्यूशन में बदलता है। फ़ाइल आकार को अनुकूलित करने के लिए क्रॉप किए गए क्षेत्रों को भी हटाया जा सकता है।  
-यदि छवि एक मेटाफाइल (WMF/EMF) या SVG है, तो संकुचन लागू नहीं होगा। साथ ही, JPEG गुणवत्ता रिज़ॉल्यूशन के आधार पर बनी रहती है या हल्के से घटती है, जैसे PowerPoint उच्च-रेज़ॉल्यूशन JPEG को संभालता है। 
-{{% /alert %}}
+यह मेथड प्रस्तुति में एक नया छवि संसाधन जोड़ सकता है। यदि मूल छवि अन्य पिक्चर फ्रेम द्वारा भी उपयोग की जा रही है, तो उन फ़्रेमों को अभी भी अपने मौजूदा संसाधन की आवश्यकता होगी, इसलिए क्रॉप्ड क्षेत्रों को हटाना जरूरी नहीं कि कुल छवियों की संख्या घटाए। इस मेथड से WMF या EMF सामग्री को क्रॉप करने से परिणाम PNG में रैस्टराइज़ हो जाता है।
 
-## **आस्पेक्ट रेशियो लॉक करें**
+## **रास्टर छवियों को संपीड़ित करें**
 
-यदि आप चाहते हैं कि कोई आकार जिसमें छवि है, छवि के आयाम बदलने के बाद भी अपना आस्पेक्ट रेशियो बनाए रखे, तो आप *Lock Aspect Ratio* सेटिंग को सेट करने के लिए [setAspectRatioLocked](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) मेथड का उपयोग कर सकते हैं।
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) रास्टर छवि का रिज़ॉल्यूशन उस आकार के सापेक्ष घटाता है जिस पर चित्र प्रदर्शित होता है। यह एक ही ऑपरेशन में क्रॉप्ड क्षेत्रों को भी हटा सकता है। मेथड `true` लौटाता है जब छवि को आकार बदल दिया गया या क्रॉप किया गया, और `false` जब कोई परिवर्तन आवश्यक नहीं था।
 
-यह Java कोड दिखाता है कि आकार के आस्पेक्ट रेशियो को कैसे लॉक करें:
+जब मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो, तो पूर्वपरिभाषित [PicturesCompression](https://reference.aspose.com/slides/hi/java/com.aspose.slides/picturescompression/) मान का उपयोग करें:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // आकार को रीसाइज़ करने पर आस्पेक्ट रेशियो बनाए रखने के लिए सेट करें
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+जब विशिष्ट लक्ष्य आवश्यक हो, तो पूर्वपरिभाषित मान के बजाय एक कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+
+यह संपीड़न रास्टर छवियों के लिए अभिप्रेत है। SVG और मेटाफाइल सामग्री इस रास्टर संपीड़न कार्यप्रवाह से नहीं घटेंगी। साथ ही याद रखें कि कम रिज़ॉल्यूशन और हटाए गए क्रॉप्ड क्षेत्रों को अनुकूलित प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य रिज़ॉल्यूशन को उस अधिकतम आकार के आधार पर चुनें जिस पर छवि वास्तव में देखी या निर्यात की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करके।
+
+## **छवि इफ़ेक्ट्स की जांच करें**
+
+चित्र इफ़ेक्ट्स फ्रेम द्वारा उपयोग किए गए चित्र पर संग्रहीत होते हैं। छवि ट्रांसफ़ॉर्म संग्रह में पारदर्शिता के लिए स्थिर अल्फा मॉड्यूलेशन और चमक‑विरोध के लिए ल्यूमिनांस जैसे इफ़ेक्ट्स हो सकते हैं। नीचे दिया गया उदाहरण स्लाइड पर पहले पिक्चर फ़्रेम से दोनों प्रकार के इफ़ेक्ट्स को सुरक्षित रूप से पढ़ता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (IImageTransformOperation effect : imageTransform) {
+            if (effect instanceof IAlphaModulateFixed) {
+                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
+                float transparency = 100 - alphaModulateFixed.getAmount();
+                System.out.println("Transparency: " + transparency);
+            }
+
+            if (effect instanceof ILuminance) {
+                ILuminance luminanceEffect = (ILuminance) effect;
+                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
+                System.out.println("Brightness: " + luminance.getBrightness());
+                System.out.println("Contrast: " + luminance.getContrast());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ये इफ़ेक्ट्स फ़्रेम में छवि के रेंडरिंग को बदलते हैं; वे मूल एम्बेडेड छवि बाइट्स को पुनः लिखते नहीं हैं।
+
+## **पिक्चर फ़्रेम ज्यामिति को लॉक करें**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframelock/) सेटिंग्स पिक्चर फ़्रेम के लिए किन संपादन ऑपरेशनों को अक्षम किया गया है, इसे नियंत्रित करती हैं। उदाहरण के लिए, [setAspectRatioLocked](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) आकार बदलते समय आकार अनुपात को संरक्षित रखता है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-यह *Lock Aspect Ratio* सेटिंग केवल आकार के आस्पेक्ट रेशियो को संरक्षित करती है, न कि उसमें सम्मिलित छवि को। 
-{{% /alert %}}
+लॉक पिक्चर फ्रेम आकार पर लागू होता है। यह स्रोत छवि को पुन: नमूना नहीं करता या स्थायी रूप से उसी अनुपात में बदलता नहीं है।
 
-## **StretchOff प्रॉपर्टी का उपयोग करें**
+## **StretchOffset मानों को समायोजित करें**
 
-[StretchOffsetLeft](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) और [StretchOffsetBottom](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) प्रॉपर्टी का उपयोग करके आप एक फ़िल रेक्टेंगल निर्दिष्ट कर सकते हैं।
+जब पिक्चर फ़िल मोड स्ट्रेच हो, तो [IPictureFillFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/) पर स्ट्रेच‑ऑफ़सेट मान पिक्चर फ्रेम की सीमाओं के सापेक्ष भराव आयत परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से अंदर की ओर इन्सेट बनाते हैं, जबकि नकारात्मक प्रतिशत आउटसेट बनाते हैं।
 
-जब किसी छवि के लिए स्ट्रेचिंग निर्दिष्ट की जाती है, तो स्रोत रेक्टेंगल को निर्दिष्ट फ़िल रेक्टेंगल में फिट करने के लिए स्केल किया जाता है। फ़िल रेक्टेंगल के प्रत्येक किनारे को आकार के बाउंडिंग बॉक्स के संबंधित किनारे से प्रतिशत ऑफ़सेट द्वारा परिभाषित किया जाता है। एक सकारात्मक प्रतिशत इनसेट को दर्शाता है जबकि नकारात्मक प्रतिशत आउटसेट को।
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का उदाहरण बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. एक `AutoShape` आयत जोड़ें।
-4. एक छवि बनाएं।
-5. आकार का फ़िल टाइप सेट करें।
-6. आकार का पिक्चर फ़िल मोड सेट करें।
-7. आकार को भरने के लिए एक इमेज सेट जोड़ें।
-8. आकार के बाउंडिंग बॉक्स के संबंधित किनारे से इमेज ऑफ़सेट निर्दिष्ट करें।
-9. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
-
-यह Java कोड दर्शाता है कि कैसे StretchOff प्रॉपर्टी का उपयोग किया जाता है:
+यह क्रॉपिंग से अलग है। क्रॉप मान स्रोत छवि के कौन से भाग दिखाई देंगे, इसे चुनते हैं; स्ट्रेच‑ऑफ़सेट दृश्यमान चित्र भराव को किस आयत में स्ट्रेच किया जाए, उसे बदलते हैं।
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहला स्लाइड प्राप्त करता है
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // ImageEx क्लास का इंस्टैंस बनाता है
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // एक AutoShape जोड़ता है जिसे Rectangle सेट किया गया है
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // आकार का फ़िल टाइप सेट करता है
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // आकार के चित्र फ़िल मोड को सेट करता है
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // आकार को भरने के लिए छवि सेट करता है
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // आकार के बाउंडिंग बॉक्स के संबंधित किनारे से छवि ऑफ़सेट निर्दिष्ट करता है
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+फ़िल प्लेसमेंट के लिए स्ट्रेच‑ऑफ़सेट का उपयोग करें। जब लक्षित स्रोत‑छवि किनारों को छुपाना हो, तो क्रॉप गुणों का उपयोग करें।
 
-**मैं पता कैसे लगाऊं कि PictureFrame के लिए कौन से इमेज फ़ॉर्मेट सपोर्टेड हैं?**
+## **भंडारण, फ़ाइल आकार, और निर्यात विचार**
 
-Aspose.Slides रास्टर छवियां (PNG, JPEG, BMP, GIF आदि) और वेक्टर छवियां (उदाहरण के लिए, SVG) दोनों को सपोर्ट करता है, जो एक [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) को असाइन किए गए इमेज ऑब्जेक्ट के माध्यम से उपलब्ध हैं। समर्थित फ़ॉर्मेट्स की सूची आम तौर पर स्लाइड और इमेज कन्वर्ज़न इंजन की क्षमताओं से मेल खाती है।
+छवि भंडारण और पिक्चर‑फ़्रेम फ़ॉर्मेटिंग को अलग‑अलग संभालने पर मुख्य ट्रेड‑ऑफ़ अधिक स्पष्ट हो जाते हैं:
 
-**बड़ी संख्या में बड़े इमेज जोड़ने से PPTX आकार और प्रदर्शन पर क्या असर पड़ेगा?**
+- **एम्बेडेड छवियाँ** प्रस्तुति को स्व‑निहित बनाती हैं और साझा करने तथा सर्वर‑साइड रेंडरिंग के लिए सबसे भरोसेमंद होती हैं, लेकिन बड़े रास्टर छवियों से PPTX आकार और मेमोरी उपयोग बढ़ता है।
+- **लिंक्ड छवियाँ** पैकेज को छोटा रख सकती हैं, लेकिन प्रस्तुति को बाहरी फ़ाइलों के उपलब्ध रहने पर निर्भर करती हैं।
+- **क्रॉपिंग** शुरू में विनाशरहित होती है। छिपे पिक्सेल तब तक एम्बेडेड रहते हैं जब तक क्रॉप्ड क्षेत्रों को स्पष्ट रूप से हटाया या संपीड़न के दौरान नहीं हटाया जाता।
+- **संपीड़न** बड़े रास्टर चित्रों के फ़ाइल आकार को काफी घटा सकता है, पर स्रोत रिज़ॉल्यूशन का बलिदान देता है। इसे स्लाइड पर अपेक्षित आकार ज्ञात होने के बाद लागू किया जाना चाहिए।
+- **SVG छवियाँ** वेक्टर संरक्षण महत्वपूर्ण होने पर SVG के रूप में रखी जानी चाहिए। जब आपको स्वयं वेक्टर संसाधन चाहिए, तो एम्बेडेड SVG को सीधे निकालें। रास्टर स्लाइड निर्यात हमेशा रेंडर की गई स्लाइड को पिक्सेल में बदल देता है।
+- **बार‑बार उपयोग की गई छवियाँ** संभव हो तो मौजूदा [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) संसाधन को पुनः उपयोग करें, बजाय बार‑बार वही फ़ाइल लोड करने के।
 
-बड़ी छवियों को एम्बेड करने से फाइल आकार और मेमोरी उपयोग बढ़ता है; लिंक के माध्यम से इमेज जोड़ने से प्रेजेंटेशन का आकार कम रहता है लेकिन बाहरी फाइलों को सुलभ रखना आवश्यक होता है। Aspose.Slides लिंक के माध्यम से इमेज जोड़ने की सुविधा देता है जिससे फाइल आकार घटाया जा सके।
+बड़ी प्रस्तुतियों के लिए, छवि अनुकूलन आम तौर पर तब सबसे प्रभावी होता है जब चयनात्मक रूप से किया जाए: लोगो और आरेखों को वेक्टर सामग्री के रूप में रखें, फ़ोटो को उनके वास्तविक प्रदर्शन आकार के अनुसार संपीड़ित करें, क्रॉप्ड पिक्सेल को तभी हटाएँ जब बाद में संपादन की आवश्यकता न हो, और बाहरी लिंक तभी अपनाएँ जब निर्भरता प्रबंधन परिनियोजन डिज़ाइन का भाग हो।
 
-**मैं इमेज ऑब्जेक्ट को आकस्मिक मूव/रिज़ाइज़िंग से कैसे लॉक करूं?**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-आप [shape locks](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) का उपयोग करके एक [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) को लॉक कर सकते हैं (जैसे मूव या रिसाइज़ को डिसेबल करना)। लॉकिंग मैकेनिज़्म के बारे में अलग से [protection article](/slides/hi/java/applying-protection-to-presentation/) में बताया गया है और यह विभिन्न आकार प्रकारों, जिसमें [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) भी शामिल है, के लिए उपलब्ध है।
+**पिक्चर फ़्रेम और छवि संसाधन में क्या अंतर है?**
 
-**क्या SVG वेक्टर फ़िडेलिटी PDF/छवियों में एक्सपोर्ट करने पर बनी रहती है?**
+एक [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) प्रस्तुति से संबद्ध छवि संसाधन का प्रतिनिधित्व करता है। एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) स्लाइड पर वह आकार है जो छवि प्रदर्शित करता है और फ़्रेम‑स्तरीय ज्यामिति तथा स्वरूपण जैसे आकार, घुमाव, क्रॉप मान, इफ़ेक्ट्स और लॉक को संग्रहीत करता है।
 
-Aspose.Slides आपको एक [PictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/pictureframe/) से मूल वेक्टर के रूप में SVG निकालने देता है। जब आप PDF (/slides/hi/java/convert-powerpoint-to-pdf/) या रास्टर फ़ॉर्मेट (/slides/hi/java/convert-powerpoint-to-png/) में एक्सपोर्ट करते हैं, तो परिणाम एक्सपोर्ट सेटिंग्स के आधार पर रास्टराइज़ हो सकता है; मूल SVG को वेक्टर के रूप में संग्रहीत किया जाना निकालने के व्यवहार से पुष्टि होती है।
+**मुझे छवियों को एम्बेड करना चाहिए या लिंक करना?**
+
+जब प्रस्तुति को पोर्टेबल, आर्काइव या बाहरी संसाधनों के बिना रेंडर किया जाना हो, तो छवियों को एम्बेड करें। केवल तभी लिंक करें जब छवि फ़ाइलों को PPTX के बाहर रखने का इरादा हो और बाहरी स्थानों को भरोसेमंद रूप से बनाए रखा जा सके।
+
+**क्या क्रॉपिंग PPTX फ़ाइल आकार को कम करती है?**
+
+स्वयं नहीं। सामान्य क्रॉप सेटिंग्स स्रोत छवि के भागों को छिपाती हैं लेकिन अंतर्निहित पिक्सेल को रखती हैं। जब उन पिक्सेल को स्थायी रूप से हटाया जा सकता हो, तो [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) या क्रॉप्ड‑क्षेत्र हटाने के साथ छवि संपीड़न का उपयोग करें।
+
+**क्या संपीड़न के बाद छवि गुणवत्ता को पुनः प्राप्त कर सकता हूँ?**
+
+नहीं। संपीड़न संग्रहीत रास्टर रिज़ॉल्यूशन को घटा सकता है, और क्रॉप्ड क्षेत्रों को हटाने से छवि डेटा हट जाता है। यदि बाद में उच्च‑रिज़ॉल्यूशन संपादन की संभावना हो, तो मूल स्रोत छवि को प्रस्तुति के बाहर रखें।
+
+**SVG छवियों को कैसे संभालना चाहिए?**
+
+जब वेक्टर शुद्धता महत्वपूर्ण हो, तो SVG सामग्री को SVG के रूप में रखें। एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isvgimage/) को सीधे निकाला जा सकता है। स्लाइड को PNG या JPEG जैसे रास्टर फ़ॉर्मेट में निर्यात करने से SVG को पिक्सेल में बदल दिया जाता है।
+
+**मौजूदा स्लाइड्स को पढ़ते समय असुरक्षित कास्ट से कैसे बचें?**
+
+आकार प्रकार की जांच करने के बाद ही पिक्चर‑फ़्रेम‑विशिष्ट सदस्यों का उपयोग करें। [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) के विरुद्ध `instanceof` जाँच असमान कास्ट से बचती है और कोड को उन स्लाइडों को संभालने देती है जिनमें पिक्चर फ़्रेम नहीं होते।

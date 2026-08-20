@@ -1,5 +1,5 @@
 ---
-title: Añadir marcos de imagen a presentaciones con Python
+title: Gestionar marcos de imagen en presentaciones con Python
 linktitle: Marco de imagen
 type: docs
 weight: 10
@@ -8,474 +8,358 @@ keywords:
 - marco de imagen
 - añadir marco de imagen
 - crear marco de imagen
-- añadir imagen
-- crear imagen
+- imagen incrustada
+- imagen vinculada
 - extraer imagen
 - imagen raster
-- imagen vectorial
+- imagen SVG
 - recortar imagen
-- área recortada
-- propiedad StretchOff
+- eliminar áreas recortadas
+- comprimir imagen
+- StretchOffset
 - formato de marco de imagen
-- propiedades del marco de imagen
 - escala relativa
 - efecto de imagen
 - relación de aspecto
-- transparencia de imagen
 - PowerPoint
 - OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Añade marcos de imagen a presentaciones PowerPoint y OpenDocument con Aspose.Slides para Python a través de .NET. Optimiza tu flujo de trabajo y mejora el diseño de las diapositivas."
+description: "Crear, formatear, vincular, recortar, extraer y comprimir marcos de imagen en presentaciones con Aspose.Slides para Python mediante .NET."
 ---
-## **Introducción**
+## **Visión general**
 
-Los marcos de imagen en Aspose.Slides para Python le permiten colocar y administrar imágenes raster y vectoriales como formas nativas de diapositiva. Puede insertar imágenes desde archivos o flujos, posicionarlas y redimensionarlas con coordenadas precisas, aplicar rotación, establecer transparencia y controlar el orden Z junto a otras formas. La API también admite recorte, mantenimiento de proporciones, establecimiento de bordes y efectos, y la sustitución de la imagen subyacente sin reconstruir el diseño. Dado que los marcos de imagen se comportan como formas habituales, puede añadir animaciones, hipervínculos y texto alternativo, lo que facilita crear presentaciones visualmente ricas y accesibles.
+Un marco de imagen es una forma de diapositiva que muestra una imagen. En Aspose.Slides, el recurso de imagen y la forma que la muestra son objetos separados: una [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) posee recursos de imagen incrustados a través de su [ImageCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/imagecollection/), mientras que un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) controla la posición, el tamaño, el formato de línea, la rotación, el recorte, los efectos de imagen y otras configuraciones a nivel de marco.
 
-## **Crear marcos de imagen**
+Esta separación es útil cuando la misma imagen se muestra más de una vez. Añada la imagen a la presentación una sola vez, conserve el [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/) devuelto y utilice ese recurso de imagen al crear marcos de imagen.
 
-Esta sección muestra cómo insertar una imagen en una diapositiva creando un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) con Aspose.Slides para Python. Aprenderá a cargar la imagen, colocarla con precisión en la diapositiva y controlar su tamaño y formato.
+Los marcos de imagen pueden contener imágenes raster como PNG o JPEG e imágenes vectoriales SVG. También pueden referirse a imágenes vinculadas en lugar de almacenar los bytes de la imagen en la presentación. La elección afecta la portabilidad, el tamaño del archivo, la extracción y el comportamiento de exportación, por lo que es útil decidir cómo se debe almacenar la imagen antes de aplicar formato u optimización.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
-2. Obtener una diapositiva por su índice.
-3. Crear un [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/) añadiendo la imagen a la [ImageCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/imagecollection/) de la presentación. Esta imagen se usará para rellenar la forma.
-4. Especificar el ancho y alto del marco.
-5. Crear un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) de ese tamaño mediante el método [add_picture_frame](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Guardar la presentación como un archivo PPTX.
+## **Añadir y Formatear una Imagen Insertada**
 
-El siguiente código Python muestra cómo crear un marco de imagen:
+Para una imagen insertada, añada los datos de la imagen a la presentación y cree un marco de imagen con [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_picture_frame/). La imagen pasa a ser parte del paquete de la presentación, de modo que la presentación permanece autocontenida cuando se traslada a otro equipo.
 
-```py
-import aspose.slides as slides
-
-# Instanciar la clase Presentation para representar un archivo PPTX.
-with slides.Presentation() as presentation:
-    # Obtener la primera diapositiva.
-    slide = presentation.slides[0]
-
-    # Añadir la imagen a la presentación.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Añadir un marco de imagen con el tamaño de la imagen.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Guardar la presentación como PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-Los marcos de imagen le permiten crear rápidamente diapositivas de presentación a partir de imágenes. Cuando combina los marcos de imagen con las opciones de guardado de Aspose.Slides, puede controlar las operaciones de E/S para convertir imágenes de un formato a otro. Puede que le interese consultar las siguientes páginas: convertir [image to JPG](https://products.aspose.com/slides/es/python-net/conversion/image-to-jpg/); convertir [JPG to image](https://products.aspose.com/slides/es/python-net/conversion/jpg-to-image/); convertir [JPG to PNG](https://products.aspose.com/slides/es/python-net/conversion/jpg-to-png/); convertir [PNG to JPG](https://products.aspose.com/slides/es/python-net/conversion/png-to-jpg/); convertir [PNG to SVG](https://products.aspose.com/slides/es/python-net/conversion/png-to-svg/); convertir [SVG to PNG](https://products.aspose.com/slides/es/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Crear marcos de imagen con escala relativa**
-
-Esta sección demuestra cómo colocar una imagen con un tamaño fijo y, a continuación, aplicar una escala basada en porcentajes de forma independiente al ancho y al alto. Como los porcentajes pueden diferir, la relación de aspecto puede cambiar. La escala se realiza en relación con las dimensiones originales de la imagen.
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
-2. Obtener una diapositiva por su índice.
-3. Crear un [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/) añadiendo la imagen a la [ImageCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/imagecollection/) de la presentación.
-4. Añadir un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) a la diapositiva.
-5. Establecer el ancho y alto relativos del marco de imagen.
-6. Guardar la presentación como un archivo PPTX.
-
-El siguiente código Python muestra cómo crear un marco de imagen con escala relativa:
-
-```py
-import aspose.slides as slides
-
-# Instanciar la clase Presentation para representar un archivo PPTX.
-with slides.Presentation() as presentation:
-    # Obtener la primera diapositiva.
-    slide = presentation.slides[0]
-
-    # Añadir la imagen a la colección de imágenes de la presentación.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Añadir un marco de imagen a la diapositiva.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Establecer la escala relativa de ancho y alto.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Guardar la presentación.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Extraer imágenes raster de marcos de imagen**
-
-Puede extraer imágenes raster de objetos [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) y guardarlas en PNG, JPG y otros formatos. El ejemplo de código a continuación demuestra cómo extraer una imagen del documento “sample.pptx” y guardarla en formato PNG.
+El siguiente ejemplo añade una imagen JPEG, crea un marco con las dimensiones nativas de la imagen y aplica formato de línea y rotación:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **Extraer imágenes SVG de marcos de imagen**
-
-Cuando una presentación contiene gráficos SVG ubicados dentro de formas [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/), Aspose.Slides para Python mediante .NET le permite recuperar las imágenes vectoriales originales con plena fidelidad. Al recorrer la colección de formas de la diapositiva, puede identificar cada [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/), comprobar si el [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/) subyacente contiene contenido SVG y, a continuación, guardar esa imagen en disco o en un flujo en su formato SVG nativo.
-
-El siguiente ejemplo de código muestra cómo extraer una imagen SVG de un marco de imagen:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Obtener la transparencia de la imagen**
-
-Aspose.Slides le permite recuperar el efecto de transparencia aplicado a una imagen. Este código Python demuestra la operación:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Todos los efectos aplicados a imágenes se pueden encontrar en [aspose.slides.effects](https://reference.aspose.com/slides/es/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Obtener brillo y contraste de una imagen**
-
-Aspose.Slides le permite recuperar el efecto de brillo y contraste aplicado a una imagen. La clase [Luminance](https://reference.aspose.com/slides/es/python-net/aspose.slides.effects/luminance/) representa este efecto de transformación de imagen.
-
-Este código Python demuestra cómo obtener los ajustes de brillo y contraste de un marco de imagen:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Formato de marcos de imagen**
-
-Aspose.Slides ofrece muchas opciones de formato que puede aplicar a un marco de imagen. Con estas opciones, puede ajustar un marco de imagen para cumplir requisitos específicos.
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
-2. Obtener una diapositiva por su índice.
-3. Crear un [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/) añadiendo la imagen a la [ImageCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/imagecollection/) de la presentación. Esta imagen se usará para rellenar la forma.
-4. Especificar el ancho y alto del marco.
-5. Crear un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) de ese tamaño mediante el método [add_picture_frame](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_picture_frame/) de la diapositiva.
-6. Establecer el color de línea del marco de imagen.
-7. Establecer el ancho de línea del marco de imagen.
-8. Rotar el marco de imagen proporcionando un valor positivo (horario) o negativo ( antihorario).
-9. Guardar la presentación modificada como un archivo PPTX.
-
-El siguiente código Python demuestra el proceso de formato del marco de imagen:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Instanciar la clase Presentation para representar un archivo PPTX.
 with slides.Presentation() as presentation:
-    # Obtener la primera diapositiva.
     slide = presentation.slides[0]
 
-    # Añadir la imagen a la colección de imágenes de la presentación.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Añadir un marco de imagen con el tamaño de la imagen.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Aplicar formato al marco de imagen.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Guardar la presentación como PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose ha desarrollado una herramienta gratuita [Collage Maker](https://products.aspose.app/slides/es/collage). Si necesita [fusionar JPG/JPEG](https://products.aspose.app/slides/es/collage/jpg) o imágenes PNG, o [crear cuadrículas de fotos](https://products.aspose.app/slides/es/collage/photo-grid), puede usar este servicio.
-{{% /alert %}}
+El marco de imagen controla la geometría mostrada; cambiar el tamaño del marco no modifica las dimensiones originales en píxeles almacenadas en el recurso de imagen insertado. Esta distinción se vuelve importante al recortar o comprimir una imagen más adelante.
 
-## **Añadir imágenes como enlaces**
+## **Usar Escala Relativa**
 
-Para reducir el tamaño de los archivos de presentación, puede añadir imágenes o videos mediante enlaces en lugar de incrustar los archivos directamente en la presentación. El siguiente código Python muestra cómo insertar una imagen y un video en un marcador de posición:
+[PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) expone [relative_scale_width](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/relative_scale_width/) y [relative_scale_height](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/relative_scale_height/) para el marco. Un valor de `1.0` corresponde al 100 % del tamaño original de la imagen. La escala relativa es útil cuando un flujo de trabajo necesita preservar una relación con el tamaño de la imagen fuente en lugar de calcular manualmente las dimensiones finales.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+La escala relativa cambia los ajustes de escala del marco; no vuelve a muestrear ni comprime la imagen insertada.
+
+## **Imágenes Insertadas y Vinculadas**
+
+Una imagen insertada almacena los datos de la imagen dentro de la presentación y, por lo tanto, es la opción más segura para la portabilidad y una renderización predecible. Una imagen vinculada almacena una ubicación externa a través de la ruta del enlace [Picture](https://reference.aspose.com/slides/es/python-net/aspose.slides/picture/) en lugar de incrustar los datos de la imagen de la misma manera.
+
+Las imágenes vinculadas pueden reducir la cantidad de datos de imagen almacenados en el PPTX, pero introducen una dependencia externa. El archivo vinculado debe permanecer accesible para la aplicación que abre o renderiza la presentación. Si la ruta cambia, el archivo se mueve o el recurso no está disponible, la imagen vinculada puede no mostrarse como se espera. Para presentaciones que deben enviarse por correo electrónico, archivarse o renderizarse en entornos aislados, las imágenes insertadas suelen ser más fiables.
+
+### **Añadir una Imagen Vinculada**
+
+El siguiente ejemplo crea un marco de imagen y lo apunta a un archivo de imagen local. Sólo trata el enlace de la imagen; el enlace de vídeo es un flujo de trabajo multimedia separado y deliberadamente no se mezcla en este ejemplo.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Utilice enlaces cuando la gestión de archivos externos sea intencional. No los use simplemente como sustituto de la compresión: un PPTX pequeño con dependencias de imagen rotas suele ser menos útil que una presentación mayor autocontenida.
+
+## **Extraer Imágenes de Marcos de Imagen**
+
+Antes de extraer una imagen de una presentación existente, compruebe que una forma sea realmente un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) y que contenga una imagen insertada. Los marcos de imagen vinculados pueden no contener bytes de imagen que puedan extraerse de la misma forma.
+
+### **Extraer una Imagen Raster**
+
+La API de imágenes moderna usa [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) directamente. El siguiente ejemplo encuentra la primera imagen raster insertada en una diapositiva y la guarda como PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Recortar imágenes**
+Guardar mediante [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) convierte la imagen extraída al formato de salida solicitado. Si necesita los bytes codificados almacenados en la presentación en lugar de un archivo raster convertido, use la propiedad [PPImage.binary_data](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/binary_data/) en su lugar.
 
-En esta sección aprenderá a recortar el área visible de una imagen dentro de un marco de imagen sin modificar el archivo fuente. También aprenderá el método básico para aplicar márgenes de recorte y crear una composición limpia y enfocada directamente en la diapositiva.
+### **Extraer una Imagen SVG**
 
-El siguiente código Python muestra cómo recortar una imagen en una diapositiva:
+Para una imagen SVG, el [PPImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/ppimage/) expone un objeto [SvgImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/svgimage/). Esto le permite recuperar los datos SVG directamente en lugar de rasterizar la imagen primero.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Mantener el contenido SVG como SVG preserva la fuente vectorial dentro de la presentación. Las exportaciones raster como PNG o JPEG obligatoriamente renderizan ese contenido vectorial a píxeles. La exportación de diapositivas a PDF o SVG también es una operación de renderizado, por lo que los gráficos exportados no deben considerarse una copia byte a byte del SVG insertado original; utilice el [SvgImage.svg_data](https://reference.aspose.com/slides/es/python-net/aspose.slides/svgimage/svg_data/) incrustado cuando se requiera el recurso vectorial original.
+
+## **Recortar una Imagen**
+
+Recortar cambia qué parte de una imagen es visible dentro del marco. Los valores de recorte en [PictureFillFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/) son porcentajes de las dimensiones de la imagen fuente. Recortar no elimina inicialmente los píxeles ocultos de la imagen insertada; sólo cambia la región visible.
+
+El siguiente ejemplo encuentra un marco de imagen de forma segura y aplica valores de recorte:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Dado que los datos de la imagen oculta siguen presentes, el recorte puede modificarse más tarde sin perder los píxeles originales. Si el tamaño del archivo es más importante que la reversibilidad, las regiones recortadas pueden eliminarse físicamente como se describe en la siguiente sección.
+
+## **Eliminar los Datos Recortados de la Imagen**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) elimina los datos de imagen fuera del rectángulo de recorte actual y devuelve el recurso de imagen resultante. Esto puede reducir el tamaño del archivo, pero es una optimización destructiva: después de guardar la presentación, los píxeles eliminados ya no están disponibles para una operación de desrecorte posterior.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+El método puede añadir un nuevo recurso de imagen a la presentación. Si la imagen original también se usa en otros marcos de imagen, esos marcos siguen necesitando su recurso existente, por lo que eliminar áreas recortadas no reduce necesariamente el número total de imágenes. Recortar contenido WMF o EMF con este método rasteriza el resultado recortado a PNG.
+
+## **Comprimir Imágenes Raster**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/compress_image/) reduce la resolución de la imagen raster en relación con el tamaño en el que se muestra la imagen. También puede eliminar regiones recortadas en la misma operación. El método devuelve `True` cuando la imagen se redimensionó o recortó y `False` cuando no fue necesario ningún cambio.
+
+Utilice un valor predefinido de [PicturesCompression](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/picturescompression/) cuando una resolución objetivo estándar sea suficiente:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Se puede pasar un valor DPI positivo personalizado en lugar de un valor de enumeración cuando se requiere un objetivo específico.
+
+La compresión está pensada para imágenes raster. El contenido SVG y de metarchivo no se reduce con este flujo de trabajo de compresión raster. También recuerde que la resolución inferior y las regiones recortadas eliminadas no pueden recuperarse de la presentación optimizada. Elija una resolución objetivo basada en el mayor tamaño al que la imagen será realmente vista o exportada, en lugar de aplicar el DPI más bajo a nivel global.
+
+## **Inspeccionar Efectos de Imagen**
+
+Los efectos de imagen se almacenan en la imagen usada por el marco. La colección de transformaciones de la imagen puede contener efectos como modulación alfa fija para transparencia y luminancia para brillo y contraste. El ejemplo a continuación lee de forma segura ambos tipos de efectos del primer marco de imagen en una diapositiva:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+[AlphaModulateFixed](https://reference.aspose.com/slides/es/python-net/aspose.slides.effects/alphamodulatefixed/) y [Luminance](https://reference.aspose.com/slides/es/python-net/aspose.slides.effects/luminance/) cambian cómo se renderiza la imagen en el marco; no sobrescriben los bytes originales de la imagen insertada.
+
+## **Bloquear la Geometría del Marco de Imagen**
+
+Los ajustes de [PictureFrameLock](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframelock/) controlan qué operaciones de edición están deshabilitadas para un marco de imagen. Por ejemplo, la propiedad [aspect_ratio_locked](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) conserva las proporciones de la forma mientras se redimensiona.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Añadir la imagen a la colección de imágenes de la presentación.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Añadir un marco de imagen a la diapositiva.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Recortar la imagen (valores en porcentaje).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Guardar el resultado.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Eliminar áreas recortadas de imágenes**
-
-Si desea eliminar las áreas recortadas de una imagen en un marco, use el método [delete_picture_cropped_areas](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Este método devuelve la imagen recortada, o la imagen original si no se necesita recorte.
-
-El siguiente código Python demuestra la operación:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Obtener el PictureFrame de la primera diapositiva.
-    picture_frame = slides.shape[0]
-
-    # Obtener el PictureFrame de la primera diapositiva.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Guardar el resultado.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-El método [delete_picture_cropped_areas](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) añade la imagen recortada a la colección de imágenes de la presentación. Si la imagen se usa solo en el [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) procesado, esto puede reducir el tamaño de la presentación; de lo contrario, el número de imágenes en la presentación resultante puede aumentar.
-
-Durante el recorte, este método convierte los metarchivos WMF/EMF a una imagen raster PNG.
-{{% /alert %}}
-
-## **Comprimir imágenes**
-
-Puede comprimir una imagen en una presentación mediante el método [PictureFillFormat.compress_image](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/compress_image/).
-Este método comprime una imagen reduciendo su tamaño en función del tamaño de la forma y la resolución especificada, con la opción de eliminar áreas recortadas.
-
-Ajusta el tamaño y la resolución de la imagen de forma similar a la función **Formato de imagen → Comprimir imágenes → Resolución** de PowerPoint.
-
-Los siguientes ejemplos Python demuestran cómo comprimir una imagen en una presentación especificando una resolución objetivo y, opcionalmente, eliminando áreas recortadas:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Comprimir la imagen con una resolución objetivo de 150 DPI (resolución web) y eliminar las áreas recortadas.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Comprobar el resultado de la compresión.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-O usando directamente un valor DPI personalizado:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Comprimir la imagen a 150 DPI (resolución web), eliminando las áreas recortadas.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-El método convierte la imagen a una resolución inferior en función del tamaño de la forma y el DPI proporcionado. Las regiones recortadas también pueden eliminarse para optimizar el tamaño del archivo.
-Si la imagen es un metarchivo (WMF/EMF) o SVG, no se aplicará compresión. Además, la calidad JPEG se conserva o se reduce ligeramente según la resolución, de forma similar a cómo PowerPoint maneja los JPEG de alta resolución.
-{{% /alert %}}
-
-## **Bloquear la relación de aspecto**
-
-Si desea que una forma que contiene una imagen mantenga su relación de aspecto después de cambiar las dimensiones de la imagen, establezca la propiedad [aspect_ratio_locked](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) en `True`.
-
-El siguiente código Python muestra cómo bloquear la relación de aspecto de una forma:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Bloquear la relación de aspecto al cambiar el tamaño.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Esta configuración *Bloquear relación de aspecto* conserva solo la relación de aspecto de la forma, no la relación de aspecto de la imagen que contiene.
-{{% /alert %}}
+El bloqueo se aplica a la forma del marco de imagen. No obliga a que la imagen fuente se vuelva a muestrear o se cambie permanentemente al mismo aspecto de proporción.
 
-## **Usar propiedades de desplazamiento de estiramiento**
+## **Ajustar los Valores StretchOffset**
 
-Utilizando las propiedades `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` y `stretch_offset_bottom` de la clase [PictureFillFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/), puede definir un rectángulo de relleno.
+Cuando el modo de relleno de imagen es estirado, los valores stretch‑offset en [PictureFillFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/) definen el rectángulo de relleno relativo al cuadro delimitador del marco de imagen. Los porcentajes positivos crean una inserción desde un borde, mientras que los negativos crean una expansión.
 
-Cuando se especifica estiramiento para una imagen, el rectángulo fuente se escala para ajustarse al rectángulo de relleno. Cada borde del rectángulo de relleno se define mediante un desplazamiento porcentual respecto al borde correspondiente del cuadro delimitador de la forma. Un porcentaje positivo indica una inserción, mientras que un porcentaje negativo indica una salida.
+Esto es diferente al recorte. Los valores de recorte eligen qué parte de la imagen fuente es visible; los offsets de estiramiento cambian el rectángulo en el que el relleno de imagen visible se estira.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
-2. Obtener una referencia a una diapositiva por su índice.
-3. Añadir una [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) rectangular.
-4. Establecer el tipo de relleno de la forma.
-5. Establecer el modo de relleno de imagen de la forma.
-6. Cargar una imagen.
-7. Asignar la imagen para rellenar la forma.
-8. Especificar los desplazamientos de la imagen respecto a los bordes correspondientes del cuadro delimitador de la forma.
-9. Guardar la presentación como un archivo PPTX.
-
-El siguiente código Python demuestra cómo usar las propiedades de desplazamiento de estiramiento:
-
-```py
+```python
 import aspose.slides as slides
 
-# Instanciar la clase Presentation que representa un archivo PPTX.
 with slides.Presentation() as presentation:
-    # Obtener la primera diapositiva.
     slide = presentation.slides[0]
 
-    # Añadir una AutoShape rectangular.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Establecer el tipo de relleno de la forma.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Establecer el modo de relleno de imagen de la forma.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Cargar la imagen y añadirla a la presentación.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Asignar la imagen para rellenar la forma.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Especificar los desplazamientos de la imagen respecto a los bordes correspondientes del cuadro delimitador de la forma.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Guardar el archivo PPTX en disco.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose ofrece convertidores gratuitos—[JPEG a PowerPoint](https://products.aspose.app/slides/es/import/jpg-to-ppt) y [PNG a PowerPoint](https://products.aspose.app/slides/es/import/png-to-ppt)—que le permiten crear rápidamente presentaciones a partir de imágenes.
-{{% /alert %}}
+Utilice offsets de estiramiento para la ubicación del relleno. Use las propiedades de recorte cuando el objetivo sea ocultar los bordes de la imagen fuente.
 
-## **FAQ**
+## **Consideraciones de Almacenamiento, Tamaño de Archivo y Exportación**
 
-**¿Cómo puedo averiguar qué formatos de imagen son compatibles con PictureFrame?**
+Los principales compromisos son más fáciles de gestionar cuando el almacenamiento de imágenes y el formato del marco de imagen se tratan por separado:
 
-Aspose.Slides admite tanto imágenes raster (PNG, JPEG, BMP, GIF, etc.) como imágenes vectoriales (por ejemplo, SVG) a través del objeto de imagen asignado a un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/). La lista de formatos compatibles generalmente se superpone con las capacidades del motor de conversión de diapositivas e imágenes.
+- **Imágenes insertadas** hacen que la presentación sea autocontenida y son las más fiables para compartir y renderizar en servidor, pero las imágenes raster grandes aumentan el tamaño del PPTX y el uso de memoria.
+- **Imágenes vinculadas** pueden mantener el paquete más pequeño, pero la presentación depende de que los archivos externos sigan disponibles en las rutas o ubicaciones almacenadas.
+- **Recorte** es inicialmente no destructivo. Los píxeles ocultos permanecen insertados hasta que se eliminen explícitamente las áreas recortadas o se eliminen durante la compresión.
+- **Compresión** puede reducir considerablemente el tamaño del archivo para imágenes raster sobredimensionadas, pero sacrifica la resolución fuente. Debe aplicarse después de conocer el tamaño final deseado en la diapositiva.
+- **Imágenes SVG** deben permanecer como SVG cuando la preservación vectorial es importante. Extraiga el SVG insertado directamente cuando necesite el recurso vectorial en sí. Las exportaciones raster de diapositivas siempre convierten la diapositiva renderizada a píxeles.
+- **Imágenes repetidas** deben reutilizar un recurso [PPImage] existente cuando sea posible en lugar de cargar repetidamente el mismo archivo en el flujo de trabajo de la presentación.
 
-**¿Cómo afectará la incorporación de docenas de imágenes grandes al tamaño y rendimiento del PPTX?**
+Para presentaciones grandes, la optimización de imágenes suele ser más eficaz cuando se realiza de forma selectiva: mantenga logotipos y diagramas como contenido vectorial, comprima fotografías según su tamaño real de visualización, elimine píxeles recortados solo cuando no se requiera edición posterior y evite enlaces externos salvo que la gestión de dependencias forme parte del diseño de despliegue.
 
-Incrustar imágenes grandes aumenta el tamaño del archivo y el consumo de memoria; enlazar imágenes ayuda a mantener reducido el tamaño de la presentación, pero requiere que los archivos externos permanezcan accesibles. Aspose.Slides permite añadir imágenes mediante enlace para reducir el tamaño del archivo.
+## **Preguntas Frecuentes**
 
-**¿Cómo puedo bloquear un objeto de imagen para que no se mueva o redimensione accidentalmente?**
+**¿Cuál es la diferencia entre un marco de imagen y un recurso de imagen?**
 
-Utilice los [shape locks](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/picture_frame_lock/) para un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) (por ejemplo, desactivar el movimiento o el redimensionado). El mecanismo de bloqueo se describe para formas en un artículo separado de [protección](/slides/es/python-net/applying-protection-to-presentation/) y es compatible con varios tipos de forma, incluido [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/).
+Un [PPImage] representa un recurso de imagen asociado a la presentación. Un [PictureFrame] es una forma en una diapositiva que muestra una imagen y almacena la geometría y el formato a nivel de marco, como tamaño, rotación, valores de recorte, efectos y bloqueos.
 
-**¿Se conserva la fidelidad vectorial del SVG al exportar una presentación a PDF/imagenes?**
+**¿Debo insertar o vincular imágenes?**
 
-Aspose.Slides permite extraer un SVG de un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) como el vector original. Al [exportar a PDF](/slides/es/python-net/convert-powerpoint-to-pdf/) o a [formatos raster](/slides/es/python-net/convert-powerpoint-to-png/), el resultado puede rasterizarse según la configuración de exportación; el hecho de que el SVG original se almacene como vector se confirma mediante el comportamiento de extracción.
+Inserte imágenes cuando la presentación deba ser portátil, archivada o renderizada sin acceso a recursos externos. Vincule imágenes solo cuando mantener los archivos de imagen fuera del PPTX sea intencional y las ubicaciones externas puedan mantenerse de forma fiable.
+
+**¿El recorte reduce el tamaño del archivo PPTX?**
+
+No por sí mismo. Los ajustes normales de recorte ocultan partes de la imagen fuente pero conservan los píxeles subyacentes. Use [PictureFillFormat.delete_picture_cropped_areas] o la compresión de imagen con eliminación de áreas recortadas cuando esos píxeles puedan descartarse permanentemente.
+
+**¿Puedo restaurar la calidad de la imagen después de la compresión?**
+
+No. La compresión puede reducir la resolución raster almacenada y la eliminación de regiones recortadas descarta datos de imagen. Mantenga la imagen fuente original fuera de la presentación si más adelante puede necesitar una edición de alta resolución.
+
+**¿Cómo deben manejarse las imágenes SVG?**
+
+Mantenga el contenido SVG como SVG cuando la fidelidad vectorial sea importante. El [SvgImage] insertado puede extraerse directamente. Renderizar una diapositiva a un formato raster como PNG o JPEG rasteriza el SVG como parte de la imagen de la diapositiva.
+
+**¿Cómo evitar conversiones inseguras al leer diapositivas existentes?**
+
+Compruebe el tipo de forma antes de usar miembros específicos de marcos de imagen. Utilizar `isinstance(shape, slides.PictureFrame)` evita conversiones inválidas y permite que el código gestione diapositivas que no contengan marcos de imagen.

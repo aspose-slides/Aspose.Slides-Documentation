@@ -7,530 +7,476 @@ url: /nl/nodejs-java/picture-frame/
 keywords:
 - afbeeldingskader
 - afbeeldingskader toevoegen
-- afbeeldingskader aanmaken
-- afbeelding toevoegen
-- afbeelding aanmaken
+- afbeeldingskader maken
+- ingebedde afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
 - rasterafbeelding
-- vectorafbeelding
+- SVG-afbeelding
 - afbeelding bijsnijden
-- bijgesneden gebied
-- StretchOff eigenschap
+- bijgesneden gebieden verwijderen
+- afbeelding comprimeren
+- StretchOffset
 - opmaak van afbeeldingskader
-- eigenschappen van afbeeldingskader
 - relatieve schaal
 - afbeeldingseffect
 - beeldverhouding
-- afbeeldingstransparantie
 - PowerPoint
 - OpenDocument
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Voeg afbeeldingskaders toe aan PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Node.js via Java. Versnel uw workflow en verbeter het ontwerp van dia's."
+description: "Maak, formatteer, koppel, snijd bij, extraheer en comprimeer afbeeldingskaders in presentaties met Aspose.Slides voor Node.js via Java."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Een afbeeldingskader is een vorm die een afbeelding bevat — het is als een foto in een lijst. 
+Een afbeeldingskader is een dia‑vorm die een afbeelding toont. In Aspose.Slides zijn de afbeeldingsresource en de vorm die deze weergeeft aparte objecten: een [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) bezit ingebedde afbeeldingsresources via zijn [ImageCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagecollection/), terwijl een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, afbeeldingeffecten en andere kadering‑instellingen van de afbeelding regelt.
 
-U kunt een afbeelding aan een dia toevoegen via een afbeeldingskader. Op deze manier kunt u de afbeelding opmaken door het afbeeldingskader op te maken.
+Deze scheiding is nuttig wanneer dezelfde afbeelding meer dan één keer wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/), en gebruik die afbeeldingsresource bij het aanmaken van afbeeldingskaders.
 
-{{% alert  title="Tip" color="primary" %}} 
+Afbeeldingskaders kunnen rasterafbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gekoppelde afbeeldingen in plaats van de afbeeldingsbytes in de presentatie op te slaan. Deze keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is handig om vooraf te bepalen hoe de afbeelding moet worden opgeslagen voordat opmaak of optimalisatie wordt toegepast.
 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die gebruikers in staat stellen snel presentaties te maken vanuit afbeeldingen. 
+## **Een ingebedde afbeelding toevoegen en opmaken**
 
-{{% /alert %}} 
+Voor een ingebedde afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een afbeeldingskader aan met [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). De afbeelding wordt onderdeel van het presentatiepakket, zodat de presentatie zelf‑containend blijft wanneer deze naar een andere computer wordt verplaatst.
 
-## **Afbeeldingskader maken**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Maak een `PPImage`-object aan door een afbeelding toe te voegen aan de [ImagesCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ImageCollection) die bij het presentatiewerkobject hoort en die wordt gebruikt om de vorm te vullen.  
-4. Geef de breedte en hoogte van de afbeelding op.  
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFrame) aan op basis van de breedte en hoogte van de afbeelding via de `addPictureFrame`-methode die beschikbaar is op het vormobject dat gekoppeld is aan de betreffende dia.  
-6. Voeg een afbeeldingskader (met de afbeelding) toe aan de dia.  
-7. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
-
-Deze JavaScript‑code laat zien hoe u een afbeeldingskader maakt:
+Het volgende voorbeeld voegt een PNG‑afbeelding toe, maakt een kader op de oorspronkelijke afmetingen van de afbeelding en past lijnopmaak en rotatie toe:
 
 ```javascript
-// Instantiëert de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Haalt de eerste dia op
-    var sld = pres.getSlides().get_Item(0);
-    // Instantiëert de Image‑klasse
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Voegt een afbeeldingskader toe met de overeenkomstige hoogte en breedte van de afbeelding
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Schrijft het PPTX‑bestand naar schijf
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Afbeeldingskaders stellen u in staat snel presentatiedia's te maken op basis van afbeeldingen. Wanneer u een afbeeldingskader combineert met de opslagopties van Aspose.Slides, kunt u invoer‑/uitvoerbewerkingen manipuleren om afbeeldingen van het ene formaat naar het andere te converteren.
+Het afbeeldingskader regelt de weergegeven geometrie; het wijzigen van de kadergrootte verandert de oorspronkelijke pixelafmetingen die in de ingebedde afbeeldingsresource zijn opgeslagen. Dit onderscheid wordt belangrijk wanneer later een afbeelding wordt bijgesneden of gecomprimeerd.
 
-## **Afbeeldingskader maken met relatieve schaal**
+## **Relatieve schaal gebruiken**
 
-Door de relatieve schaal van een afbeelding te wijzigen, kunt u een complexer afbeeldingskader maken. 
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een afbeelding toe aan de afbeeldingsverzameling van de presentatie.  
-4. Maak een `PPImage`-object aan door een afbeelding toe te voegen aan de [ImagesCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ImageCollection) die bij het presentatiewerkobject hoort en die wordt gebruikt om de vorm te vullen.  
-5. Geef de relatieve breedte en hoogte van de afbeelding op in het afbeeldingskader.  
-6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
-
-De volgende JavaScript‑code toont hoe u een afbeeldingskader met relatieve schaal kunt maken:
+[PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) biedt relatieve breedte‑ en hoogte‑schaal voor het kader via [setRelativeScaleWidth](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) en [setRelativeScaleHeight](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Een waarde van `1.0` komt overeen met 100 % van de oorspronkelijke afmeting van de afbeelding. Relatieve schaal is nuttig wanneer een workflow de verhouding tot de bronafbeelding moet behouden in plaats van de uiteindelijke afmetingen handmatig te berekenen.
 
 ```javascript
-// Instantieer de Presentation‑klasse die de PPTX vertegenwoordigt
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op
-    var sld = pres.getSlides().get_Item(0);
-    // Instantieer de Image‑klasse
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Voeg een Picture Frame toe met dezelfde hoogte en breedte als de afbeelding
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Instellen van relatieve schaalbreedte en -hoogte
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // Schrijf het PPTX‑bestand naar schijf
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Rasterafbeeldingen extraheren uit afbeeldingskaders**
+Relatieve schaal wijzigt de schaalinstellingen van het kader; het resamplet of comprimeert de ingebedde afbeelding niet.
 
-U kunt rasterafbeeldingen extraheren uit [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFrame)‑objecten en deze opslaan in PNG, JPG en andere formaten. Het code‑voorbeeld hieronder laat zien hoe u een afbeelding uit het document "sample.pptx" haalt en opslaat in PNG‑formaat.
+## **Ingebedde en gekoppelde afbeeldingen**
+
+Een ingebedde afbeelding slaat afbeeldingsdata op binnen de presentatie en is daarom de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde afbeelding slaat een externe locatie op via de [Picture.setLinkPathLong](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-)‑methode in plaats van de afbeeldingsdata op dezelfde manier in te sluiten.
+
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeeldingsdata in de PPTX verminderen, maar ze introduceren een externe afhankelijkheid. Het gekoppelde bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of weergeeft. Als het pad verandert, het bestand wordt verplaatst of de bron niet beschikbaar is, wordt de gekoppelde afbeelding mogelijk niet weergegeven zoals verwacht. Voor presentaties die per e‑mail moeten worden verzonden, gearchiveerd of in geïsoleerde omgevingen moeten worden weergegeven, zijn ingebedde afbeeldingen doorgaans betrouwbaarder.
+
+### **Een gekoppelde afbeelding toevoegen**
+
+Het volgende voorbeeld maakt een afbeeldingskader aan en wijst het naar een lokaal afbeeldingsbestand. Het behandelt alleen het koppelen van afbeeldingen; het koppelen van video’s is een apart mediaproces en wordt bewust niet gemixt in dit voorbeeld.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Gebruik koppelingen wanneer extern bestandbeheer intentioneel is. Gebruik ze niet louter als vervanging voor compressie: een kleine PPTX met gebroken afbeeldingsafhankelijkheden is meestal minder bruikbaar dan een grotere zelf‑containende presentatie.
+
+## **Afbeeldingen uit afbeeldingskaders extraheren**
+
+Controleer voordat je een afbeelding uit een bestaande presentatie extraheert of een vorm daadwerkelijk een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) is en of deze een ingebedde afbeelding bevat. Gekoppelde afbeeldingskaders kunnen mogelijk geen afbeeldingsbytes bevatten die op dezelfde manier kunnen worden geëxtraheerd.
+
+### **Een raster‑afbeelding extraheren**
+
+De moderne afbeeldings‑API gebruikt direct [IImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/iimage/). Het volgende voorbeeld zoekt de eerste ingebedde raster‑afbeelding op een dia en slaat deze op als PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
+
+        const rasterImage = embeddedImage.getImage();
         try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
         } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Opslaan via [IImage.save](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/iimage/#save) zet de geëxtraheerde afbeelding om naar het gevraagde uitvoerformaat. Als je de gecodeerde bytes nodig hebt die in de presentatie zijn opgeslagen in plaats van een geconverteerd raster‑bestand, gebruik dan de binaire data van de afbeeldingsresource.
+
+### **Een SVG‑afbeelding extraheren**
+
+Voor een SVG‑afbeelding biedt de [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) een [SvgImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/svgimage/)‑object. Hiermee kun je de SVG‑data rechtstreeks ophalen in plaats van de afbeelding eerst te rasteren.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SVG‑inhoud als SVG behouden bewaard de vector‑bron binnen de presentatie. Raster‑exports zoals PNG of JPEG moeten die vectorinhoud renderen naar pixels. PDF‑ of SVG‑dia‑export is eveneens een render‑operatie, dus de geëxporteerde graphics moeten niet worden gezien als een bit‑voor‑bit‑kopie van de oorspronkelijke ingebedde SVG; gebruik de ingebedde [SvgImage.getSvgData](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/svgimage/#getSvgData--)‑data wanneer de originele vector‑resource zelf vereist is.
+
+## **Een afbeelding bijsnijden**
+
+Bijsnijden wijzigt welk deel van een afbeelding zichtbaar is binnen het kader. De bijsnijdwaarden op [PictureFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/) zijn percentages van de bronafbeeldingsafmetingen. Bijsnijden verwijdert de verborgen pixels niet direct uit de ingebedde afbeelding; het verandert alleen het zichtbare gebied.
+
+Het volgende voorbeeld zoekt veilig een afbeeldingskader en past bijsnijdwaarden toe:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Omdat de verborgen afbeeldingsdata nog steeds aanwezig is, kan de bijsnijding later worden aangepast zonder de originele pixels te verliezen. Als bestandsgrootte belangrijker is dan omkeerbaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
+
+## **Bijsneden afbeeldingsdata verwijderen**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) verwijdert afbeeldingsdata buiten het huidige bijsnijd‑rechthoek en geeft de resulterende afbeeldingsresource terug. Dit kan de bestandsgrootte verminderen, maar het is een destructieve optimalisatie: nadat de presentatie is opgeslagen, zijn de verwijderde pixels niet meer beschikbaar voor een latere „uncrop“‑operatie.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De methode kan een nieuwe afbeeldingsresource aan de presentatie toevoegen. Als de originele afbeelding ook door andere afbeeldingskaders wordt gebruikt, moeten die kaders hun bestaande resource behouden, dus het verwijderen van bijgesneden gebieden vermindert niet per‑se het totale aantal afbeeldingen. Het bijsnijden van WMF‑ of EMF‑content met deze methode rastert het bijgesneden resultaat naar PNG.
+
+## **Raster‑afbeeldingen comprimeren**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) verlaagt de resolutie van een raster‑afbeelding relatief ten opzichte van de weergavegrootte. Het kan ook bijgesneden gebieden in dezelfde bewerking verwijderen. De methode retourneert `true` wanneer de afbeelding is aangepast of bijgesneden en `false` wanneer geen wijziging nodig was.
+
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturescompression/)‑waarde wanneer een standaard doelresolutie voldoende is:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Een aangepaste positieve DPI‑waarde kan worden doorgegeven in plaats van een vooraf gedefinieerde waarde wanneer een specifiek doel vereist is.
+
+Compressie is bedoeld voor raster‑afbeeldingen. SVG‑ en metafile‑content wordt niet gereduceerd door deze raster‑compressieworkflow. Houd er ook rekening mee dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie op basis van de grootste weergave‑ of exportgrootte van de afbeelding in plaats van globaal de laagste DPI toe te passen.
+
+## **Afbeeldingseffecten inspecteren**
+
+Afbeeldingseffecten worden opgeslagen op de afbeelding die door het kader wordt gebruikt. De afbeeldings‑transformatiereeks kan effecten bevatten zoals vaste alfa‑modulatie voor transparantie en luminantie voor helderheid en contrast. Het onderstaande voorbeeld leest veilig beide soorten effecten van het eerste afbeeldingskader op een dia:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (let i = 0; i < imageTransform.size(); i++) {
+            const effect = imageTransform.get_Item(i);
+            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
+                const transparency = 100 - effect.getAmount();
+                console.log("Transparency: " + transparency);
+            }
+
+            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
+                const luminance = effect.getEffective();
+                console.log("Brightness: " + luminance.getBrightness());
+                console.log("Contrast: " + luminance.getContrast());
             }
         }
     }
-} catch (e) {console.log(e);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **SVG‑afbeeldingen extraheren uit afbeeldingskaders**
+Deze effecten wijzigen hoe de afbeelding in het kader wordt gerenderd; ze herschrijven niet de originele ingebedde afbeeldingsbytes.
 
-Wanneer een presentatie SVG‑grafieken bevat die geplaatst zijn binnen [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/)‑vormen, stelt Aspose.Slides voor Node.js via Java u in staat de originele vectorafbeeldingen met volledige getrouwheid op te halen. Door de vormcollectie van de dia te doorlopen, kunt u elk [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) identificeren, controleren of de onderliggende [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) SVG‑inhoud bevat, en vervolgens die afbeelding opslaan op schijf of in een stream in het oorspronkelijke SVG‑formaat.
+## **Geometrie van het afbeeldingskader vergrendelen**
 
-Het volgende code‑voorbeeld toont hoe u een SVG‑afbeelding uit een afbeeldingskader kunt extraheren:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Transparantie van afbeelding ophalen**
-
-Aspose.Slides stelt u in staat het transparantie‑effect dat op een afbeelding is toegepast op te halen. Deze JavaScript‑code toont de bewerking:
+De [PictureFrameLock](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframelock/)‑instellingen bepalen welke bewerkingsacties voor een afbeeldingskader worden uitgeschakeld. Bijvoorbeeld, [setAspectRatioLocked](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) houdt de verhoudingen van de vorm behouden bij het schalen.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-## **Helderheid en contrast van een afbeelding ophalen**
-
-Aspose.Slides stelt u in staat het helderheids‑ en contrast‑effect dat op een afbeelding is toegepast op te halen. De [Luminance](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/luminance/)‑klasse vertegenwoordigt dit afbeeldings‑transformatieteffect.
-
-Deze JavaScript‑code toont hoe u de helderheids‑ en contrastinstellingen van een afbeeldingskader kunt ophalen:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Opmaak van afbeeldingskader**
+De vergrendeling heeft betrekking op de vorm van het afbeeldingskader. Het dwingt de bronafbeelding niet om opnieuw te worden gesampled of permanent te worden aangepast naar dezelfde beeldverhouding.
 
-Aspose.Slides biedt vele opmaakopties die op een afbeeldingskader toegepast kunnen worden. Met deze opties kunt u een afbeeldingskader aanpassen zodat het aan specifieke vereisten voldoet.
+## **De StretchOffset‑waarden aanpassen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Maak een `PPImage`-object aan door een afbeelding toe te voegen aan de [ImagesCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ImageCollection) die bij het presentatiewerkobject hoort en die wordt gebruikt om de vorm te vullen.  
-4. Geef de breedte en hoogte van de afbeelding op.  
-5. Maak een `PictureFrame` aan op basis van de breedte en hoogte van de afbeelding via de [addPictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-)‑methode die beschikbaar is op het [Shapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ShapeCollection)‑object dat gekoppeld is aan de betreffende dia.  
-6. Voeg het afbeeldingskader (met de afbeelding) toe aan de dia.  
-7. Stel de lijnkleur van het afbeeldingskader in.  
-8. Stel de lijndikte van het afbeeldingskader in.  
-9. Roteer het afbeeldingskader door het een positieve of negatieve waarde te geven.  
-   * Een positieve waarde roteert de afbeelding met de klok mee.  
-   * Een negatieve waarde roteert de afbeelding tegen de klok in.  
-10. Voeg het afbeeldingskader (met de afbeelding) toe aan de dia.  
-11. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
+Wanneer de opvullingsmodus van de afbeelding “stretch” is, definiëren de stretch‑offset‑waarden op [PictureFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/) het opvulrechthoek ten opzichte van de begrenzende box van het afbeeldingskader. Positieve percentages creëren een inset vanaf een rand, terwijl negatieve percentages een outset creëren.
 
-Deze JavaScript‑code toont het opmaakproces van een afbeeldingskader:
+Dit verschilt van bijsnijden. Bijsnijdwaarden bepalen welk deel van de bronafbeelding zichtbaar is; stretch‑offsets veranderen het rechthoek waarin de zichtbare afbeelding‑vulling wordt uitgerekt.
 
 ```javascript
-// Instantiëert de Presentation‑klasse die de PPTX vertegenwoordigt
-var pres = new aspose.slides.Presentation();
-try {
-    // Haalt de eerste dia op
-    var sld = pres.getSlides().get_Item(0);
-    // Instantiëert de Image‑klasse
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Voegt een Picture Frame toe met dezelfde hoogte en breedte als de afbeelding
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Past enige opmaak toe op PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // Schrijft het PPTX‑bestand naar schijf
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose heeft recentelijk een [gratis Collage Maker](https://products.aspose.app/slides/nl/collage) ontwikkeld. Als u ooit [JPG/JPEG samenvoegen](https://products.aspose.app/slides/nl/collage/jpg) of PNG‑afbeeldingen, [roosters uit foto’s maken](https://products.aspose.app/slides/nl/collage/photo-grid) wilt, kunt u deze service gebruiken. 
-
-{{% /alert %}}
-
-## **Afbeelding als koppeling toevoegen**
-
-Om grote presentaties te voorkomen, kunt u afbeeldingen (of video’s) via koppelingen toevoegen in plaats van de bestanden direct in de presentatie in te sluiten. Deze JavaScript‑code toont hoe u een afbeelding en video in een placeholder kunt toevoegen:
-
-```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
-            continue;
-        }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
-        }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Afbeelding bijsnijden**
-
-Deze JavaScript‑code toont hoe u een bestaande afbeelding op een dia kunt bijsnijden:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// Creëert een nieuw afbeeldingobject
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Voegt een PictureFrame toe aan een dia
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Bijsnijdt de afbeelding (percentage waarden)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Slaat het resultaat op
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Bijsneden delen van afbeelding verwijderen**
-
-Als u de bijgesneden delen van een afbeelding in een kader wilt verwijderen, kunt u de [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--)‑methode gebruiken. Deze methode levert de bijgesneden afbeelding terug, of de oorspronkelijke afbeelding als bijsnijden niet nodig is.
-
-Deze JavaScript‑code toont de bewerking:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Haalt het PictureFrame op van de eerste dia
-    var picFrame = slide.getShapes().get_Item(0);
-    // Verwijdert bijgesneden gebieden van de PictureFrame-afbeelding en retourneert de bijgesneden afbeelding
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Slaat het resultaat op
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="OPMERKING" color="warning" %}} 
-
-De [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--)‑methode voegt de bijgesneden afbeelding toe aan de afbeeldingsverzameling van de presentatie. Als de afbeelding alleen wordt gebruikt in het verwerkte [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/), kan deze instelling de grootte van de presentatie verkleinen. Anders zal het aantal afbeeldingen in de resulterende presentatie toenemen.
-
-Deze methode converteert WMF/EMF‑metabestanden naar raster‑PNG‑afbeeldingen tijdens de bijsnijd‑bewerking. 
-
-{{% /alert %}}
-
-## **Afbeeldingen comprimeren**
-
-U kunt een afbeelding in een presentatie comprimeren met behulp van de [PictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-)‑methode. Deze methode comprimeert een afbeelding door de grootte te verkleinen op basis van de vormgrootte en opgegeven resolutie, met de optie om bijgesneden delen te verwijderen.
-
-Hij past de grootte en resolutie van de afbeelding aan, vergelijkbaar met de functie **Picture Format → Compress Pictures → Resolution** van PowerPoint.
-
-De volgende JavaScript‑voorbeelden demonstreren hoe u een afbeelding in een presentatie kunt comprimeren door een doelresolutie op te geven en eventueel bijgesneden delen te verwijderen:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Comprimeer de afbeelding met een doelresolutie van 150 DPI (webresolutie) en verwijder bijgesneden gebieden.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Controleer het resultaat van de compressie.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Of door een andere vooraf gedefinieerde DPI‑waarde te gebruiken:
+Gebruik stretch‑offsets voor plaatsing van de vulling. Gebruik bijsnijd‑eigenschappen wanneer het doel is om randen van de bronafbeelding te verbergen.
 
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
+## **Opslag, bestandsgrootte en exportoverwegingen**
 
-    // Comprimeer de afbeelding tot 96 DPI (e-mailresolutie) en verwijder bijgesneden gebieden.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
+De belangrijkste afwegingen zijn makkelijker te beheren wanneer opslag van afbeeldingen en de opmaak van afbeeldingskaders afzonderlijk worden behandeld:
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
+- **Ingebedde afbeeldingen** maken de presentatie zelf‑containend en zijn het meest betrouwbaar voor delen en server‑side weergave, maar grote raster‑afbeeldingen vergroten de PPTX‑grootte en het geheugenverbruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar moeten blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingebed totdat bijgesneden gebieden expliciet worden verwijderd of tijdens compressie.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote raster‑afbeeldingen, maar het gaat ten koste van de bronresolutie. Het moet worden toegepast nadat de beoogde weergavegrootte op de dia bekend is.
+- **SVG‑afbeeldingen** moeten SVG blijven wanneer vector‑behoud belangrijk is. Extraheer de ingebedde SVG rechtstreeks wanneer je de vector‑resource zelf nodig hebt. Raster‑dia‑exports zetten altijd de gerenderde dia om naar pixels.
+- **Herhaalde afbeeldingen** moeten, waar mogelijk, een bestaande [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/)‑resource hergebruiken in plaats van herhaaldelijk hetzelfde bestand in de presentatieworkflow te laden.
 
-{{% alert title="OPMERKING" color="warning" %}} 
-
-De methode converteert de afbeelding naar een lagere resolutie op basis van de vormgrootte en opgegeven DPI. Bijgesneden gebieden kunnen ook verwijderd worden om de bestandsgrootte te optimaliseren.  
-Als de afbeelding een metabestand (WMF/EMF) of SVG is, wordt compressie niet toegepast. Ook wordt de JPEG‑kwaliteit behouden of licht verminderd afhankelijk van de resolutie, vergelijkbaar met hoe PowerPoint omgaat met hoog‑resolutie JPEG‑bestanden. 
-
-{{% /alert %}}
-
-## **Beeldverhouding vergrendelen**
-
-Als u wilt dat een vorm die een afbeelding bevat zijn beeldverhouding behoudt, zelfs nadat u de afmetingen van de afbeelding wijzigt, kunt u de [setAspectRatioLocked](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-)‑methode gebruiken om de instelling *Lock Aspect Ratio* in te schakelen.
-
-Deze JavaScript‑code laat zien hoe u de beeldverhouding van een vorm vergrendelt:
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // stel de vorm in om de beeldverhouding te behouden bij het wijzigen van de grootte
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-{{% alert title="OPMERKING" color="warning" %}} 
-
-Deze *Lock Aspect Ratio*‑instelling behoudt alleen de beeldverhouding van de vorm en niet van de afbeelding die erin zit. 
-
-{{% /alert %}}
-
-## **StretchOff‑eigenschap gebruiken**
-
-Met de [setStretchOffsetLeft](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) en [setStretchOffsetBottom](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-)‑methoden van de [PictureFillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PictureFillFormat)‑klasse kunt u een vulrechthoek specificeren.
-
-Wanneer stretching voor een afbeelding wordt opgegeven, wordt een bronrechthoek geschaald zodat deze past in de opgegeven vulrechthoek. Elke kant van de vulrechthoek wordt gedefinieerd door een procentuele offset ten opzichte van de overeenkomstige kant van de begrenzende doos van de vorm. Een positieve procentuele waarde geeft een insnijding aan, een negatieve waarde een uitsteeking.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een rechthoek `AutoShape` toe.  
-4. Maak een afbeelding aan.  
-5. Stel het opvultype van de vorm in.  
-6. Stel de picture‑fill‑modus van de vorm in.  
-7. Voeg een afbeelding toe om de vorm te vullen.  
-8. Geef de afbeeldingsoffsets op ten opzichte van de overeenkomstige rand van de omhullende van de vorm.  
-9. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
-
-Deze JavaScript‑code toont een proces waarbij de StretchOff‑eigenschap wordt gebruikt:
-
-```javascript
-// Instantiëert de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
-var pres = new aspose.slides.Presentation();
-try {
-    // Haalt de eerste dia op
-    var slide = pres.getSlides().get_Item(0);
-    // Instantiëert de ImageEx‑klasse
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Voegt een AutoShape toe met type Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Stelt het vultype van de vorm in
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Stelt de picture‑fill‑modus van de vorm in
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Stelt de afbeelding in als vulling van de vorm
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Specificeert de afbeeldingsoffsets ten opzichte van de overeenkomstige rand van de begrenzende doos van de vorm
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // Schrijft het PPTX‑bestand naar schijf
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+Voor grote presentaties is beeldoptimalisatie meestal het meest effectief wanneer selectief wordt uitgevoerd: bewaar logo’s en diagrammen als vectorinhoud, comprimeer foto’s volgens hun werkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer latere bewerking niet vereist is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
 ## **FAQ**
 
-**Hoe kan ik achterhalen welke afbeeldingformaten ondersteund worden voor PictureFrame?**
+**Wat is het verschil tussen een afbeeldingskader en een afbeeldingsresource?**
 
-Aspose.Slides ondersteunt zowel rasterafbeeldingen (PNG, JPEG, BMP, GIF, enz.) als vectorafbeeldingen (bijvoorbeeld SVG) via het afbeeldingobject dat aan een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) is toegewezen. De lijst met ondersteunde formaten overlapt doorgaans met de mogelijkheden van de dia- en afbeeldingsconversie‑engine.
+Een [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) vertegenwoordigt een afbeeldingsresource die aan de presentatie is gekoppeld. Een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) is een vorm op een dia die een afbeelding weergeeft en kadering‑niveau geometrie en opmaak opslaat, zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-**Hoe beïnvloedt het toevoegen van tientallen grote afbeeldingen de grootte en prestaties van een PPTX?**
+**Moet ik afbeeldingen insluiten of koppelen?**
 
-Het insluiten van grote afbeeldingen vergroot de bestandsgrootte en het geheugenverbruik; het koppelen van afbeeldingen houdt de presentatiegrootte laag, maar vereist dat de externe bestanden toegankelijk blijven. Aspose.Slides biedt de mogelijkheid om afbeeldingen via koppeling toe te voegen om de bestandsgrootte te reduceren.
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of weergegeven moet kunnen worden zonder toegang tot externe bronnen. Koppel afbeeldingen alleen wanneer het opzettelijk is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar kunnen worden beheerd.
 
-**Hoe kan ik een afbeelding‑object vergrendelen tegen per ongeluk verplaatsen/verkleinen?**
+**Vermindert bijsnijden de PPTX‑bestandsgrootte?**
 
-Gebruik [shape locks](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) voor een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) (bijvoorbeeld om verplaatsen of verkleinen uit te schakelen). Het vergrendelingsmechanisme wordt ondersteund voor diverse vormtypen, waaronder [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/).
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) of afbeeldingscompressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden weggegooid.
 
-**Wordt de vectorgetrouwheid van SVG behouden bij het exporteren van een presentatie naar PDF/afbeeldingen?**
+**Kan ik de beeldkwaliteit herstellen na compressie?**
 
-Aspose.Slides maakt het mogelijk een SVG uit een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) te extraheren als de originele vector. Bij het [exporteren naar PDF](/slides/nl/nodejs-java/convert-powerpoint-to-pdf/) of naar [rasterformaten](/slides/nl/nodejs-java/convert-powerpoint-to-png/) kan het resultaat rasteren, afhankelijk van de exportinstellingen; het feit dat de originele SVG als vector wordt bewaard, wordt bevestigd door het extractie‑gedrag.
+Nee. Compressie kan de opgeslagen rasterresolutie verlagen, en het verwijderen van bijgesneden gebieden wist afbeeldingsdata. Bewaar de originele bron‑afbeelding buiten de presentatie als later bewerken met hoge resolutie vereist kan zijn.
+
+**Hoe moeten SVG‑afbeeldingen worden behandeld?**
+
+Behoud SVG‑content als SVG wanneer vector‑fidelity belangrijk is. De ingebedde [SvgImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/svgimage/) kan direct worden geëxtraheerd. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
+
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+
+Controleer het vormtype voordat je leden gebruikt die specifiek zijn voor afbeeldingskaders. Een `java.instanceOf`‑controle tegen [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) voorkomt ongeldige casts en maakt het mogelijk om code te schrijven die dia’s zonder afbeeldingskaders correct afhandelt.
