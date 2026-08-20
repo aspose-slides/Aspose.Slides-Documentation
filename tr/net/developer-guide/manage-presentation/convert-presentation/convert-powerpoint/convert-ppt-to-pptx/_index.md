@@ -1,103 +1,118 @@
 ---
-title: ".NET'te PPT'yi PPTX'e Dönüştür"
-linktitle: "PPT'den PPTX'e"
+title: PPT'yi .NET'te PPTX'e Dönüştür
+linktitle: PPT'den PPTX'e
 type: docs
 weight: 20
 url: /tr/net/convert-ppt-to-pptx/
 keywords:
-- "PowerPoint dönüştür"
-- "sunumu dönüştür"
-- "slaytı dönüştür"
-- "PPT dönüştür"
-- "PPT'den PPTX'e"
-- "PPT'yi PPTX olarak kaydet"
-- "PPT'yi PPTX'e dışa aktar"
-- "PowerPoint"
-- "sunum"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides ile .NET'te eski PPT sunumlarını modern PPTX'e hızlıca dönüştürün — net rehber, ücretsiz C# kod örnekleri, Microsoft Office bağımlılığı yok."
+- PowerPoint dönüştür
+- sunumu dönüştür
+- slaytı dönüştür
+- PPT dönüştür
+- PPT'den PPTX'e
+- PPT'yi PPTX olarak kaydet
+- PPT'yi PPTX'e aktar
+- PowerPoint
+- sunum
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides ile .NET'te eski PPT dosyalarını PPTX'e dönüştürün. Tek dosya ve toplu dönüşüm, hata yönetimi ve doğruluk notaları için C# örneklerini içerir."
 ---
 ## **Genel Bakış**
 
-Bu makale, PowerPoint Sunumunu PPT formatından PPTX formatına C# kullanarak ve çevrimiçi PPT'den PPTX'e dönüştürme uygulamasıyla nasıl dönüştüreceğinizi açıklar. Aşağıdaki konu ele alınmaktadır.
+PPT, eski ikili PowerPoint formatıdır, PPTX ise daha yeni Open XML formatıdır. Aspose.Slides for .NET, bir PPT dosyasını Microsoft PowerPoint olmadan yükleyebilir ve PPTX olarak kaydedebilir. Bu makale, tek bir dosyayı veya bir dosya dizinini nasıl dönüştüreceğinizi gösterir ve dönüşüm sonrasında neyin doğrulanması gerektiğini açıklar.
 
-- [C# ile PPT'yi PPTX'e Dönüştür](#convert-ppt-to-pptx)
+## **Bir PPT Dosyasını PPTX'e Dönüştürme**
 
-## **C# ile PPT'yi .NET'te PPTX'e Dönüştür**
+Kaynak dosyayı [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı ile yükleyin, ardından [IPresentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/save/) metodunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) ile çağırın. `using` bildirimi, kapsam sona erdiğinde sunumu temizler ve kaynaklarını serbest bırakır.
 
-PPT'yi PPTX'e dönüştürmek için C# örnek kodu için lütfen aşağıdaki bölüme, yani [C# ile PPT'yi PPTX'e Dönüştür](#convert-ppt-to-pptx) bakın. Bu sadece PPT dosyasını yükler ve PPTX formatında kaydeder. Farklı kaydetme formatları belirterek PPT dosyasını PDF, XPS, ODP, HTML gibi birçok başka formata da kaydedebilirsiniz; bu makalelerde tartışıldığı gibi.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- [C# ile PPT'yi .NET'te PDF'e Dönüştür](/slides/tr/net/convert-powerpoint-to-pdf/)
-- [C# ile PPT'yi .NET'te XPS'e Dönüştür](/slides/tr/net/convert-powerpoint-to-xps/)
-- [C# ile PPT'yi .NET'te HTML'e Dönüştür](/slides/tr/net/convert-powerpoint-to-html/)
-- [C# ile PPT'yi .NET'te ODP'ye Dönüştür](/slides/tr/net/save-presentation/)
-- [C# ile PPT'yi .NET'te PNG'ye Dönüştür](/slides/tr/net/convert-powerpoint-to-png/)
+// Eski PPT sunumunu yükle.
+using var presentation = new Presentation("presentation.ppt");
 
-## **PPT'den PPTX'e Dönüştürme Hakkında**
-
-Eski PPT formatını Aspose.Slides API ile PPTX'e dönüştürün. Binlerce PPT sunumunu PPTX formatına dönüştürmeniz gerekiyorsa, en iyi çözüm bunu programlı olarak yapmaktır. Aspose.Slides API ile sadece birkaç satır kodla bunu yapmak mümkündür. API, PPT sunumunu PPTX'e dönüştürmek için tam uyumluluk sağlar ve şunları yapabilir:
-
-- Karmaşık master, düzen ve slayt yapıları dönüştürmek.
-- Grafik içeren sunumları dönüştürmek.
-- Grup şekilleri, otomatik şekiller (örneğin dikdörtgen ve elips), özel geometrili şekiller içeren sunumları dönüştürmek.
-- Otomatik şekiller için doku ve resim dolgu stillerine sahip sunumları dönüştürmek.
-- Yer tutucular, metin çerçeveleri ve metin tutucularına sahip sunumları dönüştürmek.
-
-{{% alert color="primary" %}} 
-
-Şuna bir göz atın [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) uygulamasına:
-
-[](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx)
-
-Bu uygulama **Aspose.Slides API** temel alınarak oluşturulmuştur, bu nedenle temel PPT'den PPTX'e dönüştürme yeteneklerine canlı bir örnek görebilirsiniz. Aspose.Slides Conversion, PPT formatındaki sunum dosyasını sürükleyip bırakmanıza ve PPTX'e dönüştürülmüş olarak indirmenize olanak tanıyan bir web uygulamasıdır.
-
-Diğer canlı [**Aspose.Slides Conversion**](https://products.aspose.app/slides/tr/conversion/) örneklerini bulun.
-{{% /alert %}} 
-
-## **PPT'yi PPTX'e Dönüştür**
-
-Bir PPT'yi PPTX'e dönüştürmek için dosya adını ve kaydetme biçimini [**Save**](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/methods/save/index) metoduna, [**Presentation**](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfına aktarmanız yeterlidir. Aşağıdaki C# kod örneği, bir sunumu PPT'den PPTX'e varsayılan seçeneklerle dönüştürür.
-
-```c#
-// PPTX dosyasını temsil eden bir Presentation nesnesi oluştur
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// PPTX sunumunu PPTX formatında kaydediyor
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Sunumu PPTX formatında kaydet.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Sunum formatları hakkında daha fazla bilgi edinmek için [**PPT vs PPTX**](/slides/tr/net/ppt-vs-pptx/) ve [**Aspose.Slides'in PPT'den PPTX'e dönüşümünü nasıl desteklediği**](/slides/tr/net/convert-ppt-to-pptx/) sayfalarına bakın.
+Dosya uzantısı tek başına çıktı formatını seçmez; bu işlevi [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) argümanı yapar. Orijinal PPT dosyasını korumanız gerekiyorsa, giriş ve çıkış yollarını farklı tutun.
+
+## **Birden Çok PPT Dosyasını Dönüştürme**
+
+Aşağıdaki örnek, bir dizindeki her `.ppt` dosyasını dönüştürür. Her dosya bağımsız olarak işlenir, bu nedenle bir dönüştürme hatası diğer batch işlemlerini durdurmaz.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
+
+Üretim işleri için, tam istisna kaydını tutun, mevcut bir çıktı dosyasının üzerine yazılıp yazılamayacağını belirleyin ve başarısız dosya adlarını yeniden deneme veya inceleme kuyruğuna yazın. Bozuk dosyalar, gereken şifre olmadan açılan şifre korumalı dosyalar, erişilemeyen yollar ve desteklenmeyen içerik, dönüşümün başarısız olmasına yol açabilir. Şifreli dosyaları yüklemek için [Şifre Koruması Olan Sunumlar](/slides/tr/net/password-protected-presentation/) bölümüne bakın.
+
+## **Doğruluk ve Eski Özellikler**
+
+Dönüştürme genellikle slaytları, ana slaytları, düzenleri, metni, şekilleri, resimleri, tabloları ve grafikleri korur. Ancak, PPT ve PPTX her özelliği tam olarak aynı şekilde temsil etmez. Kütüphane tarafından desteklenmeyen veya PPTX karşılığı olmayan bir eski özellik, normalleştirilebilir, çıkarılabilir veya farklı şekilde görüntülenebilir.
+
+Dönüştürülen dosyayı, animasyonlar, geçişler, gömülü veya bağlanmış OLE nesneleri, ActiveX denetimleri, gömülü medya, nadir kullanılan yazı tipleri veya VBA makroları içerdiğinde kontrol edin. Düz bir PPTX dosyası makro etkin bir format değildir; bu nedenle VBA’nın kullanılabilir olması gerektiğinde uygun bir makro‑etkin iş akışı kullanın. Ayrıca, dönüştürülmüş sunumun açılacağı veya işleneceği ortamda gerekli yazı tipleri ve dış kaynakların mevcut olduğunu doğrulayın.
+
+Önemli belgeler için, oluşturulan PPTX’i programlı olarak yeniden açın ve temel slayt sayısını ve içeriğini inceleyin, ardından görünümünü ve slayt gösterisi davranışını hedef görüntüleyicide karşılaştırın. Başarılı bir [IPresentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/save/) çağrısını, her eski özelliğin tam bir PPTX temsiline sahip olduğunu kanıt olarak görmeyin.
+
+## **Ne Zaman PPTX Kullanmalı**
+
+Sunum mevcut PowerPoint sürümlerinde düzenlenecekse, Open XML paketleri ile çalışan sistemlerle değiş tokuş yapılacaksa veya eski ikili PPT’ye göre incelemesi ve kurtarılması daha kolay bir formatta saklanacaksa PPTX kullanın. Dönüştürülmüş sunum doğruluk kontrollerinizi geçene kadar orijinal PPT’yi arşiv veya geri dönüş kopyası olarak saklayın.
+
+PDF, HTML, görüntüler, XPS veya başka bir çıktı türüne ihtiyacınız varsa, tüm hedeflerin düzenlenebilir PowerPoint özelliklerini koruyacağını varsaymak yerine [Sunumları Çoklu Formata Dönüştürme](/slides/tr/net/convert-presentation/) bölümündeki format‑spesifik rehberi kullanın.
+
+## **Çevrimiçi Dönüştürücü**
+
+Aralıklı bir dosya veya hızlı bir karşılaştırma için [çevrimiçi PPT to PPTX dönüştürücüyü](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) kullanabilirsiniz. Tekrarlayan dönüşümler, toplu işleme veya uygulama düzeyinde hata yönetimi için .NET API’yı kullanın.
+
+## **İlgili Makaleler**
+
+- [PPT vs PPTX](/slides/tr/net/ppt-vs-pptx/)
+- [.NET’te Sunumları Kaydet](/slides/tr/net/save-presentation/)
+- [Desteklenen Dosya Formatları](/slides/tr/net/supported-file-formats/)
+- [.NET’te Sunumları Aç](/slides/tr/net/open-presentation/)
 
 ## **SSS**
 
-**PPT ve PPTX formatları arasındaki fark nedir?**
+**Microsoft PowerPoint yüklü olmadan PPT'yi PPTX'e dönüştürebilir miyim?**
 
-PPT, Microsoft PowerPoint tarafından kullanılan eski ikili dosya formatıdır, PPTX ise Microsoft Office 2007 ile tanıtılan yeni XML tabanlı formattır. PPTX dosyaları daha iyi performans, daha düşük dosya boyutu ve geliştirilmiş veri kurtarma sunar.
+Evet. Aspose.Slides for .NET, Microsoft PowerPoint gerektirmeden sunum dosyalarını yükler ve kaydeder.
 
-**.NET kullanarak PPT'yi PPTX'e dönüştürebilir miyim?**
+**PPT'den PPTX'e dönüşüm tüm içeriği tam olarak korur mu?**
 
-Evet, Aspose.Slides for .NET kütüphanesini kullanarak bir PPT dosyasını birkaç satır kodla PPTX formatında kaydedebilirsiniz.
+Ortak sunum içeriğini korur, ancak her eski veya desteklenmeyen özellik için tam doğruluk garanti edilmez. Oluşturulan dosyayı, makrolar, OLE veya ActiveX nesneleri, medya, özel animasyonlar veya nadir kullanılan yazı tipleri içerdiğinde gözden geçirin.
 
-**Aspose.Slides birden fazla PPT dosyasını toplu olarak PPTX'e dönüştürmeyi destekliyor mu?**
+**Şifre korumalı bir PPT dosyasını dönüştürebilir miyim?**
 
-Evet, Aspose.Slides'i bir döngü içinde kullanarak birden çok PPT dosyasını programlı olarak PPTX'e dönüştürebilir, bu da toplu dönüşüm senaryoları için uygundur.
+Evet, dosyayı yüklerken doğru şifreyi sağlarsanız. Eksik ya da yanlış şifre, yükleme işleminin başarısız olmasına neden olur.
 
-**Dönüştürme sonrasında içerik ve biçimlendirme korunur mu?**
+**Dönüşümden sonra PPT dosyasını silmeli miyim?**
 
-Aspose.Slides, sunumları dönüştürürken yüksek doğruluk sağlar. Slayt düzenleri, animasyonlar, şekiller, grafikler ve diğer tasarım öğeleri PPT'den PPTX'e dönüşüm sırasında korunur.
-
-**PPT dosyalarından PDF veya HTML gibi başka formatlara dönüştürebilir miyim?**
-
-Evet, Aspose.Slides, PPT dosyalarını PDF, XPS, HTML, ODP ve PNG, JPEG gibi görüntü formatları dahil olmak üzere birden çok formata dönüştürmeyi destekler.
-
-**Microsoft PowerPoint yüklü olmadan PPT'yi PPTX'e dönüştürmek mümkün mü?**
-
-Evet, Aspose.Slides for .NET bağımsız bir API'dir ve dönüşüm için Microsoft PowerPoint veya herhangi bir üçüncü taraf yazılım gerektirmez.
-
-**PPT'den PPTX'e dönüşüm için çevrimiçi bir araç var mı?**
-
-Evet, kod yazmadan doğrudan tarayıcınızda dönüşümü gerçekleştirebileceğiniz ücretsiz [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) web uygulamasını kullanabilirsiniz.
+Orijinali, PPTX'i sizin için önemli olan görüntüleyiciler ve iş akışlarında doğrulayana kadar tutun. Bu, bir eski özelliğin farklı dönüştürülmesi durumunda geri dönüş kopyası sağlar.

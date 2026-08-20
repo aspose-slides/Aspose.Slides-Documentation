@@ -17,87 +17,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertálja a régi PPT előadásokat modern PPTX-re gyorsan .NET-ben az Aspose.Slides segítségével — átfogó útmutató, ingyenes C# kódminták, Microsoft Office függőség nélkül."
+description: "Konvertálja a régi PPT fájlokat PPTX-re .NET-ben az Aspose.Slides segítségével. Tartalmaz C# példákat egyetlen fájl és kötegelt konverzióra, hibakezelésre és pontossági megjegyzésekre."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a PowerPoint előadásokat PPT formátumból PPTX formátumba konvertálni C#‑al és online PPT‑t‑PPTX konvertáló alkalmazással. Az alábbi téma kerül tárgyalásra.
+A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for .NET képes betölteni egy PPT fájlt és PPTX‑ként menteni anélkül, hogy a Microsoft PowerPointra lenne szükség. Ez a cikk bemutatja, hogyan konvertálhat egy fájlt vagy egy könyvtárban lévő fájlok halmazát, és elmagyarázza, mit kell ellenőrizni a konvertálás után.
 
-- [PPT konvertálása PPTX‑re C#‑ban](#convert-ppt-to-pptx)
+## **PPT fájl konvertálása PPTX‑re**
 
-## **PPT konvertálása PPTX‑re .NET‑ben**
+Töltsük be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztállyal, majd hívjuk meg a [IPresentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/save/) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) argumentummal. A `using` deklaráció felszabadítja a prezentációt és elengedi annak erőforrásait, amikor a hatókör véget ér.
 
-A C# példakód a PPT PPTX‑re konvertálásához megtalálható az alábbi szakaszban, azaz [PPT konvertálása PPTX‑re](#convert-ppt-to-pptx). Egyszerűen betölti a PPT fájlt és PPTX formátumban menti. Különböző mentési formátumok megadásával a PPT fájlt számos egyéb formátumba is mentheted, például PDF, XPS, ODP, HTML stb., amint ezekben a cikkekben tárgyaltuk.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- [PPT konvertálása PDF‑re .NET‑ben](/slides/hu/net/convert-powerpoint-to-pdf/)
-- [PPT konvertálása XPS‑re .NET‑ben](/slides/hu/net/convert-powerpoint-to-xps/)
-- [PPT konvertálása HTML‑re .NET‑ben](/slides/hu/net/convert-powerpoint-to-html/)
-- [PPT konvertálása ODP‑re .NET‑ben](/slides/hu/net/save-presentation/)
-- [PPT konvertálása PNG‑re .NET‑ben](/slides/hu/net/convert-powerpoint-to-png/)
+// Töltsd be az örökölt PPT prezentációt.
+using var presentation = new Presentation("presentation.ppt");
 
-## **A PPT‑t‑PPTX konvertálásról**
-
-Konvertáld a régi PPT formátumot PPTX‑re az Aspose.Slides API‑val. Ha több ezer PPT előadást kell PPTX formátumba konvertálni, a legjobb megoldás programozottan végrehajtani. Az Aspose.Slides API‑val ez néhány kódsorral megoldható. Az API teljes kompatibilitást biztosít a PPT előadás PPTX‑re konvertálásához, és lehetővé teszi a következőket:
-
-- Összetett mester, elrendezés és dia struktúrák konvertálása.
-- Diagramokkal rendelkező előadás konvertálása.
-- Csoportos alakzatokkal, auto‑alakzatokkal (például négyzetek és ellipszisek), egyedi geometriájú alakzatokkal rendelkező előadás konvertálása.
-- Textúrákkal és képpel kitöltött auto‑alakzatokkal rendelkező előadás konvertálása.
-- Helyettesítőkkel, szövegkeretekkel és szöveghelyekkel rendelkező előadás konvertálása.
-
-{{% alert color="primary" %}} 
-
-Nézd meg a [**Aspose.Slides PPT‑t‑PPTX konverzió**](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) alkalmazást:
-
-[](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
-
-Ez az alkalmazás az **Aspose.Slides API**‑ra épül, így élő példát láthatsz az alap PPT‑t‑PPTX konvertálási képességekre. Az Aspose.Slides Conversion egy webalkalmazás, amely lehetővé teszi PPT formátumú előadás fájl betöltését és PPTX‑re konvertált változat letöltését.
-
-Találd meg a további élő [**Aspose.Slides Conversion**](https://products.aspose.app/slides/hu/conversion/) példákat.
-{{% /alert %}} 
-
-## **PPT konvertálása PPTX‑re**
-
-A PPT PPTX‑re konvertálásához egyszerűen add át a fájlnevet és a mentési formátumot a [**Save**](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/methods/save/index) metódusnak a [**Presentation**](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályon belül. Az alábbi C# kópminta a Presentation‑t PPT‑ről PPTX‑re konvertálja az alapértelmezett beállításokkal.
-
-```c#
-// Példányosítsa a Presentation objektumot, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// A PPTX előadás mentése PPTX formátumba
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Mentsd el a prezentációt PPTX formátumban.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Olvasd el a [**PPT vs PPTX**](/slides/hu/net/ppt-vs-pptx/) előadási formátumokkal kapcsolatos cikket, valamint azt, hogy a [**Az Aspose.Slides támogatja a PPT‑t‑PPTX konverziót**](/slides/hu/net/convert-ppt-to-pptx/).
+A fájlkiterjesztés önmagában nem választja ki a kimeneti formátumot; ezt a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) argumentum határozza meg. Tartsa külön a bemeneti és kimeneti útvonalakat, ha az eredeti PPT fájlt meg szeretné őrizni.
+
+## **Több PPT fájl konvertálása**
+
+Az alábbi példa minden egyes `.ppt` fájlt konvertál egy könyvtárban. Minden fájlt önállóan dolgoz fel, így egy sikertelen konverzió sem állítja le a többi batch‑et.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
+
+Éles környezetben naplózzuk a teljes kivételt, döntsük el, felülírható-e egy már létező kimeneti fájl, és írjuk a sikertelen fájlneveket egy újrapróbálási vagy felülvizsgálati sorba. Sérült fájlok, jelszóval védett fájlok a szükséges jelszó nélkül megnyitva, elérhetetlen útvonalak és nem támogatott tartalom mind egy konverziósikert okozhatnak. Lásd a [Password-Protected Presentations](/slides/hu/net/password-protected-presentation/) oldalt a titkosított fájlok betöltéséhez.
+
+## **Pontosság és örökölt funkciók**
+
+A konverzió általában megőrzi a diakat, mester-diákat, elrendezéseket, szöveget, alakzatokat, képeket, táblázatokat és diagramokat. Azonban a PPT és a PPTX nem minden funkciót ábrázol pontosan ugyanúgy. Egy örökölt funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálható, elhagyható vagy másként jeleníthető meg.
+
+Ellenőrizze a konvertált fájlt, ha animációkat, átmeneteket, beágyazott vagy hivatkozott OLE objektumokat, ActiveX vezérlőket, beágyazott médiát, ritka betűtípusokat vagy VBA makrókat tartalmaz. Egy egyszerű PPTX fájl nem makró‑engedélyezett formátum, ezért használjon megfelelő makró‑engedélyezett munkafolyamatot, ha a VBA-nak elérhetőnek kell maradnia. Továbbá ellenőrizze, hogy a szükséges betűtípusok és külső erőforrások jelen vannak‑e abban a környezetben, ahol a konvertált prezentációt megnyitják vagy renderelik.
+
+Fontos dokumentumok esetén nyissa meg programozottan a létrehozott PPTX-et, ellenőrizze a kulcsfontosságú diák számát és tartalmát, majd hasonlítsa össze annak megjelenését és diavetítés viselkedését a célzott megjelenítőben. Ne tekintse a sikeres [IPresentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/save/) hívást bizonyítéknak arra, hogy minden örökölt funkció pontos PPTX megfelelővel rendelkezik.
+
+## **Mikor használjunk PPTX‑et**
+
+Használjon PPTX‑et, ha a prezentációt a jelenlegi PowerPoint verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerek között cserélik, vagy olyan formátumban tárolják, amely könnyebben ellenőrizhető és helyreállítható, mint a régi bináris PPT. Tartsa meg az eredeti PPT‑t archiválási vagy visszagörgetési másolatként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseken.
+
+Ha PDF‑re, HTML‑re, képekre, XPS‑re vagy más kimeneti típusra van szükség, akkor használja a [Convert Presentations to Multiple Formats](/slides/hu/net/convert-presentation/) formátumspecifikus útmutatót, ahelyett, hogy azt feltételezné, hogy minden cél megőrzi a szerkeszthető PowerPoint funkciókat.
+
+## **Online konvertáló**
+
+Egy alkalmi fájl vagy gyors összehasonlítás esetén használhatja az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) szolgáltatást. Ismétlődő konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hiba kezeléshez használja a .NET API‑t.
+
+## **Kapcsolódó cikkek**
+
+- [PPT vs PPTX](/slides/hu/net/ppt-vs-pptx/)
+- [Prezentációk mentése .NET‑ben](/slides/hu/net/save-presentation/)
+- [Támogatott fájlformátumok](/slides/hu/net/supported-file-formats/)
+- [Prezentációk megnyitása .NET‑ben](/slides/hu/net/open-presentation/)
 
 ## **GYIK**
 
-**Mi a különbség a PPT és PPTX formátumok között?**
+**Átkonvertálhatom a PPT‑t PPTX‑re anélkül, hogy a Microsoft PowerPoint telepítve lenne?**
 
-PPT a Microsoft PowerPoint által használt régebbi bináris fájlformátum, míg a PPTX az újabb, XML‑alapú formátum, amelyet a Microsoft Office 2007‑tel vezettek be. A PPTX fájlok jobb teljesítményt, kisebb méretet és jobb adat‑helyreállítást biztosítanak.
+Igen. Az Aspose.Slides for .NET betölti és menti a prezentációs fájlokat anélkül, hogy a Microsoft PowerPointra szükség lenne.
 
-**Konvertálhatok PPT‑t PPTX‑re .NET‑ben?**
+**A PPT‑ről PPTX‑re történő konverzió pontosan megőrzi az összes tartalmat?**
 
-Igen, az Aspose.Slides for .NET könyvtárral könnyedén betölthetsz egy PPT fájlt és néhány sor kóddal PPTX formátumban mentheted.
+Megőrzi a szokásos prezentációs tartalmakat, de az pontos pontosság nem garantált minden örökölt vagy nem támogatott funkcióra vonatkozóan. Tekintse át a létrehozott fájlt, ha makrókat, OLE‑ vagy ActiveX‑objektumokat, médiát, speciális animációkat vagy ritka betűtípusokat tartalmaz.
 
-**Támogatja az Aspose.Slides a több PPT fájl PPTX‑re történő kötegelt konvertálását?**
+**Átkonvertálhatok jelszóval védett PPT fájlt?**
 
-Igen, az Aspose.Slides egy ciklusban több PPT fájlt is programozottan konvertálhat PPTX‑re, így alkalmas kötegelt konverzióra.
+Igen, ha a betöltéskor megadja a megfelelő jelszót. Hiányzó vagy helytelen jelszó esetén a betöltés meghiúsul.
 
-**Megmarad a tartalom és a formázás a konverzió után?**
+**Töröljem a PPT fájlt a konverzió után?**
 
-Az Aspose.Slides nagy pontosságot biztosít a prezentációk konvertálásában. A diaelrendezések, animációk, alakzatok, diagramok és egyéb tervezési elemek megmaradnak a PPT‑t‑PPTX konverzió során.
-
-**Konvertálhatok más formátumokba, például PDF‑be vagy HTML‑be PPT fájlokból?**
-
-Igen, az Aspose.Slides több formátumba tudja konvertálni a PPT fájlokat, többek között PDF, XPS, HTML, ODP és képfájlok, mint a PNG és JPEG.
-
-**Lehetséges a PPT‑t PPTX‑re konvertálni a Microsoft PowerPoint telepítése nélkül?**
-
-Igen, az Aspose.Slides for .NET egy önálló API, és nem igényel Microsoft PowerPoint‑ot vagy más külső szoftvert a konverzió elvégzéséhez.
-
-**Van online eszköz a PPT‑t PPTX‑re konvertáláshoz?**
-
-Igen, a ingyenes [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) webalkalmazással a konverzió elvégezhető közvetlenül a böngészőben, kód írása nélkül.
+Tartsa meg az eredetit, amíg le nem ellenőrizte a PPTX‑et a Önnek fontos nézőkben és munkafolyamatokban. Ez visszagörgetési másolatot biztosít, ha egy örökölt funkció másként konvertálódik.

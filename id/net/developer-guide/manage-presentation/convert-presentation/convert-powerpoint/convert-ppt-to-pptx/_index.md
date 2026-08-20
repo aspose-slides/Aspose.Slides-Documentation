@@ -17,85 +17,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konversi presentasi PPT lama ke PPTX modern dengan cepat di .NET menggunakan Aspose.Slides — tutorial jelas, contoh kode C# gratis, tanpa ketergantungan Microsoft Office."
+description: "Konversi file PPT warisan ke PPTX di .NET dengan Aspose.Slides. Menyertakan contoh C# untuk konversi satu file dan batch, penanganan kesalahan, serta catatan kesetiaan."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengonversi Presentasi PowerPoint dalam format PPT menjadi format PPTX menggunakan C# dan aplikasi konversi PPT ke PPTX daring. Topik berikut dibahas.
+PPT adalah format biner warisan PowerPoint, sedangkan PPTX adalah format Open XML yang lebih baru. Aspose.Slides untuk .NET dapat memuat file PPT dan menyimpannya sebagai PPTX tanpa Microsoft PowerPoint. Artikel ini menunjukkan cara mengonversi satu file atau direktori file dan menjelaskan apa yang perlu diverifikasi setelah konversi.
 
-- [Konversi PPT ke PPTX di C#](#convert-ppt-to-pptx)
+## **Konversi File PPT ke PPTX**
 
-## **Konversi PPT ke PPTX di .NET**
+Muat file sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) , kemudian panggil [IPresentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/save/) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/). Deklarasi `using` membuang presentasi dan melepaskan sumber dayanya ketika ruang lingkup selesai.
 
-Untuk contoh kode C# yang mengonversi PPT ke PPTX, lihat bagian di bawah ini yaitu [Konversi PPT ke PPTX](#convert-ppt-to-pptx). Kode hanya memuat file PPT dan menyimpannya dalam format PPTX. Dengan menentukan format penyimpanan yang berbeda, Anda juga dapat menyimpan file PPT ke banyak format lain seperti PDF, XPS, ODP, HTML, dll. seperti yang dibahas dalam artikel-artikel ini.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- [Konversi PPT ke PDF di .NET](/slides/id/net/convert-powerpoint-to-pdf/)
-- [Konversi PPT ke XPS di .NET](/slides/id/net/convert-powerpoint-to-xps/)
-- [Konversi PPT ke HTML di .NET](/slides/id/net/convert-powerpoint-to-html/)
-- [Konversi PPT ke ODP di .NET](/slides/id/net/save-presentation/)
-- [Konversi PPT ke PNG di .NET](/slides/id/net/convert-powerpoint-to-png/)
+// Muat presentasi PPT warisan.
+using var presentation = new Presentation("presentation.ppt");
 
-## **Tentang Konversi PPT ke PPTX**
-Konversi format PPT lama ke PPTX dengan Aspose.Slides API. Jika Anda perlu mengonversi ribuan presentasi PPT ke format PPTX, solusi terbaik adalah melakukannya secara programatik. Dengan Aspose.Slides API, hal ini dapat dilakukan hanya dengan beberapa baris kode. API mendukung kompatibilitas penuh untuk mengonversi presentasi PPT ke PPTX dan dapat:
-
-- Mengonversi struktur kompleks master, layout, dan slide.
-- Mengonversi presentasi dengan diagram.
-- Mengonversi presentasi dengan grup bentuk, auto‑shape (seperti persegi panjang dan elips), bentuk dengan geometri khusus.
-- Mengonversi presentasi yang memiliki tekstur dan gambar sebagai gaya isian auto‑shape.
-- Mengonversi presentasi dengan placeholder, bingkai teks, dan pemegang teks.
-
-{{% alert color="primary" %}} 
-
-Lihat aplikasi [**Konversi PPT ke PPTX Aspose.Slides**](https://products.aspose.app/slides/id/conversion/ppt-to-pptx):
-
-[](https://products.aspose.app/slides/id/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/id/conversion/ppt-to-pptx)
-
-Aplikasi ini dibangun berdasarkan **Aspose.Slides API**, sehingga Anda dapat melihat contoh nyata kemampuan dasar konversi PPT ke PPTX. Konversi Aspose.Slides adalah aplikasi web, yang memungkinkan Anda menjatuhkan file presentasi dalam format PPT dan mengunduhnya setelah dikonversi ke PPTX.
-
-Temukan contoh lain yang hidup dari [**Konversi Aspose.Slides**](https://products.aspose.app/slides/id/conversion/).
-{{% /alert %}} 
-
-## **Konversi PPT ke PPTX**
-Untuk mengonversi PPT ke PPTX cukup berikan nama file dan format penyimpanan ke metode [**Save**](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/methods/save/index) milik kelas [**Presentation**](https://reference.aspose.com/slides/id/net/aspose.slides/presentation). Contoh kode C# di bawah ini mengonversi sebuah Presentation dari PPT ke PPTX menggunakan opsi default.
-
-```c#
-// Membuat objek Presentation yang mewakili file PPTX
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// Menyimpan presentasi PPTX ke format PPTX
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Simpan presentasi dalam format PPTX.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Baca lebih lanjut tentang format presentasi [**PPT vs PPTX**](/slides/id/net/ppt-vs-pptx/) dan bagaimana [**Aspose.Slides mendukung konversi PPT ke PPTX**](/slides/id/net/convert-ppt-to-pptx/).
+Ekstensi file tidak menentukan format keluaran secara otomatis; argumen [SaveFormat.Pptx](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/) yang melakukannya. Jaga jalur input dan output berbeda jika Anda perlu mempertahankan file PPT asli.
+
+## **Konversi Beberapa File PPT**
+
+Contoh berikut mengonversi setiap file `.ppt` dalam satu direktori. Setiap file diproses secara independen, sehingga satu konversi yang gagal tidak menghentikan sisanya.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
+
+Untuk beban kerja produksi, catat pengecualian lengkap, tentukan apakah file keluaran yang ada dapat ditimpa, dan tulis nama file yang gagal ke antrean retry atau review. File rusak, file yang dilindungi password yang dibuka tanpa password yang diperlukan, jalur yang tidak dapat diakses, dan konten yang tidak didukung semuanya dapat menyebabkan konversi gagal. Lihat [Password-Protected Presentations](/slides/id/net/password-protected-presentation/) untuk memuat file terenkripsi.
+
+## **Kesetiaan dan Fitur Warisan**
+
+Konversi biasanya mempertahankan slide, master, layout, teks, bentuk, gambar, tabel, dan diagram. Namun, PPT dan PPTX tidak mewakili setiap fitur dengan cara yang persis sama. Fitur warisan yang tidak memiliki padanan PPTX, atau tidak didukung oleh pustaka, mungkin dinormalisasi, dihilangkan, atau ditampilkan secara berbeda.
+
+Periksa file yang telah dikonversi bila berisi animasi, transisi, objek OLE yang disematkan atau ditautkan, kontrol ActiveX, media yang disematkan, font yang tidak umum, atau makro VBA. File PPTX biasa bukan format yang mendukung makro, jadi gunakan alur kerja yang mendukung makro bila VBA harus tetap tersedia. Juga pastikan font yang diperlukan dan sumber daya eksternal ada di lingkungan tempat presentasi yang dikonversi akan dibuka atau dirender.
+
+Untuk dokumen penting, buka kembali PPTX yang dihasilkan secara programatis dan inspeksi jumlah slide utama serta kontennya, kemudian bandingkan tampilannya dan perilaku slide‑show di penampil yang dituju. Jangan anggap panggilan [IPresentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/save/) yang berhasil sebagai bukti bahwa setiap fitur warisan memiliki representasi PPTX yang persis.
+
+## **Kapan Menggunakan PPTX**
+
+Gunakan PPTX bila presentasi akan diedit di versi PowerPoint terkini, dipertukarkan dengan sistem yang bekerja dengan paket Open XML, atau disimpan dalam format yang lebih mudah diperiksa dan dipulihkan dibandingkan PPT biner warisan. Simpan PPT asli sebagai salinan arsip atau rollback sampai presentasi yang dikonversi telah melewati pemeriksaan kesetiaan Anda.
+
+Jika Anda memerlukan PDF, HTML, gambar, XPS, atau tipe keluaran lain sebagai gantinya, gunakan panduan khusus format di [Convert Presentations to Multiple Formats](/slides/id/net/convert-presentation/) daripada menganggap semua target mempertahankan fitur PowerPoint yang dapat diedit.
+
+## **Konverter Online**
+
+Untuk file sesekali atau perbandingan cepat, Anda dapat menggunakan [online PPT to PPTX converter](https://products.aspose.app/slides/id/conversion/ppt-to-pptx). Untuk konversi berulang, pemrosesan batch, atau penanganan kesalahan tingkat aplikasi, gunakan API .NET.
+
+## **Artikel Terkait**
+
+- [PPT vs PPTX](/slides/id/net/ppt-vs-pptx/)
+- [Simpan Presentasi di .NET](/slides/id/net/save-presentation/)
+- [Format File yang Didukung](/slides/id/net/supported-file-formats/)
+- [Buka Presentasi di .NET](/slides/id/net/open-presentation/)
 
 ## **FAQ**
 
-**Apa perbedaan antara format PPT dan PPTX?**
+**Apakah saya dapat mengonversi PPT ke PPTX tanpa Microsoft PowerPoint terpasang?**
 
-PPT adalah format file biner lama yang digunakan oleh Microsoft PowerPoint, sedangkan PPTX adalah format berbasis XML yang lebih baru diperkenalkan pada Microsoft Office 2007. File PPTX menawarkan kinerja lebih baik, ukuran file lebih kecil, dan pemulihan data yang lebih baik.
+Ya. Aspose.Slides untuk .NET memuat dan menyimpan file presentasi tanpa memerlukan Microsoft PowerPoint.
 
-**Apakah saya dapat mengonversi PPT ke PPTX menggunakan .NET?**
+**Apakah konversi PPT ke PPTX akan mempertahankan semua konten secara tepat?**
 
-Ya, dengan menggunakan pustaka Aspose.Slides untuk .NET, Anda dapat dengan mudah memuat file PPT dan menyimpannya dalam format PPTX hanya dengan beberapa baris kode.
+Ini mempertahankan konten presentasi umum, tetapi kesetiaan penuh tidak dijamin untuk setiap fitur warisan atau yang tidak didukung. Tinjau file yang dihasilkan bila berisi makro, objek OLE atau ActiveX, media, animasi khusus, atau font yang tidak umum.
 
-**Apakah Aspose.Slides mendukung konversi batch banyak file PPT ke PPTX?**
+**Apakah saya dapat mengonversi file PPT yang dilindungi password?**
 
-Ya, Anda dapat menggunakan Aspose.Slides dalam sebuah loop untuk mengonversi banyak file PPT ke PPTX secara programatik, sehingga cocok untuk skenario konversi batch.
+Ya, bila Anda menyediakan password yang benar saat memuat file. Password yang hilang atau salah menyebabkan operasi pemuatan gagal.
 
-**Apakah konten dan format tetap terjaga setelah konversi?**
+**Haruskah saya menghapus file PPT setelah konversi?**
 
-Aspose.Slides menjaga kesetiaan tinggi dalam mengonversi presentasi. Tata letak slide, animasi, bentuk, diagram, dan elemen desain lainnya dipertahankan selama konversi PPT ke PPTX.
-
-**Apakah saya dapat mengonversi format lain seperti PDF atau HTML dari file PPT?**
-
-Ya, Aspose.Slides mendukung konversi file PPT ke berbagai format, termasuk PDF, XPS, HTML, ODP, serta format gambar seperti PNG dan JPEG.
-
-**Apakah memungkinkan mengonversi PPT ke PPTX tanpa menginstal Microsoft PowerPoint?**
-
-Ya, Aspose.Slides untuk .NET adalah API mandiri dan tidak memerlukan Microsoft PowerPoint atau perangkat lunak pihak ketiga lainnya untuk melakukan konversi.
-
-**Apakah ada alat daring yang tersedia untuk konversi PPT ke PPTX?**
-
-Ya, Anda dapat menggunakan aplikasi web gratis [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/id/conversion/ppt-to-pptx) untuk melakukan konversi langsung di browser Anda tanpa menulis kode apa pun.
+Simpan file asli sampai Anda memverifikasi PPTX di penampil dan alur kerja yang penting bagi Anda. Ini menyediakan salinan rollback bila fitur warisan dikonversi secara berbeda.
