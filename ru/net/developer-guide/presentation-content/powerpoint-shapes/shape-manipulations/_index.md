@@ -1,389 +1,384 @@
 ---
-title: Управление формами презентации в .NET
-linktitle: Манипуляция формами
+title: Управление фигурами презентации в .NET
+linktitle: Манипулирование фигурами
 type: docs
 weight: 40
 url: /ru/net/shape-manipulations/
 keywords:
-- Форма PowerPoint
-- Форма презентации
-- Форма на слайде
-- Найти форму
-- Клонировать форму
-- Удалить форму
-- Скрыть форму
-- Изменить порядок форм
-- Получить Interop ID формы
-- Альтернативный текст формы
-- Форматы расположения формы
-- Форма как SVG
-- Форма в SVG
-- Выровнять форму
+- фигура PowerPoint
+- фигура презентации
+- фигура на слайде
+- поиск фигуры
+- клонирование фигуры
+- удаление фигуры
+- скрытие фигуры
+- изменение порядка фигур
+- получение интероп ID фигуры
+- альтернативный текст фигуры
+- форматы макета фигуры
+- фигура как SVG
+- фигура в SVG
+- выравнивание фигуры
+- отражение фигуры
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как создавать, редактировать и оптимизировать формы в Aspose.Slides для .NET и предоставлять высокопроизводительные презентации PowerPoint."
+description: "Узнайте, как идентифицировать, клонировать, удалять, скрывать, переупорядочивать, экспортировать, выравнивать и отражать фигуры презентации с помощью Aspose.Slides для .NET."
 ---
+## **Обзор**
 
-## **Найти форму на слайде**
-Эта тема будет описана простая техника, позволяющая разработчикам легче находить определённую форму на слайде без использования её внутреннего Id. Важно знать, что файлы PowerPoint Presentation не имеют способа идентифицировать формы на слайде, кроме внутреннего уникального Id. Разработчикам кажется сложно находить форму, используя её внутренний уникальный Id. Все формы, добавленные на слайды, имеют некоторый Alt Text. Мы советуем разработчикам использовать альтернативный текст для поиска определённой формы. Вы можете использовать MS PowerPoint для задания альтернативного текста объектам, которые планируете изменять в будущем.
+Aspose.Slides for .NET представляет фигуры на слайде как упорядоченную [IShapeCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/). Коллекция одновременно является местом, где вы находите и изменяете фигуры, и источником их порядка наложения: индекс `0` — самая задняя фигура, а последний индекс — самая передняя.
 
-После задания альтернативного текста любой нужной формы вы можете открыть эту презентацию с помощью Aspose.Slides для .NET и перебрать все формы, добавленные на слайд. Во время каждой итерации можно проверять альтернативный текст формы, и форма с совпадающим альтернативным текстом будет требуемой. Чтобы продемонстрировать эту технику более наглядно, мы создали метод [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1), который позволяет найти определённую форму на слайде и просто возвращает её.
-```c#
-public static void Run()
+Эта статья следует этой модели. Сначала она объясняет, как надёжно идентифицировать фигуру, затем показывает, как клонировать, удалять, скрывать и переупорядочивать фигуры. В заключительных разделах рассматриваются форматирование уровня макета, экспорт в SVG, выравнивание и параметры отражения. Каждый пример независим, поэтому вы можете использовать только те операции, которые нужны вашему рабочему процессу.
+
+## **Определение и поиск фигур**
+
+Индексы коллекции удобны при обработке известного файла, но они не являются устойчивыми идентификаторами. Добавление, удаление или переупорядочивание фигуры может изменить её индекс. Выберите идентификатор в зависимости от того, как презентация создаётся и поддерживается:
+
+- [Name](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/name/) полезно для шаблонов, контролируемых разработчиком, и его легко просмотреть в панели выбора PowerPoint. Имена можно редактировать, они не гарантированно уникальны, поэтому установите конвенцию именования, если код от них зависит.
+- [AlternativeText](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/alternativetext/) удобно, когда доступное описание или метка автора уже идентифицируют фигуру. Текст видим пользователям, может быть локализован или переписан для доступности и также не гарантирует уникальности. Не используйте значимый текст доступности в качестве ключа базы данных без явного согласования.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/officeinteropshapeid/) — идентификатор только для чтения, уникальный в пределах слайда и соответствующий идентификатору фигуры, используемому в interop PowerPoint. Применяйте его при интеграции с PowerPoint или когда нужен однозначный объект в течение жизни фигуры. Клонированная или воссозданная фигура — это другая фигура с собственным идентификатором.
+
+Связанное свойство [UniqueId](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/uniqueid/) имеет область действия презентации, но предназначено для надстроек и может быть переназначено. Не рассматривайте его как постоянный внешний ключ. Если требуется долговременная идентификация, храните сопоставление во внешних данных приложения и проверяйте, что ожидаемая фигура всё ещё существует.
+
+Следующий пример ищет по `Name` с ординарным сравнением и сообщает межоперационный ID уровня слайда. Когда шаблон не содержит ожидаемой фигуры, код выводит этот результат вместо продолжения работы с неверным объектом.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Создать экземпляр класса Presentation, представляющего файл презентации
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Альтернативный текст ищемой формы
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Реализация метода для поиска формы на слайде по её альтернативному тексту
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Перебор всех форм на слайде
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Если альтернативный текст формы соответствует требуемому, то
-        // Возвратить форму
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-
-## **Клонировать форму**
-Для клонирования формы на слайде с использованием Aspose.Slides для .NET:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд, используя его индекс.
-3. Получите доступ к коллекции форм исходного слайда.
-4. Добавьте новый слайд в презентацию.
-5. Клонируйте формы из коллекции форм исходного слайда в новый слайд.
-6. Сохраните изменённую презентацию в файл PPTX.
-
-Пример ниже добавляет групповую форму на слайд.
-```c#
-// Создать экземпляр класса Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Записать PPTX файл на диск
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-
-## **Удалить форму**
-Aspose.Slides для .NET позволяет разработчикам удалять любую форму. Чтобы удалить форму с любого слайда, выполните следующие шаги:
-
-1. Создайте экземпляр класса `Presentation`.
-2. Получите доступ к первому слайду.
-3. Найдите форму с конкретным AlternativeText.
-4. Удалите форму.
-5. Сохраните файл на диск.
-```c#
-// Создать объект Presentation
-Presentation pres = new Presentation();
-
-// Получить первый слайд
-ISlide sld = pres.Slides[0];
-
-// Добавить автофигуру типа прямоугольник
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Сохранить презентацию на диск
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **Скрыть форму**
-Aspose.Slides для .NET позволяет разработчикам скрывать любую форму. Чтобы скрыть форму на любом слайде, выполните следующие шаги:
-
-1. Создайте экземпляр класса `Presentation`.
-2. Получите доступ к первому слайду.
-3. Найдите форму с конкретным AlternativeText.
-4. Скройте форму.
-5. Сохраните файл на диск.
-```c#
-// Создать экземпляр класса Presentation, представляющего PPTX
-Presentation pres = new Presentation();
-
-// Получить первый слайд
-ISlide sld = pres.Slides[0];
-
-// Добавить автофигуру типа прямоугольник
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Сохранить презентацию на диск
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **Изменить порядок форм**
-Aspose.Slides для .NET позволяет разработчикам переупорядочивать формы. Переупорядочивание определяет, какая форма находится спереди, а какая — сзади. Чтобы переупорядочить формы на любом слайде, выполните следующие шаги:
-
-1. Создайте экземпляр класса `Presentation`.
-2. Получите доступ к первому слайду.
-3. Добавьте форму.
-4. Добавьте немного текста в текстовый фрейм формы.
-5. Добавьте другую форму с теми же координатами.
-6. Переупорядочьте формы.
-7. Сохраните файл на диск.
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Получить Interop Shape ID**
-Aspose.Slides для .NET позволяет разработчикам получить уникальный идентификатор формы в пределах слайда, в отличие от свойства UniqueId, которое даёт уникальный идентификатор в пределах презентации. Свойство OfficeInteropShapeId было добавлено к интерфейсам IShape и классу Shape соответственно. Значение, возвращаемое свойством OfficeInteropShapeId, соответствует значению Id объекта Microsoft.Office.Interop.PowerPoint.Shape. Ниже приведён пример кода.
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Получение уникального идентификатора формы в области слайда
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
+Когда операция специфична для типа фигуры, проверьте интерфейс перед использованием членов, характерных для типа. Пример обновляет текст и альтернативный текст только если именованный объект является [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/).
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-## **Установить альтернативный текст для формы**
-Aspose.Slides для .NET позволяет разработчикам задавать AlternateText любой формы.  
-Формы в презентации могут различаться по свойству AlternativeText или имени формы (Shape Name).  
-Свойство AlternativeText можно читать и задавать с помощью Aspose.Slides, а также Microsoft PowerPoint.  
-Используя это свойство, вы можете пометить форму и выполнять различные операции, такие как удаление формы, скрытие формы или переупорядочивание форм на слайде.  
-Чтобы задать AlternateText формы, выполните следующие шаги:
-
-1. Создайте экземпляр класса `Presentation`.
-2. Получите доступ к первому слайду.
-3. Добавьте любую форму на слайд.
-4. Выполните некоторые действия с только что добавленной формой.
-5. Пройдитесь по формам, чтобы найти форму.
-6. Задайте AlternativeText.
-7. Сохраните файл на диск.
-```c#
-// Создать экземпляр класса Presentation, представляющего PPTX
-Presentation pres = new Presentation();
-
-// Получить первый слайд
-ISlide sld = pres.Slides[0];
-
-// Добавить автофигуру типа прямоугольник
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Сохранить презентацию на диск
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-
-## **Получить доступ к форматам расположения формы**
-Aspose.Slides для .NET предоставляет простой API для доступа к форматам расположения формы. В этой статье показано, как получить доступ к форматам расположения.  
-Ниже приведён пример кода.
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
+## **Изменение коллекции фигур**
 
-## **Отобразить форму как SVG**
-Теперь Aspose.Slides для .NET поддерживает отрисовку формы как svg. Метод WriteAsSvg (и его перегрузка) был добавлен в класс Shape и интерфейс IShape. Этот метод позволяет сохранять содержимое формы в файл SVG. Ниже показан фрагмент кода, демонстрирующий, как экспортировать форму слайда в файл SVG.
-```c#
-public static void Run()
+Методы добавления, клонирования, удаления и переупорядочивания воздействуют на коллекцию немедленно. Если операция меняет количество или порядок фигур, не продолжайте полагаться на индексы, полученные до этой операции.
+
+### **Клонирование фигуры**
+
+[AddClone](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addclone/) создаёт независимую копию и добавляет её в конец целевой коллекции. [InsertClone](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/insertclone/) также создаёт копию, но размещает её по указанному индексу z‑порядка. Перегрузки, принимающие координаты, перемещают клон без изменения размеров; перегрузки с шириной и высотой могут изменить размер.
+
+Пример создаёт слайд‑назначение, клонирует помеченный прямоугольник в переднюю часть и вставляет второй клон в заднюю часть. Изменения любого клона не затрагивают исходную фигуру.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-    string outSvgFileName = "SingleShape.svg";
-    using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Клонирование копирует содержимое и форматирование фигуры, включая её имя и альтернативный текст. Присвойте новые логические идентификаторы клону, если эти значения должны быть уникальными. Ресурсы, используемые сложными фигурами, обслуживает презентация, но клон остаётся новым элементом коллекции с новой идентичностью фигуры.
+
+### **Удаление фигур**
+
+[Remove](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/remove/) удаляет конкретный объект фигуры из её коллекции. При удалении нескольких совпадений в ходе обхода по индексам, перебирайте элементы с конца, чтобы каждый оставшийся индекс оставался валидным.
+
+Этот пример удаляет каждую фигуру с заданным именем. Он читает `slide.Shapes[i]`, а не фиксированный элемент коллекции, и не приводит тип фигуры без необходимости.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
     {
-        using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-        {
-            pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-        }
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+После удаления меняются количество фигур и индексы последующих фигур. Ссылки на незатронутые фигуры остаются надёжнее, чем сохранённые индексы. Также учитывайте соединители, анимации и другие элементы презентации, которые могут ссылаться на удалённый объект; удаление видимой фигуры может изменить не только внешний вид слайда.
+
+### **Скрытие фигуры**
+
+Установка [Hidden](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/hidden/) в `true` оставляет фигуру в коллекции, но препятствует её отображению в обычном показе слайдов. Её индекс, форматирование и содержание остаются доступными коду, поэтому скрытие подходит для необязательных элементов, которые могут быть восстановлены позже.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Скрытие — не удаление и не защита. Объект всё ещё может быть найден и расскрыт пользователем или кодом, и он остаётся частью файла презентации.
+
+### **Изменение порядка наложения**
+
+Наложенные фигуры отрисовываются в порядке коллекции. [Reorder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/reorder/) перемещает существующую фигуру к целевому индексу без её клонирования. Индекс `0` — задний; `Count - 1` — передний.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Сначала создаётся прямоугольник, который изначально находится за эллипсом. Перемещение его к конечному индексу помещает его спереди. Завершайте упорядочивание после добавления или клонирования всех связанных фигур, потому что эти операции добавляют новые элементы в коллекцию и могут изменить предполагаемый стек.
+
+## **Проверка фигур на макетных слайдах**
+
+Обычные слайды, макетные слайды и мастер‑слайды имеют отдельные коллекции фигур. Фигура в коллекции макета — не тот же объект, что аналогично расположенная фигура на обычном слайде. Проверяйте фигуры макета, когда нужно понять или изменить форматирование, поставляемое макетом.
+
+Следующий пример читает у каждой фигуры макета её [FillFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/fillformat/) и [LineFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/lineformat/) без предположения, что каждая фигура является `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
     }
 }
 ```
 
+Редактирование макета может затронуть несколько слайдов, использующих его. Прежде чем менять фигуру макета, определите, наследует её обычный слайд или содержит локальное переопределение, и протестируйте каждый слайд, использующий этот макет.
 
-## **Выровнять форму**
+## **Экспорт фигуры в SVG**
 
-С помощью перегруженного метода [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) вы можете
+[WriteAsSvg](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/writeassvg/) записывает отрендеренное содержимое одной фигуры в поток. Результат содержит только эту фигуру, а не весь фон слайда или соседние фигуры.
 
-* выравнивать формы относительно полей слайда. См. пример 1. 
-* выравнивать формы относительно друг друга. См. пример 2. 
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Перечисление [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) определяет доступные варианты выравнивания.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-**Пример 1**
-
-Этот код C# показывает, как выровнять формы с индексами 1,2 и 4 по верхнему краю слайда:  
-Исходный код ниже выравнивает формы с индексами 1,2 и 4 по верхнему краю слайда. 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
+Держите презентацию открытой во время рендеринга. Вывод зависит от форматирования фигуры и от ресурсов, таких как шрифты и изображения. Если нужен весь состав, экспортируйте слайд, а не отдельную фигуру. Вызывающая сторона владеет потоком и должна его освободить.
 
-**Пример 2**
+## **Выровнять фигуры**
 
-Этот код C# показывает, как выровнять всю коллекцию форм относительно нижней формы в коллекции: 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+Перегрузки [SlideUtil.AlignShapes](https://reference.aspose.com/slides/ru/net/aspose.slides.util/slideutil/alignshapes/) выравнивают либо все фигуры, либо выбранные индексы коллекции. [ShapesAlignmentType](https://reference.aspose.com/slides/ru/net/aspose.slides/shapesalignmenttype/) задаёт край, центральную линию или режим распределения. Установите `alignToSlide` в `true`, чтобы использовать края слайда; установите в `false`, чтобы выравнивать выбранные фигуры относительно друг друга.
+
+Этот пример выравнивает три фигуры по верхнему краю слайда. Ссылки на фигуры преобразуются в их текущие индексы непосредственно перед выравниванием.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
+Выравнивание меняет позиции, а не порядок наложения. Относительное выравнивание обычно требует как минимум две фигуры, а горизонтальное или вертикальное распределение — достаточного количества фигур для определения промежутков. Пересчитайте индексы, если вы изменяете коллекцию перед вызовом метода.
 
-## **Свойства отражения**
+## **Отразить фигуру**
 
-В Aspose.Slides класс [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) предоставляет управление горизонтальным и вертикальным отражением форм через свойства `FlipH` и `FlipV`. Оба свойства имеют тип [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), позволяя значения `True` для включения отражения, `False` для отсутствия отражения или `NotDefined` для использования поведения по умолчанию. Эти значения доступны через [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) формы.
+Класс [ShapeFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/shapeframe/) хранит позицию, размер, настройки горизонтального и вертикального отражения и вращения. Его свойства `FlipH` и `FlipV` используют [NullableBool](https://reference.aspose.com/slides/ru/net/aspose.slides/nullablebool/): `True` включает отражение, `False` отключает, а `NotDefined` сохраняет неуказанное/значение по умолчанию.
 
-Чтобы изменить параметры отражения, создаётся новый экземпляр [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) с текущими позицией и размером формы, желаемыми значениями `FlipH` и `FlipV` и углом поворота. Присвоив этот экземпляр свойству [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) формы и сохранив презентацию, вы применяете зеркальные трансформации и фиксируете их в выходном файле.
+Входная презентация ниже содержит одну неотражённую фигуру.
 
-Предположим, у нас есть файл sample.pptx, в котором первый слайд содержит единственную форму с настройками отражения по умолчанию, как показано ниже.
+![Фигура до отражения](shape_to_be_flipped.png)
 
-![The shape to be flipped](shape_to_be_flipped.png)
+Пример сохраняет все остальные значения кадра и заменяет только два параметра отражения. Это важно, потому что присвоение нового [Frame](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/frame/) заменяет весь кадр.
 
-Следующий пример кода получает текущие свойства отражения формы и отражает её горизонтально и вертикально.
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Получить горизонтальное свойство отражения формы.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Получить вертикальное свойство отражения формы.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Отразить по горизонтали.
-    NullableBool flipV = NullableBool.True; // Отразить по вертикали.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
+Сохранённая фигура зеркально отражена по горизонтали и вертикали, при этом её позиция, размер и вращение остаются без изменений.
 
-Результат:
+![Фигура после отражения](flipped_shape.png)
 
-![The flipped shape](flipped_shape.png)
+## **Вопросы и ответы**
 
-## **FAQ**
+**Должен ли я использовать индекс коллекции в качестве идентификатора фигуры?**
 
-**Могу ли я комбинировать формы (объединять/пересекать/вычитать) на слайде, как в настольном редакторе?**
+Только для кратковременной обработки, когда коллекция не изменится до использования индекса. Предпочтительно использовать проверенную конвенцию `Name` или `AlternativeText` для шаблонов, либо `OfficeInteropShapeId` для межоперационных задач в пределах слайда.
 
-Встроенного API для булевых операций нет. Можно приблизительно выполнить задачу, построив требуемый контур самостоятельно — например, вычислить результирующую геометрию с помощью [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) и создать новую форму с этим контуром, при желании удалив исходные.
+**Удаляет ли скрытие фигуры её из порядка наложения?**
 
-**Как я могу контролировать порядок наложения (z-order), чтобы форма всегда оставалась «поверх»?**
+Нет. Скрытая фигура остаётся в коллекции на том же индексе. Её можно найти, переупорядочить, отредактировать или снова сделать видимой.
 
-Изменяйте порядок вставки/перемещения внутри коллекции [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) слайда. Для предсказуемого результата фиксируйте z-order после всех остальных изменений слайда.
+**Почему клон фигуры появился перед другой фигурой?**
 
-**Могу ли я «запереть» форму, чтобы пользователи не могли её редактировать в PowerPoint?**
-
-Да. Установите [флаги защиты на уровне формы](/slides/ru/net/applying-protection-to-presentation/) (например, блокировку выбора, перемещения, изменения размеров, редактирования текста). При необходимости наложите ограничения на мастер или макет. Учтите, что это защита на уровне UI, а не механизм безопасности; для более сильной защиты сочетайте её с ограничениями уровня файла, такими как рекомендации только для чтения или пароли [/slides/net/password-protected-presentation/].
+`AddClone` добавляет клон в конец коллекции, что соответствует переднему краю z‑порядка. Используйте `InsertClone`, чтобы задать начальный индекс, или `Reorder` после добавления всех фигур.

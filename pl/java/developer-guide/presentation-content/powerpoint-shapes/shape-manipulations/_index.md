@@ -12,392 +12,370 @@ keywords:
 - Klonuj kształt
 - Usuń kształt
 - Ukryj kształt
-- Zmień kolejność kształtów
-- Pobierz Interop Shape ID
+- Zmień kolejność kształtu
+- Pobierz ID kształtu interop
 - Tekst alternatywny kształtu
 - Formaty układu kształtu
 - Kształt jako SVG
 - Kształt do SVG
 - Wyrównaj kształt
+- Odbij kształt
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć, edytować i optymalizować kształty w Aspose.Slides dla Javy oraz dostarczać wysokowydajne prezentacje PowerPoint."
+description: "Dowiedz się, jak identyfikować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odbijać kształty prezentacji za pomocą Aspose.Slides dla Javy."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z kształtami w prezentacjach przy użyciu Aspose.Slides. Pokazuje, jak znaleźć kształt na slajdzie, sklonować go, usunąć, ukryć, zmienić kolejność, uzyskać jego identyfikator Interop oraz ustawić tekst alternatywny w celu identyfikacji i dalszego przetwarzania.
+Aspose.Slides for Java reprezentuje kształty na slajdzie jako uporządkowaną [IShapeCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/). Kolekcja jest zarówno miejscem, w którym znajdujesz i modyfikujesz kształty, jak i źródłem ich kolejności nakładania: indeks `0` jest najdalej z tyłu, a ostatni indeks jest najbliżej przodu.
 
-Omówiono również, jak uzyskać dostęp do formatów układu dla kształtów, renderować kształt jako SVG, wyrównywać kształty na slajdzie oraz używać właściwości odbicia do poziomego i pionowego lustrzanego odbicia. Dodatkowo artykuł zawiera krótkie FAQ dotyczące łączenia kształtów, kolejności warstw oraz blokowania kształtów.
+Ten artykuł podąża za tym modelem. Najpierw wyjaśnia, jak niezawodnie zidentyfikować kształt, a następnie pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport SVG, wyrównywanie i ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać tylko operacji, które są potrzebne w Twoim przepływie pracy.
 
-## **Znajdowanie kształtu na slajdzie**
-Ten temat opisuje prostą technikę ułatwiającą programistom znajdowanie określonego kształtu na slajdzie bez użycia jego wewnętrznego Id. Ważne jest, aby wiedzieć, że pliki PowerPoint nie posiadają innego sposobu identyfikacji kształtów na slajdzie niż wewnętrzny unikalny Id. Dla programistów może być trudne znalezienie kształtu przy użyciu tego Id. Wszystkie kształty dodane do slajdów mają jakiś tekst alternatywny. Zalecamy używanie tekstu alternatywnego do wyszukiwania określonych kształtów. Możesz użyć programu MS PowerPoint, aby zdefiniować tekst alternatywny dla obiektów, które planujesz zmienić w przyszłości.
+## **Identyfikacja i znajdowanie kształtów**
 
-Po ustawieniu tekstu alternatywnego dowolnego pożądanego kształtu możesz otworzyć tę prezentację przy użyciu Aspose.Slides for Java i przeiterować wszystkie kształty dodane do slajdu. Podczas każdej iteracji możesz sprawdzić tekst alternatywny kształtu, a kształt z pasującym tekstem alternatywnym będzie tym, którego potrzebujesz. Aby lepiej zilustrować tę technikę, stworzyliśmy metodę [findShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) wykonującą to zadanie i zwracającą znaleziony kształt.
+Indeksy kolekcji są wygodne przy przetwarzaniu znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator zgodnie z tym, jak prezentacja jest tworzona i utrzymywana:
 
-```java
-// Utwórz klasę Presentation, która reprezentuje plik prezentacji
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getName--) jest przydatny w szablonach kontrolowanych przez programistów i łatwo go sprawdzić w panelu wyboru programu PowerPoint. Nazwy można edytować i nie są gwarantowane jako unikalne, więc ustal konwencję nazewnictwa, jeśli kod od nich zależy.
+- [AlternativeText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getAlternativeText--) jest przydatny, gdy opis dostępności lub tag dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub zmieniany w celu zapewnienia dostępności i nie jest gwarantowany jako unikalny. Nie należy po cichu wykorzystywać znaczącego tekstu dostępności jako klucza bazy danych.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) jest identyfikatorem tylko do odczytu, który jest unikalny w obrębie slajdu i odpowiada identyfikatorowi kształtu używanemu przez interfejs PowerPoint. Użyj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Klonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Alternatywny tekst kształtu do znalezienia
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Implementacja metody służącej do znalezienia kształtu na slajdzie przy użyciu jego tekstu alternatywnego
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Iterowanie po wszystkich kształtach na slajdzie
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Jeśli tekst alternatywny kształtu pasuje do wymaganego, wtedy
-        // Zwróć kształt
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+Powiązana metoda [getUniqueId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getUniqueId--) zwraca identyfikator o zasięgu prezentacji, ale ten identyfikator jest przeznaczony dla dodatków i może być ponownie przydzielony. Nie należy traktować go jako trwałego zewnętrznego klucza. Jeśli długoterminowa tożsamość jest kluczowa, zachowaj mapowanie w danych aplikacji i zweryfikuj, czy oczekiwany kształt nadal istnieje.
 
-## **Klony kształtu**
-Aby sklonować kształt na slajdzie przy użyciu Aspose.Slides for Java:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj referencję do slajdu, podając jego indeks.
-1. Uzyskaj dostęp do kolekcji kształtów slajdu źródłowego.
-1. Dodaj nowy slajd do prezentacji.
-1. Sklonuj kształty z kolekcji kształtów slajdu źródłowego do nowego slajdu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy przykład dodaje grupowy kształt do slajdu.
+Poniższy przykład wyszukuje po nazwie przy użyciu dokładnego porównania i zgłasza identyfikator interfejsu w zakresie slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z nieprawidłowym obiektem.
 
 ```java
-// Utwórz klasę Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Zapisz plik PPTX na dysku
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Usuwanie kształtu**
-Aspose.Slides for Java umożliwia programistom usuwanie dowolnego kształtu. Aby usunąć kształt z dowolnego slajdu, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Znajdź kształt o określonym AlternativeText.
-1. Usuń kształt.
-1. Zapisz plik na dysku.
-
-```java
-// Utwórz obiekt Presentation
-Presentation pres = new Presentation();
-try {
-    // Pobierz pierwszy slajd
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Dodaj autokształt typu prostokąt
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Zapisz prezentację na dysku
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ukrywanie kształtu**
-Aspose.Slides for Java umożliwia programistom ukrywanie dowolnego kształtu. Aby ukryć kształt na dowolnym slajdzie, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Znajdź kształt o określonym AlternativeText.
-1. Ukryj kształt.
-1. Zapisz plik na dysku.
-
-```java
-// Utwórz klasę Presentation reprezentującą plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Pobierz pierwszy slajd
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Dodaj autokształt typu prostokąt
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Zapisz prezentację na dysku
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Zmiana kolejności kształtów**
-Aspose.Slides for Java umożliwia programistom zmianę kolejności kształtów. Zmiana kolejności określa, który kształt jest na wierzchu, a który znajduje się z tyłu. Aby zmienić kolejność kształtów na dowolnym slajdzie, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj kształt.
-1. Dodaj tekst do ramki tekstowej kształtu.
-1. Dodaj kolejny kształt o tych samych współrzędnych.
-1. Zmień kolejność kształtów.
-1. Zapisz plik na dysku.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Uzyskanie Interop Shape ID**
-Aspose.Slides for Java umożliwia programistom uzyskanie unikalnego identyfikatora kształtu w zakresie slajdu, w przeciwieństwie do metody [getUniqueId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#getUniqueId--) zwracającej unikalny identyfikator w zakresie prezentacji. Metoda [getOfficeInteropShapeId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) została dodana do interfejsu [IShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape) oraz klasy [Shape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Shape). Wartość zwracana przez metodę [getOfficeInteropShapeId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) odpowiada wartości Id obiektu Microsoft.Office.Interop.PowerPoint.Shape. Poniżej znajduje się przykładowy kod.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Uzyskiwanie unikalnego identyfikatora kształtu w zakresie slajdu
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ustawienie tekstu alternatywnego dla kształtu**
-Aspose.Slides for Java umożliwia programistom ustawienie AlternateText dowolnego kształtu. Kształty w prezentacji mogą być rozróżniane przy użyciu metody [AlternativeText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) lub [Shape Name](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#setName-java.lang.String-). Metody [setAlternativeText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) i [getAlternativeText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#getAlternativeText--) mogą być odczytywane i ustawiane zarówno w Aspose.Slides, jak i w Microsoft PowerPoint. Dzięki tej metodzie możesz oznaczyć kształt i wykonywać różne operacje, takie jak usuwanie, ukrywanie lub zmiana kolejności kształtów na slajdzie.
-
-Aby ustawić AlternateText kształtu, wykonaj poniższe kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj dowolny kształt do slajdu.
-1. Wykonaj operacje na nowo dodanym kształcie.
-1. Przeglądaj kształty, aby znaleźć interesujący Cię kształt.
-1. Ustaw AlternativeText.
-1. Zapisz plik na dysku.
-
-```java
-// Utwórz klasę Presentation reprezentującą plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Pobierz pierwszy slajd
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Dodaj autokształt typu prostokąt
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Zapisz prezentację na dysku
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Dostęp do formatów układu dla kształtu**
-Aspose.Slides for Java zapewnia prosty interfejs API do uzyskiwania dostępu do formatów układu dla kształtu. Ten artykuł demonstruje, jak można uzyskać dostęp do formatów układu.
-
-Poniżej znajduje się przykładowy kod.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Renderowanie kształtu jako SVG**
-Teraz Aspose.Slides for Java wspiera renderowanie kształtu jako SVG. Do klasy [Shape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Shape) i interfejsu [IShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape) została dodana metoda [writeAsSvg](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (oraz jej przeciążenie). Metoda ta umożliwia zapisanie zawartości kształtu jako pliku SVG. Poniższy fragment kodu pokazuje, jak wyeksportować kształt ze slajdu do pliku SVG.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Wyrównywanie kształtu**
-Aspose.Slides umożliwia wyrównywanie kształtów względem marginesów slajdu lub względem siebie nawzajem. W tym celu dodano przeciążoną metodę [SlidesUtil.alignShape()](https://reference.aspose.com/slides/pl/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-). Wyliczenie [ShapesAlignmentType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ShapesAlignmentType) definiuje dostępne opcje wyrównania.
-
-**Przykład 1**
-
-Poniższy kod źródłowy wyrównuje kształty o indeksach 1, 2 i 4 wzdłuż górnej krawędzi slajdu.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Przykład 2**
-
-Poniższy przykład pokazuje, jak wyrównać całą kolekcję kształtów względem najniższego kształtu w kolekcji.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Właściwości odbicia**
-
-W Aspose.Slides klasa [ShapeFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeframe/) zapewnia kontrolę nad poziomym i pionowym lustrzanym odbiciem kształtów za pomocą właściwości `flipH` i `flipV`. Obie właściwości są typu `byte` i przyjmują wartości `1` (odbij), `0` (brak odbicia) lub `-1` (domyślne zachowanie). Wartości te są dostępne z [Frame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getFrame--) kształtu.
-
-Aby zmodyfikować ustawienia odbicia, tworzona jest nowa instancja [ShapeFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeframe/) z aktualną pozycją i rozmiarem kształtu, żądanymi wartościami `flipH` i `flipV` oraz kątem obrotu. Przypisanie tej instancji do [Frame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getFrame--) kształtu i zapis prezentacji stosuje transformacje lustrzane i zapisuje je w pliku wyjściowym.
-
-Załóżmy, że mamy plik sample.pptx, w którym pierwszy slajd zawiera pojedynczy kształt z domyślnymi ustawieniami odbicia, jak pokazano poniżej.
-
-![Kształt do odbicia](shape_to_be_flipped.png)
-
-Poniższy przykład kodu pobiera bieżące właściwości odbicia kształtu i odbija go zarówno poziomo, jak i pionowo.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Pobierz właściwość odbicia poziomego kształtu.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Pobierz właściwość odbicia pionowego kształtu.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Odwróć poziomo.
-    byte flipV = NullableBool.True; // Odwróć poziomo.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Wynik:
+Gdy operacja jest specyficzna dla typu kształtu, sprawdź interfejs przed użyciem członków specyficznych dla typu. Ten przykład aktualizuje tekst i tekst alternatywny tylko wtedy, gdy nazwany obiekt jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/).
 
-![Odbity kształt](flipped_shape.png)
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Modyfikacja kolekcji kształtów**
+
+Metody dodawania, klonowania, usuwania i zmiany kolejności działają na kolekcji natychmiast. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie kontynuuj polegania na indeksach zarejestrowanych przed tą operacją.
+
+### **Klonowanie kształtu**
+
+[addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) tworzy niezależną kopię i dołącza ją do docelowej kolekcji. [insertClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) również tworzy kopię, ale umieszcza ją pod określonym indeksem kolejności Z. Przeciążenia przyjmujące współrzędne przemieszczają klon bez zmiany jego rozmiaru; przeciążenia z szerokością i wysokością mogą go także skalować.
+
+Przykład tworzy docelowy slajd, klonuje oznaczony prostokąt na pierwszym planie i wstawia drugi klon na końcu. Zmiany w którymkolwiek klonie nie modyfikują kształtu źródłowego.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę oraz tekst alternatywny. Przypisz nowe logiczne identyfikatory do klona, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są obsługiwane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
+
+### **Usuwanie kształtów**
+
+[remove](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w trakcie iteracji po indeksach, przebiegaj od końca, aby każdy pozostały indeks pozostał ważny.
+
+Ten przykład usuwa każdy kształt o wyznaczonej nazwie. Odczytuje kształt pod bieżącym indeksem, a nie stały element kolekcji i nie rzuca niepotrzebnie kształtem.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Po usunięciu liczba kształtów i indeksy kolejnych kształtów ulegają zmianie. Odwołania do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Weź także pod uwagę łączniki, animacje i inne elementy prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż wygląd slajdu.
+
+### **Ukrywanie kształtu**
+
+Ustawienie [Hidden](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setHidden-boolean-) na `true` pozostawia kształt w kolekcji, ale zapobiega jego wyświetlaniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne dla kodu, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą być przywrócone później.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ukrywanie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może zostać odnaleziony i odsłonięty przez użytkownika lub kod, i pozostaje częścią pliku prezentacji.
+
+### **Zmienianie kolejności Z**
+
+Kształty nakładające się są rysowane w kolejności kolekcji. [reorder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) przenosi istniejący kształt do docelowego indeksu bez jego klonowania. Indeks `0` oznacza tył; `size() - 1` oznacza przód.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Prostokąt jest tworzony najpierw i początkowo znajduje się za elipsą. Przeniesienie go do końcowego indeksu umieszcza go na przodzie. Sfinalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dołączają lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną stos.
+
+## **Inspekcja kształtów na slajdach układu**
+
+Zwykłe slajdy, slajdy układu i slajdy nadrzędne mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem, co podobnie położony kształt na zwykłym slajdzie. Sprawdzaj kształty układu, gdy musisz zrozumieć lub zmienić formatowanie dostarczane przez układ.
+
+Poniższy przykład odczytuje [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getFillFormat--) i [LineFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getLineFormat--) każdego kształtu układu bez zakładania, że każdy kształt jest `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Edytowanie układu może wpłynąć na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy zwykły slajd dziedziczy obiekt czy zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
+
+## **Eksport kształtu do SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) zapisuje wyrenderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, a nie całe tło slajdu ani sąsiadujące kształty.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Utrzymuj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz od zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd zamiast pojedynczego kształtu. Wywołujący posiada strumień i musi go zamknąć.
+
+## **Wyrównywanie kształtów**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) ma przeciążenia, które wyrównują wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
+
+Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrócone odwołania do kształtów są konwertowane na ich bieżące indeksy bezpośrednio przed wyrównaniem.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wyrównanie zmienia pozycje, nie kolejność Z. Wyrównanie względne zazwyczaj wymaga co najmniej dwóch kształtów, podczas gdy pozioma lub pionowa dystrybucja wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli zmieniasz kolekcję przed wywołaniem metody.
+
+## **Odbicie kształtu**
+
+Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz rotację. Jej wartości `getFlipH` i `getFlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/java/com.aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje stan nieokreślony/domyslny.
+
+Prezentacja wejściowa poniżej zawiera jeden nieodbijany kształt.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Przykład zachowuje wszystkie inne wartości ramki i zamienia tylko dwa ustawienia odbicia. Jest to ważne, ponieważ przypisanie nowej [Frame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) zastępuje całą ramkę.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Zapisany kształt jest lustrzanie odbity poziomo i pionowo, zachowując pozycję, rozmiar i rotację.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Czy mogę łączyć kształty (union/intersect/subtract) na slajdzie tak jak w edytorze desktopowym?**
+**Czy powinienem używać indeksu kolekcji jako identyfikatora kształtu?**
 
-Nie istnieje wbudowane API operacji boolowskich. Można je przybliżyć, samodzielnie konstruując pożądany kontur – np. obliczając powstałą geometrię (przy użyciu [GeometryPath](https://reference.aspose.com/slides/pl/java/com.aspose.slides/geometrypath/)) i tworząc nowy kształt o tym obrysie, opcjonalnie usuwając oryginalne.
+Tylko przy krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla szablonów tworzonych ręcznie, lub `OfficeInteropShapeId` dla pracy interfejsu w zakresie slajdu.
 
-**Jak mogę kontrolować kolejność warstw (z‑order), aby kształt zawsze pozostawał „na wierzchu”?**
+**Czy ukrycie kształtu usuwa go z kolejności Z?**
 
-Zmieniaj kolejność wstawiania/przenoszenia w kolekcji [shapes](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseslide/#getShapes--) slajdu. Aby uzyskać przewidywalne wyniki, ustal kolejność warstw po zakończeniu wszystkich pozostałych modyfikacji slajdu.
+Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być znajdowany, przemieszczany, edytowany lub ponownie widoczny.
 
-**Czy mogę „zablokować” kształt, aby użytkownicy nie mogli go edytować w PowerPoint?**
+**Dlaczego sklonowany kształt pojawił się przed innym kształtem?**
 
-Tak. Ustaw flagi ochrony poziomu kształtu (/slides/pl/java/applying-protection-to-presentation/) (np. blokada zaznaczania, przemieszczania, zmiany rozmiaru, edycji tekstu). W razie potrzeby można zastosować ograniczenia także na poziomie mastera lub układu. Należy pamiętać, że jest to ochrona na poziomie interfejsu, a nie funkcja bezpieczeństwa; dla silniejszej ochrony można połączyć ją z ograniczeniami na poziomie pliku, takimi jak rekomendacje trybu tylko do odczytu lub hasła (/slides/pl/java/password-protected-presentation/).
+`addClone` dołącza klon na końcu kolekcji, czyli na przodzie kolejności Z. Użyj `insertClone`, aby wybrać początkowy indeks, lub `reorder` po dodaniu wszystkich kształtów.

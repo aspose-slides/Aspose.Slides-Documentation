@@ -1,11 +1,11 @@
 ---
-title: Spravovat tvary prezentace v Javě
+title: Správa tvarů prezentace v Javě
 linktitle: Manipulace s tvary
 type: docs
 weight: 40
 url: /cs/java/shape-manipulations/
 keywords:
-- PowerPoint tvar
+- tvar PowerPoint
 - tvar prezentace
 - tvar na snímku
 - najít tvar
@@ -13,391 +13,369 @@ keywords:
 - odstranit tvar
 - skrýt tvar
 - změnit pořadí tvaru
-- získat Interop ID tvaru
+- získat ID interop tvaru
 - alternativní text tvaru
 - formáty rozvržení tvaru
 - tvar jako SVG
 - tvar do SVG
 - zarovnat tvar
+- převrátit tvar
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se vytvářet, upravovat a optimalizovat tvary v Aspose.Slides pro Java a vytvářet vysoce výkonné PowerPoint prezentace."
+description: "Naučte se, jak identifikovat, klonovat, odstraňovat, skrývat, přeskupovat, exportovat, zarovnávat a převracet tvary prezentace pomocí Aspose.Slides pro Javu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s tvary v prezentacích pomocí Aspose.Slides. Ukazuje, jak najít tvar na snímku, klonovat jej, odstranit jej, skrýt jej, změnit jeho pořadí, získat jeho Interop ID tvaru a nastavit alternativní text pro identifikaci a další zpracování.
+Aspose.Slides for Java představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/). Kolekce je zároveň místem, kde najdete a upravujete tvary, i zdrojem jejich pořadí v zásobníku: index `0` je nejzazazení tvar, poslední index je nejpřednější tvar.
 
-Také pokrývá, jak získat přístup k formátům rozvržení pro tvary, vykreslit tvar jako SVG, zarovnat tvary na snímku a používat vlastnosti převrácení pro horizontální a vertikální zrcadlení. Navíc článek obsahuje krátké FAQ o kombinaci tvarů, pořadí vrstvení a zamykání tvarů.
+Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar, poté ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Poslední sekce se věnují formátování na úrovni rozvržení, exportu do SVG, zarovnání a nastavením převrácení. Každý příklad je nezávislý, takže můžete použít jen operace, které vaše workflow vyžaduje.
 
-## **Najít tvar na snímku**
-Toto téma popisuje jednoduchou techniku, která vývojářům usnadní nalezení konkrétního tvaru na snímku bez použití jeho interního Id. Je důležité vědět, že soubory PowerPoint prezentací nemají žádný způsob, jak identifikovat tvary na snímku kromě interního jedinečného Id. Pro vývojáře se může zdát obtížné najít tvar pomocí jeho interního jedinečného Id. Všechny tvary přidané na snímky mají nějaký alternativní text. Navrhujeme vývojářům použít alternativní text pro vyhledání konkrétního tvaru. Můžete v MS PowerPoint definovat alternativní text pro objekty, které plánujete v budoucnu měnit.
+## **Identifikace a vyhledání tvarů**
 
-Po nastavení alternativního textu libovolného požadovaného tvaru můžete prezentaci otevřít pomocí Aspose.Slides pro Java a projít všechny tvary přidané na snímek. Při každé iteraci můžete zkontrolovat alternativní text tvaru a tvar s odpovídajícím alternativním textem bude tvar, který potřebujete. Pro lepší demonstraci této techniky jsme vytvořili metodu, [findShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) , která umožní najít konkrétní tvar na snímku a jednoduše jej vrátí.
+Indexy v kolekci jsou praktické při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odebrání nebo přeuspořádání tvaru může změnit jeho index. Vyberte identifikátor podle toho, jak je prezentace vytvářena a udržována:
 
-```java
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getName--) je užitečný pro šablony řízené vývojářem a snadno se kontroluje v panelu výběru v PowerPointu. Jména lze upravovat a nejsou zaručena jako jedinečná, takže pokud na nich závisí kód, zaveďte pojmenovací konvenci.
+- [AlternativeText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getAlternativeText--) je užitečný, když už popis přístupnosti nebo autorovo štítek tvar identifikují. Je viditelný pro uživatele, může být lokalizován nebo přepsán pro přístupnost a není zaručeně jedinečný. Není vhodné tiše přetěžovat smysluplný text přístupnosti jako klíč databáze.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) je jen pro čtení a je jedinečný v rámci snímku a odpovídá ID tvaru používanému v PowerPoint Interop. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá své vlastní ID.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Alternativní text tvaru, který má být nalezen
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Implementace metody pro nalezení tvaru na snímku pomocí jeho alternativního textu
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Iterace přes všechny tvary v snímku
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Pokud se alternativní text tvaru shoduje s požadovaným
-        // Vrátit tvar
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+Související metoda [getUniqueId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getUniqueId--) vrací identifikátor s rozsahem prezentace, ale tento identifikátor je určen pro doplňky a může být přidělen znovu. Neměl by být považován za trvalý externí klíč. Pokud je dlouhodobá identita podstatná, uložte mapování v aplikačních datech a ověřte, že očekávaný tvar stále existuje.
 
-## **Klonovat tvar**
-Pro klonování tvaru na snímek pomocí Aspose.Slides pro Java:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).
-1. Získejte odkaz na snímek pomocí jeho indexu.
-1. Přistupte ke sbírce tvarů zdrojového snímku.
-1. Přidejte nový snímek do prezentace.
-1. Klonujte tvary ze sbírky tvarů zdrojového snímku do nového snímku.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Příklad níže přidá skupinový tvar na snímek.
+Následující příklad vyhledává podle jména s přesnou shodou a vrací interop ID v rozsahu snímku. Když šablona neobsahuje očekávaný tvar, kód nahlásí tento výsledek místo toho, aby pokračoval se špatným objektem.
 
 ```java
-// Vytvořte instanci třídy Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Zapište soubor PPTX na disk
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Odstranit tvar**
-Aspose.Slides pro Java umožňuje vývojářům odstranit libovolný tvar. Pro odstranění tvaru z libovolného snímku postupujte podle níže uvedených kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Najděte tvar s konkrétním AlternativeText.
-1. Odstraňte tvar.
-1. Uložte soubor na disk.
-
-```java
-// Vytvořte objekt Presentation
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Přidat autoshape typu obdélník
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Uložit prezentaci na disk
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Skrýt tvar**
-Aspose.Slides pro Java umožňuje vývojářům skrýt libovolný tvar. Pro skrytí tvaru na libovolném snímku postupujte podle níže uvedených kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Najděte tvar s konkrétním AlternativeText.
-1. Skrýt tvar.
-1. Uložte soubor na disk.
-
-```java
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Přidat autoshape typu obdélník
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Uložit prezentaci na disk
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Změnit pořadí tvaru**
-Aspose.Slides pro Java umožňuje vývojářům přeuspořádat tvary. Přeuspořádání tvaru určuje, který tvar je vpředu a který vzadu. Pro přeuspořádání tvaru na libovolném snímku postupujte podle níže uvedených kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Přidejte tvar.
-1. Přidejte nějaký text do textového rámce tvaru.
-1. Přidejte další tvar se stejnými souřadnicemi.
-1. Přeuspořádejte tvary.
-1. Uložte soubor na disk.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Získat Interop ID tvaru**
-Aspose.Slides pro Java umožňuje vývojářům získat jedinečný identifikátor tvaru v kontextu snímku na rozdíl od metody [getUniqueId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#getUniqueId--) , která poskytuje jedinečný identifikátor v kontextu celé prezentace. Metoda [getOfficeInteropShapeId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) byla přidána do rozhraní [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape) a třídy [Shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Shape). Hodnota vrácená metodou [getOfficeInteropShapeId](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) odpovídá hodnotě Id objektu Microsoft.Office.Interop.PowerPoint.Shape. Níže je uveden ukázkový kód.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Získání jedinečného identifikátoru tvaru v kontextu snímku
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Nastavit alternativní text pro tvar**
-Aspose.Slides pro Java umožňuje vývojářům nastavit AlternateText libovolného tvaru.
-Tvary v prezentaci lze rozlišit pomocí metody [AlternativeText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) nebo [Shape Name](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setName-java.lang.String-).
-Metody [setAlternativeText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) a [getAlternativeText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#getAlternativeText--) lze číst nebo nastavovat pomocí Aspose.Slides i Microsoft PowerPoint.
-Použitím této metody můžete označit tvar a provádět různé operace, jako je odstranění tvaru,
-skrývání tvaru nebo přeuspořádání tvarů na snímku.
-Pro nastavení AlternateText tvaru postupujte podle níže uvedených kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Přidejte libovolný tvar na snímek.
-1. Proveďte nějakou práci s nově přidaným tvarem.
-1. Projděte tvary, abyste našli požadovaný tvar.
-1. Nastavte AlternativeText.
-1. Uložte soubor na disk.
-
-```java
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Přidejte autoshape typu obdélník
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Uložte prezentaci na disk
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Přístup k formátům rozvržení pro tvar**
-Aspose.Slides pro Java poskytuje jednoduché API pro přístup k formátům rozvržení tvaru. Tento článek ukazuje, jak můžete získat přístup k formátům rozvržení.
-
-Níže je uveden ukázkový kód.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Vykreslit tvar jako SVG**
-Nyní Aspose.Slides pro Java podporuje vykreslování tvaru jako SVG. Metoda [writeAsSvg](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (a její přetížení) byla přidána do třídy [Shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Shape) a rozhraní [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape). Tato metoda umožňuje uložit obsah tvaru jako soubor SVG. Níže je ukázkový kód, který ukazuje, jak exportovat tvar snímku do souboru SVG.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Zarovnat tvar**
-Aspose.Slides umožňuje zarovnat tvary buď vzhledem k okrajům snímku, nebo vzhledem k sobě navzájem. K tomuto účelu byla přidána přetížená metoda [SlidesUtil.alignShape()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) . Výčtové typy [ShapesAlignmentType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ShapesAlignmentType) definují možné možnosti zarovnání.
-
-**Příklad 1**
-
-Přiložený zdrojový kód zarovnává tvary s indexy 1, 2 a 4 podél horní hranice snímku.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Příklad 2**
-
-Příklad níže ukazuje, jak zarovnat celou kolekci tvarů vzhledem k úplně spodnímu tvaru v kolekci.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Vlastnosti převrácení**
-V Aspose.Slides třída [ShapeFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shapeframe/) poskytuje kontrolu nad horizontálním a vertikálním zrcadlením tvarů pomocí vlastností `flipH` a `flipV`. Obě vlastnosti jsou typu `byte` a umožňují hodnoty `1` pro převrácení, `0` pro žádné převrácení nebo `-1` pro výchozí chování. Tyto hodnoty jsou přístupné z [Frame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getFrame--) tvaru.
-
-Pro úpravu nastavení převrácení se vytvoří nová instance [ShapeFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shapeframe/) s aktuální pozicí a velikostí tvaru, požadovanými hodnotami pro `flipH` a `flipV` a úhlem otáčení. Přiřazením této instance k [Frame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getFrame--) tvaru a uložením prezentace se aplikují zrcadlové transformace a zapíší se do výstupního souboru.
-
-Řekněme, že máme soubor sample.pptx, ve kterém první snímek obsahuje jediný tvar s výchozím nastavením převrácení, jak je ukázáno níže.
-
-![Tvar, který má být převrácen](shape_to_be_flipped.png)
-
-Následující ukázkový kód získá aktuální vlastnosti převrácení tvaru a převrátí jej jak horizontálně, tak vertikálně.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Získání horizontálního flipu (převrácení) tvaru.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Získání vertikálního flipu (převrácení) tvaru.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Převrátit horizontálně.
-    byte flipV = NullableBool.True; // Převrátit horizontálně.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-![Převrácený tvar](flipped_shape.png)
+Když je operace specifická pro typ tvaru, zkontrolujte rozhraní před použitím členů specifických pro typ. Tento příklad aktualizuje text a alternativní text pouze pokud pojmenovaný objekt je [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Modifikace kolekce tvarů**
+
+Metody pro přidání, klonování, odebrání a přeuspořádání působí na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nepokračujte v používání indexů zachycených před touto operací.
+
+### **Klonování tvaru**
+
+[addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) vytvoří nezávislou kopii a připojí ji k cílové kolekci. [insertClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) také vytvoří kopii, ale umístí ji na zadaný z‑order index. Přetížení, která přijímají souřadnice, přesunou klon bez změny velikosti; přetížení s šířkou a výškou jej mohou také přizpůsobit.
+
+Příklad vytvoří cílový snímek, klonuje označený obdélník dopředu a vloží druhý klon dozadu. Změny v libovolném klonu neovlivní původní tvar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Klonování kopíruje obsah a formátování tvaru, včetně jeho jména a alternativního textu. Přidělte novým klonům logické identifikátory, pokud musí být tyto hodnoty jedinečné. Zdroje použité složitými tvary spravuje prezentace, ale klon zůstává novou položkou v kolekci s novou identitou tvaru.
+
+### **Odstranění tvarů**
+
+[remove](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) smaže konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během iterace přes indexy postupujte od konce, aby každý zbývající index zůstal platný.
+
+Tento příklad odstraňuje každý tvar s určeným jménem. Čte tvar na aktuálním indexu, ne pevně danou položku kolekce, a zbytečně tvar nekonvertuje.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Po odstranění se počet tvarů a indexy následujících tvarů změní. Odkazy na nedotčené tvary zůstávají spolehlivější než uložené indexy. Také zvažte konektory, animace a další funkce prezentace, které mohou odkazovat na odstraněný objekt; odebrání viditelného tvaru může změnit více než jen vzhled snímku.
+
+### **Skrytí tvaru**
+
+Nastavením [Hidden](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#setHidden-boolean-) na `true` zůstane tvar v kolekci, ale nebude se zobrazovat v normálním režimu prezentace. Jeho index, formátování a obsah zůstávají k dispozici kódu, takže skrytí je vhodné pro volitelné prvky, které mohou být později obnoveny.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Skrytí není smazání ani zabezpečení. Objekt může stále být objeven a odskryt uživatelem nebo kódem a zůstává součástí souboru prezentace.
+
+### **Změna Z‑orderu**
+
+Překrývající se tvary se vykreslují v pořadí kolekce. [reorder](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) přesune existující tvar na cílový index bez jeho klonování. Index `0` je zadní; `size() - 1` je přední.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Obdélník je vytvořen jako první a zpočátku leží za eliptou. Přesunutím na poslední index se dostane dopředu. Z-finalizujte Z‑order po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky do kolekce a mohou změnit zamýšlený zásobník.
+
+## **Prohlížení tvarů na rozvržení snímků**
+
+Normální snímky, rozvržení snímků a hlavní snímky mají samostatné kolekce tvarů. Tvar v kolekci rozvržení není stejný objekt jako podobně umístěný tvar na normálním snímku. Prohlédněte si tvary rozvržení, když potřebujete pochopit nebo změnit formátování poskytované rozvržením.
+
+Následující příklad čte pro každý tvar rozvržení [FillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getFillFormat--) a [LineFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#getLineFormat--) aniž by předpokládal, že každý tvar je `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Úprava rozvržení může ovlivnit více snímků, které jej používají. Před změnou tvaru v rozvržení zjistěte, zda normální snímek dědí tento objekt nebo obsahuje lokální přepsání, a otestujte každý snímek, který rozvržení používá.
+
+## **Export tvaru do SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje jen tvar, ne celé pozadí snímku ani sousední tvary.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na zdrojích, jako jsou písma a obrázky. Pokud potřebujete celou kompozici, exportujte snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej uzavřít.
+
+## **Zarovnání tvarů**
+
+Metoda [SlideUtil.alignShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) má přetížení, která zarovnávají buď všechny tvary, nebo vybrané indexy kolekce. [ShapesAlignmentType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shapesalignmenttype/) určuje okraj, středovou čáru nebo režim rozdělení. Nastavte `alignToSlide` na `true`, chcete‑li použít okraje snímku; nastavte na `false`, chcete‑li zarovnat vybrané tvary vůči sobě navzájem.
+
+Tento příklad zarovnává tři tvary k hornímu okraji snímku. Vrácené reference na tvary jsou převedeny na jejich aktuální indexy těsně před zarovnáním.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Zarovnání mění pozice, ne Z‑order. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco horizontální nebo vertikální rozdělení potřebuje dostatek tvarů pro definování mezery. Přepočítejte indexy, pokud před voláním metody měníte kolekci.
+
+## **Převrácení tvaru**
+
+Třída [ShapeFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shapeframe/) ukládá pozici, velikost, vodorovné a svislé nastavení převrácení a rotaci. Její hodnoty `getFlipH` a `getFlipV` používají [NullableBool](https://reference.aspose.com/slides/cs/java/com.aspose.slides/nullablebool/): `True` zapíná převrácení, `False` ho vypíná a `NotDefined` zachovává neurčený/výchozí stav.
+
+Vstupní prezentace níže obsahuje jeden neobrácený tvar.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Příklad zachovává všechny ostatní hodnoty rámce a nahrazuje jen dvě nastavení převrácení. To je důležité, protože při přiřazení nového [Frame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) se nahrazuje celý rámec.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Uložený tvar je zrcadlený vodorovně i svisle, přičemž si zachovává svou pozici, velikost a rotaci.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Mohu kombinovat tvary (sjednocení/průnik/odečtení) na snímku jako v desktopovém editoru?**
+**Mám použít index kolekce jako identifikátor tvaru?**
 
-Neexistuje vestavěné API pro Boolean operace. Můžete to přibližně napodobit vytvořením požadovaného obrysu sami – např. vypočítat vzniklou geometrii (pomocí [GeometryPath](https://reference.aspose.com/slides/cs/java/com.aspose.slides/geometrypath/)) a vytvořit nový tvar s tímto konturem, případně odstranit původní.
+Pouze pro krátkodobé zpracování, kdy se kolekce před použitím indexu již nezmění. Upřednostněte ověřenou konvenci `Name` nebo `AlternativeText` pro vytvořené šablony, nebo `OfficeInteropShapeId` pro práci v rozsahu snímku.
 
-**Jak mohu řídit pořadí vrstvení (z-order), aby tvar vždy zůstal "nahoru"?**
+**Odstraňuje skrytí tvaru jeho pozici v Z‑orderu?**
 
-Změňte pořadí vkládání/přesunu v kolekci [shapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslide/#getShapes--) snímku. Pro předvídatelné výsledky dokončete z-order po všech ostatních úpravách snímku.
+Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Lze jej najít, přeuspořádat, upravit nebo znovu zobrazit.
 
-**Mohu "zamknout" tvar, aby uživatelé nemohli v PowerPointu provádět úpravy?**
+**Proč se klonovaný tvar objevil před jiným tvarem?**
 
-Ano. Nastavte [značky ochrany na úrovni tvaru](/slides/cs/java/applying-protection-to-presentation/) (např. zamknout výběr, přesun, změnu velikosti, úpravy textu). V případě potřeby můžete omezení aplikovat i na master nebo rozvržení. Upozorňujeme, že se jedná o ochranu na úrovni uživatelského rozhraní, nikoli o bezpečnostní prvek; pro silnější ochranu kombinujte s omezeními na úrovni souboru, jako jsou [doporučení pro režim jen pro čtení nebo hesla](/slides/cs/java/password-protected-presentation/).
+`addClone` připojí klon na konec kolekce, což je přední část Z‑orderu. Použijte `insertClone` pro výběr počátečního indexu nebo `reorder` po přidání všech tvarů.

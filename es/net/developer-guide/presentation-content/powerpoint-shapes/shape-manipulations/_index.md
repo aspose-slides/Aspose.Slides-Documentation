@@ -8,369 +8,377 @@ keywords:
 - Forma de PowerPoint
 - Forma de presentación
 - Forma en diapositiva
-- Encontrar forma
+- Buscar forma
 - Clonar forma
 - Eliminar forma
 - Ocultar forma
 - Cambiar orden de forma
-- Obtener ID de forma Interop
+- Obtener ID de forma interop
 - Texto alternativo de forma
 - Formatos de diseño de forma
 - Forma como SVG
 - Forma a SVG
 - Alinear forma
+- Voltear forma
 - PowerPoint
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a crear, editar y optimizar formas en Aspose.Slides para .NET y ofrecer presentaciones de PowerPoint de alto rendimiento."
+description: "Aprenda a identificar, clonar, eliminar, ocultar, reordenar, exportar, alinear y voltear formas de presentación con Aspose.Slides para .NET."
 ---
+## **Visión general**
 
-## **Buscar una forma en una diapositiva**
-Este tema describirá una técnica sencilla para facilitar a los desarrolladores la búsqueda de una forma específica en una diapositiva sin utilizar su Id interno. Es importante saber que los archivos de presentación de PowerPoint no disponen de ningún método para identificar formas en una diapositiva, salvo un Id único interno. A los desarrolladores les resulta complicado localizar una forma mediante su Id único interno. Todas las formas añadidas a las diapositivas poseen algún Texto alternativo. Sugerimos a los desarrolladores que utilicen texto alternativo para encontrar una forma concreta. Puede usar MS PowerPoint para definir el texto alternativo de los objetos que planea modificar en el futuro.
+Aspose.Slides for .NET representa las formas en una diapositiva como una [IShapeCollection](https://reference.aspose.com/slides/es/net/aspose.slides/ishapecollection/) ordenada. La colección es tanto el lugar donde se encuentran y modifican las formas como la fuente de su orden de apilamiento: el índice `0` es la forma más trasera, mientras que el último índice es la forma más delantera.
 
-Después de establecer el texto alternativo de la forma deseada, puede abrir esa presentación con Aspose.Slides for .NET e iterar a través de todas las formas añadidas a una diapositiva. En cada iteración, puede comprobar el texto alternativo de la forma y la forma cuyo texto alternativo coincida será la que necesita. Para demostrar esta técnica de forma más clara, hemos creado un método, [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) que realiza la búsqueda de una forma específica en una diapositiva y simplemente devuelve esa forma.
-```c#
-public static void Run()
+Este artículo sigue ese modelo. Primero explica cómo identificar una forma de forma fiable, luego muestra cómo clonar, eliminar, ocultar y reordenar formas. Las secciones finales cubren el formato a nivel de diseño, la exportación a SVG, la alineación y los ajustes de inversión. Cada ejemplo es independiente, por lo que puede usar solo las operaciones que requiere su flujo de trabajo.
+
+## **Identificar y buscar formas**
+
+Los índices de la colección son convenientes al procesar un archivo conocido, pero no son identificadores estables. Añadir, eliminar o reordenar una forma puede cambiar su índice. Elija un identificador según cómo se crea y mantiene la presentación:
+
+- [Name](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/name/) es útil para plantillas controladas por desarrolladores y es fácil de inspeccionar en el panel de selección de PowerPoint. Los nombres pueden editarse y no se garantiza que sean únicos, por lo que debe establecer una convención de nombres si el código depende de ellos.
+- [AlternativeText](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/alternativetext/) es útil cuando una descripción de accesibilidad o una etiqueta proporcionada por el autor ya identifica la forma. Es visible para los usuarios, puede localizarse o reescribirse para accesibilidad, y no se garantiza que sea única. No reutilice silenciosamente texto de accesibilidad significativo como clave de base de datos.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/officeinteropshapeid/) es un identificador de solo lectura que es único dentro de una diapositiva y corresponde al ID de forma utilizado por la interoperabilidad de PowerPoint. Úselo al integrar con PowerPoint o cuando necesite una referencia inequívoca durante la vida útil de una forma. Una forma clonada o recreada es una forma diferente y recibe su propio ID.
+
+La propiedad relacionada [UniqueId](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/uniqueid/) tiene alcance a nivel de presentación, pero está destinada a complementos y puede reasignarse. No debe tratarse como una clave externa permanente. Si la identidad a largo plazo es esencial, mantenga el mapeo en los datos de la aplicación y valide que la forma esperada siga existiendo.
+
+El siguiente ejemplo busca por `Name` con una comparación ordinal y reporta el ID de interop a nivel de diapositiva. Cuando la plantilla no contiene la forma esperada, el código informa ese resultado en lugar de continuar con el objeto incorrecto.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Instanciar una clase Presentation que representa el archivo de presentación
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Texto alternativo de la forma a encontrar
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Implementación del método para encontrar una forma en una diapositiva usando su texto alternativo
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Iterando a través de todas las formas dentro de la diapositiva
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Si el texto alternativo de la forma coincide con el requerido entonces
-        // Devolver la forma
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-## **Clonar una forma**
-Para clonar una forma en una diapositiva usando Aspose.Slides for .NET:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtener la referencia de una diapositiva mediante su índice.
-1. Acceder a la colección de formas de la diapositiva fuente.
-1. Añadir una nueva diapositiva a la presentación.
-1. Clonar las formas de la colección de la diapositiva fuente a la nueva diapositiva.
-1. Guardar la presentación modificada como archivo PPTX.
-
-El ejemplo a continuación añade una forma de grupo a una diapositiva.
-```c#
-// Instanciar la clase Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Escribir el archivo PPTX en disco
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Eliminar una forma**
-Aspose.Slides for .NET permite a los desarrolladores eliminar cualquier forma. Para eliminar la forma de cualquier diapositiva, siga los pasos a continuación:
-
-1. Crear una instancia de la clase `Presentation`.
-1. Acceder a la primera diapositiva.
-1. Encontrar la forma con el TextoAlternativo específico.
-1. Eliminar la forma.
-1. Guardar el archivo en disco.
-```c#
-// Crear objeto Presentation
-Presentation pres = new Presentation();
-
-// Obtener la primera diapositiva
-ISlide sld = pres.Slides[0];
-
-// Añadir autoshape de tipo rectángulo
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Guardar la presentación en disco
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Ocultar una forma**
-Aspose.Slides for .NET permite a los desarrolladores ocultar cualquier forma. Para ocultar la forma de cualquier diapositiva, siga los pasos a continuación:
-
-1. Crear una instancia de la clase `Presentation`.
-1. Acceder a la primera diapositiva.
-1. Encontrar la forma con el TextoAlternativo específico.
-1. Ocultar la forma.
-1. Guardar el archivo en disco.
-```c#
- // Instanciar la clase Presentation que representa el PPTX
- Presentation pres = new Presentation();
-
- // Obtener la primera diapositiva
- ISlide sld = pres.Slides[0];
-
- // Agregar autoshape de tipo rectángulo
- IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
- IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
- String alttext = "User Defined";
- int iCount = sld.Shapes.Count;
- for (int i = 0; i < iCount; i++)
- {
- 	AutoShape ashp = (AutoShape)sld.Shapes[i];
- 	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
- 	{
- 		ashp.Hidden = true;
- 	}
- }
-
- // Guardar la presentación en disco
- pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Cambiar el orden de las formas**
-Aspose.Slides for .NET permite a los desarrolladores reordenar las formas. Reordenar una forma determina cuál está al frente y cuál está detrás. Para reordenar las formas de cualquier diapositiva, siga los pasos a continuación:
-
-1. Crear una instancia de la clase `Presentation`.
-1. Acceder a la primera diapositiva.
-1. Añadir una forma.
-1. Añadir texto al marco de texto de la forma.
-1. Añadir otra forma con las mismas coordenadas.
-1. Reordenar las formas.
-1. Guardar el archivo en disco.
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Obtener el ID de forma Interop**
-Aspose.Slides for .NET permite a los desarrolladores obtener un identificador de forma único en el ámbito de la diapositiva, a diferencia de la propiedad UniqueId, que proporciona un identificador único en el ámbito de la presentación. La propiedad OfficeInteropShapeId se añadió a las interfaces IShape y a la clase Shape. El valor devuelto por la propiedad OfficeInteropShapeId corresponde al valor del Id del objeto Microsoft.Office.Interop.PowerPoint.Shape. A continuación se muestra un ejemplo de código.
-```c#
-public static void Run()
+if (targetShape is null)
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Obtención del identificador de forma único en el ámbito de la diapositiva
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
+Cuando una operación es específica de un tipo de forma, compruebe la interfaz antes de usar miembros específicos del tipo. Este ejemplo actualiza el texto y el texto alternativo solo si el objeto con nombre es un [IAutoShape](https://reference.aspose.com/slides/es/net/aspose.slides/iautoshape/).
 
-## **Establecer texto alternativo para una forma**
-Aspose.Slides for .NET permite a los desarrolladores establecer el AlternateText de cualquier forma.  
-Las formas en una presentación pueden distinguirse mediante la propiedad AlternativeText o el nombre de la forma.  
-La propiedad AlternativeText puede leerse o establecerse tanto con Aspose.Slides como con Microsoft PowerPoint.  
-Al usar esta propiedad, puede etiquetar una forma y realizar distintas operaciones como eliminar, ocultar o reordenar formas en una diapositiva.  
-Para establecer el AlternateText de una forma, siga los pasos a continuación:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-1. Crear una instancia de la clase `Presentation`.
-1. Acceder a la primera diapositiva.
-1. Añadir cualquier forma a la diapositiva.
-1. Realizar alguna operación con la forma recién añadida.
-1. Recorrer las formas para encontrar una forma.
-1. Establecer el AlternativeText.
-1. Guardar el archivo en disco.
-```c#
-// Instanciar la clase Presentation que representa el PPTX
-Presentation pres = new Presentation();
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-// Obtener la primera diapositiva
-ISlide sld = pres.Slides[0];
-
-// Agregar autoshape de tipo rectángulo
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Guardar la presentación en disco
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Acceder a formatos de diseño para una forma**
-Aspose.Slides for .NET proporciona una API sencilla para acceder a los formatos de diseño de una forma. Este artículo muestra cómo puede acceder a dichos formatos.
-
-A continuación se muestra un ejemplo de código.
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
+## **Modificar la colección de formas**
 
-## **Renderizar una forma como SVG**
-Ahora Aspose.Slides for .NET admite la renderización de una forma como SVG. El método WriteAsSvg (y su sobrecarga) se añadió a la clase Shape y a la interfaz IShape. Este método permite guardar el contenido de la forma como un archivo SVG. El fragmento de código a continuación muestra cómo exportar la forma de una diapositiva a un archivo SVG.
-```c#
-public static void Run()
+Los métodos add, clone, remove y reorder operan sobre la colección de forma inmediata. Si una operación cambia el número o el orden de las formas, no continúe confiando en los índices capturados antes de esa operación.
+
+### **Clonar una forma**
+
+[AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/ishapecollection/addclone/) crea una copia independiente y la añade al final de la colección de destino. [InsertClone](https://reference.aspose.com/slides/es/net/aspose.slides/ishapecollection/insertclone/) también crea una copia pero la coloca en un índice de orden Z especificado. Las sobrecargas que aceptan coordenadas mueven la copia sin cambiar su tamaño; las sobrecargas con ancho y alto pueden redimensionarla también.
+
+El ejemplo crea una diapositiva de destino, clona un rectángulo etiquetado al frente e inserta una segunda copia al fondo. Los cambios en cualquiera de las copias no modifican la forma original.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Clonar copia el contenido y el formato de la forma, incluido su nombre y texto alternativo. Asigne nuevos identificadores lógicos a la copia cuando esos valores deben ser únicos. Los recursos utilizados por formas complejas son gestionados por la presentación, pero una copia sigue siendo un nuevo elemento de la colección con una nueva identidad de forma.
+
+### **Eliminar formas**
+
+[Remove](https://reference.aspose.com/slides/es/net/aspose.slides/ishapecollection/remove/) elimina un objeto de forma específico de su colección. Cuando se eliminan varias coincidencias durante una iteración indexada, recorra desde el final para que cada índice restante siga siendo válido.
+
+Este ejemplo elimina cada forma con un nombre designado. Lee `slide.Shapes[i]`, no un elemento de colección fijo, y no convierte la forma innecesariamente.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Después de la eliminación, el recuento de formas y los índices de las formas posteriores cambian. Las referencias a formas no afectadas siguen siendo más fiables que los índices guardados. También considere conectores, animaciones y otras características de la presentación que puedan referirse al objeto eliminado; eliminar una forma visible puede cambiar más que la apariencia de la diapositiva.
+
+### **Ocultar una forma**
+
+Establecer [Hidden](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/hidden/) a `true` mantiene la forma en la colección pero impide que aparezca en la presentación normal. Su índice, formato y contenido siguen disponibles para el código, por lo que ocultar es apropiado para elementos opcionales que pueden restaurarse más tarde.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Ocultar no es eliminación ni seguridad. El objeto todavía puede ser descubierto y vuelto a mostrar por un usuario o por código, y sigue formando parte del archivo de la presentación.
+
+### **Cambiar el orden Z**
+
+Las formas superpuestas se dibujan según el orden de la colección. [Reorder](https://reference.aspose.com/slides/es/net/aspose.slides/ishapecollection/reorder/) mueve una forma existente a un índice objetivo sin clonarla. El índice `0` es el fondo; `Count - 1` es el frente.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+El rectángulo se crea primero y inicialmente se sitúa detrás de la elipse. Moviéndolo al índice final lo coloca al frente. Finalice el orden Z después de añadir o clonar todas las formas relacionadas, porque esas operaciones añaden o insertan nuevos elementos en la colección y pueden alterar la pila prevista.
+
+## **Inspeccionar formas en diapositivas de diseño**
+
+Las diapositivas normales, de diseño y maestras tienen colecciones de formas separadas. Una forma en una colección de diseño no es el mismo objeto que una forma posicionada de forma similar en una diapositiva normal. Inspeccione las formas de diseño cuando necesite comprender o cambiar el formato suministrado por un diseño.
+
+El siguiente ejemplo lee el [FillFormat](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/fillformat/) y el [LineFormat](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/lineformat/) de cada forma de diseño sin asumir que cada forma es un `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
+Editar un diseño puede afectar a varias diapositivas que lo usan. Antes de cambiar una forma de diseño, determine si una diapositiva normal hereda el objeto o contiene una sobrescritura local, y pruebe cada diapositiva que use ese diseño.
 
-## **Alinear una forma**
+## **Exportar una forma a SVG**
 
-A través del método [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) sobrecargado, puede
+[WriteAsSvg](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/writeassvg/) escribe el contenido renderizado de una forma a un flujo. El resultado contiene la forma, no todo el fondo de la diapositiva ni las formas adyacentes.
 
-* alinear formas respecto a los márgenes de una diapositiva. Ver Ejemplo 1.  
-* alinear formas entre sí. Ver Ejemplo 2.  
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-La enumeración [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) define las opciones de alineación disponibles.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-**Example 1**
-
-Este código C# muestra cómo alinear las formas con índices 1, 2 y 4 a lo largo del borde superior de una diapositiva:
-El código fuente a continuación alinea las formas con índices 1, 2 y 4 a lo largo del borde superior de la diapositiva. 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
+Mantenga la presentación abierta mientras renderiza. La salida depende del formato de la forma y de recursos como fuentes e imágenes. Si necesita la composición completa, exporte la diapositiva en lugar de una forma individual. El llamador posee el flujo y debe disponerlo.
 
-**Example 2**
+## **Alinear formas**
 
-Este código C# muestra cómo alinear una colección completa de formas respecto a la forma inferior de la colección:
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+Las sobrecargas de [SlideUtil.AlignShapes](https://reference.aspose.com/slides/es/net/aspose.slides.util/slideutil/alignshapes/) alinean ya sea todas las formas o los índices de colección seleccionados. [ShapesAlignmentType](https://reference.aspose.com/slides/es/net/aspose.slides/shapesalignmenttype/) especifica el borde, la línea central o el modo de distribución. Establezca `alignToSlide` a `true` para usar los bordes de la diapositiva; establézcalo a `false` para alinear las formas seleccionadas entre sí.
+
+Este ejemplo alinea tres formas al borde superior de la diapositiva. Las referencias a las formas devueltas se convierten a sus índices actuales inmediatamente antes de la alineación.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
+La alineación cambia posiciones, no el orden Z. La alineación relativa normalmente necesita al menos dos formas, mientras que la distribución horizontal o vertical requiere suficientes formas para definir el espaciado. Recalcule los índices si modifica la colección antes de llamar al método.
 
-## **Propiedades de volteo**
+## **Voltear una forma**
 
-En Aspose.Slides, la clase [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) proporciona control sobre el espejo horizontal y vertical de las formas mediante sus propiedades `FlipH` y `FlipV`. Ambas propiedades son del tipo [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), permitiendo valores `True` para indicar un volteo, `False` para no voltear, o `NotDefined` para usar el comportamiento predeterminado. Estos valores son accesibles desde el [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) de una forma.
+La clase [ShapeFrame](https://reference.aspose.com/slides/es/net/aspose.slides/shapeframe/) almacena la posición, el tamaño, los ajustes de volteo horizontal y vertical, y la rotación. Sus valores `FlipH` y `FlipV` usan [NullableBool](https://reference.aspose.com/slides/es/net/aspose.slides/nullablebool/): `True` activa el volteo, `False` lo desactiva, y `NotDefined` conserva el estado no especificado/predeterminado.
 
-Para modificar la configuración de volteo, se construye una nueva instancia de [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) con la posición y el tamaño actuales de la forma, los valores deseados para `FlipH` y `FlipV`, y el ángulo de rotación. Asignar esta instancia al [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) de la forma y guardar la presentación aplica las transformaciones de espejo y las compromete en el archivo de salida.
+La presentación de entrada a continuación contiene una forma sin voltear.
 
-Supongamos que tenemos un archivo sample.pptx en el que la primera diapositiva contiene una única forma con la configuración de volteo predeterminada, como se muestra a continuación.
+![La forma antes de voltear](shape_to_be_flipped.png)
 
-![The shape to be flipped](shape_to_be_flipped.png)
+El ejemplo conserva todos los demás valores del marco y reemplaza solo los dos ajustes de volteo. Esto es importante porque asignar un nuevo [Frame](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/frame/) reemplaza el marco completo.
 
-El siguiente ejemplo de código recupera las propiedades de volteo actuales de la forma y la voltea tanto horizontal como verticalmente.
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Recuperar la propiedad de volteo horizontal de la forma.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Recuperar la propiedad de volteo vertical de la forma.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Voltear horizontalmente.
-    NullableBool flipV = NullableBool.True; // Voltear verticalmente.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
+La forma guardada se refleja horizontal y verticalmente manteniendo su posición, tamaño y rotación.
 
-El resultado:
-
-![The flipped shape](flipped_shape.png)
+![La forma después de voltear](flipped_shape.png)
 
 ## **Preguntas frecuentes**
 
-**¿Puedo combinar formas (unir/intersectar/restar) en una diapositiva como en un editor de escritorio?**
+**¿Debo usar un índice de colección como identificador de forma?**
 
-No existe una API de operaciones booleanas incorporada. Puede aproximarse construyendo manualmente el contorno deseado—por ejemplo, calculando la geometría resultante (mediante [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)) y creando una nueva forma con ese contorno, eliminando opcionalmente las originales.
+Solo para procesamiento de corta duración cuando la colección no cambiará antes de que se use el índice. Prefiera una convención validada de `Name` o `AlternativeText` para plantillas creadas, o `OfficeInteropShapeId` para trabajos de interop a nivel de diapositiva.
 
-**¿Cómo puedo controlar el orden de apilamiento (z-order) para que una forma siempre quede “encima”?**
+**¿Ocultar una forma la elimina del orden Z?**
 
-Cambie el orden de inserción/movimiento dentro de la colección [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) de la diapositiva. Para resultados predecibles, finalice el z-order después de todas las demás modificaciones de la diapositiva.
+No. Una forma oculta permanece en la colección en el mismo índice. Puede encontrarse, reordenarse, editarse o volver a hacerse visible.
 
-**¿Puedo “bloquear” una forma para evitar que los usuarios la editen en PowerPoint?**
+**¿Por qué una forma clonada apareció delante de otra forma?**
 
-Sí. Establezca los [flags de protección a nivel de forma](/slides/es/net/applying-protection-to-presentation/) (por ejemplo, bloquear la selección, el movimiento, el cambio de tamaño o la edición de texto). Si es necesario, extienda las restricciones al maestro o al diseño. Tenga en cuenta que esta es una protección a nivel de UI, no una característica de seguridad; para una protección más fuerte, combínela con restricciones a nivel de archivo, como recomendaciones de solo lectura o contraseñas [/slides/net/password-protected-presentation/].
+`AddClone` añade la copia al final de la colección, que es el frente del orden Z. Use `InsertClone` para elegir el índice inicial o `Reorder` después de que se hayan añadido todas las formas.

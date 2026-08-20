@@ -1,214 +1,481 @@
 ---
-title: Quản lý các hình dạng trong bản trình chiếu bằng C++
+title: Quản lý các hình dạng trong bản thuyết trình bằng C++
 linktitle: Thao tác Hình dạng
 type: docs
 weight: 40
 url: /vi/cpp/shape-manipulations/
 keywords:
-- hình dạng PowerPoint
-- hình dạng bản trình chiếu
-- hình dạng trên slide
-- tìm hình dạng
-- sao chép hình dạng
-- xóa hình dạng
-- ẩn hình dạng
-- thay đổi thứ tự hình dạng
-- lấy ID hình dạng Interop
-- văn bản thay thế cho hình dạng
-- định dạng bố cục hình dạng
-- hình dạng dưới dạng SVG
-- hình dạng sang SVG
-- căn chỉnh hình dạng
+- Hình dạng PowerPoint
+- Hình dạng bản thuyết trình
+- Hình dạng trên slide
+- Tìm hình dạng
+- Sao chép hình dạng
+- Xóa hình dạng
+- Ẩn hình dạng
+- Thay đổi thứ tự hình dạng
+- Lấy ID hình dạng interop
+- Văn bản thay thế cho hình dạng
+- Định dạng bố cục hình dạng
+- Hình dạng dưới dạng SVG
+- Chuyển hình dạng sang SVG
+- Căn chỉnh hình dạng
+- Lật hình dạng
 - PowerPoint
-- bản trình chiếu
+- bản thuyết trình
 - C++
 - Aspose.Slides
-description: "Học cách tạo, chỉnh sửa và tối ưu hóa các hình dạng trong Aspose.Slides cho C++ và cung cấp các bản trình chiếu PowerPoint hiệu năng cao."
+description: "Tìm hiểu cách xác định, sao chép, xóa, ẩn, sắp xếp lại, xuất, căn chỉnh và lật các hình dạng trong bản thuyết trình bằng Aspose.Slides cho C++."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với các hình dạng trong bản trình chiếu bằng Aspose.Slides. Nó cho thấy cách tìm một hình dạng trên slide, sao chép nó, xóa nó, ẩn nó, thay đổi thứ tự, lấy ID hình dạng Interop, và đặt văn bản thay thế để nhận dạng và xử lý tiếp.
+Aspose.Slides cho C++ biểu thị các hình dạng trên một slide dưới dạng một [IShapeCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và sửa đổi các hình dạng vừa là nguồn cung cấp thứ tự xếp chồng: chỉ mục `0` là hình dạng ở phía sau nhất, trong khi chỉ mục cuối cùng là hình dạng ở phía trước nhất.
 
-Nó cũng đề cập đến cách truy cập các định dạng bố cục cho hình dạng, kết xuất một hình dạng dưới dạng SVG, căn chỉnh các hình dạng trên slide, và sử dụng các thuộc tính lật để tạo ảnh phản chiếu ngang và dọc. Ngoài ra, bài viết bao gồm một phần FAQ ngắn về việc kết hợp hình dạng, thứ tự xếp chồng và khóa hình dạng.
+Bài viết này tuân theo mô hình đó. Đầu tiên nó giải thích cách xác định một hình dạng một cách đáng tin cậy, sau đó trình bày cách sao chép, xóa, ẩn và sắp xếp lại các hình dạng. Các phần cuối cùng bao gồm định dạng ở mức layout, xuất SVG, căn chỉnh và thiết lập lật. Mỗi ví dụ là độc lập, vì vậy bạn chỉ cần sử dụng những thao tác cần thiết cho quy trình của mình.
 
-## **Tìm một Hình dạng trên Slide**
-Bài này sẽ mô tả một kỹ thuật đơn giản giúp các nhà phát triển dễ dàng tìm một hình dạng cụ thể trên slide mà không cần sử dụng Id nội bộ của nó. Điều quan trọng là các tệp PowerPoint Presentation không có cách nào khác để xác định các hình dạng trên slide ngoại trừ Id duy nhất nội bộ. Điều này khiến các nhà phát triển gặp khó khăn khi tìm một hình dạng bằng Id duy nhất nội bộ. Tất cả các hình dạng được thêm vào slide đều có một số Văn bản thay thế. Chúng tôi khuyên các nhà phát triển nên sử dụng Văn bản thay thế để tìm một hình dạng cụ thể. Bạn có thể sử dụng MS PowerPoint để định nghĩa Văn bản thay thế cho các đối tượng mà bạn dự định sẽ thay đổi trong tương lai.
+## **Xác định và Tìm kiếm Hình dạng**
 
-Sau khi thiết lập Văn bản thay thế cho bất kỳ hình dạng mong muốn nào, bạn có thể mở bản trình chiếu đó bằng Aspose.Slides for C++ và duyệt qua tất cả các hình dạng được thêm vào một slide. Trong mỗi vòng lặp, bạn có thể kiểm tra Văn bản thay thế của hình dạng và hình dạng có Văn bản thay thế khớp sẽ là hình dạng bạn cần. Để minh họa kỹ thuật này một cách tốt hơn, chúng tôi đã tạo một phương thức [FindShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) đặt thực hiện việc tìm một hình dạng cụ thể trong slide và trả về hình dạng đó.
+Các chỉ mục trong bộ sưu tập tiện lợi khi xử lý một tệp đã biết, nhưng chúng không phải là định danh ổn định. Thêm, xóa hoặc sắp xếp lại một hình dạng có thể thay đổi chỉ mục của nó. Hãy chọn một định danh dựa trên cách bản thuyết trình được tạo và duy trì:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FindShapeInSlide-FindShapeInSlide.cpp" >}}
+- [Name](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_name/) hữu ích cho các mẫu do nhà phát triển kiểm soát và dễ kiểm tra trong Bảng chọn của PowerPoint. Tên có thể được chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy ước đặt tên nếu mã phụ thuộc vào chúng.
+- [AlternativeText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_alternativetext/) hữu dụng khi mô tả trợ năng hoặc thẻ do tác giả cung cấp đã xác định hình dạng. Nó hiển thị cho người dùng, có thể được bản địa hoá hoặc viết lại cho trợ năng, và cũng không được đảm bảo là duy nhất. Không nên tự ý dùng lại văn bản trợ năng có ý nghĩa làm khóa cơ sở dữ liệu.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_officeinteropshapeid/) là một định danh chỉ đọc, duy nhất trong một slide và tương ứng với ID hình dạng được PowerPoint interop sử dụng. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt thời gian tồn tại của một hình dạng. Một hình dạng được sao chép hoặc tạo lại là một hình dạng khác và sẽ nhận ID riêng.
 
-## **Sao chép một Hình dạng**
-Để sao chép một hình dạng vào slide bằng Aspose.Slides for C++:
+Thuộc tính [UniqueId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_uniqueid/) liên quan có phạm vi toàn bộ bản thuyết trình, nhưng nó được thiết kế cho các add‑in và có thể được gán lại. Không nên coi nó là khóa ngoại vi cố định. Nếu nhận dạng lâu dài là cần thiết, hãy lưu ánh xạ trong dữ liệu ứng dụng và kiểm tra rằng hình dạng mong đợi vẫn còn tồn tại.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy tham chiếu của một slide bằng cách sử dụng chỉ mục của nó.
-3. Truy cập bộ sưu tập hình dạng của slide nguồn.
-4. Thêm một slide mới vào bản trình chiếu.
-5. Sao chép các hình dạng từ bộ sưu tập hình dạng của slide nguồn sang slide mới.
-6. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
-
-Ví dụ dưới đây thêm một nhóm hình dạng vào một slide.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneShapes-CloneShapes.cpp" >}}
-
-## **Xóa một Hình dạng**
-Aspose.Slides for C++ cho phép các nhà phát triển xóa bất kỳ hình dạng nào. Để xóa hình dạng khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Truy cập slide đầu tiên.
-3. Tìm hình dạng có Văn bản thay thế cụ thể.
-4. Xóa hình dạng.
-5. Lưu tệp lên đĩa.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveShape-RemoveShape.cpp" >}}
-
-## **Ẩn một Hình dạng**
-Aspose.Slides for C++ cho phép các nhà phát triển ẩn bất kỳ hình dạng nào. Để ẩn hình dạng khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Truy cập slide đầu tiên.
-3. Tìm hình dạng có Văn bản thay thế cụ thể.
-4. Ẩn hình dạng.
-5. Lưu tệp lên đĩa.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-Hidingshapes-Hidingshapes.cpp" >}}
-
-## **Thay đổi Thứ tự Hình dạng**
-Aspose.Slides for C++ cho phép các nhà phát triển thay đổi thứ tự các hình dạng. Thay đổi thứ tự xác định hình dạng nào ở phía trước và hình dạng nào ở phía sau. Để thay đổi thứ tự hình dạng trên bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Truy cập slide đầu tiên.
-3. Thêm một hình dạng.
-4. Thêm một đoạn văn bản vào khung văn bản của hình dạng.
-5. Thêm một hình dạng nữa với cùng tọa độ.
-6. Thay đổi thứ tự các hình dạng.
-7. Lưu tệp lên đĩa.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeShapeOrder-ChangeShapeOrder.cpp" >}}
-
-## **Lấy ID Hình dạng Interop**
-Aspose.Slides for C++ cho phép các nhà phát triển lấy một định danh hình dạng duy nhất trong phạm vi slide, khác với thuộc tính UniqueId cho phép lấy định danh duy nhất trong phạm vi bản trình chiếu. Thuộc tính OfficeInteropShapeId đã được thêm vào giao diện IShape và lớp Shape. Giá trị trả về bởi thuộc tính OfficeInteropShapeId tương ứng với giá trị Id của đối tượng Microsoft.Office.Interop.PowerPoint.Shape. Dưới đây là đoạn mã mẫu.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-InterlopShapeID-InterlopShapeID.cpp" >}}
-
-## **Đặt Thuộc tính AlternativeText**
-Aspose.Slides for C++ cho phép các nhà phát triển đặt AlternativeText cho bất kỳ hình dạng nào. Để đặt AlternativeText cho một hình dạng, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Truy cập slide đầu tiên.
-3. Thêm bất kỳ hình dạng nào vào slide.
-4. Thực hiện một số thao tác với hình dạng vừa thêm.
-5. Duyệt qua các hình dạng để tìm một hình dạng.
-6. Đặt AlternativeText.
-7. Lưu tệp lên đĩa.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAlternativeText-SetAlternativeText.cpp" >}}
-
-## **Truy cập Định dạng Bố cục cho một Hình dạng**
-Aspose.Slides for C++ cho phép các nhà phát triển truy cập các định dạng bố cục cho một hình dạng. Bài viết này minh họa cách bạn có thể truy cập các thuộc tính **FillFormat** và **LineFormat** của một hình dạng.
-
-Dưới đây là đoạn mã mẫu.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
-
-## **Kết xuất một Hình dạng dưới dạng SVG**
-Bây giờ Aspose.Slides cho C++ hỗ trợ việc kết xuất một hình dạng dưới dạng SVG. Phương thức WriteAsSvg (và các overload) đã được thêm vào lớp Shape và giao diện IShape. Phương thức này cho phép lưu nội dung của hình dạng dưới dạng tệp SVG. Đoạn mã dưới đây cho thấy cách xuất hình dạng của slide sang tệp SVG.
-
-``` cpp
-String outSvgFileName = u"SingleShape.svg";
-
-auto pres = System::MakeObject<Presentation>(u"TestExportShapeToSvg.pptx");
-
-auto stream = System::MakeObject<FileStream>(outSvgFileName, FileMode::Create, FileAccess::Write);
-pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0)->WriteAsSvg(stream);
-```
-
-## **Căn chỉnh Hình dạng**
-Aspose.Slides cho phép căn chỉnh các hình dạng hoặc tương đối với lề slide hoặc tương đối với nhau. Để thực hiện việc này, một phương thức overload [SlidesUtil.AlignShapes()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) đã được thêm vào. Kiểu enum [ShapesAlignmentType](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) định nghĩa các tùy chọn căn chỉnh có thể.
-
-**Ví dụ 1**
-
-Mã nguồn dưới đây căn chỉnh các hình dạng với chỉ số 1, 2 và 4 dọc theo rìa trên của slide.
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"example.pptx");
-
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-SharedPtr<IShape> shape1 = slide->get_Shapes()->idx_get(1);
-SharedPtr<IShape> shape2 = slide->get_Shapes()->idx_get(2);
-SharedPtr<IShape> shape3 = slide->get_Shapes()->idx_get(4);
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, pres->get_Slides()->idx_get(0), 
-System::MakeArray<int32_t>(
-    {
-        slide->get_Shapes()->IndexOf(shape1),
-        slide->get_Shapes()->IndexOf(shape2),
-        slide->get_Shapes()->IndexOf(shape3)
-    }));
-```
-
-**Ví dụ 2**
-
-Ví dụ dưới đây cho thấy cách căn chỉnh toàn bộ bộ sưu tập hình dạng tương đối với hình dạng ở dưới cùng của bộ sưu tập.
-
-``` cpp
-SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
-```
-
-## **Thuộc tính Lật**
-
-Trong Aspose.Slides, lớp [ShapeFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shapeframe/) cung cấp khả năng kiểm soát việc lật ngang và dọc của các hình dạng thông qua các thuộc tính `flipH` và `flipV`. Cả hai thuộc tính đều có kiểu [NullableBool](https://reference.aspose.com/slides/vi/cpp/aspose.slides/nullablebool/), cho phép giá trị `True` để chỉ lật, `False` để không lật, hoặc `NotDefined` để sử dụng hành vi mặc định. Các giá trị này có thể truy cập từ [Frame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_frame/) của một hình dạng.
-
-Để thay đổi cài đặt lật, một thể hiện [ShapeFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shapeframe/) mới được khởi tạo với vị trí và kích thước hiện tại của hình dạng, các giá trị mong muốn cho `flipH` và `flipV`, và góc xoay. Gán thể hiện này cho [Frame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_frame/) của hình dạng và lưu bản trình chiếu sẽ áp dụng các biến đổi lật và ghi chúng vào tệp đầu ra.
-
-Giả sử chúng ta có tệp sample.pptx trong đó slide đầu tiên chứa một hình dạng duy nhất với cài đặt lật mặc định, như hình dưới đây.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Đoạn mã sau đây lấy các thuộc tính lật hiện tại của hình dạng và lật nó cả chiều ngang và chiều dọc.
+Ví dụ sau tìm kiếm theo `Name` và báo cáo ID interop có phạm vi slide. Khi mẫu không chứa hình dạng mong đợi, mã sẽ báo kết quả đó thay vì tiếp tục với đối tượng sai.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
 
-auto shape = presentation->get_Slide(0)->get_Shape(0);
+using namespace Aspose::Slides;
+using namespace System;
 
-// Lấy thuộc tính lật ngang của hình dạng.
-auto horizontalFlip = shape->get_Frame()->get_FlipH();
-Console::WriteLine(u"Horizontal flip: " + ObjectExt::ToString(horizontalFlip));
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Lấy thuộc tính lật dọc của hình dạng.
-auto verticalFlip = shape->get_Frame()->get_FlipV();
-Console::WriteLine(u"Vertical flip: " + ObjectExt::ToString(verticalFlip));
+SharedPtr<IShape> targetShape;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"RevenueChart")
+    {
+        targetShape = shape;
+        break;
+    }
+}
 
-auto x = shape->get_Frame()->get_X();
-auto y = shape->get_Frame()->get_Y();
-auto width = shape->get_Frame()->get_Width();
-auto height = shape->get_Frame()->get_Height();
-auto flipH = NullableBool::True; // Lật ngang.
-auto flipV = NullableBool::True; // Lật ngang.
-auto rotation = shape->get_Frame()->get_Rotation();
+if (targetShape == nullptr)
+{
+    Console::WriteLine(u"The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console::WriteLine(String::Format(u"Found {0}; interop ID: {1}", targetShape->get_Name(), targetShape->get_OfficeInteropShapeId()));
+}
 
-shape->set_Frame(MakeObject<ShapeFrame>(x, y, width, height, flipH, flipV, rotation));
-
-presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Kết quả:
+Khi một thao tác chỉ áp dụng cho một loại hình dạng, hãy kiểm tra giao diện trước khi sử dụng các thành viên đặc thù. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ khi đối tượng có tên là một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/).
 
-![The flipped shape](flipped_shape.png)
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-## **Câu hỏi thường gặp**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-**Tôi có thể kết hợp các hình dạng (hợp/điểm giao/khấu) trên một slide giống như trong trình chỉnh sửa Desktop không?**
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
 
-Không có API thao tác Boolean tích hợp. Bạn có thể xấp xỉ bằng cách tự tạo đường viền mong muốn—ví dụ, tính toán hình học kết quả (qua [GeometryPath](https://reference.aspose.com/slides/vi/cpp/aspose.slides/geometrypath/)) và tạo một hình dạng mới với đường viền đó, tùy chọn xóa các hình dạng gốc.
+SharedPtr<IShape> candidate;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"StatusLabel")
+    {
+        candidate = shape;
+        break;
+    }
+}
 
-**Làm thế nào tôi có thể kiểm soát thứ tự xếp chồng (z-order) để một hình dạng luôn ở trên cùng?**
+if (candidate != nullptr && ObjectExt::Is<IAutoShape>(candidate))
+{
+    auto autoShape = ExplicitCast<IAutoShape>(candidate);
+    autoShape->get_TextFrame()->set_Text(u"Approved");
+    autoShape->set_AlternativeText(u"Approval status: approved");
+    presentation->Save(u"identified-shape.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"'StatusLabel' is missing or is not an AutoShape.");
+}
 
-Thay đổi thứ tự chèn/di chuyển trong bộ sưu tập [shapes](https://reference.aspose.com/slides/vi/cpp/aspose.slides/baseslide/get_shapes/) của slide. Để có kết quả dự đoán được, hãy hoàn thiện z-order sau khi đã thực hiện mọi thay đổi khác trên slide.
+presentation->Dispose();
+```
 
-**Tôi có thể “khóa” một hình dạng để ngăn người dùng chỉnh sửa nó trong PowerPoint không?**
+## **Sửa đổi Bộ sưu tập Hình dạng**
 
-Có. Đặt các cờ bảo vệ ở cấp độ hình dạng (/slides/vi/cpp/applying-protection-to-presentation/) (ví dụ: khóa lựa chọn, di chuyển, thay đổi kích thước, chỉnh sửa văn bản). Nếu cần, có thể áp dụng các hạn chế tương tự trên master hoặc layout. Lưu ý đây là bảo vệ ở mức giao diện người dùng, không phải tính năng bảo mật; để bảo vệ mạnh hơn, kết hợp với các hạn chế cấp tệp như [đề xuất chỉ đọc hoặc mật khẩu](/slides/vi/cpp/password-protected-presentation/).
+Các phương thức thêm, sao chép, xóa và sắp xếp lại hoạt động ngay trên bộ sưu tập. Nếu một thao tác thay đổi số lượng hoặc thứ tự các hình dạng, không tiếp tục dựa vào các chỉ mục đã được lấy trước khi thực hiện thao tác đó.
+
+### **Sao chép một Hình dạng**
+
+[AddClone](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addclone/) tạo một bản sao độc lập và thêm vào cuối bộ sưu tập đích. [InsertClone](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/insertclone/) cũng tạo một bản sao nhưng đặt nó ở chỉ mục z‑order chỉ định. Các overload nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có chiều rộng và chiều cao cũng có thể thay đổi kích thước.
+
+Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước, và chèn bản sao thứ hai ở phía sau. Thay đổi bất kỳ bản sao nào cũng không làm thay đổi hình dạng nguồn.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto sourceSlide = presentation->get_Slide(0);
+auto sourceShape = sourceSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+sourceShape->set_Name(u"SourceLabel");
+sourceShape->get_TextFrame()->set_Text(u"Source");
+
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto destinationSlide = presentation->get_Slides()->AddEmptySlide(blankLayout);
+
+auto frontCloneShape = destinationSlide->get_Shapes()->AddClone(sourceShape, 80, 80);
+frontCloneShape->set_Name(u"FrontClone");
+if (ObjectExt::Is<IAutoShape>(frontCloneShape))
+{
+    auto frontClone = ExplicitCast<IAutoShape>(frontCloneShape);
+    frontClone->get_TextFrame()->set_Text(u"Front clone");
+}
+else
+{
+    Console::WriteLine(u"The front clone is not an AutoShape; its text was not changed.");
+}
+
+auto backCloneShape = destinationSlide->get_Shapes()->InsertClone(0, sourceShape, 80, 180);
+backCloneShape->set_Name(u"BackClone");
+if (ObjectExt::Is<IAutoShape>(backCloneShape))
+{
+    auto backClone = ExplicitCast<IAutoShape>(backCloneShape);
+    backClone->get_TextFrame()->set_Text(u"Back clone");
+}
+else
+{
+    Console::WriteLine(u"The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sao chép sao chép nội dung và định dạng của hình dạng, bao gồm tên và văn bản thay thế. Gán các định danh logic mới cho bản sao khi các giá trị này phải là duy nhất. Các tài nguyên được các hình dạng phức tạp sử dụng được quản lý bởi bản thuyết trình, nhưng một bản sao vẫn là một mục mới trong bộ sưu tập với danh tính hình dạng mới.
+
+### **Xóa Hình dạng**
+
+[Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/remove/) xóa một đối tượng hình dạng cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều kết quả khớp trong quá trình lặp có chỉ mục, hãy duyệt từ cuối về đầu để mỗi chỉ mục còn lại vẫn hợp lệ.
+
+Ví dụ này xóa mọi hình dạng có tên được chỉ định. Nó đọc hình dạng hiện đang được chỉ mục, không phải một mục cố định trong bộ sưu tập, và không ép kiểu hình dạng một cách không cần thiết.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto keepShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+keepShape->set_Name(u"Keep");
+
+auto firstTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+firstTemporaryShape->set_Name(u"Temporary");
+
+auto secondTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+secondTemporaryShape->set_Name(u"Temporary");
+
+for (int32_t i = slide->get_Shapes()->get_Count() - 1; i >= 0; --i)
+{
+    auto shape = slide->get_Shape(i);
+    if (shape->get_Name() == u"Temporary")
+    {
+        slide->get_Shapes()->Remove(shape);
+    }
+}
+
+presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sau khi xóa, số lượng hình dạng và chỉ mục của các hình dạng phía sau thay đổi. Các tham chiếu đến những hình dạng không bị ảnh hưởng vẫn đáng tin cậy hơn so với các chỉ mục đã lưu. Cũng cần xem xét các connector, animation và các tính năng khác của bản thuyết trình có thể tham chiếu đến đối tượng đã xóa; việc xóa một hình dạng hiển thị có thể thay đổi hơn cả giao diện của slide.
+
+### **Ẩn một Hình dạng**
+
+Đặt [Hidden](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/set_hidden/) thành `true` giữ hình dạng trong bộ sưu tập nhưng ngăn nó hiển thị trong chế độ trình chiếu bình thường. Chỉ mục, định dạng và nội dung của nó vẫn có sẵn cho mã, vì vậy việc ẩn phù hợp cho các thành phần tùy chọn có thể được khôi phục sau.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto visibleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+visibleShape->set_Name(u"VisibleLabel");
+
+auto optionalShape = slide->get_Shapes()->AddAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+optionalShape->set_Name(u"OptionalDecoration");
+
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"OptionalDecoration")
+    {
+        shape->set_Hidden(true);
+    }
+}
+
+presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Ẩn không phải là xóa hay bảo mật. Đối tượng vẫn có thể được người dùng hoặc mã phát hiện và hiển thị lại, và nó vẫn là một phần của file bản thuyết trình.
+
+### **Thay đổi Z‑Order**
+
+Các hình dạng chồng lên nhau được vẽ theo thứ tự trong bộ sưu tập. [Reorder](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/reorder/) di chuyển một hình dạng hiện có tới một chỉ mục mục tiêu mà không sao chép nó. Chỉ mục `0` là phía sau; `Count - 1` là phía trước.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto blueRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+blueRectangle->set_Name(u"BlueRectangle");
+blueRectangle->get_FillFormat()->set_FillType(FillType::Solid);
+blueRectangle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+
+auto orangeEllipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+orangeEllipse->set_Name(u"OrangeEllipse");
+orangeEllipse->get_FillFormat()->set_FillType(FillType::Solid);
+orangeEllipse->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+
+slide->get_Shapes()->Reorder(slide->get_Shapes()->get_Count() - 1, blueRectangle);
+presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Hình chữ nhật được tạo đầu tiên và ban đầu nằm phía sau hình ellipse. Di chuyển nó tới chỉ mục cuối cùng sẽ đưa nó lên phía trước. Hoàn thiện z‑order sau khi thêm hoặc sao chép tất cả các hình dạng liên quan, vì các thao tác đó sẽ thêm hoặc chèn mục mới vào bộ sưu tập và có thể làm thay đổi cấu trúc xếp chồng dự định.
+
+## **Kiểm tra Hình dạng trên Slide Layout**
+
+Slide bình thường, slide layout và master slide có các bộ sưu tập hình dạng riêng biệt. Một hình dạng trong bộ sưu tập layout không phải là cùng một đối tượng với một hình dạng ở vị trí tương tự trên slide bình thường. Kiểm tra các hình dạng layout khi bạn cần hiểu hoặc thay đổi định dạng do layout cung cấp.
+
+Ví dụ dưới đây đọc [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_fillformat/) và [LineFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/get_lineformat/) của mỗi hình dạng layout mà không giả định mọi hình dạng đều là `AutoShape`.
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+for (auto layoutSlide : presentation->get_LayoutSlides())
+{
+    for (auto shape : layoutSlide->get_Shapes())
+    {
+        auto fillType = shape->get_FillFormat()->get_FillType();
+        auto lineWidth = shape->get_LineFormat()->get_Width();
+        Console::WriteLine(String::Format(u"{0} / {1}: fill={2}, line width={3}", layoutSlide->get_Name(), shape->get_Name(), fillType, lineWidth));
+    }
+}
+
+presentation->Dispose();
+```
+
+Việc chỉnh sửa một layout có thể ảnh hưởng đến nhiều slide sử dụng nó. Trước khi thay đổi một hình dạng layout, xác định xem một slide bình thường có kế thừa đối tượng này hay chứa một ghi đè cục bộ, và kiểm thử mọi slide sử dụng layout đó.
+
+## **Xuất Hình dạng sang SVG**
+
+[WriteAsSvg](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/writeassvg/) ghi nội dung đã render của một hình dạng vào một luồng. Kết quả chỉ chứa hình dạng, không phải toàn bộ nền slide hay các hình dạng lân cận.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+if (slide->get_Shapes()->get_Count() == 0)
+{
+    Console::WriteLine(u"Slide 1 does not contain a shape to export.");
+}
+else
+{
+    auto shape = slide->get_Shape(0);
+    auto svgStream = File::Create(u"shape.svg");
+    shape->WriteAsSvg(svgStream);
+    svgStream->Close();
+}
+
+presentation->Dispose();
+```
+
+Giữ bản thuyết trình mở khi render. Đầu ra phụ thuộc vào định dạng của hình dạng và vào các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì một hình dạng riêng lẻ. Người gọi sở hữu luồng và phải đóng hoặc giải phóng nó.
+
+## **Căn chỉnh Hình dạng**
+
+Các overload của [SlideUtil::AlignShapes](https://reference.aspose.com/slides/vi/cpp/aspose.slides.util/slideutil/alignshapes/) căn chỉnh hoặc toàn bộ hình dạng hoặc các chỉ mục bộ sưu tập đã chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shapesalignmenttype/) xác định cạnh, đường trung tâm hoặc chế độ phân bố. Đặt `alignToSlide` thành `true` để sử dụng các cạnh slide; đặt thành `false` để căn chỉnh các hình dạng đã chọn tương quan với nhau.
+
+Ví dụ này căn chỉnh ba hình dạng tới cạnh trên của slide. Các tham chiếu hình dạng trả về được chuyển thành chỉ mục hiện tại ngay trước khi căn chỉnh.
+
+```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ShapesAlignmentType.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+auto thirdShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+firstShape->set_Name(u"FirstAlignedShape");
+secondShape->set_Name(u"SecondAlignedShape");
+thirdShape->set_Name(u"ThirdAlignedShape");
+
+auto shapeIndexes = MakeArray<int32_t>({slide->get_Shapes()->IndexOf(firstShape), slide->get_Shapes()->IndexOf(secondShape), slide->get_Shapes()->IndexOf(thirdShape)});
+
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, slide, shapeIndexes);
+presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Căn chỉnh thay đổi vị trí, không thay đổi z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình dạng, trong khi phân bố theo chiều ngang hoặc chiều dọc cần đủ số hình dạng để xác định khoảng cách. Tính lại chỉ mục nếu bạn sửa đổi bộ sưu tập trước khi gọi phương thức.
+
+## **Lật một Hình dạng**
+
+Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shapeframe/) lưu trữ vị trí, kích thước, thiết lập lật ngang và dọc, và góc quay. Các giá trị `FlipH` và `FlipV` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/cpp/aspose.slides/nullablebool/): `True` bật lật, `False` tắt lật, và `NotDefined` giữ nguyên trạng thái chưa xác định/mặc định.
+
+Bản thuyết trình đầu vào dưới đây chứa một hình dạng chưa được lật.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Ví dụ này giữ nguyên mọi giá trị khung khác và chỉ thay thế hai thiết lập lật. Điều này quan trọng vì việc gán một [Frame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/set_frame/) mới sẽ thay thế toàn bộ khung.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto frame = shape->get_Frame();
+
+Console::WriteLine(String::Format(u"Horizontal flip before change: {0}", frame->get_FlipH()));
+Console::WriteLine(String::Format(u"Vertical flip before change: {0}", frame->get_FlipV()));
+
+shape->set_Frame(MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y(), frame->get_Width(), frame->get_Height(), NullableBool::True, NullableBool::True, frame->get_Rotation()));
+
+presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Hình dạng đã lưu được lật ngược theo chiều ngang và chiều dọc trong khi vẫn giữ vị trí, kích thước và góc quay.
+
+![The shape after flipping](flipped_shape.png)
+
+## **FAQ**
+
+**Nên sử dụng chỉ mục bộ sưu tập làm định danh cho hình dạng không?**
+
+Chỉ nên dùng trong các quy trình ngắn hạn khi bộ sưu tập sẽ không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên một quy ước `Name` hoặc `AlternativeText` đã được xác thực cho các mẫu được tạo sẵn, hoặc `OfficeInteropShapeId` cho công việc interop có phạm vi slide.
+
+**Ẩn một hình dạng có loại bỏ nó khỏi z‑order không?**
+
+Không. Một hình dạng ẩn vẫn ở trong bộ sưu tập với cùng chỉ mục. Nó có thể được tìm, sắp xếp lại, chỉnh sửa hoặc hiển thị lại.
+
+**Tại sao một hình dạng được sao chép lại xuất hiện phía trước một hình dạng khác?**
+
+`AddClone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước của z‑order. Sử dụng `InsertClone` để chọn chỉ mục khởi tạo hoặc `Reorder` sau khi đã thêm tất cả các hình dạng.

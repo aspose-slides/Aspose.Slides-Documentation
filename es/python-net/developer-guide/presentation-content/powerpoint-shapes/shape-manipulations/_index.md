@@ -1,328 +1,324 @@
 ---
-title: Gestionar formas en presentaciones usando Python
+title: Gestionar formas de presentación en Python
 linktitle: Manipulación de formas
 type: docs
 weight: 40
 url: /es/python-net/shape-manipulations/
 keywords:
-- Forma de PowerPoint
-- Forma de presentación
-- Forma en diapositiva
-- Buscar forma
-- Clonar forma
-- Eliminar forma
-- Ocultar forma
-- Cambiar orden de forma
-- Obtener ID de forma Interop
-- Texto alternativo de forma
-- Formatos de diseño de forma
-- Forma como SVG
-- Forma a SVG
-- Alinear forma
+- forma PowerPoint
+- forma de presentación
+- forma en diapositiva
+- buscar forma
+- clonar forma
+- eliminar forma
+- ocultar forma
+- cambiar orden de forma
+- obtener ID de forma interop
+- texto alternativo de la forma
+- formatos de diseño de forma
+- forma como SVG
+- forma a SVG
+- alinear forma
+- voltear forma
 - PowerPoint
-- OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda a crear, editar y optimizar formas en Aspose.Slides para Python mediante .NET y ofrecer presentaciones de alto rendimiento en PowerPoint y OpenDocument."
+description: "Aprenda a identificar, clonar, eliminar, ocultar, reordenar, exportar, alinear y voltear formas de presentación con Aspose.Slides para Python via .NET."
 ---
-
 ## **Visión general**
 
-Esta guía introduce la manipulación de formas en Aspose.Slides para Python mediante .NET. Aprenda patrones prácticos para encontrar formas (incluido por Texto Alternativo), duplicar, eliminar u ocultar, reordenar, alinear y voltear, leer IDs y formato guiado por el diseño, y exportar formas individuales a SVG usando las API de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/).
+Aspose.Slides for Python via .NET representa las formas en una diapositiva como una colección ordenada [ShapeCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/). La colección es tanto el lugar donde se encuentran y modifican las formas como la fuente de su orden de apilamiento: el índice `0` es la forma más atrás, mientras que el último índice es la forma más al frente.
 
-## **Buscar formas en diapositivas**
+Este artículo sigue ese modelo. Primero explica cómo identificar una forma de manera fiable, luego muestra cómo clonar, eliminar, ocultar y reordenar formas. Las secciones finales cubren el formato a nivel de diseño, la exportación a SVG, la alineación y la configuración de volteo. Cada ejemplo es independiente, de modo que puede usar solo las operaciones que requiera su flujo de trabajo.
 
-PowerPoint identifica las formas solo por IDs internos. Asigne un Texto Alternativo único a la forma objetivo en PowerPoint, luego abra la presentación con Aspose.Slides para Python, recorra las formas de la diapositiva y seleccione la que coincida con el Texto Alternativo. El método `find_shape` implementa este enfoque y devuelve la forma coincidente.
-```py
+## **Identificar y encontrar formas**
+
+Los índices de la colección son cómodos al procesar un archivo conocido, pero no son identificadores estables. Añadir, eliminar o reordenar una forma puede cambiar su índice. Elija un identificador según cómo se cree y mantenga la presentación:
+
+- [Shape.name](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/name/) es útil para plantillas controladas por desarrolladores y es fácil de inspeccionar en el panel de selección de PowerPoint. Los nombres pueden editarse y no se garantiza que sean únicos, por lo que debe establecerse una convención de nombres si el código depende de ellos.
+- [Shape.alternative_text](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/alternative_text/) es útil cuando una descripción de accesibilidad o una etiqueta proporcionada por el autor ya identifica la forma. Es visible para los usuarios, puede localizarse o reescribirse para accesibilidad, y no se garantiza que sea única. No reutilice silenciosamente texto de accesibilidad significativo como clave de base de datos.
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/office_interop_shape_id/) es un identificador de solo lectura que es único dentro de una diapositiva y corresponde al ID de forma usado por la interoperabilidad de PowerPoint. Úselo al integrar con PowerPoint o cuando necesite una referencia inequívoca durante la vida útil de una forma. Una forma clonada o recreada es una forma diferente y recibe su propio ID.
+
+La propiedad relacionada [Shape.unique_id](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/unique_id/) tiene alcance de presentación, pero está pensada para complementos y puede reasignarse. No debe tratarse como una clave externa permanente. Si la identidad a largo plazo es esencial, mantenga el mapeo en los datos de la aplicación y valide que la forma esperada siga existiendo.
+
+El siguiente ejemplo busca por `name` con una comparación exacta e informa el ID de interop con alcance de diapositiva. Cuando la plantilla no contiene la forma esperada, el código informa ese resultado en lugar de continuar con el objeto incorrecto.
+
+```python
 import aspose.slides as slides
 
-# Busca una forma en una diapositiva por su texto alternativo.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Instancia la clase Presentation que representa un archivo de presentación.
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # Encuentra la forma con Alt Text "Shape1".
-    shape = find_shape(slide, "Shape1")
-    if shape is not None:
-        print("Shape name:", shape.name)
+
+    target_shape = None
+    for shape in slide.shapes:
+        if shape.name == "RevenueChart":
+            target_shape = shape
+            break
+
+    if target_shape is None:
+        print("The shape 'RevenueChart' was not found on slide 1.")
+    else:
+        print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
+Cuando una operación es específica de un tipo de forma, compruebe el tipo antes de usar miembros específicos del tipo. Este ejemplo actualiza el texto y el texto alternativo solo si el objeto con nombre es un [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/).
 
-## **Clonar formas**
-
-Para clonar formas de una diapositiva origen a una nueva diapositiva en Aspose.Slides, siga estos pasos:
-
-1. Cree una [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) a partir del archivo origen.  
-1. Obtenga la diapositiva origen por índice y su colección de formas.  
-1. Recupere un diseño en blanco de la diapositiva maestra.  
-1. Añada una diapositiva vacía usando ese diseño y obtenga sus formas.  
-1. Clone las formas en la diapositiva destino.  
-1. Guarde la presentación como PPTX.
-
-El siguiente ejemplo de código clona formas de una diapositiva a otra.
-```py
+```python
 import aspose.slides as slides
 
-# Instanciar la clase Presentation.
-with slides.Presentation("sample.pptx") as presentation:
-    source_shapes = presentation.slides[0].shapes
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    candidate = None
+    for shape in slide.shapes:
+        if shape.name == "StatusLabel":
+            candidate = shape
+            break
+
+    if isinstance(candidate, slides.AutoShape):
+        candidate.text_frame.text = "Approved"
+        candidate.alternative_text = "Approval status: approved"
+        presentation.save("identified-shape.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("'StatusLabel' is missing or is not an AutoShape.")
+```
+
+## **Modificar la colección de formas**
+
+Los métodos añadir, clonar, eliminar y reordenar operan sobre la colección inmediatamente. Si una operación cambia el número o el orden de las formas, no continúe basándose en índices capturados antes de esa operación.
+
+### **Clonar una forma**
+
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_clone/) crea una copia independiente y la agrega al final de la colección de destino. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/insert_clone/) también crea una copia pero la coloca en un índice de orden Z especificado. Las sobrecargas que aceptan coordenadas mueven el clon sin cambiar su tamaño; las sobrecargas con ancho y alto pueden redimensionarlo también.
+
+El ejemplo crea una diapositiva de destino, clona un rectángulo etiquetado al frente e inserta un segundo clon al fondo. Los cambios en cualquiera de los clones no modifican la forma original.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    source_slide = presentation.slides[0]
+    source_shape = source_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 180, 60)
+    source_shape.name = "SourceLabel"
+    source_shape.text_frame.text = "Source"
+
     blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    destination_slide = presentation.slides.add_empty_slide(blank_layout)
 
-    target_slide = presentation.slides.add_empty_slide(blank_layout)
-    target_shapes = target_slide.shapes
+    front_clone_shape = destination_slide.shapes.add_clone(source_shape, 80, 80)
+    front_clone_shape.name = "FrontClone"
+    if isinstance(front_clone_shape, slides.AutoShape):
+        front_clone_shape.text_frame.text = "Front clone"
+    else:
+        print("The front clone is not an AutoShape; its text was not changed.")
 
-    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
-    target_shapes.add_clone(source_shapes[2])
-    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
+    back_clone_shape = destination_slide.shapes.insert_clone(0, source_shape, 80, 180)
+    back_clone_shape.name = "BackClone"
+    if isinstance(back_clone_shape, slides.AutoShape):
+        back_clone_shape.text_frame.text = "Back clone"
+    else:
+        print("The back clone is not an AutoShape; its text was not changed.")
 
-    # Guardar la presentación en disco.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Clonar copia el contenido y el formato de la forma, incluido su nombre y texto alternativo. Asigne nuevos identificadores lógicos al clon cuando esos valores deban ser únicos. Los recursos utilizados por formas complejas son gestionados por la presentación, pero un clon sigue siendo un nuevo elemento de la colección con una nueva identidad de forma.
 
-## **Eliminar formas**
+### **Eliminar formas**
 
-Aspose.Slides le permite eliminar cualquier forma de una diapositiva. Por ejemplo, para borrar una forma de la primera diapositiva por su Texto Alternativo, siga estos pasos:
+[ShapeCollection.remove](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/remove/) elimina un objeto de forma específico de su colección. Al eliminar varias coincidencias durante una iteración indexada, recorra la colección desde el final para que cada índice restante siga siendo válido.
 
-1. Cree una instancia de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue el archivo.  
-1. Acceda a la primera diapositiva de la colección de diapositivas.  
-1. Encuentre la forma por el valor del Texto Alternativo.  
-1. Elimine la forma de la colección de formas de la diapositiva.  
-1. Guarde la presentación en disco en formato PPTX.
-```py
+Este ejemplo elimina cada forma con un nombre designado. Lee `slide.shapes[index]`, no un elemento de colección fijo, y no realiza conversiones innecesarias de la forma.
+
+```python
 import aspose.slides as slides
 
-# Busca una forma en una diapositiva por su texto alternativo.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Instancia la clase Presentation que representa un archivo de presentación.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Busca la forma con Alt Text "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # Elimina la forma.
-    slide.shapes.remove(shape)
-    # Guarda la presentación en disco.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Ocultar formas**
-
-Aspose.Slides le permite ocultar cualquier forma en una diapositiva. Por ejemplo, para ocultar una forma en la primera diapositiva por su Texto Alternativo, siga estos pasos:
-
-1. Cree una instancia de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue el archivo.  
-1. Acceda a la primera diapositiva de la colección de diapositivas.  
-1. Encuentre la forma por el valor del Texto Alternativo.  
-1. Oculte la forma.  
-1. Guarde la presentación en disco en formato PPTX.
-```py
-# Busca una forma en una diapositiva por su texto alternativo.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Instancia la clase Presentation que representa un archivo de presentación.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Busca la forma con Alt Text "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # Oculta la forma.
-    shape.hidden = True
-    # Guarda la presentación en disco.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Cambiar el orden de las formas**
-
-Aspose.Slides permite a los desarrolladores reordenar formas (cambiar su orden z). El reordenamiento determina qué forma aparece delante o detrás. Por ejemplo, para reordenar dos formas en la primera diapositiva, siga los pasos a continuación:
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
-1. Acceda a la primera diapositiva.  
-1. Añada la primera forma (por ejemplo, un rectángulo).  
-1. Añada la segunda forma (por ejemplo, un triángulo).  
-1. Reordene las formas moviendo la segunda forma a la primera posición en la colección.  
-1. Guarde la presentación en disco.
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Añadir dos formas a la diapositiva.
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
-    # Mover la segunda forma a la primera posición.
-    slide.shapes.reorder(0, shape2)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Obtener el ID de forma Interop**
-
-Aspose.Slides le permite obtener el identificador único de una forma en el ámbito de la diapositiva, a diferencia de la propiedad `unique_id`, que es única en toda la presentación. La propiedad `office_interop_shape_id` está disponible en la clase [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/). Su valor corresponde al `Id` del objeto `Microsoft.Office.Interop.PowerPoint.Shape`. A continuación se muestra un fragmento de código de ejemplo.
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # Obtener el identificador único de la forma dentro de la diapositiva.
-    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
-```
-
-
-## **Establecer el texto alternativo para las formas**
-
-Aspose.Slides permite a los desarrolladores establecer texto alternativo para cualquier forma. Puede usar el texto alternativo para identificar y localizar formas en una presentación. La propiedad de texto alternativo puede leerse y modificarse tanto a través de Aspose.Slides como de Microsoft PowerPoint. Al etiquetar las formas con esta propiedad, podrá eliminarlas, ocultarlas o reordenarlas posteriormente en una diapositiva.
-
-Para establecer el texto alternativo de una forma, siga estos pasos:
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
-1. Acceda a la primera diapositiva.  
-1. Añada una forma a la diapositiva.  
-1. Establezca el texto alternativo.  
-1. Guarde la presentación en disco.
-```py
-import aspose.slides as slides
-
-# Instanciar la clase Presentation que representa un archivo PPTX.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    # Añadir una forma.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    # Establecer el texto alternativo de la forma.
-    shape.alternative_text = "User Defined"
-    # Guardar la presentación en disco.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    keep_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 140, 60)
+    keep_shape.name = "Keep"
+
+    first_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 220, 40, 80, 80)
+    first_temporary_shape.name = "Temporary"
+
+    second_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 340, 40, 100, 80)
+    second_temporary_shape.name = "Temporary"
+
+    for index in range(len(slide.shapes) - 1, -1, -1):
+        shape = slide.shapes[index]
+        if shape.name == "Temporary":
+            slide.shapes.remove(shape)
+
+    presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Después de la eliminación, el recuento de formas y los índices de las formas posteriores cambian. Las referencias a formas no afectadas siguen siendo más fiables que los índices guardados. También considere conectores, animaciones y otras características de la presentación que puedan referirse al objeto eliminado; eliminar una forma visible puede cambiar más que la apariencia de la diapositiva.
 
-## **Acceder a formatos de diseño para las formas**
+### **Ocultar una forma**
 
-Aspose.Slides proporciona una API simple para acceder a los formatos de diseño de las formas. Esta sección muestra cómo acceder a dichos formatos.
-```py
+Establecer [Shape.hidden](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/hidden/) a `True` mantiene la forma en la colección pero evita que aparezca en la presentación normal. Su índice, formato y contenido siguen disponibles para el código, por lo que ocultar es apropiado para elementos opcionales que pueden restaurarse después.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
-    for layout_slide in presentation.layout_slides:
-        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
-        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
-```
-
-
-## **Renderizar formas como SVG**
-
-Aspose.Slides admite la renderización de formas como SVG. El método `write_as_svg` (y sus sobrecargas) en la clase [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) le permite guardar el contenido de una forma como una imagen SVG. El fragmento de código a continuación muestra cómo exportar una forma a un archivo SVG.
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    with open("output.svg", "wb") as image_stream:
-        # Obtener la primera forma en la primera diapositiva.
-        shape = presentation.slides[0].shapes[0]
-        shape.write_as_svg(image_stream)
-```
-
-
-## **Alinear forma**
-
-Usando el método `align_shape` en la clase [SlidesUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/), puede:
-
-* Alinear formas respecto a los márgenes de una diapositiva (ver Ejemplo 1).  
-* Alinear formas respecto a otras (ver Ejemplo 2).
-
-La enumeración [ShapesAlignmentType](https://reference.aspose.com/slides/python-net/aspose.slides/shapesalignmenttype/) define las opciones de alineación disponibles.
-
-**Ejemplo 1**
-
-Este código Python muestra cómo alinear las formas con índices 1, 2 y 4 al borde superior de la diapositiva:
-```py
-import aspose.slides as slides
-
-align_type = slides.ShapesAlignmentType.ALIGN_TOP
-slide_indices = [1, 2, 4]
-
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
+
+    visible_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 160, 60)
+    visible_shape.name = "VisibleLabel"
+
+    optional_shape = slide.shapes.add_auto_shape(slides.ShapeType.MOON, 240, 40, 100, 100)
+    optional_shape.name = "OptionalDecoration"
+
+    for shape in slide.shapes:
+        if shape.name == "OptionalDecoration":
+            shape.hidden = True
+
+    presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Ocultar no es eliminación ni seguridad. El objeto aún puede ser descubierto y volver a mostrarse por un usuario o por código, y sigue formando parte del archivo de la presentación.
 
-**Ejemplo 2**
+### **Cambiar el orden Z**
 
-Este ejemplo Python muestra cómo alinear todas las formas de una colección respecto a la forma más baja de esa colección:
-```py
+Las formas superpuestas se dibujan según el orden de la colección. [ShapeCollection.reorder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/reorder/) mueve una forma existente a un índice objetivo sin clonarla. El índice `0` es la parte trasera; `len(slide.shapes) - 1` es la parte delantera.
+
+```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
+    blue_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 220, 120)
+    blue_rectangle.name = "BlueRectangle"
+    blue_rectangle.fill_format.fill_type = slides.FillType.SOLID
+    blue_rectangle.fill_format.solid_fill_color.color = draw.Color.steel_blue
+
+    orange_ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 180, 140, 220, 120)
+    orange_ellipse.name = "OrangeEllipse"
+    orange_ellipse.fill_format.fill_type = slides.FillType.SOLID
+    orange_ellipse.fill_format.solid_fill_color.color = draw.Color.orange
+
+    slide.shapes.reorder(len(slide.shapes) - 1, blue_rectangle)
+    presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+El rectángulo se crea primero y inicialmente queda detrás de la elipse. Moverlo al índice final lo sitúa al frente. Finalice el orden Z después de añadir o clonar todas las formas relacionadas, porque esas operaciones añaden o insertan nuevos elementos en la colección y pueden alterar la pila prevista.
 
-## **Propiedades de volteo**
+## **Inspeccionar formas en diapositivas de diseño**
 
-En Aspose.Slides, la clase [ShapeFrame](https://reference.aspose.com/slides/python-net/aspose.slides/shapeframe/) proporciona control sobre el espejo horizontal y vertical de las formas mediante sus propiedades `flip_h` y `flip_v`. Ambas propiedades son del tipo [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/), permitiendo valores `TRUE` para indicar un volteo, `FALSE` para no voltear, o `NOT_DEFINED` para usar el comportamiento predeterminado. Estos valores son accesibles desde el [Frame](https://reference.aspose.com/slides/python-net/aspose.slides/shape/frame/) de una forma.
+Las diapositivas normales, de diseño y maestras tienen colecciones de formas separadas. Una forma en una colección de diseño no es el mismo objeto que una forma posicionada de forma similar en una diapositiva normal. Inspeccione las formas del diseño cuando necesite comprender o cambiar el formato suministrado por un diseño.
 
-Para modificar la configuración de volteo, se construye una nueva instancia de [ShapeFrame](https://reference.aspose.com/slides/python-net/aspose.slides/shapeframe/) con la posición y tamaño actuales de la forma, los valores deseados para `flip_h` y `flip_v`, y el ángulo de rotación. Asignar esta instancia al [Frame](https://reference.aspose.com/slides/python-net/aspose.slides/shape/frame/) de la forma y guardar la presentación aplica las transformaciones de espejo y las grava en el archivo de salida.
+El siguiente ejemplo lee el [Shape.fill_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/fill_format/) y el [Shape.line_format](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/line_format/) de cada forma de diseño sin asumir que cada forma es un `AutoShape`.
 
-Supongamos que tenemos un archivo sample.pptx en el que la primera diapositiva contiene una única forma con la configuración de volteo predeterminada, como se muestra a continuación.
+```python
+import aspose.slides as slides
 
-![The shape to be flipped](shape_to_be_flipped.png)
+with slides.Presentation("input.pptx") as presentation:
+    for layout_slide in presentation.layout_slides:
+        for shape in layout_slide.shapes:
+            fill_type = shape.fill_format.fill_type
+            line_width = shape.line_format.width
+            print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
+```
 
-El siguiente ejemplo de código recupera las propiedades de volteo actuales de la forma y la voltea tanto horizontal como verticalmente.
-```py
+Editar un diseño puede afectar a varias diapositivas que lo utilizan. Antes de cambiar una forma de diseño, determine si una diapositiva normal hereda el objeto o contiene una sobrescritura local, y pruebe cada diapositiva que use ese diseño.
+
+## **Exportar una forma a SVG**
+
+[Shape.write_as_svg](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/write_as_svg/) escribe el contenido renderizado de una sola forma en un flujo. El resultado contiene únicamente la forma, no el fondo completo de la diapositiva ni las formas vecinas.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) == 0:
+        print("Slide 1 does not contain a shape to export.")
+    else:
+        shape = slide.shapes[0]
+        with open("shape.svg", "wb") as svg_stream:
+            shape.write_as_svg(svg_stream)
+```
+
+Mantenga la presentación abierta mientras renderiza. La salida depende del formato de la forma y de recursos como fuentes e imágenes. Si necesita la composición completa, exporte la diapositiva en lugar de una forma individual. El llamador es propietario del flujo y debe cerrarlo.
+
+## **Alinear formas**
+
+Los sobrecargas de [SlideUtil.align_shapes](https://reference.aspose.com/slides/es/python-net/aspose.slides.util/slideutil/align_shapes/) alinean todas las formas o los índices de colección seleccionados. [ShapesAlignmentType](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapesalignmenttype/) especifica el borde, la línea central o el modo de distribución. Establezca `align_to_slide` a `True` para usar los bordes de la diapositiva; establézcalo a `False` para alinear las formas seleccionadas entre sí.
+
+Este ejemplo alinea tres formas con el borde superior de la diapositiva. Sus índices actuales se resuelven inmediatamente antes de la alineación.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 60, 80, 120, 50)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 240, 160, 120, 50)
+    third_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 420, 240, 120, 50)
+    first_shape.name = "FirstAlignedShape"
+    second_shape.name = "SecondAlignedShape"
+    third_shape.name = "ThirdAlignedShape"
+
+    shape_indexes = [
+        slide.shapes.index_of(first_shape),
+        slide.shapes.index_of(second_shape),
+        slide.shapes.index_of(third_shape)
+    ]
+
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, slide, shape_indexes)
+    presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+La alineación cambia posiciones, no el orden Z. La alineación relativa normalmente requiere al menos dos formas, mientras que la distribución horizontal o vertical necesita suficientes formas para definir el espaciado. Recalcule los índices si modifica la colección antes de llamar al método.
+
+## **Voltear una forma**
+
+La clase [ShapeFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapeframe/) almacena la posición, el tamaño, la configuración de volteo horizontal y vertical, y la rotación. Sus valores `flip_h` y `flip_v` utilizan [NullableBool](https://reference.aspose.com/slides/es/python-net/aspose.slides/nullablebool/): `TRUE` habilita el volteo, `FALSE` lo deshabilita, y `NOT_DEFINED` conserva el estado no especificado o predeterminado.
+
+La presentación de entrada a continuación contiene una forma sin voltear.
+
+![La forma antes de voltearla](shape_to_be_flipped.png)
+
+El ejemplo conserva todos los demás valores del marco y reemplaza solo las dos configuraciones de volteo. Esto es importante porque asignar un nuevo [Shape.frame](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/frame/) reemplaza todo el marco.
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    frame = shape.frame
 
-    # Recuperar la propiedad de volteo horizontal de la forma.
-    horizontal_flip = shape.frame.flip_h
-    print("Horizontal flip:", horizontal_flip)
+    print("Horizontal flip before change:", frame.flip_h)
+    print("Vertical flip before change:", frame.flip_v)
 
-    # Recuperar la propiedad de volteo vertical de la forma.
-    vertical_flip = shape.frame.flip_v
-    print("Vertical flip:", vertical_flip)
+    shape.frame = slides.ShapeFrame(
+        frame.x, frame.y, frame.width, frame.height,
+        slides.NullableBool.TRUE, slides.NullableBool.TRUE, frame.rotation)
 
-    x, y = shape.frame.x, shape.frame.y
-    width, height = shape.frame.width, shape.frame.height
-    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # Voltear horizontal y verticalmente.
-    rotation = shape.frame.rotation
-
-    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+La forma guardada se refleja horizontal y verticalmente manteniendo su posición, tamaño y rotación.
 
-El resultado:
-
-![The flipped shape](flipped_shape.png)
+![La forma después de voltearla](flipped_shape.png)
 
 ## **Preguntas frecuentes**
 
-**¿Puedo combinar formas (unión/intersección/resta) en una diapositiva como en un editor de escritorio?**
+**¿Debería usar un índice de colección como identificador de forma?**
 
-No existe una API de operación booleanas incorporada. Puede aproximarse construyendo el contorno deseado usted mismo—p. ej., calcule la geometría resultante (mediante [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)) y cree una nueva forma con ese contorno, opcionalmente eliminando las originales.
+Solo para procesamiento de corta duración cuando la colección no cambiará antes de que se use el índice. Prefiera un `name` o `alternative_text` validado para plantillas creadas, o `office_interop_shape_id` para trabajos de interoperabilidad con PowerPoint.
 
-**¿Cómo puedo controlar el orden de apilamiento (z-order) para que una forma siempre quede “encima”?**
+**¿Ocultar una forma la elimina del orden Z?**
 
-Cambie el orden de inserción/movimiento dentro de la colección [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) de la diapositiva. Para resultados predecibles, finalice el z-order después de todas las demás modificaciones de la diapositiva.
+No. Una forma oculta permanece en la colección en el mismo índice. Puede encontrarse, reordenarse, editarse o volver a mostrarse.
 
-**¿Puedo “bloquear” una forma para evitar que los usuarios la editen en PowerPoint?**
+**¿Por qué una forma clonada apareció delante de otra forma?**
 
-Sí. Establezca los [banderas de protección a nivel de forma](/slides/es/python-net/applying-protection-to-presentation/) (p. ej., bloquear selección, movimiento, cambio de tamaño, edición de texto). Si es necesario, replique las restricciones en la diapositiva maestra o de diseño. Tenga en cuenta que esta es una protección a nivel de UI, no una característica de seguridad; para una protección más robusta, combínela con restricciones a nivel de archivo como [recomendaciones de solo lectura o contraseñas](/slides/es/python-net/password-protected-presentation/).
+`add_clone` agrega el clon al final de la colección, que corresponde al frente del orden Z. Use `insert_clone` para elegir el índice inicial o `reorder` después de haber añadido todas las formas.

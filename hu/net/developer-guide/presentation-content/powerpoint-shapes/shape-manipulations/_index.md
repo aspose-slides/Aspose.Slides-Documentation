@@ -14,365 +14,371 @@ keywords:
 - alakzat elrejtése
 - alakzat sorrendjének módosítása
 - interop alakzat ID lekérése
-- alakzat alternatív szövege
-- alakzat elrendezési formátumai
+- alakzat alternatív szöveg
+- alakzat elrendezési formátumok
 - alakzat SVG-ként
 - alakzat SVG-be
 - alakzat igazítása
+- alakzat tükrözése
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Tanulja meg, hogyan hozhat létre, szerkeszthet és optimalizálhat alakzatokat az Aspose.Slides for .NET-ben, és szállíthat nagy teljesítményű PowerPoint prezentációkat."
+description: "Ismerje meg, hogyan lehet azonosítani, klónozni, eltávolítani, elrejteni, újrarendezni, exportálni, igazítani és tükrözni a prezentációs alakzatokat az Aspose.Slides for .NET segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan dolgozhatunk alakzatokkal a bemutatókban az Aspose.Slides segítségével. Megmutatja, hogyan lehet alakzatot keresni egy dián, klónozni, eltávolítani, elrejteni, megváltoztatni a sorrendet, lekérni az Interop alakzat ID-ját, illetve alternatív szöveget beállítani az azonosításhoz és a további feldolgozáshoz.
+Az Aspose.Slides for .NET a dián lévő alakzatokat egy rendezett [IShapeCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/)ként képviseli. A gyűjtemény egyben az a hely, ahol alakzatokat kereshet és módosíthat, valamint a rétegezési sorrend forrása: a `0` indexű alakzat a leghátrul, a legnagyobb indexű pedig a legelöl helyezkedik el.
 
-A cikk továbbá azt is bemutatja, hogyan érhetők el az alakzatok elrendezési formátumai, hogyan renderelhető egy alakzat SVG-ként, hogyan igazíthatók az alakzatok egy dián, és hogyan használhatók a flip tulajdonságok vízszintes és függőleges tükrözéshez. Emellett rövid GYIK-ot tartalmaz az alakzatok egyesítéséről, rétegezési sorrendről és az alakzatok zárolásáról.
+Ez a cikk ezt a modellt követi. Először bemutatja, hogyan azonosítsunk egy alakzatot megbízhatóan, majd megmutatja, hogyan klónozzunk, távolítsunk el, rejtsünk el és rendezzünk át alakzatokat. Az utolsó szakaszok a felületi formázást, az SVG exportot, a igazítást és a tükrözési beállításokat fedik le. Minden példa független, így csak a munkafolyamatához szükséges műveleteket használhatja.
 
-## **Alakzat keresése egy dián**
-Ez a téma egy egyszerű technikát mutat be, amely megkönnyíti a fejlesztők számára egy adott alakzat megtalálását a dián anélkül, hogy a belső azonosítóját kellene használniuk. Fontos tudni, hogy a PowerPoint bemutató fájlok nem rendelkeznek olyan módszerrel, amellyel a dián lévő alakzatokat azonosítani lehetne, kivéve a belső egyedi azonosítót. A fejlesztőknek nehézséget okozhat egy alakzat megtalálása a belső egyedi azonosítóval. Minden diára hozzáadott alakzathoz van alternatív szöveg (Alt Text). Javasoljuk, hogy a fejlesztők az alternatív szöveget használják egy adott alakzat megtalálásához. A Microsoft PowerPoint segítségével megadhatja az objektumok alternatív szövegét, amelyeket később szeretne módosítani.
+## **Alakzatok azonosítása és keresése**
 
-Miután beállította egy kívánt alakzat alternatív szövegét, megnyithatja a bemutatót az Aspose.Slides for .NET használatával, és végigiterálhat a dián található összes alakzaton. Minden iteráció során ellenőrizheti az alakzat alternatív szövegét, és a megfelelőt tartalmazó alakzat lesz a keresett. A technika jobb bemutatására létrehoztunk egy [FindShape](https://reference.aspose.com/slides/hu/net/aspose.slides.util/slideutil/findshape/#findshape_1) metódust, amely megtalálja a specifikus alakzatot egy dián, és visszaadja azt.
+A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon azonosítót a bemutató szerkesztési és karbantartási módja alapján:
 
-```c#
-public static void Run()
+- A [Name](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/name/) hasznos fejlesztői vezérlésű sablonokhoz, és könnyen megtekinthető a PowerPoint Kiválasztási ablaktáblájában. A neveket szerkeszthető, de nem garantált a egyediségük, ezért alakítson ki egy elnevezési konvenciót, ha a kód rájuk támaszkodik.
+- Az [AlternativeText](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/alternativetext/) akkor hasznos, ha egy akadálymentesítési leírás vagy a szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható vagy újraírták az akadálymentesítés céljából, és nem garantált az egyedisége. Ne használja csendben adatbáziskulcsként a jelentős akadálymentesítési szöveget.
+- Az [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/officeinteropshapeid/) egy csak‑olvasásra szolgáló azonosító, amely egy dián belül egyedi, és a PowerPoint interop által használt alakzat‑azonosítónak felel meg. Használja, ha PowerPoint‑tal integrál, vagy ha egyértelmű hivatkozásra van szükség az alakzat élettartama alatt. Egy klónozott vagy újra létrehozott alakzat más alakzat, és a saját azonosítóját kapja.
+
+A kapcsolódó [UniqueId](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/uniqueid/) tulajdonság prezentáció‑szintű, de kiegészítőkhöz készült, és újra hozzárendelhető. Nem tekinthető állandó külső kulcsnak. Ha hosszú távú azonosításra van szükség, tartsa a leképezést az alkalmazás adatában, és ellenőrizze, hogy a várt alakzat továbbra is létezik‑e.
+
+Az alábbi példa a `Name` alapján, ordinális összehasonlítással keres, és a dián belüli interop‑azonosítót adja vissza. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelzi a helytelen objektummal való folytatás helyett.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Példányosít egy Presentation osztályt, amely a bemutató fájlt képviseli
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // A megtalálni kívánt alakzat alternatív szövege
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Metódus implementációja, amely egy diában alakzatot keres az alternatív szövege alapján
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Az összes alakzat bejárása a dián belül
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Ha a dián lévő alternatív szöveg megegyezik a szükségesvel, akkor
-        // Visszaadja az alakzatot
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **Alakzat klónozása**
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezze meg egy dia referenciáját az indexének használatával.
-1. Érje el a forrásdia alakzatgyűjteményét.
-1. Adjon hozzá egy új diát a bemutatóhoz.
-1. Klónozza az alakzatokat a forrásdia gyűjteményéből az új diára.
-1. Mentse a módosított bemutatót PPTX fájlként.
-
-Az alábbi példa egy csoportos alakzatot ad hozzá egy diához.
-
-```c#
-// Presentation osztály példányosítása
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// A PPTX fájl mentése lemezre
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Alakzat eltávolítása**
-Aspose.Slides for .NET lehetővé teszi a fejlesztők számára, hogy bármely alakzatot eltávolítsanak. Az alakzat eltávolításához egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a `Presentation` osztályból.
-1. Nyissa meg az első diát.
-1. Keresse meg a megfelelő AlternativeText‑el rendelkező alakzatot.
-1. Távolítsa el az alakzatot.
-1. Mentse a fájlt a lemezre.
-
-```c#
-// Presentation objektum létrehozása
-Presentation pres = new Presentation();
-
-// Az első dia lekérése
-ISlide sld = pres.Slides[0];
-
-// Téglalap típusú autoshape hozzáadása
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// A prezentáció mentése a lemezre
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Alakzat elrejtése**
-Aspose.Slides for .NET lehetővé teszi a fejlesztők számára, hogy bármely alakzatot elrejtjenek. Az alakzat elrejtéséhez egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a `Presentation` osztályból.
-1. Nyissa meg az első diát.
-1. Keresse meg a megfelelő AlternativeText‑el rendelkező alakzatot.
-1. Rejtse el az alakzatot.
-1. Mentse a fájlt a lemezre.
-
-```c#
-// A PPTX-et képviselő Presentation osztály példányosítása
-Presentation pres = new Presentation();
-
-// Az első dia lekérése
-ISlide sld = pres.Slides[0];
-
-// Téglalap típusú autoshape hozzáadása
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// A prezentáció mentése lemezre
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **Alakzat sorrendjének módosítása**
-Aspose.Slides for .NET lehetővé teszi a fejlesztők számára az alakzatok újrarendezését. A sorrend megadja, hogy melyik alakzat van elöl vagy hátul. Az alakzat újrarendezéséhez egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a `Presentation` osztályból.
-1. Nyissa meg az első diát.
-1. Adjon hozzá egy alakzatot.
-1. Adjon szöveget az alakzat szövegkeretébe.
-1. Adjon hozzá egy másik alakzatot ugyanazzal a koordinátával.
-1. Rendezze át az alakzatokat.
-1. Mentse a fájlt a lemezre.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Interop alakzat ID lekérése**
-Az Aspose.Slides for .NET lehetővé teszi a fejlesztők számára, hogy egyedi alakzatazonosítót kapjanak a dia szintjén, szemben a UniqueId tulajdonsággal, amely a bemutató szintjén biztosít egyedi azonosítót. Az OfficeInteropShapeId tulajdonság az IShape interfészekhez és a Shape osztályhoz került hozzáadásra. Az OfficeInteropShapeId értéke megegyezik a Microsoft.Office.Interop.PowerPoint.Shape objektum Id értékével. Az alábbiakban egy példakód látható.
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Egyedi alakzat azonosító lekérése a dia hatókörében
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **Alakzat alternatív szövegének beállítása**
-Az Aspose.Slides for .NET lehetővé teszi, hogy a fejlesztők beállítsák bármely alakzat AlternateText értékét. 
-A bemutatóban lévő alakzatok megkülönböztethetők az AlternativeText vagy a Shape Name (alakzatnév) tulajdonság alapján. 
-Az AlternativeText tulajdonságot olvashatja vagy beállíthatja az Aspose.Slides vagy a Microsoft PowerPoint segítségével. 
-Ennek a tulajdonságnak a használatával címkézhet egy alakzatot, és különböző műveleteket végezhet, például alakzat eltávolítása, 
-alakzat elrejtése vagy alakzatok átrendezése a dián. 
-Az AlternateText beállításához kövesse az alábbi lépéseket:
+Amikor egy művelet alakzat‑típusra specifikus, ellenőrizze a felületet a típus‑specifikus tagok használata előtt. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a megnevezett objektum egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) típusú.
 
-1. Hozzon létre egy példányt a `Presentation` osztályból.
-1. Nyissa meg az első diát.
-1. Adjon hozzá bármilyen alakzatot a diához.
-1. Végezzen némi műveletet az újonnan hozzáadott alakzattal.
-1. Járja be az alakzatokat a keresett alakzat megtalálásához.
-1. Állítsa be az AlternativeText értéket.
-1. Mentse a fájlt a lemezre.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// A PPTX-et képviselő Presentation osztály példányosítása
-Presentation pres = new Presentation();
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-// Az első dia lekérése
-ISlide sld = pres.Slides[0];
-
-// Téglalap típusú autoshape hozzáadása
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// A prezentáció mentése lemezre
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **Alakzat elrendezési formátumainak elérése**
-Az Aspose.Slides for .NET egyszerű API-t biztosít az alakzat elrendezési formátumainak eléréséhez. Ez a cikk bemutatja, hogyan érheti el az elrendezési formátumokat.
-
-Az alábbi példakód látható.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Alakzat renderelése SVG-ként**
-Az Aspose.Slides for .NET most már támogatja az alakzat SVG-ként való renderelését. A WriteAsSvg metódus (és annak túlterhelése) a Shape osztályhoz és az IShape interfészhez került hozzáadásra. Ez a metódus lehetővé teszi az alakzat tartalmának SVG fájlba mentését. Az alábbi kódrészlet bemutatja, hogyan exportálhatja a dia alakzatát SVG fájlba.
+## **Az alakzategyűjtemény módosítása**
 
-```c#
-public static void Run()
+A hozzáadás, klónozás, eltávolítás és átrendezés metódusai azonnal a gyűjteményen dolgoznak. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon a művelet előtt rögzített indexekre.
+
+### **Alakzat klónozása**
+
+Az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addclone/) egy független másolatot hoz létre, és a célgyűjtemény végére fűzi. Az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/insertclone/) szintén másolatot készít, de a megadott z‑rendeleti indexen helyezi el. A koordinátákat elfogadó túlterhelések a méretet változtatás nélkül mozdítják a másolatot; a szélességet és magasságot is megadó változatok átméretezhetik is.
+
+A példa létrehoz egy cél‑diát, a címkézett téglalapot előre klónozza, majd egy második klónt a háttérbe szúr be. Bármelyik klón módosítása nem befolyásolja a forrás‑alakzatot.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+A klónozás átmásolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szöveget is. Adj új logikai azonosítókat a klónnak, ha ezeknek az értékeknek egyedinek kell lenniük. A komplex alakzatok által használt erőforrásokat a prezentáció kezeli, de a klón új gyűjteményelemként, új alakzat‑identitással jelenik meg.
+
+### **Alakzatok eltávolítása**
+
+A [Remove](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/remove/) egy adott alakzat objektumot töröl a gyűjteményéből. Több egyező alakzat indexelt iteráció közbeni eltávolításakor haladjon a vég felől, hogy a maradék indexek érvényben maradjanak.
+
+Ez a példa minden megadott névvel rendelkező alakzatot eltávolít. `slide.Shapes[i]` értéket használ, nem rögzített gyűjteményelemet, és nem kényszeríti fölöslegesen az alakzat típusát.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Eltávolítás után a alakzatszám és a későbbi alakzatok indexei változnak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak a mentett indexeknél. Vegye figyelembe a csatlakozókat, animációkat és egyéb prezentációs elemeket, amelyek az eltávolított objektumra hivatkozhatnak; egy látható alakzat eltávolítása több, mint a dia megjelenését módosíthatja.
+
+### **Alakzat elrejtése**
+
+A [Hidden](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/hidden/) `true`‑ra állítása az alakzatot a gyűjteményben hagyja, de megakadályozza, hogy a normál diavetítésben megjelenjen. Indexe, formázása és tartalma továbbra is elérhető a kódból, így az elrejtés alkalmas opcionális elemeknél, amelyeket később vissza lehet állítani.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Az elrejtés nem törlés vagy biztonság. Az objektum továbbra is felfedezhető és visszakapcsolható felhasználó vagy kód által, és része marad a prezentációfájlnak.
+
+### **Z‑rendezés módosítása**
+
+Az átfedő alakzatok a gyűjtemény sorrendjében kerülnek megrajzolásra. A [Reorder](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/reorder/) egy meglévő alakzatot a kívánt indexre mozgat klónozás nélkül. A `0` index a háttér, a `Count - 1` a előtér.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+A téglalap először jön létre, és kezdetben az ellipsz mögött helyezkedik el. A végső indexre való áthelyezése előre hozza. A z‑rendezést az összes kapcsolódó alakzat hozzáadása vagy klónozása után véglegesítse, mivel ezek a műveletek új gyűjmentemeleket fűznek vagy szúrnak be, és megváltoztathatják a kívánt réteget.
+
+## **Alakzatok ellenőrzése elrendezési diákon**
+
+A normál diák, elrendezési diák és mesterdiák külön alakzategyűjteménnyel rendelkeznek. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonlóan helyezkedő alakzat egy normál dián. Ellenőrizze az elrendezési alakzatokat, ha a formázást kell megérteni vagy módosítani, amelyet egy elrendezés biztosít.
+
+Az alábbi példa minden elrendezési alakzat [FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/fillformat/) és [LineFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/lineformat/) tulajdonságát olvassa, anélkül, hogy azt feltételezné, hogy minden alakzat egy `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **Alakzat igazítása**
-A [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/hu/net/aspose.slides.util/slideutil/methods/alignshapes/index) túlterhelt metódus segítségével 
+Egy elrendezés szerkesztése több, azt használó diára is hatással lehet. Mielőtt elrendezési alakzatot módosítana, állapítsa meg, hogy egy normál dia örökölte‑e az objektumot vagy helyi felülbírálással rendelkezik, és tesztelje az összes, az elrendezést használó diát.
 
-* igazíthatja az alakzatokat a dia margójához képest. Lásd Példa 1. 
-* igazíthatja az alakzatokat egymáshoz képest. Lásd Példa 2. 
+## **Alakzat exportálása SVG‑be**
 
-A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/net/aspose.slides/shapesalignmenttype) felsorolás meghatározza a rendelkezésre álló igazítási lehetőségeket.
+A [WriteAsSvg](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/writeassvg/) egy alakzat renderelt tartalmát írja egy adatfolyamba. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia háttérjét vagy a szomszédos alakzatokat.
 
-**Példa 1**
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Ez a C# kód megmutatja, hogyan igazíthatók a 1, 2 és 4 indexű alakzatok a dia felső szélén:
-Az alábbi forráskód a 1, 2 és 4 indexű alakzatokat a dia felső szélén igazítja.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Példa 2**
+A prezentációt a renderelés közben tartsa nyitva. A kimenet az alakzat formázásától, valamint a betűkészletek és képek erőforrásaitól függ. Ha a teljes kompozícióra van szüksége, exportálja a diát, ne egyetlen alakzatot. A hívó birtokolja az adatfolyamot, és el kell azt választania.
 
-Ez a C# kód megmutatja, hogyan igazítható egy teljes alakzatsorozat a sorozat alján lévő alakzathoz képest:
+## **Alakzatok igazítása**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+A [SlideUtil.AlignShapes](https://reference.aspose.com/slides/hu/net/aspose.slides.util/slideutil/alignshapes/) túltöltései vagy az összes alakzatot, vagy a kiválasztott gyűjteményindexeket igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/net/aspose.slides/shapesalignmenttype/) megadja a szélt, középvonalat vagy elosztási módot. A `alignToSlide` értékét `true`‑ra állítva a dia széleit használja; `false` esetén a kijelölt alakzatok egymáshoz viszonyított igazítását végzi.
+
+Ez a példa három alakzatot igazít a dia felső széléhez. A visszaadott alakzatreferenciákat a tényleges indexeikre konvertálja közvetlenül az igazítás előtt.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Flip tulajdonságok**
-Az Aspose.Slides-ben a [ShapeFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/shapeframe/) osztály lehetővé teszi a alakzatok vízszintes és függőleges tükrözésének vezérlését a `FlipH` és `FlipV` tulajdonságokon keresztül. Mindkét tulajdonság a [NullableBool](https://reference.aspose.com/slides/hu/net/aspose.slides/nullablebool/) típusú, amely megengedi a `True` értéket a tükrözéshez, a `False` értéket a tükrözés hiányához, vagy a `NotDefined` értéket az alapértelmezett viselkedéshez. Ezek az értékek az alakzat [Frame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/frame/) tulajdonságán keresztül érhetők el.
+Az igazítás a pozíciókat, nem a z‑rendet változtatja. A relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő számú alakzatra van szükség a távolság meghatározásához. Ha a gyűjteményt a metódus hívása előtt módosítja, számolja újra az indexeket.
 
-A flip beállítások módosításához egy új [ShapeFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/shapeframe/) példányt hozunk létre az alakzat aktuális pozíciójával és méretével, a kívánt `FlipH` és `FlipV` értékekkel, valamint a forgásszöggel. Ennek a példánynak a alakzat [Frame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/frame/) tulajdonságához való hozzárendelése és a bemutató mentése alkalmazza a tükrözési transzformációkat, és a kimeneti fájlba menti őket.
+## **Alakzat tükrözése**
 
-Tegyük fel, hogy van egy sample.pptx fájlunk, amelynek az első diapont egyetlen alakzat tartalmazza alapértelmezett flip beállításokkal, az alábbiak szerint.
+A [ShapeFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, a vízszintes és függőleges tükrözés beállításait, valamint a forgatást. A `FlipH` és `FlipV` értékek a [NullableBool](https://reference.aspose.com/slides/hu/net/aspose.slides/nullablebool/) típust használják: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` pedig megőrzi a nem meghatározott/alapértelmezett állapotot.
 
-![A tükrözendő alakzat](shape_to_be_flipped.png)
+Az alábbi bemeneti prezentáció egy nem tükrözött alakzatot tartalmaz.
 
-Az alábbi kódrészlet lekéri az alakzat aktuális flip tulajdonságait, és vízszintesen és függőlegesen egyaránt tükrözi.
+![The shape before flipping](shape_to_be_flipped.png)
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+A példa minden egyéb keretértéket megőriz, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/frame/) hozzárendelése a teljes keretet felülírja.
 
-    // Az alakzat vízszintes flip tulajdonságának lekérése.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Az alakzat függőleges flip tulajdonságának lekérése.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Vízszintesen tükröz.
-    NullableBool flipV = NullableBool.True; // Függőlegesen tükröz.
-    float rotation = shape.Frame.Rotation;
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Az eredmény:
+A mentett alakzat vízszintesen és függőlegesen tükröződik, miközben megtartja a pozícióját, méretét és forgását.
 
-![A tükrözött alakzat](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **GYIK**
 
-**Összevonhatok-e alakzatokat (unió/metszet/kivonás) egy dián, mint egy asztali szerkesztőben?**
+**Használjak gyűjtemény‑indexet alakzat‑azonosítóként?**
 
-Nincs beépített Boolean művelet API. Körülbelül ugyanúgy elérhető, ha saját maga felépíti a kívánt körvonalat – például kiszámítja a keletkező geometriát (a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath/) segítségével), és létrehoz egy új alakzatot ezzel a körvonallal, opcionálisan eltávolítva az eredetit.
+Csak rövid életű feldolgozásnál, amikor a gyűjtemény nem változik az index használata előtt. Sablonokhoz előnyben részesítsen ellenőrzött `Name` vagy `AlternativeText` konvenciót, illetve `OfficeInteropShapeId`‑t a dián belüli interop munka esetén.
 
-**Hogyan szabályozhatom a rétegezési sorrendet (z-sorrendet), hogy egy alakzat mindig "felül" maradjon?**
+**Eltávolítja-e egy rejtett alakzat a z‑rendet?**
 
-Módosítsa a beszúrási/mozgatási sorrendet a dia [shapes](https://reference.aspose.com/slides/hu/net/aspose.slides/baseslide/shapes/) gyűjteményén belül. A kiszámítható eredmények érdekében a z-sorrendet a többi dia módosítás után fejezze be.
+Nem. Egy rejtett alakzat a gyűjteményben marad ugyanazon az indexen. Megtalálható, átrendezhető, szerkeszthető vagy újra láthatóvá tehető.
 
-**Zárolhatok-e egy alakzatot, hogy a felhasználók ne tudják szerkeszteni PowerPointban?**
+**Miért jelent meg egy klónozott alakzat egy másik alakzat elé?**
 
-Igen. Állítsa be a [alakzatszintű védelmi zászlókat](/slides/hu/net/applying-protection-to-presentation/) (például a kiválasztás, mozgatás, átméretezés, szövegszerkesztés zárolását). Szükség esetén tükrözze a korlátozásokat a mester- vagy elrendezésre. Vegye figyelembe, hogy ez UI-szintű védelem, nem biztonsági funkció; erősebb védelemhez kombinálja fájlszintű korlátozásokkal, mint a [csak olvasható ajánlások vagy jelszavak](/slides/hu/net/password-protected-presentation/).
+Az `AddClone` a klónt a gyűjtemény végére fűzi, ami a z‑rendezés elöl lévő pozíciója. Használja az `InsertClone`‑t a kezdeti index kiválasztásához, vagy az `Reorder`‑t minden alakzat hozzáadása után.

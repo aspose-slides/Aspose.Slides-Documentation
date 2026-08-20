@@ -1,377 +1,433 @@
 ---
-title: Quản lý các hình dạng trong bản trình chiếu bằng PHP
-linktitle: Thao tác Hình dạng
+title: Quản lý các Hình trong Bài thuyết trình bằng PHP
+linktitle: Thao tác Hình
 type: docs
 weight: 40
 url: /vi/php-java/shape-manipulations/
 keywords:
-- hình dạng PowerPoint
-- hình dạng bản trình chiếu
-- hình dạng trên slide
-- tìm hình dạng
-- sao chép hình dạng
-- xóa hình dạng
-- ẩn hình dạng
-- thay đổi thứ tự hình dạng
-- lấy Interop shape ID
-- văn bản thay thế cho hình dạng
-- định dạng bố cục hình dạng
-- hình dạng dưới dạng SVG
-- hình dạng sang SVG
-- căn chỉnh hình dạng
+- hình PowerPoint
+- hình trong bài thuyết trình
+- hình trên slide
+- tìm hình
+- sao chép hình
+- xóa hình
+- ẩn hình
+- thay đổi thứ tự hình
+- lấy ID hình interop
+- văn bản thay thế của hình
+- định dạng layout của hình
+- hình dưới dạng SVG
+- hình thành SVG
+- căn chỉnh hình
+- lật hình
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách tạo, chỉnh sửa và tối ưu hóa các hình dạng trong Aspose.Slides cho PHP qua Java và cung cấp các bản trình chiếu PowerPoint hiệu năng cao."
+description: "Tìm hiểu cách xác định, sao chép, xóa, ẩn, thay đổi thứ tự, xuất, căn chỉnh và lật các hình trong bài thuyết trình với Aspose.Slides cho PHP qua Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với các hình dạng trong bản trình chiếu bằng cách sử dụng Aspose.Slides. Nó trình bày cách tìm một hình dạng trên slide, sao chép nó, xóa nó, ẩn nó, thay đổi thứ tự, lấy Interop shape ID, và đặt văn bản thay thế để nhận dạng và xử lý tiếp theo. Nó cũng đề cập cách truy cập định dạng bố cục cho các hình dạng, render hình dạng dưới dạng SVG, căn chỉnh các hình dạng trên slide, và sử dụng các thuộc tính lật để phản chiếu ngang và dọc. Ngoài ra, bài viết còn bao gồm một phần Hỏi đáp ngắn về việc kết hợp hình dạng, thứ tự xếp chồng và khóa hình dạng.
+Aspose.Slides for PHP via Java đại diện cho các hình trên một slide dưới dạng một [ShapeCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và sửa đổi các hình, vừa là nguồn của thứ tự xếp chồng: chỉ mục `0` là hình ở phía sau nhất, trong khi chỉ mục cuối cùng là hình ở phía trước nhất.
 
-## **Tìm một hình dạng trên slide**
-Chủ đề này sẽ mô tả một kỹ thuật đơn giản giúp các nhà phát triển dễ dàng tìm một hình dạng cụ thể trên slide mà không cần sử dụng Id nội bộ của nó. Cần lưu ý rằng các tệp PowerPoint Presentation không có cách nào để xác định các hình dạng trên slide ngoài Id duy nhất nội bộ. Điều này khiến việc tìm một hình dạng bằng Id nội bộ trở nên khó khăn đối với các nhà phát triển. Tất cả các hình dạng được thêm vào slide đều có một số Alt Text. Chúng tôi đề xuất các nhà phát triển sử dụng văn bản thay thế để tìm một hình dạng cụ thể. Bạn có thể sử dụng MS PowerPoint để định nghĩa văn bản thay thế cho các đối tượng mà bạn dự định sẽ thay đổi trong tương lai.
+Bài viết này tuân theo mô hình đó. Đầu tiên nó giải thích cách xác định một hình một cách đáng tin cậy, sau đó minh họa cách sao chép, xóa, ẩn và thay đổi thứ tự các hình. Các phần cuối cùng đề cập đến định dạng ở cấp layout, xuất SVG, căn chỉnh và cài đặt lật. Mỗi ví dụ độc lập, vì vậy bạn có thể chỉ sử dụng các thao tác mà quy trình của bạn cần.
 
-Sau khi đặt văn bản thay thế cho bất kỳ hình dạng nào mong muốn, bạn có thể mở bản trình chiếu đó bằng Aspose.Slides for PHP via Java và lặp qua tất cả các hình dạng được thêm vào một slide. Trong mỗi vòng lặp, bạn có thể kiểm tra văn bản thay thế của hình dạng và hình dạng có văn bản thay thế khớp sẽ là hình dạng bạn cần. Để minh họa kỹ thuật này một cách tốt hơn, chúng tôi đã tạo một phương thức, [findShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) thực hiện việc tìm một hình dạng cụ thể trong slide và trả về hình dạng đó.
+## **Xác định và Tìm Kiếm Hình**
 
-```php
-  # Khởi tạo một lớp Presentation đại diện cho tệp bản trình chiếu
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # Văn bản thay thế của hình dạng cần tìm
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+Các chỉ mục trong bộ sưu tập tiện lợi khi xử lý một tệp đã biết, nhưng chúng không phải là định danh ổn định. Thêm, xóa hoặc thay đổi thứ tự một hình có thể làm thay đổi chỉ mục của nó. Chọn một định danh dựa trên cách bài thuyết trình được tạo và duy trì:
 
-```
+- [Name](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getname/) hữu ích cho các mẫu được kiểm soát bởi nhà phát triển và dễ kiểm tra trong Bảng chọn của PowerPoint. Tên có thể được chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy ước đặt tên nếu mã của bạn phụ thuộc vào chúng.
+- [AlternativeText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getalternativetext/) hữu ích khi một mô tả truy cập hoặc một thẻ do tác giả cung cấp đã xác định hình. Nó hiển thị cho người dùng, có thể được bản địa hoá hoặc viết lại cho mục đích truy cập, và không được đảm bảo là duy nhất. Đừng lặng lẽ tái sử dụng văn bản truy cập có ý nghĩa làm khóa cơ sở dữ liệu.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getofficeinteropshapeid/) là một định danh chỉ đọc, duy nhất trong một slide và tương ứng với ID hình được sử dụng bởi PowerPoint interop. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt thời gian tồn tại của một hình. Một hình được sao chép hoặc tạo lại là một hình khác và sẽ nhận ID riêng.
 
-## **Sao chép một hình dạng**
-Để sao chép một hình dạng vào slide bằng Aspose.Slides for PHP via Java:
+Phương thức [Shape::getUniqueId](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getuniqueid/) liên quan trả về một định danh có phạm vi toàn bài thuyết trình, nhưng định danh đó dành cho add-in và có thể được gán lại. Nó không nên được coi là khóa ngoại lâu dài. Nếu cần duy trì danh tính lâu dài, hãy lưu ánh xạ trong dữ liệu ứng dụng và xác minh rằng hình mong đợi vẫn còn tồn tại.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-1. Lấy tham chiếu của một slide bằng cách sử dụng chỉ số của nó.
-1. Truy cập bộ sưu tập hình dạng của slide nguồn.
-1. Thêm slide mới vào bản trình chiếu.
-1. Sao chép các hình dạng từ bộ sưu tập hình dạng của slide nguồn sang slide mới.
-1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
-
-Ví dụ bên dưới thêm một nhóm hình dạng vào slide.
+Ví dụ sau tìm kiếm theo tên với so sánh chính xác và báo cáo ID interop ở cấp slide. Khi mẫu không chứa hình mong đợi, mã sẽ báo cáo kết quả đó thay vì tiếp tục với đối tượng sai.
 
 ```php
-  # Khởi tạo lớp Presentation
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # Ghi tệp PPTX vào đĩa
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **Xóa một hình dạng**
-Aspose.Slides cho PHP via Java cho phép các nhà phát triển xóa bất kỳ hình dạng nào. Để xóa hình dạng khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Tìm hình dạng có AlternativeText cụ thể.
-1. Xóa hình dạng.
-1. Lưu tệp lên đĩa.
-
-```php
-  # Tạo đối tượng Presentation
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Thêm autoshape loại hình chữ nhật
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # Lưu bản trình chiếu vào đĩa
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ẩn một hình dạng**
-Aspose.Slides cho PHP via Java cho phép các nhà phát triển ẩn bất kỳ hình dạng nào. Để ẩn hình dạng khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Tìm hình dạng có AlternativeText cụ thể.
-1. Ẩn hình dạng.
-1. Lưu tệp lên đĩa.
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Thêm autoshape loại hình chữ nhật
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # Lưu bản trình chiếu vào đĩa
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Thay đổi thứ tự hình dạng**
-Aspose.Slides cho PHP via Java cho phép các nhà phát triển thay đổi thứ tự các hình dạng. Việc thay đổi thứ tự xác định hình dạng nào ở phía trước hoặc phía sau. Để thay đổi thứ tự hình dạng trên bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm một hình dạng.
-1. Thêm một số văn bản vào khung văn bản của hình dạng.
-1. Thêm một hình dạng khác với cùng tọa độ.
-1. Thay đổi thứ tự các hình dạng.
-1. Lưu tệp lên đĩa.
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Lấy Interop Shape ID**
-Aspose.Slides cho PHP via Java cho phép các nhà phát triển lấy một định danh hình dạng duy nhất trong phạm vi slide, trái ngược với phương thức [getUniqueId](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getuniqueid/) chỉ cho phép lấy định danh duy nhất trong phạm vi bản trình chiếu. Phương thức [getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getofficeinteropshapeid/) đã được thêm vào lớp [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) tương ứng. Giá trị trả về bởi phương thức [getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getofficeinteropshapeid/) tương ứng với giá trị Id của đối tượng Microsoft.Office.Interop.PowerPoint.Shape. Dưới đây là một đoạn mã mẫu.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Lấy định danh hình dạng duy nhất trong phạm vi slide
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Đặt Văn bản Thay thế cho một Hình dạng**
-Aspose.Slides cho PHP via Java cho phép các nhà phát triển đặt AlternateText của bất kỳ hình dạng nào. Các hình dạng trong bản trình chiếu có thể được phân biệt bằng `Alternative Text` hoặc phương thức [Shape Name](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/setname/). Các phương thức [setAlternativeText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/setalternativetext/) và [getAlternativeText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getalternativetext/) có thể được đọc hoặc ghi bằng Aspose.Slides cũng như Microsoft PowerPoint. Bằng cách sử dụng phương thức này, bạn có thể gắn thẻ một hình dạng và thực hiện các thao tác khác nhau như Xóa một hình dạng, Ẩn một hình dạng hoặc Thay đổi thứ tự các hình dạng trên slide. Để đặt AlternateText cho một hình dạng, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm bất kỳ hình dạng nào vào slide.
-1. Thực hiện một số công việc với hình dạng vừa thêm.
-1. Duyệt qua các hình dạng để tìm một hình dạng.
-1. Đặt AlternativeText.
-1. Lưu tệp lên đĩa.
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Thêm autoshape loại hình chữ nhật
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # Lưu bản trình chiếu vào đĩa
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Truy cập Định dạng Bố cục cho một Hình dạng**
-Aspose.Slides cho PHP via Java cung cấp một API đơn giản để truy cập định dạng bố cục cho một hình dạng. Bài viết này minh họa cách bạn có thể truy cập các định dạng bố cục.
-
-Dưới đây là đoạn mã mẫu.
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Render một Hình dạng dưới dạng SVG**
-Bây giờ Aspose.Slides cho PHP via Java hỗ trợ render một hình dạng dưới dạng svg. Phương thức [writeAsSvg](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/writeassvg/) (và các overload của nó) đã được thêm vào lớp [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/). Phương thức này cho phép lưu nội dung của hình dạng dưới dạng tệp SVG. Đoạn mã dưới đây cho thấy cách xuất hình dạng của slide thành tệp SVG.
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Căn chỉnh một Hình dạng**
-Aspose.Slides cho phép căn chỉnh các hình dạng either relative to the slide margins or relative to each other. Để thực hiện mục tiêu này, phương thức nạp chồng [SlidesUtil::alignShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slideutil/alignshapes/) đã được thêm vào. Phân loại [ShapesAlignmentType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapesalignmenttype/) định nghĩa các tùy chọn căn chỉnh khả dụng.
-
-**Example 1**
-
-Mã nguồn dưới đây căn chỉnh các hình dạng có chỉ số 1,2 và 4 dọc theo biên trên của slide.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**Example 2**
-
-Ví dụ dưới đây cho thấy cách căn toàn bộ bộ sưu tập hình dạng so với hình dạng dưới cùng trong bộ sưu tập.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Thuộc tính Lật**
-
-Trong Aspose.Slides, lớp [ShapeFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapeframe/) cung cấp khả năng kiểm soát việc phản chiếu ngang và dọc của các hình dạng thông qua các thuộc tính `flipH` và `flipV`. Cả hai thuộc tính đều có kiểu [NullableBool](https://reference.aspose.com/slides/vi/php-java/aspose.slides/nullablebool/), cho phép giá trị `True` để lật, `False` để không lật, hoặc `NotDefined` để sử dụng hành vi mặc định. Các giá trị này có thể truy cập từ [Frame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/#getFrame) của một hình dạng.
-
-Để sửa đổi cài đặt lật, một thực thể mới của [ShapeFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapeframe/) được tạo ra với vị trí và kích thước hiện tại của hình dạng, các giá trị mong muốn cho `flipH` và `flipV`, và góc quay. Gán thực thể này cho [Frame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/#getFrame) của hình dạng và lưu bản trình chiếu sẽ áp dụng các phép biến đổi phản chiếu và ghi chúng vào tệp đầu ra.
-
-Giả sử chúng ta có tệp sample.pptx trong đó slide đầu tiên chứa một hình dạng duy nhất với cài đặt lật mặc định, như hình dưới.
-
-![Hình dạng cần lật](shape_to_be_flipped.png)
-
-Đoạn mã sau đây lấy các thuộc tính lật hiện tại của hình dạng và lật nó cả theo chiều ngang và chiều dọc.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // Lấy thuộc tính lật ngang của hình dạng.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // Lấy thuộc tính lật dọc của hình dạng.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // Lật ngang.
-    $flipV = NullableBool::True; // Lật ngang.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Kết quả:
+Khi một thao tác cụ thể đối với một loại hình, hãy kiểm tra lớp thực thi trước khi sử dụng các thành viên đặc thù. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ nếu đối tượng có tên là một [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/).
 
-![Hình dạng đã lật](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **FAQ**
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
 
-**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**  
-Không có API thao tác Boolean tích hợp. Bạn có thể gần đúng bằng cách tự xây dựng đường viền mong muốn—ví dụ, tính toán hình học kết quả (via [GeometryPath](https://reference.aspose.com/slides/vi/php-java/aspose.slides/geometrypath/)) và tạo một hình dạng mới với đường viền đó, tùy chọn loại bỏ các hình dạng gốc.
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
 
-**How can I control the stacking order (z-order) so a shape always stays "on top"?**  
-Thay đổi thứ tự chèn/di chuyển trong bộ sưu tập [shapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslide/#getShapes) của slide. Để có kết quả dự đoán được, hoàn thiện z-order sau khi thực hiện tất cả các sửa đổi khác trên slide.
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Can I "lock" a shape to prevent users from editing it in PowerPoint?**  
-Có. Đặt các cờ bảo vệ ở mức hình dạng (ví dụ: khóa chọn, di chuyển, thay đổi kích thước, chỉnh sửa văn bản). Nếu cần, có thể áp dụng hạn chế trên master hoặc layout. Lưu ý đây là bảo vệ ở mức giao diện người dùng, không phải tính năng bảo mật; để bảo vệ mạnh hơn, kết hợp với các hạn chế ở mức tệp như khuyến nghị chỉ đọc hoặc mật khẩu ([read-only recommendations or passwords](/slides/vi/php-java/password-protected-presentation/)).
+## **Sửa Đổi Bộ Sưu Tập Hình**
+
+Các phương thức thêm, sao chép, xóa và thay đổi thứ tự hoạt động trên bộ sưu tập ngay lập tức. Nếu một thao tác thay đổi số lượng hoặc thứ tự các hình, đừng tiếp tục dựa vào các chỉ mục đã lấy trước khi thực hiện thao tác đó.
+
+### **Sao chép một Hình**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addclone/) tạo một bản sao độc lập và thêm nó vào cuối bộ sưu tập mục tiêu. [ShapeCollection::insertClone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/insertclone/) cũng tạo một bản sao nhưng đặt nó ở một chỉ mục z‑order xác định. Các overload chấp nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có chiều rộng và chiều cao có thể thay đổi kích thước đồng thời.
+
+Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước, và chèn bản sao thứ hai ở phía sau. Thay đổi đối với bất kỳ bản sao nào cũng không làm ảnh hưởng đến hình nguồn.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sao chép bao gồm nội dung và định dạng của hình, bao gồm tên và văn bản thay thế. Gán các định danh logic mới cho bản sao khi các giá trị đó phải là duy nhất. Các tài nguyên được sử dụng bởi các hình phức tạp được trình chiếu xử lý, nhưng một bản sao vẫn là một mục mới trong bộ sưu tập với định danh hình mới.
+
+### **Xóa Hình**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/remove/) xóa một đối tượng hình cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều kết quả khớp trong quá trình lặp có chỉ mục, hãy duyệt từ cuối để mỗi chỉ mục còn lại vẫn hợp lệ.
+
+Ví dụ này xóa mọi hình có tên được chỉ định. Nó đọc hình ở chỉ mục hiện tại, không phải một mục cố định trong bộ sưu tập, và không ép kiểu hình một cách không cần thiết.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sau khi xóa, số lượng hình và chỉ mục của các hình sau thay đổi. Tham chiếu tới các hình không bị ảnh hưởng vẫn đáng tin cậy hơn so với các chỉ mục đã lưu. Cũng nên xem xét các connector, animation và các tính năng trình chiếu khác có thể tham chiếu tới đối tượng đã xóa; việc xóa một hình hiển thị có thể thay đổi hơn cả giao diện slide.
+
+### **Ẩn một Hình**
+
+Đặt [Shape::setHidden](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/sethidden/) thành `true` giữ hình trong bộ sưu tập nhưng ngăn nó xuất hiện trong buổi chiếu thông thường. Chỉ mục, định dạng và nội dung của nó vẫn có sẵn cho mã, vì vậy ẩn phù hợp cho các thành phần tùy chọn có thể được khôi phục sau này.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ẩn không phải là xóa hay bảo mật. Đối tượng vẫn có thể được người dùng hoặc mã phát hiện và hủy ẩn, và nó vẫn là một phần của tệp trình chiếu.
+
+### **Thay đổi Z‑Order**
+
+Các hình chồng lên nhau được vẽ theo thứ tự trong bộ sưu tập. [ShapeCollection::reorder](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/reorder/) di chuyển một hình hiện có tới một chỉ mục mục tiêu mà không sao chép nó. Chỉ mục `0` là phía sau; `size() - 1` là phía trước.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Hình chữ nhật được tạo đầu tiên và ban đầu nằm phía sau hình elip. Di chuyển nó tới chỉ mục cuối cùng sẽ đưa nó lên phía trước. Hoàn thiện z‑order sau khi thêm hoặc sao chép tất cả các hình liên quan, vì các thao tác đó thêm hoặc chèn các mục mới vào bộ sưu tập và có thể làm thay đổi cấu trúc ngăn xếp đã định.
+
+## **Kiểm Tra Các Hình trên Slide Layout**
+
+Slide bình thường, slide layout và master slide có các bộ sưu tập hình riêng biệt. Một hình trong bộ sưu tập layout không phải là cùng một đối tượng với một hình cùng vị trí trên slide bình thường. Kiểm tra các hình layout khi bạn cần hiểu hoặc thay đổi định dạng do layout cung cấp.
+
+Ví dụ sau đọc [FillFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getfillformat/) và [LineFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getlineformat/) của mỗi hình trong layout mà không giả định mọi hình đều là `AutoShape`.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Việc chỉnh sửa một layout có thể ảnh hưởng đến nhiều slide sử dụng nó. Trước khi thay đổi một hình trong layout, xác định xem một slide bình thường có kế thừa đối tượng đó hay chứa một ghi đè cục bộ, và kiểm tra mọi slide dùng layout đó.
+
+## **Xuất Hình ra SVG**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/writeassvg/) ghi nội dung đã render của một hình vào một stream. Kết quả chứa hình, không phải toàn bộ nền slide hay các hình lân cận.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Giữ trình chiếu mở khi render. Đầu ra phụ thuộc vào định dạng của hình và các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì một hình riêng lẻ. Người gọi sở hữu stream và phải đóng nó.
+
+## **Căn chỉnh Hình**
+
+Các overload của [SlideUtil::alignShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slideutil/alignshapes/) căn chỉnh toàn bộ hình hoặc các chỉ mục bộ sưu tập đã chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapesalignmenttype/) xác định cạnh, đường trung tâm hoặc chế độ phân bố. Đặt `alignToSlide` thành `true` để căn chỉnh theo các cạnh slide; đặt `false` để căn chỉnh các hình đã chọn tương quan với nhau.
+
+Ví dụ này căn chỉnh ba hình tới cạnh trên của slide. Các tham chiếu hình trả về được chuyển thành chỉ mục hiện tại ngay trước khi căn chỉnh.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Căn chỉnh thay đổi vị trí, không phải z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình, trong khi phân bố ngang hoặc dọc cần đủ hình để xác định khoảng cách. Tính lại chỉ mục nếu bạn thay đổi bộ sưu tập trước khi gọi phương thức.
+
+## **Lật một Hình**
+
+Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapeframe/) lưu trữ vị trí, kích thước, cài đặt lật ngang và dọc, và góc quay. Các giá trị `getFlipH` và `getFlipV` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/php-java/aspose.slides/nullablebool/): `True` bật lật, `False` tắt lật, và `NotDefined` giữ trạng thái chưa xác định/mặc định.
+
+Bản trình chiếu đầu vào bên dưới chứa một hình chưa được lật.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Ví dụ này giữ nguyên mọi giá trị frame khác và chỉ thay thế hai cài đặt lật. Điều này quan trọng vì gán một [Frame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/setframe/) mới sẽ thay thế toàn bộ frame.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Hình đã lưu được lật ngang và dọc trong khi vẫn giữ vị trí, kích thước và góc quay.
+
+![The shape after flipping](flipped_shape.png)
+
+## **Câu Hỏi Thường Gặp**
+
+**Có nên dùng chỉ mục bộ sưu tập làm định danh cho một hình không?**
+
+Chỉ nên dùng trong các quy trình ngắn hạn khi bộ sưu tập sẽ không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên quy ước `Name` hoặc `AlternativeText` đã được xác thực cho các mẫu được tạo sẵn, hoặc `OfficeInteropShapeId` cho công việc interop có phạm vi slide.
+
+**Ẩn một hình có loại bỏ nó khỏi z‑order không?**
+
+Không. Một hình ẩn vẫn ở trong bộ sưu tập với cùng chỉ mục. Nó vẫn có thể được tìm, thay đổi thứ tự, chỉnh sửa hoặc hiển thị lại.
+
+**Tại sao một hình được sao chép lại xuất hiện phía trước một hình khác?**
+
+`addClone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước của z‑order. Dùng `insertClone` để chọn chỉ mục ban đầu hoặc `reorder` sau khi đã thêm tất cả các hình.

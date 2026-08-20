@@ -5,375 +5,380 @@ type: docs
 weight: 40
 url: /pl/net/shape-manipulations/
 keywords:
-- kształt PowerPoint
-- kształt prezentacji
-- kształt na slajdzie
-- znajdź kształt
-- sklonuj kształt
-- usuń kształt
-- ukryj kształt
-- zmień kolejność kształtu
-- uzyskaj ID kształtu interop
-- alternatywny tekst kształtu
-- formaty układu kształtu
-- kształt jako SVG
-- kształt do SVG
-- wyrównaj kształt
+- Kształt PowerPoint
+- Kształt prezentacji
+- Kształt na slajdzie
+- Znajdź kształt
+- Sklonuj kształt
+- Usuń kształt
+- Ukryj kształt
+- Zmień kolejność kształtu
+- Pobierz ID kształtu interop
+- Alternatywny tekst kształtu
+- Formaty układu kształtu
+- Kształt jako SVG
+- Kształt do SVG
+- Wyrównaj kształt
+- Odwróć kształt
 - PowerPoint
-- prezentacja
+- Prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Naucz się tworzyć, edytować i optymalizować kształty w Aspose.Slides dla .NET i dostarczać wysokowydajne prezentacje PowerPoint."
+description: "Dowiedz się, jak identyfikować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odwracać kształty prezentacji za pomocą Aspose.Slides dla .NET."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z kształtami w prezentacjach przy użyciu Aspose.Slides. Pokazuje, jak znaleźć kształt na slajdzie, sklonować go, usunąć, ukryć, zmienić jego kolejność, uzyskać jego identyfikator Interop oraz ustawić tekst alternatywny w celu identyfikacji i dalszego przetwarzania.
+Aspose.Slides for .NET reprezentuje kształty na slajdzie jako uporządkowaną [IShapeCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/). Kolekcja jest jednocześnie miejscem, w którym znajdujesz i modyfikujesz kształty oraz źródłem ich kolejności nakładania: indeks `0` to najgłębiej położony kształt, a ostatni indeks to kształt najbardziej przybliżony do przodu.
 
-Omówiono także, jak uzyskać dostęp do formatów układu dla kształtów, renderować kształt jako SVG, wyrównać kształty na slajdzie oraz używać właściwości odbicia do poziomego i pionowego lustrzanego odbicia. Dodatkowo artykuł zawiera krótkie FAQ dotyczące łączenia kształtów, kolejności warstw i blokowania kształtów.
+Ten artykuł opiera się na tym modelu. Najpierw wyjaśnia, jak niezawodnie zidentyfikować kształt, a potem pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport SVG, wyrównanie oraz ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać tylko operacji potrzebnych w Twoim przepływie pracy.
 
-## **Znajdź kształt na slajdzie**
-Ten temat opisuje prostą technikę ułatwiającą programistom znajdowanie konkretnego kształtu na slajdzie bez użycia jego wewnętrznego Id. Należy wiedzieć, że pliki prezentacji PowerPoint nie posiadają żadnego sposobu identyfikacji kształtów na slajdzie poza wewnętrznym unikalnym Id. Dla programistów może być trudne znalezienie kształtu przy użyciu tego wewnętrznego Id. Wszystkie kształty dodane do slajdów mają jakiś tekst alternatywny. Sugerujemy programistom użycie tekstu alternatywnego do znajdowania konkretnego kształtu. Możesz używać MS PowerPoint do określenia tekstu alternatywnego dla obiektów, które planujesz zmienić w przyszłości.
+## **Identyfikowanie i znajdowanie kształtów**
 
-Po ustawieniu tekstu alternatywnego dowolnego kształtu możesz otworzyć tę prezentację za pomocą Aspose.Slides dla .NET i przeiterować wszystkie kształty dodane do slajdu. Podczas każdej iteracji możesz sprawdzić tekst alternatywny kształtu, a kształt z pasującym tekstem alternatywnym będzie tym, którego potrzebujesz. Aby lepiej zilustrować tę technikę, stworzyliśmy metodę [FindShape](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/findshape/#findshape_1), która umożliwia znalezienie konkretnego kształtu na slajdzie i zwraca go.
+Indeksy kolekcji są wygodne podczas przetwarzania znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator w zależności od tego, jak prezentacja jest tworzona i utrzymywana:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/name/) jest przydatny w szablonach kontrolowanych przez programistów i łatwo go sprawdzić w panelu zaznaczania PowerPointa. Nazwy można edytować i nie są gwarantowane jako unikalne, więc ustal konwencję nazewnictwa, jeśli kod od nich zależy.
+- [AlternativeText](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/alternativetext/) jest przydatny, gdy opis dostępności lub tag dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisany dla dostępności i nie jest gwarantowany jako unikalny. Nie należy po cichu wykorzystywać znaczącego tekstu dostępności jako klucza bazodanowego.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/officeinteropshapeid/) to identyfikator tylko do odczytu, który jest unikalny w obrębie slajdu i odpowiada identyfikatorowi kształtu używanemu przez interop PowerPointa. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
+
+Powiązana właściwość [UniqueId](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/uniqueid/) ma zakres prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie powinna być traktowana jako trwały zewnętrzny klucz. Jeśli długoterminowa tożsamość jest istotna, przechowuj mapowanie w danych aplikacji i weryfikuj, czy oczekiwany kształt nadal istnieje.
+
+Poniższy przykład wyszukuje po `Name` przy użyciu porównania ordinalnego i zgłasza interopowy identyfikator w zakresie slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Tekst alternatywny szukanego kształtu
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Implementacja metody znajdującej kształt na slajdzie przy użyciu jego tekstu alternatywnego
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Iterowanie przez wszystkie kształty na slajdzie
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Jeśli tekst alternatywny kształtu na slajdzie jest zgodny z wymaganym, to
-        // Zwróć kształt
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **Klonowanie kształtu**
-Aby sklonować kształt na slajdzie przy użyciu Aspose.Slides dla .NET:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-1. Uzyskaj dostęp do kolekcji kształtów slajdu źródłowego.
-1. Dodaj nowy slajd do prezentacji.
-1. Sklonuj kształty z kolekcji kształtów slajdu źródłowego do nowego slajdu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy przykład dodaje grupowy kształt do slajdu.
-
-```c#
-// Utwórz instancję klasy Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Zapisz plik PPTX na dysku
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Usuwanie kształtu**
-Aspose.Slides dla .NET umożliwia programistom usunięcie dowolnego kształtu. Aby usunąć kształt z dowolnego slajdu, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy `Presentation`.
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Znajdź kształt o określonym AlternativeText.
-1. Usuń kształt.
-1. Zapisz plik na dysku.
-
-```c#
-// Utwórz obiekt Presentation
-Presentation pres = new Presentation();
-
-// Pobierz pierwszy slajd
-ISlide sld = pres.Slides[0];
-
-// Dodaj autoshape typu prostokąt
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Zapisz prezentację na dysku
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Ukrywanie kształtu**
-Aspose.Slides dla .NET umożliwia programistom ukrycie dowolnego kształtu. Aby ukryć kształt na dowolnym slajdzie, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy `Presentation`.
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Znajdź kształt o określonym AlternativeText.
-1. Ukryj kształt.
-1. Zapisz plik na dysku.
-
-```c#
-// Utwórz instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-
-// Pobierz pierwszy slajd
-ISlide sld = pres.Slides[0];
-
-// Dodaj autoshape typu prostokąt
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Zapisz prezentację na dysku
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **Zmiana kolejności kształtu**
-Aspose.Slides dla .NET umożliwia programistom zmianę kolejności kształtów. Zmiana kolejności określa, który kształt znajduje się z przodu, a który z tyłu. Aby zmienić kolejność kształtów na dowolnym slajdzie, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy `Presentation`.
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj kształt.
-1. Dodaj trochę tekstu w ramce tekstowej kształtu.
-1. Dodaj kolejny kształt z tymi samymi współrzędnymi.
-1. Zmień kolejność kształtów.
-1. Zapisz plik na dysku.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Uzyskanie Interop Shape ID**
-Aspose.Slides dla .NET umożliwia programistom uzyskanie unikalnego identyfikatora kształtu w zakresie slajdu, w przeciwieństwie do właściwości UniqueId, która pozwala uzyskać unikalny identyfikator w zakresie prezentacji. W interfejsach IShape oraz klasie Shape dodano właściwość OfficeInteropShapeId. Wartość zwracana przez właściwość OfficeInteropShapeId odpowiada wartości Id obiektu Microsoft.Office.Interop.PowerPoint.Shape. Poniżej przedstawiono przykładowy kod.
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Pobieranie unikalnego identyfikatora kształtu w zakresie slajdu
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **Ustawianie tekstu alternatywnego dla kształtu**
-Aspose.Slides dla .NET umożliwia programistom ustawienie AlternateText dowolnego kształtu. Kształty w prezentacji mogą być rozróżniane na podstawie właściwości AlternativeText lub nazwy kształtu. Właściwość AlternativeText może być odczytywana lub ustawiana zarówno przy użyciu Aspose.Slides, jak i Microsoft PowerPoint. Korzystając z tej właściwości, możesz oznaczyć kształt i wykonać różne operacje, takie jak usuwanie kształtu, ukrywanie kształtu lub zmiana kolejności kształtów na slajdzie.
+Gdy operacja jest specyficzna dla typu kształtu, sprawdź interfejs przed użyciem członków specyficznych dla typu. Ten przykład aktualizuje tekst i tekst alternatywny tylko wtedy, gdy nazwany obiekt jest [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/).
 
-Aby ustawić AlternateText kształtu, postępuj zgodnie z poniższymi krokami:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-1. Utwórz instancję klasy `Presentation`.
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj dowolny kształt do slajdu.
-1. Wykonaj pewne operacje na nowo dodanym kształcie.
-1. Przeglądaj kształty, aby znaleźć określony kształt.
-1. Ustaw AlternativeText.
-1. Zapisz plik na dysku.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-// Utwórz instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-
-// Pobierz pierwszy slajd
-ISlide sld = pres.Slides[0];
-
-// Dodaj autoshape typu prostokąt
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Zapisz prezentację na dysku
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **Dostęp do formatów układu dla kształtu**
-Aspose.Slides dla .NET udostępnia prosty interfejs API do uzyskania dostępu do formatów układu dla kształtu. Ten artykuł pokazuje, jak można uzyskać dostęp do formatów układu.
-
-Poniżej przedstawiono przykładowy kod.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Renderowanie kształtu jako SVG**
-Teraz Aspose.Slides dla .NET obsługuje renderowanie kształtu jako SVG. Metoda WriteAsSvg (oraz jej przeciążenie) została dodana do klasy Shape oraz interfejsu IShape. Metoda ta umożliwia zapisanie zawartości kształtu jako pliku SVG. Poniższy fragment kodu pokazuje, jak wyeksportować kształt ze slajdu do pliku SVG.
+## **Modyfikowanie kolekcji kształtów**
 
-```c#
-public static void Run()
+Metody dodawania, klonowania, usuwania i zmiany kolejności działają na kolekcji natychmiast. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach przechwyconych przed tą operacją.
+
+### **Klonowanie kształtu**
+
+[AddClone](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addclone/) tworzy niezależną kopię i dołącza ją do docelowej kolekcji. [InsertClone](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/insertclone/) również tworzy kopię, ale umieszcza ją pod określonym indeksem kolejności z-order. Przeciążenia przyjmujące współrzędne przemieszczają klon bez zmiany jego rozmiaru; przeciążenia z szerokością i wysokością mogą również zmienić jego rozmiar.
+
+Przykład tworzy docelowy slajd, klonuje oznaczony prostokąt na przód i wstawia drugi klon z tyłu. Zmiany w którymkolwiek z klonów nie modyfikują kształtu źródłowego.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę oraz tekst alternatywny. Przypisz nowe logiczne identyfikatory do klona, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są obsługiwane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
+
+### **Usuwanie kształtów**
+
+[Remove](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/remove/) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w pętli indeksowanej, przeglądaj kolekcję od końca, aby każdy pozostały indeks pozostał ważny.
+
+Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje `slide.Shapes[i]`, a nie stały element kolekcji, i nie rzutuje kształtu niepotrzebnie.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Po usunięciu liczba kształtów i indeksy późniejszych kształtów ulegają zmianie. Odwołania do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Weź pod uwagę także łączniki, animacje i inne elementy prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż tylko wygląd slajdu.
+
+### **Ukrywanie kształtu**
+
+Ustawienie [Hidden](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/hidden/) na `true` pozostawia kształt w kolekcji, ale zapobiega jego wyświetlaniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne w kodzie, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą zostać przywrócone później.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Ukrywanie nie jest usunięciem ani zabezpieczeniem. Obiekt wciąż może być odnaleziony i odkryty przez użytkownika lub kod, i nadal jest częścią pliku prezentacji.
+
+### **Zmiana kolejności Z-Order**
+
+Nakładające się kształty są rysowane w kolejności kolekcji. [Reorder](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/reorder/) przenosi istniejący kształt do docelowego indeksu bez klonowania. Indeks `0` to tył; `Count - 1` to przód.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Prostokąt jest tworzony jako pierwszy i początkowo znajduje się za elipsą. Przeniesienie go do ostatniego indeksu umieszcza go na przodzie. Sfinalizuj kolejność Z-Order po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dołączają lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzony stos.
+
+## **Inspekcja kształtów na slajdach układu**
+
+Zwykłe slajdy, slajdy układu i slajdy nadrzędne mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie położony kształt na zwykłym slajdzie. Sprawdzaj kształty układu, gdy musisz zrozumieć lub zmienić formatowanie dostarczane przez układ.
+
+Poniższy przykład odczytuje [FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/fillformat/) i [LineFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/lineformat/) każdego kształtu układu, nie zakładając, że każdy kształt jest `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **Wyrównywanie kształtu**
+Edycja układu może wpływać na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy zwykły slajd dziedziczy obiekt, czy zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
 
-Poprzez przeciążoną metodę [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/methods/alignshapes/index) możesz 
+## **Eksportowanie kształtu do SVG**
 
-* wyrównać kształty względem marginesów slajdu. Zobacz Przykład 1. 
-* wyrównać kształty względem siebie nawzajem. Zobacz Przykład 2. 
+[WriteAsSvg](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/writeassvg/) zapisuje wyrenderowaną zawartość jednego kształtu do strumienia. Wynik zawiera kształt, a nie całe tło slajdu ani sąsiadujące kształty.
 
-Wyliczenie [ShapesAlignmentType](https://reference.aspose.com/slides/pl/net/aspose.slides/shapesalignmenttype) definiuje dostępne opcje wyrównywania.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-**Example 1**
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-Ten kod C# pokazuje, jak wyrównać kształty o indeksach 1, 2 i 4 wzdłuż górnej krawędzi slajdu:
-Poniższy kod wyrównuje kształty o indeksach 1, 2 i 4 wzdłuż górnej krawędzi slajdu. 
-
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Example 2**
+Trzymaj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz od zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd zamiast pojedynczego kształtu. Wywołujący jest właścicielem strumienia i musi go zwolnić.
 
-Ten kod C# pokazuje, jak wyrównać całą kolekcję kształtów względem najniższego kształtu w kolekcji:
+## **Wyrównywanie kształtów**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/alignshapes/) ma przeciążenia, które wyrównują wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/net/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
+
+Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrotne odwołania do kształtów są konwertowane na ich bieżące indeksy tuż przed wyrównaniem.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Właściwości odbicia**
+Wyrównanie zmienia położenia, nie kolejność Z-Order. Wyrównanie względne zazwyczaj wymaga co najmniej dwóch kształtów, podczas gdy pozioma lub pionowa dystrybucja wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
 
-W Aspose.Slides klasa [ShapeFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/shapeframe/) zapewnia kontrolę nad poziomym i pionowym lustrzanym odbiciem kształtów za pomocą właściwości `FlipH` i `FlipV`. Obie właściwości są typu [NullableBool](https://reference.aspose.com/slides/pl/net/aspose.slides/nullablebool/) i mogą przyjmować wartości `True` (odbij), `False` (brak odbicia) lub `NotDefined` (domyślne zachowanie). Wartości te są dostępne z właściwości [Frame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/frame/) kształtu. 
+## **Odwracanie kształtu**
 
-Aby zmodyfikować ustawienia odbicia, tworzona jest nowa instancja [ShapeFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/shapeframe/) z aktualną pozycją i rozmiarem kształtu, żądanymi wartościami `FlipH` i `FlipV` oraz kątem obrotu. Przypisanie tej instancji do [Frame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/frame/) kształtu i zapis prezentacji powoduje zastosowanie transformacji lustrzanych i zapisuje je w pliku wyjściowym.
+Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz rotację. Jej wartości `FlipH` i `FlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/net/aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje nieokreślony/domyślny stan.
 
-Załóżmy, że mamy plik sample.pptx, w którym pierwszy slajd zawiera pojedynczy kształt z domyślnymi ustawieniami odbicia, jak pokazano poniżej.
+Prezentacja wejściowa poniżej zawiera jeden nieodwrócony kształt.
 
-![Kształt do odbicia](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Poniższy przykład kodu pobiera bieżące właściwości odbicia kształtu i odbija go zarówno poziomo, jak i pionowo.
+Przykład zachowuje wszystkie inne wartości ramki i zastępuje tylko dwa ustawienia odbicia. To ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/frame/) zastępuje całą ramkę.
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Pobierz właściwość odbicia poziomego kształtu.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Pobierz właściwość odbicia pionowego kształtu.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Odbij poziomo.
-    NullableBool flipV = NullableBool.True; // Odbij pionowo.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Rezultat:
+Zapisany kształt jest odbity poziomo i pionowo, przy zachowaniu pozycji, rozmiaru i rotacji.
 
-![Odbity kształt](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Czy mogę łączyć kształty (union/intersect/subtract) na slajdzie tak jak w edytorze desktopowym?**
+**Czy powinienem używać indeksu kolekcji jako identyfikatora kształtu?**
 
-Nie ma wbudowanego API operacji Boolean. Można przybliżyć to, samodzielnie budując pożądany kontur – np. obliczając wynikową geometrię (przy użyciu [GeometryPath](https://reference.aspose.com/slides/pl/net/aspose.slides/geometrypath/)) i tworząc nowy kształt z tym konturem, opcjonalnie usuwając oryginały.
+Tylko w krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla szablonów tworzonych ręcznie, lub `OfficeInteropShapeId` dla prac opartych na interopie slajdu.
 
-**Jak mogę kontrolować kolejność warstw (z‑order), aby kształt zawsze pozostawał „na wierzchu”?**
+**Czy ukrycie kształtu usuwa go z kolejności Z-Order?**
 
-Zmieniaj kolejność wstawiania/przenoszenia w kolekcji [shapes](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslide/shapes/) slajdu. Aby uzyskać przewidywalne wyniki, sfinalizuj kolejność po wszystkich pozostałych modyfikacjach slajdu.
+Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Można go znaleźć, zmienić kolejność, edytować lub ponownie uczynić widocznym.
 
-**Czy mogę „zablokować” kształt, aby użytkownicy nie mogli go edytować w PowerPoint?**
+**Dlaczego sklonowany kształt pojawił się przed innym kształtem?**
 
-Tak. Ustaw flagi ochrony na poziomie kształtu (np. blokada wyboru, ruchu, zmiany rozmiaru, edycji tekstu). W razie potrzeby zastosuj podobne ograniczenia w szablonie lub układzie. Należy pamiętać, że jest to ochrona na poziomie interfejsu użytkownika, a nie funkcja zabezpieczająca; dla silniejszej ochrony połącz ją z ograniczeniami na poziomie pliku, takimi jak rekomendacje tylko do odczytu lub hasła.
+`AddClone` dołącza klon na koniec kolekcji, co jest przodem kolejności Z-Order. Użyj `InsertClone`, aby wybrać początkowy indeks, lub `Reorder` po dodaniu wszystkich kształtów.

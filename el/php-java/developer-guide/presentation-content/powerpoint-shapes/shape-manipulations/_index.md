@@ -1,387 +1,433 @@
 ---
 title: Διαχείριση Σχημάτων Παρουσίασης σε PHP
-linktitle: Διαχείριση Σχημάτων
+linktitle: Διαχείριση Σχήματος
 type: docs
 weight: 40
 url: /el/php-java/shape-manipulations/
 keywords:
 - Σχήμα PowerPoint
 - Σχήμα παρουσίασης
-- Σχήμα σε διαφάνεια
+- Σχήμα στη διαφάνεια
 - Εύρεση σχήματος
 - Κλωνοποίηση σχήματος
 - Αφαίρεση σχήματος
 - Απόκρυψη σχήματος
 - Αλλαγή σειράς σχήματος
-- Λήψη Interop Shape ID
+- Λήψη ID σχήματος interop
 - Εναλλακτικό κείμενο σχήματος
 - Μορφές διάταξης σχήματος
 - Σχήμα ως SVG
 - Μετατροπή σχήματος σε SVG
 - Στοίχιση σχήματος
+- Αναστροφή σχήματος
 - PowerPoint
-- παρουσίαση
+- Παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Μάθετε να δημιουργείτε, επεξεργάζεστε και βελτιστοποιείτε σχήματα στο Aspose.Slides για PHP μέσω Java και να παραδίδετε παρουσιάσεις PowerPoint υψηλής απόδοσης."
+description: "Μάθετε πώς να ταυτοποιείτε, κλωνοποιείτε, αφαιρείτε, κρύβετε, αλλάζετε τη σειρά, εξάγετε, στοιχίζετε και αναστρέφετε σχήματα παρουσίασης με το Aspose.Slides για PHP μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργαστείτε με σχήματα σε παρουσιάσεις χρησιμοποιώντας Aspose.Slides. Δείχνει πώς να βρείτε ένα σχήμα σε μια διαφάνεια, να το κλωνοποιήσετε, να το αφαιρέσετε, να το κρύψετε, να αλλάξετε τη σειρά του, να λάβετε το Interop shape ID του και να ορίσετε εναλλακτικό κείμενο για την ταυτοποίηση και περαιτέρω επεξεργασία.
+Aspose.Slides for PHP via Java αντιπροσωπεύει τα σχήματα σε μια διαφάνεια ως μια διατεταγμένη [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/). Η συλλογή είναι τόσο το μέρος όπου βρίσκετε και τροποποιείτε τα σχήματα όσο και η πηγή της σειράς στοιβάγματός τους: το index `0` είναι το πιο πίσω σχήμα, ενώ το τελευταίο index είναι το πιο μπροστά σχήμα.
 
-Καλύπτει επίσης πώς να προσπελάσετε μορφές διάταξης για σχήματα, να αποδώσετε ένα σχήμα ως SVG, να ευθυγραμμίσετε σχήματα σε μια διαφάνεια και να χρησιμοποιήσετε τις ιδιότητες flipping για οριζόντια και κάθετη κατοπτρισμό. Επιπλέον, το άρθρο περιλαμβάνει σύντομο FAQ σχετικά με τη συνένωση σχημάτων, τη σειρά στρώσης και το κλείδωμα σχημάτων.
+Αυτό το άρθρο ακολουθεί αυτό το μοντέλο. Πρώτα εξηγεί πώς να ταυτοποιήσετε ένα σχήμα αξιόπιστα, στη συνέχεια δείχνει πώς να κλωνοποιήσετε, να αφαιρέσετε, να κρύψετε και να αλλάξετε τη σειρά των σχημάτων. Τα τελικά τμήματα καλύπτουν μορφοποίηση επιπέδου διάταξης, εξαγωγή SVG, στοίχιση και ρυθμίσεις αναστροφής. Κάθε παράδειγμα είναι ανεξάρτητο, ώστε να μπορείτε να χρησιμοποιήσετε μόνο τις λειτουργίες που απαιτεί η ροή εργασίας σας.
 
-## **Εύρεση σχήματος σε διαφάνεια**
-Αυτό το θέμα θα περιγράψει μια απλή τεχνική για να διευκολύνει τους προγραμματιστές να βρουν ένα συγκεκριμένο σχήμα σε μια διαφάνεια χωρίς τη χρήση του εσωτερικού του Id. Είναι σημαντικό να γνωρίζετε ότι τα αρχεία παρουσίασης PowerPoint δεν διαθέτουν κανένα τρόπο να ταυτοποιήσουν σχήματα σε μια διαφάνεια εκτός από ένα εσωτερικό μοναδικό Id. Φαίνεται δύσκολο για τους προγραμματιστές να βρουν ένα σχήμα χρησιμοποιώντας το εσωτερικό μοναδικό Id του. Όλα τα σχήματα που προστίθενται στις διαφάνειες έχουν κάποιο Alt Text. Προτείνουμε στους προγραμματιστές να χρησιμοποιούν εναλλακτικό κείμενο για την εύρεση ενός συγκεκριμένου σχήματος. Μπορείτε να χρησιμοποιήσετε το MS PowerPoint για να ορίσετε το εναλλακτικό κείμενο για αντικείμενα που σκοπεύετε να αλλάξετε στο μέλλον.
+## **Αναγνώριση και Εύρεση Σχημάτων**
 
-Αφού ορίσετε το εναλλακτικό κείμενο του επιθυμητού σχήματος, μπορείτε να ανοίξετε την παρουσίαση χρησιμοποιώντας Aspose.Slides for PHP via Java και να επαναλάβετε όλα τα σχήματα που προστέθηκαν σε μια διαφάνεια. Σε κάθε επανάληψη, μπορείτε να ελέγξετε το εναλλακτικό κείμενο του σχήματος και το σχήμα με το αντίστοιχο εναλλακτικό κείμενο θα είναι το σχήμα που χρειάζεστε. Για να δείξουμε αυτήν την τεχνική με καλύτερο τρόπο, δημιουργήσαμε τη μέθοδο [findShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) που κάνει το τέχνασμα για να βρεί ένα συγκεκριμένο σχήμα σε μια διαφάνεια και επιστρέφει απλώς αυτό το σχήμα.
+Οι δείκτες συλλογής είναι βολικοί κατά την επεξεργασία ενός γνωστού αρχείου, αλλά δεν είναι σταθεροί ταυτοποιητές. Η προσθήκη, η αφαίρεση ή η αλλαγή σειράς ενός σχήματος μπορεί να αλλάξει τον δείκτη του. Επιλέξτε έναν ταυτοποιητή ανάλογα με το πώς δημιουργείται και συντηρείται η παρουσίαση:
 
-```php
-  # Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το αρχείο παρουσίασης
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # Εναλλακτικό κείμενο του σχήματος που πρέπει να βρεθεί
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getname/) είναι χρήσιμο για πρότυπα που ελέγχονται από προγραμματιστές και είναι εύκολο να το εντοπίσετε στον Πίνακα Επιλογής του PowerPoint. Τα ονόματα μπορούν να επεξεργαστούν και δεν εγγυώνται μοναδικότητα, επομένως καθορίστε μια συμβατική ονοματοδοσία αν ο κώδικας εξαρτάται από αυτά.
+- [AlternativeText](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getalternativetext/) είναι χρήσιμο όταν μια περιγραφή προσβασιμότητας ή μια ετικέτα του δημιουργού ήδη ταυτοποιεί το σχήμα. Είναι ορατό στους χρήστες, μπορεί να μεταφραστεί ή να ξαναγραφτεί για προσβασιμότητα, και δεν εγγυάται μοναδικότητα. Μην επαναχρησιμοποιείτε σιωπηλά το περιεχόμενο προσβασιμότητας ως κλειδί βάσης δεδομένων.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getofficeinteropshapeid/) είναι ένας μόνο-ανάγνωση ταυτοποιητής που είναι μοναδικός μέσα σε μία διαφάνεια και αντιστοιχεί στο αναγνωριστικό σχήματος που χρησιμοποιεί το PowerPoint interop. Χρησιμοποιήστε το όταν ενσωματώνετε με το PowerPoint ή όταν χρειάζεστε μια ασαφή αναφορά κατά τη διάρκεια της διάρκειας ενός σχήματος. Ένα κλωνοποιημένο ή επανδημιουργημένο σχήμα είναι διαφορετικό σχήμα και λαμβάνει το δικό του ID.
 
-```
+Η σχετική μέθοδος [Shape::getUniqueId](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getuniqueid/) επιστρέφει έναν ταυτοποιητή με εμβέλεια παρουσίασης, αλλά αυτός ο ταυτοποιητής προορίζεται για πρόσθετα και μπορεί να επαναχρωματιστεί. Δεν πρέπει να αντιμετωπίζεται ως μόνιμο εξωτερικό κλειδί. Αν η μακροπρόθεσμη ταυτότητα είναι ουσιώδης, διατηρήστε τον χάρτη στα δεδομένα της εφαρμογής και επικυρώστε ότι το αναμενόμενο σχήμα εξακολουθεί να υπάρχει.
 
-## **Κλωνοποίηση σχήματος**
-Για να κλωνοποιήσετε ένα σχήμα σε μια διαφάνεια χρησιμοποιώντας Aspose.Slides for PHP via Java:
-
-1. Δημιουργήστε μια παρουσία του [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-1. Λάβετε την αναφορά μιας διαφάνειας χρησιμοποιώντας το δείκτη της.
-1. Πρόσβαση στη συλλογή σχημάτων της πηγής διαφάνειας.
-1. Προσθήκη νέας διαφάνειας στην παρουσία.
-1. Κλωνοποιήστε σχήματα από τη συλλογή σχημάτων της πηγής διαφάνειας στη νέα διαφάνεια.
-1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
-
-Το παρακάτω παράδειγμα προσθέτει ένα γκρουπ σχήμα σε μια διαφάνεια.
+Το παρακάτω παράδειγμα αναζητά με όνομα με ακριβή σύγκριση και αναφέρει το interop ID της διαφάνειας. Όταν το πρότυπο δεν περιέχει το αναμενόμενο σχήμα, ο κώδικας αναφέρει αυτό το αποτέλεσμα αντί να συνεχίσει με το λανθασμένο αντικείμενο.
 
 ```php
-  # Δημιουργία αντικειμένου Presentation
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # Αποθήκευση αρχείου PPTX στο δίσκο
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **Αφαίρεση σχήματος**
-Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να αφαιρέσουν οποιοδήποτε σχήμα. Για να αφαιρέσετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία του [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Εντοπίστε το σχήμα με συγκεκριμένο AlternativeText.
-1. Αφαιρέστε το σχήμα.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```php
-  # Δημιουργία αντικειμένου Presentation
-  $pres = new Presentation();
-  try {
-    # Λήψη της πρώτης διαφάνειας
-    $sld = $pres->getSlides()->get_Item(0);
-    # Προσθήκη αυτόματου σχήματος τύπου ορθογώνιο
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # Αποθήκευση παρουσίασης στο δίσκο
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Απόκρυψη σχήματος**
-Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να κρύψουν οποιοδήποτε σχήμα. Για να κρύψετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία του [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Εντοπίστε το σχήμα με συγκεκριμένο AlternativeText.
-1. Κρύψτε το σχήμα.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```php
-  # Δημιουργία κλάσης Presentation που εκπροσωπεί το PPTX
-  $pres = new Presentation();
-  try {
-    # Λήψη της πρώτης διαφάνειας
-    $sld = $pres->getSlides()->get_Item(0);
-    # Προσθήκη αυτόματου σχήματος τύπου ορθογωνίου
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # Αποθήκευση παρουσίασης στο δίσκο
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Αλλαγή σειράς σχήματος**
-Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να αλλάξουν τη σειρά των σχημάτων. Η αλλαγή σειράς καθορίζει ποιο σχήμα είναι μπροστά ή ποιο στο πίσω μέρος. Για να αλλάξετε τη σειρά του σχήματος σε οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία του [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε ένα σχήμα.
-1. Προσθέστε κάποιο κείμενο στο πλαίσιο κειμένου του σχήματος.
-1. Προσθέστε ένα ακόμη σχήμα με τις ίδιες συντεταγμένες.
-1. Αλλάξτε τη σειρά των σχημάτων.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Λήψη Interop Shape ID**
-Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να λάβουν ένα μοναδικό αναγνωριστικό σχήματος στο επίπεδο της διαφάνειας σε αντίθεση με τη μέθοδο [getUniqueId](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getuniqueid/) που επιτρέπει την απόκτηση μοναδικού αναγνωριστικού στο επίπεδο της παρουσίασης. Η μέθοδος [getOfficeInteropShapeId](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getofficeinteropshapeid/) προστέθηκε στην κλάση [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) αντίστοιχα. Η τιμή που επιστρέφεται από τη μέθοδο [getOfficeInteropShapeId](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getofficeinteropshapeid/) αντιστοιχεί στην τιμή του Id του αντικειμένου Microsoft.Office.Interop.PowerPoint.Shape. Παρακάτω δίνεται ένα παράδειγμα κώδικα.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Λήψη μοναδικού αναγνωριστικού σχήματος στο επίπεδο της διαφάνειας
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ορισμός εναλλακτικού κειμένου για σχήμα**
-Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να ορίσουν AlternateText για οποιοδήποτε σχήμα.
-Τα σχήματα σε μια παρουσίαση μπορούν να διακριθούν με το `Alternative Text` ή τη μέθοδο [Shape Name](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/setname/).
-Οι μέθοδοι [setAlternativeText](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/setalternativetext/) και [getAlternativeText](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getalternativetext/) μπορούν να διαβαστούν ή να οριστούν χρησιμοποιώντας το Aspose.Slides καθώς και το Microsoft PowerPoint.
-Χρησιμοποιώντας αυτή τη μέθοδο, μπορείτε να επισημάνετε ένα σχήμα και να εκτελέσετε διαφορετικές λειτουργίες όπως αφαίρεση σχήματος,
-απόκρυψη σχήματος ή αλλαγή σειράς σχημάτων σε μια διαφάνεια.
-Για να ορίσετε το AlternateText ενός σχήματος, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία του [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε οποιοδήποτε σχήμα στη διαφάνεια.
-1. Εκτελέστε κάποιες εργασίες με το νεοσυγκεντρωμένο σχήμα.
-1. Διασχίστε τα σχήματα για να βρείτε ένα σχήμα.
-1. Ορίστε το AlternativeText.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```php
-  # Δημιουργία κλάσης Presentation που εκπροσωπεί το PPTX
-  $pres = new Presentation();
-  try {
-    # Λήψη της πρώτης διαφάνειας
-    $sld = $pres->getSlides()->get_Item(0);
-    # Προσθήκη αυτόματου σχήματος τύπου ορθογωνίου
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # Αποθήκευση παρουσίασης στο δίσκο
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Πρόσβαση σε μορφές διάταξης για σχήμα**
-Aspose.Slides for PHP via Java παρέχει μια απλή API για πρόσβαση σε μορφές διάταξης για ένα σχήμα. Αυτό το άρθρο δείχνει πώς μπορείτε να προσπελάσετε τις μορφές διάταξης.
-
-Παρακάτω δίνεται το δείγμα κώδικα.
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Απόδοση σχήματος ως SVG**
-Τώρα το Aspose.Slides for PHP via Java υποστηρίζει την απόδοση ενός σχήματος ως svg. Η μέθοδος [writeAsSvg](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/writeassvg/) (και η υπερφόρτωσή της) προστέθηκε στην κλάση [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/). Αυτή η μέθοδος επιτρέπει την αποθήκευση του περιεχομένου του σχήματος ως αρχείο SVG. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να εξάγετε το σχήμα μιας διαφάνειας σε αρχείο SVG.
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ευθυγράμμιση σχήματος**
-Το Aspose.Slides επιτρέπει την ευθυγράμμιση σχημάτων είτε σχετικά με τα περιθώρια της διαφάνειας είτε μεταξύ τους. Για το σκοπό αυτό, προστέθηκε η υπερφορτωμένη μέθοδος [SlidesUtil::alignShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/slideutil/alignshapes/). Η απαρίθμηση [ShapesAlignmentType](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapesalignmenttype/) ορίζει τις πιθανές επιλογές ευθυγράμμισης.
-
-**Παράδειγμα 1**
-
-Ο κώδικας παρακάτω ευθυγραμμίζει σχήματα με δείκτες 1,2 και 4 κατά το άνω όριο της διαφάνειας.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**Παράδειγμα 2**
-
-Το παρακάτω παράδειγμα δείχνει πώς να ευθυγραμμίσετε ολόκληρη τη συλλογή σχημάτων σε σχέση με το πιο κάτω σχήμα της συλλογής.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ιδιότητες Flip**
-
-Στο Aspose.Slides, η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapeframe/) παρέχει έλεγχο για οριζόντια και κάθετη κατοπτρισμό των σχημάτων μέσω των ιδιοτήτων `flipH` και `flipV`. Και οι δύο ιδιότητες είναι τύπου [NullableBool](https://reference.aspose.com/slides/el/php-java/aspose.slides/nullablebool/) και επιτρέπουν τις τιμές `True` για να υποδείξουν κατοπτρισμό, `False` για καμία ενέργεια, ή `NotDefined` για χρήση προεπιλεγμένου συστήματος. Αυτές οι τιμές είναι προσβάσιμες από το [Frame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/#getFrame) ενός σχήματος.
-
-Για να τροποποιήσετε τις ρυθμίσεις flip, δημιουργείται μια νέα εμφάνιση του [ShapeFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapeframe/) με την τρέχουσα θέση και μέγεθος του σχήματος, τις επιθυμητές τιμές για `flipH` και `flipV` και τη γωνία περιστροφής. Αναθέτοντας αυτήν την παρουσία στο [Frame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/#getFrame) του σχήματος και αποθηκεύοντας την παρουσία εφαρμόζονται οι μετασχηματισμοί κατοπτρισμού και καταγράφονται στο αρχείο εξόδου.
-
-Ας πούμε ότι έχουμε ένα αρχείο sample.pptx στο οποίο η πρώτη διαφάνεια περιέχει ένα μόνο σχήμα με προεπιλεγμένες ρυθμίσεις flip, όπως φαίνεται παρακάτω.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Ο ακόλουθος κώδικας παίρνει τις τρέχουσες ιδιότητες flip του σχήματος και το περιστρέφει τόσο οριζόντια όσο και κάθετος.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // Ανάκτηση της ιδιότητας οριζόντιας αντιστροφής του σχήματος.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // Ανάκτηση της ιδιότητας κάθετης αντιστροφής του σχήματος.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // Αντιστροφή οριζόντια.
-    $flipV = NullableBool::True; // Αντιστροφή οριζόντια.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Το αποτέλεσμα:
+Όταν μια λειτουργία είναι συγκεκριμένη για έναν τύπο σχήματος, ελέγξτε την κλάση χρόνου εκτέλεσης πριν χρησιμοποιήσετε μέλη ειδικά για τον τύπο. Αυτό το παράδειγμα ενημερώνει το κείμενο και το εναλλακτικό κείμενο μόνο εάν το ονομασμένο αντικείμενο είναι ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).
 
-![The flipped shape](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **FAQ**
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
 
-**Μπορώ να συνδυάσω σχήματα (ένωση/τομή/αφαίρεση) σε μια διαφάνεια όπως σε έναν επιτραπέζιο επεξεργαστή;**
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
 
-Δεν υπάρχει ενσωματωμένο API για Boolean λειτουργίες. Μπορείτε να προσεγγίσετε το αποτέλεσμα δημιουργώντας το επιθυμητό περίγραμμα μόνοι σας—π.χ. υπολογίζοντας τη γεωμετρία (μέσω [GeometryPath](https://reference.aspose.com/slides/el/php-java/aspose.slides/geometrypath/)) και δημιουργώντας ένα νέο σχήμα με αυτό το περιγράμματα, προαιρετικά αφαιρώντας τα αρχικά.
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Πώς μπορώ να ελέγξω τη σειρά στρώσης (z-order) ώστε ένα σχήμα να παραμένει πάντα «στην κορυφή»;**
+## **Τροποποίηση της Συλλογής Σχημάτων**
 
-Αλλάξτε τη σειρά εισαγωγής/μετάθεσης μέσα στη συλλογή [shapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseslide/#getShapes) της διαφάνειας. Για προβλέψιμα αποτελέσματα, τελειώστε το z-order μετά από όλες τις άλλες τροποποιήσεις της διαφάνειας.
+Οι μέθοδοι προσθήκης, κλωνοποίησης, αφαίρεσης και αλλαγής σειράς λειτουργούν αμέσως στη συλλογή. Εάν μια λειτουργία αλλάζει τον αριθμό ή τη σειρά των σχημάτων, μην συνεχίζετε να βασίζεστε σε δείκτες που είχαν ληφθεί πριν από αυτή τη λειτουργία.
 
-**Μπορώ να «κλειδώσω» ένα σχήμα ώστε να αποτρέψω τους χρήστες από το να το επεξεργαστούν στο PowerPoint;**
+### **Κλωνοποίηση Σχήματος**
 
-Ναι. Ορίστε σημαίες προστασίας επιπέδου σχήματος (π.χ. κλείδωμα επιλογής, κίνησης, αλλαγής μεγέθους, επεξεργασίας κειμένου). Αν χρειαστεί, εφαρμόστε περιορισμούς στον κύριο ή τη διάταξη. Σημειώστε ότι αυτή είναι προστασία σε επίπεδο UI, όχι λειτουργία ασφαλείας· για ισχυρότερη προστασία, συνδυάστε με περιορισμούς σε επίπεδο αρχείου όπως [read-only recommendations or passwords](/slides/el/php-java/password-protected-presentation/).
+[ShapeCollection::addClone](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addclone/) δημιουργεί ένα ανεξάρτητο αντίγραφο και το προσθέτει στο στόχο της συλλογής. [ShapeCollection::insertClone](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/insertclone/) επίσης δημιουργεί ένα αντίγραφο αλλά το τοποθετεί σε έναν καθορισμένο δείκτη z‑order. Οι υπερφορτώσεις που δέχονται συντεταγμένες μετακινούν το κλώνο χωρίς αλλαγή μεγέθους· οι υπερφορτώσεις με πλάτος και ύψος μπορούν επίσης να το επαναπροσδιορίσουν.
+
+Το παράδειγμα δημιουργεί μια διαφάνεια προορισμού, κλωνοποιεί ένα ορθογώνιο με ετικέτα προς τα εμπρός, και εισάγει ένα δεύτερο κλώνο στο πίσω μέρος. Οι αλλαγές σε κάθε κλώνο δεν τροποποιούν το σχήμα προέλευσης.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η κλωνοποίηση αντιγράφει το περιεχόμενο και τη μορφοποίηση του σχήματος, συμπεριλαμβανομένου του ονόματος και του εναλλακτικού κειμένου. Αντιστοιχίστε νέους λογικούς ταυτοποιητές στο κλώνο όταν αυτές οι τιμές πρέπει να είναι μοναδικές. Οι πόροι που χρησιμοποιούνται από πολύπλοκα σχήματα διαχειρίζονται από την παρουσίαση, αλλά ένα κλώνο παραμένει ένα νέο στοιχείο της συλλογής με νέα ταυτότητα σχήματος.
+
+### **Αφαίρεση Σχημάτων**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/remove/) διαγράφει ένα συγκεκριμένο αντικείμενο σχήματος από τη συλλογή του. Όταν αφαιρείτε πολλαπλές αντιστοιχίες κατά τη διάρκεια επαναληπτικής διαμέτρησης με δείκτες, διασχίστε από το τέλος ώστε κάθε εναπομείναν δείκτης να παραμένει έγκυρος.
+
+Αυτό το παράδειγμα αφαιρεί κάθε σχήμα με ένα καθορισμένο όνομα. Διαβάζει το σχήμα στον τρέχοντα δείκτη, όχι ένα σταθερό στοιχείο της συλλογής, και δεν κάνει περιττή μετατροπή τύπου.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Μετά την αφαίρεση, ο αριθμός των σχημάτων και οι δείκτες των μεταγενέστερων σχημάτων αλλάζουν. Οι αναφορές σε ανεπηρέαστα σχήματα παραμένουν πιο αξιόπιστες από αποθηκευμένους δείκτες. Επίσης, σκεφτείτε τους συνδέσμους, τις κινήσεις και άλλα χαρακτηριστικά παρουσίασης που ενδέχεται να αναφέρονται στο αφαιρεθέν αντικείμενο· η αφαίρεση ενός ορατού σχήματος μπορεί να αλλάξει περισσότερο από την εμφάνιση της διαφάνειας.
+
+### **Απόκρυψη Σχήματος**
+
+Ο ορισμός του [Shape::setHidden](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/sethidden/) σε `true` διατηρεί το σχήμα στη συλλογή αλλά εμποδίζει την εμφάνισή του στην κανονική παρουσίαση. Ο δείκτης, η μορφοποίηση και το περιεχόμενο παραμένουν διαθέσιμα στον κώδικα, έτσι η απόκρυψη είναι κατάλληλη για προαιρετικά στοιχεία που μπορούν να αποκατασταθούν αργότερα.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η απόκρυψη δεν είναι διαγραφή ή ασφάλεια. Το αντικείμενο μπορεί ακόμη να εντοπιστεί και να γίνει ορατό ξανά από χρήστη ή κώδικα, και παραμένει μέρος του αρχείου παρουσίασης.
+
+### **Αλλαγή της Σειράς Z**
+
+Τα επικάλυψη σχήματα ζωγραφίζονται με τη σειρά της συλλογής. [ShapeCollection::reorder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/reorder/) μετακινεί ένα υπάρχον σχήμα σε έναν στόχο δείκτη χωρίς κλωνοποίηση. Ο δείκτης `0` είναι το πίσω μέρος· `size() - 1` είναι το μπροστινό.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Το ορθογώνιο δημιουργείται πρώτα και αρχικά βρίσκεται πίσω από το έλλειψη. Η μετακίνηση του στον τελικό δείκτη το φέρνει μπροστά. Ολοκληρώστε την σειρά Z μετά την προσθήκη ή κλωνοποίηση όλων των σχετικών σχημάτων, επειδή αυτές οι λειτουργίες προσθέτουν ή εισάγουν νέα στοιχεία στη συλλογή και μπορούν να αλλάξουν τη στοίβα που προοριζόταν.
+
+## **Έλεγχος Σχημάτων σε Διαφάνειες Διάταξης**
+
+Οι κανονικές διαφάνειες, οι διαφάνειες διάταξης και οι κύριες διαφάνειες έχουν ξεχωριστές συλλογές σχημάτων. Ένα σχήμα σε μια συλλογή διάταξης δεν είναι το ίδιο αντικείμενο με ένα παρόμοιο σχήμα σε κανονική διαφάνεια. Ελέγξτε τα σχήματα διάταξης όταν χρειάζεται να κατανοήσετε ή να αλλάξετε τη μορφοποίηση που παρέχεται από μια διάταξη.
+
+Το παρακάτω παράδειγμα διαβάζει το [FillFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getfillformat/) και το [LineFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getlineformat/) κάθε σχήματος διάταξης χωρίς να υποθέτει ότι κάθε σχήμα είναι `AutoShape`.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η επεξεργασία μιας διάταξης μπορεί να επηρεάσει πολλαπλές διαφάνειες που τη χρησιμοποιούν. Πριν αλλάξετε ένα σχήμα διάταξης, καθορίστε αν μια κανονική διαφάνεια κληρονομεί το αντικείμενο ή περιέχει τοπική παράκαμψη, και δοκιμάστε κάθε διαφάνεια που χρησιμοποιεί τη διάταξη.
+
+## **Εξαγωγή Σχήματος σε SVG**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/writeassvg/) γράφει το αποδιδόμενο περιεχόμενο ενός σχήματος σε μια ροή. Το αποτέλεσμα περιέχει το σ_shape, όχι ολόκληρο το φόντο της διαφάνειας ή γειτονικά σχήματα.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Διατηρήστε την παρουσίαση ανοιχτή κατά τη διάρκεια της απόδοσης. Η έξοδος εξαρτάται από τη μορφοποίηση του σχήματος και από πόρους όπως γραμματοσειρές και εικόνες. Εάν χρειάζεστε ολόκληρη τη σύνθεση, εξαγάγετε τη διαφάνεια αντί για το μεμονωμένο σχήμα. Ο καλών χρήστης κατέχει τη ροή και πρέπει να την κλείσει.
+
+## **Στοίχιση Σχημάτων**
+
+Οι υπερφορτώσεις του [SlideUtil::alignShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/slideutil/alignshapes/) ευθυγραμμίζουν είτε όλα τα σχήματα είτε επιλεγμένους δείκτες συλλογής. Το [ShapesAlignmentType](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapesalignmenttype/) καθορίζει την άκρη, τη κεντρική γραμμή ή το τρόπο κατανομής. Ορίστε `alignToSlide` σε `true` για χρήση των άκρων της διαφάνειας· ορίστε το σε `false` για στοίχιση των επιλεγμένων σχημάτων μεταξύ τους.
+
+Αυτό το παράδειγμα στοιχίζει τρία σχήματα στο επάνω άκρο της διαφάνειας. Οι αναφορές σχήματος που επιστρέφονται μετατρέπονται αμέσως στους τρέχοντες δείκτες τους πριν τη στοίχιση.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η στοίχιση αλλάζει θέσεις, όχι τη σειρά Z. Η σχετική στοίχιση συνήθως απαιτεί τουλάχιστον δύο σχήματα, ενώ η οριζόντια ή κάθετη κατανομή χρειάζεται αρκετά σχήματα για ορισμό αποστάσεων. Επαναϋπολογίστε τους δείκτες εάν τροποποιήσετε τη συλλογή πριν καλέσετε τη μέθοδο.
+
+## **Αναστροφή Σχήματος**
+
+Η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapeframe/) αποθηκεύει τη θέση, το μέγεθος, τις ρυθμίσεις οριζόντιας και κάθετης αναστροφής και την περιστροφή. Οι τιμές `getFlipH` και `getFlipV` χρησιμοποιούν το [NullableBool](https://reference.aspose.com/slides/el/php-java/aspose.slides/nullablebool/): `True` ενεργοποιεί την αναστροφή, `False` την απενεργοποιεί, και `NotDefined` διατηρεί την ακαθόριστη/προεπιλεγμένη κατάσταση.
+
+Η παρακάτω παρουσίαση περιέχει ένα σχήμα χωρίς αναστροφή.
+
+![Το σχήμα πριν την αναστροφή](shape_to_be_flipped.png)
+
+Το παράδειγμα διατηρεί κάθε άλλη τιμή του Frame και αντικαθιστά μόνο τις δύο ρυθμίσεις αναστροφής. Αυτό είναι σημαντικό επειδή η ανάθεση ενός νέου [Frame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/setframe/) αντικαθιστά ολόκληρο το Frame.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Το αποθηκευμένο σχήμα είναι κατοπτρισμένο οριζόντια και κάθετα διατηρώντας τη θέση, το μέγεθος και την περιστροφή.
+
+![Το σχήμα μετά την αναστροφή](flipped_shape.png)
+
+## **Συχνές Ερωτήσεις**
+
+**Θα πρέπει να χρησιμοποιώ έναν δείκτη συλλογής ως αναγνωριστικό σχήματος;**
+
+Μόνο για βραχύβια επεξεργασία όταν η συλλογή δεν θα αλλάξει πριν χρησιμοποιηθεί ο δείκτης. Προτιμήστε μια επικυρωμένη σύμβαση `Name` ή `AlternativeText` για πρότυπα που δημιουργούνται, ή `OfficeInteropShapeId` για εργασίες interop περιορισμένες στη διαφάνεια.
+
+**Αφαιρεί η απόκρυψη ενός σχήματος τη θέση του στη σειρά Z;**
+
+Όχι. Ένα κρυμμένο σχήμα παραμένει στη συλλογή στον ίδιο δείκτη. Μπορεί να βρεθεί, να αλλάξει σειρά, να επεξεργαστεί ή να γίνει ορατό ξανά.
+
+**Γιατί ένα κλωνοποιημένο σχήμα εμφανίστηκε μπροστά από ένα άλλο σχήμα;**
+
+Η μέθοδος `addClone` προσθέτει το κλώνο στο τέλος της συλλογής, που είναι η εμπρός θέση της σειράς Z. Χρησιμοποιήστε `insertClone` για να επιλέξετε τον αρχικό δείκτη ή `reorder` μετά την προσθήκη όλων των σχημάτων.

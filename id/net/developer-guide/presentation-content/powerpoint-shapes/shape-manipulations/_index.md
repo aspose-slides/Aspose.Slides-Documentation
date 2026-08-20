@@ -1,6 +1,6 @@
 ---
-title: "Kelola Bentuk Presentasi di .NET"
-linktitle: "Manipulasi Bentuk"
+title: Kelola Bentuk Presentasi dalam .NET
+linktitle: Manipulasi Bentuk
 type: docs
 weight: 40
 url: /id/net/shape-manipulations/
@@ -8,388 +8,377 @@ keywords:
 - Bentuk PowerPoint
 - Bentuk presentasi
 - Bentuk pada slide
-- temukan bentuk
+- cari bentuk
 - klon bentuk
 - hapus bentuk
 - sembunyikan bentuk
 - ubah urutan bentuk
-- dapatkan Interop Shape ID
+- dapatkan ID bentuk interop
 - teks alternatif bentuk
 - format tata letak bentuk
 - bentuk sebagai SVG
 - bentuk ke SVG
-- ratakan bentuk
+- rata bentuk
+- balikkan bentuk
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara membuat, mengedit, dan mengoptimalkan bentuk dalam Aspose.Slides untuk .NET serta menyajikan presentasi PowerPoint berkinerja tinggi."
+description: "Pelajari cara mengidentifikasi, mengklon, menghapus, menyembunyikan, mengubah urutan, mengekspor, meratakan, dan membalik bentuk presentasi dengan Aspose.Slides untuk .NET."
 ---
-## **Ikhtisar**
+## **Ringkasan**
 
-Artikel ini menjelaskan cara bekerja dengan bentuk dalam presentasi menggunakan Aspose.Slides. Artikel ini menunjukkan cara menemukan bentuk pada slide, mengklonnya, menghapusnya, menyembunyikannya, mengubah urutannya, mendapatkan Interop shape ID, dan menetapkan teks alternatif untuk identifikasi serta pemrosesan lebih lanjut.
+Aspose.Slides for .NET merepresentasikan bentuk‑bentuk pada slide sebagai urutan [IShapeCollection](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/). Koleksi tersebut sekaligus tempat Anda menemukan dan memodifikasi bentuk serta sumber urutan tumpukan mereka: indeks `0` adalah bentuk paling belakang, sedangkan indeks terakhir adalah bentuk paling depan.
 
-Artikel ini juga mencakup cara mengakses format tata letak untuk bentuk, merender bentuk sebagai SVG, meratakan bentuk pada slide, dan menggunakan properti flip untuk pencerminan horizontal dan vertikal. Selain itu, artikel ini menyertakan FAQ singkat tentang kombinasi bentuk, urutan tumpukan, dan penguncian bentuk.
+Artikel ini mengikuti model itu. Pertama dijelaskan cara mengidentifikasi bentuk secara andal, kemudian ditunjukkan cara menyalin, menghapus, menyembunyikan, dan mengubah urutan bentuk. Bagian akhir membahas pemformatan tingkat tata letak, ekspor SVG, perataan, dan pengaturan flip. Setiap contoh berdiri sendiri, sehingga Anda dapat menggunakan hanya operasi yang diperlukan alur kerja Anda.
 
-## **Temukan Bentuk pada Slide**
-Topik ini akan menjelaskan teknik sederhana untuk mempermudah pengembang menemukan bentuk tertentu pada slide tanpa menggunakan Id internalnya. Penting untuk diketahui bahwa file Presentasi PowerPoint tidak memiliki cara untuk mengidentifikasi bentuk pada slide kecuali Id unik internal. Hal ini tampak sulit bagi pengembang untuk menemukan bentuk menggunakan Id unik internalnya. Semua bentuk yang ditambahkan ke slide memiliki teks alternatif. Kami menyarankan pengembang untuk menggunakan teks alternatif dalam menemukan bentuk tertentu. Anda dapat menggunakan MS PowerPoint untuk menentukan teks alternatif bagi objek yang akan Anda ubah di masa mendatang.
+## **Identifikasi dan Temukan Bentuk**
 
-Setelah menetapkan teks alternatif pada bentuk yang diinginkan, Anda dapat membuka presentasi tersebut menggunakan Aspose.Slides for .NET dan melakukan iterasi melalui semua bentuk yang ditambahkan ke slide. Pada setiap iterasi, Anda dapat memeriksa teks alternatif bentuk tersebut dan bentuk dengan teks alternatif yang cocok akan menjadi bentuk yang Anda butuhkan. Untuk mendemonstrasikan teknik ini dengan lebih baik, kami telah membuat metode, [FindShape](https://reference.aspose.com/slides/id/net/aspose.slides.util/slideutil/findshape/#findshape_1) yang melakukan hal tersebut untuk menemukan bentuk tertentu dalam slide dan kemudian mengembalikan bentuk itu.
+Indeks koleksi memang praktis saat memproses file yang sudah diketahui, tetapi bukan pengenal yang stabil. Penambahan, penghapusan, atau perubahan urutan bentuk dapat mengubah indeksnya. Pilih pengenal menurut cara presentasi dibuat dan dipelihara:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/name/) berguna untuk templat yang dikendalikan pengembang dan mudah dilihat di Panel Seleksi PowerPoint. Nama dapat diedit dan tidak dijamin unik, jadi tetapkan konvensi penamaan bila kode bergantung padanya.
+- [AlternativeText](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/alternativetext/) berguna bila deskripsi aksesibilitas atau tag yang disediakan penulis sudah mengidentifikasi bentuk. Teks ini terlihat oleh pengguna, dapat dilokalisasi atau ditulis ulang untuk aksesibilitas, dan tidak dijamin unik. Jangan gunakan teks aksesibilitas yang bermakna secara diam‑diam sebagai kunci basis data.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/officeinteropshapeid/) adalah pengenal baca‑saja yang unik dalam satu slide dan sesuai dengan ID bentuk yang digunakan oleh interop PowerPoint. Gunakan bila berintegrasi dengan PowerPoint atau bila Anda memerlukan referensi yang tidak ambigu selama masa hidup bentuk. Bentuk yang disalin atau dibuat kembali adalah bentuk yang berbeda dan menerima ID nya masing‑masing.
+
+Properti [UniqueId](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/uniqueid/) yang terkait memiliki cakupan presentasi, tetapi ditujukan untuk add‑in dan dapat dipetakan ulang. Jangan perlakukan sebagai kunci eksternal permanen. Jika identitas jangka panjang penting, simpan pemetaan dalam data aplikasi dan validasi bahwa bentuk yang diharapkan masih ada.
+
+Contoh berikut mencari berdasarkan `Name` dengan perbandingan ordinal dan melaporkan ID interop berskala slide. Ketika templat tidak berisi bentuk yang diharapkan, kode melaporkan hasil tersebut alih‑alih melanjutkan dengan objek yang salah.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Membuat instance kelas Presentation yang mewakili file presentasi
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Teks alternatif dari bentuk yang akan dicari
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Implementasi metode untuk menemukan bentuk dalam slide menggunakan teks alternatifnya
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Mengiterasi semua bentuk di dalam slide
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Jika teks alternatif slide cocok dengan yang dibutuhkan maka
-        // Kembalikan bentuk tersebut
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-## **Klon Bentuk**
-Untuk mengklon bentuk ke slide menggunakan Aspose.Slides for .NET:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-1. Dapatkan referensi slide dengan menggunakan indeksnya.
-1. Akses koleksi bentuk slide sumber.
-1. Tambahkan slide baru ke presentasi.
-1. Klon bentuk dari koleksi bentuk slide sumber ke slide baru.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
-
-Contoh di bawah menambahkan grup bentuk ke sebuah slide.
-
-```c#
-// Buat instance kelas Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Tulis file PPTX ke disk
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-## **Hapus Bentuk**
-Aspose.Slides for .NET memungkinkan pengembang menghapus bentuk apa pun. Untuk menghapus bentuk dari slide mana pun, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance dari kelas `Presentation`.
-1. Akses slide pertama.
-1. Temukan bentuk dengan AlternativeText tertentu.
-1. Hapus bentuk tersebut.
-1. Simpan file ke disk.
-
-```c#
-// Buat objek Presentation
-Presentation pres = new Presentation();
-
-// Dapatkan slide pertama
-ISlide sld = pres.Slides[0];
-
-// Tambahkan autoshape tipe persegi panjang
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Simpan presentasi ke disk
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Sembunyikan Bentuk**
-Aspose.Slides for .NET memungkinkan pengembang menyembunyikan bentuk apa pun. Untuk menyembunyikan bentuk dari slide mana pun, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance dari kelas `Presentation`.
-1. Akses slide pertama.
-1. Temukan bentuk dengan AlternativeText tertentu.
-1. Sembunyikan bentuk tersebut.
-1. Simpan file ke disk.
-
-```c#
-// Buat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-
-// Dapatkan slide pertama
-ISlide sld = pres.Slides[0];
-
-// Tambahkan autoshape tipe persegi panjang
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Simpan presentasi ke disk
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Ubah Urutan Bentuk**
-Aspose.Slides for .NET memungkinkan pengembang mengubah urutan bentuk. Mengubah urutan bentuk menentukan bentuk mana yang berada di depan atau di belakang. Untuk mengubah urutan bentuk pada slide, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance dari kelas `Presentation`.
-1. Akses slide pertama.
-1. Tambahkan sebuah bentuk.
-1. Tambahkan teks ke dalam bingkai teks bentuk.
-1. Tambahkan bentuk lain dengan koordinat yang sama.
-1. Ubah urutan bentuk-bentuk tersebut.
-1. Simpan file ke disk.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Dapatkan Interop Shape ID**
-Aspose.Slides for .NET memungkinkan pengembang mendapatkan pengidentifikasi bentuk unik dalam lingkup slide, berbeda dengan properti UniqueId yang memberikan pengidentifikasi unik dalam lingkup presentasi. Properti OfficeInteropShapeId ditambahkan ke antarmuka IShape dan kelas Shape masing‑masing. Nilai yang dikembalikan oleh properti OfficeInteropShapeId sesuai dengan nilai Id dari objek Microsoft.Office.Interop.PowerPoint.Shape. Contoh kode diberikan di bawah.
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Mendapatkan pengidentifikasi bentuk unik dalam lingkup slide
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
+Ketika operasi bersifat khusus pada tipe bentuk, periksa antarmuka sebelum menggunakan anggota spesifik tipe. Contoh ini memperbarui teks dan teks alternatif hanya bila objek bernama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/).
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Tetapkan Teks Alternatif untuk Bentuk**
-Aspose.Slides for .NET memungkinkan pengembang menetapkan AlternateText pada bentuk apa pun.  
-Bentuk dalam presentasi dapat dibedakan melalui properti AlternativeText atau Shape Name.  
-Properti AlternativeText dapat dibaca atau diatur menggunakan Aspose.Slides maupun Microsoft PowerPoint.  
-Dengan menggunakan properti ini, Anda dapat menandai sebuah bentuk dan melakukan operasi berbeda seperti menghapus, menyembunyikan, atau mengubah urutan bentuk pada slide.  
-Untuk menetapkan AlternateText pada sebuah bentuk, ikuti langkah-langkah berikut:
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-1. Buat sebuah instance dari kelas `Presentation`.
-1. Akses slide pertama.
-1. Tambahkan bentuk apa pun ke slide.
-1. Lakukan pekerjaan dengan bentuk yang baru ditambahkan.
-1. Travers bentuk‑bentuk untuk menemukan bentuk yang dimaksud.
-1. Tetapkan AlternativeText.
-1. Simpan file ke disk.
-
-```c#
-// Buat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-
-// Dapatkan slide pertama
-ISlide sld = pres.Slides[0];
-
-// Tambahkan autoshape tipe persegi panjang
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Simpan presentasi ke disk
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **Akses Format Tata Letak untuk Bentuk**
-Aspose.Slides for .NET menyediakan API sederhana untuk mengakses format tata letak sebuah bentuk. Artikel ini mendemonstrasikan cara mengakses format tata letak.
-
-Contoh kode diberikan di bawah.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Render Bentuk sebagai SVG**
-Sekarang Aspose.Slides for .NET mendukung rendering bentuk sebagai SVG. Metode WriteAsSvg (serta overload‑nya) telah ditambahkan ke kelas Shape dan antarmuka IShape. Metode ini memungkinkan menyimpan konten bentuk sebagai file SVG. Potongan kode di bawah menunjukkan cara mengekspor bentuk slide ke file SVG.
+## **Modifikasi Koleksi Bentuk**
 
-```c#
-public static void Run()
+Metode tambahkan, klon, hapus, dan ubah urutan beroperasi pada koleksi secara langsung. Jika suatu operasi mengubah jumlah atau urutan bentuk, jangan lagi mengandalkan indeks yang diambil sebelum operasi tersebut.
+
+### **Klon Bentuk**
+
+[AddClone](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addclone/) membuat salinan independen dan menambahkannya ke koleksi target. [InsertClone](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/insertclone/) juga membuat salinan tetapi menempatkannya pada indeks z‑order yang ditentukan. Overload yang menerima koordinat memindahkan klon tanpa mengubah ukuran; overload dengan lebar dan tinggi dapat mengubah ukuran juga.
+
+Contoh membuat slide tujuan, mengklon persegi panjang berlabel ke depan, dan menyisipkan klon kedua ke belakang. Perubahan pada salah satu klon tidak memodifikasi bentuk sumber.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Klon menyalin konten dan pemformatan bentuk, termasuk nama dan teks alternatifnya. Tetapkan pengenal logis baru pada klon bila nilai tersebut harus unik. Sumber daya yang dipakai oleh bentuk kompleks ditangani oleh presentasi, namun klon tetap menjadi item koleksi baru dengan identitas bentuk baru.
+
+### **Hapus Bentuk**
+
+[Remove](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/remove/) menghapus objek bentuk tertentu dari koleksinya. Saat menghapus beberapa kecocokan selama iterasi berbasis indeks, lakukan penelusuran dari akhir sehingga setiap indeks yang tersisa tetap valid.
+
+Contoh ini menghapus setiap bentuk dengan nama yang ditentukan. Ia membaca `slide.Shapes[i]`, bukan item koleksi tetap, dan tidak melakukan casting bentuk yang tidak perlu.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Setelah penghapusan, jumlah bentuk dan indeks bentuk‑bentuk selanjutnya berubah. Referensi ke bentuk yang tidak terpengaruh tetap lebih dapat diandalkan daripada indeks yang disimpan. Pertimbangkan juga konektor, animasi, dan fitur presentasi lain yang mungkin merujuk pada objek yang dihapus; menghapus bentuk yang terlihat dapat mengubah lebih dari sekadar tampilan slide.
+
+### **Sembunyikan Bentuk**
+
+Menetapkan [Hidden](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/hidden/) ke `true` mempertahankan bentuk dalam koleksi tetapi mencegahnya muncul dalam tampilan slide biasa. Indeks, pemformatan, dan kontennya tetap tersedia bagi kode, sehingga menyembunyikan cocok untuk elemen opsional yang mungkin dipulihkan nanti.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Menyembunyikan bukan berarti menghapus atau mengamankan. Objek masih dapat ditemukan dan ditampilkan kembali oleh pengguna atau kode, dan tetap menjadi bagian dari file presentasi.
+
+### **Ubah Urutan Z**
+
+Bentuk yang tumpang tindih digambar sesuai urutan koleksi. [Reorder](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/reorder/) memindahkan bentuk yang ada ke indeks target tanpa menyalinnya. Indeks `0` adalah belakang; `Count - 1` adalah depan.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Persegi panjang dibuat dulu dan pada awalnya berada di belakang elips. Memindahkannya ke indeks akhir menempatkannya di depan. Selesaikan urutan z setelah menambahkan atau mengklon semua bentuk terkait, karena operasi tersebut menambah atau menyisipkan item koleksi baru dan dapat mengubah tumpukan yang diinginkan.
+
+## **Inspeksi Bentuk pada Slide Tata Letak**
+
+Slide normal, slide tata letak, dan slide master memiliki koleksi bentuk terpisah. Bentuk dalam koleksi tata letak bukan objek yang sama dengan bentuk yang berposisi serupa pada slide normal. Periksa bentuk tata letak saat Anda perlu memahami atau mengubah pemformatan yang disediakan oleh tata letak.
+
+Contoh berikut membaca setiap [FillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/fillformat/) dan [LineFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/lineformat/) pada bentuk tata letak tanpa mengasumsikan semua bentuk merupakan `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
+
+Mengedit tata letak dapat memengaruhi banyak slide yang menggunakannya. Sebelum mengubah bentuk tata letak, tentukan apakah slide normal mewarisi objek tersebut atau memiliki penimpaan lokal, dan uji setiap slide yang memakai tata letak itu.
+
+## **Ekspor Bentuk ke SVG**
+
+[WriteAsSvg](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/writeassvg/) menulis konten yang dirender dari satu bentuk ke aliran. Hasilnya berisi bentuk saja, bukan latar belakang slide seluruhnya atau bentuk‑bentuk tetangga.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+if (slide.Shapes.Count == 0)
+{
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
+}
+```
+
+Biarkan presentasi tetap terbuka saat melakukan render. Output bergantung pada pemformatan bentuk serta sumber daya seperti font dan gambar. Jika Anda memerlukan keseluruhan komposisi, ekspor slide daripada bentuk individual. Pemanggil memiliki aliran dan harus membuangnya.
 
 ## **Ratakan Bentuk**
 
-Melalui metode berlebih [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/id/net/aspose.slides.util/slideutil/methods/alignshapes/index), Anda dapat  
+Overload [SlideUtil.AlignShapes](https://reference.aspose.com/slides/id/net/aspose.slides.util/slideutil/alignshapes/) meratakan semua bentuk atau indeks koleksi yang dipilih. [ShapesAlignmentType](https://reference.aspose.com/slides/id/net/aspose.slides/shapesalignmenttype/) menentukan tepi, garis tengah, atau mode distribusi. Setel `alignToSlide` ke `true` untuk menggunakan tepi slide; setel ke `false` untuk meratakan bentuk yang dipilih relatif satu sama lain.
 
-* meratakan bentuk relatif terhadap margin slide. Lihat Contoh 1.  
-* meratakan bentuk relatif terhadap satu sama lain. Lihat Contoh 2.  
+Contoh ini meratakan tiga bentuk ke tepi atas slide. Referensi bentuk yang dikembalikan diubah menjadi indeks terkini tepat sebelum perataan.
 
-Enum [ShapesAlignmentType](https://reference.aspose.com/slides/id/net/aspose.slides/shapesalignmenttype) mendefinisikan opsi perataan yang tersedia.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-**Contoh 1**
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Kode C# ini menunjukkan cara meratakan bentuk dengan indeks 1,2, dan 4 sepanjang batas atas slide:
-Kode sumber di bawah ini meratakan bentuk dengan indeks 1,2, dan 4 sepanjang batas atas slide.
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+var shapeIndexes = new[]
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-**Contoh 2**
+Perataan mengubah posisi, bukan urutan z. Perataan relatif biasanya membutuhkan setidaknya dua bentuk, sementara distribusi horizontal atau vertikal memerlukan cukup bentuk untuk menentukan jarak. Hitung ulang indeks bila Anda memodifikasi koleksi sebelum memanggil metode.
 
-Kode C# ini menunjukkan cara meratakan seluruh koleksi bentuk relatif terhadap bentuk paling bawah dalam koleksi:
+## **Balikkan Bentuk**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
-{
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+Kelas [ShapeFrame](https://reference.aspose.com/slides/id/net/aspose.slides/shapeframe/) menyimpan posisi, ukuran, pengaturan flip horizontal dan vertikal, serta rotasi. Nilai `FlipH` dan `FlipV`‑nya memakai [NullableBool](https://reference.aspose.com/slides/id/net/aspose.slides/nullablebool/): `True` mengaktifkan flip, `False` menonaktifkannya, dan `NotDefined` mempertahankan keadaan tak ditentukan/default.
+
+Presentasi input di bawah berisi satu bentuk yang belum dibalik.
+
+![Bentuk sebelum dibalik](shape_to_be_flipped.png)
+
+Contoh ini mempertahankan semua nilai frame lainnya dan mengganti hanya dua pengaturan flip. Hal ini penting karena menetapkan [Frame](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/frame/) baru menggantikan seluruh frame.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
+
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
+
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
+
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-## **Properti Flip**
+Bentuk yang disimpan kini dicerminkan secara horizontal dan vertikal sementara posisi, ukuran, dan rotasinya tetap.
 
-Di Aspose.Slides, kelas [ShapeFrame](https://reference.aspose.com/slides/id/net/aspose.slides/shapeframe/) menyediakan kontrol atas pencerminan horizontal dan vertikal bentuk melalui properti `FlipH` dan `FlipV`. Kedua properti bertipe [NullableBool](https://reference.aspose.com/slides/id/net/aspose.slides/nullablebool/), memungkinkan nilai `True` untuk mengindikasikan flip, `False` untuk tidak flip, atau `NotDefined` untuk menggunakan perilaku default. Nilai‑nilai ini dapat diakses melalui [Frame](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/frame/) bentuk.
-
-Untuk mengubah pengaturan flip, sebuah instance baru [ShapeFrame](https://reference.aspose.com/slides/id/net/aspose.slides/shapeframe/) dibangun dengan posisi dan ukuran saat ini dari bentuk, nilai yang diinginkan untuk `FlipH` dan `FlipV`, serta sudut rotasi. Menetapkan instance ini ke [Frame](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/frame/) bentuk dan menyimpan presentasi akan menerapkan transformasi cermin dan menuliskannya ke file output.
-
-Misalkan kita memiliki file sample.pptx yang slide pertamanya berisi satu bentuk dengan pengaturan flip default, seperti ditunjukkan di bawah.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Contoh kode berikut mengambil properti flip bentuk saat ini dan membaliknya baik secara horizontal maupun vertikal.
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
-
-    // Mengambil properti flip horizontal dari bentuk.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
-
-    // Mengambil properti flip vertikal dari bentuk.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
-
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Flip secara horizontal.
-    NullableBool flipV = NullableBool.True; // Flip secara vertikal.
-    float rotation = shape.Frame.Rotation;
-
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-Hasilnya:
-
-![The flipped shape](flipped_shape.png)
+![Bentuk setelah dibalik](flipped_shape.png)
 
 ## **FAQ**
 
-**Bisakah saya menggabungkan bentuk (union/intersect/subtract) pada slide seperti di editor desktop?**
+**Haruskah saya menggunakan indeks koleksi sebagai pengenal bentuk?**
 
-Tidak ada API operasi Boolean bawaan. Anda dapat mendekatinya dengan membangun outline yang diinginkan secara manual—misalnya menghitung geometri hasil (melalui [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath/)) dan membuat bentuk baru dengan kontur tersebut, serta opsional menghapus yang asli.
+Hanya untuk pemrosesan singkat ketika koleksi tidak akan berubah sebelum indeks digunakan. Lebih baik pakai konvensi `Name` atau `AlternativeText` yang tervalidasi untuk templat yang dibuat, atau `OfficeInteropShapeId` untuk kerja interop berskala slide.
 
-**Bagaimana saya dapat mengontrol urutan tumpukan (z-order) sehingga sebuah bentuk selalu berada di “atas”?**
+**Apakah menyembunyikan bentuk menghapusnya dari urutan z?**
 
-Ubah urutan penyisipan/perpindahan dalam koleksi [shapes](https://reference.aspose.com/slides/id/net/aspose.slides/baseslide/shapes/) slide. Untuk hasil yang dapat diprediksi, finalisasi z-order setelah semua modifikasi slide lainnya selesai.
+Tidak. Bentuk tersembunyi tetap berada di koleksi pada indeks yang sama. Ia dapat ditemukan, diubah urutannya, diedit, atau dibuat terlihat kembali.
 
-**Bisakah saya “mengunci” sebuah bentuk agar pengguna tidak dapat mengeditnya di PowerPoint?**
+**Mengapa bentuk yang diklon muncul di depan bentuk lain?**
 
-Ya. Tetapkan [flag perlindungan tingkat bentuk](/slides/id/net/applying-protection-to-presentation/) (misalnya kunci pemilihan, pergerakan, pengubahan ukuran, atau pengeditan teks). Jika diperlukan, terapkan pembatasan pada master atau tata letak. Perlu diketahui bahwa ini adalah perlindungan level UI, bukan fitur keamanan; untuk perlindungan yang lebih kuat, gabungkan dengan pembatasan level file seperti rekomendasi baca‑saja atau kata sandi [/slides/id/net/password-protected-presentation/](/slides/id/net/password-protected-presentation/).
+`AddClone` menambahkan klon ke akhir koleksi, yang merupakan depan urutan z. Gunakan `InsertClone` untuk memilih indeks awal atau `Reorder` setelah semua bentuk ditambahkan.

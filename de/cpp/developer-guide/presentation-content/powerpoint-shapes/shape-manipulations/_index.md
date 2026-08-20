@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Präsentationsformen in C++
-linktitle: Formmanipulation
+linktitle: Formenmanipulation
 type: docs
 weight: 40
 url: /de/cpp/shape-manipulations/
@@ -12,198 +12,470 @@ keywords:
 - Form duplizieren
 - Form entfernen
 - Form ausblenden
-- Reihenfolge von Formen ändern
-- Interop-Form-ID erhalten
-- AlternativeText einer Form
-- Layoutformate einer Form
+- Reihenfolge der Form ändern
+- Interop-Form-ID abrufen
+- Alternativtext der Form
+- Layout-Formate der Form
 - Form als SVG
-- Form nach SVG
+- Form zu SVG
 - Form ausrichten
+- Form spiegeln
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für C++ erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint-Präsentationen bereitstellen."
+description: "Erfahren Sie, wie Sie Präsentationsformen mit Aspose.Slides für C++ identifizieren, duplizieren, entfernen, ausblenden, neu anordnen, exportieren, ausrichten und spiegeln."
 ---
+## **Übersicht**
 
-## **Eine Form auf einer Folie finden**
-Dieses Thema beschreibt eine einfache Technik, mit der Entwickler eine bestimmte Form auf einer Folie leichter finden können, ohne deren interne Id zu verwenden. Es ist wichtig zu wissen, dass PowerPoint‑Präsentationsdateien keine Möglichkeit besitzen, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige Id. Für Entwickler ist es oft schwierig, eine Form über ihre interne eindeutige Id zu finden. Allen Formen, die zu Folien hinzugefügt werden, ist ein Alternativtext zugewiesen. Wir empfehlen Entwicklern, den Alternativtext zur Suche einer bestimmten Form zu nutzen. Sie können in MS PowerPoint den Alternativtext für Objekte festlegen, die Sie künftig ändern möchten.
+Aspose.Slides for C++ stellt die Formen auf einer Folie als geordnete [IShapeCollection](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/). Die Sammlung ist sowohl der Ort, an dem Sie Formen finden und ändern, als auch die Quelle ihrer Stapelreihenfolge: Index `0` ist die am weitesten hinten liegende Form, während der letzte Index die vorderste Form ist.
 
-Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides für C++ öffnen und alle Formen einer Folie durchlaufen. Bei jeder Iteration prüfen Sie den Alternativtext der Form; die Form mit dem passenden Alternativtext ist die gesuchte Form. Um diese Technik anschaulicher zu demonstrieren, haben wir die Methode [FindShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) erstellt, die das Auffinden einer bestimmten Form in einer Folie übernimmt und die Form zurückgibt.
+Dieser Artikel folgt diesem Modell. Zunächst wird erklärt, wie man eine Form zuverlässig identifiziert, dann wird gezeigt, wie man Formen dupliziert, entfernt, ausblendet und neu anordnet. Die abschließenden Abschnitte behandeln Layout‑bezogene Formatierungen, den SVG‑Export, Ausrichtung und Spiegelungseinstellungen. Jedes Beispiel ist unabhängig, sodass Sie nur die Vorgänge verwenden können, die Ihr Arbeitsablauf erfordert.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FindShapeInSlide-FindShapeInSlide.cpp" >}}
+## **Formen identifizieren und finden**
 
-## **Eine Form duplizieren**
-Um eine Form mit Aspose.Slides für C++ auf einer Folie zu duplizieren:
+Sammlungsindizes sind beim Verarbeiten einer bekannten Datei praktisch, aber sie sind keine stabilen Bezeichner. Das Hinzufügen, Entfernen oder Neuordnen einer Form kann ihren Index ändern. Wählen Sie einen Bezeichner entsprechend der Art und Weise, wie die Präsentation erstellt und gepflegt wird:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Holen Sie die Referenz einer Folie über ihren Index.
-3. Greifen Sie auf die Formsammlung der Quellfolie zu.
-4. Fügen Sie der Präsentation eine neue Folie hinzu.
-5. Duplizieren Sie Formen aus der Formsammlung der Quellfolie in die neue Folie.
-6. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+- [Name](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/get_name/) ist nützlich für von Entwicklern gesteuerte Vorlagen und lässt sich leicht im Auswahlbereich von PowerPoint inspizieren. Namen können bearbeitet werden und sind nicht garantiert eindeutig, daher sollte ein Namenskonventionsschema festgelegt werden, wenn Code von ihnen abhängt.
+- [AlternativeText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/get_alternativetext/) ist nützlich, wenn eine Zugänglichkeitsbeschreibung oder ein vom Autor bereitgestelltes Tag die Form bereits identifiziert. Sie ist für Benutzer sichtbar, kann lokalisiert oder für Barrierefreiheit umgeschrieben werden und ist nicht garantiert eindeutig. Verwenden Sie bedeutungsvollen Barrierefreiheitstext nicht stillschweigend als Datenbankschlüssel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/get_officeinteropshapeid/) ist ein schreibgeschützter Bezeichner, der innerhalb einer Folie eindeutig ist und der von PowerPoint‑Interop verwendeten Form‑ID entspricht. Verwenden Sie ihn, wenn Sie mit PowerPoint integrieren oder eine eindeutige Referenz während der Lebensdauer einer Form benötigen. Eine duplizierte oder neu erstellte Form ist eine andere Form und erhält ihre eigene ID.
 
-Das folgende Beispiel fügt einer Folie ein Gruppenelement hinzu.
+Die zugehörige Eigenschaft [UniqueId](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/get_uniqueid/) gilt für die gesamte Präsentation, ist jedoch für Add‑Ins gedacht und kann neu zugewiesen werden. Sie sollte nicht als permanenter externer Schlüssel verwendet werden. Wenn eine langfristige Identität entscheidend ist, bewahren Sie die Zuordnung in Anwendungsdaten auf und prüfen Sie, ob die erwartete Form noch existiert.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneShapes-CloneShapes.cpp" >}}
+Das folgende Beispiel sucht nach `Name` und gibt die Folien‑bezogene Interop‑ID zurück. Wenn die Vorlage die erwartete Form nicht enthält, gibt der Code dieses Ergebnis aus, anstatt mit dem falschen Objekt fortzufahren.
 
-## **Eine Form entfernen**
-Aspose.Slides für C++ ermöglicht es Entwicklern, jede Form zu entfernen. So entfernen Sie eine Form von einer Folie:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Greifen Sie auf die erste Folie zu.
-3. Suchen Sie die Form mit dem gewünschten AlternativeText.
-4. Entfernen Sie die Form.
-5. Speichern Sie die Datei auf dem Datenträger.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveShape-RemoveShape.cpp" >}}
-
-## **Eine Form ausblenden**
-Aspose.Slides für C++ ermöglicht es Entwicklern, jede Form auszublenden. So blenden Sie eine Form auf einer Folie aus:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Greifen Sie auf die erste Folie zu.
-3. Suchen Sie die Form mit dem gewünschten AlternativeText.
-4. Blenden Sie die Form aus.
-5. Speichern Sie die Datei auf dem Datenträger.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-Hidingshapes-Hidingshapes.cpp" >}}
-
-## **Reihenfolge von Formen ändern**
-Aspose.Slides für C++ ermöglicht es Entwicklern, die Reihenfolge von Formen zu ändern. Durch das Neuordnen wird festgelegt, welche Form im Vordergrund bzw. im Hintergrund liegt. So ändern Sie die Reihenfolge von Formen auf einer Folie:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie eine Form hinzu.
-4. Fügen Sie Text im TextFrame der Form ein.
-5. Fügen Sie eine weitere Form mit denselben Koordinaten hinzu.
-6. Ordnen Sie die Formen neu.
-7. Speichern Sie die Datei auf dem Datenträger.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeShapeOrder-ChangeShapeOrder.cpp" >}}
-
-## **Interop‑Form‑ID erhalten**
-Aspose.Slides für C++ ermöglicht es Entwicklern, eine eindeutige Form‑ID im Folien‑Umfang zu erhalten, im Gegensatz zur Property UniqueId, die eine eindeutige ID im Präsentations‑Umfang liefert. Die Property OfficeInteropShapeId wurde den Schnittstellen IShape und der Klasse Shape hinzugefügt. Der von OfficeInteropShapeId zurückgegebene Wert entspricht dem Id‑Wert des Microsoft.Office.Interop.PowerPoint.Shape‑Objekts. Unten finden Sie ein Beispiel.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-InterlopShapeID-InterlopShapeID.cpp" >}}
-
-## **AlternativeText‑Eigenschaft setzen**
-Aspose.Slides für C++ ermöglicht es Entwicklern, den AlternateText einer Form zu setzen. So setzen Sie den AlternateText einer Form:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie eine beliebige Form zur Folie hinzu.
-4. Arbeiten Sie mit der neu hinzugefügten Form.
-5. Durchlaufen Sie die Formen, um die gewünschte Form zu finden.
-6. Setzen Sie den AlternativeText.
-7. Speichern Sie die Datei auf dem Datenträger.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAlternativeText-SetAlternativeText.cpp" >}}
-
-## **Layout‑Formate für eine Form abrufen**
-Aspose.Slides für C++ ermöglicht es Entwicklern, Layout‑Formate einer Form abzurufen. Dieser Artikel zeigt, wie Sie die Eigenschaften **FillFormat** und **LineFormat** einer Form verwenden können.
-
-Unten finden Sie den Beispielcode.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
-
-## **Eine Form als SVG rendern**
-Jetzt unterstützt Aspose.Slides für C++ das Rendern einer Form als SVG. Die Methode WriteAsSvg (und ihre Überladung) wurde der Klasse Shape und der Schnittstelle IShape hinzugefügt. Mit dieser Methode können Sie den Inhalt einer Form als SVG‑Datei speichern. Der nachfolgende Code‑Auszug zeigt, wie Sie die Form einer Folie in eine SVG‑Datei exportieren.
-``` cpp
-String outSvgFileName = u"SingleShape.svg";
-
-auto pres = System::MakeObject<Presentation>(u"TestExportShapeToSvg.pptx");
-
-auto stream = System::MakeObject<FileStream>(outSvgFileName, FileMode::Create, FileAccess::Write);
-pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0)->WriteAsSvg(stream);
-```
-
-
-## **Formen ausrichten**
-Aspose.Slides ermöglicht das Ausrichten von Formen entweder relativ zu den Folienrändern oder relativ zueinander. Zu diesem Zweck wurde eine überladene Methode [SlidesUtil.AlignShapes()](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) bereitgestellt. Die Aufzählung [ShapesAlignmentType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) definiert die möglichen Ausrichtungsoptionen.
-
-**Beispiel 1**
-
-Der nachstehende Quellcode richtet die Formen mit den Indizes 1, 2 und 4 am oberen Rand der Folie aus.  
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"example.pptx");
-
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-SharedPtr<IShape> shape1 = slide->get_Shapes()->idx_get(1);
-SharedPtr<IShape> shape2 = slide->get_Shapes()->idx_get(2);
-SharedPtr<IShape> shape3 = slide->get_Shapes()->idx_get(4);
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, pres->get_Slides()->idx_get(0), 
-System::MakeArray<int32_t>(
-    {
-        slide->get_Shapes()->IndexOf(shape1),
-        slide->get_Shapes()->IndexOf(shape2),
-        slide->get_Shapes()->IndexOf(shape3)
-    }));
-```
-
-
-**Beispiel 2**
-
-Im folgenden Beispiel wird gezeigt, wie die gesamte Formsammlung relativ zur untersten Form der Sammlung ausgerichtet wird.  
-``` cpp
-SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
-```
-
-
-## **Spiegelungs‑Eigenschaften**
-
-In Aspose.Slides bietet die Klasse [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/) die Kontrolle über horizontales und vertikales Spiegeln von Formen über die Eigenschaften `flipH` und `flipV`. Beide Eigenschaften sind vom Typ [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) und können True für ein Spiegeln, False für kein Spiegeln oder NotDefined für das Standardverhalten annehmen. Diese Werte sind über das [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_frame/) einer Form zugreifbar.
-
-Um die Spiegel‑Einstellungen zu ändern, wird eine neue [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/)‑Instanz mit der aktuellen Position und Größe der Form, den gewünschten Werten für `flipH` und `flipV` sowie dem Drehwinkel erstellt. Durch Zuweisung dieser Instanz an das [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_frame/) der Form und anschließendem Speichern der Präsentation werden die Spiegel‑Transformationen angewendet und in die Ausgabedatei übernommen.
-
-Angenommen, wir haben eine Datei sample.pptx, in der die erste Folie eine einzelne Form mit den Standard‑Spiegel‑Einstellungen enthält, wie unten gezeigt.
-
-![Die zu spiegelnde Form](shape_to_be_flipped.png)
-
-Der folgende Code‑Auszug liest die aktuellen Spiegel‑Eigenschaften der Form aus und spiegelt sie sowohl horizontal als auch vertikal.
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
 
-auto shape = presentation->get_Slide(0)->get_Shape(0);
+using namespace Aspose::Slides;
+using namespace System;
 
-// Ruft die horizontale Flip-Eigenschaft der Form ab.
-auto horizontalFlip = shape->get_Frame()->get_FlipH();
-Console::WriteLine(u"Horizontal flip: " + ObjectExt::ToString(horizontalFlip));
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Ruft die vertikale Flip-Eigenschaft der Form ab.
-auto verticalFlip = shape->get_Frame()->get_FlipV();
-Console::WriteLine(u"Vertical flip: " + ObjectExt::ToString(verticalFlip));
+SharedPtr<IShape> targetShape;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"RevenueChart")
+    {
+        targetShape = shape;
+        break;
+    }
+}
 
-auto x = shape->get_Frame()->get_X();
-auto y = shape->get_Frame()->get_Y();
-auto width = shape->get_Frame()->get_Width();
-auto height = shape->get_Frame()->get_Height();
-auto flipH = NullableBool::True; // Horizontal spiegeln.
-auto flipV = NullableBool::True; // Horizontal spiegeln.
-auto rotation = shape->get_Frame()->get_Rotation();
+if (targetShape == nullptr)
+{
+    Console::WriteLine(u"The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console::WriteLine(String::Format(u"Found {0}; interop ID: {1}", targetShape->get_Name(), targetShape->get_OfficeInteropShapeId()));
+}
 
-shape->set_Frame(MakeObject<ShapeFrame>(x, y, width, height, flipH, flipV, rotation));
-
-presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Wenn ein Vorgang spezifisch für einen Formtyp ist, prüfen Sie die Schnittstelle, bevor Sie typspezifische Member verwenden. Dieses Beispiel aktualisiert Text und Alternativtext nur, wenn das benannte Objekt ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) ist.
 
-Das Ergebnis:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-![Die gespiegelte Form](flipped_shape.png)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IShape> candidate;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"StatusLabel")
+    {
+        candidate = shape;
+        break;
+    }
+}
+
+if (candidate != nullptr && ObjectExt::Is<IAutoShape>(candidate))
+{
+    auto autoShape = ExplicitCast<IAutoShape>(candidate);
+    autoShape->get_TextFrame()->set_Text(u"Approved");
+    autoShape->set_AlternativeText(u"Approval status: approved");
+    presentation->Save(u"identified-shape.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"'StatusLabel' is missing or is not an AutoShape.");
+}
+
+presentation->Dispose();
+```
+
+## **Formensammlung ändern**
+
+Die Methoden zum Hinzufügen, Duplizieren, Entfernen und Neuordnen wirken sofort auf die Sammlung. Wenn ein Vorgang die Anzahl oder Reihenfolge von Formen ändert, sollten Sie nicht weiter auf vorher ermittelte Indizes vertrauen.
+
+### **Form duplizieren**
+
+[AddClone](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/addclone/) erstellt eine unabhängige Kopie und fügt sie an das Ziel‑Collection hinzu. [InsertClone](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/insertclone/) erstellt ebenfalls eine Kopie, platziert sie jedoch an einem angegebenen Z‑Order‑Index. Die Überladungen, die Koordinaten akzeptieren, verschieben die Kopie, ohne ihre Größe zu ändern; Überladungen mit Breite und Höhe können sie zudem skalieren.
+
+Das Beispiel erstellt eine Ziel‑Folien, dupliziert ein beschriftetes Rechteck nach vorne und fügt eine zweite Kopie hinten ein. Änderungen an einer der Kopien verändern nicht die Quellform.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto sourceSlide = presentation->get_Slide(0);
+auto sourceShape = sourceSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+sourceShape->set_Name(u"SourceLabel");
+sourceShape->get_TextFrame()->set_Text(u"Source");
+
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto destinationSlide = presentation->get_Slides()->AddEmptySlide(blankLayout);
+
+auto frontCloneShape = destinationSlide->get_Shapes()->AddClone(sourceShape, 80, 80);
+frontCloneShape->set_Name(u"FrontClone");
+if (ObjectExt::Is<IAutoShape>(frontCloneShape))
+{
+    auto frontClone = ExplicitCast<IAutoShape>(frontCloneShape);
+    frontClone->get_TextFrame()->set_Text(u"Front clone");
+}
+else
+{
+    Console::WriteLine(u"The front clone is not an AutoShape; its text was not changed.");
+}
+
+auto backCloneShape = destinationSlide->get_Shapes()->InsertClone(0, sourceShape, 80, 180);
+backCloneShape->set_Name(u"BackClone");
+if (ObjectExt::Is<IAutoShape>(backCloneShape))
+{
+    auto backClone = ExplicitCast<IAutoShape>(backCloneShape);
+    backClone->get_TextFrame()->set_Text(u"Back clone");
+}
+else
+{
+    Console::WriteLine(u"The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Duplizieren kopiert den Inhalt und die Formatierung der Form, einschließlich ihres Namens und Alternativtexts. Weisen Sie der Kopie neue logische Bezeichner zu, wenn diese Werte eindeutig sein müssen. Ressourcen, die von komplexen Formen verwendet werden, werden von der Präsentation verwaltet, aber eine Kopie bleibt ein neues Collection‑Element mit einer neuen Formidentität.
+
+### **Formen entfernen**
+
+[Remove](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/remove/) löscht ein bestimmtes Formobjekt aus seiner Sammlung. Beim Entfernen mehrerer Treffer während einer indizierten Iteration sollten Sie von hinten nach vorne durchlaufen, damit jeder verbleibende Index gültig bleibt.
+
+Dieses Beispiel entfernt jede Form mit einem festgelegten Namen. Es liest die aktuell indizierte Form, nicht ein festes Collection‑Element, und wirft die Form nicht unnötig um.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto keepShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+keepShape->set_Name(u"Keep");
+
+auto firstTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+firstTemporaryShape->set_Name(u"Temporary");
+
+auto secondTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+secondTemporaryShape->set_Name(u"Temporary");
+
+for (int32_t i = slide->get_Shapes()->get_Count() - 1; i >= 0; --i)
+{
+    auto shape = slide->get_Shape(i);
+    if (shape->get_Name() == u"Temporary")
+    {
+        slide->get_Shapes()->Remove(shape);
+    }
+}
+
+presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Nach dem Entfernen ändern sich die Formanzahl und die Indizes nachfolgender Formen. Verweise auf unveränderte Formen bleiben zuverlässiger als gespeicherte Indizes. Berücksichtigen Sie außerdem Verbinder, Animationen und andere Präsentations‑Features, die sich auf das entfernte Objekt beziehen können; das Entfernen einer sichtbaren Form kann mehr als nur das Aussehen der Folie verändern.
+
+### **Form ausblenden**
+
+Setzt man [Hidden](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/set_hidden/) auf `true`, bleibt die Form in der Sammlung, wird jedoch nicht in der normalen Diashow angezeigt. Ihr Index, ihre Formatierung und ihr Inhalt bleiben für den Code verfügbar, sodass das Ausblenden für optionale Elemente geeignet ist, die später wiederhergestellt werden können.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto visibleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+visibleShape->set_Name(u"VisibleLabel");
+
+auto optionalShape = slide->get_Shapes()->AddAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+optionalShape->set_Name(u"OptionalDecoration");
+
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"OptionalDecoration")
+    {
+        shape->set_Hidden(true);
+    }
+}
+
+presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Ausblenden ist weder Löschen noch Sicherheit. Das Objekt kann weiterhin von einem Benutzer oder vom Code entdeckt und wieder eingeblendet werden und bleibt Teil der Präsentationsdatei.
+
+### **Z‑Reihenfolge ändern**
+
+Überlappende Formen werden in der Reihenfolge der Sammlung gezeichnet. [Reorder](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/reorder/) verschiebt eine vorhandene Form zu einem Ziel‑Index, ohne sie zu duplizieren. Index `0` ist hinten; `Count - 1` ist vorne.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto blueRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+blueRectangle->set_Name(u"BlueRectangle");
+blueRectangle->get_FillFormat()->set_FillType(FillType::Solid);
+blueRectangle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+
+auto orangeEllipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+orangeEllipse->set_Name(u"OrangeEllipse");
+orangeEllipse->get_FillFormat()->set_FillType(FillType::Solid);
+orangeEllipse->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+
+slide->get_Shapes()->Reorder(slide->get_Shapes()->get_Count() - 1, blueRectangle);
+presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Das Rechteck wird zuerst erstellt und liegt zunächst hinter der Ellipse. Das Verschieben auf den End‑Index bringt es nach vorne. Finalisieren Sie die Z‑Reihenfolge, nachdem alle zugehörigen Formen hinzugefügt oder dupliziert wurden, da diese Vorgänge neue Collection‑Elemente anhängen oder einfügen und den beabsichtigten Stapel verändern können.
+
+## **Formen auf Layout‑Folien untersuchen**
+
+Normale Folien, Layout‑Folien und Master‑Folien besitzen separate Form‑Sammlungen. Eine Form in einer Layout‑Sammlung ist nicht dasselbe Objekt wie eine ähnlich positionierte Form auf einer normalen Folie. Untersuchen Sie Layout‑Formen, wenn Sie die von einem Layout bereitgestellte Formatierung verstehen oder ändern müssen.
+
+Das folgende Beispiel liest für jede Layout‑Form das [FillFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/get_fillformat/) und [LineFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/get_lineformat/), ohne anzunehmen, dass jede Form ein `AutoShape` ist.
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+for (auto layoutSlide : presentation->get_LayoutSlides())
+{
+    for (auto shape : layoutSlide->get_Shapes())
+    {
+        auto fillType = shape->get_FillFormat()->get_FillType();
+        auto lineWidth = shape->get_LineFormat()->get_Width();
+        Console::WriteLine(String::Format(u"{0} / {1}: fill={2}, line width={3}", layoutSlide->get_Name(), shape->get_Name(), fillType, lineWidth));
+    }
+}
+
+presentation->Dispose();
+```
+
+Das Bearbeiten eines Layouts kann mehrere Folien, die es verwenden, beeinflussen. Bevor Sie eine Layout‑Form ändern, prüfen Sie, ob eine normale Folie das Objekt erbt oder eine lokale Überschreibung enthält, und testen Sie jede Folie, die dieses Layout verwendet.
+
+## **Eine Form als SVG exportieren**
+
+[WriteAsSvg](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/writeassvg/) schreibt den gerenderten Inhalt einer einzelnen Form in einen Stream. Das Ergebnis enthält die Form, nicht den gesamten Folienhintergrund oder benachbarte Formen.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+if (slide->get_Shapes()->get_Count() == 0)
+{
+    Console::WriteLine(u"Slide 1 does not contain a shape to export.");
+}
+else
+{
+    auto shape = slide->get_Shape(0);
+    auto svgStream = File::Create(u"shape.svg");
+    shape->WriteAsSvg(svgStream);
+    svgStream->Close();
+}
+
+presentation->Dispose();
+```
+
+Halten Sie die Präsentation während des Renderns geöffnet. Die Ausgabe hängt von der Formatierung der Form sowie von Ressourcen wie Schriftarten und Bildern ab. Wenn Sie die gesamte Komposition benötigen, exportieren Sie die Folie statt einer einzelnen Form. Der Aufrufer besitzt den Stream und muss ihn schließen oder freigeben.
+
+## **Formen ausrichten**
+
+Die Überladungen von [SlideUtil::AlignShapes](https://reference.aspose.com/slides/de/cpp/aspose.slides.util/slideutil/alignshapes/) richten entweder alle Formen oder ausgewählte Collection‑Indizes aus. [ShapesAlignmentType](https://reference.aspose.com/slides/de/cpp/aspose.slides/shapesalignmenttype/) gibt die Kante, Mittelachse oder den Verteilungsmodus an. Setzen Sie `alignToSlide` auf `true`, um die Folienkanten zu verwenden; setzen Sie es auf `false`, um die ausgewählten Formen relativ zueinander auszurichten.
+
+Dieses Beispiel richtet drei Formen an der oberen Kante der Folie aus. Die zurückgegebenen Formreferenzen werden unmittelbar vor der Ausrichtung in ihre aktuellen Indizes umgewandelt.
+
+```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ShapesAlignmentType.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+auto thirdShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+firstShape->set_Name(u"FirstAlignedShape");
+secondShape->set_Name(u"SecondAlignedShape");
+thirdShape->set_Name(u"ThirdAlignedShape");
+
+auto shapeIndexes = MakeArray<int32_t>({slide->get_Shapes()->IndexOf(firstShape), slide->get_Shapes()->IndexOf(secondShape), slide->get_Shapes()->IndexOf(thirdShape)});
+
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, slide, shapeIndexes);
+presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Die Ausrichtung ändert Positionen, nicht die Z‑Reihenfolge. Relative Ausrichtung erfordert normalerweise mindestens zwei Formen, während horizontale oder vertikale Verteilung genügend Formen zum Definieren von Abständen benötigt. Berechnen Sie die Indizes neu, wenn Sie die Collection vor dem Aufruf der Methode ändern.
+
+## **Form spiegeln**
+
+Die Klasse [ShapeFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/shapeframe/) speichert Position, Größe, horizontale und vertikale Spiegel‑Einstellungen sowie Drehung. Ihre Werte `FlipH` und `FlipV` verwenden [NullableBool](https://reference.aspose.com/slides/de/cpp/aspose.slides/nullablebool/): `True` aktiviert die Spiegelung, `False` deaktiviert sie, und `NotDefined` behält den nicht angegebenen/Standardzustand bei.
+
+Die unten gezeigte Eingabe‑Präsentation enthält eine nicht gespiegelte Form.
+
+![Die Form vor dem Spiegeln](shape_to_be_flipped.png)
+
+Das Beispiel bewahrt alle anderen Frame‑Werte und ersetzt nur die beiden Spiegel‑Einstellungen. Das ist wichtig, weil das Zuweisen eines neuen [Frame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/set_frame/) den gesamten Frame ersetzt.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto frame = shape->get_Frame();
+
+Console::WriteLine(String::Format(u"Horizontal flip before change: {0}", frame->get_FlipH()));
+Console::WriteLine(String::Format(u"Vertical flip before change: {0}", frame->get_FlipV()));
+
+shape->set_Frame(MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y(), frame->get_Width(), frame->get_Height(), NullableBool::True, NullableBool::True, frame->get_Rotation()));
+
+presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Die gespeicherte Form wird horizontal und vertikal gespiegelt, während Position, Größe und Drehung erhalten bleiben.
+
+![Die Form nach dem Spiegeln](flipped_shape.png)
 
 ## **FAQ**
 
-**Kann ich Formen (Vereinigung/Überschneidung/Subtraktion) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
+**Sollte ich einen Sammlungsindex als Form‑Bezeichner verwenden?**
 
-Eine eingebaute Boolesche‑Operation‑API gibt es nicht. Sie können das Ergebnis annähern, indem Sie die gewünschte Kontur selbst erzeugen – z. B. die resultierende Geometrie über [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) berechnen und eine neue Form mit diesem Umriss erstellen, optional die Originals entfernen.
+Nur für kurzlebige Verarbeitungen, bei denen sich die Sammlung nicht ändert, bevor der Index verwendet wird. Bevorzugen Sie eine validierte `Name`‑ oder `AlternativeText`‑Konvention für erstellte Vorlagen oder `OfficeInteropShapeId` für folienbezogene Interop‑Arbeiten.
 
-**Wie kann ich die Stapelreihenfolge (Z‑Order) steuern, sodass eine Form immer „oben“ bleibt?**
+**Entfernt das Ausblenden einer Form sie aus der Z‑Reihenfolge?**
 
-Ändern Sie die Einfüge‑/Verschiebe‑Reihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/)‑Sammlung der Folie. Für vorhersehbare Ergebnisse sollten Sie den Z‑Order nach allen anderen Änderungen an der Folie finalisieren.
+Nein. Eine ausgeblendete Form bleibt in der Sammlung am selben Index. Sie kann gefunden, neu angeordnet, bearbeitet oder wieder sichtbar gemacht werden.
 
-**Kann ich eine Form „sperren“, damit Benutzer sie in PowerPoint nicht bearbeiten können?**
+**Warum erschien eine duplizierte Form vor einer anderen Form?**
 
-Ja. Setzen Sie die [Form‑Schutz‑Flags](/slides/de/cpp/applying-protection-to-presentation/) (z. B. Auswahl, Bewegung, Größenänderung, Textbearbeitung sperren). Bei Bedarf können Sie entsprechende Beschränkungen auf dem Master‑ oder Layout‑Folientyp festlegen. Beachten Sie, dass dies ein UI‑Schutz ist und keine Sicherheitsfunktion; für stärkeren Schutz kombinieren Sie ihn mit Dateischutzeinstellungen wie Lese‑Only‑Empfehlungen oder Passwörtern (/slides/de/cpp/password-protected-presentation/).
+`AddClone` fügt die Kopie am Ende der Sammlung hinzu, was dem vorderen Teil der Z‑Reihenfolge entspricht. Verwenden Sie `InsertClone`, um den Anfangs‑Index zu wählen, oder `Reorder`, nachdem alle Formen hinzugefügt wurden.

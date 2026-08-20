@@ -1,327 +1,324 @@
 ---
-title: Python का उपयोग करके प्रस्तुतियों में रूपों का प्रबंधन
-linktitle: रूप परिवर्तन
+title: Python में प्रस्तुति आकृतियों का प्रबंधन
+linktitle: आकृति हेरफेर
 type: docs
 weight: 40
 url: /hi/python-net/shape-manipulations/
 keywords:
-- PowerPoint रूप
-- प्रस्तुति रूप
-- स्लाइड पर रूप
-- रूप खोजें
-- रूप क्लोन करें
-- रूप हटाएँ
-- रूप छिपाएँ
-- रूप क्रम बदलें
-- इंटरऑप रूप ID प्राप्त करें
-- रूप वैकल्पिक पाठ
-- रूप लेआउट फ़ॉर्मेट
-- रूप SVG के रूप में
-- रूप को SVG में
-- रूप संरेखित करें
+- PowerPoint आकृति
+- प्रस्तुति आकृति
+- स्लाइड पर आकृति
+- आकृति खोजें
+- आकृति क्लोन करें
+- आकृति हटाएँ
+- आकृति छुपाएँ
+- आकृति क्रम बदलें
+- इंटरऑप आकृति ID प्राप्त करें
+- आकृति वैकल्पिक पाठ
+- आकृति लेआउट प्रारूप
+- आकृति SVG रूप में
+- आकृति को SVG में
+- आकृति संरेखित करें
+- आकृति फ़्लिप करें
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET में रूप बनाना, संपादित करना और अनुकूलित करना सीखें तथा उच्च-प्रदर्शन PowerPoint और OpenDocument प्रस्तुतियाँ प्रदान करें।"
+description: "Aspose.Slides for Python via .NET के साथ प्रस्तुति आकृतियों की पहचान, क्लोन, हटाना, छुपाना, पुनः क्रम, निर्यात, संरेखण और फ़्लिप करने के तरीके सीखें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह मार्गदर्शिका Aspose.Slides for Python via .NET में रूप (shape) परिवर्तन को प्रस्तुत करती है। वैकल्पिक पाठ द्वारा सहित रूपों को खोजने, डुप्लिकेट करने, हटाने या छिपाने, पुनः क्रमित करने, संरेखित करने और फ्लिप करने, IDs पढ़ने और लेआउट‑आधारित फॉर्मेटिंग, तथा व्यक्तिगत रूपों को SVG में निर्यात करने के व्यावहारिक पैटर्न सीखें, जो [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) और [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) API का उपयोग करके किया जाता है।
+Aspose.Slides for Python via .NET स्लाइड पर आकृतियों को क्रमबद्ध [ShapeCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/) के रूप में दर्शाता है। यह संग्रह वह जगह है जहाँ आप आकृतियों को खोजते और संशोधित करते हैं और उनका स्टैक क्रम निर्धारित करता है: सूचकांक `0` सबसे पीछे वाली आकृति है, जबकि अंतिम सूचकांक सबसे आगे वाली आकृति है।
 
-## **स्लाइड पर रूप खोजें**
+यह लेख इस मॉडल का पालन करता है। यह पहले बताता है कि आकृति को विश्वसनीय तरीके से कैसे पहचानें, फिर क्लोन, हटाना, छुपाना और पुनर्गठित करना दिखाता है। अंतिम भागों में लेआउट‑स्तरीय स्वरूपण, SVG निर्यात, संरेखण और फ़्लिप सेटिंग्स शामिल हैं। प्रत्येक उदाहरण स्वतंत्र है, इसलिए आप केवल उन ऑपरेशनों को उपयोग कर सकते हैं जो आपके वर्कफ़्लो के लिए आवश्यक हैं।
 
-PowerPoint केवल आंतरिक IDs के द्वारा रूपों की पहचान करता है। PowerPoint में लक्षित रूप को एक अनोखा Alt Text असाइन करें, फिर Aspose.Slides for Python के साथ प्रस्तुति खोलें, स्लाइड के रूपों पर इटररेट करें, और उस रूप को चुनें जिसका Alt Text मेल खाता हो। `find_shape` मेथड इस दृष्टिकोण को लागू करता है और मिलते‑जुलते रूप को लौटाता है।
+## **आकृतियों की पहचान और खोज**
 
-```py
+संग्रह सूचकांक ज्ञात फ़ाइल को प्रोसेस करते समय सुविधाजनक होते हैं, लेकिन वे स्थिर पहचानकर्ता नहीं होते। किसी आकृति को जोड़ने, हटाने या पुनर्गठित करने से उसका सूचकांक बदल सकता है। प्रस्तुतीकरण के निर्माण और रखरखाव के तरीके के अनुसार एक पहचानकर्ता चुनें:
+
+- [Shape.name](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/name/) उन टेम्पलेट्स के लिए उपयोगी है जो डेवलपर‑नियंत्रित होते हैं और PowerPoint की Selection Pane में आसानी से देखा जा सकता है। नामों को संपादित किया जा सकता है और वे अनिवार्य रूप से विशिष्ट नहीं होते, इसलिए यदि कोड उनपर निर्भर करता है तो नामकरण सम्मेलन स्थापित करें।
+- [Shape.alternative_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/alternative_text/) उपयोगी है जब कोई पहुँच‑योग्यता विवरण या लेखक‑द्वारा दिया गया टैग पहले से ही आकृति की पहचान करता हो। यह उपयोगकर्ताओं को दिखता है, स्थानीयकृत या पहुँच‑योग्यता के लिए पुनर्लेखित किया जा सकता है, और यह भी अनिवार्य रूप से विशिष्ट नहीं होता। अर्थपूर्ण पहुँच‑योग्यता पाठ को चुपके से डेटाबेस कुंजी के रूप में पुनः उपयोग न करें।
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/office_interop_shape_id/) एक केवल‑पढ़ी जाने वाली पहचानकर्ता है जो स्लाइड के भीतर अद्वितीय होती है और PowerPoint इंटरऑप द्वारा उपयोग किए जाने वाले Shape ID के अनुरूप है। PowerPoint के साथ एकीकरण या किसी आकृति के जीवन‑काल के दौरान स्पष्ट संदर्भ की आवश्यकता होने पर इसका उपयोग करें। क्लोन या पुनः निर्मित आकृति एक अलग आकृति होती है और उसका अपना ID मिलता है।
+
+संबंधित [Shape.unique_id](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/unique_id/) प्रॉपर्टी का प्रस्तुति‑व्यापी दायरा है, लेकिन यह ऐड‑इन के लिए अभिप्रेत है और पुनः‑सौंपा जा सकता है। इसे स्थायी बाहरी कुंजी नहीं माना जाना चाहिए। यदि दीर्घकालिक पहचान आवश्यक है, तो इसे एप्लिकेशन डेटा में मैप रखें और सत्यापित करें कि अपेक्षित आकृति अभी भी मौजूद है।
+
+निम्न उदाहरण `name` के साथ निश्चित तुलना करके खोज करता है और स्लाइड‑स्कोप्ड इंटरऑप ID को रिपोर्ट करता है। जब टेम्पलेट में अपेक्षित आकृति नहीं होती, तो कोड गलत ऑब्जेक्ट के साथ आगे बढ़ने के बजाय वह परिणाम रिपोर्ट करता है।
+
+```python
 import aspose.slides as slides
 
-# स्लाइड पर वैकल्पिक पाठ के द्वारा रूप खोजता है।
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # Alt Text "Shape1" वाले रूप को खोजें।
-    shape = find_shape(slide, "Shape1")
-    if shape is not None:
-        print("Shape name:", shape.name)
+
+    target_shape = None
+    for shape in slide.shapes:
+        if shape.name == "RevenueChart":
+            target_shape = shape
+            break
+
+    if target_shape is None:
+        print("The shape 'RevenueChart' was not found on slide 1.")
+    else:
+        print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-## **रूप क्लोन करें**
+जब कोई ऑपरेशन विशिष्ट आकृति प्रकार के लिए हो, तो प्रकार‑विशिष्ट सदस्यों का उपयोग करने से पहले प्रकार की जाँच करें। यह उदाहरण केवल तब टेक्स्ट और alternative text को अपडेट करता है जब नामित ऑब्जेक्ट एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) हो।
 
-Aspose.Slides में स्रोत स्लाइड से नई स्लाइड में रूपों को क्लोन करने के लिए निम्न चरणों का पालन करें:
-
-1. स्रोत फाइल से एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) बनाएं।  
-1. इंडेक्स द्वारा स्रोत स्लाइड और उसकी शैप्स कलेक्शन प्राप्त करें।  
-1. मास्टर स्लाइड से एक खाली लेआउट प्राप्त करें।  
-1. उस लेआउट का उपयोग करके खाली स्लाइड जोड़ें और उसकी शैप्स प्राप्त करें।  
-1. लक्ष्य स्लाइड में शैप्स को क्लोन करें।  
-1. प्रस्तुति को PPTX के रूप में सहेजें।  
-
-नीचे दिया गया कोड उदाहरण एक स्लाइड से दूसरी स्लाइड में शैप्स को क्लोन करता है।
-
-```py
+```python
 import aspose.slides as slides
 
-# Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation("sample.pptx") as presentation:
-    source_shapes = presentation.slides[0].shapes
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    candidate = None
+    for shape in slide.shapes:
+        if shape.name == "StatusLabel":
+            candidate = shape
+            break
+
+    if isinstance(candidate, slides.AutoShape):
+        candidate.text_frame.text = "Approved"
+        candidate.alternative_text = "Approval status: approved"
+        presentation.save("identified-shape.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("'StatusLabel' is missing or is not an AutoShape.")
+```
+
+## **आकृति संग्रह को संशोधित करें**
+
+जोड़ने, क्लोन करने, हटाने और पुनर्गठित करने वाले मेथड तुरंत संग्रह पर काम करते हैं। यदि कोई ऑपरेशन आकृतियों की संख्या या क्रम बदलता है, तो उस ऑपरेशन से पहले प्राप्त सूचकांकों पर निर्भरता जारी न रखें।
+
+### **आकृति को क्लोन करें**
+
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_clone/) एक स्वतंत्र कॉपी बनाता है और उसे लक्ष्य संग्रह में जोड़ता है। [ShapeCollection.insert_clone](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/insert_clone/) भी एक कॉपी बनाता है, लेकिन उसे निर्दिष्ट z‑order सूचकांक पर रखता है। जो ओवरलोड निर्देशांक स्वीकार करते हैं, वे आकार बदले बिना क्लोन को स्थानांतरित करते हैं; चौड़ाई और ऊँचाई वाले ओवरलोड इसे रिसाइज़ भी कर सकते हैं।
+
+उदाहरण एक गंतव्य स्लाइड बनाता है, लेबल वाले आयत को सामने क्लोन करता है, और दूसरे क्लोन को पीछे सम्मिलित करता है। दोनों क्लोन में किए गए परिवर्तन मूल आकृति को नहीं बदलते।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    source_slide = presentation.slides[0]
+    source_shape = source_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 180, 60)
+    source_shape.name = "SourceLabel"
+    source_shape.text_frame.text = "Source"
+
     blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    destination_slide = presentation.slides.add_empty_slide(blank_layout)
 
-    target_slide = presentation.slides.add_empty_slide(blank_layout)
-    target_shapes = target_slide.shapes
-	
-    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
-    target_shapes.add_clone(source_shapes[2])
-    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
+    front_clone_shape = destination_slide.shapes.add_clone(source_shape, 80, 80)
+    front_clone_shape.name = "FrontClone"
+    if isinstance(front_clone_shape, slides.AutoShape):
+        front_clone_shape.text_frame.text = "Front clone"
+    else:
+        print("The front clone is not an AutoShape; its text was not changed.")
 
-    # प्रस्तुति को डिस्क पर सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    back_clone_shape = destination_slide.shapes.insert_clone(0, source_shape, 80, 180)
+    back_clone_shape.name = "BackClone"
+    if isinstance(back_clone_shape, slides.AutoShape):
+        back_clone_shape.text_frame.text = "Back clone"
+    else:
+        print("The back clone is not an AutoShape; its text was not changed.")
+
+    presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **रूप हटाएँ**
+क्लोनिंग आकृति की सामग्री और स्वरूपण को कॉपी करती है, जिसमें उसका name और alternative text शामिल है। जब इन मानों को विशिष्ट होना आवश्यक हो तो क्लोन को नए तार्किक पहचानकर्ता सौंपें। जटिल आकृतियों द्वारा उपयोग किए जाने वाले संसाधनों को प्रस्तुति संभालती है, लेकिन क्लोन एक नई संग्रह आइटम के रूप में नई आकृति पहचान के साथ बना रहता है।
 
-Aspose.Slides आपको स्लाइड से कोई भी रूप हटाने की अनुमति देता है। उदाहरण के लिए, पहले स्लाइड से उसके वैकल्पिक पाठ के द्वारा रूप को हटाने के लिए निम्न चरणों का पालन करें:
+### **आकृतियों को हटाएँ**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस बनाएं और फाइल लोड करें।  
-1. स्लाइड्स कलेक्शन से पहली स्लाइड तक पहुँचें।  
-1. वैकल्पिक पाठ के मान द्वारा रूप खोजें।  
-1. स्लाइड के शैप्स कलेक्शन से रूप को हटाएँ।  
-1. प्रस्तुति को डिस्क पर PPTX फॉर्मेट में सहेजें।  
+[ShapeCollection.remove](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/remove/) किसी विशिष्ट आकृति ऑब्जेक्ट को उसके संग्रह से हटा देता है। जब आप सूचकांक‑आधारित इटरेशन के दौरान कई मिलान हटाते हैं, तो अंत से शुरू करके यात्रा करें ताकि प्रत्येक शेष सूचकांक वैध बना रहे।
 
-```py
+यह उदाहरण निर्दिष्ट नाम वाली प्रत्येक आकृति को हटाता है। यह `slide.shapes[index]` को पढ़ता है, न कि स्थिर संग्रह आइटम को, और अनावश्यक रूप से आकृति को कास्ट नहीं करता।
+
+```python
 import aspose.slides as slides
 
-# वैकल्पिक पाठ के द्वारा स्लाइड पर एक रूप खोजता है।
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Alt Text "User Defined" वाला रूप खोजें।
-    shape = find_shape(slide, "User Defined")
-    # रूप को हटाएँ।
-    slide.shapes.remove(shape)
-    # प्रस्तुति को डिस्क पर सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **रूप छिपाएँ**
-
-Aspose.Slides आपको स्लाइड पर कोई भी रूप छिपाने की सुविधा देता है। उदाहरण के लिए, पहले स्लाइड पर उसके वैकल्पिक पाठ के द्वारा रूप को छिपाने के लिए निम्न चरणों का पालन करें:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस बनाएं और फाइल लोड करें।  
-1. स्लाइड्स कलेक्शन से पहली स्लाइड तक पहुँचें।  
-1. वैकल्पिक पाठ के मान द्वारा रूप खोजें।  
-1. रूप को छिपाएँ।  
-1. प्रस्तुति को डिस्क पर PPTX फॉर्मेट में सहेजें।  
-
-```py
-# वैकल्पिक पाठ के द्वारा स्लाइड पर एक रूप खोजता है।
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Alt Text "User Defined" वाला रूप खोजें।
-    shape = find_shape(slide, "User Defined")
-    # रूप को छिपाएँ।
-    shape.hidden = True
-    # प्रस्तुति को डिस्क पर सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **रूपों का क्रम बदलें**
-
-Aspose.Slides डेवलपर्स को रूपों के z‑order को बदलने (पुनः क्रमित करने) की अनुमति देता है। पुनः क्रमित करने से तय होता है कि कौन‑सा रूप आगे या पीछे दिखेगा। उदाहरण के लिए, पहली स्लाइड पर दो रूपों को पुनः क्रमित करने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।  
-1. पहली स्लाइड तक पहुँचें।  
-1. पहला रूप जोड़ें (उदाहरण के लिए, एक आयत)।  
-1. दूसरा रूप जोड़ें (उदाहरण के लिए, एक त्रिकोण)।  
-1. शैप्स कलेक्शन में दूसरे रूप को पहले स्थान पर ले जाकर क्रम बदलें।  
-1. प्रस्तुति को डिस्क पर सहेजें।  
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # स्लाइड पर दो रूप जोड़ें।
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
-    # दूसरे रूप को पहले स्थान पर ले जाएँ।
-    slide.shapes.reorder(0, shape2)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **इंटरऑप Shape ID प्राप्त करें**
-
-Aspose.Slides आपको स्लाइड स्तर पर किसी रूप का विशिष्ट पहचानकर्ता प्राप्त करने देता है, जो `unique_id` प्रॉपर्टी से अलग है, जो पूरी प्रस्तुति में अद्वितीय होता है। `office_interop_shape_id` प्रॉपर्टी [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) क्लास पर उपलब्ध है। इसका मान `Microsoft.Office.Interop.PowerPoint.Shape` ऑब्जेक्ट के `Id` के बराबर होता है। नीचे एक नमूना कोड स्निपेट दिया गया है।
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # स्लाइड के भीतर रूप का अद्वितीय पहचानकर्ता प्राप्त करें।
-    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
-```
-
-## **रूपों के लिए वैकल्पिक पाठ सेट करें**
-
-Aspose.Slides डेवलपर्स को कोई भी रूप वैकल्पिक पाठ (Alternative Text) सेट करने की अनुमति देता है। वैकल्पिक पाठ का उपयोग करके आप प्रस्तुति में रूपों की पहचान और लोकेशन कर सकते हैं। वैकल्पिक पाठ प्रॉपर्टी को Aspose.Slides और Microsoft PowerPoint दोनों के माध्यम से पढ़ा और लिखा जा सकता है। इस प्रॉपर्टी से रूप टैग करके आप बाद में उन्हें हटाना, छिपाना या पुनः क्रमित करना आसान बना सकते हैं।
-
-विकल्‍पिक पाठ सेट करने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।  
-1. पहली स्लाइड तक पहुँचें।  
-1. स्लाइड पर एक रूप जोड़ें।  
-1. वैकल्पिक पाठ सेट करें।  
-1. प्रस्तुति को डिस्क पर सहेजें।  
-
-```py
-import aspose.slides as slides
-
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    # एक रूप जोड़ें।
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    # रूप के लिए वैकल्पिक पाठ सेट करें।
-    shape.alternative_text = "User Defined"
-    # प्रस्तुति को डिस्क पर सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    keep_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 140, 60)
+    keep_shape.name = "Keep"
+
+    first_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 220, 40, 80, 80)
+    first_temporary_shape.name = "Temporary"
+
+    second_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 340, 40, 100, 80)
+    second_temporary_shape.name = "Temporary"
+
+    for index in range(len(slide.shapes) - 1, -1, -1):
+        shape = slide.shapes[index]
+        if shape.name == "Temporary":
+            slide.shapes.remove(shape)
+
+    presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **रूपों के लिए लेआउट फॉर्मेट तक पहुँचें**
+हटाने के बाद आकृति संख्या और बाद की आकृतियों के सूचकांक बदलते हैं। प्रभावित नहीं हुई आकृतियों के संदर्भ सहेजे गए सूचकांकों की तुलना में अधिक विश्वसनीय होते हैं। साथ ही कनेक्टर्स, एनीमेशन और अन्य प्रस्तुति‑विशेषताएँ जो हटाई गई वस्तु को संदर्भित कर सकती हैं, उनका भी ध्यान रखें; एक दृश्यमान आकृति को हटाने से स्लाइड की उपस्थिति से अधिक परिवर्तन हो सकता है।
 
-Aspose.Slides रूपों के लेआउट फॉर्मेट तक पहुँचने के लिए एक सरल API प्रदान करता है। यह भाग लेआउट फॉर्मेट कैसे प्राप्त करें, यह दर्शाता है।
+### **आकृति को छुपाएँ**
 
-```py
+[Shape.hidden](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/hidden/) को `True` पर सेट करने से आकृति संग्रह में बनी रहती है, लेकिन सामान्य स्लाइड‑शो में दिखाई नहीं देती। उसका सूचकांक, स्वरूपण और सामग्री कोड के लिए उपलब्ध रहती हैं, इसलिए छुपाना वैकल्पिक तत्वों के लिए उपयुक्त है जिन्हें बाद में पुनर्स्थापित किया जा सकता है।
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
-    for layout_slide in presentation.layout_slides:
-        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
-        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
-```
-
-## **रूपों को SVG के रूप में रेंडर करें**
-
-Aspose.Slides रूपों को SVG के रूप में रेंडर करने का समर्थन करता है। [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) क्लास पर `write_as_svg` मेथड (और उसके ओवरलोड) आपको रूप की सामग्री को SVG इमेज के रूप में सहेजने देता है। नीचे दिया गया कोड स्निपेट दिखाता है कि कैसे एक रूप को SVG फ़ाइल में निर्यात किया जाए।
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    with open("output.svg", "wb") as image_stream:
-        # पहले स्लाइड पर पहला रूप प्राप्त करें।
-        shape = presentation.slides[0].shapes[0]
-        shape.write_as_svg(image_stream)
-```
-
-## **रूप संरेखित करें**
-
-[SlidesUtil](https://reference.aspose.com/slides/hi/python-net/aspose.slides.util/slideutil/) क्लास में `align_shape` मेथड का उपयोग करके आप:
-
-* स्लाइड की मार्जिन के सापेक्ष रूपों को संरेखित कर सकते हैं (उदाहरण 1 देखें)।  
-* रूपों को आपस में संरेखित कर सकते हैं (उदाहरण 2 देखें)।  
-
-[ShapesAlignmentType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapesalignmenttype/) एन्यूमरेशन उपलब्ध संरेखण विकल्पों को परिभाषित करता है।
-
-**उदाहरण 1**
-
-यह Python कोड दिखाता है कि कैसे सूचकांक 1, 2 और 4 वाले रूपों को स्लाइड के शीर्ष किनारे के सापेक्ष संरेखित किया जाए:
-
-```py
-import aspose.slides as slides
-
-align_type = slides.ShapesAlignmentType.ALIGN_TOP
-slide_indices = [1, 2, 4]
-
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
+
+    visible_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 160, 60)
+    visible_shape.name = "VisibleLabel"
+
+    optional_shape = slide.shapes.add_auto_shape(slides.ShapeType.MOON, 240, 40, 100, 100)
+    optional_shape.name = "OptionalDecoration"
+
+    for shape in slide.shapes:
+        if shape.name == "OptionalDecoration":
+            shape.hidden = True
+
+    presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**उदाहरण 2**
+छुपाना हटाना या सुरक्षा नहीं है। वस्तु को फिर भी उपयोगकर्ता या कोड द्वारा खोजा और अनछुपा किया जा सकता है, और यह प्रस्तुति फ़ाइल का हिस्सा बनी रहती है।
 
-यह Python उदाहरण दिखाता है कि कैसे किसी संग्रह में सभी रूपों को उस संग्रह में सबसे नीचे स्थित रूप के सापेक्ष संरेखित किया जाए:
+### **Z‑Order बदलें**
 
-```py
+ऊपर‑नीचे स्थित आकृतियाँ संग्रह क्रम में पेंट की जाती हैं। [ShapeCollection.reorder](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/reorder/) मौजूदा आकृति को क्लोन किए बिना लक्ष्य सूचकांक पर ले जाता है। सूचकांक `0` पीछे है; `len(slide.shapes) - 1` आगे है।
+
+```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
+    blue_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 220, 120)
+    blue_rectangle.name = "BlueRectangle"
+    blue_rectangle.fill_format.fill_type = slides.FillType.SOLID
+    blue_rectangle.fill_format.solid_fill_color.color = draw.Color.steel_blue
+
+    orange_ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 180, 140, 220, 120)
+    orange_ellipse.name = "OrangeEllipse"
+    orange_ellipse.fill_format.fill_type = slides.FillType.SOLID
+    orange_ellipse.fill_format.solid_fill_color.color = draw.Color.orange
+
+    slide.shapes.reorder(len(slide.shapes) - 1, blue_rectangle)
+    presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **फ़्लिप प्रॉपर्टीज़**
+आयत सबसे पहले बनाई गई और प्रारंभ में अंडाकार के पीछे थी। उसे अंतिम सूचकांक पर ले जाने से वह आगे आ जाती है। सभी संबंधित आकृतियों को जोड़ने या क्लोन करने के बाद z‑order को अंतिम रूप दें, क्योंकि ये ऑपरेशन नई संग्रह आइटम जोड़ या सम्मिलित कर सकते हैं और इच्छित स्टैक को बदल सकते हैं।
 
-Aspose.Slides में, [ShapeFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapeframe/) क्लास अपने `flip_h` और `flip_v` प्रॉपर्टीज़ के माध्यम से रूपों के क्षैतिज और लम्बवत मिररिंग को नियंत्रित करता है। दोनों प्रॉपर्टीज़ [NullableBool](https://reference.aspose.com/slides/hi/python-net/aspose.slides/nullablebool/) प्रकार की हैं, जहाँ `TRUE` फ़्लिप को दर्शाता है, `FALSE` बिना फ़्लिप के, और `NOT_DEFINED` डिफ़ॉल्ट व्यवहार को लागू करता है। ये मान रूप के [Frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/frame/) से उपलब्ध हैं।
+## **लेआउट स्लाइड्स पर आकृतियों की जाँच**
 
-फ़्लिप सेटिंग्स को बदलने के लिए, एक नया [ShapeFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapeframe/) इंस्टेंस बनाते समय रूप की वर्तमान स्थिति, आकार, इच्छित `flip_h` और `flip_v` मान तथा रोटेशन एंगल को पास करें। इस इंस्टेंस को रूप के [Frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/frame/) में असाइन करने और प्रस्तुति सहेजने पर मिरर परिवर्तन लागू हो जाता है और आउटपुट फ़ाइल में प्रतिबिंबित होता है।
+सामान्य स्लाइड्स, लेआउट स्लाइड्स और मास्टर स्लाइड्स के अलग‑अलग आकृति संग्रह होते हैं। लेआउट संग्रह में एक आकृति सामान्य स्लाइड पर समान रूप से स्थित आकृति के समान ऑब्जेक्ट नहीं होती। लेआउट स्वरूपण को समझने या बदलने की आवश्यकता होने पर लेआउट आकृतियों की जाँच करें।
 
-मान लीजिए हमारे पास sample.pptx फ़ाइल है जिसमें पहली स्लाइड पर डिफ़ॉल्ट फ़्लिप सेटिंग के साथ एकल रूप है, जैसा कि नीचे दिखाया गया है।
+निम्न उदाहरण प्रत्येक लेआउट आकृति के [Shape.fill_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/fill_format/) और [Shape.line_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/line_format/) को पढ़ता है, बिना यह मानते हुए कि प्रत्येक आकृति `AutoShape` है।
 
-![फ़्लिप किया जाने वाला रूप](shape_to_be_flipped.png)
+```python
+import aspose.slides as slides
 
-निम्न कोड उदाहरण रूप की वर्तमान फ़्लिप प्रॉपर्टीज़ को प्राप्त करता है और उसे क्षैतिज तथा लम्बवत दोनों दिशा में फ़्लिप करता है।
+with slides.Presentation("input.pptx") as presentation:
+    for layout_slide in presentation.layout_slides:
+        for shape in layout_slide.shapes:
+            fill_type = shape.fill_format.fill_type
+            line_width = shape.line_format.width
+            print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
+```
 
-```py
+लेआउट को संपादित करने से उस लेआउट का उपयोग करने वाली कई स्लाइड्स प्रभावित हो सकती हैं। लेआउट आकृति बदलने से पहले यह निर्धारित करें कि क्या सामान्य स्लाइड ऑब्जेक्ट को विरासत में लेती है या स्थानीय ओवरराइड रखती है, और उस लेआउट का उपयोग करने वाली प्रत्येक स्लाइड का परीक्षण करें।
+
+## **आकृति को SVG में निर्यात करें**
+
+[Shape.write_as_svg](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/write_as_svg/) एक आकृति की रेंडर की गई सामग्री को स्ट्रीम में लिखता है। परिणाम में केवल आकृति होती है, पूरे स्लाइड बैकग्राउंड या पड़ोसी आकृतियों नहीं।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) == 0:
+        print("Slide 1 does not contain a shape to export.")
+    else:
+        shape = slide.shapes[0]
+        with open("shape.svg", "wb") as svg_stream:
+            shape.write_as_svg(svg_stream)
+```
+
+रेंडरिंग के दौरान प्रस्तुति खुली रखें। आउटपुट आकृति के स्वरूपण और फ़ॉन्ट व छवि जैसे संसाधनों पर निर्भर करता है। यदि आपको संपूर्ण संरचना चाहिए, तो व्यक्तिगत आकृति के बजाय स्लाइड को निर्यात करें। कॉलर स्ट्रीम का मालिक होता है और उसे बंद करना चाहिए।
+
+## **आकृतियों को संरेखित करें**
+
+[SlideUtil.align_shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides.util/slideutil/align_shapes/) ओवरलोड सभी आकृतियों या चयनित संग्रह सूचकांकों को संरेखित करते हैं। [ShapesAlignmentType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapesalignmenttype/) किनारा, केंद्र रेखा या वितरण मोड निर्दिष्ट करता है। `align_to_slide` को `True` पर सेट करने से स्लाइड के किनारों का उपयोग होता है; `False` पर सेट करने से चयनित आकृतियों को आपस में संरेखित किया जाता है।
+
+यह उदाहरण तीन आकृतियों को स्लाइड के शीर्ष किनारे के साथ संरेखित करता है। उनके वर्तमान सूचकांकों को संरेखण से ठीक पहले हल किया जाता है।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 60, 80, 120, 50)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 240, 160, 120, 50)
+    third_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 420, 240, 120, 50)
+    first_shape.name = "FirstAlignedShape"
+    second_shape.name = "SecondAlignedShape"
+    third_shape.name = "ThirdAlignedShape"
+
+    shape_indexes = [
+        slide.shapes.index_of(first_shape),
+        slide.shapes.index_of(second_shape),
+        slide.shapes.index_of(third_shape)
+    ]
+
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, slide, shape_indexes)
+    presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+संरेखण स्थिति बदलता है, न कि z‑order। सापेक्ष संरेखण के लिए सामान्यतः कम से कम दो आकृतियों की आवश्यकता होती है, जबकि क्षैतिज या ऊर्ध्वाधर वितरण के लिए पर्याप्त आकृतियों की आवश्यकता होती है ताकि स्पेसिंग निर्धारित हो सके। मेथड कॉल करने से पहले यदि आप संग्रह को संशोधित करते हैं तो सूचकांकों को पुनः‑गणना करें।
+
+## **आकृति को फ़्लिप करें**
+
+[ShapeFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapeframe/) वर्ग स्थिति, आकार, क्षैतिज और लंबवत फ़्लिप सेटिंग्स, तथा घूर्णन संग्रहीत करता है। इसके `flip_h` और `flip_v` मान [NullableBool](https://reference.aspose.com/slides/hi/python-net/aspose.slides/nullablebool/) का उपयोग करते हैं: `TRUE` फ़्लिप सक्रिय करता है, `FALSE` निष्क्रिय करता है, और `NOT_DEFINED` अनिर्दिष्ट या डिफ़ॉल्ट स्थिति को बरकरार रखता है।
+
+नीचे दिया गया इनपुट प्रस्तुति एक अनफ़्लिप्ड आकृति रखता है।
+
+![फ़्लिप करने से पहले की आकृति](shape_to_be_flipped.png)
+
+उदाहरण प्रत्येक अन्य फ्रेम मान को बना रखता है और केवल दो फ़्लिप सेटिंग्स को बदलता है। यह महत्वपूर्ण है क्योंकि नया [Shape.frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/frame/) नियुक्त करने से पूरा फ्रेम प्रतिस्थापित हो जाता है।
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    frame = shape.frame
 
-    # रूप की क्षैतिज फ़्लिप प्रॉपर्टी प्राप्त करें।
-    horizontal_flip = shape.frame.flip_h
-    print("Horizontal flip:", horizontal_flip)
+    print("Horizontal flip before change:", frame.flip_h)
+    print("Vertical flip before change:", frame.flip_v)
 
-    # रूप की लंबवत फ़्लिप प्रॉपर्टी प्राप्त करें।
-    vertical_flip = shape.frame.flip_v
-    print("Vertical flip:", vertical_flip)
+    shape.frame = slides.ShapeFrame(
+        frame.x, frame.y, frame.width, frame.height,
+        slides.NullableBool.TRUE, slides.NullableBool.TRUE, frame.rotation)
 
-    x, y = shape.frame.x, shape.frame.y
-    width, height = shape.frame.width, shape.frame.height
-    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # क्षैतिज तथा लंबवत रूप से फ़्लिप करें।
-    rotation = shape.frame.rotation
-
-    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-परिणाम:
+सहेजी गई आकृति क्षैतिज और लंबवत रूप से प्रतिबिंबित होती है जबकि उसकी स्थिति, आकार और घूर्णन अपरिवर्तित रहता है।
 
-![फ़्लिप किया गया रूप](flipped_shape.png)
+![फ़्लिप करने के बाद की आकृति](flipped_shape.png)
 
-## **बार‑बार पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं स्लाइड पर रूपों (union/intersect/subtract) को डेस्कटॉप एडिटर की तरह संयोजित कर सकता हूँ?**
+**क्या मुझे आकृति पहचानकर्ता के रूप में संग्रह सूचकांक का उपयोग करना चाहिए?**
 
-निर्मित बूलियन ऑपरेशन API नहीं है। आप इच्छित रूपरेखा स्वयं बनाकर इसे अपनाने की कोशिश कर सकते हैं—उदाहरण के लिए, परिणामस्वरूप ज्योमेट्री ( [GeometryPath](https://reference.aspose.com/slides/hi/python-net/aspose.slides/geometrypath/) के द्वारा) की गणना करके उस कंटूर के साथ नया रूप बनायें, तथा मूल रूपों को वैकल्पिक रूप से हटा दें।
+केवल अल्पकालिक प्रोसेसिंग के लिए जब संग्रह उपयोग से पहले नहीं बदलता। निर्मित टेम्पलेट्स के लिए सत्यापित `name` या `alternative_text` सम्मेलन को प्राथमिकता दें, या स्लाइड‑स्कोप्ड इंटरऑप कार्य के लिए `office_interop_shape_id` को प्रयोग करें।
 
-**मैं स्टैकिंग ऑर्डर (z‑order) को कैसे नियंत्रित करूँ जिससे कोई रूप हमेशा “ऊपर” रहे?**
+**क्या छुपाई गई आकृति z‑order से हट जाती है?**
 
-स्लाइड के [shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/shapes/) संग्रह में सम्मिलन/हिलाने का क्रम बदलें। पूर्वानुमेय परिणामों के लिए सभी अन्य स्लाइड संशोधनों के बाद z‑order को अंतिम रूप दें।
+नहीं। छुपाई गई आकृति समान सूचकांक पर संग्रह में बनी रहती है। उसे पाया, पुनर्गठित, संपादित या फिर से दृश्यमान किया जा सकता है।
 
-**क्या मैं PowerPoint में उपयोगकर्ताओं को रूप संपादित करने से रोकने के लिए उसे “लॉक” कर सकता हूँ?**
+**क्लोन की गई आकृति ने किसी अन्य आकृति के आगे क्यों प्रकट की?**
 
-हां। [shape-level protection flags](/slides/hi/python-net/applying-protection-to-presentation/) सेट करें (जैसे चयन, मूवमेंट, रिसाइज़, टेक्स्ट एडिट को लॉक करना)। आवश्यक होने पर मास्टर या लेआउट पर प्रतिबंध प्रतिबिंबित करें। इसे UI‑स्तर का संरक्षण माना जाता है, न कि सुरक्षा फीचर; अधिक मजबूत सुरक्षा के लिए इसे फ़ाइल‑स्तर के प्रतिबंधों जैसे [read‑only सुझाव या पासवर्ड](/slides/hi/python-net/password-protected-presentation/) के साथ संयोजन में उपयोग करें।
+`add_clone` क्लोन को संग्रह के अंत में जोड़ता है, जो z‑order के आगे का स्थान है। प्रारंभिक सूचकांक चुनने के लिए `insert_clone` का उपयोग करें या सभी आकृतियों को जोड़ने के बाद `reorder` का प्रयोग करें।

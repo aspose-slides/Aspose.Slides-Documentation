@@ -1,395 +1,384 @@
 ---
-title: Beheer presentatievormen in .NET
-linktitle: Vormmanipulatie
+title: "Beheer presentatievormen in .NET"
+linktitle: "Vormmanipulatie"
 type: docs
 weight: 40
 url: /nl/net/shape-manipulations/
 keywords:
 - PowerPoint-vorm
-- presentatie-vorm
+- presentatievorm
 - vorm op dia
 - vorm vinden
 - vorm klonen
 - vorm verwijderen
 - vorm verbergen
-- volgorde van vorm wijzigen
-- Interop-vorm-ID ophalen
+- vormvolgorde wijzigen
+- interop-vorm-ID ophalen
 - alternatieve tekst van vorm
-- layoutformaten van vorm
+- vormlay-outformaten
 - vorm als SVG
 - vorm naar SVG
 - vorm uitlijnen
+- vorm spiegelen
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: Leer hoe u vormen maakt, bewerkt en optimaliseert in Aspose.Slides voor .NET en lever hoogwaardige PowerPoint-presentaties.
+description: "Leer hoe je presentatievormen kunt identificeren, klonen, verwijderen, verbergen, herschikken, exporteren, uitlijnen en spiegelen met Aspose.Slides voor .NET."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met vormen in presentaties kunt werken met Aspose.Slides. Het toont hoe u een vorm op een dia kunt vinden, dupliceren, verwijderen, verbergen, de volgorde kunt wijzigen, de Interop‑vorm‑ID kunt ophalen en alternatieve tekst kunt instellen voor herkenning en verdere verwerking.
+Aspose.Slides for .NET stelt de vormen op een dia voor als een geordende [IShapeCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/). De collectie is zowel de plek waar je vormen vindt en wijzigt als de bron van hun stapelvolgorde: index `0` is de vorm achterste, terwijl de laatste index de voorste vorm is.
 
-Het behandelt ook hoe u layout‑formaten voor vormen kunt benaderen, een vorm als SVG kunt renderen, vormen op een dia kunt uitlijnen en flip‑eigenschappen kunt gebruiken voor horizontaal en verticaal spiegelen. Daarnaast bevat het een korte FAQ over het combineren van vormen, stapelvolgorde en het vergrendelen van vormen.
+Dit artikel volgt dat model. Het legt eerst uit hoe je een vorm betrouwbaar kunt identificeren, en toont vervolgens hoe je vormen kunt klonen, verwijderen, verbergen en herschikken. De laatste secties behandelen opmaak op lay-outniveau, SVG-export, uitlijning en flip‑instellingen. Elk voorbeeld is onafhankelijk, zodat je alleen de bewerkingen kunt gebruiken die jouw workflow vereist.
 
-## **Zoek een vorm op een dia**
-Dit onderwerp beschrijft een eenvoudige techniek om het voor ontwikkelaars makkelijker te maken een specifieke vorm op een dia te vinden zonder de interne Id te gebruiken. Het is belangrijk te weten dat PowerPoint‑presentatiebestanden geen andere manier bieden om vormen op een dia te identificeren dan een interne unieke Id. Het blijkt moeilijk voor ontwikkelaars om een vorm te vinden met die interne unieke Id. Alle vormen die aan dia’s worden toegevoegd hebben enige alternatieve tekst. We raden ontwikkelaars aan de alternatieve tekst te gebruiken om een specifieke vorm te vinden. U kunt MS PowerPoint gebruiken om de alternatieve tekst voor objecten te definiëren die u later wilt wijzigen.
+## **Identificeer en vind vormen**
 
-Nadat u de alternatieve tekst van een gewenste vorm hebt ingesteld, kunt u die presentatie openen met Aspose.Slides for .NET en door alle vormen op een dia itereren. Tijdens elke iteratie kunt u de alternatieve tekst van de vorm controleren; de vorm met de overeenkomende alternatieve tekst is de vorm die u zoekt. Om deze techniek beter te demonstreren, hebben we de methode [FindShape](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/findshape/#findshape_1) gemaakt die de truc uitvoert om een specifieke vorm in een dia te vinden en vervolgens die vorm teruggeeft.
+Collectie‑indexen zijn praktisch bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identificatoren. Het toevoegen, verwijderen of herschikken van een vorm kan de index wijzigen. Kies een identificator op basis van hoe de presentatie is opgesteld en onderhouden:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/name/) is nuttig voor door ontwikkelaars beheerde sjablonen en is gemakkelijk te inspecteren in het Selectievenster van PowerPoint. Namen kunnen worden bewerkt en zijn niet gegarandeerd uniek, dus stel een naamgevingsconventie vast als code ervan afhankelijk is.
+- [AlternativeText](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/alternativetext/) is nuttig wanneer een toegankelijkheidsbeschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan worden gelokaliseerd of herschreven voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik betekenisvolle toegankelijkheidstekst niet stilletjes als databasesleutel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/officeinteropshapeid/) is een alleen‑lezende identifier die uniek is binnen een dia en overeenkomt met de shape‑ID die PowerPoint‑interop gebruikt. Gebruik deze wanneer je integreert met PowerPoint of wanneer je een ondubbelzinnige referentie nodig hebt gedurende de levensduur van een vorm. Een gekloonde of opnieuw aangemaakte vorm is een andere vorm en krijgt een eigen ID.
+
+De verwante eigenschap [UniqueId](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/uniqueid/) heeft presentatiescope, maar is bedoeld voor add‑ins en kan worden herhaald. Hij dient niet als permanente externe sleutel te worden behandeld. Als langdurige identiteit cruciaal is, bewaar dan de mapping in applicatie‑data en controleer dat de verwachte vorm nog bestaat.
+
+Het volgende voorbeeld zoekt op `Name` met een ordinale vergelijking en geeft de interop‑ID binnen de dia weer. Wanneer de sjabloon de verwachte vorm niet bevat, meldt de code dat resultaat in plaats van door te gaan met het verkeerde object.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Instantieer een Presentation-klasse die het presentatiebestand vertegenwoordigt
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Alternatieve tekst van de te vinden vorm
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Methode-implementatie om een vorm in een dia te vinden met behulp van de alternatieve tekst
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Itereren door alle vormen binnen de dia
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Als de alternatieve tekst van de dia overeenkomt met de vereiste, dan
-        // Geef de vorm terug
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-## **Dupliceer een vorm**
-Om een vorm naar een dia te dupliceren met Aspose.Slides for .NET:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
-1. Verkrijg de referentie van een dia via de index.
-1. Benader de vormverzameling van de bron‑dia.
-1. Voeg een nieuwe dia toe aan de presentatie.
-1. Dupliceer vormen uit de bron‑dia‑verzameling naar de nieuwe dia.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-Het voorbeeld hieronder voegt een groepvorm toe aan een dia.
-
-```c#
-// Instantieer Presentation-klasse
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Schrijf het PPTX-bestand naar schijf
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-## **Verwijder een vorm**
-Aspose.Slides for .NET maakt het voor ontwikkelaars mogelijk elke vorm te verwijderen. Volg de onderstaande stappen om een vorm van een dia te verwijderen:
-
-1. Maak een instantie van de `Presentation`‑klasse.
-1. Benader de eerste dia.
-1. Zoek de vorm met de specifieke AlternativeText.
-1. Verwijder de vorm.
-1. Sla het bestand op schijf.
-
-```c#
-// Maak Presentation-object
-Presentation pres = new Presentation();
-
-// Verkrijg de eerste dia
-ISlide sld = pres.Slides[0];
-
-// Voeg een AutoShape van het type rechthoek toe
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Sla de presentatie op naar schijf
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Verberg een vorm**
-Aspose.Slides for .NET maakt het voor ontwikkelaars mogelijk elke vorm te verbergen. Volg de onderstaande stappen om een vorm op een dia te verbergen:
-
-1. Maak een instantie van de `Presentation`‑klasse.
-1. Benader de eerste dia.
-1. Zoek de vorm met de specifieke AlternativeText.
-1. Verberg de vorm.
-1. Sla het bestand op schijf.
-
-```c#
-// Instantieer Presentation-klasse die de PPTX vertegenwoordigt
-Presentation pres = new Presentation();
-
-// Verkrijg de eerste dia
-ISlide sld = pres.Slides[0];
-
-// Voeg een autoshape van het type rechthoek toe
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Sla de presentatie op naar schijf
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Wijzig de volgorde van een vorm**
-Aspose.Slides for .NET maakt het voor ontwikkelaars mogelijk de volgorde van vormen te wijzigen. Het wijzigen van de volgorde bepaalt welke vorm voorop of op de achtergrond staat. Volg de onderstaande stappen om de volgorde van vormen op een dia te wijzigen:
-
-1. Maak een instantie van de `Presentation`‑klasse.
-1. Benader de eerste dia.
-1. Voeg een vorm toe.
-1. Voeg tekst toe in het tekstframe van de vorm.
-1. Voeg een tweede vorm toe op dezelfde coördinaten.
-1. Wijzig de volgorde van de vormen.
-1. Sla het bestand op schijf.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Haal de Interop‑vorm‑ID op**
-Aspose.Slides for .NET maakt het voor ontwikkelaars mogelijk een unieke vorm‑identificatie op dia‑niveau op te halen, in tegenstelling tot de UniqueId‑eigenschap die een unieke identifier op presentatieniveau biedt. De eigenschap OfficeInteropShapeId is toegevoegd aan de IShape‑interfaces en de Shape‑klasse. De waarde die OfficeInteropShapeId teruggeeft correspondeert met de Id‑waarde van het Microsoft.Office.Interop.PowerPoint.Shape‑object. Hieronder staat een voorbeeldcode.
-
-```c#
-public static void Run()
+else
 {
-    using (Presentation presentation = new Presentation("Presentation.pptx"))
-    {
-        // Unieke vorm‑ID ophalen in dia‑scope
-        long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-    }
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
+Wanneer een operatie specifiek is voor een type vorm, controleer dan de interface voordat je type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst bij alleen als het benoemde object een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) is.
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Stel alternatieve tekst in voor een vorm**
-Aspose.Slides for .NET maakt het voor ontwikkelaars mogelijk de AlternateText van elke vorm in te stellen. 
-Vormen in een presentatie kunnen worden onderscheiden aan de hand van de AlternativeText‑ of Shape‑Name‑eigenschap. 
-De AlternativeText‑eigenschap kan zowel gelezen als ingesteld worden via Aspose.Slides en Microsoft PowerPoint. 
-Door deze eigenschap te gebruiken, kunt u een vorm taggen en verschillende bewerkingen uitvoeren zoals het verwijderen, verbergen of herschikken van vormen op een dia.
-Volg de onderstaande stappen om de AlternateText van een vorm in te stellen:
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-1. Maak een instantie van de `Presentation`‑klasse.
-1. Benader de eerste dia.
-1. Voeg een willekeurige vorm toe aan de dia.
-1. Voer wat bewerkingen uit met de nieuw toegevoegde vorm.
-1. Doorloop de vormen om de gewenste vorm te vinden.
-1. Stel de AlternativeText in.
-1. Sla het bestand op schijf.
-
-```c#
-// Instantieer Presentation-klasse die de PPTX vertegenwoordigt
-Presentation pres = new Presentation();
-
-// Verkrijg de eerste dia
-ISlide sld = pres.Slides[0];
-
-// Voeg een autoshape van het type rechthoek toe
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Sla de presentatie op naar schijf
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **Benader layout‑formaten voor een vorm**
-Aspose.Slides for .NET biedt een eenvoudige API om layout‑formaten voor een vorm te benaderen. Dit artikel toont hoe u layout‑formaten kunt benaderen.
-
-Hieronder staat een voorbeeldcode.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Render een vorm als SVG**
-Nu ondersteunt Aspose.Slides for .NET het renderen van een vorm als SVG. De WriteAsSvg‑methode (en zijn overload) is toegevoegd aan de Shape‑klasse en IShape‑interface. Deze methode maakt het mogelijk de inhoud van de vorm op te slaan als een SVG‑bestand. De code‑snippet hieronder laat zien hoe u de vorm van een dia exporteert naar een SVG‑bestand.
+## **Wijzig de vormcollectie**
 
-```c#
-public static void Run()
+De methoden om toe te voegen, klonen, te verwijderen en te herschikken werken direct op de collectie. Als een bewerking het aantal of de volgorde van vormen verandert, moet je niet blijven vertrouwen op indexen die vóór die bewerking zijn vastgelegd.
+
+### **Kloon een vorm**
+
+[AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addclone/) maakt een onafhankelijk exemplaar en voegt het toe aan de doelcollectie. [InsertClone](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/insertclone/) maakt ook een kopie, maar plaatst deze op een opgegeven Z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te wijzigen; overloads met breedte en hoogte kunnen deze ook aanpassen.
+
+Het voorbeeld maakt een doeldia, kloont een gelabelde rechthoek naar de voorgrond en voegt een tweede kloon toe achterin. Wijzigingen aan één van de klonen beïnvloeden de brondvorm niet.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-    string outSvgFileName = "SingleShape.svg";
-    using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Klonen kopieert de inhoud en opmaak van de vorm, inclusief naam en alternatieve tekst. Wijs nieuwe logische identificatoren toe aan de kloon wanneer die waarden uniek moeten zijn. Resources die door complexe vormen worden gebruikt, worden door de presentatie afgehandeld, maar een kloon blijft een nieuw collectie‑item met een nieuwe vormidentiteit.
+
+### **Verwijder vormen**
+
+[Remove](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/remove/) verwijdert een specifiek vormobject uit zijn collectie. Wanneer je meerdere overeenkomsten wilt verwijderen tijdens een geïndexeerde iteratie, loop dan van het einde zodat elke overgebleven index geldig blijft.
+
+Dit voorbeeld verwijdert elke vorm met een aangewezen naam. Het leest `slide.Shapes[i]`, niet een vast collection‑item, en cast de vorm niet onnodig.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
     {
-        using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-        {
-            pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-        }
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Na verwijdering veranderen het aantal vormen en de indexen van de latere vormen. Verwijzingen naar ongewijzigde vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook rekening met connectors, animaties en andere presentatiefuncties die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer veranderen dan alleen de weergave van de dia.
+
+### **Verberg een vorm**
+
+Het instellen van [Hidden](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/hidden/) op `true` houdt de vorm in de collectie maar voorkomt dat deze verschijnt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, dus verbergen is geschikt voor optionele elementen die later mogelijk hersteld worden.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Verbergen is geen verwijdering of beveiliging. Het object kan nog steeds worden gevonden en zichtbaar gemaakt door een gebruiker of door code, en blijft onderdeel van het presentatie‑bestand.
+
+### **Wijzig de Z‑order**
+
+Overlappende vormen worden getekend volgens de collectiebestelling. [Reorder](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/reorder/) verplaatst een bestaande vorm naar een doel‑index zonder deze te klonen. Index `0` is de achterkant; `Count - 1` is de voorkant.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+De rechthoek wordt eerst aangemaakt en zit oorspronkelijk achter de ellips. Verplaatsing naar de laatste index brengt deze naar de voorgrond. Finaliseer de Z‑order nadat je alle gerelateerde vormen hebt toegevoegd of gekloond, want die bewerkingen voegen nieuwe collectie‑items toe of inserten ze, wat de beoogde stapel kan wijzigen.
+
+## **Inspecteer vormen op lay‑outdia's**
+
+Normale dia's, lay‑outdia's en masterdia's hebben elk hun eigen vormcollecties. Een vorm in een lay‑outcollectie is niet hetzelfde object als een gelijk gepositioneerde vorm op een normale dia. Inspecteer lay‑outvormen wanneer je de opmaak die door een lay‑out wordt geleverd moet begrijpen of wijzigen.
+
+Het volgende voorbeeld leest de [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/fillformat/) en [LineFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/lineformat/) van elke lay‑outvorm zonder aan te nemen dat elke vorm een `AutoShape` is.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
     }
 }
 ```
 
-## **Lijn een vorm uit**
+Het bewerken van een lay‑out kan meerdere dia's die de lay‑out gebruiken beïnvloeden. Voordat je een lay‑outvorm wijzigt, bepaal of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die lay‑out gebruikt.
 
-Via de [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/methods/alignshapes/index)‑overload kunt u 
+## **Exporteer een vorm naar SVG**
 
-* vormen uitlijnen ten opzichte van de marges van een dia. Zie Voorbeeld 1. 
-* vormen uitlijnen ten opzichte van elkaar. Zie Voorbeeld 2. 
+[WriteAsSvg](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/writeassvg/) schrijft de gerenderde inhoud van één vorm naar een stream. Het resultaat bevat alleen de vorm, niet de volledige dia‑achtergrond of naburige vormen.
 
-De enumeratie [ShapesAlignmentType](https://reference.aspose.com/slides/nl/net/aspose.slides/shapesalignmenttype) definieert de beschikbare uitlijnopties.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-**Voorbeeld 1**
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-Deze C#‑code toont hoe u vormen met index 1, 2 en 4 langs de bovenrand van een dia uitlijnt:
-De broncode hieronder lijnt vormen met index 1, 2 en 4 uit langs de bovenrand van de dia. 
-
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Voorbeeld 2**
+Houd de presentatie geopend tijdens het renderen. De output hangt af van de vormopmaak en van resources zoals lettertypen en afbeeldingen. Als je de hele compositie nodig hebt, exporteer dan de dia in plaats van een individuele vorm. De aanroeper bezit de stream en moet deze afsluiten.
 
-Deze C#‑code toont hoe u een volledige collectie vormen uitlijnt ten opzichte van de onderste vorm in de collectie:
+## **Lijn vormen uit**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+De overloads van [SlideUtil.AlignShapes](https://reference.aspose.com/slides/nl/net/aspose.slides.util/slideutil/alignshapes/) lijnen ofwel alle vormen uit of geselecteerde collectie‑indexen. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/net/aspose.slides/shapesalignmenttype/) specificeert de rand, middellijn of verdeelmodus. Zet `alignToSlide` op `true` om de dia‑randen te gebruiken; zet het op `false` om de geselecteerde vormen ten opzichte van elkaar uit te lijnen.
+
+Dit voorbeeld lijnt drie vormen uit tegen de bovenrand van de dia. De geretourneerde vormreferenties worden direct vóór uitlijning omgezet naar hun huidige indexen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Flip‑eigenschappen**
+Uitlijning wijzigt posities, niet de Z‑order. Relatieve uitlijning vereist normaal minstens twee vormen, terwijl horizontale of verticale verdeling voldoende vormen nodig heeft om de afstand te bepalen. Herbereken indexen als je de collectie wijzigt vóór het aanroepen van de methode.
 
-In Aspose.Slides biedt de [ShapeFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/shapeframe/)‑klasse controle over horizontaal en verticaal spiegelen van vormen via de `FlipH`‑ en `FlipV`‑eigenschappen. Beide eigenschappen zijn van het type [NullableBool](https://reference.aspose.com/slides/nl/net/aspose.slides/nullablebool/), waarmee `True` een flip aangeeft, `False` geen flip, of `NotDefined` om het standaardgedrag te gebruiken. Deze waarden zijn toegankelijk via het [Frame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/frame/) van een vorm. 
+## **Flip een vorm**
 
-Om de flip‑instellingen te wijzigen, wordt een nieuw [ShapeFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/shapeframe/)‑object gecreëerd met de huidige positie en grootte van de vorm, de gewenste waarden voor `FlipH` en `FlipV`, en de rotatiehoek. Door dit object toe te wijzen aan het [Frame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/frame/) van de vorm en de presentatie op te slaan, worden de spiegeltransformaties toegepast en in het uitvoerbestand vastgelegd.
+De klasse [ShapeFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/shapeframe/) bewaart positie, grootte, horizontale en verticale flip‑instellingen, en rotatie. De waarden `FlipH` en `FlipV` gebruiken [NullableBool](https://reference.aspose.com/slides/nl/net/aspose.slides/nullablebool/): `True` activeert de flip, `False` deactiveert deze, en `NotDefined` behoudt de ongedefinieerde/standaardstatus.
 
-Stel dat we een bestand sample.pptx hebben waarin de eerste dia één vorm bevat met de standaard flip‑instellingen, zoals hieronder weergegeven.
+De invoerpresentatie hieronder bevat één niet‑geflipte vorm.
 
-![The shape to be flipped](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-De volgende code‑voorbeeld haalt de huidige flip‑eigenschappen op en draait de vorm zowel horizontaal als verticaal.
+Het voorbeeld behoudt alle andere frame‑waarden en vervangt alleen de twee flip‑instellingen. Dit is belangrijk omdat het toewijzen van een nieuw [Frame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/frame/) het volledige frame vervangt.
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Haal de horizontale flip-eigenschap van de vorm op.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Haal de verticale flip-eigenschap van de vorm op.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Flip horizontaal.
-    NullableBool flipV = NullableBool.True; // Flip verticaal.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Het resultaat:
+De opgeslagen vorm wordt horizontaal en verticaal gespiegeld, terwijl positie, grootte en rotatie behouden blijven.
 
-![The flipped shape](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Kan ik vormen (union/intersect/subtract) combineren op een dia zoals in een desktop‑editor?**
+**Moet ik een collectie‑index gebruiken als vormidentificator?**
 
-Er is geen ingebouwde Boolean‑operatie‑API. U kunt het benaderen door zelf de gewenste omtrek te construeren — bijvoorbeeld door de resulterende geometrie te berekenen (via [GeometryPath](https://reference.aspose.com/slides/nl/net/aspose.slides/geometrypath/)) en een nieuwe vorm met die contour te maken, eventueel de oorspronkelijke vormen te verwijderen.
+Alleen voor kortdurende verwerking wanneer de collectie niet verandert voordat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor door auteurs gemaakte sjablonen, of `OfficeInteropShapeId` voor interop‑werk binnen een dia.
 
-**Hoe kan ik de stapelvolgorde (z‑order) regelen zodat een vorm altijd “bovenop” blijft?**
+**Verwijdert verbergen van een vorm deze uit de Z‑order?**
 
-Wijzig de invoeg‑/verplaatsvolgorde binnen de [shapes](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslide/shapes/)‑collectie van de dia. Voor voorspelbare resultaten, finaliseer de z‑order nadat alle andere dia‑aanpassingen zijn uitgevoerd.
+Nee. Een verborgen vorm blijft in de collectie op dezelfde index. Hij kan worden gevonden, herschikt, bewerkt of weer zichtbaar gemaakt.
 
-**Kan ik een vorm “vergrendelen” zodat gebruikers deze niet kunnen bewerken in PowerPoint?**
+**Waarom verscheen een gekloonde vorm voor een andere vorm?**
 
-Ja. Stel [shape‑level protection flags](/slides/nl/net/applying-protection-to-presentation/) in (bijv. vergrendel selectie, verplaatsing, grootte‑aanpassing, tekstbewerkingen). Indien nodig, spiegel de beperkingen op de master‑ of layout‑dia. Let op: dit is bescherming op UI‑niveau, geen beveiligingsfunctie; voor sterkere bescherming combineert u dit met bestands‑niveau restricties zoals [aanbevelingen voor alleen‑lezen of wachtwoorden](/slides/nl/net/password-protected-presentation/).
+`AddClone` plakt de kloon aan het einde van de collectie, wat de voorste positie in de Z‑order is. Gebruik `InsertClone` om de initiële index te kiezen of `Reorder` nadat alle vormen zijn toegevoegd.

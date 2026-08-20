@@ -9,391 +9,374 @@ keywords:
 - sunum şekli
 - slayttaki şekil
 - şekil bulma
-- şekil kopyalama
+- şekil klonlama
 - şekil kaldırma
 - şekil gizleme
 - şekil sırasını değiştirme
-- interop şekil kimliğini alma
+- interop şekil kimliğini al
 - şekil alternatif metni
 - şekil düzen formatları
 - şekil SVG olarak
-- şekli SVG'ye dönüştürme
+- şekli SVG'ye dönüştür
 - şekli hizalama
+- şekli çevirme
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Android için Java aracılığıyla Aspose.Slides'de şekiller oluşturmayı, düzenlemeyi ve optimize etmeyi öğrenin ve yüksek performanslı PowerPoint sunumları sunun."
+description: "Aspose.Slides for Android via Java ile sunum şekillerini tanımlamayı, klonlamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve çevirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak sunumlarda şekillerle nasıl çalışılacağını açıklar. Bir slaytta bir şekli bulma, kopyalama, kaldırma, gizleme, sırasını değiştirme, Interop şekil kimliğini alma ve tanımlama ve sonraki işlemler için alternatif metin ayarlama işlemlerini gösterir.
+Aspose.Slides for Android via Java, bir slayttaki şekilleri sıralı bir [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirildiğiniz yer olduğu gibi, yığın sırasının da kaynağıdır: `0` indeksindeki şekil en arka taraftadır, son indeks ise en ön taraftadır.
 
-Ayrıca şekiller için düzen formatlarına nasıl erişileceği, bir şeklin SVG olarak render edilmesi, bir slaytta şekillerin hizalanması ve yatay ile dikey aynalama için çevirme özelliklerinin kullanılması konularını da kapsar. Ek olarak, makale şekil birleştirme, yığılma sırası ve şekil kilitleme üzerine kısa bir SSS bölümü içerir.
+Bu makale aynı modeli izler. Önce bir şekli güvenilir şekilde nasıl tanımlayacağınızı açıklar, ardından şekilleri klonlama, kaldırma, gizleme ve yeniden sıralama yöntemlerini gösterir. Son bölümler, düzen seviyesindeki biçimlendirme, SVG dışa aktarma, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır; böylece yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
 
-## **Bir Slaytta Şekil Bulma**
-Bu konu, geliştiricilerin bir slayttaki belirli bir şekli dahili kimliğini (Id) kullanmadan bulmalarını kolaylaştıran basit bir teknik tanımlar. PowerPoint Sunum dosyalarının, bir slayttaki şekilleri dahili benzersiz Id dışındaki bir yolla tanımlamanın mümkün olmadığını bilmek önemlidir. Geliştiricilerin dahili benzersiz Id'yi kullanarak bir şekli bulması zor görünebilir. Slaytlara eklenen tüm şekillerin bir Alt Metni vardır. Geliştiricilere belirli bir şekli bulmak için alternatif metin kullanmalarını öneririz. Gelecekte değiştirmeyi planladığınız nesneler için alternatif metni MS PowerPoint ile tanımlayabilirsiniz.
+## **Şekilleri Tanımlama ve Bulma**
 
-İstediğiniz herhangi bir şeklin alternatif metni ayarlandıktan sonra, bu sunumu Aspose.Slides for Android via Java kullanarak açabilir ve bir slayta eklenen tüm şekillerde döngü yapabilirsiniz. Her döngüde, şeklin alternatif metnini kontrol edebilir ve eşleşen alternatif metne sahip şekil sizin ihtiyaç duyduğunuz şekil olacaktır. Bu tekniği daha iyi göstermek için, bir slaytta belirli bir şekli bulup doğrudan o şekli döndüren bir yöntem oluşturduk: [findShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-).
+Koleksiyon indeksleri, bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şeklin eklenmesi, kaldırılması veya yeniden sıralanması indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve korunduğuna göre bir tanımlayıcı seçin:
 
-```java
-// Sunum dosyasını temsil eden bir Presentation sınıfını örnekleyin
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getName--) geliştiricinin kontrolündeki şablonlar için yararlıdır ve PowerPoint’in Seçim Bölmesi’nde kolayca incelenebilir. İsimler düzenlenebilir ve benzersiz olması garanti edilmez; bu yüzden kodun buna bağlı olması durumunda bir isimlendirme standartı oluşturun.
+- [AlternativeText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getAlternativeText--) bir erişilebilirlik açıklaması veya yazar tarafından sağlanan bir etiket zaten şekli tanımlıyorsa faydalıdır. Kullanıcılar tarafından görülür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti edilmez. Anlamlı erişilebilirlik metnini sessizce bir veri tabanı anahtarı olarak kullanmayın.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) bir slayt içinde benzersiz olan, yalnızca okunabilen bir tanımlayıcıdır ve PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelir. PowerPoint ile bütünleştirirken veya bir şeklin ömrü boyunca net bir referansa ihtiyaç duyduğunuzda kullanın. Klonlanmış veya yeniden oluşturulmuş bir şekil farklı bir şekildir ve kendi kimliğini alır.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Bulunacak şeklin alternatif metni
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Bir slaytta şekli alternatif metniyle bulmak için yöntem implementasyonu
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Slayt içindeki tüm şekiller üzerinde döngü
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Slaytın alternatif metni gerekenle eşleşiyorsa
-        // Şekli döndür
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+İlgili [getUniqueId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getUniqueId--) yöntemi sunum kapsamlı bir tanımlayıcı döner, ancak bu tanımlayıcı eklentiler için tasarlanmıştır ve yeniden atanabilir. Kalıcı bir dış anahtar olarak görülmemelidir. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
 
-## **Bir Şekli Kopyalamak**
-Bir şekli bir slayta kopyalamak için Aspose.Slides for Android via Java kullanarak:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Slaydın indeksini kullanarak referansını alın.
-3. Kaynak slaydın şekil koleksiyonuna erişin.
-4. Sunuma yeni bir slayt ekleyin.
-5. Kaynak slaydın şekil koleksiyonundaki şekilleri yeni slayta kopyalayın.
-6. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki örnek bir grup şekli slayta ekler.
+Aşağıdaki örnek, adı tam eşleşme ile arar ve slayt kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde, kod yanlış nesneyle devam etmek yerine bu sonucu bildirir.
 
 ```java
-// Presentation sınıfını örnekleyin
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Write the PPTX file to disk
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekli Kaldırmak**
-Aspose.Slides for Android via Java, geliştiricilerin herhangi bir şekli kaldırmasına olanak tanır. Bir şekli herhangi bir slayttan kaldırmak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. İlk slayta erişin.
-3. Belirli AlternativeText değerine sahip şekli bulun.
-4. Şekli kaldırın.
-5. Dosyayı diske kaydedin.
-
-```java
-// Presentation nesnesi oluştur
-Presentation pres = new Presentation();
-try {
-    // İlk slaytı al
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Dikdörtgen tipinde otomatik şekil ekle
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Sunumu diske kaydet
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekli Gizlemek**
-Aspose.Slides for Android via Java, geliştiricilerin herhangi bir şekli gizlemesine olanak tanır. Bir şekli herhangi bir slayttan gizlemek için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. İlk slayta erişin.
-3. Belirli AlternativeText değerine sahip şekli bulun.
-4. Şekli gizleyin.
-5. Dosyayı diske kaydedin.
-
-```java
-// PPTX'i temsil eden Presentation sınıfını örnekle
-Presentation pres = new Presentation();
-try {
-    // İlk slaytı al
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Dikdörtgen tipinde otomatik şekil ekle
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Sunumu diske kaydet
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Şekil Sırasını Değiştirmek**
-Aspose.Slides for Android via Java, geliştiricilerin şekilleri yeniden sıralamasına olanak tanır. Şekilleri yeniden sıralamak, hangi şeklin ön yüzde, hangisinin arka yüzde olacağını belirler. Bir slayttaki şekilleri yeniden sıralamak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. İlk slayta erişin.
-3. Bir şekil ekleyin.
-4. Şeklin metin çerçevesine bazı metinler ekleyin.
-5. Aynı koordinatlarla başka bir şekil ekleyin.
-6. Şekilleri yeniden sıralayın.
-7. Dosyayı diske kaydedin.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Interop Şekil Kimliğini Almak**
-Aspose.Slides for Android via Java, geliştiricilerin slayt kapsamında benzersiz bir şekil tanımlayıcısı almasını sağlayan bir yöntemi, sunum kapsamında benzersiz bir tanımlayıcı sağlayan [getUniqueId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#getUniqueId--) yöntemine karşı olarak sunar. [getOfficeInteropShapeId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) yöntemi, [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape) arayüzüne ve [Shape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Shape) sınıfına eklenmiştir. [getOfficeInteropShapeId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) yöntemi tarafından döndürülen değer, Microsoft.Office.Interop.PowerPoint.Shape nesnesinin Id değerine karşılık gelir. Aşağıda örnek bir kod verilmiştir.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Slayt kapsamındaki benzersiz şekil tanımlayıcısını alıyor
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekil İçin Alternatif Metin Ayarlama**
-Aspose.Slides for Android via Java, geliştiricilerin herhangi bir şeklin AlternateText'ini ayarlamasına olanak tanır. Bir sunumdaki şekiller, [AlternativeText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) veya [Shape Name](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#setName-java.lang.String-) yöntemiyle ayırt edilebilir. [setAlternativeText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) ve [getAlternativeText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#getAlternativeText--) yöntemleri, Aspose.Slides ve Microsoft PowerPoint kullanılarak okunabilir veya ayarlanabilir. Bu yöntemi kullanarak bir şekli etiketleyebilir ve şekli kaldırma, gizleme veya slayttaki şekilleri yeniden sıralama gibi farklı işlemler gerçekleştirebilirsiniz. Bir şeklin AlternateText'ini ayarlamak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. İlk slayta erişin.
-3. Slayta herhangi bir şekil ekleyin.
-4. Yeni eklenen şekille bazı işlemler yapın.
-5. Şekilleri gezerek bir şekil bulun.
-6. AlternativeText'i ayarlayın.
-7. Dosyayı diske kaydedin.
-
-```java
-// PPTX'i temsil eden Presentation sınıfını örnekle
-Presentation pres = new Presentation();
-try {
-    // İlk slaytı al
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Dikdörtgen tipinde otomatik şekil ekle
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Sunumu diske kaydet
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekil İçin Düzen Formatlarına Erişim**
-Aspose.Slides for Android via Java, bir şekil için düzen formatlarına erişmek için basit bir API sağlar. Bu makale, düzen formatlarına nasıl erişileceğini göstermektedir.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekli SVG Olarak Render Etmek**
-Artık Aspose.Slides for Android via Java, bir şekli SVG olarak render etmeyi destekliyor. [writeAsSvg](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (ve aşırı yüklemesi) [Shape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Shape) sınıfına ve [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShape) arayüzüne eklenmiştir. Bu yöntem, şeklin içeriğini bir SVG dosyası olarak kaydetmeye olanak tanır. Aşağıdaki kod parçacığı, slaytın şeklinin bir SVG dosyasına nasıl dışa aktarılacağını gösterir.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekli Hizalamak**
-Aspose.Slides, şekilleri slayt kenar boşluklarına ya da birbirlerine göre hizalamayı sağlar. Bu amaçla, aşırı yüklenmiş [SlidesUtil.alignShape()](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) yöntemi eklenmiştir. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ShapesAlignmentType) enum'ı olası hizalama seçeneklerini tanımlar.
-
-**Example 1**
-
-Aşağıdaki kaynak kod, 1, 2 ve 4 indeksli şekilleri slaydın üst kenarı boyunca hizalar.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Example 2**
-
-Aşağıdaki örnek, şekil koleksiyonundaki en alttaki şekle göre tüm koleksiyonun nasıl hizalanacağını gösterir.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Çevirme Özellikleri**
-Aspose.Slides'ta, [ShapeFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapeframe/) sınıfı, şekillerin yatay ve dikey aynalanmasını `flipH` ve `flipV` özellikleri aracılığıyla kontrol eder. Her iki özellik de `byte` tipindedir; `1` değeri çevirme, `0` çevirme yok ve `-1` varsayılan davranışı kullanır. Bu değerler, bir şeklin [Frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getFrame--) özelliğinden erişilebilir.
-
-Çevirme ayarlarını değiştirmek için, şeklin mevcut konumu ve boyutu, istenen `flipH` ve `flipV` değerleri ve dönüş açısı ile yeni bir [ShapeFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapeframe/) örneği oluşturulur. Bu örnek şeklin [Frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getFrame--) özelliğine atanıp sunum kaydedildiğinde, ayna dönüşümleri uygulanır ve çıktı dosyasına yansıtılır.
-
-Diyelim ki, bir sample.pptx dosyamız var ve ilk slayt, aşağıda gösterildiği gibi varsayılan çevirme ayarlarına sahip tek bir şekil içeriyor.
-
-![Çevrilecek şekil](shape_to_be_flipped.png)
-
-Aşağıdaki kod örneği, şeklin mevcut çevirme özelliklerini alır ve hem yatay hem de dikey olarak çevirir.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Şeklin yatay çevirme özelliğini al.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Şeklin dikey çevirme özelliğini al.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Yatay olarak çevir.
-    byte flipV = NullableBool.True; // Yatay olarak çevir.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Sonuç:
+Bir işlem belirli bir şekil türüne özgüyse, tür‑özel üyelere erişmeden önce arayüzü kontrol edin. Bu örnek, adlandırılmış nesne bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ise yalnızca metin ve alternatif metni günceller.
 
-![Çevrilmiş şekil](flipped_shape.png)
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Şekil Koleksiyonunu Değiştirme**
+
+Ekle, klonla, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde hemen çalışır. Bir işlem şekil sayısını veya sırasını değiştiriyorsa, o işlemden önce yakalanmış indekslere güvenmeye devam etmeyin.
+
+### **Bir Şekli Kopyalama**
+
+[addClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [insertClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) de bir kopya oluşturur ancak belirtilen z‑sırası indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler, kopyayı boyutunu değiştirmeden taşır; genişlik ve yükseklik kabul edenler ise yeniden boyutlandırabilir.
+
+Örnek, bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne klonlar ve ikinci bir klonu arkaya ekler. Her iki klon üzerindeki değişiklikler kaynak şekli etkilemez.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Klonlama, şeklin içeriğini ve biçimlendirmesini, adı ve alternatif metni dahil, kopyalar. Bu değerlerin benzersiz olması gerekiyorsa, klona yeni mantıksal tanımlayıcılar atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak bir klon yeni bir koleksiyon öğesi ve yeni bir şekil kimliği olur.
+
+### **Şekilleri Kaldırma**
+
+[remove](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) belirli bir şekil nesnesini koleksiyonundan siler. İndeksli yineleme sırasında birden fazla eşleşme kaldırıyorsanız, her kalan indeksin geçerli kalması için sondan itibaren dolaşın.
+
+Bu örnek, belirli bir isimle eşleşen her şekli kaldırır. Sabit bir koleksiyon öğesi yerine mevcut indekste şekli okur ve şekli gereksiz yere tip dönüşümü yapmaz.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kaldırma işleminden sonra şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmemiş şekillere yapılan referanslar, kaydedilmiş indekslerden daha güvenilirdir. Ayrıca bağlayıcılar, animasyonlar ve kaldırılan nesneye referans verebilecek diğer sunum özelliklerini de göz önünde bulundurun; görünür bir şekli kaldırmak slaydın görünümünden daha fazlasını değiştirebilir.
+
+### **Bir Şekli Gizleme**
+
+[Hidden](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) özelliğini `true` olarak ayarlamak, şekli koleksiyonda tutar ancak normal slayt gösterisinde görünmesini engeller. İndeksi, biçimlendirmesi ve içeriği koda hâlâ ulaşılabilir olduğu için, daha sonra geri getirilebilecek isteğe bağlı öğeler için gizleme uygundur.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Gizleme bir silme veya güvenlik işlemi değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından gizlilikten çıkarılabilir; ayrıca sunum dosyasının bir parçası olarak kalır.
+
+### **Z‑Sırasını Değiştirme**
+
+Üst üste binen şekiller koleksiyon sırasına göre çizilir. [reorder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) var olan bir şekli klonlamadan hedef indeksine taşır. `0` indeksi arka, `size() - 1` indeksi ön taraftır.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dikdörtgen önce oluşturulur ve başlangıçta elipsin arkasında durur. Son indekse taşındığında ön tarafta görünür. Tüm ilgili şekiller eklendikten veya klonlandıktan sonra z‑sırasını kesin, çünkü bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığını değiştirebilir.
+
+## **Düzen Slaytlarındaki Şekilleri İnceleme**
+
+Normal slaytlar, düzen slaytları ve ana slaytların ayrı şekil koleksiyonları vardır. Bir düzen koleksiyonundaki şekil, normal bir slayttaki benzer konumlu şekil ile aynı nesne değildir. Düzen tarafından sağlanan biçimlendirmeyi anlamak veya değiştirmek gerektiğinde düzen şekillerini inceleyin.
+
+Aşağıdaki örnek, her düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getFillFormat--) ve [LineFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getLineFormat--) özelliklerini, her şeklin bir `AutoShape` olduğu varsayımı olmadan okur.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Bir düzeni düzenlemek, onu kullanan birden fazla slaytı etkileyebilir. Normal bir slayt nesneyi devralıyor mu yoksa yerel bir geçersiz kılma içeriyor mu belirleyin ve o düzeni kullanan her slaytı test edin.
+
+## **Bir Şekli SVG Olarak Dışa Aktarma**
+
+[writeAsSvg](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) bir şeklin render edilmiş içeriğini akıma yazar. Sonuç, tüm slayt arka planını veya komşu şekilleri değil yalnızca o şekli içerir.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Render ederken sunumu açık tutun. Çıktı, şeklin biçimlendirmesine ve yazı tipleri ile görüntüler gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, tek bir şekil yerine slaytı dışa aktarın. Akışı çağıran tarafın sorumluluğunda olup, kapatılması gerekir.
+
+## **Şekilleri Hizalama**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) aşırı yüklemeleri, ya tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapesalignmenttype/) kenarı, merkez hattını veya dağıtım modunu belirtir. `alignToSlide` değerini `true` yaparsanız slayt kenarları kullanılır; `false` yaparsanız seçili şekiller birbirlerine göre hizalanır.
+
+Bu örnek, üç şekli slaydın üst kenarına hizalar. Döndürülen şekil referansları, hizalamadan hemen önce mevcut indekslerine dönüştürülür.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Hizalama konumları değiştirir, z‑sırasını değiştirmez. Göreceli hizalama genellikle en az iki şekil gerektirir, yatay veya dikey dağıtım ise boşluk tanımlayacak yeterli sayıda şekil gerekir. Yöntemi çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
+
+## **Bir Şekli Çevirme**
+
+[ShapeFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ile dönüş açılarını saklar. `getFlipH` ve `getFlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/nullablebool/) kullanır: `True` çevirme etkin, `False` devre dışı, `NotDefined` belirtilmemiş/varsayılan durumu korur.
+
+Aşağıdaki sunum, çevirilmemiş bir şekil içerir.
+
+![Çevirme öncesi şekil](shape_to_be_flipped.png)
+
+Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu önemlidir çünkü yeni bir [Frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) atamak çerçevenin tamamını değiştirir.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kaydedilen şekil, konumu, boyutu ve dönüşü korunurken yatay ve dikey olarak yansıtılır.
+
+![Çevirme sonrası şekil](flipped_shape.png)
 
 ## **SSS**
 
-**Bir slaytta şekilleri (birleşim/kesişim/çıkarma) masaüstü editöründeki gibi birleştirebilir miyim?**
+**Bir koleksiyon indeksini şekil tanımlayıcı olarak kullanmalı mıyım?**
 
-Yerleşik bir Boolean işlem API'si yoktur. İstediğiniz konturu kendiniz oluşturarak (ör. sonuç geometrisini [GeometryPath](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/geometrypath/) ile hesaplayıp o konturla yeni bir şekil oluşturup, isteğe bağlı olarak orijinal şekilleri kaldırarak) buna yakın bir sonuç elde edebilirsiniz.
+Sadece indeksin kullanılmadan önce koleksiyonun değişmeyeceği kısa vadeli işlemler için. Şablonlar için doğrulanmış bir `Name` ya da `AlternativeText` standartı, slayt‑kapsamlı interop işleri için `OfficeInteropShapeId` tercih edin.
 
-**Yığılma sırasını (z-order) nasıl kontrol edebilirim ki bir şekil her zaman "üstte" kalsın?**
+**Bir şekli gizlemek, onu z‑sırasından kaldırır mı?**
 
-Slaydın [shapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslide/#getShapes--) koleksiyonundaki ekleme/taşıma sırasını değiştirin. Öngörülebilir sonuçlar için, diğer tüm slayt değişikliklerinden sonra z-sırasını sonlandırın.
+Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir veya tekrar görünür hâle getirilebilir.
 
-**Bir şekli PowerPoint'te kullanıcıların düzenlemesini engellemek için "kilitleyebilir" miyim?**
+**Neden kopyalanan bir şekil diğerinin önünde göründü?**
 
-Evet. Şekil seviyesinde koruma bayrakları ayarlayın (ör. seçim, hareket, yeniden boyutlandırma, metin düzenleme kilidi). Gerekirse, master veya layout üzerine aynı kısıtlamaları uygulayın. Bunun bir UI seviyesi koruma olduğunu, güvenlik özelliği olmadığını unutmayın; daha güçlü koruma için dosya seviyesinde sınırlamaları, ör. [salt okunur önerileri veya parolalar](/slides/tr/androidjava/password-protected-presentation/) ile birleştirin.
+`addClone` klonu koleksiyonun sonuna ekler; bu da z‑sırasının ön kısmıdır. Başlangıç indeksini seçmek için `insertClone` kullanın veya tüm şekiller eklendikten sonra `reorder` ile konumunu ayarlayın.
