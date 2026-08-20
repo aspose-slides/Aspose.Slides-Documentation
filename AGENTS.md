@@ -11,6 +11,8 @@ content, front matter, links, resources, and the platform-specific sample valida
 - Keep changes scoped to the requested files. Do not reformat unrelated content or bulk-rewrite
   languages. English is the source; update it before translations. Keep one language per commit.
 - New pages must be branch bundles named `<page-path>/_index.md`.
+- Do not use `throw` statements in documentation code examples. Handle missing objects, unexpected
+  types, and unavailable data with conditional branches and non-throwing diagnostic output.
 
 ## Site-wide invariants
 
@@ -29,8 +31,12 @@ content, front matter, links, resources, and the platform-specific sample valida
 - If an Android via Java code example changes, use `tools/androidjava/snippet-check/` to compile all
   snippets. This platform's documentation check is compile-only: do not start an emulator or run the
   snippets on a device.
-- For other platforms, use the existing validator under `tools/<platform>/`; compile and run the
+- If a .NET code example changes, use the existing validator under `tools/net/`; compile and run the
   example, verify relevant in-memory state, and reopen generated output to confirm the described
-  result. Do not create ad hoc validation projects or install another product copy.
+  result.
+- For all other platforms, use the existing validator under `tools/<platform>/` to compile the
+  example. Their documentation checks are compile-only: do not run the example or verify its actual
+  results.
+- Do not create ad hoc validation projects or install another product copy.
 
 Do not add build tooling, linters, or CI unless the user explicitly requests it.
