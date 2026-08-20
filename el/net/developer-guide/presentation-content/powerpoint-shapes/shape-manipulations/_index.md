@@ -1,381 +1,381 @@
 ---
-title: "Διαχείριση Σχημάτων Παρουσίασης σε .NET"
-linktitle: "Διαχείριση Σχημάτων"
+title: Διαχείριση Σχημάτων Παρουσίασης σε .NET
+linktitle: Διαχείριση Σχημάτων
 type: docs
 weight: 40
 url: /el/net/shape-manipulations/
 keywords:
-- "Σχήμα PowerPoint"
-- "Σχήμα παρουσίασης"
-- "Σχήμα σε διαφάνεια"
-- "Εύρεση σχήματος"
-- "Κλωνοποίηση σχήματος"
-- "Αφαίρεση σχήματος"
-- "Απόκρυψη σχήματος"
-- "Αλλαγή σειράς σχήματος"
-- "Λήψη Interop ID σχήματος"
-- "Εναλλακτικό κείμενο σχήματος"
-- "Μορφές διάταξης σχήματος"
-- "Σχήμα ως SVG"
-- "Μετατροπή σχήματος σε SVG"
-- "Στοίχιση σχήματος"
-- "PowerPoint"
-- "Παρουσίαση"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Μάθετε να δημιουργείτε, επεξεργάζεστε και βελτιστοποιείτε σχήματα στο Aspose.Slides για .NET και να παραδίδετε υψηλών επιδόσεων παρουσιάσεις PowerPoint."
+- Σχήμα PowerPoint
+- σχήμα παρουσίασης
+- σχήμα σε διαφάνεια
+- εύρεση σχήματος
+- κλωνοποίηση σχήματος
+- αφαίρεση σχήματος
+- απόκρυψη σχήματος
+- αλλαγή σειράς σχήματος
+- λήψη ID σχήματος interop
+- εναλλακτικό κείμενο σχήματος
+- μορφές διάταξης σχήματος
+- σχήμα ως SVG
+- σχήμα σε SVG
+- στοίχιση σχήματος
+- αναστροφή σχήματος
+- PowerPoint
+- παρουσίαση
+- .NET
+- C#
+- Aspose.Slides
+description: "Μάθετε πώς να προσδιορίζετε, κλωνοποιείτε, αφαιρείτε, κρύβετε, αλλάζετε σειρά, εξάγετε, στοιχίζετε και αναστρέφετε σχήματα παρουσίασης με το Aspose.Slides για .NET."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με σχήματα σε παρουσιάσεις χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να βρείτε ένα σχήμα σε μια διαφάνεια, να το κλωνοποιήσετε, να το αφαιρέσετε, να το κρύψετε, να αλλάξετε τη σειρά του, να λάβετε το Interop ID του σχήματος και να ορίσετε εναλλακτικό κείμενο για αναγνώριση και περαιτέρω επεξεργασία.
+Το Aspose.Slides για .NET αντιπροσωπεύει τα σχήματα σε μια διαφάνεια ως μια διατεταγμένη [IShapeCollection](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/). Η συλλογή είναι τόσο το μέρος όπου βρίσκετε και τροποποιείτε σχήματα όσο και η πηγή της σειράς στρώσεώς τους: το ευρετήριο `0` είναι το πιο πίσω σχήμα, ενώ το τελευταίο ευρετήριο είναι το πιο μπροστά σχήμα.
 
-Επιπλέον καλύπτει πώς να έχετε πρόσβαση σε μορφές διάταξης για σχήματα, να αποδώσετε ένα σχήμα ως SVG, να ευθυγραμμίσετε σχήματα σε μια διαφάνεια και να χρησιμοποιήσετε ιδιότητες περιστροφής για οριζόντια και κάθετη κατοπτρισμό. Επιπλέον, το άρθρο περιλαμβάνει μια σύντομη ενότητα FAQ σχετικά με τον συνδυασμό σχημάτων, τη σειρά στοιβάγματος και το κλείδωμα των σχημάτων.
+Αυτό το άρθρο ακολουθεί αυτό το μοντέλο. Πρώτα εξηγεί πώς να αναγνωρίσετε ένα σχήμα αξιόπιστα, μετά δείχνει πώς να κλωνοποιήσετε, να αφαιρέσετε, να κρύψετε και να αλλάξετε τη σειρά των σχημάτων. Τα τελικά τμήματα καλύπτουν μορφοποίηση επιπέδου διάταξης, εξαγωγή SVG, στοίχιση και ρυθμίσεις αναστροφής. Κάθε παράδειγμα είναι ανεξάρτητο, ώστε να χρησιμοποιήσετε μόνο τις λειτουργίες που απαιτούνται από τη ροή εργασίας σας.
 
-## **Εντοπισμός Σχήματος σε Διαφάνεια**
-Αυτό το θέμα θα περιγράψει μια απλή τεχνική για να διευκολύνει τους προγραμματιστές στον εντοπισμό ενός συγκεκριμένου σχήματος σε μια διαφάνεια χωρίς τη χρήση του εσωτερικού του Id. Είναι σημαντικό να γνωρίζουμε ότι τα αρχεία παρουσίασης PowerPoint δεν διαθέτουν καμία μέθοδο για την αναγνώριση των σχημάτων σε μια διαφάνεια εκτός από ένα εσωτερικό μοναδικό Id. Φαίνεται δύσκολο για τους προγραμματιστές να βρουν ένα σχήμα χρησιμοποιώντας το εσωτερικό μοναδικό του Id. Όλα τα σχήματα που προστίθενται στις διαφάνειες έχουν κάποιο εναλλακτικό κείμενο (Alt Text). Προτείνουμε στους προγραμματιστές να χρησιμοποιούν εναλλακτικό κείμενο για τον εντοπισμό ενός συγκεκριμένου σχήματος. Μπορείτε να χρησιμοποιήσετε το MS PowerPoint για να ορίσετε το εναλλακτικό κείμενο για αντικείμενα που σχεδιάζετε να αλλάξετε στο μέλλον.
+## **Αναγνώριση και Εύρεση Σχημάτων**
 
-Αφού ορίσετε το εναλλακτικό κείμενο για οποιοδήποτε επιθυμητό σχήμα, μπορείτε στη συνέχεια να ανοίξετε την παρουσίαση χρησιμοποιώντας το Aspose.Slides για .NET και να διαπεράσετε όλα τα σχήματα που έχουν προστεθεί σε μια διαφάνεια. Σε κάθε επανάληψη, μπορείτε να ελέγξετε το εναλλακτικό κείμενο του σχήματος και το σχήμα με το αντίστοιχο εναλλακτικό κείμενο θα είναι το σχήμα που χρειάζεστε. Για να επιδείξουμε αυτήν την τεχνική καλύτερα, δημιουργήσαμε μια μέθοδο, [FindShape](https://reference.aspose.com/slides/el/net/aspose.slides.util/slideutil/findshape/#findshape_1) που εκτελεί την ενέργεια εύρεσης ενός συγκεκριμένου σχήματος σε μια διαφάνεια και επιστρέφει απλώς αυτό το σχήμα.
+Τα ευρετήρια της συλλογής είναι βολικά κατά την επεξεργασία γνωστού αρχείου, αλλά δεν είναι σταθερά αναγνωριστικά. Η προσθήκη, η αφαίρεση ή η αλλαγή σειράς ενός σχήματος μπορεί να αλλάξει το ευρετήριό του. Επιλέξτε ένα αναγνωριστικό ανάλογα με το πώς έχει δημιουργηθεί και συντηρείται η παρουσίαση:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/name/) είναι χρήσιμο για πρότυπα ελεγχόμενα από προγραμματιστές και είναι εύκολο να επιθεωρηθεί στο Παράθυρο Επιλογής του PowerPoint. Τα ονόματα μπορούν να επεξεργαστούν και δεν εγγυάται ότι είναι μοναδικά, γι’ αυτό καθιερώστε μια σύμβαση ονοματοδοσίας αν ο κώδικας εξαρτάται από αυτά.
+- [AlternativeText](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/alternativetext/) είναι χρήσιμο όταν μια περιγραφή προσβασιμότητας ή μια ετικέτα που έχει προσθέσει ο συγγραφέας ήδη αναγνωρίζει το σχήμα. Είναι ορατό στους χρήστες, μπορεί να μεταφραστεί ή να επανεγγραφεί για προσβασιμότητα, και δεν είναι εγγυημένο ότι είναι μοναδικό. Μην επαναχρησιμοποιείτε σιωπηρά το σημαντικό κείμενο προσβασιμότητας ως κλειδί βάσης δεδομένων.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/officeinteropshapeid/) είναι ένα αναγνωριστικό μόνο για ανάγνωση που είναι μοναδικό μέσα σε μια διαφάνεια και αντιστοιχεί στο ID σχήματος που χρησιμοποιείται από το PowerPoint interop. Χρησιμοποιήστε το όταν ενσωματώνετε με το PowerPoint ή όταν χρειάζεστε μια ασαφή αναφορά κατά τη διάρκεια της ζωής ενός σχήματος. Ένα κλωνοποιημένο ή επαναδημιουργημένο σχήμα είναι διαφορετικό σχήμα και λαμβάνει το δικό του ID.
+
+Η σχετική ιδιότητα [UniqueId](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/uniqueid/) έχει εμβέλεια παρουσίασης, αλλά προορίζεται για πρόσθετα και μπορεί να επαναχρηστοποιηθεί. Δεν πρέπει να θεωρείται μόνιμο εξωτερικό κλειδί. Αν η μακροπρόθεσμη ταυτοποίηση είναι ουσιώδης, κρατήστε την αντιστοίχιση σε δεδομένα εφαρμογής και επικυρώστε ότι το αναμενόμενο σχήμα υπάρχει ακόμη.
+
+Το ακόλουθο παράδειγμα αναζητά με βάση το `Name` χρησιμοποιώντας συγκριτική διάκριση και αναφέρει το ID interop που ανήκει στη διαφάνεια. Όταν το πρότυπο δεν περιέχει το αναμενόμενο σχήμα, ο κώδικας αναφέρει αυτό το αποτέλεσμα αντί να συνεχίσει με το λανθασμένο αντικείμενο.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το αρχείο παρουσίασης
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Εναλλακτικό κείμενο του σχήματος που πρέπει να βρεθεί
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Υλοποίηση μεθόδου για την εύρεση σχήματος σε διαφάνεια με χρήση του εναλλακτικού κειμένου
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Επανάληψη σε όλα τα σχήματα μέσα στη διαφάνεια
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Αν το εναλλακτικό κείμενο της διαφάνειας ταιριάζει με το απαιτούμενο
-        // Επιστροφή του σχήματος
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **Αντιγραφή Σχήματος**
-Για την κλωνοποίηση ενός σχήματος σε μια διαφάνεια χρησιμοποιώντας το Aspose.Slides για .NET:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας χρησιμοποιώντας το δείκτη της.
-3. Προσπελάστε τη συλλογή σχημάτων της πηγής διαφάνειας.
-4. Προσθέστε νέα διαφάνεια στην παρουσίαση.
-5. Κλωνοποιήστε τα σχήματα από τη συλλογή σχημάτων της πηγής διαφάνειας στη νέα διαφάνεια.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Το παρακάτω παράδειγμα προσθέτει ένα ομαδικό σχήμα σε μια διαφάνεια.
-
-```c#
-// Δημιουργία αντικειμένου Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Αποθήκευση αρχείου PPTX στον δίσκο
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Αφαίρεση Σχήματος**
-Aspose.Slides για .NET επιτρέπει στους προγραμματιστές να αφαιρούν οποιοδήποτε σχήμα. Για να αφαιρέσετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`.
-2. Προσπελάστε την πρώτη διαφάνεια.
-3. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-4. Αφαιρέστε το σχήμα.
-5. Αποθηκεύστε το αρχείο στον δίσκο.
-
-```c#
- // Δημιουργία αντικειμένου Presentation
- Presentation pres = new Presentation();
-
- // Λήψη της πρώτης διαφάνειας
- ISlide sld = pres.Slides[0];
-
- // Προσθήκη αυτόματης μορφής τύπου ορθογώνιο
- IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
- IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
- String alttext = "User Defined";
- int iCount = sld.Shapes.Count;
- for (int i = 0; i < iCount; i++)
- {
-     AutoShape ashp = (AutoShape)sld.Shapes[0];
-     if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-     {
-         sld.Shapes.Remove(ashp);
-     }
- }
-
- // Αποθήκευση παρουσίασης στον δίσκο
- pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Απόκρυψη Σχήματος**
-Aspose.Slides για .NET επιτρέπει στους προγραμματιστές να κρύβουν οποιοδήποτε σχήμα. Για να κρύψετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`.
-2. Προσπελάστε την πρώτη διαφάνεια.
-3. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-4. Κρύψτε το σχήμα.
-5. Αποθηκεύστε το αρχείο στον δίσκο.
-
-```c#
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το αρχείο PPTX
-Presentation pres = new Presentation();
-
-// Λήψη της πρώτης διαφάνειας
-ISlide sld = pres.Slides[0];
-
-// Προσθήκη αυτόματης μορφής τύπου ορθογώνιο
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
-}
-
-// Αποθήκευση παρουσίασης στον δίσκο
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **Αλλαγή Σειράς Σχήματος**
-Aspose.Slides για .NET επιτρέπει στους προγραμματιστές να αλλάζουν τη σειρά των σχημάτων. Η αλλαγή σειράς καθορίζει ποιο σχήμα είναι μπροστά ή ποιο είναι πίσω. Για να αλλάξετε τη σειρά ενός σχήματος σε οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`.
-2. Προσπελάστε την πρώτη διαφάνεια.
-3. Προσθέστε ένα σχήμα.
-4. Προσθέστε κάποιο κείμενο στο πλαίσιο κειμένου του σχήματος.
-5. Προσθέστε ακόμη ένα σχήμα με τις ίδιες συντεταγμένες.
-6. Αλλάξτε τη σειρά των σχημάτων.
-7. Αποθηκεύστε το αρχείο στον δίσκο.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Ανάκτηση του Interop Shape ID**
-Aspose.Slides για .NET επιτρέπει στους προγραμματιστές να λάβουν ένα μοναδικό αναγνωριστικό σχήματος σε επίπεδο διαφάνειας, σε αντίθεση με την ιδιότητα UniqueId, η οποία παρέχει μοναδικό αναγνωριστικό σε επίπεδο παρουσίασης. Η ιδιότητα OfficeInteropShapeId προστέθηκε στις διεπαφές IShape και στην κλάση Shape αντίστοιχα. Η τιμή που επιστρέφεται από την ιδιότητα OfficeInteropShapeId αντιστοιχεί στην τιμή του Id του αντικειμένου Microsoft.Office.Interop.PowerPoint.Shape. Παρακάτω δίνεται ένα δείγμα κώδικα.
-
-```c#
-public static void Run()
-{
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Λήψη μοναδικού αναγνωριστικού σχήματος σε επίπεδο διαφάνειας
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
-}
-```
-
-## **Ορισμός Εναλλακτικού Κειμένου για Σχήμα**
-Aspose.Slides για .NET επιτρέπει στους προγραμματιστές να ορίσουν το AlternateText οποιουδήποτε σχήματος.
-Τα σχήματα σε μια παρουσίαση μπορούν να διακρίνονται από την ιδιότητα AlternativeText ή το όνομα σχήματος (Shape Name).
-Η ιδιότητα AlternativeText μπορεί να διαβαστεί ή να οριστεί χρησιμοποιώντας το Aspose.Slides καθώς και το Microsoft PowerPoint.
-Με τη χρήση αυτής της ιδιότητας, μπορείτε να ετικετοποιήσετε ένα σχήμα και να εκτελέσετε διάφορες ενέργειες όπως αφαίρεση, απόκρυψη ή αλλαγή σειράς των σχημάτων στην διαφάνεια.
-Για να ορίσετε το AlternateText ενός σχήματος, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`.
-2. Προσπελάστε την πρώτη διαφάνεια.
-3. Προσθέστε οποιοδήποτε σχήμα στη διαφάνεια.
-4. Εκτελέστε κάποιες εργασίες με το πρόσφατα προστιθέμενο σχήμα.
-5. Διασχίστε τα σχήματα για να βρείτε ένα σχήμα.
-6. Ορίστε το AlternativeText.
-7. Αποθηκεύστε το αρχείο στον δίσκο.
-
-```c#
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το αρχείο PPTX
-Presentation pres = new Presentation();
-
-// Λήψη της πρώτης διαφάνειας
-ISlide sld = pres.Slides[0];
-
-// Προσθήκη αυτόματης μορφής τύπου ορθογώνιο
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
-{
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
-    {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        targetShape = shape;
+        break;
     }
 }
 
-// Αποθήκευση παρουσίασης στον δίσκο
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **Πρόσβαση σε Μορφές Διάταξης για Σχήμα**
-Το Aspose.Slides για .NET παρέχει ένα απλό API για την πρόσβαση σε μορφές διάταξης ενός σχήματος. Αυτό το άρθρο δείχνει πώς μπορείτε να έχετε πρόσβαση σε μορφές διάταξης.
-
-Παρακάτω δίνεται ένα δείγμα κώδικα.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (targetShape is null)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **Απόδοση Σχήματος ως SVG**
-Τώρα το Aspose.Slides για .NET υποστηρίζει την απόδοση ενός σχήματος ως SVG. Η μέθοδος WriteAsSvg (και η υπερφόρτωσή της) προστέθηκε στην κλάση Shape και στη διεπαφή IShape. Αυτή η μέθοδος επιτρέπει την αποθήκευση του περιεχομένου του σχήματος ως αρχείο SVG. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να εξάγετε το σχήμα μιας διαφάνειας σε αρχείο SVG.
+Όταν μια λειτουργία είναι ειδική για έναν τύπο σχήματος, ελέγξτε τη διεπαφή πριν χρησιμοποιήσετε μέλη συγκεκριμένα για τον τύπο. Αυτό το παράδειγμα ενημερώνει το κείμενο και το εναλλακτικό κείμενο μόνο εάν το ονομασμένο αντικείμενο είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/).
 
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    string outSvgFileName = "SingleShape.svg";
-    using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-        {
-            pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-        }
+        candidate = shape;
+        break;
+    }
+}
+
+if (candidate is IAutoShape autoShape)
+{
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
+}
+```
+
+## **Τροποποίηση της Συλλογής Σχημάτων**
+
+Οι μέθοδοι προσθήκης, κλωνοποίησης, αφαίρεσης και αλλαγής σειράς λειτουργούν αμέσως στη συλλογή. Αν μια λειτουργία αλλάζει τον αριθμό ή τη σειρά των σχημάτων, μην συνεχίσετε να βασίζεστε σε ευρετήρια που καταγράφηκαν πριν από αυτή τη λειτουργία.
+
+### **Κλωνοποίηση Σχήματος**
+
+[AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addclone/) δημιουργεί ανεξάρτητο αντίγραφο και το προσθέτει στο στόχο της συλλογής. [InsertClone](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/insertclone/) επίσης δημιουργεί αντίγραφο αλλά το τοποθετεί σε συγκεκριμένο δείκτη z‑order. Οι υπερφορτώσεις που δέχονται συντεταγμένες μετακινούν το κλώνο χωρίς να αλλάζουν το μέγεθός του· οι υπερφορτώσεις με πλάτος και ύψος μπορούν επίσης να το αλλάξουν.
+
+Το παράδειγμα δημιουργεί μια διαφάνεια προορισμού, κλωνοποιεί ένα ορθογώνιο με ετικέτα προς το εμπρός μέρος και εισάγει ένα δεύτερο κλώνο στο πίσω μέρος. Οι αλλαγές σε οποιονδήποτε κλώνο δεν τροποποιούν το σχήμα προέλευσης.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
+{
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Η κλωνοποίηση αντιγράφει το περιεχόμενο και τη μορφοποίηση του σχήματος, συμπεριλαμβανομένων του ονόματος και του εναλλακτικού κειμένου. Αναθέστε νέα λογικά αναγνωριστικά στο κλώνο όταν αυτές οι τιμές πρέπει να είναι μοναδικές. Οι πόροι που χρησιμοποιούνται από σύνθετα σχήματα διαχειρίζονται από την παρουσίαση, αλλά ένα κλώνο παραμένει νέο στοιχείο της συλλογής με νέα ταυτότητα σχήματος.
+
+### **Απομάκρυνση Σχημάτων**
+
+[Remove](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/remove/) διαγράφει ένα συγκεκριμένο αντικείμενο σχήματος από τη συλλογή του. Όταν αφαιρείτε πολλαπλές αντιστοιχίες κατά τη διάρκεια επανάληψης με δείκτες, διασχίστε τη συλλογή από το τέλος ώστε κάθε υπόλοιπο ευρετήριο να παραμένει έγκυρο.
+
+Αυτό το παράδειγμα αφαιρεί κάθε σχήμα με ένα καθορισμένο όνομα. Διαβάζει `slide.Shapes[i]`, όχι ένα σταθερό στοιχείο της συλλογής, και δεν κάνει άσκοπη μετατροπή τύπου.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Μετά την αφαίρεση, ο αριθμός σχημάτων και τα ευρετήρια των επόμενων σχημάτων αλλάζουν. Οι αναφορές σε αμετάβλητα σχήματα παραμένουν πιο αξιόπιστες από αποθηκευμένα ευρετήρια. Επίσης, λάβετε υπόψη συνδέσμους, κινούμενα σχέδια και άλλες δυνατότητες παρουσίασης που μπορεί να αναφέρονται στο αφαιρεθέν αντικείμενο· η αφαίρεση ενός ορατού σχήματος μπορεί να αλλάξει περισσότερα από την εμφάνιση της διαφάνειας.
+
+### **Απόκρυψη Σχήματος**
+
+Η ρύθμιση του [Hidden](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/hidden/) σε `true` διατηρεί το σχήμα στη συλλογή αλλά αποτρέπει την εμφάνισή του στην κανονική προβολή διαφάνειας. Το ευρετήριό του, η μορφοποίηση και το περιεχόμενό του παραμένουν διαθέσιμα στον κώδικα, επομένως η απόκρυψη είναι κατάλληλη για προαιρετικά στοιχεία που μπορεί να επαναφερθούν αργότερα.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Η απόκρυψη δεν είναι διαγραφή ή ασφάλεια. Το αντικείμενο μπορεί ακόμη να εντοπιστεί και να εμφανιστεί ξανά από χρήστη ή κώδικα, και παραμένει μέρος του αρχείου παρουσίασης.
+
+### **Αλλαγή της Σειράς Z**
+
+Τα επικαλυπτόμενα σχήματα ζωγραφίζονται με τη σειρά της συλλογής. [Reorder](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/reorder/) μετακινεί ένα υπάρχον σχήμα σε έναν στόχο ευρετήριο χωρίς κλωνοποίηση. Το ευρετήριο `0` είναι το πίσω μέρος· `Count - 1` είναι το μπροστινό μέρος.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Το ορθογώνιο δημιουργείται πρώτα και αρχικά βρίσκεται πίσω από την έλλειψη. Η μετακίνηση του στο τελικό ευρετήριο το φέρνει μπροστά. Ολοκληρώστε τη σειρά z μετά την προσθήκη ή κλωνοποίηση όλων των σχετικών σχημάτων, επειδή αυτές οι λειτουργίες προσθέτουν ή εισάγουν νέα στοιχεία στη συλλογή και μπορούν να αλλάξουν τη στοίβα.
+
+## **Επιθεώρηση Σχημάτων σε Διαφάνειες Διάταξης**
+
+Οι κανονικές διαφάνειες, οι διαφάνειες διάταξης και οι κύριες διαφάνειες έχουν ξεχωριστές συλλογές σχημάτων. Ένα σχήμα σε μια συλλογή διάταξης δεν είναι το ίδιο αντικείμενο με ένα σχήμα παρόμοιας θέσης σε κανονική διαφάνεια. Επιθεωρήστε τα σχήματα διάταξης όταν πρέπει να καταλάβετε ή να αλλάξετε τη μορφοποίηση που παρέχεται από μια διάταξη.
+
+Το παρακάτω παράδειγμα διαβάζει το [FillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/fillformat/) και το [LineFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/lineformat/) κάθε σχήματος διάταξης χωρίς να υποθέτει ότι κάθε σχήμα είναι `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
     }
 }
 ```
 
-## **Στοίχιση Σχήματος**
+Η επεξεργασία μιας διάταξης μπορεί να επηρεάσει πολλαπλές διαφάνειες που τη χρησιμοποιούν. Πριν αλλάξετε ένα σχήμα διάταξης, προσδιορίστε αν μια κανονική διαφάνεια κληρονομεί το αντικείμενο ή περιέχει τοπική παράκαμψη, και δοκιμάστε κάθε διαφάνεια που χρησιμοποιεί εκείνη τη διάταξη.
 
-Μέσω της υπερφορτωμένης μεθόδου [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/el/net/aspose.slides.util/slideutil/methods/alignshapes/index), μπορείτε
+## **Εξαγωγή Σχήματος σε SVG**
 
-* να στοιχίσετε σχήματα σχετικά με τα περιθώρια μιας διαφάνειας. Δείτε το Παράδειγμα 1.
-* να στοιχίσετε σχήματα μεταξύ τους. Δείτε το Παράδειγμα 2.
+[WriteAsSvg](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/writeassvg/) γράφει το απόδοση ενός σχήματος σε μια ροή. Το αποτέλεσμα περιέχει μόνο το σχήμα, όχι το φόντο ολόκληρης της διαφάνειας ή τα γειτονικά σχήματα.
 
-Η αρίθμηση [ShapesAlignmentType](https://reference.aspose.com/slides/el/net/aspose.slides/shapesalignmenttype) ορίζει τις διαθέσιμες επιλογές στοίχισης.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-**Παράδειγμα 1**
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-Αυτός ο κώδικας C# δείχνει πώς να στοιχίσετε σχήματα με δείκτες 1,2 και 4 κατά μήκος του άνω ορίου μιας διαφάνειας:
-Ο κώδικας παρακάτω στοιχίζει σχήματα με δείκτες 1,2 και 4 κατά μήκος του άνω ορίου της διαφάνειας.
-
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Παράδειγμα 2**
+Διατηρήστε την παρουσίαση ανοιχτή κατά τη διάρκεια της απόδοσης. Η έξοδος εξαρτάται από τη μορφοποίηση του σχήματος και από πόρους όπως γραμματοσειρές και εικόνες. Αν χρειάζεστε ολόκληρη τη σύνθεση, εξάγετε τη διαφάνεια αντί για μόνο το σχήμα. Ο καλούντας κατέχει τη ροή και πρέπει να την αποδεσμεύσει.
 
-Αυτός ο κώδικας C# δείχνει πώς να στοιχίσετε ολόκληρη τη συλλογή σχημάτων σχετικά με το κάτω σχήμα της συλλογής:
+## **Στοίχιση Σχημάτων**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+Οι υπερφορτώσεις του [SlideUtil.AlignShapes](https://reference.aspose.com/slides/el/net/aspose.slides.util/slideutil/alignshapes/) στοιχίζουν είτε όλα τα σχήματα είτε επιλεγμένα ευρετήρια της συλλογής. Το [ShapesAlignmentType](https://reference.aspose.com/slides/el/net/aspose.slides/shapesalignmenttype/) καθορίζει την άκρη, το κέντρο ή τη λειτουργία διανομής. Ορίστε `alignToSlide` σε `true` για χρήση των άκρων της διαφάνειας· θέστε το σε `false` για στοίχιση των επιλεγμένων σχημάτων μεταξύ τους.
+
+Αυτό το παράδειγμα στοιχίζει τρία σχήματα στην άνω άκρη της διαφάνειας. Οι αναφορές στα σχήματα που επιστρέφονται μετατρέπονται αμέσως στα τρέχοντα ευρετήρια τους πριν τη στοίχιση.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Ιδιότητες Αναστροφής**
+Η στοίχιση αλλάζει τις θέσεις, όχι τη σειρά z. Η σχετική στοίχιση συνήθως απαιτεί τουλάχιστον δύο σχήματα, ενώ η οριζόντια ή κατακόρυφη κατανομή χρειάζεται αρκετά σχήματα για να ορίσει την απόσταση. Υπολογίστε ξανά τα ευρετήρια αν τροποποιήσετε τη συλλογή πριν καλέσετε τη μέθοδο.
 
-Στο Aspose.Slides, η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/net/aspose.slides/shapeframe/) παρέχει έλεγχο για οριζόντια και κάθετη κατοπτριστική αναστροφή των σχημάτων μέσω των ιδιοτήτων `FlipH` και `FlipV`. Και οι δύο ιδιότητες είναι τύπου [NullableBool](https://reference.aspose.com/slides/el/net/aspose.slides/nullablebool/), επιτρέποντας τις τιμές `True` για αναστροφή, `False` για χωρίς αναστροφή, ή `NotDefined` για χρήση της προεπιλεγμένης συμπεριφοράς. Αυτές οι τιμές είναι προσβάσιμες από το [Frame](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/frame/) ενός σχήματος.
+## **Αναστροφή Σχήματος**
 
-Για να τροποποιήσετε τις ρυθμίσεις αναστροφής, δημιουργείται μια νέα παρουσία της κλάσης [ShapeFrame](https://reference.aspose.com/slides/el/net/aspose.slides/shapeframe/) με τη τρέχουσα θέση και μέγεθος του σχήματος, τις επιθυμητές τιμές για `FlipH` και `FlipV`, και την γωνία περιστροφής. Η ανάθεση αυτής της παρουσίασης στο [Frame](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/frame/) του σχήματος και η αποθήκευση της παρουσίασης εφαρμόζουν τις μετασχηματισμούς κατοπτρισμού και τα αποθηκεύουν στο αρχείο εξόδου.
+Η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/net/aspose.slides/shapeframe/) αποθηκεύει θέση, μέγεθος, οριζόντιες και κάθετες ρυθμίσεις αναστροφής, και περιστροφή. Οι τιμές `FlipH` και `FlipV` χρησιμοποιούν το [NullableBool](https://reference.aspose.com/slides/el/net/aspose.slides/nullablebool/): `True` ενεργοποιεί την αναστροφή, `False` την απενεργοποιεί, και `NotDefined` διατηρεί την ακαθόριστη/προεπιλεγμένη κατάσταση.
 
-Ας υποθέσουμε ότι έχουμε ένα αρχείο sample.pptx όπου η πρώτη διαφάνεια περιέχει ένα μόνο σχήμα με προεπιλεγμένες ρυθμίσεις αναστροφής, όπως φαίνεται παρακάτω.
+Η παρακάτω παρουσίαση περιέχει ένα σχήμα χωρίς αναστροφή.
 
-![Το σχήμα που θα αντιστραφεί](shape_to_be_flipped.png)
+![Το σχήμα πριν την αναστροφή](shape_to_be_flipped.png)
 
-Το παρακάτω παράδειγμα κώδικα ανακτά τις τρέχουσες ιδιότητες αναστροφής του σχήματος και το αντιστρέφει οριζόντια και κάθετα.
+Το παράδειγμα διατηρεί κάθε άλλη τιμή του πλαισίου και αντικαθιστά μόνο τις δύο ρυθμίσεις αναστροφής. Αυτό είναι σημαντικό επειδή η ανάθεση ενός νέου [Frame](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/frame/) αντικαθιστά ολόκληρο το πλαίσιο.
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Ανάκτηση της οριζόντιας ιδιότητας αντιστροφής του σχήματος.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Ανάκτηση της κάθετης ιδιότητας αντιστροφής του σχήματος.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Αντιστροφή οριζόντια.
-    NullableBool flipV = NullableBool.True; // Αντιστροφή κάθετη.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Το αποτέλεσμα:
+Το αποθηκευμένο σχήμα αντανακλάται οριζόντια και κατακόρυφα ενώ διατηρεί τη θέση, το μέγεθος και την περιστροφή του.
 
-![Το αντιστραμμένο σχήμα](flipped_shape.png)
+![Το σχήμα μετά την αναστροφή](flipped_shape.png)
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να συνδυάσω σχήματα (ένωση/τομή/αφαίρεση) σε μια διαφάνεια όπως σε έναν επεξεργαστή επιφάνειας εργασίας;**
+**Should I use a collection index as a shape identifier?**  
+Μόνο για βραχυπρόθεσμη επεξεργασία όταν η συλλογή δεν θα αλλάξει πριν χρησιμοποιηθεί το ευρετήριο. Προτιμήστε ένα επικυρωμένο `Name` ή σύμβαση `AlternativeText` για πρότυπα που έχουν δημιουργηθεί, ή `OfficeInteropShapeId` για εργασίες interop περιορισμένες στη διαφάνεια.
 
-Δεν υπάρχει ενσωματωμένο API για λογικές (Boolean) λειτουργίες. Μπορείτε να προσεγγίσετε το αποτέλεσμα κατασκευάζοντας μόνοι σας το επιθυμητό περίγραμμα — π.χ., υπολογίζοντας τη γεωμετρία που προκύπτει (μέσω του [GeometryPath](https://reference.aspose.com/slides/el/net/aspose.slides/geometrypath/)) και δημιουργώντας ένα νέο σχήμα με αυτό το περίγραμμα, προαιρετικά αφαιρώντας τα αρχικά.
+**Does hiding a shape remove it from the z-order?**  
+Όχι. Ένα κρυμμένο σχήμα παραμένει στη συλλογή με το ίδιο ευρετήριο. Μπορεί να βρεθεί, να επανατοποθετηθεί, να επεξεργαστεί ή να γίνει ξανά ορατό.
 
-**Πώς μπορώ να ελέγξω τη σειρά στοιβάγματος (z-order) ώστε ένα σχήμα να παραμένει πάντα «στην κορυφή»;**
-
-Αλλάξτε τη σειρά εισαγωγής/μετακίνησης εντός της συλλογής [shapes](https://reference.aspose.com/slides/el/net/aspose.slides/baseslide/shapes/) της διαφάνειας. Για προβλεπόμενα αποτελέσματα, ορίστε definitively τη σειρά z-order μετά από όλες τις άλλες τροποποιήσεις της διαφάνειας.
-
-**Μπορώ να «κλειδώσω» ένα σχήμα ώστε να αποτρέψω τους χρήστες από το να το επεξεργαστούν στο PowerPoint;**
-
-Ναι. Ορίστε τις [σημαίες προστασίας επιπέδου σχήματος](/slides/el/net/applying-protection-to-presentation/) (π.χ., κλείδωμα επιλογής, κίνησης, αλλαγής μεγέθους, επεξεργασίας κειμένου). Αν χρειάζεται, εφαρμόστε περιορισμούς στον κύριο ή στο layout. Σημειώστε ότι αυτή είναι προστασία σε επίπεδο διεπαφής χρήστη, όχι χαρακτηριστικό ασφαλείας· για πιο ισχυρή προστασία, συνδυάστε με περιορισμούς σε επίπεδο αρχείου όπως [συστάσεις μόνο για ανάγνωση ή κωδικοί πρόσβασης](/slides/el/net/password-protected-presentation/).
+**Why did a cloned shape appear in front of another shape?**  
+Το `AddClone` προσθέτει το κλώνο στο τέλος της συλλογής, που είναι το μπροστινό μέρος της σειράς z. Χρησιμοποιήστε `InsertClone` για να επιλέξετε το αρχικό ευρετήριο ή `Reorder` μετά την προσθήκη όλων των σχημάτων.

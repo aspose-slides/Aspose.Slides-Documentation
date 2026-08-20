@@ -1,6 +1,6 @@
 ---
-title: Quản lý hình dạng trong bản trình chiếu bằng Python
-linktitle: Thao tác hình dạng
+title: Quản lý các hình dạng trên bản trình chiếu bằng Python
+linktitle: Thao tác Hình dạng
 type: docs
 weight: 40
 url: /vi/python-net/shape-manipulations/
@@ -10,318 +10,315 @@ keywords:
 - hình dạng trên slide
 - tìm hình dạng
 - sao chép hình dạng
-- xóa hình dạng
+- xoá hình dạng
 - ẩn hình dạng
 - thay đổi thứ tự hình dạng
-- lấy ID hình dạng Interop
-- văn bản thay thế cho hình dạng
+- lấy ID hình dạng interop
+- văn bản thay thế của hình dạng
 - định dạng bố cục hình dạng
 - hình dạng dưới dạng SVG
-- hình dạng sang SVG
+- hình dạng thành SVG
 - căn chỉnh hình dạng
+- lật hình dạng
 - PowerPoint
-- OpenDocument
 - bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách tạo, chỉnh sửa và tối ưu hóa các hình dạng trong Aspose.Slides cho Python thông qua .NET và cung cấp các bản trình chiếu PowerPoint và OpenDocument hiệu năng cao."
+description: "Tìm hiểu cách xác định, sao chép, xoá, ẩn, sắp lại thứ tự, xuất, căn chỉnh và lật các hình dạng trong bản trình chiếu bằng Aspose.Slides cho Python qua .NET."
 ---
 ## **Tổng quan**
 
-Hướng dẫn này giới thiệu việc thao tác hình dạng trong Aspose.Slides cho Python thông qua .NET. Học các mẫu thực tế để tìm hình dạng (kể cả bằng Văn bản thay thế), sao chép, xóa hoặc ẩn, sắp xếp lại, căn chỉnh và lật, đọc ID và định dạng dựa trên bố cục, và xuất từng hình dạng ra SVG bằng các API [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/).
+Aspose.Slides for Python via .NET biểu diễn các hình dạng trên một slide dưới dạng một [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và sửa đổi các hình dạng, vừa là nguồn của thứ tự xếp chồng: chỉ mục `0` là hình dạng ở phía sau nhất, trong khi chỉ mục cuối cùng là hình dạng ở phía trước nhất.
 
-## **Tìm hình dạng trên các slide**
+Bài viết này tuân theo mô hình đó. Nó đầu tiên giải thích cách xác định một hình dạng một cách đáng tin cậy, sau đó chỉ ra cách sao chép, xóa, ẩn và sắp lại thứ tự các hình dạng. Các phần cuối cùng đề cập đến định dạng ở mức bố cục, xuất SVG, căn chỉnh và thiết lập lật. Mỗi ví dụ là độc lập, vì vậy bạn có thể chỉ sử dụng các thao tác mà quy trình công việc của bạn yêu cầu.
 
-PowerPoint chỉ xác định hình dạng bằng ID nội bộ. Gán Văn bản thay thế duy nhất cho hình dạng mục tiêu trong PowerPoint, sau đó mở bản trình chiếu bằng Aspose.Slides cho Python, duyệt qua các hình dạng trên slide và chọn hình dạng có Văn bản thay thế khớp. Phương pháp `find_shape` thực hiện cách tiếp cận này và trả về hình dạng phù hợp.
+## **Xác định và Tìm kiếm Hình dạng**
 
-```py
+Các chỉ mục trong bộ sưu tập tiện lợi khi xử lý tệp đã biết, nhưng chúng không phải là định danh ổn định. Thêm, xóa hoặc sắp lại thứ tự một hình dạng có thể làm thay đổi chỉ mục của nó. Chọn một định danh dựa trên cách bản trình bày được tạo và duy trì:
+
+- [Shape.name](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/name/) hữu ích cho các mẫu do nhà phát triển kiểm soát và dễ kiểm tra trong Bảng chọn của PowerPoint. Tên có thể chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy ước đặt tên nếu mã phụ thuộc vào chúng.
+- [Shape.alternative_text](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/alternative_text/) hữu dụng khi mô tả trợ năng hoặc thẻ do tác giả cung cấp đã xác định hình dạng. Nó hiển thị cho người dùng, có thể được địa phương hoá hoặc viết lại cho trợ năng, và không được đảm bảo là duy nhất. Đừng yên lặng tái sử dụng văn bản trợ năng có ý nghĩa làm khóa cơ sở dữ liệu.
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/office_interop_shape_id/) là một định danh chỉ đọc, duy nhất trong một slide và tương ứng với ID hình dạng được PowerPoint interop sử dụng. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt vòng đời của một hình dạng. Một hình dạng được sao chép hoặc tạo lại là một hình dạng khác và sẽ nhận ID riêng của nó.
+
+Thuộc tính liên quan [Shape.unique_id](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/unique_id/) có phạm vi toàn bộ bản trình bày, nhưng nó được thiết kế cho các add-in và có thể được gán lại. Không nên coi nó như một khóa bên ngoài vĩnh viễn. Nếu nhận dạng lâu dài là quan trọng, hãy giữ ánh xạ trong dữ liệu ứng dụng và xác thực rằng hình dạng mong đợi vẫn tồn tại.
+
+Ví dụ dưới đây tìm kiếm theo `name` với so sánh chính xác và báo cáo ID interop có phạm vi slide. Khi mẫu không chứa hình dạng mong đợi, mã sẽ báo cáo kết quả đó thay vì tiếp tục với đối tượng sai.
+
+```python
 import aspose.slides as slides
 
-# Tìm một hình dạng trên slide bằng văn bản thay thế của nó.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Tạo một thể hiện của lớp Presentation đại diện cho tệp bản trình chiếu.
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # Tìm hình dạng có Văn bản thay thế "Shape1".
-    shape = find_shape(slide, "Shape1")
-    if shape is not None:
-        print("Shape name:", shape.name)
+
+    target_shape = None
+    for shape in slide.shapes:
+        if shape.name == "RevenueChart":
+            target_shape = shape
+            break
+
+    if target_shape is None:
+        print("The shape 'RevenueChart' was not found on slide 1.")
+    else:
+        print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-## **Sao chép hình dạng**
+Khi một thao tác cụ thể cho một loại hình dạng, kiểm tra kiểu trước khi sử dụng các thành viên đặc thù kiểu. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ nếu đối tượng có tên là một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/).
 
-Để sao chép hình dạng từ slide nguồn sang slide mới trong Aspose.Slides, thực hiện các bước sau:
-
-1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) từ tệp nguồn.  
-1. Lấy slide nguồn theo chỉ mục và bộ sưu tập hình dạng của nó.  
-1. Lấy bố cục trống từ slide chủ.  
-1. Thêm một slide trống sử dụng bố cục đó và lấy bộ hình dạng của nó.  
-1. Sao chép các hình dạng vào slide đích.  
-1. Lưu bản trình chiếu dưới dạng PPTX.
-
-Ví dụ mã sau sao chép hình dạng từ slide này sang slide khác.
-
-```py
+```python
 import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation.
-with slides.Presentation("sample.pptx") as presentation:
-    source_shapes = presentation.slides[0].shapes
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    candidate = None
+    for shape in slide.shapes:
+        if shape.name == "StatusLabel":
+            candidate = shape
+            break
+
+    if isinstance(candidate, slides.AutoShape):
+        candidate.text_frame.text = "Approved"
+        candidate.alternative_text = "Approval status: approved"
+        presentation.save("identified-shape.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("'StatusLabel' is missing or is not an AutoShape.")
+```
+
+## **Sửa đổi Bộ sưu tập Hình dạng**
+
+Các phương thức thêm, sao chép, xóa và sắp lại hoạt động trên bộ sưu tập ngay lập tức. Nếu một thao tác làm thay đổi số lượng hoặc thứ tự của các hình dạng, đừng tiếp tục dựa vào các chỉ mục đã được lấy trước thao tác đó.
+
+### **Sao chép một Hình dạng**
+
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_clone/) tạo một bản sao độc lập và thêm vào cuối bộ sưu tập đích. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/insert_clone/) cũng tạo một bản sao nhưng đặt nó tại một chỉ mục z‑order xác định. Các overload nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có chiều rộng và chiều cao có thể thay đổi kích thước đồng thời.
+
+Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước, và chèn bản sao thứ hai ở phía sau. Thay đổi một trong các bản sao không làm thay đổi hình nguồn.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    source_slide = presentation.slides[0]
+    source_shape = source_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 180, 60)
+    source_shape.name = "SourceLabel"
+    source_shape.text_frame.text = "Source"
+
     blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    destination_slide = presentation.slides.add_empty_slide(blank_layout)
 
-    target_slide = presentation.slides.add_empty_slide(blank_layout)
-    target_shapes = target_slide.shapes
-	
-    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
-    target_shapes.add_clone(source_shapes[2])
-    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
+    front_clone_shape = destination_slide.shapes.add_clone(source_shape, 80, 80)
+    front_clone_shape.name = "FrontClone"
+    if isinstance(front_clone_shape, slides.AutoShape):
+        front_clone_shape.text_frame.text = "Front clone"
+    else:
+        print("The front clone is not an AutoShape; its text was not changed.")
 
-    # Lưu bản trình chiếu ra đĩa.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    back_clone_shape = destination_slide.shapes.insert_clone(0, source_shape, 80, 180)
+    back_clone_shape.name = "BackClone"
+    if isinstance(back_clone_shape, slides.AutoShape):
+        back_clone_shape.text_frame.text = "Back clone"
+    else:
+        print("The back clone is not an AutoShape; its text was not changed.")
+
+    presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Xóa hình dạng**
+Sao chép bao gồm nội dung và định dạng của hình, bao gồm tên và văn bản thay thế. Gán các định danh logic mới cho bản sao khi các giá trị đó phải là duy nhất. Các tài nguyên được các hình dạng phức tạp sử dụng được trình chiếu xử lý, nhưng một bản sao vẫn là mục mới trong bộ sưu tập với định danh hình dạng mới.
 
-Aspose.Slides cho phép bạn xóa bất kỳ hình dạng nào khỏi một slide. Ví dụ, để xóa một hình dạng ở slide đầu tiên bằng Văn bản thay thế của nó, thực hiện các bước sau:
+### **Xóa Hình dạng**
 
-1. Tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải tệp.  
-1. Truy cập slide đầu tiên trong bộ sưu tập slide.  
-1. Tìm hình dạng bằng giá trị Văn bản thay thế.  
-1. Xóa hình dạng khỏi bộ sưu tập hình dạng của slide.  
-1. Lưu bản trình chiếu ra đĩa ở định dạng PPTX.
+[ShapeCollection.remove](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/remove/) xoá một đối tượng hình dạng cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều kết quả phù hợp trong quá trình lặp có chỉ mục, duyệt từ cuối lên để mỗi chỉ mục còn lại vẫn hợp lệ.
 
-```py
+Ví dụ này xóa mọi hình dạng có tên được chỉ định. Nó đọc `slide.shapes[index]`, không phải một mục cố định trong bộ sưu tập, và không ép kiểu hình dạng một cách không cần thiết.
+
+```python
 import aspose.slides as slides
 
-# Tìm một hình dạng trên slide bằng văn bản thay thế của nó.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Tạo một thể hiện của lớp Presentation đại diện cho tệp bản trình chiếu.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Tìm hình dạng có Văn bản thay thế "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # Xóa hình dạng.
-    slide.shapes.remove(shape)
-    # Lưu bản trình chiếu ra đĩa.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ẩn hình dạng**
-
-Aspose.Slides cho phép bạn ẩn bất kỳ hình dạng nào trên slide. Ví dụ, để ẩn một hình dạng trên slide đầu tiên bằng Văn bản thay thế, thực hiện các bước sau:
-
-1. Tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải tệp.  
-1. Truy cập slide đầu tiên trong bộ sưu tập slide.  
-1. Tìm hình dạng bằng giá trị Văn bản thay thế.  
-1. Ẩn hình dạng.  
-1. Lưu bản trình chiếu ra đĩa ở định dạng PPTX.
-
-```py
-# Tìm một hình dạng trên slide bằng văn bản thay thế của nó.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Tạo một thể hiện của lớp Presentation đại diện cho tệp bản trình chiếu.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Tìm hình dạng có Văn bản thay thế "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # Ẩn hình dạng.
-    shape.hidden = True
-    # Lưu bản trình chiếu ra đĩa.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Thay đổi thứ tự của các hình dạng**
-
-Aspose.Slides cho phép các nhà phát triển sắp xếp lại các hình dạng (thay đổi thứ tự z). Việc sắp xếp lại quyết định hình dạng nào xuất hiện phía trước hoặc phía sau. Ví dụ, để sắp xếp lại hai hình dạng trên slide đầu tiên, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).  
-1. Truy cập slide đầu tiên.  
-1. Thêm hình dạng đầu tiên (ví dụ: một hình chữ nhật).  
-1. Thêm hình dạng thứ hai (ví dụ: một hình tam giác).  
-1. Sắp xếp lại các hình dạng bằng cách di chuyển hình dạng thứ hai lên vị trí đầu tiên trong bộ sưu tập.  
-1. Lưu bản trình chiếu ra đĩa.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Thêm hai hình dạng vào slide.
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
-    # Di chuyển hình dạng thứ hai lên vị trí đầu tiên.
-    slide.shapes.reorder(0, shape2)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Lấy ID Interop của hình dạng**
-
-Aspose.Slides cho phép bạn lấy mã định danh duy nhất của một hình dạng ở cấp slide, khác với thuộc tính `unique_id` chỉ duy nhất trên toàn bộ bản trình chiếu. Thuộc tính `office_interop_shape_id` có trên lớp [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/). Giá trị của nó tương ứng với `Id` của đối tượng `Microsoft.Office.Interop.PowerPoint.Shape`. Đoạn mã mẫu được hiển thị bên dưới.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # Lấy định danh duy nhất của hình dạng trong slide.
-    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
-```
-
-## **Đặt Văn bản thay thế cho hình dạng**
-
-Aspose.Slides cho phép các nhà phát triển đặt văn bản thay thế cho bất kỳ hình dạng nào. Bạn có thể sử dụng văn bản thay thế để xác định và định vị hình dạng trong bản trình chiếu. Thuộc tính văn bản thay thế có thể đọc và ghi thông qua cả Aspose.Slides và Microsoft PowerPoint. Bằng cách gắn thẻ các hình dạng với thuộc tính này, bạn có thể sau này xóa, ẩn hoặc sắp xếp lại chúng trên một slide.
-
-Để đặt văn bản thay thế cho một hình dạng, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).  
-1. Truy cập slide đầu tiên.  
-1. Thêm một hình dạng vào slide.  
-1. Đặt văn bản thay thế.  
-1. Lưu bản trình chiếu ra đĩa.
-
-```py
-import aspose.slides as slides
-
-# Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    # Thêm một hình dạng.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    # Đặt văn bản thay thế cho hình dạng.
-    shape.alternative_text = "User Defined"
-    # Lưu bản trình chiếu ra đĩa.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    keep_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 140, 60)
+    keep_shape.name = "Keep"
+
+    first_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 220, 40, 80, 80)
+    first_temporary_shape.name = "Temporary"
+
+    second_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 340, 40, 100, 80)
+    second_temporary_shape.name = "Temporary"
+
+    for index in range(len(slide.shapes) - 1, -1, -1):
+        shape = slide.shapes[index]
+        if shape.name == "Temporary":
+            slide.shapes.remove(shape)
+
+    presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Truy cập Định dạng Bố cục cho các hình dạng**
+Sau khi xóa, số lượng hình dạng và chỉ mục của các hình sau thay đổi. Tham chiếu tới các hình không bị ảnh hưởng vẫn đáng tin cậy hơn so với các chỉ mục đã lưu. Cũng cần cân nhắc các connector, hoạt ảnh và các tính năng trình chiếu khác có thể tham chiếu tới đối tượng đã xóa; việc xóa một hình dạng hiển thị có thể thay đổi nhiều hơn chỉ vẻ ngoài của slide.
 
-Aspose.Slides cung cấp API đơn giản để truy cập định dạng bố cục cho các hình dạng. Phần này minh họa cách truy cập định dạng bố cục.
+### **Ẩn một Hình dạng**
 
-```py
+Đặt [Shape.hidden](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/hidden/) thành `True` giữ hình dạng trong bộ sưu tập nhưng ngăn nó xuất hiện trong chế độ trình chiếu thông thường. Chỉ mục, định dạng và nội dung của nó vẫn sẵn sàng cho mã, vì vậy ẩn phù hợp cho các yếu tố tùy chọn có thể được khôi phục sau này.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
-    for layout_slide in presentation.layout_slides:
-        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
-        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
-```
-
-## **Kết xuất hình dạng dưới dạng SVG**
-
-Aspose.Slides hỗ trợ kết xuất các hình dạng dưới dạng SVG. Phương thức `write_as_svg` (và các overload của nó) trên lớp [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) cho phép bạn lưu nội dung của một hình dạng dưới dạng ảnh SVG. Đoạn mã dưới đây cho thấy cách xuất một hình dạng ra tệp SVG.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    with open("output.svg", "wb") as image_stream:
-        # Lấy hình dạng đầu tiên trên slide đầu tiên.
-        shape = presentation.slides[0].shapes[0]
-        shape.write_as_svg(image_stream)
-```
-
-## **Căn chỉnh hình dạng**
-
-Sử dụng phương thức `align_shape` trong lớp [SlidesUtil](https://reference.aspose.com/slides/vi/python-net/aspose.slides.util/slideutil/), bạn có thể:
-
-* Căn chỉnh các hình dạng tương đối với lề của slide (xem Ví dụ 1).  
-* Căn chỉnh các hình dạng tương đối với nhau (xem Ví dụ 2).
-
-Kiểu liệt kê [ShapesAlignmentType](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapesalignmenttype/) định nghĩa các tùy chọn căn chỉnh có sẵn.
-
-**Ví dụ 1**
-
-Mã Python này cho thấy cách căn chỉnh các hình dạng có chỉ số 1, 2 và 4 với mép trên của slide:
-
-```py
-import aspose.slides as slides
-
-align_type = slides.ShapesAlignmentType.ALIGN_TOP
-slide_indices = [1, 2, 4]
-
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
+
+    visible_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 160, 60)
+    visible_shape.name = "VisibleLabel"
+
+    optional_shape = slide.shapes.add_auto_shape(slides.ShapeType.MOON, 240, 40, 100, 100)
+    optional_shape.name = "OptionalDecoration"
+
+    for shape in slide.shapes:
+        if shape.name == "OptionalDecoration":
+            shape.hidden = True
+
+    presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Ví dụ 2**
+Ẩn không phải là xóa hay bảo mật. Đối tượng vẫn có thể được người dùng hoặc mã khám phá và hiển thị lại, và nó vẫn là một phần của tệp trình chiếu.
 
-Ví dụ Python này cho thấy cách căn chỉnh tất cả các hình dạng trong một bộ sưu tập tương đối với hình dạng thấp nhất trong bộ sưu tập đó:
+### **Thay đổi Z‑Order**
 
-```py
+Các hình dạng chồng lên nhau được vẽ theo thứ tự trong bộ sưu tập. [ShapeCollection.reorder](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/reorder/) di chuyển một hình dạng đã tồn tại tới một chỉ mục đích mà không sao chép. Chỉ mục `0` là phía sau; `len(slide.shapes) - 1` là phía trước.
+
+```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
+    blue_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 220, 120)
+    blue_rectangle.name = "BlueRectangle"
+    blue_rectangle.fill_format.fill_type = slides.FillType.SOLID
+    blue_rectangle.fill_format.solid_fill_color.color = draw.Color.steel_blue
+
+    orange_ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 180, 140, 220, 120)
+    orange_ellipse.name = "OrangeEllipse"
+    orange_ellipse.fill_format.fill_type = slides.FillType.SOLID
+    orange_ellipse.fill_format.solid_fill_color.color = draw.Color.orange
+
+    slide.shapes.reorder(len(slide.shapes) - 1, blue_rectangle)
+    presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thuộc tính Lật**
+Hình chữ nhật được tạo trước và ban đầu nằm phía sau hình ellipse. Di chuyển nó tới chỉ mục cuối cùng sẽ đặt nó lên phía trước. Hoàn thiện thứ tự z‑order sau khi thêm hoặc sao chép tất cả các hình dạng liên quan, vì các thao tác đó thêm hoặc chèn mục mới vào bộ sưu tập và có thể làm thay đổi ngăn xếp đã dự định.
 
-Trong Aspose.Slides, lớp [ShapeFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapeframe/) cung cấp khả năng kiểm soát việc lật ngang và dọc của các hình dạng thông qua các thuộc tính `flip_h` và `flip_v`. Cả hai thuộc tính đều có kiểu [NullableBool](https://reference.aspose.com/slides/vi/python-net/aspose.slides/nullablebool/), cho phép giá trị `TRUE` để lật, `FALSE` để không lật, hoặc `NOT_DEFINED` để sử dụng hành vi mặc định. Các giá trị này có thể truy cập từ [Frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/frame/) của một hình dạng.
+## **Kiểm tra Hình dạng trên Slide Bố cục**
 
-Để sửa đổi cài đặt lật, một thể hiện mới của [ShapeFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapeframe/) được xây dựng bằng vị trí và kích thước hiện tại của hình dạng, các giá trị mong muốn cho `flip_h` và `flip_v`, và góc quay. Gán thể hiện này cho [Frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/frame/) của hình dạng và lưu bản trình chiếu sẽ áp dụng các biến đổi phản chiếu và ghi chúng vào tệp đầu ra.
+Slide thường, slide bố cục và slide master có các bộ sưu tập hình dạng riêng biệt. Một hình dạng trong bộ sưu tập bố cục không phải là cùng một đối tượng với một hình dạng ở vị trí tương tự trên slide thường. Kiểm tra các hình dạng bố cục khi bạn cần hiểu hoặc thay đổi định dạng do bố cục cung cấp.
 
-Giả sử chúng ta có tệp sample.pptx trong đó slide đầu tiên chứa một hình dạng duy nhất với cài đặt lật mặc định, như hình dưới đây.
+Ví dụ dưới đây đọc [Shape.fill_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/fill_format/) và [Shape.line_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/line_format/) của mỗi hình dạng bố cục mà không giả định mọi hình dạng đều là `AutoShape`.
 
-![The shape to be flipped](shape_to_be_flipped.png)
+```python
+import aspose.slides as slides
 
-Đoạn mã sau lấy các thuộc tính lật hiện tại của hình dạng và lật nó cả ngang lẫn dọc.
+with slides.Presentation("input.pptx") as presentation:
+    for layout_slide in presentation.layout_slides:
+        for shape in layout_slide.shapes:
+            fill_type = shape.fill_format.fill_type
+            line_width = shape.line_format.width
+            print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
+```
 
-```py
+Việc chỉnh sửa một bố cục có thể ảnh hưởng tới nhiều slide sử dụng nó. Trước khi thay đổi một hình dạng bố cục, xác định xem slide thường có kế thừa đối tượng này hay chứa một ghi đè cục bộ, và thử nghiệm mọi slide sử dụng bố cục đó.
+
+## **Xuất Hình dạng ra SVG**
+
+[Shape.write_as_svg](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/write_as_svg/) ghi nội dung đã render của một hình dạng vào một luồng. Kết quả chứa hình dạng, không phải toàn bộ nền slide hoặc các hình dạng lân cận.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) == 0:
+        print("Slide 1 does not contain a shape to export.")
+    else:
+        shape = slide.shapes[0]
+        with open("shape.svg", "wb") as svg_stream:
+            shape.write_as_svg(svg_stream)
+```
+
+Giữ trình chiếu mở trong khi render. Đầu ra phụ thuộc vào định dạng của hình dạng và các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì một hình dạng riêng lẻ. Người gọi sở hữu luồng và phải đóng nó.
+
+## **Căn chỉnh Hình dạng**
+
+Các overload của [SlideUtil.align_shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.util/slideutil/align_shapes/) căn chỉnh toàn bộ hình dạng hoặc các chỉ mục bộ sưu tập đã chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapesalignmenttype/) xác định cạnh, đường trung tâm hoặc chế độ phân bố. Đặt `align_to_slide` thành `True` để sử dụng các cạnh slide; đặt thành `False` để căn chỉnh các hình dạng đã chọn tương quan với nhau.
+
+Ví dụ này căn chỉnh ba hình dạng tới cạnh trên của slide. Các chỉ mục hiện tại của chúng được tính ngay trước khi căn chỉnh.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 60, 80, 120, 50)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 240, 160, 120, 50)
+    third_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 420, 240, 120, 50)
+    first_shape.name = "FirstAlignedShape"
+    second_shape.name = "SecondAlignedShape"
+    third_shape.name = "ThirdAlignedShape"
+
+    shape_indexes = [
+        slide.shapes.index_of(first_shape),
+        slide.shapes.index_of(second_shape),
+        slide.shapes.index_of(third_shape)
+    ]
+
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, slide, shape_indexes)
+    presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Căn chỉnh thay đổi vị trí, không thay đổi z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình dạng, trong khi phân bố ngang hoặc dọc cần đủ hình dạng để xác định khoảng cách. Tính lại chỉ mục nếu bạn sửa đổi bộ sưu tập trước khi gọi phương thức.
+
+## **Lật một Hình dạng**
+
+Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapeframe/) lưu trữ vị trí, kích thước, cài đặt lật ngang và dọc, và góc quay. Các giá trị `flip_h` và `flip_v` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/python-net/aspose.slides/nullablebool/): `TRUE` bật lật, `FALSE` tắt lật, và `NOT_DEFINED` giữ trạng thái chưa xác định hoặc mặc định.
+
+Bản trình chiếu đầu vào dưới đây chứa một hình dạng chưa bị lật.
+
+![Hình dạng trước khi lật](shape_to_be_flipped.png)
+
+Ví dụ này giữ nguyên mọi giá trị khung khác và chỉ thay thế hai cài đặt lật. Điều này quan trọng vì gán một [Shape.frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/frame/) mới sẽ thay thế toàn bộ khung.
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    frame = shape.frame
 
-    # Lấy thuộc tính lật ngang của hình dạng.
-    horizontal_flip = shape.frame.flip_h
-    print("Horizontal flip:", horizontal_flip)
+    print("Horizontal flip before change:", frame.flip_h)
+    print("Vertical flip before change:", frame.flip_v)
 
-    # Lấy thuộc tính lật dọc của hình dạng.
-    vertical_flip = shape.frame.flip_v
-    print("Vertical flip:", vertical_flip)
+    shape.frame = slides.ShapeFrame(
+        frame.x, frame.y, frame.width, frame.height,
+        slides.NullableBool.TRUE, slides.NullableBool.TRUE, frame.rotation)
 
-    x, y = shape.frame.x, shape.frame.y
-    width, height = shape.frame.width, shape.frame.height
-    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # Lật ngang và dọc.
-    rotation = shape.frame.rotation
-
-    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả:
+Hình dạng đã lưu được lật ngược chiều ngang và chiều dọc trong khi vẫn giữ vị trí, kích thước và góc quay.
 
-![The flipped shape](flipped_shape.png)
+![Hình dạng sau khi lật](flipped_shape.png)
 
 ## **FAQ**
 
-**Tôi có thể kết hợp các hình dạng (union/intersect/subtract) trên một slide như trong trình chỉnh sửa trên máy tính để bàn không?**
+**Có nên sử dụng chỉ mục bộ sưu tập làm định danh cho hình dạng không?**
 
-Hiện không có API phép toán Boolean tích hợp. Bạn có thể gần đúng bằng cách tự xây dựng đường viền mong muốn—ví dụ, tính toán hình học kết quả (qua [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/)) và tạo một hình dạng mới với contour đó, tùy chọn xóa các hình dạng gốc.
+Chỉ nên dùng trong các xử lý ngắn hạn khi bộ sưu tập sẽ không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên một quy ước `name` hoặc `alternative_text` đã được xác thực cho các mẫu do người viết, hoặc `office_interop_shape_id` cho công việc interop có phạm vi slide.
 
-**Làm sao tôi kiểm soát thứ tự xếp chồng (z-order) để một hình dạng luôn ở “trên cùng”?**
+**Việc ẩn một hình dạng có loại bỏ nó khỏi z‑order không?**
 
-Thay đổi thứ tự chèn/di chuyển trong bộ sưu tập [shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slide/shapes/) của slide. Để có kết quả dự đoán được, hãy hoàn thiện z-order sau khi thực hiện tất cả các sửa đổi khác trên slide.
+Không. Một hình dạng ẩn vẫn ở trong bộ sưu tập với cùng chỉ mục. Nó có thể được tìm, sắp lại, chỉnh sửa hoặc hiển thị lại.
 
-**Tôi có thể “khóa” một hình dạng để ngăn người dùng chỉnh sửa nó trong PowerPoint không?**
+**Tại sao một hình dạng sao chép lại xuất hiện phía trước một hình dạng khác?**
 
-Có. Đặt các cờ bảo vệ mức hình dạng [/slides/vi/python-net/applying-protection-to-presentation/](#) (ví dụ: khóa chọn, di chuyển, thay đổi kích thước, chỉnh sửa văn bản). Nếu cần, cũng có thể áp dụng hạn chế trên master hoặc layout. Lưu ý đây là bảo vệ ở mức giao diện người dùng, không phải tính năng bảo mật; để bảo vệ mạnh hơn, kết hợp với các hạn chế ở mức tệp như đề xuất chỉ đọc hoặc mật khẩu [/slides/vi/python-net/password-protected-presentation/](#).
+`add_clone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước trong z‑order. Sử dụng `insert_clone` để chọn chỉ mục ban đầu hoặc `reorder` sau khi đã thêm tất cả các hình dạng.

@@ -13,370 +13,421 @@ keywords:
 - 도형 제거
 - 도형 숨기기
 - 도형 순서 변경
-- Interop 도형 ID 가져오기
+- interop 도형 ID 가져오기
 - 도형 대체 텍스트
-- 도형 레이아웃 형식
+- 도형 레이아웃 서식
 - SVG로 도형
 - 도형을 SVG로
 - 도형 정렬
+- 도형 뒤집기
 - PowerPoint
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java에서 도형을 만들고, 편집하고, 최적화하는 방법을 배우고 고성능 PowerPoint 프레젠테이션을 제공하십시오."
+description: "Aspose.Slides for PHP via Java를 사용하여 프레젠테이션 도형을 식별하고, 복제하고, 제거하고, 숨기고, 순서를 변경하고, 내보내고, 정렬하고, 뒤집는 방법을 배우세요."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides를 사용하여 프레젠테이션에서 도형을 다루는 방법을 설명합니다. 슬라이드에서 도형을 찾고, 복제하고, 제거하고, 숨기고, 순서를 변경하고, Interop 도형 ID를 가져오며, 식별 및 후속 처리를 위해 대체 텍스트를 설정하는 방법을 보여줍니다.
+Aspose.Slides for PHP via Java은 슬라이드의 도형을 순서가 지정된 [ShapeCollection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapecollection/)으로 나타냅니다. 이 컬렉션은 도형을 찾고 수정하는 위치이면서 동시에 도형의 스택 순서의 원천이며, 인덱스 `0`은 가장 뒤에 있는 도형이고 마지막 인덱스는 가장 앞에 있는 도형입니다.
 
-또한 도형의 레이아웃 형식에 접근하는 방법, 도형을 SVG로 렌더링하는 방법, 슬라이드에서 도형을 정렬하는 방법, 수평 및 수직 미러링을 위한 플립 속성을 사용하는 방법을 다룹니다. 추가로 도형 결합, 스택 순서, 도형 잠금에 관한 짧은 FAQ도 포함되어 있습니다.
+이 문서는 해당 모델을 따릅니다. 먼저 도형을 신뢰성 있게 식별하는 방법을 설명하고, 이어서 도형을 복제, 제거, 숨기기 및 순서 변경하는 방법을 보여줍니다. 마지막 섹션에서는 레이아웃 수준의 서식 지정, SVG 내보내기, 정렬 및 뒤집기 설정을 다룹니다. 각 예제는 독립적이므로 필요한 작업만 사용할 수 있습니다.
 
-## **슬라이드에서 도형 찾기**
-이 항목에서는 내부 Id를 사용하지 않고 개발자가 특정 도형을 슬라이드에서 쉽게 찾을 수 있는 간단한 기술을 설명합니다. PowerPoint 프레젠테이션 파일은 내부 고유 Id 이외에 슬라이드의 도형을 식별할 방법이 없습니다. 개발자가 내부 고유 Id를 사용해 도형을 찾는 것이 어렵습니다. 슬라이드에 추가된 모든 도형에는 일부 대체 텍스트가 있습니다. 우리는 개발자에게 특정 도형을 찾기 위해 대체 텍스트를 사용할 것을 권장합니다. 향후 변경할 객체에 대한 대체 텍스트를 정의하려면 MS PowerPoint를 사용할 수 있습니다.
+## **도형 식별 및 찾기**
 
-원하는 도형의 대체 텍스트를 설정한 후, Aspose.Slides for PHP via Java를 사용해 해당 프레젠테이션을 열고 슬라이드에 추가된 모든 도형을 반복할 수 있습니다. 각 반복에서 도형의 대체 텍스트를 확인하고 일치하는 대체 텍스트를 가진 도형이 필요한 도형이 됩니다. 이 기술을 더 잘 보여주기 위해, 슬라이드에서 특정 도형을 찾고 해당 도형을 반환하는 메서드 [findShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-)를 만들었습니다.
+컬렉션 인덱스는 알려진 파일을 처리할 때 편리하지만, 안정적인 식별자는 아닙니다. 도형을 추가, 제거 또는 순서를 변경하면 인덱스가 바뀔 수 있습니다. 프레젠테이션이 작성되고 유지 관리되는 방식에 따라 식별자를 선택하십시오:
 
-```php
-  # 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # 찾을 도형의 대체 텍스트
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getname/) 은 개발자가 제어하는 템플릿에 유용하며 PowerPoint의 선택 창에서 쉽게 확인할 수 있습니다. 이름은 편집할 수 있지만 고유성을 보장하지 않으므로 코드가 이름에 의존한다면 명명 규칙을 정하십시오.
+- [AlternativeText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getalternativetext/) 은 접근성 설명이나 작성자가 제공한 태그가 이미 도형을 식별할 때 유용합니다. 사용자가 볼 수 있으며 현지화되거나 접근성을 위해 재작성될 수 있고, 고유성을 보장하지 않습니다. 의미 있는 접근성 텍스트를 데이터베이스 키로 조용히 재사용하지 마십시오.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getofficeinteropshapeid/) 은 슬라이드 내에서 고유한 읽기 전용 식별자로, PowerPoint 인터롭에서 사용되는 도형 ID와 일치합니다. PowerPoint와 통합하거나 도형 수명 동안 명확한 참조가 필요할 때 사용하십시오. 복제되거나 재생성된 도형은 다른 도형이며 자체 ID를 받습니다.
 
-```
+관련된 [Shape::getUniqueId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getuniqueid/) 메서드는 프레젠테이션 범위의 식별자를 반환하지만, 이 식별자는 애드인용으로 설계되어 재지정될 수 있습니다. 영구적인 외부 키로 취급해서는 안 됩니다. 장기적인 식별이 필수라면 애플리케이션 데이터에 매핑을 보관하고 기대하는 도형이 여전히 존재하는지 검증하십시오.
 
-## **도형 복제**
-Aspose.Slides for PHP via Java를 사용하여 슬라이드에 도형을 복제하려면:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드의 참조를 가져옵니다.
-1. 원본 슬라이드의 도형 컬렉션에 접근합니다.
-1. 프레젠테이션에 새 슬라이드를 추가합니다.
-1. 원본 슬라이드 도형 컬렉션의 도형을 새 슬라이드에 복제합니다.
-1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-아래 예제는 슬라이드에 그룹 도형을 추가합니다.
+다음 예제는 정확히 일치하는 이름으로 검색하고 슬라이드 범위의 인터롭 ID를 보고합니다. 템플릿에 기대하는 도형이 없을 경우, 코드는 잘못된 객체를 계속 사용하지 않고 해당 결과를 보고합니다.
 
 ```php
-  # Presentation 클래스를 인스턴스화합니다
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # PPTX 파일을 디스크에 저장합니다
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **도형 제거**
-Aspose.Slides for PHP via Java는 개발자가 도형을 제거할 수 있게 합니다. 슬라이드에서 도형을 제거하려면 아래 단계를 따르세요:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 첫 번째 슬라이드에 접근합니다.
-1. 특정 AlternativeText를 가진 도형을 찾습니다.
-1. 도형을 제거합니다.
-1. 파일을 디스크에 저장합니다.
-
-```php
-  # Presentation 객체 생성
-  $pres = new Presentation();
-  try {
-    # 첫 번째 슬라이드 가져오기
-    $sld = $pres->getSlides()->get_Item(0);
-    # 사각형 유형의 자동 도형 추가
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # 프레젠테이션을 디스크에 저장
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **도형 숨기기**
-Aspose.Slides for PHP via Java는 개발자가 도형을 숨길 수 있게 합니다. 슬라이드에서 도형을 숨기려면 아래 단계를 따르세요:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 첫 번째 슬라이드에 접근합니다.
-1. 특정 AlternativeText를 가진 도형을 찾습니다.
-1. 도형을 숨깁니다.
-1. 파일을 디스크에 저장합니다.
-
-```php
-  # PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-  $pres = new Presentation();
-  try {
-    # 첫 번째 슬라이드 가져오기
-    $sld = $pres->getSlides()->get_Item(0);
-    # 사각형 유형의 자동 도형 추가
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # 프레젠테이션을 디스크에 저장
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **도형 순서 변경**
-Aspose.Slides for PHP via Java는 개발자가 도형의 순서를 재배열할 수 있게 합니다. 도형 순서를 변경하면 어떤 도형이 앞에, 어떤 도형이 뒤에 위치하는지 지정할 수 있습니다. 슬라이드에서 도형 순서를 재배열하려면 아래 단계를 따르세요:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 첫 번째 슬라이드에 접근합니다.
-1. 도형을 추가합니다.
-1. 도형의 텍스트 프레임에 텍스트를 추가합니다.
-1. 같은 좌표에 또 다른 도형을 추가합니다.
-1. 도형들의 순서를 재배열합니다.
-1. 파일을 디스크에 저장합니다.
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Interop 도형 ID 가져오기**
-Aspose.Slides for PHP via Java는 개발자가 슬라이드 범위에서 고유한 도형 식별자를 얻을 수 있게 합니다. 이는 프레젠테이션 범위에서 고유 식별자를 제공하는 [getUniqueId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getuniqueid/) 메서드와 대조됩니다. [Shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/) 클래스에 [getOfficeInteropShapeId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getofficeinteropshapeid/) 메서드가 추가되었습니다. [getOfficeInteropShapeId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getofficeinteropshapeid/) 메서드가 반환하는 값은 Microsoft.Office.Interop.PowerPoint.Shape 객체의 Id 값에 해당합니다. 아래에 샘플 코드가 제공됩니다.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # 슬라이드 범위에서 고유한 도형 식별자 가져오기
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **도형에 대체 텍스트 설정**
-Aspose.Slides for PHP via Java는 개발자가 任意의 도형에 AlternateText를 설정할 수 있게 합니다. 프레젠테이션의 도형은 `Alternative Text` 또는 [Shape Name](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/setname/) 메서드로 구분될 수 있습니다. [setAlternativeText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/setalternativetext/) 및 [getAlternativeText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getalternativetext/) 메서드는 Aspose.Slides와 Microsoft PowerPoint 모두에서 읽고 설정할 수 있습니다. 이 메서드를 사용하면 도형에 태그를 지정하고 도형 제거, 도형 숨기기, 슬라이드에서 도형 순서 재배열과 같은 다양한 작업을 수행할 수 있습니다. 도형의 AlternateText를 설정하려면 아래 단계를 따르세요:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 첫 번째 슬라이드에 접근합니다.
-1. 슬라이드에 任意의 도형을 추가합니다.
-1. 새로 추가된 도형으로 작업을 수행합니다.
-1. 도형들을 순회하며 원하는 도형을 찾습니다.
-1. AlternativeText를 설정합니다.
-1. 파일을 디스크에 저장합니다.
-
-```php
-  # PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-  $pres = new Presentation();
-  try {
-    # 첫 번째 슬라이드 가져오기
-    $sld = $pres->getSlides()->get_Item(0);
-    # 사각형 유형의 자동 도형 추가
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # 프레젠테이션을 디스크에 저장
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **도형 레이아웃 형식 접근**
-Aspose.Slides for PHP via Java는 도형의 레이아웃 형식에 접근하기 위한 간단한 API를 제공합니다. 이 문서에서는 레이아웃 형식에 접근하는 방법을 보여줍니다.
-
-아래에 샘플 코드가 제공됩니다.
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **도형을 SVG로 렌더링**
-이제 Aspose.Slides for PHP via Java는 도형을 SVG로 렌더링하는 기능을 지원합니다. [writeAsSvg](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/writeassvg/) 메서드(및 그 오버로드)가 [Shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/) 클래스에 추가되었습니다. 이 메서드를 사용하면 도형의 내용을 SVG 파일로 저장할 수 있습니다. 아래 코드 스니펫은 슬라이드의 도형을 SVG 파일로 내보내는 방법을 보여줍니다.
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **도형 정렬**
-Aspose.Slides는 도형을 슬라이드 여백을 기준으로 또는 서로를 기준으로 정렬할 수 있게 합니다. 이를 위해 오버로드된 메서드 [SlidesUtil::alignShapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/slideutil/alignshapes/)가 추가되었습니다. [ShapesAlignmentType](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapesalignmenttype/) 열거형은 가능한 정렬 옵션을 정의합니다.
-
-**예제 1**
-
-아래 소스 코드는 인덱스 1, 2, 4인 도형을 슬라이드 상단 경계에 맞춰 정렬합니다.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**예제 2**
-
-아래 예제는 컬렉션의 가장 아래에 있는 도형을 기준으로 전체 도형 컬렉션을 정렬하는 방법을 보여줍니다.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **플립 속성**
-
-Aspose.Slides에서 [ShapeFrame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapeframe/) 클래스는 `flipH` 및 `flipV` 속성을 통해 도형의 수평 및 수직 미러링을 제어합니다. 두 속성 모두 [NullableBool](https://reference.aspose.com/slides/ko/php-java/aspose.slides/nullablebool/) 유형이며, `True`는 플립, `False`는 플립 없음, `NotDefined`는 기본 동작을 사용함을 의미합니다. 이러한 값은 도형의 [Frame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/#getFrame)에서 접근할 수 있습니다.
-
-플립 설정을 수정하려면 도형의 현재 위치와 크기, 원하는 `flipH` 및 `flipV` 값, 회전 각도를 사용해 새로운 [ShapeFrame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapeframe/) 인스턴스를 만든 뒤 이를 도형의 [Frame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/#getFrame)에 할당하고 프레젠테이션을 저장하면 미러 변환이 적용되어 출력 파일에 반영됩니다.
-
-예를 들어, 첫 번째 슬라이드에 기본 플립 설정을 가진 단일 도형이 있는 sample.pptx 파일이 있다고 가정합니다.
-
-![플립될 도형](shape_to_be_flipped.png)
-
-다음 코드 예제는 도형의 현재 플립 속성을 조회하고 수평·수직 모두 플립합니다.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // 도형의 수평 플립 속성을 가져옵니다.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // 도형의 수직 플립 속성을 가져옵니다.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // 수평으로 플립합니다.
-    $flipV = NullableBool::True; // 수평으로 플립합니다.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-결과:
+작업이 특정 도형 유형에만 해당되는 경우, 타입별 멤버를 사용하기 전에 런타임 클래스를 확인하십시오. 이 예제는 명명된 객체가 [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/) 인 경우에만 텍스트와 대체 텍스트를 업데이트합니다.
 
-![플립된 도형](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
+
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **도형 컬렉션 수정**
+
+add, clone, remove, reorder 메서드는 컬렉션에 즉시 적용됩니다. 작업으로 인해 도형 수나 순서가 변경되면, 해당 작업 이전에 캡처한 인덱스에 계속 의존하지 마십시오.
+
+### **도형 복제**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapecollection/addclone/) 은 독립적인 복사본을 생성하여 대상 컬렉션에 추가합니다. [ShapeCollection::insertClone](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapecollection/insertclone/) 도 복사본을 만들지만 지정된 Z 순서 인덱스에 배치합니다. 좌표를 받는 오버로드는 크기를 변경하지 않고 복제본을 이동하며, 너비와 높이를 받는 오버로드는 크기 조절도 할 수 있습니다.
+
+예제는 대상 슬라이드를 만들고 라벨이 붙은 사각형을 앞쪽에 복제한 뒤, 두 번째 복제본을 뒤쪽에 삽입합니다. 각 복제본에 대한 변경은 원본 도형에 영향을 주지 않습니다.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+복제는 도형의 내용과 서식을 복사하며, 이름과 대체 텍스트도 포함합니다. 해당 값들이 고유해야 할 경우 복제본에 새로운 논리 식별자를 할당하십시오. 복잡한 도형이 사용하는 리소스는 프레젠테이션이 관리하지만, 복제본은 새로운 컬렉션 항목이자 새로운 도형 ID를 가집니다.
+
+### **도형 제거**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapecollection/remove/) 은 컬렉션에서 특정 도형 객체를 삭제합니다. 인덱스 순회 중에 여러 일치를 제거할 때는 끝에서부터 역순으로 탐색하면 남은 인덱스가 유효하게 유지됩니다.
+
+이 예제는 지정된 이름을 가진 모든 도형을 제거합니다. 고정된 컬렉션 항목이 아니라 현재 인덱스의 도형을 읽으며, 필요 없이 도형을 캐스팅하지도 않습니다.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+제거 후에는 도형 수와 이후 도형들의 인덱스가 변경됩니다. 영향을 받지 않은 도형에 대한 참조가 저장된 인덱스보다 더 신뢰됩니다. 또한 연결선, 애니메이션 및 기타 프레젠테이션 기능이 제거된 객체를 참조할 수 있으므로, 보이는 도형을 제거하면 슬라이드 모양 이상으로 변화가 일어날 수 있습니다.
+
+### **도형 숨기기**
+
+[Shape::setHidden](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/sethidden/) 을 `true` 로 설정하면 도형이 컬렉션에 남아 있지만 일반 슬라이드 쇼에서 표시되지 않습니다. 인덱스, 서식, 내용은 코드에서 여전히 사용할 수 있으므로, 나중에 복원될 수 있는 선택적 요소를 숨기는 데 적합합니다.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+숨기기는 삭제나 보안이 아닙니다. 사용자가 또는 코드가 여전히 객체를 찾아서 다시 보이게 할 수 있으며, 프레젠테이션 파일의 일부로 남아 있습니다.
+
+### **Z 순서 변경**
+
+겹치는 도형은 컬렉션 순서대로 그려집니다. [ShapeCollection::reorder](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapecollection/reorder/) 은 기존 도형을 복제하지 않고 대상 인덱스로 이동합니다. 인덱스 `0` 은 뒤쪽이며, `size() - 1` 은 앞쪽입니다.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+사각형은 먼저 생성되어 처음에 타원 뒤에 위치합니다. 최종 인덱스로 이동하면 앞쪽에 놓이게 됩니다. 관련 도형을 모두 추가하거나 복제한 후에 Z 순서를 확정하십시오. 이러한 작업은 새로운 컬렉션 항목을 추가하거나 삽입하여 의도된 스택을 변경할 수 있기 때문입니다.
+
+## **레이아웃 슬라이드의 도형 검사**
+
+일반 슬라이드, 레이아웃 슬라이드, 마스터 슬라이드는 각각 별도의 도형 컬렉션을 가집니다. 레이아웃 컬렉션의 도형은 일반 슬라이드의 동일한 위치에 있는 도형과 동일 객체가 아닙니다. 레이아웃이 제공하는 서식을 이해하거나 변경해야 할 경우 레이아웃 도형을 검사하십시오.
+
+다음 예제는 각 레이아웃 도형의 [FillFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getfillformat/) 와 [LineFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/getlineformat/) 을 읽으며, 모든 도형이 `AutoShape` 라는 가정을 하지 않습니다.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+레이아웃을 편집하면 이를 사용하는 여러 슬라이드에 영향을 미칠 수 있습니다. 레이아웃 도형을 변경하기 전에 일반 슬라이드가 객체를 상속받는지, 로컬 오버라이드가 있는지 확인하고, 해당 레이아웃을 사용하는 모든 슬라이드를 테스트하십시오.
+
+## **도형을 SVG로 내보내기**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/writeassvg/) 은 하나의 도형 렌더링 내용을 스트림에 기록합니다. 결과에는 해당 도형만 포함되며 전체 슬라이드 배경이나 인접 도형은 포함되지 않습니다.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+렌더링 중에는 프레젠테이션을 열어 두십시오. 출력은 도형의 서식과 폰트, 이미지와 같은 리소스에 따라 달라집니다. 전체 구성이 필요하면 개별 도형이 아니라 슬라이드를 내보내십시오. 스트림의 소유자는 스트림을 닫아야 합니다.
+
+## **도형 정렬**
+
+[SlideUtil::alignShapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/slideutil/alignshapes/) 의 오버로드는 모든 도형이나 선택된 컬렉션 인덱스를 정렬합니다. [ShapesAlignmentType](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapesalignmenttype/) 은 가장자리, 중심선 또는 배치 모드를 지정합니다. `alignToSlide` 를 `true` 로 설정하면 슬라이드 가장자리를 사용하고, `false` 로 설정하면 선택된 도형들을 서로 상대적으로 정렬합니다.
+
+이 예제는 세 도형을 슬라이드 상단 가장자리에 정렬합니다. 반환된 도형 참조는 정렬 직전에 현재 인덱스로 변환됩니다.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+정렬은 위치만 변경하고 Z 순서는 바꾸지 않습니다. 상대 정렬은 보통 최소 두 개의 도형이 필요하고, 수평 또는 수직 배치는 간격을 정의할 충분한 도형이 필요합니다. 메서드 호출 전에 컬렉션을 수정했다면 인덱스를 다시 계산하십시오.
+
+## **도형 뒤집기**
+
+[ShapeFrame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shapeframe/) 클래스는 위치, 크기, 수평 및 수직 뒤집기 설정, 회전을 저장합니다. `getFlipH` 와 `getFlipV` 값은 [NullableBool](https://reference.aspose.com/slides/ko/php-java/aspose.slides/nullablebool/) 을 사용하며, `True` 는 뒤집기를 활성화하고, `False` 는 비활성화하며, `NotDefined` 는 지정되지 않거나 기본 상태를 유지합니다.
+
+아래 입력 프레젠테이션에는 뒤집히지 않은 도형 하나가 포함되어 있습니다.
+
+![뒤집기 전 도형](shape_to_be_flipped.png)
+
+예제는 다른 모든 프레임 값을 유지하고 두 개의 뒤집기 설정만 교체합니다. 새 [Frame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/setframe/) 을 할당하면 전체 프레임이 교체되기 때문에 중요합니다.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+저장된 도형은 위치, 크기, 회전을 유지하면서 수평 및 수직으로 반전됩니다.
+
+![뒤집은 후 도형](flipped_shape.png)
 
 ## **FAQ**
 
-**슬라이드에서 데스크톱 편집기와 같이 도형을 결합(합집합/교집합/차집합)할 수 있나요?**
+**컬렉션 인덱스를 도형 식별자로 사용해야 하나요?**
 
-내장된 Boolean 연산 API는 없습니다. 원하는 외곽선을 직접 구성하여(예: [GeometryPath](https://reference.aspose.com/slides/ko/php-java/aspose.slides/geometrypath/)를 사용해 결과 기하학을 계산하고 해당 윤곽으로 새 도형을 만든 뒤 원본을 선택적으로 제거) 근사화할 수 있습니다.
+인덱스 사용은 컬렉션이 인덱스 사용 전까지 변경되지 않을 짧은 처리 과정에만 제한하십시오. 작성된 템플릿에서는 검증된 `Name` 또는 `AlternativeText` 규칙을 선호하고, 슬라이드 범위 인터롭 작업에는 `OfficeInteropShapeId` 를 사용하십시오.
 
-**도형이 항상 “위에” 있도록 스택 순서(z-order)를 어떻게 제어할 수 있나요?**
+**도형을 숨기면 Z 순서에서 제거되나요?**
 
-슬라이드의 [shapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/baseslide/#getShapes) 컬렉션 내 삽입/이동 순서를 변경합니다. 예측 가능한 결과를 위해 모든 다른 슬라이드 수정이 끝난 후 z-order를 최종 지정하십시오.
+아니요. 숨겨진 도형은 동일한 인덱스에 컬렉션에 남아 있습니다. 찾아서 순서를 바꾸거나, 편집하거나, 다시 표시할 수 있습니다.
 
-**PowerPoint에서 사용자가 도형을 편집하지 못하도록 “잠금”할 수 있나요?**
+**복제된 도형이 다른 도형 앞에 나타난 이유는 무엇인가요?**
 
-예. 도형 수준 보호 플래그(예: 선택, 이동, 크기 조정, 텍스트 편집 잠금)를 설정합니다. 필요에 따라 마스터나 레이아웃에 제한을 적용할 수도 있습니다. 이는 UI 수준의 보호이며 보안 기능은 아닙니다; 더 강력한 보호가 필요하면 [읽기 전용 권장 사항 또는 비밀번호](/slides/ko/php-java/password-protected-presentation/)와 같은 파일 수준 제한과 결합하십시오.
+`addClone` 은 복제본을 컬렉션 끝에 추가하므로 Z 순서의 앞쪽에 위치합니다. 초기 인덱스를 지정하려면 `insertClone` 을 사용하고, 모든 도형을 추가한 후에는 `reorder` 를 사용하십시오.

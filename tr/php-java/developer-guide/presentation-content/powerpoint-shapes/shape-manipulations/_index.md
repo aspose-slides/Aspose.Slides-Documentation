@@ -15,368 +15,419 @@ keywords:
 - şekil sırasını değiştirme
 - interop şekil kimliğini al
 - şekil alternatif metni
-- şekil yerleşim biçimleri
+- şekil düzen formatları
 - şekil SVG olarak
 - şekli SVG'ye
-- şekli hizala
+- şekli hizalama
+- şekli çevirme
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java'da şekilleri oluşturmayı, düzenlemeyi ve optimize etmeyi öğrenin ve yüksek performanslı PowerPoint sunumları sunun."
+description: "Aspose.Slides for PHP via Java ile sunum şekillerini tanımlamayı, kopyalamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve çevirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak sunumlardaki şekillerle nasıl çalışılacağını açıklar. Bir slayttaki şekli bulma, kopyalama, kaldırma, gizleme, sırasını değiştirme, Interop şekil kimliğini alma ve tanımlama ile sonraki işlemler için alternatif metin ayarlama süreçlerini gösterir.
+Aspose.Slides for PHP via Java, bir slayd üzerindeki şekilleri sıralı bir [ShapeCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirdiğiniz yer olmasının yanı sıra, yığılma sıralarının kaynağıdır: `0` indeksi en arka şekildir, son indeks ise en ön şekildir.
 
-Ayrıca şekiller için yerleşim biçimlerine erişim, şekli SVG olarak oluşturma, slayttaki şekilleri hizalama ve yatay‑dikey yansıtma için flip özelliklerinin kullanımını kapsar. Makaleye ek olarak, şekil birleştirme, katman sırası ve şekil kilitleme konularında kısa bir SSS de eklenmiştir.
+Bu makale bu modeli izler. İlk olarak bir şekli güvenilir bir şekilde nasıl tanımlayacağınızı açıklar, ardından şekilleri kopyalama, kaldırma, gizleme ve yeniden sıralama yöntemlerini gösterir. Son bölümler, düzen düzeyinde biçimlendirme, SVG dışa aktarımı, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır, bu yüzden iş akışınızın gerektirdiği işlemleri yalnızca kullanabilirsiniz.
 
-## **Bir Slaytta Şekil Bulma**
-Bu bölüm, geliştiricilerin bir şeklin dahili Id'sini kullanmadan belirli bir şekli bulmasını kolaylaştıran basit bir teknik tanımlar. PowerPoint dosyalarında bir şekli tanımlamanın dahili benzersiz Id dışındaki bir yolu yoktur. Geliştiricilerin dahili benzersiz Id ile şekil bulması zor olabilir. Tüm eklenen şekillerin bir Alternatif Metni (Alt Text) vardır. Belirli bir şekli bulmak için alternatif metnin kullanılmasını öneririz. Gelecekte değiştirmeyi düşündüğünüz nesneler için MS PowerPoint ile alternatif metin tanımlayabilirsiniz.
+## **Şekilleri Tanımlama ve Bulma**
 
-İstediğiniz şeklin alternatif metnini ayarladıktan sonra, Aspose.Slides for PHP via Java ile sunumu açıp slayta eklenen tüm şekillerde dönebilir ve her yinelemede şeklin alternatif metnini kontrol edebilirsiniz; eşleşen alternatif metne sahip şekil sizin istediğiniz şekil olacaktır. Bu tekniği daha iyi göstermek için, bir slaytta belirli bir şekli bulup doğrudan döndüren bir yöntem oluşturduk: [findShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-).
+Koleksiyon indeksleri bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şekil eklemek, kaldırmak veya yeniden sıralamak indeksini değiştirebilir. Tanımlayıcıyı, sunumun nasıl oluşturulduğuna ve sürdürüldüğüne göre seçin:
 
-```php
-  # Sunum dosyasını temsil eden bir Presentation sınıfı örneği oluştur
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # Bulunacak şeklin alternatif metni
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getname/) geliştirici kontrolündeki şablonlar için yararlıdır ve PowerPoint'in Seçim Bölmesinde incelemesi kolaydır. İsimler düzenlenebilir ve benzersiz olması garanti değildir, bu yüzden koda bağlıysa bir adlandırma kuralı oluşturun.
+- [AlternativeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getalternativetext/) erişilebilirlik açıklaması ya da yazar tarafından sağlanan bir etiket zaten şekli tanımladığında kullanışlıdır. Kullanıcılar tarafından görülür, yerelleştirilebilir ya da erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti değildir. Anlamlı erişilebilirlik metnini sessizce bir veritabanı anahtarı olarak yeniden kullanmayın.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getofficeinteropshapeid/) salt‑okunur bir tanımlayıcıdır ve bir slayt içinde benzersizdir, PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelir. PowerPoint ile bütünleştirirken ya da bir şeklin ömrü boyunca kesin bir referansa ihtiyaç duyduğunuzda kullanın. Kopyalanmış veya yeniden oluşturulmuş bir şekil farklı bir şekildir ve kendi kimliğini alır.
 
-```
+İlgili [Shape::getUniqueId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getuniqueid/) metodu, sunum kapsamındaki bir tanımlayıcı döndürür, ancak bu tanımlayıcı eklentiler için tasarlanmıştır ve yeniden atanabilir. Kalıcı bir dış anahtar olarak değerlendirilmemelidir. Uzun vadeli kimlik hayati öneme sahipse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
 
-## **Şekil Kopyalama**
-Aspose.Slides for PHP via Java ile bir şekli bir slayta kopyalamak için:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. Slaydın indeksini kullanarak slayt referansını elde edin.
-1. Kaynak slaydın şekil koleksiyonuna erişin.
-1. Sunuma yeni bir slayt ekleyin.
-1. Kaynak slaydın şekil koleksiyonundan yeni slayta şekilleri kopyalayın.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki örnek bir grup şekli slayta ekler.
+Aşağıdaki örnek, isme göre tam karşılaştırma yapar ve slayt kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde, kod hatalı nesneyle devam etmek yerine bu sonucu raporlar.
 
 ```php
-  # Presentation sınıfını örnekle
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # PPTX dosyasını diske yaz
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **Şekil Kaldırma**
-Aspose.Slides for PHP via Java, geliştiricilerin herhangi bir şekli kaldırmasına olanak tanır. Şekli bir slayttan kaldırmak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Belirli bir AlternativeText içeren şekli bulun.
-1. Şekli kaldırın.
-1. Dosyayı diske kaydedin.
-
-```php
-  # Presentation nesnesi oluştur
-  $pres = new Presentation();
-  try {
-    # İlk slaytı al
-    $sld = $pres->getSlides()->get_Item(0);
-    # Dikdörtgen tipinde otomatik şekil ekle
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # Sunumu diske kaydet
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Şekil Gizleme**
-Aspose.Slides for PHP via Java, geliştiricilerin herhangi bir şekli gizlemesine olanak tanır. Şekli bir slaytta gizlemek için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Belirli bir AlternativeText içeren şekli bulun.
-1. Şekli gizleyin.
-1. Dosyayı diske kaydedin.
-
-```php
-  # PPTX'i temsil eden Presentation sınıfını örnekle
-  $pres = new Presentation();
-  try {
-    # İlk slaytı al
-    $sld = $pres->getSlides()->get_Item(0);
-    # Dikdörtgen tipinde otomatik şekil ekle
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # Sunumu diske kaydet
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Şekil Sırasını Değiştirme**
-Aspose.Slides for PHP via Java, geliştiricilerin şekillerin sırasını değiştirmesine izin verir. Sıra değişikliği, hangi şeklin önde, hangisinin arka planda olduğunu belirler. Şeklin sırasını değiştirmek için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Bir şekil ekleyin.
-1. Şeklin metin çerçevesine bazı metinler ekleyin.
-1. Aynı koordinatlarda başka bir şekil ekleyin.
-1. Şekilleri yeniden sırala.
-1. Dosyayı diske kaydedin.
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Interop Şekil Kimliğini Alma**
-Aspose.Slides for PHP via Java, geliştiricilerin slayt kapsamında benzersiz bir şekil tanımlayıcısı almasını sağlar; bu, [getUniqueId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getuniqueid/) metodunun sunum kapsamındaki benzersiz tanımlayıcıdan farklıdır. [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfına eklenen [getOfficeInteropShapeId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getofficeinteropshapeid/) yöntemi, Microsoft.Office.Interop.PowerPoint.Shape nesnesinin Id değerine karşılık gelen bir değer döndürür. Aşağıda örnek kod yer almaktadır.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Slayt kapsamında benzersiz şekil tanımlayıcısını al
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Bir Şekil İçin Alternatif Metin Ayarlama**
-Aspose.Slides for PHP via Java, geliştiricilerin herhangi bir şeklin AlternateText değerini ayarlamasına olanak tanır. Bir sunumdaki şekiller `Alternative Text` veya [Shape Name](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/setname/) yöntemiyle ayırt edilebilir. [setAlternativeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/setalternativetext/) ve [getAlternativeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getalternativetext/) yöntemleri Aspose.Slides ve Microsoft PowerPoint tarafından okunup ayarlanabilir. Bu yöntemle bir şekli etiketleyebilir ve Şekli Kaldırma, Şekli Gizleme veya Slaytta Şekil Sıralama gibi farklı işlemler gerçekleştirebilirsiniz. Bir şeklin AlternateText değerini ayarlamak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Slayta herhangi bir şekil ekleyin.
-1. Yeni eklenen şekil ile bazı işlemler yapın.
-1. Şekiller arasında gezinerek istediğiniz şekli bulun.
-1. AlternativeText değerini ayarlayın.
-1. Dosyayı diske kaydedin.
-
-```php
-  # PPTX'i temsil eden Presentation sınıfını örnekle
-  $pres = new Presentation();
-  try {
-    # İlk slaytı al
-    $sld = $pres->getSlides()->get_Item(0);
-    # Dikdörtgen tipinde otomatik şekil ekle
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # Sunumu diske kaydet
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Bir Şekil İçin Yerleşim Biçimlerine Erişim**
-Aspose.Slides for PHP via Java, bir şeklin yerleşim biçimlerine erişmek için basit bir API sunar. Bu makale, yerleşim biçimlerine nasıl erişileceğini gösterir.
-
-Aşağıda örnek kod bulunmaktadır.
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Şekli SVG Olarak Oluşturma**
-Artık Aspose.Slides for PHP via Java, bir şekli SVG olarak oluşturmayı destekler. [writeAsSvg](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/writeassvg/) (ve aşırı yüklenmiş sürümü) yöntemi [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfına eklenmiştir. Bu yöntem, şeklin içeriğini bir SVG dosyası olarak kaydetmeye olanak tanır. Aşağıdaki kod parçacığı, slaytın şekli bir SVG dosyasına nasıl dışa aktarılacağını gösterir.
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Şekli Hizalama**
-Aspose.Slides, şekilleri ya slayt kenar boşluklarına ya da birbirlerine göre hizalamaya izin verir. Bu amaçla, aşırı yüklenmiş [SlidesUtil::alignShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideutil/alignshapes/) yöntemi eklenmiştir. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapesalignmenttype/) enum’ı olası hizalama seçeneklerini tanımlar.
-
-**Örnek 1**
-
-Aşağıdaki kaynak kod, indeksleri 1, 2 ve 4 olan şekilleri slaytın üst kenarı boyunca hizalar.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**Örnek 2**
-
-Aşağıdaki örnek, şekil koleksiyonunun tamamını koleksiyondaki en alttaki şekle göre hizalamayı gösterir.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Flip Özellikleri**
-
-Aspose.Slides’ta, [ShapeFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeframe/) sınıfı, `flipH` ve `flipV` özellikleri aracılığıyla şekillerin yatay ve dikey yansıtılmasını kontrol eder. Her iki özellik de [NullableBool](https://reference.aspose.com/slides/tr/php-java/aspose.slides/nullablebool/) tipindedir; `True` dönüşümü, `False` dönüşüm yoksa, `NotDefined` varsayılan davranışı ifade eder. Bu değerler bir şeklin [Frame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getFrame) özelliğinden erişilebilir.
-
-Flip ayarlarını değiştirmek için, şeklin mevcut konum ve boyutları, istenen `flipH` ve `flipV` değerleri ve döndürme açısı ile yeni bir [ShapeFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeframe/) örneği oluşturulur. Bu örnek şeklin [Frame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getFrame) özelliğine atanır ve sunum kaydedildiğinde yansıtma dönüşümleri uygulanır ve çıktıya işlenir.
-
-İlk slaytında varsayılan flip ayarlarına sahip tek bir şekil bulunan örnek.pptx dosyamız olduğunu varsayalım.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Aşağıdaki kod örneği, şeklin mevcut flip özelliklerini alır ve hem yatay hem de dikey olarak çevirir.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // Şeklin yatay çevirme özelliğini al.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // Şeklin dikey çevirme özelliğini al.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // Yatay olarak çevir.
-    $flipV = NullableBool::True; // Yatay olarak çevir.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Sonuç:
+Bir işlem belirli bir şekil türüne özgü olduğunda, tür‑spesifik üyeleri kullanmadan önce çalışma zamanındaki sınıfı kontrol edin. Bu örnek, adlandırılmış nesne bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ise yalnızca metni ve alternatif metni günceller.
 
-![The flipped shape](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **FAQ**
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
 
-**Bir slaytta şekilleri (birleşim/kesişim/çıkarma) masaüstü editörü gibi birleştirebilir miyim?**
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
 
-Yerleşik bir Boolean işlem API’si yoktur. İstediğiniz konturu kendiniz oluşturup (ör. [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/) ile sonuç geometrisini hesaplayıp) yeni bir şekil oluşturabilir, orijinal şekilleri isteğe bağlı olarak kaldırabilirsiniz.
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Şeklin her zaman “üstte” kalmasını sağlamak için katman sırasını (z‑order) nasıl kontrol edebilirim?**
+## **Şekil Koleksiyonunu Değiştirme**
 
-Slaydın [shapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslide/#getShapes) koleksiyonundaki ekleme/taşıma sırasını değiştirin. Tutarlı sonuçlar için, tüm diğer slayt değişikliklerinden sonra z‑order’ı sabitleyin.
+Ekle, kopyala, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde anında çalışır. Bir işlem şekillerin sayısını veya sırasını değiştirirse, o işlemden önce alınan indekslere hâlâ güvenmeyin.
 
-**PowerPoint’te bir şeklin düzenlenmesini engellemek için “kilitleyebilir” miyim?**
+### **Bir Şekli Kopyalama**
 
-Evet. Şekil düzeyinde koruma bayraklarını (ör. seçim, hareket, yeniden boyutlandırma, metin düzenlemelerini kilitle) ayarlayabilirsiniz. Gerekirse, bu kısıtlamaları master veya layout’a da yansıtabilirsiniz. Bu, UI‑düzeyinde bir korumadır, güvenlik özelliği değildir; daha güçlü koruma için dosya‑düzeyi kısıtlamalarla (örn. [salt okunur önerileri veya parolalar](/slides/tr/php-java/password-protected-presentation/)) birleştirin.
+[ShapeCollection::addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addclone/) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [ShapeCollection::insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/insertclone/) da bir kopya oluşturur ancak belirli bir z‑sırası indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler, kopyayı boyutunu değiştirmeden taşır; genişlik ve yükseklik alan aşırı yüklemeler ise yeniden boyutlandırabilir.
+
+Örnek, bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne kopyalar ve ikinci bir kopyayı arka tarafa ekler. Her iki kopyada yapılan değişiklikler kaynak şekli etkilemez.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kopyalama, şeklin içeriğini ve biçimlendirmesini, adı ve alternatif metni dahil olmak üzere kopyalar. Bu değerlerin benzersiz olması gerektiğinde kopyaya yeni mantıksal tanımlayıcılar atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak bir kopya yeni bir koleksiyon öğesi ve yeni bir şekil kimliği olur.
+
+### **Şekilleri Kaldırma**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/remove/) koleksiyonundan belirli bir şekil nesnesini siler. İndeksli yineleme sırasında birden fazla eşleşme kaldırılırken, kalan indekslerin geçerli kalmasını sağlamak için sondan başlayarak dolaşın.
+
+Bu örnek, belirli bir isme sahip tüm şekilleri kaldırır. Şekli sabit bir koleksiyon öğesi olarak değil, geçerli indekste okur ve şekli gereksiz yere dönüştürmez.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kaldırma sonrası, şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilemeyen şekillere referanslar, kaydedilmiş indekslerden daha güvenilirdir. Ayrıca, kaldırılan nesneye referans verebilecek bağlayıcılar, animasyonlar ve diğer sunum özelliklerini göz önünde bulundurun; görünen bir şekli kaldırmak, slaydın görünümünden daha fazlasını değiştirebilir.
+
+### **Bir Şekli Gizleme**
+
+[Shape::setHidden](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/sethidden/) değerini `true` olarak ayarlamak, şekli koleksiyonda tutar ancak normal slayt gösterisinde görünmesini engeller. İndeksi, biçimlendirmesi ve içeriği koda hâlâ ulaşılabilir, bu yüzden gizleme, daha sonra geri getirilebilecek isteğe bağlı öğeler için uygundur.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Gizleme bir silme veya güvenlik değildir. Nesne hâlâ bir kullanıcı ya da kod tarafından bulunabilir ve gizlilikten çıkarılabilir ve sunum dosyasının bir parçası olarak kalır.
+
+### **Z‑Sırasını Değiştirme**
+
+Üst üste gelen şekiller, koleksiyon sırasına göre çizilir. [ShapeCollection::reorder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/reorder/) mevcut bir şekli kopyalamadan hedef indekse taşır. `0` indeksi arka, `size() - 1` indeksi ön demektir.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dikdörtgen önce oluşturulur ve başlangıçta elipsin arkasında bulunur. Son indekse taşımak onu öne getirir. İlgili tüm şekiller eklenip kopyalandıktan sonra z‑sırasını sonlandırın, çünkü bu işlemler yeni koleksiyon öğeleri ekleyebilir veya ekleyebilir ve istenen yığını değiştirebilir.
+
+## **Düzen Slaytlarındaki Şekilleri İnceleme**
+
+Normal slaytlar, düzen slaytları ve ana slaytlar ayrı şekil koleksiyonlarına sahiptir. Bir düzen koleksiyonundaki şekil, normal bir slaytta benzer konumda bulunan şekil ile aynı nesne değildir. Bir düzenin sağladığı biçimlendirmeyi anlamak veya değiştirmek gerektiğinde düzen şekillerini inceleyin.
+
+Aşağıdaki örnek, her bir düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getfillformat/) ve [LineFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getlineformat/) özelliklerini, tüm şekillerin `AutoShape` olduğu varsayımı olmadan okur.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Bir düzeni düzenlemek, onu kullanan birden fazla slaytı etkileyebilir. Bir düzen şekline değişiklik yapmadan önce, normal bir slaytın nesneyi devralıp devralmadığını veya yerel bir geçersiz kılma içerip içermediğini belirleyin ve o düzeni kullanan tüm slaytları test edin.
+
+## **Bir Şekli SVG Olarak Dışa Aktarma**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/writeassvg/) bir şeklin render edilmiş içeriğini bir akıma yazar. Sonuç, şekli içerir, tüm slayt arka planını veya komşu şekilleri içermez.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Render işlemi sırasında sunumu açık tutun. Çıktı, şeklin biçimlendirmesine ve yazı tipleri, görüntüler gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, tek bir şekil yerine slaytı dışa aktarın. Akımı çağıran sahiplenir ve kapatmalıdır.
+
+## **Şekilleri Hizalama**
+
+[SlideUtil::alignShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideutil/alignshapes/) aşırı yüklemeleri, tüm şekilleri veya seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapesalignmenttype/) kenarı, merkez hattı veya dağıtım modunu belirtir. `alignToSlide` değerini `true` yaparsanız slayt kenarlarını kullanır; `false` yaparsanız seçili şekilleri birbirine göre hizalar.
+
+Bu örnek, üç şekli slaydın üst kenarına hizalar. Döndürülen şekil referansları, hizalama öncesinde hemen mevcut indekslerine dönüştürülür.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Hizalama, pozisyonları değiştirir, z‑sırasını değiştirmez. Göreceli hizalama genellikle en az iki şekil gerektirir, yatay veya dikey dağıtım ise aralığı tanımlamak için yeterli şekle ihtiyaç duyar. Metodu çağırmadan önce koleksiyonu değiştirirseniz, indeksleri yeniden hesaplayın.
+
+## **Bir Şekli Çevirme**
+
+[ShapeFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ve rotasyonu depolar. `getFlipH` ve `getFlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/php-java/aspose.slides/nullablebool/) kullanır: `True` çevirme etkinleştirir, `False` devre dışı bırakır ve `NotDefined` belirlenmemiş/varsayılan durumu korur.
+
+Aşağıdaki giriş sunumu, çevrilmemiş bir şekil içerir.
+
+![Çevirme öncesi şekil](shape_to_be_flipped.png)
+
+Bu örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu, yeni bir [Frame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/setframe/) atamanın tüm çerçeveyi değiştirmesi nedeniyle önemlidir.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kaydedilen şekil, konum, boyut ve rotasyonu korurken yatay ve dikey olarak yansıtılmıştır.
+
+![Çevirme sonrası şekil](flipped_shape.png)
+
+## **SSS**
+
+**Koleksiyon indeksini bir şekil tanımlayıcısı olarak kullanmalı mıyım?**
+
+Yalnızca koleksiyon, indeks kullanılmadan önce değişmeyecek kısa vadeli işlemler için. Oluşturulan şablonlar için doğrulanmış bir `Name` veya `AlternativeText` kuralını, slayt kapsamlı interop çalışmaları için ise `OfficeInteropShapeId` kullanmayı tercih edin.
+
+**Bir şekli gizlemek, onu z‑sırasından kaldırır mı?**
+
+Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir veya tekrar görünür hâle getirilebilir.
+
+**Neden kopyalanmış bir şekil başka bir şeklin önünde göründü?**
+
+`addClone`, kopyayı koleksiyonun sonuna ekler; bu, z‑sırasının önüdür. İlk indeksi seçmek için `insertClone` kullanın ya da tüm şekiller eklendikten sonra `reorder` yapın.

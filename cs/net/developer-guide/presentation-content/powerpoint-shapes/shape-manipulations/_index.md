@@ -5,392 +5,380 @@ type: docs
 weight: 40
 url: /cs/net/shape-manipulations/
 keywords:
-- PowerPoint tvar
-- tvar prezentace
-- tvar na snímku
-- najít tvar
-- klonovat tvar
-- odstranit tvar
-- skrýt tvar
-- změnit pořadí tvaru
-- získat Interop Shape ID
-- alternativní text tvaru
-- formáty rozložení tvaru
-- tvar jako SVG
-- tvar do SVG
-- zarovnat tvar
+- Tvar PowerPoint
+- Tvar prezentace
+- Tvar na snímku
+- Vyhledat tvar
+- Klonovat tvar
+- Odstranit tvar
+- Skrýt tvar
+- Změnit pořadí tvaru
+- Získat ID interop tvaru
+- Alternativní text tvaru
+- Formáty rozvržení tvaru
+- Tvar jako SVG
+- Tvar do SVG
+- Zarovnat tvar
+- Převrátit tvar
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se vytvářet, upravovat a optimalizovat tvary v Aspose.Slides pro .NET a vytvářet vysoce výkonné PowerPoint prezentace."
+description: "Naučte se, jak identifikovat, klonovat, odstranit, skrýt, změnit pořadí, exportovat, zarovnat a převrátit tvary v prezentaci pomocí Aspose.Slides pro .NET."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s tvary v prezentacích pomocí Aspose.Slides. Ukazuje, jak najít tvar na snímku, klonovat jej, odstranit, skrýt, změnit jeho pořadí, získat jeho Interop Shape ID a nastavit alternativní text pro identifikaci a další zpracování.
+Aspose.Slides for .NET představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/). Kolekce je zároveň místem, kde najdete a upravujete tvary, a zdrojem jejich pořadí vrstev: index `0` je nejzadnější tvar, zatímco poslední index je nejpřednější tvar.
 
-Také popisuje, jak přistupovat k formátům rozložení pro tvary, vykreslovat tvar jako SVG, zarovnávat tvary na snímku a používat vlastnosti překlápění pro vodorovné a svislé zrcadlení. Navíc článek obsahuje krátké FAQ o kombinaci tvarů, pořadí vrstev a uzamčení tvaru.
+Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar, poté ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Poslední sekce pokrývají formátování na úrovni rozvržení, export do SVG, zarovnání a nastavení převrácení. Každý příklad je nezávislý, takže můžete použít pouze operace, které váš workflow vyžaduje.
 
-## **Najít tvar na snímku**
-Tento odstavec popisuje jednoduchou techniku, která vývojářům usnadní nalezení konkrétního tvaru na snímku bez použití jeho interního Id. Je důležité vědět, že soubory PowerPoint prezentací nemají žádný způsob, jak identifikovat tvary na snímku kromě interního jedinečného Id. Vývojářům se může zdát obtížné najít tvar pomocí tohoto interního Id. Všechny tvary přidané do snímků mají nějaký alternativní text. Doporučujeme vývojářům používat alternativní text pro hledání konkrétního tvaru. Pomocí MS PowerPoint můžete definovat alternativní text pro objekty, které plánujete v budoucnu měnit.
+## **Identifikace a vyhledávání tvarů**
 
-Po nastavení alternativního textu libovolného požadovaného tvaru můžete otevřít tuto prezentaci pomocí Aspose.Slides pro .NET a iterovat přes všechny tvary přidané do snímku. Během každé iterace můžete zkontrolovat alternativní text tvaru a tvar s odpovídajícím alternativním textem bude tvar, který potřebujete. Pro lepší demonstraci této techniky jsme vytvořili metodu [FindShape](https://reference.aspose.com/slides/cs/net/aspose.slides.util/slideutil/findshape/#findshape_1), která umožňuje najít konkrétní tvar na snímku a jednoduše jej vrátí.
+Indexy v kolekci jsou praktické při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odebrání nebo změna pořadí tvaru může změnit jeho index. Zvolte identifikátor podle toho, jak je prezentace vytvářena a udržována:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/name/) je užitečný pro šablony řízené vývojáři a snadno se kontroluje v panelu výběru PowerPointu. Jména lze upravovat a nejsou garantována jako jedinečná, proto si stanovte pojmenovací konvenci, pokud na nich kód závisí.
+- [AlternativeText](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/alternativetext/) je užitečný, když popis přístupnosti nebo autorovo označení již tvar identifikuje. Je viditelný uživatelům, může být lokalizován nebo přepsán pro přístupnost a není garantován jako jedinečný. Nepřevádějte tiše smysluplný text přístupnosti na klíč databáze.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/officeinteropshapeid/) je jen pro čtení identifikátor, který je jedinečný v rámci snímku a odpovídá ID tvaru používanému interopem PowerPointu. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá vlastní ID.
+
+Související vlastnost [UniqueId](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/uniqueid/) má rozsah prezentace, ale je určena pro doplňky a může být přeřazena. Neměla by být považována za trvalý externí klíč. Pokud je dlouhodobá identita zásadní, udržujte mapování v aplikačních datech a ověřujte, že očekávaný tvar stále existuje.
+
+Následující příklad vyhledává podle `Name` s ordinální comparací a vrací interop ID v rozsahu snímku. Když šablona neobsahuje očekávaný tvar, kód nahlásí tento výsledek místo pokračování se špatným objektem.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Vytvoření instance třídy Presentation, která představuje soubor prezentace
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Alternativní text tvaru, který má být nalezen
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Implementace metody pro nalezení tvaru ve snímku pomocí jeho alternativního textu
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Procházení všech tvarů uvnitř snímku
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Pokud se alternativní text snímku shoduje s požadovaným, pak
-        // Vrátí tvar
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-## **Klonovat tvar**
-Pro klonování tvaru na snímek pomocí Aspose.Slides pro .NET:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Přistupte ke kolekci tvarů zdrojového snímku.
-1. Přidejte nový snímek do prezentace.
-1. Klonujte tvary z kolekce tvarů zdrojového snímku na nový snímek.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Níže uvedený příklad přidává skupinový tvar na snímek.
-
-```c#
-// Vytvoření instance třídy Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Zapsání souboru PPTX na disk
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-## **Odstranit tvar**
-Aspose.Slides pro .NET umožňuje vývojářům odstranit libovolný tvar. Pro odebrání tvaru z libovolného snímku postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy `Presentation`.
-1. Přistupte k prvnímu snímku.
-1. Najděte tvar s konkrétním AlternativeText.
-1. Odeberte tvar.
-1. Uložte soubor na disk.
-
-```c#
-// Vytvoření objektu Presentation
-Presentation pres = new Presentation();
-
-// Get the first slide
-ISlide sld = pres.Slides[0];
-
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Uložit prezentaci na disk
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Skrýt tvar**
-Aspose.Slides pro .NET umožňuje vývojářům skrýt libovolný tvar. Pro skrytí tvaru na libovolném snímku postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy `Presentation`.
-1. Přistupte k prvnímu snímku.
-1. Najděte tvar s konkrétním AlternativeText.
-1. Skryjte tvar.
-1. Uložte soubor na disk.
-
-```c#
-// Vytvoření instance třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-
-// Získání prvního snímku
-ISlide sld = pres.Slides[0];
-
-// Přidání automatického tvaru typu obdélník
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Uložit prezentaci na disk
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Změnit pořadí tvaru**
-Aspose.Slides pro .NET umožňuje vývojářům změnit pořadí tvarů. Přesunutí tvaru určuje, který tvar je vpředu a který v pozadí. Pro změnu pořadí tvaru na libovolném snímku postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy `Presentation`.
-1. Přistupte k prvnímu snímku.
-1. Přidejte tvar.
-1. Přidejte text do textového rámce tvaru.
-1. Přidejte další tvar se stejnými souřadnicemi.
-1. Změňte pořadí tvarů.
-1. Uložte soubor na disk.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Získat Interop Shape ID**
-Aspose.Slides pro .NET umožňuje vývojářům získat jedinečný identifikátor tvaru v rámci snímku na rozdíl od vlastnosti UniqueId, která poskytuje jedinečný identifikátor v rámci celé prezentace. Vlastnost OfficeInteropShapeId byla přidána do rozhraní IShape a třídy Shape. Hodnota vrácená vlastností OfficeInteropShapeId odpovídá hodnotě Id objektu Microsoft.Office.Interop.PowerPoint.Shape. Níže je uveden ukázkový kód.
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Získání jedinečného identifikátoru tvaru v rámci snímku
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
+Když je operace specifická pro typ tvaru, zkontrolujte rozhraní před použitím členů specifických pro typ. Tento příklad aktualizuje text a alternativní text pouze pokud je pojmenovaný objekt typu [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Nastavit alternativní text pro tvar**
-Aspose.Slides pro .NET umožňuje vývojářům nastavit AlternateText libovolného tvaru. 
-Tvary v prezentaci lze rozlišovat pomocí AlternativeText nebo vlastnosti Shape Name. 
-Vlastnost AlternativeText lze číst i nastavit pomocí Aspose.Slides i Microsoft PowerPoint. 
-Pomocí této vlastnosti můžete označit tvar a provádět různé operace, jako je odstranění tvaru, 
-skrytí tvaru nebo změna pořadí tvarů na snímku.
-Pro nastavení AlternateText tvaru postupujte podle následujících kroků:
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-1. Vytvořte instanci třídy `Presentation`.
-1. Přistupte k prvnímu snímku.
-1. Přidejte libovolný tvar na snímek.
-1. Proveďte požadované operace s nově přidaným tvarem.
-1. Procházejte tvary a najděte požadovaný tvar.
-1. Nastavte AlternativeText.
-1. Uložte soubor na disk.
-
-```c#
-// Vytvoření instance třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-
-// Získání prvního snímku
-ISlide sld = pres.Slides[0];
-
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Uložit prezentaci na disk
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **Přístup k formátům rozložení pro tvar**
-Aspose.Slides pro .NET poskytuje jednoduché API pro přístup k formátům rozložení pro tvar. Tento článek demonstruje, jak můžete přistupovat k těmto formátům.
-
-Níže je uveden ukázkový kód.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Vykreslit tvar jako SVG**
-Nyní Aspose.Slides pro .NET podporuje vykreslování tvaru jako SVG. Metoda WriteAsSvg (a její přetížení) byla přidána do třídy Shape a rozhraní IShape. Tato metoda umožňuje uložit obsah tvaru jako soubor SVG. Níže uvedený úryvek kódu ukazuje, jak exportovat tvar ze snímku do souboru SVG.
+## **Úprava kolekce tvarů**
 
-```c#
-public static void Run()
+Metody pro přidání, klonování, odebrání a změnu pořadí fungují na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nepokračujte v používání indexů zachycených před touto operací.
+
+### **Klonování tvaru**
+
+[AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addclone/) vytvoří nezávislou kopii a připojí ji do cílové kolekce. [InsertClone](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/insertclone/) také vytvoří kopii, ale umístí ji na určený index z‑řazení. Přetížení, která přijímají souřadnice, přesunou klon bez změny velikosti; přetížení s šířkou a výškou jej mohou také změnit.
+
+Příklad vytvoří cílový snímek, klonuje popsaný obdélník dopředu a vloží druhý klon dozadu. Změny v kterémkoli klonu nemění původní tvar.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Klonování kopíruje obsah a formátování tvaru, včetně jeho jména a alternativního textu. Při nutnosti jedinečných hodnot přiřaďte novým logickým identifikátorům klonu. Zdroje použité složitými tvary jsou spravovány prezentací, ale klon zůstává novou položkou kolekce s novou identitou tvaru.
+
+### **Odstranění tvarů**
+
+[Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/remove/) odstraní konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během indexované iterace procházejte kolekci od konce, aby každý zbývající index zůstal platný.
+
+Příklad odstraňuje každý tvar s určeným jménem. Čte `slide.Shapes[i]`, nikoli pevnou položku kolekce, a nepotřebně nekastuje tvar.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Po odebrání se počet tvarů a indexy následujících tvarů změní. Odkazy na neovlivněné tvary zůstávají spolehlivější než uložené indexy. Zvažte také konektory, animace a další funkce prezentace, které mohou odkazovat na odebraný objekt; odebrání viditelného tvaru může změnit více než jen vzhled snímku.
+
+### **Skrytí tvaru**
+
+Nastavením [Hidden](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/hidden/) na `true` zůstane tvar v kolekci, ale nebude se zobrazovat v normálním režimu prezentace. Jeho index, formátování i obsah zůstávají k dispozici kódu, takže skrytí je vhodné pro volitelné prvky, které mohou být později obnoveny.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Skrytí není smazání ani zabezpečení. Objekt může být stále nalezen a odkryt uživatelem nebo kódem a nadále patří do souboru prezentace.
+
+### **Změna pořadí Z**
+
+Překrývající se tvary se vykreslují podle pořadí v kolekci. [Reorder](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/reorder/) přesune existující tvar na cílový index bez jeho klonování. Index `0` je zadní, `Count-1` je přední.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Obdélník je vytvořen jako první a zpočátku leží za elipsou. Přesunutí na poslední index jej umístí dopředu. Dokončete z‑řazení po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky do kolekce a mohou změnit zamýšlený stack.
+
+## **Inspekce tvarů na rozvrhových snímcích**
+
+Normální snímky, rozvrhové snímky a hlavní snímky mají oddělené kolekce tvarů. Tvar v kolekci rozvržení není stejný objekt jako podobně umístěný tvar na normálním snímku. Prozkoumejte tvary rozvržení, když potřebujete pochopit nebo změnit formátování poskytované rozvržením.
+
+Následující příklad čte [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/fillformat/) a [LineFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/lineformat/) každého tvaru rozvržení, aniž by předpokládal, že každý tvar je `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **Zarovnat tvar**
+Úprava rozvržení může ovlivnit více snímků, které ho používají. Před změnou tvaru rozvržení zjistěte, zda normální snímek dědí objekt nebo obsahuje lokální přepsání, a otestujte každý snímek využívající toto rozvržení.
 
-Pomocí přetížené metody [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/cs/net/aspose.slides.util/slideutil/methods/alignshapes/index) můžete 
+## **Export tvaru do SVG**
 
-* zarovnat tvary vzhledem k okrajům snímku. Viz Příklad 1. 
-* zarovnat tvary vzhledem k sobě navzájem. Viz Příklad 2. 
+[WriteAsSvg](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/writeassvg/) zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje samotný tvar, ne celou pozadí snímku ani sousední tvary.
 
-Výčtová hodnota [ShapesAlignmentType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapesalignmenttype) definuje dostupné možnosti zarovnání.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-**Příklad 1**
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-Tento C# kód ukazuje, jak zarovnat tvary s indexy 1, 2 a 4 podél horního okraje snímku:
-Zdrojový kód níže zarovnává tvary s indexy 1, 2 a 4 podél horního okraje snímku. 
-
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Příklad 2**
+Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na zdrojích, jako jsou fonty a obrázky. Pokud potřebujete celou kompozici, exportujte snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej uvolnit.
 
-Tento C# kód ukazuje, jak zarovnat celou kolekci tvarů vzhledem k dolnímu tvaru v kolekci:
+## **Zarovnání tvarů**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/cs/net/aspose.slides.util/slideutil/alignshapes/) má přetížení, která zarovnávají buď všechny tvary, nebo vybrané indexy kolekce. [ShapesAlignmentType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapesalignmenttype/) určuje okraj, středovou čáru nebo režim rozdělení. Nastavte `alignToSlide` na `true`, chcete-li použít okraje snímku; nastavením na `false` zarovnáte vybrané tvary relativně k sobě.
+
+Příklad zarovná tři tvary k hornímu okraji snímku. Návratové odkazy na tvary jsou před zarovnáním převedeny na jejich aktuální indexy.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Vlastnosti Flip**
+Zarovnání mění pozice, ne Z‑řazení. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco horizontální nebo vertikální rozdělení potřebuje dostatek tvarů k definování rozestupů. Přepočítejte indexy, pokud před voláním metody měníte kolekci.
 
-V Aspose.Slides třída [ShapeFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/) poskytuje kontrolu nad vodorovným a svislým zrcadlením tvarů prostřednictvím vlastností `FlipH` a `FlipV`. Obě vlastnosti jsou typu [NullableBool](https://reference.aspose.com/slides/cs/net/aspose.slides/nullablebool/), přičemž hodnota `True` označuje překlápění, `False` žádné překlápění a `NotDefined` použije výchozí chování. Tyto hodnoty jsou přístupné z [Frame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/frame/) tvaru.
+## **Převrácení tvaru**
 
-Pro úpravu nastavení překlápění se vytvoří nová instance [ShapeFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/) s aktuální pozicí a velikostí tvaru, požadovanými hodnotami `FlipH` a `FlipV` a úhlem otáčení. Přiřazením této instance k [Frame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/frame/) tvaru a uložením prezentace se aplikují zrcadlové transformace a zapíšou do výstupního souboru.
+Třída [ShapeFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/) ukládá pozici, velikost, horizontální a vertikální nastavení převrácení a rotaci. Její hodnoty `FlipH` a `FlipV` používají [NullableBool](https://reference.aspose.com/slides/cs/net/aspose.slides/nullablebool/): `True` zapíná převrácení, `False` jej vypíná a `NotDefined` zachovává neurčený/defaultní stav.
 
-Předpokládejme, že máme soubor sample.pptx, ve kterém první snímek obsahuje jediný tvar s výchozím nastavením překlápění, jak je znázorněno níže.
+Vstupní prezentace níže obsahuje jeden netransformovaný tvar.
 
-![The shape to be flipped](shape_to_be_flipped.png)
+![Tvar před převrácením](shape_to_be_flipped.png)
 
-Následující ukázka kódu získá aktuální vlastnosti překlápění tvaru a překlápí jej jak horizontálně, tak vertikálně.
+Příklad zachová všechny ostatní hodnoty rámce a nahradí pouze dvě nastavení převrácení. To je důležité, protože přiřazení nového [Frame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/frame/) nahrazuje celý rámec.
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Získání vodorovné vlastnosti překlápění tvaru.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Získání svislé vlastnosti překlápění tvaru.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Překlopit vodorovně.
-    NullableBool flipV = NullableBool.True; // Překlopit svisle.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Výsledek:
+Uložený tvar je zrcadlen horizontálně i vertikálně při zachování pozice, velikosti a rotace.
 
-![The flipped shape](flipped_shape.png)
+![Tvar po převrácení](flipped_shape.png)
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu na snímku spojovat tvary (union/intersect/subtract) jako v desktopovém editoru?**
+**Mám používat index kolekce jako identifikátor tvaru?**
 
-Neexistuje vestavěné API pro Booleovské operace. Můžete jej aproximovat vytvořením požadovaného obrysu sami – např. vypočítat výslednou geometrii (pomocí [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath/)) a vytvořit nový tvar s tímto obrysem, případně odstranit originály.
+Pouze pro krátkodobé zpracování, kdy se kolekce před použitím indexu nezmění. Upřednostněte ověřenou konvenci `Name` nebo `AlternativeText` pro vytvořené šablony, nebo `OfficeInteropShapeId` pro práci s interopem na úrovni snímku.
 
-**Jak mohu ovládat pořadí vrstev (z-order), aby tvar vždy zůstával „nahoře“?**
+**Odstraňuje skrytí tvaru jej ze Z‑řazení?**
 
-Změňte pořadí vložení/přesunu uvnitř kolekce [shapes](https://reference.aspose.com/slides/cs/net/aspose.slides/baseslide/shapes/) snímku. Pro předvídatelné výsledky finalizeujte z-order po všech ostatních úpravách snímku.
+Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Může být nalezen, přeuspořádán, upraven nebo znovu zviditelněn.
 
-**Mohu „uzamknout“ tvar, aby ho uživatelé nemohli v PowerPointu upravovat?**
+**Proč se klonovaný tvar objevil před jiným tvarem?**
 
-Ano. Nastavte [flagy ochrany na úrovni tvaru](/slides/cs/net/applying-protection-to-presentation/) (např. zamknout výběr, pohyb, změnu velikosti, úpravy textu). Pokud je potřeba, aplikujte omezení i na master nebo rozložení. Upozorňujeme, že jde o ochranu na úrovni UI, ne o bezpečnostní funkci; pro silnější ochranu kombinujte s omezeními na úrovni souboru, jako jsou doporučení pro pouze čtení nebo hesla [/slides/cs/net/password-protected-presentation/](https://reference.aspose.com/slides/cs/net/password-protected-presentation/).
+`AddClone` přidá klon na konec kolekce, což je přední část Z‑řazení. Použijte `InsertClone` pro volbu počátečního indexu nebo `Reorder` po přidání všech tvarů.

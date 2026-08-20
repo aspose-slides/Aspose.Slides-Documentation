@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunum Şekillerini Yönetme
+title: .NET'te Sunum Şekillerini Yönet
 linktitle: Şekil Manipülasyonu
 type: docs
 weight: 40
@@ -13,355 +13,372 @@ keywords:
 - şekil kaldırma
 - şekil gizleme
 - şekil sırasını değiştirme
-- interop şekil kimliğini alma
+- interop şekil kimliğini al
 - şekil alternatif metni
-- şekil yerleşim formatları
-- SVG olarak şekil
-- şekli SVG'ye dönüştürme
-- şekli hizalama
+- şekil düzen formatları
+- şekil SVG olarak
+- şekli SVG'ye
+- şekli hizala
+- şekli çevir
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te şekiller oluşturmayı, düzenlemeyi ve optimize etmeyi öğrenin ve yüksek performanslı PowerPoint sunumları sunun."
+description: "Aspose.Slides for .NET ile sunum şekillerini tanımlamayı, kopyalamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve çevirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak sunumlarda şekillerle nasıl çalışılacağını açıklar. Bir slaytta şekil bulma, kopyalama, kaldırma, gizleme, sırasını değiştirme, Interop şekil kimliğini alma ve tanımlama ile sonraki işlem için alternatif metin ayarlama konularını gösterir.
+Aspose.Slides for .NET, bir slayttaki şekilleri sıralı bir [IShapeCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirdiğiniz yer olmasının yanı sıra yığın sıralarının kaynağıdır: indeks `0` en arkadaki şekildir, son indeks ise en öndeki şekildir.
 
-Ayrıca şekiller için yerleşim formatlarına erişme, şekli SVG olarak render etme, slaytta şekilleri hizalama ve yatay ve dikey yansıtma için flip özelliklerini kullanma konularını kapsar. Ek olarak, makale şekil birleştirme, yığılma sırası ve şekil kilitleme hakkında kısa bir SSS içerir.
+Bu makale bu modeli takip eder. Öncelikle bir şekli güvenilir bir şekilde nasıl tanımlayacağınızı açıklar, ardından şekilleri nasıl kopyalayacağınızı, kaldıracağınızı, gizleyeceğinizi ve sırasını değiştireceğinizi gösterir. Son bölümler, düzen düzeyinde biçimlendirme, SVG dışa aktarımı, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır, bu yüzden yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
 
-## **Slaytta Bir Şekil Bulma**
-Bu konu, geliştiricilerin bir slaytta belirli bir şekli, dahili Id'sini kullanmadan bulmalarını kolaylaştıran basit bir tekniği açıklayacaktır. PowerPoint Sunum dosyalarının bir slayttaki şekilleri dahili benzersiz Id dışında tanımlamanın bir yolu olmadığını bilmek önemlidir. Geliştiricilerin dahili benzersiz Id'yi kullanarak bir şekil bulması zor görünüyor. Slaytlara eklenen tüm şekillerin bir Alt Metni vardır. Geliştiricilere belirli bir şekil bulmak için alternatif metin kullanmalarını öneriyoruz. Gelecekte değiştirmeyi planladığınız nesneler için alternatif metni tanımlamak amacıyla MS PowerPoint’i kullanabilirsiniz.
+## **Şekilleri Tanımlama ve Bulma**
 
-İstediğiniz herhangi bir şeklin alternatif metni ayarlandıktan sonra, Aspose.Slides for .NET kullanarak o sunumu açabilir ve bir slayta eklenen tüm şekillerde döngü yapabilirsiniz. Her döngüde, şeklin alternatif metnini kontrol edebilir ve eşleşen alternatif metne sahip şekil, sizin istediğiniz şekil olacaktır. Bu tekniği daha iyi göstermek için, bir slaytta belirli bir şekli bulup o şekli döndüren bir metod oluşturduk, [FindShape](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/findshape/#findshape_1).
+Koleksiyon indeksleri, bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şekli eklemek, kaldırmak veya sırasını değiştirmek indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve yönetildiğine göre bir tanımlayıcı seçin:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/name/) geliştiricinin kontrolündeki şablonlar için yararlıdır ve PowerPoint'in Seçim Bölmesi'nde incelemesi kolaydır. İsimler düzenlenebilir ve benzersiz olması garanti edilmez, bu yüzden koda bağımlıysanız bir adlandırma kuralları belirleyin.
+- [AlternativeText](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/alternativetext/) erişilebilirlik açıklaması veya yazar tarafından sağlanan bir etiket zaten şekli tanımlıyorsa kullanışlıdır. Kullanıcılara görünür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti edilmez. Anlamlı erişilebilirlik metnini sessizce bir veritabanı anahtarı olarak yeniden kullanmayın.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/officeinteropshapeid/) bir okuma‑yazma olmayan tanımlayıcıdır, slayt içinde benzersizdir ve PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelir. PowerPoint ile bütünleştirirken veya bir şeklin ömrü boyunca belirsiz olmayan bir referansa ihtiyaç duyduğunuzda kullanın. Kopyalanan veya yeniden oluşturulan bir şekil farklı bir şekildir ve kendi kimliğini alır.
+
+İlgili [UniqueId](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/uniqueid/) özelliği sunum kapsamına sahiptir, ancak eklentiler için tasarlanmıştır ve yeniden atanabilir. Kalıcı bir dış anahtar olarak ele alınmamalıdır. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
+
+Aşağıdaki örnek, `Name` ile sıralı bir karşılaştırma yaparak arama yapar ve slayt kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde, kod hatalı nesneyle devam etmek yerine bu sonucu raporlar.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Sunum dosyasını temsil eden bir Presentation sınıfı örneği oluştur
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Bulunacak şeklin alternatif metni
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Bir slaytta şekli alternatif metniyle bulmak için metodun uygulanması
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Slayt içindeki tüm şekiller üzerinde iterasyon
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Eğer slaytın alternatif metni gerekenle eşleşirse
-        // Şekli döndür
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **Bir Şekli Kopyalama**
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-1. Bir slaydın referansını indeksini kullanarak alın.  
-1. Kaynak slaydın şekil koleksiyonuna erişin.  
-1. Sunuma yeni bir slayt ekleyin.  
-1. Kaynak slaydın şekil koleksiyonundaki şekilleri yeni slayta kopyalayın.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki örnek bir grup şekli slayta ekler.
-
-```c#
-// Presentation sınıfını örnekle
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// PPTX dosyasını diske kaydet
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Bir Şekli Kaldırma**
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-1. İlk slayta erişin.  
-1. Belirli AlternativeText'e sahip şekli bulun.  
-1. Şekli kaldırın.  
-1. Dosyayı diske kaydedin.
-
-```c#
-// Presentation nesnesi oluştur
-Presentation pres = new Presentation();
-
-// İlk slaytı al
-ISlide sld = pres.Slides[0];
-
-// Dikdörtgen tipinde otomatik şekil ekle
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Sunumu diske kaydet
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Bir Şekli Gizleme**
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-1. İlk slayta erişin.  
-1. Belirli AlternativeText'e sahip şekli bulun.  
-1. Şekli gizleyin.  
-1. Dosyayı diske kaydedin.
-
-```c#
-// PPTX'i temsil eden Presentation sınıfını örnekle
-Presentation pres = new Presentation();
-
-// İlk slaytı al
-ISlide sld = pres.Slides[0];
-
-// Dikdörtgen tipinde otomatik şekil ekle
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Sunumu diske kaydet
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **Şekil Sırasını Değiştirme**
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-1. İlk slayta erişin.  
-1. Bir şekil ekleyin.  
-1. Şeklin metin çerçevesine biraz metin ekleyin.  
-1. Aynı koordinatlarda başka bir şekil ekleyin.  
-1. Şekilleri yeniden sırala.  
-1. Dosyayı diske kaydedin.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Interop Şekil Kimliğini Alma**
-Aspose.Slides for .NET, UniqueId özelliğine karşılık olarak slayt kapsamında benzersiz bir şekil tanımlayıcısı elde etmeyi sağlayan Interop şekil kimliğini almayı sağlar. OfficeInteropShapeId özelliği IShape arabirimlerine ve Shape sınıfına eklendi. OfficeInteropShapeId özelliği tarafından döndürülen değer, Microsoft.Office.Interop.PowerPoint.Shape nesnesinin Id değerine karşılık gelir. Aşağıda örnek kod verilmiştir.
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Slayt kapsamında benzersiz şekil tanımlayıcısını alıyor
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **Bir Şekil İçin Alternatif Metin Ayarlama**
-Aspose.Slides for .NET, herhangi bir şeklin AlternateText'ini ayarlamayı sağlar.  
-Bir sunumdaki şekiller AlternativeText veya Shape Name özelliğiyle ayırt edilebilir.  
-AlternativeText özelliği Aspose.Slides ve Microsoft PowerPoint tarafından okunup ayarlanabilir.  
-Bu özelliği kullanarak bir şekle etiket ekleyebilir ve bir şekli kaldırma, gizleme veya slaytta şekilleri yeniden sıralama gibi farklı işlemleri gerçekleştirebilirsiniz.  
-Bir şeklin AlternateText'ini ayarlamak için aşağıdaki adımları izleyin:
+Bir işlem belirli bir şekil türüne özgüyse, tür‑spesifik üyeleri kullanmadan önce arabirimi kontrol edin. Bu örnek, adlandırılmış nesne bir [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) ise metni ve alternatif metni günceller.
 
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-1. İlk slayta erişin.  
-1. Slayta herhangi bir şekil ekleyin.  
-1. Yeni eklenen şekille bazı işlemler yapın.  
-1. Şekilleri dolaşarak bir şekil bulun.  
-1. AlternativeText'i ayarlayın.  
-1. Dosyayı diske kaydedin.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// PPTX'i temsil eden Presentation sınıfını örnekle
-Presentation pres = new Presentation();
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-// İlk slaytı al
-ISlide sld = pres.Slides[0];
-
-// Dikdörtgen tipinde otomatik şekil ekle
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Sunumu diske kaydet
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **Bir Şekil İçin Yerleşim Formatlarına Erişim**
-Aspose.Slides for .NET, bir şekil için yerleşim formatlarına erişmek için basit bir API sağlar. Bu makale, yerleşim formatlarına nasıl erişileceğini gösterir.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Bir Şekli SVG Olarak Render Etme**
-Artık Aspose.Slides for .NET, bir şekli SVG olarak render etmeyi destekler. WriteAsSvg metodu (ve aşırı yüklemesi) Shape sınıfına ve IShape arabirimine eklenmiştir. Bu metod, şeklin içeriğini bir SVG dosyası olarak kaydetmeye olanak tanır. Aşağıdaki kod parçacığı, slaydın şeklini bir SVG dosyasına dışa aktarmayı gösterir.
+## **Şekil Koleksiyonunu Değiştirme**
 
-```c#
-public static void Run()
+Ekleme, kopyalama, kaldırma ve yeniden sıralama metodları koleksiyon üzerinde anında çalışır. Bir işlem şekil sayısını veya sırasını değiştiriyorsa, o işlemden önce yakalanan indekslere güvenmeye devam etmeyin.
+
+### **Bir Şekli Kopyalama**
+
+[AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addclone/) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/insertclone/) da bir kopya oluşturur ancak belirtilen z‑order indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler kopyayı boyutunu değiştirmeden taşır; genişlik ve yükseklik içeren aşırı yüklemeler de yeniden boyutlandırabilir.
+
+Örnek, bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne kopyalar ve ikinci bir kopyayı arka tarafa ekler. Her iki kopyada yapılan değişiklikler kaynak şekli etkilemez.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Kopyalama, şeklin içeriğini ve biçimlendirmesini, adı ve alternatif metni dahil olmak üzere kopyalar. Bu değerlerin benzersiz olması gerektiğinde klona yeni mantıksal tanımlayıcılar atayın. Karmaşık şekiller tarafından kullanılan kaynaklar sunum tarafından yönetilir, ancak kopya yeni bir koleksiyon öğesi ve yeni bir şekil kimliği olur.
+
+### **Şekilleri Kaldırma**
+
+[Remove](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/remove/) belirli bir şekil nesnesini koleksiyonundan siler. İndeksli yineleme sırasında birden fazla eşleşmeyi kaldırırken, kalan indekslerin geçerli kalması için sondan başlayarak dolaşın.
+
+Bu örnek, belirli bir isimle işaretlenmiş tüm şekilleri kaldırır. Sabit bir koleksiyon öğesi yerine `slide.Shapes[i]` okunur ve şekil gereksiz yere bir tipe dönüştürülmez.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Kaldırma sonrası şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmeyen şekillere referanslar, kaydedilmiş indekslere göre daha güvenilirdir. Ayrıca kaldırılan nesneye başvuran bağlayıcılar, animasyonlar ve diğer sunum özelliklerini de göz önünde bulundurun; görünen bir şekli kaldırmak slaydın görünümünden daha fazlasını etkileyebilir.
+
+### **Bir Şekli Gizleme**
+
+[Hidden](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/hidden/) özelliğini `true` yaparak şekil koleksiyonda kalır ancak normal slayt gösterisinde görünmez. İndeksi, biçimi ve içeriği kod tarafından hâlâ erişilebilir olduğundan, daha sonra geri getirilebilecek isteğe bağlı öğeler için gizleme uygundur.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Gizleme bir silme veya güvenlik işlemi değildir. Nesne hâlâ bulunabilir ve bir kullanıcı ya da kod tarafından gizlilikten çıkarılabilir; aynı zamanda sunum dosyasının bir parçası olarak kalır.
+
+### **Z‑Sırasını Değiştirme**
+
+Üst üste gelen şekiller koleksiyon sırasına göre boyanır. [Reorder](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/reorder/) mevcut bir şekli klonlamadan hedef indeksine taşır. İndeks `0` arka, `Count - 1` ön demektir.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Dikdörtgen ilk oluşturulduğunda elipsin arkasında durur. Son indekse taşındığında ön tarafa gelir. Tüm ilişkili şekiller eklendikten veya kopyalandıktan sonra z‑orderʼı sonlandırın; bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığını değiştirebilir.
+
+## **Düzen Slaytlarındaki Şekilleri İnceleme**
+
+Normal slaytlar, düzen slaytları ve ana slaytlar ayrı şekil koleksiyonlarına sahiptir. Bir düzen koleksiyonundaki şekil, normal bir slayttaki benzer konumlu şekilyle aynı nesne değildir. Düzenin sağladığı biçimlendirmeyi anlamak veya değiştirmek gerektiğinde düzen şekillerini inceleyin.
+
+Aşağıdaki örnek, her düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/fillformat/) ve [LineFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/lineformat/) değerlerini, her şeklin bir `AutoShape` olduğu varsayımını yapmadan okur.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **Bir Şekli Hizalama**
-[SlidesUtil.AlignShape()](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/methods/alignshapes/index) aşırı yüklenmiş metodu aracılığıyla şunları yapabilirsiniz  
+Bir düzenin düzenlenmesi, onu kullanan birden çok slaytı etkileyebilir. Normal bir slayt nesneyi devralıyor mu yoksa yerel bir geçersiz kılma mı içeriyor belirleyin ve o düzeni kullanan her slaytı test edin.
 
-* slide'un kenar boşluklarına göre şekilleri hizalayabilirsiniz. Örnek 1'e bakın.  
-* birbirlerine göre şekilleri hizalayabilirsiniz. Örnek 2'ye bakın.  
+## **Şekli SVG Olarak Dışa Aktarma**
 
-[ShapesAlignmentType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapesalignmenttype) enumarasyonu mevcut hizalama seçeneklerini tanımlar.
+[WriteAsSvg](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/writeassvg/) bir şeklin render edilmiş içeriğini bir akıma yazar. Sonuç, şekli içerir; tüm slayt arka planını veya komşu şekilleri içermez.
 
-**Örnek 1**
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Bu C# kodu, indeksleri 1,2 ve 4 olan şekilleri slaydın üst kenarına hizalamayı gösterir:  
-Aşağıdaki kaynak kodu, indeksleri 1,2 ve 4 olan şekilleri slaydın üst kenarı boyunca hizalar.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Örnek 2**
+Render sırasında sunumu açık tutun. Çıktı, şeklin biçimlendirmesine ve fontlar, görüntüler gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, bireysel bir şekil yerine slaytı dışa aktarın. Çağıran akımı sahiplenir ve kapatmak zorundadır.
 
-Bu C# kodu, bir koleksiyondaki tüm şekilleri koleksiyonun alt şekline göre hizalamayı gösterir:
+## **Şekilleri Hizalama**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/tr/net/aspose.slides.util/slideutil/alignshapes/) aşırı yüklemeleri, tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapesalignmenttype/) kenar, merkez çizgisi veya dağıtım modunu belirtir. `alignToSlide` değerini `true` yaparsanız slayt kenarları kullanılır; `false` yaparsanız seçili şekiller birbirine göre hizalanır.
+
+Bu örnek, üç şekli slaytın üst kenarına hizalar. Döndürülen şekil referansları, hizalamadan hemen önce mevcut indekslerine dönüştürülür.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Flip Özellikleri**
+Hizalama konumları değiştirir, z‑orderʼı değil. Göreceli hizalama genellikle en az iki şekil gerektirirken, yatay veya dikey dağıtım yeterli boşluk tanımlamak için yeterli sayıda şekle ihtiyaç duyar. Metodu çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
 
-Aspose.Slides'te, [ShapeFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/) sınıfı, `FlipH` ve `FlipV` özellikleri aracılığıyla şekillerin yatay ve dikey yansıtılmasını kontrol eder. Her iki özellik de [NullableBool](https://reference.aspose.com/slides/tr/net/aspose.slides/nullablebool/) türündedir; `True` bir flip, `False` flip yok ve `NotDefined` varsayılan davranışı kullanmayı gösterir. Bu değerler bir şeklin [Frame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/frame/) üzerinden erişilebilir.  
+## **Bir Şekli Çevirme**
 
-Flip ayarlarını değiştirmek için, şeklin mevcut konumu ve boyutu, istenen `FlipH` ve `FlipV` değerleri ve dönüş açısı ile yeni bir [ShapeFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/) örneği oluşturulur. Bu örnek şeklin [Frame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/frame/) özelliğine atanır ve sunum kaydedildiğinde yansıtma dönüşümleri uygulanır ve çıktıya yazılır.  
+[ShapeFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ve döndürmeyi saklar. `FlipH` ve `FlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/net/aspose.slides/nullablebool/) kullanır: `True` çevirme etkinleştirir, `False` devre dışı bırakır ve `NotDefined` belirtilmemiş/varsayılan durumu korur.
 
-Örneğin, aşağıda gösterildiği gibi ilk slaytta varsayılan flip ayarlarıyla tek bir şekil içeren bir sample.pptx dosyamız olduğunu varsayalım.
+Aşağıdaki giriş sunumu bir çevrilmemiş şekil içerir.
 
-![Döndürülecek şekil](shape_to_be_flipped.png)
+![Çevirme öncesi şekil](shape_to_be_flipped.png)
 
-Aşağıdaki kod örneği, şeklin mevcut flip özelliklerini alır ve şekli hem yatay hem de dikey olarak döndürür.
+Bu örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu önemlidir çünkü yeni bir [Frame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/frame/) atamak çerçevenin tamamını değiştirir.
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Şeklin yatay çevirme özelliğini al.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Şeklin dikey çevirme özelliğini al.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Yatay olarak çevir.
-    NullableBool flipV = NullableBool.True; // Dikey olarak çevir.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Sonuç:
+Kaydedilen şekil, konum, boyut ve döndürmeyi korurken yatay ve dikey olarak yansıtılır.
 
-![Döndürülmüş şekil](flipped_shape.png)
+![Çevirme sonrası şekil](flipped_shape.png)
 
 ## **SSS**
 
-**Bir slaytta şekilleri (birleştirme/kesişim/çıkarma) masaüstü editöründe olduğu gibi birleştirebilir miyim?**  
-Yerleşik bir Boolean işlem API'si yoktur. İstediğiniz konturu kendiniz oluşturup (örneğin [GeometryPath](https://reference.aspose.com/slides/tr/net/aspose.slides/geometrypath/) aracılığıyla ortaya çıkan geometriyi hesaplayıp) yeni bir şekil oluşturabilir, isteğe bağlı olarak orijinal şekilleri kaldırabilirsiniz.  
+**Bir şekil tanımlayıcısı olarak koleksiyon indeksi kullanmalı mıyım?**
 
-**Bir şeklin her zaman “üstte” kalması için yığılma sırasını (z-order) nasıl kontrol edebilirim?**  
-Slaytın [shapes](https://reference.aspose.com/slides/tr/net/aspose.slides/baseslide/shapes/) koleksiyonundaki ekleme/taşıma sırasını değiştirin. Öngörülebilir sonuçlar için tüm diğer slayt değişikliklerinden sonra z-order'ı sabitleyin.  
+Sadece koleksiyon, indeks kullanılmadan önce değişmeyecek kısa süreli işlemler için kullanılmalıdır. Yazarın oluşturduğu şablonlar için doğrulanmış bir `Name` veya `AlternativeText` konvansiyonu, slayt kapsamlı interop çalışması için ise `OfficeInteropShapeId` tercih edin.
 
-**PowerPoint'te kullanıcıların şekli düzenlemesini önlemek için bir şekli “kilitleyebilir” miyim?**  
-Evet. [şekil düzeyi koruma işaretleri](/slides/tr/net/applying-protection-to-presentation/) (ör. seçim, hareket, yeniden boyutlandırma, metin düzenlemelerini kilitle) ayarlayın. Gerekirse, master veya layout üzerinde de aynı kısıtlamaları uygulayın. Bu, UI seviyesinde bir korumadır, güvenlik özelliği değildir; daha güçlü koruma için [yalnızca okuma önerileri veya şifreler](/slides/tr/net/password-protected-presentation/) gibi dosya seviyesinde sınırlamalar ekleyin.
+**Bir şekli gizlemek, onu z‑orderʼdan çıkarır mı?**
+
+Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir veya tekrar görünür yapılabilir.
+
+**Neden kopyalanan bir şekil başka bir şeklin önünde göründü?**
+
+`AddClone` kopyayı koleksiyonun sonuna ekler; bu da z‑orderʼın ön kısmıdır. Başlangıç indeksini seçmek için `InsertClone` kullanın ya da tüm şekiller eklendikten sonra `Reorder` ile konumlandırın.

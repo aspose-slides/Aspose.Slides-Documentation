@@ -5,394 +5,378 @@ type: docs
 weight: 40
 url: /es/androidjava/shape-manipulations/
 keywords:
-- Forma de PowerPoint
-- Forma de presentación
-- Forma en diapositiva
-- Buscar forma
-- Clonar forma
-- Eliminar forma
-- Ocultar forma
-- Cambiar orden de forma
-- Obtener ID de forma Interop
-- Texto alternativo de forma
-- Formatos de diseño de forma
-- Forma como SVG
-- Forma a SVG
-- Alinear forma
+- forma de PowerPoint
+- forma de presentación
+- forma en diapositiva
+- buscar forma
+- clonar forma
+- eliminar forma
+- ocultar forma
+- cambiar orden de forma
+- obtener ID de forma interop
+- texto alternativo de forma
+- formatos de diseño de forma
+- forma como SVG
+- forma a SVG
+- alinear forma
+- voltear forma
 - PowerPoint
-- Presentación
+- presentación
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda a crear, editar y optimizar formas en Aspose.Slides para Android mediante Java y entregar presentaciones de PowerPoint de alto rendimiento."
+description: "Aprenda a identificar, clonar, eliminar, ocultar, reordenar, exportar, alinear y voltear formas de presentación con Aspose.Slides para Android mediante Java."
 ---
+## **Descripción general**
 
-## **Buscar una forma en una diapositiva**
-Este tema describirá una técnica sencilla para facilitar a los desarrolladores la búsqueda de una forma específica en una diapositiva sin utilizar su Id interno. Es importante saber que los archivos de PowerPoint no tienen forma de identificar las formas en una diapositiva salvo por un Id interno único. Resulta complicado para los desarrolladores localizar una forma usando su Id interno único. Todas las formas añadidas a las diapositivas tienen algún Texto alternativo. Sugerimos a los desarrolladores que utilicen el texto alternativo para encontrar una forma concreta. Puede usar MS PowerPoint para definir el texto alternativo de los objetos que planea modificar en el futuro.
+Aspose.Slides for Android via Java representa las formas en una diapositiva como una [IShapeCollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/). La colección es tanto el lugar donde encuentra y modifica formas como la fuente de su orden de apilamiento: el índice `0` es la forma más trasera, mientras que el último índice es la forma más frontal.
 
-Después de establecer el texto alternativo de la forma deseada, puede abrir esa presentación con Aspose.Slides for Android via Java e iterar por todas las formas añadidas a una diapositiva. En cada iteración, puede comprobar el texto alternativo de la forma y la forma con el texto alternativo coincidente será la que necesita. Para demostrar esta técnica de forma más clara, hemos creado un método, [findShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) que realiza la operación de buscar una forma específica en una diapositiva y simplemente devuelve esa forma.
-```java
-// Instanciar una clase Presentation que representa el archivo de presentación
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+Este artículo sigue ese modelo. Primero explica cómo identificar una forma de forma fiable, luego muestra cómo clonar, eliminar, ocultar y reordenar formas. Las secciones finales cubren el formato a nivel de diseño, la exportación a SVG, la alineación y la configuración de volteo. Cada ejemplo es independiente, por lo que puede usar solo las operaciones que requiera su flujo de trabajo.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Texto alternativo de la forma a encontrar
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+## **Identificar y Encontrar Formas**
+
+Los índices de la colección son convenientes al procesar un archivo conocido, pero no son identificadores estables. Añadir, eliminar o reordenar una forma puede cambiar su índice. Elija un identificador según cómo se autorice y mantenga la presentación:
+
+- [Name](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#getName--) es útil para plantillas controladas por el desarrollador y es fácil de inspeccionar en el panel de selección de PowerPoint. Los nombres pueden editarse y no están garantizados como únicos, por lo que establezca una convención de nombres si el código depende de ellos.
+- [AlternativeText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#getAlternativeText--) es útil cuando una descripción de accesibilidad o una etiqueta suministrada por el autor ya identifica la forma. Es visible para los usuarios, puede localizarse o reescribirse para accesibilidad, y no está garantizado como único. No reutilice silenciosamente texto de accesibilidad con significado como clave de base de datos.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) es un identificador de solo lectura que es único dentro de una diapositiva y corresponde al ID de forma usado por la interop de PowerPoint. Úselo al integrar con PowerPoint o cuando necesite una referencia inequívoca durante la vida útil de una forma. Una forma clonada o recreada es una forma diferente y recibe su propio ID.
+
+El método relacionado [getUniqueId](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#getUniqueId--) devuelve un identificador con alcance de presentación, pero ese identificador está pensado para complementos y puede ser reasignado. No debe tratarse como una clave externa permanente. Si la identidad a largo plazo es esencial, mantenga el mapeo en los datos de la aplicación y valide que la forma esperada siga existiendo.
+
+El siguiente ejemplo busca por nombre con una comparación exacta e informa el ID de interop con alcance de diapositiva. Cuando la plantilla no contiene la forma esperada, el código informa ese resultado en lugar de continuar con el objeto incorrecto.
 
 ```java
-// Implementación del método para encontrar una forma en una diapositiva usando su texto alternativo
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Iterando por todas las formas dentro de la diapositiva
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Si el texto alternativo de la forma coincide con el solicitado entonces
-        // Devolver la forma
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+import com.aspose.slides.*;
 
-
-## **Clonar una forma**
-Para clonar una forma en una diapositiva usando Aspose.Slides for Android via Java:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Obtener la referencia de una diapositiva mediante su índice.
-1. Acceder a la colección de formas de la diapositiva origen.
-1. Añadir una nueva diapositiva a la presentación.
-1. Clonar las formas de la colección de la diapositiva origen a la nueva diapositiva.
-1. Guardar la presentación modificada como un archivo PPTX.
-
-El ejemplo a continuación añade una forma de grupo a una diapositiva.
-```java
-// Instanciar la clase Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-
-    // Escribir el archivo PPTX en disco
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Eliminar una forma**
-Aspose.Slides for Android via Java permite a los desarrolladores eliminar cualquier forma. Para eliminar la forma de cualquier diapositiva, siga los pasos siguientes:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Acceder a la primera diapositiva.
-1. Encontrar la forma con un Texto alternativo específico.
-1. Eliminar la forma.
-1. Guardar el archivo en disco.
-```java
-// Crear objeto Presentation
-Presentation pres = new Presentation();
-try {
-    // Obtener la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Añadir forma automática de tipo rectángulo
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Guardar la presentación en disco
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Ocultar una forma**
-Aspose.Slides for Android via Java permite a los desarrolladores ocultar cualquier forma. Para ocultar la forma de cualquier diapositiva, siga los pasos siguientes:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Acceder a la primera diapositiva.
-1. Encontrar la forma con un Texto alternativo específico.
-1. Ocultar la forma.
-1. Guardar el archivo en disco.
-```java
-// Instanciar la clase Presentation que representa el PPTX
-Presentation pres = new Presentation();
-try {
-    // Obtener la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Añadir forma automática de tipo rectángulo
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Guardar la presentación en disco
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Cambiar el orden de las formas**
-Aspose.Slides for Android via Java permite a los desarrolladores reordenar las formas. Reordenar una forma determina cuál está al frente y cuál está detrás. Para reordenar las formas de cualquier diapositiva, siga los pasos siguientes:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Acceder a la primera diapositiva.
-1. Añadir una forma.
-1. Añadir texto al marco de texto de la forma.
-1. Añadir otra forma con las mismas coordenadas.
-1. Reordenar las formas.
-1. Guardar el archivo en disco.
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Obtener el Id de forma Interop**
-Aspose.Slides for Android via Java permite a los desarrolladores obtener un identificador de forma único en el ámbito de la diapositiva, en contraste con el método [getUniqueId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getUniqueId--) que permite obtener un identificador único a nivel de presentación. El método [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) se añadió a las interfaces [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) y a la clase [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape). El valor devuelto por el método [getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) corresponde al valor del Id del objeto Microsoft.Office.Interop.PowerPoint.Shape. A continuación se muestra un fragmento de código de ejemplo.
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Obteniendo el identificador único de forma en el alcance de la diapositiva
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Establecer Texto alternativo para una forma**
-Aspose.Slides for Android via Java permite a los desarrolladores establecer el AlternateText de cualquier forma. Las formas en una presentación pueden distinguirse mediante el método [AlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) o el método [Shape Name](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setName-java.lang.String-). Los métodos [setAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) y [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#getAlternativeText--) pueden leerse o establecerse tanto con Aspose.Slides como con Microsoft PowerPoint. Mediante este método, puede etiquetar una forma y realizar diferentes operaciones como eliminar una forma, ocultar una forma o reordenar formas en una diapositiva. Para establecer el AlternateText de una forma, siga los pasos siguientes:
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-1. Acceder a la primera diapositiva.
-1. Añadir cualquier forma a la diapositiva.
-1. Realizar alguna operación con la forma recién añadida.
-1. Recorrer las formas para encontrar una forma.
-1. Establecer el AlternativeText.
-1. Guardar el archivo en disco.
-```java
-// Instanciar la clase Presentation que representa el PPTX
-Presentation pres = new Presentation();
-try {
-    // Obtener la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Añadir forma automática de tipo rectángulo
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Guardar la presentación en disco
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Acceder a formatos de diseño para una forma**
-Aspose.Slides for Android via Java proporciona una API sencilla para acceder a los formatos de diseño de una forma. Este artículo muestra cómo puede acceder a dichos formatos.
-
-A continuación se muestra un fragmento de código de ejemplo.
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Renderizar una forma como SVG**
-Ahora Aspose.Slides for Android via Java admite la renderización de una forma como SVG. El método [writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (y sus sobrecargas) se ha añadido a la clase [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape) y a la interfaz [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape). Este método permite guardar el contenido de la forma como un archivo SVG. El fragmento de código a continuación muestra cómo exportar la forma de una diapositiva a un archivo SVG.
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Alinear una forma**
-Aspose.Slides permite alinear formas ya sea en relación con los márgenes de la diapositiva o en relación entre sí. Con este fin, se ha añadido el método sobrecargado [SlidesUtil.alignShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-). La enumeración [ShapesAlignmentType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) define las posibles opciones de alineación.
-
-**Ejemplo 1**
-
-El código fuente a continuación alinea las formas con índices 1, 2 y 4 a lo largo del borde superior de la diapositiva.
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-
-**Ejemplo 2**
-
-El ejemplo a continuación muestra cómo alinear toda la colección de formas en relación con la forma más inferior de la colección.
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Propiedades de volteo**
-
-En Aspose.Slides, la clase [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) ofrece control sobre el espejo horizontal y vertical de las formas a través de sus propiedades `flipH` y `flipV`. Ambas propiedades son de tipo `byte`, permitiendo valores de `1` para voltear, `0` para no voltear, o `-1` para usar el comportamiento predeterminado. Estos valores son accesibles desde el [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) de una forma.
-
-Para modificar la configuración de volteo, se construye una nueva instancia de [ShapeFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeframe/) con la posición y tamaño actuales de la forma, los valores deseados para `flipH` y `flipV`, y el ángulo de rotación. Asignar esta instancia al [Frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getFrame--) de la forma y guardar la presentación aplica las transformaciones de espejo y las incorpora al archivo de salida.
-
-Supongamos que tenemos un archivo sample.pptx en el que la primera diapositiva contiene una única forma con la configuración de volteo predeterminada, como se muestra a continuación.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-El siguiente ejemplo de código recupera las propiedades de volteo actuales de la forma y la voltea tanto horizontal como verticalmente.
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Obtener la propiedad de volteo horizontal de la forma.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Obtener la propiedad de volteo vertical de la forma.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Voltear horizontalmente.
-    byte flipV = NullableBool.True; // Voltear horizontalmente.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
+Cuando una operación es específica de un tipo de forma, compruebe la interfaz antes de usar miembros específicos del tipo. Este ejemplo actualiza el texto y el texto alternativo solo si el objeto nombrado es un [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/).
 
-El resultado:
+```java
+import com.aspose.slides.*;
 
-![The flipped shape](flipped_shape.png)
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Modificar la colección de formas**
+
+Los métodos añadir, clonar, eliminar y reordenar operan sobre la colección inmediatamente. Si una operación cambia el número o el orden de las formas, no continúe confiando en índices capturados antes de esa operación.
+
+### **Clonar una forma**
+
+[addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) crea una copia independiente y la agrega al final de la colección de destino. [insertClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) también crea una copia pero la coloca en un índice de orden Z especificado. Las sobrecargas que aceptan coordenadas mueven el clon sin cambiar su tamaño; las sobrecargas con ancho y alto pueden redimensionarlo también.
+
+El ejemplo crea una diapositiva de destino, clona un rectángulo etiquetado al frente e inserta un segundo clon al fondo. Los cambios en cualquiera de los clones no modifican la forma origen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Clonar copia el contenido y el formato de la forma, incluido su nombre y texto alternativo. Asigne nuevos identificadores lógicos al clon cuando esos valores deban ser únicos. Los recursos usados por formas complejas son gestionados por la presentación, pero un clon sigue siendo un nuevo elemento de la colección con una nueva identidad de forma.
+
+### **Eliminar formas**
+
+[remove](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) elimina un objeto de forma específico de su colección. Al eliminar varias coincidencias durante una iteración indexada, recorra desde el final para que cada índice restante siga siendo válido.
+
+Este ejemplo elimina cada forma con un nombre designado. Lee la forma en el índice actual, no un elemento fijo de la colección, y no realiza cast innecesario de la forma.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Después de la eliminación, el recuento de formas y los índices de las formas posteriores cambian. Las referencias a formas no afectadas siguen siendo más fiables que los índices guardados. También considere conectores, animaciones y otras características de la presentación que puedan referirse al objeto eliminado; eliminar una forma visible puede cambiar más que la apariencia de la diapositiva.
+
+### **Ocultar una forma**
+
+Establecer [Hidden](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) a `true` mantiene la forma en la colección pero evita que aparezca en la presentación normal. Su índice, formato y contenido permanecen disponibles para el código, por lo que ocultar es apropiado para elementos opcionales que pueden restaurarse más tarde.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ocultar no es eliminación ni seguridad. El objeto aún puede ser descubierto y desocultado por un usuario o por código, y sigue formando parte del archivo de la presentación.
+
+### **Cambiar el orden Z**
+
+Las formas superpuestas se pintan en el orden de la colección. [reorder](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) mueve una forma existente a un índice objetivo sin clonar. El índice `0` es el fondo; `size() - 1` es el frente.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+El rectángulo se crea primero y inicialmente se sitúa detrás de la elipse. Moverlo al índice final lo coloca al frente. Finalice el orden Z después de añadir o clonar todas las formas relacionadas, porque esas operaciones añaden o insertan nuevos elementos en la colección y pueden alterar la pila prevista.
+
+## **Inspeccionar formas en diapositivas de diseño**
+
+Las diapositivas normales, las diapositivas de diseño y las diapositivas maestras tienen colecciones de formas separadas. Una forma en una colección de diseño no es el mismo objeto que una forma posicionada de manera similar en una diapositiva normal. Inspeccione las formas de diseño cuando necesite comprender o cambiar el formato proporcionado por un diseño.
+
+El siguiente ejemplo lee el [FillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#getFillFormat--) y el [LineFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#getLineFormat--) de cada forma de diseño sin asumir que cada forma es una `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Editar un diseño puede afectar a múltiples diapositivas que lo usan. Antes de cambiar una forma de diseño, determine si una diapositiva normal hereda el objeto o contiene una sobrescritura local, y pruebe cada diapositiva que utilice ese diseño.
+
+## **Exportar una forma a SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) escribe el contenido renderizado de una forma a un flujo. El resultado contiene la forma, no el fondo completo de la diapositiva ni las formas vecinas.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Mantenga la presentación abierta mientras renderiza. La salida depende del formato de la forma y de recursos como fuentes e imágenes. Si necesita la composición completa, exporte la diapositiva en lugar de una forma individual. El llamador es el propietario del flujo y debe cerrarlo.
+
+## **Alinear formas**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) tiene sobrecargas que alinean todas las formas o índices de colección seleccionados. [ShapesAlignmentType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/shapesalignmenttype/) especifica el borde, la línea central o el modo de distribución. Establezca `alignToSlide` a `true` para usar los bordes de la diapositiva; colóquelo a `false` para alinear las formas seleccionadas entre sí.
+
+Este ejemplo alinea tres formas al borde superior de la diapositiva. Las referencias a formas devueltas se convierten a sus índices actuales inmediatamente antes de la alineación.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La alineación cambia posiciones, no el orden Z. La alineación relativa normalmente necesita al menos dos formas, mientras que la distribución horizontal o vertical requiere suficientes formas para definir el espaciado. Recalcule los índices si modifica la colección antes de llamar al método.
+
+## **Voltear una forma**
+
+La clase [ShapeFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/shapeframe/) almacena posición, tamaño, ajustes de volteo horizontal y vertical, y rotación. Sus valores `getFlipH` y `getFlipV` usan [NullableBool](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/nullablebool/): `True` habilita el volteo, `False` lo deshabilita y `NotDefined` preserva el estado no especificado/predeterminado.
+
+La presentación de entrada a continuación contiene una forma sin voltear.
+
+![La forma antes de voltearse](shape_to_be_flipped.png)
+
+El ejemplo conserva todos los demás valores del marco y reemplaza solo los dos ajustes de volteo. Esto es importante porque asignar un nuevo [Frame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) reemplaza el marco completo.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La forma guardada se refleja horizontal y verticalmente mientras mantiene su posición, tamaño y rotación.
+
+![La forma después de voltearse](flipped_shape.png)
 
 ## **FAQ**
 
-**¿Puedo combinar formas (unir/intersectar/restar) en una diapositiva como en un editor de escritorio?**
+**¿Debería usar un índice de colección como identificador de forma?**
 
-No existe una API incorporada de operaciones booleanas. Puede aproximarse construyendo el contorno deseado usted mismo—p. ej., calculando la geometría resultante (mediante [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)) y creando una nueva forma con ese contorno, opcionalmente eliminando las originales.
+Solo para procesamiento de corta duración cuando la colección no cambiará antes de que se use el índice. Prefiera una convención validada de `Name` o `AlternativeText` para plantillas creadas, o `OfficeInteropShapeId` para trabajo de interop con alcance de diapositiva.
 
-**¿Cómo puedo controlar el orden de apilamiento (z-order) para que una forma siempre quede «encima»?**
+**¿Ocultar una forma la elimina del orden Z?**
 
-Cambie el orden de inserción/movimiento dentro de la colección de [shapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) de la diapositiva. Para obtener resultados predecibles, finalice el z-order después de todas las demás modificaciones de la diapositiva.
+No. Una forma oculta permanece en la colección en el mismo índice. Puede encontrarse, reordenarse, editarse o hacerse visible nuevamente.
 
-**¿Puedo «bloquear» una forma para impedir que los usuarios la editen en PowerPoint?**
+**¿Por qué una forma clonada apareció frente a otra forma?**
 
-Sí. Establezca banderas de protección a nivel de forma (p. ej., bloquear selección, movimiento, redimensionado, edición de texto). Si es necesario, refleje las restricciones en la diapositiva maestra o de diseño. Tenga en cuenta que esta es una protección a nivel de UI, no una característica de seguridad; para una protección más fuerte, combine con restricciones a nivel de archivo como [recomendaciones de solo lectura o contraseñas](/slides/es/androidjava/password-protected-presentation/).
+`addClone` agrega el clon al final de la colección, que es el frente del orden Z. Use `insertClone` para elegir el índice inicial o `reorder` después de que se hayan añadido todas las formas.

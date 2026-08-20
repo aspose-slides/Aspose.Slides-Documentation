@@ -1,5 +1,5 @@
 ---
-title: Kelola Bentuk Presentasi dengan JavaScript
+title: Kelola Bentuk Presentasi dalam JavaScript
 linktitle: Manipulasi Bentuk
 type: docs
 weight: 40
@@ -9,395 +9,386 @@ keywords:
 - Bentuk presentasi
 - Bentuk pada slide
 - temukan bentuk
-- gandakan bentuk
+- salin bentuk
 - hapus bentuk
 - sembunyikan bentuk
 - ubah urutan bentuk
-- dapatkan ID bentuk Interop
+- dapatkan ID bentuk interop
 - teks alternatif bentuk
 - format tata letak bentuk
 - bentuk sebagai SVG
-- bentuk menjadi SVG
-- sejajarkan bentuk
+- bentuk ke SVG
+- rapikan bentuk
+- balikkan bentuk
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pelajari cara membuat, mengedit, dan mengoptimalkan bentuk menggunakan JavaScript dan Aspose.Slides untuk Node.js via Java serta menghasilkan presentasi PowerPoint berkinerja tinggi."
+description: "Pelajari cara mengidentifikasi, menyalin, menghapus, menyembunyikan, mengubah urutan, mengekspor, merapikan, dan membalik bentuk presentasi dengan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan bentuk dalam presentasi menggunakan Aspose.Slides. Artikel ini menunjukkan cara menemukan bentuk pada slide, menggandakannya, menghapusnya, menyembunyikannya, mengubah urutannya, mendapatkan ID bentuk Interop, dan mengatur teks alternatif untuk identifikasi serta pemrosesan lebih lanjut.
+Aspose.Slides for Node.js via Java merepresentasikan bentuk-bentuk pada slide sebagai sebuah [ShapeCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/) yang terurut. Koleksi ini sekaligus merupakan tempat Anda menemukan dan memodifikasi bentuk serta sumber urutan tumpukannya: indeks `0` adalah bentuk paling belakang, sementara indeks terakhir adalah bentuk paling depan.
 
-Artikel ini juga mencakup cara mengakses format tata letak untuk bentuk, merender sebuah bentuk sebagai SVG, menyelaraskan bentuk pada slide, dan menggunakan properti flip untuk pencerminan horizontal dan vertikal. Selain itu, artikel ini menyertakan FAQ singkat tentang kombinasi bentuk, urutan tumpukan, dan penguncian bentuk.
+Artikel ini mengikuti model tersebut. Pertama dijelaskan cara mengidentifikasi bentuk secara andal, kemudian ditunjukkan cara menyalin, menghapus, menyembunyikan, dan mengubah urutan bentuk. Bagian akhir mencakup pemformatan tingkat layout, ekspor SVG, perataan, dan pengaturan pembalikan. Setiap contoh bersifat independen, sehingga Anda dapat menggunakan hanya operasi yang diperlukan dalam alur kerja Anda.
 
-## **Temukan Bentuk di Slide**
+## **Mengidentifikasi dan Menemukan Bentuk**
 
-Topik ini akan menjelaskan teknik sederhana untuk mempermudah pengembang menemukan bentuk tertentu pada slide tanpa menggunakan Id internalnya. Penting untuk diketahui bahwa file Presentasi PowerPoint tidak memiliki cara untuk mengidentifikasi bentuk pada slide kecuali melalui Id unik internal. Hal ini membuat pengembang kesulitan menemukan bentuk menggunakan Id unik internalnya. Semua bentuk yang ditambahkan ke slide memiliki beberapa Teks Alternatif. Kami menyarankan pengembang menggunakan teks alternatif untuk menemukan bentuk tertentu. Anda dapat menggunakan MS PowerPoint untuk menentukan teks alternatif untuk objek yang akan Anda ubah di masa mendatang.
+Indeks koleksi berguna saat memproses file yang sudah diketahui, tetapi bukan pengidentifikasi yang stabil. Penambahan, penghapusan, atau pengubahan urutan bentuk dapat mengubah indeksnya. Pilih pengidentifikasi berdasarkan cara presentasi dibuat dan dipelihara:
 
-Setelah menetapkan teks alternatif pada bentuk yang diinginkan, Anda dapat membuka presentasi tersebut menggunakan Aspose.Slides for Node.js via Java dan mengulangi semua bentuk yang ditambahkan ke slide. Pada setiap iterasi, Anda dapat memeriksa teks alternatif bentuk tersebut dan bentuk dengan teks alternatif yang cocok akan menjadi bentuk yang Anda butuhkan. Untuk mendemonstrasikan teknik ini dengan lebih baik, kami telah membuat metode, [findShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) yang melakukan pencarian bentuk tertentu dalam slide dan kemudian mengembalikan bentuk tersebut.
+- [Name](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getname/) berguna untuk templat yang dikendalikan pengembang dan mudah diperiksa di Panel Seleksi PowerPoint. Nama dapat diedit dan tidak dijamin unik, jadi tetapkan konvensi penamaan bila kode bergantung padanya.
+- [AlternativeText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getalternativetext/) berguna ketika deskripsi aksesibilitas atau tag yang diberikan penulis sudah mengidentifikasi bentuk. Teks ini terlihat oleh pengguna, dapat dilokalisasi atau ditulis ulang untuk aksesibilitas, dan tidak dijamin unik. Jangan secara diam-diam memanfaatkan teks aksesibilitas yang bermakna sebagai kunci basis data.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) adalah pengidentifikasi read‑only yang unik dalam satu slide dan sesuai dengan ID bentuk yang digunakan oleh interop PowerPoint. Gunakan ini saat berintegrasi dengan PowerPoint atau ketika Anda memerlukan referensi yang tidak ambigu selama masa hidup sebuah bentuk. Bentuk yang disalin atau dibuat ulang adalah bentuk yang berbeda dan menerima ID-nya sendiri.
 
-```javascript
-// Instansiasi kelas Presentation yang mewakili file presentasi
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // Teks alternatif dari bentuk yang akan ditemukan
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+Metode terkait [getUniqueId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getuniqueid/) mengembalikan pengidentifikasi dengan cakupan presentasi, tetapi pengidentifikasi ini ditujukan untuk add‑in dan dapat dipindahtangankan. Jangan memperlakukannya sebagai kunci eksternal permanen. Jika identitas jangka panjang penting, simpan pemetaan dalam data aplikasi dan verifikasi bahwa bentuk yang diharapkan masih ada.
 
-    return null;
-}
-```
-
-## **Gandakan Bentuk**
-
-Untuk menggandakan sebuah bentuk ke slide menggunakan Aspose.Slides for Node.js via Java:
-
-1. Buat sebuah instansi dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Dapatkan referensi slide dengan menggunakan indeksnya.
-3. Akses koleksi bentuk slide sumber.
-4. Tambahkan slide baru ke presentasi.
-5. Gandakan bentuk dari koleksi bentuk slide sumber ke slide baru.
-6. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Contoh di bawah menambahkan bentuk grup ke slide.
+Contoh berikut mencari berdasarkan nama dengan perbandingan tepat dan melaporkan ID interop berskala slide. Ketika templat tidak berisi bentuk yang diharapkan, kode melaporkan hasil tersebut alih‑alih melanjutkan dengan objek yang salah.
 
 ```javascript
-// Instansiasi kelas Presentation
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Tuliskan file PPTX ke disk
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **Hapus Bentuk**
-
-Aspose.Slides for Node.js via Java memungkinkan pengembang menghapus bentuk apa pun. Untuk menghapus bentuk dari slide mana pun, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instansi dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Akses slide pertama.
-3. Temukan bentuk dengan AlternativeText tertentu.
-4. Hapus bentuk.
-5. Simpan file ke disk.
-
-```javascript
-// Buat objek Presentation
-var pres = new aspose.slides.Presentation();
-try {
-    // Dapatkan slide pertama
-    var sld = pres.getSlides().get_Item(0);
-    // Tambahkan autoshape tipe persegi panjang
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // Simpan presentasi ke disk
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Sembunyikan Bentuk**
-
-Aspose.Slides for Node.js via Java memungkinkan pengembang menyembunyikan bentuk apa pun. Untuk menyembunyikan bentuk dari slide mana pun, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instansi dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Akses slide pertama.
-3. Temukan bentuk dengan AlternativeText tertentu.
-4. Sembunyikan bentuk.
-5. Simpan file ke disk.
-
-```javascript
-// Instansiasi kelas Presentation yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Dapatkan slide pertama
-    var sld = pres.getSlides().get_Item(0);
-    // Tambahkan autoshape tipe persegi panjang
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // Simpan presentasi ke disk
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ubah Urutan Bentuk**
-
-Aspose.Slides for Node.js via Java memungkinkan pengembang mengubah urutan bentuk. Mengubah urutan bentuk menentukan bentuk mana yang berada di depan atau di belakang. Untuk mengubah urutan bentuk pada slide mana pun, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instansi dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Akses slide pertama.
-3. Tambahkan sebuah bentuk.
-4. Tambahkan beberapa teks dalam frame teks bentuk.
-5. Tambahkan bentuk lain dengan koordinat yang sama.
-6. Ubah urutan bentuk.
-7. Simpan file ke disk.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Dapatkan ID Bentuk Interop**
-
-Aspose.Slides for Node.js via Java memungkinkan pengembang memperoleh pengidentifikasi bentuk unik dalam lingkup slide, berbeda dengan metode [getUniqueId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#getUniqueId--) yang memungkinkan memperoleh pengidentifikasi unik dalam lingkup presentasi. Metode [getOfficeInteropShapeId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) telah ditambahkan ke kelas [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape) dan kelas [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape) masing‑masing. Nilai yang dikembalikan oleh metode [getOfficeInteropShapeId](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) sesuai dengan nilai Id dari objek Microsoft.Office.Interop.PowerPoint.Shape. Di bawah ini diberikan contoh kode.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // Mendapatkan pengidentifikasi bentuk unik dalam lingkup slide
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Atur Teks Alternatif untuk Bentuk**
-
-Aspose.Slides for Node.js via Java memungkinkan pengembang mengatur AlternateText pada bentuk apa pun. Bentuk dalam presentasi dapat dibedakan dengan metode [AlternativeText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) atau [Shape Name](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). Metode [setAlternativeText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) dan [getAlternativeText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#getAlternativeText--) dapat dibaca atau diatur menggunakan Aspose.Slides maupun Microsoft PowerPoint. Dengan menggunakan metode ini, Anda dapat menandai sebuah bentuk dan melakukan berbagai operasi seperti Menghapus bentuk, Menyembunyikan bentuk, atau Mengubah urutan bentuk pada slide. Untuk mengatur AlternateText sebuah bentuk, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instansi dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Akses slide pertama.
-3. Tambahkan bentuk apa pun ke slide.
-4. Lakukan beberapa pekerjaan dengan bentuk yang baru ditambahkan.
-5. Telusuri bentuk-bentuk untuk menemukan sebuah bentuk.
-6. Atur AlternativeText.
-7. Simpan file ke disk.
-
-```javascript
-// Instansiasi kelas Presentation yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Dapatkan slide pertama
-    var sld = pres.getSlides().get_Item(0);
-    // Tambahkan autoshape tipe persegi panjang
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // Simpan presentasi ke disk
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Akses Format Tata Letak untuk Bentuk**
-
-Aspose.Slides for Node.js via Java menyediakan API sederhana untuk mengakses format tata letak sebuah bentuk. Artikel ini menunjukkan cara mengakses format tata letak. Contoh kode di bawah diberikan.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Render Bentuk sebagai SVG**
-
-Sekarang Aspose.Slides for Node.js via Java mendukung render bentuk sebagai SVG. Metode [writeAsSvg](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (dan overload-nya) telah ditambahkan ke kelas [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape). Metode ini memungkinkan menyimpan konten bentuk sebagai file SVG. Potongan kode di bawah menunjukkan cara mengekspor bentuk slide ke file SVG.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Penyelarasan Bentuk**
-
-Aspose.Slides memungkinkan penyelarasan bentuk baik relatif terhadap margin slide maupun relatif terhadap satu sama lain. Untuk keperluan ini, metode overload [SlidesUtil.alignShape()](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) telah ditambahkan. Enumerasi [ShapesAlignmentType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ShapesAlignmentType) menetapkan opsi penyelarasan yang mungkin.
-
-**Contoh 1**
-
-Kode sumber di bawah menyelaraskan bentuk dengan indeks 1,2, dan 4 sepanjang tepi atas slide.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**Contoh 2**
-
-Contoh di bawah menunjukkan cara menyelaraskan seluruh koleksi bentuk relatif terhadap bentuk paling bawah dalam koleksi.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Properti Flip**
-
-Di Aspose.Slides, kelas [ShapeFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapeframe/) memberikan kontrol atas pencerminan horizontal dan vertikal bentuk melalui properti `flipH` dan `flipV`. Kedua properti bertipe `byte`, dengan nilai `1` menandakan pencerminan, `0` tanpa pencerminan, atau `-1` untuk menggunakan perilaku default. Nilai-nilai ini dapat diakses dari [Frame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#getFrame) sebuah bentuk.
-
-Untuk mengubah pengaturan flip, sebuah instansi baru [ShapeFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapeframe/) dibuat dengan posisi dan ukuran saat ini dari bentuk, nilai yang diinginkan untuk `flipH` dan `flipV`, serta sudut rotasi. Menetapkan instansi ini ke [Frame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#getFrame) bentuk dan menyimpan presentasi akan menerapkan transformasi cermin dan mengaplikasikannya ke file output.
-
-Misalkan kita memiliki file sample.pptx di mana slide pertama berisi satu bentuk dengan pengaturan flip default, seperti yang ditunjukkan di bawah.
-
-![Bentuk yang akan diputar](shape_to_be_flipped.png)
-
-Contoh kode berikut mengambil properti flip saat ini dari bentuk dan memutarnya secara horizontal dan vertikal.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // Dapatkan properti flip horizontal dari bentuk.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Dapatkan properti flip vertikal dari bentuk.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // Flip horizontally.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // Flip vertically.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-![Bentuk yang diputar](flipped_shape.png)
+Ketika sebuah operasi spesifik untuk tipe bentuk tertentu, periksa kelas runtime sebelum menggunakan anggota khusus tipe. Contoh ini memperbarui teks dan teks alternatif hanya bila objek bernama adalah sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/).
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Memodifikasi Koleksi Bentuk**
+
+Metode penambahan, penyalinan, penghapusan, dan pengubahan urutan bekerja pada koleksi secara langsung. Jika sebuah operasi mengubah jumlah atau urutan bentuk, jangan terus mengandalkan indeks yang diambil sebelum operasi tersebut.
+
+### **Menyalin Bentuk**
+
+[addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/addclone/) membuat salinan independen dan menambahkannya ke akhir koleksi target. [insertClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/insertclone/) juga membuat salinan tetapi menempatkannya pada indeks z‑order yang ditentukan. Overload yang menerima koordinat memindahkan salinan tanpa mengubah ukuran; overload dengan lebar dan tinggi dapat mengubah ukuran juga.
+
+Contoh membuat slide tujuan, menyalin sebuah persegi panjang berlabel ke depan, dan menyisipkan salinan kedua ke belakang. Perubahan pada salah satu salinan tidak memodifikasi bentuk sumber.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Penyalinan menyalin konten dan pemformatan bentuk, termasuk nama dan teks alternatifnya. Tetapkan pengidentifikasi logis baru pada salinan bila nilai‑nilai tersebut harus unik. Sumber daya yang digunakan oleh bentuk kompleks ditangani oleh presentasi, tetapi salinan tetap menjadi item koleksi baru dengan identitas bentuk baru.
+
+### **Menghapus Bentuk**
+
+[remove](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/remove/) menghapus objek bentuk tertentu dari koleksinya. Saat menghapus beberapa kecocokan selama iterasi berindeks, lakukan penelusuran dari akhir agar setiap indeks yang tersisa tetap valid.
+
+Contoh ini menghapus setiap bentuk dengan nama yang ditentukan. Ia membaca bentuk pada indeks saat ini dan tidak mengasumsikan tipe bentuk tertentu.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Setelah penghapusan, jumlah bentuk dan indeks bentuk‑bentuk berikutnya berubah. Referensi ke bentuk yang tidak terpengaruh tetap lebih dapat diandalkan daripada indeks yang disimpan. Pertimbangkan pula konektor, animasi, dan fitur presentasi lain yang mungkin merujuk pada objek yang dihapus; menghapus bentuk yang terlihat dapat mengubah lebih dari sekadar tampilan slide.
+
+### **Menyembunyikan Bentuk**
+
+Menetapkan [Hidden](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/sethidden/) ke `true` menjaga bentuk tetap berada dalam koleksi tetapi mencegahnya muncul dalam tayangan slide normal. Indeks, pemformatan, dan kontennya tetap tersedia bagi kode, sehingga menyembunyikan cocok untuk elemen opsional yang dapat dipulihkan kemudian.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Menyembunyikan bukanlah penghapusan atau keamanan. Objek masih dapat ditemukan dan ditampilkan kembali oleh pengguna atau kode, dan tetap menjadi bagian dari file presentasi.
+
+### **Mengubah Z‑Order**
+
+Bentuk yang saling tumpang tindih digambar sesuai urutan koleksi. [reorder](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/reorder/) memindahkan bentuk yang sudah ada ke indeks target tanpa menyalinnya. Indeks `0` adalah belakang; `size() - 1` adalah depan.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Persegi panjang dibuat terlebih dahulu dan pada awalnya berada di belakang elips. Memindahkannya ke indeks akhir menempatkannya di depan. Finalisasi z‑order setelah menambahkan atau menyalin semua bentuk terkait, karena operasi tersebut menambah atau menyisipkan item koleksi baru dan dapat mengubah susunan yang diinginkan.
+
+## **Memeriksa Bentuk pada Slide Layout**
+
+Slide normal, slide layout, dan slide master memiliki koleksi bentuk yang terpisah. Sebuah bentuk dalam koleksi layout bukan objek yang sama dengan bentuk yang posisinya serupa pada slide normal. Periksa bentuk layout ketika Anda perlu memahami atau mengubah pemformatan yang disediakan oleh layout.
+
+Contoh berikut membaca setiap [FillFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getfillformat/) dan [LineFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getlineformat/) dari bentuk layout tanpa mengasumsikan bahwa setiap bentuk adalah `AutoShape`.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Mengedit layout dapat memengaruhi banyak slide yang menggunakannya. Sebelum mengubah bentuk layout, tentukan apakah slide normal mewarisi objek tersebut atau memiliki penimpaan lokal, dan uji setiap slide yang memakai layout itu.
+
+## **Mengekspor Bentuk ke SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/writeassvg/) menulis konten yang dirender dari satu bentuk ke aliran. Hasilnya berisi bentuk tersebut, bukan latar belakang slide secara keseluruhan atau bentuk‑bentuk di sekitarnya.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Biarkan presentasi tetap terbuka selama proses rendering. Output bergantung pada pemformatan bentuk serta sumber daya seperti font dan gambar. Jika Anda memerlukan seluruh komposisi, ekspor slide alih‑alih bentuk individual. Pemanggil bertanggung jawab atas aliran dan harus menutupnya.
+
+## **Merapikan Bentuk**
+
+Overload [SlideUtil.alignShapes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideutil/alignshapes/) merapikan baik semua bentuk maupun indeks koleksi yang dipilih. [ShapesAlignmentType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapesalignmenttype/) menentukan tepi, garis tengah, atau mode distribusi. Atur `alignToSlide` ke `true` untuk menggunakan tepi slide; atur ke `false` untuk merapikan bentuk yang dipilih relatif satu sama lain.
+
+Contoh ini merapikan tiga bentuk ke tepi atas slide. Referensi bentuk yang dikembalikan diubah menjadi indeksnya saat ini tepat sebelum perapihan.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Perapihan mengubah posisi, bukan z‑order. Perapihan relatif biasanya membutuhkan setidaknya dua bentuk, sementara distribusi horizontal atau vertikal memerlukan cukup bentuk untuk menentukan jarak. Hitung ulang indeks jika Anda memodifikasi koleksi sebelum memanggil metode.
+
+## **Membalik Bentuk**
+
+Kelas [ShapeFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapeframe/) menyimpan posisi, ukuran, pengaturan flip horizontal dan vertikal, serta rotasi. Nilai `getFlipH` dan `getFlipV`‑nya menggunakan [NullableBool](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/nullablebool/): `True` mengaktifkan flip, `False` menonaktifkannya, dan `NotDefined` mempertahankan keadaan tak ditentukan/default.
+
+Presentasi masukan di bawah ini berisi satu bentuk yang tidak dibalik.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Contoh ini mempertahankan semua nilai frame lainnya dan hanya mengganti dua pengaturan flip. Hal ini penting karena menetapkan [Frame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/setframe/) baru menggantikan seluruh frame.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bentuk yang disimpan tercermin secara horizontal dan vertikal sekaligus mempertahankan posisi, ukuran, dan rotasinya.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Apakah saya dapat menggabungkan bentuk (union/intersect/subtract) pada slide seperti di editor desktop?**
+**Haruskah saya menggunakan indeks koleksi sebagai pengidentifikasi bentuk?**
 
-Tidak ada API operasi Boolean bawaan. Anda dapat mendekatinya dengan membangun kontur yang diinginkan secara manual—misalnya, menghitung geometri hasil (melalui [GeometryPath](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/geometrypath/)) dan membuat bentuk baru dengan kontur tersebut, dengan opsi menghapus yang asli.
+Hanya untuk pemrosesan jangka pendek ketika koleksi tidak akan berubah sebelum indeks digunakan. Lebih baik gunakan konvensi `Name` atau `AlternativeText` yang divalidasi untuk templat yang dibuat, atau `OfficeInteropShapeId` untuk pekerjaan interop berskala slide.
 
-**Bagaimana saya dapat mengontrol urutan tumpukan (z-order) sehingga sebuah bentuk selalu berada di atas?**
+**Apakah menyembunyikan sebuah bentuk menghapusnya dari z‑order?**
 
-Ubah urutan sisip/move dalam koleksi [shapes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/#getShapes) slide. Untuk hasil yang dapat diprediksi, selesaikan z-order setelah semua modifikasi slide lainnya.
+Tidak. Bentuk tersembunyi tetap berada di koleksi pada indeks yang sama. Ia dapat ditemukan, diubah urutannya, diedit, atau dibuat terlihat kembali.
 
-**Apakah saya dapat "mengunci" sebuah bentuk untuk mencegah pengguna mengeditnya di PowerPoint?**
+**Mengapa bentuk yang disalin muncul di depan bentuk lain?**
 
-Ya. Atur flag perlindungan tingkat bentuk (misalnya, kunci pemilihan, pergerakan, perubahan ukuran, edit teks). Jika diperlukan, terapkan pembatasan pada master atau tata letak. Perhatikan bahwa ini adalah perlindungan level UI, bukan fitur keamanan; untuk perlindungan yang lebih kuat, gabungkan dengan pembatasan tingkat file seperti [rekomendasi read‑only atau kata sandi](/slides/id/nodejs-java/password-protected-presentation/).
+`addClone` menambahkan salinan ke akhir koleksi, yang merupakan bagian depan z‑order. Gunakan `insertClone` untuk memilih indeks awal atau `reorder` setelah semua bentuk ditambahkan.

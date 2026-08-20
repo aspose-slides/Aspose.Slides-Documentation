@@ -15,383 +15,374 @@ keywords:
 - ändra formordning
 - hämta interop-form-ID
 - formens alternativa text
-- formens layoutformat
+- formlayoutformat
 - form som SVG
 - form till SVG
 - justera form
+- vänd form
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig att skapa, redigera och optimera former med JavaScript och Aspose.Slides för Node.js via Java och leverera högpresterande PowerPoint-presentationer."
+description: "Lär dig hur du identifierar, klonar, tar bort, döljer, ändrar ordning, exporterar, justerar och vänder presentationsformer med Aspose.Slides för Node.js via Java."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med former i presentationer med Aspose.Slides. Den visar hur man hittar en form på en bild, klonar den, tar bort den, döljer den, ändrar dess ordning, hämtar dess Interop‑form‑ID och anger alternativ text för identifiering och vidare bearbetning.
+Aspose.Slides for Node.js via Java representerar formerna på en bild som en ordnad [ShapeCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/). Samlingen är både platsen där du hittar och ändrar former och källan till deras staplingsordning: index `0` är formen längst bak, medan det sista indexet är formen längst fram.
 
-Den täcker också hur man får åtkomst till layoutformat för former, renderar en form som SVG, justerar former på en bild och använder flip‑egenskaper för horisontell och vertikal spegling. Dessutom innehåller artikeln en kort FAQ om kombination av former, staplingsordning och låsning av former.
+Den här artikeln följer den modellen. Den förklarar först hur du på ett pålitligt sätt identifierar en form, och visar sedan hur du klonar, tar bort, döljer och ändrar ordning på former. De sista sektionerna täcker formatering på layoutnivå, SVG‑export, justering och vändningsinställningar. Varje exempel är oberoende, så du kan använda endast de operationer som ditt arbetsflöde kräver.
 
-## **Hitta form i bild**
-Detta ämne beskriver en enkel teknik för att underlätta för utvecklare att hitta en specifik form på en bild utan att använda dess interna Id. Det är viktigt att veta att PowerPoint‑presentationsfiler inte har något sätt att identifiera former på en bild förutom ett internt unikt Id. Det kan vara svårt för utvecklare att hitta en form med hjälp av dess interna unika Id. Alla former som läggs till i bilderna har någon alternativ text. Vi rekommenderar att utvecklare använder alternativ text för att hitta en specifik form. Du kan använda MS PowerPoint för att definiera den alternativa texten för objekt som du planerar att ändra i framtiden.
+## **Identifiera och hitta former**
 
-Efter att du har angett den alternativa texten för en önskad form kan du öppna presentationen med Aspose.Slides för Node.js via Java och iterera igenom alla former som lagts till på en bild. Under varje iteration kan du kontrollera formens alternativa text och den form vars alternativa text matchar är den du söker. För att demonstrera tekniken på ett bättre sätt har vi skapat en metod, [findShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) som löser att hitta en specifik form i en bild och sedan helt enkelt returnerar den formen.
+Samlingsindex är praktiska vid bearbetning av en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller ändra ordningen på en form kan ändra dess index. Välj en identifierare utifrån hur presentationen skapas och underhålls:
 
-```javascript
-// Instansiera en Presentation-klass som representerar presentationsfilen
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // Alternativ text för den form som ska hittas
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+- [Name](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/getname/) är användbart för utvecklarkontrollerade mallar och är enkelt att inspektera i PowerPoints Urvalspanel. Namn kan redigeras och är inte garanterade att vara unika, så etablera en namngivningskonvention om kod beror på dem.
+- [AlternativeText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/getalternativetext/) är användbart när en tillgänglighetsbeskrivning eller en av författaren angiven tagg redan identifierar formen. Den är synlig för användare, kan lokaliseras eller skrivas om för tillgänglighet, och är inte garanterad att vara unik. Använd inte tyst meningsfull tillgänglighetstext som en databaskod.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) är en skrivskyddad identifierare som är unik inom en bild och motsvarar den form‑ID som används av PowerPoint‑interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en forms livstid. En klonad eller återskapad form är en annan form och får ett eget ID.
 
-    return null;
-}
-```
+Den relaterade metoden [getUniqueId](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/getuniqueid/) returnerar en identifierare med presentationsomfång, men den identifieraren är avsedd för tillägg och kan omfördelas. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är viktig, håll mappningen i applikationsdata och validera att den förväntade formen fortfarande finns.
 
-## **Klona form**
-För att klona en form till en bild med Aspose.Slides för Node.js via Java:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta referensen till en bild genom att använda dess index.
-3. Få åtkomst till källbildens form‑samling.
-4. Lägg till en ny bild i presentationen.
-5. Klona former från källbildens form‑samling till den nya bilden.
-6. Spara den modifierade presentationen som en PPTX‑fil.
-
-Exemplet nedan lägger till en gruppform på en bild.
+Följande exempel söker efter namn med en exakt jämförelse och rapporterar bild‑scoped interop‑ID. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet istället för att fortsätta med fel objekt.
 
 ```javascript
-// Instansiera Presentation-klassen
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Skriv PPTX-filen till disk
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **Ta bort form**
-Aspose.Slides för Node.js via Java låter utvecklare ta bort valfri form. För att ta bort formen från en bild, följ stegen nedan:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Hitta formen med specifik AlternativeText.
-4. Ta bort formen.
-5. Spara filen till disk.
-
-```javascript
-// Skapa Presentation-objekt
-var pres = new aspose.slides.Presentation();
-try {
-    // Hämta den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Lägg till autogestalt av rektangeltyp
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // Spara presentationen till disk
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Dölj form**
-Aspose.Slides för Node.js via Java låter utvecklare dölja valfri form. För att dölja formen från en bild, följ stegen nedan:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Hitta formen med specifik AlternativeText.
-4. Dölj formen.
-5. Spara filen till disk.
-
-```javascript
-// Instansiera Presentation-klass som representerar PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Hämta den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Lägg till autogestalt av rektangeltyp
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // Spara presentationen till disk
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ändra ordning på former**
-Aspose.Slides för Node.js via Java låter utvecklare omordna former. Att omordna en form specificerar vilken form som är längst fram eller längst bak. För att omordna formerna på en bild, följ stegen nedan:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Lägg till en form.
-4. Lägg till lite text i formens textrutor.
-5. Lägg till en annan form med samma ko‑ordinater.
-6. Omordna formerna.
-7. Spara filen till disk.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Hämta Interop‑form‑ID**
-Aspose.Slides för Node.js via Java låter utvecklare hämta ett unikt form‑identifierare i bild‑omfång i motsats till metoden [getUniqueId](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#getUniqueId--) som ger ett unikt identifierare i presentations‑omfång. Metoden [getOfficeInteropShapeId](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) lades till i klassen [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape) och motsvarande klass. Värdet som returneras av [getOfficeInteropShapeId](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) motsvarar Id‑värdet för Microsoft.Office.Interop.PowerPoint.Shape‑objektet. Nedan ges ett exempel på kod.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // Hämtar unik formidentifierare i bildomfång
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ange alternativ text för form**
-Aspose.Slides för Node.js via Java låter utvecklare ange AlternateText för en form. Former i en presentation kan särskiljas med hjälp av [AlternativeText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) eller [Shape Name](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#setName-java.lang.String-) metoden. Metoderna [setAlternativeText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) och [getAlternativeText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#getAlternativeText--) kan läsas eller skrivas med både Aspose.Slides och Microsoft PowerPoint. Med hjälp av denna metod kan du märka en form och utföra olika operationer såsom att ta bort en form, dölja en form eller omordna former på en bild. För att ange AlternateText för en form, följ stegen nedan:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Lägg till någon form på bilden.
-4. Gör något arbete med den nylagda formen.
-5. Gå igenom formerna för att hitta en form.
-6. Ange AlternativeText.
-7. Spara filen till disk.
-
-```javascript
-// Instansiera Presentation-klass som representerar PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Hämta den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Lägg till autogestalt av rektangeltyp
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // Spara presentationen till disk
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Få åtkomst till layoutformat för form**
-Aspose.Slides för Node.js via Java tillhandahåller ett enkelt API för att få åtkomst till layoutformat för en form. Denna artikel demonstrerar hur du kan komma åt layoutformat.
-
-Nedan ges exempel på kod.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Rendera form som SVG**
-Nu stödjer Aspose.Slides för Node.js via Java rendering av en form som SVG. Metoden [writeAsSvg](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (och dess överlagring) har lagts till i klassen [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape). Denna metod möjliggör att spara innehållet i en form som en SVG‑fil. Kodsnutten nedan visar hur du exporterar en bilds form till en SVG‑fil.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Formjustering**
-Aspose.Slides låter dig justera former antingen i förhållande till bildens marginaler eller i förhållande till varandra. För detta ändamål har den överlagrade metoden [SlidesUtil.alignShape()](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) lagts till. Enumerationen [ShapesAlignmentType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapesAlignmentType) definierar möjliga justeringsalternativ.
-
-**Exempel 1**
-
-Källkoden nedan justerar former med index 1, 2 och 4 längs bildens överkant.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**Exempel 2**
-
-Exemplet nedan visar hur du justerar hela samlingen av former i förhållande till den nedersta formen i samlingen.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Flip‑egenskaper**
-
-I Aspose.Slides ger klassen [ShapeFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapeframe/) kontroll över horisontell och vertikal spegling av former via dess `flipH`‑ och `flipV`‑egenskaper. Båda egenskaperna är av typ `byte` och kan ha värdet `1` för spegling, `0` för ingen spegling eller `-1` för standardbeteende. Dessa värden är åtkomliga via en forms [Frame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/#getFrame).
-
-För att ändra flip‑inställningarna skapas en ny [ShapeFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapeframe/)-instans med formens nuvarande position och storlek, önskade värden för `flipH` och `flipV` samt rotationsvinkeln. Genom att tilldela denna instans till formens [Frame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/#getFrame) och spara presentationen appliceras speglingarna och de sparas i utdatafilen.
-
-Anta att vi har en fil sample.pptx där den första bilden innehåller en enda form med standard‑flip‑inställningar, som visas nedan.
-
-![Formen som ska speglas](shape_to_be_flipped.png)
-
-Följande kodexempel hämtar formens nuvarande flip‑egenskaper och speglar den både horisontellt och vertikalt.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // Hämta den horisontella flip-egenskapen för formen.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Hämta den vertikala flip-egenskapen för formen.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // Flippa horisontellt.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // Flippa vertikalt.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Resultatet:
+När en operation är specifik för en formtyp, kontrollera runtime‑klassen innan du använder typ‑specifika medlemmar. Detta exempel uppdaterar text och alternativ text endast om det namngivna objektet är en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/).
 
-![Den speglade formen](flipped_shape.png)
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ändra formsamlingen**
+
+Add‑, clone‑, remove‑ och reorder‑metoderna verkar på samlingen omedelbart. Om en operation förändrar antalet eller ordningen på former, fortsätt inte att förlita dig på index som samlades in före den operationen.
+
+### **Klona en form**
+
+[addClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/addclone/) skapar en oberoende kopia och lägger till den i mål‑samlingen. [insertClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/insertclone/) skapar också en kopia men placerar den på ett angivet z‑order‑index. Överlagringarna som tar emot koordinater flyttar klonen utan att ändra dess storlek; överlagringarna med bredd och höjd kan även ändra storlek.
+
+Exemplet skapar en målbild, klonar en märkt rektangel till framsidan och infogar en andra klon längst bak. Ändringar på någon av klonerna modifierar inte källformen.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kloning kopierar formens innehåll och formatering, inklusive namn och alternativ text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt samlingsobjekt med en ny formidentitet.
+
+### **Ta bort former**
+
+[remove](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/remove/) raderar ett specifikt formobjekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå bakifrån så att varje återstående index förblir giltigt.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Efter borttagning förändras antalet former och indexen för efterföljande former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på förbindelser, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan förändra mer än bara bildens utseende.
+
+### **Dölj en form**
+
+Att sätta [Hidden](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/sethidden/) till `true` behåller formen i samlingen men hindrar den från att visas i normalt bildspel. Dess index, formatering och innehåll förblir tillgängliga för kod, så doldning är lämplig för valfria element som kanske återställs senare.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Döljning är ingen borttagning eller säkerhetsåtgärd. Objektet kan fortfarande upptäckas och osynliggöras av en användare eller av kod, och det förblir en del av presentationsfilen.
+
+### **Ändra Z-ordning**
+
+Överlappande former ritas i samlingsordning. [reorder](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/reorder/) flyttar en befintlig form till ett mål‑index utan att klona den. Index `0` är bakre; `size() - 1` är främre.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Rektangeln skapas först och ligger initialt bakom ellipsen. Att flytta den till det sista indexet placerar den framför. Slutför z‑ordning efter att du har lagt till eller klonat alla relaterade former, eftersom dessa operationer lägger till eller infogar nya samlingsobjekt och kan ändra den avsedda stapeln.
+
+## **Inspektera former på layoutbilder**
+
+Normala bilder, layoutbilder och mastrebilder har separata formsamlingar. En form i en layoutsamling är inte samma objekt som en likadant placerad form på en normal bild. Inspektera layoutformer när du behöver förstå eller ändra formatering som levereras av en layout.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layoutform, avgör om en normal bild ärver objektet eller innehåller en lokal överskrivning, och testa varje bild som använder den layouten.
+
+## **Exportera en form till SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/writeassvg/) skriver en enskild forms renderade innehåll till en ström. Resultatet innehåller bara formen, inte hela bildbakgrunden eller närliggande former.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Behåll presentationen öppen medan du renderar. Utdata beror på formens formatering och på resurser som teckensnitt och bilder. Om du behöver hela kompositionen, exportera bilden i stället för en enskild form. Anroparen äger strömmen och måste stänga den.
+
+## **Justera former**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideutil/alignshapes/)‑överlagringarna justerar antingen alla former eller utvalda samlingsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapesalignmenttype/) specificerar kant, mittlinje eller fördelningsläge. Sätt `alignToSlide` till `true` för att använda bildens kanter; sätt den till `false` för att justera de valda formerna relativt varandra.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Justering förändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avstånd. Räkna om indexen om du ändrar samlingen innan du anropar metoden.
+
+## **Vänd en form**
+
+[ShapeFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapeframe/)‑klassen lagrar position, storlek, horisontella och vertikala vändningsinställningar samt rotation. Dess `getFlipH`‑ och `getFlipV`‑värden använder [NullableBool](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/nullablebool/): `True` aktiverar vändning, `False` inaktiverar den, och `NotDefined` behåller det odefinierade/default‑tillståndet.
+
+Inmatningspresentationen nedan innehåller en ovänd form.
+
+![Formen före vändning](shape_to_be_flipped.png)
+
+Exemplet bevarar alla andra ramvärden och ersätter bara de två vändningsinställningarna. Detta är viktigt eftersom tilldelning av en ny [Frame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/setframe/) ersätter hela ramen.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Den sparade formen speglas horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
+
+![Formen efter vändning](flipped_shape.png)
 
 ## **FAQ**
 
-**Kan jag kombinera former (union/intersect/subtract) på en bild som i en skrivbordsredigerare?**
+**Ska jag använda ett samlingsindex som en formidentifierare?**
 
-Det finns inget inbyggt API för booleska operationer. Du kan approximera det genom att konstruera den önskade konturen själv – t.ex. beräkna den resulterande geometrin (via [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/geometrypath/)) och skapa en ny form med den konturen, eventuellt ta bort originalen.
+Endast för kortlivad bearbetning när samlingen inte kommer att förändras innan indexet används. Föredra ett validerat `Name`‑ eller `AlternativeText`‑konvention för skapade mallar, eller `OfficeInteropShapeId` för interop‑arbete med bild‑scoped identifiering.
 
-**Hur kan jag kontrollera staplingsordningen (z-order) så att en form alltid ligger “överst”?**
+**Tar dölja en form bort den från z‑ordningen?**
 
-Ändra infognings‑/flyttningsordningen inom bildens [shapes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/#getShapes)-samling. För förutsägbara resultat, slutför z‑ordningen efter alla andra bildmodifieringar.
+Nej. En dold form förblir i samlingen på samma index. Den kan hittas, omordnas, redigeras eller göras synlig igen.
 
-**Kan jag ”låsa” en form för att hindra användare från att redigera den i PowerPoint?**
+**Varför dök en klonad form upp framför en annan form?**
 
-Ja. Ställ in skyddsflaggor på formnivå (t.ex. lås markering, rörelse, storleksändring, textredigering). Om behövt, spegla begränsningarna på master‑ eller layoutnivå. Observera att detta är ett UI‑skydd, inte en säkerhetsfunktion; för starkare skydd kombinera med fil‑nivå restriktioner såsom rekommendationer om skrivskydd eller lösenord ([read‑only recommendations or passwords](/slides/sv/nodejs-java/password-protected-presentation/)).
+`addClone` lägger till klonen i slutet av samlingen, vilket är fronten av z‑ordningen. Använd `insertClone` för att ange start‑index eller `reorder` efter att alla former har lagts till.

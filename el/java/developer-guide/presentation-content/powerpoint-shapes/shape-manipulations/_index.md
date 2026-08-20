@@ -1,401 +1,381 @@
 ---
 title: Διαχείριση Σχημάτων Παρουσίασης σε Java
-linktitle: Διαχείριση Σχημάτων
+linktitle: Χειρισμός Σχημάτων
 type: docs
 weight: 40
 url: /el/java/shape-manipulations/
 keywords:
 - Σχήμα PowerPoint
-- σχήμα παρουσίασης
-- σχήμα σε διαφάνεια
-- εύρεση σχήματος
-- κλωνοποίηση σχήματος
-- αφαίρεση σχήματος
-- απόκρυψη σχήματος
-- αλλαγή σειράς σχήματος
-- λήψη Interop Shape ID
-- εναλλακτικό κείμενο σχήματος
-- μορφές διάταξης σχήματος
-- σχήμα ως SVG
-- σχήμα σε SVG
-- ευθυγράμμιση σχήματος
+- Σχήμα παρουσίασης
+- Σχήμα σε διαφάνεια
+- Εύρεση σχήματος
+- Κλωνοποίηση σχήματος
+- Αφαίρεση σχήματος
+- Απόκρυψη σχήματος
+- Αλλαγή σειράς σχήματος
+- Λήψη ID σχήματος interop
+- Εναλλακτικό κείμενο σχήματος
+- Μορφές διάταξης σχήματος
+- Σχήμα ως SVG
+- Μετατροπή σχήματος σε SVG
+- Στοίχιση σχήματος
+- Αναστροφή σχήματος
 - PowerPoint
-- παρουσίαση
+- Παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε να δημιουργείτε, επεξεργάζεστε και βελτιστοποιείτε σχήματα στο Aspose.Slides για Java και να παρέχετε παρουσιάσεις PowerPoint υψηλής απόδοσης."
+description: "Μάθετε πώς να προσδιορίζετε, κλωνοποιείτε, αφαιρείτε, κρύβετε, αναδιατάξετε, εξάγετε, ευθυγραμμίζετε και αναστρέφετε σχήματα παρουσίασης με το Aspose.Slides for Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με σχήματα σε παρουσιάσεις χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να βρείτε ένα σχήμα σε μια διαφάνεια, να το κλωνοποιήσετε, να το αφαιρέσετε, να το αποκρύψετε, να αλλάξετε τη σειρά του, να λάβετε το Interop shape ID και να ορίσετε εναλλακτικό κείμενο για την ταυτοποίηση και περαιτέρω επεξεργασία.
+Το Aspose.Slides for Java αντιπροσωπεύει τα σχήματα σε μια διαφάνεια ως μια διατεταγμένη [IShapeCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/). Η συλλογή είναι τόσο το σημείο όπου βρίσκετε και τροποποιείτε σχήματα όσο και η πηγή της σειράς στρώσης τους: το ευρετήριο `0` είναι το πιο πίσω σχήμα, ενώ το τελευταίο ευρετήριο είναι το πιο μπροστά σχήμα.
 
-Καλύπτει επίσης πώς να προσπελάσετε μορφές διάταξης για σχήματα, να αποδώσετε ένα σχήμα ως SVG, να ευθυγραμμίσετε σχήματα σε μια διαφάνεια και να χρησιμοποιήσετε τις ιδιότητες αναστροφής για οριζόντια και κάθετη κατοπτρισμό. Επιπλέον, το άρθρο περιλαμβάνει μια σύντομη Συχνές Ερωτήσεις (FAQ) σχετικά με τον συνδυασμό σχημάτων, τη σειρά στοιβάξης και το κλείδωμα σχημάτων.
+Αυτό το άρθρο ακολουθεί αυτό το μοντέλο. Πρώτα εξηγεί πώς να προσδιορίσετε ένα σχήμα αξιόπιστα, μετά δείχνει πώς να κλωνοποιήσετε, καταργήσετε, κρύψετε και αναδιατάξετε σχήματα. Τα τελικά τμήματα καλύπτουν μορφοποίηση επιπέδου διάταξης, εξαγωγή SVG, στοίχιση και ρυθμίσεις αναστροφής. Κάθε παράδειγμα είναι ανεξάρτητο, ώστε να μπορείτε να χρησιμοποιήσετε μόνο τις ενέργειες που απαιτούνται από τη ροή εργασίας σας.
 
-## **Εύρεση Σχήματος σε Διαφάνεια**
-Αυτό το θέμα θα περιγράψει μια απλή τεχνική για να διευκολύνει τους προγραμματιστές να βρουν ένα συγκεκριμένο σχήμα σε μια διαφάνεια χωρίς να χρησιμοποιούν το εσωτερικό του Id. Είναι σημαντικό να γνωρίζετε ότι τα αρχεία Παρουσίασης PowerPoint δεν διαθέτουν τρόπο να αναγνωρίζουν τα σχήματα σε μια διαφάνεια εκτός από ένα εσωτερικό μοναδικό Id. Φαίνεται δύσκολο για τους προγραμματιστές να βρουν ένα σχήμα χρησιμοποιώντας το εσωτερικό μοναδικό Id. Όλα τα σχήματα που προστίθενται στις διαφάνειες έχουν κάποιο Alt Text. Προτείνουμε στους προγραμματιστές να χρησιμοποιούν εναλλακτικό κείμενο για την εύρεση ενός συγκεκριμένου σχήματος. Μπορείτε να χρησιμοποιήσετε το MS PowerPoint για να ορίσετε το εναλλακτικό κείμενο για αντικείμενα που σχεδιάζετε να αλλάξετε στο μέλλον.
+## **Αναγνώριση και Εύρεση Σχημάτων**
 
-Μετά τον ορισμό του εναλλακτικού κειμένου για οποιοδήποτε επιθυμητό σχήμα, μπορείτε να ανοίξετε την παρουσίαση χρησιμοποιώντας το Aspose.Slides for Java και να επαναλάβετε μέσω όλων των σχημάτων που προστέθηκαν σε μια διαφάνεια. Κατά κάθε επανάληψη, μπορείτε να ελέγξετε το εναλλακτικό κείμενο του σχήματος και το σχήμα με το ταιριαστό εναλλακτικό κείμενο θα είναι το σχήμα που απαιτείτε. Για να δείξουμε αυτήν την τεχνική καλύτερα, δημιουργήσαμε μια μέθοδο, [findShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) που εκτελεί την εύρεση ενός συγκεκριμένου σχήματος σε μια διαφάνεια και επιστρέφει απλώς αυτό το σχήμα.
+Τα ευρετήρια της συλλογής είναι βολικά κατά την επεξεργασία γνωστού αρχείου, αλλά δεν αποτελούν σταθερούς αναγνωριστικούς. Η προσθήκη, η αφαίρεση ή η αναδιάταξη ενός σχήματος μπορεί να αλλάξει το ευρετήριό του. Επιλέξτε έναν αναγνωριστικό σύμφωνα με το πώς δημιουργείται και συντηρείται η παρουσίαση:
 
-```java
-// Δημιουργία αντικειμένου κλάσης Presentation που αντιπροσωπεύει το αρχείο παρουσίασης
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getName--) είναι χρήσιμο για πρότυπα ελεγχόμενα από προγραμματιστές και είναι εύκολο να το επιθεωρήσετε στον Πίνακα Επιλογών του PowerPoint. Τα ονόματα μπορούν να επεξεργαστούν και δεν είναι εγγυημένα μοναδικά, επομένως καθιερώστε μια σύμβαση ονοματοδοσίας εάν ο κώδικας εξαρτάται από αυτά.
+- [AlternativeText](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getAlternativeText--) είναι χρήσιμο όταν μια περιγραφή προσιτότητας ή μια ετικέτα που παρείχε ο δημιουργός έχει ήδη προσδιορίσει το σχήμα. Είναι ορατό στους χρήστες, μπορεί να μεταφραστεί ή να ξαναγραφτεί για προσιτότητα και δεν είναι εγγυημένα μοναδικό. Μην επαναχρησιμοποιείτε σιωπηλά σημαντικό κείμενο προσιτότητας ως κλειδί βάσης δεδομένων.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) είναι ένας μόνο για ανάγνωση αναγνωριστικός που είναι μοναδικός εντός μιας διαφάνειας και αντιστοιχεί στο ID σχήματος που χρησιμοποιεί το PowerPoint interop. Χρησιμοποιήστε το όταν ενσωματώνετε με το PowerPoint ή όταν χρειάζεστε μια σαφή αναφορά κατά τη διάρκεια ζωής ενός σχήματος. Ένα κλωνοποιημένο ή ξαναδημιουργημένο σχήμα είναι διαφορετικό σχήμα και λαμβάνει το δικό του ID.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Εναλλακτικό κείμενο του σχήματος που πρέπει να βρεθεί
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Υλοποίηση μεθόδου για την εύρεση σχήματος σε διαφάνεια χρησιμοποιώντας το εναλλακτικό του κείμενο
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Επανάληψη σε όλα τα σχήματα μέσα στη διαφάνεια
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Αν το εναλλακτικό κείμενο της διαφάνειας ταιριάζει με το απαιτούμενο, τότε
-        // Επιστρέψτε το σχήμα
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+Η σχετική μέθοδος [getUniqueId](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getUniqueId--) επιστρέφει έναν αναγνωριστικό με εμβέλεια παρουσίασης, αλλά αυτός ο αναγνωριστικός προορίζεται για πρόσθετα και μπορεί να επαναχρεωθεί. Δεν πρέπει να θεωρείται μόνιμο εξωτερικό κλειδί. Εάν η μακροπρόθεσμη ταυτότητα είναι ουσιώδης, διατηρήστε τη χαρτογράφηση στα δεδομένα της εφαρμογής και επικυρώστε ότι το αναμενόμενο σχήμα εξακολουθεί να υπάρχει.
 
-## **Κλωνοποίηση Σχήματος**
-Για να κλωνοποιήσετε ένα σχήμα σε μια διαφάνεια χρησιμοποιώντας το Aspose.Slides for Java:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Αποκτήστε την αναφορά μιας διαφάνειας χρησιμοποιώντας το δείκτη της.
-1. Προσπελάστε τη συλλογή σχημάτων της πηγής διαφάνειας.
-1. Προσθέστε νέα διαφάνεια στην παρουσίαση.
-1. Κλωνοποιήστε σχήματα από τη συλλογή σχημάτων της πηγής διαφάνειας στη νέα διαφάνεια.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Το παρακάτω παράδειγμα προσθέτει ένα ομαδικό σχήμα σε μια διαφάνεια.
+Το παρακάτω παράδειγμα αναζητά με το όνομα με ακριβή σύγκριση και αναφέρει το interop ID της διαφάνειας. Όταν το πρότυπο δεν περιέχει το αναμενόμενο σχήμα, ο κώδικας αναφέρει αυτό το αποτέλεσμα αντί να προχωρήσει με το λάθος αντικείμενο.
 
 ```java
-// Δημιουργία αντικειμένου κλάσης Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Αφαίρεση Σχήματος**
-Το Aspose.Slides for Java επιτρέπει στους προγραμματιστές να αφαιρέσουν οποιοδήποτε σχήμα. Για να αφαιρέσετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσπελάστε την πρώτη διαφάνεια.
-1. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-1. Αφαιρέστε το σχήμα.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```java
-// Δημιουργία αντικειμένου Presentation
-Presentation pres = new Presentation();
-try {
-    // Λήψη της πρώτης διαφάνειας
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Αποθήκευση παρουσίασης στον δίσκο
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Απόκρυψη Σχήματος**
-Το Aspose.Slides for Java επιτρέπει στους προγραμματιστές να αποκρύψουν οποιοδήποτε σχήμα. Για να αποκρύψετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσπελάστε την πρώτη διαφάνεια.
-1. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-1. Αποκρύψτε το σχήμα.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```java
-// Δημιουργία αντικειμένου κλάσης Presentation που αντιπροσωπεύει το PPTX
-Presentation pres = new Presentation();
-try {
-    // Λήψη της πρώτης διαφάνειας
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Αποθήκευση παρουσίασης στον δίσκο
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Αλλαγή Σειράς Σχήματος**
-Το Aspose.Slides for Java επιτρέπει στους προγραμματιστές να αλλάξουν τη σειρά των σχημάτων. Η αλλαγή σειράς καθορίζει ποιο σχήμα βρίσκεται μπροστά ή πίσω. Για να αλλάξετε τη σειρά ενός σχήματος σε οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσπελάστε την πρώτη διαφάνεια.
-1. Προσθέστε ένα σχήμα.
-1. Προσθέστε κάποιο κείμενο στο πλαίσιο κειμένου του σχήματος.
-1. Προσθέστε ένα άλλο σχήμα με τις ίδιες συντεταγμένες.
-1. Αλλάξτε τη σειρά των σχημάτων.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Λήψη Interop Shape ID**
-Το Aspose.Slides for Java επιτρέπει στους προγραμματιστές να λάβουν έναν μοναδικό ταυτοποιητή σχήματος στο πλαίσιο της διαφάνειας, σε αντίθεση με τη μέθοδο [getUniqueId](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#getUniqueId--) που παρέχει μοναδικό ταυτοποιητή στο πλαίσιο της παρουσίασης. Η μέθοδος [getOfficeInteropShapeId](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) προστέθηκε στις διεπαφές [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape) και στην κλάση [Shape](https://reference.aspose.com/slides/el/java/com.aspose.slides/Shape). Η τιμή που επιστρέφεται από τη μέθοδο [getOfficeInteropShapeId](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) αντιστοιχεί στην τιμή του Id του αντικειμένου Microsoft.Office.Interop.PowerPoint.Shape. Παρακάτω δίνεται ένα δείγμα κώδικα.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Λήψη μοναδικού ταυτοποιητή σχήματος στο επίπεδο της διαφάνειας
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ορισμός Εναλλακτικού Κειμένου για Σχήμα**
-Το Aspose.Slides for Java επιτρέπει στους προγραμματιστές να ορίσουν AlternateText για οποιοδήποτε σχήμα. Τα σχήματα σε μια παρουσίαση μπορούν να διακριθούν με τη μέθοδο [AlternativeText](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) ή [Shape Name](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#setName-java.lang.String-). Οι μέθοδοι [setAlternativeText](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) και [getAlternativeText](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#getAlternativeText--) μπορούν να διαβαστούν ή να οριστούν χρησιμοποιώντας το Aspose.Slides καθώς και το Microsoft PowerPoint. Χρησιμοποιώντας αυτή τη μέθοδο, μπορείτε να επισημάνετε ένα σχήμα και να εκτελέσετε διάφορες λειτουργίες όπως Αφαίρεση σχήματος, Απόκρυψη σχήματος ή Αλλαγή σειράς σχημάτων σε μια διαφάνεια. Για να ορίσετε το AlternateText ενός σχήματος, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσπελάστε την πρώτη διαφάνεια.
-1. Προσθέστε οποιοδήποτε σχήμα στη διαφάνεια.
-1. Εκτελέστε κάποια εργασία με το νεοπροστέθηκε σχήμα.
-1. Περιηγηθείτε στα σχήματα για να βρείτε το σχήμα.
-1. Ορίστε το AlternativeText.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```java
-// Δημιουργία αντικειμένου κλάσης Presentation που αντιπροσωπεύει το PPTX
-Presentation pres = new Presentation();
-try {
-    // Λήψη της πρώτης διαφάνειας
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Αποθήκευση παρουσίασης στον δίσκο
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Πρόσβαση σε Μορφές Διάταξης για Σχήμα**
-Το Aspose.Slides for Java παρέχει ένα απλό API για πρόσβαση σε μορφές διάταξης ενός σχήματος. Το άρθρο αυτό δείχνει πώς μπορείτε να προσπελάσετε τις μορφές διάταξης.
-
-Παρακάτω δίνεται κώδικας δείγματος.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Απόδοση Σχήματος ως SVG**
-Τώρα το Aspose.Slides for Java υποστηρίζει την απόδοση ενός σχήματος ως svg. Η μέθοδος [writeAsSvg](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (και οι υπερφορτώσεις της) προστέθηκαν στην κλάση [Shape](https://reference.aspose.com/slides/el/java/com.aspose.slides/Shape) και στη διεπαφή [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShape). Αυτή η μέθοδος επιτρέπει την αποθήκευση του περιεχομένου του σχήματος ως αρχείο SVG. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να εξάγετε το σχήμα μιας διαφάνειας σε αρχείο SVG.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Στοίχιση Σχήματος**
-Το Aspose.Slides επιτρέπει την ευθυγράμμιση σχημάτων είτε σε σχέση με τα περιθώρια της διαφάνειας είτε μεταξύ τους. Για το σκοπό αυτό προστέθηκε η υπερφορτωμένη μέθοδος [SlidesUtil.alignShape()](https://reference.aspose.com/slides/el/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-). Η απαρίθμηση [ShapesAlignmentType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapesAlignmentType) ορίζει τις δυνατές επιλογές στοίχισης.
-
-**Παράδειγμα 1**
-
-Ο παρακάτω πηγαίος κώδικας ευθυγραμμίζει σχήματα με δείκτες 1,2 και 4 κατά το πάνω όριο της διαφάνειας.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Παράδειγμα 2**
-
-Το παρακάτω παράδειγμα δείχνει πώς να ευθυγραμμίσετε ολόκληρη τη συλλογή σχημάτων σε σχέση με το πιο κάτω σχήμα της συλλογής.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ιδιότητες Αναστροφής**
-
-Στο Aspose.Slides, η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/shapeframe/) παρέχει έλεγχο της οριζόντιας και κάθετης κατοπτρισμού των σχημάτων μέσω των ιδιοτήτων `flipH` και `flipV`. Και οι δύο ιδιότητες είναι τύπου `byte`, επιτρέποντας τις τιμές `1` για αναστροφή, `0` για καμία αναστροφή ή `-1` για προεπιλογή συμπεριφοράς. Αυτές οι τιμές είναι προσβάσιμες από το [Frame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getFrame--) ενός σχήματος.
-
-Για να τροποποιήσετε τις ρυθμίσεις αναστροφής, δημιουργείται μια νέα παρουσία του [ShapeFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/shapeframe/) με τη τρέχουσα θέση και μέγεθος του σχήματος, τις επιθυμητές τιμές για `flipH` και `flipV` και τη γωνία περιστροφής. Η ανάθεση αυτής της παρουσίας στο [Frame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getFrame--) του σχήματος και η αποθήκευση της παρουσίασης εφαρμόζει τις μετασχηματιστικές κατοπτρισμούς και τα αποθηκεύει στο αρχείο εξόδου.
-
-Ας υποθέσουμε ότι διαθέτουμε το αρχείο sample.pptx, στο οποίο η πρώτη διαφάνεια περιέχει ένα μόνο σχήμα με τις προεπιλεγμένες ρυθμίσεις αναστροφής, όπως φαίνεται παρακάτω.
-
-![Το σχήμα που θα αναστραφεί](shape_to_be_flipped.png)
-
-Ο παρακάτω κώδικας παραδείγματος ανακτά τις τρέχουσες ιδιότητες αναστροφής του σχήματος και το αναστρέφει οριζόντια και κάθετα.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Ανάκτηση της οριζόντιας ιδιότητας αντιστροφής του σχήματος.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Ανάκτηση της κάθετης ιδιότητας αντιστροφής του σχήματος.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Αντιστροφή οριζόντια.
-    byte flipV = NullableBool.True; // Αντιστροφή οριζόντια.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Το αποτέλεσμα:
+Όταν μια λειτουργία είναι ειδική για έναν τύπο σχήματος, ελέγξτε τη διεπαφή πριν χρησιμοποιήσετε μέλη συγκεκριμένα τύπου. Αυτό το παράδειγμα ενημερώνει το κείμενο και το εναλλακτικό κείμενο μόνο αν το ονομασμένο αντικείμενο είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/).
 
-![Το αναστραμμένο σχήμα](flipped_shape.png)
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Τροποποίηση της Συλλογής Σχημάτων**
+
+Οι μέθοδοι προσθήκης, κλωνοποίησης, αφαίρεσης και αναδιάταξης λειτουργούν στη συλλογή αμέσως. Εάν μια λειτουργία αλλάζει τον αριθμό ή τη σειρά των σχημάτων, μην συνεχίσετε να βασίζεστε σε ευρετήρια που καταγράφηκαν πριν από αυτή τη λειτουργία.
+
+### **Κλωνοποίηση Σχήματος**
+
+[addClone](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) δημιουργεί ένα αυτόνομο αντίγραφο και το προσθέτει στο στόχο της συλλογής. [insertClone](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) δημιουργεί επίσης αντίγραφο αλλά το τοποθετεί σε καθορισμένο ευρετήριο z‑order. Οι υπερφορτώσεις που δέχονται συντεταγμένες μετακινούν το κλώνο χωρίς αλλαγή μεγέθους· οι υπερφορτώσεις με πλάτος και ύψος μπορούν επίσης να το αλλάξουν σε μέγεθος.
+
+Το παράδειγμα δημιουργεί μια διαφάνεια προορισμού, κλωνοποιεί ένα επισημασμένο ορθογώνιο στο μπροστά και εισάγει ένα δεύτερο κλώνο στο πίσω μέρος. Οι αλλαγές σε οποιοδήποτε κλώνο δεν τροποποιούν το αρχικό σχήμα.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η κλωνοποίηση αντιγράφει το περιεχόμενο και τη μορφοποίηση του σχήματος, συμπεριλαμβανομένου του ονόματος και του εναλλακτικού κειμένου. Εκχωρήστε νέους λογικούς αναγνωριστικούς στο κλώνο όταν αυτές οι τιμές πρέπει να είναι μοναδικές. Οι πόροι που χρησιμοποιούνται από σύνθετα σχήματα διαχειρίζονται από την παρουσίαση, αλλά ένα κλώνο παραμένει νέο στοιχείο συλλογής με νέα ταυτότητα σχήματος.
+
+### **Αφαίρεση Σχημάτων**
+
+[remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) διαγράφει ένα συγκεκριμένο αντικείμενο σχήματος από τη συλλογή του. Όταν αφαιρούνται πολλαπλές αντιστοιχίες κατά τη διαπέραση με ευρετήριο, διατρέξτε από το τέλος ώστε κάθε υπόλοιπο ευρετήριο να παραμείνει έγκυρο.
+
+Αυτό το παράδειγμα αφαιρεί κάθε σχήμα με καθορισμένο όνομα. Διαβάζει το σχήμα στο τρέχον ευρετήριο, όχι ένα σταθερό στοιχείο της συλλογής, και δεν κάνει περιττές μετατροπές τύπου.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Μετά την αφαίρεση, ο αριθμός σχημάτων και τα ευρετήρια των επόμενων σχημάτων αλλάζουν. Οι αναφορές σε άπτωτα σχήματα παραμένουν πιο αξιόπιστες από αποθηκευμένα ευρετήρια. Λάβετε επίσης υπόψη συνδέσμους, κίνησεις και άλλα χαρακτηριστικά παρουσίασης που μπορεί να αναφέρονται στο αφαιρεθέν αντικείμενο· η αφαίρεση ενός ορατού σχήματος μπορεί να επηρεάσει περισσότερα από την εμφάνιση της διαφάνειας.
+
+### **Απόκρυψη Σχήματος**
+
+Ορίζοντας το [Hidden](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#setHidden-boolean-) σε `true` διατηρεί το σχήμα στη συλλογή αλλά εμποδίζει την εμφάνισή του στην κανονική παρουσίαση. Το ευρετήριό του, η μορφοποίηση και το περιεχόμενο παραμένουν διαθέσιμα στον κώδικα, επομένως η απόκρυψη είναι κατάλληλη για προαιρετικά στοιχεία που μπορεί να επανέλθουν αργότερα.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η απόκρυψη δεν είναι διαγραφή ή ασφάλεια. Το αντικείμενο μπορεί ακόμη να εντοπιστεί και να εμφανιστεί ξανά από χρήστη ή κώδικα, και παραμένει μέρος του αρχείου παρουσίασης.
+
+### **Αλλαγή του Z‑Order**
+
+Τα επικαλυπτόμενα σχήματα ζωγραφίζονται με τη σειρά της συλλογής. [reorder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) μετακινεί ένα υπάρχον σχήμα σε στόχο ευρετήριο χωρίς κλωνοποίηση. Το ευρετήριο `0` είναι το πίσω; `size() - 1` είναι το μπροστά.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το ορθογώνιο δημιουργείται πρώτα και αρχικά βρίσκεται πίσω από την έλλειψη. Η μετακίνησή του στο τελικό ευρετήριο το τοποθετεί μπροστά. Ολοκληρώστε το z‑order μετά την προσθήκη ή κλωνοποίηση όλων των σχετικών σχημάτων, επειδή αυτές οι λειτουργίες προσθέτουν ή εισάγουν νέα στοιχεία στη συλλογή και μπορούν να αλλάξουν την προτιμώμενη στοίβα.
+
+## **Έλεγχος Σχημάτων σε Διαφάνειες Διάταξης**
+
+Οι κανονικές διαφάνειες, οι διαφάνειες διάταξης και οι κύριες διαφάνειες έχουν ξεχωριστές συλλογές σχημάτων. Ένα σχήμα σε μια συλλογή διάταξης δεν είναι το ίδιο αντικείμενο με ένα σχήμα παρόμοιας θέσης σε κανονική διαφάνεια. Εξετάστε σχήματα διάταξης όταν χρειάζεται να κατανοήσετε ή να αλλάξετε τη μορφοποίηση που παρέχεται από μια διάταξη.
+
+Το παρακάτω παράδειγμα διαβάζει το [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getFillFormat--) και το [LineFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getLineFormat--) κάθε σχήματος διάταξης χωρίς να υποθέτει ότι κάθε σχήμα είναι `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η επεξεργασία μιας διάταξης μπορεί να επηρεάσει πολλαπλές διαφάνειες που τη χρησιμοποιούν. Πριν αλλάξετε ένα σχήμα διάταξης, προσδιορίστε εάν μια κανονική διαφάνεια κληρονομεί το αντικείμενο ή περιέχει τοπική παράκαμψη, και δοκιμάστε κάθε διαφάνεια που χρησιμοποιεί εκείνη τη διάταξη.
+
+## **Εξαγωγή Σχήματος σε SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) γράφει το αποδομένο περιεχόμενο ενός σχήματος σε ροή. Το αποτέλεσμα περιλαμβάνει το σχήμα, όχι το πλήρες φόντο της διαφάνειας ή τα γειτονικά σχήματα.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Διατηρήστε την παρουσίαση ανοιχτή κατά τη διάρκεια της απόδοσης. Η έξοδος εξαρτάται από τη μορφοποίηση του σχήματος και από πόρους όπως γραμματοσειρές και εικόνες. Εάν χρειάζεστε ολόκληρη τη σύνθεση, εξάγετε τη διαφάνεια αντί για μεμονωμένο σχήμα. Ο καλών έχει την ευθύνη της ροής και πρέπει να την κλείσει.
+
+## **Στοίχιση Σχημάτων**
+
+Η μέθοδος [SlideUtil.alignShapes](https://reference.aspose.com/slides/el/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) έχει υπερφορτώσεις που ευθυγραμμίζουν είτε όλα τα σχήματα είτε επιλεγμένα ευρετήρια συλλογής. Το [ShapesAlignmentType](https://reference.aspose.com/slides/el/java/com.aspose.slides/shapesalignmenttype/) καθορίζει την άκρη, τη γραμμή κέντρου ή τη λειτουργία κατανομής. Ορίστε `alignToSlide` σε `true` για χρήση των άκρων της διαφάνειας· ορίστε το σε `false` για στοίχιση των επιλεγμένων σχημάτων μεταξύ τους.
+
+Αυτό το παράδειγμα ευθυγραμμίζει τρία σχήματα στην πάνω άκρη της διαφάνειας. Οι επιστρεφόμενες αναφορές σχήματος μετατρέπονται αμέσως στα τρέχοντα ευρετήριά τους πριν από τη στοίχιση.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η στοίχιση αλλάζει τις θέσεις, όχι το z‑order. Η σχετική στοίχιση συνήθως απαιτεί τουλάχιστον δύο σχήματα, ενώ η οριζόντια ή κάθετη κατανομή απαιτεί αρκετά σχήματα για να οριστεί η απόσταση. Επανυπολογίστε τα ευρετήρια εάν τροποποιήσετε τη συλλογή πριν καλέσετε τη μέθοδο.
+
+## **Αναστροφή Σχήματος**
+
+Η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/shapeframe/) αποθηκεύει θέση, μέγεθος, οριζόντιες και κάθετες ρυθμίσεις αναστροφής, και περιστροφή. Οι τιμές `getFlipH` και `getFlipV` χρησιμοποιούν το [NullableBool](https://reference.aspose.com/slides/el/java/com.aspose.slides/nullablebool/): `True` ενεργοποιεί την αναστροφή, `False` την απενεργοποιεί, και `NotDefined` διατηρεί την ακαθόριστη/προεπιλεγμένη κατάσταση.
+
+Η παρακάτω παρουσίαση περιέχει ένα μη αναστραμμένο σχήμα.
+
+![Το σχήμα πριν την ανάκλαση](shape_to_be_flipped.png)
+
+Το παράδειγμα διατηρεί κάθε άλλη τιμή πλαισίου και αντικαθιστά μόνο τις δύο ρυθμίσεις αναστροφής. Αυτό είναι σημαντικό επειδή η εκχώρηση ενός νέου [Frame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) αντικαθιστά ολόκληρο το πλαίσιο.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποθηκευμένο σχήμα είναι καθρεπτισμένο οριζόντια και κάθετα διατηρώντας τη θέση, το μέγεθος και την περιστροφή.
+
+![Το σχήμα μετά την ανάκλαση](flipped_shape.png)
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να συνδυάσω σχήματα (ένωση/τομή/αφαίρεση) σε μια διαφάνεια όπως σε έναν επεξεργαστή επιφάνειας εργασίας;**
+**Πρέπει να χρησιμοποιήσω το ευρετήριο της συλλογής ως αναγνωριστικό σχήματος;**
 
-Δεν υπάρχει ενσωματωμένο API λογικών Boolean λειτουργιών. Μπορείτε να το προσεγγίσετε δημιουργώντας το επιθυμητό περίγραμμα εσείς—π.χ., υπολογίζοντας τη γεωμετρία (μέσω [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/geometrypath/)) και δημιουργώντας ένα νέο σχήμα με αυτό το περίγραμμα, ενδεχομένως αφαιρώντας τα αρχικά.
+Μόνο για βραχυπρόθεσμη επεξεργασία όταν η συλλογή δεν θα αλλάξει πριν χρησιμοποιηθεί το ευρετήριο. Προτιμήστε μια επαληθευμένη σύμβαση `Name` ή `AlternativeText` για πρότυπα που δημιουργήθηκαν, ή `OfficeInteropShapeId` για εργασίες interop εντός διαφάνειας.
 
-**Πώς μπορώ να ελέγξω τη σειρά στοιβάξης (z-order) ώστε ένα σχήμα να παραμένει πάντα «στην κορυφή»;**
+**Η απόκρυψη σχήματος το αφαιρεί από το z‑order;**
 
-Αλλάξτε τη σειρά εισαγωγής/μετακίνησης μέσα στη συλλογή [shapes](https://reference.aspose.com/slides/el/java/com.aspose.slides/baseslide/#getShapes--) της διαφάνειας. Για προβλέψιμα αποτελέσματα, τελειώστε τη σειρά z-order μετά από όλες τις άλλες τροποποιήσεις της διαφάνειας.
+Όχι. Ένα κρυφό σχήμα παραμένει στη συλλογή στο ίδιο ευρετήριο. Μπορεί να βρεθεί, να αναδιαταχθεί, να επεξεργαστεί ή να εμφανιστεί ξανά.
 
-**Μπορώ να «κλειδώσω» ένα σχήμα ώστε να αποτρέψω τους χρήστες από την επεξεργασία του στο PowerPoint;**
+**Γιατί ένα κλωνοποιημένο σχήμα εμφανίζεται μπροστά από άλλο σχήμα;**
 
-Ναι. Ορίστε τα [shape-level protection flags](/slides/el/java/applying-protection-to-presentation/) (π.χ., κλείδωμα επιλογής, κίνησης, αλλαγής μεγέθους, επεξεργασίας κειμένου). Αν χρειάζεται, εφαρμόστε περιορισμούς στο master ή στο layout. Σημειώστε ότι αυτό είναι προστασία σε επίπεδο UI, όχι μια λειτουργία ασφαλείας· για ισχυρότερη προστασία, συνδυάστε με περιορισμούς σε επίπεδο αρχείου όπως συστάσεις μόνο για ανάγνωση ή κωδικούς πρόσβασης [/slides/el/java/password-protected-presentation/].
+Το `addClone` προσθέτει το κλώνο στο τέλος της συλλογής, που είναι το μπροστινό τμήμα του z‑order. Χρησιμοποιήστε `insertClone` για να επιλέξετε το αρχικό ευρετήριο ή `reorder` μετά την προσθήκη όλων των σχημάτων.

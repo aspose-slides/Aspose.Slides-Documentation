@@ -1,6 +1,6 @@
 ---
 title: Hantera presentationsformer i PHP
-linktitle: Formmanipulering
+linktitle: Formhantering
 type: docs
 weight: 40
 url: /sv/php-java/shape-manipulations/
@@ -13,373 +13,421 @@ keywords:
 - ta bort form
 - dölj form
 - ändra formordning
-- hämta interop-form-ID
-- formens alternativa text
+- hämta interop form-ID
+- alternativ text för form
 - formlayoutformat
 - form som SVG
 - form till SVG
 - justera form
+- vänd form
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig att skapa, redigera och optimera former i Aspose.Slides för PHP via Java och leverera högpresterande PowerPoint-presentationer."
+description: "Lär dig hur du identifierar, klonar, tar bort, döljer, omordnar, exporterar, justerar och vänder presentationsformer med Aspose.Slides för PHP via Java."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med former i presentationer med Aspose.Slides. Den visar hur man hittar en form på en bild, klonar den, tar bort den, döljer den, ändrar dess ordning, hämtar dess Interop‑form‑ID och anger alternativ text för identifiering och vidare behandling.
+Aspose.Slides för PHP via Java representerar formerna på en bild som en ordnad [ShapeCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/). Samlingen är både platsen där du hittar och ändrar former samt källan till deras staplingsordning: index `0` är den bakre formen, medan det sista indexet är den främsta formen.
 
-Den behandlar också hur man får åtkomst till layoutformat för former, renderar en form som SVG, justerar former på en bild och använder vändningsegenskaper för horisontell och vertikal spegling. Dessutom innehåller artikeln en kort FAQ om kombination av former, staplingsordning och låsning av former.
+Denna artikel följer den modellen. Den förklarar först hur man identifierar en form på ett tillförlitligt sätt, sedan visar hur man klonar, tar bort, döljer och omordnar former. De sista avsnitten täcker layoutegenskapsformattering, SVG-export, justering och flip‑inställningar. Varje exempel är oberoende, så du kan använda endast de operationer som ditt arbetsflöde kräver.
 
-## **Hitta en form på en bild**
-Detta ämne beskriver en enkel teknik för att underlätta för utvecklare att hitta en specifik form på en bild utan att använda dess interna ID. Det är viktigt att veta att PowerPoint‑presentationer inte har något sätt att identifiera former på en bild förutom ett internt unikt ID. Det kan vara svårt för utvecklare att hitta en form med dess interna unika ID. Alla former som lagts till på bilderna har någon alternativ text. Vi rekommenderar utvecklare att använda alternativ text för att hitta en specifik form. Du kan använda MS PowerPoint för att definiera den alternativa texten för objekt som du planerar att ändra i framtiden.
+## **Identifiera och hitta former**
 
-När du har angett den alternativa texten för en önskad form kan du öppna presentationen med Aspose.Slides för PHP via Java och iterera genom alla former som lagts till på en bild. Vid varje iteration kan du kontrollera formens alternativa text och formen med matchande alternativ text är den form du söker. För att demonstrera denna teknik på ett bättre sätt har vi skapat en metod, [findShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) som löser uppgiften att hitta en specifik form på en bild och sedan helt enkelt returnerar den formen.
+Kollektionsindex är praktiska vid bearbetning av en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller omordna en form kan ändra dess index. Välj en identifierare baserat på hur presentationen skapats och underhålls:
 
-```php
-  # Instansiera en Presentation-klass som representerar presentationsfilen
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # Alternativ text för den form som ska hittas
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getname/) är användbart för utvecklarkontrollerade mallar och är enkelt att inspektera i PowerPoints urvalspanel. Namn kan redigeras och garanteras inte vara unika, så etablera en namngivningskonvention om kod är beroende av dem.
+- [AlternativeText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getalternativetext/) är användbart när en tillgänglighetsbeskrivning eller en författarlevererad tagg redan identifierar formen. Den är synlig för användare, kan lokaliseras eller omskrivas för tillgänglighet, och garanteras inte vara unik. Återanvänd inte tyst meningsfull tillgänglighetstext som en databaskey.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getofficeinteropshapeid/) är en skrivskyddad identifierare som är unik inom en bild och motsvarar det shape‑ID som används av PowerPoint interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en presentations livstid. En klonad eller om skapad form är en annan form och får sitt eget ID.
 
-```
+Den relaterade metoden [Shape::getUniqueId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getuniqueid/) returnerar en identifierare med presentationsomfattning, men den identifieraren är avsedd för tillägg och kan omfördelas. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är väsentlig, behåll mappningen i applikationsdata och validera att den förväntade formen fortfarande finns.
 
-## **Klona en form**
-För att klona en form till en bild med Aspose.Slides för PHP via Java:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Hämta referensen till en bild genom att använda dess index.
-3. Få åtkomst till källbildens formsamling.
-4. Lägg till en ny bild i presentationen.
-5. Klona former från källbildens formsamling till den nya bilden.
-6. Spara den modifierade presentationen som en PPTX‑fil.
-
-Exemplet nedan lägger till en gruppform på en bild.
+Följande exempel söker efter namn med en exakt jämförelse och rapporterar bildens interop‑ID. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet istället för att fortsätta med fel objekt.
 
 ```php
-  # Instansiera Presentation-klass
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # Skriv PPTX-filen till disk
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **Ta bort en form**
-Aspose.Slides för PHP via Java låter utvecklare ta bort vilken form som helst. För att ta bort formen från en bild, följ stegen nedan:
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Hitta formen med specifik AlternativeText.
-4. Ta bort formen.
-5. Spara filen till disk.
-
-```php
-  # Skapa Presentation-objekt
-  $pres = new Presentation();
-  try {
-    # Hämta den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Lägg till autoshape av rektangeltyp
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # Spara presentationen till disk
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Dölj en form**
-Aspose.Slides för PHP via Java låter utvecklare dölja vilken form som helst. För att dölja formen från en bild, följ stegen nedan:
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Hitta formen med specifik AlternativeText.
-4. Dölj formen.
-5. Spara filen till disk.
-
-```php
-  # Instansiera Presentation-klass som representerar PPTX
-  $pres = new Presentation();
-  try {
-    # Hämta den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Lägg till autoshape av rektangeltyp
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # Spara presentationen till disk
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ändra formordning**
-Aspose.Slides för PHP via Java låter utvecklare omordna formerna. Att omordna en form bestämmer vilken form som är längst fram eller längst bak. För att omordna formerna på en bild, följ stegen nedan:
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Lägg till en form.
-4. Lägg till lite text i formens textruta.
-5. Lägg till en annan form med samma koordinater.
-6. Omordna formerna.
-7. Spara filen till disk.
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Hämta Interop‑form‑ID**
-Aspose.Slides för PHP via Java låter utvecklare få ett unikt formidentifierare på bildnivå i motsats till metoden [getUniqueId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getuniqueid/) som ger ett unikt identifierare på presentationsnivå. Metoden [getOfficeInteropShapeId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getofficeinteropshapeid/) har lagts till i klassen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/). Värdet som returneras av metoden [getOfficeInteropShapeId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getofficeinteropshapeid/) motsvarar Id‑värdet för Microsoft.Office.Interop.PowerPoint.Shape‑objektet. Nedan ges ett exempel på kod.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Hämtar unikt formidentifierare i bildnivå
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ange alternativ text för en form**
-Aspose.Slides för PHP via Java låter utvecklare ange AlternateText för vilken form som helst.
-Former i en presentation kan särskiljas med `Alternative Text` eller metoden [Shape Name](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/setname/).
-Metoderna [setAlternativeText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/setalternativetext/) och [getAlternativeText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getalternativetext/) kan läsas eller skrivas med Aspose.Slides såväl som Microsoft PowerPoint.
-Genom att använda denna metod kan du märka en form och utföra olika operationer som att ta bort en form,
-dölja en form eller omordna former på en bild.
-För att ange AlternateText för en form, följ stegen nedan:
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-2. Få åtkomst till den första bilden.
-3. Lägg till någon form på bilden.
-4. Utför någon operation med den nylagda formen.
-5. Gå igenom formerna för att hitta en form.
-6. Sätt AlternativeText.
-7. Spara filen till disk.
-
-```php
-  # Instansiera Presentation-klass som representerar PPTX
-  $pres = new Presentation();
-  try {
-    # Hämta den första bilden
-    $sld = $pres->getSlides()->get_Item(0);
-    # Lägg till autoshape av rektangeltyp
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # Spara presentationen till disk
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Få åtkomst till layoutformat för en form**
-Aspose.Slides för PHP via Java erbjuder ett enkelt API för att komma åt layoutformat för en form. Denna artikel visar hur du kan komma åt layoutformat.
-
-Nedan ges exempel på kod.
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Rendera en form som SVG**
-Nu har Aspose.Slides för PHP via Java stöd för att rendera en form som SVG. Metoden [writeAsSvg](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/writeassvg/) (och dess överlagring) har lagts till i klassen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/). Denna metod möjliggör att spara formens innehåll som en SVG‑fil. Kodsnutten nedan visar hur du exporterar en bilds form till en SVG‑fil.
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Justera en form**
-Aspose.Slides möjliggör att justera former antingen i förhållande till bildens marginaler eller i förhållande till varandra. För detta ändamål har den överlagrade metoden [SlidesUtil::alignShapes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slideutil/alignshapes/) lagts till. Uppräkningen [ShapesAlignmentType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapesalignmenttype/) definierar möjliga justeringsalternativ.
-
-**Example 1**
-
-Källkoden nedan justerar former med index 1,2 och 4 längs bildens överkant.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**Example 2**
-
-Exemplet nedan visar hur du justerar hela samlingen av former i förhållande till den nedersta formen i samlingen.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Flip Properties**
-
-I Aspose.Slides ger klassen [ShapeFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/) kontroll över horisontell och vertikal spegling av former via dess `flipH`‑ och `flipV`‑egenskaper. Båda egenskaperna är av typen [NullableBool](https://reference.aspose.com/slides/sv/php-java/aspose.slides/nullablebool/), vilket tillåter värdena `True` för att ange en spegling, `False` för ingen spegling, eller `NotDefined` för att använda standardbeteendet. Dessa värden är åtkomliga via en forms [Frame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/#getFrame).
-
-För att ändra speglingsinställningarna skapas en ny [ShapeFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/)‑instans med formens nuvarande position och storlek, önskade värden för `flipH` och `flipV` samt rotationsvinkeln. Genom att tilldela denna instans till formens [Frame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/#getFrame) och spara presentationen tillämpas speglingstransformationerna och lagras i utdatafilen.
-
-Anta att vi har en sample.pptx‑fil där den första bilden innehåller en enda form med standardinställningar för spegling, som visas nedan.
-
-![Formen som ska vändas](shape_to_be_flipped.png)
-
-Följande kodexempel hämtar formens aktuella speglingsegenskaper och vänder den både horisontellt och vertikalt.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // Hämta den horisontella vändningsegenskapen för formen.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // Hämta den vertikala vändningsegenskapen för formen.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // Vänd horisontellt.
-    $flipV = NullableBool::True; // Vänd horisontellt.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-![Den vända formen](flipped_shape.png)
+När en operation är specifik för en formtyp, kontrollera körtidsklassen innan du använder typ‑specifika medlemmar. Detta exempel uppdaterar text och alternativ text endast om det namngivna objektet är en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/).
 
-## **FAQ**
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**Kan jag kombinera former (union/intersect/subtract) på en bild som i ett skrivbordsredigeringsprogram?**
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
 
-Det finns inget inbyggt API för booleska operationer. Du kan approximera det genom att själva konstruera önskad kontur – exempelvis beräkna den resulterande geometrin (via [GeometryPath](https://reference.aspose.com/slides/sv/php-java/aspose.slides/geometrypath/)) och skapa en ny form med den konturen, eventuellt ta bort de ursprungliga.
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
 
-**Hur kan jag kontrollera staplingsordningen (z-order) så att en form alltid förblir "överst"?**
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
-Ändra infognings-/flyttningsordningen inom bildens [shapes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseslide/#getShapes)-samling. För förutsägbara resultat, avsluta z‑ordningen efter alla andra bildändringar.
+## **Modifiera formkollektionen**
 
-**Kan jag "låsa" en form för att hindra användare från att redigera den i PowerPoint?**
+Metoderna add, clone, remove och reorder verkar på samlingen omedelbart. Om en operation ändrar antalet eller ordningen på former, fortsätt inte att förlita dig på index som fångats före den operationen.
 
-Ja. Ställ in skyddsflaggor på formenivå (t.ex. lås markering, flytt, storleksändring, textredigering). Om så behövs, spegla begränsningarna på mastern eller layouten. Observera att detta är skydd på UI‑nivå, inte en säkerhetsfunktion; för starkare skydd kombinera med filnivåbegränsningar som [read‑only‑rekommendationer eller lösenord](/slides/sv/php-java/password-protected-presentation/).
+### **Klon en form**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addclone/) skapar en oberoende kopia och lägger till den i målkollektionen. [ShapeCollection::insertClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/insertclone/) skapar också en kopia men placerar den på ett specificerat z‑ordningsindex. Överlagringarna som accepterar koordinater flyttar klonen utan att ändra dess storlek; överlagringarna med bredd och höjd kan även ändra dess storlek.
+
+Exemplet skapar en målbild, klonar en märkt rektangel till fronten, och infogar en andra klon längst bak. Ändringar i någon av klonerna modifierar inte källformen.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Klonning kopierar formens innehåll och formatering, inklusive dess namn och alternativa text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt kollektionsobjekt med en ny formidentitet.
+
+### **Ta bort former**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/remove/) tar bort ett specifikt formobjekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå baklänges så att varje återstående index förblir giltigt.
+
+Detta exempel tar bort varje form med ett bestämt namn. Det läser formen vid det aktuella indexet, inte ett fast samlingsobjekt, och castar inte formen i onödan.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Efter borttagning ändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på anslutningar, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan förändra mer än bara bildens utseende.
+
+### **Dölj en form**
+
+Att sätta [Shape::setHidden](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/sethidden/) till `true` behåller formen i samlingen men förhindrar att den visas i den vanliga bildspelsvisningen. Dess index, formatering och innehåll förblir tillgängligt för kod, så dölja är lämpligt för valfria element som kan återställas senare.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dölja är inte borttagning eller säkerhet. Objektet kan fortfarande upptäckas och avdöljas av en användare eller av kod, och det förblir en del av presentationsfilen.
+
+### **Ändra Z‑ordning**
+
+Överlappande former målas i samlingsordning. [ShapeCollection::reorder](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/reorder/) flyttar en befintlig form till ett målindex utan att klona den. Index `0` är bakre; `size() - 1` är främre.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Rektangeln skapas först och ligger initialt bakom ellipsen. Att flytta den till det sista indexet placerar den framför. Slutför z‑ordning efter att ha lagt till eller klonat alla relaterade former, eftersom dessa operationer lägger till eller infogar nya samlingsobjekt och kan ändra den avsedda stapeln.
+
+## **Inspektera former på layoutbilder**
+
+Normala bilder, layoutbilder och masterbilder har separata formsamlingar. En form i en layoutsamling är inte samma objekt som en liknande placerad form på en normal bild. Inspektera layoutformer när du behöver förstå eller ändra formatering som levereras av en layout.
+
+Följande exempel läser varje layoutforms [FillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getfillformat/) och [LineFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getlineformat/) utan att anta att varje form är en `AutoShape`.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layoutform, avgör om en normal bild ärver objektet eller innehåller en lokal överskrivning, och testa varje bild som använder den layouten.
+
+## **Exportera en form till SVG**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/writeassvg/) skriver en forms renderade innehåll till en ström. Resultatet innehåller formen, inte hela bildbakgrunden eller närliggande former.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Håll presentationen öppen under rendering. Utdata beror på formens formatering och på resurser som typsnitt och bilder. Om du behöver hela sammansättningen, exportera bilden snarare än en enskild form. Anroparen äger strömmen och måste stänga den.
+
+## **Justera former**
+
+[SlideUtil::alignShapes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slideutil/alignshapes/) överlagringar justerar antingen alla former eller utvalda samlingsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapesalignmenttype/) specificerar kanten, mittlinjen eller fördelningsläget. Sätt `alignToSlide` till `true` för att använda bildens kanter; sätt den till `false` för att justera de valda formerna i förhållande till varandra.
+
+Detta exempel justerar tre former till bildens överkant. De returnerade formreferenserna konverteras till sina aktuella index omedelbart före justering.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Justering förändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avstånd. Räkna om index om du ändrar samlingen innan du anropar metoden.
+
+## **Vänd en form**
+
+[ShapeFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/)‑klassen lagrar position, storlek, horisontella och vertikala vändinställningar samt rotation. Dess `getFlipH`‑ och `getFlipV`‑värden använder [NullableBool](https://reference.aspose.com/slides/sv/php-java/aspose.slides/nullablebool/): `True` aktiverar vändning, `False` inaktiverar den, och `NotDefined` bevarar det odefinierade/default‑tillståndet.
+
+Den input‑presentation som visas nedan innehåller en oroterad form.
+
+![Formen före vändning](shape_to_be_flipped.png)
+
+Exemplet bevarar alla andra ramvärden och ersätter endast de två vändinställningarna. Detta är viktigt eftersom tilldelning av en ny [Frame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/setframe/) ersätter hela ramen.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Den sparade formen speglas horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
+
+![Formen efter vändning](flipped_shape.png)
+
+## **Vanliga frågor**
+
+**Bör jag använda ett kollektionsindex som formidentifierare?**
+
+Endast för kortlivad bearbetning när kollektionen inte kommer att förändras innan indexet används. Föredra en validerad `Name`‑ eller `AlternativeText`‑konvention för skapade mallar, eller `OfficeInteropShapeId` för interop‑arbete med bildomfång.
+
+**Tar döljning av en form bort den från z‑ordningen?**
+
+Nej. En dold form förblir i samlingen på samma index. Den kan hittas, omordnas, redigeras eller göras synlig igen.
+
+**Varför visades en klonad form framför en annan form?**
+
+`addClone` lägger till klonen i slutet av samlingen, vilket är fronten av z‑ordningen. Använd `insertClone` för att välja initialt index eller `reorder` efter att alla former har lagts till.

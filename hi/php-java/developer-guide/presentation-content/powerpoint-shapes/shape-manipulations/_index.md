@@ -1,382 +1,433 @@
 ---
-title: PHP में प्रस्तुति आकारों को प्रबंधित करें
-linktitle: आकार हेरफेर
+title: PHP में प्रस्तुति आकार प्रबंधित करें
+linktitle: आकृति संचालन
 type: docs
 weight: 40
 url: /hi/php-java/shape-manipulations/
 keywords:
-- PowerPoint आकार
-- प्रस्तुति आकार
-- स्लाइड पर आकार
-- आकार खोजें
-- आकार क्लोन करें
-- आकार हटाएँ
-- आकार छुपाएँ
-- आकार क्रम बदलें
-- Interop आकार ID प्राप्त करें
-- आकार वैकल्पिक टेक्स्ट
-- आकार लेआउट फ़ॉर्मेट्स
-- आकार SVG रूप में
-- आकार को SVG में
-- आकार संरेखित करें
-- PowerPoint
-- प्रस्तुति
-- PHP
-- Aspose.Slides
-description: "Aspose.Slides for PHP via Java में आकार बनाने, संपादित करने और अनुकूलित करने के तरीके सीखें और उच्च-प्रदर्शन PowerPoint प्रस्तुतियों को वितरित करें।"
+  - PowerPoint आकार
+  - प्रस्तुति आकार
+  - स्लाइड पर आकार
+  - आकार खोजें
+  - आकार क्लोन करें
+  - आकार हटाएँ
+  - आकार छुपाएँ
+  - आकार क्रम बदलें
+  - इंटरऑप आकार ID प्राप्त करें
+  - आकार वैकल्पिक पाठ
+  - आकार लेआउट फ़ॉर्मेट
+  - आकार SVG रूप में
+  - आकार को SVG में
+  - आकार संरेखित करें
+  - आकार फ्लिप करें
+  - PowerPoint
+  - प्रस्तुति
+  - PHP
+  - Aspose.Slides
+description: "Aspose.Slides for PHP via Java के साथ प्रस्तुति आकारों की पहचान, क्लोन, हटाना, छुपाना, क्रम बदलना, निर्यात, संरेखण और फ्लिप करना सीखें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके प्रस्तुतियों में आकारों (Shapes) के साथ काम करने के तरीकों को समझाता है। यह दिखाता है कि स्लाइड पर आकार कैसे खोजें, उसे क्लोन करें, हटाएँ, छुपाएँ, क्रम बदलें, उसका Interop Shape ID प्राप्त करें, और पहचान तथा आगे की प्रोसेसिंग के लिए विकल्पात्मक टेक्स्ट (Alternative Text) सेट करें।
+Aspose.Slides for PHP via Java स्लाइड पर आकृतियों को क्रमबद्ध [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) के रूप में दर्शाता है। यह संग्रह वह स्थान है जहाँ आप आकृतियों को खोज और संशोधित कर सकते हैं और उनका स्टैक क्रम निर्धारित होता है: इंडेक्स `0` सबसे पीछे की आकृति है, जबकि अंतिम इंडेक्स सबसे आगे की आकृति है।
 
-यह भी बताता है कि आकारों के लेआउट फ़ॉर्मेट तक कैसे पहुँचें, आकार को SVG के रूप में रेंडर करें, स्लाइड पर आकारों को संरेखित करें, तथा क्षैतिज और ऊर्ध्वाधर मिररिंग के लिए फ्लिप प्रॉपर्टी का उपयोग करें। इसके अतिरिक्त, लेख में आकार संयोजन, स्टैकिंग क्रम, और आकार लॉकिंग के बारे में एक छोटा FAQ शामिल है।
+यह लेख उसी मॉडल का पालन करता है। यह पहले यह समझाता है कि आकृति की विश्वसनीय पहचान कैसे करें, फिर क्लोन, हटाना, छुपाना और क्रम बदलने को दर्शाता है। अंतिम भाग लेआउट-स्तरीय स्वरूपण, SVG निर्यात, संरेखण और फ्लिप सेटिंग्स को कवर करते हैं। प्रत्येक उदाहरण स्वतंत्र है, इसलिए आप केवल उन संचालन का उपयोग कर सकते हैं जो आपके कार्यप्रवाह के लिए आवश्यक हैं।
 
-## **स्लाइड पर आकार खोजें**
-यह विषय एक सरल तकनीक का विवरण देगा जिससे डेवलपर्स को स्लाइड पर किसी विशिष्ट आकार को उसके आंतरिक Id का उपयोग किए बिना ढूँढ़ना आसान हो जाता है। यह जानना महत्वपूर्ण है कि PowerPoint प्रस्तुति फ़ाइलों में स्लाइड पर आकारों की पहचान करने का कोई तरीका नहीं है सिवाय आंतरिक अनोखे Id के। डेवलपर्स के लिए आंतरिक अनोखे Id के आधार पर आकार खोजना मुश्किल हो सकता है। सभी आकारों में कुछ Alt Text होता है। हम डेवलपर्स को सुझाव देते हैं कि वे विशिष्ट आकार खोजने के लिए Alternative Text का उपयोग करें। आप भविष्य में बदलने की योजना वाले ऑब्जेक्ट्स के लिए Microsoft PowerPoint का उपयोग करके वैकल्पिक टेक्स्ट निर्धारित कर सकते हैं।
+## **आकृतियों की पहचान और खोज**
 
-किसी भी इच्छित आकार का Alternative Text सेट करने के बाद, आप Aspose.Slides for PHP via Java का उपयोग करके वह प्रस्तुति खोल सकते हैं और स्लाइड में जोड़ें गए सभी आकारों के माध्यम से इटरट कर सकते हैं। प्रत्येक इटरशन में आप आकार का Alternative Text जाँच सकते हैं और वही आकार जिसका Alternative Text मिल रहा है, वही वह आकार होगा जिसकी आपको आवश्यकता है। इस तकनीक को बेहतर तरीके से प्रदर्शित करने के लिए हमने एक मेथड बनाया है, [findShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) जो स्लाइड में विशिष्ट आकार खोजने का काम करता है और फिर वह आकार वापस देता है।
+संग्रह इंडेक्स एक ज्ञात फ़ाइल को प्रोसेस करते समय सुविधाजनक होते हैं, लेकिन वे स्थायी पहचानकर्ता नहीं होते। किसी आकृति को जोड़ना, हटाना या क्रम बदलना उसके इंडेक्स को बदल सकता है। पहचानकर्ता का चयन प्रस्तुति के निर्माण और रखरखाव के तरीके के अनुसार करें:
 
-```php
-  # एक Presentation क्लास का इंस्टेंस बनाएं जो प्रस्तुति फ़ाइल को दर्शाता है
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # खोजे जाने वाले आकार का वैकल्पिक टेक्स्ट
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getname/) डेवलपर‑नियंत्रित टेम्पलेट्स के लिए उपयोगी है और PowerPoint के सेलेक्शन पैन में आसानी से जांची जा सकती है। नामों को संपादित किया जा सकता है और वे अनिवार्य रूप से अद्वितीय नहीं होते, इसलिए यदि कोड इन पर निर्भर करता है तो एक नामकरण नियम स्थापित करें।
+- [AlternativeText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getalternativetext/) तब उपयोगी है जब कोई अभिगम्यता विवरण या लेखक‑द्वारा प्रदान किया गया टैग पहले से ही आकृति की पहचान करता हो। यह उपयोगकर्ताओं को दिखाई देता है, स्थानीयकृत या अभिगम्यता के लिए पुनः लिखा जा सकता है, और यह अद्वितीय नहीं होता। अर्थपूर्ण अभिगम्यता पाठ को डेटाबेस कुंजी के रूप में चुपचाप पुन: उपयोग न करें।
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getofficeinteropshapeid/) एक केवल‑पढ़ने योग्य पहचानकर्ता है जो स्लाइड के भीतर अद्वितीय होता है और PowerPoint इंटरऑप द्वारा उपयोग किए गए आकार ID से मेल खाता है। PowerPoint के साथ एकीकृत करते समय या किसी आकार के जीवनकाल के दौरान अस्पष्ट नहीं रहने वाले संदर्भ की आवश्यकता होने पर इसे उपयोग करें। एक क्लोन किया हुआ या पुनः निर्मित आकार अलग होता है और इसका अपना ID प्राप्त करता है।
 
-```
+संबंधित [Shape::getUniqueId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getuniqueid/) मेथड प्रस्तुति सीमा वाला पहचानकर्ता लौटाता है, लेकिन यह पहचानकर्ता ऐड‑इन के लिए अभिप्रेत है और पुनः सौंपा जा सकता है। इसे स्थायी बाहरी कुंजी रूप में नहीं माना जाना चाहिए। यदि दीर्घकालिक पहचान आवश्यक है, तो अनुप्रयोग डेटा में मैपिंग रखें और पुष्टि करें कि अपेक्षित आकार अभी भी मौजूद है।
 
-## **आकार को क्लोन करें**
-Aspose.Slides for PHP via Java का उपयोग करके स्लाइड पर आकार को क्लोन करने के लिए:
-
-1. एक नया [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. उसके इंडेक्स का उपयोग करके स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्रोत स्लाइड के Shape Collection तक पहुँचें।
-1. प्रस्तुति में एक नई स्लाइड जोड़ें।
-1. स्रोत स्लाइड के Shape Collection से नई स्लाइड में आकार क्लोन करें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-नीचे दिया गया उदाहरण स्लाइड में एक Group Shape जोड़ता है।
+निम्न उदाहरण नाम द्वारा सटीक तुलना के साथ खोज करता है और स्लाइड‑स्कोप्ड इंटरऑप ID रिपोर्ट करता है। जब टेम्पलेट में अपेक्षित आकार नहीं होता, तो कोड उस परिणाम को रिपोर्ट करता है बजाय गलत वस्तु के साथ जारी रहने के।
 
 ```php
-  # Presentation क्लास का इंस्टेंस बनाएं
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # PPTX फाइल को डिस्क पर लिखें
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **आकार हटाएँ**
-Aspose.Slides for PHP via Java डेवलपर्स को किसी भी आकार को हटाने की अनुमति देता है। किसी स्लाइड से आकार हटाने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. एक नया [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. पहली स्लाइड तक पहुँचें।
-1. विशिष्ट AlternativeText वाले आकार को खोजें।
-1. आकार हटाएँ।
-1. फ़ाइल को डिस्क पर सहेजें।
-
-```php
-  # Presentation ऑब्जेक्ट बनाएं
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करें
-    $sld = $pres->getSlides()->get_Item(0);
-    # Rectangle प्रकार का ऑटोशेप जोड़ें
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # प्रस्तुति को डिस्क पर सहेजें
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **आकार छुपाएँ**
-Aspose.Slides for PHP via Java डेवलपर्स को किसी भी आकार को छुपाने की अनुमति देता है। स्लाइड पर आकार छुपाने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. एक नया [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. पहली स्लाइड तक पहुँचें।
-1. विशिष्ट AlternativeText वाले आकार को खोजें।
-1. आकार छुपाएँ।
-1. फ़ाइल को डिस्क पर सहेजें।
-
-```php
-  # PPTX का प्रतिनिधित्व करने वाले Presentation क्लास का इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करें
-    $sld = $pres->getSlides()->get_Item(0);
-    # rectangle प्रकार का ऑटोशेप जोड़ें
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # प्रस्तुति को डिस्क पर सहेजें
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **आकार का क्रम बदलें**
-Aspose.Slides for PHP via Java डेवलपर्स को आकारों को पुनः क्रमित करने की सुविधा देता है। क्रम बदलने से यह निर्धारित होता है कि कौन‑सा आकार आगे है और कौन‑सा पीछे। किसी स्लाइड में आकार का क्रम बदलने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. एक नया [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. पहली स्लाइड तक पहुँचें।
-1. एक आकार जोड़ें।
-1. आकार के टेक्स्ट फ्रेम में कुछ पाठ जोड़ें।
-1. समान निर्देशांक के साथ दूसरा आकार जोड़ें।
-1. आकारों का क्रम बदलें।
-1. फ़ाइल को डिस्क पर सहेजें।
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Interop Shape ID प्राप्त करें**
-Aspose.Slides for PHP via Java डेवलपर्स को स्लाइड स्कोप में एक अनोखा Shape Identifier प्राप्त करने की अनुमति देता है, जो [getUniqueId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getuniqueid/) मेथड के विपरीत है, जो प्रेज़ेंटेशन स्कोप में अनोखा Identifier देता है। मेथड [getOfficeInteropShapeId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getofficeinteropshapeid/) को [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) क्लास में जोड़ा गया है। [getOfficeInteropShapeId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getofficeinteropshapeid/) मेथड द्वारा लौटाया गया मान Microsoft.Office.Interop.PowerPoint.Shape ऑब्जेक्ट के Id मान के बराबर होता है। नीचे एक नमूना कोड दिया गया है।
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # स्लाइड स्कोप में अद्वितीय आकार पहचानकर्ता प्राप्त करना
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **आकार के लिए Alternative Text सेट करें**
-Aspose.Slides for PHP via Java डेवलपर्स को किसी भी आकार का AlternateText सेट करने की अनुमति देता है। प्रस्तुति में आकारों को `Alternative Text` या [Shape Name](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/setname/) मेथड द्वारा अलग‑अलग पहचाना जा सकता है। [setAlternativeText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/setalternativetext/) और [getAlternativeText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getalternativetext/) मेथड को Aspose.Slides के साथ-साथ Microsoft PowerPoint द्वारा भी पढ़ा या सेट किया जा सकता है। इस मेथड का उपयोग करके आप किसी आकार को टैग कर सकते हैं और विभिन्न ऑपरेशन्स जैसे आकार हटाना, आकार छुपाना या स्लाइड पर आकारों को पुनः क्रमित करना कर सकते हैं। आकार का AlternateText सेट करने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. एक नया [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. पहली स्लाइड तक पहुँचें।
-1. स्लाइड में कोई भी आकार जोड़ें।
-1. नए जोड़े गए आकार के साथ कुछ कार्य करें।
-1. आकारों के माध्यम से इटरट करके इच्छित आकार खोजें।
-1. AlternativeText सेट करें।
-1. फ़ाइल को डिस्क पर सहेजें।
-
-```php
-  # PPTX का प्रतिनिधित्व करने वाले Presentation क्लास का इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करें
-    $sld = $pres->getSlides()->get_Item(0);
-    # rectangle प्रकार का ऑटोशेप जोड़ें
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # प्रस्तुति को डिस्क पर सहेजें
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **आकार के लिए Layout Formats तक पहुँचें**
-Aspose.Slides for PHP via Java आकार के लिए Layout Formats तक पहुँचने के लिए एक सरल API प्रदान करता है। यह लेख दर्शाता है कि आप Layout Formats कैसे एक्सेस कर सकते हैं।
-
-नीचे एक नमूना कोड दिया गया है।
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **आकार को SVG के रूप में रेंडर करें**
-अब Aspose.Slides for PHP via Java आकार को SVG के रूप में रेंडर करने का समर्थन करता है। मेथड [writeAsSvg](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/writeassvg/) (और उसका ओवरलोड) को [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) क्लास में जोड़ा गया है। यह मेथड आकार की सामग्री को SVG फ़ाइल के रूप में सहेजने की अनुमति देता है। नीचे दिया गया कोड स्निपेट स्लाइड के आकार को SVG फ़ाइल में एक्सपोर्ट करने का तरीका दिखाता है।
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **आकार को संरेखित करें**
-Aspose.Slides आकारों को स्लाइड मार्जिन के सापेक्ष या एक‑दूसरे के सापेक्ष संरेखित करने की सुविधा देता है। इस उद्देश्य के लिए ओवरलोडेड मेथड [SlidesUtil::alignShapes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slideutil/alignshapes/) जोड़ा गया है। [ShapesAlignmentType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapesalignmenttype/) एन्यूमरेशन संभावित संरेखण विकल्पों को परिभाषित करता है।
-
-**उदाहरण 1**
-
-नीचे का स्रोत कोड आकारों को इंडेक्स 1,2 और 4 के साथ स्लाइड के शीर्ष किनारे के साथ संरेखित करता है।
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**उदाहरण 2**
-
-निम्न उदाहरण दिखाता है कि संपूर्ण आकार संग्रह को संग्रह में सबसे नीचे स्थित आकार के सापेक्ष कैसे संरेखित किया जाए।
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Flip प्रॉपर्टी**
-
-Aspose.Slides में, [ShapeFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapeframe/) क्लास `flipH` और `flipV` प्रॉपर्टी के माध्यम से आकारों के क्षैतिज और ऊर्ध्वत मिररिंग को नियंत्रित करती है। दोनों प्रॉपर्टी का प्रकार [NullableBool](https://reference.aspose.com/slides/hi/php-java/aspose.slides/nullablebool/) है, जहाँ `True` का अर्थ है फ़्लिप, `False` का अर्थ है कोई फ़्लिप नहीं, और `NotDefined` का अर्थ है डिफ़ॉल्ट व्यवहार। ये मान आकार की [Frame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#getFrame) से उपलब्ध होते हैं।
-
-फ़्लिप सेटिंग्स को बदलने के लिए, एक नया [ShapeFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapeframe/) इंस्टेंस वर्तमान स्थिति, आकार, वांछित `flipH` और `flipV` मान, तथा रोटेशन एंगल के साथ निर्मित किया जाता है। इस इंस्टेंस को आकार की [Frame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#getFrame) में असाइन करने और प्रस्तुति को सहेजने से मिरर ट्रांसफ़ॉर्मेशन लागू हो जाता है और आउटपुट फ़ाइल में कमिट हो जाता है।
-
-मान लीजिए हमारे पास sample.pptx फ़ाइल है जिसमें पहली स्लाइड में एकल आकार डिफ़ॉल्ट फ़्लिप सेटिंग के साथ है, जैसा कि नीचे दिखाया गया है।
-
-![फ़्लिप करने के लिए आकार](shape_to_be_flipped.png)
-
-निम्न कोड उदाहरण आकार की वर्तमान फ़्लिप प्रॉपर्टी को प्राप्त करता है और उसे क्षैतिज तथा ऊर्ध्वत दोनों दिशा में फ़्लिप करता है।
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // आकार की क्षैतिज फ़्लिप प्रॉपर्टी प्राप्त करें।
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // आकार की लंबवत फ़्लिप प्रॉपर्टी प्राप्त करें।
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // क्षैतिज रूप से फ़्लिप करें।
-    $flipV = NullableBool::True; // क्षैतिज रूप से फ़्लिप करें।
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-परिणाम:
+जब कोई संचालन किसी आकार प्रकार के लिए विशिष्ट हो, तो प्रकार‑विशिष्ट सदस्यों का उपयोग करने से पहले रनटाइम क्लास की जाँच करें। यह उदाहरण टेक्स्ट और वैकल्पिक टेक्स्ट को तभी अपडेट करता है जब नामित वस्तु एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) हो।
 
-![फ़्लिप किया हुआ आकार](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **FAQ**
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
 
-**क्या मैं डेस्कटॉप एडिटर की तरह स्लाइड पर आकारों को (union/intersect/subtract) संयोजित कर सकता हूँ?**
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
 
-बिल्ट‑इन Boolean ऑपरेशन API नहीं है। आप वांछित आउटलाइन स्वयं बना कर इसे सन्निकट कर सकते हैं—उदाहरण के तौर पर GeometryPath (https://reference.aspose.com/slides/hi/php-java/aspose.slides/geometrypath/) का उपयोग करके resulting geometry की गणना करें और उस कोंटूर के साथ एक नया आकार बनाएँ, वैकल्पिक रूप से मूल आकारों को हटा दें।
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
-**मैं स्टैकिंग क्रम (z‑order) को कैसे नियंत्रित करूँ ताकि कोई आकार हमेशा “सबसे ऊपर” बना रहे?**
+## **आकार संग्रह को संशोधित करें**
 
-स्लाइड के [shapes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/baseslide/#getShapes) संग्रह में इन्सर्शन/मूव क्रम बदलें। पूर्वानुमानित परिणामों के लिए सभी अन्य स्लाइड परिवर्तन के बाद z‑order को अंतिम रूप दें।
+add, clone, remove, और reorder मेथड्स तुरंत संग्रह पर कार्य करते हैं। यदि कोई संचालन आकारों की संख्या या क्रम बदलता है, तो उस संचालन से पहले प्राप्त किए गए इंडेक्स पर निर्भर नहीं रहें।
 
-**क्या मैं PowerPoint में उपयोगकर्ताओं को आकार संपादित करने से रोकने के लिए उसे “लॉक” कर सकता हूँ?**
+### **एक आकार को क्लोन करें**
 
-हाँ। आकार‑स्तर की प्रोटेक्शन फ़्लैग सेट करें (जैसे चयन, मूवमेंट, री‑साइज़, टेक्स्ट एडिट को लॉक करना)। यदि आवश्यक हो तो मास्टर या लेआउट पर समान प्रतिबंध लगाएँ। यह UI‑स्तर की सुरक्षा है, पूर्ण सुरक्षा के लिए फ़ाइल‑स्तर प्रतिबंध जैसे [read‑only recommendations or passwords](/slides/hi/php-java/password-protected-presentation/) के साथ संयोजन करें।
+[ShapeCollection::addClone](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addclone/) एक स्वतंत्र प्रतिलिपि बनाता है और इसे लक्ष्य संग्रह में जोड़ता है। [ShapeCollection::insertClone](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/insertclone/) भी प्रतिलिपि बनाता है लेकिन इसे निर्दिष्ट z‑order इंडेक्स पर रखता है। वे ओवरलोड जो निर्देशांक स्वीकार करते हैं, क्लोन को उसके आकार बदले बिना स्थानांतरित करते हैं; चौड़ाई और ऊँचाई वाले ओवरलोड इसे पुनः आकार भी दे सकते हैं।
+
+उदाहरण एक लक्ष्य स्लाइड बनाता है, लेबल वाले आयत को आगे की ओर क्लोन करता है, और दूसरे क्लोन को पीछे जोड़ता है। किसी भी क्लोन में परिवर्तन स्रोत आकार को संशोधित नहीं करता।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+क्लोनिंग आकार की सामग्री और स्वरूपण को कॉपी करती है, जिसमें उसका नाम और वैकल्पिक पाठ भी शामिल है। जब इन मानों को अद्वितीय होना आवश्यक हो तो क्लोन को नए तार्किक पहचानकर्ता असाइन करें। जटिल आकारों द्वारा उपयोग किए गए संसाधन प्रस्तुति द्वारा संभाले जाते हैं, लेकिन क्लोन एक नया संग्रह आइटम रहता है जिसका नया आकार पहचान है।
+
+### **आकृतियों को हटाएँ**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/remove/) एक विशिष्ट आकार ऑब्जेक्ट को उसके संग्रह से हटा देता है। जब इंडेक्स्ड इटरेशन के दौरान कई मैच हटाए जा रहे हों, तो अंत से traverse करें ताकि प्रत्येक शेष इंडेक्स वैध बना रहे।
+
+यह उदाहरण एक निर्दिष्ट नाम वाली प्रत्येक आकृति को हटाता है। यह वर्तमान इंडेक्स पर आकार पढ़ता है, न कि किसी निश्चित संग्रह आइटम को, और यह आकार को अनावश्यक रूप से कास्ट नहीं करता।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+हटाने के बाद, आकारों की संख्या और बाद के आकारों के इंडेक्स बदल जाते हैं। अप्रभावित आकारों के संदर्भ बचाए गए इंडेक्स की तुलना में अधिक भरोसेमंद रहते हैं। साथ ही कनेक्टर, एनीमेशन और अन्य प्रस्तुति सुविधाओं पर भी विचार करें जो हटाए गए ऑब्जेक्ट का संदर्भ दे सकते हैं; एक दृश्यमान आकार को हटाने से स्लाइड की उपस्थिति से अधिक बदल सकता है।
+
+### **एक आकार को छुपाएँ**
+
+[Shape::setHidden](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/sethidden/) को `true` पर सेट करने से आकार संग्रह में रहता है लेकिन सामान्य स्लाइड शो में दिखाई नहीं देता। इसका इंडेक्स, स्वरूपण और सामग्री कोड के लिए उपलब्ध रहती है, इसलिए छुपाना वैकल्पिक तत्वों के लिए उपयुक्त है जिन्हें बाद में पुनर्स्थापित किया जा सकता है।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+छुपाना विलोपन या सुरक्षा नहीं है। ऑब्जेक्ट अभी भी उपयोगकर्ता या कोड द्वारा खोजा और अनहिडन किया जा सकता है, और यह प्रस्तुति फ़ाइल का हिस्सा बना रहता है।
+
+### **Z‑क्रम बदलें**
+
+ओवरलैपिंग आकारों को संग्रह क्रम में चित्रित किया जाता है। [ShapeCollection::reorder](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/reorder/) एक मौजूदा आकार को क्लोन किए बिना लक्ष्य इंडेक्स पर ले जाता है। इंडेक्स `0` पीछे है; `size() - 1` आगे है।
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+आयत पहले बनता है और प्रारंभ में दीर्घवृत्त के पीछे रहता है। इसे अंतिम इंडेक्स पर ले जाने से यह आगे आ जाता है। सभी संबंधित आकारों को जोड़ने या क्लोन करने के बाद z‑order को समाप्त करें, क्योंकि ये संचालन नए संग्रह आइटम जोड़ते या डालते हैं और इच्छित स्टैक को बदल सकते हैं।
+
+## **लेआउट स्लाइड्स पर आकृतियों का निरीक्षण**
+
+सामान्य स्लाइड, लेआउट स्लाइड और मास्टर स्लाइड के अलग-अलग आकार संग्रह होते हैं। लेआउट संग्रह में एक आकार सामान्य स्लाइड पर समान स्थान वाली आकृति के समान वस्तु नहीं होता। जब आपको लेआउट द्वारा प्रदान किए गए स्वरूपण को समझने या बदलने की आवश्यकता हो, तो लेआउट आकारों का निरीक्षण करें।
+
+निम्न उदाहरण प्रत्येक लेआउट आकार के [FillFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getfillformat/) और [LineFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getlineformat/) को पढ़ता है, बिना यह मानते हुए कि हर आकार `AutoShape` है।
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+लेआउट को संपादित करने से उन कई स्लाइडों पर प्रभाव पड़ सकता है जो उसका उपयोग करती हैं। लेआउट आकार को बदलने से पहले निर्धारित करें कि क्या सामान्य स्लाइड वस्तु को विरासत में लेती है या स्थानीय ओवरराइड रखती है, और उस लेआउट का उपयोग करने वाली प्रत्येक स्लाइड का परीक्षण करें।
+
+## **आकृति को SVG में निर्यात करें**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/writeassvg/) एक आकार की रेंडर की गई सामग्री को स्ट्रीम में लिखता है। परिणाम में केवल आकार होता है, पूरे स्लाइड पृष्ठभूमि या पड़ोसी आकृतियों नहीं।
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+रेंडरिंग के दौरान प्रस्तुति को खुले रखें। आउटपुट आकार के स्वरूपण और फ़ॉन्ट तथा इमेज जैसे संसाधनों पर निर्भर करता है। यदि आपको पूरी रचना चाहिए, तो व्यक्तिगत आकार के बजाय स्लाइड निर्यात करें। कॉलर स्ट्रीम का मालिक होता है और उसे बंद करना चाहिए।
+
+## **आकृतियों को संरेखित करें**
+
+[SlideUtil::alignShapes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slideutil/alignshapes/) ओवरलोड सभी आकारों या चयनित संग्रह इंडेक्स को संरेखित करते हैं। [ShapesAlignmentType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapesalignmenttype/) किनारा, केंद्र रेखा या वितरण मोड निर्दिष्ट करता है। स्लाइड किनारों का उपयोग करने के लिए `alignToSlide` को `true` सेट करें; चुनी हुई आकृतियों को एक-दूसरे के सापेक्ष संरेखित करने के लिए इसे `false` सेट करें।
+
+यह उदाहरण तीन आकृतियों को स्लाइड के शीर्ष किनारे पर संरेखित करता है। लौटाए गए आकार संदर्भों को संरेखण से ठीक पहले उनके वर्तमान इंडेक्स में बदल दिया जाता है।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+संरेखण स्थिति बदलता है, न कि z‑order। सापेक्ष संरेखण के लिए सामान्यतः कम से कम दो आकार चाहिए, जबकि क्षैतिज या ऊर्ध्विक वितरण के लिए अंतराल निर्धारित करने के लिए पर्याप्त आकार चाहिए। यदि आप मेथड को कॉल करने से पहले संग्रह को संशोधित करते हैं तो इंडेक्स पुनः गणना करें।
+
+## **एक आकार को फ्लिप करें**
+
+[ShapeFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapeframe/) क्लास स्थिति, आकार, क्षैतिज और ऊर्ध्विक फ्लिप सेटिंग्स, तथा घूर्णन को संग्रहीत करती है। इसके `getFlipH` और `getFlipV` मान [NullableBool](https://reference.aspose.com/slides/hi/php-java/aspose.slides/nullablebool/): `True` फ्लिप सक्षम करता है, `False` इसे निष्क्रिय करता है, और `NotDefined` अनिर्दिष्ट/डिफ़ॉल्ट स्थिति को बरकरार रखता है।
+
+नीचे दिया गया इनपुट प्रस्तुतीकरण एक अनफ़्लिप्ड आकार शामिल करता है।
+
+![फ्लिप करने से पहले की आकृति](shape_to_be_flipped.png)
+
+उदाहरण सभी अन्य फ्रेम मानों को बरकरार रखता है और केवल दो फ्लिप सेटिंग्स को बदलता है। यह महत्वपूर्ण है क्योंकि नया [Frame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/setframe/) असाइन करने से संपूर्ण फ्रेम प्रतिस्थापित हो जाता है।
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+सहेजा गया आकार क्षैतिज और ऊर्ध्विक दोनों दिशा में प्रतिबिंबित हो जाता है जबकि उसकी स्थिति, आकार और घूर्णन बरकरार रहते हैं।
+
+![फ्लिप करने के बाद की आकृति](flipped_shape.png)
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**क्या मुझे आकार पहचानकर्ता के रूप में संग्रह इंडेक्स का उपयोग करना चाहिए?**
+
+केवल अल्पकालिक प्रोसेसिंग के लिए जब संग्रह इंडेक्स उपयोग होने से पहले नहीं बदलता। निर्मित टेम्पलेट्स के लिए मान्य `Name` या `AlternativeText` नामकरण नियम को प्राथमिकता दें, या स्लाइड‑स्कोप्ड इंटरऑप कार्य के लिए `OfficeInteropShapeId`।
+
+**क्या एक आकार को छुपाने से वह z‑order से हट जाता है?**
+
+नहीं। छुपाया गया आकार समान इंडेक्स पर संग्रह में रहता है। इसे खोजा, क्रम बदल सकता है, संपादित कर सकता है, या फिर से दृश्य बना सकता है।
+
+**क्लोन किए गए आकार का दूसरे आकार के सामने प्रकट क्यों हुआ?**
+
+`addClone` क्लोन को संग्रह के अंत में जोड़ता है, जो z‑order का अग्र भाग होता है। प्रारंभिक इंडेक्स चुनने के लिए `insertClone` का उपयोग करें या सभी आकार जोड़ने के बाद `reorder` करें।

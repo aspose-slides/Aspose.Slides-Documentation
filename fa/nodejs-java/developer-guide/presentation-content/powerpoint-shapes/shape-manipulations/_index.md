@@ -5,397 +5,390 @@ type: docs
 weight: 40
 url: /fa/nodejs-java/shape-manipulations/
 keywords:
-- اشکال PowerPoint
-- اشکال ارائه
-- اشکال در اسلاید
-- یافتن اشکال
-- کلون کردن اشکال
-- حذف اشکال
-- مخفی کردن اشکال
-- تغییر ترتیب اشکال
-- دریافت شناسه Interop اشکال
-- متن جایگزین اشکال
-- فرمت‌های چیدمان اشکال
-- اشکال به‌صورت SVG
-- تبدیل اشکال به SVG
-- هم‌راستای اشکال
+- شکل PowerPoint
+- شکل ارائه
+- شکل در اسلاید
+- یافتن شکل
+- کلون کردن شکل
+- حذف شکل
+- مخفی کردن شکل
+- تغییر ترتیب شکل
+- دریافت شناسهٔ interop شکل
+- متن جایگزین شکل
+- قالب‌های چینش شکل
+- شکل به صورت SVG
+- تبدیل شکل به SVG
+- هم‌ترازی شکل
+- معکوس کردن شکل
 - PowerPoint
 - ارائه
 - Node.js
-- JavaScript
+- جاوا اسکریپت
 - Aspose.Slides
-description: "یاد بگیرید چگونه با استفاده از جاوا اسکریپت و Aspose.Slides برای Node.js via Java اشکال را ایجاد، ویرایش و بهینه‌سازی کنید و ارائه‌های PowerPoint با عملکرد بالا را تولید کنید."
+description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، کلون، حذف، مخفی، دوباره ترتیب دهید، صادر کنید، هم‌ترازی کنید و معکوس کنید با Aspose.Slides برای Node.js از طریق Java."
 ---
-## **مرور کلی**
+## **مروری**
 
-این مقاله نحوه کار با اشکال در ارائه‌ها با Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چطور یک شکل را در یک اسلاید پیدا کنید، کپی (کلون) کنید، حذف کنید، مخفی کنید، ترتیب آن را تغییر دهید، شناسه Interop شکل را دریافت کنید و متن جایگزین برای شناسایی و پردازش‌های بعدی تنظیم کنید.
+Aspose.Slides برای Node.js از طریق Java اشکال موجود در یک اسلاید را به صورت یک [ShapeCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/) مرتب نمایش می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و ویرایش کنید و هم منبع ترتیب چیدمان آن‌ها است: اندیس `0` شکل پشت‌ترین است، در حالی که آخرین اندیس شکل جلوی‌ترین است.
 
-همچنین پوشش می‌دهد چطور فرمت‌های چیدمان برای اشکال را به دست آورید، یک شکل را به‌صورت SVG رندر کنید، اشکال را در یک اسلاید هماهنگ کنید و از ویژگی‌های flip برای معکوس افقی و عمودی استفاده کنید. علاوه بر این، مقاله شامل یک بخش کوتاه FAQ درباره ترکیب اشکال، ترتیب لایه‌ها و قفل‌کردن شکل است.
+این مقاله این مدل را دنبال می‌کند. ابتدا نحوه شناسایی یک شکل به‌صورت قابل اطمینان توضیح داده می‌شود، سپس نشان می‌دهد چگونه می‌توان شکل‌ها را کلون، حذف، مخفی و دوباره ترتیب داد. بخش‌های نهایی به قالب‌بندی سطح طرح بندی، خروجی SVG، هم‌ترازی و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید فقط عملیاتی را که جریان کاری‌تان به آن نیاز دارد، استفاده کنید.
 
-## **پیدا کردن شکل در اسلاید**
-این موضوع تکنیک ساده‌ای را برای آسان‌تر کردن یافتن یک شکل خاص در اسلاید بدون استفاده از شناسه داخلی آن توضیح می‌دهد. مهم است که بدانید فایل‌های ارائه PowerPoint تنها با یک شناسهٔ منحصر به‌فرد داخلی می‌توانند اشکال را شناسایی کنند. برای توسعه‌دهندگان پیدا کردن یک شکل با استفاده از این شناسه داخلی می‌تواند دشوار باشد. تمام اشکالی که به اسلایدها اضافه می‌شوند دارای متنی جایگزین (Alt Text) هستند. ما به توسعه‌دهندگان پیشنهاد می‌کنیم برای یافتن یک شکل خاص از متن جایگزین استفاده کنند. می‌توانید در MS PowerPoint متن جایگزین برای اشیائی که قصد تغییر آن‌ها را در آینده دارید، تعریف کنید.
+## **شناسایی و یافتن اشکال**
 
-پس از تنظیم متن جایگزین برای هر شکل دلخواه، می‌توانید همان ارائه را با Aspose.Slides for Node.js via Java باز کنید و از طریق تمام اشکال اضافه شده به اسلاید عبور کنید. در هر تکرار می‌توانید متن جایگزین شکل را بررسی کنید و شکل دارای متن جایگزین مطابقت یافته، همان شکل مورد نظر شما خواهد بود. برای نمایش بهتر این تکنیک، ما روشی به نام [findShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) ایجاد کرده‌ایم که این کار را برای پیدا کردن یک شکل خاص در اسلاید انجام می‌دهد و سپس آن شکل را برمی‌گرداند.
+اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده راحت هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا دوباره ترتیب دادن یک شکل می‌تواند اندیس آن را تغییر دهد. یک شناسه را بر اساس نحوهٔ ایجاد و نگهداری ارائه انتخاب کنید:
 
-```javascript
-// یک شیء از کلاس Presentation ایجاد کنید که فایل ارائه را نمایان می‌کند
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // متن جایگزین شکلی که باید یافت شود
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+- [Name](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/getname/) برای قالب‌های کنترل‌شده توسط توسعه‌دهندگان مفید است و در پنل انتخاب PowerPoint به‌راحتی قابل مشاهده است. نام‌ها قابل ویرایشند و تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک قرارداد نام‌گذاری برقرار کنید.
+- [AlternativeText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/getalternativetext/) زمانی مفید است که توضیح دسترسی یا برچسبی که توسط نویسنده اضافه شده، قبلاً شکل را شناسایی می‌کند. این متن برای کاربران قابل مشاهده است، ممکن است محلی‌سازی یا برای دسترسی بازنویسی شود و تضمین یکتایی ندارند. متن دسترسی معنادار را به‌صورت بی‌صدا به عنوان کلید پایگاه داده استفاده نکنید.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا بوده و به شناسهٔ شکلی که PowerPoint برای ارتباط استفاده می‌کند، متناظر است. وقتی با PowerPoint یکپارچه می‌شوید یا به یک مرجع غیرقابل ابهام در طول عمر یک شکل نیاز دارید، از آن استفاده کنید. یک شکل کلون‌شده یا دوباره‌ساخته، شکل متفاوتی است و شناسهٔ خود را دریافت می‌کند.
 
-    return null;
-}
-```
+متد مرتبط [getUniqueId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/getuniqueid/) یک شناسه با دامنهٔ ارائه باز می‌گرداند، اما این شناسه برای افزونه‌ها در نظر گرفته شده و می‌تواند مجدداً اختصاص یابد. نباید آن را به‌عنوان کلید خارجی دائمی در نظر گرفت. اگر هویت طولانی‌مدت ضروری است، نگاشتها را در داده‌های برنامه نگه داشته و اعتبارسنجی کنید که شکل مورد انتظار هنوز وجود دارد.
 
-## **کلون کردن شکل**
-برای کلون کردن یک شکل به اسلاید با Aspose.Slides for Node.js via Java:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را با استفاده از ایندکس آن به‌دست آورید.
-3. به مجموعهٔ شکل‌های اسلاید منبع دسترسی پیدا کنید.
-4. اسلاید جدیدی به ارائه اضافه کنید.
-5. اشکال را از مجموعهٔ شکل‌های اسلاید منبع به اسلاید جدید کلون کنید.
-6. ارائهٔ تغییر یافته را به‌صورت فایل PPTX ذخیره کنید.
-
-مثال زیر یک گروه شکل را به اسلاید اضافه می‌کند.
+مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد همان نتایج را گزارش می‌کند به جای اینکه با شیء اشتباه ادامه دهد.
 
 ```javascript
-// یک شیء از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // فایل PPTX را روی دیسک ذخیره کنید
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **حذف شکل**
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان اجازه می‌دهد هر شکل را حذف کنند. برای حذف شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. به اولین اسلاید دسترسی پیدا کنید.
-3. شکل با متن جایگزین خاص را پیدا کنید.
-4. شکل را حذف کنید.
-5. فایل را روی دیسک ذخیره کنید.
-
-```javascript
-// شیء Presentation را ایجاد کنید
-var pres = new aspose.slides.Presentation();
-try {
-    // دریافت اولین اسلاید
-    var sld = pres.getSlides().get_Item(0);
-    // افزودن شکل خودکار از نوع مستطیل
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // ذخیرهٔ ارائه روی دیسک
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **مخفی کردن شکل**
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان اجازه می‌دهد هر شکل را مخفی کنند. برای مخفی کردن شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. به اولین اسلاید دسترسی پیدا کنید.
-3. شکل با متن جایگزین خاص را پیدا کنید.
-4. شکل را مخفی کنید.
-5. فایل را روی دیسک ذخیره کنید.
-
-```javascript
-// یک شیء از کلاس Presentation ایجاد کنید که نمایانگر فایل PPTX است
-var pres = new aspose.slides.Presentation();
-try {
-    // دریافت اولین اسلاید
-    var sld = pres.getSlides().get_Item(0);
-    // افزودن شکل خودکار از نوع مستطیل
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // ذخیرهٔ ارائه روی دیسک
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **تغییر ترتیب اشکال**
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان اجازه می‌دهد ترتیب اشکال را تغییر دهند. تغییر ترتیب مشخص می‌کند کدام شکل در جلو و کدام شکل در پشت قرار می‌گیرد. برای تغییر ترتیب اشکال در هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. به اولین اسلاید دسترسی پیدا کنید.
-3. یک شکل اضافه کنید.
-4. متنی در فریم متن شکل اضافه کنید.
-5. شکل دیگری با همان مختصات اضافه کنید.
-6. ترتیب اشکال را تغییر دهید.
-7. فایل را روی دیسک ذخیره کنید.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **دریافت شناسه Interop شکل**
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان اجازه می‌دهد شناسهٔ منحصر به‌فرد یک شکل در محدودهٔ اسلاید را دریافت کنند، بر خلاف روش [getUniqueId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getUniqueId--) که شناسهٔ منحصر به‌فرد را در محدودهٔ ارائه بر می‌گرداند. متد [getOfficeInteropShapeId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) به کلاس [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape) اضافه شده است. مقداری که توسط متد [getOfficeInteropShapeId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) برگردانده می‌شود، متناظر با مقدار Id شیء Microsoft.Office.Interop.PowerPoint.Shape است. در زیر نمونه کد آورده شده است.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // دریافت شناسهٔ منحصر به‌فرد شکل در محدودهٔ اسلاید
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **تنظیم متن جایگزین برای شکل**
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان اجازه می‌دهد AlternateText هر شکل را تنظیم کنند.
-اشکال در یک ارائه می‌توانند با استفاده از متد [AlternativeText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) یا [Shape Name](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#setName-java.lang.String-) متمایز شوند.
-متدهای [setAlternativeText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) و [getAlternativeText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getAlternativeText--) می‌توانند با استفاده از Aspose.Slides یا Microsoft PowerPoint خوانده یا تنظیم شوند.
-با استفاده از این متد می‌توانید یک شکل را برچسب‌گذاری کنید و عملیات‌های مختلفی مانند حذف، مخفی‌کردن یا تغییر ترتیب اشکال روی اسلاید را انجام دهید.
- برای تنظیم AlternateText یک شکل، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. به اولین اسلاید دسترسی پیدا کنید.
-3. هر شکل دلخواهی را به اسلاید اضافه کنید.
-4. کاری با شکل تازه اضافه‌شده انجام دهید.
-5. از بین اشکال عبور کنید تا شکل مورد نظر را پیدا کنید.
-6. AlternativeText را تنظیم کنید.
-7. فایل را روی دیسک ذخیره کنید.
-
-```javascript
-// یک شیء از کلاس Presentation ایجاد کنید که نمایانگر فایل PPTX است
-var pres = new aspose.slides.Presentation();
-try {
-    // دریافت اولین اسلاید
-    var sld = pres.getSlides().get_Item(0);
-    // افزودن شکل خودکار از نوع مستطیل
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // ذخیرهٔ ارائه روی دیسک
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **دسترسی به فرمت‌های چیدمان برای شکل**
-Aspose.Slides for Node.js via Java یک API ساده برای دسترسی به فرمت‌های چیدمان یک شکل فراهم می‌کند. این مقاله نشان می‌دهد چگونه می‌توانید به فرمت‌های چیدمان دسترسی پیدا کنید.
-
-در زیر نمونه کد آورده شده است.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **رندر کردن شکل به‌صورت SVG**
-اکنون Aspose.Slides for Node.js via Java از رندر کردن یک شکل به‌صورت SVG پشتیبانی می‌کند. متد [writeAsSvg](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (و نسخهٔ overload آن) به کلاس [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape) اضافه شده است. این متد اجازه می‌دهد محتوای شکل را به‌صورت فایل SVG ذخیره کنید. قطعه کد زیر نشان می‌دهد چگونه شکل اسلاید را به یک فایل SVG صادر کنید.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **هم‌راستای کردن اشکال**
-Aspose.Slides امکان هم‌راستای کردن اشکال را نسبت به حاشیه‌های اسلاید یا نسبت به یکدیگر فراهم می‌کند. برای این منظور، متد overload شده [SlidesUtil.alignShape()](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) اضافه شده است. شمارش [ShapesAlignmentType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ShapesAlignmentType) گزینه‌های هم‌راستای ممکن را تعریف می‌کند.
-
-**مثال 1**
-
-کد منبع زیر اشکال با ایندکس‌های 1، 2 و 4 را در مرز بالایی اسلاید هم‌راستا می‌کند.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**مثال 2**
-
-مثال زیر نشان می‌دهد چگونه تمام مجموعهٔ اشکال را نسبت به پایین‌ترین شکل در مجموعه هم‌راستا کنیم.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **ویژگی‌های Flip**
-
-در Aspose.Slides، کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapeframe/) کنترل معکوس افقی و عمودی اشکال را از طریق ویژگی‌های `flipH` و `flipV` فراهم می‌کند. هر دو ویژگی از نوع `byte` هستند و مقدار `1` برای معکوس، `0` برای عدم معکوس و `-1` برای استفاده از رفتار پیش‌فرض را می‌پذیرند. این مقادیر از طریق [Frame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#getFrame) شکل قابل دسترسی هستند.
-
-برای تغییر تنظیمات معکوس، یک نمونه جدید از [ShapeFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapeframe/) با موقعیت و اندازهٔ فعلی شکل، مقادیر دلخواه برای `flipH` و `flipV` و زاویهٔ چرخش ساخته می‌شود. اختصاص این نمونه به [Frame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#getFrame) شکل و ذخیرهٔ ارائه، تبدیل‌های معکوس را اعمال و در فایل خروجی ذخیره می‌کند.
-
-فرض کنید فایلی به نام sample.pptx داریم که اسلاید اول آن شامل یک شکل واحد با تنظیمات معکوس پیش‌فرض است، همان‌طور که در زیر نشان داده شده است.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-کد زیر ویژگی‌های معکوس فعلی شکل را دریافت کرده و آن را هم به‌صورت افقی و هم عمودی معکوس می‌کند.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // دریافت ویژگی وارون افقی شکل.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // دریافت ویژگی وارون عمودی شکل.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // وارون افقی.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // وارون عمودی.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
+هنگامی که عملیاتی به یک نوع شکل خاص محدود می‌شود، قبل از استفاده از اعضای نوع‑خصوصی، کلاس زمان اجرا را بررسی کنید. این مثال متن و متن جایگزین را فقط در صورتی به‌روز می‌کند که شیء نام‌برده یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) باشد.
 
-![The flipped shape](flipped_shape.png)
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **FAQ**
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
 
-**آیا می‌توانم اشکال را (اتحاد/تقاطع/تفریق) در اسلاید مشابه یک ویرایشگر دسکتاپ ترکیب کنم؟**
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
 
-هیچ API داخلی برای عملیات بولی وجود ندارد. می‌توانید با ساختن طرح دلخواه خود، مثل محاسبهٔ شکل‌گیری نهایی (از طریق [GeometryPath](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/geometrypath/)) و ایجاد یک شکل جدید با آن کانتور، به‌صورت تقریبی این کار را انجام دهید؛ در صورت نیاز می‌توانید اشکال اصلی را حذف کنید.
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**چگونه می‌توانم ترتیب لایه‌ها (z-order) را کنترل کنم تا شکل همیشه «بالا» باشد؟**
+## **تغییر مجموعهٔ اشکال**
 
-ترتیب افزودن/جابه‌جایی را در مجموعهٔ [shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/#getShapes) اسلاید تغییر دهید. برای نتایج قابل پیش‌بینی، پس از تمام تغییرات دیگر اسلاید، ترتیب z-order را نهایی کنید.
+متدهای افزودن، کلون، حذف و دوباره‌ترتیب بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، دیگر بر اندیس‌های ثبت‑شده قبل از آن عملیات تکیه نکنید.
 
-**آیا می‌توانم یک شکل را قفل کنم تا کاربران در PowerPoint نتوانند آن را ویرایش کنند؟**
+### **کلون کردن یک شکل**
 
-بله. پرچم‌های محافظت در سطح شکل (مانند قفل انتخاب، جابه‌جایی، تغییر اندازه یا ویرایش متن) را تنظیم کنید. در صورت نیاز، محدودیت‌ها را بر روی مستر یا طرح اعمال کنید. توجه داشته باشید این حفاظت سطح رابط کاربری است و نه ویژگی امنیتی؛ برای حفاظت قوی‌تر می‌توانید آن را با محدودیت‌های سطح فایل مانند [توصیه‌های فقط‑خواندنی یا رمزهای عبور](/slides/fa/nodejs-java/password-protected-presentation/) ترکیب کنید.
+[addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/addclone/) یک کپی مستقل ایجاد کرده و آن را به انتهای مجموعه هدف اضافه می‌کند. [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/insertclone/) نیز یک کپی می‌سازد اما آن را در یک اندیس z‑order مشخص قرار می‌دهد. overloadهایی که مختصات را می‌پذیرند، کلون را بدون تغییر اندازه‌اش جابه‌جا می‌کنند؛ overloadهایی با عرض و ارتفاع می‌توانند اندازه را نیز تغییر دهند.
+
+مثال یک اسلاید مقصد ایجاد می‌کند، یک مستطیل برچسب‌دار را به جلو کلون می‌کند و یک کلون دوم را در عقب وارد می‌کند. تغییرات روی هر دو کلون، شکل منبع را تغییر نمی‌دهد.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+کلون کردن محتوا و قالب‌بندی شکل را—including نام و متن جایگزین—کپی می‌کند. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدید به کلون اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شود، اما یک کلون همچنان یک مورد جدید در مجموعه با هویت شکل جدید است.
+
+### **حذف اشکال**
+
+[remove](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/remove/) یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین تطبیق در طول یک iteration اندیس‌دار، از انتها به سمت ابتدا پیمایش کنید تا هر اندیس باقی‌مانده معتبر بماند.
+
+این مثال هر شکلی که نام مشخصی داشته باشد را حذف می‌کند. شکل را در اندیس جاری می‌خواند و فرضی به‌خصوص دربارهٔ نوع شکل ندارد.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+پس از حذف، تعداد اشکال و اندیس‌های اشکال بعدی تغییر می‌کند. ارجاع به اشکال بدون تغییر نسبت به اندیس‌های ذخیره‌شده قابل اطمینان‌تر است. همچنین به متصل‌کننده‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
+
+### **مخفی کردن یک شکل**
+
+تنظیم [Hidden](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/sethidden/) بر `true` شکل را در مجموعه نگه می‌دارد اما از نمایش در نمایش اسلاید عادی جلوگیری می‌کند. اندیس، قالب‌بندی و محتوای آن برای کد قابل دسترس باقی می‌مانند، بنابراین مخفی کردن برای عناصر اختیاری که ممکن است بعدها بازگردانده شوند مناسب است.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مخفی کردن حذف یا امنیت نیست. شیء همچنان می‌تواند توسط کاربر یا کد کشف و دوباره آشکار شود و بخشی از فایل ارائه باقی می‌ماند.
+
+### **تغییر ترتیب Z**
+
+اشکال هم‌پوشانی‌شده به ترتیب مجموعه رنگ می‌شوند. [reorder](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/reorder/) یک شکل موجود را به یک اندیس هدف بدون کلون کردن منتقل می‌کند. اندیس `0` پشت است؛ `size() - 1` جلو.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مستطیل ابتدا ایجاد می‌شود و به‌طور پیش‌فرض پشت بیضی قرار دارد. جابه‌جایی آن به اندیس نهایی، آن را به جلو می‌برد. پس از افزودن یا کلون تمام اشکال مرتبط، ترتیب Z را نهایی کنید، زیرا این عملیات موارد جدیدی به مجموعه اضافه یا وارد می‌کنند و می‌توانند پشتهٔ موردنظر را تغییر دهند.
+
+## **بازرسی اشکال در اسلایدهای قالب**
+
+اسلایدهای معمولی، اسلایدهای قالب و اسلایدهای مستر مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ قالب، همان شیء شکل مشابه در اسلاید معمولی نیست. وقتی نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک قالب دارید، اشکال قالب را بررسی کنید.
+
+مثال زیر [FillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/getfillformat/) و [LineFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/getlineformat/) هر شکل قالب را می‌خواند بدون اینکه فرض کند هر شکل یک `AutoShape` است.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ویرایش یک قالب می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند تأثیر بگذارد. پیش از تغییر یک شکل قالب، تعیین کنید آیا یک اسلاید معمولی شیء را به ارث می‌برد یا حاوی بازنویسی محلی است و هر اسلایدی که از آن قالب استفاده می‌کند را تست کنید.
+
+## **خروجی یک شکل به SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/writeassvg/) محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل همان شکل است، نه پس‌زمینهٔ کل اسلاید یا اشکال همجوار.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+هنگام رندر ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و به منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به کل ترکیب نیاز دارید، اسلاید را به‌جای یک شکل منفرد خروجی بگیرید. فراخواننده مالک جریان است و باید آن را ببندد.
+
+## **هم‌ترازی اشکال**
+
+متدهای [SlideUtil.alignShapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideutil/alignshapes/) می‌توانند یا تمام اشکال یا اندیس‌های انتخاب‌شدهٔ مجموعه را هم‌تراز کنند. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapesalignmenttype/) لبه، مرکز یا حالت توزیع را مشخص می‌کند. `alignToSlide` را بر `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ بر `false` تنظیم کنید تا اشکال انتخاب‌شده نسبت به یک‑دیگر هم‌تراز شوند.
+
+این مثال سه شکل را به لبهٔ بالای اسلاید هم‌تراز می‌کند. ارجاع‌های شکل بازگردانده‌شده بلافاصله قبل از هم‌ترازی به اندیس‌های فعلی خود تبدیل می‌شوند.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+هم‌ترازی مکان‌ها را تغییر می‌دهد، نه ترتیب Z. هم‌ترازی نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به تعداد کافی شکل برای تعریف فاصله نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر می‌دهید، اندیس‌ها را دوباره محاسبه کنید.
+
+## **معکوس کردن یک شکل**
+
+کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از [NullableBool](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/nullablebool/) استفاده می‌کنند: `True` چرخش را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت پیش‌فرض/نامشخص را حفظ می‌کند.
+
+پیشنهاد ارائه زیر شامل یک شکل بدون چرخش است.
+
+![شکل پیش از معکوس کردن](shape_to_be_flipped.png)
+
+این مثال همه مقادیر فریم دیگر را همان‌جا نگه می‌دارد و فقط دو تنظیم چرخش را جایگزین می‌کند. این مهم است زیرا اختصاص یک [Frame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/setframe/) جدید تمام فریم را بازنویسی می‌کند.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+شکل ذخیره‌شده به صورت افقی و عمودی معکوس می‌شود در حالی که موقعیت، اندازه و چرخش آن حفظ می‌شوند.
+
+![شکل پس از معکوس کردن](flipped_shape.png)
+
+## **سوالات متداول**
+
+**آیا باید از اندیس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
+
+فقط برای پردازش‌های کوتاه‌مدتی که قبل از استفاده از اندیس، مجموعه تغییر نمی‌کند، مناسب است. برای قالب‌های نویسنده‌شده یک قرارداد معتبر `Name` یا `AlternativeText` را ترجیح دهید، یا برای کارهای interop scoped به اسلاید `OfficeInteropShapeId` را استفاده کنید.
+
+**آیا مخفی کردن یک شکل آن را از ترتیب Z حذف می‌کند؟**
+
+خیر. یک شکل مخفی در همان اندیس مجموعه باقی می‌ماند. می‌تواند پیدا شود، دوباره‌ترتیب شود، ویرایش شود یا دوباره قابل مشاهده شود.
+
+**چرا یک شکل کلون‌شده جلوی شکل دیگری ظاهر شد؟**
+
+`addClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوترین موقعیت در ترتیب Z است. برای انتخاب اندیس اولیه از `insertClone` استفاده کنید یا پس از افزودن همهٔ اشکال از `reorder` بهره بگیرید.

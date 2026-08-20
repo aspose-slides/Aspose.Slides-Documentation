@@ -8,375 +8,426 @@ keywords:
 - شكل PowerPoint
 - شكل العرض التقديمي
 - شكل على الشريحة
-- العثور على شكل
-- نسخ شكل
-- إزالة شكل
-- إخفاء شكل
+- البحث عن شكل
+- استنساخ الشكل
+- إزالة الشكل
+- إخفاء الشكل
 - تغيير ترتيب الشكل
-- الحصول على معرف الشكل Interop
+- الحصول على معرف الشكل interop
 - النص البديل للشكل
 - تنسيقات تخطيط الشكل
-- الشكل كملف SVG
+- الشكل كـ SVG
 - تحويل الشكل إلى SVG
 - محاذاة الشكل
+- انعكاس الشكل
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - PHP
 - Aspose.Slides
-description: "تعلّم كيفية إنشاء وتعديل وتحسين الأشكال في Aspose.Slides للـ PHP عبر Java وتقديم عروض PowerPoint عالية الأداء."
+description: "تعلم كيفية التعرف على أشكال العرض التقديمي، استنساخها، إزالتها، إخفائها، إعادة ترتيبها، تصديرها، محاذاةها، وانعكاسها باستخدام Aspose.Slides for PHP عبر Java."
 ---
+## **نظرة عامة**
 
-## **العثور على شكل في شريحة**
-ستصف هذه المقالة تقنية بسيطة لتسهيل عملية العثور على شكل محدد في شريحة دون الحاجة إلى معرفه الداخلي. من المهم معرفة أن ملفات PowerPoint Presentation لا توفر طريقة لتحديد الأشكال في الشريحة إلا من خلال معرف فريد داخلي. يبدو أن المطورين يواجهون صعوبة في العثور على شكل باستخدام معرفه الفريد الداخلي. جميع الأشكال المضافة إلى الشرائح لديها بعض النص البديل. نوصي المطورين باستخدام النص البديل للعثور على شكل محدد. يمكنك استخدام MS PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
+Aspose.Slides for PHP via Java تمثّل الأشكال على الشريحة كـ [ShapeCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/) مُرتّبة. تُعدّ هذه المجموعة المكان الذي تجد فيه وتُعدّل الأشكال ومصدر ترتيب طبقاتها: الفهرس `0` هو الشكل الأبعد في الخلفية، بينما الفهرس الأخير هو الشكل الأقرب إلى الأمام.
 
-بعد ضبط النص البديل لأي شكل مرغوب، يمكنك فتح تلك العروض باستخدام Aspose.Slides for PHP via Java والمرور عبر جميع الأشكال المضافة إلى شريحة. خلال كل دورة، يمكنك فحص النص البديل للشكل والشكل الذي يطابق النص البديل سيكون هو الشكل المطلوب. لتوضيح هذه التقنية بطريقة أفضل، أنشأنا طريقة [findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) تقوم بالعثور على شكل محدد في شريحة وتعيد ذلك الشكل ببساطة.
-```php
-  # إنشاء كائن من فئة Presentation يمثل ملف العرض التقديمي
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # النص البديل للشكل المراد العثور عليه
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+يتبع هذا المقال هذا النموذج. يشرح أولاً كيفية التعرف على الشكل بشكل موثوق، ثم يوضّح كيفية استنساخ الشكل، حذفه، إخفائه وإعادة ترتيبه. تغطي الأقسام الأخيرة تنسيق المستوى التخطيطي، تصدير SVG، المحاذاة وإعدادات الانعكاس. كل مثال مستقل، بحيث يمكنك استخدام العملية التي يحتاجها سير العمل الخاص بك فقط.
+
+## **التعرّف على الأشكال وإيجادها**
+
+تُعتبر فهارس المجموعة مريحة عند معالجة ملف معروف، لكنها ليست معرّفات ثابتة. قد يغيّر إضافة أو حذف أو إعادة ترتيب شكل فهرسته. اختر معرّفًا وفقًا لطريقة إنشاء العرض التقديمي وصيانته:
+
+- [Name](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getname/) مفيد للقوالب التي يتحكم فيها المطورون وسهل فحصه في لوحة التحديد في PowerPoint. يمكن تعديل الأسماء ولا يُضمن أنها فريدة، لذا يُستحسن وضع اتفاقية تسمية إذا كان الكود يعتمد عليها.
+- [AlternativeText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getalternativetext/) مفيد عندما تكون وصفية الوصول أو وسماً يحدده المؤلف قد عرّفت الشكل بالفعل. هو مرئي للمستخدمين، قد يُترجم أو يُعاد صياغته لسهولة الوصول، ولا يُضمن أنه فريد. لا تُعيد استعمال نص وصول ذي معنى كمعرّف قاعدة بيانات بصمت.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getofficeinteropshapeid/) هو معرّف للقراءة فقط فريد داخل الشريحة ويتCorrespond إلى معرف الشكل المستخدم في PowerPoint interop. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى مرجع لا لبس فيه طوال عمر الشكل. الشكل المستنسخ أو المعاد إنشاؤه يُعطى معرّفًا مختلفًا.
+
+طريقة [Shape::getUniqueId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getuniqueid/) ذات الصلة تُعيد معرفًا بنطاق العرض التقديمي، لكن هذا المعرف مخصص للإضافات ويمكن إعادة تعيينه. لا ينبغي اعتباره مفتاحًا خارجيًا دائمًا. إذا كانت هوية طويلة الأمد ضرورية، احتفظ بعملية الربط في بيانات التطبيق وتأكد من أن الشكل المتوقع لا يزال موجودًا.
+
+المثال التالي يبحث عن الاسم بمقارنة مطابقة ويُبلغ عن معرف interop بنطاق الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلغ الكود عن تلك النتيجة بدلًا من المتابعة مع الكائن الخطأ.
 
 ```php
+use aspose\slides\Presentation;
 
-```
-
-
-## **نسخ شكل**
-لنسخ شكل إلى شريحة باستخدام Aspose.Slides for PHP via Java:
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة باستخدام فهرستها.
-1. الوصول إلى مجموعة أشكال الشريحة المصدر.
-1. إضافة شريحة جديدة إلى العرض.
-1. نسخ الأشكال من مجموعة أشكال الشريحة المصدر إلى الشريحة الجديدة.
-1. حفظ العرض المعدل كملف PPTX.
-
-المثال أدناه يضيف مجموعة أشكال إلى شريحة.
-```php
-  # إنشاء كائن من فئة Presentation
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # حفظ ملف PPTX على القرص
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **إزالة شكل**
-يسمح Aspose.Slides for PHP via Java للمطورين بإزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل باستخدام AlternativeText محدد.
-1. إزالة الشكل.
-1. حفظ الملف على القرص.
-```php
-  # إنشاء كائن Presentation
-  $pres = new Presentation();
-  try {
-    # الحصول على الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # إضافة شكل تلقائي من نوع مستطيل
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # حفظ العرض التقديمي على القرص
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **إخفاء شكل**
-يسمح Aspose.Slides for PHP via Java للمطورين بإخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل باستخدام AlternativeText محدد.
-1. إخفاء الشكل.
-1. حفظ الملف على القرص.
-```php
-  # إنشاء فئة Presentation التي تمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # الحصول على الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # إضافة شكل تلقائي من نوع مستطيل
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # حفظ العرض التقديمي على القرص
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **تغيير ترتيب الشكل**
-يسمح Aspose.Slides for PHP via Java للمطورين بإعادة ترتيب الأشكال. تحديد ترتيب الشكل يحدد أي شكل يكون في المقدمة أو في الخلفية. لإعادة ترتيب الشكل من أي شريحة، يرجى اتباع الخطوات التالية:
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
-1. إضافة شكل.
-1. إضافة بعض النص إلى إطار النص الخاص بالشكل.
-1. إضافة شكل آخر بنفس الإحداثيات.
-1. إعادة ترتيب الأشكال.
-1. حفظ الملف على القرص.
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **الحصول على معرف الشكل Interop**
-يسمح Aspose.Slides for PHP via Java للمطورين بالحصول على معرف فريد للشكل ضمن نطاق الشريحة مقارنة بطريقة [getUniqueId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getuniqueid/) التي توفر معرفًا فريدًا ضمن نطاق العرض. تم إضافة الطريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) إلى فئة [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) على التوالي. القيمة المرجعة بواسطة الطريقة [getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getofficeinteropshapeid/) تتطابق مع قيمة Id لكائن Microsoft.Office.Interop.PowerPoint.Shape. أدناه مثال على الكود.
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # الحصول على معرف الشكل الفريد في نطاق الشريحة
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **تعيين النص البديل لشكل**
-يسمح Aspose.Slides for PHP via Java للمطورين بتعيين AlternateText لأي شكل.
-يمكن تمييز الأشكال في عرض باستخدام `Alternative Text` أو طريقة [Shape Name](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setname/).
-يمكن قراءة أو تعيين الطريقتين [setAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) و[getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) باستخدام Aspose.Slides وكذلك Microsoft PowerPoint.
-باستخدام هذه الطريقة، يمكنك وضع علامة على الشكل وإجراء عمليات مختلفة مثل إزالة الشكل، إخفاء الشكل أو إعادة ترتيب الأشكال في شريحة.
-لتعيين AlternateText لشكل، يرجى اتباع الخطوات التالية:
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الوصول إلى الشريحة الأولى.
-1. إضافة أي شكل إلى الشريحة.
-1. القيام ببعض الأعمال مع الشكل المضاف حديثًا.
-1. التجول عبر الأشكال للعثور على الشكل.
-1. تعيين AlternativeText.
-1. حفظ الملف على القرص.
-```php
-  # إنشاء كائن Presentation الذي يمثل ملف PPTX
-  $pres = new Presentation();
-  try {
-    # الحصول على الشريحة الأولى
-    $sld = $pres->getSlides()->get_Item(0);
-    # إضافة شكل تلقائي من نوع مستطيل
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # حفظ العرض التقديمي على القرص
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **الوصول إلى تنسيقات التخطيط لشكل**
-يوفر Aspose.Slides for PHP via Java واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. يوضح هذا المقال كيف يمكنك الوصول إلى تنسيقات التخطيط.
-
-الكود النموذجي أدناه.
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **تصدير شكل كملف SVG**
-الآن يدعم Aspose.Slides for PHP via Java تصدير شكل كملف SVG. تمت إضافة الطريقة [writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) (وأحمالها) إلى فئة [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/). تسمح هذه الطريقة بحفظ محتوى الشكل كملف SVG. يُظهر المقتطف البرمجي أدناه كيفية تصدير شكل شريحة إلى ملف SVG.
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **محاذاة شكل**
-يسمح Aspose.Slides بمحاذاة الأشكال إما بالنسبة إلى هوامش الشريحة أو بالنسبة إلى بعضها البعض. لهذا الغرض، تمت إضافة الطريقة المُحمّلة [SlidesUtil::alignShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/alignshapes/). تحدد تعداد [ShapesAlignmentType](https://reference.aspose.com/slides/php-java/aspose.slides/shapesalignmenttype/) خيارات المحاذاة الممكنة.
-
-**مثال 1**
-
-الكود المصدر أدناه يُحاذي الأشكال ذات الفهارس 1 و2 و4 على الحد العلوي للشريحة.
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-**مثال 2**
-
-المثال أدناه يوضح كيفية محاذاة مجموعة الأشكال بالكامل بالنسبة إلى الشكل الأسفل في المجموعة.
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **خصائص الانعكاس**
-
-في Aspose.Slides، توفر فئة [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) التحكم في انعكاس الأشكال أفقيًا وعموديًا عبر خصائص `flipH` و`flipV`. كلا الخصائصين من نوع [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/)، وتقبل القيم `True` للانعكاس، `False` لعدم الانعكاس، أو `NotDefined` لاستخدام السلوك الافتراضي. يمكن الوصول إلى هذه القيم من خلال [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) الخاص بالشكل.
-
-لتعديل إعدادات الانعكاس، تُنشأ مثيل جديد من [ShapeFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapeframe/) باستخدام موضع وحجم الشكل الحالي، والقيم المطلوبة لـ `flipH` و`flipV`، وزاوية الدوران. يُعيّن هذا المثيل إلى [Frame](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getFrame) الخاص بالشكل ثم يُحفظ العرض لتطبيق التحولات المرآوية وتضمينها في ملف الإخراج.
-
-لنفترض أن لدينا ملف sample.pptx يحتوي على الشريحة الأولى شكلًا واحدًا بإعدادات انعكاس افتراضية، كما هو موضح أدناه.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-الكود التالي يسترجع خصائص الانعكاس الحالية للشكل ويقلبه أفقيًا وعموديًا.
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // استرجاع خاصية انعكاس الشكل أفقيًا.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // استرجاع خاصية انعكاس الشكل عموديًا.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // انعكاس أفقي.
-    $flipV = NullableBool::True; // انعكاس أفقي.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
+عند كون العملية خاصة بنوع شكل معين، افحص الفئة في وقت التشغيل قبل استخدام الأعضاء الخاصة بالنوع. يُحدّث هذا المثال النص والنص البديل فقط إذا كان الكائن المُسمى من نوع [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/).
 
-النتيجة:
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-![The flipped shape](flipped_shape.png)
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
 
-## **الأسئلة الشائعة**
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
 
-**هل يمكنني دمج الأشكال (union/intersect/subtract) في شريحة كما في محرر سطح المكتب؟**
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
-لا توجد واجهة برمجة تطبيقات مدمجة للعمليات البوليانية. يمكنك تقريب ذلك بإنشاء المخطط المطلوب يدويًا—مثلاً حساب الهندسة الناتجة عبر [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) وإنشاء شكل جديد بهذا المخطط، مع حذف الأشكال الأصلية إذا رغبت.
+## **تعديل مجموعة الأشكال**
 
-**كيف يمكنني التحكم في ترتيب الطبقات (z-order) بحيث يبقى الشكل دائمًا "في المقدمة"?**
+تُنفّذ طرق الإضافة، الاستنساخ، الحذف وإعادة الترتيب على المجموعة فورًا. إذا غيّرت عملية ما عدد أو ترتيب الأشكال، لا تستمر في الاعتماد على الفهارس التي تم التقاطها قبل تلك العملية.
 
-غيّر ترتيب الإدراج/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) الخاصة بالشريحة. للحصول على نتائج متوقعة، قم بإنهاء ترتيب z بعد جميع التعديلات الأخرى على الشريحة.
+### **استنساخ شكل**
 
-**هل يمكنني "قفل" شكل لمنع المستخدمين من تعديلها في PowerPoint؟**
+[ShapeCollection::addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addclone/) ينشئ نسخة مستقلة ويضيفها إلى نهاية المجموعة المستهدفة. [ShapeCollection::insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/insertclone/) أيضًا ينشئ نسخة لكنه يضعها عند فهرس z-order محدد. تُعيد التحميلات التي تقبل إحداثيات نقل النسخة دون تغيير حجمها؛ والتحميلات التي تضم العرض والارتفاع يمكنها تغيير الحجم كذلك.
 
-نعم. عيّن علامات حماية على مستوى الشكل (مثل قفل التحديد، الحركة، تغيير الحجم، تحرير النص). إذا لزم الأمر، نفّذ قيودًا مماثلة على القالب أو التخطيط. تجدر الإشارة إلى أن هذه الحماية على مستوى واجهة المستخدم ولا تُعد ميزة أمان؛ للحصول على حماية أقوى، يمكن دمجها مع قيود على مستوى الملف مثل التوصيات للقراءة فقط أو كلمات المرور [/slides/php-java/password-protected-presentation/].
+المثال ينشئ شريحة هدف، يستنسخ مستطيلًا مسمى إلى الأمام، ويُدرج استنساخًا ثانٍ إلى الخلف. لا تُغيّر التعديلات على أي من النسختين الشكل الأصلي.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرفات منطقية جديدة للنسخة عندما يجب أن تكون هذه القيم فريدة. الموارد المستخدمة بواسطة الأشكال المعقّدة تُدار بواسطة العرض التقديمي، لكن النسخة تظل عنصرًا جديدًا في المجموعة بمعرف شكل جديد.
+
+### **إزالة الأشكال**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/remove/) يحذف كائن شكل محدد من مجموعته. عند إزالة متعددة متطابقة أثناء تكرار مُرقم، انتقل من النهاية لضمان بقاء كل فهرس متبقٍ صالحًا.
+
+هذا المثال يزيل كل شكل يحمل اسمًا معينًا. يقرأ الشكل عند الفهرس الحالي، وليس عنصرًا ثابتًا في المجموعة، ولا يقوم بتحويل الشكل بلا ضرورة.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+بعد الإزالة، يتغيّر عدد الأشكال وفهارس الأشكال اللاحقة. تُعَدّ المراجع إلى الأشكال غير المتأثرة أكثر موثوقية من الفهارس المحفوظة. ضع في اعتبارك الموصلات، الحركات وغيرها من ميزات العرض التي قد تشير إلى الكائن المُزالة؛ حذف شكل مرئي يمكن أن يغيّر أكثر من مظهر الشريحة.
+
+### **إخفاء شكل**
+
+ضبط [Shape::setHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/sethidden/) إلى `true` يبقي الشكل في المجموعة لكن يمنعه من الظهور في عرض الشرائح العادي. يبقى فهرسه، تنسيقه ومحتواه متاحًا للكود، لذا فإن الإخفاء مناسب للعناصر الاختيارية التي قد تُستعاد لاحقًا.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+الإخفاء ليس حذفًا ولا أمانًا. لا يزال بإمكان المستخدم أو الكود اكتشاف الكائن وإظهاره مرة أخرى، ويظل جزءًا من ملف العرض التقديمي.
+
+### **تغيير ترتيب Z-Order**
+
+الأشكال المتداخلة تُرسم بحسب ترتيب المجموعة. [ShapeCollection::reorder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/reorder/) ينقل شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `size() - 1` هو الأمام.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+يُنشأ المستطيل أولًا ويقَع في البداية خلف الشكل البيضاوي. نقلّه إلى الفهرس النهائي يجعله في الأمام. احرص على ضبط ترتيب Z بعد إضافة أو استنساخ جميع الأشكال ذات الصلة، لأن هذه العمليات تُضيف أو تُدرج عناصر جديدة في المجموعة وقد تُغيّر الترتيب المقصود.
+
+## **فحص الأشكال على شرائح التخطيط**
+
+الشرائح العادية، وشُرائح التخطيط، وشرائح القالب لها مجموعات أشكال منفصلة. الشكل في مجموعة التخطيط ليس هو نفسه الشكل المتموضع بالمثل على شريحة عادية. فحص أشكال التخطيط ضروري عندما تحتاج إلى فهم أو تعديل التنسيق المزوّد من قبل التخطيط.
+
+المثال التالي يقرأ كل [FillFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getfillformat/) و[LineFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getlineformat/) للأشكال في التخطيط دون افتراض أن كل شكل هو `AutoShape`.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+تحرير التخطيط قد يؤثّر على عدة شرائح تستخدمه. قبل تعديل شكل التخطيط، حدّد ما إذا كانت الشريحة العادية ترث الكائن أو تحتوي على تعديل محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
+
+## **تصدير شكل إلى SVG**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/writeassvg/) يكتب محتوى شكل واحد مُرَسَم إلى تدفق. النتيجة تحتوي على الشكل فقط، لا خلفية الشريحة بأكملها أو الأشكال المجاورة.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+حافظ على فتح العرض التقديمي أثناء التصدير. يعتمد الإخراج على تنسيق الشكل وعلى موارد مثل الخطوط والصور. إذا كنت بحاجة إلى المكوّن الكامل، صدّر الشريحة بدلاً من الشكل الفردي. المالك هو من يُحمّل التدفق ويجب أن يغلقه.
+
+## **محاذاة الأشكال**
+
+تُطابق التحميلات [SlideUtil::alignShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideutil/alignshapes/) إما جميع الأشكال أو فهارس المجموعة المختارة. يحدّد [ShapesAlignmentType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapesalignmenttype/) الحافة أو الخط المركزي أو وضعية التوزيع. اضبط `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ واضبطه إلى `false` لمحاذاة الأشكال المحددة بالنسبة لبعضها البعض.
+
+هذا المثال يَمحِّز ثلاثة أشكال إلى الحافة العليا للشريحة. تُحوّل مراجع الأشكال المرجعة إلى فهارسها الحالية مباشرة قبل المحاذاة.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+المحاذاة تُغيّر المواقع، لا ترتيب Z. عادةً ما تتطلب المحاذاة النسبية شكلين على الأقل، بينما تحتاج التوزيعات الأفقية أو العمودية إلى عدد كافٍ من الأشكال لتحديد المسافات. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
+
+## **انعكاس شكل**
+
+تخزن فئة [ShapeFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapeframe/) الموقع، الحجم، إعدادات الانعكاس الأفقي والعمودي، والدوران. قيم `getFlipH` و`getFlipV` تستخدم [NullableBool](https://reference.aspose.com/slides/ar/php-java/aspose.slides/nullablebool/): `True` يفعّل الانعكاس، `False` يوقفه، و`NotDefined` يحافظ على الحالة غير المحددة/الافتراضية.
+
+العرض التقديمي المدخل أدناه يحتوي على شكل غير مقلوب.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+المثال يحافظ على كل قيم الإطار الأخرى ويستبدل إعدادات الانعكاس فقط. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/setframe/) جديد يستبدل الإطار بالكامل.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+الشكل المحفوظ مُنعكس أفقياً وعمودياً مع الحفاظ على موقعه وحجمه ودورانه.
+
+![The shape after flipping](flipped_shape.png)
+
+## **FAQ**
+
+**هل يجب استخدام فهرس المجموعة كمعرّف للشكل؟**
+
+فقط للمعالجة قصيرة الأمد عندما لا تتغير المجموعة قبل استخدام الفهرس. يُفضَّل اعتماد `Name` أو `AlternativeText` حسب اتفاقية القالب، أو `OfficeInteropShapeId` للأعمال التي تعتمد على interop بنطاق الشريحة.
+
+**هل إخفاء الشكل يزيله من ترتيب Z؟**
+
+لا. يبقى الشكل المخفي في المجموعة عند نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره أو إظهاره مرة أخرى.
+
+**لماذا ظهر الشكل المستنسخ أمام شكل آخر؟**
+
+`addClone` يُضيف النسخة إلى نهاية المجموعة، وهي أمامية في ترتيب Z. استخدم `insertClone` لاختيار الفهرس الأولي أو `reorder` بعد إضافة جميع الأشكال.

@@ -5,218 +5,477 @@ type: docs
 weight: 40
 url: /el/cpp/shape-manipulations/
 keywords:
-- σχήμα PowerPoint
-- σχήμα παρουσίασης
-- σχήμα σε διαφάνεια
-- εύρεση σχήματος
-- κλωνοποίηση σχήματος
-- αφαίρεση σχήματος
-- απόκρυψη σχήματος
-- αλλαγή σειράς σχήματος
-- Λήψη Interop Shape ID
-- εναλλακτικό κείμενο σχήματος
-- μορφές διάταξης σχήματος
-- σχήμα ως SVG
-- σχήμα σε SVG
-- στοίχιση σχήματος
+- Σχήμα PowerPoint
+- Σχήμα παρουσίασης
+- Σχήμα σε διαφάνεια
+- Εύρεση σχήματος
+- Κλωνοποίηση σχήματος
+- Αφαίρεση σχήματος
+- Απόκρυψη σχήματος
+- Αλλαγή σειράς σχήματος
+- Λήψη ID σχήματος interop
+- Εναλλακτικό κείμενο σχήματος
+- Μορφές διάταξης σχήματος
+- Σχήμα ως SVG
+- Μετατροπή σχήματος σε SVG
+- Στοίχιση σχήματος
+- Αναστροφή σχήματος
 - PowerPoint
-- παρουσίαση
+- Παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε να δημιουργείτε, επεξεργάζεστε και βελτιστοποιείτε σχήματα στο Aspose.Slides για C++ και να παραδίδετε παρουσιάσεις PowerPoint υψηλής απόδοσης."
+description: "Μάθετε πώς να αναγνωρίζετε, κλωνοποιείτε, αφαιρείτε, κρύβετε, αλλάζετε τη σειρά, εξάγετε, στοιχίζετε και αναστρέφετε σχήματα παρουσίασης με το Aspose.Slides για C++."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με σχήματα σε παρουσιάσεις χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να βρείτε ένα σχήμα σε μια διαφάνεια, να το κλωνοποιήσετε, να το αφαιρέσετε, να το κρύψετε, να αλλάξετε τη σειρά του, να λάβετε το Interop Shape ID του και να ορίσετε εναλλακτικό κείμενο για ταυτοποίηση και περαιτέρω επεξεργασία.
+Aspose.Slides for C++ αντιπροσωπεύει τα σχήματα σε μια διαφάνεια ως μια διατεταγμένη [IShapeCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/). Η συλλογή είναι τόσο το σημείο όπου βρίσκετε και τροποποιείτε σχήματα όσο και η πηγή της σειράς στοίβας: το δείκτη `0` είναι το πιο πίσω σχήμα, ενώ ο τελευταίος δείκτης είναι το πιο μπροστά σχήμα.
 
-Επιπλέον, καλύπτει πώς να προσπελάσετε τις διαμορφώσεις διάταξης για σχήματα, να αποδώσετε ένα σχήμα ως SVG, να στοιχίσετε σχήματα σε μια διαφάνεια και να χρησιμοποιήσετε τις ιδιότητες αντιστροφής για οριζόντια και κάθετη αντανάκλαση. Επιπλέον, το άρθρο περιλαμβάνει μια σύντομη ενότητα FAQ σχετικά με τον συνδυασμό σχημάτων, τη σειρά στοιβάγματος και το κλείδωμα σχήματος.
+Αυτό το άρθρο ακολουθεί αυτό το μοντέλο. Εξηγεί πρώτα πώς να προσδιορίζετε αξιόπιστα ένα σχήμα, έπειτα δείχνει πώς να κλωνοποιείτε, να αφαιρείτε, να κρύβετε και να αναδιατάσσετε σχήματα. Τα τελικά τμήματα καλύπτουν μορφοποίηση επιπέδου διάταξης, εξαγωγή σε SVG, στοίχιση και ρύθμιση αναστροφής. Κάθε παράδειγμα είναι ανεξάρτητο, ώστε να μπορείτε να χρησιμοποιήσετε μόνο τις λειτουργίες που απαιτεί η ροή εργασίας σας.
 
-## **Find a Shape on a Slide**
-Αυτό το θέμα περιγράφει μια απλή τεχνική που διευκολύνει τους προγραμματιστές να βρουν ένα συγκεκριμένο σχήμα σε μια διαφάνεια χωρίς τη χρήση του εσωτερικού του Id. Είναι σημαντικό να γνωρίζουμε ότι τα αρχεία PowerPoint Presentation δεν διαθέτουν κανέναν τρόπο να ταυτοποιήσουν σχήματα σε μια διαφάνεια εκτός από ένα εσωτερικό μοναδικό Id. Φαίνεται δύσκολο για τους προγραμματιστές να βρουν ένα σχήμα χρησιμοποιώντας το εσωτερικό του μοναδικό Id. Όλα τα σχήματα που προστίθενται στις διαφάνειες έχουν κάποιο Alt Text. Προτείνουμε στους προγραμματιστές να χρησιμοποιούν εναλλακτικό κείμενο για την εύρεση ενός συγκεκριμένου σχήματος. Μπορείτε να χρησιμοποιήσετε το MS PowerPoint για να ορίσετε το εναλλακτικό κείμενο για αντικείμενα που σκοπεύετε να αλλάξετε στο μέλλον.
+## **Αναγνώριση και Αναζήτηση Σχημάτων**
 
-Αφού ορίσετε το εναλλακτικό κείμενο του οποιουδήποτε επιθυμητού σχήματος, μπορείτε στη συνέχεια να ανοίξετε αυτήν την παρουσίαση χρησιμοποιώντας το Aspose.Slides for C++ και να επαναλάβετε όλα τα σχήματα που προστέθηκαν σε μια διαφάνεια. Κατά τη διάρκεια κάθε επανάληψης, μπορείτε να ελέγξετε το εναλλακτικό κείμενο του σχήματος και το σχήμα με το αντίστοιχο εναλλακτικό κείμενο θα είναι το σχήμα που χρειάζεστε. Για να επιδείξουμε αυτήν την τεχνική με καλύτερο τρόπο, δημιουργήσαμε μια μέθοδο, [FindShape](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) που κάνει την εύρεση συγκεκριμένου σχήματος σε μια διαφάνεια και στη συνέχεια επιστρέφει απλά αυτό το σχήμα.
+Οι δείκτες της συλλογής είναι βολικοί κατά την επεξεργασία ενός γνωστού αρχείου, αλλά δεν είναι σταθεροί ταυτοποιητές. Η προσθήκη, η αφαίρεση ή η αναδιάταξη ενός σχήματος μπορεί να αλλάξει το δείκτη του. Επιλέξτε έναν ταυτοποιητή ανάλογα με το πώς δημιουργείται και συντηρείται η παρουσίαση:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FindShapeInSlide-FindShapeInSlide.cpp" >}}
+- [Name](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_name/) είναι χρήσιμο για πρότυπα ελεγχόμενα από προγραμματιστές και είναι εύκολο να το ελέγξετε στο Παράθυρο Επιλογής του PowerPoint. Τα ονόματα μπορούν να επεξεργαστούν και δεν εγγυώνται μοναδικότητα, ώστε να ορίσετε μια σύμβαση ονοματοδοσίας αν ο κώδικας εξαρτάται από αυτά.
+- [AlternativeText](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_alternativetext/) είναι χρήσιμο όταν μια περιγραφή προσβασιμότητας ή μια ετικέτα του δημιουργού ήδη προσδιορίζει το σχήμα. Είναι ορατό στους χρήστες, μπορεί να μεταφραστεί ή να ξαναγραφεί για προσβασιμότητα, και δεν εγγυάται μοναδικότητα. Μην επαναχρησιμοποιείτε σιωπηλά το σημαντικό κείμενο προσβασιμότητας ως κλειδί βάσης δεδομένων.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_officeinteropshapeid/) είναι ένας αναγνώστης μόνο για ανάγνωση, μοναδικός μέσα σε μια διαφάνεια και αντιστοιχεί στο ID σχήματος που χρησιμοποιεί το PowerPoint interop. Χρησιμοποιήστε το όταν ενσωματώνετε με το PowerPoint ή όταν χρειαζόσαστε μια άμεση αναφορά κατά τη διάρκεια ζωής ενός σχήματος. Ένα κλωνοποιημένο ή επανδημιουργημένο σχήμα είναι διαφορετικό σχήμα και λαμβάνει το δικό του ID.
 
+Η σχετική ιδιότητα [UniqueId](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_uniqueid/) έχει εύρος παρουσίασης, αλλά προορίζεται για πρόσθετα και μπορεί να επαναχρωματιστεί. Δεν πρέπει να θεωρείται μόνιμο εξωτερικό κλειδί. Αν η μακροπρόθεσμη ταυτότητα είναι σημαντική, διατηρήστε τη αντιστοίχηση στα δεδομένα της εφαρμογής και ελέγξτε ότι το αναμενόμενο σχήμα εξακολουθεί να υπάρχει.
 
-## **Clone a Shape**
-Για να κλωνοποιήσετε ένα σχήμα σε μια διαφάνεια χρησιμοποιώντας το Aspose.Slides for C++:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Αποκτήστε την αναφορά μιας διαφάνειας χρησιμοποιώντας το δείκτη της.
-1. Πρόσβαση στη συλλογή σ shapes της πηγής διαφάνειας.
-1. Προσθήκη μιας νέας διαφάνειας στην παρουσία.
-1. Κλωνοποίηση σ shapes από τη συλλογή σ shapes της πηγής διαφάνειας στη νέα διαφάνεια.
-1. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
-
-Το παρακάτω παράδειγμα προσθέτει ένα group shape σε μια διαφάνεια.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneShapes-CloneShapes.cpp" >}}
-
-
-## **Remove a Shape**
-Το Aspose.Slides for C++ επιτρέπει στους προγραμματιστές να αφαιρέσουν οποιοδήποτε σχήμα. Για να αφαιρέσετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-1. Αφαιρέστε το σχήμα.
-1. Αποθηκεύστε το αρχείο στον δίσκο.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveShape-RemoveShape.cpp" >}}
-
-
-## **Hide a Shape**
-Το Aspose.Slides for C++ επιτρέπει στους προγραμματιστές να κρύψουν οποιοδήποτε σχήμα. Για να κρύψετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-1. Κρύψτε το σχήμα.
-1. Αποθηκεύστε το αρχείο στον δίσκο.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-Hidingshapes-Hidingshapes.cpp" >}}
-
-
-
-## **Change Shape Order**
-Το Aspose.Slides for C++ επιτρέπει στους προγραμματιστές να αλλάξουν τη σειρά των σχημάτων. Η αλλαγή σειράς καθορίζει ποιο σχήμα είναι μπροστά ή ποιο είναι στο παρασκήνιο. Για να αλλάξετε τη σειρά ενός σχήματος σε οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε ένα σχήμα.
-1. Προσθέστε κάποιο κείμενο στο πλαίσιο κειμένου του σχήματος.
-1. Προσθέστε ένα άλλο σχήμα με τις ίδιες συντεταγμένες.
-1. Αλλάξτε τη σειρά των σχημάτων.
-1. Αποθηκεύστε το αρχείο στον δίσκο.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeShapeOrder-ChangeShapeOrder.cpp" >}}
-
-
-## **Get the Interop Shape ID**
-Το Aspose.Slides for C++ επιτρέπει στους προγραμματιστές να λάβουν ένα μοναδικό αναγνωριστικό σχήματος σε επίπεδο διαφάνειας, σε αντίθεση με την ιδιότητα UniqueId, η οποία παρέχει μοναδικό αναγνωριστικό σε επίπεδο παρουσίασης. Η ιδιότητα OfficeInteropShapeId προστέθηκε στις διεπαφές IShape και στην κλάση Shape. Η τιμή που επιστρέφει η ιδιότητα OfficeInteropShapeId αντιστοιχεί στην τιμή του Id του αντικειμένου Microsoft.Office.Interop.PowerPoint.Shape. Παρακάτω δίνεται το δείγμα κώδικα.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-InterlopShapeID-InterlopShapeID.cpp" >}}
-
-
-## **Set the AlternativeText Property**
-Το Aspose.Slides for C++ επιτρέπει στους προγραμματιστές να ορίσουν το AlternativeText οποιουδήποτε σχήματος. Για να ορίσετε το AlternativeText ενός σχήματος, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε οποιοδήποτε σχήμα στη διαφάνεια.
-1. Εργαστείτε με το νεοπροστέθεισες σχήμα.
-1. Περιηγηθείτε στα σχήματα για να βρείτε ένα σχήμα.
-1. Ορίστε το AlternativeText.
-1. Αποθηκεύστε το αρχείο στον δίσκο.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAlternativeText-SetAlternativeText.cpp" >}}
-
-
-## **Access Layout Formats for a Shape**
-Το Aspose.Slides for C++ επιτρέπει στους προγραμματιστές να έχουν πρόσβαση στις διαμορφώσεις διάταξης για ένα σχήμα. Αυτό το άρθρο δείχνει πώς μπορείτε να προσπελάσετε τις ιδιότητες **FillFormat** και **LineFormat** ενός σχήματος.
-
-Παρακάτω δίνεται το δείγμα κώδικα.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
-
-## **Render a Shape as SVG**
-Τώρα το Aspose.Slides for C++ υποστηρίζει την απόδοση ενός σχήματος ως svg. Η μέθοδος WriteAsSvg (και η υπερφόρτωσή της) προστέθηκε στην κλάση Shape και στην διεπαφή IShape. Αυτή η μέθοδος επιτρέπει την αποθήκευση του περιεχομένου του σχήματος ως αρχείο SVG. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να εξάγετε το σχήμα μιας διαφάνειας σε αρχείο SVG.
-
-``` cpp
-String outSvgFileName = u"SingleShape.svg";
-
-auto pres = System::MakeObject<Presentation>(u"TestExportShapeToSvg.pptx");
-
-auto stream = System::MakeObject<FileStream>(outSvgFileName, FileMode::Create, FileAccess::Write);
-pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0)->WriteAsSvg(stream);
-```
-
-## **Shapes Alignment**
-Το Aspose.Slides επιτρέπει στοίχιση σχημάτων είτε σχετικά με τα περιθώρια της διαφάνειας είτε μεταξύ τους. Για το σκοπό αυτό, προστέθηκε μια υπερφορτωμένη μέθοδος [SlidesUtil.AlignShapes()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab). Η απαρίθμηση [ShapesAlignmentType](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) ορίζει τις πιθανές επιλογές στοίχισης.
-
-**Example 1**
-
-Ο παρακάτω κώδικας ευθυγραμμίζει σχήματα με δείκτες 1, 2 και 4 κατά το επάνω άκρο της διαφάνειας.
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"example.pptx");
-
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-SharedPtr<IShape> shape1 = slide->get_Shapes()->idx_get(1);
-SharedPtr<IShape> shape2 = slide->get_Shapes()->idx_get(2);
-SharedPtr<IShape> shape3 = slide->get_Shapes()->idx_get(4);
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, pres->get_Slides()->idx_get(0), 
-System::MakeArray<int32_t>(
-    {
-        slide->get_Shapes()->IndexOf(shape1),
-        slide->get_Shapes()->IndexOf(shape2),
-        slide->get_Shapes()->IndexOf(shape3)
-    }));
-```
-
-**Example 2**
-
-Το παρακάτω παράδειγμα δείχνει πώς να ευθυγραμμίσετε ολόκληρη τη συλλογή σχημάτων σε σχέση με το πιο κάτω σχήμα της συλλογής.
-
-``` cpp
-SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
-```
-
-## **Flip Properties**
-
-Στο Aspose.Slides, η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/shapeframe/) παρέχει έλεγχο της οριζόντιας και κάθετης αντιστροφής των σχημάτων μέσω των ιδιοτήτων `flipH` και `flipV`. Και οι δύο ιδιότητες είναι τύπου [NullableBool](https://reference.aspose.com/slides/el/cpp/aspose.slides/nullablebool/), επιτρέποντας τιμές `True` για αντιστροφή, `False` για χωρίς αντιστροφή, ή `NotDefined` για χρήση προεπιλεγμένης συμπεριφοράς. Αυτές οι τιμές είναι προσβάσιμες από το [Frame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_frame/) ενός σχήματος.
-
-Για να τροποποιήσετε τις ρυθμίσεις αντιστροφής, δημιουργείται μια νέα παρουσία [ShapeFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/shapeframe/) με την τρέχουσα θέση και μέγεθος του σχήματος, τις επιθυμητές τιμές για `flipH` και `flipV`, και τη γωνία περιστροφής. Η ανάθεση αυτής της παρουσίας στο [Frame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_frame/) του σχήματος και η αποθήκευση της παρουσίασης εφαρμόζει τους μετασχηματισμούς καθρεπτισμού και τους καταγράφει στο αρχείο εξόδου.
-
-Ας υποθέσουμε ότι έχουμε ένα αρχείο sample.pptx στο οποίο η πρώτη διαφάνεια περιέχει ένα μόνο σχήμα με προεπιλεγμένες ρυθμίσεις αντιστροφής, όπως φαίνεται παρακάτω.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Ο παρακάτω κώδικας ανακτά τις τρέχουσες ιδιότητες αντιστροφής του σχήματος και το αντιστρέφει οριζόντια και κάθετα.
+Το παρακάτω παράδειγμα ψάχνει με βάση το `Name` και αναφέρει το interop ID με εύρος διαφάνειας. Όταν το πρότυπο δεν περιέχει το αναμενόμενο σχήμα, ο κώδικας αναφέρει αυτό το αποτέλεσμα αντί να συνεχίσει με το λάθος αντικείμενο.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
 
-auto shape = presentation->get_Slide(0)->get_Shape(0);
+using namespace Aspose::Slides;
+using namespace System;
 
-// Ανάκτηση της ιδιότητας οριζόντιας αντανάκλασης του σχήματος.
-auto horizontalFlip = shape->get_Frame()->get_FlipH();
-Console::WriteLine(u"Horizontal flip: " + ObjectExt::ToString(horizontalFlip));
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Ανάκτηση της ιδιότητας κάθετης αντανάκλασης του σχήματος.
-auto verticalFlip = shape->get_Frame()->get_FlipV();
-Console::WriteLine(u"Vertical flip: " + ObjectExt::ToString(verticalFlip));
+SharedPtr<IShape> targetShape;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"RevenueChart")
+    {
+        targetShape = shape;
+        break;
+    }
+}
 
-auto x = shape->get_Frame()->get_X();
-auto y = shape->get_Frame()->get_Y();
-auto width = shape->get_Frame()->get_Width();
-auto height = shape->get_Frame()->get_Height();
-auto flipH = NullableBool::True; // Αντιστροφή οριζόντια.
-auto flipV = NullableBool::True; // Αντιστροφή οριζόντια.
-auto rotation = shape->get_Frame()->get_Rotation();
+if (targetShape == nullptr)
+{
+    Console::WriteLine(u"The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console::WriteLine(String::Format(u"Found {0}; interop ID: {1}", targetShape->get_Name(), targetShape->get_OfficeInteropShapeId()));
+}
 
-shape->set_Frame(MakeObject<ShapeFrame>(x, y, width, height, flipH, flipV, rotation));
-
-presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Το αποτέλεσμα:
+Όταν μια λειτουργία είναι ειδική για τύπο σχήματος, ελέγξτε τη διεπαφή πριν χρησιμοποιήσετε μέλη συγκεκριμένα για τύπο. Αυτό το παράδειγμα ενημερώνει το κείμενο και το εναλλακτικό κείμενο μόνο εάν το ονομασμένο αντικείμενο είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/).
 
-![The flipped shape](flipped_shape.png)
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-## **FAQ**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
 
-Δεν υπάρχει ενσωματωμένο API Boolean λειτουργιών. Μπορείτε να το προσεγγίσετε δημιουργώντας το επιθυμητό περίγραμμα εσείς – π.χ., υπολογίζοντας το τελικό γεωμετρικό σχήμα (μέσω του [GeometryPath](https://reference.aspose.com/slides/el/cpp/aspose.slides/geometrypath/)) και δημιουργώντας νέο σχήμα με αυτό το περίγραμμα, προαιρετικά αφαιρώντας τα αρχικά.
+SharedPtr<IShape> candidate;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"StatusLabel")
+    {
+        candidate = shape;
+        break;
+    }
+}
 
-**How can I control the stacking order (z-order) so a shape always stays "on top"?**
+if (candidate != nullptr && ObjectExt::Is<IAutoShape>(candidate))
+{
+    auto autoShape = ExplicitCast<IAutoShape>(candidate);
+    autoShape->get_TextFrame()->set_Text(u"Approved");
+    autoShape->set_AlternativeText(u"Approval status: approved");
+    presentation->Save(u"identified-shape.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"'StatusLabel' is missing or is not an AutoShape.");
+}
 
-Αλλάξτε τη σειρά εισαγωγής/μετακίνησης μέσα στη συλλογή [shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/baseslide/get_shapes/) της διαφάνειας. Για προβλέψιμα αποτελέσματα, ορίστε το z-order μετά από όλες τις άλλες τροποποιήσεις της διαφάνειας.
+presentation->Dispose();
+```
 
-**Can I "lock" a shape to prevent users from editing it in PowerPoint?**
+## **Τροποποίηση Συλλογής Σχημάτων**
 
-Ναι. Ορίστε τις [σημαίες προστασίας σε επίπεδο σχήματος](/slides/el/cpp/applying-protection-to-presentation/) (π.χ., κλείδωμα επιλογής, μετακίνησης, αλλαγής μεγέθους, επεξεργασίας κειμένου). Αν χρειάζεται, εφαρμόστε περιορισμούς και στο master ή το layout. Σημειώστε ότι αυτή είναι προστασία σε επίπεδο UI, όχι λειτουργία ασφαλείας· για ισχυρότερη προστασία, συνδυάστε με περιορισμούς σε επίπεδο αρχείου όπως προτάσεις μόνο για ανάγνωση ή κωδικούς πρόσβασης [/slides/el/cpp/password-protected-presentation/].
+Οι μέθοδοι προσθήκης, κλωνοποίησης, αφαίρεσης και αναδιάταξης λειτουργούν αμέσως στη συλλογή. Αν μια λειτουργία αλλάξει τον αριθμό ή τη σειρά των σχημάτων, μην συνεχίσετε να βασίζεστε σε δείκτες που καταγράφηκαν πριν από αυτή τη λειτουργία.
+
+### **Κλωνοποίηση Σχήματος**
+
+[AddClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/addclone/) δημιουργεί ένα ανεξάρτητο αντίγραφο και το προσθέτει στο τέλος της επιλεγμένης συλλογής. [InsertClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/insertclone/) δημιουργεί επίσης αντίγραφο αλλά το τοποθετεί σε καθορισμένο δείκτη z‑order. Οι υπερφορτώσεις που δέχονται συντεταγμένες μετακινούνουν το κλώνο χωρίς να αλλάζουν το μέγεθός του· οι υπερφορτώσεις με πλάτος και ύψος μπορούν επίσης να το μεγεθύνουν.
+
+Το παράδειγμα δημιουργεί μια διαφάνεια προορισμού, κλωνοποιεί ένα ορθογώνιο με ετικέτα προς τα εμπρός, και εισάγει ένα δεύτερο κλώνο στο πίσω μέρος. Οι αλλαγές σε κάθε κλώνο δεν τροποποιούν το αρχικό σχήμα.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto sourceSlide = presentation->get_Slide(0);
+auto sourceShape = sourceSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+sourceShape->set_Name(u"SourceLabel");
+sourceShape->get_TextFrame()->set_Text(u"Source");
+
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto destinationSlide = presentation->get_Slides()->AddEmptySlide(blankLayout);
+
+auto frontCloneShape = destinationSlide->get_Shapes()->AddClone(sourceShape, 80, 80);
+frontCloneShape->set_Name(u"FrontClone");
+if (ObjectExt::Is<IAutoShape>(frontCloneShape))
+{
+    auto frontClone = ExplicitCast<IAutoShape>(frontCloneShape);
+    frontClone->get_TextFrame()->set_Text(u"Front clone");
+}
+else
+{
+    Console::WriteLine(u"The front clone is not an AutoShape; its text was not changed.");
+}
+
+auto backCloneShape = destinationSlide->get_Shapes()->InsertClone(0, sourceShape, 80, 180);
+backCloneShape->set_Name(u"BackClone");
+if (ObjectExt::Is<IAutoShape>(backCloneShape))
+{
+    auto backClone = ExplicitCast<IAutoShape>(backCloneShape);
+    backClone->get_TextFrame()->set_Text(u"Back clone");
+}
+else
+{
+    Console::WriteLine(u"The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Η κλωνοποίηση αντιγράφει το περιεχόμενο και τη μορφοποίηση του σχήματος, συμπεριλαμβανομένου του ονόματος και του εναλλακτικού κειμένου. Εκχωρήστε νέους λογικούς ταυτοποιητές στο κλώνο όταν αυτές οι τιμές πρέπει να είναι μοναδικές. Οι πόροι που χρησιμοποιούν σύνθετα σχήματα διαχειρίζονται από την παρουσίαση, αλλά ένα κλώνο παραμένει νέο στοιχείο της συλλογής με νέα ταυτότητα σχήματος.
+
+### **Αφαίρεση Σχημάτων**
+
+[Remove](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/remove/) διαγράφει ένα συγκεκριμένο αντικείμενο σχήματος από τη συλλογή του. Όταν αφαιρείτε πολλαπλές αντιστοιχίες κατά τη διαίρεση με δείκτες, διασχίστε τη συλλογή από το τέλος ώστε κάθε εναπομείναν δείκτης να παραμένει έγκυρος.
+
+Αυτό το παράδειγμα αφαιρεί κάθε σχήμα με το καθορισμένο όνομα. Διαβάζει το τρέχον σχήμα με δείκτη, όχι ένα σταθερό στοιχείο της συλλογής, και δεν κάνει άσκοπη μετατροπή τύπου.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto keepShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+keepShape->set_Name(u"Keep");
+
+auto firstTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+firstTemporaryShape->set_Name(u"Temporary");
+
+auto secondTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+secondTemporaryShape->set_Name(u"Temporary");
+
+for (int32_t i = slide->get_Shapes()->get_Count() - 1; i >= 0; --i)
+{
+    auto shape = slide->get_Shape(i);
+    if (shape->get_Name() == u"Temporary")
+    {
+        slide->get_Shapes()->Remove(shape);
+    }
+}
+
+presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Μετά την αφαίρεση, ο αριθμός σχημάτων και οι δείκτες των επόμενων σχημάτων αλλάζουν. Οι αναφορές σε μη επηρεασμένα σχήματα παραμένουν πιο αξιόπιστες από αποθηκευμένους δείκτες. Σκεφτείτε επίσης συνδέσμους, κινήσεις και άλλα χαρακτηριστικά της παρουσίασης που μπορεί να αναφέρονται στο αφαιρεθέν αντικείμενο· η αφαίρεση ενός ορατού σχήματος μπορεί να αλλάξει περισσότερα από την εμφάνιση της διαφάνειας.
+
+### **Απόκρυψη Σχήματος**
+
+Ορίζοντας το [Hidden](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/set_hidden/) σε `true` διατηρεί το σχήμα στη συλλογή αλλά το αποτρέπει από την εμφάνιση στην κανονική προβολή. Ο δείκτης, η μορφοποίηση και το περιεχόμενο του παραμένουν διαθέσιμα στον κώδικα, οπότε η απόκρυψη είναι κατάλληλη για προαιρετικά στοιχεία που μπορεί να επαναφερθούν αργότερα.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto visibleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+visibleShape->set_Name(u"VisibleLabel");
+
+auto optionalShape = slide->get_Shapes()->AddAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+optionalShape->set_Name(u"OptionalDecoration");
+
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"OptionalDecoration")
+    {
+        shape->set_Hidden(true);
+    }
+}
+
+presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Η απόκρυψη δεν είναι διαγραφή ή ασφάλεια. Το αντικείμενο μπορεί ακόμη να εντοπιστεί και να εμφανιστεί ξανά από χρήστη ή κώδικα, και παραμένει μέρος του αρχείου παρουσίασης.
+
+### **Αλλαγή Z‑Σειράς**
+
+Τα επικαλυπτόμενα σχήματα ζωγραφίζονται με τη σειρά της συλλογής. [Reorder](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/reorder/) μετακινεί ένα υπάρχον σχήμα σε έναν στοχευμένο δείκτη χωρίς κλωνοποίηση. Ο δείκτης `0` είναι το πίσω μέρος· `Count - 1` είναι το μπροστινό μέρος.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto blueRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+blueRectangle->set_Name(u"BlueRectangle");
+blueRectangle->get_FillFormat()->set_FillType(FillType::Solid);
+blueRectangle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+
+auto orangeEllipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+orangeEllipse->set_Name(u"OrangeEllipse");
+orangeEllipse->get_FillFormat()->set_FillType(FillType::Solid);
+orangeEllipse->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+
+slide->get_Shapes()->Reorder(slide->get_Shapes()->get_Count() - 1, blueRectangle);
+presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Το ορθογώνιο δημιουργείται πρώτα και αρχικά βρίσκεται πίσω από την έλλειψη. Η μετακίνησή του στον τελικό δείκτη το τοποθετεί μπροστά. Ολοκληρώστε τη ρύθμιση z‑order μετά την προσθήκη ή κλωνοποίηση όλων των σχετικών σχημάτων, επειδή αυτές οι λειτουργίες προσθέτουν ή εισάγουν νέα στοιχεία στη συλλογή και μπορούν να αλλάξουν την προθεσμία στοίβας.
+
+## **Έλεγχος Σχημάτων σε Διαφάνειες Διάταξης**
+
+Οι κανονικές διαφάνειες, οι διαφάνειες διάταξης και οι κύριες διαφάνειες έχουν ξεχωριστές συλλογές σχημάτων. Ένα σχήμα σε μια συλλογή διάταξης δεν είναι το ίδιο αντικείμενο με ένα παρόμοιο σχήμα σε μια κανονική διαφάνεια. Εξετάστε τα σχήματα διάταξης όταν χρειάζεται να καταλάβετε ή να αλλάξετε τη μορφοποίηση που παρέχει μια διάταξη.
+
+Το παρακάτω παράδειγμα διαβάζει το [FillFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_fillformat/) και το [LineFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_lineformat/) κάθε σχήματος διάταξης χωρίς να υποθέτει ότι κάθε σχήμα είναι `AutoShape`.
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+for (auto layoutSlide : presentation->get_LayoutSlides())
+{
+    for (auto shape : layoutSlide->get_Shapes())
+    {
+        auto fillType = shape->get_FillFormat()->get_FillType();
+        auto lineWidth = shape->get_LineFormat()->get_Width();
+        Console::WriteLine(String::Format(u"{0} / {1}: fill={2}, line width={3}", layoutSlide->get_Name(), shape->get_Name(), fillType, lineWidth));
+    }
+}
+
+presentation->Dispose();
+```
+
+Η επεξεργασία μιας διάταξης μπορεί να επηρεάσει πολλές διαφάνειες που τη χρησιμοποιούν. Πριν αλλάξετε ένα σχήμα διάταξης, προσδιορίστε αν μια κανονική διαφάνεια κληρονομεί το αντικείμενο ή περιέχει τοπική παράκαμψη, και δοκιμάστε κάθε διαφάνεια που χρησιμοποιεί αυτή τη διάταξη.
+
+## **Εξαγωγή Σχήματος σε SVG**
+
+[WriteAsSvg](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/writeassvg/) γράφει το αποδομένο περιεχόμενο ενός σχήματος σε μια ροή. Το αποτέλεσμα περιέχει το σχήμα, όχι το πλήρες φόντο της διαφάνειας ή τα γειτονικά σχήματα.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+if (slide->get_Shapes()->get_Count() == 0)
+{
+    Console::WriteLine(u"Slide 1 does not contain a shape to export.");
+}
+else
+{
+    auto shape = slide->get_Shape(0);
+    auto svgStream = File::Create(u"shape.svg");
+    shape->WriteAsSvg(svgStream);
+    svgStream->Close();
+}
+
+presentation->Dispose();
+```
+
+Διατηρήστε την παρουσίαση ανοιχτή κατά τη διάρκεια της απόδοσης. Η έξοδος εξαρτάται από τη μορφοποίηση του σχήματος και από πόρους όπως γραμματοσειρές και εικόνες. Αν χρειάζεστε ολόκληρη τη σύνθεση, εξάγετε τη διαφάνεια αντί για μεμονωμένο σχήμα. Ο καλούντας διαχειρίζεται τη ροή και πρέπει να την κλείσει ή να την διαγράψει.
+
+## **Στοίχιση Σχημάτων**
+
+Οι υπερφορτώσεις του [SlideUtil::AlignShapes](https://reference.aspose.com/slides/el/cpp/aspose.slides.util/slideutil/alignshapes/) στοιχίζουν είτε όλα τα σχήματα είτε επιλεγμένους δείκτες της συλλογής. Το [ShapesAlignmentType](https://reference.aspose.com/slides/el/cpp/aspose.slides/shapesalignmenttype/) ορίζει την άκρη, τη κεντρική γραμμή ή τη λειτουργία κατανομής. Ορίστε `alignToSlide` σε `true` για χρήση των άκρων της διαφάνειας· ορίστε το σε `false` για στοίχιση των επιλεγμένων σχημάτων μεταξύ τους.
+
+Αυτό το παράδειγμα στοιχίζει τρία σχήματα στην επάνω άκρη της διαφάνειας. Οι επιστρεφόμενες αναφορές σχήματος μετατρέπονται αμέσως στους τρέχοντες δείκτες τους πριν από τη στοίχιση.
+
+```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ShapesAlignmentType.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+auto thirdShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+firstShape->set_Name(u"FirstAlignedShape");
+secondShape->set_Name(u"SecondAlignedShape");
+thirdShape->set_Name(u"ThirdAlignedShape");
+
+auto shapeIndexes = MakeArray<int32_t>({slide->get_Shapes()->IndexOf(firstShape), slide->get_Shapes()->IndexOf(secondShape), slide->get_Shapes()->IndexOf(thirdShape)});
+
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, slide, shapeIndexes);
+presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Η στοίχιση αλλάζει τις θέσεις, όχι τη σειρά z‑order. Η σχετική στοίχιση συνήθως χρειάζεται τουλάχιστον δύο σχήματα, ενώ η οριζόντια ή κάθετη κατανομή χρειάζεται αρκετά σχήματα για να ορίσει το διάστημα. Υπολογίστε ξανά τους δείκτες αν τροποποιήσετε τη συλλογή πριν καλέσετε τη μέθοδο.
+
+## **Αναστροφή Σχήματος**
+
+Η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/shapeframe/) αποθηκεύει θέση, μέγεθος, οριζόντιες και κάθετες ρυθμίσεις αναστροφής και περιστροφή. Οι τιμές `FlipH` και `FlipV` χρησιμοποιούν [NullableBool](https://reference.aspose.com/slides/el/cpp/aspose.slides/nullablebool/): `True` ενεργοποιεί την αναστροφή, `False` την απενεργοποιεί, και `NotDefined` διατηρεί την ακαθόριστη/προεπιλεγμένη κατάσταση.
+
+Η εισαγόμενη παρουσίαση παρακάτω περιέχει ένα μη αναστροφομένο σχήμα.
+
+![Το σχήμα πριν την αναστροφή](shape_to_be_flipped.png)
+
+Το παράδειγμα διατηρεί όλες τις άλλες τιμές του frame και αντικαθιστά μόνο τις δύο ρυθμίσεις αναστροφής. Αυτό είναι σημαντικό επειδή η ανάθεση ενός νέου [Frame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/set_frame/) αντικαθιστά ολόκληρο το frame.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto frame = shape->get_Frame();
+
+Console::WriteLine(String::Format(u"Horizontal flip before change: {0}", frame->get_FlipH()));
+Console::WriteLine(String::Format(u"Vertical flip before change: {0}", frame->get_FlipV()));
+
+shape->set_Frame(MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y(), frame->get_Width(), frame->get_Height(), NullableBool::True, NullableBool::True, frame->get_Rotation()));
+
+presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Το αποθηκευμένο σχήμα αντικατοπτρίζεται οριζόντια και κάθετα ενώ διατηρεί τη θέση, το μέγεθος και τη περιστροφή του.
+
+![Το σχήμα μετά την αναστροφή](flipped_shape.png)
+
+## **Συχνές Ερωτήσεις**
+
+**Θα πρέπει να χρησιμοποιήσω έναν δείκτη συλλογής ως ταυτοποιητή σχήματος;**
+
+Μόνο για βραχυπρόθεσμη επεξεργασία όταν η συλλογή δεν θα αλλάξει πριν χρησιμοποιηθεί ο δείκτης. Προτιμήστε μια επικυρωμένη σύμβαση `Name` ή `AlternativeText` για πρότυπα που δημιουργήθηκαν, ή `OfficeInteropShapeId` για εργασίες interop με εύρος διαφάνειας.
+
+**Αφαιρεί η απόκρυψη ενός σχήματος τη θέση του στο z‑order;**
+
+Όχι. Ένα κρυμμένο σχήμα παραμένει στη συλλογή με τον ίδιο δείκτη. Μπορεί να βρεθεί, να αναδιαταχθεί, να επεξεργαστεί ή να γίνει ορατό ξανά.
+
+**Γιατί ένα κλωνοποιημένο σχήμα εμφανίστηκε μπροστά από άλλο σχήμα;**
+
+Το `AddClone` προσθέτει το κλώνο στο τέλος της συλλογής, που είναι το μπροστινό μέρος της z‑order. Χρησιμοποιήστε `InsertClone` για να επιλέξετε αρχικό δείκτη ή `Reorder` μετά την προσθήκη όλων των σχημάτων.

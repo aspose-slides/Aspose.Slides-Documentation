@@ -1,386 +1,384 @@
 ---
-title: ".NET में प्रस्तुति आकार प्रबंधन"
-linktitle: "आकार हेरफेर"
+title: .NET में प्रस्तुति आकृतियों का प्रबंधन
+linktitle: आकृति हेरफ़ेर
 type: docs
 weight: 40
 url: /hi/net/shape-manipulations/
 keywords:
-- "PowerPoint आकार"
-- "प्रस्तुति आकार"
-- "स्लाइड पर आकार"
-- "आकार खोजें"
-- "आकार क्लोन करें"
-- "आकार हटाएँ"
-- "आकार छिपाएँ"
-- "आकार क्रम बदलें"
-- "Interop आकार ID प्राप्त करें"
-- "आकार वैकल्पिक पाठ"
-- "आकार लेआउट फ़ॉर्मेट"
-- "SVG के रूप में आकार"
-- "आकार को SVG में"
-- "आकार संरेखित करें"
+- PowerPoint आकृति
+- प्रस्तुति आकृति
+- स्लाइड पर आकृति
+- आकृति खोजें
+- आकृति क्लोन करें
+- आकृति हटाएँ
+- आकृति छिपाएँ
+- आकृति क्रम बदलें
+- Interop आकृति ID प्राप्त करें
+- आकृति वैकल्पिक पाठ
+- आकृति लेआउट फ़ॉर्मेट
+- आकृति को SVG के रूप में
+- आकृति को SVG में
+- आकृति संरेखित करें
+- आकृति फ़्लिप करें
 - PowerPoint
-- "प्रस्तुति"
+- प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET में आकार बनाना, संपादित करना और अनुकूलित करना सीखें और उच्च-प्रदर्शन PowerPoint प्रस्तुतियों को वितरित करें।"
+description: "Aspose.Slides for .NET के साथ प्रस्तुति आकृतियों को पहचानना, क्लोन करना, हटाना, छिपाना, क्रम बदलना, निर्यात करना, संरेखित करना और फ़्लिप करना सीखें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-यह लेख Aspose.Slides का उपयोग करके प्रेजेंटेशन में आकारों (shapes) के साथ काम करने का तरीका समझाता है। यह दिखाता है कि स्लाइड पर किसी आकार को कैसे खोजें, उसे क्लोन करें, हटाएँ, छिपाएँ, उसका क्रम बदलें, उसका Interop shape ID प्राप्त करें, और पहचान व आगे की प्रोसेसिंग के लिए वैकल्पिक पाठ (alternative text) सेट करें।
+Aspose.Slides for .NET स्लाइड पर आकृतियों को क्रमबद्ध [IShapeCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/) के रूप में दर्शाता है। यह संग्रह आकृतियों को खोजने और संशोधित करने की जगह है तथा उनकी स्टैकिंग क्रम का स्रोत भी है: इंडेक्स `0` सबसे पीछे वाली आकृति है, जबकि अंतिम इंडेक्स सबसे आगे वाली आकृति है।
 
-यह आकारों के लिए लेआउट फ़ॉर्मैट तक पहुँच, आकार को SVG के रूप में रेंडर करना, स्लाइड पर आकारों को संरेखित करना, और क्षैतिज व लंबवत मिररिंग के लिए फ्लिप प्रॉपर्टीज़ का उपयोग करना भी बताता है। इसके अतिरिक्त, लेख में आकार संयोजन, स्टैकिंग क्रम, और आकार लॉक करने के बारे में एक छोटा FAQ भी शामिल है।
+यह लेख उसी मॉडल का अनुसरण करता है। यह पहले यह बताता है कि आकृति की विश्वसनीय पहचान कैसे की जाए, फिर दिखाता है कि कैसे आकृति को क्लोन, हटाया, छुपाया और पुनः क्रमित किया जाए। अंतिम भाग लेआउट‑स्तर फ़ॉर्मेटिंग, SVG निर्यात, संरेखण और फ़्लिप सेटिंग्स को कवर करता है। प्रत्येक उदाहरण स्वतंत्र है, इसलिए आप केवल अपने कार्य‑प्रवाह की आवश्यकता वाले संचालन का उपयोग कर सकते हैं।
 
-## **स्लाइड पर आकार खोजें**
+## **आकृतियों की पहचान और खोज**
 
-यह विषय एक सरल तकनीक का वर्णन करेगा जिससे डेवलपर्स को स्लाइड पर किसी विशिष्ट आकार को इसके आंतरिक Id का उपयोग किए बिना ढूँढ़ना आसान हो सके। यह जानना महत्वपूर्ण है कि PowerPoint प्रेजेंटेशन फ़ाइलों में स्लाइड पर आकारों की पहचान के लिए केवल आंतरिक यूनिक Id ही उपलब्ध है। डेवलपर्स के लिए इस आंतरिक यूनिक Id का उपयोग करके आकार ढूँढ़ना कठिन हो सकता है। स्लाइड में जोड़े गए सभी आकारों में कुछ Alt Text होता है। हम डेवलपर्स को सुझाव देते हैं कि विशिष्ट आकार ढूँढ़ने के लिए वैकल्पिक पाठ (alternative text) का उपयोग करें। आप भविष्य में बदलने की योजना वाले ऑब्जेक्ट्स के लिए MS PowerPoint का उपयोग करके वैकल्पिक पाठ परिभाषित कर सकते हैं।
+कलेक्शन इंडेक्स ज्ञात फ़ाइल को प्रोसेस करते समय सुविधाजनक होते हैं, लेकिन वे स्थायी पहचानकर्ता नहीं होते। आकृति को जोड़ने, हटाने या पुनः क्रमित करने से उसका इंडेक्स बदल सकता है। प्रस्तुति के निर्माण और रख‑रखाव के तरीके के अनुसार पहचानकर्ता चुनें:
 
-किसी भी इच्छित आकार का वैकल्पिक पाठ सेट करने के बाद, आप Aspose.Slides for .NET का उपयोग करके वह प्रेजेंटेशन खोल सकते हैं और स्लाइड में जोड़े गए सभी आकारों पर इटरेट कर सकते हैं। प्रत्येक इटरेशन में आप आकार का वैकल्पिक पाठ जांच सकते हैं और मिलते‑जुलते वैकल्पिक पाठ वाला आकार वही होगा जो आपको चाहिए। इस तकनीक को बेहतर तरीके से दर्शाने के लिए हमने एक मेथड, [FindShape](https://reference.aspose.com/slides/hi/net/aspose.slides.util/slideutil/findshape/#findshape_1) बनाया है जो स्लाइड में विशिष्ट आकार को खोजता है और उसे 반환 करता है।
+- [Name](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/name/) डेवलपर‑नियंत्रित टेम्पलेट्स के लिए उपयोगी है और PowerPoint के Selection Pane में आसानी से निरीक्षण किया जा सकता है। नाम संपादित किए जा सकते हैं और अनिवार्य रूप से अद्वितीय नहीं होते, इसलिए यदि कोड उन पर निर्भर करता है तो एक नामकरण सम्मेलन स्थापित करें।
+- [AlternativeText](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/alternativetext/) तब उपयोगी है जब कोई एक्सेसिबिलिटी विवरण या लेखक‑द्वारा दिया गया टैग पहले से ही आकृति की पहचान करता हो। यह उपयोगकर्ताओं को दिखता है, स्थानीयकृत या एक्सेसिबिलिटी के लिए पुनर्लेखित किया जा सकता है, और अनिवार्य रूप से अद्वितीय नहीं होता। अर्थपूर्ण एक्सेसिबिलिटी टेक्स्ट को बिना संकेत के डेटाबेस कुंजी के रूप में पुनः उपयोग न करें।
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/officeinteropshapeid/) एक केवल‑पढ़ने योग्य पहचानकर्ता है जो स्लाइड के भीतर अद्वितीय है और PowerPoint इंटरऑप द्वारा उपयोग किए जाने वाले Shape ID से मेल खाता है। PowerPoint के साथ एकीकरण या किसी आकृति के जीवन‑काल के दौरान अस्पष्ट संदर्भ की आवश्यकता होने पर इसका उपयोग करें। क्लोन या पुनः‑निर्मित आकृति अलग होती है और उसकी अपनी ID प्राप्त करती है।
 
-```c#
-public static void Run()
+संबंधित [UniqueId](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/uniqueid/) प्रॉपर्टी का प्रस्तुति‑स्तर पर उपयोग होता है, लेकिन यह ऐड‑इन के लिए अभिप्रेत है और पुनः‑असाइन किया जा सकता है। इसे स्थायी बाहरी कुंजी के रूप में नहीं माना जाना चाहिए। यदि दीर्घकालिक पहचान आवश्यक है तो मैपिंग को एप्लिकेशन डेटा में रखें और सुनिश्चित करें कि अपेक्षित आकृति अभी भी मौजूद है।
+
+निम्न उदाहरण `Name` के द्वारा ऑर्डिनल तुलना करके खोज करता है और स्लाइड‑स्कोप्ड इंटरऑप ID रिपोर्ट करता है। जब टेम्पलेट में अपेक्षित आकृति नहीं होती, तो कोड उस परिणाम को रिपोर्ट करता है न कि गलत ऑब्जेक्ट के साथ जारी रहता है।
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // प्रेजेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // खोजे जाने वाले आकार का वैकल्पिक पाठ
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// स्लाइड में उसके वैकल्पिक पाठ का उपयोग करके एक आकार खोजने की मेथड इम्प्लीमेंटेशन
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // स्लाइड के भीतर सभी आकारों पर इटररेट करना
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // यदि स्लाइड का वैकल्पिक पाठ वांछित पाठ से मेल खाता है तो
-        // आकार लौटाएँ
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **एक आकार को क्लोन करें**
-
-Aspose.Slides for .NET का उपयोग करके स्लाइड पर एक आकार को क्लोन करने के लिए:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएँ।
-2. स्लाइड का संदर्भ उसके इंडेक्स का उपयोग करके प्राप्त करें।
-3. स्रोत स्लाइड के shape संग्रह (shape collection) तक पहुँचें।
-4. प्रेजेंटेशन में एक नई स्लाइड जोड़ें।
-5. स्रोत स्लाइड के shape संग्रह से आकारों को नई स्लाइड में क्लोन करें।
-6. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
-
-नीचे उदाहरण एक ग्रुप आकार को स्लाइड में जोड़ता है।
-
-```c#
-// Presentation क्लास का उदाहरण बनाएं
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// PPTX फ़ाइल को डिस्क पर लिखें
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **एक आकार हटाएँ**
-
-Aspose.Slides for .NET डेवलपर्स को किसी भी आकार को हटाने की अनुमति देता है। किसी स्लाइड से आकार हटाने के लिए, नीचे दिए गए चरणों का पालन करें:
-
-1. `Presentation` क्लास का एक इंस्टेंस बनाएँ।
-2. पहली स्लाइड तक पहुँचें।
-3. विशिष्ट AlternativeText वाले आकार को खोजें।
-4. आकार को हटाएँ।
-5. फ़ाइल को डिस्क पर सहेजें।
-
-```c#
-// Presentation ऑब्जेक्ट बनाएं
-Presentation pres = new Presentation();
-
-// Get the first slide
-ISlide sld = pres.Slides[0];
-
-// rectangle प्रकार का ऑटोशेप जोड़ें
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// प्रेजेंटेशन को डिस्क पर सहेजें
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **एक आकार छिपाएँ**
-
-Aspose.Slides for .NET डेवलपर्स को किसी भी आकार को छिपाने की अनुमति देता है। किसी स्लाइड से आकार छिपाने के लिए, नीचे दिए गए चरणों का पालन करें:
-
-1. `Presentation` क्लास का एक इंस्टेंस बनाएँ।
-2. पहली स्लाइड तक पहुँचें।
-3. विशिष्ट AlternativeText वाले आकार को खोजें।
-4. आकार को छिपाएँ।
-5. फ़ाइल को डिस्क पर सहेजें।
-
-```c#
-// PPTX का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं
-Presentation pres = new Presentation();
-
-// पहली स्लाइड प्राप्त करें
-ISlide sld = pres.Slides[0];
-
-// rectangle प्रकार का ऑटोशेप जोड़ें
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// प्रेजेंटेशन को डिस्क पर सहेजें
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **आकार का क्रम बदलें**
-
-Aspose.Slides for .NET डेवलपर्स को आकारों को पुनः क्रमित (reorder) करने की अनुमति देता है। आकार का पुनः क्रमित करना निर्धारित करता है कि कौन सा आकार आगे है और कौन सा पीछे। किसी स्लाइड में आकार का क्रम बदलने के लिए, नीचे दिए गए चरणों का पालन करें:
-
-1. `Presentation` क्लास का एक इंस्टेंस बनाएँ।
-2. पहली स्लाइड तक पहुँचें।
-3. एक आकार जोड़ें।
-4. आकार के टेक्स्ट फ्रेम में कुछ पाठ जोड़ें।
-5. समान निर्देशांक (coordinates) वाले एक और आकार जोड़ें।
-6. आकारों का क्रम बदलें।
-7. फ़ाइल को डिस्क पर सहेजें।
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Interop Shape ID प्राप्त करें**
-
-Aspose.Slides for .NET डेवलपर्स को स्लाइड स्तर पर एक यूनिक आकार पहचानकर्ता प्राप्त करने की अनुमति देता है, जबकि UniqueId प्रॉपर्टी प्रेजेंटेशन स्तर पर यूनिक पहचानकर्ता देती है। प्रॉपर्टी OfficeInteropShapeId को IShape इंटरफ़ेस और Shape क्लास में जोड़ा गया है। OfficeInteropShapeId प्रॉपर्टी द्वारा लौटाया गया मान Microsoft.Office.Interop.PowerPoint.Shape ऑब्जेक्ट के Id के मान के समान होता है। नीचे एक नमूना कोड दिया गया है।
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// स्लाइड स्कोप में यूनिक आकार पहचानकर्ता प्राप्त करना
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **आकार के लिए वैकल्पिक पाठ सेट करें**
+जब कोई ऑपरेशन विशिष्ट आकृति प्रकार के लिए हो, तो टाइप‑स्पेसिफिक मेम्बर्स का उपयोग करने से पहले इंटरफ़ेस जांचें। यह उदाहरण केवल तभी टेक्स्ट और AlternativeText अपडेट करता है जब नामित ऑब्जेक्ट एक [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) हो।
 
-Aspose.Slides for .NET डेवलपर्स को किसी भी आकार का AlternateText सेट करने की अनुमति देता है।  
-प्रेजेंटेशन में आकारों को AlternativeText या Shape Name प्रॉपर्टी से पहचाना जा सकता है।  
-AlternativeText प्रॉपर्टी को Aspose.Slides या Microsoft PowerPoint दोनों से पढ़ा या सेट किया जा सकता है।  
-इस प्रॉपर्टी का उपयोग करके आप आकार को टैग कर सकते हैं और विभिन्न कार्य जैसे आकार हटाना,  
-आकार छिपाना या स्लाइड पर आकारों का क्रम बदलना कर सकते हैं।  
-आकार का AlternateText सेट करने के लिए, नीचे दिए गए चरणों का पालन करें:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-1. `Presentation` क्लास का एक इंस्टेंस बनाएँ।
-2. पहली स्लाइड तक पहुँचें।
-3. स्लाइड में कोई भी आकार जोड़ें।
-4. नई जोड़ी गई आकार के साथ कुछ कार्य करें।
-5. आकारों के माध्यम से इटररेट करके आकार खोजें।
-6. AlternativeText सेट करें।
-7. फ़ाइल को डिस्क पर सहेजें।
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-// PPTX का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं
-Presentation pres = new Presentation();
-
-// पहली स्लाइड प्राप्त करें
-ISlide sld = pres.Slides[0];
-
-// rectangle प्रकार का ऑटोशेप जोड़ें
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// प्रेजेंटेशन को डिस्क पर सहेजें
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **एक आकार के लिए लेआउट फ़ॉर्मेट तक पहुँच**
-
-Aspose.Slides for .NET एक सरल API प्रदान करता है जिससे आप किसी आकार के लिए लेआउट फ़ॉर्मेट तक पहुँच सकते हैं। यह लेख दर्शाता है कि आप लेआउट फ़ॉर्मेट कैसे प्राप्त कर सकते हैं।
-
-नीचे एक नमूना कोड दिया गया है।
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **आकार को SVG के रूप में रेंडर करें**
+## **आकृति संग्रह को संशोधित करें**
 
-अब Aspose.Slides for .NET आकार को SVG के रूप में रेंडर करने का समर्थन करता है। Shape क्लास और IShape इंटरफ़ेस में WriteAsSvg मेथड (और उसका ओवरलोड) जोड़ा गया है। यह मेथड आकार की सामग्री को SVG फ़ाइल के रूप में सहेजने की अनुमति देता है। नीचे दिया गया कोड स्निपेट दिखाता है कि स्लाइड के आकार को SVG फ़ाइल में कैसे एक्सपोर्ट करें।
+ऐड, क्लोन, रिमूव और रीऑर्डर मेथड्स संग्रह पर तुरंत कार्य करते हैं। यदि कोई ऑपरेशन आकृतियों की संख्या या क्रम बदलता है, तो उस ऑपरेशन से पहले दर्ज किए गए इंडेक्स पर निर्भरता जारी न रखें।
 
-```c#
-public static void Run()
+### **आकृति को क्लोन करें**
+
+[AddClone](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addclone/) एक स्वतंत्र कॉपी बनाता है और उसे लक्ष्य संग्रह में जोड़ता है। [InsertClone](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/insertclone/) भी कॉपी बनाता है लेकिन इसे निर्दिष्ट Z‑ऑर्डर इंडेक्स पर रखता है। वह ओवरलोड जो कोऑर्डिनेट्स स्वीकार करता है क्लोन को उसका आकार बदले बिना ले जाता है; चौड़ाई और ऊँचाई वाले ओवरलोड इसे रिसाइज़ भी कर सकते हैं।
+
+निम्न उदाहरण एक गंतव्य स्लाइड बनाता है, लेबल वाले आयत को आगे क्लोन करता है, और एक दूसरा क्लोन पीछे डालता है। दोनों क्लोन में किए गए बदलाव स्रोत आकृति को नहीं बदलते।
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+क्लोनिंग आकृति की सामग्री और फ़ॉर्मेटिंग, जिसमें उसका Name और AlternativeText भी शामिल है, को कॉपी करता है। जब इन मूल्यों को अद्वितीय होना आवश्यक हो तो क्लोन को नई तार्किक पहचानकर्ता सौंपें। जटिल आकृतियों द्वारा उपयोग किए गए संसाधन प्रस्तुति द्वारा संभाले जाते हैं, लेकिन क्लोन नए संग्रह आइटम के रूप में नई आकृति पहचान के साथ रहता है।
+
+### **आकृतियों को हटाएँ**
+
+[Remove](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/remove/) किसी विशिष्ट आकृति ऑब्जेक्ट को उसके संग्रह से हटाता है। इंडेक्स्ड इटरशन के दौरान कई मिलानों को हटाते समय अंत से शुरू करके ट्रैवर्स करें ताकि शेष प्रत्येक इंडेक्स वैध बना रहे।
+
+यह उदाहरण निर्धारित नाम वाली प्रत्येक आकृति को हटाता है। यह `slide.Shapes[i]` पढ़ता है, न कि किसी स्थायी संग्रह आइटम को, और यह आकृति को अनावश्यक रूप से कास्ट नहीं करता।
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+हटाने के बाद आकृति संख्या और बाद की आकृतियों के इंडेक्स बदल जाते हैं। अपरिवर्तित आकृतियों के रेफ़रेंस सहेजे गए इंडेक्स की तुलना में अधिक विश्वसनीय रहते हैं। साथ ही कनेक्टर्स, एनीमेशन्स और अन्य प्रस्तुति सुविधाओं को ध्यान में रखें जो हटाए गए ऑब्जेक्ट को संदर्भित कर सकते हैं; एक दृश्य आकृति को हटाने से स्लाइड की उपस्थिति से अधिक चीज़ें बदल सकती हैं।
+
+### **आकृति को छुपाएँ**
+
+[Hidden](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/hidden/) को `true` सेट करने से आकृति संग्रह में रहती है लेकिन सामान्य स्लाइड शो में दिखाई नहीं देती। इसका इंडेक्स, फ़ॉर्मेटिंग और सामग्री कोड के लिए उपलब्ध रहती है, इसलिए वैकल्पिक तत्वों के लिए जो बाद में पुनः दिखाए जा सकते हैं, छुपाना उपयुक्त है।
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+छुपाना हटाना या सुरक्षा नहीं है। ऑब्जेक्ट को अभी भी खोजा जा सकता है और उपयोगकर्ता या कोड द्वारा अनहाइड किया जा सकता है, और यह प्रस्तुति फ़ाइल का हिस्सा बना रहता है।
+
+### **Z‑ऑर्डर बदलें**
+
+ओवरलैप करने वाली आकृतियाँ संग्रह क्रम में पेंट होती हैं। [Reorder](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/reorder/) मौजूदा आकृति को लक्षित इंडेक्स पर ले जाता है बिना क्लोन किए। इंडेक्स `0` पीछे है; `Count - 1` आगे है।
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+आयत सबसे पहले बनाई जाती है और शुरू में दीर्घवृत्त के पीछे रहती है। इसे अंतिम इंडेक्स पर ले जाने से वह सामने आ जाती है। सभी संबंधित आकृतियों को जोड़ने या क्लोन करने के बाद Z‑ऑर्डर को फ़ाइनल करें, क्योंकि ये ऑपरेशन नई संग्रह आइटम जोड़ते या इनसर्ट करते हैं और वांछित स्टैक को बदल सकते हैं।
+
+## **लेआउट स्लाइड्स पर आकृतियों का निरीक्षण करें**
+
+नॉर्मल स्लाइड्स, लेआउट स्लाइड्स और मास्टर स्लाइड्स के अलग‑अलग आकृति संग्रह होते हैं। लेआउट संग्रह में एक आकृति वही ऑब्जेक्ट नहीं होती जो सामान्य स्लाइड पर समान स्थिति में होती है। लेआउट द्वारा प्रदान किए गए फ़ॉर्मेटिंग को समझने या बदलने की आवश्यकता होने पर लेआउट आकृतियों का निरीक्षण करें।
+
+निम्न उदाहरण प्रत्येक लेआउट आकृति के [FillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/fillformat/) और [LineFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/lineformat/) को पढ़ता है, यह मानते हुए कि हर आकृति `AutoShape` नहीं है।
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **एक आकार संरेखित करें**
+लेआउट को संपादित करने से कई स्लाइड्स प्रभावित हो सकती हैं जो उसका उपयोग करती हैं। लेआउट आकृति को बदलने से पहले यह निर्धारित करें कि सामान्य स्लाइड ऑब्जेक्ट को इनहेरिट करती है या स्थानीय रूप से ओवरराइड करती है, और उस लेआउट का उपयोग करने वाली प्रत्येक स्लाइड का परीक्षण करें।
 
-[SlidesUtil.AlignShape()](https://reference.aspose.com/slides/hi/net/aspose.slides.util/slideutil/methods/alignshapes/index) ओवरलोडेड मेथड के माध्यम से, आप
+## **एक आकृति को SVG में निर्यात करें**
 
-* स्लाइड की मार्जिन के संबंध में आकारों को संरेखित कर सकते हैं। उदाहरण 1 देखें।
-* एक दूसरे के सापेक्ष आकारों को संरेखित कर सकते हैं। उदाहरण 2 देखें।
+[WriteAsSvg](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/writeassvg/) एक आकृति की रेंडर की गई सामग्री को स्ट्रीम में लिखता है। परिणाम में केवल आकृति होती है, न कि पूरे स्लाइड बैकग्राउंड या पड़ोसी आकृतियाँ।
 
-[ShapesAlignmentType](https://reference.aspose.com/slides/hi/net/aspose.slides/shapesalignmenttype) एन्यूमरेशन उपलब्ध संरेखण विकल्पों को परिभाषित करता है।
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-**उदाहरण 1**
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-यह C# कोड दिखाता है कि स्लाइड के शीर्ष किनारे पर इंडेक्स 1, 2 और 4 वाले आकारों को कैसे संरेखित किया जाए:
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**उदाहरण 2**
+रेंडरिंग के दौरान प्रस्तुति खुली रखें। आउटपुट आकृति के फ़ॉर्मेटिंग और फ़ॉन्ट व छवि जैसे संसाधनों पर निर्भर करता है। यदि पूरी रचना चाहिए तो स्लाइड को निर्यात करें, न कि व्यक्तिगत आकृति को। कॉलर को स्ट्रीम का मालिकाना अधिकार होता है और उसे डिस्पोज़ करना चाहिए।
 
-यह C# कोड दिखाता है कि संग्रह में निचले आकार के सापेक्ष पूरी आकार संग्रह को कैसे संरेखित किया जाए:
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+## **आकृतियों को संरेखित करें**
+
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/hi/net/aspose.slides.util/slideutil/alignshapes/) ओवरलोड सभी आकृतियों या चयनित संग्रह इंडेक्स को संरेखित करते हैं। [ShapesAlignmentType](https://reference.aspose.com/slides/hi/net/aspose.slides/shapesalignmenttype/) किनारा, केंद्र रेखा या वितरण मोड निर्दिष्ट करता है। `alignToSlide` को `true` सेट करने से स्लाइड किनारे उपयोग होते हैं; `false` सेट करने से चयनित आकृतियों को आपस में सापेक्ष रूप से संरेखित किया जाता है।
+
+यह उदाहरण तीन आकृतियों को स्लाइड के शीर्ष किनारे पर संरेखित करता है। लौटाए गए आकृति रेफ़रेंसेज़ को तुरंत उनके वर्तमान इंडेक्स में बदल दिया जाता है, फिर संरेखण किया जाता है।
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **फ़्लिप प्रॉपर्टीज़**
+संरेखण स्थिति बदलता है, न कि Z‑ऑर्डर। सापेक्ष संरेखण सामान्यतः न्यूनतम दो आकृतियों की आवश्यकता रखता है, जबकि क्षैतिज या ऊर्ध्वाधर वितरण के लिये पर्याप्त आकृतियों की आवश्यकता होती है ताकि स्पेसिंग निर्धारित की जा सके। मेथड को कॉल करने से पहले संग्रह में परिवर्तन के कारण इंडेक्स पुनः‑गणना करें।
 
-Aspose.Slides में, [ShapeFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/shapeframe/) क्लास `FlipH` और `FlipV` प्रॉपर्टीज़ के माध्यम से आकारों की क्षैतिज और लंबवत मिररिंग को नियंत्रित करती है। दोनों प्रॉपर्टीज़ का प्रकार [NullableBool](https://reference.aspose.com/slides/hi/net/aspose.slides/nullablebool/) है, जो `True` को फ्लिप दर्शाता है, `False` को कोई फ्लिप नहीं, और `NotDefined` को डिफ़ॉल्ट व्यवहार के लिए उपयोग किया जाता है। ये मान आकार की [Frame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/frame/) से प्राप्त किए जा सकते हैं।
+## **एक आकृति को फ़्लिप करें**
 
-फ़्लिप सेटिंग्स को बदलने के लिए, एक नया [ShapeFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/shapeframe/) इंस्टेंस आकार की वर्तमान स्थिति और आकार, `FlipH` और `FlipV` के इच्छित मान, तथा घूर्णन कोण के साथ बनाया जाता है। इस इंस्टेंस को आकार की [Frame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/frame/) में असाइन करने और प्रेजेंटेशन को सहेजने से मिरर ट्रांसफ़ॉर्मेशन लागू होते हैं और आउटपुट फ़ाइल में कमिट होते हैं।
+[ShapeFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/shapeframe/) क्लास पोज़िशन, आकार, क्षैतिज और ऊर्ध्वाधर फ़्लिप सेटिंग्स, तथा रोटेशन को संग्रहीत करता है। इसके `FlipH` और `FlipV` मान [NullableBool](https://reference.aspose.com/slides/hi/net/aspose.slides/nullablebool/) का उपयोग करते हैं: `True` फ़्लिप को सक्षम करता है, `False` उसे अक्षम करता है, और `NotDefined` अननिर्धारित/डिफ़ॉल्ट स्थिति को बरकरार रखता है।
 
-मान लीजिए हमारे पास एक sample.pptx फ़ाइल है जिसमें पहली स्लाइड में एक ही आकार है जिसके डिफ़ॉल्ट फ़्लिप सेटिंग्स हैं, जैसा कि नीचे दिखाया गया है।
+नीचे दिया गया इनपुट प्रस्तुति एक नॉन‑फ़्लिप्ड आकृति शामिल करता है।
 
-![The shape to be flipped](shape_to_be_flipped.png)
+![फ़्लिप करने से पहले की आकृति](shape_to_be_flipped.png)
 
-निम्न कोड उदाहरण आकार की वर्तमान फ़्लिप प्रॉपर्टीज़ को प्राप्त करता है और उसे क्षैतिज तथा लंबवत दोनों दिशा में फ़्लिप करता है।
+यह उदाहरण प्रत्येक अन्य फ्रेम मान को बरकरार रखता है और केवल दो फ़्लिप सेटिंग्स को बदलता है। यह महत्वपूर्ण है क्योंकि नया [Frame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/frame/) असाइन करने से पूरी फ्रेम बदल जाती है।
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // आकार की क्षैतिज फ़्लिप प्रॉपर्टी प्राप्त करें।
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // आकार की ऊर्ध्वाधर फ़्लिप प्रॉपर्टी प्राप्त करें।
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // क्षैतिज रूप से फ़्लिप करें।
-    NullableBool flipV = NullableBool.True; // ऊर्ध्वाधर रूप से फ़्लिप करें।
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-![The flipped shape](flipped_shape.png)
+सहेजी गई आकृति क्षैतिज और ऊर्ध्विक रूप से प्रतिबिंबित होती है जबकि उसकी स्थिति, आकार और रोटेशन अपरिवर्तित रहता है।
+
+![फ़्लिप करने के बाद की आकृति](flipped_shape.png)
 
 ## **FAQ**
 
-**क्या मैं स्लाइड पर आकारों (union/intersect/subtract) को डेस्कटॉप एडिटर की तरह संयोजित कर सकता हूँ?**
+**क्या मुझे आकृति पहचान के लिये कलेक्शन इंडेक्स का उपयोग करना चाहिए?**
 
-निर्मित Boolean ऑपरेशन API नहीं है। आप स्वयं वांछित आउटलाइन बनाकर इसे लगभग कर सकते हैं—उदाहरण के लिए, परिणामस्वरूप जियोमेट्री को गणना करें ([GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath/) के माध्यम से) और उस कंटूर के साथ एक नया आकार बनाएं, वैकल्पिक रूप से मूल आकारों को हटा दें।
+केवल छोटे‑समय के प्रोसेसिंग के लिये जब संग्रह परिवर्तन नहीं करेगा, तब ही उपयोग करें। निर्मित टेम्पलेट्स के लिये मान्य `Name` या `AlternativeText` परम्परा को प्राथमिकता दें, या स्लाइड‑स्कोप्ड इंटरऑप कार्य के लिये `OfficeInteropShapeId` का उपयोग करें।
 
-**मैं स्टैकिंग क्रम (z-order) को कैसे नियंत्रित कर सकता हूँ ताकि कोई आकार हमेशा "ऊपर" रहे?**
+**क्या आकृति को छिपाने से वह Z‑ऑर्डर से हट जाती है?**
 
-स्लाइड के [shapes](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslide/shapes/) संग्रह में सम्मिलन/स्थानांतरण क्रम को बदलें। पूर्वानुमेय परिणामों के लिए, सभी अन्य स्लाइड संशोधनों के बाद z-order को अंतिम रूप दें।
+नहीं। छिपी हुई आकृति समान इंडेक्स पर संग्रह में बनी रहती है। इसे खोजा, पुनः‑क्रमित, संपादित या फिर से दृश्यमान किया जा सकता है।
 
-**क्या मैं "लॉक" कर सकता हूँ एक आकार को ताकि PowerPoint में उपयोगकर्ता इसे संपादित न कर सकें?**
+**क्लोन की गई आकृति दूसरे आकृति के सामने क्यों दिखाई दे रही थी?**
 
-हाँ। [shape-level protection flags](/slides/hi/net/applying-protection-to-presentation/) (जैसे चयन, स्थानांतरण, आकार बदलना, टेक्स्ट संपादन को लॉक करना) सेट करें। आवश्यक होने पर, मास्टर या लेआउट पर प्रतिबंध लागू करें। ध्यान दें कि यह UI स्तर की सुरक्षा है, न कि सुरक्षा सुविधा; अधिक मजबूत सुरक्षा के लिए फ़ाइल‑स्तर प्रतिबंधों जैसे [read‑only सिफ़ारिशें या पासवर्ड](/slides/hi/net/password-protected-presentation/) के साथ संयोजन करें।
+`AddClone` क्लोन को संग्रह के अंत में जोड़ता है, जो Z‑ऑर्डर का सामने वाला भाग है। शुरुआती इंडेक्स चुनने के लिये `InsertClone` का प्रयोग करें या सभी आकृतियों को जोड़ने के बाद `Reorder` करें।
