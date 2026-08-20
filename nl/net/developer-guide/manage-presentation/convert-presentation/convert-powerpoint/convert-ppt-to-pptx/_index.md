@@ -1,5 +1,5 @@
 ---
-title: PPT naar PPTX converteren in .NET
+title: Converteer PPT naar PPTX in .NET
 linktitle: PPT naar PPTX
 type: docs
 weight: 20
@@ -17,86 +17,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Converteer legacy PPT‑presentaties naar moderne PPTX snel in .NET met Aspose.Slides — duidelijke tutorial, gratis C#‑codevoorbeelden, geen afhankelijkheid van Microsoft Office."
+description: "Converteer legacy PPT-bestanden naar PPTX in .NET met Aspose.Slides. Inclusief C#-voorbeelden voor enkel bestand en batch-conversie, foutafhandeling en nauwkeurigheidsoverwegingen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je een PowerPoint‑presentatie in PPT‑formaat naar PPTX‑formaat kunt converteren met C# en met de online PPT‑naar‑PPTX‑conversietoepassing. De volgende onderwerpen worden behandeld.
+## **PPT-bestand naar PPTX converteren**
 
-- [PPT naar PPTX converteren in C#](#convert-ppt-to-pptx)
+Laad het bronbestand met de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse en roep vervolgens [IPresentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/save/) aan met [SaveFormat.Pptx](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/). De `using`‑verklaring maakt de presentatie vrij en geeft de bronnen vrij wanneer de scope eindigt.
 
-## **PPT naar PPTX converteren in .NET**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Voor C#‑voorbeeldcode om PPT naar PPTX te converteren, zie de sectie hieronder, namelijk [PPT naar PPTX converteren](#convert-ppt-to-pptx). De code laadt simpelweg het PPT‑bestand en slaat het op in PPTX‑formaat. Door verschillende opslaformaten op te geven, kun je het PPT‑bestand ook opslaan in tal van andere formaten zoals PDF, XPS, ODP, HTML enzovoort, zoals besproken in deze artikelen. 
+// Laad de legacy PPT-presentatie.
+using var presentation = new Presentation("presentation.ppt");
 
-- [PPT naar PDF converteren in .NET](/slides/nl/net/convert-powerpoint-to-pdf/)
-- [PPT naar XPS converteren in .NET](/slides/nl/net/convert-powerpoint-to-xps/)
-- [PPT naar HTML converteren in .NET](/slides/nl/net/convert-powerpoint-to-html/)
-- [PPT naar ODP converteren in .NET](/slides/nl/net/save-presentation/)
-- [PPT naar PNG converteren in .NET](/slides/nl/net/convert-powerpoint-to-png/)
-
-## **Over PPT‑naar‑PPTX‑conversie**
-Converteer het oude PPT‑formaat naar PPTX met de Aspose.Slides‑API. Als je duizenden PPT‑presentaties naar PPTX‑formaat moet omzetten, is de beste oplossing om dit programmatisch te doen. Met de Aspose.Slides‑API is dit mogelijk met slechts een paar regels code. De API biedt volledige compatibiliteit om een PPT‑presentatie naar PPTX te converteren en maakt het mogelijk om:
-
-- Gecompliceerde structuren van masters, lay-outs en dia’s te converteren.
-- Presentaties met diagrammen te converteren.
-- Presentaties met groepsvormen, auto‑vormen (zoals rechthoeken en ellipsen), vormen met aangepaste geometrie te converteren.
-- Presentaties met texturen en afbeeldingen als vulstijlen voor auto‑vormen te converteren.
-- Presentaties met plaatsaanduidingen, tekstkaders en tekstvullingen te converteren.
-
-{{% alert color="primary" %}} 
-
-Neem een kijkje bij de [**Aspose.Slides PPT‑naar‑PPTX‑conversie**](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx)‑app:
-
-[](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx)
-
-Deze app is gebouwd op basis van de **Aspose.Slides‑API**, zodat je een werkend voorbeeld van basis PPT‑naar‑PPTX‑conversiemogelijkheden kunt zien. Aspose.Slides Conversion is een webapp die het mogelijk maakt een presentatiebestand in PPT‑formaat te slepen en het geconverteerde PPTX‑bestand te downloaden.
-
-Bekijk andere live [**Aspose.Slides‑conversie**](https://products.aspose.app/slides/nl/conversion/)‑voorbeelden.
-{{% /alert %}} 
-
-
-## **PPT naar PPTX converteren**
-Om een PPT naar PPTX te converteren, geef je simpelweg de bestandsnaam en het opslaformaat door aan de [**Save**](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/methods/save/index)‑methode van de [**Presentation**](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse. De onderstaande C#‑codevoorbeeld converteert een Presentation van PPT naar PPTX met de standaardopties.
-
-```c#
-// Instantieer een Presentation-object dat een PPTX-bestand vertegenwoordigt
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// De PPTX-presentatie opslaan in PPTX-formaat
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Sla de presentatie op in PPTX-formaat.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Lees meer over de presentatieformaten [**PPT vs PPTX**](/slides/nl/net/ppt-vs-pptx/) en hoe [**Aspose.Slides PPT‑naar‑PPTX‑conversie ondersteunt**](/slides/nl/net/convert-ppt-to-pptx/).
+De bestandsextensie bepaalt niet automatisch het uitvoerformaat; dat doet het argument [SaveFormat.Pptx](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/). Houd de invoer‑ en uitvoerpaden verschillend als u het oorspronkelijke PPT‑bestand wilt behouden.
+
+## **Meerdere PPT-bestanden converteren**
+
+Het volgende voorbeeld converteert elk `.ppt`‑bestand in één map. Elk bestand wordt onafhankelijk verwerkt, zodat een mislukte conversie de rest van de batch niet stopt.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
+
+Voor productie‑workloads logt u de volledige uitzondering, bepaalt u of een bestaand uitvoerbestand mag worden overschreven, en schrijft u mislukte bestandsnamen naar een retry‑ of review‑wachtrij. Beschadigde bestanden, met wachtwoord beschermde bestanden die zonder het vereiste wachtwoord worden geopend, ontoegankelijke paden en niet‑ondersteunde inhoud kunnen allemaal een conversie laten mislukken. Zie [Password-Protected Presentations](/slides/nl/net/password-protected-presentation/) voor het laden van versleutelde bestanden.
+
+## **Nauwkeurigheid en legacy‑functies**
+
+Conversie behoudt normaal gesproken dia's, masters, lay‑outs, tekst, vormen, afbeeldingen, tabellen en grafieken. Echter, PPT en PPTX vertegenwoordigen niet elke functie op exact dezelfde manier. Een legacy‑functie zonder PPTX‑equivalent, of die niet door de bibliotheek wordt ondersteund, kan genormaliseerd, weggelaten of anders weergegeven worden.
+
+Controleer het geconverteerde bestand wanneer het animaties, overgangen, ingesloten of gekoppelde OLE‑objecten, ActiveX‑besturingselementen, ingesloten media, ongebruikelijke lettertypen of VBA‑macro’s bevat. Een gewoon PPTX‑bestand is geen macro‑ingeschakeld formaat, dus gebruik een geschikt macro‑ingeschakeld werk­proces wanneer VBA beschikbaar moet blijven. Controleer ook of vereiste lettertypen en externe bronnen aanwezig zijn in de omgeving waarin de geconverteerde presentatie wordt geopend of weergegeven.
+
+Voor belangrijke documenten kunt u het gegenereerde PPTX programmatisch opnieuw openen en sleutel‑dia‑aantallen en inhoud inspecteren, waarna u het uiterlijk en de diavoorstelling‑gedrag vergelijkt in de beoogde viewer. Beschouw een geslaagde aanroep van [IPresentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/save/) niet als bewijs dat elke legacy‑functie een exacte PPTX‑representatie heeft.
+
+## **Wanneer PPTX gebruiken**
+
+Gebruik PPTX wanneer de presentatie bewerkt wordt in huidige versies van PowerPoint, wordt uitgewisseld met systemen die Open XML‑pakketten ondersteunen, of wordt opgeslagen in een formaat dat makkelijker te inspecteren en te herstellen is dan het legacy‑binaire PPT. Bewaar het oorspronkelijke PPT als een archief‑ of rollback‑kopie totdat de geconverteerde presentatie uw nauwkeurigheidstests heeft doorstaan.
+
+Als u in plaats daarvan PDF, HTML, afbeeldingen, XPS of een ander uitvoertype nodig heeft, raadpleeg dan de specifieke richtlijnen in [Convert Presentations to Multiple Formats](/slides/nl/net/convert-presentation/) in plaats van aan te nemen dat alle doelen bewerkbare PowerPoint‑functies behouden.
+
+## **Online converter**
+
+Voor een incidenteel bestand of een snelle vergelijking kunt u de [online PPT to PPTX converter](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx) gebruiken. Voor herhaalbare conversies, batchverwerking of foutafhandeling op applicatieniveau gebruikt u de .NET‑API.
+
+## **Gerelateerde artikelen**
+
+- [PPT vs PPTX](/slides/nl/net/ppt-vs-pptx/)
+- [Presentaties opslaan in .NET](/slides/nl/net/save-presentation/)
+- [Ondersteunde bestandsformaten](/slides/nl/net/supported-file-formats/)
+- [Presentaties openen in .NET](/slides/nl/net/open-presentation/)
 
 ## **FAQ**
 
-**Wat is het verschil tussen de formaten PPT en PPTX?**
+**Kan ik PPT naar PPTX converteren zonder Microsoft PowerPoint geïnstalleerd te hebben?**
 
-PPT is het oudere binaire bestandsformaat dat door Microsoft PowerPoint wordt gebruikt, terwijl PPTX het nieuwere, op XML gebaseerde formaat is dat met Microsoft Office 2007 is geïntroduceerd. PPTX‑bestanden bieden betere prestaties, een kleinere bestandsgrootte en verbeterd dataherstel.
+Ja. Aspose.Slides voor .NET laadt en slaat presentaties op zonder dat Microsoft PowerPoint nodig is.
 
-**Kan ik PPT naar PPTX converteren met .NET?**
+**Zal de PPT‑naar‑PPTX‑conversie alle inhoud exact behouden?**
 
-Ja, met de Aspose.Slides for .NET‑bibliotheek kun je eenvoudig een PPT‑bestand laden en het met slechts enkâ paar regels code opslaan in PPTX‑formaat.
+Het behoudt de gebruikelijke presentatiewaarde, maar exacte nauwkeurigheid is niet gegarandeerd voor elke legacy‑ of niet‑ondersteunde functie. Controleer het gegenereerde bestand wanneer het macro’s, OLE‑ of ActiveX‑objecten, media, gespecialiseerde animaties of ongebruikelijke lettertypen bevat.
 
-**Ondersteunt Aspose.Slides batch‑conversie van meerdere PPT‑bestanden naar PPTX?**
+**Kan ik een met wachtwoord beschermde PPT‑file converteren?**
 
-Ja, je kunt Aspose.Slides in een lus gebruiken om meerdere PPT‑bestanden programmatisch naar PPTX te converteren, wat geschikt is voor batch‑conversiescenario’s.
+Ja, mits u het correcte wachtwoord opgeeft bij het laden van het bestand. Een ontbrekend of onjuist wachtwoord zorgt ervoor dat het laden mislukt.
 
-**Worden de inhoud en opmaak behouden na de conversie?**
+**Moet ik het PPT‑bestand na de conversie verwijderen?**
 
-Aspose.Slides behoudt een hoge getrouwheid bij het converteren van presentaties. Dia‑lay-outs, animaties, vormen, diagrammen en andere ontwerpelementen blijven behouden tijdens de PPT‑naar‑PPTX‑conversie.
-
-**Kan ik andere formaten zoals PDF of HTML converteren vanuit PPT‑bestanden?**
-
-Ja, Aspose.Slides ondersteunt het converteren van PPT‑bestanden naar meerdere formaten, waaronder PDF, XPS, HTML, ODP en afbeeldingsformaten zoals PNG en JPEG.
-
-**Is het mogelijk om PPT naar PPTX te converteren zonder Microsoft PowerPoint geïnstalleerd te hebben?**
-
-Ja, Aspose.Slides for .NET is een zelfstandige API en vereist geen Microsoft PowerPoint of andere derde‑partijsoftware om de conversie uit te voeren.
-
-**Is er een online tool beschikbaar voor PPT‑naar‑PPTX‑conversie?**
-
-Ja, je kunt de gratis [Aspose.Slides PPT‑naar‑PPTX‑converter](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx) webapplicatie gebruiken om de conversie direct in je browser uit te voeren zonder code te schrijven.
+Bewaar het origineel totdat u het PPTX hebt geverifieerd in de viewers en werkstromen die voor u van belang zijn. Dit biedt een rollback‑kopie als een legacy‑functie anders wordt geconverteerd.

@@ -16,52 +16,117 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Konvertálja a régi PPT prezentációkat modern PPTX formátumba gyorsan C++-ban az Aspose.Slides segítségével — világos útmutató, ingyenes kódminták, Microsoft Office függőség nélkül."
+description: "Konvertálja a régi PPT fájlokat PPTX-be C++-ban az Aspose.Slides segítségével. Tartalmaz C++ példákat egyetlen fájl és kötegelt konverzióra, hiba-kezelésre és pontossági megjegyzésekre."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan lehet a PowerPoint bemutatót PPT formátumból PPTX formátumba konvertálni C++-ban. A következő téma kerül bemutatásra.
+A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for C++ képes PPT fájlt betölteni és PPTX‑ként menteni a Microsoft PowerPoint nélkül. Ez a cikk bemutatja, hogyan lehet egy fájlt vagy egy könyvtár fájljait konvertálni, és elmagyarázza, mit kell ellenőrizni a konverzió után.
 
-- PPT konvertálása PPTX-be C++-ban
+## **PPT fájl konvertálása PPTX‑be**
 
-## **PPT konvertálása PPTX-be C++-ban**
+Töltse be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztállyal, majd hívja meg a [Presentation::Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/save/) metódust a [SaveFormat::Pptx](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/saveformat/) argumentummal. Szabadítsa fel a prezentációt, amikor már nincs rá szükség, hogy felszabadítsa az erőforrásait.
 
-A C++ mintakód a PPT PPTX formátumba konvertálásához megtalálható az alábbi szakaszban, azaz [Convert PPT to PPTX](#convert-ppt-to-pptx). Ez csak betölti a PPT fájlt és PPTX formátumban menti. Különböző mentési formátumok megadásával a PPT fájlt más formátumokba is mentheti, például PDF, XPS, ODP, HTML stb., ahogyan ezeket a cikkeket is tárgyalja.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 
-- [PPT konvertálása PDF-be C++-ban](/slides/hu/cpp/convert-powerpoint-to-pdf/)
-- [PPT konvertálása XPS-be C++-ban](/slides/hu/cpp/convert-powerpoint-to-xps/)
-- [PPT konvertálása HTML-be C++-ban](/slides/hu/cpp/convert-powerpoint-to-html/)
-- [PPT konvertálása ODP-be C++-ban](/slides/hu/cpp/save-presentation/)
-- [PPT konvertálása PNG-be C++-ban](/slides/hu/cpp/convert-powerpoint-to-png/)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-## **PPT konvertálása PPTX-be**
+// Load the legacy PPT presentation.
+auto presentation = System::MakeObject<Presentation>(u"presentation.ppt");
 
-Egy PPT bemutató PPTX formátumba konvertálásához egyszerűen adja át a fájlnevet és a mentési formátumot a [Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/save/) metódusnak a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályban. Az alábbi C++ mintakód a bemutatót PPT‑ről PPTX‑re konvertálja az alapértelmezett beállításokkal. További információért tekintse meg ezt a dokumentációt [link](/slides/hu/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion).
+// Save the presentation in PPTX format.
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PPTtoPPTX-PPTtoPPTX.cpp" >}}
+A fájlkiterjesztés önmagában nem határozza meg a kimeneti formátumot; ezt a [SaveFormat::Pptx](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/saveformat/) argumentum végzi. Tartsa külön a bemeneti és kimeneti útvonalakat, ha meg kell őrizni az eredeti PPT fájlt.
+
+## **Több PPT fájl konvertálása**
+
+Az alábbi példa minden egyes `.ppt` fájlt egy könyvtárban konvertál. Minden fájl függetlenül kerül feldolgozásra, így egy hibás konverzió sem állítja meg a batch többi részét.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"input";
+String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory, u"*.ppt", SearchOption::TopDirectoryOnly);
+for (const auto& inputPath : inputPaths)
+{
+    auto outputFileName = Path::GetFileNameWithoutExtension(inputPath) + u".pptx";
+    auto outputPath = Path::Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+        presentation->Save(outputPath, SaveFormat::Pptx);
+        presentation->Dispose();
+        Console::WriteLine(String::Format(u"Converted: {0}", inputPath));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Failed: {0} ({1})", inputPath, exception->get_Message()));
+    }
+}
+```
+
+Éles környezetben naplózza a teljes kivételt, döntse el, felülírható-e egy meglévő kimeneti fájl, és írja a sikertelen fájlneveket egy újbóli próbálkozásra vagy felülvizsgálatra szánt sorba. Sérült fájlok, jelszóval védett fájlok a szükséges jelszó nélkül megnyitva, elérhetetlen útvonalak és nem támogatott tartalom is okozhatja a konverzió meghiúsulását. Lásd a [Password-Protected Presentations](/cpp/password-protected-presentation/) oldalt a titkosított fájlok betöltéséhez.
+
+## **Pontosság és örökölt funkciók**
+
+A konverzió általában megőrzi a diák, mesteroldalak, elrendezések, szöveg, alakzatok, képek, táblázatok és diagramok tartalmát. Azonban a PPT és PPTX nem minden funkciót ábrázol pontosan ugyanúgy. Egy örökölt funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálásra, kihagyásra vagy eltérő megjelenítésre kerülhet.
+
+Ellenőrizze a konvertált fájlt, ha animációkat, áttűnéseket, beágyazott vagy hivatkozott OLE objektumokat, ActiveX vezérlőket, beágyazott médiát, ritka betűtípusokat vagy VBA makrókat tartalmaz. A sima PPTX fájl nem makró‑támogatott formátum, ezért használjon megfelelő, makró‑támogatott munkafolyamatot, ha a VBA-nak elérhetőnek kell maradnia. Emellett ellenőrizze, hogy a szükséges betűtípusok és külső erőforrások rendelkezésre állnak‑e abban a környezetben, ahol a konvertált prezentáció meg lesz nyitva vagy renderelve.
+
+Fontos dokumentumok esetén nyissa meg programozottan az előállított PPTX‑et, ellenőrizze a kulcsfontosságú dia számokat és a tartalmat, majd hasonlítsa össze a megjelenését és a diavetítés viselkedését a kívánt megjelenítőben. Ne tekintse a sikeres [Presentation::Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/save/) hívást bizonyítéknak arra, hogy minden örökölt funkció pontos PPTX reprezentációval rendelkezik.
+
+## **Mikor érdemes PPTX‑et használni**
+
+Használjon PPTX‑et, ha a prezentációt a jelenlegi PowerPoint verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerekkel cserélik, vagy olyan formátumban tárolják, amely könnyebben ellenőrizhető és visszaállítható, mint a régi bináris PPT. Tartsa meg az eredeti PPT‑t archiválási vagy visszaállítási másolatként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseken.
+
+Ha PDF‑re, HTML‑re, képekre, XPS‑re vagy más kimeneti típusra van szüksége, használja a [Convert Presentations to Multiple Formats](/cpp/convert-presentation/) formátumspecifikus útmutatót, ahelyett, hogy feltételezné, hogy minden cél megőrzi a szerkeszthető PowerPoint funkciókat.
+
+## **Online konverter**
+
+Egy alkalmi fájl vagy gyors összehasonlítás esetén használhatja az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) eszközt. Ismételhető konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hiba­kezeléshez használja a C++ API‑t.
+
+## **Kapcsolódó cikkek**
+
+- [Prezentációk mentése C++](/cpp/save-presentation/)
+- [Támogatott fájlformátumok](/cpp/supported-file-formats/)
+- [Prezentációk megnyitása C++](/cpp/open-presentation/)
 
 ## **GYIK**
 
-**Mi a különbség a PPT és a PPTX formátumok között?**
+**Konvertálhatok PPT‑t PPTX‑be Microsoft PowerPoint telepítése nélkül?**
 
-A PPT a Microsoft PowerPoint által használt régebbi bináris fájlformátum, míg a PPTX az újabb, XML-alapú formátum, amelyet a Microsoft Office 2007 vezette be. A PPTX fájlok jobb teljesítményt, kisebb fájlméretet és fejlettebb adat‑helyreállítást biztosítanak.
+Igen. Az Aspose.Slides for C++ betölti és menti a prezentációs fájlokat anélkül, hogy a Microsoft PowerPoint szükséges lenne.
 
-**Támogatja az Aspose.Slides a több PPT fájl kötegelt PPTX-re konvertálását?**
+**A PPT‑ról PPTX‑re történő konverzió pontosan megőrzi az összes tartalmat?**
 
-Igen, az Aspose.Slides ciklusban használható több PPT fájl programozott PPTX-re konvertálásához, így alkalmas kötegelt konverziós forgatókönyvekre.
+Megőrzi a gyakori prezentációs tartalmakat, de a pontos pontosság nem garantált minden örökölt vagy nem támogatott funkcióra. Tekintse át a generált fájlt, ha makrókat, OLE vagy ActiveX objektumokat, médiát, speciális animációkat vagy ritka betűtípusokat tartalmaz.
 
-**Megmarad a tartalom és a formázás a konverzió után?**
+**Konvertálhatok jelszóval védett PPT fájlt?**
 
-Az Aspose.Slides nagy pontossággal konvertálja a bemutatókat. A diaelrendezések, animációk, alakzatok, diagramok és egyéb tervezési elemek megmaradnak a PPT‑ről PPTX‑re történő konverzió során.
+Igen, ha a betöltéskor megadja a helyes jelszót. Hiányzó vagy helytelen jelszó esetén a betöltési művelet hibára fut.
 
-**Átalakíthatok más formátumokat, például PDF vagy HTML, PPT fájlokból?**
+**Töröljem a PPT fájlt a konverzió után?**
 
-Igen, az Aspose.Slides támogatja a PPT fájlok több formátumba történő konvertálását, többek között PDF, XPS, HTML, ODP és képfájlformátumok, mint a PNG és a JPEG.
-
-**Lehetséges PPT‑t PPTX‑re konvertálni a Microsoft PowerPoint telepítése nélkül?**
-
-Igen, az Aspose.Slides egy önálló API, amely nem igényli a Microsoft PowerPoint vagy bármely harmadik féltől származó szoftver telepítését a konverzióhoz.
-
-**Elérhető online eszköz PPT‑ről PPTX‑re konvertáláshoz?**
-
-Igen, használhatja az ingyenes [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) webalkalmazást a konverzió elvégzéséhez közvetlenül a böngészőjében, kód írása nélkül.
+Tartsa meg az eredetit, amíg ellenőrizte a PPTX‑et a releváns megjelenítőkben és munkafolyamatokban. Ez visszaállítási másolatot biztosít, ha egy örökölt funkció másként konvertálódik.

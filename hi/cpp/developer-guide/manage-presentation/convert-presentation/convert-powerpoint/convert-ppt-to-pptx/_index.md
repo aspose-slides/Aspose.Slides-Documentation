@@ -1,66 +1,132 @@
 ---
-title: "C++ में PPT को PPTX में बदलें"
-linktitle: "PPT को PPTX"
+title: C++ में PPT को PPTX में बदलें
+linktitle: PPT से PPTX
 type: docs
 weight: 20
 url: /hi/cpp/convert-ppt-to-pptx/
 keywords:
-- "PowerPoint रूपांतरित करें"
-- "प्रेज़ेंटेशन परिवर्तित करें"
-- "स्लाइड परिवर्तित करें"
-- "PPT रूपांतरित करें"
-- "PPT से PPTX"
-- "PPT को PPTX के रूप में सहेजें"
-- "PPT को PPTX में निर्यात करें"
-- "PowerPoint"
-- "प्रेज़ेंटेशन"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides के साथ C++ में पुरानी PPT प्रस्तुतियों को आधुनिक PPTX में तेज़ी से बदलें — स्पष्ट ट्यूटोरियल, मुफ्त कोड नमूने, कोई Microsoft Office निर्भरता नहीं।"
+- PowerPoint परिवर्तित करें
+- प्रेजेंटेशन बदलें
+- स्लाइड बदलें
+- PPT बदलें
+- PPT से PPTX
+- PPT को PPTX के रूप में सहेजें
+- PPT को PPTX में निर्यात करें
+- PowerPoint
+- प्रेजेंटेशन
+- C++
+- Aspose.Slides
+description: "Aspose.Slides के साथ C++ में लेगेसी PPT फ़ाइलों को PPTX में बदलें। इसमें एकल-फ़ाइल और बैच रूपांतरण, त्रुटि संचालन, और सटीकता नोट्स के लिए C++ उदाहरण शामिल हैं।"
 ---
 ## **अवलोकन**
 
-यह लेख समझाता है कि C++ का उपयोग करके PowerPoint प्रस्तुति को PPT फ़ॉर्मेट से PPTX फ़ॉर्मेट में कैसे बदलें। नीचे दिया गया विषय कवर किया गया है।
+PPT एक लेगेसी बाइनरी PowerPoint फ़ॉर्मेट है, जबकि PPTX नया Open XML फ़ॉर्मेट है। Aspose.Slides for C++ Microsoft PowerPoint के बिना PPT फ़ाइल को लोड कर सकता है और उसे PPTX के रूप में सहेज सकता है। यह लेख दिखाता है कि कैसे एक फ़ाइल या फ़ाइलों की डिरेक्टरी को बदलना है और परिवर्तन के बाद क्या सत्यापित करना चाहिए।
 
-- C++ में PPT को PPTX में परिवर्तित करें
+## **PPT फ़ाइल को PPTX में बदलें**
 
-## **C++ में PPT को PPTX में परिवर्तित करें**
+स्रोत फ़ाइल को [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास से लोड करें, फिर [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) को [SaveFormat::Pptx](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveformat/) के साथ कॉल करें। जब प्रस्तुति अब आवश्यक न हो तो उसे Dispose करके उसके संसाधनों को मुक्त करें।
 
-C++ नमूना कोड के लिए जो PPT को PPTX में बदलता है, कृपया नीचे दिए गए अनुभाग देखें अर्थात्[Convert PPT to PPTX](#convert-ppt-to-pptx)। यह सिर्फ PPT फ़ाइल को लोड करता है और इसे PPTX फ़ॉर्मेट में सहेजता है। विभिन्न सहेजने के फ़ॉर्मेट निर्दिष्ट करके, आप PPT फ़ाइल को कई अन्य फ़ॉर्मेट में भी सहेज सकते हैं जैसे PDF, XPS, ODP, HTML आदि, जैसा कि इन लेखों में चर्चा की गई है।
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 
-- [C++ में PPT को PDF में बदलें](/slides/hi/cpp/convert-powerpoint-to-pdf/)
-- [C++ में PPT को XPS में बदलें](/slides/hi/cpp/convert-powerpoint-to-xps/)
-- [C++ में PPT को HTML में बदलें](/slides/hi/cpp/convert-powerpoint-to-html/)
-- [C++ में PPT को ODP में बदलें](/slides/hi/cpp/save-presentation/)
-- [C++ में PPT को PNG में बदलें](/slides/hi/cpp/convert-powerpoint-to-png/)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-## **PPT को PPTX में बदलें**
-PPT प्रस्तुति को PPTX में बदलने के लिए बस फ़ाइल नाम और सहेजने का फ़ॉर्मेट [Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड को [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का उपयोग करके पास करें। नीचे दिया गया C++ कोड नमूना डिफ़ॉल्ट विकल्पों के साथ PPT को PPTX में बदलता है। अधिक जानकारी के लिए कृपया इस दस्तावेज़ को देखें [link](/slides/hi/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion)।
+// Load the legacy PPT presentation.
+auto presentation = System::MakeObject<Presentation>(u"presentation.ppt");
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PPTtoPPTX-PPTtoPPTX.cpp" >}}
+// Save the presentation in PPTX format.
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+फ़ाइल एक्सटेंशन स्वयं आउटपुट फ़ॉर्मेट का चयन नहीं करता; यह [SaveFormat::Pptx](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveformat/) तर्क करता है। यदि आपको मूल PPT फ़ाइल को बनाए रखना है तो इनपुट और आउटपुट पाथ अलग रखें।
 
-**PPT और PPTX फ़ॉर्मेट में क्या अंतर है?**
+## **एकाधिक PPT फ़ाइलों को बदलें**
 
-PPT माइक्रोसॉफ्ट PowerPoint द्वारा उपयोग किया जाने वाला पुराना बाइनरी फ़ाइल फ़ॉर्मेट है, जबकि PPTX माइक्रोसॉफ्ट Office 2007 के साथ प्रस्तुत किया गया नया XML‑आधारित फ़ॉर्मेट है। PPTX फ़ाइलें बेहतर प्रदर्शन, कम फ़ाइल आकार और सुधरित डेटा पुनर्प्राप्ति प्रदान करती हैं।
+निम्नलिखित उदाहरण एक डायरेक्ट्री में सभी `.ppt` फ़ाइलों को बदलता है। प्रत्येक फ़ाइल को स्वतंत्र रूप से प्रोसेस किया जाता है, इसलिए एक विफल परिवर्तन बाकी बैच को नहीं रोकता।
 
-**क्या Aspose.Slides कई PPT फ़ाइलों को PPTX में बैच रूपांतरण का समर्थन करता है?**
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/object_ext.h>
+#include <system/string.h>
 
-हाँ, आप Aspose.Slides को लूप में उपयोग करके कई PPT फ़ाइलों को प्रोग्रामmatically रूप से PPTX में बदल सकते हैं, जिससे यह बैच रूपांतरण परिदृश्यों के लिए उपयुक्त बनता है।
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-**क्या रूपांतरण के बाद सामग्री और स्वरूप बनाए रखे जाएंगे?**
+String inputDirectory = u"input";
+String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
 
-Aspose.Slides प्रस्तुतियों को बदलते समय उच्च सटीकता बनाए रखता है। स्लाइड लेआउट, एनीमेशन, आकार, चार्ट और अन्य डिजाइन तत्व PPT से PPTX रूपांतरण के दौरान संरक्षित रहते हैं।
+auto inputPaths = Directory::GetFiles(inputDirectory, u"*.ppt", SearchOption::TopDirectoryOnly);
+for (const auto& inputPath : inputPaths)
+{
+    auto outputFileName = Path::GetFileNameWithoutExtension(inputPath) + u".pptx";
+    auto outputPath = Path::Combine(outputDirectory, outputFileName);
 
-**क्या मैं PPT फ़ाइलों से PDF या HTML जैसे अन्य फ़ॉर्मेट में बदल सकता हूँ?**
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+        presentation->Save(outputPath, SaveFormat::Pptx);
+        presentation->Dispose();
+        Console::WriteLine(String::Format(u"Converted: {0}", inputPath));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Failed: {0} ({1})", inputPath, exception->get_Message()));
+    }
+}
+```
 
-हाँ, Aspose.Slides PPT फ़ाइलों को कई फ़ॉर्मेट में बदलने का समर्थन करता है, जिसमें PDF, XPS, HTML, ODP, और PNG तथा JPEG जैसे इमेज फ़ॉर्मेट शामिल हैं।
+प्रोडक्शन कार्यभार के लिए, पूर्ण अपवाद को लॉग करें, तय करें कि मौजूदा आउटपुट फ़ाइल को ओवरराइट किया जा सकता है या नहीं, और विफल फ़ाइल नामों को पुनः प्रयास या समीक्षा कतार में लिखें। दूषित फ़ाइलें, पासवर्ड‑सुरक्षित फ़ाइलें जो बिना आवश्यक पासवर्ड के खोली गई हैं, असुविधाजनक पाथ, और असमर्थित सामग्री सभी परिवर्तन को विफल कर सकते हैं। एन्क्रिप्टेड फ़ाइलों को लोड करने के लिए [Password-Protected Presentations](/cpp/password-protected-presentation/) देखें।
 
-**क्या Microsoft PowerPoint स्थापित किए बिना PPT को PPTX में बदलना संभव है?**
+## **सटीकता और लेगेसी सुविधाएँ**
 
-हाँ, Aspose.Slides एक स्वतंत्र API है और रूपांतरण करने के लिए Microsoft PowerPoint या किसी तीसरे पक्ष के सॉफ़्टवेयर की जरूरत नहीं होती।
+परिवर्तन सामान्यतः स्लाइड्स, मास्टर्स, लेआउट्स, टेक्स्ट, शेप्स, इमेजेज, टेबल्स और चार्ट्स को बनाए रखता है। हालांकि, PPT और PPTX हर सुविधा को बिल्कुल समान तरीके से नहीं दर्शाते। ऐसी लेगेसी सुविधा जिसके पास कोई PPTX समकक्ष नहीं है, या लाइब्रेरी द्वारा समर्थित नहीं है, उसे सामान्यीकृत, हटाया या अलग ढंग से प्रदर्शित किया जा सकता है।
 
-**क्या PPT को PPTX में बदलने के लिए कोई ऑनलाइन टूल उपलब्ध है?**
+जब परिवर्तित फ़ाइल में एनीमेशन, ट्रांज़िशन, एम्बेडेड या लिंक्ड OLE ऑब्जेक्ट्स, ActiveX कंट्रोल्स, एम्बेडेड मीडिया, दुर्लभ फ़ॉन्ट्स, या VBA मैक्रोज़ हों, तो फ़ाइल की जाँच करें। एक साधारण PPTX फ़ाइल मैक्रो‑सक्षम फ़ॉर्मेट नहीं है, इसलिए जब VBA उपलब्ध रहना आवश्यक हो तो उचित मैक्रो‑सक्षम कार्यप्रवाह का उपयोग करें। साथ ही यह सत्यापित करें कि आवश्यक फ़ॉन्ट्स और बाहरी संसाधन उस वातावरण में मौजूद हैं जहाँ परिवर्तित प्रस्तुति को खोला या रेंडर किया जाएगा।
 
-हाँ, आप मुफ्त[Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/hi/conversion/ppt-to-pptx) वेब एप्लिकेशन का उपयोग करके अपने ब्राउज़र में सीधे कोड लिखे बिना रूपांतरण कर सकते हैं।
+महत्वपूर्ण दस्तावेज़ों के लिए, उत्पन्न PPTX को प्रोग्रामेटिक रूप से पुनः खोलें और मुख्य स्लाइड गिनती और सामग्री की जाँच करें, फिर उसे इच्छित व्यूअर में प्रदर्शित होने के रूप और स्लाइड‑शो व्यवहार से तुलना करें। यह न समझें कि सफल [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) कॉल यह प्रमाण है कि हर लेगेसी सुविधा का सटीक PPTX प्रतिनिधित्व है।
+
+## **जब PPTX का उपयोग करें**
+
+PPTX का उपयोग तब करें जब प्रस्तुति को वर्तमान PowerPoint संस्करणों में संपादित किया जाएगा, Open XML पैकेजों के साथ काम करने वाले सिस्टमों के साथ आदान‑प्रदान किया जाएगा, या इसे ऐसे फ़ॉर्मेट में संग्रहीत किया जाए जो लेगेसी बाइनरी PPT की तुलना में निरीक्षण और पुनर्प्राप्ति में आसान हो। मूल PPT को एक संग्रह या रोलबैक प्रतिलिपि के रूप में रखें जब तक कि परिवर्तित प्रस्तुति आपके सटीकता परीक्षणों को पास न कर ले।
+
+यदि आपको PDF, HTML, इमेजेज, XPS, या कोई अन्य आउटपुट प्रकार चाहिए, तो सभी लक्ष्यों के संपादन योग्य PowerPoint सुविधाओं को संरक्षित करने का अनुमान लगाने के बजाय [Convert Presentations to Multiple Formats](/cpp/convert-presentation/) में दिए गए फ़ॉर्मेट‑विशिष्ट मार्गदर्शन का उपयोग करें।
+
+## **ऑनलाइन कन्वर्टर**
+
+कभी‑कभी फ़ाइल या त्वरित तुलना के लिए, आप [online PPT to PPTX converter](https://products.aspose.app/slides/hi/conversion/ppt-to-pptx) का उपयोग कर सकते हैं। दोहराने योग्य परिवर्तन, बैच प्रोसेसिंग, या एप्लिकेशन‑स्तरीय त्रुटि संभालने के लिए C++ API का उपयोग करें।
+
+## **संबंधित लेख**
+
+- [C++ में प्रेजेंटेशन्स सहेजें](/cpp/save-presentation/)
+- [समर्थित फ़ाइल फ़ॉर्मेट्स](/cpp/supported-file-formats/)
+- [C++ में प्रेजेंटेशन्स खोलें](/cpp/open-presentation/)
+
+## **अक्सर पूछे गये प्रश्न**
+
+**क्या मैं Microsoft PowerPoint स्थापित किए बिना PPT को PPTX में बदल सकता हूँ?**
+
+हाँ। Aspose.Slides for C++ Microsoft PowerPoint की आवश्यकता के बिना प्रेजेंटेशन फ़ाइलों को लोड और सहेजता है।
+
+**क्या PPT‑to‑PPTX परिवर्तन सभी सामग्री को बिल्कुल संरक्षित करेगा?**
+
+यह सामान्य प्रेजेंटेशन सामग्री को संरक्षित करता है, लेकिन प्रत्येक लेगेसी या असमर्थित सुविधा के लिए सटीक सटीकता की गारंटी नहीं है। जब उत्पन्न फ़ाइल में मैक्रो, OLE या ActiveX ऑब्जेक्ट्स, मीडिया, विशिष्ट एनीमेशन, या दुर्लभ फ़ॉन्ट्स हों तो फ़ाइल की समीक्षा करें।
+
+**क्या मैं पासवर्ड‑सुरक्षित PPT फ़ाइल को बदल सकता हूँ?**
+
+हाँ, यदि आप फ़ाइल को लोड करते समय सही पासवर्ड प्रदान करते हैं। यदि पासवर्ड अनुपलब्ध या गलत है तो लोड ऑपरेशन विफल हो जाता है।
+
+**क्या मुझे परिवर्तन के बाद PPT फ़ाइल हटानी चाहिए?**
+
+मूल फ़ाइल को तब तक रखें जब तक आप उन व्यूअर्स और कार्यप्रवाहों में PPTX की पुष्टि नहीं कर लेते जो आपके लिए महत्वपूर्ण हैं। यदि कोई लेगेसी सुविधा अलग ढंग से बदलती है तो यह एक रोलबैक प्रतिलिपि प्रदान करता है।

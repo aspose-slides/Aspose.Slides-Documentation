@@ -1,6 +1,6 @@
 ---
 title: 在 Android 上将 PPT 转换为 PPTX
-linktitle: PPT 转 PPTX
+linktitle: PPT 到 PPTX
 type: docs
 weight: 20
 url: /zh/androidjava/convert-ppt-to-pptx/
@@ -9,7 +9,7 @@ keywords:
 - 转换 演示文稿
 - 转换 幻灯片
 - 转换 PPT
-- PPT 转 PPTX
+- PPT 到 PPTX
 - 将 PPT 保存为 PPTX
 - 导出 PPT 为 PPTX
 - PowerPoint
@@ -17,97 +17,107 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 在 Java 中快速将旧版 PPT 演示文稿转换为现代 PPTX — 教程清晰，提供免费代码示例，无需 Microsoft Office 依赖。"
+description: "使用 Aspose.Slides 在 Android 上将旧版 PPT 文件转换为 PPTX。包括单文件和批量转换的 Java 示例、错误处理以及保真度说明。"
 ---
-
 ## **概述**
 
-本文说明如何使用 Java 和在线 PPT 转 PPTX 转换应用程序，将 PowerPoint 演示文稿的 PPT 格式转换为 PPTX 格式。涉及以下主题。
+PPT 是传统的二进制 PowerPoint 格式，而 PPTX 是更新的 Open XML 格式。Aspose.Slides for Android via Java 可以在没有 Microsoft PowerPoint 的情况下加载 PPT 文件并将其保存为 PPTX。本文介绍如何转换单个文件或文件夹中的文件，并说明转换后需要验证的内容。
 
-- 将 PPT 转换为 PPTX（Java）
+## **将 PPT 文件转换为 PPTX**
 
-## **在 Android 上将 PPT 转换为 PPTX**
+使用 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类加载源文件，然后调用带有 [SaveFormat.Pptx](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/saveformat/#Pptx) 参数的 [Presentation.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法。`finally` 块会释放演示文稿并释放其资源。
 
-有关将 PPT 转换为 PPTX 的 Java 示例代码，请参阅下面的章节，即[将 PPT 转换为 PPTX](#convert-ppt-to-pptx)。它仅加载 PPT 文件并以 PPTX 格式保存。通过指定不同的保存格式，还可以将 PPT 文件保存为 PDF、XPS、ODP、HTML 等多种格式，详见这些文章。
-
-- [在 Android 上将 PPT 转换为 PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/)
-- [在 Android 上将 PPT 转换为 XPS](/slides/zh/androidjava/convert-powerpoint-to-xps/)
-- [在 Android 上将 PPT 转换为 HTML](/slides/zh/androidjava/convert-powerpoint-to-html/)
-- [在 Android 上将 PPT 转换为 ODP](/slides/zh/androidjava/save-presentation/)
-- [在 Android 上将 PPT 转换为 PNG](/slides/zh/androidjava/convert-powerpoint-to-png/)
-
-## **关于 PPT 转 PPTX 转换**
-
-使用 Aspose.Slides API 将旧的 PPT 格式转换为 PPTX。如果需要将成千上万的 PPT 演示文稿转换为 PPTX 格式，最好的解决方案是以编程方式完成。使用 Aspose.Slides API 可以仅用几行代码实现。该 API 完全兼容 PPT 转 PPTX，并能够：
-
-- 转换复杂的母版、布局和幻灯片结构。
-- 转换包含图表的演示文稿。
-- 转换包含组合形状、自动形状（如矩形和椭圆）、自定义几何形状的演示文稿。
-- 转换对自动形状使用纹理和图片填充样式的演示文稿。
-- 转换包含占位符、文本框和文本持有者的演示文稿。
-
-{{% alert color="primary" %}} 
-
-查看[**Aspose.Slides PPT 转 PPTX 转换**](https://products.aspose.app/slides/conversion/ppt-to-pptx)应用程序：
-
-[](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-该应用基于[**Aspose.Slides API**](https://products.aspose.com/slides/androidjava/)构建，您可以看到基本 PPT 转 PPTX 转换功能的实时示例。Aspose.Slides Conversion 是一个 Web 应用，允许将 PPT 格式的演示文件拖入并下载已转换为 PPTX 的文件。
-
-查找其他实时的[**Aspose.Slides Conversion**](https://products.aspose.app/slides/conversion/)示例。
-{{% /alert %}} 
-
-## **将 PPT 转换为 PPTX**
-
-Aspose.Slides for Android via Java 现已为开发者提供通过[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)类实例访问 PPT 并将其转换为相应的[PPTX](https://docs.fileformat.com/presentation/pptx/)格式的能力。目前，它支持将[PPT ](https://docs.fileformat.com/presentation/ppt/)部分转换为 PPTX。
-
-Aspose.Slides for Android via Java 提供的[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)类表示一个**PPTX**演示文稿文件。实例化对象后，Presentation 类也可以访问**PPT**。下面的示例演示了如何将 PPT 演示文稿转换为 PPTX 演示文稿。
 ```java
-// 实例化一个表示 PPTX 文件的 Presentation 对象
-Presentation pres = new Presentation("Aspose.ppt");
+// 加载旧版 PPT 演示文稿.
+com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-// 将 PPTX 演示文稿保存为 PPTX 格式
-    pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
+    // 将演示文稿保存为 PPTX 格式.
+    presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+文件扩展名本身不会决定输出格式；必须使用 [SaveFormat.Pptx](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/saveformat/#Pptx) 参数来指定。若需保留原始 PPT 文件，请确保输入路径和输出路径不同。
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**图 1：源 PPT 演示文稿**|
+## **转换多个 PPT 文件**
 
-上述代码片段在转换后生成了以下 PPTX 演示文稿
+以下示例将一个目录中的所有 `.ppt` 文件逐个转换。每个文件独立处理，单个转换失败不会导致其余批次停止。
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**图 2：转换后生成的 PPTX 演示文稿**|
+```java
+java.io.File inputDirectory = new java.io.File("input");
+java.io.File outputDirectory = new java.io.File("output");
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    throw new IllegalStateException("Cannot create the output directory: " + outputDirectory);
+}
+
+java.io.File[] inputFiles = inputDirectory.listFiles((directory, name) -> name.toLowerCase(java.util.Locale.ROOT).endsWith(".ppt"));
+if (inputFiles == null) {
+    throw new IllegalStateException("Cannot read the input directory: " + inputDirectory);
+}
+
+for (java.io.File inputFile : inputFiles) {
+    String inputPath = inputFile.getPath();
+    String fileName = inputFile.getName();
+    String outputFileName = fileName.substring(0, fileName.length() - 4) + ".pptx";
+    String outputPath = new java.io.File(outputDirectory, outputFileName).getPath();
+    com.aspose.slides.Presentation presentation = null;
+
+    try {
+        presentation = new com.aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, com.aspose.slides.SaveFormat.Pptx);
+        System.out.println("Converted: " + inputPath);
+    } catch (Exception exception) {
+        System.err.println("Failed: " + inputPath + " (" + exception.getMessage() + ")");
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+在生产环境中，记录完整异常，决定是否覆盖已存在的输出文件，并将失败的文件名写入重试或审查队列。损坏的文件、未提供正确密码而打开的受密码保护的文件、不可访问的路径以及不受支持的内容都可能导致转换失败。有关加载加密文件，请参阅 [Password-Protected Presentations](/androidjava/password-protected-presentation/)。
+
+## **保真度和遗留功能**
+
+转换通常会保留幻灯片、母版、布局、文本、形状、图像、表格和图表。但 PPT 与 PPTX 并非以完全相同的方式表示所有功能。没有 PPTX 对应项的遗留功能，或库不支持的功能，可能会被标准化、忽略或以不同方式显示。
+
+当转换的文件包含动画、转场、嵌入或链接的 OLE 对象、ActiveX 控件、嵌入媒体、非常规字体或 VBA 宏时，请检查转换结果。普通 PPTX 文件不是宏启用格式，如需保留 VBA，请使用相应的宏启用工作流。同时确认所需字体和外部资源在打开或渲染转换后演示文稿的环境中可用。
+
+对于重要文档，建议以编程方式重新打开生成的 PPTX，检查关键幻灯片数量和内容，然后在目标查看器中比较其外观和放映行为。不要因为一次成功的 [Presentation.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 调用就认为每个遗留功能都有完全对应的 PPTX 表现。
+
+## **何时使用 PPTX**
+
+当演示文稿将在当前版本的 PowerPoint 中进行编辑、需要与支持 Open XML 包的系统交换，或希望以更易检查和恢复的格式存储时，请使用 PPTX。保留原始 PPT 作为归档或回滚副本，直至转换后的演示文稿通过您的保真度检查。
+
+如果需要 PDF、HTML、图像、XPS 或其他输出格式，请参考 [Convert Presentations to Multiple Formats](/androidjava/convert-presentation/) 中的特定格式指南，而不要假设所有目标都保留可编辑的 PowerPoint 功能。
+
+## **在线转换器**
+
+对于偶尔的文件或快速对比，您可以使用 [online PPT to PPTX converter](https://products.aspose.app/slides/zh/conversion/ppt-to-pptx)。对于可重复的转换、批处理或应用级错误处理，请使用 Android via Java API。
+
+## **相关文章**
+
+- [PPT 与 PPTX](/androidjava/ppt-vs-pptx/)
+- [在 Android 上保存演示文稿](/androidjava/save-presentation/)
+- [受支持的文件格式](/androidjava/supported-file-formats/)
+- [在 Android 上打开演示文稿](/androidjava/open-presentation/)
 
 ## **常见问题**
 
-**PPT 与 PPTX 格式有什么区别？**
+**我可以在没有安装 Microsoft PowerPoint 的情况下将 PPT 转换为 PPTX 吗？**
 
-PPT 是 Microsoft PowerPoint 使用的较早的二进制文件格式，而 PPTX 是自 Microsoft Office 2007 起引入的基于 XML 的新格式。PPTX 文件具有更好的性能、更小的文件大小以及更完善的数据恢复能力。
+可以。Aspose.Slides for Android via Java 能够加载和保存演示文稿文件，而无需 Microsoft PowerPoint。
 
-**Aspose.Slides 是否支持批量将多个 PPT 文件转换为 PPTX？**
+**PPT 转换为 PPTX 能够完全保留所有内容吗？**
 
-是的，您可以在循环中使用 Aspose.Slides 以编程方式批量将多个 PPT 文件转换为 PPTX，适用于批量转换场景。
+它会保留常见的演示文稿内容，但对每个遗留或不受支持的功能并不能保证完全一致的保真度。当文件包含宏、OLE 或 ActiveX 对象、媒体、特定动画或非常规字体时，请检查生成的文件。
 
-**转换后内容和格式会被保留吗？**
+**我可以转换受密码保护的 PPT 文件吗？**
 
-Aspose.Slides 在转换演示文稿时保持高度保真。幻灯片布局、动画、形状、图表以及其他设计元素在 PPT 转 PPTX 的过程中都会得到保留。
+可以，只要在加载文件时提供正确的密码。如果密码缺失或不正确，加载操作将失败。
 
-**我可以将 PPT 文件转换为 PDF 或 HTML 等其他格式吗？**
+**转换后我应该删除 PPT 文件吗？**
 
-可以，Aspose.Slides 支持将 PPT 文件转换为[多种格式](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/)，包括 PDF、XPS、HTML、ODP，以及 PNG、JPEG 等图像格式。
-
-**是否可以在未安装 Microsoft PowerPoint 的情况下将 PPT 转换为 PPTX？**
-
-可以，Aspose.Slides 是独立的 API，无需安装 Microsoft PowerPoint 或任何第三方软件即可完成转换。
-
-**是否有可用于 PPT 转 PPTX 转换的在线工具？**
-
-可以使用免费[Aspose.Slides PPT 转 PPTX 转换器](https://products.aspose.app/slides/conversion/ppt-to-pptx) Web 应用，在浏览器中直接完成转换，无需编写任何代码。
+请保留原始文件，直至您在相关查看器和工作流中验证了 PPTX。这样若某些遗留功能转换后有所不同，您仍有回滚副本。

@@ -17,86 +17,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Rychle převést staré PPT prezentace na moderní PPTX v .NET pomocí Aspose.Slides — přehledný tutoriál, zdarma ukázky kódu v C#, bez závislosti na Microsoft Office."
+description: "Převod starých souborů PPT na PPTX v .NET pomocí Aspose.Slides. Zahrnuje příklady v C# pro převod jednotlivých souborů i dávkový převod, zpracování chyb a poznámky o věrnosti."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak převést prezentaci PowerPoint ve formátu PPT na formát PPTX pomocí C# a online aplikace pro převod PPT na PPTX. Pokrývá následující téma.
+PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides pro .NET může načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co je třeba zkontrolovat po konverzi.
 
-- [Convert PPT to PPTX in C#](#convert-ppt-to-pptx)
+## **Převod souboru PPT na PPTX**
 
-## **Convert PPT to PPTX v .NET**
+Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/), poté zavolejte [IPresentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/save/) s parametrem [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveformat/). Deklarace `using` uvolní prezentaci a její prostředky po ukončení rozsahu.
 
-Pro ukázkový kód v C# převádějící PPT na PPTX viz část níže tj. [Convert PPT to PPTX](#convert-ppt-to-pptx). Stačí načíst soubor PPT a uložit jej ve formátu PPTX. Specifikací různých formátů uložení můžete PPT soubor uložit i do mnoha dalších formátů, jako PDF, XPS, ODP, HTML atd., jak je diskutováno v těchto článcích.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- [Convert PPT to PDF in .NET](/slides/cs/net/convert-powerpoint-to-pdf/)
-- [Convert PPT to XPS in .NET](/slides/cs/net/convert-powerpoint-to-xps/)
-- [Convert PPT to HTML in .NET](/slides/cs/net/convert-powerpoint-to-html/)
-- [Convert PPT to ODP in .NET](/slides/cs/net/save-presentation/)
-- [Convert PPT to PNG in .NET](/slides/cs/net/convert-powerpoint-to-png/)
+// Načíst starou PPT prezentaci.
+using var presentation = new Presentation("presentation.ppt");
 
-## **O převodu PPT na PPTX**
-Převod starého formátu PPT na PPTX pomocí Aspose.Slides API. Pokud potřebujete převést tisíce prezentací PPT na formát PPTX, nejlepší řešení je provést to programově. S Aspose.Slides API je to možné udělat jen v několika řádcích kódu. API podporuje úplnou kompatibilitu při převodu PPT prezentací na PPTX a umožňuje:
-
-- Převod složitých struktur masterů, rozvržení a snímků.
-- Převod prezentací s grafy.
-- Převod prezentací se skupinovými tvary, automatickými tvary (jako obdélníky a elipsy), tvary se speciální geometrií.
-- Převod prezentací s texturami a obrázky vyplňujícími automatické tvary.
-- Převod prezentací s místními držáky, textovými rámečky a textovými držáky.
-
-{{% alert color="primary" %}} 
-
-Podívejte se na **Aspose.Slides PPT to PPTX Conversion** aplikaci:
-
-[](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx)
-
-Tato aplikace je postavena na **Aspose.Slides API**, takže můžete vidět živý příklad základních možností převodu PPT na PPTX. Aspose.Slides Conversion je webová aplikace, která umožňuje přetáhnout soubor prezentace ve formátu PPT a stáhnout jej převedený na PPTX.
-
-Najděte další živé **Aspose.Slides Conversion** příklady.
-{{% /alert %}} 
-
-
-## **Convert PPT to PPTX**
-Pro převod PPT na PPTX stačí předat název souboru a formát uložení metodě **Save** třídy **Presentation**. Níže uvedený C# kód převádí prezentaci z PPT na PPTX pomocí výchozích možností.
-
-```c#
-// Vytvořte objekt Presentation, který představuje soubor PPTX
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// Ukládání prezentace PPTX do formátu PPTX
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Uložit prezentaci ve formátu PPTX.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Přečtěte si více o formátech prezentací **PPT vs PPTX**(/slides/cs/net/ppt-vs-pptx/) a o tom, jak **Aspose.Slides podporuje převod PPT na PPTX**(/slides/cs/net/convert-ppt-to-pptx/).
+Přípona souboru sama o sobě nevybírá výstupní formát; argument [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveformat/) to dělá. Pokud potřebujete zachovat původní soubor PPT, mějte vstupní a výstupní cesty odlišné.
 
-## **FAQ**
+## **Převod více souborů PPT**
 
-**Jaký je rozdíl mezi formáty PPT a PPTX?**
+Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže jeden neúspěšný převod nepozastaví zbytek dávky.
 
-PPT je starší binární formát souboru používaný Microsoft PowerPoint, zatímco PPTX je novější formát založený na XML, zavedený s Microsoft Office 2007. Soubory PPTX nabízejí lepší výkon, menší velikost souboru a vylepšené obnovení dat.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**Mohu převést PPT na PPTX pomocí .NET?**
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
 
-Ano, pomocí knihovny Aspose.Slides pro .NET můžete snadno načíst soubor PPT a uložit jej ve formátu PPTX během několika řádků kódu.
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
 
-**Podporuje Aspose.Slides hromadný převod více souborů PPT na PPTX?**
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
 
-Ano, můžete použít Aspose.Slides ve smyčce k programovému převodu více souborů PPT na PPTX, což je vhodné pro scénáře hromadného převodu.
+Pro produkční úlohy zaznamenejte kompletní výjimku, rozhodněte, zda lze přepsat existující výstupní soubor, a zapište názvy neúspěšných souborů do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou způsobit selhání konverze. Viz [Password-Protected Presentations](/slides/cs/net/password-protected-presentation/) pro načítání šifrovaných souborů.
 
-**Zůstane po převodu zachován obsah a formátování?**
+## **Věrnost a starší funkce**
 
-Aspose.Slides zachovává vysokou věrnost při převodu prezentací. Rozvržení snímků, animace, tvary, grafy a další návrhové prvky jsou během převodu PPT na PPTX zachovány.
+Konverze obvykle zachovává snímky, hlavní šablony, rozvržení, text, tvary, obrázky, tabulky a grafy. Nicméně PPT a PPTX nevyjadřují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX nebo není podporována knihovnou, může být normalizována, vynechána nebo zobrazena odlišně.
 
-**Mohu převést jiné formáty, jako PDF nebo HTML, ze souborů PPT?**
+Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo propojené OLE objekty, ActiveX ovládací prvky, vložená média, neobvyklá písma nebo VBA makra. Pouhý soubor PPTX není formát s podporou maker, takže použijte vhodný workflow s podporou maker, pokud musí být VBA dostupné. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, kde bude převedená prezentace otevřena nebo vykreslena.
 
-Ano, Aspose.Slides podporuje převod souborů PPT do více formátů, včetně PDF, XPS, HTML, ODP a obrazových formátů jako PNG a JPEG.
+U důležitých dokumentů znovu otevřete vygenerovaný PPTX programově a zkontrolujte klíčové počty snímků a obsah, poté porovnejte jeho vzhled a chování prezentace ve zamýšleném prohlížeči. Nepovažujte úspěšné volání [IPresentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/save/) za důkaz, že každá starší funkce má přesnou reprezentaci v PPTX.
 
-**Je možné převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
+## **Kdy použít PPTX**
 
-Ano, Aspose.Slides pro .NET je samostatné API a nevyžaduje Microsoft PowerPoint ani žádný software třetích stran pro provedení převodu.
+Použijte PPTX, pokud bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s balíčky Open XML, nebo uložena ve formátu, který je snazší prohlížet a obnovit než starý binární PPT. Ponechte původní PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontrolami věrnosti.
 
-**Existuje online nástroj pro převod PPT na PPTX?**
+Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v článku [Convert Presentations to Multiple Formats](/slides/cs/net/convert-presentation/) místo předpokladu, že všechny cíle zachovají upravitelná PowerPointová vylepšení.
 
-Ano, můžete použít bezplatnou webovou aplikaci **Aspose.Slides PPT to PPTX Converter**(https://products.aspose.app/slides/cs/conversion/ppt-to-pptx) k provedení převodu přímo ve vašem prohlížeči bez psaní kódu.
+## **Online konvertor**
+
+Pro příležitostný soubor nebo rychlé porovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx). Pro opakované konverze, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte .NET API.
+
+## **Související články**
+
+- [PPT vs PPTX](/slides/cs/net/ppt-vs-pptx/)
+- [Uložení prezentací v .NET](/slides/cs/net/save-presentation/)
+- [Podporované formáty souborů](/slides/cs/net/supported-file-formats/)
+- [Otevření prezentací v .NET](/slides/cs/net/open-presentation/)
+
+## **Často kladené otázky**
+
+**Mohu převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
+
+Ano. Aspose.Slides pro .NET načítá a ukládá soubory prezentací bez potřeby Microsoft PowerPoint.
+
+**Zachová konverze PPT na PPTX veškerý obsah přesně?**
+
+Zachovává běžný obsah prezentace, ale přesná věrnost není garantována pro každou starší nebo nepodporovanou funkci. Přezkoumejte vygenerovaný soubor, pokud obsahuje makra, OLE nebo ActiveX objekty, média, specializované animace nebo neobvyklá písma.
+
+**Mohu převést soubor PPT chráněný heslem?**
+
+Ano, pokud při načítání souboru zadáte správné heslo. Chybějící nebo nesprávné heslo způsobí selhání načítací operace.
+
+**Mám po konverzi smazat soubor PPT?**
+
+Ponechte původní soubor, dokud neověříte PPTX ve vizualizérech a pracovních postupech, které pro vás jsou důležité. Poskytuje to záložní kopii pro případ, že se starší funkce převede jinak.

@@ -5,93 +5,103 @@ type: docs
 weight: 20
 url: /hu/python-net/convert-ppt-to-pptx/
 keywords:
+- PowerPoint konvertálása
+- prezentáció konvertálása
+- dia konvertálása
 - PPT konvertálása
 - PPT PPTX-re
+- PPT mentése PPTX-ként
+- PPT exportálása PPTX-be
 - PowerPoint
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Konvertálja a régi PPT prezentációkat modern PPTX-re gyorsan Pythonban az Aspose.Slides segítségével – világos útmutató, ingyenes kódfelvételek, Microsoft Office függőség nélkül."
+description: "Konvertálja a régi PPT fájlokat PPTX-re Pythonban az Aspose.Slides segítségével. Tartalmaz példákat egyetlen fájl és kötegelt konverzióra, hibakezelésre és hűségi megjegyzésekre."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet egy PowerPoint‑prezentációt PPT formátumból PPTX formátumba konvertálni Python segítségével, valamint egy online PPT‑ről PPTX‑re konvertáló alkalmazással. A következő téma kerül bemutatásra:
+A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for Python via .NET betölthet egy PPT fájlt, és PPTX‑ként mentheti el anélkül, hogy a Microsoft PowerPoint telepítve lenne. Ez a cikk bemutatja, hogyan lehet egy fájlt vagy egy könyvtárban lévő fájlokat konvertálni, és megmagyarázza, mit kell ellenőrizni a konverzió után.
 
-- PPT átalakítása PPTX‑re Pythonban
+## **PPT fájl konvertálása PPTX‑re**
 
-## **Python PPT átalakítása PPTX‑re**
-
-A PPT‑ről PPTX‑re konvertáló Python mintakódért lásd az alábbi részt, azaz [PPT átalakítása PPTX‑re](#convert-ppt-to-pptx). Egyszerűen betölti a PPT fájlt és PPTX formátumban menti el. Különböző mentési formátumok megadásával a PPT fájlt számos egyéb formátumba is elmentheted, például PDF, XPS, ODP, HTML stb., amint az alábbi cikkekben le van írva:
-
-- [PPT átalakítása PDF‑re Pythonban](/slides/hu/python-net/convert-powerpoint-to-pdf/)
-- [PPT átalakítása XPS‑re Pythonban](/slides/hu/python-net/convert-powerpoint-to-xps/)
-- [PPT átalakítása HTML‑re Pythonban](/slides/hu/python-net/convert-powerpoint-to-html/)
-- [PPT átalakítása ODP‑re Pythonban](/slides/hu/python-net/save-presentation/)
-- [PPT átalakítása PNG‑re Pythonban](/slides/hu/python-net/convert-powerpoint-to-png/)
-
-## **A PPT‑ről PPTX‑re konvertálásról**
-A régi PPT formátum átalakítása PPTX‑re az Aspose.Slides API‑val. Ha több ezer PPT prezentációt kell PPTX formátumba konvertálni, a legjobb megoldás a programozott konvertálás. Az Aspose.Slides API‑val ez néhány sor kóddal megvalósítható. Az API teljes kompatibilitást biztosít a PPT‑ről PPTX‑re konvertáláshoz, és képes:
-
-- Bonyolult master‑, layout‑ és dia‑struktúrák konvertálására.
-- Prezentációk diagramokkal való konvertálására.
-- Csoportos alakzatok, auto‑alakzatok (például téglalapok és ellipszisek) és egyedi geometriájú alakzatok konvertálására.
-- Textúrákat és képpel kitöltött auto‑alakzatok konvertálására.
-- Helyőrzőkkel, szövegdobozokkal és szövegtartókkal rendelkező prezentációk konvertálására.
-
-{{% alert color="primary" %}}
-
-Nézd meg a **Aspose.Slides PPT‑ről PPTX‑re konvertáló** alkalmazást:
-
-[](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
-
-Ez az alkalmazás a **Aspose.Slides API**‑ra épül, így élő példát láthatsz az alap PPT‑ről PPTX‑re konvertálási lehetőségekről. Az Aspose.Slides Conversion egy webes alkalmazás, amely lehetővé teszi, hogy egy PPT formátumú prezentációs fájlt feltölts, és PPTX‑re konvertálva letöltsd.
-
-Találd meg a többi élő **Aspose.Slides Conversion** példát.
-{{% /alert %}}
-
-## **PPT átalakítása PPTX‑re**
-A PPT‑t PPTX‑re konvertáláshoz egyszerűen add át a fájl nevét és a mentési formátumot a **Save**(https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) metódusnak a **Presentation**(https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályon keresztül. Az alábbi Python kódminta alapértelmezett beállításokkal egy prezentációt konvertál PPT‑ről PPTX‑re.
+Töltsd be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztállyal, majd hívd a [Presentation.save](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/save/) metódust a [SaveFormat.PPTX](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/saveformat/) argumentummal. A `with` utasítás felszabadítja a prezentációt és annak erőforrásait, amikor a blokk véget ér.
 
 ```python
 import aspose.slides as slides
 
-# Hozzon létre egy Presentation objektumot, amely egy PPT fájlt képvisel
-pres = slides.Presentation("PPTtoPPTX.ppt")
-
-# Mentse a prezentációt PPTX formátumban
-pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
+# Töltsd be a régi PPT prezentációt.
+with slides.Presentation("presentation.ppt") as presentation:
+    # Mentsd a prezentációt PPTX formátumban.
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-További információk a **PPT vs PPTX**(/slides/hu/python-net/ppt-vs-pptx/) prezentációs formátumokról és arról, hogy **Az Aspose.Slides támogatja a PPT‑ről PPTX‑re konvertálást**(/slides/hu/python-net/convert-ppt-to-pptx/).
+A fájlkiterjesztés önmagában nem határozza meg a kimeneti formátumot; ezt a [SaveFormat.PPTX](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/saveformat/) argumentum biztosítja. Tartsd külön a bemeneti és kimeneti útvonalakat, ha meg szeretnéd őrizni az eredeti PPT fájlt.
+
+## **Több PPT fájl konvertálása**
+
+Az alábbi példa az adott könyvtárban található minden `.ppt` fájlt konvertálja. Minden fájlt önállóan dolgoz fel, így egy sikertelen konverzió sem állítja le a többi feldolgozását.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+input_directory = Path("input")
+output_directory = Path("output")
+output_directory.mkdir(parents=True, exist_ok=True)
+
+for input_path in input_directory.glob("*.ppt"):
+    output_path = output_directory / f"{input_path.stem}.pptx"
+
+    try:
+        with slides.Presentation(str(input_path)) as presentation:
+            presentation.save(str(output_path), slides.export.SaveFormat.PPTX)
+        print(f"Converted: {input_path}")
+    except Exception as exception:
+        print(f"Failed: {input_path} ({exception})")
+```
+
+Éles környezetben naplózd a teljes kivételt, dönts arról, hogy a meglévő kimeneti fájl felülírható‑e, és írd a sikertelen fájlneveket egy újrapróbálási vagy felülvizsgálati sorba. Sérült fájlok, a szükséges jelszó nélkül megnyitott jelszóval védett fájlok, elérhetetlen útvonalak és nem támogatott tartalom is okozhat konverziós hibát. Lásd a [Password-Protected Presentations](/python-net/password-protected-presentation/) oldalt a titkosított fájlok betöltéséhez.
+
+## **Hűség és örökölt funkciók**
+
+A konverzió általában megőrzi a diák, mester‑diák, elrendezések, szöveg, alakzatok, képek, táblázatok és diagramok tartalmát. Azonban a PPT és a PPTX nem minden funkciót ábrázol pontosan ugyanúgy. Egy örökölt funkció, amelynek nincs PPTX ekvivalense, vagy amelyet a könyvtár nem támogat, normalizálódhat, kihagyásra kerülhet, vagy eltérően jelenhet meg.
+
+Ellenőrizd a konvertált fájlt, ha animációkat, áttűnéseket, beágyazott vagy hivatkozott OLE objektumokat, ActiveX vezérlőket, beágyazott médiát, ritka betűkészleteket vagy VBA makrókat tartalmaz. Egy egyszerű PPTX fájl nem makró‑támogatott formátum, ezért megfelelő makró‑támogatott munkafolyamatot kell használni, ha a VBA‑nak elérhetőnek kell maradnia. Emellett ellenőrizd, hogy a szükséges betűkészletek és külső erőforrások jelen vannak-e abban a környezetben, ahol a konvertált prezentáció meg lesz nyitva vagy renderelve.
+
+Fontos dokumentumok esetén programozottan nyisd meg újra a létrehozott PPTX fájlt, ellenőrizd a kulcsdiák számát és tartalmát, majd hasonlítsd össze a megjelenését és a diavetítés viselkedését a célzott nézőprogramban. Ne tekintsd a sikeres [Presentation.save](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/save/) hívást bizonyítéknak arra, hogy minden örökölt funkció pontos PPTX reprezentációval rendelkezik.
+
+## **Mikor használjuk a PPTX‑et**
+
+Használd a PPTX‑et, ha a prezentációt a jelenlegi PowerPoint verziókban szeretnéd szerkeszteni, Open XML csomagokkal dolgozó rendszerekkel cserélni, vagy olyan formátumban tárolni, amely könnyebben ellenőrizhető és helyreállítható, mint a régi bináris PPT. Tartsd meg az eredeti PPT‑t archiválási vagy visszagörgetési példányként, amíg a konvertált prezentáció át nem esik a hűség‑ellenőrzéseken.
+
+Ha PDF‑re, HTML‑re, képekre, XPS‑re vagy egy másik kimeneti típusra van szükséged, használd a [Convert Presentations to Multiple Formats](/python-net/convert-presentation/) útmutatót a formához igazítva, ahelyett, hogy azt feltételeznéd, minden cél megőrzi a szerkeszthető PowerPoint funkciókat.
+
+## **Online konverter**
+
+Ritka fájlokhoz vagy gyors összehasonlításhoz használhatod az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) eszközt. Ismételhető konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hibakezeléshez használd a Python API‑t.
+
+## **Kapcsolódó cikkek**
+
+- [PPT vs PPTX](/python-net/ppt-vs-pptx/)
+- [Prezentációk mentése Pythonban](/python-net/save-presentation/)
+- [Támogatott fájlformátumok](/python-net/supported-file-formats/)
+- [Prezentációk megnyitása Pythonban](/python-net/open-presentation/)
 
 ## **GYIK**
 
-**Mi a különbség a PPT és a PPTX formátumok között?**
+**Átkonvertálhatom a PPT‑t PPTX‑re a Microsoft PowerPoint telepítése nélkül?**
 
-A PPT a Microsoft PowerPoint régebbi bináris fájlformátuma, míg a PPTX a Microsoft Office 2007‑től elérhető újabb XML‑alapú formátum. A PPTX fájlok jobb teljesítményt, kisebb méretet és fejlettebb adat-helyreállítást kínálnak.
+Igen. Az Aspose.Slides for Python via .NET betölti és menti a prezentációs fájlokat anélkül, hogy a Microsoft PowerPoint szükséges lenne.
 
-**Konvertálhatom-e a PPT‑t PPTX‑re Pythonból?**
+**A PPT‑ról PPTX‑re konverzió pontosan megőrzi az összes tartalmat?**
 
-Igen, az Aspose.Slides for Python via .NET könyvtár segítségével néhány sor kóddal egyszerűen betöltheted a PPT fájlt és PPTX formátumban elmentheted.
+Megőrzi a szokásos prezentációs tartalmakat, de a pontos hűség nem garantált minden örökölt vagy nem támogatott funkció esetén. Ellenőrizd a létrehozott fájlt, ha makrókat, OLE vagy ActiveX objektumokat, médiát, speciális animációkat vagy ritka betűkészleteket tartalmaz.
 
-**Támogatja-e az Aspose.Slides a több PPT fájl egyszerre történő batch konvertálását PPTX‑re?**
+**Átkonvertálhatok jelszóval védett PPT fájlt?**
 
-Igen, az Aspose.Slides‑t ciklusban használva programozottan konvertálhatod több PPT fájlt PPTX‑re, ami alkalmas batch konvertálási forgatókönyvekre.
+Igen, ha a betöltéskor a helyes jelszót adod meg. A hiányzó vagy helytelen jelszó a betöltési művelet hibáját eredményezi.
 
-**Megmaradnak‑e a tartalom és a formázás a konvertálás után?**
+**Törötnöm kell a PPT fájlt a konverzió után?**
 
-Az Aspose.Slides magas hűséggel konvertálja a prezentációkat. A diaelrendezések, animációk, alakzatok, diagramok és egyéb tervezési elemek megmaradnak a PPT‑ről PPTX‑re konvertálás során.
-
-**Konvertálhatok‑e más formátumokra, például PDF‑re vagy HTML‑re a PPT fájlokból?**
-
-Igen, az Aspose.Slides támogatja a PPT fájlok konvertálását több formátumba, például PDF, XPS, HTML, ODP és képfájlok (PNG, JPEG) formátumba.
-
-**Lehetséges‑e PPT‑t PPTX‑re konvertálni anélkül, hogy a Microsoft PowerPoint telepítve lenne?**
-
-Igen, az Aspose.Slides for Python via .NET egy önálló API, és nem igényel Microsoft PowerPoint‑ot vagy más külső szoftvert a konvertáláshoz.
-
-**Létezik‑e online eszköz PPT‑ről PPTX‑re konvertálásra?**
-
-Igen, ingyenesen használhatod az [Aspose.Slides PPT‑ről PPTX‑re konvertáló](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) webalkalmazást, amely közvetlenül a böngészőben végzi a konvertálást kód írása nélkül.
+Tartsd meg az eredetit, amíg a PPTX‑et le nem ellenőrzöd a számodra fontos nézők és munkafolyamatok szerint. Ez visszagörgetési példányt biztosít, ha egy örökölt funkció másképp konvertálódik.

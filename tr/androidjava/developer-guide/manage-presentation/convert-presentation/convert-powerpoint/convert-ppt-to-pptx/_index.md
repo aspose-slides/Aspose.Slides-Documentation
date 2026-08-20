@@ -1,5 +1,5 @@
 ---
-title: Android'de PPT'yi PPTX'e Dönüştür
+title: Android'de PPT'yi PPTX'e dönüştür
 linktitle: PPT'den PPTX'e
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - PowerPoint dönüştür
 - sunumu dönüştür
 - slaytı dönüştür
-- PPT'yi dönüştür
+- PPT dönüştür
 - PPT'den PPTX'e
 - PPT'yi PPTX olarak kaydet
 - PPT'yi PPTX'e dışa aktar
@@ -17,94 +17,107 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android ile Java'da eski PPT sunumlarını modern PPTX'e hızlıca dönüştürün — net öğretici, ücretsiz kod örnekleri, Microsoft Office bağımlılığı yok."
+description: "Aspose.Slides ile Android'de eski PPT dosyalarını PPTX'e dönüştürün. Tek dosya ve toplu dönüşüm, hata işleme ve doğruluk notaları için Java örneklerini içerir."
 ---
 ## **Genel Bakış**
 
-Bu makale, PowerPoint Sunumunu PPT formatından PPTX formatına Java kullanarak ve çevrimiçi PPT'den PPTX'e dönüşüm uygulamasıyla nasıl dönüştüreceğinizi açıklar. Aşağıdaki konu ele alınmıştır.
+PPT, eski ikili PowerPoint formatıdır, PPTX ise daha yeni Open XML formatıdır. Aspose.Slides for Android via Java, bir PPT dosyasını Microsoft PowerPoint olmadan yükleyebilir ve PPTX olarak kaydedebilir. Bu makale, bir dosya ya da bir dizindeki dosyaların nasıl dönüştürüleceğini gösterir ve dönüşüm sonrası neyin doğrulanması gerektiğini açıklar.
 
-- Java'da PPT'yi PPTX'e Dönüştürün
+## **Bir PPT Dosyasını PPTX'e Dönüştürme**
 
-## **Android'de PPT'yi PPTX'e Dönüştürün**
-
-PPT'yi PPTX'e dönüştürmek için Java örnek kodu için lütfen aşağıdaki bölüme bakın, yani [Convert PPT to PPTX](#convert-ppt-to-pptx). Bu sadece PPT dosyasını yükler ve PPTX formatında kaydeder. Farklı kaydetme formatları belirterek PPT dosyasını PDF, XPS, ODP, HTML vb. gibi birçok başka formata da kaydedebilirsiniz; bu makalelerde tartışıldığı gibi.
-
-- [Android'de PPT'yi PDF'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf/)
-- [Android'de PPT'yi XPS'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-xps/)
-- [Android'de PPT'yi HTML'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-html/)
-- [Android'de PPT'yi ODP'ye Dönüştür](/slides/tr/androidjava/save-presentation/)
-- [Android'de PPT'yi PNG'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-png/)
-
-## **PPT'den PPTX'e Dönüştürme Hakkında**
-Eski PPT formatını Aspose.Slides API ile PPTX'e dönüştürün. Binlerce PPT sunumunu PPTX formatına dönüştürmeniz gerekiyorsa, en iyi çözüm bunu programlı olarak yapmaktır. Aspose.Slides API sayesinde bunu sadece birkaç satır kodla yapabilirsiniz. API, PPT sunumunu PPTX'e dönüştürmek için tam uyumluluk sağlar ve şunları yapmak mümkündür:
-
-- Karmaşık ana slayt, yerleşim ve slayt yapılarının dönüştürülmesi.
-- Grafikler içeren sunumların dönüştürülmesi.
-- Grup şekilleri, otomatik şekilleri (ör. dikdörtgen ve elips), özel geometriye sahip şekilleri içeren sunumların dönüştürülmesi.
-- Otomatik şekiller için doku ve resim doldurma stillerine sahip sunumların dönüştürülmesi.
-- Yer tutucular, metin çerçeveleri ve metin taşıyıcıları içeren sunumların dönüştürülmesi.
-
-{{% alert color="primary" %}} 
-
-Şuradaki [**Aspose.Slides PPT'den PPTX'e Dönüştürme**](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) uygulamasına bir göz atın:
-
-[](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx)
-
-Bu uygulama, [**Aspose.Slides API**](https://products.aspose.com/slides/tr/androidjava/) temel alınarak oluşturulmuştur, böylece temel PPT'den PPTX'e dönüştürme yeteneklerinin canlı bir örneğini görebilirsiniz. Aspose.Slides Dönüştürme, PPT formatındaki sunum dosyasını bırakmanıza ve PPTX'e dönüştürülmüş olarak indirmenize olanak tanıyan bir web uygulamasıdır.
-
-Diğer canlı [**Aspose.Slides Dönüştürme**](https://products.aspose.app/slides/tr/conversion/) örneklerini bulun.
-{{% /alert %}} 
-
-## **PPT'yi PPTX'e Dönüştürün**
-Aspose.Slides for Android via Java, geliştiricilerin [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıf örneğiyle PPT'ye erişmesini ve bunu ilgili [PPTX](https://docs.fileformat.com/presentation/pptx/) formatına dönüştürmesini sağlar. Şu anda, [PPT](https://docs.fileformat.com/presentation/ppt/)‘nin kısmi dönüşümünü PPTX'e desteklemektedir.
-
-Aspose.Slides for Android via Java, **PPTX** sunum dosyasını temsil eden [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfını sunar. Presentation sınıfı, nesne örneklenirken artık **PPT**'ye de erişebilir. Aşağıdaki örnek, bir PPT sunumunu PPTX sunumuna nasıl dönüştüreceğinizi gösterir.
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfı ile yükleyin, ardından [Presentation.save](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) metodunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/saveformat/#Pptx) ile çağırın. `finally` bloğu sunumu serbest bırakır ve kaynaklarını serbest bırakır.
 
 ```java
-// PPTX dosyasını temsil eden bir Presentation nesnesi oluştur
-Presentation pres = new Presentation("Aspose.ppt");
+// Eski PPT sunumunu yükle.
+com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-// PPTX sunumunu PPTX formatında kaydediyor
-    pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
+    // Sunumu PPTX formatında kaydet.
+    presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Şekil : Kaynak PPT Sunumu**|
+Dosya uzantısı, çıktıyı kendiliğinden belirlemez; bunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/saveformat/#Pptx) argümanı yapar. Orijinal PPT dosyasını korumanız gerekiyorsa, giriş ve çıkış yollarını farklı tutun.
 
-Yukarıdaki kod parçacığı dönüşümden sonra aşağıdaki PPTX sunumunu oluşturur
+## **Birden Çok PPT Dosyasını Dönüştürme**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Şekil: Dönüştürmeden Sonra Oluşturulan PPTX Sunumu**|
+Aşağıdaki örnek, bir dizindeki tüm `.ppt` dosyalarını dönüştürür. Her dosya bağımsız olarak işlenir, böylece bir dönüştürme hatası, kalan toplu işin durmasını engellemez.
+
+```java
+java.io.File inputDirectory = new java.io.File("input");
+java.io.File outputDirectory = new java.io.File("output");
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    throw new IllegalStateException("Cannot create the output directory: " + outputDirectory);
+}
+
+java.io.File[] inputFiles = inputDirectory.listFiles((directory, name) -> name.toLowerCase(java.util.Locale.ROOT).endsWith(".ppt"));
+if (inputFiles == null) {
+    throw new IllegalStateException("Cannot read the input directory: " + inputDirectory);
+}
+
+for (java.io.File inputFile : inputFiles) {
+    String inputPath = inputFile.getPath();
+    String fileName = inputFile.getName();
+    String outputFileName = fileName.substring(0, fileName.length() - 4) + ".pptx";
+    String outputPath = new java.io.File(outputDirectory, outputFileName).getPath();
+    com.aspose.slides.Presentation presentation = null;
+
+    try {
+        presentation = new com.aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, com.aspose.slides.SaveFormat.Pptx);
+        System.out.println("Converted: " + inputPath);
+    } catch (Exception exception) {
+        System.err.println("Failed: " + inputPath + " (" + exception.getMessage() + ")");
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Üretim ortamları için, tam istisnayı günlüğe kaydedin, mevcut bir çıktı dosyasının üzerine yazılıp yazılamayacağına karar verin ve başarısız dosya adlarını yeniden deneme veya inceleme kuyruğuna yazın. Bozuk dosyalar, gerekli şifre olmadan açılan şifre korumalı dosyalar, erişilemeyen yollar ve desteklenmeyen içerik, dönüştürmenin başarısız olmasına neden olabilir. Şifreli dosyaların yüklenmesi için [Password-Protected Presentations](/androidjava/password-protected-presentation/) bölümüne bakın.
+
+## **Doğruluk ve Eski Özellikler**
+
+Dönüştürme genellikle slaytları, ana slaytları, yerleşimleri, metni, şekilleri, görüntüleri, tabloları ve grafikleri korur. Ancak PPT ve PPTX, her özelliği tam olarak aynı şekilde temsil etmez. Kütüphane tarafından desteklenmeyen veya PPTX eşdeğeri olmayan bir eski özellik, normalleştirilebilir, atlanabilir veya farklı gösterilebilir.
+
+Dönüştürülen dosyayı, animasyonlar, geçişler, gömülü veya bağlantılı OLE nesneleri, ActiveX denetimleri, gömülü medya, nadir kullanılan yazı tipleri veya VBA makroları içerdiğinde kontrol edin. Düz bir PPTX dosyası makro etkin bir format değildir; bu nedenle VBA'nın kullanılabilir kalması gerektiğinde uygun makro etkin iş akışı kullanın. Ayrıca, dönüştürülen sunumun açılacağı veya renderlanacağı ortamda gerekli yazı tiplerinin ve dış kaynakların mevcut olduğundan emin olun.
+
+Önemli belgeler için, oluşturulan PPTX'i programlı olarak yeniden açın ve ana slayt sayısını ve içeriğini inceleyin, ardından istenen görüntüleyicide görünümünü ve slayt gösterisi davranışını karşılaştırın. Başarılı bir [Presentation.save](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) çağrısını, her eski özelliğin tam bir PPTX temsiline sahip olduğunun kanıtı olarak değerlendirilmeyin.
+
+## **Ne Zaman PPTX Kullanmalı**
+
+Sunum mevcut PowerPoint sürümlerinde düzenlenecekse, Open XML paketleriyle çalışan sistemlerle değiştirilecekse veya eski ikili PPT'ye göre daha kolay incelenip kurtarılabilen bir formatta saklanacaksa PPTX kullanın. Dönüştürülen sunum doğruluk kontrollerinizi geçene kadar orijinal PPT'yi arşiv veya geri dönüş kopyası olarak tutun.
+
+PDF, HTML, resimler, XPS veya başka bir çıktı türüne ihtiyacınız varsa, tüm hedeflerin düzenlenebilir PowerPoint özelliklerini koruyacağını varsaymak yerine [Convert Presentations to Multiple Formats](/androidjava/convert-presentation/) bölümündeki formata özgü talimatları kullanın.
+
+## **Çevrimiçi Dönüştürücü**
+
+Ara sıra bir dosya veya hızlı bir karşılaştırma için [online PPT to PPTX converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) kullanabilirsiniz. Tekrarlanabilir dönüşümler, toplu işleme veya uygulama düzeyinde hata yönetimi için Android via Java API'yi kullanın.
+
+## **İlgili Makaleler**
+
+- [PPT vs PPTX](/androidjava/ppt-vs-pptx/)
+- [Android'de Sunumları Kaydet](/androidjava/save-presentation/)
+- [Desteklenen Dosya Formatları](/androidjava/supported-file-formats/)
+- [Android'de Sunumları Aç](/androidjava/open-presentation/)
 
 ## **SSS**
 
-**PPT ve PPTX formatları arasındaki fark nedir?**
+**Microsoft PowerPoint yüklü olmadan PPT'yi PPTX'e dönüştürebilir miyim?**
 
-PPT, Microsoft PowerPoint tarafından kullanılan eski ikili dosya formatıdır, PPTX ise Microsoft Office 2007 ile tanıtılan yeni XML tabanlı formattır. PPTX dosyaları daha iyi performans, daha düşük dosya boyutu ve geliştirilmiş veri kurtarma sunar.
+Evet. Aspose.Slides for Android via Java, Microsoft PowerPoint gerektirmeden sunum dosyalarını yükler ve kaydeder.
 
-**Aspose.Slides, birden çok PPT dosyasını PPTX'e toplu olarak dönüştürmeyi destekliyor mu?**
+**PPT'den PPTX'e dönüşüm tüm içeriği eksiksiz olarak korur mu?**
 
-Evet, Aspose.Slides'i bir döngü içinde kullanarak birden çok PPT dosyasını programlı olarak PPTX'e dönüştürebilirsiniz, bu da toplu dönüşüm senaryoları için uygundur.
+Ortak sunum içeriğini korur, ancak her eski veya desteklenmeyen özellik için tam doğruluk garanti edilmez. Makrolar, OLE veya ActiveX nesneleri, medya, özel animasyonlar veya nadir kullanılan yazı tipleri içerdiğinde oluşturulan dosyayı gözden geçirin.
 
-**Dönüştürme sonrası içerik ve biçimlendirme korunacak mı?**
+**Şifre korumalı bir PPT dosyasını dönüştürebilir miyim?**
 
-Aspose.Slides, sunumları yüksek doğrulukla dönüştürür. Slayt yerleşimleri, animasyonlar, şekiller, grafikler ve diğer tasarım öğeleri PPT'den PPTX'e dönüşüm sırasında korunur.
+Evet, dosyayı yüklerken doğru şifreyi sağlarsanız. Eksik veya hatalı şifre, yükleme işleminin başarısız olmasına neden olur.
 
-**PPT dosyalarından PDF veya HTML gibi diğer formatlara dönüştürebilir miyim?**
+**Dönüştürmeden sonra PPT dosyasını silmeli miyim?**
 
-Evet, Aspose.Slides, PPT dosyalarını [multiple formats](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/saveformat/), PDF, XPS, HTML, ODP ve PNG, JPEG gibi görüntü formatlarına dönüştürmeyi destekler.
-
-**Microsoft PowerPoint yüklü olmadan PPT'yi PPTX'e dönüştürmek mümkün mü?**
-
-Evet, Aspose.Slides bağımsız bir API'dir ve dönüşüm için Microsoft PowerPoint ya da üçüncü taraf bir yazılım gerektirmez.
-
-**PPT'den PPTX'e dönüşüm için çevrimiçi bir araç mevcut mu?**
-
-Evet, kod yazmadan doğrudan tarayıcınızda dönüşüm yapmanızı sağlayan ücretsiz [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) web uygulamasını kullanabilirsiniz.
+Orijinali, PPTX'i sizin için önemli olan görüntüleyiciler ve iş akışlarında doğrulayana kadar tutun. Bu, eski bir özellik farklı dönüştüğünde geri dönüş kopyası sağlar.

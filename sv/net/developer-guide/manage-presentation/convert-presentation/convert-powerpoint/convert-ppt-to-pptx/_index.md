@@ -17,86 +17,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertera äldre PPT-presentationer till moderna PPTX snabbt i .NET med Aspose.Slides — tydlig handledning, gratis C#-kodexempel, ingen Microsoft Office-beroende."
+description: "Konvertera äldre PPT-filer till PPTX i .NET med Aspose.Slides. Inkluderar C#-exempel för enstaka fil- och batchkonvertering, felhantering och noggrannhetsnoteringar."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man konverterar PowerPoint-presentationer i PPT-format till PPTX-format med C# och med den onlinetjänst för PPT till PPTX‑konvertering. Följande ämne behandlas.
+PPT är det äldre binära PowerPoint-formatet, medan PPTX är det nyare Open XML-formatet. Aspose.Slides för .NET kan läsa in en PPT-fil och spara den som PPTX utan Microsoft PowerPoint. Den här artikeln visar hur man konverterar en fil eller en katalog med filer och förklarar vad man ska verifiera efter konverteringen.
 
-- [Konvertera PPT till PPTX i C#](#convert-ppt-to-pptx)
+## **Konvertera en PPT-fil till PPTX**
 
-## **Konvertera PPT till PPTX i .NET**
+Läs in källfilen med klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och anropa sedan [IPresentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/ipresentation/save/) med [SaveFormat.Pptx](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/). `using`-deklarationen frigör presentationen och släpper dess resurser när scopet avslutas.
 
-För C#‑exempelkod som konverterar PPT till PPTX, se avsnittet nedan, dvs. [Convert PPT to PPTX](#convert-ppt-to-pptx). Koden läser bara in PPT‑filen och sparar den i PPTX‑format. Genom att ange olika sparformat kan du också spara PPT‑filen i många andra format som PDF, XPS, ODP, HTML osv. som diskuteras i dessa artiklar.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- [Konvertera PPT till PDF i .NET](/slides/sv/net/convert-powerpoint-to-pdf/)
-- [Konvertera PPT till XPS i .NET](/slides/sv/net/convert-powerpoint-to-xps/)
-- [Konvertera PPT till HTML i .NET](/slides/sv/net/convert-powerpoint-to-html/)
-- [Konvertera PPT till ODP i .NET](/slides/sv/net/save-presentation/)
-- [Konvertera PPT till PNG i .NET](/slides/sv/net/convert-powerpoint-to-png/)
+// Läs in den äldre PPT-presentationen.
+using var presentation = new Presentation("presentation.ppt");
 
-## **Om PPT till PPTX‑konvertering**
-Konvertera gammalt PPT‑format till PPTX med Aspose.Slides API. Om du behöver konvertera tusentals PPT‑presentationer till PPTX‑format är den bästa lösningen att göra det programatiskt. Med Aspose.Slides API är det möjligt att göra det på några få kodrader. API‑et stödjer full kompatibilitet för att konvertera PPT‑presentationer till PPTX och det är möjligt att:
-
-- Konvertera komplexa strukturer av master‑bilder, layouter och bildspel.
-- Konvertera presentationer med diagram.
-- Konvertera presentationer med gruppformer, auto‑former (som rektanglar och ellipser), former med anpassad geometri.
-- Konvertera presentationer som har texturer och bildfyllningsstilar för auto‑former.
-- Konvertera presentationer med platshållare, textramar och texthållare.
-
-{{% alert color="primary" %}} 
-
-Ta en titt på [**Aspose.Slides PPT till PPTX‑konvertering**](https://products.aspose.app/slides/sv/conversion/ppt-to-pptx)‑appen:
-
-[](https://products.aspose.app/slides/sv/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/sv/conversion/ppt-to-pptx)
-
-Denna app är byggd på **Aspose.Slides API**, så du kan se ett levande exempel på grundläggande PPT‑till‑PPTX‑konverteringsfunktioner. Aspose.Slides Conversion är en webbapp som låter dig släppa in en presentationsfil i PPT‑format och ladda ner den konverterad till PPTX.
-
-Hitta andra levande [**Aspose.Slides Conversion**](https://products.aspose.app/slides/sv/conversion/)‑exempel.
-{{% /alert %}} 
-
-
-## **Konvertera PPT till PPTX**
-För att konvertera en PPT till PPTX skickar du bara filnamnet och sparformatet till [**Save**](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/methods/save/index)‑metoden på [**Presentation**](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation)‑klassen. C#‑kodexemplet nedan konverterar en Presentation från PPT till PPTX med standardalternativ.
-
-```c#
-// Instansiera ett Presentation-objekt som representerar en PPTX-fil
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// Sparar PPTX-presentationen i PPTX-format
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Spara presentationen i PPTX-format.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Läs mer om [**PPT vs PPTX**](/slides/sv/net/ppt-vs-pptx/)‑presentationsformat och hur [**Aspose.Slides stödjer PPT till PPTX‑konvertering**](/slides/sv/net/convert-ppt-to-pptx/).
+Filändelsen väljer inte utdataformatet av sig själv; argumentet [SaveFormat.Pptx](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/) gör det. Håll in- och utdata-sökvägarna olika om du behöver behålla den ursprungliga PPT-filen.
+
+## **Konvertera flera PPT-filer**
+
+Följande exempel konverterar varje `.ppt`-fil i en katalog. Varje fil bearbetas oberoende, så en misslyckad konvertering stoppar inte resten av batchen.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
+
+För produktionsarbetsbelastningar, logga hela undantaget, avgör om en befintlig utfil får skrivas över, och skriv namn på misslyckade filer till en återförsök- eller granskningskö. Korrupta filer, lösenordsskyddade filer som öppnas utan rätt lösenord, otillgängliga sökvägar och ej stödt innehåll kan alla orsaka att en konvertering misslyckas. Se [Password-Protected Presentations](/slides/sv/net/password-protected-presentation/) för att läsa in krypterade filer.
+
+## **Noggrannhet och äldre funktioner**
+
+Konverteringen bevarar vanligtvis bilder, masterbilder, layouter, text, former, bilder, tabeller och diagram. Däremot representerar PPT och PPTX inte varje funktion på exakt samma sätt. En äldre funktion som saknar motsvarande i PPTX, eller som inte stöds av biblioteket, kan normaliseras, uteslutas eller visas annorlunda.
+
+Kontrollera den konverterade filen när den innehåller animationer, övergångar, inbäddade eller länkade OLE-objekt, ActiveX-kontroller, inbäddade media, ovanliga teckensnitt eller VBA-makron. En vanlig PPTX-fil är inte ett makro-aktiverat format, så använd ett lämpligt makro-aktiverat arbetsflöde när VBA måste vara tillgängligt. Verifiera också att nödvändiga teckensnitt och externa resurser finns i den miljö där den konverterade presentationen kommer att öppnas eller renderas.
+
+För viktiga dokument, öppna den genererade PPTX-filen programatiskt igen och inspektera viktiga antal bilder och innehåll, jämför sedan dess utseende och bildspelsbeteende i den avsedda visaren. Behandla inte ett lyckat anrop av [IPresentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/ipresentation/save/) som ett bevis på att varje äldre funktion har en exakt PPTX-representation.
+
+## **När du ska använda PPTX**
+
+Använd PPTX när presentationen ska redigeras i nuvarande versioner av PowerPoint, utbytas med system som arbetar med Open XML-paket, eller lagras i ett format som är enklare att undersöka och återställa än det äldre binära PPT-formatet. Behåll den ursprungliga PPT-filen som ett arkiv- eller återställningskopi tills den konverterade presentationen har klarat dina noggrannhetskontroller.
+
+Om du istället behöver PDF, HTML, bilder, XPS eller en annan utmatningstyp, använd den format-specifika vägledningen i [Convert Presentations to Multiple Formats](/slides/sv/net/convert-presentation/) snarare än att anta att alla mål bevarar redigerbara PowerPoint-funktioner.
+
+## **Online‑konverterare**
+
+För enstaka filer eller en snabb jämförelse kan du använda [online PPT till PPTX konverterare](https://products.aspose.app/slides/sv/conversion/ppt-to-pptx). För återkommande konverteringar, batch-bearbetning eller felhantering på applikationsnivå, använd .NET-API-et.
+
+## **Relaterade artiklar**
+
+- [PPT vs PPTX](/slides/sv/net/ppt-vs-pptx/)
+- [Spara presentationer i .NET](/slides/sv/net/save-presentation/)
+- [Stödda filformat](/slides/sv/net/supported-file-formats/)
+- [Öppna presentationer i .NET](/slides/sv/net/open-presentation/)
 
 ## **FAQ**
 
-**Vad är skillnaden mellan PPT‑ och PPTX‑formaten?**
+**Kan jag konvertera PPT till PPTX utan att Microsoft PowerPoint är installerat?**
 
-PPT är det äldre binära filformatet som används av Microsoft PowerPoint, medan PPTX är det nyare XML‑baserade formatet som introducerades med Microsoft Office 2007. PPTX‑filer ger bättre prestanda, mindre filstorlek och förbättrad dataåterställning.
+Ja. Aspose.Slides för .NET läser in och sparar presentationsfiler utan att kräva Microsoft PowerPoint.
 
-**Kan jag konvertera PPT till PPTX med .NET?**
+**Kommer PPT‑till‑PPTX‑konverteringen att bevara allt innehåll exakt?**
 
-Ja, med Aspose.Slides för .NET‑biblioteket kan du enkelt läsa in en PPT‑fil och spara den i PPTX‑format med bara några få kodrader.
+Den bevarar vanligt presentationsinnehåll, men exakt noggrannhet garanteras inte för varje äldre eller ej‑stött funktion. Granska den genererade filen när den innehåller makron, OLE‑ eller ActiveX‑objekt, media, specialiserade animationer eller ovanliga teckensnitt.
 
-**Stöder Aspose.Slides batch‑konvertering av flera PPT‑filer till PPTX?**
+**Kan jag konvertera en lösenordsskyddad PPT‑fil?**
 
-Ja, du kan använda Aspose.Slides i en loop för att programatiskt konvertera flera PPT‑filer till PPTX, vilket är lämpligt för batch‑konverteringsscenario.
+Ja, om du anger rätt lösenord när filen läses in. Ett saknat eller felaktigt lösenord får inläsningsoperationen att misslyckas.
 
-**Behåller innehållet och formateringen sin integritet efter konvertering?**
+**Bör jag radera PPT‑filen efter konvertering?**
 
-Aspose.Slides upprätthåller hög återgivning när presentationer konverteras. Bildlayouter, animationer, former, diagram och andra designelement bevaras under PPT‑till‑PPTX‑konverteringen.
-
-**Kan jag konvertera andra format som PDF eller HTML från PPT‑filer?**
-
-Ja, Aspose.Slides stödjer konvertering av PPT‑filer till flera format, inklusive PDF, XPS, HTML, ODP samt bildformat som PNG och JPEG.
-
-**Är det möjligt att konvertera PPT till PPTX utan att ha Microsoft PowerPoint installerat?**
-
-Ja, Aspose.Slides för .NET är ett fristående API och kräver inte Microsoft PowerPoint eller någon tredje‑parts‑programvara för att utföra konverteringen.
-
-**Finns det ett online‑verktyg för PPT‑till‑PPTX‑konvertering?**
-
-Ja, du kan använda den fria [Aspose.Slides PPT till PPTX‑konverteraren](https://products.aspose.app/slides/sv/conversion/ppt-to-pptx) webbapplikationen för att utföra konverteringen direkt i din webbläsare utan att skriva någon kod.
+Behåll originalen tills du har verifierat PPTX-filen i de visare och arbetsflöden som är viktiga för dig. Detta ger en återställningskopia om en äldre funktion konverteras annorlunda.

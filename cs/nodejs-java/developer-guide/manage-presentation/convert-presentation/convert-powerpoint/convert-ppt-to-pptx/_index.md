@@ -1,14 +1,14 @@
 ---
-title: Převod PPT na PPTX v JavaScriptu
+title: Převod PPT na PPTX v Node.js
 linktitle: PPT na PPTX
 type: docs
 weight: 20
 url: /cs/nodejs-java/convert-ppt-to-pptx/
 keywords:
-- převést PowerPoint
-- převést prezentaci
-- převést snímek
-- převést PPT
+- převod PowerPoint
+- převod prezentace
+- převod snímku
+- převod PPT
 - PPT na PPTX
 - uložit PPT jako PPTX
 - exportovat PPT do PPTX
@@ -17,98 +17,111 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Převést staré PPT prezentace na moderní PPTX rychle s Aspose.Slides pro Node.js — jasný tutoriál, bezplatné ukázky kódu, bez závislosti na Microsoft Office."
+description: "Převod starších souborů PPT na PPTX v Node.js pomocí Aspose.Slides. Obsahuje příklady v JavaScriptu pro převod jednoho souboru i dávkový převod, zpracování chyb a poznámky o věrnosti."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak převést prezentaci PowerPoint ve formátu PPT do formátu PPTX pomocí JavaScriptu a online aplikace pro konverzi PPT na PPTX. Následující téma je pokryto.
+PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides pro Node.js via Java může načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co zkontrolovat po konverzi.
 
-- Převést PPT na PPTX v JavaScriptu
+## **Převést soubor PPT na PPTX**
 
-## **JavaScript převod PPT na PPTX**
-
-Pro ukázkový kód JavaScriptu pro převod PPT na PPTX se podívejte na sekci níže, tj. [Převést PPT na PPTX](#convert-ppt-to-pptx). Kód pouze načte soubor PPT a uloží jej ve formátu PPTX. Specifikací různých formátů uložení můžete také uložit soubor PPT do mnoha dalších formátů, jako jsou PDF, XPS, ODP, HTML atd., jak je diskutováno v těchto článcích.
-
-- [Převést PPT na PDF v JavaScriptu](/slides/cs/nodejs-java/convert-powerpoint-to-pdf/)
-- [Převést PPT na XPS v JavaScriptu](/slides/cs/nodejs-java/convert-powerpoint-to-xps/)
-- [Převést PPT na HTML v JavaScriptu](/slides/cs/nodejs-java/convert-powerpoint-to-html/)
-- [Převést PPT na ODP v JavaScriptu](/slides/cs/nodejs-java/save-presentation/)
-- [Převést PPT na PNG v JavaScriptu](/slides/cs/nodejs-java/convert-powerpoint-to-png/)
-
-## **O konverzi PPT na PPTX**
-
-Zkonvertujte starý formát PPT na PPTX pomocí Aspose.Slides API. Pokud potřebujete převést tisíce PPT prezentací do formátu PPTX, nejlepší řešení je provést to programově. S Aspose.Slides API je to možné udělat během několika řádků kódu. API podporuje plnou kompatibilitu pro převod PPT prezentace na PPTX a je možné:
-
-- Převést složité struktury hlav, rozložení a snímků.
-- Převést prezentaci s grafy.
-- Převést prezentaci se skupinovými tvary, automatickými tvary (jako jsou obdélníky a elipsy), tvary s vlastní geometrií.
-- Převést prezentaci, která obsahuje textury a styly výplně obrázků pro automatické tvary.
-- Převést prezentaci s placeholdery, textovými rámečky a textovými držáky.
-
-{{% alert color="primary" %}} 
-
-Podívejte se na [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx) aplikaci:
-
-[](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx)
-
-Tato aplikace je postavena na [**Aspose.Slides API**](https://products.aspose.com/slides/cs/nodejs-java/), takže můžete vidět živý příklad základních možností konverze PPT na PPTX. Aspose.Slides Conversion je webová aplikace, která umožňuje přetáhnout soubor prezentace ve formátu PPT a stáhnout jej po konverzi do PPTX.
-
-Najděte další živé příklady [**Aspose.Slides Conversion**](https://products.aspose.app/slides/cs/conversion/).
-
-{{% /alert %}} 
-
-## **Převést PPT na PPTX**
-Aspose.Slides pro Node.js prostřednictvím Javy nyní usnadňuje vývojářům přístup k PPT pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation) a převod do příslušného formátu [PPTX](https://docs.fileformat.com/presentation/pptx/). V současné době podporuje částečný převod [PPT ](https://docs.fileformat.com/presentation/ppt/)na PPTX.
-
-Aspose.Slides pro Node.js prostřednictvím Javy nabízí třídu [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation), která představuje soubor prezentace **PPTX**. Třída Presentation nyní také umožňuje přístup k **PPT** prostřednictvím Presentation, když je objekt vytvořen. Následující příklad ukazuje, jak převést PPT prezentaci na PPTX prezentaci.
+Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) . Poté zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#save) s argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/saveformat/). Blok `finally` uvolní prezentaci a její prostředky.
 
 ```javascript
-// Vytvořte objekt Presentation, který představuje soubor PPTX
-var pres = new aspose.slides.Presentation("Aspose.ppt");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Načtěte starou PPT prezentaci.
+let presentation = new aspose.slides.Presentation("presentation.ppt");
 try {
-    // Ukládá PPTX prezentaci do formátu PPTX
-    pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);
+    // Uložte prezentaci ve formátu PPTX.
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    presentation.dispose();
+}
+```
+
+Přípona souboru sama o sobě neurčuje výstupní formát; rozhoduje o tom argument [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/saveformat/). Pokud potřebujete zachovat původní soubor PPT, udržujte vstupní a výstupní cesty odlišné.
+
+## **Převést více souborů PPT**
+
+Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže jedna neúspěšná konverze nezastaví zbytek dávky.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "input";
+const outputDirectory = "output";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+    .filter(entry => entry.isFile() && path.extname(entry.name).toLowerCase() === ".ppt")
+    .map(entry => entry.name);
+
+for (const fileName of inputFiles) {
+    const inputPath = path.join(inputDirectory, fileName);
+    const outputFileName = path.basename(fileName, path.extname(fileName)) + ".pptx";
+    const outputPath = path.join(outputDirectory, outputFileName);
+    let presentation = null;
+
+    try {
+        presentation = new aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, aspose.slides.SaveFormat.Pptx);
+        console.log("Converted: " + inputPath);
+    } catch (error) {
+        console.error("Failed: " + inputPath + " (" + error.message + ")");
+    } finally {
+        if (presentation !== null) {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Obrázek : Zdrojová PPT prezentace**|
+Pro produkční úlohy logujte úplnou chybu, rozhodněte, zda lze existující výstupní soubor přepsat, a zapište názvy neúspěšných souborů do fronty pro opětovné zpracování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou způsobit selhání konverze. Viz [Password-Protected Presentations](/nodejs-java/password-protected-presentation/) pro načítání šifrovaných souborů.
 
-Výše uvedený úryvek kódu vygeneroval následující PPTX prezentaci po konverzi
+## **Věrnost a starší funkce**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Obrázek: Vygenerovaná PPTX prezentace po konverzi**|
+Konverze obvykle zachovává snímky, mastery, rozložení, text, tvary, obrázky, tabulky a grafy. Přesto PPT a PPTX nepředstavují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX, nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena odlišně.
+
+Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo propojené OLE objekty, ActiveX ovládací prvky, vložená média, neobvyklá písma nebo VBA makra. Pouhý soubor PPTX není formát podporující makra, takže použijte vhodný workflow s podporou maker, pokud musí být VBA dostupné. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, kde bude převedená prezentace otevřena nebo renderována.
+
+U důležitých dokumentů znovu otevřete vygenerovaný PPTX programově a zkontrolujte počet snímků a jejich obsah, poté porovnejte jeho vzhled a chování prezentace v zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation.save](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#save) za důkaz, že každá starší funkce má přesnou PPTX reprezentaci.
+
+## **Kdy použít PPTX**
+
+Používejte PPTX, pokud bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s Open XML balíčky, nebo uložena ve formátu, který je snazší zkontrolovat a obnovit než starší binární PPT. Uchovávejte původní PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontrolami věrnosti.
+
+Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Convert Presentations to Multiple Formats](/nodejs-java/convert-presentation/) místo předpokladu, že všechny cíle zachovají editovatelné funkce PowerPointu.
+
+## **Online převodník**
+
+Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx). Pro opakované konverze, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte API Node.js via Java.
+
+## **Související články**
+
+- [PPT vs PPTX](/nodejs-java/ppt-vs-pptx/)
+- [Uložit prezentace v Node.js](/nodejs-java/save-presentation/)
+- [Podporované formáty souborů](/nodejs-java/supported-file-formats/)
+- [Otevřít prezentace v Node.js](/nodejs-java/open-presentation/)
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi formáty PPT a PPTX?**
+**Mohu převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
 
-PPT je starší binární formát souboru používaný Microsoft PowerPoint, zatímco PPTX je novější formát založený na XML, zavedený s Microsoft Office 2007. Soubory PPTX nabízejí lepší výkon, menší velikost souboru a vylepšené obnovení dat.
+Ano. Aspose.Slides pro Node.js via Java načítá a ukládá soubory prezentací, aniž by vyžadoval Microsoft PowerPoint.
 
-**Podporuje Aspose.Slides dávkovou konverzi více souborů PPT do PPTX?**
+**Zachová konverze PPT na PPTX veškerý obsah přesně?**
 
-Ano, můžete použít Aspose.Slides v cyklu k programové konverzi více souborů PPT do PPTX, což je vhodné pro scénáře dávkové konverze.
+Zachovává běžný obsah prezentace, ale přesná věrnost není zaručena pro každou starší nebo nepodporovanou funkci. Zkontrolujte vygenerovaný soubor, pokud obsahuje makra, OLE nebo ActiveX objekty, média, specializované animace nebo neobvyklá písma.
 
-**Zůstane po konverzi zachována obsah a formátování?**
+**Mohu převést chráněný heslem soubor PPT?**
 
-Aspose.Slides zachovává vysokou věrnost při konverzi prezentací. Rozvržení snímků, animace, tvary, grafy a další designové prvky jsou během konverze PPT na PPTX zachovány.
+Ano, pokud při načítání souboru zadáte správné heslo. Chybějící nebo nesprávné heslo způsobí selhání načítání.
 
-**Mohu převést další formáty, jako PDF nebo HTML, z PPT souborů?**
+**Mám po konverzi smazat soubor PPT?**
 
-Ano, Aspose.Slides podporuje konverzi PPT souborů do více formátů, včetně PDF, XPS, HTML, ODP a formátů obrázků jako PNG a JPEG.
-
-**Je možné převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
-
-Ano, Aspose.Slides je samostatné API a nevyžaduje Microsoft PowerPoint ani žádný software třetí strany pro provedení konverze.
-
-**Existuje online nástroj pro konverzi PPT na PPTX?**
-
-Ano, můžete použít zdarma webovou aplikaci [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx) k provedení konverze přímo ve vašem prohlížeči bez psaní kódu.
+Uchovávejte originál, dokud neověříte PPTX ve prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytuje záložní kopii, pokud se starší funkce převede odlišně.

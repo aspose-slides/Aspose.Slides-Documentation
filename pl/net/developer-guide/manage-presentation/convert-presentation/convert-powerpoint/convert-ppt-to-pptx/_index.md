@@ -1,5 +1,5 @@
 ---
-title: Konwertuj PPT na PPTX w .NET
+title: Konwertuj PPT do PPTX w .NET
 linktitle: PPT do PPTX
 type: docs
 weight: 20
@@ -17,87 +17,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konwertuj starsze prezentacje PPT na nowoczesny format PPTX szybko w .NET z Aspose.Slides — klarowny tutorial, darmowe przykłady kodu C#, brak zależności od Microsoft Office."
+description: "Konwertuj starsze pliki PPT na PPTX w .NET przy użyciu Aspose.Slides. Zawiera przykłady w C# dla konwersji jednoplikowej i wsadowej, obsługę błędów oraz uwagi na temat wierności."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak przekonwertować prezentację PowerPoint w formacie PPT na format PPTX przy użyciu C# oraz aplikacji online do konwersji PPT na PPTX. Poruszony zostaje następujący temat.
+PPT jest starszym binarnym formatem PowerPoint, natomiast PPTX jest nowszym formatem Open XML. Aspose.Slides for .NET może wczytać plik PPT i zapisać go jako PPTX bez Microsoft PowerPoint. Ten artykuł pokazuje, jak przekonwertować jeden plik lub katalog plików oraz wyjaśnia, co należy sprawdzić po konwersji.
 
-- [Konwertuj PPT na PPTX w C#](#convert-ppt-to-pptx)
+## **Konwertowanie pliku PPT do PPTX**
 
-## **Konwertuj PPT na PPTX w .NET**
+Załaduj plik źródłowy przy pomocy klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) . Następnie wywołaj [IPresentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/save/) z argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/). Deklaracja `using` zwalnia prezentację i uwalnia jej zasoby po zakończeniu zakresu.
 
-Przykładowy kod C# do konwersji PPT na PPTX znajdziesz w sekcji poniżej, tj. [Konwertuj PPT na PPTX](#convert-ppt-to-pptx). Po prostu ładuje plik PPT i zapisuje go w formacie PPTX. Określając różne formaty zapisu, możesz także zapisać plik PPT w wielu innych formatach, takich jak PDF, XPS, ODP, HTML itp., jak omówiono w tych artykułach. 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- [Konwertuj PPT na PDF w .NET](/slides/pl/net/convert-powerpoint-to-pdf/)
-- [Konwertuj PPT na XPS w .NET](/slides/pl/net/convert-powerpoint-to-xps/)
-- [Konwertuj PPT na HTML w .NET](/slides/pl/net/convert-powerpoint-to-html/)
-- [Konwertuj PPT na ODP w .NET](/slides/pl/net/save-presentation/)
-- [Konwertuj PPT na PNG w .NET](/slides/pl/net/convert-powerpoint-to-png/)
+// Załaduj starszą prezentację PPT.
+using var presentation = new Presentation("presentation.ppt");
 
-## **O konwersji PPT na PPTX**
-Konwertuj stary format PPT na PPTX za pomocą Aspose.Slides API. Jeśli musisz przekonwertować tysiące prezentacji PPT na format PPTX, najlepszym rozwiązaniem jest zrobienie tego programowo. Dzięki Aspose.Slides API można to zrobić w kilku linijkach kodu. API zapewnia pełną kompatybilność przy konwersji prezentacji PPT do PPTX i umożliwia:
-
-- Konwertowanie skomplikowanych struktur wzorców, układów i slajdów.
-- Konwertowanie prezentacji z wykresami.
-- Konwertowanie prezentacji z grupami kształtów, auto‑kształtami (takimi jak prostokąty i elipsy), kształtami o niestandardowej geometrii.
-- Konwertowanie prezentacji posiadających tekstury i obrazy wypełniające auto‑kształty.
-- Konwertowanie prezentacji z polami zastępczymi, ramkami tekstowymi i miejscami na tekst.
-
-{{% alert color="primary" %}} 
-
-Spójrz na aplikację [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx) app:
-
-[](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx)
-
-Ta aplikacja została zbudowana w oparciu o **Aspose.Slides API**, więc możesz zobaczyć działający przykład podstawowych możliwości konwersji PPT na PPTX. Aspose.Slides Conversion to aplikacja internetowa, która umożliwia przeciągnięcie pliku prezentacji w formacie PPT i pobranie go po konwersji do PPTX.
-
-Znajdź inne działające przykłady [**Aspose.Slides Conversion**](https://products.aspose.app/slides/pl/conversion/) .
-
-{{% /alert %}} 
-
-
-## **Konwertuj PPT na PPTX**
-Aby przekonwertować PPT na PPTX, po prostu przekaż nazwę pliku i format zapisu do metody [**Save**](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/methods/save/index) klasy [**Presentation**](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation). Poniższy przykładowy kod C# konwertuje prezentację z PPT na PPTX przy użyciu domyślnych opcji.
-
-```c#
-// Utwórz obiekt Presentation, który reprezentuje plik PPTX
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-
-// Zapisz prezentację PPTX w formacie PPTX
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+// Zapisz prezentację w formacie PPTX.
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Przeczytaj więcej o [**PPT kontra PPTX**](/slides/pl/net/ppt-vs-pptx/) formatach prezentacji oraz o tym, jak [**Aspose.Slides obsługuje konwersję PPT na PPTX**](/slides/pl/net/convert-ppt-to-pptx/).
+Rozszerzenie pliku nie wybiera formatu wyjściowego samo w sobie; robi to argument [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/). Utrzymuj różne ścieżki wejścia i wyjścia, jeśli musisz zachować oryginalny plik PPT.
+
+## **Konwersja wielu plików PPT**
+
+Poniższy przykład konwertuje każdy plik `.ppt` w jednym katalogu. Każdy plik jest przetwarzany niezależnie, więc jedna nieudana konwersja nie zatrzymuje reszty partii.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputDirectory = "input";
+var outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory, "*.ppt", SearchOption.TopDirectoryOnly))
+{
+    var outputFileName = Path.GetFileNameWithoutExtension(inputPath) + ".pptx";
+    var outputPath = Path.Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        using var presentation = new Presentation(inputPath);
+        presentation.Save(outputPath, SaveFormat.Pptx);
+        Console.WriteLine($"Converted: {inputPath}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Failed: {inputPath} ({exception.Message})");
+    }
+}
+```
+
+W środowiskach produkcyjnych należy rejestrować pełny wyjątek, zdecydować, czy istniejący plik wyjściowy może zostać nadpisany, oraz zapisywać nazwy nieudanych plików do kolejki ponowienia lub przeglądu. Uszkodzone pliki, pliki zabezpieczone hasłem otwierane bez wymaganego hasła, niedostępne ścieżki oraz nieobsługiwana zawartość mogą spowodować niepowodzenie konwersji. Zobacz [Password-Protected Presentations](/slides/pl/net/password-protected-presentation/) w celu wczytania zaszyfrowanych plików.
+
+## **Wierność i funkcje przestarzałe**
+
+Konwersja zazwyczaj zachowuje slajdy, mastery, układy, tekst, kształty, obrazy, tabele i wykresy. Jednak PPT i PPTX nie odzwierciedlają każdej funkcji w dokładnie taki sam sposób. Funkcja przestarzała, która nie ma odpowiednika w PPTX lub nie jest obsługiwana przez bibliotekę, może zostać znormalizowana, pominięta lub wyświetlona inaczej.
+
+Sprawdź przekonwertowany plik, gdy zawiera animacje, przejścia, osadzone lub połączone obiekty OLE, kontrolki ActiveX, osadzone media, rzadkie czcionki lub makra VBA. Zwykły plik PPTX nie jest formatem obsługującym makra, więc użyj odpowiedniego przepływu pracy z obsługą makr, gdy VBA musi pozostać dostępne. Zweryfikuj również, czy wymagane czcionki i zasoby zewnętrzne są dostępne w środowisku, w którym przekonwertowana prezentacja będzie otwierana lub renderowana.
+
+W przypadku ważnych dokumentów otwórz ponownie wygenerowany PPTX programowo i sprawdź kluczowe liczby slajdów oraz zawartość, a następnie porównaj jego wygląd i zachowanie pokazu slajdów w docelowej przeglądarce. Nie traktuj udanego wywołania [IPresentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/save/) jako dowodu, że każda przestarzała funkcja ma dokładny odpowiednik w PPTX.
+
+## **Kiedy używać PPTX**
+
+Używaj PPTX, gdy prezentacja będzie edytowana w bieżących wersjach PowerPoint, wymieniana z systemami pracującymi z pakietami Open XML lub przechowywana w formacie łatwiejszym do przeglądania i odzyskiwania niż starszy binarny PPT. Zachowaj oryginalny plik PPT jako kopię archiwalną lub przywracającą, dopóki przekonwertowana prezentacja nie przejdzie Twoich kontroli wierności.
+
+Jeśli zamiast tego potrzebujesz PDF, HTML, obrazów, XPS lub innego typu wyjścia, skorzystaj z instrukcji specyficznych dla formatu w artykule [Convert Presentations to Multiple Formats](/slides/pl/net/convert-presentation/), zamiast zakładać, że wszystkie cele zachowują edytowalne funkcje PowerPoint.
+
+## **Konwerter online**
+
+W przypadku pojedynczego pliku lub szybkiego porównania możesz skorzystać z [online PPT to PPTX converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx). Do powtarzalnych konwersji, przetwarzania wsadowego lub obsługi błędów na poziomie aplikacji użyj API .NET.
+
+## **Powiązane artykuły**
+
+- [PPT vs PPTX](/slides/pl/net/ppt-vs-pptx/)
+- [Zapis prezentacji w .NET](/slides/pl/net/save-presentation/)
+- [Obsługiwane formaty plików](/slides/pl/net/supported-file-formats/)
+- [Otwieranie prezentacji w .NET](/slides/pl/net/open-presentation/)
 
 ## **FAQ**
 
-**Jaka jest różnica między formatami PPT i PPTX?**
+**Czy mogę konwertować PPT do PPTX bez zainstalowanego Microsoft PowerPoint?**  
 
-PPT to starszy binarny format pliku używany przez Microsoft PowerPoint, natomiast PPTX to nowszy format oparty na XML, wprowadzony w Microsoft Office 2007. Pliki PPTX oferują lepszą wydajność, mniejszy rozmiar oraz lepsze odzyskiwanie danych.
+Tak. Aspose.Slides for .NET wczytuje i zapisuje pliki prezentacji bez wymogu posiadania Microsoft PowerPoint.
 
-**Czy mogę konwertować PPT na PPTX przy użyciu .NET?**
+**Czy konwersja PPT na PPTX zachowa całą zawartość dokładnie?**  
 
-Tak, korzystając z biblioteki Aspose.Slides for .NET, możesz łatwo załadować plik PPT i zapisać go w formacie PPTX przy użyciu kilku linijek kodu.
+Zachowuje ona typową zawartość prezentacji, ale dokładna wierność nie jest gwarantowana dla każdej funkcji przestarzałej lub nieobsługiwanej. Przejrzyj wygenerowany plik, gdy zawiera makra, obiekty OLE lub ActiveX, media, specjalistyczne animacje lub rzadkie czcionki.
 
-**Czy Aspose.Slides obsługuje konwersję wsadową wielu plików PPT do PPTX?**
+**Czy mogę konwertować plik PPT zabezpieczony hasłem?**  
 
-Tak, możesz używać Aspose.Slides w pętli, aby programowo konwertować wiele plików PPT na PPTX, co sprawia, że jest to odpowiednie do scenariuszy konwersji wsadowej.
+Tak, jeśli podasz prawidłowe hasło podczas wczytywania pliku. Brak lub nieprawidłowe hasło powoduje niepowodzenie operacji wczytywania.
 
-**Czy zawartość i formatowanie zostaną zachowane po konwersji?**
+**Czy powinienem usunąć plik PPT po konwersji?**  
 
-Aspose.Slides zachowuje wysoką wierność przy konwersji prezentacji. Układy slajdów, animacje, kształty, wykresy i inne elementy projektu są zachowywane podczas konwersji PPT na PPTX.
-
-**Czy mogę konwertować inne formaty, takie jak PDF lub HTML, z plików PPT?**
-
-Tak, Aspose.Slides obsługuje konwersję plików PPT do wielu formatów, w tym PDF, XPS, HTML, ODP oraz formatów obrazu, takich jak PNG i JPEG.
-
-**Czy możliwe jest konwertowanie PPT na PPTX bez zainstalowanego Microsoft PowerPoint?**
-
-Tak, Aspose.Slides for .NET jest samodzielnym API i nie wymaga zainstalowanego Microsoft PowerPoint ani żadnego oprogramowania firm trzecich do wykonania konwersji.
-
-**Czy dostępne jest narzędzie online do konwersji PPT na PPTX?**
-
-Tak, możesz skorzystać z darmowej aplikacji internetowej [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx), aby wykonać konwersję bezpośrednio w przeglądarce, bez pisania kodu.
+Zachowaj oryginał, dopóki nie zweryfikujesz PPTX w przeglądarkach i przepływach pracy, które są dla Ciebie istotne. Zapewnia to kopię przywracającą w przypadku, gdy funkcja przestarzała zostanie skonwertowana inaczej.
