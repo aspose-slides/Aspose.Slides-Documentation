@@ -19,422 +19,367 @@ keywords:
 - shape as SVG
 - shape to SVG
 - align shape
+- flip shape
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn to create, edit and optimize shapes in Aspose.Slides for .NET and deliver high-performance PowerPoint presentations."
+description: "Learn how to identify, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for .NET."
 ---
 
 ## **Overview**
 
-This article explains how to work with shapes in presentations using Aspose.Slides. It shows how to find a shape on a slide, clone it, remove it, hide it, change its order, get its Interop shape ID, and set alternative text for identification and further processing.
+Aspose.Slides for .NET represents the shapes on a slide as an ordered [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/). The collection is both the place where you find and modify shapes and the source of their stacking order: index `0` is the backmost shape, while the last index is the frontmost shape.
 
-It also covers how to access layout formats for shapes, render a shape as SVG, align shapes on a slide, and use flip properties for horizontal and vertical mirroring. In addition, the article includes a short FAQ about shape combination, stacking order, and shape locking.
+This article follows that model. It first explains how to identify a shape reliably, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
 
-## **Find a Shape on a Slide**
-This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
+## **Identify and Find Shapes**
 
-After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for .NET and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) that does the trick to find a specific shape in a slide and then simply returns that shape.
+Collection indexes are convenient while processing a known file, but they are not stable identifiers. Adding, removing, or reordering a shape can change its index. Choose an identifier according to how the presentation is authored and maintained:
 
-```c#
+- [Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/name/) is useful for developer-controlled templates and is easy to inspect in PowerPoint's Selection Pane. Names can be edited and are not guaranteed to be unique, so establish a naming convention if code depends on them.
+- [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) is useful when an accessibility description or an author-supplied tag already identifies the shape. It is visible to users, may be localized or rewritten for accessibility, and is not guaranteed to be unique. Do not silently repurpose meaningful accessibility text as a database key.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/) is a read-only identifier that is unique within a slide and corresponds to the shape ID used by PowerPoint interop. Use it when integrating with PowerPoint or when you need an unambiguous reference during the lifetime of a shape. A cloned or recreated shape is a different shape and receives its own ID.
+
+The related [UniqueId](https://reference.aspose.com/slides/net/aspose.slides/ishape/uniqueid/) property has presentation scope, but it is intended for add-ins and can be reassigned. It should not be treated as a permanent external key. If long-term identity is essential, keep the mapping in application data and validate that the expected shape still exists.
+
+The following example searches by `Name` with an ordinal comparison and reports the slide-scoped interop ID. When the template does not contain the expected shape, the code reports that result instead of continuing with the wrong object.
+
+```csharp
+using System;
 using Aspose.Slides;
 
-public static void Run()
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Instantiate a Presentation class that represents the presentation file
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Alternative text of the shape to be found
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Method implementation to find a shape in a slide using its alternative text
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Iterating through all shapes inside the slide
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // If the alternative text of the slide matches with the required one then
-        // Return the shape
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-## **Clone a Shape**
-To clone a shape to a slide using Aspose.Slides for .NET:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain the reference of a slide by using its index.
-1. Access the source slide shape collection.
-1. Add new slide to the presentation.
-1. Clone shapes from the source slide shape collection to the new slide.
-1. Save the modified presentation as a PPTX file.
-
-The example below adds a group shape to a slide.
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-// Instantiate Presentation class
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Write the PPTX file to disk
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-## **Remove a Shape**
-Aspose.Slides for .NET allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
-
-1. Create an instance of `Presentation` class.
-1. Access the first slide.
-1. Add the shapes and set the AlternativeText on the one that has to be removed.
-1. Find the shape with specific AlternativeText.
-1. Remove the shape.
-1. Save file to disk.
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-// Create Presentation object
-Presentation pres = new Presentation();
-
-// Get the first slide
-ISlide sld = pres.Slides[0];
-
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-// Mark the shape that has to be removed
-String alttext = "User Defined";
-shp2.AlternativeText = alttext;
-
-// Remove every shape carrying that alternative text (iterate backwards, the collection shrinks)
-for (int i = sld.Shapes.Count - 1; i >= 0; i--)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[i];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Save presentation to disk
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Hide a Shape**
-Aspose.Slides for .NET allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
-
-1. Create an instance of `Presentation` class.
-1. Access the first slide.
-1. Add the shapes and set the AlternativeText on the one that has to be hidden.
-1. Find the shape with specific AlternativeText.
-1. Hide the shape.
-1. Save file to disk.
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-
-// Get the first slide
-ISlide sld = pres.Slides[0];
-
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-
-// Mark the shape to be hidden
-shp2.AlternativeText = alttext;
-
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Save presentation to disk
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **Change Shape Order**
-Aspose.Slides for .NET allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
-
-1. Create an instance of `Presentation` class.
-1. Access the first slide.
-1. Add a shape.
-1. Add some text in shape's text frame.
-1. Add another shape with the same co-ordinates.
-1. Reorder the shapes.
-1. Save file to disk.
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **Get the Interop Shape ID**
-Aspose.Slides for .NET allows developers to get a unique shape identifier in slide scope in contrast to the UniqueId property, which allows obtaining a unique identifier in presentation scope. Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively. The value returned by OfficeInteropShapeId property corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
-
-```c#
-using Aspose.Slides;
-
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Getting unique shape identifier in slide scope
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
+When an operation is specific to a shape type, check the interface before using type-specific members. This example updates text and alternative text only if the named object is an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Set Alternative Text for a Shape**
-Aspose.Slides for .NET allows developers to set AlternateText of any shape. 
-Shapes in a presentation could be distinguished by the AlternativeText or Shape Name property. 
-AlternativeText property could be read or set by using Aspose.Slides as well as Microsoft PowerPoint. 
-By using this property, you can tag a shape and can perform different operations as Removing a shape, 
-Hiding a shape or Reordering shapes on a slide.
-To set the AlternateText of a shape, please follow the steps below:
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-1. Create an instance of `Presentation` class.
-1. Access the first slide.
-1. Add any shape to the slide.
-1. Do some work with the newly added shape.
-1. Traverse through shapes to find a shape.
-1. Set the AlternativeText.
-1. Save file to disk.
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
+    {
+        candidate = shape;
+        break;
+    }
+}
 
-```c#
+if (candidate is IAutoShape autoShape)
+{
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
+}
+```
+
+## **Modify the Shape Collection**
+
+The add, clone, remove, and reorder methods operate on the collection immediately. If an operation changes the number or order of shapes, do not continue to rely on indexes captured before that operation.
+
+### **Clone a Shape**
+
+[AddClone](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addclone/) creates an independent copy and appends it to the target collection. [InsertClone](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/insertclone/) also creates a copy but places it at a specified z-order index. The overloads that accept coordinates move the clone without changing its size; overloads with width and height can resize it as well.
+
+The example creates a destination slide, clones a labeled rectangle to the front, and inserts a second clone at the back. Changes to either clone do not modify the source shape.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
+{
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Cloning copies the shape's content and formatting, including its name and alternative text. Assign new logical identifiers to the clone when those values must be unique. Resources used by complex shapes are handled by the presentation, but a clone remains a new collection item with a new shape identity.
+
+### **Remove Shapes**
+
+[Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) deletes a specific shape object from its collection. When removing multiple matches during indexed iteration, traverse from the end so that each remaining index stays valid.
+
+This example removes every shape with a designated name. It reads `slide.Shapes[i]`, not a fixed collection item, and it does not cast the shape unnecessarily.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+After removal, the shape count and the indexes of later shapes change. References to unaffected shapes remain more reliable than saved indexes. Also consider connectors, animations, and other presentation features that may refer to the removed object; removing a visible shape can change more than the slide's appearance.
+
+### **Hide a Shape**
+
+Setting [Hidden](https://reference.aspose.com/slides/net/aspose.slides/ishape/hidden/) to `true` keeps the shape in the collection but prevents it from appearing in the normal slide show. Its index, formatting, and content remain available to code, so hiding is appropriate for optional elements that may be restored later.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Hiding is not deletion or security. The object can still be discovered and unhidden by a user or by code, and it remains part of the presentation file.
+
+### **Change the Z-Order**
+
+Overlapping shapes are painted in collection order. [Reorder](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/reorder/) moves an existing shape to a target index without cloning it. Index `0` is the back; `Count - 1` is the front.
+
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Get the first slide
-ISlide sld = pres.Slides[0];
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
 
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
 
-for (int i = 0; i < sld.Shapes.Count; i++)
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+The rectangle is created first and initially sits behind the ellipse. Moving it to the final index puts it in front. Finalize z-order after adding or cloning all related shapes, because those operations append or insert new collection items and can alter the intended stack.
+
+## **Inspect Shapes on Layout Slides**
+
+Normal slides, layout slides, and master slides have separate shape collections. A shape in a layout collection is not the same object as a similarly positioned shape on a normal slide. Inspect layout shapes when you need to understand or change formatting supplied by a layout.
+
+The following example reads each layout shape's [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/fillformat/) and [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) without assuming that every shape is an `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    foreach (var shape in layoutSlide.Shapes)
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
     }
 }
-
-// Save presentation to disk
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 ```
 
+Editing a layout can affect multiple slides that use it. Before changing a layout shape, determine whether a normal slide inherits the object or contains a local override, and test every slide that uses that layout.
 
+## **Export a Shape to SVG**
 
+[WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) writes one shape's rendered content to a stream. The result contains the shape, not the entire slide background or neighboring shapes.
 
-## **Access Layout Formats for a Shape**
- Aspose.Slides for .NET provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
-
-Below sample code is given.
-
-```c#
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+if (slide.Shapes.Count == 0)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-## **Render a Shape as SVG**
-Now Aspose.Slides for .NET support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
+Keep the presentation open while rendering. The output depends on the shape's formatting and on resources such as fonts and images. If you need the whole composition, export the slide rather than an individual shape. The caller owns the stream and must dispose it.
 
-```c#
+## **Align Shapes**
+
+The [SlideUtil.AlignShapes](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/alignshapes/) overloads align either all shapes or selected collection indexes. [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype/) specifies the edge, center line, or distribution mode. Set `alignToSlide` to `true` to use the slide edges; set it to `false` to align the selected shapes relative to one another.
+
+This example aligns three shapes to the top edge of the slide. The returned shape references are converted to their current indexes immediately before alignment.
+
+```csharp
 using Aspose.Slides;
-
-public static void Run()
-{
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
-}
-```
-
-## **Align a Shape**
-
-Through the [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) overloaded method, you can 
-
-* align shapes relative to a slide's margins. See Example 1. 
-* align shapes relative to each other. See Example 2. 
-
-The [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration defines the available alignment options.
-
-**Example 1**
-
-This C# code shows you how to align shapes with indices 1,2 and 4 along the border at the top of a slide:
-Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
-
-``` csharp
-using Aspose.Slides;
+using Aspose.Slides.Export;
 using Aspose.Slides.Util;
 
-using (Presentation pres = new Presentation("example.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-**Example 2**
+Alignment changes positions, not z-order. Relative alignment normally needs at least two shapes, while horizontal or vertical distribution needs enough shapes to define spacing. Recompute indexes if you modify the collection before calling the method.
 
-This C# code shows you how to align an entire collection of shapes relative to the bottom shape in the collection:
+## **Flip a Shape**
 
-``` csharp
-using Aspose.Slides;
-using Aspose.Slides.Util;
+The [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) class stores position, size, horizontal and vertical flip settings, and rotation. Its `FlipH` and `FlipV` values use [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/): `True` enables the flip, `False` disables it, and `NotDefined` preserves the unspecified/default state.
 
-using (Presentation pres = new Presentation("example.pptx"))
-{
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0]);
-}
-```
+The input presentation below contains one unflipped shape.
 
-## **Flip Properties**
+![The shape before flipping](shape_to_be_flipped.png)
 
-In Aspose.Slides, the [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) class provides control over horizontal and vertical mirroring of shapes via its `FlipH` and `FlipV` properties. Both properties are of type [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), allowing values of `True` to indicate a flip, `False` for no flip, or `NotDefined` to use default behavior. These values are accessible from a shape’s [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/). 
+The example preserves every other frame value and replaces only the two flip settings. This is important because assigning a new [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) replaces the complete frame.
 
-To modify the flip settings, a new [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) instance is constructed with the shape’s current position and size, the desired values for `FlipH` and `FlipV`, and the rotation angle. Assigning this instance to the shape’s [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) and saving the presentation applies the mirror transformations and commits them to the output file.
-
-Let’s say we have a sample.pptx file in which the first slide contains a single shape with default flip settings, as shown below.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
-
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // Retrieve the horizontal flip property of the shape.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    // Retrieve the vertical flip property of the shape.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Flip horizontally.
-    NullableBool flipV = NullableBool.True; // Flip vertically.
-    float rotation = shape.Frame.Rotation;
-
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+The saved shape is mirrored horizontally and vertically while keeping its position, size, and rotation.
 
-![The flipped shape](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-### Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?
+**Should I use a collection index as a shape identifier?**
 
-There isn’t a built-in Boolean operation API. You can approximate it by constructing the desired outline yourself—e.g., compute the resulting geometry (via [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)) and create a new shape with that contour, optionally removing the originals.
+Only for short-lived processing when the collection will not change before the index is used. Prefer a validated `Name` or `AlternativeText` convention for authored templates, or `OfficeInteropShapeId` for slide-scoped interop work.
 
-### How can I control the stacking order (z-order) so a shape always stays "on top"?
+**Does hiding a shape remove it from the z-order?**
 
-Change the insertion/move order within the slide’s [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) collection. For predictable results, finalize the z-order after all other slide modifications.
+No. A hidden shape remains in the collection at the same index. It can be found, reordered, edited, or made visible again.
 
-### Can I "lock" a shape to prevent users from editing it in PowerPoint?
+**Why did a cloned shape appear in front of another shape?**
 
-Yes. Set [shape-level protection flags](/slides/net/applying-protection-to-presentation/) (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/net/password-protected-presentation/).
+`AddClone` appends the clone to the end of the collection, which is the front of the z-order. Use `InsertClone` to choose the initial index or `Reorder` after all shapes have been added.
