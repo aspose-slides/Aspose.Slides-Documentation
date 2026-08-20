@@ -17,6 +17,13 @@ to the platform API Reference member page when one exists. Verify the target. Do
   results to another method. Apply the same rule to semantically meaningful nested construction.
 - Clear property/getter/indexer chains may remain in conditions and arguments.
 - Do not extract a one-use interpolated string unless part of it needs clarification.
+- When a disposable object is created before a `try` block, dispose it directly in `finally` without
+  a null check. Keep a null guard only when construction occurs inside `try` and may fail before assignment.
+
+## PHP via Java
+
+- Put `use` imports at the beginning of every code block and reference imported types by their short
+  names. Do not use fully qualified class names in sample bodies.
 
 ## C#
 
