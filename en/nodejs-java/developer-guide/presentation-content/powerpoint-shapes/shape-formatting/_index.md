@@ -16,6 +16,8 @@ keywords:
 - texture fill
 - solid color fill
 - shape transparency
+- black-and-white shape rendering
+- grayscale shape rendering
 - rotate shape
 - 3d bevel effect
 - 3d rotation effect
@@ -660,6 +662,38 @@ try {
 The result:
 
 ![The 3D rotation effect](3D-rotation-effect.png)
+
+## **Control Black-and-White Rendering for Shapes**
+
+The [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) method specifies how an individual shape is rendered when a presentation is viewed or processed in black-and-white mode. It does not enable black-and-white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
+
+Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
+
+The following JavaScript code creates a colored shape and makes it appear gray in black-and-white display mode:
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    // Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+    shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
+
+    presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In normal color mode, the rectangle retains its orange fill. In a black-and-white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full-color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black-and-white display settings.
 
 ## **Reset Formatting**
 
