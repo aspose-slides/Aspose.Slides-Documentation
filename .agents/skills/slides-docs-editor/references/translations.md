@@ -1,7 +1,8 @@
 # Translations
 
-- Change English first, then translations. A language-specific correction that also applies to English
-  belongs in English first.
+- When a change affects source content, update English before its translations. A translation-only
+  correction may remain language-specific.
+- If commits are requested, keep one language per commit.
 - Keep heading, shortcode, and code-fence structure identical to the English article.
 - Translate prose only. Do not translate code, API identifiers, front-matter `url:` values, or shortcode
   parameters.

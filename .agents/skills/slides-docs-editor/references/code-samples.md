@@ -1,11 +1,14 @@
 # Code samples
 
-Every new or changed sample must be runnable: include imports/usings, label the code fence, compile
-and run it, then verify the behavior described by the article. For generated files, reopen the output
-and assert the expected objects, properties, or content.
+Every new or changed sample must be self-contained and compilable: include imports/usings and label
+the code fence. Validate it according to [validation.md](validation.md). Where runtime validation is
+required, verify the behavior described by the article and reopen generated output when applicable.
+
+Do not use `throw` statements in documentation samples. Handle missing objects, unexpected types,
+and unavailable data with conditional branches and non-throwing diagnostic output.
 
 In prose, link each mentioned public API class, interface, method, property, and enumeration directly
-to the platform API Reference member page when one exists. Verify the target. Do not put links in code.
+to the platform API Reference member page when one exists. Verify the target.
 
 ## Shared style
 

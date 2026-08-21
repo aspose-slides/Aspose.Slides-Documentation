@@ -12,6 +12,9 @@ keywords:
 - spreadsheet formula
 - chart data workbook
 - formula calculation
+- preferred culture
+- culture-specific formula
+- DBCS
 - logical constant
 - numerical constant
 - string constant
@@ -290,6 +293,44 @@ Aspose.Slides includes a built-in formula evaluator for chart worksheets, but it
 | `VLOOKUP` | Vertical lookup | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
 The restrictions shown in the table are significant: `INDEX` is documented in reference form, while `LOOKUP` and `MATCH` are documented in their vector forms. `DATE` uses the 1900 date system. Features and functions not listed here should be treated as unsupported by the Aspose.Slides formula evaluator unless they are documented separately.
+
+## **Calculate Formulas with a Preferred Culture**
+
+Some chart workbook functions interpret text according to culture-specific rules. This is especially important for functions intended for languages that use double-byte character sets (DBCS). To calculate such formulas correctly, create [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), set the preferred culture with [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), assign the spreadsheet options through [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), and then load the presentation.
+
+The following example selects the Japanese culture, opens a presentation with the configured load options, and calls [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) for every chart workbook:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The preferred culture is part of the presentation loading configuration, so specify it before creating the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance. Use the culture expected by the workbook formulas; for example, use `ja-JP` for formulas that should follow Japanese DBCS calculation rules.
 
 ## **Recalculation and Cached Values**
 

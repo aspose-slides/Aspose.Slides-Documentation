@@ -6,6 +6,10 @@ Content paths are `<language>/<platform>/<article-path>/_index.md`. Supported la
 `ar cs de el en es fa fr hi hu id it ja ko nl pl pt ru sv th tr vi zh zh-hant`. English is the
 source of truth. The published address comes from front-matter `url:`, not the folder path.
 
+- Create new pages as branch bundles named `<page-path>/_index.md`.
+- Keep code fences and Hugo shortcodes balanced. A malformed article can stop the site build for
+  every language and product family.
+
 ## Front matter
 
 - Keep valid YAML between balanced `---` delimiters.
