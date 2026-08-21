@@ -1,250 +1,425 @@
 ---
-title: Tillämpa diagramarkbladsformler i presentationer på Android
-linktitle: Arkbladsformler
+title: Använd diagramkalkylbladsformler i presentationer på Android
+linktitle: Kalkylbladsformler
 type: docs
 weight: 70
 url: /sv/androidjava/chart-worksheet-formulas/
 keywords:
 - diagramkalkylblad
-- diagramarkblad
+- diagramkalkylblad
 - diagramformel
-- arkbladsformel
 - kalkylbladsformel
-- datakälla
+- kalkylbladsformel
+- diagramdataarbetsbok
+- formelberäkning
+- föredragen kultur
+- kulturspecifik formel
+- DBCS
 - logisk konstant
 - numerisk konstant
 - strängkonstant
 - felkonstant
-- aritmetisk konstant
+- aritmetisk operator
 - jämförelseoperator
-- A1-stil
-- R1C1-stil
+- A1‑stil
+- R1C1‑stil
 - fördefinierad funktion
 - PowerPoint
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Tillämpa Excel-liknande formler i Aspose.Slides för Android via Java-diagramarkblad och automatisera rapporter i PPT- och PPTX-filer."
+description: "Använd Excel‑liknande formler i Aspose.Slides för Android via Java‑diagramkalkylblad, omberäkna värden och använd resultaten i PowerPoint‑diagram."
 ---
 ## **Översikt**
 
-Ett diagramarkblad är datakällan bakom ett diagram i en presentation. Det lagrar kategori‑ och serienamn tillsammans med de numeriska värden som diagrammet visar. I Aspose.Slides är detta arkblad tillgängligt via diagramdataboken, vilket låter dig arbeta med diagramdata programatiskt.
+PowerPoint-diagram brukar lagra sina källdata i ett inbäddat kalkylblad. I Aspose.Slides för Android via Java kan du komma åt det kalkylbladet via diagrammets data‑arbetsbok, skriva inmatningsvärden, tilldela formler till celler, beräkna stödjade formler och använda de beräknade cellerna som diagramdata.
 
-Den här artikeln förklarar hur du använder arkbladsformler i diagramdata så att cellvärden kan beräknas och uppdateras automatiskt istället för att matas in manuellt. Den visar hur du tilldelar formler, använder både A1‑stil och R1C1‑stil referenser, omberäknar arbetsbokens formler och arbetar med de stödjade konstanterna, operatorerna, cellreferenserna och fördefinierade funktionerna som finns för diagramarkblad i presentationer.
+Denna artikel förklarar hela formelarbetsflödet: skapa ett diagram, fylla i dess kalkylblad, tilldela A1‑ eller R1C1‑stils formler, omberäkna dem, läsa de beräknade värdena, koppla dessa celler till en diagramserie och spara presentationen. Den beskriver också den stödjade formelsyntaxen, den inbyggda funktionssubseten, cachade värden, icke‑stödjade formler och kalkylblads‑specifika fel.
 
-## **Om diagramkalkylbladsformler i presentationer**
-**Diagramkalkylblad** (eller diagramarkblad) i en presentation är diagrammets datakälla. Diagramkalkylbladet innehåller data som visas i diagrammet på ett grafiskt sätt. När du skapar ett diagram i PowerPoint skapas också det arkblad som är kopplat till diagrammet automatiskt. Diagramarkblad skapas för alla typer av diagram: linjediagram, stapeldiagram, soluppgångsdiagram, cirkeldiagram osv. För att se diagramkalkylbladet i PowerPoint ska du dubbelklicka på diagrammet:
+## **Diagram‑kalkylblad och formler**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Ett diagram‑kalkylblad innehåller kategorier, serienamn och värden som används av ett diagram. I PowerPoint kan du inspektera kalkylbladet genom att öppna diagramdataredigeraren:
 
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-Diagramkalkylbladet innehåller namnen på diagrammets element (Kategorinamn: *Category1*, Serienamn) och en tabell med numeriska data som hör till dessa kategorier och serier. Som standard, när du skapar ett nytt diagram – sätts diagramkalkylbladsdata till standarddata. Du kan sedan ändra kalkylbladsdata i arkbladet manuellt.
+I Aspose.Slides exponeras kalkylbladet via gränssnittet [IChartDataWorkbook](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/). Använd [IChartDataCell.setFormula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) för A1‑stils formler och [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) för R1C1‑stils formler. Efter att du har ändrat inmatningsceller eller formler, anropa [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) för att omberäkna stödjade formler och uppdatera motsvarande cellvärden.
 
-Vanligtvis representerar diagrammet komplicerade data (t.ex. finansiella analyser, vetenskapliga analyser) med celler som beräknas från värden i andra celler eller från annan dynamisk data. Att beräkna ett cellvärde manuellt och skriva in det hårdkodat i cellen gör det svårt att ändra det i framtiden. Om du ändrar värdet i en viss cell måste alla celler som är beroende av den också uppdateras. Dessutom kan tabelldata bero på data från andra tabeller, vilket skapar ett komplext presentationsdatatema som måste uppdateras på ett enkelt och flexibelt sätt.
+En beräknad cell exponerar fortfarande sitt resultat via [IChartDataCell.getValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Detta är viktigt när du behöver inspektera ett formelresultat i kod eller använda cellen som ett diagramdatapunkt.
 
-**Diagramkalkylbladsformel** i en presentation är ett uttryck för att automatiskt beräkna och uppdatera diagramkalkylbladsdata. Kalkylbladsformeln definierar databeräkningslogiken för en viss cell eller en uppsättning celler. Kalkylbladsformeln är en matematisk formel eller en logisk formel som använder: cellreferenser, matematiska funktioner, logiska operatorer, aritmetiska operatorer, konverteringsfunktioner, strängkonstanter osv. Definitionen av formeln skrivs in i en cell, och den cellen innehåller inte ett enkelt värde. Kalkylbladsformeln beräknar värdet och returnerar det, sedan tilldelas detta värde till cellen. Diagramkalkylbladsformler i presentationer är i själva verket samma som Excel‑formler, och de stöder samma standardfunktioner, operatorer och konstanter för sin implementering.
+## **Skapa ett diagram och beräkna kalkylbladsformler**
 
-I [**Aspose.Slides**](https://products.aspose.com/slides/sv/androidjava/) representeras diagramkalkylbladet med
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--)‑metoden i
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataWorkbook)‑typen.
-Kalkylbladsformel kan tilldelas och ändras med
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-)‑metoden.
-Följande funktioner stöds för formler i Aspose.Slides:
-
-- Logiska konstanter
-- Numeriska konstanter
-- Strängkonstanter
-- Felkonstanter
-- Aritmetiska operatorer
-- Jämförelseoperatorer
-- A1‑stil cellreferenser
-- R1C1‑stil cellreferenser
-- Fördefinierade funktioner
-
-
-Typiskt lagrar kalkylblad de senast beräknade formelvärdena. Om diagramdata inte ändrats efter att presentationen har lästs in – returnerar [**IChartDataCell.getValue**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#getValue--)‑metoden dessa värden vid läsning. Men om kalkylbladsdata har ändrats, kastas **ChartDataCell.Value**‑egenskapen ett [**CellUnsupportedDataException**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/CellUnsupportedDataException) för de ej stödda formlerna. Detta beror på att när formler har parserats framgångsrikt bestäms cellberoenden och korrektheten för de sista värdena. Om formeln inte kan parseras kan korrektheten för cellvärdet inte garanteras.
-
-## **Lägg till en diagramkalkylbladsformel i en presentation**
-Börja med att lägga till ett diagram på den första bilden i en ny presentation med
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
-Diagrammets arkblad skapas automatiskt och kan nås med
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--)‑metoden:
+Följande exempel demonstrerar ett end‑to‑end‑arbetsflöde. Det skapar ett stapeldiagram med grupperade kolumner, rensar exempeldata, skriver kvartalsintäkter och kostnader, beräknar vinst med formler, läser resultaten, använder de beräknade cellerna som diagramvärden och sparar presentationen.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Låt oss skriva några värden i celler med
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-)‑egenskapen
-av typen **Object**, vilket betyder att du kan tilldela vilket värde som helst till egenskapen:
+Diagramdatapunkterna refererar till `D2:D4`, så diagrammet använder de beräknade vinstvärdena. Det finns inget separat diagram‑uppdateringsanrop i detta arbetsflöde: omberäkna arbetsboken först, använd eller spara sedan diagramdata som pekar på de beräknade cellerna.
+
+## **Använd A1‑stils formler**
+
+A1‑notation identifierar kolumner med bokstäver och rader med siffror. Tilldela A1‑stils uttryck via [IChartDataCell.setFormula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
 
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-Nu, för att skriva en formel till cellen, kan du använda
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-)‑metoden:
+Vanliga A1‑referensformer är:
 
-*Note*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-)‑metoden används för att ange A1‑stil cellreferenser. 
+| Referens | Relativ | Absolut | Blandad |
+|---|---|---|---|
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Rad | `2:2` | `$2:$2` | — |
+| Kolumn | `A:A` | `$A:$A` | — |
+| Område | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-För att ange [R1C1Formula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--)‑cellreferensen kan du använda
-[**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-)‑metoden:
+Relativa referenser kan ändras när en formel flyttas eller kopieras av ett kalkylbladsprogram. Absoluta referenser håller båda koordinaterna fixerade, medan blandade referenser fixerar endast en rad eller en kolumn.
 
-När du sedan läser värdena från cellerna B2 och C2 beräknas de automatiskt:
+## **Använd R1C1‑stils formler**
+
+R1C1‑notation identifierar både rader och kolumner numeriskt. Relativa referenser använder förskjutningar i hakparenteser. Tilldela denna syntax via [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Logiska konstanter**
-Du kan använda logiska konstanter såsom *FALSE* och *TRUE* i cellformler:
+Vanliga R1C1‑referensformer är:
+
+| Referens | Relativ | Absolut | Blandad |
+|---|---|---|---|
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Rad | `R[2]` | `R2` | — |
+| Kolumn | `C[3]` | `C3` | — |
+| Område | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Till exempel, i cell `D2` betyder `RC[-2]` cellen i samma rad två kolumner åt vänster (`B2`).
+
+## **Formelkonstanter och operatörer**
+
+Den inbyggda formelutvärderaren stödjer logiska värden, numeriska litteraler, strängar, kalkylbladsfelvärden, aritmetiska operatörer och jämförelsesoperatorer.
+
+### **Konstanter och litteraler**
+
+| Typ | Exempel | Anmärkningar |
+|---|---|---|
+| Logisk | `TRUE`, `FALSE` | Kan användas direkt i logiska uttryck såsom `A2=TRUE`. |
+| Numerisk | `1`, `0.5`, `.3`, `1E-2` | Vanlig och vetenskaplig notation stödjs. |
+| Sträng | `"abc"`, `"2/3/2020 12:00"` | Textlitteraler omges av dubbla citationstecken i formeln. |
+| Felresultat | `#DIV/0!`, `#N/A`, `#REF!` | En giltig formel kan utvärderas till ett kalkylbladsfel istället för ett normalt resultat. |
+
+Detta exempel använder flera konstanttyper:
 
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // värdet innehåller boolean "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // falskt
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Numeriska konstanter**
-Tal kan användas i vanlig eller vetenskaplig notation för att skapa diagramkalkylbladsformler:
+### **Aritmetiska operatörer**
+
+| Operatör | Betydelse | Exempel |
+|---|---|---|
+| `+` | Addition eller unärt plus | `2+3` |
+| `-` | Subtraktion eller negation | `2-3`, `-3` |
+| `*` | Multiplikation | `2*3` |
+| `/` | Division | `2/3` |
+| `%` | Procent | `30%` |
+| `^` | Potens | `2^3` |
+
+Använd parenteser för att göra evalueringsordningen explicit, exempelvis `(A2+B2)*C2`.
+
+### **Jämförelseoperatorer**
+
+Jämförelseuttryck returnerar logiska värden.
+
+| Operatör | Betydelse | Exempel |
+|---|---|---|
+| `=` | Lika med | `A2=3` |
+| `<>` | Inte lika med | `A2<>3` |
+| `>` | Större än | `A2>3` |
+| `>=` | Större än eller lika med | `A2>=3` |
+| `<` | Mindre än | `A2<3` |
+| `<=` | Mindre än eller lika med | `A2<=3` |
+
+## **Stödda fördefinierade funktioner**
+
+Aspose.Slides innehåller en inbyggd formelutvärderare för diagram‑kalkylblad, men den är inte en fullständig Excel‑beräkningsmotor. Den dokumenterade funktionsmängden är begränsad till funktionerna nedan. Anta inte att en godtycklig Excel‑funktion kan omberäknas av [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+
+| Funktion | Syfte eller stödjad form | Exempel |
+|---|---|---|
+| `ABS` | Absolutvärde | `ABS(A2)` |
+| `AVERAGE` | Arimetiskt medelvärde | `AVERAGE(B2:B5)` |
+| `CEILING` | Runda upp till närmaste multipel | `CEILING(A2,5)` |
+| `CHOOSE` | Välj värde efter index | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Sammanfoga textvärden | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Sammanfoga textvärden | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Skapa ett datum med 1900‑datumssystemet | `DATE(2026,8,19)` |
+| `DAYS` | Returnera antal dagar mellan datum | `DAYS(B2,A2)` |
+| `FIND` | Hitta en textsträng i en annan | `FIND("-",A2)` |
+| `FINDB` | Byte‑orienterad textsökning | `FINDB("a",A2)` |
+| `IF` | Villkorligt resultat | `IF(A2>0,A2,0)` |
+| `INDEX` | Referensform | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektorform | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektorform | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Största värde | `MAX(B2:B5)` |
+| `SUM` | Summan av värden | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertikal uppslagning | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Begränsningarna i tabellen är betydande: `INDEX` dokumenteras i referensform, medan `LOOKUP` och `MATCH` dokumenteras i sina vektorformer. `DATE` använder 1900‑datumssystemet. Funktioner som inte listas bör betraktas som ej stödjade av Aspose.Slides‑formelutvärderaren om de inte dokumenteras separat.
+
+## **Beräkna formler med föredragen kultur**
+
+Vissa arbetsboksfunktioner tolkar text enligt kultur‑specifika regler. Detta är särskilt viktigt för funktioner avsedda för språk som använder dubbelbyte‑teckenuppsättningar (DBCS). För att beräkna sådana formler korrekt, skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/), sätt den föredragna kulturen med [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), tilldela kalkylbladsalternativen via [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), och ladda sedan presentationen.
+
+Följande exempel väljer den japanska kulturen, öppnar en presentation med de konfigurerade laddningsalternativen och anropar [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) för varje diagram‑arbetsbok:
 
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Strängkonstanter**
-Sträng‑ (eller litteral‑)konstant är ett specifikt värde som används exakt som det är och förändras inte. Strängkonstanter kan vara: datum, texter, tal osv.:
+Den föredragna kulturen är en del av presentations‑laddningskonfigurationen, så ange den innan du skapar [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)-instansen. Använd den kultur som formlerna förväntar sig; exempelvis `ja-JP` för formler som ska följa japanska DBCS‑beräkningsregler.
+
+## **Oberäkning och cachade värden**
+
+Kalkylbladsfiler lagrar vanligtvis både en formel och dess senast beräknade värde. Aspose.Slides kan därför läsa ett cachat värde från [IChartDataCell.getValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#getValue--) när en presentation laddas och den relevanta diagramdatat inte har ändrats.
+
+Efter att du ändrat inmatningsceller eller formler, förlita dig inte på ett gammalt cache‑resultat. Anropa [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) innan du läser beräknade värden eller sparar diagramdata som beror på dem.
+
+För formler utanför den stödjade delmängden kan Aspose.Slides misslyckas med att tolka formeln eller fastställa dess beroenden. Om arbetsboken har modifierats kan det tidigare cachade värdet inte längre betraktas som tillförlitligt. I sådana situationer kan läsning av en cell med osupporterad data väcka [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Om ditt diagram beror på Excel‑funktioner som Aspose.Slides inte utvärderar, beräkna dessa formler med en kalkylbladsengine som stödjer dem och skriv tillbaka de resulterande värdena till diagram‑arbetsboken. Ersätt inte osupporterade formler med gissade värden.
+
+## **Hantera formelfel**
+
+Det finns två olika typer av problem att särskilja.
+
+En formel kan vara giltig men producera ett kalkylbladsfelresultat såsom `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` eller `#VALUE!`. I så fall är fel‑tokenen ett cellresultat och kan returneras via [IChartDataCell.getValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
+
+En formel kan också misslyckas vid parsning, referens, beroende eller stödjnings‑datalevel. Aspose.Slides tillhandahåller kalkylblads‑specifika undantag för dessa fall: [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellcircularreferenceexception/) och [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+När formler kommer från mallar eller användarinmatning, hantera dessa undantag kring omberäkning och värdeåtkomst:
 
 ```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Felkonstanter**
-Ibland är det inte möjligt att beräkna resultatet med formeln. I så fall visas felkoden i cellen istället för dess värde. Varje feltyp har en specifik kod:
+## **Praktiska begränsningar**
 
-- #DIV/0! – formeln försöker dividera med noll.
-- #GETTING_DATA – kan visas i en cell medan dess värde fortfarande beräknas.
-- #N/A – information saknas eller är inte tillgänglig. Orsaker kan vara: cellerna som används i formeln är tomma, ett extra mellanslag, felstavning osv.
-- #NAME? – en viss cell eller annat formelobjekt kan inte hittas med dess namn.
-- #NULL! – kan uppstå vid ett fel i formeln, t.ex. (,) eller ett mellanslag som används i stället för ett kolon (:).
-- #NUM! – det numeriska i formeln kan vara ogiltigt, för långt eller för kort osv.
-- #REF! – ogiltig cellreferens.
-- #VALUE! – oväntad värdetyp. Till exempel, en sträng som tilldelats en numerisk cell.
+Formelstödet i diagram‑kalkylblad är avsett för en definierad delmängd av kalkylbladsberäkningar, inte för full Excel‑kompatibilitet. Håll dessa begränsningar i åtanke när du designar ett rapporterings‑arbetsflöde:
 
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // värdet innehåller strängen "#DIV/0!"
-```
+- Använd endast de dokumenterade konstanterna, operatörerna, referenserna och funktionerna när du vill att Aspose.Slides ska omberäkna formler.
+- Omberäkna efter att du har ändrat celler som formelresultaten beror på.
+- Beträkta cachade värden från inlästa presentationer som ögonblicksbilder, inte som en ersättning för omberäkning efter redigering.
+- Testa formler från befintliga mallar innan du litar på deras beräknade värden, speciellt när de använder funktioner utanför den dokumenterade listan.
+- För formler som kräver en fullständig kalkylblads‑beräkningsmotor, beräkna dem externt och uppdatera sedan diagram‑arbetsboken med de resulterande värdena.
 
-## **Aritmetiska operatorer**
-Du kan använda alla aritmetiska operatorer i diagramarkbladsformler:
+## **Vanliga frågor**
 
-|**Operator**|**Betydelse**|**Exempel**|
-| :- | :- | :- |
-|+ (plus‑tecken)|Addition eller unary plus|2 + 3|
-|- (minus‑tecken)|Subtraktion eller negation|2 - 3<br>-3|
-|* (asterisk)|Multiplikation|2 * 3|
-|/ (snedstreck)|Division|2 / 3|
-|% (procenttecken)|Procent|30%|
-|^ (caret)|Exponentiering|2 ^ 3|
+**Vad är skillnaden mellan [IChartDataCell.setFormula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) och [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-*Note*: För att ändra beräkningsordningen, omge den del av formeln som ska beräknas först med parenteser.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) lagrar ett A1‑stils uttryck såsom `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) lagrar ett R1C1‑stils uttryck såsom `RC[-2]-RC[-1]`. Använd den notation som bäst matchar hur du genererar eller kopierar formler.
 
-## **Jämförelseoperatorer**
-Du kan jämföra cellvärden med jämförelseoperatorerna. När två värden jämförs med dessa operatorer blir resultatet ett logiskt värde, antingen *TRUE* eller *FALSE*:
+**Behöver jag läsa själva cellen eller dess värde efter beräkning?**
 
-|**Operator**|**Betydelse**|**Betydelse**|
-| :- | :- | :- |
-|= (lika med)|Lika med|A2 = 3|
-|<> (inte lika med)|Inte lika med|A2 <> 3|
-|> (större än)|Större än|A2 > 3|
-|>= (större än eller lika med)|Större än eller lika med|A2 >= 3|
-|< (mindre än)|Mindre än|A2 < 3|
-|<= (mindre än eller lika med)|Mindre än eller lika med|A2 <= 3|
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) returnerar ett [IChartDataCell](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/). För att få det beräknade resultatet, anropa den cellens [IChartDataCell.getValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/#getValue--) efter omberäkning.
 
-## **A1‑stil cellreferenser**
-**A1‑stil cellreferenser** används för arkblad där kolumnen har en bokstavsidentifierare (t.ex. "*A*") och raden har en numerisk identifierare (t.ex. "*1*"). A1‑stil cellreferenser kan användas på följande sätt:
+**När ska jag anropa [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-|**Cellreferens**|**Exempel**|||
-| :- | :- | :- | :- |
-||Absolut|Relativ|Blandad|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Rad|$2:$2|2:2|-|
-|Kolumn|$A:$A|A:A|-|
-|Område|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Anropa [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) efter att du har ändrat inmatningsvärden eller formler och innan du förlitar dig på de beräknade resultaten. Detta uppdaterar värdena för formler som den inbyggda utvärderaren stödjer.
 
+**Stöder Aspose.Slides varje Excel‑funktion?**
 
-Här är ett exempel på hur man använder A1‑stil cellreferens i en formel:
+Nej. Den inbyggda utvärderaren stödjer en dokumenterad delmängd av funktioner. Funktioner utanför den delmängden bör inte antas omberäknas korrekt. Om full Excel‑formelkompatibilitet krävs, utför beräkningen med en lämplig kalkylbladsengine och skriv de färdiga värdena till diagram‑arbetsboken.
 
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+**Vad händer om en inläst presentation innehåller en osupporterad formel?**
 
-## **R1C1‑stil cellreferenser**
-**R1C1‑stil cellreferenser** används för arkblad där både rad och kolumn har numeriska identifierare. R1C1‑stil cellreferenser kan användas på följande sätt:
+Om diagramdatat inte har förändrats kan arbetsboken fortfarande innehålla ett tidigare beräknat cachat värde. Efter att relaterad data har modifierats kan detta cachade värde vara ogiltigt. Att komma åt en cell vars formel inte kan hanteras kan väcka [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-|**Cellreferens**|**Exempel**|||
-| :- | :- | :- | :- |
-||Absolut|Relativ|Blandad|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Rad|R2|R[2]|-|
-|Kolumn|C3|C[3]|-|
-|Område|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+**Är formelfelvärden samma sak som Java‑undantag?**
 
+Nej. Ett resultat såsom `#DIV/0!` är ett kalkylbladsvärde som produceras av en giltig beräkning. Undantag såsom [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellinvalidformulaexception/) eller [CellCircularReferenceException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/cellcircularreferenceexception/) indikerar att formeln inte kan bearbetas normalt.
 
-Här är ett exempel på hur man använder R1C1‑stil cellreferens i en formel:
+**Uppdateras ett diagram automatiskt när en formelcell ändras?**
 
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+En diagramserie kan referera till arbetsboks‑celler. Omberäkna arbetsboken först, spara eller rendera sedan presentationen. Om diagramdatapunkterna refererar till de beräknade cellerna använder diagrammet de uppdaterade cellvärdena; inget separat diagram‑uppdateringsmetod krävs för detta arbetsflöde.
 
-## **Fördefinierade funktioner**
-Det finns fördefinierade funktioner som kan användas i formler för att förenkla deras implementering. Dessa funktioner kapslar in de mest använda operationerna, såsom:
+**Kan diagram använda ett externt Excel‑arbetsbok?**
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900‑datumsystem)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (referensform)
-- LOOKUP (vektorsform)
-- MATCH (vektorsform)
-- MAX
-- SUM
-- VLOOKUP
+Ja, diagramdata kan konfigureras att använda ett externt arbetsbok via diagram‑data‑API‑t. Däremot berörs formelberäkningsarbetsflödet i den här artikeln endast diagram‑arbetsboken och den formeldelmängd som Aspose.Slides kan utvärdera. Anta inte att [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) ger full omberäkning av godtyckliga formler i en extern XLSX‑fil.
 
-## **FAQ**
+**Kan jag använda formler som refererar till ett annat kalkylblad eller arbetsbok?**
 
-**Stöds externa Excel‑filer som datakälla för ett diagram med formler?**
+Excel‑stil‑referenser kan finnas i diagram‑arbetsböcker, men formelutvärderingen är begränsad av den stödjade parsern och funktionsuppsättningen. Om en kors‑blad‑ eller extern referens är avgörande, verifiera exakt formel med den Aspose.Slides‑version du använder. För arbetsflöden som kräver bred Excel‑referenskompatibilitet, beräkna arbetsboken externt och skriv tillbaka de lösta värdena till diagramdata.
 
-Ja. Aspose.Slides stöder externa arbetsböcker som en [diagramdatas källa](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdatasourcetype/), vilket låter dig använda formler från en XLSX‑fil utanför presentationen.
+**Ska formelsträngar börja med `=`?**
 
-**Kan diagramformler referera till blad i samma arbetsbok med bladnamn?**
-
-Ja. Formler följer den standardiserade Excel‑referensmodellen, så du kan referera till andra blad i samma arbetsbok eller en extern arbetsbok. För externa referenser inkluderas sökväg och arbetsbokens namn enligt Excel‑syntax.
+Aspose.Slides‑API‑exemplen tilldelar uttryck såsom `B2-C2` eller `SUM(B2:B5)` utan ett inledande `=`. Att använda den formen håller genererade formler konsistenta med de dokumenterade API‑exemplen.

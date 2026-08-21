@@ -5,17 +5,21 @@ type: docs
 weight: 70
 url: /ru/androidjava/chart-worksheet-formulas/
 keywords:
-- лист диаграммы
+- диаграмма электронная таблица
 - лист диаграммы
 - формула диаграммы
 - формула листа
-- формула таблицы
-- источник данных
+- формула электронной таблицы
+- рабочая книга данных диаграммы
+- вычисление формулы
+- предпочтительная культура
+- культура-специфичная формула
+- DBCS
 - логическая константа
 - числовая константа
 - строковая константа
 - константа ошибки
-- арифметическая константа
+- арифметический оператор
 - оператор сравнения
 - стиль A1
 - стиль R1C1
@@ -25,228 +29,397 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Применяйте формулы в стиле Excel в Aspose.Slides для Android с помощью Java листов диаграмм и автоматизируйте отчёты в файлах PPT и PPTX."
+description: "Применяйте формулы в стиле Excel в листах диаграмм Aspose.Slides для Android через Java, пересчитывайте значения и используйте результаты в диаграммах PowerPoint."
 ---
+## **Обзор**
 
-## **О формулах листов диаграмм в презентациях**
-**Лист диаграммы** (или лист данных диаграммы) в презентации является источником данных диаграммы. Лист диаграммы содержит данные, которые отображаются на диаграмме графически. Когда вы создаёте диаграмму в PowerPoint, связанный с ней лист автоматически также создаётся. Лист диаграммы создаётся для всех типов диаграмм: линейной, гистограммы, солнечного всплеска, круговой и т.д. Чтобы увидеть лист диаграммы в PowerPoint, нужно дважды щелкнуть по диаграмме:
+Диаграммы PowerPoint обычно хранят исходные данные во внедрённом листе. В Aspose.Slides for Android via Java вы можете получить доступ к этому листу через рабочую книгу данных диаграммы, записывать входные значения, назначать формулы ячейкам, вычислять поддерживаемые формулы и использовать вычисленные ячейки в качестве данных диаграммы.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+В этой статье объясняется полный процесс работы с формулами: создание диаграммы, заполнение её листа, назначение формул в стиле A1 или R1C1, их пересчёт, чтение вычисленных значений, привязка этих ячеек к рядам диаграммы и сохранение презентации. Описывается поддерживаемый синтаксис формул, набор встроенных функций, кэшированные значения, неподдерживаемые формулы и ошибки, специфичные для электронных таблиц.
 
+## **Рабочие листы диаграмм и формулы**
 
-Лист диаграммы содержит названия элементов диаграммы (Имя категории: *Category1*, Имя серии) и таблицу с числовыми данными, соответствующими этим категориям и сериям. По умолчанию, когда вы создаёте новую диаграмму, данные листа диаграммы заполняются стандартными данными. Затем вы можете вручную изменить данные листа в таблице.
+Рабочий лист диаграммы содержит категории, имена рядов и значения, используемые диаграммой. В PowerPoint вы можете просмотреть лист, открыв редактор данных диаграммы:
 
-Обычно диаграмма представляет сложные данные (например, финансовые аналитики, научные аналитики), имеющие ячейки, вычисляемые из значений в других ячейках или из других динамических данных. Вычислять значение ячейки вручную и делать его «жёстким», затрудняет последующее изменение. Если вы измените значение определённой ячейки, все ячейки, зависящие от неё, также потребуют обновления. Более того, данные таблицы могут зависеть от данных из других таблиц, создавая сложную схему данных презентации, которую необходимо обновлять легко и гибко.
+![Диаграмма PowerPoint с открытым встроенным рабочим листом, показывающая данные категорий и рядов](chart-worksheet-formulas_1.png)
 
-**Формула листа диаграммы** в презентации — это выражение для автоматического вычисления и обновления данных листа диаграммы. Формула листа задаёт логику вычисления данных для определённой ячейки или набора ячеек. Формула листа — это математическая или логическая формула, использующая ссылки на ячейки, математические функции, логические операторе, арифметические операторе, функции преобразования, строковые константы и т.д. Определение формулы записывается в ячейку, которая не содержит простого значения. Формула вычисляет значение и возвращает его, после чего оно присваивается ячейке. Формулы листов диаграмм в презентациях фактически такие же, как формулы Excel, и поддерживают те же функции, операторы и константы по умолчанию.
+В Aspose.Slides лист доступен через интерфейс [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/). Используйте [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) для формул в стиле A1 и [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) для формул в стиле R1C1. После изменения входных ячеек или формул вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) для пересчёта поддерживаемых формул и обновления соответствующих значений ячеек.
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) лист диаграммы представлен методом
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) типа
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook).
-Формула листа может быть назначена и изменена с помощью
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) метода.
-Для формул в Aspose.Slides поддерживается следующая функциональность:
+Вычисленная ячейка по‑прежнему предоставляет свой результат через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Это важно, когда нужно проверить результат формулы в коде или использовать ячейку как точку данных диаграммы.
 
-- Логические константы
-- Числовые константы
-- Строковые константы
-- Константы ошибок
-- Арифметические операторы
-- Операторы сравнения
-- Ссылки на ячейки в стиле A1
-- Ссылки на ячейки в стиле R1C1
-- Предустановленные функции
+## **Создание диаграммы и вычисление формул листа**
 
-
-Обычно листы сохраняют последние вычисленные значения формул. Если после загрузки презентации данные диаграммы не изменялись, метод [**IChartDataCell.getValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getValue--) возвращает эти значения при чтении. Однако если данные листа были изменены, при чтении свойства **ChartDataCell.Value** выбрасывается [**CellUnsupportedDataException**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CellUnsupportedDataException) для неподдерживаемых формул. Это происходит потому, что при успешном разборе формул определяются зависимости ячеек и проверяется корректность последних значений. Если формулу нельзя разобрать, корректность значения ячейки гарантировать нельзя.
-
-## **Добавление формулы листа диаграммы в презентацию**
-Сначала добавьте диаграмму на первый слайд новой презентации с помощью
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
-Лист диаграммы автоматически создаётся и к нему можно получить доступ через метод
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) :
+Следующий пример демонстрирует полный рабочий процесс. Он создаёт сгруппированную столбчатую диаграмму, очищает примерные данные, записывает квартальные доходы и расходы, вычисляет прибыль с помощью формул, читает результаты, использует вычисленные ячейки как значения диаграммы и сохраняет презентацию.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Точки данных диаграммы ссылаются на `D2:D4`, поэтому диаграмма использует вычисленные значения прибыли. В этом процессе нет отдельного вызова обновления диаграммы: сначала пересчитывается рабочая книга, затем используется или сохраняется диаграмма, указывающая на вычисленные ячейки.
 
-Запишем некоторые значения в ячейки с помощью свойства
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) типа **Object**, что означает возможность задать любое значение:
+## **Использование формул в стиле A1**
 
-```java
-workbook.getCell(0, "F2").setValue(-2.5);
-
-workbook.getCell(0, "G3").setValue(6.3);
-
-workbook.getCell(0, "H4").setValue(3);
-```
-
-
-Для записи формулы в ячейку используйте метод
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) :
-
-*Note*: Метод [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) применяется для установки ссылок в стиле A1.
-
-Чтобы установить ссылку типа [R1C1Formula](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--) используйте метод [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) :
-
-Затем, если вы попытаетесь считать значения из ячеек B2 и C2, они будут вычислены:
+Нотация A1 идентифицирует столбцы буквами, а строки — цифрами. Присваивайте выражения в стиле A1 через [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
 
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
+Распространённые формы ссылок A1:
 
-## **Логические константы**
-Можно использовать логические константы, такие как *FALSE* и *TRUE*, в формулах ячеек:
+| Ссылка | Относительная | Абсолютная | Смешанная |
+|---|---|---|---|
+| Ячейка | `A2` | `$A$2` | `A$2`, `$A2` |
+| Строка | `2:2` | `$2:$2` | — |
+| Столбец | `A:A` | `$A:$A` | — |
+| Диапазон | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+Относительные ссылки могут изменяться при перемещении или копировании формулы в электронных таблицах. Абсолютные ссылки фиксируют обе координаты, а смешанные фиксируют только строку или столбец.
+
+## **Использование формул в стиле R1C1**
+
+Нотация R1C1 численно идентифицирует как строки, так и столбцы. Относительные ссылки используют смещения в квадратных скобках. Присваивайте эту нотацию через [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // значение содержит логическое "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
+Распространённые формы ссылок R1C1:
 
-## **Числовые константы**
-Числа могут использоваться в обычной или научной нотации для создания формул листа диаграммы:
+| Ссылка | Относительная | Абсолютная | Смешанная |
+|---|---|---|---|
+| Ячейка | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Строка | `R[2]` | `R2` | — |
+| Столбец | `C[3]` | `C3` | — |
+| Диапазон | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Например, в ячейке `D2` запись `RC[-2]` означает ячейку в той же строке на два столбца влево (`B2`).
+
+## **Константы формул и операторы**
+
+Встроенный оцениватель формул поддерживает логические значения, числовые литералы, строки, значения ошибок электронных таблиц, арифметические операторы и операторы сравнения.
+
+### **Константы и литералы**
+
+| Тип | Примеры | Примечания |
+|---|---|---|
+| Логический | `TRUE`, `FALSE` | Может использоваться напрямую в логических выражениях, например `A2=TRUE`. |
+| Числовой | `1`, `0.5`, `.3`, `1E-2` | Поддерживаются обычные и научные записи. |
+| Строка | `"abc"`, `"2/3/2020 12:00"` | Текстовые литералы заключаются в двойные кавычки внутри формулы. |
+| Результат ошибки | `#DIV/0!`, `#N/A`, `#REF!` | Правильная формула может вернуть значение ошибки электронных таблиц вместо обычного результата. |
+
+В этом примере используются несколько типов констант:
 
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // ложь
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **Арифметические операторы**
 
-## **Строковые константы**
-Строковая (или буквальная) константа — это фиксированное значение, которое используется как есть и не меняется. Строковые константы могут быть: датами, текстами, числами и т.д.:
+| Оператор | Значение | Пример |
+|---|---|---|
+| `+` | Сложение или унарный плюс | `2+3` |
+| `-` | Вычитание или отрицание | `2-3`, `-3` |
+| `*` | Умножение | `2*3` |
+| `/` | Деление | `2/3` |
+| `%` | Процент | `30%` |
+| `^` | Возведение в степень | `2^3` |
+
+Используйте скобки, чтобы явно задать порядок вычислений, например `(A2+B2)*C2`.
+
+### **Операторы сравнения**
+
+Операции сравнения возвращают логические значения.
+
+| Оператор | Значение | Пример |
+|---|---|---|
+| `=` | Равно | `A2=3` |
+| `<>` | Не равно | `A2<>3` |
+| `>` | Больше | `A2>3` |
+| `>=` | Больше или равно | `A2>=3` |
+| `<` | Менее | `A2<3` |
+| `<=` | Менее или равно | `A2<=3` |
+
+## **Поддерживаемые предопределённые функции**
+
+Aspose.Slides включает встроенный оцениватель формул для листов диаграмм, но это не полноценный движок расчётов Excel. Набор документированных функций ограничен функциями, перечисленными ниже. Не предполагайте, что произвольная функция Excel может быть пересчитана через [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+
+| Функция | Назначение или поддерживаемая форма | Пример |
+|---|---|---|
+| `ABS` | Абсолютное значение | `ABS(A2)` |
+| `AVERAGE` | Среднее арифметическое | `AVERAGE(B2:B5)` |
+| `CEILING` | Округление числа вверх до кратного | `CEILING(A2,5)` |
+| `CHOOSE` | Выбор значения по индексу | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Объединение текстовых значений | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Объединение текстовых значений | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Создание даты в системе 1900‑го года | `DATE(2026,8,19)` |
+| `DAYS` | Количество дней между датами | `DAYS(B2,A2)` |
+| `FIND` | Поиск текста внутри другого текста | `FIND("-",A2)` |
+| `FINDB` | Поиск текста в байтах | `FINDB("a",A2)` |
+| `IF` | Условный результат | `IF(A2>0,A2,0)` |
+| `INDEX` | Ссылка в виде формы | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Векторная форма | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Векторная форма | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Максимальное значение | `MAX(B2:B5)` |
+| `SUM` | Сумма значений | `SUM(B2:B5)` |
+| `VLOOKUP` | Вертикальный поиск | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Ограничения, указанные в таблице, существенны: `INDEX` документирован в виде ссылки, а `LOOKUP` и `MATCH` — в векторных формах. `DATE` использует систему 1900‑го года. Функции, не перечисленные здесь, следует считать неподдерживаемыми встроенным оценивателем формул Aspose.Slides, если они не документированы отдельно.
+
+## **Вычисление формул с предпочтительной культурой**
+
+Некоторые функции рабочей книги интерпретируют текст согласно правилам культуры. Это особенно важно для функций, предназначенных для языков с двойными байтовыми кодировками (DBCS). Чтобы корректно вычислить такие формулы, создайте [LoadOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/), установите предпочтительную культуру с помощью [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), передайте параметры электронной таблицы через [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), затем загрузите презентацию.
+
+В следующем примере выбирается японская культура, открывается презентация с указанными параметрами загрузки и вызывается [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) для каждой рабочей книги диаграммы:
 
 ```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+Предпочтительная культура является частью конфигурации загрузки презентации, поэтому её следует задать до создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/). Используйте культуру, ожидаемую формулами рабочей книги; например, `ja-JP` для формул, которым нужны правила расчёта японского DBCS.
 
-## **Константы ошибок**
-Иногда формула не может вычислить результат. В этом случае в ячейке отображается код ошибки вместо значения. Каждый тип ошибки имеет свой код:
+## **Пересчёт и кэшированные значения**
 
-- #DIV/0! - формула пытается разделить на ноль.
-- #GETTING_DATA - может отображаться в ячейке, пока её значение ещё вычисляется.
-- #N/A - информация отсутствует или недоступна. Причины: пустые ячейки, лишний пробел, опечатка и т.п.
-- #NAME? - определённый объект формулы не найден по имени.
-- #NULL! - может появиться при ошибке в формуле, например (,) или пробел вместо двоеточия (:).
-- #NUM! - число в формуле недопустимо, слишком велико или слишком мало.
-- #REF! - недопустимая ссылка на ячейку.
-- #VALUE! - неожиданный тип значения, например строка в числовую ячейку.
+Файлы электронных таблиц обычно хранят как формулу, так и её последний вычисленный результат. Поэтому Aspose.Slides может прочитать кэшированное значение через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--) при загрузке презентации, если связанные данные диаграммы не изменялись.
+
+После изменения входных ячеек или формул не полагайтесь на старый кэшированный результат. Вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) перед чтением вычисленных значений или сохранением данных диаграммы, зависящих от них.
+
+Для формул, не входящих в поддерживаемый набор, Aspose.Slides может не суметь разобрать формулу или определить её зависимости. Если рабочая книга была изменена, предыдущее кэшированное значение уже нельзя считать надёжным. В такой ситуации попытка чтения ячейки с неподдерживаемыми данными может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Если ваша диаграмма зависит от функций Excel, которые Aspose.Slides не вычисляет, выполните расчёт этих формул в движке электронных таблиц, поддерживающем их, и запишите полученные значения обратно в рабочую книгу диаграммы. Не заменяйте неподдерживаемые формулы угаданными значениями.
+
+## **Обработка ошибок формул**
+
+Существует два разных вида проблем.
+
+Формула может быть корректной, но возвращать значение ошибки листа, например `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` или `#VALUE!`. В этом случае токен ошибки является результатом ячейки и может быть получен через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
+
+Формула также может не пройти разбор, проверку ссылок, зависимостей или оказаться неподдерживаемой. Aspose.Slides предоставляет специфичные для электронных таблиц исключения: [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellcircularreferenceexception/) и [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Когда формулы поступают из шаблонов или пользовательского ввода, обрабатывайте эти исключения вокруг пересчёта и доступа к значениям:
 
 ```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // значение содержит строку "#DIV/0!"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **Практические ограничения**
 
-## **Арифметические операторы**
-Можно использовать все арифметические операторы в формулах листа диаграммы:
+Поддержка формул в листах диаграмм предназначена для ограниченного набора расчётов, а не для полной совместимости с Excel. Учтите эти ограничения при проектировании процесса отчётности:
 
-|**Оператор**|**Значение**|**Пример**|
-| :- | :- | :- |
-|+ (плюс)|Сложение или унарный плюс|2 + 3|
-|- (минус)|Вычитание или отрицание|2 - 3<br>-3|
-|* (звёздочка)|Умножение|2 * 3|
-|/ (слеш)|Деление|2 / 3|
-|% (процент)|Процент|30%|
-|^ (каретка)|Возведение в степень|2 ^ 3|
-
-*Note*: Чтобы изменить порядок вычисления, заключите нужную часть формулы в круглые скобки.
-
-## **Операторы сравнения**
-Можно сравнивать значения ячеек с помощью операторов сравнения. При их использовании результатом является логическое значение *TRUE* или *FALSE*:
-
-|**Оператор**|**Значение**|**Значение**|
-| :- | :- | :- |
-|= (равно)|Равно|A2 = 3|
-|<> (не равно)|Не равно|A2 <> 3|
-|> (больше)|Больше|A2 > 3|
-|>= (больше или равно)|Больше или равно|A2 >= 3|
-|< (меньше)|Меньше|A2 < 3|
-|<= (меньше или равно)|Меньше или равно|A2 <= 3|
-
-## **Ссылки на ячейки в стиле A1**
-**Ссылки на ячейки в стиле A1** используются для листов, где столбец обозначается буквой (например, "*A*"), а строка — числом (например, "*1*"). Ссылки в стиле A1 могут применяться следующим образом:
-
-|**Ссылка на ячейку**|**Пример**|||
-| :- | :- | :- | :- |
-||**Абсолютный**|**Относительный**|**Смешанный**|
-|Ячейка|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Строка|$2:$2|2:2|-|
-|Столбец|$A:$A|A:A|-|
-|Диапазон|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-Пример использования ссылки в стиле A1 в формуле:
-
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-
-## **Ссылки на ячейки в стиле R1C1**
-**Ссылки на ячейки в стиле R1C1** используются для листов, где и строка, и столбец имеют числовые идентификаторы. Ссылки в стиле R1C1 могут применяться следующим образом:
-
-|**Ссылка на ячейку**|**Пример**|||
-| :- | :- | :- | :- |
-||**Абсолютный**|**Относительный**|**Смешанный**|
-|Ячейка|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Строка|R2|R[2]|-|
-|Столбец|C3|C[3]|-|
-|Диапазон|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Пример использования ссылки в стиле R1C1 в формуле:
-
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-
-## **Предустановленные функции**
-Существует набор предустановленных функций, которые могут использоваться в формулах для упрощения их реализации. Эти функции инкапсулируют часто используемые операции, такие как:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (система дат 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (форма ссылки)
-- LOOKUP (векторная форма)
-- MATCH (векторная форма)
-- MAX
-- SUM
-- VLOOKUP
+- Используйте только документированные константы, операторы, ссылки и функции, если требуется, чтобы Aspose.Slides пересчитывал формулы.
+- Пересчитывайте после изменения ячеек, от которых зависят результаты формул.
+- Считайте кэшированные значения из загруженных презентаций снимками, а не заменой пересчёта после правок.
+- Протестируйте формулы из существующих шаблонов, прежде чем полагаться на их вычисленные значения, особенно если они используют функции, не указанные в списке.
+- Для формул, требующих полного движка расчётов электронных таблиц, выполните вычисления внешне, а затем обновите рабочую книгу диаграммы полученными результатами.
 
 ## **FAQ**
 
-**Поддерживаются ли внешние файлы Excel в качестве источника данных для диаграммы с формулами?**
+**В чём разница между [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) и [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-Да. Aspose.Slides поддерживает внешние книги как [источник данных диаграммы](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatasourcetype/), что позволяет использовать формулы из XLSX вне презентации.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) сохраняет выражение в стиле A1, например `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) сохраняет выражение в стиле R1C1, например `RC[-2]-RC[-1]`. Используйте нотацию, которая лучше соответствует тому, как вы генерируете или копируете формулы.
 
-**Могут ли формулы диаграммы ссылаться на листы внутри той же книги по имени листа?**
+**Нужно ли читать саму ячейку или её значение после вычисления?**
 
-Да. Формулы следуют стандартной модели ссылок Excel, поэтому можно ссылаться на другие листы в той же книге или во внешней книге. Для внешних ссылок указывайте путь и имя книги, используя синтаксис Excel.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) возвращает объект [IChartDataCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/). Чтобы получить вычисленный результат, вызовите у этой ячейки метод [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--) после пересчёта.
+
+**Когда следует вызывать [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
+
+Вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) после изменения входных значений или формул и перед тем, как использовать вычисленные результаты. Это обновит значения формул, поддерживаемых встроенным оценивателем.
+
+**Поддерживает ли Aspose.Slides все функции Excel?**
+
+Нет. Встроенный оцениватель поддерживает только документированный подмножество функций. Функции вне этого набора не следует считать корректно пересчитываемыми. Если требуется полная совместимость формул Excel, выполните расчёт с соответствующим движком электронных таблиц и запишите окончательные значения в рабочую книгу диаграммы.
+
+**Что происходит, если в загруженной презентации присутствует неподдерживаемая формула?**
+
+Если данные диаграммы не изменялись, в рабочей книге может оставаться ранее вычисленное кэшированное значение. После изменения сопутствующих данных это кэшированное значение может стать недействительным. Обращение к ячейке, формулу которой невозможно обработать, может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+**Являются ли значения ошибок формул теми же, что и исключения Java?**
+
+Нет. Результат вроде `#DIV/0!` — это значение листа, полученное после корректного вычисления. Исключения, такие как [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidformulaexception/) или [CellCircularReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellcircularreferenceexception/), указывают на то, что формулу нельзя обработать обычным способом.
+
+**Обновляется ли диаграмма автоматически при изменении ячейки формулы?**
+
+Ряды диаграммы могут ссылаться на ячейки рабочей книги. Сначала пересчитайте рабочую книгу, затем сохраните или отрендерите презентацию. Если точки данных диаграммы ссылаются на вычисленные ячейки, диаграмма использует обновлённые значения; отдельный метод обновления диаграммы не требуется.
+
+**Могут ли диаграммы использовать внешний рабочий лист Excel?**
+
+Да, данные диаграммы можно настроить для использования внешнего листа через API данных диаграммы. Однако рассматриваемый в статье процесс вычисления формул относится к рабочей книге данных диаграммы и подмножеству функций, оцениваемому Aspose.Slides. Не предполагается, что [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) обеспечивает полное пересчёты произвольных формул во внешнем файле XLSX.
+
+**Могу ли я использовать формулы, которые ссылаются на другой лист или книгу?**
+
+Ссылки в стиле Excel могут присутствовать в рабочих книгах диаграмм, но их оценка ограничена поддерживаемым парсером и набором функций. Если кросс‑листовая или внешняя ссылка критична, проверьте её корректность с используемой версией Aspose.Slides. Для сценариев, требующих широкой совместимости ссылок Excel, выполните расчёт внешне и запишите полученные значения обратно в данные диаграммы.
+
+**Должны ли строки формул начинаться с `=`?**
+
+Примеры API Aspose.Slides присваивают выражения без ведущего `=`, например `B2-C2` или `SUM(B2:B5)`. Такой формат сохраняет согласованность с документированными примерами API.

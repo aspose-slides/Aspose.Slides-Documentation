@@ -5,17 +5,21 @@ type: docs
 weight: 70
 url: /pl/net/chart-worksheet-formulas/
 keywords:
-- arkusz kalkulacyjny wykresu
+- wykres arkusz kalkulacyjny
 - arkusz wykresu
 - formuła wykresu
 - formuła arkusza
 - formuła arkusza kalkulacyjnego
-- źródło danych
+- skoroszyt danych wykresu
+- obliczanie formuły
+- preferowana kultura
+- formuła specyficzna dla kultury
+- DBCS
 - stała logiczna
-- stała liczbowa
-- stała łańcuchowa
+- stała numeryczna
+- stała tekstowa
 - stała błędu
-- stała arytmetyczna
+- operator arytmetyczny
 - operator porównania
 - styl A1
 - styl R1C1
@@ -25,209 +29,400 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zastosuj formuły w stylu Excel w Aspose.Slides dla arkuszy wykresów .NET i automatyzuj raporty w plikach PPT i PPTX."
+description: "Zastosuj formuły w stylu Excel w arkuszach wykresów Aspose.Slides dla .NET, przelicz wartości i użyj wyników w wykresach PowerPoint."
 ---
 ## **Przegląd**
 
-Arkusz wykresu jest źródłem danych stojącym za wykresem w prezentacji. Zawiera nazwy kategorii i serii wraz z wartościami liczbowymi wyświetlanymi w wykresie. W Aspose.Slides ten arkusz jest dostępny poprzez **ChartDataWorkbook** skoroszytu danych wykresu, co umożliwia programowe operowanie danymi wykresu.
+Wykresy PowerPoint zazwyczaj przechowują dane źródłowe w osadzonym arkuszu. W Aspose.Slides dla .NET możesz uzyskać dostęp do tego arkusza poprzez skoroszyt danych wykresu, zapisywać wartości wejściowe, przypisywać formuły do komórek, obliczać obsługiwane formuły i używać obliczonych komórek jako danych wykresu.
 
-Ten artykuł wyjaśnia, jak używać formuł arkusza w danych wykresu, aby wartości komórek mogły być obliczane i aktualizowane automatycznie zamiast wprowadzania ich ręcznie. Pokazuje, jak przypisywać formuły, używać zarówno odniesień w stylu A1, jak i R1C1, przeliczać formuły skoroszytu oraz pracować z obsługiwanymi stałymi, operatorami, odwołaniami do komórek i predefiniowanymi funkcjami dostępnymi dla arkuszy wykresów w prezentacjach.
+Ten artykuł wyjaśnia kompletny przepływ pracy z formułami: tworzenie wykresu, wypełnianie jego arkusza, przypisywanie formuł w stylu A1 lub R1C1, ponowne ich obliczanie, odczytanie obliczonych wartości, połączenie tych komórek z serią wykresu i zapis prezentacji. Opisuje także obsługiwaną składnię formuł, wbudowany podzbiór funkcji, wartości w pamięci podręcznej, nieobsługiwane formuły oraz błędy specyficzne dla arkuszy kalkulacyjnych.
 
-## **O formułach arkusza wykresu w prezentacjach**
-**Arkusz wykresu** (lub arkusz danych wykresu) w prezentacji jest źródłem danych wykresu. Arkusz wykresu zawiera dane, które są przedstawiane na wykresie w formie graficznej. Kiedy tworzysz wykres w PowerPoint, arkusz powiązany z tym wykresem jest tworzony automatycznie. Arkusz wykresu jest tworzony dla wszystkich typów wykresów: wykres liniowy, słupkowy, sunburst, kołowy itp. Aby zobaczyć arkusz wykresu w PowerPoint, należy dwukrotnie kliknąć wykres:
+## **Arkusze wykresów i formuły**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Arkusz wykresu zawiera kategorie, nazwy serii i wartości używane przez wykres. W PowerPoint możesz przejrzeć arkusz, otwierając edytor danych wykresu:
 
+![Wykres PowerPoint z otwartym osadzonym arkuszem, pokazujący dane kategorii i serii](chart-worksheet-formulas_1.png)
 
+W Aspose.Slides arkusz jest udostępniany poprzez [arkusz danych wykresu](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/). Użyj właściwości [Formuła](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/formula/) dla formuł w stylu A1 oraz [R1C1Formuła](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/r1c1formula/) dla formuł w stylu R1C1. Po zmianie komórek wejściowych lub formuł wywołaj [ObliczFormuły](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/), aby ponownie obliczyć obsługiwane formuły i zaktualizować odpowiadające wartości komórek.
 
-Arkusz wykresu zawiera nazwy elementów wykresu (Nazwa kategorii: *Category1*, Nazwa serii) oraz tabelę z danymi liczbowymi odpowiadającymi tym kategoriom i seriom. Domyślnie, po utworzeniu nowego wykresu – dane arkusza wykresu są ustawione na wartości domyślne. Następnie można ręcznie zmienić dane arkusza w arkuszu.
+Obliczona komórka nadal udostępnia swój wynik poprzez właściwość [Wartość](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/value/). Jest to istotne, gdy trzeba sprawdzić wynik formuły w kodzie lub użyć komórki jako punktu danych wykresu.
 
-Zazwyczaj wykres przedstawia skomplikowane dane (np. analizy finansowe, analizy naukowe), posiadając komórki obliczane z wartości w innych komórkach lub z innych dynamicznych danych. Ręczne obliczanie wartości komórki i wpisywanie jej na stałe utrudnia późniejsze zmiany. Jeśli zmienisz wartość określonej komórki, wszystkie zależne od niej komórki również wymagają aktualizacji. Co więcej, dane tabeli mogą zależeć od danych z innych tabel, tworząc złożony schemat danych prezentacji, który wymaga łatwej i elastycznej aktualizacji.
+## **Utworzenie wykresu i obliczenie formuł w arkuszu**
 
-**Formuła arkusza wykresu** w prezentacji jest wyrażeniem służącym do automatycznego obliczania i aktualizacji danych arkusza wykresu. Formuła arkusza definiuje logikę obliczeń danych dla określonej komórki lub zestawu komórek. Formuła arkusza jest formułą matematyczną lub logiczną, wykorzystującą: odwołania do komórek, funkcje matematyczne, operatory logiczne, operatory arytmetyczne, funkcje konwersji, stałe łańcuchowe itp. Definicja formuły jest zapisywana w komórce, a ta komórka nie zawiera prostej wartości. Formuła arkusza oblicza wartość i zwraca ją, a następnie wynik jest przypisywany do komórki. Formuły arkusza wykresu w prezentacjach są właściwie takie same jak formuły Excela i obsługują te same domyślne funkcje, operatory i stałe.
+Poniższy przykład demonstruje pełny przepływ pracy. Tworzy wykres kolumnowy skumulowany, czyści przykładowe dane, zapisuje kwartalne przychody i wydatki, oblicza zysk przy użyciu formuł, odczytuje wyniki, używa obliczonych komórek jako wartości wykresu i zapisuje prezentację.
 
-W [**Aspose.Slides**](https://products.aspose.com/slides/pl/net/) arkusz wykresu jest reprezentowany przez właściwość 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) typu 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook). 
-Formułę arkusza można przypisać i zmienić za pomocą właściwości 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/properties/formula). 
-Poniższa funkcjonalność jest obsługiwana dla formuł w Aspose.Slides:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-- Stałe logiczne
-- Stałe liczbowe
-- Stałe łańcuchowe
-- Stałe błędów
-- Operatory arytmetyczne
-- Operatory porównania
-- Odwołania do komórek w stylu A1
-- Odwołania do komórek w stylu R1C1
-- Funkcje predefiniowane
+using var presentation = new Presentation();
 
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+workbook.Clear(worksheetIndex);
 
-Typowo arkusze przechowują ostatnie wyliczone wartości formuł. Jeśli po załadowaniu prezentacji dane wykresu nie zostały zmienione – właściwość **IChartDataCell.Value** zwraca te wartości podczas odczytu. Jednak jeśli dane arkusza zostały zmienione, odczyt właściwości **ChartDataCell.Value** powoduje rzucony **CellUnsupportedDataException** dla nieobsługiwanych formuł. Dzieje się tak, ponieważ po pomyślnym parsowaniu formuł określane są zależności komórek i poprawność ostatnich wartości. Jeśli formuła nie może być sparsowana, nie można zagwarantować poprawności wartości komórki.
+var category1 = workbook.GetCell(worksheetIndex, "A2", "Q1");
+var category2 = workbook.GetCell(worksheetIndex, "A3", "Q2");
+var category3 = workbook.GetCell(worksheetIndex, "A4", "Q3");
 
-## **Dodanie formuły arkusza wykresu do prezentacji**
-Najpierw dodaj wykres z przykładowymi danymi do pierwszego slajdu nowej prezentacji przy użyciu 
-[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/pl/net/aspose.slides.ishapecollection/addchart/methods/1). 
-Arkusz wykresu jest tworzony automatycznie i można go uzyskać za pomocą właściwości 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook):
+workbook.GetCell(worksheetIndex, "B1", "Revenue");
+workbook.GetCell(worksheetIndex, "C1", "Expenses");
+workbook.GetCell(worksheetIndex, "D1", "Profit");
 
-``` csharp
+workbook.GetCell(worksheetIndex, "B2").Value = 120.0;
+workbook.GetCell(worksheetIndex, "C2").Value = 80.0;
+workbook.GetCell(worksheetIndex, "B3").Value = 150.0;
+workbook.GetCell(worksheetIndex, "C3").Value = 95.0;
+workbook.GetCell(worksheetIndex, "B4").Value = 135.0;
+workbook.GetCell(worksheetIndex, "C4").Value = 110.0;
 
-using (var presentation = new Presentation())
+var profit1 = workbook.GetCell(worksheetIndex, "D2");
+var profit2 = workbook.GetCell(worksheetIndex, "D3");
+var profit3 = workbook.GetCell(worksheetIndex, "D4");
 
-{
+profit1.Formula = "B2-C2";
+profit2.Formula = "B3-C3";
+profit3.Formula = "B4-C4";
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    // ...
-
-}
-
-```
-
-Zapiszmy kilka wartości w komórkach przy użyciu właściwości 
-[**IChartDataCell.Value**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/properties/value) typu **Object**, co oznacza, że możesz ustawić dowolną wartość w tej właściwości:
-
-``` csharp
-
-workbook.GetCell(0, "F2").Value = -2.5;
-
-workbook.GetCell(0, "G3").Value = 6.3;
-
-workbook.GetCell(0, "H4").Value = 3;
-
-```
-
-Aby zapisać formułę w komórce, użyj właściwości 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/properties/formula):
-
-``` csharp
-workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
-```
-
-*Uwaga*: właściwość [**IChartDataCell.Formula**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/properties/formula) służy do ustawiania odwołań w stylu A1.  
-
-Aby ustawić odwołanie komórki w stylu **R1C1Formula**, użyj właściwości [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula):
-
-``` csharp
-workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
-```
-
-Następnie użyj metody [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas), aby obliczyć wszystkie formuły w skoroszycie i zaktualizować odpowiadające wartości komórek:
-
-``` csharp
 workbook.CalculateFormulas();
 
-object value1 = workbook.GetCell(0, "B2"); // 7.8
+var q1Profit = Convert.ToDouble(profit1.Value); // 40
+var q2Profit = Convert.ToDouble(profit2.Value); // 55
+var q3Profit = Convert.ToDouble(profit3.Value); // 25
 
-object value2 = workbook.GetCell(0, "C2"); // 2.1
+Console.WriteLine($"Q1 profit: {q1Profit}");
+Console.WriteLine($"Q2 profit: {q2Profit}");
+Console.WriteLine($"Q3 profit: {q3Profit}");
 
+chart.ChartData.Categories.Add(category1);
+chart.ChartData.Categories.Add(category2);
+chart.ChartData.Categories.Add(category3);
+
+var profitSeries = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, "D1"), chart.Type);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit1);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit2);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit3);
+profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-## **Stałe logiczne**
-Możesz używać stałych logicznych takich jak *FALSE* i *TRUE* w formułach komórek:
+Punkty danych wykresu odwołują się do `D2:D4`, więc wykres używa obliczonych wartości zysku. W tym przepływie nie ma osobnego wywołania odświeżenia wykresu: najpierw ponownie oblicz skoroszyt, a dopiero potem użyj lub zapisz dane wykresu wskazujące na obliczone komórki.
 
-## **Stałe liczbowe**
-Liczby mogą być używane w notacji zwykłej lub naukowej do tworzenia formuł arkusza wykresu:
+## **Używanie formuł w stylu A1**
 
-## **Stałe łańcuchowe**
-Stała łańcuchowa (lub literał) to konkretny wartość używana tak, jak jest, i nie zmienia się. Stałe łańcuchowe mogą być: daty, teksty, liczby itp.:
+Notacja A1 identyfikuje kolumny literami, a wiersze liczbami. Przypisz wyrażenia w stylu A1 poprzez [IChartDataCell.Formula](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/formula/).
 
-## **Stałe błędów**
-Czasami nie jest możliwe obliczenie wyniku formuły. W takim przypadku w komórce wyświetlany jest kod błędu zamiast wartości. Każdy typ błędu ma określony kod:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-- #DIV/0! – formuła próbuje podzielić przez zero.
-- #GETTING_DATA – może być wyświetlane w komórce, gdy jej wartość jest jeszcze obliczana.
-- #N/A – brak informacji lub nie dostępne. Przyczyny: puste komórki użyte w formule, dodatkowy znak spacji, literówka itp.
-- #NAME? – nie można znaleźć określonej komórki lub innego obiektu formuły po nazwie.
-- #NULL! – może się pojawić przy błędzie w formule, np. (,) lub znak spacji zamiast dwukropka (:).
-- #NUM! – liczba w formule jest nieprawidłowa, zbyt duża lub zbyt mała.
-- #REF! – nieprawidłowe odwołanie do komórki.
-- #VALUE! – nieoczekiwany typ wartości. Na przykład łańcuch ustawiony w komórce numerycznej.
+using var presentation = new Presentation();
 
-## **Operatory arytmetyczne**
-Możesz używać wszystkich operatorów arytmetycznych w formułach arkusza wykresu:
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-|**Operator**|**Znaczenie**|**Przykład**|
-| :- | :- | :- |
-|+ (plus)|Dodawanie lub jedynkowy plus|2 + 3|
-|- (minus)|Odejmowanie lub negacja|2 - 3<br>-3|
-|* (gwiazdka)|Mnożenie|2 * 3|
-|/ (ukośnik)|Dzielenie|2 / 3|
-|% (procent)|Procent|30%|
-|^ (daszek)|Potęgowanie|2 ^ 3|
+workbook.GetCell(0, "C3").Value = 10;
+workbook.GetCell(0, "F2").Value = 2;
+workbook.GetCell(0, "G2").Value = 3;
+workbook.GetCell(0, "H2").Value = 4;
 
-*Uwaga*: aby zmienić kolejność obliczeń, otocz część formuły, którą chcesz obliczyć najpierw, nawiasami.
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "C3+SUM(F2:H2)";
 
-## **Operatory porównania**
-Możesz porównywać wartości komórek przy użyciu operatorów porównania. Gdy dwa wartości są porównywane przy ich użyciu, wynik jest wartością logiczną *TRUE* lub *FALSE*:
+workbook.CalculateFormulas();
 
-|**Operator**|**Znaczenie**|**Przykład**|
-| :- | :- | :- |
-|= (znak równości)|Równe|A2 = 3|
-|<> (znak nierówności)|Nierówne|A2 <> 3|
-|> (większy niż)|Większy niż|A2 > 3|
-|>= (większy lub równy)|Większy lub równy|A2 >= 3|
-|< (mniejszy niż)|Mniejszy niż|A2 < 3|
-|<= (mniejszy lub równy)|Mniejszy lub równy|A2 <= 3|
+var value = cell.Value; // 19
+```
 
-## **Odwołania do komórek w stylu A1**
-**Odwołania do komórek w stylu A1** są używane w arkuszach, w których kolumna ma literowy identyfikator (np. "*A*"), a wiersz ma numeryczny identyfikator (np. "*1*"). Odwołania w stylu A1 mogą być używane w następujący sposób:
+Typowe formy odwołań A1 to:
 
-|**Odwołanie**|**Przykład**| | |
-| :- | :- | :- | :- |
-| |Bezwzględne|Względne|Mieszane|
-|Komórka|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Wiersz|$2:$2|2:2|-|
-|Kolumna|$A:$A|A:A|-|
-|Zakres|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+| Odwołanie | Względne | Bezwzględne | Mieszane |
+|---|---|---|---|
+| Komórka | `A2` | `$A$2` | `A$2`, `$A2` |
+| Wiersz | `2:2` | `$2:$2` | — |
+| Kolumna | `A:A` | `$A:$A` | — |
+| Zakres | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Oto przykład użycia odwołania w stylu A1 w formule:
+Względne odwołania mogą się zmienić, gdy formuła zostanie przeniesiona lub skopiowana w aplikacji arkusza kalkulacyjnego. Odwołania bezwzględne utrzymują oba współrzędne stałe, a odwołania mieszane utrwalają tylko wiersz lub kolumnę.
 
-## **Odwołania do komórek w stylu R1C1**
-**Odwołania do komórek w stylu R1C1** są używane w arkuszach, w których zarówno wiersz, jak i kolumna mają identyfikatory liczbowe. Odwołania w stylu R1C1 mogą być używane w następujący sposób:
+## **Używanie formuł w stylu R1C1**
 
-|**Odwołanie**|**Przykład**| | |
-| :- | :- | :- | :- |
-| |Bezwzględne|Względne|Mieszane|
-|Komórka|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Wiersz|R2|R[2]|-|
-|Kolumna|C3|C[3]|-|
-|Zakres|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+Notacja R1C1 identyfikuje zarówno wiersze, jak i kolumny liczbami. Odwołania względne używają przesunięć w kwadratowych nawiasach. Przypisz tę składnię poprzez [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
 
-Oto przykład użycia odwołania w stylu R1C1 w formule:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-## **Funkcje predefiniowane**
-Istnieją funkcje predefiniowane, które mogą być używane w formułach w celu uproszczenia ich implementacji. Funkcje te kapsułują najczęściej używane operacje, takie jak:
+using var presentation = new Presentation();
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (system dat 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (forma odwołania)
-- LOOKUP (forma wektorowa)
-- MATCH (forma wektorowa)
-- MAX
-- SUM
-- VLOOKUP
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+workbook.GetCell(0, "B2").Value = 12;
+workbook.GetCell(0, "C2").Value = 5;
+
+var cell = workbook.GetCell(0, "D2");
+cell.R1C1Formula = "RC[-2]-RC[-1]";
+
+workbook.CalculateFormulas();
+
+var value = cell.Value; // 7
+```
+
+Typowe formy odwołań R1C1 to:
+
+| Odwołanie | Względne | Bezwzględne | Mieszane |
+|---|---|---|---|
+| Komórka | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Wiersz | `R[2]` | `R2` | — |
+| Kolumna | `C[3]` | `C3` | — |
+| Zakres | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Na przykład w komórce `D2` wyrażenie `RC[-2]` oznacza komórkę w tym samym wierszu dwie kolumny w lewo (`B2`).
+
+## **Stałe i operatory formuł**
+
+Wbudowany evaluator formuł obsługuje wartości logiczne, literały liczbowe, łańcuchy znaków, wartości błędów arkusza, operatory arytmetyczne i operatory porównania.
+
+### **Stałe i literały**
+
+| Typ | Przykłady | Uwagi |
+|---|---|---|
+| Logiczny | `TRUE`, `FALSE` | Można używać bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
+| Numeryczny | `1`, `0.5`, `.3`, `1E-2` | Obsługiwane są notacje zwykła i naukowa. |
+| Tekstowy | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są otoczone podwójnymi cudzysłowami wewnątrz formuły. |
+| Wynik błędu | `#DIV/0!`, `#N/A`, `#REF!` | Poprawna formuła może zwrócić wartość błędu arkusza zamiast wyniku. |
+
+Ten przykład używa kilku typów stałych:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+workbook.GetCell(0, "A2").Value = false;
+workbook.GetCell(0, "B2").Formula = "A2=TRUE";
+workbook.GetCell(0, "C2").Formula = "1+0.5";
+workbook.GetCell(0, "D2").Formula = ".3*1E-2";
+workbook.GetCell(0, "E2").Formula = "\"abc\"";
+workbook.GetCell(0, "F2").Formula = "2/0";
+
+workbook.CalculateFormulas();
+
+var logicalValue = workbook.GetCell(0, "B2").Value; // Fałsz
+var numericValue = workbook.GetCell(0, "C2").Value; // 1.5
+var scientificValue = workbook.GetCell(0, "D2").Value; // 0.003
+var stringValue = workbook.GetCell(0, "E2").Value; // abc
+var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
+```
+
+### **Operatory arytmetyczne**
+
+| Operator | Znaczenie | Przykład |
+|---|---|---|
+| `+` | Dodawanie lub znak plus jednopodstawowy | `2+3` |
+| `-` | Odejmowanie lub negacja | `2-3`, `-3` |
+| `*` | Mnożenie | `2*3` |
+| `/` | Dzielenie | `2/3` |
+| `%` | Procent | `30%` |
+| `^` | Potęgowanie | `2^3` |
+
+Używaj nawiasów, aby wyraźnie określić kolejność obliczeń, np. `(A2+B2)*C2`.
+
+### **Operatory porównania**
+
+Wyrażenia porównawcze zwracają wartości logiczne.
+
+| Operator | Znaczenie | Przykład |
+|---|---|---|
+| `=` | Równe | `A2=3` |
+| `<>` | Nierówne | `A2<>3` |
+| `>` | Większe niż | `A2>3` |
+| `>=` | Większe lub równe | `A2>=3` |
+| `<` | Mniejsze niż | `A2<3` |
+| `<=` | Mniejsze lub równe | `A2<=3` |
+
+## **Obsługiwane wbudowane funkcje**
+
+Aspose.Slides zawiera wbudowany evaluator formuł dla arkuszy wykresów, ale nie jest pełnym silnikiem obliczeniowym Excel. Udokumentowany zestaw funkcji ogranicza się do poniższych funkcji. Nie zakładaj, że dowolna funkcja Excel może być przeliczoną przez [ObliczFormuły](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+
+| Funkcja | Cel lub obsługiwana forma | Przykład |
+|---|---|---|
+| `ABS` | Wartość bezwzględna | `ABS(A2)` |
+| `AVERAGE` | Średnia arytmetyczna | `AVERAGE(B2:B5)` |
+| `CEILING` | Zaokrąglenie w górę do wielokrotności | `CEILING(A2,5)` |
+| `CHOOSE` | Wybór wartości po indeksie | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Łączenie wartości tekstowych | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Łączenie wartości tekstowych | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Tworzenie wartości daty przy użyciu systemu dat 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Zwraca liczbę dni pomiędzy datami | `DAYS(B2,A2)` |
+| `FIND` | Znajduje tekst w innym tekście | `FIND("-",A2)` |
+| `FINDB` | Wyszukiwanie tekstu bajtowo | `FINDB("a",A2)` |
+| `IF` | Wynik warunkowy | `IF(A2>0,A2,0)` |
+| `INDEX` | Forma odwołania | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Forma wektorowa | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Forma wektorowa | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maksymalna wartość | `MAX(B2:B5)` |
+| `SUM` | Suma wartości | `SUM(B2:B5)` |
+| `VLOOKUP` | Wyszukiwanie pionowe | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Ograniczenia przedstawione w tabeli są istotne: `INDEX` jest udokumentowany w formie odwołania, natomiast `LOOKUP` i `MATCH` w ich formach wektorowych. `DATE` używa systemu dat 1900. Funkcje i cechy nie wymienione tutaj powinny być traktowane jako nieobsługiwane przez evaluator formuł Aspose.Slides, chyba że są udokumentowane osobno.
+
+## **Obliczanie formuł z preferowaną kulturą**
+
+Niektóre funkcje skoroszytu wykresu interpretują tekst zgodnie z regułami specyficznymi dla kultury. Jest to szczególnie ważne dla funkcji przeznaczonych dla języków używających podwójnych bajtów (DBCS). Aby prawidłowo obliczyć takie formuły, utwórz [OpcjeŁadowania](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/), ustaw [ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/pl/net/aspose.slides/ispreadsheetoptions/preferredculture/) poprzez [OpcjeŁadowania.SpreadsheetOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/spreadsheetoptions/), a następnie wczytaj prezentację.
+
+Poniższy przykład wybiera kulturę japońską, otwiera prezentację z skonfigurowanymi opcjami ładowania i wywołuje [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) dla każdego skoroszytu wykresu:
+
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
+
+Preferowana kultura jest częścią konfiguracji ładowania prezentacji, więc określ ją przed utworzeniem instancji [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Użyj kultury oczekiwanej przez formuły skoroszytu; na przykład użyj `ja-JP` dla formuł, które powinny stosować japońskie reguły DBCS.
+
+## **Ponowne obliczanie i wartości w pamięci podręcznej**
+
+Pliki arkuszy często przechowują zarówno formułę, jak i jej ostatnio obliczoną wartość. Aspose.Slides może więc odczytać wartość z pamięci podręcznej z [IChartDataCell.Value](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/value/), gdy prezentacja zostanie wczytana i odpowiednie dane wykresu nie zostały zmienione.
+
+Po zmianie komórek wejściowych lub formuł nie polegaj na starej zapamiętanej wartości. Wywołaj [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) przed odczytaniem obliczonych wartości lub zapisem danych wykresu zależnych od nich.
+
+Dla formuł spoza obsługiwanego podzbioru Aspose.Slides może nie być w stanie sparsować formuły ani ustalić jej zależności. Jeśli skoroszyt został zmodyfikowany, poprzednia zapamiętana wartość nie może być uznana za wiarygodną. W takiej sytuacji odczyt wartości komórki z nieobsługiwanymi danymi może spowodować podniesienie [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Jeśli Twój wykres zależy od funkcji Excel, których Aspose.Slides nie ocenia, oblicz te formuły przy użyciu silnika arkusza obsługującego je i zapisz uzyskane wyniki z powrotem do skoroszytu wykresu. Nie zastępuj nieobsługiwanych formuł zgadywanymi wartościami.
+
+## **Obsługa błędów formuł**
+
+Istnieją dwa różne rodzaje problemów do rozróżnienia.
+
+Formuła może być poprawna, ale zwrócić wynik błędu arkusza, taki jak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` lub `#VALUE!`. W takim wypadku token błędu jest wynikiem komórki i może być zwrócony przez `Value`.
+
+Formuła może także nie powieść się na etapie parsowania, odwołania, zależności lub danych obsługiwanych. Aspose.Slides udostępnia specyficzne dla arkuszy wyjątki: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellcircularreferenceexception/), oraz [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Gdy formuły pochodzą z szablonów lub danych wejściowych użytkownika, obsłuż te wyjątki wokół ponownego obliczania i dostępu do wartości:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Spreadsheet;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "SUM(B2:B5)";
+
+try
+{
+    workbook.CalculateFormulas();
+    Console.WriteLine(cell.Value);
+}
+catch (CellInvalidFormulaException ex)
+{
+    Console.Error.WriteLine($"Invalid formula: {ex.Message}");
+}
+catch (CellInvalidReferenceException ex)
+{
+    Console.Error.WriteLine($"Invalid cell reference: {ex.Message}");
+}
+catch (CellCircularReferenceException ex)
+{
+    Console.Error.WriteLine($"Circular reference: {ex.Message}");
+}
+catch (CellUnsupportedDataException ex)
+{
+    Console.Error.WriteLine($"Unsupported spreadsheet data: {ex.Message}");
+}
+```
+
+## **Praktyczne ograniczenia**
+
+Wsparcie formuł w arkuszach wykresów jest przeznaczone dla określonego podzbioru obliczeń arkusza, a nie dla pełnej kompatybilności z Excelem. Miej te ograniczenia na uwadze przy projektowaniu przepływu raportowania:
+
+- Używaj wyłącznie udokumentowanych stałych, operatorów, odwołań i funkcji, gdy potrzebujesz, aby Aspose.Slides przeliczał formuły.
+- Ponownie obliczaj po zmianie komórek, od których zależą wyniki formuł.
+- Traktuj wartości z pamięci podręcznej wczytanych prezentacji jako migawki, a nie jako zamiennik ponownego obliczania po edycjach.
+- Testuj formuły z istniejących szablonów przed poleganiem na ich obliczonych wartościach, szczególnie gdy używają funkcji spoza udokumentowanej listy.
+- Dla formuł wymagających pełnego silnika obliczeniowego arkusza, oblicz je zewnętrznie, a następnie zaktualizuj skoroszyt wykresu uzyskanymi wartościami.
 
 ## **FAQ**
 
-**Czy zewnętrzne pliki Excel są obsługiwane jako źródło danych dla wykresu z formułami?**
+**Jaka jest różnica między [Formuła](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/formula/) a [R1C1Formuła](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/r1c1formula/)?**
 
-Tak. Aspose.Slides obsługuje zewnętrzne skoroszyty jako [źródło danych wykresu](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/chartdatasourcetype/), co pozwala używać formuł z pliku XLSX poza prezentacją.
+[Formuła](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/formula/) przechowuje wyrażenie w stylu A1, takie jak `B2-C2`. [R1C1Formuła](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/r1c1formula/) przechowuje wyrażenie w stylu R1C1, takie jak `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej pasuje do sposobu generowania lub kopiowania formuł.
 
-**Czy formuły wykresu mogą odwoływać się do arkuszy w tym samym skoroszycie po nazwie arkusza?**
+**Czy muszę odczytać samą komórkę czy jej wartość po obliczeniu?**
 
-Tak. Formuły podążają za standardowym modelem odwołań Excel, więc możesz odwoływać się do innych arkuszy w tym samym skoroszycie lub do skoroszytu zewnętrznego. W przypadku odwołań zewnętrznych, podaj ścieżkę i nazwę skoroszytu używając składni Excela.
+[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/getcell/) zwraca `IChartDataCell`. Aby uzyskać obliczony wynik, odczytaj właściwość [Wartość](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/value/) tej komórki po ponownym obliczeniu.
+
+**Kiedy powinienem wywołać `CalculateFormulas`?**
+
+Wywołaj [ObliczFormuły](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) po zmianie wartości wejściowych lub formuł i przed zależnością od wyników obliczeń. To zaktualizuje wartości formuł obsługiwanych przez wbudowany evaluator.
+
+**Czy Aspose.Slides obsługuje każdą funkcję Excel?**
+
+Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Funkcje poza tym podzbiorem nie powinny być uznawane za prawidłowo przeliczane. Jeśli wymagana jest pełna kompatybilność z formułami Excel, wykonaj obliczenia przy użyciu odpowiedniego silnika arkusza i zapisz ostateczne wartości w skoroszycie wykresu.
+
+**Co się stanie, jeśli wczytana prezentacja zawiera nieobsługiwaną formułę?**
+
+Jeśli dane wykresu nie zostały zmienione, skoroszyt może nadal zawierać wcześniej obliczoną zapisaną wartość. Po modyfikacji powiązanych danych ta zapisana wartość może przestać być ważna. Dostęp do komórki, której formuła nie może być obsłużona, może podnieść [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Czy wartości błędów formuły są tym samym co wyjątki .NET?**
+
+Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza wygenerowaną przez prawidłowe obliczenie. Wyjątki takie jak [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) czy [CellCircularReferenceException](https://reference.aspose.com/slides/pl/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) wskazują, że formuła nie może być przetworzona w normalny sposób.
+
+**Czy wykres aktualizuje się automatycznie po zmianie komórki formuły?**
+
+Seria wykresu może odwoływać się do komórek skoroszytu. Najpierw oblicz skoroszyt, a potem zapisz lub renderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres użyje zaktualizowanych wartości; nie jest wymagane osobne wywołanie odświeżenia wykresu w tym przepływie.
+
+**Czy wykresy mogą używać zewnętrznego skoroszytu Excel?**
+
+Tak, dane wykresu można skonfigurować tak, aby korzystały z zewnętrznego skoroszytu przez API danych wykresu. Jednak opisany w tym artykule przepływ obliczania formuł dotyczy skoroszytu danych wykresu i podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [ObliczFormuły](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) zapewnia pełne przeliczenie dowolnych formuł w zewnętrznym pliku XLSX.
+
+**Czy mogę używać formuł odwołujących się do innego arkusza lub skoroszytu?**
+
+Odwołania w stylu Excel mogą istnieć w skoroszytach wykresów, ale ocena formuły jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie między arkuszami lub do zewnętrznego skoroszytu jest niezbędne, zweryfikuj dokładną formułę z wersją Aspose.Slides, której używasz. Dla przepływów wymagających szerokiej kompatybilności odwołań Excel, oblicz skoroszyt zewnętrznie i zapisz rozwiązane wartości z powrotem do danych wykresu.
+
+**Czy ciągi formuł powinny zaczynać się od `=`?**
+
+Przykłady API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego `=`. Używanie tej formy utrzymuje generowane formuły zgodne z udokumentowanymi przykładami API.

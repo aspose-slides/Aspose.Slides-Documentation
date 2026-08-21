@@ -1,250 +1,505 @@
 ---
-title: Chart‑Arbeitsblatt‑Formeln in Präsentationen mit C++ anwenden
-linktitle: Arbeitsblatt‑Formeln
+title: Anwenden von Diagramm-Arbeitsblatt-Formeln in Präsentationen mit C++
+linktitle: Arbeitsblatt-Formeln
 type: docs
 weight: 70
 url: /de/cpp/chart-worksheet-formulas/
 keywords:
-- Diagramm‑Tabellenblatt
-- Diagramm‑Arbeitsblatt
-- Diagramm‑Formel
-- Arbeitsblatt‑Formel
-- Tabellenblatt‑Formel
-- Datenquelle
+- Diagramm-Tabellenkalkulation
+- Diagramm-Arbeitsblatt
+- Diagramm-Formel
+- Arbeitsblatt-Formel
+- Tabellenkalkulations-Formel
+- Diagramm-Daten-Arbeitsmappe
+- Formel-Berechnung
+- bevorzugte Kultur
+- kulturspezifische Formel
+- DBCS
 - logische Konstante
 - numerische Konstante
-- Zeichenketten‑Konstante
-- Fehler‑Konstante
-- arithmetische Konstante
+- String-Konstante
+- Fehlerkonstante
+- arithmetischer Operator
 - Vergleichsoperator
-- A1‑Stil
-- R1C1‑Stil
+- A1-Stil
+- R1C1-Stil
 - vordefinierte Funktion
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Excel‑artige Formeln in Aspose.Slides für C++‑Diagramm‑Arbeitsblätter anwenden und Berichte in PPT‑ und PPTX‑Dateien automatisieren."
+description: "Wenden Sie Excel-artige Formeln in Aspose.Slides für C++-Diagramm-Arbeitsblätter an, berechnen Sie Werte neu und verwenden Sie die Ergebnisse in PowerPoint-Diagrammen."
 ---
+## **Übersicht**
 
-## **Über Diagramm‑Tabellenblatt‑Formeln in Präsentationen**
-**Diagramm‑Tabellenblatt** (oder Diagramm‑Arbeitsblatt) in einer Präsentation ist die Datenquelle des Diagramms. Diagramm‑Tabellenblatt enthält Daten, die im Diagramm grafisch dargestellt werden. Wenn Sie ein Diagramm in PowerPoint erstellen, wird das zugehörige Tabellenblatt automatisch erzeugt. Das Diagramm‑Tabellenblatt wird für alle Diagrammtypen erstellt: Liniendiagramm, Balkendiagramm, Sunburst‑Diagramm, Kreisdiagramm usw. Um das Diagramm‑Tabellenblatt in PowerPoint zu sehen, doppelklicken Sie auf das Diagramm:
+PowerPoint‑Diagramme speichern ihre Quelldaten normalerweise in einem eingebetteten Arbeitsblatt. In Aspose.Slides für C++ können Sie auf dieses Arbeitsblatt über die Diagrammdaten‑Arbeitsmappe zugreifen, Eingabewerte schreiben, Formeln Zellen zuweisen, unterstützte Formeln berechnen und die berechneten Zellen als Diagrammdaten verwenden.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Dieser Artikel erklärt den kompletten Formel‑Workflow: ein Diagramm erstellen, das Arbeitsblatt füllen, A1‑ oder R1C1‑Formeln zuweisen, sie neu berechnen, die berechneten Werte lesen, diese Zellen mit einer Diagrammreihe verbinden und die Präsentation speichern. Außerdem werden die unterstützte Formelsyntax, das eingebaute Funktions‑Subset, zwischengespeicherte Werte, nicht unterstützte Formeln und tabellenspezifische Fehler beschrieben.
 
+## **Diagramm‑Arbeitsblätter und Formeln**
 
+Ein Diagramm‑Arbeitsblatt enthält die Kategorien, Seriennamen und Werte, die von einem Diagramm verwendet werden. In PowerPoint können Sie das Arbeitsblatt inspizieren, indem Sie den Diagrammdaten‑Editor öffnen:
 
-Diagramm‑Tabellenblatt enthält die Namen von Diagrammelementen (Kategoriespalte: *Category1*, Serienname) und eine Tabelle mit numerischen Daten, die zu diesen Kategorien und Serien passen. Standardmäßig werden beim Erstellen eines neuen Diagramms die Diagramm‑Tabellenblatt‑Daten mit Standardwerten gesetzt. Anschließend können Sie die Tabellendaten im Arbeitsblatt manuell ändern.
+![PowerPoint‑Diagramm mit offenem eingebettetem Arbeitsblatt, das Kategorie‑ und Seriendaten zeigt](chart-worksheet-formulas_1.png)
 
-In der Regel stellt das Diagramm komplexe Daten dar (z. B. Finanz‑ oder Wissenschaftsanalyse), wobei Zellen aus Werten anderer Zellen oder aus dynamischen Daten berechnet werden. Den Zellenwert manuell zu berechnen und fest in die Zelle zu schreiben, erschwert spätere Änderungen. Ändern Sie den Wert einer bestimmten Zelle, müssen alle davon abhängigen Zellen ebenfalls aktualisiert werden. Außerdem können Tabellendaten von Daten anderer Tabellen abhängen und ein komplexes Präsentations‑Datenschema erzeugen, das einfach und flexibel aktualisiert werden muss.
+In Aspose.Slides wird das Arbeitsblatt über die Schnittstelle [IChartDataWorkbook](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/) bereitgestellt. Verwenden Sie [IChartDataCell::set_Formula](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_formula/) für A1‑Formeln und [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) für R1C1‑Formeln. Nachdem Eingabezellen oder Formeln geändert wurden, rufen Sie [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) auf, um unterstützte Formeln neu zu berechnen und die entsprechenden Zellenwerte zu aktualisieren.
 
-**Diagramm‑Tabellenblatt‑Formel** in einer Präsentation ist ein Ausdruck, der Diagramm‑Tabellenblatt‑Daten automatisch berechnet und aktualisiert. Eine Tabellenblatt‑Formel definiert die Datenberechnungslogik für eine bestimmte Zelle oder einen Zellenbereich. Eine Tabellenblatt‑Formel ist eine mathematische oder logische Formel, die verwendet: Zellreferenzen, mathematische Funktionen, logische Operatoren, arithmetische Operatoren, Konvertierungsfunktionen, Zeichenketten‑Konstanten usw. Die Definition der Formel wird in eine Zelle geschrieben; diese Zelle enthält keinen einfachen Wert. Die Tabellenblatt‑Formel berechnet den Wert und liefert ihn zurück, dann wird dieser Wert der Zelle zugewiesen. Diagramm‑Tabellenblatt‑Formeln in Präsentationen sind im Prinzip die gleichen wie Excel‑Formeln und unterstützen dieselben Standardfunktionen, Operatoren und Konstanten.
+Eine berechnete Zelle stellt ihr Ergebnis weiterhin über [IChartDataCell::get_Value](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/get_value/) bereit. Das ist wichtig, wenn Sie ein Formelergebnis im Code inspizieren oder die Zelle als Diagrammdatenpunkt verwenden müssen.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) wird das Diagramm‑Tabellenblatt durch die
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea)-Methode des
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook)-Typs dargestellt. 
-Eine Tabellenblatt‑Formel kann mit 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) zugewiesen und geändert werden. 
-Folgende Funktionalität wird für Formeln in Aspose.Slides unterstützt:
+## **Diagramm erstellen und Arbeitsblatt‑Formeln berechnen**
 
-- Logische Konstanten
-- Numerische Konstanten
-- Zeichenketten‑Konstanten
-- Fehler‑Konstanten
-- Arithmetische Operatoren
-- Vergleichsoperatoren
-- A1‑Stil‑Zellreferenzen
-- R1C1‑Stil‑Zellreferenzen
-- Vorgefertigte Funktionen
+Das folgende Beispiel demonstriert einen End‑zu‑End‑Workflow. Es erstellt ein gruppiertes Säulendiagramm, löscht die Beispieldaten, schreibt Quartals‑Umsatz‑ und Aufwandwerte, berechnet den Gewinn mit Formeln, liest die Ergebnisse, verwendet die berechneten Zellen als Diagrammwerte und speichert die Präsentation.
 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Typischerweise speichern Tabellenblätter die zuletzt berechneten Formelergebnisse. Wenn nach dem Laden der Präsentation die Diagrammdaten nicht geändert wurden, gibt die **IChartDataCell.get_Value()**‑Methode beim Lesen diese Werte zurück. Wurden jedoch die Tabellenblatt‑Daten geändert, wirft die **ChartDataCell.get_Value()**‑Methode beim Lesen eine **CellUnsupportedDataException** wegen nicht unterstützter Formeln. Das liegt daran, dass beim erfolgreichen Parsen von Formeln die Zellabhängigkeiten ermittelt und die Gültigkeit der letzten Werte geprüft wird. Kann eine Formel nicht geparst werden, kann die Korrektheit des Zellenwertes nicht garantiert werden.
+auto presentation = MakeObject<Presentation>();
 
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
 
-## **Eine Diagramm‑Tabellenblatt‑Formel zu einer Präsentation hinzufügen**
-Fügen Sie zunächst dem ersten Folien einer neuen Präsentation ein Diagramm mit 
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374) hinzu. 
-Das Arbeitsblatt des Diagramms wird automatisch erstellt und kann mit 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) abgerufen werden:
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
+
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
+
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
+
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+Die Diagrammdatenpunkte verweisen auf `D2:D4`, sodass das Diagramm die berechneten Gewinnwerte verwendet. Es gibt keinen separaten Diagramm‑Aktualisierungsaufruf in diesem Workflow: Berechnen Sie zuerst die Arbeitsmappe neu und verwenden bzw. speichern Sie anschließend die Diagrammdaten, die auf die berechneten Zellen verweisen.
+
+## **A1‑Formeln verwenden**
+
+Die A1‑Notation identifiziert Spalten mit Buchstaben und Zeilen mit Zahlen. Weisen Sie A1‑Ausdrücke über [IChartDataCell::set_Formula](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_formula/) zu.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
+Häufige A1‑Referenzformen sind:
 
+| Referenz | Relativ | Absolut | Gemischt |
+|---|---|---|---|
+| Zelle | `A2` | `$A$2` | `A$2`, `$A2` |
+| Zeile | `2:2` | `$2:$2` | — |
+| Spalte | `A:A` | `$A:$A` | — |
+| Bereich | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
+Relative Referenzen können sich ändern, wenn eine Formel von einer Tabellenkalkulations‑Anwendung verschoben oder kopiert wird. Absolute Referenzen halten beide Koordinaten fest, während gemischte Referenzen nur eine Zeile oder eine Spalte fixieren.
 
-Schreiben wir einige Werte in Zellen mit 
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) der **Object**‑Klasse, das bedeutet, Sie können jeder Methode einen beliebigen Wert übergeben:
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+## **R1C1‑Formeln verwenden**
+
+Die R1C1‑Notation identifiziert sowohl Zeilen als auch Spalten numerisch. Relative Referenzen verwenden Offsets in eckigen Klammern. Weisen Sie diese Syntax über [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) zu.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
+Häufige R1C1‑Referenzformen sind:
 
+| Referenz | Relativ | Absolut | Gemischt |
+|---|---|---|---|
+| Zelle | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Zeile | `R[2]` | `R2` | — |
+| Spalte | `C[3]` | `C3` | — |
+| Bereich | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
+Beispiel: In Zelle `D2` bedeutet `RC[-2]` die Zelle in derselben Zeile, zwei Spalten nach links (`B2`).
 
-Um nun eine Formel in die Zelle zu schreiben, können Sie die 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692)‑Methode verwenden:
+## **Formelkonstanten und Operatoren**
 
+Der integrierte Formelauswerter unterstützt logische Werte, numerische Literale, Zeichenfolgen, Fehlerwerte von Tabellenkalkulationen, arithmetische Operatoren und Vergleichsoperatoren.
 
+### **Konstanten und Literale**
 
+| Typ | Beispiele | Hinweise |
+|---|---|---|
+| Logisch | `TRUE`, `FALSE` | Können direkt in logischen Ausdrücken wie `A2=TRUE` verwendet werden. |
+| Numerisch | `1`, `0.5`, `.3`, `1E-2` | Dezimal‑ und wissenschaftliche Notation werden unterstützt. |
+| Zeichenfolge | `"abc"`, `"2/3/2020 12:00"` | Text‑Literal muss innerhalb der Formel in doppelte Anführungszeichen eingeschlossen werden. |
+| Fehlerwert | `#DIV/0!`, `#N/A`, `#REF!` | Eine gültige Formel kann anstelle eines normalen Ergebnisses einen Tabellen‑Fehlerwert ergeben. |
 
+Dieses Beispiel verwendet mehrere Konstantentypen:
 
-*Hinweis*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) setzt A1‑Stil‑Zellreferenzen. 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>();
 
-Um die R1C1‑Formel‑Zellreferenz zu setzen, können Sie die [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7)‑Methode verwenden:
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
 
+workbook->CalculateFormulas();
 
-
-
-Wenn Sie anschließend die Werte aus den Zellen B2 und C2 auslesen, werden sie berechnet:
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // Falsch
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
+### **Arithmetische Operatoren**
 
+| Operator | Bedeutung | Beispiel |
+|---|---|---|
+| `+` | Addition oder Vorzeichenplus | `2+3` |
+| `-` | Subtraktion oder Negation | `2-3`, `-3` |
+| `*` | Multiplikation | `2*3` |
+| `/` | Division | `2/3` |
+| `%` | Prozent | `30%` |
+| `^` | Potenzierung | `2^3` |
 
-## **Logische Konstanten**
-Sie können logische Konstanten wie *FALSE* und *TRUE* in Zellformeln verwenden:
+Klammern können verwendet werden, um die Auswertungsreihenfolge explizit zu machen, z. B. `(A2+B2)*C2`.
 
+### **Vergleichsoperatoren**
 
+Vergleichsausdrücke liefern logische Werte.
 
+| Operator | Bedeutung | Beispiel |
+|---|---|---|
+| `=` | Gleich | `A2=3` |
+| `<>` | Ungleich | `A2<>3` |
+| `>` | Größer als | `A2>3` |
+| `>=` | Größer‑ oder gleich | `A2>=3` |
+| `<` | Kleiner als | `A2<3` |
+| `<=` | Kleiner‑ oder gleich | `A2<=3` |
 
-## **Numerische Konstanten**
-Zahlen können in dezimaler oder wissenschaftlicher Schreibweise verwendet werden, um Diagramm‑Tabellenblatt‑Formeln zu erstellen:
+## **Unterstützte vordefinierte Funktionen**
 
+Aspose.Slides enthält einen integrierten Formelauswerter für Diagramm‑Arbeitsblätter, ist jedoch keine vollständige Excel‑Berechnungsengine. Der dokumentierte Funktionsumfang ist auf die nachstehenden Funktionen beschränkt. Es darf nicht angenommen werden, dass eine beliebige Excel‑Funktion von [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) neu berechnet werden kann.
 
+| Funktion | Zweck oder unterstützte Form | Beispiel |
+|---|---|---|
+| `ABS` | Absolutwert | `ABS(A2)` |
+| `AVERAGE` | Arithmetisches Mittel | `AVERAGE(B2:B5)` |
+| `CEILING` | Auf ein Vielfaches aufrunden | `CEILING(A2,5)` |
+| `CHOOSE` | Wert nach Index auswählen | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Textwerte verketten | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Textwerte verketten | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Datum mit 1900‑Datumsystem erzeugen | `DATE(2026,8,19)` |
+| `DAYS` | Anzahl der Tage zwischen Daten | `DAYS(B2,A2)` |
+| `FIND` | Text in einem anderen finden | `FIND("-",A2)` |
+| `FINDB` | Byte‑orientierte Textsuche | `FINDB("a",A2)` |
+| `IF` | Bedingtes Ergebnis | `IF(A2>0,A2,0)` |
+| `INDEX` | Referenzform | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektorform | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektorform | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximalwert | `MAX(B2:B5)` |
+| `SUM` | Summe | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertikaler SVERWEIS | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
+Die in der Tabelle gezeigten Einschränkungen sind bedeutend: `INDEX` ist in Referenzform dokumentiert, während `LOOKUP` und `MATCH` in ihren Vektorformen dokumentiert sind. `DATE` verwendet das 1900‑Datumsystem. Nicht aufgeführte Funktionen sollten als nicht unterstützt vom Aspose.Slides‑Formelauswerter angesehen werden, sofern sie nicht separat dokumentiert sind.
 
-## **Zeichenketten‑Konstanten**
-Eine Zeichenketten‑ (oder Literal‑)Konstante ist ein fester Wert, der unverändert verwendet wird. Zeichenketten‑Konstanten können sein: Datumsangaben, Texte, Zahlen usw.:
+## **Formeln mit bevorzugter Kultur berechnen**
 
+Einige Arbeitsblatt‑Funktionen interpretieren Text nach kulturspezifischen Regeln. Das ist besonders wichtig für Funktionen, die für Sprachen mit Double‑Byte‑Character‑Sets (DBCS) gedacht sind. Um solche Formeln korrekt zu berechnen, erstellen Sie ein [LoadOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/), konfigurieren Sie [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/de/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) über [LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) und laden dann die Präsentation.
 
+Im folgenden Beispiel wird die japanische Kultur ausgewählt, eine Präsentation mit den konfigurierten Ladeoptionen geöffnet und für jedes Diagramm‑Arbeitsblatt [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aufgerufen:
 
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
 
-## **Fehler‑Konstanten**
-Manchmal kann das Ergebnis einer Formel nicht berechnet werden. In diesem Fall wird im Zellinhalt ein Fehlercode anstelle des Werts angezeigt. Jeder Fehlertyp hat einen spezifischen Code:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
 
-- #DIV/0! – Formel versucht, durch Null zu teilen.
-- #GETTING_DATA – kann in einer Zelle erscheinen, während ihr Wert noch berechnet wird.
-- #N/A – Information fehlt oder ist nicht verfügbar. Gründe können sein: leere Zellen in der Formel, ein zusätzliches Leerzeichen, Tippfehler usw.
-- #NAME? – eine bestimmte Zelle oder ein anderes Formelelement kann nicht über ihren Namen gefunden werden.
-- #NULL! – tritt auf, wenn ein Fehler in der Formel vorliegt, z. B. (,) oder ein Leerzeichen statt eines Doppelpunkts (:).
-- #NUM! – die numerische Angabe in der Formel ist ungültig, zu lang oder zu klein usw.
-- #REF! – ungültige Zellreferenz.
-- #VALUE! – unerwarteter Werttyp, z. B. ein Zeichenkettenwert in einer numerischen Zelle.
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
 
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
 
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
 
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
 
-## **Arithmetische Operatoren**
-Sie können alle arithmetischen Operatoren in Diagramm‑Tabellenblatt‑Formeln verwenden:
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
 
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
 
+Die bevorzugte Kultur ist Teil der Lade‑Konfiguration, daher muss sie vor dem Erzeugen der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Instanz angegeben werden. Verwenden Sie die Kultur, die von den Arbeitsblatt‑Formeln erwartet wird; z. B. `ja-JP` für Formeln, die japanische DBCS‑Berechnungsregeln befolgen sollen.
 
-|**Operator**|**Bedeutung**|**Beispiel**|
-| :- | :- | :- |
-|+ (Pluszeichen)|Addition oder unary plus|2 + 3|
-|- (Minuszeichen)|Subtraktion oder Negation|2 - 3<br>-3|
-|* (Stern)|Multiplikation|2 * 3|
-|/ (Schrägstrich)|Division|2 / 3|
-|% (Prozentzeichen)|Prozent|30%|
-|^ (Caret)|Potenzierung|2 ^ 3|
+## **Neuberechnung und zwischengespeicherte Werte**
 
+Tabellendateien speichern häufig sowohl die Formel als auch den zuletzt berechneten Wert. Aspose.Slides kann daher einen zwischengespeicherten Wert aus [IChartDataCell::get_Value](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/get_value/) lesen, wenn eine Präsentation geladen wird und die betreffenden Diagrammdaten nicht geändert wurden.
 
-*Hinweis*: Um die Reihenfolge der Berechnung zu ändern, setzen Sie den entsprechenden Teil der Formel in Klammern.
+Nachdem Eingabezellen oder Formeln geändert wurden, dürfen Sie sich nicht auf ein altes zwischengespeichertes Ergebnis verlassen. Rufen Sie vor dem Lesen berechneter Werte oder dem Speichern von Diagrammdaten, die von ihnen abhängen, [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) auf.
 
+Für Formeln außerhalb des unterstützten Subsets kann Aspose.Slides die Formel möglicherweise nicht parsen oder ihre Abhängigkeiten nicht ermitteln. Wurde die Arbeitsmappe geändert, kann der vorherige zwischengespeicherte Wert nicht mehr als zuverlässig betrachtet werden. In diesem Fall kann das Lesen des Werts einer Zelle mit nicht unterstützten Daten die Ausnahme [CellUnsupportedDataException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) auslösen.
 
-## **Vergleichsoperatoren**
-Sie können Zellwerte mit Vergleichsoperatoren vergleichen. Werden zwei Werte mit diesen Operatoren verglichen, ergibt das einen logischen Wert, entweder *TRUE* oder *FALSE*:
+Wenn Ihr Diagramm Excel‑Funktionen verwendet, die Aspose.Slides nicht auswertet, berechnen Sie diese Formeln mit einer Tabellen‑Engine, die sie unterstützt, und schreiben Sie die resultierenden Werte zurück ins Diagramm‑Arbeitsblatt. Ersetzen Sie nicht‑unterstützte Formeln nicht durch geschätzte Werte.
 
+## **Formelfehler behandeln**
 
+Es gibt zwei verschiedene Arten von Problemen zu unterscheiden.
 
-|**Operator**|**Bedeutung**|**Beispiel**|
-| :- | :- | :- |
-|= (Gleichheitszeichen)|Gleich|A2 = 3|
-|<> (Ungleichheitszeichen)|Ungleich|A2 <> 3|
-|> (größer‑als‑Zeichen)|Größer als|A2 > 3|
-|>= (größer‑oder‑gleich‑Zeichen)|Größer oder gleich|A2 >= 3|
-|< (kleiner‑als‑Zeichen)|Kleiner als|A2 < 3|
-|<= (kleiner‑oder‑gleich‑Zeichen)|Kleiner oder gleich|A2 <= 3|
+Eine Formel kann gültig sein, aber ein Tabellen‑Fehlerergebnis wie `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` oder `#VALUE!` erzeugen. In diesem Fall ist das Fehlertoken ein Zell‑Ergebnis und kann über [IChartDataCell::get_Value](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/get_value/) zurückgegeben werden.
 
-## **A1‑Stil‑Zellreferenzen**
-**A1‑Stil‑Zellreferenzen** werden für Arbeitsblätter verwendet, bei denen die Spalte einen Buchstaben‑Identifier (z. B. "*A*") und die Zeile einen numerischen Identifier (z. B. "*1*") hat. A1‑Stil‑Zellreferenzen können wie folgt verwendet werden:
+Eine Formel kann zudem beim Parsen, bei Referenzen, Abhängigkeiten oder unterstützten Daten fehlschlagen. Aspose.Slides liefert dafür tabellenspezifische Ausnahmen: [CellInvalidFormulaException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) und [CellUnsupportedDataException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
+Wenn Formeln aus Vorlagen oder Benutzereingaben stammen, fangen Sie diese Ausnahmen beim Neuberechnen und beim Zugriff auf Werte ab:
 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
 
-|**Zellreferenz**|**Beispiel**| | |
-| :- | :- | :- | :- |
-| |Absolut|Relativ|Gemischt|
-|Zelle|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Zeile|$2:$2|2:2|-|
-|Spalte|$A:$A|A:A|-|
-|Bereich|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>();
 
-Hier ein Beispiel, wie man eine A1‑Stil‑Zellreferenz in einer Formel verwendet:
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
 
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // Behandeln Sie eine ungültige Formel.
+}
+catch (CellInvalidReferenceException&)
+{
+    // Behandeln Sie eine ungültige Zellreferenz.
+}
+catch (CellCircularReferenceException&)
+{
+    // Behandeln Sie eine zirkuläre Referenz.
+}
+catch (CellUnsupportedDataException&)
+{
+    // Behandeln Sie nicht unterstützte Tabellendaten.
+}
+```
 
+## **Praktische Einschränkungen**
 
+Die Formelunterstützung in Diagramm‑Arbeitsblättern ist für einen definierten Teilbereich von Tabell‑Berechnungen gedacht, nicht für vollständige Excel‑Kompatibilität. Beachten Sie diese Einschränkungen beim Entwerfen eines Reporting‑Workflows:
 
-## **R1C1‑Stil‑Zellreferenzen**
-**R1C1‑Stil‑Zellreferenzen** werden für Arbeitsblätter verwendet, bei denen sowohl Zeile als auch Spalte numerische Identifier besitzen. R1C1‑Stil‑Zellreferenzen können wie folgt verwendet werden:
-
-
-
-|**Zellreferenz**|**Beispiel**| | |
-| :- | :- | :- | :- |
-| |Absolut|Relativ|Gemischt|
-|Zelle|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Zeile|R2|R[2]|-|
-|Spalte|C3|C[3]|-|
-|Bereich|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Hier ein Beispiel, wie man eine R1C1‑Stil‑Zellreferenz in einer Formel verwendet:
-
-
-
-
-## **Vordefinierte Funktionen**
-Es gibt vordefinierte Funktionen, die in Formeln verwendet werden können, um deren Implementierung zu vereinfachen. Diese Funktionen kapseln die am häufigsten genutzten Vorgänge, wie zum Beispiel:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900‑Datumsystem)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (Referenzform)
-- LOOKUP (Vektorform)
-- MATCH (Vektorform)
-- MAX
-- SUM
-- VLOOKUP
+- Verwenden Sie nur die dokumentierten Konstanten, Operatoren, Referenzen und Funktionen, wenn Aspose.Slides die Formeln neu berechnen soll.
+- Berechnen Sie neu, nachdem Zellen geändert wurden, von denen Formel‑Ergebnisse abhängen.
+- Betrachten Sie zwischengespeicherte Werte aus geladenen Präsentationen als Momentaufnahme, nicht als Ersatz für eine Neuberechnung nach Änderungen.
+- Testen Sie Formeln aus bestehenden Vorlagen, bevor Sie sich auf ihre berechneten Werte verlassen, insbesondere wenn sie Funktionen außerhalb der dokumentierten Liste verwenden.
+- Für Formeln, die eine vollständige Tabellen‑Berechnungsengine benötigen, führen Sie die Berechnung extern durch und aktualisieren anschließend das Diagramm‑Arbeitsblatt mit den resultierenden Werten.
 
 ## **FAQ**
 
-**Werden externe Excel‑Dateien als Datenquelle für ein Diagramm mit Formeln unterstützt?**
+**Was ist der Unterschied zwischen `set_Formula` und `set_R1C1Formula`?**
 
-Ja. Aspose.Slides unterstützt externe Arbeitsmappen als [Diagramm‑Datenquelle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatasourcetype/), sodass Sie Formeln aus einer XLSX‑Datei außerhalb der Präsentation verwenden können.
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_formula/) speichert einen A1‑Ausdruck wie `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) speichert einen R1C1‑Ausdruck wie `RC[-2]-RC[-1]`. Verwenden Sie die Notation, die am besten zu Ihrer Erzeugungs‑ oder Kopierlogik passt.
 
-**Können Diagramm‑Formeln Tabellenblätter innerhalb derselben Arbeitsmappe per Blattname referenzieren?**
+**Muss ich nach der Berechnung die Zelle selbst oder ihren Wert lesen?**
 
-Ja. Formeln folgen dem Standard‑Excel‑Referenzmodell, sodass Sie andere Blätter derselben Arbeitsmappe oder einer externen Arbeitsmappe referenzieren können. Für externe Referenzen geben Sie den Pfad und den Dateinamen gemäß Excel‑Syntax an.
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) liefert ein `IChartDataCell`. Um das berechnete Ergebnis zu erhalten, lesen Sie den Wert dieser Zelle über [IChartDataCell::get_Value](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdatacell/get_value/) nach der Neuberechnung.
+
+**Wann soll ich `CalculateFormulas` aufrufen?**
+
+Rufen Sie [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) auf, nachdem Eingabewerte oder Formeln geändert wurden und bevor Sie von den berechneten Ergebnissen abhängen. Dadurch werden die Werte der von dem integrierten Auswerter unterstützten Formeln aktualisiert.
+
+**Unterstützt Aspose.Slides jede Excel‑Funktion?**
+
+Nein. Der integrierte Auswerter unterstützt nur ein dokumentiertes Funktions‑Subset. Funktionen außerhalb dieses Subsets sollten nicht als korrekt neu berechenbar angesehen werden. Wenn vollständige Excel‑Formel‑Kompatibilität erforderlich ist, führen Sie die Berechnung mit einer geeigneten Tabellen‑Engine durch und schreiben Sie die endgültigen Werte in das Diagramm‑Arbeitsblatt.
+
+**Was passiert, wenn eine geladene Präsentation eine nicht unterstützte Formel enthält?**
+
+Falls die Diagrammdaten nicht geändert wurden, kann das Arbeitsblatt noch einen zuvor berechneten, zwischengespeicherten Wert enthalten. Nachdem die zugehörigen Daten geändert wurden, ist dieser zwischengespeicherte Wert möglicherweise nicht mehr gültig. Der Zugriff auf eine Zelle, deren Formel nicht verarbeitet werden kann, kann die Ausnahme [CellUnsupportedDataException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) auslösen.
+
+**Sind Formelfehlerwerte das gleiche wie C++‑Ausnahmen?**
+
+Nein. Ein Ergebnis wie `#DIV/0!` ist ein Tabellenwert, der durch eine gültige Berechnung entsteht. Ausnahmen wie [CellInvalidFormulaException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) oder [CellCircularReferenceException](https://reference.aspose.com/slides/de/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) zeigen an, dass die Formel nicht normal verarbeitet werden kann.
+
+**Wird ein Diagramm automatisch aktualisiert, wenn sich eine Formelzelle ändert?**
+
+Eine Diagramm‑Serie kann Arbeitsblatt‑Zellen referenzieren. Berechnen Sie das Arbeitsblatt zuerst, speichern oder rendern Sie anschließend die Präsentation. Verweisen die Diagrammdatenpunkte auf die berechneten Zellen, verwendet das Diagramm die aktualisierten Zellwerte; ein separater Diagramm‑Aktualisierungs‑Aufruf ist für diesen Workflow nicht erforderlich.
+
+**Können Diagramme ein externes Excel‑Arbeitsblatt verwenden?**
+
+Ja, Diagrammdaten können so konfiguriert werden, dass sie ein externes Arbeitsblatt verwenden, über die Diagrammdaten‑API. Der in diesem Artikel beschriebene Formel‑Berechnungs‑Workflow bezieht sich jedoch ausschließlich auf das Diagramm‑Arbeitsblatt und das von Aspose.Slides ausgewertete Formelsubset. Es darf nicht angenommen werden, dass [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) eine vollständige Neuberechnung beliebiger Formeln in einer externen XLSX‑Datei liefert.
+
+**Kann ich Formeln verwenden, die auf ein anderes Arbeitsblatt oder Arbeitsbuch verweisen?**
+
+Excel‑artige Referenzen können in Diagramm‑Arbeitsblättern vorkommen, aber die Formelauswertung ist auf den unterstützten Parser und die Funktionsmenge beschränkt. Wenn ein Bezug über mehrere Blätter oder externe Dateien erforderlich ist, prüfen Sie die genaue Formel mit Ihrer Ziel‑Aspose.Slides‑Version. Für Workflows, die breite Excel‑Referenz‑Kompatibilität benötigen, berechnen Sie das Arbeitsblatt extern und schreiben die aufgelösten Werte zurück in die Diagrammdaten.
+
+**Müssen Formelformeln mit `=` beginnen?**
+
+Die Aspose.Slides‑API‑Beispiele weisen Ausdrücke wie `B2-C2` oder `SUM(B2:B5)` ohne führendes `=` zu. Die Verwendung dieser Form hält erzeugte Formeln konsistent zu den dokumentierten API‑Beispielen.

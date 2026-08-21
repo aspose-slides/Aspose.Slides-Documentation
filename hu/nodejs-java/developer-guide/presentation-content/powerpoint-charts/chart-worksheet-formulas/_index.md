@@ -1,5 +1,5 @@
 ---
-title: Diagram munkalap képletek alkalmazása prezentációkban JavaScript használatával
+title: Diagrammunkalap képletek alkalmazása prezentációkban JavaScript használatával
 linktitle: Munkalap képletek
 type: docs
 weight: 70
@@ -10,12 +10,16 @@ keywords:
 - diagram képlet
 - munkalap képlet
 - táblázat képlet
-- adatforrás
+- diagram adatkönyvtár
+- képletszámítás
+- preferált kultúra
+- kultúraspecifikus képlet
+- DBCS
 - logikai állandó
 - numerikus állandó
 - karakterlánc állandó
-- hiba állandó
-- aritmetikai állandó
+- hibaállandó
+- aritmetikai operátor
 - összehasonlító operátor
 - A1 stílus
 - R1C1 stílus
@@ -25,222 +29,399 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Alkalmazz Excel-stílusú képleteket az Aspose.Slides for Node.js-ben Java diagram munkalapokon, és automatizáld a jelentéseket PPT és PPTX fájlokban JavaScript segítségével."
+description: "Alkalmazzon Excel-stílusú képleteket az Aspose.Slides for Node.js via Java diagram munkalapokon, számolja újra az értékeket, és használja fel az eredményeket PowerPoint diagramokban."
 ---
 ## **Áttekintés**
 
-A diagram munkalap a diagram mögötti adatforrás a prezentációban. Tárolja a kategória- és sorozatneveket a diagram által megjelenített numerikus értékekkel együtt. Az Aspose.Slides esetében ez a munkalap a diagram adatkönyvtárán keresztül érhető el, amely lehetővé teszi a diagram adatok programozott kezelését.
+A PowerPoint-diagramok általában beágyazott munkalapon tárolják a forrásadatokat. Az Aspose.Slides for Node.js via Java használatával hozzáférhet a munkalaphoz a diagram adatkönyvtárán keresztül, beírhat bemeneti értékeket, képleteket rendelhet cellákhoz, kiszámíthatja a támogatott képleteket, és a kiszámított cellákat diagramadatként használhatja.
 
-Ez a cikk bemutatja, hogyan használhatók munkalap képletek a diagram adatokban, hogy a cellaértékek automatikusan kiszámításra és frissítésre kerüljenek a kézi bevitel helyett. Megmutatja a képletek hozzárendelését, az A1‑stílusú és R1C1‑stílusú hivatkozások használatát, a munkafüzet képletek újraszámítását, valamint a diagram munkalapokban támogatott állandókat, operátorokat, cellahivatkozásokat és előre definiált függvényeket.
+Ez a cikk bemutatja a teljes képletmunkafolyamatot: diagram létrehozása, a munkalap feltöltése, A1‑stílusú vagy R1C1‑stílusú képletek hozzárendelése, azok újraszámítása, a kiszámított értékek kiolvasása, a cellák összekapcsolása egy diagram sorozattal, és a prezentáció mentése. Leírja továbbá a támogatott képlet szintaxist, a beépített függvények részhalmazát, a gyorsítótárazott értékeket, a nem támogatott képleteket és a táblázatspecifikus hibákat.
 
-## **A diagram táblázatkép képlete a prezentációban**
-A prezentáció **diagram táblázata** (vagy diagram munkalap) a diagram adatforrása. A diagram táblázata tartalmazza az adatokat, amelyeket a diagram grafikus formában jelenít meg. Amikor diagramot hozol létre a PowerPointban, a diagramhoz tartozó munkalap automatikusan létrejön. Minden diagramtípushoz (vonaldiagram, oszlopdiagram, napfény diagram, kördiagram stb.) készül diagram munkalap. A diagram táblázatát a PowerPointban a diagram duplakattintásával tekintheted meg:
+## **Diagram munkalapok és képletek**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Egy diagram munkalapja tartalmazza a kategóriákat, a sorozatneveket és az értékeket, amelyeket a diagram használ. PowerPointban a munkalapot a diagram adat-szerkesztő megnyitásával ellenőrizheti:
 
+![PowerPoint-diagram beágyazott munkalappal, kategória- és sorozatadatok megjelenítése](chart-worksheet-formulas_1.png)
 
-A diagram táblázata a diagram elemeinek neveit tartalmazza (Kategória neve: *Category1*, Sorozat neve) és egy táblázatot numerikus adatokkal, amelyek a kategóriáknak és sorozatoknak megfelelőek. Alapértelmezésként, amikor új diagramot hozol létre, a diagram táblázat adatai alapértelmezett értékekkel vannak beállítva. Ezután a táblázat adatait manuálisan módosíthatod a munkalapon.
+Az Aspose.Slides-ben a munkalapot a [ChartDataWorkbook](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/) osztály exponálja. A1‑stílusú képletekhez használja a [ChartDataCell.setFormula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) metódust, R1C1‑stílusú képletekhez a [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) metódust. Bemeneti cellák vagy képletek módosítása után hívja meg a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) metódust a támogatott képletek újraszámításához és a cellaértékek frissítéséhez.
 
-Általában a diagram összetett adatokat ábrázol (pl. pénzügyi elemzők, tudományos elemzők), olyan cellákkal, amelyek más cellák értékeiből vagy dinamikus adatforrásokból számolódnak. Ha a cella értékét kézzel számolod ki és kemény kódba írod, nehéz később módosítani. Ha megváltoztatod egy adott cella értékét, az attól függő összes cellát is frissíteni kell. Ezen felül a táblázat adatai más táblázatok adataitól is függhetnek, így egy komplex prezentációs adatstruktúra alakul ki, amelyet könnyen és rugalmasan kell frissíteni.
+Egy kiszámított cella továbbra is a [ChartDataCell.getValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#getValue--) metódussal adja vissza az eredményt. Ez akkor fontos, amikor a kódban meg kell vizsgálnia a képlet eredményét, vagy a cellát diagramadatként akarja használni.
 
-A **diagram táblázatkép képlete** a prezentációban egy kifejezés, amely automatikusan kiszámítja és frissíti a diagram táblázat adatait. A képlet meghatározza egy adott cella vagy cellacsoport adatkihasználási logikáját. A képlet lehet matematikai vagy logikai, és a következőket használja: cellahivatkozások, matematikai függvények, logikai operátorok, aritmetikai operátorok, konverziós függvények, karakterlánc állandók stb. A képlet definíciója egy cellába íródik, és ez a cella nem egyszerű értéket tartalmaz. A képlet kiszámítja az értéket, visszaadja, majd ez az érték kerül a cellába. A diagram táblázat képletek a prezentációkban valójában ugyanazok, mint az Excel képletek, és ugyanazok a támogatott alapértelmezett függvények, operátorok és állandók állnak rendelkezésre a megvalósításukhoz.
+## **Diagram létrehozása és munkalap képletek kiszámítása**
 
-Az [**Aspose.Slides**](https://products.aspose.com/slides/hu/nodejs-java/) diagram táblázata a
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) metódussal
-képviselt [**ChartDataWorkbook**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataWorkbook) típuson keresztül.
-A táblázatkép képletet a
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) metódussal lehet hozzárendelni és módosítani.
-Az alábbi funkciók támogatottak a képleteknél az Aspose.Slides‑ben:
-
-- Logikai állandók
-- Numerikus állandók
-- Karakterlánc állandók
-- Hiba állandók
-- Aritmetikai operátorok
-- Összehasonlító operátorok
-- A1‑stílusú cellahivatkozások
-- R1C1‑stílusú cellahivatkozások
-- Előre definiált függvények
-
-
-Általában a táblázatok tárolják a legutóbb kiszámított képletértékeket. Ha a prezentáció betöltése után a diagram adatai nem változtak, a [**ChartDataCell.getValue**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#getValue--) metódus ezeket az értékeket adja vissza olvasáskor. Ha azonban a táblázat adatait módosították, a **ChartDataCell.Value** tulajdonság olvasásakor a [**CellUnsupportedDataException**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/CellUnsupportedDataException) kivételt dobja a nem támogatott képletek miatt. Ennek oka, hogy a képletek sikeres elemzésekor meghatározódnak a cellafüggőségek és ellenőrzésre kerül a legutóbbi érték helyessége. Ha a képletet nem lehet elemezni, a cellaérték helyessége nem garantálható.
-
-## **Diagram táblázat képlet hozzáadása a prezentációhoz**
-Először adj egy diagramot az új prezentáció első diájához a
-[ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection#addChart-int-float-float-float-float-) metódussal.
-A diagram munkalapja automatikusan létrejön, és a következővel érhető el:
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) metódus:
+Az alábbi példa egy végponttól‑végpontig tartó munkafolyamatot mutat be. Létrehoz egy csoportos oszlopdiagramot, törli a mintaadatokat, beírja a negyedéves bevétel‑ és költségértékeket, képletekkel számítja ki a profitot, kiolvassa az eredményeket, a kiszámított cellákat diagramértékekként használja, és menti a prezentációt.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // ...
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 350);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    const category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    const category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    const category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    const profit1 = workbook.getCell(worksheetIndex, "D2");
+    const profit2 = workbook.getCell(worksheetIndex, "D3");
+    const profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    const q1Profit = profit1.getValue(); // 40
+    const q2Profit = profit2.getValue(); // 55
+    const q3Profit = profit3.getValue(); // 25
+
+    console.log("Q1 profit: " + q1Profit);
+    console.log("Q2 profit: " + q2Profit);
+    console.log("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    const profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Írjunk néhány értéket a cellákba a
-[**ChartDataCell.setValue**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#setValue-java.lang.Object-) tulajdonsággal,
-amely a **Object** típusú, tehát bármilyen értéket beállíthatsz:
+A diagram adatpontjai a `D2:D4` tartományra hivatkoznak, így a diagram a kiszámított profitértékeket használja. Ebben a munkafolyamatban nincs külön diagram‑frissítési hívás: először számolja újra a munkafüzetet, majd használja vagy mentse a számított cellákra mutató diagramadatokat.
+
+## **A1‑stílusú képletek használata**
+
+Az A1‑notáció betűkkel jelöli az oszlopokat, számokkal a sorokat. A [ChartDataCell.setFormula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) metódussal adhat meg A1‑stílusú kifejezéseket.
 
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-Most a képletet a cellába a
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) metódussal írhatod:
+Az általános A1 hivatkozási formák:
 
-*Megjegyzés*: a [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) metódus A1‑stílusú cellahivatkozások beállítására szolgál.
+| Hivatkozás | Relatív | Abszolút | Vegyes |
+|---|---|---|---|
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Row | `2:2` | `$2:$2` | — |
+| Column | `A:A` | `$A:$A` | — |
+| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Az [R1C1Formula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#getR1C1Formula--) cellahivatkozás beállításához a
-[**ChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataCell#setR1C1Formula-java.lang.String-) metódust használhatod:
+A relatív hivatkozások megváltozhatnak, ha a képletet egy táblázatkezelő áthelyezi vagy másolja. Az abszolút hivatkozások mindkét koordinátát rögzítik, a vegyes hivatkozások csak egy sor vagy egy oszlop rögzítését végzik.
 
-Ezután, ha a B2 és C2 cellák értékeit olvasod, azok kiszámításra kerülnek:
+## **R1C1‑stílusú képletek használata**
+
+Az R1C1 notáció mind a sorokat, mind az oszlopokat numerikusan jelöli. Relatív hivatkozások a szögletes zárójelekben megadott eltolásokat használják. Ezt a szintaxist a [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) metódussal adhatja meg.
 
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    const cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Logikai állandók**
-Logikai állandókat, például a *FALSE* és *TRUE* értékeket használhatod a cellaképletekben:
+Az általános R1C1 hivatkozási formák:
+
+| Hivatkozás | Relatív | Abszolút | Vegyes |
+|---|---|---|---|
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Row | `R[2]` | `R2` | — |
+| Column | `C[3]` | `C3` | — |
+| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Például a `D2` cellában a `RC[-2]` a sorban két oszloppal balra lévő cellát jelenti (`B2`).
+
+## **Képletállandók és operátorok**
+
+A beépített képletértékelő logikai értékeket, numerikus literálokat, szövegeket, táblázathibákat, aritmetikai operátorokat és összehasonlító operátorokat támogat.
+
+### **Állandók és literálok**
+
+| Típus | Példák | Megjegyzés |
+|---|---|---|
+| Logikai | `TRUE`, `FALSE` | Közvetlenül használható logikai kifejezésekben, például `A2=TRUE`. |
+| Numerikus | `1`, `0.5`, `.3`, `1E-2` | A közös és tudományos jelölés is támogatott. |
+| Szöveg | `"abc"`, `"2/3/2020 12:00"` | A szövegliterálokat dupla idézőjelek közé kell tenni a képletben. |
+| Hiba eredmény | `#DIV/0!`, `#N/A`, `#REF!` | Egy érvényes képlet a táblázat hibaértékére is kiértékelődhet a normál eredmény helyett. |
+
+Ez a példa több állandó típust használ:
 
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// az érték logikai "false"-t tartalmaz
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    const logicalValue = workbook.getCell(0, "B2").getValue(); // hamis
+    const numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    const scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    const stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    const errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Numerikus állandók**
-Számok használhatók közönséges vagy tudományos jelölésben a diagram táblázatkép képletek létrehozásához:
+### **Aritmetikai operátorok**
+
+| Operátor | Jelentés | Példa |
+|---|---|---|
+| `+` | Összeadás vagy egyelőleg pozitív előjel | `2+3` |
+| `-` | Kivonás vagy negatív előjel | `2-3`, `-3` |
+| `*` | Szorzás | `2*3` |
+| `/` | Osztás | `2/3` |
+| `%` | Százalék | `30%` |
+| `^` | Hatványozás | `2^3` |
+
+Használjon zárójeleket a kiértékelési sorrend egyértelműsítéséhez, például `(A2+B2)*C2`.
+
+### **Összehasonlító operátorok**
+
+Az összehasonlító kifejezések logikai értéket adnak vissza.
+
+| Operátor | Jelentés | Példa |
+|---|---|---|
+| `=` | Egyenlő | `A2=3` |
+| `<>` | Nem egyenlő | `A2<>3` |
+| `>` | Nagyobb | `A2>3` |
+| `>=` | Nagyobb vagy egyenlő | `A2>=3` |
+| `<` | Kisebb | `A2<3` |
+| `<=` | Kisebb vagy egyenlő | `A2<=3` |
+
+## **Támogatott előre definiált függvények**
+
+Az Aspose.Slides beépített képletértékelőt biztosít a diagram munkalapokhoz, de nem egy teljes Excel számítási motor. A dokumentált függvénykészlet csak az alábbiakra korlátozódik. Ne feltételezze, hogy tetszőleges Excel‑függvényt újraszámol a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) metódus.
+
+| Függvény | Cél vagy támogatott forma | Példa |
+|---|---|---|
+| `ABS` | Abszolút érték | `ABS(A2)` |
+| `AVERAGE` | Aritmetikai közép | `AVERAGE(B2:B5)` |
+| `CEILING` | Felfelé kerekítés egy többszörösre | `CEILING(A2,5)` |
+| `CHOOSE` | Érték kiválasztása index alapján | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Szövegek összefűzése | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Szövegek összefűzése | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Dátumérték létrehozása a 1900-as dátumrendszerrel | `DATE(2026,8,19)` |
+| `DAYS` | Napok száma két dátum között | `DAYS(B2,A2)` |
+| `FIND` | Szövegrész keresése egy másikban | `FIND("-",A2)` |
+| `FINDB` | Byte‑orientált szövegkeresés | `FINDB("a",A2)` |
+| `IF` | Feltételes eredmény | `IF(A2>0,A2,0)` |
+| `INDEX` | Referencia forma | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektor forma | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektor forma | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximális érték | `MAX(B2:B5)` |
+| `SUM` | Összeg | `SUM(B2:B5)` |
+| `VLOOKUP` | Függőleges keresés | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+A táblázatban szereplő korlátozások jelentősek: az `INDEX` referencia formában van dokumentálva, míg a `LOOKUP` és `MATCH` vektor formában. A `DATE` a 1900-as dátumrendszert használja. A nem felsorolt funkciókat az Aspose.Slides képletértékelője nem támogatja, kivéve ha külön dokumentálva vannak.
+
+## **Képletek számítása preferált kultúrával**
+
+Egyes munkafüzet‑függvények a szöveget kultúraspecifikus szabályok szerint értelmezik. Ez különösen fontos a kétsávos karakterkészletet (DBCS) használó nyelvek esetén. Az ilyen képletek helyes számításához hozza létre a [LoadOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/) objektumot, állítsa be a preferált kultúrát a [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture) metódussal, adja át a táblázat‑opciókat a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) metódussal, majd töltse be a prezentációt.
+
+Az alábbi példa japán kultúrát választ, megnyit egy prezentációt a konfigurált betöltési opciókkal, és minden diagram munkafüzethez meghívja a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) metódust:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Karakterlánc állandók**
-A karakterlánc (vagy literál) állandó egy olyan specifikus érték, amelyet változtatás nélkül használnak. Karakterlánc állandók lehetnek: dátumok, szövegek, számok stb.:
+A preferált kultúra a prezentáció betöltési konfigurációjának része, ezért a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) példány létrehozása előtt adja meg. A munkafüzet‑képletek által elvárt kultúrát használja; például a japán DBCS számítási szabályokat követő képletekhez a `ja-JP` kultúrát adja meg.
+
+## **Újraszámítás és gyorsítótárazott értékek**
+
+A táblázatfájlok gyakran tárolják a képletet és annak legutóbb számított értékét is. Az Aspose.Slides ezért a [ChartDataCell.getValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#getValue--) metódussal is ki tud olvasni egy gyorsítótárazott értéket, amikor a prezentáció betöltődik, és a diagramadatok nem változtak.
+
+Bemeneti cellák vagy képletek módosítása után ne bízzon egy régi gyorsítótárazott eredményben. Hívja meg a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) metódust, mielőtt a kiszámított értékeket olvasná vagy olyan diagramadatot mentene, amely ezekre támaszkodik.
+
+A nem támogatott képletek esetén az Aspose.Slides előfordulhat, hogy nem tudja értelmezni a képletet vagy annak függőségeit. Ha a munkafüzet módosult, a korábbi gyorsítótárazott érték már nem tekinthető megbízhatónak. Ilyen helyzetben egy nem támogatott adattal rendelkező cella kiolvasása a [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellunsupporteddataexception/) kivételt válthatja ki.
+
+Ha diagramja olyan Excel‑függvényeket használ, amelyeket az Aspose.Slides nem számol ki, számolja ki ezeket a képleteket egy olyan táblázatmotorral, amely támogatja őket, majd írja vissza a kapott értékeket a diagram munkafüzetébe. Ne helyettesítse a nem támogatott képleteket tippelt értékekkel.
+
+## **Képlethibák kezelése**
+
+Két különböző problémafajtát kell megkülönböztetni.
+
+Egy képlet lehet érvényes, de táblázathiba eredményt ad, például `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` vagy `#VALUE!`. Ebben az esetben a hibajelent a cella eredménye, és a [ChartDataCell.getValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#getValue--) metódussal adható vissza.
+
+Egy képlet a feldolgozás, hivatkozás, függőség vagy támogatott adat szintjén is hibát eredményezhet. Az Aspose.Slides ezekre a helyzetekre táblázatspecifikus kivételeket biztosít: [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellcircularreferenceexception/) és [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Sablonokból vagy felhasználói bemenetből származó képletek esetén fogjon hibákat az újraszámítás és az értékelérés körül. A hiba részletei az alapszakasz táblázati problémáját azonosítják:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        console.log(cell.getValue());
+    } catch (error) {
+        console.error("Formula processing error: " + error.message);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Hiba állandók**
-Néha a képlet nem tudja kiszámítani az eredményt. Ebben az esetben a hibakód jelenik meg a cellában az érték helyett. Minden hibatípusnak saját kódja van:
+## **Gyakorlati korlátok**
 
-- #DIV/0! – a képlet nullával oszt.
-- #GETTING_DATA – a cellán megjelenhet, amíg az értéke még számítás alatt áll.
-- #N/A – információ hiányzik vagy nem elérhető. Oka lehet: üres cella a képletben, felesleges szóköz, elütés stb.
-- #NAME? – egy adott cella vagy más képlethez tartozó objektum nem található a nevén.
-- #NULL! – a képletben szintaktikai hiba, például (,) vagy egy szóköz helyett kettőspont (:).
-- #NUM! – a képletben szereplő szám érvénytelen, túl nagy vagy túl kicsi stb.
-- #REF! – érvénytelen cellahivatkozás.
-- #VALUE! – váratlan típusú érték. Például karakterlánc érték numerikus cellába.
+A diagram munkalapokban nyújtott képlet‑támogatás egy meghatározott részhalmazra van tervezve, és nem biztosít teljes Excel‑kompatibilitást. Tartsa szem előtt ezeket a korlátozásokat a jelentéskészítési munkafolyamatok tervezésekor:
 
-```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// az érték tartalmazza a "#DIV/0!" karakterláncot
-```
+- Csak a dokumentált állandókat, operátorokat, hivatkozásokat és függvényeket használja, ha azt szeretné, hogy az Aspose.Slides újraszámolja a képleteket.
+- Számolja újra a munkafüzetet a képlet‑eredményektől függő cellák módosítása után.
+- Tekintse a betöltött prezentációkból származó gyorsítótárazott értékeket pillanatfelvételeknek, ne pedig az utólagos szerkesztés utáni újraszámítás helyettesítőjének.
+- Tesztelje a meglévő sablonokból származó képleteket, mielőtt a kiszámított értékekre támaszkodna, különösen akkor, ha olyan függvényeket használnak, amelyek nincsenek a dokumentált listában.
+- Azokhoz a képletekhez, amelyek teljes táblázat‑számítási motorra van szükségük, végezze el a számítást külsőleg, majd frissítse a diagram munkafüzetet a kapott értékekkel.
 
-## **Aritmetikai operátorok**
-A diagram munkalap képleteiben az összes aritmetikai operátort használhatod:
+## **GYIK**
 
-|**Operátor**|**Jelentés**|**Példa**|
-| :- | :- | :- |
-|+ (plusz jel)|Összeadás vagy egyjegyű plusz|2 + 3|
-|- (mínusz jel)|Kivonás vagy negáció|2 - 3<br>-3|
-|* (csillag)|Szorzás|2 * 3|
-|/ (perjel)|Osztás|2 / 3|
-|% (százalék)|Százalék|30%|
-|^ (caret)|Hatványozás|2 ^ 3|
+**Mi a különbség a [ChartDataCell.setFormula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) és a [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) között?**
 
-*Megjegyzés*: A kiértékelés sorrendjének módosításához zárójelezd a képlet azon részét, amelyet előbb kell számolni.
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) A1‑stílusú kifejezést, például `B2-C2` tárol. [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) R1C1‑stílusú kifejezést, például `RC[-2]-RC[-1]` tárol. Használja azt a jelölést, amelyik jobban illeszkedik a képletek létrehozásához vagy másolásához.
 
-## **Összehasonlító operátorok**
-Az összehasonlító operátorokkal a cellák értékét hasonlíthatod össze. Két érték összehasonlítása ezekkel az operátorokkal logikai eredményt ad: *TRUE* vagy *FALSE*:
+**A számítás után olvasnom kell a cellát vagy az értékét?**
 
-|**Operátor**|**Jelentés**|**Jelentés**|
-| :- | :- | :- |
-|= (egyenlő jel)|Egyenlő|A2 = 3|
-|<> (nem egyenlő jel)|Nem egyenlő|A2 <> 3|
-|> (nagyobb jel)|Nagyobb|A2 > 3|
-|>= (nagyobb vagy egyenlő jel)|Nagyobb vagy egyenlő|A2 >= 3|
-|< (kisebb jel)|Kisebb|A2 < 3|
-|<= (kisebb vagy egyenlő jel)|Kisebb vagy egyenlő|A2 <= 3|
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) egy [ChartDataCell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/) objektumot ad vissza. A kiszámított eredményhez hívja meg ennek a cellának a [ChartDataCell.getValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/#getValue--) metódusát újraszámítás után.
 
-## **A1‑stílusú cellahivatkozások**
-Az **A1‑stílusú cellahivatkozások** a munkalapoknál használatosak, ahol az oszlop betűvel (pl. "*A*"), a sor pedig számmal (pl. "*1*") azonosítható. Az A1‑stílusú hivatkozások a következőképpen alkalmazhatók:
+**Mikor kell meghívni a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) metódust?**
 
-|**Cellahivatkozás**|**Példa**|||
-| :- | :- | :- | :- |
-||Abszolút|Relatív|Vegyes|
-|Cella|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Sor|$2:$2|2:2|-|
-|Oszlop|$A:$A|A:A|-|
-|Tartomány|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Hívja meg a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) metódust a bemeneti értékek vagy képletek módosítása után, és mielőtt a kiszámított eredményeket felhasználná. Ez frissíti a beépített értékelő által támogatott képletek értékeit.
 
-Példa az A1‑stílusú cellahivatkozás használatára képletben:
+**Az Aspose.Slides támogat minden Excel‑függvényt?**
 
-```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+Nem. A beépített értékelő csak egy dokumentált függvény‑részhalmazt támogat. A részhalmazon kívül eső függvényekre ne számítson, hogy helyesen újraszámolódnak. Ha teljes Excel‑képlet‑kompatibilitásra van szükség, végezze el a számítást egy megfelelő táblázat‑motorral, és írja a végső értékeket a diagram munkafüzetbe.
 
-## **R1C1‑stílusú cellahivatkozások**
-Az **R1C1‑stílusú cellahivatkozások** a munkalapoknál használatosak, ahol mind a sor, mind az oszlop numerikus azonosítóval rendelkezik. Az R1C1‑stílusú hivatkozások a következőképpen alkalmazhatók:
+**Mi történik, ha egy betöltött prezentáció nem támogatott képletet tartalmaz?**
 
-|**Cellahivatkozás**|**Példa**|||
-| :- | :- | :- | :- |
-||Abszolút|Relatív|Vegyes|
-|Cella|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Sor|R2|R[2]|-|
-|Oszlop|C3|C[3]|-|
-|Tartomány|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+Ha a diagramadatok nem változtak, a munkafüzet még tartalmazhat egy korábban kiszámolt gyorsítótárazott értéket. A kapcsolódó adatok módosítása után ez a gyorsítótárazott érték már nem lehet érvényes. Egy olyan cella elérése, amelynek képletét nem tudja kezelni, a [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellunsupporteddataexception/) kivételt váltja ki.
 
+**Ugyanazok-e a képlet‑hibaértékek és a kivételek?**
 
-Példa az R1C1‑stílusú cellahivatkozás használatára képletben:
+Nem. A `#DIV/0!`‑hez hasonló eredmény egy táblázatérték, amely egy érvényes számításból származik. A [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellinvalidformulaexception/) vagy [CellCircularReferenceException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cellcircularreferenceexception/) kivételek azt jelzik, hogy a képletet nem lehet normál módon feldolgozni.
 
-```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+**A diagram automatikusan frissül, ha egy képlet‑cellát módosítanak?**
 
-## **Előre definiált függvények**
-Vannak előre definiált függvények, amelyeket a képletekben használhatsz a megvalósításuk egyszerűsítésére. Ezek a függvények a leggyakrabban használt műveleteket foglalják magukba, például:
+Egy diagram sorozata hivatkozhat munkafüzet‑cellákra. Először számolja újra a munkafüzetet, majd mentse vagy renderelje a prezentációt. Ha a diagram adatpontjai a kiszámított cellákra hivatkoznak, a diagram az ezekkel frissített értékeket használja; nincs szükség külön diagram‑frissítési metódusra ebben a munkafolyamatban.
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900-as dátumrendszer)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (referencia forma)
-- LOOKUP (vektor forma)
-- MATCH (vektor forma)
-- MAX
-- SUM
-- VLOOKUP
+**Használhatók külső Excel‑munkafüzetek diagramokhoz?**
 
-## **Gyakran ismételt kérdések**
+Igen, a diagramadatok konfigurálhatók úgy, hogy egy külső munkafüzetet használjanak a diagramadat‑API‑n keresztül. Azonban a jelen cikkben leírt képlet‑számítási munkafolyamat a diagram adat‑munkafüzetre és az Aspose.Slides által kiértékelt képlet‑részhalmazra vonatkozik. Ne feltételezze, hogy a [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) teljes újraszámítást végez tetszőleges képleteken egy külső XLSX fájlban.
 
-**Támogatottak-e külső Excel fájlok adatforrásként a képletekkel ellátott diagramhoz?**
+**Használhatók olyan képletek, amelyek más munkalapra vagy munkafüzetre hivatkoznak?**
 
-Igen. Az Aspose.Slides támogatja a külső munkafüzeteket [diagram adatforrásaként](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatasourcetype/), lehetővé téve, hogy az XLSX‑ben lévő képleteket a prezentáción kívül is használhasd.
+Excel‑stílusú hivatkozások előfordulhatnak diagram munkafüzetekben, de a képletszámítás a támogatott elemző és függvénykészlet által korlátozott. Ha egy kereszt‑lap vagy külső hivatkozás elengedhetetlen, ellenőrizze, hogy a pontos képlet működik‑e a cél Aspose.Slides verziójával. Széles körű Excel‑hivatkozási kompatibilitást igénylő munkafolyamatokhoz számolja ki a munkafüzetet külsőleg, és írja vissza a feloldott értékeket a diagram adatba.
 
-**A diagram képletei hivatkozhatnak-e ugyanabban a munkafüzetben lévő munkalapokra név alapján?**
+**Kell‑e egy képletszövegnek `=` jellel kezdődnie?**
 
-Igen. A képletek a standard Excel hivatkozási modellnek felelnek meg, így hivatkozhatsz más munkalapokra ugyanabban a munkafüzetben vagy egy külső munkafüzetben. Külső hivatkozások esetén a fájlútvonalat és a munkafüzet nevét kell megadni az Excel szintaxis szerint.
+Az Aspose.Slides API‑példák a `B2-C2` vagy `SUM(B2:B5)` kifejezéseket vezeték‑karakter nélkül adják meg. Ilyen formát használva a generált képletek összhangban lesznek a dokumentált API‑példákkal.

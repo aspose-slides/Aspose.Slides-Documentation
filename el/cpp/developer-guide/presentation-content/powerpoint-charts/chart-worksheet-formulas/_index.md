@@ -1,22 +1,26 @@
 ---
-title: Εφαρμογή τύπων φύλλου εργασίας διαγράμματος σε παρουσιάσεις με C++
-linktitle: Τύποι Φύλλου Εργασίας
+title: Εφαρμογή τύπων φύλλου εργασίας γραφημάτων σε παρουσιάσεις με C++
+linktitle: Τύποι φύλλου εργασίας
 type: docs
 weight: 70
 url: /el/cpp/chart-worksheet-formulas/
 keywords:
-- φύλλο εργασίας διαγράμματος
-- φύλλο εργασίας διαγράμματος
-- τύπος διαγράμματος
+- φύλλο εργασίας γραφήματος
+- φύλλο εργασίας γραφήματος
+- τύπος γραφήματος
 - τύπος φύλλου εργασίας
-- τύπος φύλλου εργασίας
-- πηγή δεδομένων
+- τύπος λογιστικού φύλλου
+- βιβλίο δεδομένων γραφήματος
+- υπολογισμός τύπου
+- προτιμώμενος πολιτισμός
+- τύπος ειδικού πολιτισμού
+- DBCS
 - λογική σταθερά
 - αριθμητική σταθερά
 - σταθερά συμβολοσειράς
 - σταθερά σφάλματος
-- αριθμητική σταθερά
-- τελεστής σύγκρισης
+- αριθμητικός χειριστής
+- χειριστής σύγκρισης
 - στυλ A1
 - στυλ R1C1
 - προκαθορισμένη συνάρτηση
@@ -24,186 +28,478 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Εφαρμόστε τύπους τύπου Excel στο Aspose.Slides για φύλλα εργασίας διαγράμματος C++ και αυτοματοποιήστε αναφορές σε αρχεία PPT και PPTX."
+description: "Εφαρμόστε τύπους τύπου Excel στα φύλλα εργασίας γραφημάτων του Aspose.Slides για C++, επαναϋπολογίστε τις τιμές και χρησιμοποιήστε τα αποτελέσματα σε γραφήματα PowerPoint."
 ---
 ## **Επισκόπηση**
 
-Ένα φύλλο εργασίας διαγράμματος είναι η πηγή δεδομένων πίσω από ένα διάγραμμα σε μια παρουσίαση. Αποθηκεύει τα ονόματα κατηγοριών και σειρών μαζί με τις αριθμητικές τιμές που εμφανίζει το διάγραμμα. Στο Aspose.Slides, αυτό το φύλλο εργασίας είναι διαθέσιμο μέσω του βιβλίου εργασίας δεδομένων διαγράμματος, που σας επιτρέπει να εργάζεστε με τα δεδομένα του διαγράμματος προγραμματιστικά.
+Οι γραφήματα του PowerPoint συνήθως αποθηκεύουν τα δεδομένα προέλευσής τους σε ένα ενσωματωμένο φύλλο εργασίας. Στο Aspose.Slides για C++, μπορείτε να αποκτήσετε πρόσβαση σε αυτό το φύλλο εργασίας μέσω του βιβλίου εργασίας δεδομένων γραφήματος, να γράψετε τιμές εισόδου, να αναθέσετε τύπους σε κελιά, να υπολογίσετε τους υποστηριζόμενους τύπους και να χρησιμοποιήσετε τα υπολογισμένα κελιά ως δεδομένα γραφήματος.
 
-Αυτό το άρθρο εξηγεί πώς να χρησιμοποιήσετε τύπους φύλλου εργασίας σε δεδομένα διαγράμματος ώστε οι τιμές των κελιών να υπολογίζονται και να ενημερώνονται αυτόματα αντί να εισάγονται χειροκίνητα. Δείχνει πώς να αναθέτετε τύπους, να χρησιμοποιείτε αναφορές στυλ A1 και R1C1, να επανυπολογίζετε τους τύπους του βιβλίου εργασίας και να εργάζεστε με τις υποστηριζόμενες σταθερές, τελεστές, αναφορές κελιών και προορισμένες λειτουργίες διαθέσιμες για φύλλα εργασίας διαγραμμάτων σε παρουσιάσεις.
+Αυτό το άρθρο εξηγεί τη πλήρη ροή εργασίας τύπων: δημιουργία γραφήματος, γέμισμα του φύλλου εργασίας, ανάθεση τύπων τύπου A1 ή R1C1, επαναϋπολογισμό τους, ανάγνωση των υπολογισμένων τιμών, σύνδεση αυτών των κελιών σε σειρά γραφήματος και αποθήκευση της παρουσίασης. Περιγράφει επίσης τη σύνταξη των υποστηριζόμενων τύπων, το υποσύνολο ενσωματωμένων συναρτήσεων, τις αποθηκευμένες τιμές, τους μη υποστηριζόμενους τύπους και τα σφάλματα ειδικά για φύλλα εργασίας.
 
-## **Σχετικά με τους τύπους φύλλου εργασίας διαγράμματος σε παρουσιάσεις**
-**Φύλλο εργασίας διαγράμματος** (ή φύλλο εργασίας γραφήματος) σε παρουσίαση είναι η πηγή δεδομένων του διαγράμματος. Το φύλλο εργασίας διαγράμματος περιέχει δεδομένα, τα οποία αντιπροσωπεύονται στο διάγραμμα με γραφικό τρόπο. Όταν δημιουργείτε ένα διάγραμμα στο PowerPoint, το φύλλο εργασίας που συνδέεται με αυτό το διάγραμμα δημιουργείται αυτόματα. Το φύλλο εργασίας δημιουργείται για όλους τους τύπους διαγραμμάτων: γραμμικού, ράβδου, ηλιακού εκρήγνυσης, πίτας κ.λπ. Για να δείτε το φύλλο εργασίας σε PowerPoint, πρέπει να κάνετε διπλό κλικ στο διάγραμμα:
+## **Φύλλα Εργασίας Γραφημάτων και Τύποι**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Ένα φύλλο εργασίας γραφήματος περιέχει τις κατηγορίες, τα ονόματα σειρών και τις τιμές που χρησιμοποιεί ένα γράφημα. Στο PowerPoint, μπορείτε να εξετάσετε το φύλλο εργασίας ανοίγοντας τον επεξεργαστή δεδομένων γραφήματος:
 
-Το φύλλο εργασίας διαγράμματος περιέχει τα ονόματα των στοιχείων του διαγράμματος (Όνομα Κατηγορίας: *Category1*, Όνομα Σειράς) και έναν πίνακα με αριθμητικά δεδομένα κατάλληλα για αυτές τις κατηγορίες και σειρές. Από προεπιλογή, όταν δημιουργείτε νέο διάγραμμα, τα δεδομένα του φύλλου εργασίας ορίζονται με τα προεπιλεγμένα δεδομένα. Στη συνέχεια μπορείτε να αλλάξετε τα δεδομένα του φύλλου εργασίας χειροκίνητα.
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-Συνήθως, το διάγραμμα αντιπροσωπεύει σύνθετα δεδομένα (π.χ. χρηματοοικονομικοί αναλυτές, επιστημονικοί αναλυτές), έχοντας κελιά που υπολογίζονται από τις τιμές σε άλλα κελιά ή από άλλα δυναμικά δεδομένα. Ο υπολογισμός της τιμής ενός κελιού χειροκίνητα και η σκληρή κωδικοποίηση της στο κελί καθιστούν δύσκολη τη μελλοντική αλλαγή του. Αν αλλάξετε την τιμή ενός συγκεκριμένου κελιού, όλα τα κελιά που εξαρτώνται από αυτό θα χρειαστεί να ενημερωθούν επίσης. Επιπλέον, τα δεδομένα του πίνακα μπορεί να εξαρτώνται από δεδομένα άλλων πινάκων, δημιουργώντας ένα σύνθετο σχήμα δεδομένων παρουσίασης με ανάγκη ευέλικτης ενημέρωσης.
+Στο Aspose.Slides, το φύλλο εργασίας εκτίθεται μέσω της διεπαφής [IChartDataWorkbook](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/) . Χρησιμοποιήστε [IChartDataCell::set_Formula](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/set_formula/) για τύπους στυλ A1 και [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) για τύπους στυλ R1C1. Μετά την αλλαγή των κελιών εισόδου ή των τύπων, κλήστε [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) για να επαναϋπολογίσετε τους υποστηριζόμενους τύπους και να ενημερώσετε τις αντίστοιχες τιμές κελιών.
 
-**Τύπος φύλλου εργασίας διαγράμματος** σε παρουσίαση είναι μια έκφραση για αυτόματο υπολογισμό και ενημέρωση των δεδομένων του φύλλου εργασίας διαγράμματος. Ο τύπος ορίζει τη λογική υπολογισμού δεδομένων για ένα συγκεκριμένο κελί ή σύνολο κελιών. Ο τύπος είναι μαθηματικός ή λογικός, χρησιμοποιώντας: αναφορές κελιών, μαθηματικές συναρτήσεις, λογικούς τελεστές, αριθμητικούς τελεστές, συναρτήσεις μετατροπής, σταθερές συμβολοσειρών κ.λπ. Ο ορισμός του τύπου γράφεται σε ένα κελί, και αυτό το κελί δεν περιέχει απλή τιμή. Ο τύπος υπολογίζει την τιμή και την επιστρέφει, ώστε η τιμή αυτή να εκχωρηθεί στο κελί. Οι τύποι φύλλου εργασίας διαγράμματος σε παρουσιάσεις είναι ουσιαστικά οι ίδιοι με τους τύπους του Excel, και υποστηρίζονται οι ίδιες προεπιλεγμένες συναρτήσεις, τελεστές και σταθερές για την υλοποίησή τους.
+Ένα υπολογισμένο κελί εξακολουθεί να εκθέτει το αποτέλεσμα του μέσω του [IChartDataCell::get_Value](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/get_value/). Αυτό είναι σημαντικό όταν χρειάζεται να ελέγξετε το αποτέλεσμα ενός τύπου σε κώδικα ή να χρησιμοποιήσετε το κελί ως σημείο δεδομένων γραφήματος.
 
-Στο [**Aspose.Slides**](https://products.aspose.com/slides/el/cpp/) το φύλλο εργασίας διαγράμματος αναπαρίσταται με τη μέθοδο 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) του τύπου 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_data_workbook). 
-Ο τύπος φύλλου εργασίας μπορεί να ανατεθεί και να τροποποιηθεί με τη μέθοδο 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692). 
-Η ακόλουθη λειτουργικότητα υποστηρίζεται για τύπους στο Aspose.Slides:
+## **Δημιουργία Γραφήματος και Υπολογισμός Τύπων Φύλλου Εργασίας**
 
-- Λογικές σταθερές
-- Αριθμητικές σταθερές
-- Σταθερές συμβολοσειράς
-- Σταθερές σφαλμάτων
-- Αριθμητικοί τελεστές
-- Τελεστές σύγκρισης
-- Αναφορές κελιών στυλ A1
-- Αναφορές κελιών στυλ R1C1
-- Προκαθορισμένες συναρτήσεις
+Το ακόλουθο παράδειγμα δείχνει μια πλήρη ροή εργασίας. Δημιουργεί ένα γράφημα clustered column, διαγράφει τα δείγματα δεδομένων, γράφει τριμηνιαίες τιμές εσόδων και εξόδων, υπολογίζει το κέρδος με τύπους, διαβάζει τα αποτελέσματα, χρησιμοποιεί τα υπολογισμένα κελιά ως τιμές γραφήματος και αποθηκεύει την παρουσίαση.
 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Κανονικά, τα φύλλα εργασίας αποθηκεύουν τις τελευταίες υπολογισμένες τιμές τύπων. Αν μετά τη φόρτωση της παρουσίασης τα δεδομένα του διαγράμματος δεν είχαν αλλάξει, η μέθοδος **IChartDataCell.get_Value()** επιστρέφει αυτές τις τιμές κατά την ανάγνωση. Αλλά, αν τα δεδομένα του φύλλου εργασίας είχαν αλλάξει, η μέθοδος **ChartDataCell.get_Value()** ρίχνει την εξαίρεση **CellUnsupportedDataException** για τους μη υποστηριζόμενους τύπους. Αυτό συμβαίνει επειδή όταν οι τύποι αναλύονται επιτυχώς, καθορίζονται οι εξαρτήσεις των κελιών και η ορθότητα των τελευταίων τιμών. Αν όμως ο τύπος δεν μπορεί να αναλυθεί, δεν μπορεί να εγγυηθεί η ορθότητα της τιμής του κελιού.
+auto presentation = MakeObject<Presentation>();
 
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
 
-## **Προσθήκη τύπου φύλλου εργασίας διαγράμματος σε παρουσίαση**
-Πρώτα, προσθέστε ένα διάγραμμα στην πρώτη διαφάνεια μιας νέας παρουσίασης με 
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374). 
-Το φύλλο εργασίας του διαγράμματος δημιουργείται αυτόματα και μπορεί να προσεγγιστεί με τη μέθοδο 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea):
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
+
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
+
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+Τα σημεία δεδομένων του γραφήματος αναφέρονται στο `D2:D4`, έτσι το γράφημα χρησιμοποιεί τις υπολογισμένες τιμές κέρδους. Δεν υπάρχει ξεχωριστή κλήση ανανέωσης γραφήματος σε αυτήν τη ροή εργασίας: επαναϋπολογίστε πρώτα το βιβλίο εργασίας, μετά χρησιμοποιήστε ή αποθηκεύστε τα δεδομένα γραφήματος που δείχνουν στα υπολογισμένα κελιά.
+
+## **Χρήση Τύπων Στυλ A1**
+
+Η σημειολογία A1 προσδιορίζει τις στήλες με γράμματα και τις γραμμές με αριθμούς. Αναθέστε εκφράσεις στυλ A1 μέσω του [IChartDataCell::set_Formula](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/set_formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
-Ας γράψουμε κάποιες τιμές σε κελιά με τη μέθοδο 
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) του τύπου **Object**, που σημαίνει ότι μπορείτε να περάσετε οποιαδήποτε τιμή στη μέθοδο:
+Κοινές μορφές αναφοράς A1 είναι:
 
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+| Αναφορά | Σχετική | Απόλυτη | Μικτή |
+|---|---|---|---|
+| Κελί | `A2` | `$A$2` | `A$2`, `$A2` |
+| Γραμμή | `2:2` | `$2:$2` | — |
+| Στήλη | `A:A` | `$A:$A` | — |
+| Εύρος | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+Οι σχετικές αναφορές μπορούν να αλλάξουν όταν ένας τύπος μετακινηθεί ή αντιγραφεί από μια εφαρμογή λογιστικού φύλλου. Οι απόλυτες αναφορές κρατούν και τις δύο συντεταγμένες σταθερές, ενώ οι μικτές κρατούν μόνο μία γραμμή ή στήλη σταθερή.
+
+## **Χρήση Τύπων Στυλ R1C1**
+
+Η σημειολογία R1C1 προσδιορίζει τόσο τις γραμμές όσο και τις στήλες αριθμητικά. Οι σχετικές αναφορές χρησιμοποιούν μετατοπίσεις σε αγκύλες. Αναθέστε αυτή τη σύνταξη μέσω του [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
-Τώρα για να γράψετε τύπο στο κελί, μπορείτε να χρησιμοποιήσετε τη μέθοδο 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692):
+Κοινές μορφές αναφοράς R1C1 είναι:
 
-*Note*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) χρησιμοποιείται για ορισμό αναφορών κελιών στυλ A1.  
+| Αναφορά | Σχετική | Απόλυτη | Μικτή |
+|---|---|---|---|
+| Κελί | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Γραμμή | `R[2]` | `R2` | — |
+| Στήλη | `C[3]` | `C3` | — |
+| Εύρος | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Για να ορίσετε την αναφορά κελιού R1C1Formula, μπορείτε να χρησιμοποιήσετε τη μέθοδο [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7):
+Για παράδειγμα, στο κελί `D2`, το `RC[-2]` σημαίνει το κελί στην ίδια γραμμή δύο στήλες προς τα αριστερά (`B2`).
 
-Τότε, αν προσπαθήσετε να διαβάσετε τις τιμές από τα κελιά B2 και C2, θα υπολογιστούν:
+## **Σταθερές Τύπων και Χειριστές**
 
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+Ο ενσωματωμένος αξιολογητής τύπων υποστηρίζει λογικές τιμές, αριθμητικές λυτρωτικές, συμβολοσειρές, τιμές σφάλματος λογιστικού φύλλου, αριθμητικούς και συγκριτικούς χειριστές.
+
+### **Σταθερές και Κυριολεξίες**
+
+| Τύπος | Παραδείγματα | Σημειώσεις |
+|---|---|---|
+| Λογική | `TRUE`, `FALSE` | Μπορεί να χρησιμοποιηθεί άμεσα σε λογικές εκφράσεις όπως `A2=TRUE`. |
+| Αριθμητική | `1`, `0.5`, `.3`, `1E-2` | Υποστηρίζονται η κοινή και η επιστημονική σημειογραφία. |
+| Συμβολοσειρά | `"abc"`, `"2/3/2020 12:00"` | Τα κυριολεξία κειμένου περικλείονται σε διπλά εισαγωγικά μέσα στον τύπο. |
+| Αποτέλεσμα σφάλματος | `#DIV/0!`, `#N/A`, `#REF!` | Ένας έγκυρος τύπος μπορεί να αξιολογηθεί σε τιμή σφάλματος λογιστικού φύλλου αντί για κανονικό αποτέλεσμα. |
+
+Αυτό το παράδειγμα χρησιμοποιεί πολλούς τύπους σταθερών:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
+
+workbook->CalculateFormulas();
+
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // Ψευδές
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
+### **Αριθμητικοί Χειριστές**
 
-## **Λογικές Σταθερές**
-Μπορείτε να χρησιμοποιήσετε λογικές σταθερές όπως *FALSE* και *TRUE* σε τύπους κελιών:
+| Χειριστής | Σημασία | Παράδειγμα |
+|---|---|---|
+| `+` | Πρόσθεση ή μονόπλεον | `2+3` |
+| `-` | Αφαίρεση ή αρνητικό | `2-3`, `-3` |
+| `*` | Πολλαπλασιασμός | `2*3` |
+| `/` | Διαίρεση | `2/3` |
+| `%` | Ποσοστό | `30%` |
+| `^` | Εκθέτης | `2^3` |
 
-## **Αριθμητικές Σταθερές**
-Οι αριθμοί μπορούν να χρησιμοποιηθούν σε κοινή ή επιστημονική σημειογραφία για τη δημιουργία τύπων φύλλου εργασίας διαγράμματος:
+Χρησιμοποιήστε παρενθέσεις για να κάνετε ρητό τη σειρά εκτίμησης, π.χ. `(A2+B2)*C2`.
 
-## **Σταθερές Συμβολοσειράς**
-Μια σταθερά συμβολοσειράς (ή κυριολεκτική) είναι μια συγκεκριμένη τιμή που χρησιμοποιείται όπως είναι και δεν αλλάζει. Οι σταθερές συμβολοσειράς μπορεί να είναι: ημερομηνίες, κείμενα, αριθμοί κ.λπ.:
+### **Χειριστές Σύγκρισης**
 
-## **Σταθερές Σφαλμάτων**
-Κάποιες φορές δεν είναι δυνατόν να υπολογιστεί το αποτέλεσμα από τον τύπο. Σε αυτήν την περίπτωση, εμφανίζεται κωδικός σφάλματος στο κελί αντί για την τιμή του. Κάθε τύπος σφάλματος έχει συγκεκριμένο κωδικό:
+Οι εκφράσεις σύγκρισης επιστρέφουν λογικές τιμές.
 
-- #DIV/0! - ο τύπος προσπαθεί να διαιρέσει με το μηδέν.
-- #GETTING_DATA - μπορεί να εμφανιστεί σε κελί ενώ η τιμή του υπολογίζεται ακόμη.
-- #N/A - λείπουν ή δεν είναι διαθέσιμες πληροφορίες. Κάποιοι λόγοι μπορεί να είναι: κενά κελιά στη φόρμουλα, επιπλέον κενό, ορθογραφικό λάθος κ.λπ.
-- #NAME? - ένα συγκεκριμένο κελί ή άλλα αντικείμενα τύπου δεν μπορούν να βρεθούν με το όνομά τους.
-- #NULL! - εμφανίζεται όταν υπάρχει λάθος στη φόρμουλα, π.χ.  (,) ή κενό χαρακτήρα αντί για άνω κώλο (:).
-- #NUM! - ο αριθμός στη φόρμουλα μπορεί να είναι άκυρος, πολύ μεγάλος ή πολύ μικρός κ.λπ.
-- #REF! - άκυρη αναφορά κελιού.
-- #VALUE! - μη αναμενόμενος τύπος τιμής. Για παράδειγμα, τιμή συμβολοσειράς σε αριθμητικό κελί.
+| Χειριστής | Σημασία | Παράδειγμα |
+|---|---|---|
+| `=` | Ισημερία | `A2=3` |
+| `<>` | Ανισότητα | `A2<>3` |
+| `>` | Μεγαλύτερο από | `A2>3` |
+| `>=` | Μεγαλύτερο ή ίσο | `A2>=3` |
+| `<` | Μικρότερο από | `A2<3` |
+| `<=` | Μικρότερο ή ίσο | `A2<=3` |
 
-## **Αριθμητικοί Τελεστές**
-Μπορείτε να χρησιμοποιήσετε όλους τους αριθμητικούς τελεστές σε τύπους φύλλου εργασίας διαγράμματος:
+## **Υποστηριζόμενες Προκαθορισμένες Συναρτήσεις**
 
-|**Τελεστής**|**Σημασία**|**Παράδειγμα**|
-| :- | :- | :- |
-|+ (σύμβολο συν) |Προσθήκη ή μονάδα με πρόσημμο +|2 + 3|
-|- (σύμβολο αφαιρετικό) |Αφαίρεση ή άρνηση |2 - 3<br>-3|
-|* (αστέρι)|Πολλαπλασιασμός |2 * 3|
-|/ (προεξοχή)|Διαίρεση |2 / 3|
-|% (ποσοστό) |Ποσοστό |30%|
-|^ (caret) |Υψωση σε δύναμη |2 ^ 3|
+Το Aspose.Slides περιλαμβάνει έναν ενσωματωμένο αξιολογητή τύπων για φύλλα εργασίας γραφημάτων, αλλά δεν αποτελεί πλήρη μηχανή υπολογισμού του Excel. Ο τεκμηριωμένος κατάλογος συναρτήσεων περιορίζεται στις παρακάτω. Μην υποθέτετε ότι οποιαδήποτε τυχαία συνάρτηση του Excel μπορεί να επαναυπολογιστεί με το [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-*Note*: Για αλλαγή της σειράς εκτίμησης, περικλείστε σε παρενθέσεις το τμήμα του τύπου που πρέπει να υπολογιστεί πρώτο.
+| Συνάρτηση | Σκοπός ή υποστηριζόμενη μορφή | Παράδειγμα |
+|---|---|---|
+| `ABS` | Απόλυτη τιμή | `ABS(A2)` |
+| `AVERAGE` | Αριθμητικός μέσος | `AVERAGE(B2:B5)` |
+| `CEILING` | Στρογγυλοποίηση προς τα πάνω σε πολλαπλάσιο | `CEILING(A2,5)` |
+| `CHOOSE` | Επιλογή τιμής με βάση δείκτη | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Συγκόλληση κειμένων | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Συγκόλληση κειμένων | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Δημιουργία τιμής ημερομηνίας με σύστημα 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Επιστροφή του αριθμού ημερών μεταξύ ημερομηνιών | `DAYS(B2,A2)` |
+| `FIND` | Εύρεση κειμένου μέσα σε άλλο κείμενο | `FIND("-",A2)` |
+| `FINDB` | Αναζήτηση κειμένου κατά byte | `FINDB("a",A2)` |
+| `IF` | Συνθήκη | `IF(A2>0,A2,0)` |
+| `INDEX` | Μορφή αναφοράς | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Μορφή διανύσματος | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Μορφή διανύσματος | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Μέγιστη τιμή | `MAX(B2:B5)` |
+| `SUM` | Άθροισμα τιμών | `SUM(B2:B5)` |
+| `VLOOKUP` | Κατακόρυφος αναζήτηση | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-## **Τελεστές Σύγκρισης**
-Μπορείτε να συγκρίνετε τις τιμές των κελιών με τους τελεστές σύγκρισης. Όταν δύο τιμές συγκρίνονται με αυτούς τους τελεστές, το αποτέλεσμα είναι λογική τιμή είτε *TRUE* είτε FALSE:
+Οι περιορισμοί που φαίνονται στον πίνακα είναι ουσιώδεις: το `INDEX` τεκμηριώνεται σε μορφή αναφοράς, ενώ τα `LOOKUP` και `MATCH` σε μορφή διανύσματος. Το `DATE` χρησιμοποιεί το σύστημα 1900. Λειτουργίες και συναρτήσεις που δεν αναφέρονται εδώ θεωρούνται μη υποστηριζόμενες από τον αξιολογητή τύπων του Aspose.Slides, εκτός εάν τεκμηριώνονται ξεχωριστά.
 
-|**Τελεστής**|**Σημασία**|**Σημασία**|
-| :- | :- | :- |
-|= (σύμβολο ίσου) |Ισότητα |A2 = 3|
-|<> (σύμβολο ανισότητας) |Ανισότητα|A2 <> 3|
-|> (σύμβολο μεγαλύτερου) |Μεγαλύτερο από|A2 > 3|
-|>= (σύμβολο μεγαλύτερου ή ίσου) |Μεγαλύτερο ή ίσο με|A2 >= 3|
-|< (σύμβολο μικρότερου) |Μικρότερο από|A2 < 3|
-|<= (σύμβολο μικρότερου ή ίσου) |Μικρότερο ή ίσο με|A2 <= 3|
+## **Υπολογισμός Τύπων με Προτιμώμενο Πολιτισμό**
 
-## **Αναφορές Κελιών Στυλ A1**
-**Αναφορές κελιών στυλ A1** χρησιμοποιούνται για τα φύλλα εργασίας, όπου η στήλη έχει αναγνωριστικό γραμμάτου (π.χ. "*A*") και η γραμμή αριθμητικό αναγνωριστικό (π.χ. "*1*"). Οι αναφορές μπορούν να χρησιμοποιηθούν ως εξής:
+Ορισμένες λειτουργίες του βιβλίου εργασίας γραφήματος ερμηνεύουν το κείμενο σύμφωνα με πολιτισμικούς κανόνες. Αυτό είναι ιδιαίτερα σημαντικό για λειτουργίες που προορίζονται για γλώσσες που χρησιμοποιούν σύνολα διπλού-byte χαρακτήρων (DBCS). Για σωστό υπολογισμό αυτών των τύπων, δημιουργήστε ένα [LoadOptions](https://reference.aspose.com/slides/el/cpp/aspose.slides/loadoptions/), ρυθμίστε το [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/el/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) μέσω του [LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/el/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), και, στη συνέχεια, φορτώστε την παρουσίαση.
 
-|**Αναφορά κελιού**|**Παράδειγμα**| | |
-| :- | :- | :- | :- |
-| |Απόλυτη |Σχετική |Μικτή|
-|Κελί |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Γραμμή |$2:$2 |2:2 |-|
-|Στήλη |$A:$A |A:A |-|
-|Περιοχή |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Το παρακάτω παράδειγμα επιλέγει την ιαπωνική κουλτούρα, ανοίγει μια παρουσίαση με τις ρυθμισμένες επιλογές φόρτωσης και καλεί το [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) για κάθε βιβλίο εργασίας γραφήματος:
 
-Παράδειγμα χρήσης αναφοράς κελιού στυλ A1 σε τύπο:
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
 
-## **Αναφορές Κελιών Στυλ R1C1**
-**Αναφορές κελιών στυλ R1C1** χρησιμοποιούνται για τα φύλλα εργασίας, όπου τόσο η γραμμή όσο και η στήλη έχουν αριθμητικό αναγνωριστικό. Οι αναφορές μπορούν να χρησιμοποιηθούν ως εξής:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
 
-|**Αναφορά κελιού**|**Παράδειγμα**| | |
-| :- | :- | :- | :- |
-| |Απόλυτη |Σχετική |Μικτή|
-|Κελί |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Γραμμή |R2|R[2]|-|
-|Στήλη |C3|C[3]|-|
-|Περιοχή |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
 
-Παράδειγμα χρήσης αναφοράς κελιού στυλ R1C1 σε τύπο:
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
 
-## **Προκαθορισμένες Συναρτήσεις**
-Υπάρχουν προκαθορισμένες συναρτήσεις που μπορούν να χρησιμοποιηθούν στους τύπους για την απλοποίηση της υλοποίησής τους. Αυτές οι συναρτήσεις ενσωματώνουν τις πιο συχνά χρησιμοποιημένες λειτουργίες, όπως:
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (σύστημα ημερομηνίας 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (μορφή αναφοράς)
-- LOOKUP (μορφή διανύσματος)
-- MATCH (μορφή διανύσματος)
-- MAX
-- SUM
-- VLOOKUP
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
 
-## **Συχνές ερωτήσεις**
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
 
-**Υποστηρίζονται εξωτερικά αρχεία Excel ως πηγή δεδομένων για διάγραμμα με τύπους;**
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
 
-Ναι. Το Aspose.Slides υποστηρίζει εξωτερικά βιβλία εργασίας ως [πηγή δεδομένων διαγράμματος](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartdatasourcetype/), επιτρέποντάς σας να χρησιμοποιήσετε τύπους από ένα XLSX εκτός της παρουσίασης.
+Η προτιμώμενη κουλτούρα αποτελεί μέρος της διαμόρφωσης φόρτωσης της παρουσίασης, οπότε πρέπει να οριστεί πριν δημιουργήσετε το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/). Χρησιμοποιήστε τον πολιτισμό που αναμένεται από τους τύπους του βιβλίου εργασίας· π.χ., `ja-JP` για τύπους που πρέπει να ακολουθούν τους ιαπωνικούς κανόνες DBCS.
 
-**Μπορούν οι τύποι διαγράμματος να αναφέρονται σε φύλλα εντός του ίδιου βιβλίου εργασίας με όνομα φύλλου;**
+## **Επανάληψη Υπολογισμού και Αποθηκευμένες Τιμές**
 
-Ναι. Οι τύποι ακολουθούν το τυπικό μοντέλο αναφοράς του Excel, έτσι μπορείτε να αναφερθείτε σε άλλα φύλλα εντός του ίδιου βιβλίου ή σε εξωτερικό βιβλίο. Για εξωτερικές αναφορές, συμπεριλάβετε τη διαδρομή και το όνομα του βιβλίου χρησιμοποιώντας τη σύνταξη του Excel.
+Τα αρχεία λογιστικών φύλλων συχνά αποθηκεύουν τόσο τον τύπο όσο και την τελευταία υπολογισμένη τιμή του. Το Aspose.Slides μπορεί επομένως να διαβάσει αποθηκευμένη τιμή από το [IChartDataCell::get_Value](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/get_value/) όταν μια παρουσίαση φορτώνεται και τα σχετικά δεδομένα γραφήματος δεν έχουν αλλάξει.
+
+Μετά την αλλαγή κελιών εισόδου ή τύπων, μην βασίζεστε σε παλιό αποθηκευμένο αποτέλεσμα. Κλήστε το [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) πριν διαβάσετε τις υπολογισμένες τιμές ή αποθηκεύσετε δεδομένα γραφήματος που εξαρτώνται από αυτές.
+
+Για τύπους εκτός του υποστηριζόμενου υποσυνόλου, το Aspose.Slides ενδέχεται να μην μπορεί να αναλύσει τον τύπο ή να προσδιορίσει τις εξαρτήσεις του. Εάν το βιβλίο εργασίας έχει τροποποιηθεί, η προηγούμενη αποθηκευμένη τιμή δεν μπορεί πλέον να θεωρηθεί αξιόπιστη. Σε αυτήν την περίπτωση, η ανάγνωση τιμής κελιού με μη υποστηριζόμενα δεδομένα μπορεί να προκαλέσει το [CellUnsupportedDataException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Εάν το γράφημά σας εξαρτάται από συναρτήσεις Excel που το Aspose.Slides δεν αξιολογεί, υπολογίστε αυτούς τους τύπους με μια μηχανή λογιστικού φύλλου που τους υποστηρίζει και γράψτε τις προκύπτουσες τιμές πίσω στο βιβλίο εργασίας γραφήματος. Μην αντικαθιστάτε τους μη υποστηριζόμενους τύπους με εικτικές τιμές.
+
+## **Διαχείριση Σφαλμάτων Τύπων**
+
+Υπάρχουν δύο διαφορετικά είδη προβλημάτων που πρέπει να διακρίνετε.
+
+Ένας τύπος μπορεί να είναι έγκυρος αλλά να παράγει αποτέλεσμα σφάλματος λογιστικού φύλλου, όπως `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` ή `#VALUE!`. Σε αυτήν την περίπτωση, το διακριτικό σφάλματος είναι αποτέλεσμα κελιού και μπορεί να επιστραφεί μέσω του [IChartDataCell::get_Value](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/get_value/).
+
+Ένας τύπος μπορεί επίσης να αποτύχει στο στάδιο ανάλυσης, αναφοράς, εξάρτησης ή σε επίπεδο υποστηριζόμενων δεδομένων. Το Aspose.Slides παρέχει εξαιρέσεις ειδικές για φύλλα εργασίας: [CellInvalidFormulaException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), και [CellUnsupportedDataException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Όταν οι τύποι προέρχονται από πρότυπα ή εισαγωγές χρηστών, χειριστείτε αυτές τις εξαιρέσεις γύρω από τον επαναυπολογισμό και την πρόσβαση στην τιμή:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
+
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // Διαχείριση μη έγκυρου τύπου.
+}
+catch (CellInvalidReferenceException&)
+{
+    // Διαχείριση μη έγκυρης αναφοράς κελιού.
+}
+catch (CellCircularReferenceException&)
+{
+    // Διαχείριση κυκλικής αναφοράς.
+}
+catch (CellUnsupportedDataException&)
+{
+    // Διαχείριση μη υποστηριζόμενων δεδομένων λογιστικού φύλλου.
+}
+```
+
+## **Πρακτικοί Περιορισμοί**
+
+Η υποστήριξη τύπων στα φύλλα εργασίας γραφημάτων προορίζεται για ένα καθορισμένο υποσύνολο υπολογισμών λογιστικών φύλλων, όχι για πλήρη συμβατότητα με το Excel. Λάβετε υπόψη αυτούς τους περιορισμούς όταν σχεδιάζετε μια ροή εργασίας αναφοράς:
+
+- Χρησιμοποιήστε μόνο τις τεκμηριωμένες σταθερές, χειριστές, αναφορές και συναρτήσεις όταν χρειάζεστε τον επαναυπολογισμό τύπων από το Aspose.Slides.
+- Επαναυπολογίστε μετά την αλλαγή κελιών από τα οποία εξαρτώνται τα αποτελέσματα των τύπων.
+- Θεωρείτε τις αποθηκευμένες τιμές από φορτωμένες παρουσιάσεις ως στιγμιότυπα, όχι ως υποκατάστατο του επαναυπολογισμού μετά από επεξεργασίες.
+- Δοκιμάστε τους τύπους από υπάρχοντα πρότυπα πριν βασιστείτε στις υπολογισμένες τους τιμές, ειδικά όταν χρησιμοποιούν συναρτήσεις εκτός της τεκμηριωμένης λίστας.
+- Για τύπους που απαιτούν πλήρη μηχανή υπολογισμού λογιστικού φύλλου, υπολογίστε τους εξωτερικά και, στη συνέχεια, ενημερώστε το βιβλίο εργασίας γραφήματος με τις προκύπτουσες τιμές.
+
+## **FAQ**
+
+**What is the difference between `set_Formula` and `set_R1C1Formula`?**
+
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/set_formula/) stores an A1-style expression such as `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) stores an R1C1-style expression such as `RC[-2]-RC[-1]`. Use the notation that best matches how you generate or copy formulas.
+
+**Do I need to read the cell itself or its value after calculation?**
+
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) returns an `IChartDataCell`. To obtain the calculated result, read that cell's [IChartDataCell::get_Value](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/get_value/) value after recalculation.
+
+**When should I call `CalculateFormulas`?**
+
+Call [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) after changing input values or formulas and before you depend on the calculated results. This updates the values of formulas that the built-in evaluator supports.
+
+**Does Aspose.Slides support every Excel function?**
+
+No. The built-in evaluator supports a documented subset of functions. Functions outside that subset should not be assumed to recalculate correctly. If full Excel formula compatibility is required, perform the calculation with an appropriate spreadsheet engine and write the final values to the chart workbook.
+
+**What happens if a loaded presentation contains an unsupported formula?**
+
+If the chart data has not changed, the workbook may still contain a previously calculated cached value. After related data is modified, that cached value may no longer be valid. Accessing a cell whose formula cannot be handled can raise [CellUnsupportedDataException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Are formula error values the same as C++ exceptions?**
+
+No. A result such as `#DIV/0!` is a spreadsheet value produced by a valid calculation. Exceptions such as [CellInvalidFormulaException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) or [CellCircularReferenceException](https://reference.aspose.com/slides/el/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) indicate that the formula cannot be processed normally.
+
+**Does a chart update automatically when a formula cell changes?**
+
+A chart series can reference workbook cells. Recalculate the workbook first, then save or render the presentation. If the chart data points reference the calculated cells, the chart uses those updated cell values; no separate chart-refresh method is required for this workflow.
+
+**Can charts use an external Excel workbook?**
+
+Yes, chart data can be configured to use an external workbook through the chart data API. However, the formula calculation workflow described in this article concerns the chart data workbook and the formula subset evaluated by Aspose.Slides. Do not assume that [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) provides full recalculation of arbitrary formulas in an external XLSX file.
+
+**Can I use formulas that reference another worksheet or workbook?**
+
+Excel-style references may exist in chart workbooks, but formula evaluation is limited by the supported parser and function set. If a cross-sheet or external reference is essential, validate that exact formula with your target Aspose.Slides version. For workflows that require broad Excel reference compatibility, calculate the workbook externally and write the resolved values back to the chart data.
+
+**Should formula strings start with `=`?**
+
+The Aspose.Slides API examples assign expressions such as `B2-C2` or `SUM(B2:B5)` without a leading `=`. Using that form keeps generated formulas consistent with the documented API examples.

@@ -6,16 +6,20 @@ weight: 70
 url: /es/androidjava/chart-worksheet-formulas/
 keywords:
 - hoja de cálculo de gráfico
-- hoja de trabajo del gráfico
+- hoja de trabajo de gráfico
 - fórmula de gráfico
+- fórmula de hoja
 - fórmula de hoja de cálculo
-- fórmula de hoja de cálculo
-- fuente de datos
+- libro de datos del gráfico
+- cálculo de fórmula
+- cultura preferida
+- fórmula específica de cultura
+- DBCS
 - constante lógica
 - constante numérica
 - constante de cadena
 - constante de error
-- constante aritmética
+- operador aritmético
 - operador de comparación
 - estilo A1
 - estilo R1C1
@@ -25,202 +29,397 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aplicar fórmulas al estilo Excel en Aspose.Slides para Android mediante hojas de cálculo de gráficos Java y automatizar informes en archivos PPT y PPTX."
+description: "Aplicar fórmulas al estilo Excel en hojas de cálculo de gráficos de Aspose.Slides para Android mediante Java, recalcular valores y usar los resultados en gráficos de PowerPoint."
 ---
+## **Visión general**
 
-## **Acerca de las fórmulas de hoja de cálculo de gráficos en presentaciones**
-**Hoja de cálculo del gráfico** (o hoja de trabajo del gráfico) en una presentación es la fuente de datos del gráfico. La hoja de cálculo del gráfico contiene datos que se representan en el gráfico de forma visual. Cuando crea un gráfico en PowerPoint, la hoja de trabajo asociada a este gráfico se crea automáticamente también. La hoja de trabajo del gráfico se crea para todos los tipos de gráficos: gráfico de líneas, gráfico de barras, gráfico de explosión, gráfico circular, etc. Para ver la hoja de cálculo del gráfico en PowerPoint debe hacer doble clic en el gráfico:
+Los gráficos de PowerPoint suelen almacenar sus datos de origen en una hoja de cálculo incrustada. En Aspose.Slides for Android mediante Java, puedes acceder a esa hoja a través del libro de trabajo de datos del gráfico, escribir valores de entrada, asignar fórmulas a celdas, calcular las fórmulas admitidas y usar las celdas calculadas como datos del gráfico.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Este artículo explica el flujo completo de trabajo con fórmulas: crear un gráfico, rellenar su hoja de cálculo, asignar fórmulas en estilo A1 o R1C1, volver a calcularlas, leer los valores calculados, conectar esas celdas a una serie del gráfico y guardar la presentación. También describe la sintaxis de fórmulas admitida, el subconjunto de funciones integrado, los valores en caché, las fórmulas no admitidas y los errores específicos de hojas de cálculo.
 
+## **Hojas de cálculo de gráficos y fórmulas**
 
-La hoja de cálculo del gráfico contiene los nombres de los elementos del gráfico (Nombre de categoría: *Category1*, Nombre de serie) y una tabla con datos numéricos apropiados para esas categorías y series. Por defecto, cuando crea un nuevo gráfico, los datos de la hoja de cálculo del gráfico se establecen con datos predeterminados. Luego puede cambiar los datos de la hoja de cálculo en la hoja de trabajo manualmente.
+Una hoja de cálculo de gráfico contiene las categorías, nombres de series y valores utilizados por un gráfico. En PowerPoint, puedes inspeccionar la hoja abriendo el editor de datos del gráfico:
 
-Normalmente, el gráfico representa datos complejos (p. ej., analistas financieros, analistas científicos), con celdas que se calculan a partir de los valores de otras celdas o de otros datos dinámicos. Calcular el valor de una celda manualmente y codificarlo directamente en la celda dificulta su cambio futuro. Si cambia el valor de una celda determinada, todas las celdas que dependen de ella deberán actualizarse también. Además, los datos de la tabla pueden depender de datos de otras tablas, creando un esquema de datos de presentación complejo que necesita actualizarse de manera fácil y flexible.
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-**Fórmula de hoja de cálculo del gráfico** en una presentación es una expresión para calcular y actualizar automáticamente los datos de la hoja de cálculo del gráfico. La fórmula de hoja de cálculo define la lógica de cálculo de datos para una celda concreta o un conjunto de celdas. La fórmula de hoja de cálculo es una fórmula matemática o lógica, que utiliza: referencias a celdas, funciones matemáticas, operadores lógicos, operadores aritméticos, funciones de conversión, constantes de cadena, etc. La definición de la fórmula se escribe en una celda, y esa celda no contiene un valor simple. La fórmula de hoja de cálculo calcula el valor y lo devuelve, luego ese valor se asigna a la celda. Las fórmulas de hoja de cálculo del gráfico en presentaciones son en realidad las mismas que las fórmulas de Excel, y se admiten las mismas funciones, operadores y constantes predeterminados para su implementación.
+En Aspose.Slides, la hoja se expone a través de la interfaz [IChartDataWorkbook](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/). Usa [IChartDataCell.setFormula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) para fórmulas estilo A1 y [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) para fórmulas estilo R1C1. Después de modificar celdas de entrada o fórmulas, llama a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) para volver a calcular las fórmulas admitidas y actualizar los valores de las celdas correspondientes.
 
-En [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) la hoja de cálculo del gráfico se representa con el método [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) del tipo [**IChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook). La fórmula de hoja de cálculo puede asignarse y modificarse con el método [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-). La siguiente funcionalidad es compatible con las fórmulas en Aspose.Slides:
+Una celda calculada sigue exponiendo su resultado a través de [IChartDataCell.getValue](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Esto es importante cuando necesitas inspeccionar el resultado de una fórmula en código o usar la celda como punto de datos del gráfico.
 
-- Constantes lógicas
-- Constantes numéricas
-- Constantes de cadena
-- Constantes de error
-- Operadores aritméticos
-- Operadores de comparación
-- Referencias a celdas estilo A1
-- Referencias a celdas estilo R1C1
-- Funciones predefinidas
+## **Crear un gráfico y calcular fórmulas de la hoja**
 
-Normalmente, las hojas de cálculo almacenan los últimos valores calculados de las fórmulas. Si después de cargar la presentación, los datos del gráfico no se cambiaron, el método [**IChartDataCell.getValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getValue--) devuelve esos valores al leer. Pero, si los datos de la hoja se modificaron, al leer la propiedad **ChartDataCell.Value** se lanza la excepción [**CellUnsupportedDataException**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CellUnsupportedDataException) para las fórmulas no compatibles. Esto se debe a que cuando las fórmulas se analizan correctamente, se determinan las dependencias de las celdas y la validez de los últimos valores. Pero, si la fórmula no puede analizarse, no se puede garantizar la validez del valor de la celda.
+El siguiente ejemplo muestra un flujo de trabajo de extremo a extremo. Crea un gráfico de columnas agrupadas, elimina los datos de ejemplo, escribe valores trimestrales de ingresos y gastos, calcula el beneficio con fórmulas, lee los resultados, usa las celdas calculadas como valores del gráfico y guarda la presentación.
 
-## **Agregar una fórmula de hoja de cálculo de gráfico a una presentación**
-Primero, agregue un gráfico a la primera diapositiva de una nueva presentación con [IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-). La hoja de trabajo del gráfico se crea automáticamente y puede accederse con el método [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--):
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Los puntos de datos del gráfico hacen referencia a `D2:D4`, por lo que el gráfico utiliza los valores de beneficio calculados. No hay una llamada separada de actualización del gráfico en este flujo: recalcula primero el libro y luego usa o guarda los datos del gráfico que apuntan a las celdas calculadas.
 
-Escribamos algunos valores en celdas con la propiedad [**IChartDataCell.setValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) del tipo **Object**, lo que significa que puede asignar cualquier valor a la propiedad:
+## **Usar fórmulas estilo A1**
+
+La notación A1 identifica columnas con letras y filas con números. Asigna expresiones estilo A1 mediante [IChartDataCell.setFormula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
+
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
+Formas de referencia A1 comunes son:
 
-Ahora, para escribir una fórmula en la celda, puede usar el método [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-):
+| Referencia | Relativo | Absoluto | Mixto |
+|---|---|---|---|
+| Celda | `A2` | `$A$2` | `A$2`, `$A2` |
+| Fila | `2:2` | `$2:$2` | — |
+| Columna | `A:A` | `$A:$A` | — |
+| Rango | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-*Nota*: El método [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) se usa para establecer referencias a celdas estilo A1.
+Las referencias relativas pueden cambiar cuando una fórmula se mueve o copia en una aplicación de hoja de cálculo. Las referencias absolutas mantienen ambas coordenadas fijas, mientras que las mixtas fijan solo una fila o una columna.
 
-Para establecer la referencia de celda [R1C1Formula](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--), puede usar el método [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-):
+## **Usar fórmulas estilo R1C1**
 
-Luego, si intenta leer los valores de las celdas B2 y C2, se calcularán:
+La notación R1C1 identifica filas y columnas numéricamente. Las referencias relativas usan desplazamientos entre corchetes. Asigna esta sintaxis mediante [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
+
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
+Formas de referencia R1C1 comunes son:
 
-## **Constantes lógicas**
-Puede usar constantes lógicas como *FALSE* y *TRUE* en las fórmulas de celda:
+| Referencia | Relativo | Absoluto | Mixto |
+|---|---|---|---|
+| Celda | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Fila | `R[2]` | `R2` | — |
+| Columna | `C[3]` | `C3` | — |
+| Rango | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Por ejemplo, en la celda `D2`, `RC[-2]` significa la celda en la misma fila dos columnas a la izquierda (`B2`).
+
+## **Constantes y operadores de fórmulas**
+
+El evaluador de fórmulas integrado admite valores lógicos, literales numéricos, cadenas, valores de error de hoja de cálculo, operadores aritméticos y operadores de comparación.
+
+### **Constantes y literales**
+
+| Tipo | Ejemplos | Observaciones |
+|---|---|---|
+| Lógico | `TRUE`, `FALSE` | Puede usarse directamente en expresiones lógicas como `A2=TRUE`. |
+| Numérico | `1`, `0.5`, `.3`, `1E-2` | Se admiten notación decimal y científica. |
+| Cadena | `"abc"`, `"2/3/2020 12:00"` | Los literales de texto se encierran entre comillas dobles dentro de la fórmula. |
+| Resultado de error | `#DIV/0!`, `#N/A`, `#REF!` | Una fórmula válida puede evaluar a un valor de error de hoja de cálculo en lugar de un resultado normal. |
+
+Este ejemplo usa varios tipos de constantes:
+
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // el valor contiene el booleano "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // falso
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **Operadores aritméticos**
 
-## **Constantes numéricas**
-Los números pueden usarse en notación común o científica para crear una fórmula de hoja de cálculo de gráfico:
+| Operador | Significado | Ejemplo |
+|---|---|---|
+| `+` | Suma o signo positivo unario | `2+3` |
+| `-` | Resta o negación | `2-3`, `-3` |
+| `*` | Multiplicación | `2*3` |
+| `/` | División | `2/3` |
+| `%` | Porcentaje | `30%` |
+| `^` | Exponenciación | `2^3` |
+
+Usa paréntesis para hacer explícito el orden de evaluación, por ejemplo `(A2+B2)*C2`.
+
+### **Operadores de comparación**
+
+Las expresiones de comparación devuelven valores lógicos.
+
+| Operador | Significado | Ejemplo |
+|---|---|---|
+| `=` | Igual a | `A2=3` |
+| `<>` | Distinto de | `A2<>3` |
+| `>` | Mayor que | `A2>3` |
+| `>=` | Mayor o igual que | `A2>=3` |
+| `<` | Menor que | `A2<3` |
+| `<=` | Menor o igual que | `A2<=3` |
+
+## **Funciones predefinidas admitidas**
+
+Aspose.Slides incluye un evaluador de fórmulas integrado para hojas de cálculo de gráficos, pero no es un motor de cálculo completo de Excel. El conjunto de funciones documentado está limitado a las siguientes. No asumas que una función arbitraria de Excel puede volver a calcularse mediante [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+
+| Función | Propósito o forma admitida | Ejemplo |
+|---|---|---|
+| `ABS` | Valor absoluto | `ABS(A2)` |
+| `AVERAGE` | Media aritmética | `AVERAGE(B2:B5)` |
+| `CEILING` | Redondear un número hacia arriba al múltiplo indicado | `CEILING(A2,5)` |
+| `CHOOSE` | Seleccionar un valor por índice | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Unir valores de texto | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Unir valores de texto | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Crear un valor de fecha usando el sistema de fechas 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Devolver el número de días entre fechas | `DAYS(B2,A2)` |
+| `FIND` | Buscar un texto dentro de otro | `FIND("-",A2)` |
+| `FINDB` | Búsqueda de texto orientada a bytes | `FINDB("a",A2)` |
+| `IF` | Resultado condicional | `IF(A2>0,A2,0)` |
+| `INDEX` | Forma de referencia | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Forma vectorial | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Forma vectorial | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Valor máximo | `MAX(B2:B5)` |
+| `SUM` | Sumar valores | `SUM(B2:B5)` |
+| `VLOOKUP` | Búsqueda vertical | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Las limitaciones mostradas en la tabla son significativas: `INDEX` está documentada en forma de referencia, mientras que `LOOKUP` y `MATCH` están documentadas en sus formas vectoriales. `DATE` usa el sistema de fechas 1900. Las características y funciones que no aparecen aquí deben considerarse no admitidas por el evaluador de fórmulas de Aspose.Slides, salvo que estén documentadas por separado.
+
+## **Calcular fórmulas con una cultura preferida**
+
+Algunas funciones del libro de trabajo interpretan texto según reglas específicas de cultura. Esto es especialmente importante para funciones destinadas a lenguajes que usan juegos de caracteres de doble byte (DBCS). Para calcular esas fórmulas correctamente, crea [LoadOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/), establece la cultura preferida con [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), asigna las opciones de hoja mediante [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), y luego carga la presentación.
+
+El siguiente ejemplo selecciona la cultura japonesa, abre una presentación con las opciones de carga configuradas y llama a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) para cada libro de datos del gráfico:
+
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+La cultura preferida forma parte de la configuración de carga de la presentación, así que especifícala antes de crear la instancia de [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/). Usa la cultura que esperan las fórmulas del libro; por ejemplo, `ja-JP` para fórmulas que deben seguir las reglas de cálculo DBCS japonesas.
 
-## **Constantes de cadena**
-Una constante de cadena (o literal) es un valor específico que se usa tal cual y no cambia. Las constantes de cadena pueden ser: fechas, textos, números, etc.:
+## **Recalculado y valores en caché**
+
+Los archivos de hoja de cálculo habitualmente almacenan tanto la fórmula como su último valor calculado. Aspose.Slides puede leer un valor en caché mediante [IChartDataCell.getValue](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#getValue--) cuando se carga una presentación y los datos del gráfico no han sido modificados.
+
+Después de cambiar celdas de entrada o fórmulas, no confíes en un resultado en caché antiguo. Llama a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) antes de leer los valores calculados o guardar los datos del gráfico que dependen de ellos.
+
+Para fórmulas fuera del subconjunto admitido, Aspose.Slides puede no ser capaz de analizar la fórmula o establecer sus dependencias. Si el libro ha sido modificado, el valor en caché anterior ya no es fiable. En esa situación, leer el valor de una celda con datos no admitidos puede generar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Si tu gráfico depende de funciones de Excel que Aspose.Slides no evalúa, calcula esas fórmulas con un motor de hoja de cálculo que sí lo haga y escribe los valores resultantes de nuevo en el libro del gráfico. No sustituyas fórmulas no admitidas por valores estimados.
+
+## **Gestionar errores de fórmula**
+
+Existen dos tipos diferentes de problemas a distinguir.
+
+Una fórmula puede ser válida pero producir un resultado de error de hoja de cálculo como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. En ese caso, el token de error es un resultado de celda y puede devolverse mediante [IChartDataCell.getValue](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
+
+Una fórmula también puede fallar en el análisis, referencia, dependencia o nivel de datos admitidos. Aspose.Slides proporciona excepciones específicas de hoja de cálculo para estos casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellcircularreferenceexception/) y [CellUnsupportedDataException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Cuando las fórmulas provienen de plantillas o de la entrada del usuario, maneja estas excepciones alrededor del recalcado y el acceso a valores:
+
 ```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **Limitaciones prácticas**
 
-## **Constantes de error**
-A veces no es posible calcular el resultado mediante la fórmula. En ese caso, se muestra el código de error en la celda en lugar de su valor. Cada tipo de error tiene un código específico:
+El soporte de fórmulas en hojas de cálculo de gráficos está pensado para un subconjunto definido de cálculos de hoja, no para una compatibilidad completa con Excel. Ten en cuenta estas restricciones al diseñar un flujo de trabajo de generación de informes:
 
-- #DIV/0! - la fórmula intenta dividir por cero.
-- #GETTING_DATA - puede mostrarse en una celda mientras su valor aún se está calculando.
-- #N/A - falta información o no está disponible. Algunas causas pueden ser: las celdas usadas en la fórmula están vacías, hay un carácter de espacio extra, error ortográfico, etc.
-- #NAME? - no se puede encontrar una cierta celda u otro objeto de fórmula por su nombre.
-- #NULL! - puede aparecer cuando hay un error en la fórmula, como: (,) o un carácter de espacio usado en lugar de dos puntos (:).
-- #NUM! - el número en la fórmula puede ser inválido, demasiado largo o demasiado pequeño, etc.
-- #REF! - referencia de celda no válida.
-- #VALUE! - tipo de valor inesperado. Por ejemplo, valor de cadena asignado a una celda numérica.
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // el valor contiene la cadena "#DIV/0!"
-```
-
-
-## **Operadores aritméticos**
-|**Operador**|**Significado**|**Ejemplo**|
-| :- | :- | :- |
-|+ (plus sign)|Suma o signo positivo unario|2 + 3|
-|- (minus sign)|Resta o negación|2 - 3<br>-3|
-|* (asterisk)|Multiplicación|2 * 3|
-|/ (forward slash)|División|2 / 3|
-|% (percent sign)|Porcentaje|30%|
-|^ (caret)|Exponenciación|2 ^ 3|
-
-*Nota*: Para cambiar el orden de evaluación, encierre entre paréntesis la parte de la fórmula que debe calcularse primero.
-
-## **Operadores de comparación**
-|**Operador**|**Significado**|**Ejemplo**|
-| :- | :- | :- |
-|= (equal sign)|Igual a|A2 = 3|
-|<> (not equal sign)|Distinto de|A2 <> 3|
-|> (greater than sign)|Mayor que|A2 > 3|
-|>= (greater than or equal to sign)|Mayor o igual que|A2 >= 3|
-|< (less than sign)|Menor que|A2 < 3|
-|<= (less than or equal to sign)|Menor o igual que|A2 <= 3|
-
-## **Referencias a celdas estilo A1**
-**Las referencias a celdas estilo A1** se usan en las hojas de cálculo, donde la columna tiene un identificador de letra (p. ej., "*A*") y la fila tiene un identificador numérico (p. ej., "*1*"). Las referencias a celdas estilo A1 pueden usarse de la siguiente manera:
-
-|**Referencia de celda**|**Ejemplo**|||
-| :- | :- | :- | :- |
-||Absoluta|Relativa|Mixta|
-|Celda|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Fila|$2:$2|2:2|-|
-|Columna|$A:$A|A:A|-|
-|Rango|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-A continuación se muestra un ejemplo de cómo usar una referencia a celda estilo A1 en una fórmula:
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-
-## **Referencias a celdas estilo R1C1**
-**Las referencias a celdas estilo R1C1** se usan en las hojas de cálculo, donde tanto la fila como la columna tienen un identificador numérico. Las referencias a celdas estilo R1C1 pueden usarse de la siguiente manera:
-
-|**Referencia de celda**|**Ejemplo**|||
-| :- | :- | :- | :- |
-||Absoluta|Relativa|Mixta|
-|Celda|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Fila|R2|R[2]|-|
-|Columna|C3|C[3]|-|
-|Rango|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-A continuación se muestra un ejemplo de cómo usar una referencia a celda estilo R1C1 en una fórmula:
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-
-## **Funciones predefinidas**
-Existen funciones predefinidas que pueden usarse en las fórmulas para simplificar su implementación. Estas funciones encapsulan las operaciones más usadas, como:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+- Usa solo las constantes, operadores, referencias y funciones documentadas cuando necesites que Aspose.Slides recalcule fórmulas.
+- Recalcula después de modificar celdas de las que dependen los resultados de fórmulas.
+- Considera los valores en caché de presentaciones cargadas como instantáneas, no como sustitutos del recalcado después de editar.
+- Prueba las fórmulas de plantillas existentes antes de depender de sus valores calculados, sobre todo si usan funciones fuera de la lista documentada.
+- Para fórmulas que requieren un motor de cálculo de hoja completo, cálculalas externamente y luego actualiza el libro del gráfico con los valores resultantes.
 
 ## **Preguntas frecuentes**
 
-**¿Se admiten archivos Excel externos como fuente de datos para un gráfico con fórmulas?**
+**¿En qué se diferencia [IChartDataCell.setFormula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) de [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-Sí. Aspose.Slides admite libros de trabajo externos como [fuente de datos del gráfico](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatasourcetype/), lo que le permite usar fórmulas de un XLSX fuera de la presentación.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) almacena una expresión estilo A1 como `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) almacena una expresión estilo R1C1 como `RC[-2]-RC[-1]`. Usa la notación que mejor se ajuste a cómo generas o copias las fórmulas.
 
-**¿Pueden las fórmulas del gráfico referenciar hojas dentro del mismo libro de trabajo por nombre de hoja?**
+**¿Necesito leer la celda en sí o su valor después del cálculo?**
 
-Sí. Las fórmulas siguen el modelo de referencia estándar de Excel, por lo que puede referenciar otras hojas dentro del mismo libro de trabajo o un libro externo. Para referencias externas, incluya la ruta y el nombre del libro utilizando la sintaxis de Excel.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) devuelve un [IChartDataCell](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/). Para obtener el resultado calculado, llama al método [IChartDataCell.getValue](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdatacell/#getValue--) de esa celda tras el recalcado.
+
+**¿Cuándo debo llamar a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
+
+Llama a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) después de cambiar valores de entrada o fórmulas y antes de depender de los resultados calculados. Esto actualiza los valores de las fórmulas que el evaluador integrado admite.
+
+**¿Aspose.Slides admite todas las funciones de Excel?**
+
+No. El evaluador integrado admite un subconjunto documentado de funciones. Las funciones fuera de ese subconjunto no deben asumirse como recalculables correctamente. Si necesitas compatibilidad total con fórmulas de Excel, realiza el cálculo con un motor de hoja de cálculo adecuado y escribe los valores finales en el libro del gráfico.
+
+**¿Qué ocurre si una presentación cargada contiene una fórmula no admitida?**
+
+Si los datos del gráfico no han cambiado, el libro puede seguir conteniendo un valor en caché calculado previamente. Después de modificar los datos relacionados, ese valor en caché puede dejar de ser válido. Acceder a una celda cuya fórmula no puede manejarse puede generar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+**¿Los valores de error de fórmula son lo mismo que las excepciones de Java?**
+
+No. Un resultado como `#DIV/0!` es un valor de hoja de cálculo producido por un cálculo válido. Las excepciones como [CellInvalidFormulaException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/cellcircularreferenceexception/) indican que la fórmula no puede procesarse normalmente.
+
+**¿Un gráfico se actualiza automáticamente cuando cambia una celda de fórmula?**
+
+Una serie del gráfico puede referenciar celdas del libro. Recalcula primero el libro y luego guarda o renderiza la presentación. Si los puntos de datos del gráfico hacen referencia a las celdas calculadas, el gráfico usa esos valores actualizados; no se requiere un método de actualización de gráfico separado para este flujo.
+
+**¿Los gráficos pueden usar un libro de Excel externo?**
+
+Sí, los datos del gráfico pueden configurarse para usar un libro externo mediante la API de datos del gráfico. Sin embargo, el flujo de trabajo de cálculo de fórmulas descrito en este artículo se refiere al libro de datos del gráfico y al subconjunto de fórmulas evaluado por Aspose.Slides. No asumas que [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) proporciona un recalcado completo de fórmulas arbitrarias en un archivo XLSX externo.
+
+**¿Puedo usar fórmulas que referencien otra hoja o libro?**
+
+Pueden existir referencias al estilo Excel en los libros de gráficos, pero la evaluación de fórmulas está limitada por el analizador y el conjunto de funciones admitidos. Si una referencia cruzada de hoja o externa es esencial, valida esa fórmula exacta con la versión de Aspose.Slides que tengas. Para flujos que requieren una amplia compatibilidad de referencias de Excel, calcula el libro externamente y escribe los valores resueltos de nuevo en los datos del gráfico.
+
+**¿Deben las cadenas de fórmula comenzar con `=`?**
+
+Los ejemplos de la API de Aspose.Slides asignan expresiones como `B2-C2` o `SUM(B2:B5)` sin el `=` inicial. Usar esa forma mantiene las fórmulas generadas coherentes con los ejemplos documentados de la API.
