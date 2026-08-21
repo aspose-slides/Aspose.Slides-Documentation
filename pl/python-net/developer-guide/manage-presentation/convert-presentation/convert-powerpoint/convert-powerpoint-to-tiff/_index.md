@@ -18,19 +18,19 @@ keywords:
 - ODP do TIFF
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak łatwo konwertować prezentacje PowerPoint (PPT, PPTX) i OpenDocument (ODP) na wysokiej jakości obrazy TIFF przy użyciu Aspose.Slides dla Pythona w technologii .NET. Przewodnik krok po kroku z przykładami kodu."
+description: "Dowiedz się, jak łatwo konwertować prezentacje PowerPoint (PPT, PPTX) i OpenDocument (ODP) do wysokiej jakości obrazów TIFF przy użyciu Aspose.Slides dla Pythona w środowisku .NET. Przewodnik krok po kroku z przykładami kodu."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-TIFF (**Tagged Image File Format**) jest powszechnie stosowanym, bezstratnym formatem rastrowym, znanym ze swojej wyjątkowej jakości i dokładnego zachowania grafiki. Projektanci, fotografowie i wydawcy desktopowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i oryginalne ustawienia w swoich obrazach.
+TIFF (**Tagged Image File Format**) jest powszechnie używanym, bezstratnym formatem rastrowym, znanym ze swojej wyjątkowej jakości i szczegółowego zachowania grafiki. Projektanci, fotografowie i wydawcy komputerowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i oryginalne ustawienia w swoich obrazach.
 
-Korzystając z Aspose.Slides, możesz łatwo konwertować swoje slajdy PowerPoint (PPT, PPTX) oraz slajdy OpenDocument (ODP) bezpośrednio na wysokiej jakości obrazy TIFF, zapewniając, że Twoje prezentacje zachowają maksymalną wierność wizualną.
+Korzystając z Aspose.Slides, możesz bez trudu konwertować swoje slajdy PowerPoint (PPT, PPTX) oraz slajdy OpenDocument (ODP) bezpośrednio do wysokiej jakości obrazów TIFF, zapewniając, że Twoje prezentacje zachowają maksymalną wierność wizualną.
 
 ## **Konwertowanie prezentacji do TIFF**
 
-Używając metody [save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/#methods) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), możesz szybko przekonwertować całą prezentację PowerPoint na TIFF. Uzyskane obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
+Korzystając z metody [save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/#methods) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), możesz szybko przekonwertować całą prezentację PowerPoint na TIFF. Powstałe obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
 
-Ten kod w Pythonie pokazuje, jak przekonwertować prezentację PowerPoint na TIFF:
+Poniższy kod w języku Python pokazuje, jak konwertować prezentację PowerPoint do TIFF:
 
 ```py
 import aspose.slides as slides
@@ -43,13 +43,17 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Konwertowanie prezentacji do czarno-białego TIFF**
 
-Właściwość [bw_conversion_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/) pozwala określić algorytm używany przy konwertowaniu kolorowego slajdu lub obrazu na czarno-biały TIFF. Zauważ, że to ustawienie obowiązuje tylko wtedy, gdy właściwość [compression_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/compression_type/) jest ustawiona na `CCITT4` lub `CCITT3`.
+Właściwość [bw_conversion_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/) umożliwia określenie algorytmu używanego przy konwertowaniu kolorowego slajdu lub obrazu na czarno-biały TIFF. Zwróć uwagę, że to ustawienie ma zastosowanie tylko wtedy, gdy właściwość [compression_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/compression_type/) jest ustawiona na `CCITT4` lub `CCITT3`.
+
+{{% alert color="info" title="Uwaga" %}}
+[TiffOptions.bw_conversion_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) jest ustawieniem na poziomie eksportu, które wybiera algorytm konwersji pikseli dla całego obrazu TIFF. Aby określić, jak ma się wyświetlać konkretny kształt w trybie czarno-białym, użyj [Shape.black_white_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/black_white_mode/). Zobacz [Control Black-and-White Rendering for Shapes](/python-net/shape-formatting/#control-black-and-white-rendering-for-shapes) po przykłady.
+{{% /alert %}}
 
 Załóżmy, że mamy plik "sample.pptx" z następującym slajdem:
 
 ![Slajd prezentacji](slide_black_and_white.png)
 
-Ten kod w Pythonie pokazuje, jak przekonwertować kolorowy slajd na czarno-biały TIFF:
+Poniższy kod w języku Python pokazuje, jak przekonwertować kolorowy slajd do czarno-białego TIFF:
 
 ```py
 import aspose.slides as slides
@@ -66,11 +70,11 @@ Wynik:
 
 ![Czarno-biały TIFF](TIFF_black_and_white.png)
 
-## **Konwertowanie prezentacji do TIFF o niestandardowym rozmiarze**
+## **Konwertowanie prezentacji do TIFF z niestandardowym rozmiarem**
 
-Jeśli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości za pomocą właściwości dostępnych w klasie [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/). Na przykład właściwość [image_size](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/image_size/) pozwala określić rozmiar wynikowego obrazu.
+Jeśli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości za pomocą właściwości dostępnych w klasie [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/). Na przykład właściwość [image_size](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/image_size/) pozwala określić rozmiar powstałego obrazu.
 
-Ten kod w Pythonie pokazuje, jak przekonwertować prezentację PowerPoint na obrazy TIFF o niestandardowym rozmiarze:
+Poniższy kod w języku Python pokazuje, jak konwertować prezentację PowerPoint do obrazów TIFF o niestandardowym rozmiarze:
 
 ```py
 import aspose.slides as slides
@@ -103,15 +107,15 @@ with slides.Presentation("sample.pptx") as presentation:
     notes_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
     tiff_options.slides_layout_options = notes_options
 
-    # Zapisz prezentację jako TIFF o określonym rozmiarze.
+    # Zapisz prezentację jako TIFF z określonym rozmiarem.
     presentation.save("custom_size.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
 ## **Konwertowanie prezentacji do TIFF z niestandardowym formatem pikseli obrazu**
 
-Korzystając z właściwości [pixel_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/pixel_format/) klasy [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/), możesz określić preferowany format pikseli dla wynikowego obrazu TIFF.
+Korzystając z właściwości [pixel_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/pixel_format/) klasy [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/), możesz określić preferowany format pikseli dla powstałego obrazu TIFF.
 
-Ten kod w Pythonie pokazuje, jak przekonwertować prezentację PowerPoint na obraz TIFF z niestandardowym formatem pikseli:
+Poniższy kod w języku Python pokazuje, jak konwertować prezentację PowerPoint do obrazu TIFF z niestandardowym formatem pikseli:
 
 ```py
 import aspose.slides as slides
@@ -130,21 +134,24 @@ with slides.Presentation("Presentation.pptx") as presentation:
         FORMAT_32BPP_ARGB   - 32 bits per pixel, ARGB.
     """
 
-    # Zapisz prezentację jako TIFF o określonym rozmiarze obrazu.
+    # Zapisz prezentację jako TIFF z określonym formatem pikseli.
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Zapoznaj się z darmowym konwerterem PowerPoint na plakat firmy Aspose: [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
+{{% alert title="Porada" color="info" %}}
+Sprawdź darmowy konwerter Aspose [PowerPoint to Poster](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę przekonwertować pojedynczy slajd zamiast całej prezentacji PowerPoint na TIFF?**  
-Tak. Aspose.Slides umożliwia konwersję pojedynczych slajdów z prezentacji PowerPoint i OpenDocument do obrazów TIFF osobno.
+**Czy mogę skonwertować pojedynczy slajd zamiast całej prezentacji PowerPoint do formatu TIFF?**
 
-**Czy istnieje ograniczenie liczby slajdów przy konwertowaniu prezentacji do TIFF?**  
-Nie, Aspose.Slides nie nakłada żadnych ograniczeń na liczbę slajdów. Możesz konwertować prezentacje dowolnego rozmiaru do formatu TIFF.
+Tak. Aspose.Slides umożliwia konwertowanie pojedynczych slajdów z prezentacji PowerPoint i OpenDocument na obrazy TIFF osobno.
 
-**Czy animacje i efekty przejść PowerPoint są zachowywane przy konwertowaniu slajdów do TIFF?**  
-Nie, TIFF jest formatem obrazu statycznego. Dlatego animacje i efekty przejść nie są zachowywane; eksportowane są jedynie statyczne zrzuty slajdów.
+**Czy istnieje limit liczby slajdów przy konwertowaniu prezentacji do TIFF?**
+
+Nie, Aspose.Slides nie nakłada żadnych ograniczeń dotyczących liczby slajdów. Możesz konwertować prezentacje dowolnego rozmiaru do formatu TIFF.
+
+**Czy animacje i efekty przejścia PowerPoint są zachowywane przy konwertowaniu slajdów do TIFF?**
+
+Nie, TIFF jest formatem obrazu statycznego. Dlatego animacje i efekty przejścia nie są zachowywane; eksportowane są jedynie statyczne migawki slajdów.

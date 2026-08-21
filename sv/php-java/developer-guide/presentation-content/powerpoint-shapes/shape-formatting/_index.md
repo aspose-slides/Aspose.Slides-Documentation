@@ -7,65 +7,69 @@ url: /sv/php-java/shape-formatting/
 keywords:
 - formatera form
 - formatera linje
-- formatera fogstil
+- skiss effekt
+- skisslinje för form
+- formatera anslutningsstil
 - gradientfyllning
 - mönsterfyllning
 - bildfyllning
 - texturfyllning
-- enfärgsfyllning
+- solid färgfyllning
 - formtransparens
+- svart-vit formrendering
+- gråskala formrendering
 - rotera form
-- 3D‑kantningseffekt
-- 3D‑roteringseffekt
+- 3D-avfasningseffekt
+- 3D-rotationseffekt
 - återställ formatering
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint‑former i PHP med Aspose.Slides—ange fyllnings‑, linje‑ och effektstilar för PPT, PPTX och ODP‑filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint-former i PHP med Aspose.Slides—ange fyllnings-, linje- och effektstilar för PPT-, PPTX- och ODP-filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
-I PowerPoint kan du lägga till former på bilder. Eftersom former består av linjer kan du formatera dem genom att ändra eller applicera effekter på deras konturer. Dessutom kan du formatera former genom att ange inställningar som styr hur deras inre fylls.
+I PowerPoint kan du lägga till former på bilder. Eftersom former består av linjer kan du formatera dem genom att ändra eller tillämpa effekter på deras konturer. Dessutom kan du formatera former genom att ange inställningar som styr hur deras innerväggar fylls.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides för PHP via Java tillhandahåller klasser och metoder som låter dig formatera former med samma alternativ som finns i PowerPoint.
+Aspose.Slides för PHP via Java tillhandahåller klasser och metoder som gör att du kan formatera former med samma alternativ som finns i PowerPoint.
 
 ## **Formatera linjer**
 
-Med Aspose.Slides kan du ange en anpassad linjestil för en form. Följande steg beskriver proceduren:
+Med Aspose.Slides kan du ange en anpassad linjestil för en form. Följande steg beskriver förfarandet:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ange [line style](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linestyle/) för formen.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange formen [linjestil](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linestyle/).
 1. Ange linjebredden.
-1. Ange [dash style](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linedashstyle/) för linjen.
-1. Ange linjens färg för formen.
+1. Ange [streckstil](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linedashstyle/) för linjen.
+1. Ange linjefärgen för formen.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Följande PHP‑kod demonstrerar hur man formaterar en rektangel `AutoShape`:
+Följande PHP‑kod visar hur du formaterar en rektangel `AutoShape`:
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en autoform av typen Rectangle.
+    // Lägg till en autoshape av typen Rektangel.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // Ställ in fyllningsfärgen för rektangelformen.
+    // Ange fyllningsfärgen för rektangelformen.
     $shape->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Applicera formatering på rektangelns linjer.
+    // Tillämpa formatering på rektangelns linjer.
     $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
 
-    // Ställ in färgen för rektangelns linje.
+    // Ange färgen för rektangelns linje.
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
@@ -78,35 +82,83 @@ try {
 
 Resultatet:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![De formaterade linjerna i presentationen](formatted-lines.png)
 
-## **Formatera fogstilar**
+## **Applicera skisseffekter på formlinjer**
 
-Här är de tre alternativ för fogtyp:
+En skiss‑effekt får en formlinje att se handritad ut. Använd [Shape.getLineFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) för att komma åt linjeinställningarna, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/lineformat/) för att komma åt skissinställningarna och [SketchFormat.setSketchType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/sketchformat/) för att välja ett värde från uppräkningen [LineSketchType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linesketchtype/).
 
-* Rund
-* Snedkant
-* Avfasning
-
-Som standard, när PowerPoint förenar två linjer i en vinkel (t.ex. vid en formens hörn), använder den inställningen **Rund**. Om du däremot ritar en form med skarpa vinklar kan du föredra alternativet **Snedkant**.
-
-![The join style in the presentation](join-style-powerpoint.png)
-
-Följande PHP‑kod demonstrerar hur tre rektanglar (som visas i bilden ovan) skapades med fogtypinställningarna Snedkant, Avfasning och Rund:
+Följande PHP‑kod visar hur du tillämpar en [LineSketchType.Curved](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType.None](https://reference.aspose.com/slides/sv/php-java/aspose.slides/linesketchtype/):
 
 ```php
-// Skapa en instans av Presentation‑klassen som representerar en presentationsfil.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+
+    // Åtkomst till formens linjeformat och dess skissformat.
+    $sketchFormat = $shape->getLineFormat()->getSketchFormat();
+
+    // Tillämpa en skisseffekt.
+    $sketchFormat->setSketchType(LineSketchType::Curved);
+
+    // Läs av skisseffekten som tilldelats direkt till formen.
+    $explicitSketchType = $sketchFormat->getSketchType();
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+
+    // Ta bort skisseffekten.
+    $sketchFormat->setSketchType(LineSketchType::None);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Värdet som returneras av [SketchFormat.getSketchType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/sketchformat/) representerar inställningen som tilldelats direkt till formen. Om linjeformatering kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [LineFormat.getEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/lineformat/), få åtkomst till det returnerade objektets `getSketchFormat`‑metod och läs dess `getSketchType`‑värde. Det effektiva värdet reflekterar den faktiska formateringen efter arv har lösts:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $lineFormat = $shape->getLineFormat();
+
+    $explicitSketchType = $lineFormat->getSketchFormat()->getSketchType();
+    $effectiveLineFormat = $lineFormat->getEffective();
+    $effectiveSketchType = $effectiveLineFormat->getSketchFormat()->getSketchType();
+
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+    echo "Effective sketch type: " . $effectiveSketchType . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Formatera anslutningsstilar**
+
+Här är de tre alternativ för anslutningstyp:
+
+* Rund
+* Gavel
+* Avfasning
+
+Som standard, när PowerPoint förenar två linjer i en vinkel (t.ex. vid en formens hörn), använder den inställningen **Rund**. Om du däremot ritar en form med skarpa vinklar kan du föredra alternativet **Gavel**.
+
+![Anslutningsstilen i presentationen](join-style-powerpoint.png)
+
+Följande PHP‑kod visar hur tre rektanglar (som visas på bilden ovan) skapades med Gavel‑, Avfasning‑ och Rund‑inställningarna för anslutningstyp:
+
+```php
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till tre autoformer av typen Rectangle.
+    // Lägg till tre autoshapes av typen Rektangel.
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-    // Ställ in fyllningsfärgen för varje rektangelform.
+    // Ange fyllningsfärgen för varje rektangelform.
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
@@ -114,12 +166,12 @@ try {
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
-    // Ställ in linjebredden.
+    // Ange linjebredden.
     $shape1->getLineFormat()->setWidth(15);
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // Ställ in färgen för varje rektangels linje.
+    // Ange färgen för varje rektangels linje.
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -127,7 +179,7 @@ try {
     $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Ställ in fogstilen.
+    // Ange anslutningsstilen.
     $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
@@ -137,7 +189,7 @@ try {
     $shape2->getTextFrame()->setText("Bevel Join Style");
     $shape3->getTextFrame()->setText("Round Join Style");
 
-    // Spara PPTX‑filen till disk.
+    // Spara PPTX-filen till disk.
     $presentation->save("join_styles.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -146,32 +198,32 @@ try {
 
 ## **Gradientfyllning**
 
-I PowerPoint är Gradientfyllning ett formateringsalternativ som låter dig applicera en kontinuerlig blandning av färger på en form. Till exempel kan du använda två eller fler färger så att den ena gradvis tonas in i den andra.
+I PowerPoint är Gradientfyllning ett formateringsalternativ som låter dig applicera en kontinuerlig blandning av färger på en form. Till exempel kan du använda två eller flera färger så att den ena gradvis tonas ut i den andra.
 
 Så här applicerar du en gradientfyllning på en form med Aspose.Slides:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Gradient`.
-1. Lägg till dina två önskade färger med definierade positioner med hjälp av `add`‑metoderna i gradientstopp‑samlingen som exponeras av klassen [GradientFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/gradientformat/).
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Gradient`.
+1. Lägg till dina två önskade färger med definierade positioner med hjälp av `add`‑metoderna i gradient‑stopp‑samlingen som exponeras av klassen [GradientFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/gradientformat/).
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en autoform av typen Ellipse.
+    // Lägg till en autoshape av typen Ellips.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // Applicera gradientformatering på ellipsen.
+    // Tillämpa gradientformatering på ellipsen.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
-    // Ställ in gradientens riktning.
+    // Ange gradientens riktning.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
     // Lägg till två gradientstopp.
@@ -187,42 +239,42 @@ try {
 
 Resultatet:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Ellipsen med gradientfyllning](gradient-fill.png)
 
 ## **Mönsterfyllning**
 
-I PowerPoint är Mönsterfyllning ett formateringsalternativ som låter dig applicera en tvåfärgsdesign — såsom prickar, ränder, korshatch eller rutmönster — på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
+I PowerPoint är Mönsterfyllning ett formateringsalternativ som låter dig applicera en tvåfärgsdesign—såsom prickar, ränder, korshatch eller schackrutor—på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
 
-Aspose.Slides tillhandahåller över 45 fördefinierade mönsterstilar som du kan applicera på former för att förbättra den visuella attraktionskraften i dina presentationer. Även efter att du har valt ett fördefinierat mönster kan du fortfarande ange exakt vilka färger det ska använda.
+Aspose.Slides tillhandahåller över 45 fördefinierade mönsterstilar som du kan applicera på former för att förbättra det visuella intrycket i dina presentationer. Även efter att ha valt ett fördefinierat mönster kan du fortfarande ange exakt vilka färger som ska användas.
 
 Så här applicerar du en mönsterfyllning på en form med Aspose.Slides:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Pattern`.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Pattern`.
 1. Välj en mönsterstil från de fördefinierade alternativen.
-1. Ställ in [Background Color](https://reference.aspose.com/slides/sv/php-java/aspose.slides/patternformat/#getBackColor) för mönstret.
-1. Ställ in [Foreground Color](https://reference.aspose.com/slides/sv/php-java/aspose.slides/patternformat/#getForeColor) för mönstret.
+1. Ange [Background Color](https://reference.aspose.com/slides/sv/php-java/aspose.slides/patternformat/#getBackColor) för mönstret.
+1. Ange [Foreground Color](https://reference.aspose.com/slides/sv/php-java/aspose.slides/patternformat/#getForeColor) för mönstret.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en autoform av typen Rectangle.
+    // Lägg till en autoshape av typen Rektangel.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Ställ in fyllningstypen till Pattern.
+    // Ange fyllningstypen till Pattern.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
 
-    // Ställ in mönsterstilen.
+    // Ange mönsterstilen.
     $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
 
-    // Ställ in mönstrets bakgrunds- och förgrundsfärger.
+    // Ange mönstrets bakgrunds- och förgrundsfärger.
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
@@ -235,49 +287,49 @@ try {
 
 Resultatet:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Rektangeln med mönsterfyllning](pattern-fill.png)
 
 ## **Bildfyllning**
 
-I PowerPoint är Bildfyllning ett formateringsalternativ som låter dig infoga en bild i en form — på så sätt använder du bilden som formens bakgrund.
+I PowerPoint är Bildfyllning ett formateringsalternativ som låter dig infoga en bild i en form—effektivt använda bilden som formens bakgrund.
 
 Så här använder du Aspose.Slides för att applicera en bildfyllning på en form:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Picture`.
-1. Ställ in bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
-1. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/)‑objekt från bilden du vill använda.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Picture`.
+1. Ange bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
+1. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/)‑objekt från den bild du vill använda.
 1. Skicka bilden till metoden `SlidesPicture.setImage`.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Låt oss säga att vi har en fil ”lotus.png” med följande bild:
+![Lotusbilden](lotus.png)
 
-![The lotus picture](lotus.png)
+Följande PHP‑kod visar hur du fyller en form med bilden:
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en autoform av typen Rectangle.
+    // Lägg till en autoshape av typen Rektangel.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // Ställ in fyllningstypen till Picture.
+    // Ange fyllningstypen till Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Ställ in bildfyllningsläget.
+    // Ange bildfyllningsläget.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
-    // Läs in en bild och lägg till den i presentationens resurser.
+    // Ladda en bild och lägg till den i presentationens resurser.
     $image = Images::fromFile("lotus.png");
     $picture = $presentation->getImages()->addImage($image);
     $image->dispose();
 
-    // Ställ in bilden.
+    // Ange bilden.
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
     // Spara PPTX-filen till disk.
@@ -289,36 +341,36 @@ try {
 
 Resultatet:
 
-![The shape with picture fill](picture-fill.png)
+![Formen med bildfyllning](picture-fill.png)
 
-### **Tila bild som textur**
+### **Tile bild som textur**
 
-Om du vill ange en tilad bild som textur och anpassa tilningsbeteendet kan du använda följande metoder i klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/):
+Om du vill ange en tiled bild som en textur och anpassa betongbeteendet kan du använda följande metoder i klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Anger bildfyllningsläget — antingen `Tile` eller `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileAlignment): Specificerar justeringen av plattorna inom formen.
-- [setTileFlip](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileFlip): Kontrollerar om plattan flippar horisontellt, vertikalt eller båda.
-- [setTileOffsetX](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Anger den horisontella offseten för plattan (i punkter) från formens ursprung.
-- [setTileOffsetY](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Anger den vertikala offseten för plattan (i punkter) från formens ursprung.
-- [setTileScaleX](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definierar den horisontella skalan för plattan som en procentandel.
-- [setTileScaleY](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definierar den vertikala skalan för plattan som en procentandel.
+- [setPictureFillMode](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Anger bildfyllningsläget—antingen `Tile` eller `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileAlignment): Specificerar justeringen av rutorna inom formen.
+- [setTileFlip](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileFlip): Styr om rutorna vänds horisontellt, vertikalt eller båda.
+- [setTileOffsetX](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Anger den horisontella förskjutningen av rutan (i punkter) från formens ursprung.
+- [setTileOffsetY](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Anger den vertikala förskjutningen av rutan (i punkter) från formens ursprung.
+- [setTileScaleX](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definierar den horisontella skalan på rutan som en procentandel.
+- [setTileScaleY](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definierar den vertikala skalan på rutan som en procentandel.
 
-Följande kodexempel visar hur du lägger till en rektangelform med tilad bildfyllning och konfigurerar til‑alternativen:
+Följande kodexempel visar hur man lägger till en rektangelform med en tiled bildfyllning och konfigurerar tile‑alternativen:
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en rektangulär autoform.
+    // Lägg till en rektangel autoshape.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-    // Ställ in fyllningstypen för formen till Picture.
+    // Ange fyllningstypen för formen till Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Läs in bilden och lägg till den i presentationens resurser.
+    // Ladda bilden och lägg till den i presentationens resurser.
     $sourceImage = Images::fromFile("lotus.png");
     $presentationImage = $presentation->getImages()->addImage($sourceImage);
     $sourceImage->dispose();
@@ -327,7 +379,7 @@ try {
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Konfigurera bildfyllningsläget och tilningsegenskaperna.
+    // Konfigurera bildfyllningsläget och tesselleringsegenskaperna.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -345,35 +397,35 @@ try {
 
 Resultatet:
 
-![The tile options](tile-options.png)
+![Tile‑alternativen](tile-options.png)
 
-## **Enfärgsfyllning**
+## **Solid färgfyllning**
 
-I PowerPoint är Enfärgsfyllning ett formateringsalternativ som fyller en form med en enda, enhetlig färg. Denna enkla bakgrundsfärg appliceras utan några gradienter, texturer eller mönster.
+I PowerPoint är Solid färgfyllning ett formateringsalternativ som fyller en form med en enda, enhetlig färg. Denna enkla bakgrundsfärg appliceras utan några gradienter, texturer eller mönster.
 
-För att applicera en enfärgsfyllning på en form med Aspose.Slides, följ dessa steg:
+För att applicera en solid färgfyllning på en form med Aspose.Slides, följ dessa steg:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Solid`.
-1. Tilldela din föredragna fyllningsfärg till formen.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange formens [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Solid`.
+1. Tilldela din föredragna fyllnadsfärg till formen.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en autoform av typen Rectangle.
+    // Lägg till en autoshape av typen Rektangel.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Ställ in fyllningstypen till Solid.
+    // Ange fyllningstypen till Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
-    // Ställ in fyllningsfärgen.
+    // Ange fyllningsfärgen.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
     // Spara PPTX-filen till disk.
@@ -385,32 +437,32 @@ try {
 
 Resultatet:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Formen med solid färgfyllning](solid-color-fill.png)
 
 ## **Ställ in transparens**
 
-I PowerPoint, när du applicerar en enfärgs-, gradient‑, bild‑ eller texturfyllning på former kan du också ange en transparensnivå för att kontrollera fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
+I PowerPoint, när du applicerar en solid färg, gradient, bild eller texturfyllning på former, kan du också ange en transparensnivå för att kontrollera fyllnadens opacitet. Ett högre transparensvärde gör att formen blir mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
 
-Aspose.Slides låter dig ange transparensnivån genom att justera alfa‑värdet i den färg som används för fyllningen. Så här gör du:
+Aspose.Slides låter dig ställa in transparensnivån genom att justera alfa‑värdet i den färg som används för fyllningen. Så här gör du:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ställ in [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Solid`.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange [FillType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/filltype/) till `Solid`.
 1. Använd `Color` för att definiera en färg med transparens (alfa‑komponenten styr transparensen).
 1. Spara presentationen.
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en solid rektangulär autoform.
+    // Lägg till en solid rektangel autoshape.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Lägg till en transparent rektangulär autoform över den solida formen.
+    // Lägg till en transparent rektangel autoshape ovanpå den solida formen.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -424,7 +476,7 @@ try {
 
 Resultatet:
 
-![The transparent shape](shape-transparency.png)
+![Den transparenta formen](shape-transparency.png)
 
 ## **Rotera former**
 
@@ -433,19 +485,19 @@ Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan 
 För att rotera en form på en bild, följ dessa steg:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Ställ in formens rotations‑egenskap till önskad vinkel.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Ange formens rotations‑egenskap till önskad vinkel.
 1. Spara presentationen.
 
 ```php
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
     // Hämta den första bilden.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lägg till en autoform av typen Rectangle.
+    // Lägg till en autoshape av typen Rektangel.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
     // Rotera formen med 5 grader.
@@ -460,18 +512,18 @@ try {
 
 Resultatet:
 
-![The shape rotation](shape-rotation.png)
+![Formrotering](shape-rotation.png)
 
-## **Lägg till 3D‑kantningseffekter**
+## **Lägg till 3D‑avfasningseffekter**
 
-Aspose.Slides gör det möjligt att applicera 3D‑kantningseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/threedformat/)-egenskaper.
+Aspose.Slides gör det möjligt att tillämpa 3D‑avfasningseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/threedformat/)-egenskaper.
 
-För att lägga till 3D‑kantningseffekter på en form, följ dessa steg:
+För att lägga till 3D‑avfasningseffekter på en form, följ dessa steg:
 
 1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
-1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/threedformat/) för att definiera kantningsinställningarna.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
+1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/threedformat/) för att definiera avfasningsinställningarna.
 1. Spara presentationen.
 
 ```php
@@ -488,7 +540,7 @@ try {
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
 
-    // Ställ in formens ThreeDFormat-egenskaper.
+    // Ange formens ThreeDFormat‑egenskaper.
     $shape->getThreeDFormat()->setDepth(4);
     $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
@@ -497,7 +549,7 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // Spara presentationen som en PPTX-fil.
+    // Spara presentationen som en PPTX‑fil.
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -506,17 +558,17 @@ try {
 
 Resultatet:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3D‑avfasningseffekten](3D-bevel-effect.png)
 
-## **Lägg till 3D‑rotationsseffekter**
+## **Lägg till 3D‑rotations‑effekter**
 
-Aspose.Slides gör det möjligt att applicera 3D‑rotationsseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/threedformat/)-egenskaper.
+Aspose.Slides gör det möjligt att tillämpa 3D‑rotationseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/threedformat/)-egenskaper.
 
 För att applicera 3D‑rotation på en form:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta en referens till en bild genom dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
 1. Använd [setCameraType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/camera/#setCameraType) och [setLightType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/lightrig/#setLightType) för att definiera 3D‑rotationen.
 1. Spara presentationen.
 
@@ -543,7 +595,40 @@ try {
 
 Resultatet:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3D‑rotations‑effekten](3D-rotation-effect.png)
+
+## **Styr svart‑vit rendering för former**
+
+Metoden [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/#setBlackWhiteMode) anger hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit‑läge. Den aktiverar inte svart‑vit‑visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
+
+Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/sv/php-java/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utelämnar formen i svart‑vit‑läge. `NotDefined` betyder att inget form‑specifikt läge har tilldelats.
+
+```php
+use aspose\slides\BlackWhiteMode;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
+
+    // Behåll den orange fyllningen i färgläge, men rendera formen med grå färgning i svart‑vitt läge.
+    $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
+
+    $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde med svart‑vit visning använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig behålla en full‑färgsbild medan du definierar ett särskilt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som respekterar presentationens svart‑vita visningsinställningar.
 
 ## **Återställ formatering**
 
@@ -567,12 +652,12 @@ try {
 
 **Påverkar formatering av former den slutgiltiga presentationsfilens storlek?**
 
-Endast marginellt. Inbäddade bilder och media tar största delen av filstorleken, medan formparametrar som färger, effekter och gradienter lagras som metadata och tillför i princip ingen extra storlek.
+Endast i väldigt liten grad. Inbäddade bilder och media tar upp största delen av filstorleken, medan formparametrar som färger, effekter och gradienter lagras som metadata och lägger i princip ingen extra storlek.
 
 **Hur kan jag upptäcka former på en bild som har identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje forms viktigaste formaterings‑egenskaper — fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
+Jämför varje forms nyckel‑formaterings‑egenskaper—fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt de formerna, vilket förenklar senare stilhantering.
 
 **Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
 
-Ja. Spara exempelformer med önskade stilar i en mall‑bildserie eller en .POTX‑mallfil. När du skapar en ny presentation öppnar du mallen, klonar de stylade former du behöver och återapplicerar deras formatering där det krävs.
+Ja. Spara exempelformer med önskade stilar i en mall‑bildsamling eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stiliserade former du behöver och återapplicera deras formatering där det behövs.

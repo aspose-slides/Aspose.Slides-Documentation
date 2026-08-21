@@ -7,58 +7,65 @@ url: /tr/androidjava/shape-formatting/
 keywords:
 - şekil biçimlendirme
 - çizgi biçimlendirme
-- kesişme stili biçimlendirme
-- dereceli dolgu
-- desen dolgu
-- resim dolgu
-- doku dolgu
-- düz renk dolgu
+- eskiz efekti
+- şekil çizgi eskizi
+- kesişme stilini biçimlendirme
+- degrade doldurma
+- desen doldurma
+- resim doldurma
+- doku doldurma
+- düz renk doldurma
 - şekil saydamlığı
-- şekli döndürme
-- 3B koni efekti
-- 3B döndürme efekti
-- biçimlendirmeyi sıfırlama
+- siyah-beyaz şekil renderı
+- gri tonlamalı şekil renderı
+- şekli döndür
+- 3D kırışıklık efekti
+- 3D döndürme efekti
+- biçimlendirmeyi sıfırla
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Android'de PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için dolgu, çizgi ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
+description: "Aspose.Slides kullanarak Android'de PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için doldurma, çizgi ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
 ---
 ## **Giriş**
 
-PowerPoint'te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenarlarını düzenleyerek veya onlara efektler uygulayarak biçimlendirebilirsiniz. Ayrıca şekillerin içini dolduran ayarları belirterek şekilleri biçimlendirebilirsiniz.
+PowerPoint'te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenarlıklarını değiştirerek veya efektler uygulayarak biçimlendirebilirsiniz. Ayrıca, şekillerin içlerinin nasıl doldurulacağını kontrol eden ayarları belirleyerek de biçimlendirebilirsiniz.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java, PowerPoint'te mevcut olan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan arayüzler ve yöntemler sunar.
+Aspose.Slides for Android via Java, PowerPoint'te mevcut olan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan arayüzler ve metodlar sunar.
 
 ## **Çizgi Biçimlendirme**
 
-Aspose.Slides kullanarak bir şekil için özelleştirilmiş bir çizgi stili belirtebilirsiniz. Aşağıdaki adımlar prosedürü gösterir:
+Aspose.Slides kullanarak bir şekil için özel çizgi stili belirtebilirsiniz. Aşağıdaki adımlar prosedürü özetler:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
-1. Şeklin [line style](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linestyle/) özelliğini ayarlayın.
-1. Çizgi kalınlığını belirleyin.
-1. Çizginin [dash style](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linedashstyle/) özelliğini ayarlayın.
-1. Şeklin çizgi rengini belirleyin.
+1. Şeklin [line style](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linestyle/) ayarını belirleyin.
+1. Çizgi kalınlığını ayarlayın.
+1. Çizginin [dash style](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linedashstyle/) ayarını ayarlayın.
+1. Şeklin çizgi rengini ayarlayın.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki kod bir dikdörtgen `AutoShape`'ı nasıl biçimlendireceğinizi gösterir:
+Aşağıdaki kod, bir dikdörtgen `AutoShape`'in nasıl biçimlendirileceğini gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) türünde bir otomatik şekil ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Dikdörtgen şeklinin doldurma rengini ayarlayın.
+    // Dikdörtgen şeklinin dolgusunu kaldırın, böylece sadece çizgileri görünür.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // Dikdörtgenin çizgilerine biçimlendirme uygulayın.
@@ -66,7 +73,7 @@ try {
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // Dikdörtgenin çizgi rengini ayarlayın.
+    // Dikdörtgenin çizgi rengine ayarlayın.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
@@ -79,35 +86,90 @@ try {
 
 Sonuç:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![Sunumdaki biçimlendirilmiş çizgiler](formatted-lines.png)
 
-## **Kesişme Stili Biçimlendirme**
+## **Şekil Çizgilerine Eskiz Efektleri Uygulama**
 
-Üç kesişme tipi seçeneği vardır:
+Eskiz efekti, bir şekil çizgisinin el çizimi gibi görünmesini sağlar. [IShape.getLineFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) ile çizgi ayarlarına, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilineformat/) ile eskiz ayarlarına erişebilir ve [ISketchFormat.setSketchType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isketchformat/) ile [LineSketchType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linesketchtype/) enumerasyonundan bir değer seçebilirsiniz.
+
+Aşağıdaki Java kodu, bir [LineSketchType.Curved](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linesketchtype/) efekti nasıl uygulanır, açıkça atanmış değer nasıl okunur ve [LineSketchType.None](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/linesketchtype/) ile efekt nasıl kaldırılır gösterir:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // Şeklin çizgi biçimine ve eskiz biçimine erişin.
+    ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // Bir eskiz efekti uygulayın.
+    sketchFormat.setSketchType(LineSketchType.Curved);
+
+    // Şekle doğrudan atanmış eskiz efektini okuyun.
+    int explicitSketchType = sketchFormat.getSketchType();
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+
+    // Eskiz efektini kaldırın.
+    sketchFormat.setSketchType(LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISketchFormat.getSketchType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isketchformat/) tarafından döndürülen değer, şekle doğrudan atanmış ayarı temsil eder. Çizgi biçimlendirmesi bir temadan, ana slayttan veya yerleşim slaydından devralınabiliyorsa, [ILineFormat.getEffective](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilineformat/) kullanın, [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilineformateffectivedata/) erişin ve [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isketchformateffectivedata/) okuyun. Etkili değer, kalıtım çözüldükten sonra aslında uygulanan biçimlendirmeyi yansıtır:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ILineFormat lineFormat = shape.getLineFormat();
+
+    int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
+    int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+    System.out.println("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Köşe Biçimlendirme Stilleri**
+
+İşte üç köşe tipi seçeneği:
 
 * Round
 * Miter
 * Bevel
 
-Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirirken **Round** ayarını kullanır. Ancak, keskin açılara sahip bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
+Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirirken **Round** ayarını kullanır. Ancak, keskin açıları olan bir şekil çizerken **Miter** seçeneğini tercih edebilirsiniz.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Sunumdaki köşe stili](join-style-powerpoint.png)
 
-Aşağıdaki Java kodu, yukarıdaki görselde gösterildiği gibi üç dikdörtgenin Miter, Bevel ve Round kesişme tipi ayarlarıyla nasıl oluşturulduğunu gösterir:
+Aşağıdaki Java kodu, yukarıdaki görselde gösterildiği gibi üç dikdörtgenin Miter, Bevel ve Round köşe tipi ayarlarıyla nasıl oluşturulduğunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle tipinde üç otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) tipinde üç otomatik şekil ekleyin.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Her dikdörtgen şeklinin doldurma rengini ayarlayın.
+    // Her dikdörtgen şeklinin dolgu rengini ayarlayın.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -128,7 +190,7 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Kesişme stilini ayarlayın.
+    // Köşe stilini ayarlayın.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
@@ -145,39 +207,39 @@ try {
 }
 ```
 
-## **Dereceli Dolgu**
+## **Degrade Doldurma**
 
-PowerPoint'te Dereceli Dolgu, bir şekle sürekli bir renk karışımı uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, bir rengin yavaşça diğerine geçmesini sağlayarak iki veya daha fazla rengi uygulayabilirsiniz.
+PowerPoint'te Degrade Doldurma, bir şekle sürekli renk geçişi uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, iki veya daha fazla rengi birinin diğerine yavaşça geçecek şekilde uygulayabilirsiniz.
 
-Aspose.Slides kullanarak bir şekle dereceli dolgu uygulama adımları:
+Aşağıda Aspose.Slides kullanarak bir şekle degrade doldurma nasıl uygulanır:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.
-1. [IGradientFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igradientformat/) arayüzünün sunduğu gradient durak koleksiyonunun `add` metodlarını kullanarak istediğiniz iki rengi ve konumlarını ekleyin.
+1. İki tercih ettiğiniz rengi, konumları tanımlı olarak, [IGradientFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igradientformat/) arayüzünün sunduğu gradient durak koleksiyonunun `add` metodlarıyla ekleyin.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Java kodu bir elips üzerine dereceli dolgu etkisi nasıl uygulanacağını gösterir:
-
 ```java
+import com.aspose.slides.*;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ellipse tipinde bir otomatik şekil ekleyin.
+    // Ellipse (elips) tipinde bir otomatik şekil ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Elipse degrade biçimlendirme uygulayın.
+    // Elipseye degrade biçimlendirme uygulayın.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Degrenin yönünü ayarlayın.
+    // Degrade yönünü ayarlayın.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // İki degrade durağı ekleyin.
+    // İki adet degrade durak ekleyin.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
@@ -190,38 +252,39 @@ try {
 
 Sonuç:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Degrade doldurulmuş elips](gradient-fill.png)
 
-## **Desen Dolgu**
+## **Desen Doldurma**
 
-PowerPoint'te Desen Dolgu, bir şekle iki renkten oluşan bir tasarım (nokta, çizgi, çapraz çizgi veya kare gibi) uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Desenin ön plan ve arka plan renklerini isteğe göre seçebilirsiniz.
+PowerPoint'te Desen Doldurma, iki renkli bir tasarım—örneğin noktalar, çizgiler, çapraz tarama veya kareler—şekle uygulanmasını sağlayan bir biçimlendirme seçeneğidir. Desenin ön ve arka plan renklerini isteğe göre seçebilirsiniz.
 
-Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla önceden tanımlı desen stili sunar. Önceden tanımlı bir deseni seçtikten sonra, hâlâ kullanılacak kesin renkleri belirtebilirsiniz.
+Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla ön tanımlı desen stilı sunar. Ön tanımlı bir deseni seçtikten sonra, hâlâ kullanılacak kesin renkleri belirleyebilirsiniz.
 
-Aspose.Slides kullanarak bir şekle desen dolgu uygulama adımları:
+Aşağıda Aspose.Slides kullanarak bir şekle desen doldurma nasıl uygulanır:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/filltype/) özelliğini `Pattern` olarak ayarlayın.
-1. Önceden tanımlı seçeneklerden bir desen stili seçin.
-1. Desenin [Background Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/patternformat/#getBackColor--) rengini ayarlayın.
-1. Desenin [Foreground Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/patternformat/#getForeColor--) rengini ayarlayın.
+1. Ön tanımlı seçeneklerden bir desen stili seçin.
+1. Desenin [Background Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/patternformat/#getBackColor--) ayarını belirleyin.
+1. Desenin [Foreground Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/patternformat/#getForeColor--) ayarını belirleyin.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Java kodu bir dikdörtgene desen dolgu nasıl uygulanacağını gösterir:
-
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) tipinde bir otomatik şekil ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Doldurma tipini Pattern olarak ayarlayın.
+    // Doldurma türünü Pattern olarak ayarlayın.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
     // Desen stilini ayarlayın.
@@ -240,46 +303,44 @@ try {
 
 Sonuç:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![Desen doldurulmuş dikdörtgen](pattern-fill.png)
 
-## **Resim Dolgu**
+## **Resim Doldurma**
 
-PowerPoint'te Resim Dolgu, bir şeklin içine bir görüntü eklemenizi sağlayan bir biçimlendirme seçeneğidir; yani görüntüyü şeklin arka planı olarak kullanırsınız.
+PowerPoint'te Resim Doldurma, bir şeklin içine bir resim eklemenizi ve resmi şeklin arka planı gibi kullanmanızı sağlayan bir biçimlendirme seçeneğidir.
 
-Aspose.Slides kullanarak bir şekle resim dolgu uygulama adımları:
+Aspose.Slides kullanarak bir şekle resim doldurma nasıl uygulanır:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.
-1. Resim dolgu modunu `Tile` (veya tercih ettiğiniz başka bir modu) olarak ayarlayın.
-1. Kullanmak istediğiniz görüntüden bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) nesnesi oluşturun.
-1. Görüntüyü `ISlidesPicture.setImage` metoduna aktarın.
+1. Resim doldurma modunu `Tile` (veya tercih ettiğiniz başka bir mod) olarak ayarlayın.
+1. Kullanmak istediğiniz resimden bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) nesnesi oluşturun.
+1. Resmi `ISlidesPicture.setImage` metoduna iletin.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki resim "lotus.png" dosyasını göstermektedir:
-
-![The lotus picture](lotus.png)
-
-Aşağıdaki Java kodu bir şekle resim dolgu nasıl uygulanacağını gösterir:
+![Lotus resmi](lotus.png)
 
 ```java
+import com.aspose.slides.*;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) tipinde bir otomatik şekil ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Doldurma tipini Picture olarak ayarlayın.
+    // Doldurma türünü Picture olarak ayarlayın.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // Resim doldurma modunu ayarlayın.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Bir görüntü yükleyin ve sunum kaynaklarına ekleyin.
+    // Bir resmi yükleyin ve sunum kaynaklarına ekleyin.
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -296,41 +357,43 @@ try {
 
 Sonuç:
 
-![The shape with picture fill](picture-fill.png)
+![Resim doldurulmuş şekil](picture-fill.png)
 
-### **Doku Olarak Döşeme Resmi**
+### **Döşeme Resmi Doku Olarak**
 
-Döşeli resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, [IPictureFillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) arayüzünün ve [PictureFillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/picturefillformat/) sınıfının aşağıdaki yöntemlerini kullanabilirsiniz:
+Döşeme şeklinde bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek isterseniz, [IPictureFillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) arayüzünün ve [PictureFillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/picturefillformat/) sınıfının aşağıdaki metodlarını kullanabilirsiniz:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Resim dolgu modunu `Tile` ya da `Stretch` olarak ayarlar.
-- [setTileAlignment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Döşemelerin şekil içinde hizalanmasını belirler.
+- [setPictureFillMode](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Resim doldurma modunu ayarlar — `Tile` veya `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Döşemelerin şekil içinde hizalamasını belirler.
 - [setTileFlip](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Döşemenin yatay, dikey ya da her iki yönde çevrilip çevrilmeyeceğini kontrol eder.
-- [setTileOffsetX](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Döşemenin yatay ofsetini (nokta cinsinden) şeklin kökeninden ayarlar.
-- [setTileOffsetY](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Döşemenin dikey ofsetini (nokta cinsinden) şeklin kökeninden ayarlar.
+- [setTileOffsetX](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Döşemenin yatay ofsetini (puan cinsinden) şeklin orijinalinden ayarlar.
+- [setTileOffsetY](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Döşemenin dikey ofsetini (puan cinsinden) şeklin orijinalinden ayarlar.
 - [setTileScaleX](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Döşemenin yatay ölçeğini yüzde olarak tanımlar.
 - [setTileScaleY](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
 
-Aşağıdaki kod örneği, döşeli bir resim dolguya sahip bir dikdörtgen şekli eklemeyi ve döşeme seçeneklerini yapılandırmayı gösterir:
+Aşağıdaki kod örneği, bir dikdörtgen şekle döşeme resimli doldurma ekleyip döşeme seçeneklerini yapılandırmayı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Dikdörtgen bir otomatik şekil ekleyin.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Şeklin doldurma tipini Picture olarak ayarlayın.
+    // Şeklin doldurma türünü Picture olarak ayarlayın.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Görseli yükleyin ve sunum kaynaklarına ekleyin.
+    // Resmi yükleyin ve sunum kaynaklarına ekleyin.
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Görseli şekle atayın.
+    // Resmi şekle atayın.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
@@ -352,34 +415,35 @@ try {
 
 Sonuç:
 
-![The tile options](tile-options.png)
+![Döşeme seçenekleri](tile-options.png)
 
-## **Düz Renk Dolgu**
+## **Düz Renk Doldurma**
 
-PowerPoint'te Düz Renk Dolgu, bir şekli tek bir, tekdüze renk ile dolduran bir biçimlendirme seçeneğidir. Bu sade arka plan rengi, hiçbir degrade, doku veya desen olmadan uygulanır.
+PowerPoint'te Düz Renk Doldurma, bir şekli tek, tekdüze bir renk ile dolduran bir biçimlendirme seçeneğidir. Bu düz arka plan rengi, gradient, doku veya desen olmadan uygulanır.
 
-Aspose.Slides kullanarak bir şekle düz renk dolgu uygulamak için şu adımları izleyin:
+Aspose.Slides kullanarak bir şekle düz renk doldurma uygulamak için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
-1. İstediğiniz dolgu rengini şekle atayın.
+1. Şekle tercih ettiğiniz doldurma rengini atayın.
 1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Java kodu bir PowerPoint slaydındaki bir dikdörtgene düz renk dolgu nasıl uygulanacağını gösterir:
-
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Rectangle (dikdörtgen) tipinde bir otomatik şekil ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Doldurma tipini Solid olarak ayarlayın.
+    // Doldurma türünü Solid olarak ayarlayın.
     shape.getFillFormat().setFillType(FillType.Solid);
 
     // Doldurma rengini ayarlayın.
@@ -394,28 +458,29 @@ try {
 
 Sonuç:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Düz renk doldurulmuş şekil](solid-color-fill.png)
 
-## **Saydamlığı Ayarlama**
+## **Saydamlık Ayarlama**
 
-PowerPoint'te bir şekle düz renk, degrade, resim veya doku dolgu uyguladığınızda, dolgunun opaklığını kontrol etmek için bir saydamlık seviyesi de ayarlayabilirsiniz. Daha yüksek bir saydamlık değeri, şeklin daha geçişken olmasını sağlar; arka plan ya da alt nesneler kısmen görünür hâle gelir.
+PowerPoint'te bir şekle düz renk, degrade, resim ya da doku doldurma uyguladığınızda, doldurmanın opaklığını kontrol etmek için saydamlık seviyesini de ayarlayabilirsiniz. Daha yüksek bir saydamlık değeri şekli daha şeffaf hâle getirir, arka planın veya alt nesnelerin kısmen görünmesine izin verir.
 
-Aspose.Slides, dolgu için kullanılan renkteki alfa değerini ayarlayarak saydamlık seviyesini belirlemenize olanak tanır. İşte nasıl yapılacağı:
+Aspose.Slides, doldurma için kullanılan rengin alfa değerini ayarlayarak saydamlık seviyesini belirlemenizi sağlar. İşte nasıl yapılacağı:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
 1. [FillType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
-1. `Color` kullanarak saydamlığı olan bir renk tanımlayın (alfa bileşeni saydamlığı kontrol eder).
+1. `Color` kullanarak alfa bileşeni saydamlığı kontrol eden bir renk tanımlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki Java kodu bir dikdörtgene saydam bir dolgu rengi nasıl uygulanacağını gösterir:
-
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Katı bir dikdörtgen otomatik şekil ekleyin.
@@ -435,33 +500,33 @@ try {
 
 Sonuç:
 
-![The transparent shape](shape-transparency.png)
+![Saydam şekil](shape-transparency.png)
 
 ## **Şekilleri Döndürme**
 
-Aspose.Slides, PowerPoint sunumlarındaki şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama veya tasarım ihtiyaçlarına göre konumlandırmak için yararlı olabilir.
+Aspose.Slides, PowerPoint sunumlarında şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama ya da tasarım ihtiyaçlarıyla konumlandırırken faydalı olabilir.
 
-Bir slayttaki şekli döndürmek için şu adımları izleyin:
+Bir slayttaki bir şekli döndürmek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
-1. Şeklin döndürme özelliğini istediğiniz açıya ayarlayın.
+1. Şeklin döndürme özelliğini istenen açıya ayarlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki Java kodu bir şekli 5 derece döndürmeyi gösterir:
-
 ```java
+import com.aspose.slides.*;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 Presentation presentation = new Presentation();
 try {
-    // İlk slaytı al.
+    // İlk slaytı alın.
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Rectangle tipinde bir otomatik şekil ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Şekli 5 derece döndür.
+    // Şekli 5 derece döndürün.
     shape.setRotation(5);
 
     // PPTX dosyasını diske kaydedin.
@@ -473,23 +538,24 @@ try {
 
 Sonuç:
 
-![The shape rotation](shape-rotation.png)
+![Şekil dönmesi](shape-rotation.png)
 
-## **3B Koni Efektleri Ekleme**
+## **3D Kırışıklık Efektleri Ekleme**
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/threedformat/) özelliklerini yapılandırarak 3B koni efektleri uygulamanıza olanak tanır.
+Aspose.Slides, şekillere [ThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/threedformat/) özelliklerini yapılandırarak 3D kırışıklık efektleri eklemenizi sağlar.
 
-Bir şekle 3B koni efekti eklemek için şu adımları izleyin:
+Bir şekle 3D kırışıklık efekti eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
-1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/threedformat/) özelliğini koni ayarlarını tanımlayacak şekilde yapılandırın.
+1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/threedformat/) özelliklerini kırışıklık ayarlarını tanımlayacak şekilde yapılandırın.
 1. Sunumu kaydedin.
 
-Aşağıdaki Java kodu bir şekle 3B koni efektleri nasıl uygulanacağını gösterir:
-
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Presentation sınıfının bir örneğini oluşturun.
 Presentation presentation = new Presentation();
 try {
@@ -521,23 +587,23 @@ try {
 
 Sonuç:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3D kırışıklık efekti](3D-bevel-effect.png)
 
-## **3B Döndürme Efektleri Ekleme**
+## **3D Döndürme Efektleri Ekleme**
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/threedformat/) özelliklerini yapılandırarak 3B döndürme efektleri uygulamanıza olanak tanır.
+Aspose.Slides, şekillere [ThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/threedformat/) özelliklerini yapılandırarak 3D döndürme efektleri eklemenizi sağlar.
 
-Bir şekle 3B döndürme uygulamak için:
+Bir şekle 3D döndürme uygulamak için:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksine göre bir slayta referans alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans elde edin.
 1. Slayta bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ekleyin.
-1. 3B döndürmeyi tanımlamak için [setCameraType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icamera/#setCameraType-int-) ve [setLightType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) yöntemlerini kullanın.
+1. [setCameraType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icamera/#setCameraType-int-) ve [setLightType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) metodlarını kullanarak 3D döndürmeyi tanımlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki Java kodu bir şekle 3B döndürme efektleri nasıl uygulanacağını gösterir:
-
 ```java
+import com.aspose.slides.*;
+
 // Presentation sınıfının bir örneğini oluşturun.
 Presentation presentation = new Presentation();
 try {
@@ -560,17 +626,48 @@ try {
 
 Sonuç:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3D döndürme efekti](3D-rotation-effect.png)
 
-## **Biçimlendirmeyi Sıfırlama**
+## **Şekiller için Siyah-Beyaz Render Kontrolü**
 
-Aşağıdaki Java kodu, bir slaydın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/layoutslide/) üzerindeki tüm yer tutucu şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlara geri döndürmeyi göstermektedir:
+[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) metodu, bir sunum siyah-beyaz modunda görüntülenirken veya işlenirken ayrı bir şeklin nasıl render edileceğini belirler. Bu metod tek başına siyah-beyaz görüntülemeyi etkinleştirmez ve normal renk modundaki şeklin doldurma, çizgi ya da diğer biçimlendirmelerini değiştirmez.
+
+İstenen davranışı seçmek için [BlackWhiteMode](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/blackwhitemode/) sınıfındaki bir değeri kullanın. Örneğin, `Automatic` render uygulamasının dönüşümü seçmesine izin verir, `Gray` ve `LightGray` gri tonlamayı kullanır, `BlackWhite` yalnızca siyah ve beyazı, `Black` ve `White` tek bir rengi zorlar, `Color` normal renklendirmeyi korur ve `Hidden` şekli siyah‑beyaz modunda gizler. `NotDefined` ise şekil düzeyinde bir mod atanmadığını gösterir.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    // Renkli modda turuncu doldurmayı koruyun, ancak siyah-beyaz modda şekli gri renkle render edin.
+    shape.setBlackWhiteMode(BlackWhiteMode.Gray);
+
+    presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Normal renk modunda, dikdörtgen turuncu doldurmasını korur. Siyah‑beyaz görüntüleme akışında, modu `Gray` olarak ayarlandığı için gri renkte görüntülenir. Bu, tam renkli bir slaytı korurken, baskı, ön izleme veya sunumun siyah‑beyaz görüntüleme ayarlarını dikkate alan diğer akışlar için farklı bir görünüm tanımlamanıza olanak tanır.
+
+## **Biçimlendirmeyi Sıfırla**
+
+Aşağıdaki Java kodu, bir slaytın biçimlendirmesini sıfırlamayı ve [LayoutSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/layoutslide/) üzerindeki tüm yer tutucu şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlara geri döndürmeyi gösterir:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Yerleşimde bir yer tutucu bulunan slayttaki her şekli sıfırla.
+        // Yerleşim üzerindeki bir yer tutucuya sahip slayttaki her şekli sıfırla.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -581,14 +678,14 @@ try {
 
 ## **SSS**
 
-**Şekil biçimlendirmesi nihai sunum dosya boyutunu etkiler mi?**
+**Şekil biçimlendirmesi son sunum dosyasının boyutunu etkiler mi?**
 
-Sadece çok az bir etkisi vardır. Gömülü görüntüler ve medya dosyaları dosya alanının büyük kısmını oluşturur; renkler, efektler ve degrade gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir boyut katmaz.
+Yalnızca çok az etkiler. Gömülü resimler ve medya dosyaları dosya alanının büyük kısmını kaplarken, renkler, efektler ve degrade gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir boyut eklemez.
 
 **Aynı biçimlendirmeyi paylaşan şekilleri bir slaytta nasıl tespit edip gruplayabilirim?**
 
-Her şeklin kilit biçimlendirme özelliklerini—dolgu, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stilleri aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini basitleştirir.
+Her şeklin temel biçimlendirme özelliklerini—doldurma, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stillerini aynı olarak kabul edip bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini kolaylaştırır.
 
-**Özel şekil stillerini ayrı bir dosyada saklayıp diğer sunumlarda yeniden kullanabilir miyim?**
+**Özel şekil stillerini başka sunumlarda yeniden kullanmak üzere ayrı bir dosyaya kaydedebilir miyim?**
 
-Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesine ya da .POTX şablon dosyasına kaydedin. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stillendirilmiş şekilleri klonlayın ve gerektiğinde biçimlendirmelerini yeniden uygulayın.
+Evet. İstenilen stillere sahip örnek şekilleri bir şablon slayt destesi ya da .POTX şablon dosyasında saklayın. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilize şekilleri kopyalayın ve gerektiği yerde biçimlendirmelerini yeniden uygulayın.

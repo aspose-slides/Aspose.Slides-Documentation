@@ -1,14 +1,14 @@
 ---
-title: Converteer PowerPoint-presentaties naar TIFF in Python
+title: PowerPoint-presentaties naar TIFF converteren in Python
 titlelink: PowerPoint naar TIFF
 type: docs
 weight: 90
 url: /nl/python-net/convert-powerpoint-to-tiff/
 keywords:
-- converteer PowerPoint
-- converteer OpenDocument
-- converteer presentatie
-- converteer dia
+- PowerPoint converteren
+- OpenDocument converteren
+- presentatie converteren
+- dia converteren
 - PowerPoint naar TIFF
 - OpenDocument naar TIFF
 - presentatie naar TIFF
@@ -18,38 +18,42 @@ keywords:
 - ODP naar TIFF
 - Python
 - Aspose.Slides
-description: "Leer hoe u eenvoudig PowerPoint‑presentaties (PPT, PPTX) en OpenDocument‑presentaties (ODP) kunt omzetten naar hoogwaardige TIFF‑afbeeldingen met Aspose.Slides voor Python via .NET. Stapsgewijze handleiding met voorbeeldcode inbegrepen."
+description: "Leer hoe u eenvoudig PowerPoint- (PPT, PPTX) en OpenDocument- (ODP) presentaties kunt omzetten naar hoogwaardige TIFF-afbeeldingen met Aspose.Slides voor Python via .NET. Stapsgewijze handleiding met code‑voorbeelden inbegrepen."
 ---
 ## **Inleiding**
 
-TIFF (**Tagged Image File Format**) is een veelgebruikt, verliesvrij rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische elementen. Ontwerpers, fotografen en desktop‑publishers kiezen vaak TIFF om lagen, kleurnauwkeurigheid en oorspronkelijke instellingen van hun afbeeldingen te behouden.
+TIFF (**Tagged Image File Format**) is een veelgebruikt, verliesvrij rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische elementen. Ontwerpers, fotografen en desktop‑publishers kiezen vaak voor TIFF om lagen, kleurnauwkeurigheid en originele instellingen in hun afbeeldingen te behouden.
 
-Met Aspose.Slides kun je moeiteloos je PowerPoint‑dia’s (PPT, PPTX) en OpenDocument‑dia’s (ODP) rechtstreeks omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat je presentaties hun maximale visuele getrouwheid behouden.
+Met Aspose.Slides kun je moeiteloos je PowerPoint‑dia's (PPT, PPTX) en OpenDocument‑dia's (ODP) rechtstreeks omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat je presentaties maximale visuele getrouwheid behouden.
 
-## **Een presentatie naar TIFF converteren**
+## **Converteer een presentatie naar TIFF**
 
-Met de [save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/#methods)‑methode die wordt aangeboden door de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse, kun je snel een volledige PowerPoint‑presentatie naar TIFF omzetten. De gegenereerde TIFF‑afbeeldingen volgen de standaarddia‑grootte.
+Met de [save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/#methods)‑methode van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse kun je snel een volledige PowerPoint‑presentatie omzetten naar TIFF. De gegenereerde TIFF‑afbeeldingen corresponderen met de standaard dia‑grootte.
 
-De volgende Python‑code laat zien hoe je een PowerPoint‑presentatie naar TIFF converteert:
+Deze Python‑code laat zien hoe je een PowerPoint‑presentatie naar TIFF converteert:
 
 ```py
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+# Maak een instantie van de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 with slides.Presentation("presentation.pptx") as presentation:
     # Sla de presentatie op als TIFF.
     presentation.save("output.tiff", slides.export.SaveFormat.TIFF)
 ```
 
-## **Een presentatie naar zwart‑wit TIFF converteren**
+## **Converteer een presentatie naar zwart-wit TIFF**
 
-De eigenschap [bw_conversion_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) in de [TiffOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/)‑klasse stelt je in staat het algoritme te kiezen dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart‑wit TIFF. Merk op dat deze instelling alleen van toepassing is wanneer de eigenschap [compression_type](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/compression_type/) is ingesteld op `CCITT4` of `CCITT3`.
+De eigenschap [bw_conversion_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) in de [TiffOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/)‑klasse stelt je in staat om het algoritme te bepalen dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart-wit TIFF. Merk op dat deze instelling alleen van toepassing is wanneer de [compression_type](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/compression_type/)‑eigenschap is ingesteld op `CCITT4` of `CCITT3`.
 
-Stel dat we een bestand “sample.pptx” hebben met de volgende dia:
+{{% alert color="info" title="Opmerking" %}}
+[TiffOptions.bw_conversion_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) is een export‑niveau instelling die een pixel‑conversie‑algoritme selecteert voor de volledige TIFF‑afbeelding. Om te bepalen hoe een individuele vorm moet worden weergegeven wanneer de zwart-wit‑modus actief is, gebruik je [Shape.black_white_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/black_white_mode/). Zie [Control Black-and-White Rendering for Shapes](/python-net/shape-formatting/#control-black-and-white-rendering-for-shapes) voor voorbeelden.
+{{% /alert %}}
+
+Stel dat we een bestand **sample.pptx** hebben met de volgende dia:
 
 ![Een presentatiedia](slide_black_and_white.png)
 
-De onderstaande Python‑code laat zien hoe je de gekleurde dia naar een zwart‑wit TIFF converteert:
+Deze Python‑code laat zien hoe je de gekleurde dia naar een zwart-wit TIFF converteert:
 
 ```py
 import aspose.slides as slides
@@ -64,19 +68,19 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Het resultaat:
 
-![Zwart‑wit TIFF](TIFF_black_and_white.png)
+![Zwart-wit TIFF](TIFF_black_and_white.png)
 
-## **Een presentatie naar TIFF converteren met aangepaste grootte**
+## **Converteer een presentatie naar TIFF met aangepaste afmeting**
 
-Als je een TIFF‑afbeelding nodig hebt met specifieke afmetingen, kun je de gewenste waarden instellen via de eigenschappen die beschikbaar zijn in [TiffOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/). Bijvoorbeeld, de eigenschap [image_size](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/image_size/) maakt het mogelijk de grootte van de resulterende afbeelding te definiëren.
+Als je een TIFF‑afbeelding met specifieke afmetingen nodig hebt, kun je de gewenste waarden instellen via de eigenschappen van [TiffOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/). Bijvoorbeeld, de [image_size](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/image_size/)‑eigenschap maakt het mogelijk de grootte van de resulterende afbeelding te definiëren.
 
-De volgende Python‑code toont hoe je een PowerPoint‑presentatie naar TIFF‑afbeeldingen met een aangepaste grootte converteert:
+Deze Python‑code laat zien hoe je een PowerPoint‑presentatie naar TIFF‑afbeeldingen met een aangepaste afmeting converteert:
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-# Instantieer de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+# Maak een instantie van de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 with slides.Presentation("sample.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
@@ -107,16 +111,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("custom_size.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-## **Een presentatie naar TIFF converteren met aangepast pixelindeling van de afbeelding**
+## **Converteer een presentatie naar TIFF met aangepast beeldpixelformaat**
 
-Met de eigenschap [pixel_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/pixel_format/) van de [TiffOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/)‑klasse kun je het gewenste pixelformaat voor de resulterende TIFF‑afbeelding opgeven.
+Met de [pixel_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/pixel_format/)‑eigenschap van de [TiffOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/tiffoptions/)‑klasse kun je het gewenste pixelformaat voor de resulterende TIFF‑afbeelding opgeven.
 
-De onderstaande Python‑code laat zien hoe je een PowerPoint‑presentatie naar een TIFF‑afbeelding met een aangepast pixelformaat converteert:
+Deze Python‑code laat zien hoe je een PowerPoint‑presentatie naar een TIFF‑afbeelding met een aangepast pixelformaat converteert:
 
 ```py
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+# Maak een instantie van de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 with slides.Presentation("Presentation.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
@@ -130,26 +134,24 @@ with slides.Presentation("Presentation.pptx") as presentation:
         FORMAT_32BPP_ARGB   - 32 bits per pixel, ARGB.
     """
 
-    # Sla de presentatie op als TIFF met de opgegeven afbeeldingsgrootte.
+    # Sla de presentatie op als TIFF met het opgegeven pixelformaat.
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-
-Bekijk de gratis PowerPoint‑naar‑poster‑converter van Aspose op [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online).
-
+{{% alert title="Tip" color="info" %}}
+Bekijk Aspose's [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **Veelgestelde vragen**
 
 **Kan ik een enkele dia in plaats van de volledige PowerPoint‑presentatie naar TIFF converteren?**
 
-Ja. Aspose.Slides stelt je in staat om individuele dia’s uit PowerPoint‑ en OpenDocument‑presentaties afzonderlijk naar TIFF‑afbeeldingen te converteren.
+Ja. Aspose.Slides stelt je in staat om individuele dia's uit PowerPoint‑ en OpenDocument‑presentaties afzonderlijk naar TIFF‑afbeeldingen te converteren.
 
-**Zijn er beperkingen in het aantal dia’s bij het converteren van een presentatie naar TIFF?**
+**Is er een limiet aan het aantal dia's bij het converteren van een presentatie naar TIFF?**
 
-Nee, Aspose.Slides legt geen limiet op aan het aantal dia’s. Je kunt presentaties van elke omvang naar TIFF‑formaat converteren.
+Nee, Aspose.Slides legt geen beperkingen op aan het aantal dia's. Je kunt presentaties van elke omvang naar het TIFF‑formaat converteren.
 
-**Worden PowerPoint‑animaties en overgangseffecten behouden bij het converteren van dia’s naar TIFF?**
+**Worden PowerPoint‑animaties en overgangseffecten behouden bij het omzetten van dia's naar TIFF?**
 
-Nee, TIFF is een statisch beeldformaat. Animaties en overgangseffecten worden niet bewaard; alleen statische snapshots van de dia’s worden geëxporteerd.
+Nee, TIFF is een statisch afbeeldingsformaat. Animaties en overgangseffecten worden daarom niet behouden; alleen statische snapshots van de dia's worden geëxporteerd.

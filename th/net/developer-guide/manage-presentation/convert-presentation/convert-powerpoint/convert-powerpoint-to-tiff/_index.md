@@ -23,22 +23,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีแปลงการนำเสนอ PowerPoint (PPT, PPTX) เป็นภาพ TIFF คุณภาพสูงอย่างง่ายด้วย Aspose.Slides สำหรับ .NET ตัวอย่างโค้ด C#"
+description: "เรียนรู้วิธีแปลงการนำเสนอ PowerPoint (PPT, PPTX) เป็นภาพ TIFF คุณภาพสูงได้อย่างง่ายดายโดยใช้ Aspose.Slides สำหรับ .NET ตัวอย่างโค้ด C#"
 ---
-## **คำนำ**
+## **บทนำ**
 
-TIFF (**Tagged Image File Format**) คือรูปแบบไฟล์ภาพเรสเตอร์แบบสูญเสียข้อมูลที่ใช้กันอย่างแพร่หลายซึ่งมีคุณภาพยอดเยี่ยมและการเก็บรายละเอียดกราฟิกอย่างครบถ้วน นักออกแบบ, ช่างภาพ, และผู้จัดพิมพ์บนเดสก์ท็อปมักเลือกใช้ TIFF เพื่อรักษาชั้น, ความแม่นยำของสี, และการตั้งค่าเดิมของภาพ
+TIFF (**Tagged Image File Format**) เป็นรูปแบบภาพแรสเตอร์แบบไม่สูญเสียข้อมูลที่ใช้กันอย่างกว้างขวาง ซึ่งมีคุณภาพยอดเยี่ยมและการเก็บรายละเอียดของกราฟิกอย่างละเอียด นักออกแบบ, ช่างภาพ, และผู้จัดพิมพ์บนเดสก์ท็อปมักเลือกใช้ TIFF เพื่อรักษาชั้น, ความแม่นยำของสี, และการตั้งค่าเดิมในภาพของพวกเขา.
 
-ด้วย Aspose.Slides คุณสามารถแปลงสไลด์ PowerPoint (PPT, PPTX) และสไลด์ OpenDocument (ODP) เป็นภาพ TIFF คุณภาพสูงได้อย่างง่ายดาย เพื่อให้การนำเสนอของคุณคงความเที่ยงตรงของภาพสูงสุด
+ด้วย Aspose.Slides คุณสามารถแปลงสไลด์ PowerPoint ของคุณ (PPT, PPTX) และสไลด์ OpenDocument (ODP) ไปเป็นภาพ TIFF คุณภาพสูงได้อย่างง่ายดาย เพื่อให้การนำเสนอของคุณคงความละเอียดภาพสูงสุด.
 
 ## **แปลงการนำเสนอเป็น TIFF**
 
-โดยใช้เมธอด [Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) ที่มาจากคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) คุณสามารถแปลงการนำเสนอ PowerPoint ทั้งหมดเป็น TIFF ได้อย่างรวดเร็ว ภาพ TIFF ที่ได้จะแสดงขนาดสไลด์เริ่มต้น
+โดยใช้เมธอด [Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) ที่ให้โดยคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) คุณสามารถแปลงการนำเสนอ PowerPoint ทั้งหมดเป็น TIFF ได้อย่างรวดเร็ว ภาพ TIFF ที่ได้จะสอดคล้องกับขนาดสไลด์เริ่มต้น.
 
 โค้ด C# นี้แสดงวิธีแปลงการนำเสนอ PowerPoint เป็น TIFF:
 
 ```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ (PPT, PPTX, ODP ฯลฯ).
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแทนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ (PPT, PPTX, ODP, ฯลฯ).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     // บันทึกการนำเสนอเป็น TIFF.
@@ -48,7 +51,11 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 
 ## **แปลงการนำเสนอเป็น TIFF ขาว-ดำ**
 
-คุณสมบัติ [BwConversionMode](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/bwconversionmode/) ในคลาส [TiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/) ให้คุณระบุอัลกอริทึมที่ใช้เมื่อแปลงสไลด์หรือภาพสีเป็น TIFF ขาว-ดำ โปรดทราบว่าการตั้งค้านี้ใช้ได้เฉพาะเมื่อคุณสมบัติ [CompressionType](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/compressiontype/) ตั้งค่าเป็น `CCITT4` หรือ `CCITT3`
+คุณสมบัติ [BwConversionMode](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/bwconversionmode/) ในคลาส [TiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/) ทำให้คุณระบุอัลกอริทึมที่ใช้เมื่อแปลงสไลด์หรือภาพสีเป็น TIFF ขาว-ดำ โปรดทราบว่าการตั้งค่านี้จะใช้เฉพาะเมื่อคุณสมบัติ [CompressionType](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/compressiontype/) ถูกตั้งค่าเป็น `CCITT4` หรือ `CCITT3`.
+
+{{% alert color="info" title="Note" %}}
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/bwconversionmode/) คือการตั้งค่าระดับการส่งออกที่เลือกอัลกอริทึมการแปลงพิกเซลสำหรับภาพ TIFF ทั้งหมด เพื่อกำหนดว่ารูปร่างแต่ละอันควรแสดงอย่างไรเมื่อโหมดแสดงผลขาว-ดำทำงาน ให้ใช้ [IShape.BlackWhiteMode](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/blackwhitemode/). ดูตัวอย่างได้ที่ [Control Black-and-White Rendering for Shapes](/net/shape-formatting/#control-black-and-white-rendering-for-shapes).
+{{% /alert %}}
 
 สมมติว่าเรามีไฟล์ "sample.pptx" ที่มีสไลด์ต่อไปนี้:
 
@@ -57,6 +64,9 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 โค้ด C# นี้แสดงวิธีแปลงสไลด์สีเป็น TIFF ขาว-ดำ:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 TiffOptions tiffOptions = new TiffOptions
 {
     CompressionType = TiffCompressionTypes.CCITT4,
@@ -75,12 +85,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **แปลงการนำเสนอเป็น TIFF ด้วยขนาดกำหนดเอง**
 
-หากคุณต้องการภาพ TIFF ที่มีขนาดกำหนดเอง คุณสามารถตั้งค่าที่ต้องการโดยใช้คุณสมบัติที่มีใน [TiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/) ตัวอย่างเช่นคุณสมบัติ [ImageSize](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/imagesize/) ช่วยให้คุณกำหนดขนาดของภาพผลลัพธ์
+หากคุณต้องการภาพ TIFF ที่มีมิติเฉพาะ คุณสามารถตั้งค่าได้โดยใช้คุณสมบัติที่มีใน [TiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/). ตัวอย่างเช่น คุณสมบัติ [ImageSize](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/imagesize/) ให้คุณกำหนดขนาดของภาพที่ได้.
 
 โค้ด C# นี้แสดงวิธีแปลงการนำเสนอ PowerPoint เป็นภาพ TIFF ด้วยขนาดกำหนดเอง:
 
 ```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ (PPT, PPTX, ODP ฯลฯ).
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ (PPT, PPTX, ODP, ฯลฯ).
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -88,16 +102,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     // ตั้งค่าชนิดการบีบอัด.
     tiffOptions.CompressionType = TiffCompressionTypes.Default;
     /* 
-    ประเภทการบีบอัด:
-        Default - ระบุแผนการบีบอัดเริ่มต้น (LZW).
-        None - ระบุไม่มีการบีบอัด.
+    ชนิดการบีบอัด:
+        Default - ระบุโครงการบีบอัดเริ่มต้น (LZW).
+        None - ระบุว่าไม่มีการบีบอัด.
         CCITT3
         CCITT4
         LZW
         RLE
     */
 
-    // ความลึกขึ้นอยู่กับชนิดการบีบอัดและไม่สามารถตั้งค่าได้ด้วยตนเอง.
+    // ความลึกขึ้นอยู่กับชนิดการบีบอัดและไม่สามารถตั้งค่าด้วยตนเองได้.
 
     // ตั้งค่า DPI ของภาพ.
     tiffOptions.DpiX = 200;
@@ -111,19 +125,22 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         NotesPosition = NotesPositions.BottomFull
     };
 
-    // บันทึกการนำเสนอเป็น TIFF ด้วยขนาดที่ระบุ.
+    // บันทึกการนำเสนอเป็น TIFF พร้อมขนาดที่กำหนด.
     presentation.Save("custom_size.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-## **แปลงการนำเสนอเป็น TIFF ด้วยรูปแบบพิกเซลของภาพกำหนดเอง**
+## **แปลงการนำเสนอเป็น TIFF ด้วยรูปแบบพิกเซลของภาพที่กำหนดเอง**
 
-โดยใช้คุณสมบัติ [PixelFormat](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/pixelformat/) จากคลาส [TiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions) คุณสามารถระบุรูปแบบพิกเซลที่ต้องการสำหรับภาพ TIFF ผลลัพธ์
+โดยใช้คุณสมบัติ [PixelFormat](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions/pixelformat/) จากคลาส [TiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/tiffoptions) คุณสามารถระบุรูปแบบพิกเซลที่ต้องการสำหรับภาพ TIFF ที่ได้.
 
-โค้ด C# นี้แสดงวิธีแปลงการนำเสนอ PowerPoint เป็นภาพ TIFF ด้วยรูปแบบพิกเซลกำหนดเอง:
+โค้ด C# นี้แสดงวิธีแปลงการนำเสนอ PowerPoint เป็นภาพ TIFF ด้วยรูปแบบพิกเซลที่กำหนดเอง:
 
 ```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ (PPT, PPTX, ODP ฯลฯ).
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ (PPT, PPTX, ODP, ฯลฯ).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -131,32 +148,32 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
     tiffOptions.PixelFormat = ImagePixelFormat.Format8bppIndexed;
     /*
     ImagePixelFormat มีค่าต่อไปนี้ (ตามที่ระบุในเอกสาร):
-        Format1bppIndexed - 1 บิตต่อพิกเซล, แบบดัชนี.
-        Format4bppIndexed - 4 บิตต่อพิกเซล, แบบดัชนี.
-        Format8bppIndexed - 8 บิตต่อพิกเซล, แบบดัชนี.
+        Format1bppIndexed - 1 บิตต่อพิกเซล, แบบจัดทำดัชนี.
+        Format4bppIndexed - 4 บิตต่อพิกเซล, แบบจัดทำดัชนี.
+        Format8bppIndexed - 8 บิตต่อพิกเซล, แบบจัดทำดัชนี.
         Format24bppRgb    - 24 บิตต่อพิกเซล, RGB.
         Format32bppArgb   - 32 บิตต่อพิกเซล, ARGB.
     */
 
-    // บันทึกการนำเสนอเป็น TIFF ด้วยขนาดภาพที่ระบุ.
+    // บันทึกการนำเสนอเป็น TIFF พร้อมขนาดภาพที่กำหนด.
     presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-ลองใช้ [ตัวแปลง PowerPoint เป็นโปสเตอร์ฟรีของ Aspose](https://products.aspose.app/slides/th/conversion/convert-ppt-to-poster-online) 
+{{% alert title="Tip" color="info" %}}
+ตรวจสอบ [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/th/conversion/convert-ppt-to-poster-online) ของ Aspose.
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถแปลงสไลด์เดียวแทนการแปลงการนำเสนอ PowerPoint ทั้งหมดเป็น TIFF ได้หรือไม่?**
+**ฉันสามารถแปลงสไลด์เดี่ยวแทนการแปลงการนำเสนอ PowerPoint ทั้งหมดเป็น TIFF ได้หรือไม่?**
 
-ใช่. Aspose.Slides ให้คุณแปลงสไลด์เดี่ยวจากการนำเสนอ PowerPoint และ OpenDocument เป็นภาพ TIFF แยกกันได้
+ได้ค่ะ Aspose.Slides อนุญาตให้คุณแปลงสไลด์เดี่ยวจากการนำเสนอ PowerPoint และ OpenDocument ไปเป็นภาพ TIFF แยกกัน.
 
-**มีขีดจำกัดจำนวนสไลด์เมื่อแปลงการนำเสนอเป็น TIFF หรือไม่?**
+**มีข้อจำกัดจำนวนสไลด์เมื่อแปลงการนำเสนอเป็น TIFF หรือไม่?**
 
-ไม่มี, Aspose.Slides ไม่ได้ตั้งข้อจำกัดใด ๆ เกี่ยวกับจำนวนสไลด์ คุณสามารถแปลงการนำเสนอที่มีขนาดใดก็ได้เป็นรูปแบบ TIFF
+ไม่มี Aspose.Slides ไม่ได้กำหนดข้อจำกัดจำนวนสไลด์ คุณสามารถแปลงการนำเสนอที่มีขนาดใดก็ได้เป็นรูปแบบ TIFF.
 
-**การแอนิเมชันและเอฟเฟกต์การเปลี่ยนของ PowerPoint จะถูกเก็บรักษาไว้เมื่อแปลงสไลด์เป็น TIFF หรือไม่?**
+**การแอนิเมชันและเอฟเฟกต์การเปลี่ยนของ PowerPoint จะถูกเก็บไว้เมื่อแปลงสไลด์เป็น TIFF หรือไม่?**
 
-ไม่ได้, TIFF เป็นรูปแบบภาพคงที่ ดังนั้นการแอนิเมชันและเอฟเฟกต์การเปลี่ยนจะไม่ถูกเก็บไว้; จะส่งออกเฉพาะภาพนิ่งของสไลด์เท่านั้น
+ไม่ได้ เนื่องจาก TIFF เป็นรูปแบบภาพคงที่ ดังนั้นแอนิเมชันและเอฟเฟกต์การเปลี่ยนจะไม่ถูกเก็บไว้ มีเพียงภาพนิ่งของสไลด์ที่ถูกส่งออกเท่านั้น.

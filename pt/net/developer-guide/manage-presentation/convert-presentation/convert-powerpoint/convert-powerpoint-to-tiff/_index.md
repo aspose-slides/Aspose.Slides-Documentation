@@ -1,5 +1,5 @@
 ---
-title: Converter apresentações PowerPoint para TIFF no .NET
+title: Converter apresentações PowerPoint para TIFF em .NET
 titlelink: PowerPoint para TIFF
 type: docs
 weight: 90
@@ -23,32 +23,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a converter facilmente apresentações PowerPoint (PPT, PPTX) para imagens TIFF de alta qualidade usando o Aspose.Slides para .NET. Exemplos de código C#."
+description: "Aprenda como converter facilmente apresentações PowerPoint (PPT, PPTX) para imagens TIFF de alta qualidade usando Aspose.Slides para .NET. Exemplos de código C#."
 ---
 ## **Introdução**
 
-TIFF (**Tagged Image File Format**) é um formato de imagem raster sem perdas amplamente usado, conhecido por sua qualidade excepcional e preservação detalhada de gráficos. Designers, fotógrafos e publicadores de desktop frequentemente escolhem o TIFF para manter camadas, precisão de cores e configurações originais em suas imagens.
+TIFF (**Tagged Image File Format**) é um formato de imagem raster sem perdas amplamente utilizado, conhecido por sua qualidade excepcional e preservação detalhada de gráficos. Designers, fotógrafos e editores de desktop costumam escolher o TIFF para manter camadas, precisão de cores e configurações originais em suas imagens.
 
 Usando o Aspose.Slides, você pode converter facilmente seus slides do PowerPoint (PPT, PPTX) e slides OpenDocument (ODP) diretamente em imagens TIFF de alta qualidade, garantindo que suas apresentações mantenham a máxima fidelidade visual. 
 
-## **Converter uma apresentação para TIFF**
+## **Converter uma Apresentação para TIFF**
 
-Usando o método [Save](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/save/) fornecido pela classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/), você pode converter rapidamente uma apresentação completa do PowerPoint para TIFF. As imagens TIFF resultantes correspondem ao tamanho padrão dos slides.
+Usando o método [Save](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/save/) fornecido pela classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/), você pode converter rapidamente uma apresentação completa do PowerPoint para TIFF. As imagens TIFF resultantes correspondem ao tamanho padrão do slide.
 
-Este código C# demonstra como converter uma apresentação do PowerPoint para TIFF:
+Este código C# demonstra como converter uma apresentação PowerPoint para TIFF:
 
 ```cs
-// Instanciar a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instancie a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
-    // Salvar a apresentação como TIFF.
+    // Salve a apresentação como TIFF.
     presentation.Save("Output.tiff", SaveFormat.Tiff);
 }
 ```
 
-## **Converter uma apresentação para TIFF em preto e branco**
+## **Converter uma Apresentação para TIFF em Preto e Branco**
 
-A propriedade [BwConversionMode](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/bwconversionmode/) na classe [TiffOptions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/) permite especificar o algoritmo usado ao converter um slide ou imagem colorida para um TIFF em preto e branco. Observe que esta configuração se aplica apenas quando a propriedade [CompressionType](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/compressiontype/) está definida como `CCITT4` ou `CCITT3`.
+A propriedade [BwConversionMode](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/bwconversionmode/) na classe [TiffOptions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/) permite especificar o algoritmo usado ao converter um slide ou imagem colorida para um TIFF em preto e branco. Observe que essa configuração se aplica somente quando a propriedade [CompressionType](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/compressiontype/) está definida como `CCITT4` ou `CCITT3`.
+
+{{% alert color="info" title="Nota" %}}
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/bwconversionmode/) é uma configuração de nível de exportação que seleciona um algoritmo de conversão de pixel para a imagem TIFF completa. Para definir como uma forma individual deve ser exibida quando o modo de exibição preto e branco está ativo, use [IShape.BlackWhiteMode](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/blackwhitemode/). Consulte [Control Black-and-White Rendering for Shapes](/net/shape-formatting/#control-black-and-white-rendering-for-shapes) para exemplos.
+{{% /alert %}}
 
 Suponha que temos um arquivo "sample.pptx" com o slide a seguir:
 
@@ -57,6 +64,9 @@ Suponha que temos um arquivo "sample.pptx" com o slide a seguir:
 Este código C# demonstra como converter o slide colorido para um TIFF em preto e branco:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 TiffOptions tiffOptions = new TiffOptions
 {
     CompressionType = TiffCompressionTypes.CCITT4,
@@ -71,21 +81,23 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 O resultado:
 
-![TIFF em preto e branco](TIFF_black_and_white.png)
+![TIFF preto e branco](TIFF_black_and_white.png)
 
-## **Converter uma apresentação para TIFF com tamanho personalizado**
+## **Converter uma Apresentação para TIFF com Tamanho Personalizado**
 
 Se você precisar de uma imagem TIFF com dimensões específicas, pode definir os valores desejados usando as propriedades disponíveis em [TiffOptions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/). Por exemplo, a propriedade [ImageSize](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/imagesize/) permite definir o tamanho da imagem resultante.
 
-Este código C# demonstra como converter uma apresentação do PowerPoint em imagens TIFF com tamanho personalizado:
-
 ```cs
-// Instanciar a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instancie a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
 
-    // Definir o tipo de compressão.
+    // Defina o tipo de compressão.
     tiffOptions.CompressionType = TiffCompressionTypes.Default;
     /* 
     Tipos de compressão:
@@ -99,11 +111,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     // A profundidade depende do tipo de compressão e não pode ser definida manualmente.
 
-    // Definir o DPI da imagem.
+    // Defina o DPI da imagem.
     tiffOptions.DpiX = 200;
     tiffOptions.DpiY = 200;
 
-    // Definir o tamanho da imagem.
+    // Defina o tamanho da imagem.
     tiffOptions.ImageSize = new Size(1728, 1078);
 
     tiffOptions.SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -111,19 +123,20 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         NotesPosition = NotesPositions.BottomFull
     };
 
-    // Salvar a apresentação como TIFF com o tamanho especificado.
+    // Salve a apresentação como TIFF com o tamanho especificado.
     presentation.Save("custom_size.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-## **Converter uma apresentação para TIFF com formato de pixel de imagem personalizado**
+## **Converter uma Apresentação para TIFF com Formato de Pixel de Imagem Personalizado**
 
 Usando a propriedade [PixelFormat](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions/pixelformat/) da classe [TiffOptions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/tiffoptions), você pode especificar o formato de pixel preferido para a imagem TIFF resultante.
 
-Este código C# demonstra como converter uma apresentação do PowerPoint em uma imagem TIFF com um formato de pixel personalizado:
-
 ```cs
-// Instanciar a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instancie a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -138,16 +151,16 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
         Format32bppArgb   - 32 bits por pixel, ARGB.
     */
 
-    // Salvar a apresentação como TIFF com o tamanho da imagem especificado.
+    // Salve a apresentação como TIFF com o tamanho de imagem especificado.
     presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Confira o [conversor GRATUITO de PowerPoint para pôster da Aspose](https://products.aspose.app/slides/pt/conversion/convert-ppt-to-poster-online).
+{{% alert title="Dica" color="info" %}}
+Confira o [conversor GRATUITO de PowerPoint para Poster da Aspose](https://products.aspose.app/slides/pt/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **Posso converter um slide individual em vez de toda a apresentação PowerPoint para TIFF?**
 
@@ -159,4 +172,4 @@ Não, o Aspose.Slides não impõe restrições ao número de slides. Você pode 
 
 **As animações e efeitos de transição do PowerPoint são preservados ao converter slides para TIFF?**
 
-Não, TIFF é um formato de imagem estática. Portanto, animações e efeitos de transição não são preservados; apenas capturas estáticas dos slides são exportadas.
+Não, o TIFF é um formato de imagem estática. Portanto, animações e efeitos de transição não são preservados; apenas capturas estáticas dos slides são exportadas.

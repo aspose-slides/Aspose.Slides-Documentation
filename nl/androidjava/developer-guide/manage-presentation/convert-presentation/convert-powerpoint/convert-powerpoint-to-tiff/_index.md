@@ -23,22 +23,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u eenvoudig PowerPoint‑presentaties (PPT, PPTX) kunt converteren naar hoogwaardige TIFF‑afbeeldingen met Aspose.Slides voor Android, inclusief Java‑codevoorbeelden."
+description: "Leer hoe u eenvoudig PowerPoint‑presentaties (PPT, PPTX) kunt converteren naar hoogwaardige TIFF‑afbeeldingen met Aspose.Slides voor Android, met Java‑codevoorbeelden."
 ---
 ## **Inleiding**
 
-TIFF (**Tagged Image File Format**) is een veelgebruikt, verliesvrij rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische elementen. Ontwerpers, fotografen en desktopuitgevers kiezen vaak voor TIFF om lagen, kleurnauwkeurigheid en de oorspronkelijke instellingen in hun afbeeldingen te behouden.
+TIFF (**Tagged Image File Format**) is een veelgebruikt, lossless rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische elementen. Ontwerpers, fotografen en desktopuitgevers kiezen vaak voor TIFF om lagen, kleurnauwkeurigheid en originele instellingen in hun afbeeldingen te behouden.
 
-Met Aspose.Slides kun je moeiteloos je PowerPoint‑dia’s (PPT, PPTX) en OpenDocument‑dia’s (ODP) rechtstreeks omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat je presentaties de maximale visuele getrouwheid behouden.
+Met Aspose.Slides kunt u moeiteloos uw PowerPoint‑dia's (PPT, PPTX) en OpenDocument‑dia's (ODP) direct omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat uw presentaties de maximale visuele getrouwheid behouden. 
 
-## **Een presentatie omzetten naar TIFF**
+## **Een presentatie converteren naar TIFF**
 
-Met behulp van de [save](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-)‑methode van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse kun je snel een volledige PowerPoint‑presentatie naar TIFF omzetten. De resulterende TIFF‑afbeeldingen hebben dezelfde afmeting als de standaarddia‑grootte.
+Met behulp van de [save](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) methode van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) klasse kunt u snel een volledige PowerPoint‑presentatie naar TIFF converteren. De gegenereerde TIFF‑afbeeldingen komen overeen met de standaarddia‑grootte.
 
-Deze code laat zien hoe je een PowerPoint‑presentatie naar TIFF kunt omzetten:
+Deze code toont hoe u een PowerPoint‑presentatie naar TIFF converteert:
 
 ```java
-// Maak een instantie van de Presentation‑klasse die een presentatiedocument (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+import com.aspose.slides.*;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand vertegenwoordigt (PPT, PPTX, ODP, enz.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     // Sla de presentatie op als TIFF.
@@ -48,17 +50,25 @@ try {
 }
 ```
 
-## **Een presentatie omzetten naar zwart-wit TIFF**
+## **Een presentatie converteren naar zwart-wit TIFF**
 
-De methode [setBwConversionMode](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) in de [TiffOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/)‑klasse stelt je in staat om het algoritme op te geven dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart-wit TIFF. Let op dat deze instelling alleen van toepassing is wanneer de [setCompressionType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-)‑methode is ingesteld op `CCITT4` of `CCITT3`.
+De methode [setBwConversionMode](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) in de [TiffOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/) klasse stelt u in staat het algoritme te bepalen dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart-wit TIFF. Let op: deze instelling geldt alleen wanneer de [setCompressionType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) methode is ingesteld op `CCITT4` of `CCITT3`.
 
-Stel dat we een bestand "sample.pptx" hebben met de volgende dia:
+{{% alert color="info" title="Note" %}}
+
+TiffOptions.setBwConversionMode is een export‑niveau instelling die een pixel‑conversie‑algoritme kiest voor de volledige TIFF‑afbeelding. Om te bepalen hoe een afzonderlijke vorm moet worden weergegeven wanneer de zwart‑wit weergavemodus actief is, gebruikt u [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-). Zie [Control Black-and-White Rendering for Shapes](/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) voor voorbeelden.
+
+{{% /alert %}}
+
+Laten we aannemen dat we een bestand "sample.pptx" hebben met de volgende dia:
 
 ![Een presentatiedia](slide_black_and_white.png)
 
-Deze code laat zien hoe je de gekleurde dia naar een zwart-wit TIFF kunt omzetten:
+Deze code toont hoe u de gekleurde dia naar een zwart-wit TIFF converteert:
 
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -75,14 +85,17 @@ Het resultaat:
 
 ![Zwart-wit TIFF](TIFF_black_and_white.png)
 
-## **Een presentatie omzetten naar TIFF met aangepaste grootte**
+## **Een presentatie converteren naar TIFF met aangepaste grootte**
 
-Als je een TIFF‑afbeelding met specifieke afmetingen nodig hebt, kun je de gewenste waarden instellen met behulp van methoden die beschikbaar zijn in [TiffOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/). Bijvoorbeeld, de [setImageSize](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-)‑methode stelt je in staat de grootte van de resulterende afbeelding te definiëren.
+Als u een TIFF‑afbeelding met specifieke afmetingen nodig heeft, kunt u de gewenste waarden instellen met behulp van de methoden die beschikbaar zijn in [TiffOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/). Bijvoorbeeld, de [setImageSize](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-) methode stelt u in staat de grootte van de gegenereerde afbeelding te definiëren.
 
-Deze code laat zien hoe je een PowerPoint‑presentatie naar TIFF‑afbeeldingen met een aangepaste grootte kunt omzetten:
+Deze code toont hoe u een PowerPoint‑presentatie naar TIFF‑afbeeldingen met een aangepaste grootte converteert:
 
 ```java
-// Maak een instantie van de Presentation‑klasse die een presentatiedocument (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
@@ -91,7 +104,7 @@ try {
     tiffOptions.setCompressionType(TiffCompressionTypes.Default);
     /*
     Compressietypen:
-        Default - Geeft het standaardcompressieschema op (LZW).
+        Default - Geeft het standaard compressieschema aan (LZW).
         None - Geeft aan dat er geen compressie is.
         CCITT3
         CCITT4
@@ -108,7 +121,7 @@ try {
     // Stel de afbeeldingsgrootte in.
     tiffOptions.setImageSize(new Size(1728, 1078));
 
-    INotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
@@ -119,14 +132,16 @@ try {
 }   
 ```
 
-## **Een presentatie omzetten naar TIFF met aangepast pixel‑formaat**
+## **Een presentatie converteren naar TIFF met aangepast pixel‑formaat**
 
-Met de [setPixelFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-)‑methode van de [TiffOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/)‑klasse kun je het gewenste pixel‑formaat voor de resulterende TIFF‑afbeelding opgeven.
+Met de [setPixelFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) methode van de [TiffOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/tiffoptions/) klasse kunt u het gewenste pixel‑formaat voor de gegenereerde TIFF‑afbeelding opgeven.
 
-Deze code laat zien hoe je een PowerPoint‑presentatie naar een TIFF‑afbeelding met een aangepast pixel‑formaat kunt omzetten:
+Deze code toont hoe u een PowerPoint‑presentatie naar een TIFF‑afbeelding met een aangepast pixel‑formaat converteert:
 
 ```java
-// Maak een instantie van de Presentation‑klasse die een presentatiedocument (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+import com.aspose.slides.*;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
@@ -141,27 +156,29 @@ try {
         Format32bppArgb   - 32 bits per pixel, ARGB.
     */
     
-    // Sla de presentatie op als TIFF met de opgegeven afbeeldingsgrootte.
+    // Sla de presentatie op als TIFF met het opgegeven pixel‑formaat.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Bekijk Aspose's [GRATIS PowerPoint‑naar‑Poster‑converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+
+Bekijk de [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online) van Aspose.
+
 {{% /alert %}}
 
 ## **FAQ**
 
 **Kan ik een individuele dia in plaats van een volledige PowerPoint‑presentatie naar TIFF converteren?**
 
-Ja. Aspose.Slides stelt je in staat om individuele dia’s van PowerPoint‑ en OpenDocument‑presentaties afzonderlijk naar TIFF‑afbeeldingen te converteren.
+Ja. Aspose.Slides maakt het mogelijk individuele dia's uit PowerPoint‑ en OpenDocument‑presentaties afzonderlijk naar TIFF‑afbeeldingen te converteren.
 
 **Is er een limiet aan het aantal dia's bij het converteren van een presentatie naar TIFF?**
 
-Nee, Aspose.Slides legt geen beperking op aan het aantal dia's. Je kunt presentaties van elke omvang naar het TIFF‑formaat converteren.
+Nee, Aspose.Slides stelt geen beperkingen aan het aantal dia's. U kunt presentaties van elke omvang naar TIFF‑formaat converteren.
 
-**Worden PowerPoint‑animaties en overgangseffecten behouden bij het converteren van dia’s naar TIFF?**
+**Worden PowerPoint‑animaties en overgangseffecten behouden bij het converteren van dia's naar TIFF?**
 
-Nee, TIFF is een statisch afbeeldingsformaat. Daarom worden animaties en overgangseffecten niet behouden; alleen statische snapshots van de dia’s worden geëxporteerd.
+Nee, TIFF is een statisch beeldformaat. Animaties en overgangseffecten worden dus niet behouden; alleen statische snapshots van de dia’s worden geëxporteerd.

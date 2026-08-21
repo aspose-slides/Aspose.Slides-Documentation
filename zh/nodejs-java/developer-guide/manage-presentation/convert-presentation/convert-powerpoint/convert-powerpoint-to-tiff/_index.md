@@ -1,5 +1,5 @@
 ---
-title: 转换 PowerPoint 演示文稿为 TIFF（使用 JavaScript）
+title: 使用 JavaScript 将 PowerPoint 演示文稿转换为 TIFF
 titlelink: PowerPoint 转 TIFF
 type: docs
 weight: 90
@@ -9,32 +9,39 @@ keywords:
 - 转换 OpenDocument
 - 转换 演示文稿
 - 转换 幻灯片
+- 转换 PPT
+- 转换 PPTX
 - PowerPoint 转 TIFF
-- OpenDocument 转 TIFF
 - 演示文稿 转 TIFF
 - 幻灯片 转 TIFF
 - PPT 转 TIFF
 - PPTX 转 TIFF
-- ODP 转 TIFF
+- 将 PPT 保存为 TIFF
+- 将 PPTX 保存为 TIFF
+- 导出 PPT 为 TIFF
+- 导出 PPTX 为 TIFF
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Node.js（通过 Java）轻松将 PowerPoint（PPT、PPTX）和 OpenDocument（ODP）演示文稿转换为高质量的 TIFF 图像。提供包含代码示例的分步指南。"
+description: "了解如何使用 Aspose.Slides for Node.js，通过 JavaScript 示例代码，轻松将 PowerPoint（PPT、PPTX）演示文稿转换为高质量的 TIFF 图像。"
 ---
+## **简介**
 
-## **概述**
+TIFF（**Tagged Image File Format**）是一种广泛使用的无损栅格图像格式，以其卓越的质量和对图形细节的出色保真度而闻名。设计师、摄影师和桌面出版人员常常选择 TIFF 来保持图像的图层、色彩准确性和原始设置。
 
-TIFF（**Tagged Image File Format**）是一种广泛使用的无损光栅图像格式，以其卓越的质量和对图形的细致保真而著称。设计师、摄影师和桌面出版人员常常选择 TIFF 来保持图像中的图层、颜色准确性和原始设置。
-
-使用 Aspose.Slides，您可以轻松地将 PowerPoint 幻灯片（PPT、PPTX）和 OpenDocument 幻灯片（ODP）直接转换为高质量的 TIFF 图像，确保您的演示文稿保持最高的视觉保真度。
+使用 Aspose.Slides，您可以轻松地将 PowerPoint 幻灯片（PPT、PPTX）和 OpenDocument 幻灯片（ODP）直接转换为高质量的 TIFF 图像，确保演示文稿保留最大的视觉 fidelity。
 
 ## **将演示文稿转换为 TIFF**
 
-使用由 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 类提供的 [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) 方法，您可以快速将整个 PowerPoint 演示文稿转换为 TIFF。生成的 TIFF 图像对应默认的幻灯片尺寸。
+使用由 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类提供的 [保存](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) 方法，您可以快速将整个 PowerPoint 演示文稿转换为 TIFF。生成的 TIFF 图像对应默认幻灯片大小。
 
-下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿转换为 TIFF：
+以下 JavaScript 代码演示如何将 PowerPoint 演示文稿转换为 TIFF：
+
 ```js
-// 实例化表示演示文稿文件 (PPT, PPTX, ODP, 等) 的 Presentation 类。
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// 实例化表示演示文稿文件（PPT、PPTX、ODP 等）的 Presentation 类。
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     // 将演示文稿保存为 TIFF。
@@ -44,17 +51,24 @@ try {
 }
 ```
 
-
 ## **将演示文稿转换为黑白 TIFF**
 
-在 [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) 类中，方法 [setBwConversionMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) 允许您指定在将彩色幻灯片或图像转换为黑白 TIFF 时使用的算法。请注意，仅当 [setCompressionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) 方法设置为 `CCITT4` 或 `CCITT3` 时，此设置才会生效。
+[TiffOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/) 类中的方法 [setBwConversionMode](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) 允许您指定在将彩色幻灯片或图像转换为黑白 TIFF 时使用的算法。请注意，仅当 [setCompressionType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) 方法设置为 `CCITT4` 或 `CCITT3` 时，此设置才有效。
 
-假设我们有一个 “sample.pptx” 文件，包含以下幻灯片：
+{{% alert color="info" title="Note" %}}
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) 是导出级别的设置，用于为完整的 TIFF 图像选择像素转换算法。若要在黑白显示模式下定义单个形状的呈现方式，请使用 [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/#setBlackWhiteMode)。有关示例，请参阅 [Control Black-and-White Rendering for Shapes](/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes)。
+{{% /alert %}}
+
+假设我们有一个名为 **sample.pptx** 的文件，其中包含以下幻灯片：
 
 ![演示文稿幻灯片](slide_black_and_white.png)
 
-下面的 JavaScript 代码演示了如何将彩色幻灯片转换为黑白 TIFF：
+以下 JavaScript 代码演示如何将彩色幻灯片转换为黑白 TIFF：
+
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let tiffOptions = new aspose.slides.TiffOptions();
 tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
@@ -67,18 +81,22 @@ try {
 }
 ```
 
-
-结果：
+转换结果：
 
 ![黑白 TIFF](TIFF_black_and_white.png)
 
 ## **将演示文稿转换为自定义尺寸的 TIFF**
 
-如果您需要具有特定尺寸的 TIFF 图像，可以使用 [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) 中提供的方法设置所需的数值。例如，方法 [setImageSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setImageSize) 允许您定义生成图像的尺寸。
+如果您需要具有特定尺寸的 TIFF 图像，可以使用 [TiffOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/) 中提供的方法设置所需的值。例如，[setImageSize](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/#setImageSize) 方法允许您定义生成图像的尺寸。
 
-下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿转换为具有自定义尺寸的 TIFF 图像：
+以下 JavaScript 代码演示如何将 PowerPoint 演示文稿转换为自定义尺寸的 TIFF 图像：
+
 ```js
-// 实例化表示演示文稿文件 (PPT, PPTX, ODP, 等) 的 Presentation 类。
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// 实例化表示演示文稿文件（PPT、PPTX、ODP 等）的 Presentation 类。
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -87,7 +105,7 @@ try {
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
     /*
     压缩类型：
-        Default - 指定默认的压缩方案 (LZW)。
+        Default - 指定默认压缩方案（LZW）。
         None - 指定不进行压缩。
         CCITT3
         CCITT4
@@ -95,34 +113,37 @@ try {
         RLE
     */
 
-    // 位深取决于压缩类型，无法手动设置。
+    // 颜色深度由像素格式控制（见下面的示例）；CCITT3 和 CCITT4 始终产生每像素 1 位。
 
     // 设置图像 DPI。
     tiffOptions.setDpiX(200);
     tiffOptions.setDpiY(200);
 
-    // 设置图像尺寸。
+    // 设置图像大小。
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 1728, 1078));
 
     let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // 使用指定尺寸保存演示文稿为 TIFF。
+    // 使用指定大小将演示文稿保存为 TIFF。
     presentation.save("tiff-ImageSize.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **将演示文稿转换为具有自定义像素格式的 TIFF**
 
-## **将演示文稿转换为自定义像素格式的 TIFF**
+使用 [TiffOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/) 类中的 [setPixelFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) 方法，您可以为生成的 TIFF 图像指定首选的像素格式。
 
-使用来自 [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) 类的 [setPixelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) 方法，您可以为生成的 TIFF 图像指定首选的像素格式。
+以下 JavaScript 代码演示如何将 PowerPoint 演示文稿转换为具有自定义像素格式的 TIFF 图像：
 
-下面的 JavaScript 代码演示了如何将 PowerPoint 演示文稿转换为具有自定义像素格式的 TIFF 图像：
 ```js
-// 实例化表示演示文稿文件 (PPT, PPTX, ODP, 等) 的 Presentation 类。
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// 实例化表示演示文稿文件（PPT、PPTX、ODP 等）的 Presentation 类。
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -137,27 +158,26 @@ try {
         Format32bppArgb   - 每像素 32 位，ARGB。
     */
 
-    /// 使用指定的图像尺寸保存演示文稿为 TIFF。
+    /// 将演示文稿保存为具有指定图像大小的 TIFF。
     presentation.save("Tiff-PixelFormat.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-
-{{% alert title="Tip" color="primary" %}}
-查看 Aspose 的 [免费 PowerPoint 转海报转换器](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online)。
+{{% alert title="Tip" color="info" %}}
+查看 Aspose 的 [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/zh/conversion/convert-ppt-to-poster-online)。
 {{% /alert %}}
 
 ## **常见问题**
 
-**我可以将单个幻灯片而不是整个 PowerPoint 演示文稿转换为 TIFF 吗？**
+**我可以只转换单个幻灯片，而不是整个 PowerPoint 演示文稿吗？**
 
 可以。Aspose.Slides 允许您将 PowerPoint 和 OpenDocument 演示文稿中的单个幻灯片单独转换为 TIFF 图像。
 
-**在将演示文稿转换为 TIFF 时，对幻灯片数量有任何限制吗？**
+**将演示文稿转换为 TIFF 时对幻灯片数量有任何限制吗？**
 
-没有，Aspose.Slides 对幻灯片数量没有任何限制。您可以将任意大小的演示文稿转换为 TIFF 格式。
+没有。Aspose.Slides 对幻灯片数量不做任何限制，您可以将任意大小的演示文稿转换为 TIFF 格式。
 
 **在将幻灯片转换为 TIFF 时，PowerPoint 动画和过渡效果会被保留吗？**
 
