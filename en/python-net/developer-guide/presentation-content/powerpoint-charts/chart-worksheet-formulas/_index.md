@@ -12,6 +12,9 @@ keywords:
 - spreadsheet formula
 - chart data workbook
 - formula calculation
+- preferred culture
+- culture-specific formula
+- DBCS
 - logical constant
 - numerical constant
 - string constant
@@ -273,6 +276,28 @@ Aspose.Slides includes a built-in formula evaluator for chart worksheets, but it
 | `VLOOKUP` | Vertical lookup | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
 The restrictions shown in the table are significant: `INDEX` is documented in reference form, while `LOOKUP` and `MATCH` are documented in their vector forms. `DATE` uses the 1900 date system. Features and functions not listed here should be treated as unsupported by the Aspose.Slides formula evaluator unless they are documented separately.
+
+## **Calculate Formulas with a Preferred Culture**
+
+Some chart workbook functions interpret text according to culture-specific rules. This is especially important for functions intended for languages that use double-byte character sets (DBCS). To calculate such formulas correctly, create [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), set [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/) through [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), and then load the presentation.
+
+The following example selects the Japanese culture, opens a presentation with the configured load options, and calls [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) for every chart workbook:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+The preferred culture is part of the presentation loading configuration, so specify it before creating the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance. Use the culture expected by the workbook formulas; for example, use `ja-JP` for formulas that should follow Japanese DBCS calculation rules.
 
 ## **Recalculation and Cached Values**
 

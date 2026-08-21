@@ -12,6 +12,9 @@ keywords:
 - spreadsheet formula
 - chart data workbook
 - formula calculation
+- preferred culture
+- culture-specific formula
+- DBCS
 - logical constant
 - numerical constant
 - string constant
@@ -326,6 +329,59 @@ Aspose.Slides includes a built-in formula evaluator for chart worksheets, but it
 | `VLOOKUP` | Vertical lookup | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
 The restrictions shown in the table are significant: `INDEX` is documented in reference form, while `LOOKUP` and `MATCH` are documented in their vector forms. `DATE` uses the 1900 date system. Features and functions not listed here should be treated as unsupported by the Aspose.Slides formula evaluator unless they are documented separately.
+
+## **Calculate Formulas with a Preferred Culture**
+
+Some chart workbook functions interpret text according to culture-specific rules. This is especially important for functions intended for languages that use double-byte character sets (DBCS). To calculate such formulas correctly, create [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configure [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) through [LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), and then load the presentation.
+
+The following example selects the Japanese culture, opens a presentation with the configured load options, and calls [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) for every chart workbook:
+
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
+
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
+
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
+
+The preferred culture is part of the presentation loading configuration, so specify it before creating the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance. Use the culture expected by the workbook formulas; for example, use `ja-JP` for formulas that should follow Japanese DBCS calculation rules.
 
 ## **Recalculation and Cached Values**
 
