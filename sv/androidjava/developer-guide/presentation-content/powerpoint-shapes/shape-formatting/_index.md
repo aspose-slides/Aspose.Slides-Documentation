@@ -7,15 +7,19 @@ url: /sv/androidjava/shape-formatting/
 keywords:
 - formatera form
 - formatera linje
+- skiss-effekt
+- skissformlinje
 - formatera anslutningsstil
 - gradientfyllning
 - mönsterfyllning
 - bildfyllning
 - texturfyllning
-- solid färgfyllning
+- enfärgsfyllning
 - formtransparens
+- svart‑vit formrendering
+- gråskalaformrendering
 - rotera form
-- 3D-fastringseffekt
+- 3D-fasadeffekt
 - 3D-rotationseffekt
 - återställ formatering
 - PowerPoint
@@ -23,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint-former på Android med Aspose.Slides—ställ in fyllnings-, linje- och effektstilar för PPT-, PPTX- och ODP-filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint-former på Android med Aspose.Slides—ange fyllnings-, linje- och effektstilar för PPT-, PPTX- och ODP-filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
@@ -31,34 +35,37 @@ I PowerPoint kan du lägga till former på bilder. Eftersom former består av li
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides för Android via Java tillhandahåller gränssnitt och metoder som låter dig formatera former med samma alternativ som finns i PowerPoint.
+Aspose.Slides for Android via Java tillhandahåller gränssnitt och metoder som låter dig formatera former med samma alternativ som finns i PowerPoint.
 
 ## **Formatera linjer**
 
 Med Aspose.Slides kan du ange en anpassad linjestil för en form. Följande steg beskriver proceduren:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange [line style](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linestyle/) för formen.
-1. Ange linjebredden.
-1. Ange [dash style](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linedashstyle/) för linjen.
-1. Ange linjefärgen för formen.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in [line style](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linestyle/) för formen.
+1. Ställ in linjebredden.
+1. Ställ in [dash style](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linedashstyle/) för linjen.
+1. Ställ in linjefärgen för formen.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Följande kod visar hur man formaterar en rektangel `AutoShape`:
+Följande kod demonstrerar hur man formaterar en rektangel `AutoShape`:
 
 ```java
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen rektangel.
+    // Lägg till en autoform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Ange fyllningsfärgen för rektangelformen.
+    // Ta bort fyllningen från rektangelformen så att endast dess linjer är synliga.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // Applicera formatering på rektangelns linjer.
@@ -81,33 +88,88 @@ Resultatet:
 
 ![De formaterade linjerna i presentationen](formatted-lines.png)
 
+## **Applicera skiss‑effekter på formlinjer**
+
+En skiss‑effekt får en formlinje att se handritad ut. Använd [IShape.getLineFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) för att komma åt linjeinställningarna, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilineformat/) för att komma åt skissinställningarna och [ISketchFormat.setSketchType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isketchformat/) för att välja ett värde från enumet [LineSketchType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linesketchtype/).
+
+Följande Java‑kod visar hur man tillämpar en [LineSketchType.Curved](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType.None](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/linesketchtype/):
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // Åtkomst till formens linjeformat och dess skissformat.
+    ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // Applicera en skiss-effekt.
+    sketchFormat.setSketchType(LineSketchType.Curved);
+
+    // Läs skiss-effekten som tilldelats direkt till formen.
+    int explicitSketchType = sketchFormat.getSketchType();
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+
+    // Ta bort skiss-effekten.
+    sketchFormat.setSketchType(LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+Värdet som returneras av [ISketchFormat.getSketchType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isketchformat/) representerar inställningen som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [ILineFormat.getEffective](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilineformat/), åtkomst [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilineformateffectivedata/) och läs [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isketchformateffectivedata/). Det effektiva värdet återspeglar den formatering som faktiskt tillämpas efter att arv har lösts:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ILineFormat lineFormat = shape.getLineFormat();
+
+    int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
+    int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+    System.out.println("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Formatera anslutningsstilar**
 
-Här är de tre alternativen för anslutningstyp:
+Här är de tre alternativ för anslutningstypen:
 
-* Rund
-* Fas
-* Avfasning
+* Round
+* Miter
+* Bevel
 
-Standardmässigt, när PowerPoint förenar två linjer i en vinkel (t.ex. vid en formens hörn), använder den inställningen **Rund**. Om du däremot ritar en form med skarpa vinklar kan du föredra alternativet **Fas**.
+Som standard, när PowerPoint förenar två linjer i en vinkel (t.ex. vid en formens hörn), använder den **Round**‑inställningen. Men om du ritar en form med skarpa vinklar kan du föredra **Miter**‑alternativet.
 
 ![Anslutningsstilen i presentationen](join-style-powerpoint.png)
 
-Följande Java‑kod visar hur tre rektanglar (som visas på bilden ovan) skapades med inställningarna Fas, Avfasning och Rund för anslutningstyp:
+Följande Java‑kod demonstrerar hur tre rektanglar (som visas i bilden ovan) skapades med Miter‑, Bevel‑ och Round‑inställningarna för anslutningstyp:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till tre automatiska former av typen Rektangel.
+    // Lägg till tre autoformer av typen Rektangel.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Ange fyllningsfärgen för varje rektangelform.
+    // Ställ in fyllningsfärgen för varje rektangelform.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -115,12 +177,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Ange linjebredden.
+    // Ställ in linjebredden.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Ange färgen för varje rektangels linje.
+    // Ställ in färgen för varje rektangels linje.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -128,7 +190,7 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Ange anslutningsstilen.
+    // Ställ in anslutningsstilen.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
@@ -147,32 +209,34 @@ try {
 
 ## **Gradientfyllning**
 
-I PowerPoint är Gradientfyllning ett formateringsalternativ som låter dig applicera en kontinuerlig färgblandning på en form. Du kan exempelvis använda två eller flera färger så att den ena gradvis tonas ner i den andra.
+I PowerPoint är Gradient Fill ett formateringsalternativ som låter dig applicera en kontinuerlig färgblandning på en form. Till exempel kan du använda två eller fler färger så att den ena gradvis tonas in i den andra.
 
-Så här appliceras en gradientfyllning på en form med Aspose.Slides:
+Så här applicerar du en gradientfyllning på en form med Aspose.Slides:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Gradient`.
-1. Lägg till dina två föredragna färger med definierade positioner med hjälp av `add`‑metoderna i gradientstopp‑samlingen som exponeras av gränssnittet [IGradientFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igradientformat/).
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Gradient`.
+1. Lägg till dina två föredragna färger med definierade positioner via `add`‑metoderna i gradientstopp‑samlingen som exponeras av gränssnittet [IGradientFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igradientformat/).
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Ellips.
+    // Lägg till en autoform av typen Ellips.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
     // Applicera gradientformatering på ellipsen.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Ange gradientens riktning.
+    // Ställ in gradientens riktning.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
     // Lägg till två gradientstopp.
@@ -186,44 +250,45 @@ try {
 }
 ```
 
-Resultatet:
-
 ![Ellipsen med gradientfyllning](gradient-fill.png)
 
 ## **Mönsterfyllning**
 
-I PowerPoint är Mönsterfyllning ett formateringsalternativ som låter dig applicera ett tvåfärgsdesign—t.ex. prickar, ränder, korsstreck eller rutmönster—på en form. Du kan välja anpassade färger för mönstrets förgrund och bakgrund.
+I PowerPoint är Pattern Fill ett formateringsalternativ som låter dig applicera ett tvåfärgsdesign—t.ex. prickar, ränder, korshatch eller rutmönster—på en form. Du kan välja egna färger för mönstrets förgrund och bakgrund.
 
-Aspose.Slides erbjuder mer än 45 fördefinierade mönsterstilar som du kan använda på former för att förbättra den visuella attraktionskraften i dina presentationer. Även efter att du har valt ett fördefinierat mönster kan du fortfarande ange exakt vilka färger som ska användas.
+Aspose.Slides erbjuder över 45 fördefinierade mönsterstilar som du kan använda på former för att förbättra ditt presentations visuella utseende. Även efter att ha valt ett fördefinierat mönster kan du fortfarande ange exakt vilka färger som ska användas.
 
-Så här appliceras en mönsterfyllning på en form med Aspose.Slides:
+Så här applicerar du en mönsterfyllning på en form med Aspose.Slides:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Pattern`.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Pattern`.
 1. Välj en mönsterstil från de fördefinierade alternativen.
-1. Ange [Background Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/patternformat/#getBackColor--) för mönstret.
-1. Ange [Foreground Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/patternformat/#getForeColor--) för mönstret.
+1. Ställ in [Background Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/patternformat/#getBackColor--) för mönstret.
+1. Ställ in [Foreground Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/patternformat/#getForeColor--) för mönstret.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rektangel.
+    // Lägg till en autoform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ange fyllningstypen till Mönster.
+    // Ställ in fyllningstypen till Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // Ange mönsterstilen.
+    // Ställ in mönsterstilen.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // Ange mönstrets bakgrunds- och förgrundsfärger.
+    // Ställ in mönstrets bakgrunds- och förgrundsfärger.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
@@ -234,43 +299,43 @@ try {
 }
 ```
 
-Resultatet:
-
 ![Rektangeln med mönsterfyllning](pattern-fill.png)
 
 ## **Bildfyllning**
 
-I PowerPoint är Bildfyllning ett formateringsalternativ som låter dig infoga en bild i en form—effektivt använda bilden som formens bakgrund.
+I PowerPoint är Picture Fill ett formateringsalternativ som låter dig infoga en bild i en form—effektivt använder bilden som formens bakgrund.
 
 Så här använder du Aspose.Slides för att applicera en bildfyllning på en form:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Picture`.
-1. Ange bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Picture`.
+1. Ställ in bildfyllningsläget till `Tile` (eller ett annat föredraget läge).
 1. Skapa ett [IPPImage](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ippimage/)‑objekt från bilden du vill använda.
-1. Skicka bilden till metoden `ISlidesPicture.setImage`.
+1. Passa bilden till metoden `ISlidesPicture.setImage`.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Låt oss säga att vi har en fil "lotus.png" med följande bild:
+Anta att vi har en fil "lotus.png" med följande bild:
 
 ![Lotus‑bilden](lotus.png)
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rektangel.
+    // Lägg till en autoform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Ange fyllningstypen till Bild.
+    // Ställ in fyllningstypen till Bild.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Ange bildfyllningsläget.
+    // Ställ in bildfyllningsläget.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
     // Läs in en bild och lägg till den i presentationens resurser.
@@ -278,7 +343,7 @@ try {
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
 
-    // Ange bilden.
+    // Ställ in bilden.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // Spara PPTX-filen till disk.
@@ -288,33 +353,35 @@ try {
 }
 ```
 
-Resultatet:
-
 ![Formen med bildfyllning](picture-fill.png)
 
-### **Tila bild som textur**
+### **Tile Bild Som Textur**
 
-Om du vill sätta en tilad bild som textur och anpassa plattningsbeteendet kan du använda följande metoder från gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/) och klassen [PictureFillFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/picturefillformat/):
+Om du vill använda en kaklad bild som en textur och anpassa kaklingsbeteendet kan du använda följande metoder i gränssnittet [IPictureFillFormat] och klassen [PictureFillFormat]:
 
 - [setPictureFillMode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Ställer in bildfyllningsläget—antingen `Tile` eller `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Anger justeringen av plattorna inom formen.
-- [setTileFlip](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Kontrollerar om plattan vänds horisontellt, vertikalt eller båda.
-- [setTileOffsetX](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ställer in den horisontella förskjutningen av plattan (i punkter) från formens ursprung.
-- [setTileOffsetY](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ställer in den vertikala förskjutningen av plattan (i punkter) från formens ursprung.
-- [setTileScaleX](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definierar den horisontella skalan av plattan som en procentandel.
-- [setTileScaleY](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definierar den vertikala skalan av plattan som en procentandel.
+- [setTileAlignment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Anger alignmenten för kaklorna inom formen.
+- [setTileFlip](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Styr om kaklet vänds horisontellt, vertikalt eller båda.
+- [setTileOffsetX](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ställer in det horisontella offsetet för kaklet (i punkter) från formens ursprung.
+- [setTileOffsetY](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ställer in det vertikala offsetet för kaklet (i punkter) från formens ursprung.
+- [setTileScaleX](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definierar den horisontella skalan för kaklet i procent.
+- [setTileScaleY](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definierar den vertikala skalan för kaklet i procent.
+
+Följande kodexempel visar hur du lägger till en rektangel med kaklad bildfyllning och konfigurerar kaklarnas alternativ:
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk rektangelform.
+    // Lägg till en autoform av typen Rektangel.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Ange fyllningstypen för formen till Bild.
+    // Ställ in fyllningstypen för formen till Bild.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // Läs in bilden och lägg till den i presentationens resurser.
@@ -326,7 +393,7 @@ try {
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Konfigurera bildfyllningsläget och plattningsegenskaperna.
+    // Konfigurera bildfyllningsläget och kaklingsegenskaperna.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -342,37 +409,38 @@ try {
 }
 ```
 
-Resultatet:
+![Kaklarnas alternativ](tile-options.png)
 
-![Plattalternativen](tile-options.png)
-
-## **Solid färgfyllning**
+## **Enfärgsfyllning**
 
 I PowerPoint är Solid Color Fill ett formateringsalternativ som fyller en form med en enda, enhetlig färg. Denna enkla bakgrundsfärg appliceras utan några gradienter, texturer eller mönster.
 
-Så här applicerar du en solid färgfyllning på en form med Aspose.Slides:
+Så här applicerar du en enfärgsfyllning på en form med Aspose.Slides:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Solid`.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in formens [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Solid`.
 1. Tilldela din föredragna fyllningsfärg till formen.
 1. Spara den modifierade presentationen som en PPTX‑fil.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rektangel.
+    // Lägg till en autoform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ange fyllningstypen till Solid.
+    // Ställ in fyllningstypen till Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Ange fyllningsfärgen.
+    // Ställ in fyllningsfärgen.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
     // Spara PPTX-filen till disk.
@@ -382,34 +450,35 @@ try {
 }
 ```
 
-Resultatet:
-
-![Formen med solid färgfyllning](solid-color-fill.png)
+![Formen med enfärgsfyllning](solid-color-fill.png)
 
 ## **Ställ in transparens**
 
-I PowerPoint, när du applicerar en solid färg, gradient, bild eller texturfyllning på former, kan du också sätta en transparensnivå för att kontrollera fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
+I PowerPoint, när du applicerar en solid färg, gradient, bild eller texturfyllning på former, kan du också ange en transparensnivå för att kontrollera fyllningens opacitet. Ett högre transparensvärde gör formen mer genomskinlig, så att bakgrunden eller underliggande objekt delvis syns.
 
-Aspose.Slides låter dig sätta transparensnivån genom att justera alfavärdet i färgen som används för fyllningen. Så här gör du:
+Aspose.Slides låter dig ange transparensnivån genom att justera alfavärdet i färgen som används för fyllningen. Så här gör du:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Solid`.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in [FillType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/filltype/) till `Solid`.
 1. Använd `Color` för att definiera en färg med transparens (alfakomponenten styr transparensen).
 1. Spara presentationen.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en solid rektangulär automatisk form.
+    // Lägg till en solid rektangel autoform.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Lägg till en transparent rektangulär automatisk form ovanpå den solida formen.
+    // Lägg till en transparent rektangel autoform ovanpå den solida formen.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -421,28 +490,30 @@ try {
 }
 ```
 
-Resultatet:
-
 ![Den transparenta formen](shape-transparency.png)
 
 ## **Rotera former**
 
-Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan vara användbart när du placerar visuella element med specifika justeringar eller designbehov.
+Aspose.Slides låter dig rotera former i PowerPoint‑presentationer. Detta kan vara användbart när du placerar visuella element med specifika alignments‑ eller designbehov.
+
+För att rotera en form på en bild, följ dessa steg:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Ange formens rotations‑egenskap till önskad vinkel.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Ställ in formens roterings‑egenskap till önskad vinkel.
 1. Spara presentationen.
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation();
 try {
     // Hämta den första bilden.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägg till en automatisk form av typen Rektangel.
+    // Lägg till en autoform av typen Rektangel.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Rotera formen med 5 grader.
@@ -455,21 +526,24 @@ try {
 }
 ```
 
-Resultatet:
+![Formens rotation](shape-rotation.png)
 
-![Formroteringen](shape-rotation.png)
+## **Lägg till 3D‑fasadeffekter**
 
-## **Lägg till 3D‑fastringseffekter**
+Aspose.Slides låter dig applicera 3D‑fasadeffekter på former genom att konfigurera deras [ThreeDFormat]-egenskaper.
 
-Aspose.Slides låter dig applicera 3D‑fastringseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/threedformat/)‑egenskaper.
+För att lägga till 3D‑fasadeffekter på en form, följ dessa steg:
 
 1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
-1. Konfigurera formens [ThreeDFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/threedformat/) för att definiera fastringsinställningar.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
+1. Konfigurera formens [ThreeDFormat] för att definiera fasadeinställningarna.
 1. Spara presentationen.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Skapa en instans av Presentation-klassen.
 Presentation presentation = new Presentation();
 try {
@@ -483,7 +557,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // Ange formens ThreeDFormat-egenskaper.
+    // Ställ in formens ThreeDFormat-egenskaper.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -499,21 +573,23 @@ try {
 }
 ```
 
-Resultatet:
-
-![3D‑fastringseffekten](3D-bevel-effect.png)
+![3D‑fasadeffekten](3D-bevel-effect.png)
 
 ## **Lägg till 3D‑roteringseffekter**
 
-Aspose.Slides låter dig applicera 3D‑roteringseffekter på former genom att konfigurera deras [ThreeDFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/threedformat/)‑egenskaper.
+Aspose.Slides låter dig applicera 3D‑roteringseffekter på former genom att konfigurera deras [ThreeDFormat]-egenskaper.
+
+För att applicera 3D‑rotation på en form:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/).
-1. Hämta en referens till en bild (slide) med dess index.
-1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) på bilden.
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) till bilden.
 1. Använd [setCameraType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icamera/#setCameraType-int-) och [setLightType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) för att definiera 3D‑rotationen.
 1. Spara presentationen.
 
 ```java
+import com.aspose.slides.*;
+
 // Skapa en instans av Presentation-klassen.
 Presentation presentation = new Presentation();
 try {
@@ -534,15 +610,46 @@ try {
 }
 ```
 
-Resultatet:
-
 ![3D‑roteringseffekten](3D-rotation-effect.png)
+
+## **Styr svart‑vit rendering för former**
+
+Metoden [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) anger hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig och ändrar inte formens fyllning, linje eller annan formatering i vanligt färgläge.
+
+Använd ett värde från klassen [BlackWhiteMode] för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utelämnar formen i svart‑vit läge. `NotDefined` betyder att inget läge är tilldelat på formnivå.
+
+Följande Java‑kod skapar en färgad form och får den att visas grå i svart‑vit visningsläge:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    // Behåll den orange fyllningen i färgläge, men rendera formen med grå färgning i svart-vit läge.
+    shape.setBlackWhiteMode(BlackWhiteMode.Gray);
+
+    presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+I normalt färgläge behåller rektangeln sin orange fyllning. I ett svart‑vit arbetsflöde använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en fullfärgs‑bildruta samtidigt som du definierar ett specifikt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som följer presentationens svart‑vita inställningar.
 
 ## **Återställ formatering**
 
-Följande Java‑kod visar hur du återställer formateringen av en bild och återställer position, storlek och formatering för alla former med platshållare på [LayoutSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/layoutslide/) till sina standardinställningar:
+Följande Java‑kod visar hur du återställer formateringen av en bild och återställer position, storlek och formatering av alla former med platshållare på [LayoutSlide] till deras standardinställningar:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
@@ -557,14 +664,14 @@ try {
 
 ## **FAQ**
 
-**Påverkar formatering av former den slutliga presentationsfilens storlek?**
+**Påverkar formatering av former den slutgiltiga presentationsfilens storlek?**
 
-Endast marginellt. Inbäddade bilder och media utgör största delen av filstorleken, medan formparametrar såsom färger, effekter och gradienter lagras som metadata och nästan ingen extra storlek.
+Endast marginellt. Inbäddade bilder och media tar upp mest utrymme i filen, medan formparametrar som färger, effekter och gradienter lagras som metadata och nästan ingen extra storlek tillkommer.
 
-**Hur kan jag upptäcka former på en bild som har identisk formatering så att jag kan gruppera dem?**
+**Hur kan jag identifiera former på en bild som har identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje forms nyckelformaterings‑egenskaper—fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, betrakta deras stilar som identiska och gruppera logiskt de formerna, vilket förenklar senare stilhantering.
+Jämför varje forms nyckelformateringsegenskaper—fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, betrakta deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
 
 **Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
 
-Ja. Spara exempelformer med de önskade stilarna i en mall‑bildsats eller en .POTX‑mallfil. När du skapar en ny presentation öppnar du mallen, klonar de stylade former du behöver och återapplicerar deras formatering där det krävs.
+Ja. Spara exempelformer med önskade stilar i en mall‑bildspel eller en .POTX‑mallfil. När du skapar en ny presentation öppnar du mallen, klonar de formade former du behöver och återapplicerar deras formatering där det behövs.

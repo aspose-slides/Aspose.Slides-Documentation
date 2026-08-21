@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-presentaties converteren naar TIFF in .NET
+title: PowerPoint-presentaties naar TIFF converteren in .NET
 titlelink: PowerPoint naar TIFF
 type: docs
 weight: 90
@@ -23,22 +23,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u eenvoudig PowerPoint‑presentaties (PPT, PPTX) naar hoogwaardige TIFF‑afbeeldingen kunt converteren met Aspose.Slides voor .NET. C#‑codevoorbeelden."
+description: "Leer hoe u eenvoudig PowerPoint (PPT, PPTX) presentaties naar hoogwaardige TIFF‑afbeeldingen kunt converteren met Aspose.Slides voor .NET. C#‑codevoorbeelden."
 ---
-## **Inleiding**
+## **Introductie**
 
-TIFF (**Tagged Image File Format**) is een veelgebruikt, verliesvrij rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische inhoud. Ontwerpers, fotografen en desktop‑uitgevers kiezen vaak voor TIFF om lagen, kleurnauwkeurigheid en de oorspronkelijke instellingen in hun afbeeldingen te behouden.
+TIFF (**Tagged Image File Format**) is een veelgebruikt, verliesvrij rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische elementen. Ontwerpers, fotografen en desktop‑uitgevers kiezen vaak TIFF om lagen, kleurnauwkeurigheid en originele instellingen in hun afbeeldingen te behouden.
 
-Met Aspose.Slides kunt u moeiteloos uw PowerPoint‑dia’s (PPT, PPTX) en OpenDocument‑dia’s (ODP) rechtstreeks omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat uw presentaties de maximale visuele nauwkeurigheid behouden.
+Met Aspose.Slides kunt u moeiteloos uw PowerPoint‑dia's (PPT, PPTX) en OpenDocument‑dia's (ODP) rechtstreeks omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat uw presentaties maximale visuele getrouwheid behouden. 
 
 ## **Een presentatie converteren naar TIFF**
 
-Met de [Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode die wordt geleverd door de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse, kunt u snel een volledige PowerPoint‑presentatie omzetten naar TIFF. De gegenereerde TIFF‑afbeeldingen hebben de standaard dia‑grootte.
+Met de [Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/)‑methode die wordt geleverd door de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse, kunt u snel een volledige PowerPoint‑presentatie naar TIFF converteren. De resulterende TIFF‑afbeeldingen komen overeen met de standaarddia‑grootte.
 
-Deze C#‑code laat zien hoe u een PowerPoint‑presentatie omzet naar TIFF:
+Deze C#‑code toont hoe u een PowerPoint‑presentatie naar TIFF converteert:
 
 ```cs
-// Maak een instantie van de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     // Sla de presentatie op als TIFF.
@@ -46,17 +49,24 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 }
 ```
 
-## **Een presentatie converteren naar zwart‑wit TIFF**
+## **Een presentatie converteren naar zwart-wit TIFF**
 
-De eigenschap [BwConversionMode](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/bwconversionmode/) in de klasse [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/) stelt u in staat om het algoritme te specificeren dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart‑wit TIFF. Let op dat deze instelling alleen van toepassing is wanneer de eigenschap [CompressionType](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/compressiontype/) is ingesteld op `CCITT4` of `CCITT3`.
+De eigenschap [BwConversionMode](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/bwconversionmode/) in de [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/)‑klasse stelt u in staat het algoritme op te geven dat wordt gebruikt bij het converteren van een gekleurde dia of afbeelding naar een zwart-wit TIFF. Merk op dat deze instelling alleen van toepassing is wanneer de eigenschap [CompressionType](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/compressiontype/) is ingesteld op `CCITT4` of `CCITT3`.
 
-Laten we aannemen dat we een bestand "sample.pptx" hebben met de volgende dia:
+{{% alert color="info" title="Opmerking" %}}
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/bwconversionmode/) is een export‑niveau instelling die een pixel‑conversie‑algoritme selecteert voor de volledige TIFF‑afbeelding. Om te definiëren hoe een individueel vormelement moet verschijnen wanneer de zwart‑wit weergavemodus actief is, gebruikt u [IShape.BlackWhiteMode](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/blackwhitemode/). Zie [Control Black-and-White Rendering for Shapes](/net/shape-formatting/#control-black-and-white-rendering-for-shapes) voor voorbeelden.
+{{% /alert %}}
+
+Stel dat we een bestand "sample.pptx" hebben met de volgende dia:
 
 ![Een presentatiedia](slide_black_and_white.png)
 
-Deze C#‑code laat zien hoe u de gekleurde dia omzet naar een zwart‑wit TIFF:
+Deze C#‑code toont hoe u de gekleurde dia naar een zwart‑wit TIFF converteert:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 TiffOptions tiffOptions = new TiffOptions
 {
     CompressionType = TiffCompressionTypes.CCITT4,
@@ -77,10 +87,14 @@ Het resultaat:
 
 Als u een TIFF‑afbeelding met specifieke afmetingen nodig heeft, kunt u de gewenste waarden instellen via de eigenschappen die beschikbaar zijn in [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/). Bijvoorbeeld, de eigenschap [ImageSize](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/imagesize/) stelt u in staat de grootte van de resulterende afbeelding te definiëren.
 
-Deze C#‑code laat zien hoe u een PowerPoint‑presentatie omzet naar TIFF‑afbeeldingen met een aangepaste grootte:
+Deze C#‑code toont hoe u een PowerPoint‑presentatie naar TIFF‑afbeeldingen met een aangepaste grootte converteert:
 
 ```cs
-// Maak een instantie van de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -90,7 +104,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     /* 
     Compressietypen:
         Default - Geeft het standaard compressieschema (LZW) aan.
-        None - Geeft aan dat er geen compressie is.
+        None - Geeft aan dat er geen compressie wordt toegepast.
         CCITT3
         CCITT4
         LZW
@@ -116,14 +130,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Een presentatie converteren naar TIFF met aangepast pixelformaat**
+## **Een presentatie converteren naar TIFF met aangepast pixel‑formaat**
 
-Met de eigenschap [PixelFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/pixelformat/) van de klasse [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions) kunt u het gewenste pixelformaat voor de resulterende TIFF‑afbeelding opgeven.
+Met de eigenschap [PixelFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/pixelformat/) van de [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions)‑klasse kunt u het gewenste pixel‑formaat voor de resulterende TIFF‑afbeelding opgeven.
 
-Deze C#‑code laat zien hoe u een PowerPoint‑presentatie omzet naar een TIFF‑afbeelding met een aangepast pixelformaat:
+Deze C#‑code toont hoe u een PowerPoint‑presentatie naar een TIFF‑afbeelding met een aangepast pixel‑formaat converteert:
 
 ```cs
-// Maak een instantie van de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -143,20 +160,20 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Bekijk de [GRATIS PowerPoint‑naar‑poster converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online) van Aspose.
+{{% alert title="Tip" color="info" %}}
+Bekijk Aspose's [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik een individuele dia converteren in plaats van de volledige PowerPoint‑presentatie naar TIFF?**
+**Kan ik een enkele dia in plaats van de volledige PowerPoint‑presentatie naar TIFF converteren?**
 
-Ja. Aspose.Slides maakt het mogelijk om afzonderlijke dia's uit PowerPoint‑ en OpenDocument‑presentaties om te zetten naar TIFF‑afbeeldingen.
+Ja. Aspose.Slides stelt u in staat afzonderlijke dia's uit PowerPoint‑ en OpenDocument‑presentaties afzonderlijk naar TIFF‑afbeeldingen te converteren.
 
 **Is er een limiet aan het aantal dia's bij het converteren van een presentatie naar TIFF?**
 
-Nee, Aspose.Slides legt geen beperkingen op aan het aantal dia's. U kunt presentaties van elke grootte omzetten naar het TIFF‑formaat.
+Nee, Aspose.Slides legt geen beperkingen op aan het aantal dia's. U kunt presentaties van elke grootte naar TIFF‑formaat converteren.
 
-**Worden PowerPoint‑animaties en overgangseffecten bewaard bij het converteren van dia's naar TIFF?**
+**Worden PowerPoint‑animaties en overgangseffecten behouden bij het converteren van dia's naar TIFF?**
 
-Nee, TIFF is een statisch afbeeldingsformaat. Daarom worden animaties en overgangseffecten niet bewaard; alleen statische momentopnames van de dia's worden geëxporteerd.
+Nee, TIFF is een statisch afbeeldingsformaat. Daarom worden animaties en overgangseffecten niet behouden; alleen statische snapshots van dia's worden geëxporteerd.

@@ -1,5 +1,5 @@
 ---
-title: Format Bentuk PowerPoint pada Android
+title: Format Bentuk PowerPoint di Android
 linktitle: Pemformatan Bentuk
 type: docs
 weight: 20
@@ -7,58 +7,65 @@ url: /id/androidjava/shape-formatting/
 keywords:
 - format bentuk
 - format garis
+- efek sketsa
+- garis bentuk sketsa
 - format gaya sambungan
-- isi gradien
-- isi pola
-- isi gambar
-- isi tekstur
-- isi warna solid
+- isian gradien
+- isian pola
+- isian gambar
+- isian tekstur
+- isian warna solid
 - transparansi bentuk
+- rendering bentuk hitam-putih
+- rendering bentuk skala abu-abu
 - putar bentuk
 - efek bevel 3D
 - efek rotasi 3D
-- reset pemformatan
+- setel ulang pemformatan
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Pelajari cara memformat bentuk PowerPoint di Android menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
+description: "Pelajari cara memformat bentuk PowerPoint di Android menggunakan Aspose.Slides—atur gaya isi, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan memodifikasi atau menerapkan efek pada outline‑nya. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana bagian dalamnya diisi.
+Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan mengubah atau menerapkan efek pada kontur mereka. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana bagian dalamnya diisi.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides untuk Android via Java menyediakan antarmuka dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama dengan yang tersedia di PowerPoint.
+Aspose.Slides for Android via Java menyediakan antarmuka dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama seperti yang tersedia di PowerPoint.
 
 ## **Format Garis**
 
-Dengan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah‑langkah berikut menjelaskan prosedurnya:
+Dengan Aspose.Slides, Anda dapat menentukan gaya garis kustom untuk sebuah bentuk. Langkah‑langkah berikut menjelaskan prosedurnya:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel [line style](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linestyle/) bentuk.
-1. Setel lebar garis.
-1. Setel [dash style](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linedashstyle/) garis.
-1. Setel warna garis untuk bentuk.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur [line style](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linestyle/) bentuk.
+1. Atur lebar garis.
+1. Atur [dash style](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linedashstyle/) garis.
+1. Atur warna garis untuk bentuk.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode berikut menunjukkan cara memformat `AutoShape` persegi panjang:
+Kode berikut menunjukkan cara memformat sebuah `AutoShape` persegi panjang:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Persegi Panjang.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Atur warna isi untuk shape persegi panjang.
+    // Hapus isian dari bentuk persegi panjang sehingga hanya garisnya yang terlihat.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // Terapkan pemformatan pada garis persegi panjang.
@@ -79,35 +86,90 @@ try {
 
 Hasilnya:
 
-![Garis yang diformat dalam presentasi](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
+
+## **Terapkan Efek Sketch pada Garis Bentuk**
+
+Efek sketch membuat garis bentuk terlihat seperti digambar dengan tangan. Gunakan [IShape.getLineFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) untuk mengakses pengaturan garis, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilineformat/) untuk mengakses pengaturan sketch, dan [ISketchFormat.setSketchType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isketchformat/) untuk memilih nilai dari enumerasi [LineSketchType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linesketchtype/).
+
+Kode Java berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linesketchtype/), membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/linesketchtype/):
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // Akses format garis bentuk dan format sketch-nya.
+    ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // Terapkan efek sketsa.
+    sketchFormat.setSketchType(LineSketchType.Curved);
+
+    // Baca efek sketsa yang ditetapkan langsung pada bentuk.
+    int explicitSketchType = sketchFormat.getSketchType();
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+
+    // Hapus efek sketsa.
+    sketchFormat.setSketchType(LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nilai yang dikembalikan oleh [ISketchFormat.getSketchType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isketchformat/) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [ILineFormat.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilineformat/), akses [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilineformateffectivedata/), dan baca [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isketchformateffectivedata/). Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ILineFormat lineFormat = shape.getLineFormat();
+
+    int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
+    int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+    System.out.println("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Format Gaya Sambungan**
 
-Berikut tiga opsi jenis sambungan:
+Berikut tiga pilihan tipe sambungan:
 
 * Round
 * Miter
 * Bevel
 
-Secara default, ketika PowerPoint menggabungkan dua garis pada sudut (seperti pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih memilih opsi **Miter**.
+Secara default, ketika PowerPoint menggabungkan dua garis pada sudut (misalnya pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih suka opsi **Miter**.
 
-![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Kode Java berikut menunjukkan bagaimana tiga persegi panjang (seperti yang ditunjukkan pada gambar di atas) dibuat menggunakan pengaturan jenis sambungan Miter, Bevel, dan Round:
+Kode Java berikut memperlihatkan bagaimana tiga persegi panjang (seperti pada gambar di atas) dibuat menggunakan pengaturan tipe sambungan Miter, Bevel, dan Round:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan tiga auto shape dengan tipe Rectangle.
+    // Tambahkan tiga auto shape tipe Persegi Panjang.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Atur warna isi untuk setiap shape persegi panjang.
+    // Atur warna isian untuk setiap bentuk persegi panjang.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -120,7 +182,7 @@ try {
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Atur warna untuk garis tiap persegi panjang.
+    // Atur warna untuk garis setiap persegi panjang.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -147,30 +209,32 @@ try {
 
 ## **Isian Gradien**
 
-Di PowerPoint, Isian Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna secara kontinu pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu secara bertahap memudar menjadi warna lainnya.
+Di PowerPoint, Isian Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna kontinu pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu warna secara perlahan memudar menjadi warna lain.
 
-Berikut cara menerapkan isian gradien pada sebuah bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isian gradien pada bentuk menggunakan Aspose.Slides:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk ke `Gradient`.
-1. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `add` dari koleksi gradient stop yang disediakan oleh antarmuka [IGradientFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igradientformat/).
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk menjadi `Gradient`.
+1. Tambahkan dua warna pilihan Anda dengan posisi yang telah ditentukan menggunakan metode `add` pada koleksi gradient stop yang disediakan oleh antarmuka [IGradientFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igradientformat/).
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java berikut menunjukkan cara menerapkan efek isian gradien pada sebuah elips:
+Kode Java berikut memperlihatkan cara menerapkan efek isian gradien pada sebuah elips:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Ellipse.
+    // Tambahkan auto shape tipe Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Terapkan pemformatan gradien ke elips.
+    // Terapkan pemformatan gradien pada elips.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
@@ -190,35 +254,38 @@ try {
 
 Hasilnya:
 
-![Elips dengan isian gradien](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
 ## **Isian Pola**
 
-Di PowerPoint, Isian Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, crosshatch, atau cek—pada sebuah bentuk. Anda dapat memilih warna kustom untuk latar depan dan latar belakang pola.
+Di PowerPoint, Isian Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, silang, atau kotak—pada sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
 
-Aspose.Slides menyediakan lebih dari 45 gaya pola yang telah ditentukan sebelumnya yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola yang telah ditentukan, Anda masih dapat menentukan warna tepat yang akan digunakan.
+Aspose.Slides menyediakan lebih dari 45 gaya pola bawaan yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi. Bahkan setelah memilih pola bawaan, Anda tetap dapat menentukan warna yang tepat untuk pola tersebut.
 
-Berikut cara menerapkan isian pola pada sebuah bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isian pola pada bentuk menggunakan Aspose.Slides:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk ke `Pattern`.
-1. Pilih gaya pola dari opsi yang telah ditentukan.
-1. Setel [Background Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/patternformat/#getBackColor--) pola.
-1. Setel [Foreground Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/patternformat/#getForeColor--) pola.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk menjadi `Pattern`.
+1. Pilih gaya pola dari opsi bawaan.
+1. Atur [Background Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/patternformat/#getBackColor--) pola.
+1. Atur [Foreground Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/patternformat/#getForeColor--) pola.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java berikut menunjukkan cara menerapkan isian pola pada sebuah persegi panjang:
+Kode Java berikut memperlihatkan cara menerapkan isian pola pada sebuah persegi panjang:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Persegi Panjang.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Atur tipe isian menjadi Pattern.
@@ -240,37 +307,39 @@ try {
 
 Hasilnya:
 
-![Persegi panjang dengan isian pola](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Isian Gambar**
 
 Di PowerPoint, Isian Gambar adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam sebuah bentuk—secara efektif menggunakan gambar tersebut sebagai latar belakang bentuk.
 
-Berikut cara menggunakan Aspose.Slides untuk menerapkan isian gambar pada sebuah bentuk:
+Berikut cara menggunakan Aspose.Slides untuk menerapkan isian gambar pada bentuk:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk ke `Picture`.
-1. Setel mode isian gambar ke `Tile` (atau mode lain yang diinginkan).
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk menjadi `Picture`.
+1. Atur mode isian gambar menjadi `Tile` (atau mode lain yang diinginkan).
 1. Buat objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) dari gambar yang ingin Anda gunakan.
 1. Berikan gambar tersebut ke metode `ISlidesPicture.setImage`.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Katakanlah kita memiliki file "lotus.png" dengan gambar berikut:
+Misalkan kita memiliki file "lotus.png" dengan gambar berikut:
 
-![Gambar lotus](lotus.png)
+![The lotus picture](lotus.png)
 
-Kode Java berikut menunjukkan cara mengisi sebuah bentuk dengan gambar:
+Kode Java berikut memperlihatkan cara mengisi sebuah bentuk dengan gambar:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Persegi Panjang.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
     // Atur tipe isian menjadi Picture.
@@ -296,24 +365,26 @@ try {
 
 Hasilnya:
 
-![Bentuk dengan isian gambar](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Ubin Gambar Sebagai Tekstur**
+### **Tile Picture As Texture**
 
-Jika Anda ingin mengatur gambar berulang sebagai tekstur dan menyesuaikan perilaku pengulangan, Anda dapat menggunakan metode berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/picturefillformat/):
+Jika Anda ingin menetapkan gambar berulang sebagai tekstur dan menyesuaikan perilaku pengulangan, Anda dapat menggunakan metode berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Menetapkan mode isian gambar—baik `Tile` atau `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Menentukan penyelarasan ubin di dalam bentuk.
+- [setPictureFillMode](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Menetapkan mode isian gambar—baik `Tile` maupun `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Menentukan perataan ubin di dalam bentuk.
 - [setTileFlip](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
-- [setTileOffsetX](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Menetapkan offset horizontal ubin (dalam point) dari asal bentuk.
-- [setTileOffsetY](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Menetapkan offset vertikal ubin (dalam point) dari asal bentuk.
-- [setTileScaleX](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Mendefinisikan skala horizontal ubin sebagai persentase.
-- [setTileScaleY](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Mendefinisikan skala vertikal ubin sebagai persentase.
+- [setTileOffsetX](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Menetapkan offset horizontal ubin (dalam poin) dari asal bentuk.
+- [setTileOffsetY](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Menetapkan offset vertikal ubin (dalam poin) dari asal bentuk.
+- [setTileScaleX](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Menentukan skala horizontal ubin sebagai persentase.
+- [setTileScaleY](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Menentukan skala vertikal ubin sebagai persentase.
 
-Contoh kode berikut menunjukkan cara menambahkan bentuk persegi panjang dengan isian gambar berulang dan mengkonfigurasi opsi ubin:
+Contoh kode berikut menunjukkan cara menambahkan bentuk persegi panjang dengan isian gambar berulang dan mengonfigurasi opsi ubin:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
@@ -322,7 +393,7 @@ try {
     // Tambahkan auto shape persegi panjang.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Atur tipe isi shape menjadi Picture.
+    // Atur tipe isian bentuk menjadi Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -330,11 +401,11 @@ try {
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Tetapkan gambar ke shape.
+    // Tetapkan gambar ke bentuk.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Konfigurasi mode isian gambar dan properti ubin.
+    // Konfigurasikan mode isian gambar dan properti pengulangan.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -352,37 +423,40 @@ try {
 
 Hasilnya:
 
-![Opsi ubin](tile-options.png)
+![The tile options](tile-options.png)
 
 ## **Isian Warna Solid**
 
-Di PowerPoint, Isian Warna Solid adalah opsi pemformatan yang mengisi sebuah bentuk dengan satu warna seragam. Warna latar belakang sederhana ini diterapkan tanpa gradien, tekstur, atau pola apa pun.
+Di PowerPoint, Isian Warna Solid adalah opsi pemformatan yang mengisi sebuah bentuk dengan satu warna seragam. Latar belakang berwarna polos ini diterapkan tanpa gradien, tekstur, atau pola.
 
-Untuk menerapkan isian warna solid pada sebuah bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
+Untuk menerapkan isian warna solid pada bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk ke `Solid`.
-1. Tetapkan warna isian yang Anda inginkan ke bentuk.
-1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) bentuk menjadi `Solid`.
+1. Tetapkan warna isian pilihan Anda ke bentuk.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java berikut menunjukkan cara menerapkan isian warna solid pada sebuah persegi panjang dalam slide PowerPoint:
+Kode Java berikut memperlihatkan cara menerapkan isian warna solid pada sebuah persegi panjang dalam slide PowerPoint:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Persegi Panjang.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Atur tipe isi menjadi Solid.
+    // Atur tipe isian menjadi Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Atur warna isi.
+    // Atur warna isian.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
     // Simpan file PPTX ke disk.
@@ -394,25 +468,28 @@ try {
 
 Hasilnya:
 
-![Bentuk dengan isian warna solid](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **Atur Transparansi**
 
-Di PowerPoint, ketika Anda menerapkan isian warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opacity isian. Nilai transparansi yang lebih tinggi membuat bentuk lebih tembus pandang, memungkinkan latar belakang atau objek di bawahnya terlihat sebagian.
+Di PowerPoint, ketika Anda menerapkan isian warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isian. Nilai transparansi yang lebih tinggi membuat bentuk menjadi lebih tembus, sehingga latar belakang atau objek di bawahnya terlihat sebagian.
 
-Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alpha pada warna yang digunakan untuk isian. Berikut caranya:
+Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alpha dalam warna yang digunakan untuk isian. Berikut caranya:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) ke `Solid`.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) menjadi `Solid`.
 1. Gunakan `Color` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
 1. Simpan presentasi.
 
-Kode Java berikut menunjukkan cara menerapkan warna isian transparan pada sebuah persegi panjang:
+Kode Java berikut memperlihatkan cara menerapkan warna isian transparan pada sebuah persegi panjang:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
@@ -421,7 +498,7 @@ try {
     // Tambahkan auto shape persegi panjang solid.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Tambahkan auto shape persegi panjang transparan di atas shape solid.
+    // Tambahkan auto shape persegi panjang transparan di atas bentuk solid.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -435,33 +512,35 @@ try {
 
 Hasilnya:
 
-![Bentuk transparan](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **Putar Bentuk**
 
-Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Ini dapat berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
+Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Ini dapat berguna saat menempatkan elemen visual dengan kebutuhan penyesuaian atau desain tertentu.
 
 Untuk memutar sebuah bentuk pada slide, ikuti langkah‑langkah berikut:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Setel properti rotasi bentuk ke sudut yang diinginkan.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Atur properti rotasi bentuk ke sudut yang diinginkan.
 1. Simpan presentasi.
 
-Kode Java berikut menunjukkan cara memutar sebuah bentuk sebesar 5 derajat:
+Kode Java berikut memperlihatkan cara memutar sebuah bentuk sebesar 5 derajat:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan auto shape dengan tipe Rectangle.
+    // Tambahkan auto shape tipe Persegi Panjang.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Putar shape sebesar 5 derajat.
+    // Putar bentuk sebesar 5 derajat.
     shape.setRotation(5);
 
     // Simpan file PPTX ke disk.
@@ -473,29 +552,32 @@ try {
 
 Hasilnya:
 
-![Rotasi bentuk](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
 ## **Tambahkan Efek Bevel 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengkonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/threedformat/) mereka.
+Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/threedformat/) mereka.
 
 Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah‑langkah berikut:
 
 1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/threedformat/) bentuk untuk menentukan pengaturan bevel.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/threedformat/) bentuk untuk mendefinisikan pengaturan bevel.
 1. Simpan presentasi.
 
 Kode Java berikut menunjukkan cara menerapkan efek bevel 3D pada sebuah bentuk:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Buat instance kelas Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tambahkan shape ke slide.
+    // Tambahkan bentuk ke slide.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -503,7 +585,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // Atur properti ThreeDFormat shape.
+    // Atur properti ThreeDFormat bentuk.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -521,23 +603,25 @@ try {
 
 Hasilnya:
 
-![Efek bevel 3D](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
 ## **Tambahkan Efek Rotasi 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengkonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/threedformat/) mereka.
+Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/threedformat/) mereka.
 
 Untuk menerapkan rotasi 3D pada sebuah bentuk:
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
 1. Gunakan [setCameraType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icamera/#setCameraType-int-) dan [setLightType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) untuk menentukan rotasi 3D.
 1. Simpan presentasi.
 
-Kode Java berikut menunjukkan cara menerapkan efek rotasi 3D pada sebuah bentuk:
+Kode Java berikut memperlihatkan cara menerapkan efek rotasi 3D pada sebuah bentuk:
 
 ```java
+import com.aspose.slides.*;
+
 // Buat instance kelas Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -560,17 +644,50 @@ try {
 
 Hasilnya:
 
-![Efek rotasi 3D](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
-## **Reset Pemformatan**
+## **Kontrol Render Hitam‑Putih untuk Bentuk**
 
-Kode Java berikut menunjukkan cara mereset pemformatan sebuah slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/layoutslide/) ke pengaturan default mereka:
+Metode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) menentukan bagaimana sebuah bentuk individual dirender ketika presentasi dilihat atau diproses dalam mode hitam‑putih. Metode ini tidak secara otomatis mengaktifkan tampilan hitam‑putih, dan tidak mengubah isian, garis, atau pemformatan lain dalam mode warna normal.
+
+Gunakan nilai dari kelas [BlackWhiteMode](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi render memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` serta `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode tingkat bentuk yang ditetapkan.
+
+Kode Java berikut membuat sebuah bentuk berwarna dan membuatnya tampil abu‑abu dalam mode tampilan hitam‑putih:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    // Pertahankan isian oranye dalam mode warna, tetapi render bentuk dengan warna abu-abu dalam mode hitam-putih.
+    shape.setBlackWhiteMode(BlackWhiteMode.Gray);
+
+    presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dalam mode warna normal, persegi panjang tetap mempertahankan isian oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan warna abu‑abu karena mode‑nya disetel ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan khusus untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
+
+## **Setel Ulang Pemformatan**
+
+Kode Java berikut menunjukkan cara menyetel ulang pemformatan sebuah slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/layoutslide/) ke pengaturan default mereka:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Reset setiap shape pada slide yang memiliki placeholder pada layout.
+        // Reset setiap bentuk pada slide yang memiliki placeholder pada layout.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -583,12 +700,12 @@ try {
 
 **Apakah pemformatan bentuk memengaruhi ukuran file presentasi akhir?**
 
-Hanya sedikit. Gambar dan media yang disisipkan menempati sebagian besar ruang file, sedangkan parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
+Hanya sedikit. Gambar dan media yang disematkan menempati sebagian besar ruang file, sedangkan parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
 
-**Bagaimana saya dapat mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga dapat mengelompokkannya?**
+**Bagaimana saya dapat mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga dapat saya grupkan?**
 
-Bandingkan masing‑masing properti pemformatan utama suatu bentuk—pengaturan isi, garis, dan efek. Jika semua nilai yang bersesuaian cocok, anggap gaya mereka identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang mempermudah manajemen gaya di kemudian hari.
+Bandingkan masing‑masing properti pemformatan utama bentuk—pengaturan isian, garis, dan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan grupkan bentuk‑bentuk tersebut secara logis, yang menyederhanakan manajemen gaya nantinya.
 
-**Apakah saya dapat menyimpan sekumpulan gaya bentuk kustom ke file terpisah untuk digunakan kembali dalam presentasi lain?**
+**Bisakah saya menyimpan sekumpulan gaya bentuk khusus ke dalam file terpisah untuk digunakan kembali di presentasi lain?**
 
-Ya. Simpan bentuk contoh dengan gaya yang diinginkan dalam deck slide template atau file template .POTX. Saat membuat presentasi baru, buka template, kloning bentuk bergaya yang Anda perlukan, dan terapkan kembali pemformatannya di mana diperlukan.
+Ya. Simpan bentuk contoh dengan gaya yang diinginkan dalam deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk ber‑gaya yang diperlukan, dan terapkan kembali pemformatannya sesuai kebutuhan.

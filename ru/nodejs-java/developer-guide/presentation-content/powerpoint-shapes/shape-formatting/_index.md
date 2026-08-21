@@ -5,103 +5,170 @@ type: docs
 weight: 20
 url: /ru/nodejs-java/shape-formatting/
 keywords:
-  - форматировать фигуру
-  - форматировать линию
-  - форматировать стиль соединения
-  - градиентная заливка
-  - заливка шаблоном
-  - заливка картинкой
-  - заливка текстурой
-  - сплошная заливка цветом
-  - прозрачность фигуры
-  - повернуть фигуру
-  - 3D-скос
-  - эффект 3D‑вращения
-  - сброс форматирования
-  - PowerPoint
-  - презентация
-  - Java
-  - Aspose.Slides
-description: "Узнайте, как форматировать фигуры PowerPoint в JavaScript с помощью Aspose.Slides — задавайте стили заливки, линии и эффектов для файлов PPT, PPTX и ODP с точностью и полным контролем."
+- форматирование фигуры
+- форматирование линии
+- эффект скетча
+- скетч линии фигуры
+- форматирование стиля соединения
+- градиентное заполнение
+- заполнение шаблоном
+- заполнение изображением
+- заполнение текстурой
+- заполнение сплошным цветом
+- прозрачность фигуры
+- чёрно‑белое отображение фигуры
+- отображение фигуры в градациях серого
+- поворот фигуры
+- 3D‑скошенный эффект
+- 3D‑вращение
+- сброс форматирования
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Форматируйте фигуры PowerPoint на JavaScript с помощью Aspose.Slides — задавайте стили заполнения, линий и эффектов для файлов PPT, PPTX и ODP с точностью и полным контролем."
 ---
+## **Введение**
 
-## **Обзор**
+В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к их контуру. Кроме того, вы можете форматировать фигуры, задавая параметры, контролирующие заполнение их внутренностей.
 
-В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к контурам. Кроме того, фигуры можно форматировать, задавая параметры, контролирующие заливку их внутренней области.
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-![форматирование фигуры PowerPoint](format-shape-powerpoint.png)
-
-Aspose.Slides для Node.js через Java предоставляет классы и методы, позволяющие форматировать фигуры, используя те же параметры, что доступны в PowerPoint.
+Aspose.Slides for Node.js via Java предоставляет классы и методы, позволяющие форматировать фигуры, используя те же параметры, что и в PowerPoint.
 
 ## **Форматирование линий**
 
 Используя Aspose.Slides, вы можете задать пользовательский стиль линии для фигуры. Ниже перечислены шаги процедуры:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Установите [стиль линии](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) фигуры.
-1. Установите ширину линии.
-1. Установите [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) линии.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Установите [line style](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/linestyle/) фигуры.
+1. Задайте толщину линии.
+1. Установите [dash style](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/linedashstyle/) линии.
 1. Установите цвет линии для фигуры.
 1. Сохраните изменённую презентацию в файл PPTX.
 
 Следующий код демонстрирует, как отформатировать прямоугольный `AutoShape`:
+
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автоконтур типа Rectangle.
+    // Добавить автоматическую фигуру типа Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Установите цвет заливки для прямоугольной фигуры.
+    // Удалить заливку из прямоугольной фигуры.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Примените форматирование к линиям прямоугольника.
+    // Применить форматирование к линиям прямоугольника.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
 
-    // Установите цвет линии прямоугольника.
+    // Установить цвет линии прямоугольника.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Сохраните файл PPTX на диск.
+    // Сохранить файл PPTX на диск.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 Результат:
 
-![Отформатированные линии в презентации](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
+
+## **Применение эффектов скетча к линиям фигуры**
+
+Эффект скетча делает линию фигуры выглядящей как нарисованная от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/) для доступа к настройкам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/lineformat/) для доступа к настройкам скетча и [SketchFormat.setSketchType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sketchformat/) для выбора значения из перечисления [LineSketchType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/linesketchtype/).
+
+Следующий JavaScript‑код показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/linesketchtype/) , прочитать явно назначенное значение и удалить эффект с помощью [LineSketchType.None](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/linesketchtype/):
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // Получите формат линии фигуры и её формат скетча.
+    let sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // Примените эффект скетча.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
+
+    // Прочитайте эффект скетча, назначенный напрямую фигуре.
+    let explicitSketchType = sketchFormat.getSketchType();
+    console.log("Explicit sketch type: " + explicitSketchType);
+
+    // Уберите эффект скетча.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sketchformat/), представляет параметр, назначенный непосредственно фигуре. Если форматирование линии может наследоваться от темы, шаблона или макета слайда, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/lineformat/), вызовите `getSketchFormat` у полученного объекта, а затем его метод `getSketchType`. Эффективное значение отражает форматирование, фактически применённое после разрешения наследования:
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    let lineFormat = shape.getLineFormat();
+
+    let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    let effectiveLineFormat = lineFormat.getEffective();
+    let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    console.log("Explicit sketch type: " + explicitSketchType);
+    console.log("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Форматирование стилей соединения**
 
 Вот три варианта типа соединения:
 
-* Круглый
-* Срезанный
-* Скошенный
+* Round
+* Miter
+* Bevel
 
-По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), используется настройка **Round**. Однако если вы рисуете фигуру с острыми углами, вам может подойти вариант **Miter**.
+По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), он использует настройку **Round**. Однако, если вы рисуете фигуру с острыми углами, вы можете предпочесть вариант **Miter**.
 
-![Стиль соединения в презентации](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Следующий код JavaScript демонстрирует, как три прямоугольника (как показано на изображении выше) были созданы с использованием настроек типа соединения Miter, Bevel и Round:
+Следующий JavaScript‑код демонстрирует, как были созданы три прямоугольника (как показано на изображении выше) с использованием настроек типа соединения Miter, Bevel и Round:
+
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте три автоконтурных фигуры типа Rectangle.
+    // Добавьте три автофигуры типа Rectangle.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
@@ -114,7 +181,7 @@ try {
     shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // Установите ширину линии.
+    // Установите толщину линии.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
@@ -144,38 +211,41 @@ try {
 }
 ```
 
+## **Градиентное заполнение**
 
-## **Градиентная заливка**
+В PowerPoint градиентное заполнение — это параметр форматирования, позволяющий применять к фигуре непрерывный переход цветов. Например, можно задать два и более цветов, где один постепенно переходит в другой.
 
-В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применять непрерывный переход цветов к фигуре. Например, можно задать два и более цветов так, чтобы один постепенно переходил в другой.
+Вот как применить градиентное заполнение к фигуре с помощью Aspose.Slides:
 
-Вот как применить градиентную заливку к фигуре с помощью Aspose.Slides:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство [FillType] фигуры в `Gradient`.
-1. Добавьте две предпочтительные цвета с определёнными позициями, используя методы `add` коллекции остановок градиента, предоставляемой классом [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/).
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/filltype/) фигуры в `Gradient`.
+1. Добавьте два желаемых цвета с заданными позициями, используя методы `add` коллекции остановок градиента, предоставляемой классом [GradientFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/gradientformat/).
 1. Сохраните изменённую презентацию в файл PPTX.
 
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автофигуру типа Ellipse.
+    // Добавьте автоматическую фигуру типа Ellipse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
     // Примените градиентное форматирование к эллипсу.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
-    // Задайте направление градиента.
+    // Установите направление градиента.
     shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
 
-    // Добавьте два градиентных стопа.
+    // Добавьте две остановки градиента.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
 
@@ -186,45 +256,48 @@ try {
 }
 ```
 
-
 Результат:
 
-![Эллипс с градиентной заливкой](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-## **Заливка шаблоном**
+## **Заполнение шаблоном**
 
-В PowerPoint заливка шаблоном — это параметр форматирования, позволяющий применить двухцветный узор (например, точки, полосы, крест‑штриховку или клетки) к фигуре. Можно задать пользовательские цвета переднего плана и фона шаблона.
+В PowerPoint заполнение шаблоном — это параметр форматирования, позволяющий применить двухцветный узор (точки, полосы, крест‑штриховку, клетки) к фигуре. Вы можете выбрать собственные цвета для переднего и заднего плана узора.
 
-Aspose.Slides предоставляет более 45 предопределённых стилей шаблонов, которые можно применить к фигурам для улучшения визуального восприятия презентаций. Даже после выбора предопределённого шаблона вы всё равно можете указать точные цвета, которые он будет использовать.
+Aspose.Slides предоставляет более 45 предопределённых стилей шаблонов, которые можно применять к фигурам для улучшения визуального оформления презентаций. Даже после выбора предопределённого шаблона можно указать точные цвета, которые он будет использовать.
 
-Вот как применить заливку шаблоном к фигуре с помощью Aspose.Slides:
+Вот как применить заполнение шаблоном к фигуре с помощью Aspose.Slides:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство [FillType] фигуры в `Pattern`.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/filltype/) фигуры в `Pattern`.
 1. Выберите стиль шаблона из предопределённых вариантов.
-1. Установите [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) шаблона.
-1. Установите [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) шаблона.
+1. Установите [Background Color](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/patternformat/#getBackColor--) шаблона.
+1. Установите [Foreground Color](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/patternformat/#getForeColor--) шаблона.
 1. Сохраните изменённую презентацию в файл PPTX.
 
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автофигуру типа Rectangle.
+    // Добавьте автоматическую фигуру типа Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Установите тип заливки в Pattern.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 
-    // Установите стиль узора.
+    // Установите стиль шаблона.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
 
-    // Установите фон и передний цвет узора.
+    // Установите фон и передний цвет шаблона.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
@@ -235,42 +308,45 @@ try {
 }
 ```
 
-
 Результат:
 
-![Прямоугольник с заливкой шаблоном](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
-## **Заливка картинкой**
+## **Заполнение изображением**
 
-В PowerPoint заливка картинкой — это параметр форматирования, позволяющий вставить изображение внутрь фигуры, эффективно используя изображение как фон фигуры.
+В PowerPoint заполнение изображением — это параметр форматирования, позволяющий вставить изображение внутрь фигуры, фактически используя его в качестве фона фигуры.
 
-Вот как использовать Aspose.Slides для применения заливки картинкой к фигуре:
+Вот как использовать Aspose.Slides для применения заполнения изображением к фигуре:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство [FillType] фигуры в `Picture`.
-1. Установите режим заливки картинкой в `Tile` (или другой предпочтительный режим).
-1. Создайте объект [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) из изображения, которое хотите использовать.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/filltype/) фигуры в `Picture`.
+1. Установите режим заполнения изображения в `Tile` (или другой предпочтительный режим).
+1. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) из изображения, которое хотите использовать.
 1. Передайте изображение методу `ISlidesPicture.setImage`.
 1. Сохраните изменённую презентацию в файл PPTX.
 
-![Изображение лотоса](lotus.png)
+![The lotus picture](lotus.png)
 
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автофигуру типа Rectangle.
+    // Добавьте автоматическую фигуру типа Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
     // Установите тип заливки в Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Установите режим заливки картинкой.
+    // Установите режим заливки изображением.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
     // Загрузите изображение и добавьте его в ресурсы презентации.
@@ -288,33 +364,36 @@ try {
 }
 ```
 
-
-
 Результат:
 
-![Фигура с заливкой картинкой](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Задать картинку‑мозаику как текстуру**
+### **Замощить изображение как текстуру**
 
-Если вы хотите задать картинку‑мозаика в качестве текстуры и настроить поведение мозаики, вы можете использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
+Если вы хотите задать замощённое изображение в качестве текстуры и настроить поведение замощения, вы можете использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Устанавливает режим заливки картинкой — `Tile` или `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Указывает выравнивание мозаичных элементов внутри фигуры.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Определяет, будет ли элемент мозаики отражён по горизонтали, вертикали или оба направления.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Устанавливает горизонтальное смещение мозаичного элемента (в пунктах) от начала фигуры.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Устанавливает вертикальное смещение мозаичного элемента (в пунктах) от начала фигуры.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Определяет горизонтальный масштаб мозаичного элемента в процентах.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Определяет вертикальный масштаб мозаичного элемента в процентах.
+- [setPictureFillMode](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): задает режим заполнения изображением — `Tile` или `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): указывает выравнивание тайлов внутри фигуры.
+- [setTileFlip](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): контролирует, будет ли тайл отражён по горизонтали, вертикали или обоим направлениям.
+- [setTileOffsetX](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): задает горизонтальное смещение тайла (в пунктах) от начала фигуры.
+- [setTileOffsetY](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): задает вертикальное смещение тайла (в пунктах) от начала фигуры.
+- [setTileScaleX](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): определяет горизонтальный масштаб тайла в процентах.
+- [setTileScaleY](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): определяет вертикальный масштаб тайла в процентах.
 
-Следующий пример кода показывает, как добавить прямоугольную фигуру с мозаичной заливкой картинкой и настроить параметры мозаики:
+Следующий пример кода показывает, как добавить прямоугольную фигуру с замощённым заполнением изображением и настроить параметры тайлов:
+
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автофигуру прямоугольника.
+    // Добавьте автоматическую фигуру прямоугольника.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
     // Установите тип заливки фигуры в Picture.
@@ -325,11 +404,11 @@ try {
     let presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Присвойте изображение фигуре.
+    // Назначьте изображение фигуре.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Настройте режим заливки картинкой и свойства мозаики.
+    // Настройте режим заливки изображением и параметры замощения.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -345,32 +424,35 @@ try {
 }
 ```
 
-
 Результат:
 
-![Параметры мозаики](tile-options.png)
+![The tile options](tile-options.png)
 
-## **Сплошная заливка цветом**
+## **Заполнение сплошным цветом**
 
-В PowerPoint сплошная заливка цветом — это параметр форматирования, который заполняет фигуру одним однородным цветом. Этот простой фоновый цвет применяется без градиентов, текстур или узоров.
+В PowerPoint заполнение сплошным цветом — это параметр форматирования, который заполняет фигуру единым ровным цветом. Этот простой фоновый цвет применяется без градиентов, текстур или шаблонов.
 
-Чтобы применить сплошную заливку цветом к фигуре с помощью Aspose.Slides, выполните следующие шаги:
+Чтобы применить сплошное заполнение к фигуре с помощью Aspose.Slides, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство [FillType] фигуры в `Solid`.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/filltype/) фигуры в `Solid`.
 1. Назначьте предпочтительный цвет заливки фигуре.
 1. Сохраните изменённую презентацию в файл PPTX.
 
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автофигуру типа Rectangle.
+    // Добавьте автоматическую фигуру типа Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Установите тип заливки в Solid.
@@ -386,35 +468,38 @@ try {
 }
 ```
 
-
 Результат:
 
-![Фигура со сплошной заливкой цветом](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
-## **Установить прозрачность**
+## **Установка прозрачности**
 
-В PowerPoint при применении сплошной, градиентной, картинкой или текстурной заливки к фигурам можно также задать уровень прозрачности, контролирующий непрозрачность заливки. Более высокое значение прозрачности делает фигуру более полупрозрачной, позволяя видеть фон или находящиеся позади объекты.
+В PowerPoint при применении к фигурам сплошного, градиентного, изображенческого или текстурного заполнения можно также задать уровень прозрачности, контролирующий непрозрачность заливки. Более высокое значение прозрачности делает фигуру более просвечивающей, позволяя видеть фон или лежащие ниже объекты.
 
-Aspose.Slides позволяет задать уровень прозрачности, изменяя альфа‑компонент цвета, используемого для заливки. Вот как это сделать:
+Aspose.Slides позволяет задать уровень прозрачности, изменяя альфа‑компонент цвета, используемого для заливки. Как это сделать:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Установите свойство [FillType] фигуры в `Solid`.
-1. Используйте `Color`, чтобы определить цвет с прозрачностью (компонент `alpha` управляет прозрачностью).
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Установите [FillType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/filltype/) фигуры в `Solid`.
+1. Используйте `Color` для определения цвета с прозрачностью (компонент `alpha` управляет прозрачностью).
 1. Сохраните презентацию.
 
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте сплошную прямоугольную автофигуру.
+    // Добавьте автоматическую фигуру прямоугольника со сплошным заполнением.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Добавьте прозрачную прямоугольную автофигуру поверх сплошной фигуры.
+    // Добавьте автоматическую фигуру прямоугольника с прозрачностью поверх сплошной фигуры.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
@@ -426,31 +511,33 @@ try {
 }
 ```
 
-
 Результат:
 
-![Прозрачная фигура](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
-## **Вращение фигур**
+## **Поворот фигур**
 
 Aspose.Slides позволяет вращать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определённым выравниванием или дизайнерскими требованиями.
 
-Чтобы вращать фигуру на слайде, выполните следующие шаги:
+Чтобы повернуть фигуру на слайде, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
 1. Установите свойство вращения фигуры на требуемый угол.
 1. Сохраните презентацию.
 
 ```js
-// Создайте экземпляр класса Presentation, представляющий файл презентации.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получите первый слайд.
+    // Получить первый слайд.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте автофигуру типа Rectangle.
+    // Добавьте автоматическую фигуру типа Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Поверните фигуру на 5 градусов.
@@ -463,22 +550,27 @@ try {
 }
 ```
 
-
 Результат:
 
-![Вращение фигуры](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **Добавление 3D‑скосов**
+## **Добавление 3D‑скошенных эффектов**
 
-Aspose.Slides позволяет применять 3D‑скосы к фигурам, настраивая их свойства [ThreeDFormat].
+Aspose.Slides позволяет применять 3D‑скошенные эффекты к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+Чтобы добавить 3D‑скошенные эффекты к фигуре, выполните следующие шаги:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Настройте свойства [ThreeDFormat] фигуры, определив параметры скосов.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Настройте [ThreeDFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/) фигуры, задав параметры фаски.
 1. Сохраните презентацию.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Создайте экземпляр класса Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -501,29 +593,33 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // Сохраните презентацию как файл PPTX.
+    // Сохраните презентацию в файл PPTX.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 Результат:
 
-![Эффект 3D‑скосов](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
 ## **Добавление 3D‑вращения**
 
-Aspose.Slides позволяет применять 3D‑вращение к фигурам, настраивая их свойства [ThreeDFormat].
+Aspose.Slides позволяет применять 3D‑вращение к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/threedformat/).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+Чтобы применить 3D‑вращение к фигуре:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) на слайд.
-1. Используйте методы [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) и [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) для определения 3D‑вращения.
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) на слайд.
+1. Используйте [setCameraType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/camera/#setCameraType) и [setLightType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/lightrig/#setLightType) для определения 3D‑вращения.
 1. Сохраните презентацию.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Создайте экземпляр класса Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -537,27 +633,62 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // Сохраните презентацию как файл PPTX.
+    // Сохраните презентацию в файл PPTX.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 Результат:
 
-![Эффект 3D‑вращения](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
+
+## **Управление черно‑белой визуализацией фигур**
+
+Метод [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) указывает, как отдельная фигура будет отображаться, когда презентация просматривается или обрабатывается в черно‑белом режиме. Он сам по себе не включает черно‑белый режим и не меняет заполнение, линию или другое форматирование фигуры в обычном цветном режиме.
+
+Используйте значение из перечисления [BlackWhiteMode](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/blackwhitemode/) для выбора нужного поведения. Например, `Automatic` позволяет приложению‑отображателю выбрать преобразование, `Gray` и `LightGray` используют серый цвет, `BlackWhite` использует только черный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычную окраску, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим не задан на уровне фигуры.
+
+Следующий JavaScript‑код создаёт цветную фигуру и заставляет её отображаться серой в черно‑белом режиме отображения:
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    // Сохраните оранжевую заливку в цветном режиме, но отображайте фигуру в сером цвете в черно‑белом режиме.
+    shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
+
+    presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. В черно‑белом рабочем процессе он использует серый цвет, поскольку его режим установлен в `Gray`. Это позволяет сохранить полноцветный слайд, одновременно определяя отдельный вид для печати, предварительного просмотра или других процессов, которые учитывают настройки черно‑белого отображения презентации.
 
 ## **Сброс форматирования**
 
-Следующий код Java показывает, как сбросить форматирование слайда и вернуть положение, размер и форматирование всех фигур с заполнителями на [LayoutSlide] к их настройкам по умолчанию:
+Следующий JavaScript‑код показывает, как сбросить форматирование слайда и вернуть положение, размер и форматирование всех фигур‑заполнителей на [LayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/) к их значениям по умолчанию:
+
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Сбросьте каждую фигуру на слайде, у которой есть заполнитель в макете.
+        // Сбросить каждую фигуру на слайде, у которой есть заполнитель в макете.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -566,17 +697,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
 **Влияет ли форматирование фигур на конечный размер файла презентации?**
 
-Только незначительно. Встроенные изображения и медиа‑файлы занимают большую часть объёма файла, тогда как параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и практически не увеличивают размер.
+Только незначительно. Встроенные изображения и мультимедиа занимают большую часть места файла, тогда как параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и практически не увеличивают размер.
 
-**Как определить фигуры на слайде, имеющие одинаковое форматирование, чтобы сгруппировать их?**
+**Как определить фигуры на слайде, имеющие идентичное форматирование, чтобы сгруппировать их?**
 
-Сравните ключевые свойства форматирования каждой фигуры — параметры заливки, линии и эффекты. Если все соответствующие значения совпадают, считается, что стили идентичны, и их можно логически сгруппировать, что упрощает последующее управление стилями.
+Сравните ключевые свойства форматирования каждой фигуры — параметры заливки, линии и эффекты. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает последующее управление стилями.
 
-**Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
+**Могу ли я сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
 
-Да. Сохраните образцы фигур с нужными стилями в шаблон набора слайдов или в файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где это требуется.
+Да. Сохраните образцы фигур с нужными стилями в шаблонный набор слайдов или файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где это требуется.

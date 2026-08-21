@@ -7,6 +7,8 @@ url: /fa/php-java/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
+- افکت اسکیچ
+- خط شکل اسکیچ
 - قالب‌بندی سبک اتصال
 - پر کردن گرادیان
 - پر کردن الگو
@@ -14,62 +16,64 @@ keywords:
 - پر کردن بافت
 - پر کردن رنگ ثابت
 - شفافیت شکل
-- چرخاندن شکل
-- افکت برجستگی 3D
+- رندر سیاه‌سفید شکل
+- رندر خاکستری شکل
+- چرخش شکل
+- افکت لبه‌زدن 3D
 - افکت چرخش 3D
 - بازنشانی قالب‌بندی
-- پاورپوینت
+- PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال PowerPoint را در PHP با استفاده از Aspose.Slides قالب‌بندی کنید—پرکن، خط و سبک‌های افکت را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم کنید."
+description: "یاد بگیرید چگونه شکل‌های PowerPoint را در PHP با استفاده از Aspose.Slides قالب‌بندی کنید—پر کردن، خط و سبک‌های افکت را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-در PowerPoint می‌توانید شکل‌ها را به اسلایدها اضافه کنید. از آنجا که شکل‌ها از خطوط تشکیل شده‌اند، می‌توانید با تغییر یا اعمال افکت‌ها بر روی خطوط مرزی آن‌ها، آن‌ها را قالب‌بندی کنید. علاوه بر این، می‌توانید با مشخص کردن تنظیماتی که نحوه پر شدن داخلی آن‌ها را کنترل می‌کند، شکل‌ها را قالب‌بندی کنید.
+در پاورپوینت، می‌توانید اشکال را به اسلایدها اضافه کنید. از آنجا که اشکال از خطوط تشکیل شده‌اند، می‌توانید با تغییر یا اعمال افکت‌ها به حاشیه‌های آن‌ها، قالب‌بندی کنید. علاوه بر این، می‌توانید با تعیین تنظیماتی که کنترل می‌کنند داخل اشکال چگونه پر شود، آن‌ها را قالب‌بندی کنید.
 
-![قالب‌بندی شکل در PowerPoint](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides برای PHP از طریق Java کلاس‌ها و متدهایی را فراهم می‌کند که به شما امکان می‌دهد شکل‌ها را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides برای PHP از طریق Java کلاس‌ها و متدهایی را ارائه می‌دهد که به شما امکان می‌دهد اشکال را با استفاده از همان گزینه‌های موجود در پاورپوینت قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-با استفاده از Aspose.Slides می‌توانید سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر روش را توضیح می‌دهند:
+با استفاده از Aspose.Slides، می‌توانید یک سبک خط سفارشی برای یک شکل تعیین کنید. مراحل زیر شامل روش کار هستند:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. سبک [line style](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linestyle/) شکل را تنظیم کنید.
+1. قالب [line style](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linestyle/) شکل را تنظیم کنید.
 1. عرض خط را تنظیم کنید.
-1. سبک [dash style](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linedashstyle/) خط را تنظیم کنید.
+1. قالب [dash style](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linedashstyle/) خط را تنظیم کنید.
 1. رنگ خط برای شکل را تنظیم کنید.
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
 
-کد PHP زیر نشان می‌دهد که چگونه یک `AutoShape` مستطیل را قالب‌بندی کنید:
+کد PHP زیر نحوه قالب‌بندی یک `AutoShape` مستطیل را نشان می‌دهد:
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نشان‌دهنده‌ی یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // اضافه کردن یک AutoShape از نوع Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // رنگ پرکن را برای شکل مستطیل تنظیم کنید.
+    // تنظیم رنگ پر کردن برای شکل Rectangle.
     $shape->getFillFormat()->setFillType(FillType::NoFill);
 
-    // قالب‌بندی را بر خطوط مستطیل اعمال کنید.
+    // اعمال قالب‌بندی بر خطوط Rectangle.
     $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
 
-    // رنگ خط مستطیل را تنظیم کنید.
+    // تنظیم رنگ خط Rectangle.
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX در دیسک.
     $presentation->save("formatted_lines.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -78,35 +82,83 @@ try {
 
 نتیجه:
 
-![خطوط قالب‌بندی‌شده در ارائه](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
+
+## **اعمال افکت‌های اسکیچ به خطوط شکل**
+
+یک افکت اسکیچ باعث می‌شود خط یک شکل شبیه به دست‌نویس شود. برای دسترسی به تنظیمات خط از [Shape.getLineFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) استفاده کنید، برای دسترسی به تنظیمات اسکیچ از [LineFormat.getSketchFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/lineformat/) و برای انتخاب مقدار از شمارندهٔ [LineSketchType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linesketchtype/) با استفاده از [SketchFormat.setSketchType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sketchformat/) استفاده کنید.
+
+کد PHP زیر نشان می‌دهد چگونه یک افکت [LineSketchType.Curved](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linesketchtype/) اعمال کنید، مقدار اختصاص داده شده صریحاً را بخوانید و با [LineSketchType.None](https://reference.aspose.com/slides/fa/php-java/aspose.slides/linesketchtype/) افکت را حذف کنید:
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+
+    // دسترسی به قالب خط شکل و قالب اسکیچ آن.
+    $sketchFormat = $shape->getLineFormat()->getSketchFormat();
+
+    // اعمال افکت اسکیچ.
+    $sketchFormat->setSketchType(LineSketchType::Curved);
+
+    // خواندن افکت اسکیچ اختصاص داده شده مستقیم به شکل.
+    $explicitSketchType = $sketchFormat->getSketchType();
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+
+    // حذف افکت اسکیچ.
+    $sketchFormat->setSketchType(LineSketchType::None);
+} finally {
+    $presentation->dispose();
+}
+```
+
+مقداری که توسط [SketchFormat.getSketchType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sketchformat/) برگشت داده می‌شود، نمایانگر تنظیمی است که مستقیماً به شکل اختصاص یافته است. اگر قالب‌بندی خط می‌تواند از یک تم، اسلاید اصلی یا اسلاید چیدمان به ارث برده شود، از [LineFormat.getEffective](https://reference.aspose.com/slides/fa/php-java/aspose.slides/lineformat/) استفاده کنید، متد `getSketchFormat` شی برگردانده‌شده را فراخوانی کنید و مقدار `getSketchType` آن را بخوانید. مقدار مؤثر، قالب‌بندی واقعی اعمال‌شده پس از حل ارث‌بری را نشان می‌دهد:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $lineFormat = $shape->getLineFormat();
+
+    $explicitSketchType = $lineFormat->getSketchFormat()->getSketchType();
+    $effectiveLineFormat = $lineFormat->getEffective();
+    $effectiveSketchType = $effectiveLineFormat->getSketchFormat()->getSketchType();
+
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+    echo "Effective sketch type: " . $effectiveSketchType . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **قالب‌بندی سبک‌های اتصال**
 
-این‌ها سه گزینه نوع اتصال هستند:
+در اینجا سه گزینهٔ نوع اتصال وجود دارد:
 
 * گرد
 * میتر
-* برش
+* بویل
 
-به‌طور پیش‌فرض، وقتی PowerPoint دو خط را در زاویه‌ای (مانند گوشهٔ یک شکل) به هم متصل می‌کند، از تنظیم **Round** استفاده می‌کند. اما اگر شما شکلی با زوایای تیز می‌کشید، ممکن است گزینه **Miter** را ترجیح دهید.
+به‌صورت پیش‌فرض، وقتی پاورپوینت دو خط را به‌صورت زاویه‌ای (مانند گوشهٔ یک شکل) به هم وصل می‌کند، از تنظیم **گرد** استفاده می‌کند. اما اگر شکل با زوایای تیز رسم می‌کنید، ممکن است گزینهٔ **میتر** را ترجیح دهید.
 
-![سبک اتصال در ارائه](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-کد PHP زیر نشان می‌دهد که چگونه سه مستطیل (همان‌طور که در تصویر بالا نشان داده شده) با استفاده از تنظیمات نوع اتصال Miter، Bevel و Round ایجاد شدند:
+کد PHP زیر نشان می‌دهد چگونه سه مستطیل (همان‌طور که در تصویر بالا نشان داده شده) با استفاده از تنظیمات نوع اتصال میتر، بویل و گرد ایجاد شدند:
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// ایجاد نمونه‌ای از کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // سه شکل خودکار از نوع Rectangle اضافه کنید.
+    // اضافه کردن سه AutoShape از نوع Rectangle.
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-    // رنگ پرکن را برای هر شکل مستطیل تنظیم کنید.
+    // تنظیم رنگ پر کردن برای هر شکل Rectangle.
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
@@ -114,12 +166,12 @@ try {
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
-    // عرض خط را تنظیم کنید.
+    // تنظیم عرض خط.
     $shape1->getLineFormat()->setWidth(15);
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // رنگ خط هر مستطیل را تنظیم کنید.
+    // تنظیم رنگ خط برای هر Rectangle.
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -127,58 +179,58 @@ try {
     $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // سبک اتصال را تنظیم کنید.
+    // تنظیم سبک اتصال.
     $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
 
-    // متن را به هر مستطیل اضافه کنید.
+    // اضافه کردن متن به هر Rectangle.
     $shape1->getTextFrame()->setText("Miter Join Style");
     $shape2->getTextFrame()->setText("Bevel Join Style");
     $shape3->getTextFrame()->setText("Round Join Style");
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیره فایل PPTX بر روی دیسک.
     $presentation->save("join_styles.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **پر کردن گرادیان**
+## **پر کردن تدریجی (Gradient Fill)**
 
-در PowerPoint، پر کردن گرادیان یک گزینه قالب‌بندی است که به شما امکان می‌دهد ترکیبی مداوم از رنگ‌ها را بر روی یک شکل اعمال کنید. به‌عنوان مثال، می‌توانید دو یا چند رنگ را به‑طوری اعمال کنید که یکی به‑تدریج به دیگری محو شود.
+در پاورپوینت، پر کردن تدریجی (Gradient Fill) یک گزینهٔ قالب‌بندی است که به شما امکان می‌دهد ترکیبی پیوسته از رنگ‌ها را بر روی یک شکل اعمال کنید. برای مثال، می‌توانید دو یا چند رنگ را به‌صورت تدریجی که یکی به آرامی به دیگری منتقل شود، اعمال کنید.
 
-در اینجا نحوهٔ اعمال پر کردن گرادیان به یک شکل با استفاده از Aspose.Slides آورده شده است:
+در اینجا نحوهٔ اعمال پر کردن تدریجی بر یک شکل با استفاده از Aspose.Slides آورده شده است:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. FillType شکل را روی `Gradient` تنظیم کنید.
-1. دو رنگ مورد علاقهٔ خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `add` مجموعهٔ توقف‌گرادیان که توسط کلاس [GradientFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/gradientformat/) فراهم شده، اضافه کنید.
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. خاصیت [FillType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/filltype/) شکل را به `Gradient` تنظیم کنید.
+1. دو رنگ موردنظرتان را با موقعیت‌های تعریف‌شده با استفاده از متدهای `add` مجموعهٔ توقف تدریجی که توسط کلاس [GradientFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/gradientformat/) ارائه می‌شود، اضافه کنید.
+1. ارائهٔ تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار از نوع Ellipse اضافه کنید.
+    // اضافه کردن یک AutoShape از نوع Ellipse.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // قالب‌بندی گرادیان را بر روی بیضی اعمال کنید.
+    // اعمال قالب‌بندی گرادیان به بیضی.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
-    // جهت گرادیان را تنظیم کنید.
+    // تنظیم جهت گرادیان.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
-    // دو نقطه توقف گرادیان اضافه کنید.
+    // اضافه کردن دو نقطهٔ توقف گرادیان.
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
     $presentation->save("gradient_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -187,46 +239,46 @@ try {
 
 نتیجه:
 
-![بیضی با پر کردن گرادیان](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-## **پر کردن الگو**
+## **پر کردن الگو (Pattern Fill)**
 
-در PowerPoint، پر کردن الگو یک گزینه قالب‌بندی است که به شما امکان می‌دهد طرحی دو‌رنگ—مانند نقطه‌ها، خطوط راه راه، شبکه‌ها یا شطرنجی—را بر روی یک شکل اعمال کنید. می‌توانید رنگ‌های سفارشی برای پیش‌زمینه و پس‌زمینهٔ الگو انتخاب کنید.
+در پاورپوینت، پر کردن الگو (Pattern Fill) یک گزینهٔ قالب‌بندی است که به شما اجازه می‌دهد طرحی دو رنگی—مانند نقطه‌ها، خطوط، خطوط متقاطع یا شطرنجی—را بر روی یک شکل اعمال کنید. می‌توانید رنگ‌های سفارشی برای پیش‌زمینه و پس‌زمینهٔ الگو انتخاب کنید.
 
-Aspose.Slides بیش از ۴۵ سبک الگوی از پیش تعریف‌شده را فراهم می‌کند که می‌توانید آنها را بر روی شکل‌ها اعمال کنید تا جذابیت بصری ارائه‌های خود را ارتقا دهید. حتی پس از انتخاب یک الگوی پیش‌تعریف‌شده، می‌توانید رنگ‌های دقیق مورد استفاده آن را مشخص کنید.
+Aspose.Slides بیش از ۴۵ سبک پیش‌تعریف‌شدهٔ الگو را ارائه می‌دهد که می‌توانید بر روی اشکال اعمال کنید تا جذابیت بصری ارائه‌هایتان افزایش یابد. حتی پس از انتخاب یک الگوی پیش‌تعریف‌شده، می‌توانید رنگ‌های دقیق استفاده‌شده را نیز تعیین کنید.
 
-در اینجا نحوهٔ اعمال پر کردن الگو به یک شکل با استفاده از Aspose.Slides آورده شده است:
+در اینجا نحوهٔ اعمال پر کردن الگو بر یک شکل با استفاده از Aspose.Slides آورده شده است:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. FillType شکل را روی `Pattern` تنظیم کنید.
-1. یک سبک الگو را از گزینه‌های از پیش تعریف‌شده انتخاب کنید.
-1. رنگ پس‌زمینهٔ الگو را تنظیم کنید.
-1. رنگ پیش‌زمینهٔ الگو را تنظیم کنید.
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. خاصیت [FillType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/filltype/) شکل را به `Pattern` تنظیم کنید.
+1. یک سبک الگو از گزینه‌های پیش‌تعریف‌شده انتخاب کنید.
+1. رنگ [Background Color](https://reference.aspose.com/slides/fa/php-java/aspose.slides/patternformat/#getBackColor) الگو را تنظیم کنید.
+1. رنگ [Foreground Color](https://reference.aspose.com/slides/fa/php-java/aspose.slides/patternformat/#getForeColor) الگو را تنظیم کنید.
+1. ارائهٔ تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // اضافه کردن یک AutoShape از نوع Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // نوع پرکن را به Pattern تنظیم کنید.
+    // تنظیم نوع پر کردن به Pattern.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
 
-    // استایل الگو را تنظیم کنید.
+    // تنظیم سبک الگو.
     $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
 
-    // رنگ‌های پس‌زمینه و پیش‌زمینهٔ الگو را تنظیم کنید.
+    // تنظیم رنگ پس‌زمینه و پیش‌زمینه الگو.
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
     $presentation->save("pattern_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -235,54 +287,54 @@ try {
 
 نتیجه:
 
-![مستطیل با پر کردن الگو](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
-## **پر کردن تصویر**
+## **پر کردن تصویر (Picture Fill)**
 
-در PowerPoint، پر کردن تصویر یک گزینه قالب‌بندی است که به شما امکان می‌دهد یک تصویر را داخل یک شکل وارد کنید—در واقع از تصویر به‌عنوان پس‌زمینهٔ شکل استفاده می‌کنید.
+در پاورپوینت، پر کردن تصویر (Picture Fill) یک گزینهٔ قالب‌بندی است که به شما اجازه می‌دهد یک تصویر را داخل یک شکل قرار دهید—به‌طوری که تصویر به‌عنوان پس‌زمینهٔ شکل عمل کند.
 
-در اینجا نحوهٔ استفاده از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل آورده شده است:
+در اینجا نحوهٔ استفاده از Aspose.Slides برای اعمال پر کردن تصویر بر یک شکل آورده شده است:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. FillType شکل را روی `Picture` تنظیم کنید.
-1. حالت پر کردن تصویر را روی `Tile` (یا حالت دلخواه دیگر) تنظیم کنید.
-1. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) از تصویر مورد نظر خود ایجاد کنید.
-1. تصویر را به متد `SlidesPicture.setImage` پاس کنید.
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. خاصیت [FillType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/filltype/) شکل را به `Picture` تنظیم کنید.
+1. حالت پر کردن تصویر را به `Tile` (یا حالت دلخواه دیگری) تنظیم کنید.
+1. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) از تصویری که می‌خواهید استفاده کنید، بسازید.
+1. تصویر را به متد `SlidesPicture.setImage` پاس بدهید.
+1. ارائهٔ تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
 
-بیایید بگوییم فایلی به نام "lotus.png" با تصویر زیر داریم:
+فرض کنید فایلی به نام "lotus.png" داریم که تصویر زیر را دارد:
 
-![تصویر لوتوس](lotus.png)
+![The lotus picture](lotus.png)
 
-کد PHP زیر نشان می‌دهد که چگونه یک شکل را با تصویر پر کنید:
+کد PHP زیر نشان می‌دهد چگونه یک شکل را با تصویر پر کنید:
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // اضافه کردن یک AutoShape از نوع Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // نوع پرکن را به Picture تنظیم کنید.
+    // تنظیم نوع پر کردن به Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // حالت پر کردن تصویر را تنظیم کنید.
+    // تنظیم حالت پر کردن تصویر.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
-    // یک تصویر بارگذاری کنید و به منابع ارائه اضافه کنید.
+    // بارگذاری تصویر و افزودن آن به منابع ارائه.
     $image = Images::fromFile("lotus.png");
     $picture = $presentation->getImages()->addImage($image);
     $image->dispose();
 
-    // تصویر را تنظیم کنید.
+    // تنظیم تصویر.
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
     $presentation->save("picture_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -291,96 +343,94 @@ try {
 
 نتیجه:
 
-![شکل با پر کردن تصویر](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **استفاده از تصویر تایل به‌عنوان بافت**
+### **تصویر کاشی به‌عنوان بافت**
 
-اگر می‌خواهید تصویر تایل‌شده را به‌عنوان بافت تنظیم کنید و رفتار تایلینگ را سفارشی کنید، می‌توانید از متدهای زیر کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید تصویر کاشی را به‌عنوان بافت تنظیم کنید و رفتار کاشی را سفارشی کنید، می‌توانید از روش‌های زیر کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/) استفاده کنید:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setPictureFillMode): حالت پر کردن تصویر را تنظیم می‌کند — یا `Tile` یا `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileAlignment): ترازبندی تایل‌ها درون شکل را مشخص می‌کند.
-- [setTileFlip](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileFlip): تعیین می‌کند که تایل به‑صورت افقی، عمودی یا هر دو معکوس شود.
-- [setTileOffsetX](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileOffsetX): افست افقی تایل (به پوینت) از مبدأ شکل را تنظیم می‌کند.
-- [setTileOffsetY](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileOffsetY): افست عمودی تایل (به پوینت) از مبدأ شکل را تنظیم می‌کند.
-- [setTileScaleX](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileScaleX): مقیاس افقی تایل را به‌صورت درصد تعریف می‌کند.
-- [setTileScaleY](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileScaleY): مقیاس عمودی تایل را به‌صورت درصد تعریف می‌کند.
+- [setPictureFillMode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setPictureFillMode): حالت پر کردن تصویر را تنظیم می‌کند—یا `Tile` یا `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileAlignment): ترازبندی کاشی‌ها درون شکل را مشخص می‌کند.
+- [setTileFlip](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileFlip): کنترل می‌کند که آیا کاشی به‌صورت افقی، عمودی یا هر دو معکوس شود.
+- [setTileOffsetX](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileOffsetX): افست افقی کاشی (به نقطه) را نسبت به مبدای شکل تنظیم می‌کند.
+- [setTileOffsetY](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileOffsetY): افست عمودی کاشی (به نقطه) را نسبت به مبدای شکل تنظیم می‌کند.
+- [setTileScaleX](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileScaleX): مقیاس افقی کاشی را به‌صورت درصد تعریف می‌کند.
+- [setTileScaleY](https://reference.aspose.com/slides/fa/php-java/aspose.slides/picturefillformat/#setTileScaleY): مقیاس عمودی کاشی را به‌صورت درصد تعریف می‌کند.
 
-کد نمونه زیر نشان می‌دهد که چگونه یک شکل مستطیلی با پر کردن تصویر تایل‌شده اضافه کنید و گزینه‌های تایل را پیکربندی کنید:
+نمونهٔ کد زیر نشان می‌دهد چگونه یک شکل مستطیل با پر کردن تصویر کاشی‌شده اضافه کرده و گزینه‌های کاشی را پیکربندی کنید:
 
 ```php
-    // یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
-    $presentation = new Presentation();
-    try {
-        // اسلاید اول را دریافت کنید.
-        $firstSlide = $presentation->getSlides()->get_Item(0);
+// ایجاد نمونه‌ای از کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
+$presentation = new Presentation();
+try {
+    // دریافت اولین اسلاید.
+    $firstSlide = $presentation->getSlides()->get_Item(0);
 
-        // یک شکل خودکار مستطیل اضافه کنید.
-        $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
+    // اضافه کردن یک AutoShape از نوع Rectangle.
+    $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-        // نوع پرکن شکل را به Picture تنظیم کنید.
-        $shape->getFillFormat()->setFillType(FillType::Picture);
+    // تنظیم نوع پر کردن شکل به Picture.
+    $shape->getFillFormat()->setFillType(FillType::Picture);
 
-        // تصویر را بارگذاری کنید و به منابع ارائه اضافه کنید.
-        $sourceImage = Images::fromFile("lotus.png");
-        $presentationImage = $presentation->getImages()->addImage($sourceImage);
-        $sourceImage->dispose();
+    // بارگذاری تصویر و افزودن آن به منابع ارائه.
+    $sourceImage = Images::fromFile("lotus.png");
+    $presentationImage = $presentation->getImages()->addImage($sourceImage);
+    $sourceImage->dispose();
 
-        // تصویر را به شکل اختصاص دهید.
-        $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
-        $pictureFillFormat->getPicture()->setImage($presentationImage);
+    // اختصاص تصویر به شکل.
+    $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
+    $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-        // حالت پر کردن تصویر و ویژگی‌های تایل را پیکربندی کنید.
-        $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
-        $pictureFillFormat->setTileOffsetX(-32);
-        $pictureFillFormat->setTileOffsetY(-32);
-        $pictureFillFormat->setTileScaleX(50);
-        $pictureFillFormat->setTileScaleY(50);
-        $pictureFillFormat->setTileAlignment(RectangleAlignment::BottomRight);
-        $pictureFillFormat->setTileFlip(TileFlip::FlipBoth);
+    // پیکربندی حالت پر کردن تصویر و ویژگی‌های کاشی.
+    $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
+    $pictureFillFormat->setTileOffsetX(-32);
+    $pictureFillFormat->setTileOffsetY(-32);
+    $pictureFillFormat->setTileScaleX(50);
+    $pictureFillFormat->setTileScaleY(50);
+    $pictureFillFormat->setTileAlignment(RectangleAlignment::BottomRight);
+    $pictureFillFormat->setTileFlip(TileFlip::FlipBoth);
 
-        // فایل PPTX را روی دیسک ذخیره کنید.
-        $presentation->save("tile.pptx", SaveFormat::Pptx);
-    } finally {
-        $presentation->dispose();
-    }
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
+    $presentation->save("tile.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 نتیجه:
 
-![گزینه‌های تایل](tile-options.png)
+![The tile options](tile-options.png)
 
-## **پر کردن رنگ ثابت**
+## **پر کردن رنگ ثابت (Solid Color Fill)**
 
-در PowerPoint، پر کردن رنگ ثابت یک گزینه قالب‌بندی است که شکل را با یک رنگ یکدست پر می‌کند. این رنگ پس‌زمینه ساده بدون هیچ‌گونه گرادیان، بافت یا الگوئی اعمال می‌شود.
+در پاورپوینت، پر کردن رنگ ثابت (Solid Color Fill) یک گزینهٔ قالب‌بندی است که شکل را با یک رنگ یکنواخت تک‌رنگ پر می‌کند. این رنگ پس‌زمینه ساده بدون هیچ‌گونه گرادیان، بافت یا الگو اعمال می‌شود.
 
-برای اعمال پر کردن رنگ ثابت به یک شکل با استفاده از Aspose.Slides، این مراحل را دنبال کنید:
+برای اعمال پر کردن رنگ ثابت بر یک شکل با استفاده از Aspose.Slides، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. FillType شکل را روی `Solid` تنظیم کنید.
-1. رنگ پر کردن دلخواه خود را به شکل اختصاص دهید.
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
-
-کد PHP زیر نشان می‌دهد که چگونه پر کردن رنگ ثابت را بر روی یک مستطیل در اسلاید PowerPoint اعمال کنید:
+1. خاصیت [FillType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/filltype/) شکل را به `Solid` تنظیم کنید.
+1. رنگ پر کردن موردنظر خود را به شکل اختصاص دهید.
+1. ارائهٔ تغییر یافته را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// ایجاد نمونه‌ای از کلاس Presentation که نشان‌دهنده یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // اضافه کردن یک AutoShape از نوع Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // نوع پرکن را به Solid تنظیم کنید.
+    // تنظیم نوع پر کردن به Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
-    // رنگ پرکن را تنظیم کنید.
+    // تنظیم رنگ پر کردن.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
     $presentation->save("solid_color_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -389,39 +439,37 @@ try {
 
 نتیجه:
 
-![شکل با پر کردن رنگ ثابت](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **تنظیم شفافیت**
 
-در PowerPoint، وقتی یک رنگ ثابت، گرادیان، تصویر یا بافت را به شکل‌ها اعمال می‌کنید، می‌توانید سطح شفافیتی را نیز تنظیم کنید تا میزان شفافیت پر کردن را کنترل کنید. مقدار شفافیت بالاتر باعث می‌شود شکل بیشتر شفاف شود و پس‌زمینه یا اشیای زیرین به‌طور جزئی قابل مشاهده باشند.
+در پاورپوینت، وقتی پر کردن رنگ ثابت، گرادیان، تصویر یا بافت را به اشکال اعمال می‌کنید، می‌توانید سطح شفافیتی را تنظیم کنید تا قابلیت ترازی پر کردن را کنترل کنید. مقدار شفافیت بالاتر، شکل را شفاف‌تر می‌کند و اجازه می‌دهد پس‌زمینه یا اشیای زیرین به‌صورت جزئی دیده شوند.
 
-Aspose.Slides به شما امکان می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ استفاده‌شده برای پر کردن تنظیم کنید. در اینجا نحوهٔ انجام این کار آورده شده است:
+Aspose.Slides به شما امکان می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ استفاده‌شده برای پر کردن تنظیم کنید. در اینجا نحوهٔ انجام آن آمده است:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. FillType را روی `Solid` تنظیم کنید.
-1. از `Color` برای تعریف رنگی با شفافیت استفاده کنید (مقدار `alpha` شفافیت را کنترل می‌کند).
-1. ارائه را ذخیره کنید.
-
-کد PHP زیر نشان می‌دهد که چگونه رنگ پر کردن شفاف را بر روی یک مستطیل اعمال کنید:
+1. خاصیت [FillType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/filltype/) را به `Solid` تنظیم کنید.
+1. از `Color` برای تعریف یک رنگ با شفافیت (جزء `alpha` شفافیت را کنترل می‌کند) استفاده کنید.
+1. ارائهٔ تغییر یافته را ذخیره کنید.
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// ایجاد نمونه‌ای از کلاس Presentation که نمایانگر یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار مستطیل صلب اضافه کنید.
+    // اضافه کردن یک AutoShape مستطیل صلب.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // یک شکل خودکار مستطیل شفاف بر روی شکل ثابت اضافه کنید.
+    // اضافه کردن یک AutoShape مستطیل شفاف بر روی شکل صلب.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
     $presentation->save("shape_transparency.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -430,36 +478,34 @@ try {
 
 نتیجه:
 
-![شکل شفاف](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
-## **چرخاندن شکل‌ها**
+## **چرخش اشکال**
 
-Aspose.Slides به شما امکان می‌دهد شکل‌ها را در ارائه‌های PowerPoint بچرخانید. این می‌تواند هنگام موقعیت‌یابی عناصر بصری با نیازهای خاص چیدمان یا طراحی مفید باشد.
+Aspose.Slides به شما امکان می‌دهد اشکال را در ارائه‌های پاورپوینت بچرخانید. این می‌تواند هنگام موقعیت‌یابی عناصر بصری با نیازهای خاص تراز یا طراحی مفید باشد.
 
-برای چرخاندن یک شکل در اسلاید، این مراحل را دنبال کنید:
+برای چرخاندن یک شکل بر روی اسلاید، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ویژگی چرخش شکل را به زاویهٔ دلخواه تنظیم کنید.
-1. ارائه را ذخیره کنید.
-
-کد PHP زیر نشان می‌دهد که چگونه یک شکل را به‌صورت ۵ درجه بچرخانید:
+1. خاصیت چرخش شکل را به زاویهٔ موردنظر تنظیم کنید.
+1. ارائهٔ تغییر یافته را ذخیره کنید.
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// ایجاد نمونه‌ای از کلاس Presentation که نمایانگر یک فایل ارائه است.
 $presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // اضافه کردن یک AutoShape از نوع Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // شکل را به میزان 5 درجه بچرخانید.
+    // چرخاندن شکل به‌ میزان 5 درجه.
     $shape->setRotation(5);
 
-    // فایل PPTX را روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX بر روی دیسک.
     $presentation->save("shape_rotation.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -468,21 +514,19 @@ try {
 
 نتیجه:
 
-![چرخش شکل](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **افکت‌های برجستگی 3D**
+## **اضافه‌کردن افکت‌های لبه‌زدن 3D**
 
-Aspose.Slides امکان اعمال افکت‌های برجستگی 3D به شکل‌ها را از طریق پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/threedformat/) فراهم می‌کند.
+Aspose.Slides به شما امکان می‌دهد افکت‌های لبه‌زدن 3D را بر اشکال با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/threedformat/) آنها اعمال کنید.
 
-برای افزودن افکت‌های برجستگی 3D به یک شکل، این مراحل را دنبال کنید:
+برای افزودن افکت‌های لبه‌زدن 3D به یک شکل، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-1. ThreeDFormat شکل را پیکربندی کنید تا تنظیمات برجستگی را تعریف کند.
-1. ارائه را ذخیره کنید.
-
-کد PHP زیر نشان می‌دهد که چگونه افکت‌های برجستگی 3D را بر روی یک شکل اعمال کنید:
+1. ویژگی [ThreeDFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/threedformat/) شکل را برای تعریف تنظیمات لبه‌زدن پیکربندی کنید.
+1. ارائهٔ تغییر یافته را ذخیره کنید.
 
 ```php
 // یک نمونه از کلاس Presentation ایجاد کنید.
@@ -516,21 +560,19 @@ try {
 
 نتیجه:
 
-![افکت برجستگی 3D](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
-## **افکت‌های چرخش 3D**
+## **اضافه‌کردن افکت‌های چرخش 3D**
 
-Aspose.Slides امکان اعمال افکت‌های چرخش 3D به شکل‌ها را از طریق پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/threedformat/) فراهم می‌کند.
+Aspose.Slides به شما امکان می‌دهد افکت‌های چرخش 3D را بر اشکال با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/threedformat/) آنها اعمال کنید.
 
 برای اعمال چرخش 3D به یک شکل:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
+1. یک مرجع به اسلایدی با ایندکس آن به دست آورید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
 1. از متدهای [setCameraType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/camera/#setCameraType) و [setLightType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/lightrig/#setLightType) برای تعریف چرخش 3D استفاده کنید.
-1. ارائه را ذخیره کنید.
-
-کد PHP زیر نشان می‌دهد که چگونه افکت‌های چرخش 3D را بر روی یک شکل اعمال کنید:
+1. ارائهٔ تغییر یافته را ذخیره کنید.
 
 ```php
 // یک نمونه از کلاس Presentation ایجاد کنید.
@@ -555,18 +597,53 @@ try {
 
 نتیجه:
 
-![افکت چرخش 3D](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
+
+## **کنترل رندر سیاه‌سفید برای اشکال**
+
+متد [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/#setBlackWhiteMode) تعیین می‌کند که یک شکل منفرد هنگام مشاهده یا پردازش ارائه در حالت سیاه‌سفید چگونه رندر شود. این متد به‌تنهایی نمایش سیاه‌سفید را فعال نمی‌کند و همچنین پر کردن، خط یا سایر قالب‌بندی‌های شکل را در حالت رنگ عادی تغییر نمی‌دهد.
+
+از مقدار موجود در کلاس [BlackWhiteMode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/blackwhitemode/) برای انتخاب رفتار موردنظر استفاده کنید. به عنوان مثال، `Automatic` به برنامه رندر اجازه می‌دهد تبدیل را انتخاب کند، `Gray` و `LightGray` از رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید را به‌کار می‌برد، `Black` و `White` یک رنگ واحد را اعمال می‌کنند، `Color` رنگ عادی را حفظ می‌کند، و `Hidden` شکل را در حالت سیاه‌سفید نادیده می‌گیرد. `NotDefined` به این معنی است که هیچ حالت سطح‌شکلی تعیین نشده است.
+
+کد PHP زیر یک شکل رنگی ایجاد می‌کند و آن را در حالت نمایش سیاه‌سفید به‌صورت خاکستری نشان می‌دهد:
+
+```php
+use aspose\slides\BlackWhiteMode;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
+
+    // پر رنگ نارنجی را در حالت رنگی نگه دارید، اما شکل را در حالت سیاه‌سفید با رنگ خاکستری رندر کنید.
+    $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
+
+    $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+در حالت رنگ عادی، مستطیل پر رنگ نارنجی خود را حفظ می‌کند. در یک جریان کاری نمایش سیاه‌سفید، به‌دلیل تنظیم حالت به `Gray`، از رنگ خاکستری استفاده می‌کند. این امکان را به شما می‌دهد تا یک اسلاید تمام‌رنگ حفظ کنید در حالی که ظاهر متمایزی برای چاپ، پیش‌نمایش یا سایر جریان‌های کاری که تنظیمات نمایش سیاه‌سفید ارائه را رعایت می‌کنند، تعریف کنید.
 
 ## **بازنشانی قالب‌بندی**
 
-کد Java زیر نشان می‌دهد که چگونه قالب‌بندی یک اسلاید را بازنشانی کرده و موقعیت، اندازه و قالب‌بندی تمام شکل‌های دارای جای‌نگهدار در [LayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/) را به تنظیمات پیش‌فرض برگردانید:
+کد Java زیر نحوهٔ بازنشانی قالب‌بندی یک اسلاید و بازگرداندن موقعیت، اندازه و قالب‌بندی تمام اشکالی که دارای نگهدارنده‌ها بر روی [LayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/) هستند به تنظیمات پیش‌فرض را نشان می‌دهد:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // هر شکل روی اسلایدی که در طرح‌بندی جای‌نگهدار دارد را بازنشانی کنید.
+        // بازنشانی هر شکلی در اسلاید که دارای نگهدارنده‌ای در چینش است.
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -579,12 +656,12 @@ try {
 
 **آیا قالب‌بندی شکل بر اندازهٔ نهایی فایل ارائه تأثیر می‌گذارد؟**
 
-فقط به‌صورت جزئی. تصاویر و رسانه‌های تعبیه‌شده بیشترین فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان فراداده ذخیره می‌شوند و تقریباً هیچ حجم اضافی ایجاد نمی‌کنند.
+تقریباً نه. تصاویر و رسانه‌های جاسازی‌شده بیشتر فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌صورت متادیتا ذخیره می‌شوند و به‌صورت تقریباً هیچ اندازهٔ اضافی اضافه نمی‌کنند.
 
-**چگونه می‌توانم شکل‌هایی را در یک اسلاید که قالب‌بندی یکسانی دارند شناسایی کنم تا بتوانم آنها را گروه‌بندی کنم؟**
+**چگونه می‌توانم اشکالی را که در یک اسلاید قالب‌بندی یکسان دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
 
-هر یک از ویژگی‌های کلیدی قالب‌بندی شکل‌ها—تنظیمات پر، خط و افکت—را مقایسه کنید. اگر تمام مقادیر متناظر یکسان باشند، سبک آن‌ها را یکسان درنظر بگیرید و منطقی آن شکل‌ها را گروه‌بندی کنید که مدیریت سبک‌ها را در مراحل بعدی ساده‌تر می‌کند.
+ویژگی‌های کلیدی قالب‌بندی هر شکل—مانند تنظیمات پر، خط و افکت‌ها—را مقایسه کنید. اگر تمام مقادیر متناظر برابر باشند، می‌توانید سبک‌های آن‌ها را یکسان در نظر بگیرید و به‌طور منطقی آن اشکال را گروه‌بندی کنید؛ این کار مدیریت سبک‌ها را در مراحل بعدی ساده می‌کند.
 
-**آیا می‌توانم یک مجموعه از سبک‌های سفارشی شکل را در فایلی جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده شود؟**
+**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در فایلی جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده مجدد شود؟**
 
-بله. شکل‌های نمونه با سبک‌های مورد نظر را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد ارائه جدید، قالب را باز کنید، شکل‌های سبک‌دار مورد نیاز را کلون کنید و قالب‌بندی آن‌ها را در هر جای لازم مجدداً اعمال کنید.
+بله. اشکال نمونه با سبک‌های دلخواه را در یک اسلاید الگو یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد ارائهٔ جدید، قالب را باز کنید، اشکال استایل‌دار موردنیاز را کلون کنید و قالب‌بندی آن‌ها را در هر جایی که لازم است اعمال کنید.

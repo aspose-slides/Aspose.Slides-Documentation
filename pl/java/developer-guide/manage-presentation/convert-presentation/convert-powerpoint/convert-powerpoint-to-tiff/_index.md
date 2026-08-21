@@ -1,5 +1,5 @@
 ---
-title: Konwertuj prezentacje PowerPoint do TIFF w Javie
+title: Konwertuj prezentacje PowerPoint na TIFF w Javie
 titlelink: PowerPoint do TIFF
 type: docs
 weight: 90
@@ -26,17 +26,19 @@ description: "Dowiedz się, jak łatwo konwertować prezentacje PowerPoint (PPT,
 ---
 ## **Wprowadzenie**
 
-TIFF (**Tagged Image File Format**) jest powszechnie używanym, bezstratnym formatem rastrowym, znanym z wyjątkowej jakości i dokładnego zachowania grafiki. Projektanci, fotografowie i wydawcy desktopowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i pierwotne ustawienia w swoich obrazach.
+TIFF (**Tagged Image File Format**) to powszechnie używany, bezstratny format obrazu rastrowego, znany ze swojej wyjątkowej jakości i szczegółowego zachowania grafiki. Projektanci, fotografowie i wydawcy desktopowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i pierwotne ustawienia w swoich obrazach.
 
-Korzystając z Aspose.Slides, możesz bezproblemowo konwertować slajdy PowerPoint (PPT, PPTX) i slajdy OpenDocument (ODP) bezpośrednio do wysokiej jakości obrazów TIFF, zapewniając, że Twoje prezentacje zachowają maksymalną wierność wizualną. 
+Korzystając z Aspose.Slides, możesz bez wysiłku konwertować swoje slajdy PowerPoint (PPT, PPTX) i slajdy OpenDocument (ODP) bezpośrednio na obrazy TIFF wysokiej jakości, zapewniając maksymalną wierność wizualną prezentacji. 
 
-## **Konwertowanie prezentacji do formatu TIFF**
+## **Konwersja prezentacji do TIFF**
 
-Używając metody [save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), możesz szybko przekonwertować całą prezentację PowerPoint do formatu TIFF. Powstałe obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
+Używając metody [save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), możesz szybko zamienić całą prezentację PowerPoint na TIFF. Uzyskane obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
 
-Ten kod demonstruje, jak skonwertować prezentację PowerPoint do formatu TIFF:
+Poniższy kod demonstruje, jak skonwertować prezentację PowerPoint do formatu TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -47,17 +49,25 @@ try {
 }
 ```
 
-## **Konwertowanie prezentacji do czarno-białego TIFF**
+## **Konwersja prezentacji do czarno‑białego TIFF**
 
-Metoda [setBwConversionMode](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/) umożliwia określenie algorytmu używanego przy konwertowaniu kolorowego slajdu lub obrazu na czarno-biały TIFF. Zwróć uwagę, że to ustawienie ma zastosowanie tylko wtedy, gdy metoda [setCompressionType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) jest ustawiona na `CCITT4` lub `CCITT3`.
+Metoda [setBwConversionMode](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/) umożliwia określenie algorytmu używanego przy konwersji kolorowego slajdu lub obrazu na czarno‑białe TIFF. Należy pamiętać, że ustawienie to ma zastosowanie tylko wtedy, gdy metoda [setCompressionType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) jest ustawiona na `CCITT4` lub `CCITT3`.
+
+{{% alert color="info" title="Uwaga" %}}
+
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) jest ustawieniem na poziomie eksportu, które wybiera algorytm konwersji pikseli dla całego obrazu TIFF. Aby określić, jak ma wyglądać pojedynczy kształt w trybie czarno‑białym, użyj [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-). Zobacz [Control Black-and-White Rendering for Shapes](/java/shape-formatting/#control-black-and-white-rendering-for-shapes) po przykłady.
+
+{{% /alert %}}
 
 Załóżmy, że mamy plik „sample.pptx” z następującym slajdem:
 
-![Slajd prezentacji](slide_black_and_white.png)
+![A presentation slide](slide_black_and_white.png)
 
-Ten kod demonstruje, jak przekonwertować kolorowy slajd na czarno-biały TIFF:
+Poniższy kod demonstruje, jak przekonwertować kolorowy slajd na czarno‑białe TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -72,15 +82,18 @@ try {
 
 Wynik:
 
-![Czarno-biały TIFF](TIFF_black_and_white.png)
+![Black-and-White TIFF](TIFF_black_and_white.png)
 
-## **Konwertowanie prezentacji do TIFF o niestandardowym rozmiarze**
+## **Konwersja prezentacji do TIFF o niestandardowym rozmiarze**
 
-Jeśli potrzebujesz obrazu TIFF o konkretnych wymiarach, możesz ustawić żądane wartości przy pomocy metod dostępnych w klasie [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/). Na przykład metoda [setImageSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) pozwala określić rozmiar wynikowego obrazu.
+Jeżeli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości za pomocą metod dostępnych w klasie [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/). Na przykład metoda [setImageSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) pozwala zdefiniować rozmiar wynikowego obrazu.
 
-Ten kod demonstruje, jak przekonwertować prezentację PowerPoint do obrazów TIFF o niestandardowym rozmiarze:
+Poniższy kod demonstruje, jak skonwertować prezentację PowerPoint do obrazów TIFF o niestandardowym rozmiarze:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -90,8 +103,8 @@ try {
     tiffOptions.setCompressionType(TiffCompressionTypes.Default);
     /*
     Typy kompresji:
-        Default - Określa domyślny schemat kompresji (LZW).
-        None - Określa brak kompresji.
+        Domyślna - Określa domyślny schemat kompresji (LZW).
+        Brak - Określa brak kompresji.
         CCITT3
         CCITT4
         LZW
@@ -107,7 +120,7 @@ try {
     // Ustaw rozmiar obrazu.
     tiffOptions.setImageSize(new Dimension(1728, 1078));
 
-    INotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
@@ -118,13 +131,15 @@ try {
 }
 ```
 
-## **Konwertowanie prezentacji do TIFF z niestandardowym formatem pikseli obrazu**
+## **Konwersja prezentacji do TIFF z niestandardowym formatem pikseli obrazu**
 
-Używając metody [setPixelFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) z klasy [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/), możesz określić preferowany format pikseli dla wynikowego obrazu TIFF.
+Korzystając z metody [setPixelFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) klasy [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/), możesz określić preferowany format pikseli dla wynikowego obrazu TIFF.
 
-Ten kod demonstruje, jak przekonwertować prezentację PowerPoint do obrazu TIFF z niestandardowym formatem pikseli:
+Poniższy kod demonstruje, jak skonwertować prezentację PowerPoint do obrazu TIFF z niestandardowym formatem pikseli:
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -140,27 +155,29 @@ try {
         Format32bppArgb   - 32 bity na piksel, ARGB.
     */
     
-    // Zapisz prezentację jako TIFF o określonym rozmiarze obrazu.
+    // Zapisz prezentację jako TIFF w określonym formacie pikseli.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Sprawdź [DARMOWY konwerter PowerPoint na plakat] od Aspose (https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
+{{% alert title="Wskazówka" color="info" %}}
+
+Sprawdź darmowy konwerter Aspose „PowerPoint to Poster” dostępny pod adresem [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę przekonwertować pojedynczy slajd zamiast całej prezentacji PowerPoint do formatu TIFF?**
+**Czy mogę skonwertować pojedynczy slajd zamiast całej prezentacji PowerPoint do TIFF?**
 
-Tak. Aspose.Slides pozwala na konwertowanie pojedynczych slajdów z prezentacji PowerPoint i OpenDocument do obrazów TIFF osobno.
+Tak. Aspose.Slides umożliwia konwersję poszczególnych slajdów z prezentacji PowerPoint i OpenDocument na obrazy TIFF osobno.
 
-**Czy istnieje jakiś limit liczby slajdów przy konwertowaniu prezentacji do formatu TIFF?**
+**Czy istnieje limit liczby slajdów przy konwersji prezentacji do TIFF?**
 
-Nie, Aspose.Slides nie nakłada żadnych ograniczeń na liczbę slajdów. Możesz konwertować prezentacje dowolnej wielkości do formatu TIFF.
+Nie, Aspose.Slides nie nakłada ograniczeń dotyczących liczby slajdów. Możesz konwertować prezentacje dowolnej wielkości do formatu TIFF.
 
-**Czy animacje i efekty przejść PowerPoint są zachowywane przy konwertowaniu slajdów do formatu TIFF?**
+**Czy animacje i efekty przejść PowerPoint są zachowywane przy konwersji slajdów do TIFF?**
 
-Nie, TIFF jest formatem obrazu statycznego. Dlatego animacje i efekty przejść nie są zachowywane; eksportowane są jedynie statyczne zrzuty slajdów.
+Nie, TIFF jest formatem obrazu statycznego. W związku z tym animacje i efekty przejść nie są zachowywane; eksportowane są jedynie statyczne zrzuty slajdów.

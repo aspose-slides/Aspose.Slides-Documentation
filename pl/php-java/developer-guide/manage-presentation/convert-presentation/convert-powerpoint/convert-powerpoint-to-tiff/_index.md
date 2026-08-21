@@ -1,5 +1,5 @@
 ---
-title: Konwertowanie prezentacji PowerPoint na TIFF w PHP
+title: Konwertowanie prezentacji PowerPoint do formatu TIFF w PHP
 titlelink: PowerPoint do TIFF
 type: docs
 weight: 90
@@ -26,18 +26,18 @@ description: "Dowiedz się, jak łatwo konwertować prezentacje PowerPoint (PPT,
 ---
 ## **Wprowadzenie**
 
-TIFF (**Tagged Image File Format**) jest powszechnie używanym, bezstratnym formatem obrazu rastrowego, znanym z wyjątkowej jakości i szczegółowego zachowania grafiki. Projektanci, fotografowie i wydawcy komputerowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i pierwotne ustawienia w swoich obrazach.
+TIFF (**Tagged Image File Format**) jest powszechnie używanym, bezstratnym formatem obrazu rastrowego, znanym z wyjątkowej jakości i dokładnego zachowania grafiki. Projektanci, fotografowie i wydawcy komputerowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i pierwotne ustawienia w swoich obrazach.
 
-Korzystając z Aspose.Slides, możesz bez wysiłku konwertować swoje slajdy PowerPoint (PPT, PPTX) oraz slajdy OpenDocument (ODP) bezpośrednio na obrazy TIFF wysokiej jakości, zapewniając, że prezentacje zachowają maksymalną wierność wizualną. 
+Korzystając z Aspose.Slides, możesz bez trudu konwertować swoje slajdy PowerPoint (PPT, PPTX) i slajdy OpenDocument (ODP) bezpośrednio na wysokiej jakości obrazy TIFF, zapewniając, że Twoje prezentacje zachowają maksymalną wierność wizualną. 
 
-## **Konwertowanie prezentacji na TIFF**
+## **Konwertowanie prezentacji do formatu TIFF**
 
-Korzystając z metody [save](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#save) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), możesz szybko przekonwertować całą prezentację PowerPoint na TIFF. Powstałe obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
+Korzystając z metody [save](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#save) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), możesz szybko przekonwertować całą prezentację PowerPoint do formatu TIFF. Powstałe obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
 
-Ten kod demonstruje, jak przekonwertować prezentację PowerPoint na TIFF:
+Ten kod demonstruje, jak przekonwertować prezentację PowerPoint do formatu TIFF:
 
 ```php
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP, itp.).
+// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 $presentation = new Presentation("presentation.pptx");
 try {
     // Zapisz prezentację jako TIFF.
@@ -47,15 +47,19 @@ try {
 }
 ```
 
-## **Konwertowanie prezentacji na czarno‑biały TIFF**
+## **Konwertowanie prezentacji do czarno-białego TIFF**
 
-Metoda [setBwConversionMode](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#setBwConversionMode) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/) umożliwia określenie algorytmu używanego przy konwersji kolorowego slajdu lub obrazu na czarno‑biały TIFF. Należy zauważyć, że to ustawienie ma zastosowanie tylko wtedy, gdy metoda [setCompressionType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#getCompressionType) jest ustawiona na `CCITT4` lub `CCITT3`.
+Metoda [setBwConversionMode](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#setBwConversionMode) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/) umożliwia określenie algorytmu używanego przy konwersji kolorowego slajdu lub obrazu do czarno-białego TIFF. Zwróć uwagę, że to ustawienie obowiązuje tylko wtedy, gdy metoda [setCompressionType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#getCompressionType) jest ustawiona na `CCITT4` lub `CCITT3`.
 
-Załóżmy, że mamy plik „sample.pptx” z następującym slajdem:
+{{% alert color="info" title="Uwaga" %}}
+[TiffOptions::setBwConversionMode](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#setBwConversionMode) jest ustawieniem na poziomie eksportu, które wybiera algorytm konwersji pikseli dla całego obrazu TIFF. Aby określić, jak ma się wyświetlać pojedynczy kształt w trybie czarno-białym, użyj [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/#setBlackWhiteMode). Zobacz [Control Black-and-White Rendering for Shapes](/php-java/shape-formatting/#control-black-and-white-rendering-for-shapes) po przykłady.
+{{% /alert %}}
+
+Załóżmy, że mamy plik "sample.pptx" z następującym slajdem:
 
 ![Slajd prezentacji](slide_black_and_white.png)
 
-Ten kod demonstruje, jak przekonwertować kolorowy slajd na czarno‑biały TIFF:
+Ten kod demonstruje, jak przekonwertować kolorowy slajd do czarno-białego TIFF:
 
 ```php
 $tiffOptions = new TiffOptions();
@@ -72,16 +76,16 @@ try {
 
 Wynik:
 
-![Czarno‑biały TIFF](TIFF_black_and_white.png)
+![Czarno-biały TIFF](TIFF_black_and_white.png)
 
-## **Konwertowanie prezentacji na TIFF o niestandardowym rozmiarze**
+## **Konwertowanie prezentacji do TIFF o niestandardowym rozmiarze**
 
-Jeśli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości przy użyciu metod dostępnych w [TiffOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/). Na przykład metoda [setImageSize](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#getImageSize) umożliwia zdefiniowanie rozmiaru powstałego obrazu.
+Jeśli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości używając metod dostępnych w klasie [TiffOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/). Na przykład metoda [setImageSize](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#getImageSize) pozwala określić rozmiar wynikowego obrazu.
 
-Ten kod demonstruje, jak przekonwertować prezentację PowerPoint na obrazy TIFF o niestandardowym rozmiarze:
+Ten kod demonstruje, jak przekonwertować prezentację PowerPoint do obrazów TIFF o niestandardowym rozmiarze:
 
 ```php
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP, itp.).
+// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
@@ -118,14 +122,14 @@ try {
 }
 ```
 
-## **Konwertowanie prezentacji na TIFF z niestandardowym formatem pikseli obrazu**
+## **Konwertowanie prezentacji do TIFF z niestandardowym formatem pikseli obrazu**
 
-Korzystając z metody [setPixelFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#getPixelFormat) klasy [TiffOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/), możesz określić preferowany format pikseli dla powstałego obrazu TIFF.
+Korzystając z metody [setPixelFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/#getPixelFormat) z klasy [TiffOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/tiffoptions/), możesz określić preferowany format pikseli dla powstałego obrazu TIFF.
 
-Ten kod demonstruje, jak przekonwertować prezentację PowerPoint na obraz TIFF z niestandardowym formatem pikseli:
+Ten kod demonstruje, jak przekonwertować prezentację PowerPoint do obrazu TIFF z niestandardowym formatem pikseli:
 
 ```php
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP, itp.).
+// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
@@ -147,20 +151,20 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Sprawdź [DARMOWY konwerter PowerPoint na plakat](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
+{{% alert title="Wskazówka" color="info" %}}
+Sprawdź [DARMOWY konwerter PowerPoint na plakat](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online) od Aspose.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę konwertować pojedynczy slajd zamiast całej prezentacji PowerPoint na TIFF?**
+**Czy mogę przekonwertować pojedynczy slajd zamiast całej prezentacji PowerPoint do formatu TIFF?**
 
-Tak. Aspose.Slides umożliwia konwertowanie pojedynczych slajdów z prezentacji PowerPoint i OpenDocument na obrazy TIFF osobno.
+Tak. Aspose.Slides umożliwia konwersję poszczególnych slajdów z prezentacji PowerPoint i OpenDocument na obrazy TIFF osobno.
 
-**Czy istnieje limit liczby slajdów przy konwertowaniu prezentacji na TIFF?**
+**Czy istnieje limit liczby slajdów przy konwertowaniu prezentacji do TIFF?**
 
-Nie, Aspose.Slides nie nakłada żadnych ograniczeń na liczbę slajdów. Możesz konwertować prezentacje dowolnego rozmiaru do formatu TIFF.
+Nie, Aspose.Slides nie nakłada żadnych ograniczeń na liczbę slajdów. Możesz konwertować prezentacje dowolnej wielkości do formatu TIFF.
 
-**Czy animacje i efekty przejść PowerPoint są zachowywane przy konwertowaniu slajdów do TIFF?**
+**Czy animacje i efekty przejść PowerPoint są zachowywane przy konwersji slajdów do TIFF?**
 
-Nie, TIFF jest statycznym formatem obrazu. Dlatego animacje i efekty przejść nie są zachowywane; eksportowane są jedynie statyczne migawki slajdów.
+Nie, TIFF jest formatem obrazu statycznego. W związku z tym animacje i efekty przejść nie są zachowywane; eksportowane są jedynie statyczne migawki slajdów.

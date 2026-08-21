@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint التقديمية إلى TIFF على Android
+title: تحويل عروض PowerPoint إلى TIFF على نظام Android
 titlelink: PowerPoint إلى TIFF
 type: docs
 weight: 90
@@ -25,20 +25,22 @@ keywords:
 - Aspose.Slides
 description: "تعلم كيفية تحويل عروض PowerPoint (PPT، PPTX) بسهولة إلى صور TIFF عالية الجودة باستخدام Aspose.Slides لنظام Android، مع أمثلة شفرة Java."
 ---
+## **مقدمة**
 
-## **نظرة عامة**
+TIFF (**Tagged Image File Format**) هو تنسيق صورة نقطية غير مضغوطة يُستخدم على نطاق واسع، يُعرف بجودته الاستثنائية وحفظ التفاصيل الدقيقة للرسومات. غالبًا ما يختار المصممون والمصورون والناشرون المكتبيون TIFF للحفاظ على الطبقات ودقة الألوان والإعدادات الأصلية في صورهم.
 
-TIFF (Tagged Image File Format) هو تنسيق صورة نقطية غير مفقودة يُستخدم على نطاق واسع، ويعرف بجودته الاستثنائية واحتفاظه التفصيلي بالرسومات. غالبًا ما يختار المصممون والمصورون وناشوّرو سطح المكتب TIFF للحفاظ على الطبقات ودقة الألوان والإعدادات الأصلية في صورهم.
-
-باستخدام Aspose.Slides، يمكنك بسهولة تحويل شرائح PowerPoint (PPT، PPTX) وشرائح OpenDocument (ODP) مباشرة إلى صور TIFF عالية الجودة، مما يضمن احتفاظ عروضك التقديمية بأقصى دقة بصرية. 
+باستخدام Aspose.Slides، يمكنك بسهولة تحويل شرائح PowerPoint (PPT، PPTX) وشرائح OpenDocument (ODP) مباشرةً إلى صور TIFF عالية الجودة، مما يضمن احتفاظ عروضك التقديمية بأقصى قدر من الوضوح البصري.
 
 ## **تحويل عرض تقديمي إلى TIFF**
 
-باستخدام طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) المقدمة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)، يمكنك بسرعة تحويل عرض تقديمي كامل من PowerPoint إلى TIFF. تتوافق صور TIFF الناتجة مع حجم الشريحة الافتراضي.
+باستخدام الطريقة [save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) المقدمة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/)، يمكنك بسرعة تحويل عرض PowerPoint بالكامل إلى TIFF. تتطابق صور TIFF الناتجة مع حجم الشريحة الافتراضي.
 
-يعرض هذا الشيفرة كيفية تحويل عرض تقديمي من PowerPoint إلى TIFF:
+يظهر هذا المثال كيفية تحويل عرض PowerPoint إلى TIFF:
+
 ```java
-// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي (PPT ، PPTX ، ODP ، إلخ).
+import com.aspose.slides.*;
+
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     // حفظ العرض التقديمي كملف TIFF.
@@ -48,17 +50,23 @@ try {
 }
 ```
 
+## **تحويل عرض تقديمي إلى TIFF أبيض وأسود**
 
-## **تحويل عرض تقديمي إلى TIFF بالأبيض والأسود**
+تسمح الطريقة [setBwConversionMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) في الفئة [TiffOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/) لك بتحديد الخوارزمية المستخدمة عند تحويل شريحة أو صورة ملونة إلى TIFF أبيض وأسود. لاحظ أن هذا الإعداد يطبق فقط عندما تكون الطريقة [setCompressionType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) مضبوطة على `CCITT4` أو `CCITT3`.
 
-تسمح الطريقة [setBwConversionMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) في فئة [TiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/) لك بتحديد الخوارزمية المستخدمة عند تحويل شريحة ملونة أو صورة إلى TIFF بالأبيض والأسود. لاحظ أن هذا الإعداد يطبق فقط عندما تكون طريقة [setCompressionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) مضبوطة على `CCITT4` أو `CCITT3`.
+{{% alert color="info" title="Note" %}}
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) هو إعداد على مستوى التصدير يختار خوارزمية تحويل البكسل لصورة TIFF الكاملة. لتحديد كيف يجب أن تظهر شكل فردي عندما يكون وضع العرض أبيض وأسود مفعلاً، استخدم [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-). انظر [Control Black-and-White Rendering for Shapes](/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) للحصول على أمثلة.
+{{% /alert %}}
 
 لنفترض أن لدينا ملف "sample.pptx" يحتوي على الشريحة التالية:
 
 ![شريحة عرض تقديمي](slide_black_and_white.png)
 
-يعرض هذا الشيفرة كيفية تحويل الشريحة الملونة إلى TIFF بالأبيض والأسود:
+يظهر هذا المثال كيفية تحويل الشريحة الملونة إلى TIFF أبيض وأسود:
+
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -71,18 +79,19 @@ try {
 }
 ```
 
-
-النتيجة:
-
-![TIFF بالأبيض والأسود](TIFF_black_and_white.png)
+![TIFF أبيض وأسود](TIFF_black_and_white.png)
 
 ## **تحويل عرض تقديمي إلى TIFF بحجم مخصص**
 
-إذا كنت تحتاج إلى صورة TIFF بأبعاد محددة، يمكنك تعيين القيم المطلوبة باستخدام الطرق المتاحة في [TiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/). على سبيل المثال، تسمح لك طريقة [setImageSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-) بتحديد حجم الصورة الناتجة.
+إذا كنت تحتاج إلى صورة TIFF بأبعاد محددة، يمكنك ضبط القيم المطلوبة باستخدام الطرق المتوفرة في الفئة [TiffOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/). على سبيل المثال، تسمح لك الطريقة [setImageSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-) بتحديد حجم الصورة الناتجة.
 
-يعرض هذا الشيفرة كيفية تحويل عرض تقديمي من PowerPoint إلى صور TIFF بحجم مخصص:
+يظهر هذا المثال كيفية تحويل عرض PowerPoint إلى صور TIFF بحجم مخصص:
+
 ```java
-// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
@@ -91,7 +100,7 @@ try {
     tiffOptions.setCompressionType(TiffCompressionTypes.Default);
     /*
     أنواع الضغط:
-        Default - يحدد نظام الضغط الافتراضي (LZW).
+        Default - يحدد مخطط الضغط الافتراضي (LZW).
         None - يحدد عدم وجود ضغط.
         CCITT3
         CCITT4
@@ -108,7 +117,7 @@ try {
     // تعيين حجم الصورة.
     tiffOptions.setImageSize(new Size(1728, 1078));
 
-    INotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
@@ -119,41 +128,42 @@ try {
 }   
 ```
 
+## **تحويل عرض تقديمي إلى TIFF بتنسيق بكسل صورة مخصص**
 
-## **تحويل عرض تقديمي إلى TIFF بصيغة بكسل مخصصة للصورة**
+باستخدام الطريقة [setPixelFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) من الفئة [TiffOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/)، يمكنك تحديد تنسيق البكسل المفضل لديك للصورة TIFF الناتجة.
 
-باستخدام طريقة [setPixelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) من فئة [TiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/)، يمكنك تحديد صيغة البكسل المفضلة لديك للصورة TIFF الناتجة.
+يظهر هذا المثال كيفية تحويل عرض PowerPoint إلى صورة TIFF بتنسيق بكسل مخصص:
 
-يعرض هذا الشيفرة كيفية تحويل عرض تقديمي من PowerPoint إلى صورة TIFF بصيغة بكسل مخصصة:
 ```java
-// إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
+import com.aspose.slides.*;
+
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
 
     tiffOptions.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat يحتوي على القيم التالية (كما هو مذكور في الوثائق):
-        Format1bppIndexed - 1 بت لكل بكسل، مفهرس.
-        Format4bppIndexed - 4 بت لكل بكسل، مفهرس.
-        Format8bppIndexed - 8 بت لكل بكسل، مفهرس.
+    ImagePixelFormat يحتوي على القيم التالية (كما هو موضح في الوثائق):
+        Format1bppIndexed - 1 بت لكل بكسل، مؤشر.
+        Format4bppIndexed - 4 بت لكل بكسل، مؤشر.
+        Format8bppIndexed - 8 بت لكل بكسل، مؤشر.
         Format24bppRgb    - 24 بت لكل بكسل، RGB.
         Format32bppArgb   - 32 بت لكل بكسل، ARGB.
     */
     
-    // حفظ العرض التقديمي كملف TIFF بالحجم المحدد للصورة.
+    // حفظ العرض التقديمي كملف TIFF بالتنسيق البكسلي المحدد.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-
-{{% alert title="Tip" color="primary" %}}
-تحقق من أداة التحويل المجانية من PowerPoint إلى ملصق من Aspose's [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+تحقق من [محول PowerPoint إلى ملصق مجاني](https://products.aspose.app/slides/ar/conversion/convert-ppt-to-poster-online) من Aspose.
 {{% /alert %}}
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
 **هل يمكنني تحويل شريحة فردية بدلاً من عرض PowerPoint كامل إلى TIFF؟**
 
@@ -161,8 +171,8 @@ try {
 
 **هل هناك أي حد لعدد الشرائح عند تحويل عرض تقديمي إلى TIFF؟**
 
-لا، لا يفرض Aspose.Slides أي قيود على عدد الشرائح. يمكنك تحويل عروض تقديمية بأي حجم إلى صيغة TIFF.
+لا، لا يفرض Aspose.Slides أي قيود على عدد الشرائح. يمكنك تحويل عروض بأي حجم إلى تنسيق TIFF.
 
-**هل يتم الحفاظ على الرسوم المتحركة وتأثيرات الانتقال في PowerPoint عند تحويل الشرائح إلى TIFF؟**
+**هل يتم حفظ حركات PowerPoint وتأثيرات الانتقال عند تحويل الشرائح إلى TIFF؟**
 
-لا، فإن TIFF تنسيق صورة ثابت. لذلك، لا يتم الحفاظ على الرسوم المتحركة وتأثيرات الانتقال؛ يتم تصدير لقطات ثابتة فقط من الشرائح.
+لا، TIFF هو تنسيق صورة ثابت. لذلك، لا يتم حفظ الحركات أو تأثيرات الانتقال؛ يتم تصدير لقطات ثابتة فقط من الشرائح.

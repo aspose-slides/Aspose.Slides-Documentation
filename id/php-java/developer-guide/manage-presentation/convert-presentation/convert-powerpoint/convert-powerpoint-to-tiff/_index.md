@@ -22,22 +22,22 @@ keywords:
 - ekspor PPTX ke TIFF
 - PHP
 - Aspose.Slides
-description: "Pelajari cara dengan mudah mengonversi presentasi PowerPoint (PPT, PPTX) ke gambar TIFF berkualitas tinggi menggunakan Aspose.Slides untuk PHP via Java, dengan contoh kode."
+description: "Pelajari cara mengonversi presentasi PowerPoint (PPT, PPTX) menjadi gambar TIFF berkualitas tinggi menggunakan Aspose.Slides untuk PHP via Java, dengan contoh kode."
 ---
 ## **Pendahuluan**
 
-TIFF (**Tagged Image File Format**) adalah format gambar raster lossless yang banyak digunakan, dikenal karena kualitas yang luar biasa dan preservasi detail grafis. Desainer, fotografer, dan penerbit desktop sering memilih TIFF untuk mempertahankan lapisan, akurasi warna, dan pengaturan asli dalam gambar mereka.
+TIFF (Tagged Image File Format) adalah format gambar raster lossless yang banyak digunakan, dikenal karena kualitas luar biasa dan preservasi detail grafis. Desainer, fotografer, dan penerbit desktop sering memilih TIFF untuk mempertahankan lapisan, akurasi warna, dan pengaturan asli pada gambar mereka.
 
-Dengan Aspose.Slides, Anda dapat dengan mudah mengonversi slide PowerPoint (PPT, PPTX) dan slide OpenDocument (ODP) secara langsung menjadi gambar TIFF berkualitas tinggi, memastikan presentasi Anda mempertahankan fidelitas visual maksimum. 
+Dengan Aspose.Slides, Anda dapat dengan mudah mengonversi slide PowerPoint (PPT, PPTX) dan slide OpenDocument (ODP) secara langsung menjadi gambar TIFF berkualitas tinggi, memastikan presentasi Anda mempertahankan fidelitas visual maksimal. 
 
 ## **Mengonversi Presentasi ke TIFF**
 
-Menggunakan metode [save](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#save) yang disediakan oleh kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) , Anda dapat dengan cepat mengonversi seluruh presentasi PowerPoint ke TIFF. Gambar TIFF yang dihasilkan sesuai dengan ukuran slide default.
+Dengan menggunakan metode [save](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#save) yang disediakan oleh kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/), Anda dapat dengan cepat mengonversi seluruh presentasi PowerPoint menjadi TIFF. Gambar TIFF yang dihasilkan sesuai dengan ukuran slide default.
 
-Kode ini menunjukkan cara mengonversi presentasi PowerPoint ke TIFF:
+Kode ini menunjukkan cara mengonversi presentasi PowerPoint menjadi TIFF:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi (PPT, PPTX, ODP, dll.).
+// Instansiasi kelas Presentation yang mewakili file presentasi (PPT, PPTX, ODP, dll.).
 $presentation = new Presentation("presentation.pptx");
 try {
     // Simpan presentasi sebagai TIFF.
@@ -47,15 +47,19 @@ try {
 }
 ```
 
-## **Mengonversi Presentasi ke TIFF Hitam‑Putih**
+## **Mengonversi Presentasi ke TIFF Hitam-putih**
 
-Metode [setBwConversionMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#setBwConversionMode) dalam kelas [TiffOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/) memungkinkan Anda menentukan algoritma yang digunakan saat mengonversi slide atau gambar berwarna menjadi TIFF hitam‑putih. Perhatikan bahwa pengaturan ini hanya berlaku ketika metode [setCompressionType](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#getCompressionType) diatur ke `CCITT4` atau `CCITT3`.
+Metode [setBwConversionMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#setBwConversionMode) dalam kelas [TiffOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/) memungkinkan Anda menentukan algoritma yang digunakan saat mengonversi slide atau gambar berwarna menjadi TIFF hitam-putih. Perhatikan bahwa pengaturan ini hanya berlaku ketika metode [setCompressionType](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#getCompressionType) disetel ke `CCITT4` atau `CCITT3`.
+
+{{% alert color="info" title="Note" %}}
+[TiffOptions::setBwConversionMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#setBwConversionMode) adalah pengaturan tingkat ekspor yang memilih algoritma konversi piksel untuk seluruh gambar TIFF. Untuk menentukan bagaimana bentuk individu terlihat ketika mode tampilan hitam-putih aktif, gunakan [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/#setBlackWhiteMode). Lihat [Control Black-and-White Rendering for Shapes](/php-java/shape-formatting/#control-black-and-white-rendering-for-shapes) untuk contoh.
+{{% /alert %}}
 
 Misalkan kita memiliki file "sample.pptx" dengan slide berikut:
 
-![A presentation slide](slide_black_and_white.png)
+![Sebuah slide presentasi](slide_black_and_white.png)
 
-Kode ini menunjukkan cara mengonversi slide berwarna menjadi TIFF hitam‑putih:
+Kode ini menunjukkan cara mengonversi slide berwarna menjadi TIFF hitam-putih:
 
 ```php
 $tiffOptions = new TiffOptions();
@@ -70,23 +74,23 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
-![Black-and-White TIFF](TIFF_black_and_white.png)
+![TIFF Hitam-putih](TIFF_black_and_white.png)
 
 ## **Mengonversi Presentasi ke TIFF dengan Ukuran Kustom**
 
-Jika Anda memerlukan gambar TIFF dengan dimensi tertentu, Anda dapat mengatur nilai yang diinginkan menggunakan metode yang tersedia di [TiffOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/). Misalnya, metode [setImageSize](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#getImageSize) memungkinkan Anda mendefinisikan ukuran gambar yang dihasilkan.
+Jika Anda memerlukan gambar TIFF dengan dimensi tertentu, Anda dapat menetapkan nilai yang diinginkan menggunakan metode yang tersedia di [TiffOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/). Misalnya, metode [setImageSize](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#getImageSize) memungkinkan Anda menentukan ukuran gambar yang dihasilkan.
 
-Kode ini menunjukkan cara mengonversi presentasi PowerPoint ke gambar TIFF dengan ukuran kustom:
+Kode ini menunjukkan cara mengonversi presentasi PowerPoint menjadi gambar TIFF dengan ukuran kustom:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi (PPT, PPTX, ODP, dll.).
+// Instansiasi kelas Presentation yang mewakili file presentasi (PPT, PPTX, ODP, dll).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
 
-    // Atur jenis kompresi.
+    // Tentukan jenis kompresi.
     $tiffOptions->setCompressionType(TiffCompressionTypes::Default);
     /*
     Jenis kompresi:
@@ -100,11 +104,11 @@ try {
 
     // Kedalaman tergantung pada jenis kompresi dan tidak dapat diatur secara manual.
 
-    // Atur DPI gambar.
+    // Tentukan DPI gambar.
     $tiffOptions->setDpiX(200);
     $tiffOptions->setDpiY(200);
 
-    // Atur ukuran gambar.
+    // Tentukan ukuran gambar.
     $tiffOptions->setImageSize(new Java("java.awt.Dimension", 1728, 1078));
 
     $notesOptions = new NotesCommentsLayoutingOptions();
@@ -120,12 +124,12 @@ try {
 
 ## **Mengonversi Presentasi ke TIFF dengan Format Piksel Gambar Kustom**
 
-Dengan menggunakan metode [setPixelFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#getPixelFormat) dari kelas [TiffOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/) , Anda dapat menentukan format piksel pilihan untuk gambar TIFF yang dihasilkan.
+Dengan menggunakan metode [setPixelFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/#getPixelFormat) dari kelas [TiffOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/tiffoptions/), Anda dapat menentukan format piksel yang Anda inginkan untuk gambar TIFF yang dihasilkan.
 
-Kode ini menunjukkan cara mengonversi presentasi PowerPoint ke gambar TIFF dengan format piksel kustom:
+Kode ini menunjukkan cara mengonversi presentasi PowerPoint menjadi gambar TIFF dengan format piksel kustom:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi (PPT, PPTX, ODP, dll.).
+// Instansiasi kelas Presentation yang mewakili file presentasi (PPT, PPTX, ODP, dll).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
@@ -147,19 +151,19 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Lihat konverter PowerPoint ke Poster GRATIS dari Aspose di [Konverter PowerPoint ke Poster GRATIS](https://products.aspose.app/slides/id/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+Lihat [konverter PowerPoint ke Poster GRATIS](https://products.aspose.app/slides/id/conversion/convert-ppt-to-poster-online) dari Aspose.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Bisakah saya mengonversi slide individual alih-alih seluruh presentasi PowerPoint ke TIFF?**
+**Bisakah saya mengonversi slide individu alih-alih seluruh presentasi PowerPoint ke TIFF?**
 
-Ya. Aspose.Slides memungkinkan Anda mengonversi slide individual dari presentasi PowerPoint dan OpenDocument menjadi gambar TIFF secara terpisah.
+Ya. Aspose.Slides memungkinkan Anda mengonversi slide individu dari presentasi PowerPoint dan OpenDocument menjadi gambar TIFF secara terpisah.
 
 **Apakah ada batasan jumlah slide saat mengonversi presentasi ke TIFF?**
 
-Tidak, Aspose.Slides tidak memberlakukan batasan apa pun pada jumlah slide. Anda dapat mengonversi presentasi berukuran apa pun ke format TIFF.
+Tidak, Aspose.Slides tidak memberlakukan batasan apa pun pada jumlah slide. Anda dapat mengonversi presentasi dengan ukuran berapa pun ke format TIFF.
 
 **Apakah animasi dan efek transisi PowerPoint dipertahankan saat mengonversi slide ke TIFF?**
 
