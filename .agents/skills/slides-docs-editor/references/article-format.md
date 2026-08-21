@@ -21,7 +21,9 @@ source of truth. The published address comes from front-matter `url:`, not the f
 ## Headings and FAQ
 
 - Bold all article section headings below the page title: `## **Overview**`, `### **Task**`, and so on.
-- Keep `## **FAQ**`, but format each FAQ question as a standalone bold line, not a Markdown heading.
+- Every new article must include a `## **FAQ**` section with concise, article-specific questions and
+  answers. Do not add placeholder or generic questions solely to satisfy this requirement.
+- Format each FAQ question as a standalone bold line, not a Markdown heading.
 
 ## Alerts
 

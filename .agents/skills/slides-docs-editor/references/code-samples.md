@@ -23,6 +23,11 @@ to the platform API Reference member page when one exists. Verify the target.
 - When a disposable object is created before a `try` block, dispose it directly in `finally` without
   a null check. Keep a null guard only when construction occurs inside `try` and may fail before assignment.
 
+## Java and Android via Java
+
+- Put import declarations at the beginning of every code block and reference imported types by their
+  short names. Do not use fully qualified class names in sample bodies.
+
 ## PHP via Java
 
 - Put `use` imports at the beginning of every code block and reference imported types by their short
