@@ -9,13 +9,17 @@ keywords:
 - foglio di lavoro del grafico
 - formula del grafico
 - formula del foglio di lavoro
-- formula del foglio di calcolo
-- origine dati
+- formula di foglio di calcolo
+- cartella di lavoro dei dati del grafico
+- calcolo della formula
+- cultura preferita
+- formula specifica della cultura
+- DBCS
 - costante logica
 - costante numerica
-- costante stringa
+- costante di stringa
 - costante di errore
-- costante aritmetica
+- operatore aritmetico
 - operatore di confronto
 - stile A1
 - stile R1C1
@@ -25,219 +29,399 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Applica formule in stile Excel in Aspose.Slides per Node.js tramite fogli di lavoro del grafico Java e automatizza i report nei file PPT e PPTX con JavaScript."
+description: "Applicare formule in stile Excel in Aspose.Slides per Node.js tramite fogli di lavoro del grafico Java, ricalcolare i valori e utilizzare i risultati nei grafici PowerPoint."
 ---
 ## **Panoramica**
 
-Un foglio di lavoro del grafico è la fonte dati dietro un grafico in una presentazione. Memorizza i nomi delle categorie e delle serie insieme ai valori numerici visualizzati dal grafico. In Aspose.Slides, questo foglio di lavoro è disponibile tramite il workbook dei dati del grafico, che consente di lavorare con i dati del grafico in modo programmatico.
+I grafici di PowerPoint memorizzano normalmente i dati di origine in un foglio di lavoro incorporato. In Aspose.Slides per Node.js via Java, è possibile accedere a quel foglio di lavoro tramite la cartella di lavoro dei dati del grafico, scrivere valori di input, assegnare formule alle celle, calcolare le formule supportate e utilizzare le celle calcolate come dati del grafico.
 
-Questo articolo spiega come utilizzare le formule del foglio di lavoro nei dati del grafico in modo che i valori delle celle possano essere calcolati e aggiornati automaticamente anziché inseriti manualmente. Mostra come assegnare formule, utilizzare riferimenti in stile A1 e R1C1, ricalcolare le formule del workbook e lavorare con le costanti, gli operatori, i riferimenti alle celle e le funzioni predefinite supportate per i fogli di lavoro dei grafici nelle presentazioni.
+Questo articolo spiega l’intero flusso di lavoro delle formule: creare un grafico, popolare il suo foglio di lavoro, assegnare formule in stile A1 o R1C1, ricalcolarle, leggere i valori calcolati, collegare tali celle a una serie del grafico e salvare la presentazione. Descrive inoltre la sintassi delle formule supportate, il sottoinsieme di funzioni integrate, i valori nella cache, le formule non supportate e gli errori specifici dei fogli di calcolo.
 
-## **Informazioni su Chart Spreadsheet Formula in Presentation**
-**Chart spreadsheet** (o foglio di lavoro del grafico) in una presentazione è la fonte dati del grafico. Il chart spreadsheet contiene i dati, che sono rappresentati nel grafico in modo grafico. Quando crei un grafico in PowerPoint, il foglio di lavoro associato a questo grafico viene creato automaticamente. Il foglio di lavoro del grafico viene creato per tutti i tipi di grafici: grafico a linee, grafico a barre, grafico sunburst, grafico a torta, ecc. Per visualizzare il chart spreadsheet in PowerPoint devi fare doppio clic sul grafico:
+## **Fogli di lavoro dei grafici e formule**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Un foglio di lavoro del grafico contiene le categorie, i nomi delle serie e i valori usati da un grafico. In PowerPoint è possibile ispezionare il foglio di lavoro aprendo l’editor dei dati del grafico:
 
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-Il chart spreadsheet contiene i nomi degli elementi del grafico (Category Name: *Category1*, Serie Name) e una tabella con dati numerici appropriati a queste categorie e serie. Per impostazione predefinita, quando crei un nuovo grafico – i dati del chart spreadsheet sono impostati con i dati predefiniti. Quindi puoi modificare manualmente i dati del foglio di lavoro.
+In Aspose.Slides, il foglio di lavoro è esposto tramite la classe [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/). Utilizzare [ChartDataCell.setFormula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) per formule in stile A1 e [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) per formule in stile R1C1. Dopo aver modificato le celle di input o le formule, chiamare [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) per ricalcolare le formule supportate e aggiornare i valori corrispondenti delle celle.
 
-Di solito, il grafico rappresenta dati complessi (ad es. analisi finanziarie, analisi scientifiche), con celle calcolate a partire dai valori di altre celle o da altri dati dinamici. Calcolare manualmente il valore di una cella e codificarlo direttamente nella cella rende difficile modificarlo in futuro. Se cambi il valore di una certa cella, tutte le celle dipendenti da essa dovranno essere aggiornate. Inoltre, i dati della tabella possono dipendere da dati di altre tabelle, creando uno schema di dati della presentazione complesso che deve essere aggiornato in modo semplice e flessibile.
+Una cella calcolata espone ancora il proprio risultato tramite [ChartDataCell.getValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#getValue--). Questo è importante quando si deve ispezionare il risultato di una formula nel codice o utilizzare la cella come punto dati del grafico.
 
-**Chart spreadsheet formula** in una presentazione è un'espressione per calcolare e aggiornare automaticamente i dati del chart spreadsheet. La formula del foglio di lavoro definisce la logica di calcolo dei dati per una determinata cella o un insieme di celle. La formula del foglio di lavoro è una formula matematica o logica, che utilizza: riferimenti a celle, funzioni matematiche, operatori logici, operatori aritmetici, funzioni di conversione, costanti stringa, ecc. La definizione della formula è scritta in una cella, e questa cella non contiene un valore semplice. La formula del foglio di lavoro calcola il valore e lo restituisce, quindi questo valore viene assegnato alla cella. Le formule del chart spreadsheet nelle presentazioni sono in realtà le stesse delle formule di Excel, e sono supportate le stesse funzioni predefinite, operatori e costanti per la loro implementazione.
+## **Creare un grafico e calcolare le formule del foglio di lavoro**
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/it/nodejs-java/) il chart spreadsheet è rappresentato con il metodo
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) del tipo
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-La formula del foglio di lavoro può essere assegnata e modificata con 
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) .
-La seguente funzionalità è supportata per le formule in Aspose.Slides:
-
-- Costanti logiche
-- Costanti numeriche
-- Costanti stringa
-- Costanti di errore
-- Operatori aritmetici
-- Operatori di confronto
-- Riferimenti a celle in stile A1
-- Riferimenti a celle in stile R1C1
-- Funzioni predefinite
-
-
-Tipicamente, i fogli di calcolo memorizzano gli ultimi valori calcolati delle formule. Se, dopo il caricamento della presentazione, i dati del grafico non sono stati modificati, il metodo [**ChartDataCell.getValue**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#getValue--) restituisce tali valori durante la lettura. Tuttavia, se i dati del foglio di calcolo sono stati modificati, durante la lettura della proprietà **ChartDataCell.Value** viene generata l'eccezione [**CellUnsupportedDataException**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/CellUnsupportedDataException) per le formule non supportate. Ciò avviene perché, quando le formule sono analizzate correttamente, le dipendenze delle celle vengono determinate e l'accuratezza degli ultimi valori viene verificata. Se la formula non può essere analizzata, l'accuratezza del valore della cella non può essere garantita.
-
-## **Aggiungere Chart Spreadsheet Formula a Presentation**
-Per prima cosa, aggiungi un grafico alla prima diapositiva di una nuova presentazione con 
-[ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ShapeCollection#addChart-int-float-float-float-float-).
-Il foglio di lavoro del grafico viene creato automaticamente e può essere accessibile con 
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) :
+L’esempio seguente dimostra un flusso di lavoro end‑to‑end. Crea un grafico a colonna raggruppata, cancella i dati di esempio, scrive valori trimestrali di fatturato e spese, calcola il profitto con formule, legge i risultati, usa le celle calcolate come valori del grafico e salva la presentazione.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // ...
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 350);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    const category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    const category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    const category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    const profit1 = workbook.getCell(worksheetIndex, "D2");
+    const profit2 = workbook.getCell(worksheetIndex, "D3");
+    const profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    const q1Profit = profit1.getValue(); // 40
+    const q2Profit = profit2.getValue(); // 55
+    const q3Profit = profit3.getValue(); // 25
+
+    console.log("Q1 profit: " + q1Profit);
+    console.log("Q2 profit: " + q2Profit);
+    console.log("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    const profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Scriviamo alcuni valori nelle celle con la proprietà 
-[**ChartDataCell.setValue**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#setValue-java.lang.Object-) del tipo **Object**, il che significa che puoi impostare qualsiasi valore:
+I punti dati del grafico fanno riferimento a `D2:D4`, quindi il grafico utilizza i valori di profitto calcolati. Non è necessario alcun richiamo separato per l’aggiornamento del grafico in questo flusso: ricalcolare prima la cartella di lavoro, poi usare o salvare i dati del grafico che puntano alle celle calcolate.
+
+## **Usa formule in stile A1**
+
+La notazione A1 identifica le colonne con lettere e le righe con numeri. Assegnare espressioni in stile A1 tramite [ChartDataCell.setFormula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-).
 
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-Ora, per scrivere una formula nella cella, puoi usare il metodo 
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) :
+Le forme di riferimento A1 più comuni sono:
 
-*Nota*: [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) viene usato per impostare riferimenti a celle in stile A1. 
+| Riferimento | Relativa | Assoluta | Mista |
+|---|---|---|---|
+| Cella | `A2` | `$A$2` | `A$2`, `$A2` |
+| Riga | `2:2` | `$2:$2` | — |
+| Colonna | `A:A` | `$A:$A` | — |
+| Intervallo | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Per impostare il riferimento alla cella [R1C1Formula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#getR1C1Formula--) puoi usare il metodo [**ChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataCell#setR1C1Formula-java.lang.String-) :
+I riferimenti relativi possono cambiare quando una formula è spostata o copiata da un’applicazione di foglio di calcolo. I riferimenti assoluti mantengono fissi entrambi i coordinati, mentre i riferimenti misti fissano solo una riga o una colonna.
 
-Quindi, se provi a leggere i valori dalle celle B2 e C2, verranno calcolati:
+## **Usa formule in stile R1C1**
+
+La notazione R1C1 identifica sia righe che colonne numericamente. I riferimenti relativi usano offset tra parentesi quadre. Assegnare questa sintassi tramite [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    const cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Costanti Logiche**
-Puoi usare costanti logiche come *FALSE* e *TRUE* nelle formule delle celle:
+Le forme di riferimento R1C1 più comuni sono:
+
+| Riferimento | Relativa | Assoluta | Mista |
+|---|---|---|---|
+| Cella | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Riga | `R[2]` | `R2` | — |
+| Colonna | `C[3]` | `C3` | — |
+| Intervallo | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Ad esempio, nella cella `D2`, `RC[-2]` indica la cella nella stessa riga due colonne a sinistra (`B2`).
+
+## **Costanti e operatori di formula**
+
+Il valutatore di formule integrato supporta valori logici, letterali numerici, stringhe, valori di errore del foglio di calcolo, operatori aritmetici e operatori di confronto.
+
+### **Costanti e letterali**
+
+| Tipo | Esempi | Note |
+|---|---|---|
+| Logico | `TRUE`, `FALSE` | Può essere usato direttamente in espressioni logiche come `A2=TRUE`. |
+| Numerico | `1`, `0.5`, `.3`, `1E-2` | Sono supportate notazione comune e scientifica. |
+| Stringa | `"abc"`, `"2/3/2020 12:00"` | I letterali di testo sono racchiusi tra virgolette doppie nella formula. |
+| Risultato di errore | `#DIV/0!`, `#N/A`, `#REF!` | Una formula valida può valutare a un valore di errore del foglio di calcolo anziché a un risultato normale. |
+
+Questo esempio utilizza diversi tipi di costante:
 
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// il valore contiene il booleano "false"
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    const logicalValue = workbook.getCell(0, "B2").getValue(); // falso
+    const numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    const scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    const stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    const errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Costanti Numeriche**
-I numeri possono essere usati in notazione comune o scientifica per creare formule del chart spreadsheet:
+### **Operatori aritmetici**
+
+| Operatore | Significato | Esempio |
+|---|---|---|
+| `+` | Addizione o segno più unario | `2+3` |
+| `-` | Sottrazione o negazione | `2-3`, `-3` |
+| `*` | Moltiplicazione | `2*3` |
+| `/` | Divisione | `2/3` |
+| `%` | Percentuale | `30%` |
+| `^` | Potenza | `2^3` |
+
+Usare le parentesi per rendere esplicito l’ordine di valutazione, per esempio `(A2+B2)*C2`.
+
+### **Operatori di confronto**
+
+Le espressioni di confronto restituiscono valori logici.
+
+| Operatore | Significato | Esempio |
+|---|---|---|
+| `=` | Uguale a | `A2=3` |
+| `<>` | Diverso da | `A2<>3` |
+| `>` | Maggiore di | `A2>3` |
+| `>=` | Maggiore o uguale a | `A2>=3` |
+| `<` | Minore di | `A2<3` |
+| `<=` | Minore o uguale a | `A2<=3` |
+
+## **Funzioni predefinite supportate**
+
+Aspose.Slides include un valutatore di formule integrato per i fogli di lavoro dei grafici, ma non è un motore di calcolo Excel completo. Il set di funzioni documentato è limitato alle funzioni elencate di seguito. Non presumere che una funzione Excel arbitraria possa essere ricalcolata da [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
+
+| Funzione | Scopo o forma supportata | Esempio |
+|---|---|---|
+| `ABS` | Valore assoluto | `ABS(A2)` |
+| `AVERAGE` | Media aritmetica | `AVERAGE(B2:B5)` |
+| `CEILING` | Arrotonda per eccesso a un multiplo | `CEILING(A2,5)` |
+| `CHOOSE` | Seleziona un valore per indice | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Unisce valori di testo | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Unisce valori di testo | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Crea un valore data usando il sistema data 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Restituisce il numero di giorni tra due date | `DAYS(B2,A2)` |
+| `FIND` | Trova una stringa all’interno di un’altra | `FIND("-",A2)` |
+| `FINDB` | Ricerca testo orientata ai byte | `FINDB("a",A2)` |
+| `IF` | Risultato condizionale | `IF(A2>0,A2,0)` |
+| `INDEX` | Forma di riferimento | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Forma vettoriale | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Forma vettoriale | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Valore massimo | `MAX(B2:B5)` |
+| `SUM` | Somma valori | `SUM(B2:B5)` |
+| `VLOOKUP` | Ricerca verticale | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Le restrizioni mostrate nella tabella sono significative: `INDEX` è documentato in forma di riferimento, mentre `LOOKUP` e `MATCH` sono documentati nelle loro forme vettoriali. `DATE` usa il sistema data 1900. Le funzionalità e le funzioni non elencate qui devono essere considerate non supportate dal valutatore di formule di Aspose.Slides, a meno che non siano documentate separatamente.
+
+## **Calcola formule con una cultura preferita**
+
+Alcune funzioni della cartella di lavoro interpretano il testo secondo regole specifiche della cultura. Questo è particolarmente importante per le funzioni destinate a lingue che usano set di caratteri a doppio byte (DBCS). Per calcolare correttamente tali formule, creare un [LoadOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/), impostare la cultura preferita con [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), assegnare le opzioni del foglio di calcolo tramite [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) e quindi caricare la presentazione.
+
+L’esempio seguente seleziona la cultura giapponese, apre una presentazione con le opzioni di caricamento configurate e chiama [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) per ogni cartella di lavoro del grafico:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Costanti Stringa**
-Una costante stringa (o letterale) è un valore specifico usato così com'è e non cambia. Le costanti stringa possono essere: date, testi, numeri, ecc.:
+La cultura preferita fa parte della configurazione di caricamento della presentazione, quindi specificarla prima di creare l’istanza di [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/). Utilizzare la cultura attesa dalle formule della cartella di lavoro; ad esempio, usare `ja-JP` per formule che devono seguire le regole di calcolo DBCS giapponesi.
+
+## **Ricalcolo e valori nella cache**
+
+I file di foglio di calcolo memorizzano comunemente sia una formula sia il suo ultimo valore calcolato. Aspose.Slides può quindi leggere un valore nella cache da [ChartDataCell.getValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#getValue--) quando una presentazione viene caricata e i dati del grafico corrispondenti non sono stati modificati.
+
+Dopo aver modificato le celle di input o le formule, non fare affidamento su un risultato nella cache obsoleto. Chiamare [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) prima di leggere i valori calcolati o di salvare i dati del grafico che dipendono da essi.
+
+Per le formule al di fuori del sottoinsieme supportato, Aspose.Slides potrebbe non riuscire a analizzarle o a stabilirne le dipendenze. Se la cartella di lavoro è stata modificata, il valore nella cache precedente non può più essere considerato affidabile. In tale situazione, leggere il valore di una cella con dati non supportati può generare [CellUnsupportedDataException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Se il grafico dipende da funzioni Excel che Aspose.Slides non riesce a valutare, calcolare tali formule con un motore di foglio di calcolo che le supporti e scrivere i valori risultanti nel foglio di lavoro del grafico. Non sostituire formule non supportate con valori indovinati.
+
+## **Gestire gli errori di formula**
+
+Esistono due tipologie di problemi da distinguere.
+
+Una formula può essere valida ma produrre un risultato di errore del foglio di calcolo come `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. In questo caso il token di errore è un risultato della cella e può essere restituito tramite [ChartDataCell.getValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#getValue--).
+
+Una formula può anche fallire a livello di parsing, riferimento, dipendenza o dati supportati. Aspose.Slides fornisce eccezioni specifiche del foglio di calcolo per questi casi: [CellInvalidFormulaException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellcircularreferenceexception/) e [CellUnsupportedDataException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Quando le formule provengono da modelli o da input utente, gestire gli errori attorno al ricalcolo e all’accesso ai valori. I dettagli dell’errore identificano il problema specifico del foglio di calcolo:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        console.log(cell.getValue());
+    } catch (error) {
+        console.error("Formula processing error: " + error.message);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Costanti di Errore**
-A volte non è possibile calcolare il risultato mediante la formula. In tal caso, nella cella viene mostrato il codice di errore anziché il valore. Ogni tipo di errore ha un codice specifico:
+## **Limitazioni pratiche**
 
-- #DIV/0! - la formula tenta di dividere per zero.
-- #GETTING_DATA - può comparire su una cella mentre il suo valore è ancora in fase di calcolo.
-- #N/A - informazione mancante o non disponibile. Alcune cause possono essere: le celle usate nella formula sono vuote, un carattere di spazio extra, errori di battitura, ecc.
-- #NAME? - una certa cella o altri oggetti della formula non possono essere trovati per nome. 
-- #NULL! - può apparire quando c'è un errore nella formula, ad esempio:  (,) o un carattere di spazio usato al posto dei due punti (:).
-- #NUM! - il valore numerico nella formula può essere non valido, troppo lungo o troppo piccolo, ecc.
-- #REF! - riferimento a cella non valido.
-- #VALUE! - tipo di valore inaspettato. Per esempio, valore stringa impostato su una cella numerica.
+Il supporto alle formule nei fogli di lavoro dei grafici è destinato a un sottoinsieme definito di calcoli, non a una compatibilità completa con Excel. Tenere presenti queste limitazioni quando si progetta un flusso di lavoro di reporting:
 
-```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// il valore contiene la stringa "#DIV/0!"
-```
-
-## **Operatori Aritmetici**
-Puoi usare tutti gli operatori aritmetici nelle formule del foglio di lavoro del grafico:
-
-|**Operatore**|**Significato**|**Esempio**|
-| :- | :- | :- |
-|+ (segno più)|Addizione o segno più unario|2 + 3|
-|- (segno meno)|Sottrazione o negazione|2 - 3<br>-3|
-|* (asterisco)|Moltiplicazione|2 * 3|
-|/ (barra obliqua)|Divisione|2 / 3|
-|% (segno percentuale)|Percentuale|30%|
-|^ (caret)|Elevamento a potenza|2 ^ 3|
-
-*Nota*: Per modificare l'ordine di valutazione, racchiudi tra parentesi la parte della formula da calcolare per prima.
-
-## **Operatori di Confronto**
-Puoi confrontare i valori delle celle con gli operatori di confronto. Quando due valori sono confrontati usando questi operatori, il risultato è un valore logico *TRUE* o *FALSE*:
-
-|**Operatore**|**Significato**|**Esempio**|
-| :- | :- | :- |
-|= (segno uguale)|Uguale a|A2 = 3|
-|<> (segno diverso)|Diverso da|A2 <> 3|
-|> (segno maggiore)|Maggiore di|A2 > 3|
-|>= (segno maggiore o uguale)|Maggiore o uguale a|A2 >= 3|
-|< (segno minore)|Minore di|A2 < 3|
-|<= (segno minore o uguale)|Minore o uguale a|A2 <= 3|
-
-## **Riferimenti a Celle in Stile A1**
-**I riferimenti a celle in stile A1** sono usati per i fogli di lavoro, dove la colonna ha un identificatore letterale (ad es. "*A*") e la riga ha un identificatore numerico (ad es. "*1*"). I riferimenti a celle in stile A1 possono essere usati nel modo seguente:
-
-|**Riferimento cella**|**Assoluto**|**Relativo**|**Misto**|
-| :- | :- | :- | :- |
-|Cella|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Riga|$2:$2|2:2|-|
-|Colonna|$A:$A|A:A|-|
-|Intervallo|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-Ecco un esempio di utilizzo del riferimento a cella in stile A1 in una formula:
-
-```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-## **Riferimenti a Celle in Stile R1C1**
-**I riferimenti a celle in stile R1C1** sono usati per i fogli di lavoro, dove sia la riga sia la colonna hanno un identificatore numerico. I riferimenti a celle in stile R1C1 possono essere usati nel modo seguente:
-
-|**Riferimento cella**|**Assoluto**|**Relativo**|**Misto**|
-| :- | :- | :- | :- |
-|Cella|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Riga|R2|R[2]|-|
-|Colonna|C3|C[3]|-|
-|Intervallo|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Ecco un esempio di utilizzo del riferimento a cella in stile R1C1 in una formula:
-
-```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-## **Funzioni Predefinite**
-Esistono funzioni predefinite che possono essere usate nelle formule per semplificarne l'implementazione. Queste funzioni incapsulano le operazioni più comunemente utilizzate, come:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (sistema di data 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (forma di riferimento)
-- LOOKUP (forma vettoriale)
-- MATCH (forma vettoriale)
-- MAX
-- SUM
-- VLOOKUP
+- Utilizzare solo le costanti, gli operatori, i riferimenti e le funzioni documentate quando si desidera che Aspose.Slides ricalcoli le formule.
+- Ricalcolare dopo aver modificato le celle da cui dipendono i risultati delle formule.
+- Considerare i valori nella cache delle presentazioni caricate come istantanee, non come sostituti del ricalcolo dopo modifiche.
+- Testare le formule dei modelli esistenti prima di fare affidamento sui loro valori calcolati, soprattutto se usano funzioni al di fuori dell’elenco documentato.
+- Per le formule che richiedono un motore di calcolo completo, calcolarle esternamente e quindi aggiornare il foglio di lavoro del grafico con i valori risultanti.
 
 ## **FAQ**
 
-**I file Excel esterni sono supportati come fonte dati per un grafico con formule?**
+**Qual è la differenza tra [ChartDataCell.setFormula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) e [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-Sì. Aspose.Slides supporta workbook esterni come [fonte dati del grafico](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatasourcetype/), consentendo di utilizzare formule da un file XLSX al di fuori della presentazione.
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) memorizza un’espressione in stile A1 come `B2-C2`. [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) memorizza un’espressione in stile R1C1 come `RC[-2]-RC[-1]`. Utilizzare la notazione che meglio corrisponde a come si generano o copiano le formule.
 
-**Le formule del grafico possono fare riferimento a fogli all'interno dello stesso workbook tramite il nome del foglio?**
+**Devo leggere la cella stessa o il suo valore dopo il calcolo?**
 
-Sì. Le formule seguono il modello di riferimento standard di Excel, quindi puoi fare riferimento ad altri fogli all'interno dello stesso workbook o a un workbook esterno. Per i riferimenti esterni, includi il percorso e il nome del workbook usando la sintassi di Excel.
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) restituisce un [ChartDataCell](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/). Per ottenere il risultato calcolato, chiamare il metodo [ChartDataCell.getValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdatacell/#getValue--) di quella cella dopo il ricalcolo.
+
+**Quando devo chiamare [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--)?**
+
+Chiamare [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) dopo aver modificato valori di input o formule e prima di fare affidamento sui risultati calcolati. Questo aggiorna i valori delle formule supportate dal valutatore integrato.
+
+**Aspose.Slides supporta tutte le funzioni di Excel?**
+
+No. Il valutatore integrato supporta un sottoinsieme documentato di funzioni. Le funzioni al di fuori di quel sottoinsieme non devono essere assunte come ricalcolabili correttamente. Se è necessaria la piena compatibilità con le formule di Excel, eseguire il calcolo con un motore di foglio di calcolo appropriato e scrivere i valori finali nel foglio di lavoro del grafico.
+
+** Cosa succede se una presentazione caricata contiene una formula non supportata?**
+
+Se i dati del grafico non sono cambiati, la cartella di lavoro potrebbe comunque contenere un valore nella cache calcolato in precedenza. Dopo che i dati correlati sono stati modificati, tale valore nella cache potrebbe non essere più valido. Accedere a una cella la cui formula non può essere gestita può generare [CellUnsupportedDataException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+**I valori di errore della formula sono gli stessi delle eccezioni?**
+
+No. Un risultato come `#DIV/0!` è un valore del foglio di calcolo prodotto da un calcolo valido. Le eccezioni come [CellInvalidFormulaException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/cellcircularreferenceexception/) indicano che la formula non può essere elaborata normalmente.
+
+**Il grafico si aggiorna automaticamente quando una cella formula cambia?**
+
+Una serie del grafico può fare riferimento a celle della cartella di lavoro. Ricalcolare prima la cartella di lavoro, quindi salvare o renderizzare la presentazione. Se i punti dati del grafico fanno riferimento alle celle calcolate, il grafico utilizza quei valori aggiornati; non è necessario un metodo di aggiornamento separato per questo flusso.
+
+**I grafici possono usare un foglio di lavoro Excel esterno?**
+
+Sì, i dati del grafico possono essere configurati per utilizzare un foglio di lavoro esterno tramite l’API dei dati del grafico. Tuttavia, il flusso di lavoro di calcolo delle formule descritto in questo articolo riguarda la cartella di lavoro dei dati del grafico e il sottoinsieme di formule valutato da Aspose.Slides. Non presumere che [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) fornisca un ricalcolo completo di formule arbitrarie in un file XLSX esterno.
+
+**Posso usare formule che fanno riferimento a un altro foglio di lavoro o a una cartella di lavoro esterna?**
+
+I riferimenti in stile Excel possono esistere nelle cartelle di lavoro dei grafici, ma la valutazione delle formule è limitata dal parser e dal set di funzioni supportati. Se è essenziale un riferimento incrociato o esterno, verificare la formula esatta con la versione di Aspose.Slides in uso. Per flussi di lavoro che richiedono ampia compatibilità di riferimenti Excel, calcolare la cartella di lavoro esternamente e scrivere i valori risolti nei dati del grafico.
+
+**Le stringhe di formula devono iniziare con `=`?**
+
+Gli esempi dell’API Aspose.Slides assegnano espressioni come `B2-C2` o `SUM(B2:B5)` senza un `=` iniziale. Utilizzare questa forma mantiene le formule generate coerenti con gli esempi documentati dell’API.

@@ -1,21 +1,25 @@
 ---
-title: Sunumlarda PHP Kullanarak Grafik Çalışma Sayfası Formüllerini Uygulama
+title: PowerPoint sunumlarında PHP ile Grafik Çalışma Sayfası Formüllerini Uygulama
 linktitle: Çalışma Sayfası Formülleri
 type: docs
 weight: 70
 url: /tr/php-java/chart-worksheet-formulas/
 keywords:
-- grafik çalışma sayfası
+- grafik elektronik tablo
 - grafik çalışma sayfası
 - grafik formülü
 - çalışma sayfası formülü
 - elektronik tablo formülü
-- veri kaynağı
+- grafik veri çalışma kitabı
+- formül hesaplaması
+- tercih edilen kültür
+- kültüre özgü formül
+- DBCS
 - mantıksal sabit
 - sayısal sabit
-- dize sabiti
+- metin sabiti
 - hata sabiti
-- aritmetik sabit
+- aritmetik operatör
 - karşılaştırma operatörü
 - A1 stili
 - R1C1 stili
@@ -24,214 +28,386 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP'de Java grafik çalışma sayfaları aracılığıyla Excel tarzı formülleri uygulayın ve PPT ve PPTX dosyalarında raporları otomatikleştirin."
+description: "Aspose.Slides for PHP via Java grafik çalışma sayfalarında Excel tarzı formüller uygulayın, değerleri yeniden hesaplayın ve sonuçları PowerPoint grafiklerinde kullanın."
 ---
 ## **Genel Bakış**
 
-Bir grafik çalışma sayfası, bir sunumdaki grafiğin ardındaki veri kaynağıdır. Kategori ve seri adlarını, grafiğin görüntülediği sayısal değerlerle birlikte depolar. Aspose.Slides içinde bu çalışma sayfası, grafik veri çalışma kitabı aracılığıyla kullanılabilir ve bu sayede grafik verileri programlı olarak işlenebilir.
+PowerPoint grafiklerinin veri kaynağı genellikle gömülü bir çalışma sayfasında saklanır. Aspose.Slides for PHP via Java’da bu çalışma sayfasına grafik veri çalışma kitabı aracılığıyla erişebilir, giriş değerlerini yazabilir, hücrelere formüller atayabilir, desteklenen formülleri hesaplayabilir ve hesaplanmış hücreleri grafik verisi olarak kullanabilirsiniz.
 
-Bu makale, hücre değerlerinin manuel olarak girilmesi yerine otomatik olarak hesaplanıp güncellenebilmesi için grafik verilerinde çalışma sayfası formüllerinin nasıl kullanılacağını açıklar. Formüllerin nasıl atanacağını, A1-stili ve R1C1-stili referansların nasıl kullanılacağını, çalışma kitabı formüllerinin nasıl yeniden hesaplanacağını ve sunumlardaki grafik çalışma sayfaları için mevcut sabitler, operatörler, hücre referansları ve önceden tanımlı işlevlerle nasıl çalışılacağını gösterir.
+Bu makale tam formül iş akışını açıklar: bir grafik oluşturma, çalışma sayfasını doldurma, A1‑stili veya R1C1‑stili formüller atama, yeniden hesaplama, hesaplanmış değerleri okuma, bu hücreleri bir grafik serisine bağlama ve sunumu kaydetme. Ayrıca desteklenen formül sözdizimi, yerleşik işlev alt kümesi, önbelleğe alınmış değerler, desteklenmeyen formüller ve elektronik tabloya özgü hatalar da açıklanır.
 
-## **Sunumlardaki Grafik Çalışma Sayfası Formülleri Hakkında**
-**Chart spreadsheet** (veya chart worksheet) bir sunumdaki grafiğin veri kaynağıdır. Grafik çalışma sayfası, grafikte görsel olarak temsil edilen verileri içerir. PowerPoint’te bir grafik oluşturduğunuzda, bu grafiğe ilişkin çalışma sayfası da otomatik olarak oluşturulur. Grafik çalışma sayfası tüm grafik türleri için oluşturulur: çizgi grafik, çubuk grafik, sunburst grafik, pasta grafik vb. PowerPoint’te grafik çalışma sayfasını görmek için grafiğe çift tıklamanız gerekir:
+## **Grafik Çalışma Sayfaları ve Formüller**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Bir grafik çalışma sayfası, bir grafik tarafından kullanılan kategorileri, seri adlarını ve değerleri içerir. PowerPoint’te grafik veri düzenleyicisini açarak çalışma sayfasını inceleyebilirsiniz:
 
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-Grafik çalışma sayfası, grafik öğelerinin adlarını (Kategori Adı: *Category1*, Seri Adı) ve bu kategorilere ve serilere uygun sayısal verileri içeren bir tabloyu barındırır. Varsayılan olarak yeni bir grafik oluşturduğunuzda grafik çalışma sayfası verileri varsayılan verilerle ayarlanır. Ardından çalışma sayfasındaki verileri manuel olarak değiştirebilirsiniz.
+Aspose.Slides’ta çalışma sayfası, [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) sınıfı aracılığıyla sunulur. A1‑stili formüller için [ChartDataCell::setFormula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setFormula), R1C1‑stili formüller için ise [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setR1C1Formula) kullanın. Giriş hücrelerini veya formülleri değiştirdikten sonra, desteklenen formülleri yeniden hesaplamak ve ilgili hücre değerlerini güncellemek için [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) yöntemini çağırın.
 
-Genellikle grafik, değerleri diğer hücrelerdeki değerlerden veya diğer dinamik verilerden hesaplanan karmaşık verileri (ör. finansal analistler, bilimsel analistler) temsil eder. Hücrenin değerini manuel olarak hesaplayıp hücreye sabit bir şekilde girerseniz, gelecekte değeri değiştirmek zorlaşır. Belirli bir hücrenin değeri değiştirildiğinde, ona bağımlı olan tüm hücrelerin de güncellenmesi gerekir. Ayrıca tablo verileri diğer tablolardan gelen verilere dayanabilir; bu da kolay ve esnek bir şekilde güncellenmesi gereken karmaşık bir sunum veri şeması oluşturur.
+Hesaplanmış bir hücre, sonucunu hâlâ [ChartDataCell::getValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#getValue) aracılığıyla ortaya çıkarır. Bu, kod içinde bir formül sonucunu incelemeniz gerektiğinde veya hücreyi bir grafik veri noktası olarak kullanmanız gerektiğinde önemlidir.
 
-**Chart spreadsheet formula** bir sunumda grafik çalışma sayfası verilerini otomatik olarak hesaplayıp güncellemek için kullanılan bir ifadedir. Çalışma sayfası formülü belirli bir hücre ya da hücre kümesi için veri hesaplama mantığını tanımlar. Çalışma sayfası formülü, hücre referansları, matematik işlevleri, mantıksal operatörler, aritmetik operatörler, dönüşüm işlevleri, dize sabitleri vb. kullanan bir matematik ya da mantıksal formüldür. Formül tanımı bir hücreye yazılır ve bu hücre basit bir değer içermez. Çalışma sayfası formülü değeri hesaplar ve geri döndürür; ardından bu değer hücreye atanır. Sunumlardaki grafik çalışma sayfası formülleri aslında Excel formülleri ile aynıdır ve uygulanmaları için aynı varsayılan işlevler, operatörler ve sabitler desteklenir.
+## **Bir Grafik Oluşturma ve Çalışma Sayfası Formüllerini Hesaplama**
 
-[**Aspose.Slides**](https://products.aspose.com/slides/tr/php-java/) içinde grafik çalışma sayfası, **ChartData::getChartDataWorkbook** metoduyla temsil edilen **ChartDataWorkbook** türü aracılığıyla sağlanır. Çalışma sayfası formülü **ChartDataCell::setFormula** metodu ile atanabilir ve değiştirilebilir. Aspose.Slides’te formüller için aşağıdaki işlevsellik desteklenir:
-
-- Mantıksal sabitler
-- Sayısal sabitler
-- Dize sabitler
-- Hata sabitleri
-- Aritmetik operatörler
-- Karşılaştırma operatörleri
-- A1 stili hücre referansları
-- R1C1 stili hücre referansları
-- Önceden tanımlı işlevler
-
-Genellikle elektronik tablolar son hesaplanmış formül değerlerini depolar. Sunum yüklendikten sonra grafik verileri değişmemişse, **ChartDataCell::getValue** metodu bu değerleri okurken döndürür. Ancak elektronik tablo verileri değiştirilmişse, değeri okurken desteklenmeyen formüller için **CellUnsupportedDataException** istisnası atılır. Bunun nedeni, formüller başarıyla ayrıştırıldığında hücre bağımlılıklarının belirlenmesi ve son değerlerin doğruluğunun teyit edilmesidir. Formül ayrıştırılamazsa hücre değerinin doğruluğu garanti edilemez.
-
-## **Sunuma Grafik Çalışma Sayfası Formülü Ekleme**
-İlk olarak, yeni bir sunumun ilk slaytına **ShapeCollection::addChart** yöntemiyle bir grafik ekleyin. Grafiğin çalışma sayfası otomatik olarak oluşturulur ve **ChartData::getChartDataWorkbook** metodu ile erişilebilir:
+Aşağıdaki örnek uçtan uca bir iş akışını gösterir. Küme sütun grafiği oluşturur, örnek verileri temizler, çeyrek gelir ve gider değerlerini yazar, formüllerle karı hesaplar, sonuçları okur, hesaplanmış hücreleri grafik değerleri olarak kullanır ve sunumu kaydeder.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 350);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $workbook->clear($worksheetIndex);
+
+    $category1 = $workbook->getCell($worksheetIndex, "A2", "Q1");
+    $category2 = $workbook->getCell($worksheetIndex, "A3", "Q2");
+    $category3 = $workbook->getCell($worksheetIndex, "A4", "Q3");
+
+    $workbook->getCell($worksheetIndex, "B1", "Revenue");
+    $workbook->getCell($worksheetIndex, "C1", "Expenses");
+    $workbook->getCell($worksheetIndex, "D1", "Profit");
+
+    $workbook->getCell($worksheetIndex, "B2")->setValue(120.0);
+    $workbook->getCell($worksheetIndex, "C2")->setValue(80.0);
+    $workbook->getCell($worksheetIndex, "B3")->setValue(150.0);
+    $workbook->getCell($worksheetIndex, "C3")->setValue(95.0);
+    $workbook->getCell($worksheetIndex, "B4")->setValue(135.0);
+    $workbook->getCell($worksheetIndex, "C4")->setValue(110.0);
+
+    $profit1 = $workbook->getCell($worksheetIndex, "D2");
+    $profit2 = $workbook->getCell($worksheetIndex, "D3");
+    $profit3 = $workbook->getCell($worksheetIndex, "D4");
+
+    $profit1->setFormula("B2-C2");
+    $profit2->setFormula("B3-C3");
+    $profit3->setFormula("B4-C4");
+
+    $workbook->calculateFormulas();
+
+    $q1Profit = java_values($profit1->getValue()); // 40
+    $q2Profit = java_values($profit2->getValue()); // 55
+    $q3Profit = java_values($profit3->getValue()); // 25
+
+    echo "Q1 profit: " . $q1Profit . PHP_EOL;
+    echo "Q2 profit: " . $q2Profit . PHP_EOL;
+    echo "Q3 profit: " . $q3Profit . PHP_EOL;
+
+    $chart->getChartData()->getCategories()->add($category1);
+    $chart->getChartData()->getCategories()->add($category2);
+    $chart->getChartData()->getCategories()->add($category3);
+
+    $profitSeries = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, "D1"), $chart->getType());
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit1);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit2);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit3);
+    $profitSeries->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("chart-formulas.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Grafik veri noktaları `D2:D4` aralığını referans alır, böylece grafik hesaplanmış kar değerlerini kullanır. Bu iş akışında ayrı bir grafik‑yenileme çağrısı yoktur: önce çalışma kitabını yeniden hesaplayın, ardından hesaplanan hücrelere işaret eden grafik verisini kullanın veya kaydedin.
+
+## **A1‑Stili Formüller Kullanma**
+
+A1 gösterimi sütunları harflerle, satırları sayılarla tanımlar. A1‑stili ifadeleri [ChartDataCell::setFormula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setFormula) aracılığıyla atayın.
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "C3")->setValue(10);
+    $workbook->getCell(0, "F2")->setValue(2);
+    $workbook->getCell(0, "G2")->setValue(3);
+    $workbook->getCell(0, "H2")->setValue(4);
+
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("C3+SUM(F2:H2)");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 19
+} finally {
+    $presentation->dispose();
+}
+```
+
+Yaygın A1 referans biçimleri:
+
+| Referans | Göreceli | Mutlak | Karma |
+|---|---|---|---|
+| Hücre | `A2` | `$A$2` | `A$2`, `$A2` |
+| Satır | `2:2` | `$2:$2` | — |
+| Sütun | `A:A` | `$A:$A` | — |
+| Aralık | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+Göreceli referanslar, bir formül bir elektronik tablo uygulaması tarafından taşındığında veya kopyalandığında değişebilir. Mutlak referanslar her iki koordinatı da sabit tutar, karma referanslar ise yalnızca bir satırı veya bir sütunu sabitler.
+
+## **R1C1‑Stili Formüller Kullanma**
+
+R1C1 gösterimi hem satırları hem de sütunları sayısal olarak tanımlar. Göreceli referanslar köşeli parantez içinde offset kullanır. Bu sözdizimini [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setR1C1Formula) aracılığıyla atayın.
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "B2")->setValue(12);
+    $workbook->getCell(0, "C2")->setValue(5);
+
+    $cell = $workbook->getCell(0, "D2");
+    $cell->setR1C1Formula("RC[-2]-RC[-1]");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 7
+} finally {
+    $presentation->dispose();
+}
+```
+
+Yaygın R1C1 referans biçimleri:
+
+| Referans | Göreceli | Mutlak | Karma |
+|---|---|---|---|
+| Hücre | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Satır | `R[2]` | `R2` | — |
+| Sütun | `C[3]` | `C3` | — |
+| Aralık | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Örneğin, `D2` hücresinde `RC[-2]` aynı satırda iki sütun sola olan hücreyi (`B2`) ifade eder.
+
+## **Formül Sabitleri ve Operatörler**
+
+Yerleşik formül değerlendirme motoru mantıksal değerler, sayısal sabitler, metinler, elektronik tablo hata değerleri, aritmetik operatörler ve karşılaştırma operatörlerini destekler.
+
+### **Sabitler ve Sabit Değerler**
+
+| Tür | Örnekler | Notlar |
+|---|---|---|
+| Mantıksal | `TRUE`, `FALSE` | `A2=TRUE` gibi mantıksal ifadelerde doğrudan kullanılabilir. |
+| Sayısal | `1`, `0.5`, `.3`, `1E-2` | Kesirli ve bilimsel gösterimler desteklenir. |
+| Metin | `"abc"`, `"2/3/2020 12:00"` | Metin sabitleri formül içinde çift tırnak içinde yazılır. |
+| Hata sonucu | `#DIV/0!`, `#N/A`, `#REF!` | Geçerli bir formül, normal bir sonuç yerine bir elektronik tablo hata değeri döndürebilir. |
+
+Bu örnek birkaç sabit türü kullanır:
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "A2")->setValue(false);
+    $workbook->getCell(0, "B2")->setFormula("A2=TRUE");
+    $workbook->getCell(0, "C2")->setFormula("1+0.5");
+    $workbook->getCell(0, "D2")->setFormula(".3*1E-2");
+    $workbook->getCell(0, "E2")->setFormula("\"abc\"");
+    $workbook->getCell(0, "F2")->setFormula("2/0");
+
+    $workbook->calculateFormulas();
+
+    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // false
+    $numericValue = java_values($workbook->getCell(0, "C2")->getValue()); // 1.5
+    $scientificValue = java_values($workbook->getCell(0, "D2")->getValue()); // 0.003
+    $stringValue = java_values($workbook->getCell(0, "E2")->getValue()); // abc
+    $errorValue = java_values($workbook->getCell(0, "F2")->getValue()); // #DIV/0!
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Aritmetik Operatörler**
+
+| Operatör | Anlamı | Örnek |
+|---|---|---|
+| `+` | Toplama veya tek artı | `2+3` |
+| `-` | Çıkarma veya eksi | `2-3`, `-3` |
+| `*` | Çarpma | `2*3` |
+| `/` | Bölme | `2/3` |
+| `%` | Yüzde | `30%` |
+| `^` | Üs alma | `2^3` |
+
+Değerlendirme sırasını açıkça belirtmek için parantez kullanın, örneğin `(A2+B2)*C2`.
+
+### **Karşılaştırma Operatörleri**
+
+Karşılaştırma ifadeleri mantıksal değer döndürür.
+
+| Operatör | Anlamı | Örnek |
+|---|---|---|
+| `=` | Eşittir | `A2=3` |
+| `<>` | Eşit değildir | `A2<>3` |
+| `>` | Büyüktür | `A2>3` |
+| `>=` | Büyük veya eşittir | `A2>=3` |
+| `<` | Küçüktür | `A2<3` |
+| `<=` | Küçük veya eşittir | `A2<=3` |
+
+## **Desteklenen Önceden Tanımlı İşlevler**
+
+Aspose.Slides, grafik çalışma sayfaları için yerleşik bir formül değerlendirme motoru içerir, ancak bu bir tam Excel hesaplama motoru değildir. Belgelenen işlev kümesi aşağıdaki ile sınırlıdır. [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) tarafından rastgele bir Excel işlevinin yeniden hesaplanabileceğini varsaymayın.
+
+| İşlev | Açıklama veya desteklenen biçim | Örnek |
+|---|---|---|
+| `ABS` | Mutlak değer | `ABS(A2)` |
+| `AVERAGE` | Aritmetik ortalama | `AVERAGE(B2:B5)` |
+| `CEILING` | Sayıyı yukarı doğru bir katına yuvarla | `CEILING(A2,5)` |
+| `CHOOSE` | İndekse göre değer seç | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Metin değerlerini birleştir | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Metin değerlerini birleştir | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 tarih sistemini kullanarak tarih değeri oluştur | `DATE(2026,8,19)` |
+| `DAYS` | İki tarih arasındaki gün sayısını döndür | `DAYS(B2,A2)` |
+| `FIND` | Bir metin içinde başka bir metni bul | `FIND("-",A2)` |
+| `FINDB` | Bayt‑temelli metin arama | `FINDB("a",A2)` |
+| `IF` | Koşullu sonuç | `IF(A2>0,A2,0)` |
+| `INDEX` | Referans biçimi | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektör biçimi | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektör biçimi | `MATCH(A2,B2:B5,0)` |
+| `MAX` | En büyük değer | `MAX(B2:B5)` |
+| `SUM` | Değerleri topla | `SUM(B2:B5)` |
+| `VLOOKUP` | Dikey arama | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Tablodaki kısıtlamalar önemlidir: `INDEX` referans biçiminde, `LOOKUP` ve `MATCH` vektör biçiminde belgelenir. `DATE` 1900 tarih sistemini kullanır. Burada listelenmeyen işlevler, Aspose.Slides formül değerlendirme motoru tarafından desteklenmiyor olarak kabul edilmelidir.
+
+## **Tercih Edilen Kültürle Formülleri Hesaplama**
+
+Bazı grafik çalışma kitabı işlevleri metni kültüre özgü kurallara göre yorumlar. Bu, çift‑bayt karakter seti (DBCS) kullanan diller için özellikle önemlidir. Bu formülleri doğru şekilde hesaplamak için bir [LoadOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/) oluşturun, tercih edilen kültürü [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/tr/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture) ile ayarlayın, elektronik tablo seçeneklerini [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions) ile atayın ve ardından sunumu yükleyin.
+
+Aşağıdaki örnek Japon kültürünü seçer, yapılandırılmış yükleme seçenekleriyle bir sunum açar ve her grafik çalışma kitabı için [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) yöntemini çağırır:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Object** türünün **ChartDataCell::setValue** yöntemiyle hücrelere bazı değerler yazalım; bu, herhangi bir değeri ayarlayabileceğiniz anlamına gelir:
+Tercih edilen kültür, sunum yükleme yapılandırmasının bir parçasıdır; bu yüzden [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneğini oluşturmadan önce ayarlayın. Çalışma kitabı formüllerinin beklediği kültürü kullanın; örneğin Japon DBCS hesaplama kurallarına uyması gereken formüller için `ja-JP` kullanın.
+
+## **Yeniden Hesaplama ve Önbelleğe Alınmış Değerler**
+
+Elektronik tablo dosyaları genellikle bir formül ve onun son hesaplanmış değerini saklar. Aspose.Slides, bir sunum yüklendiğinde ve ilgili grafik verisi değiştirilmediğinde, [ChartDataCell::getValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#getValue) üzerinden önbelleğe alınmış bir değeri okuyabilir.
+
+Giriş hücrelerini veya formülleri değiştirdikten sonra eski bir önbellek sonucuna güvenmeyin. Hesaplanmış değerleri okumadan veya bunlara bağımlı grafik verisini kaydetmeden önce [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) yöntemini çağırın.
+
+Desteklenen alt kümenin dışındaki formüller için, Aspose.Slides formülü ayrıştıramayabilir veya bağımlılıklarını belirleyemeyebilir. Çalışma kitabı değiştirilmişse, önceki önbellek değeri artık güvenilir olmayabilir. Bu durumda, desteklenmeyen veri içeren bir hücreyi okumak [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellunsupporteddataexception/) hatasına yol açabilir.
+
+Grafiğiniz Aspose.Slides’ın değerlendirmediği Excel işlevlerine dayanıyorsa, bu formülleri destekleyen bir elektronik tablo motoru ile hesaplayın ve oluşan değerleri grafik çalışma kitabına geri yazın. Desteklenmeyen formülleri tahmini değerlerle değiştirmeyin.
+
+## **Formül Hatalarını Ele Alma**
+
+İki farklı sorun türü vardır.
+
+Bir formül geçerli olabilir ancak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` veya `#VALUE!` gibi bir elektronik tablo hata sonucu üretebilir. Bu durumda hata belirteci bir hücre sonucu olup [ChartDataCell::getValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#getValue) üzerinden döndürülebilir.
+
+Bir formül ayrıca ayrıştırma, referans, bağımlılık veya desteklenen veri düzeyinde başarısız olabilir. Aspose.Slides bu durumlar için elektronik tabloya özgü istisnalar sağlar: [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellcircularreferenceexception/), ve [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellunsupporteddataexception/).
+
+PHP via Java’da, Java istisnaları `JavaException` aracılığıyla ortaya çıkar. Formüller şablonlardan veya kullanıcı girişinden geldiğinde, yeniden hesaplama ve değer erişimi etrafında bu istisnaları yakalayın. Yığın izinde bildirilen Java istisnası, belirli elektronik tablo hatasını tanımlar:
 
 ```php
-  $workbook->getCell(0, "F2")->setValue(-2.5);
-  $workbook->getCell(0, "G3")->setValue(6.3);
-  $workbook->getCell(0, "H4")->setValue(3);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("SUM(B2:B5)");
 
+    try {
+        $workbook->calculateFormulas();
+        echo java_values($cell->getValue()) . PHP_EOL;
+    } catch (JavaException $ex) {
+        $ex->printStackTrace();
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Şimdi hücreye formül yazmak için **ChartDataCell::setFormula** metodunu kullanabilirsiniz.
+## **Pratik Sınırlamalar**
 
-*Not*: **ChartDataCell::setFormula** yöntemi A1‑stili hücre referanslarını ayarlamak için kullanılır. 
+Grafik çalışma sayfalarındaki formül desteği, tam Excel uyumluluğu olmayan tanımlı bir elektronik tablo hesaplama alt kümesi içindir. Raporlama iş akışınızı tasarlarken şu kısıtlamaları aklınızda bulundurun:
 
-R1C1 stili bir formül ayarlamak için **ChartDataCell::setR1C1Formula** metodunu kullanabilirsiniz.
-
-Ardından B2 ve C2 hücrelerinin değerlerini okumaya çalışırsanız, değerler hesaplanacaktır:
-
-```php
-  $value1 = $cell1->getValue();// 7.8
-
-  $value2 = $cell2->getValue();// 2.1
-
-
-```
-
-## **Mantıksal Sabitler**
-Hücre formüllerinde *FALSE* ve *TRUE* gibi mantıksal sabitleri kullanabilirsiniz:
-
-```php
-  $workbook->getCell(0, "A2")->setValue(false);
-  $cell = $workbook->getCell(0, "B2");
-  $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// değer boolean "false" içerir
-```
-
-## **Sayısal Sabitler**
-Sayısal sabitler, ortak veya bilimsel gösterimlerde grafik çalışma sayfası formülü oluşturmak için kullanılabilir:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
-  $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
-
-```
-
-## **Dize Sabitler**
-Dize (veya literal) sabiti, olduğu gibi kullanılan ve değişmeyen özel bir değerdir. Dize sabitleri tarih, metin, sayı vb. olabilir:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("\"abc\"");
-  $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
-
-```
-
-## **Hata Sabitleri**
-Bazen formül sonucunu hesaplamak mümkün olmayabilir. Bu durumda hücrede değeri yerine hata kodu gösterilir. Her hata tipi belirli bir kodla temsil edilir:
-
-- #DIV/0! - formül sıfıra bölmeye çalışır.
-- #GETTING_DATA - hücrede değer hâlâ hesaplanırken gösterilebilir.
-- #N/A - bilgi eksik ya da mevcut değildir. Bunun sebepleri; hücrelerin boş olması, fazladan boşluk karakteri, yazım hatası vb.
-- #NAME? - belirli bir hücre ya da diğer formül nesneleri adlarıyla bulunamıyor.
-- #NULL! - formülde (,) gibi bir hata ya da iki nokta üst üste (:) yerine boşluk karakteri kullanıldığında ortaya çıkabilir.
-- #NUM! - formüldeki sayısal değer geçersiz, çok uzun ya da çok küçük olabilir.
-- #REF! - geçersiz hücre referansı.
-- #VALUE! - beklenmeyen değer türü. Örneğin, metin değeri sayısal bir hücreye ayarlanmışsa.
-
-```php
-  $cell = $workbook->getCell(0, "A2");
-  $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// değer string "#DIV/0!" içerir
-```
-
-## **Aritmetik Operatörler**
-Grafik çalışma sayfası formüllerinde tüm aritmetik operatörleri kullanabilirsiniz:
-
-|**Operatör**|**Anlam**|**Örnek**|
-| :- | :- | :- |
-|+ (plus sign)|Toplama veya tekli artı|2 + 3|
-|- (minus sign)|Çıkarma veya negatif|2 - 3<br>-3|
-|* (asterisk)|Çarpma|2 * 3|
-|/ (forward slash)|Bölme|2 / 3|
-|% (percent sign)|Yüzde|30%|
-|^ (caret)|Üs|2 ^ 3|
-
-*Not*: Değerlendirme sırasını değiştirmek için, önce hesaplanması gereken formül kısmını parantez içine alın.
-
-## **Karşılaştırma Operatörleri**
-Hücre değerlerini karşılaştırma operatörleriyle karşılaştırabilirsiniz. Bu operatörler kullanılarak iki değer karşılaştırıldığında sonuç mantıksal bir değer *TRUE* ya da *FALSE* olur:
-
-|**Operatör**|**Anlam**|**Örnek**|
-| :- | :- | :- |
-|= (equal sign)|Eşittir|A2 = 3|
-|<> (not equal sign)|Eşit değildir|A2 <> 3|
-|> (greater than sign)|Büyüktür|A2 > 3|
-|>= (greater than or equal to sign)|Büyük veya eşit|A2 >= 3|
-|< (less than sign)|Küçüktür|A2 < 3|
-|<= (less than or equal to sign)|Küçük veya eşit|A2 <= 3|
-
-## **A1-Stili Hücre Referansları**
-**A1-stili hücre referansları**, sütunun harf tanımlayıcısı (ör. "*A*") ve satırın sayısal tanımlayıcısı (ör. "*1*") olduğu çalışma sayfalarında kullanılır. A1‑stili hücre referansları aşağıdaki şekilde kullanılabilir:
-
-|**Hücre referansı**|**Örnek**|**Mutlak**|**Göreli**|**Karışık**|
-| :- | :- | :- | :- | :- |
-|Hücre|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Satır|$2:$2|2:2|-|
-|Sütun|$A:$A|A:A|-|
-|Aralık|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-Aşağıda bir formülde A1‑stili hücre referansının nasıl kullanılacağına bir örnek verilmiştir:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
-```
-
-## **R1C1-Stili Hücre Referansları**
-**R1C1-stili hücre referansları**, hem satır hem de sütunun sayısal tanımlayıcısının olduğu çalışma sayfalarında kullanılır. R1C1‑stili hücre referansları aşağıdaki şekilde kullanılabilir:
-
-|**Hücre referansı**|**Örnek**|**Mutlak**|**Göreli**|**Karışık**|
-| :- | :- | :- | :- | :- |
-|Hücre|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Satır|R2|R[2]|-|
-|Sütun|C3|C[3]|-|
-|Aralık|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Aşağıda bir formülde R1C1‑stili hücre referansının nasıl kullanılacağına bir örnek verilmiştir:
-
-```php
-  $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-
-```
-
-## **Önceden Tanımlı Fonksiyonlar**
-Formüllerde uygulanmalarını basitleştirmek için kullanılabilen önceden tanımlı fonksiyonlar vardır. Bu fonksiyonlar en yaygın kullanılan işlemleri kapsar, örneğin:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 tarih sistemi)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (referans formu)
-- LOOKUP (vektör formu)
-- MATCH (vektör formu)
-- MAX
-- SUM
-- VLOOKUP
+- Aspose.Slides’ın formülleri yeniden hesaplamasını istediğinizde yalnızca belgelenen sabitleri, operatörleri, referansları ve işlevleri kullanın.
+- Formül sonuçlarının bağlı olduğu hücreleri değiştirdikten sonra yeniden hesaplayın.
+- Yüklenen sunumlardan gelen önbelleğe alınmış değerleri anlık bir fotoğraf olarak düşünün; düzenlemeler sonrası yeniden hesaplamanın yerine geçmesin.
+- Mevcut şablonlardaki formülleri, belgelenen işlev listesi dışındaki işlevleri içeriyorsa, hesaplanmış değerlerine güvenmeden önce test edin.
+- Tam bir elektronik tablo hesaplama motoru gerektiren formüller için, bunları dışarıda hesaplayın ve ardından grafik çalışma kitabını elde edilen değerlerle güncelleyin.
 
 ## **SSS**
 
-**Dış Excel dosyaları, formüllü bir grafik için veri kaynağı olarak destekleniyor mu?**
+**[ChartDataCell::setFormula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setFormula) ve [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setR1C1Formula) arasındaki fark nedir?**
 
-Evet. Aspose.Slides, bir grafiğin veri kaynağı olarak dış çalışma kitaplarını [chart's data source](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatasourcetype/) destekler; bu sayede sunumun dışındaki bir XLSX dosyasından formüller kullanılabilir.
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setFormula) `B2-C2` gibi bir A1‑stili ifade saklar. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setR1C1Formula) ise `RC[-2]-RC[-1]` gibi bir R1C1‑stili ifade saklar. Formülleri nasıl oluşturduğunuza veya kopyaladığınıza en uygun gösterimi kullanın.
 
-**Grafik formülleri aynı çalışma kitabındaki sayfalara sayfa adıyla başvurabilir mi?**
+**Hesaplamadan sonra hücreyi mi yoksa değerini mi okumalıyım?**
 
-Evet. Formüller standart Excel referans modelini izler, bu yüzden aynı çalışma kitabı içindeki diğer sayfalara ya da dış bir çalışma kitabına başvurabilirsiniz. Dış referanslarda, Excel sözdizimini kullanarak yol ve çalışma kitabı adını eklemelisiniz.
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#getCell) bir [ChartDataCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/) döndürür. Hesaplanmış sonucu elde etmek için, yeniden hesaplamadan sonra bu hücrenin [ChartDataCell::getValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#getValue) yöntemini çağırın.
+
+**[ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) ne zaman çağırılmalı?**
+
+Giriş değerlerini veya formülleri değiştirdikten ve hesaplanmış sonuçlara ihtiyaç duymadan önce [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) yöntemini çağırın. Bu, yerleşik değerlendiricinin desteklediği formüllerin değerlerini günceller.
+
+**Aspose.Slides her Excel işlevini destekliyor mu?**
+
+Hayır. Yerleşik değerlendirici belgelenen bir işlev alt kümesini destekler. Bu alt kümenin dışındaki işlevlerin doğru şekilde yeniden hesaplanacağını varsaymayın. Tam Excel formül uyumluluğu gerekiyorsa, hesaplamayı uygun bir elektronik tablo motoru ile yapın ve son değerleri grafik çalışma kitabına yazın.
+
+**Yüklenmiş bir sunumda desteklenmeyen bir formül varsa ne olur?**
+
+Grafik verisi değişmemişse, çalışma kitabı hâlâ önceki hesaplanmış önbellek değerini içerebilir. İlgili veri değiştirildiğinde bu önbellek değeri geçerli olmayabilir. Formülü işlenemeyen bir hücreye erişmek [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellunsupporteddataexception/) hatasına yol açabilir.
+
+**Formül hata değerleri PHP istisnalarıyla aynı şey midir?**
+
+Hayır. `#DIV/0!` gibi bir sonuç, geçerli bir hesaplamanın ürettiği bir elektronik tablo değeridir. [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellinvalidformulaexception/) veya [CellCircularReferenceException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellcircularreferenceexception/) gibi spreadsheet‑işleme hataları Java istisnalarıdır ve `JavaException` aracılığıyla PHP’ye yansıtılır.
+
+**Bir formül hücresi değiştiğinde grafik otomatik olarak güncellenir mi?**
+
+Bir grafik serisi çalışma kitabı hücrelerine referans verebilir. Önce çalışma kitabını yeniden hesaplayın, ardından sunumu kaydedin veya render edin. Grafik veri noktaları hesaplanmış hücrelere işaret ediyorsa, grafik bu güncellenmiş hücre değerlerini kullanır; bu iş akışı için ayrı bir grafik‑yenileme yöntemi gerekmez.
+
+**Grafikler harici bir Excel çalışma kitabı kullanabilir mi?**
+
+Evet, grafik verisi harici bir çalışma kitabı kullanacak şekilde yapılandırılabilir. Ancak bu makalede açıklanan formül hesaplama iş akışı, grafik veri çalışma kitabı ve Aspose.Slides tarafından değerlendirilen formül alt kümesiyle sınırlıdır. [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) yönteminin harici bir XLSX dosyasındaki rastgele formülleri tam olarak yeniden hesaplayacağını varsaymayın.
+
+**Başka bir çalışma sayfası veya çalışma kitabına referans veren formüller kullanabilir miyim?**
+
+Excel‑stili referanslar grafik çalışma kitaplarında bulunabilir, ancak formül değerlendirmesi desteklenen ayrıştırıcı ve işlev kümesiyle sınırlıdır. Çapraz‑sayfa veya harici bir referans kritikse, hedef Aspose.Slides sürümünüzde tam formülü doğrulayın. Geniş Excel referans uyumluluğu gerektiren iş akışları için çalışma kitabını dışarıda hesaplayın ve çözülen değerleri grafik verisine geri yazın.
+
+**Formül dizeleri `=` ile başlamalı mı?**
+
+Aspose.Slides API örnekleri, `B2-C2` veya `SUM(B2:B5)` gibi ön ek `=` olmadan ifadeler atar. Bu biçimi kullanmak, oluşturulan formüllerin belgelenen API örnekleriyle tutarlı olmasını sağlar.

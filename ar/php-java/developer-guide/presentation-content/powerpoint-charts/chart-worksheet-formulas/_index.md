@@ -1,244 +1,413 @@
 ---
-title: تطبيق صيغ ورقة عمل المخطط في العروض التقديمية باستخدام PHP
+title: تطبيق صيغ ورقة عمل المخطط في العروض التقديمية بلغة PHP
 linktitle: صيغ ورقة العمل
 type: docs
 weight: 70
 url: /ar/php-java/chart-worksheet-formulas/
 keywords:
-- جدول بيانات المخطط
+- مخطط جدول البيانات
 - ورقة عمل المخطط
 - صيغة المخطط
 - صيغة ورقة العمل
 - صيغة جدول البيانات
-- مصدر البيانات
+- دفتر عمل بيانات المخطط
+- حساب الصيغة
+- الثقافة المفضلة
+- صيغة مخصصة للثقافة
+- DBCS
 - ثابت منطقي
 - ثابت عددي
 - ثابت نصي
 - ثابت خطأ
-- ثابت حسابي
+- عامل حسابي
 - عامل مقارنة
 - نمط A1
 - نمط R1C1
-- دالة معرفة مسبقًا
+- دالة مسبقة التعريف
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تطبيق صيغ بنمط إكسل في Aspose.Slides للغة PHP عبر أوراق عمل المخطط Java وتلقيم تقارير تلقائية عبر ملفات PPT و PPTX."
+description: "تطبيق صيغ مشابهة لإكسيل في Aspose.Slides للـ PHP عبر جداول عمل المخطط، إعادة حساب القيم، واستخدام النتائج في مخططات PowerPoint."
 ---
+## **نظرة عامة**
 
-## **حول صيغ جدول البيانات للرسوم البيانية في العروض التقديمية**
-**Chart spreadsheet** (أو chart worksheet) في العرض التقديمي هو مصدر البيانات للرسمة البيانية. يحتوي جدول البيانات للرسمة على بيانات يتم تمثيلها على الرسمة بطريقة رسومية. عند إنشاء رسم بياني في PowerPoint، يتم إنشاء ورقة العمل المرتبطة بهذا الرسم تلقائيًا. يتم إنشاء ورقة العمل لجميع أنواع الرسوم: مخطط خطي، مخطط شريطي، مخطط شمسية، مخطط دائري، إلخ. لعرض جدول البيانات في PowerPoint عليك النقر مزدوجًا على الرسم:
+عادةً ما تخزن المخططات في PowerPoint بيانات المصدر الخاصة بها في ورقة عمل مضمّنة. في Aspose.Slides للـ PHP عبر Java، يمكنك الوصول إلى تلك الورقة من خلال دفتر عمل بيانات المخطط، كتابة قيم الإدخال، تعيين صيغ للخلايا، حساب الصيغ المدعومة، واستخدام الخلايا المحسوبة كبيانات للمخطط.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+تشرح هذه المقالة سير عمل الصيغ بالكامل: إنشاء مخطط، ملء ورقة عمله، تعيين صيغ بنمط A1 أو R1C1، إعادة حسابها، قراءة القيم المحسوبة، ربط تلك الخلايا بسلسلة مخطط، وحفظ العرض التقديمي. كما تصف بنية الصيغ المدعومة، مجموعة الدوال المدمجة، القيم المخزّنة مؤقتًا، الصيغ غير المدعومة، وأخطاء الجداول الخاصة.
 
+## **أوراق عمل المخططات والصيغ**
 
-يحتوي جدول البيانات على أسماء عناصر الرسم (Category Name: *Category1*، Serie Name) وجدول ببيانات رقمية تتناسب مع هذه الفئات والسلاسل. افتراضيًا، عند إنشاء رسم بياني جديد – تُضبط بيانات جدول البيانات بالقيم الافتراضية. ثم يمكنك تعديل بيانات الجدول يدويًا في ورقة العمل.
+تحتوي ورقة عمل المخطط على الفئات، أسماء السلاسل، والقيم المستخدمة من قبل المخطط. في PowerPoint، يمكنك فحص ورقة العمل بفتح محرر بيانات المخطط:
 
-عادةً ما يمثل الرسم بيانات معقدة (مثل المحللين الماليين أو العلميّين)، حيث تكون الخلايا محسوبة من قيم خلايا أخرى أو من بيانات ديناميكية أخرى. حساب قيمة الخلية يدويًا وإدخالها ثابتًا يجعل تعديلها لاحقًا صعبًا. إذا غيرت قيمة خلية معينة، سيتطلب تحديث جميع الخلايا المعتمدة عليها. علاوةً على ذلك، قد تعتمد بيانات الجدول على بيانات جداول أخرى، مما يخلق مخططًا بياناتًا معقدًا يحتاج إلى تحديث سهل ومرن.
+![مخطط PowerPoint مع ورقة عمله المضمّنة مفتوحة، تُظهر بيانات الفئات والسلاسل](chart-worksheet-formulas_1.png)
 
-**Chart spreadsheet formula** في العرض التقديمي هي تعبير يُحسب تلقائيًا ويحدّث بيانات جدول البيانات. تُعرّف صيغة الجدول منطق حساب البيانات لخلية معينة أو مجموعة خلايا. الصيغة هي صيغة رياضية أو منطقية تستخدم: مراجع خلايا، دوال حسابية، عوامل منطقية، عوامل حسابية، دوال تحويل، ثوابت نصية، إلخ. تُكتب تعريف الصيغة في الخلية، ولا تحتوي هذه الخلية على قيمة بسيطة. الصيغة تحسب القيمة وتعيدها، ثم تُعطى هذه القيمة للخلية. صيغ جداول البيانات في العروض التقديمية هي في الأصل صيغ إكسل، وتدعم نفس الدوال الافتراضية والعوامل والثوابت.
+في Aspose.Slides، يتم عرض ورقة العمل عبر فئة [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/). استخدم [ChartDataCell::setFormula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setFormula) للصيغ بنمط A1 و[ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setR1C1Formula) للصيغ بنمط R1C1. بعد تعديل خلايا الإدخال أو الصيغ، استدعِ [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) لإعادة حساب الصيغ المدعومة وتحديث قيم الخلايا المقابلة.
 
-في [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) يُمثَّل جدول البيانات بالطريقة
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/#getChartDataWorkbook) للنوع
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
-يمكن تعيين الصيغة وتغييرها باستخدام
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setFormula).
-الوظائف المدعومة للصيغ في Aspose.Slides:
+لا تزال الخلية المحسوبة تعرض نتيجتها عبر [ChartDataCell::getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#getValue). وهذا مهم عندما تحتاج إلى فحص نتيجة الصيغة في الشيفرة أو استخدام الخلية كنقطة بيانات للمخطط.
 
-- ثوابت منطقية
-- ثوابت عددية
-- ثوابت نصية
-- ثوابت خطأ
-- عوامل حسابية
-- عوامل مقارنة
-- مراجع خلايا بنمط A1
-- مراجع خلايا بنمط R1C1
-- دوال معرفة مسبقًا
+## **إنشاء مخطط وحساب صيغ ورقة العمل**
 
+يوضح المثال التالي سير عمل شامل من البداية إلى النهاية. فهو ينشئ مخطط أعمدة متجمع، يمسح البيانات التجريبية، يكتب قيم الإيرادات والنفقات ربع السنوية، يحسب الربح باستخدام صيغ، يقرأ النتائج، يستخدم الخلايا المحسوبة كقيم للمخطط، ويحفظ العرض التقديمي.
 
-عادةً ما تخزن الجداول القيم المحسوبة الأخيرة للصيغة. إذا لم تتغير بيانات الرسم بعد تحميل العرض، فإن طريقة
-[**ChartDataCell::getValue**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#getValue) تُعيد تلك القيم عند القراءة. لكن إذا تم تعديل بيانات الجدول، أثناء القراءة تُرمى الاستثناء
-[**CellUnsupportedDataException**](https://reference.aspose.com/slides/php-java/aspose.slides/CellUnsupportedDataException) للصياغات غير المدعومة. ذلك لأنه عند تحليل الصيغ بنجاح يتم تحديد تبعيات الخلايا وتأكيد صحة القيم الأخيرة. وإذا فشل تحليل الصيغة، لا يمكن ضمان صحة القيمة.
-
-## **إضافة صيغة جدول بيانات رسم إلى عرض تقديمي**
-أولاً، أضف رسمًا إلى الشريحة الأولى من عرض تقديمي جديد باستخدام
-[ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart).
-تُنشأ ورقة العمل للرسمة تلقائيًا ويمكن الوصول إليها عبر الطريقة
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 350);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $workbook->clear($worksheetIndex);
+
+    $category1 = $workbook->getCell($worksheetIndex, "A2", "Q1");
+    $category2 = $workbook->getCell($worksheetIndex, "A3", "Q2");
+    $category3 = $workbook->getCell($worksheetIndex, "A4", "Q3");
+
+    $workbook->getCell($worksheetIndex, "B1", "Revenue");
+    $workbook->getCell($worksheetIndex, "C1", "Expenses");
+    $workbook->getCell($worksheetIndex, "D1", "Profit");
+
+    $workbook->getCell($worksheetIndex, "B2")->setValue(120.0);
+    $workbook->getCell($worksheetIndex, "C2")->setValue(80.0);
+    $workbook->getCell($worksheetIndex, "B3")->setValue(150.0);
+    $workbook->getCell($worksheetIndex, "C3")->setValue(95.0);
+    $workbook->getCell($worksheetIndex, "B4")->setValue(135.0);
+    $workbook->getCell($worksheetIndex, "C4")->setValue(110.0);
+
+    $profit1 = $workbook->getCell($worksheetIndex, "D2");
+    $profit2 = $workbook->getCell($worksheetIndex, "D3");
+    $profit3 = $workbook->getCell($worksheetIndex, "D4");
+
+    $profit1->setFormula("B2-C2");
+    $profit2->setFormula("B3-C3");
+    $profit3->setFormula("B4-C4");
+
+    $workbook->calculateFormulas();
+
+    $q1Profit = java_values($profit1->getValue()); // 40
+    $q2Profit = java_values($profit2->getValue()); // 55
+    $q3Profit = java_values($profit3->getValue()); // 25
+
+    echo "Q1 profit: " . $q1Profit . PHP_EOL;
+    echo "Q2 profit: " . $q2Profit . PHP_EOL;
+    echo "Q3 profit: " . $q3Profit . PHP_EOL;
+
+    $chart->getChartData()->getCategories()->add($category1);
+    $chart->getChartData()->getCategories()->add($category2);
+    $chart->getChartData()->getCategories()->add($category3);
+
+    $profitSeries = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, "D1"), $chart->getType());
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit1);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit2);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit3);
+    $profitSeries->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("chart-formulas.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+تشير نقاط بيانات المخطط إلى `D2:D4`، لذا يستخدم المخطط قيم الربح المحسوبة. لا توجد دعوة منفصلة لتحديث المخطط في هذا سير العمل: أعد حساب دفتر العمل أولاً، ثم استخدم أو احفظ بيانات المخطط التي تشير إلى الخلايا المحسوبة.
+
+## **استخدام صيغ بنمط A1**
+
+يحدد ترميز A1 الأعمدة بالأحرف والصفوف بالأرقام. عيّن التعبيرات بنمط A1 عبر [ChartDataCell::setFormula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setFormula).
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "C3")->setValue(10);
+    $workbook->getCell(0, "F2")->setValue(2);
+    $workbook->getCell(0, "G2")->setValue(3);
+    $workbook->getCell(0, "H2")->setValue(4);
+
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("C3+SUM(F2:H2)");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 19
+} finally {
+    $presentation->dispose();
+}
+```
+
+الأشكال الشائعة للمرجع بنمط A1 هي:
+
+| المرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| خلية | `A2` | `$A$2` | `A$2`, `$A2` |
+| صف | `2:2` | `$2:$2` | — |
+| عمود | `A:A` | `$A:$A` | — |
+| نطاق | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+يمكن أن تتغير المراجع النسبية عندما يتم نقل الصيغة أو نسخها باستخدام تطبيق جدول البيانات. المراجع المطلقة تحافظ على كلا الإحداثيين ثابتين، بينما المراجع المختلطة تثبت إما الصف أو العمود فقط.
+
+## **استخدام صيغ بنمط R1C1**
+
+يحدد ترميز R1C1 كلًا من الصفوف والأعمدة رقميًا. تستخدم المراجع النسبية إزاحات بين قوسين مربعين. عيّن هذا الترميز عبر [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "B2")->setValue(12);
+    $workbook->getCell(0, "C2")->setValue(5);
+
+    $cell = $workbook->getCell(0, "D2");
+    $cell->setR1C1Formula("RC[-2]-RC[-1]");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 7
+} finally {
+    $presentation->dispose();
+}
+```
+
+الأشكال الشائعة للمرجع بنمط R1C1 هي:
+
+| المرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| خلية | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| صف | `R[2]` | `R2` | — |
+| عمود | `C[3]` | `C3` | — |
+| نطاق | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+على سبيل المثال، في الخلية `D2`، تعني `RC[-2]` الخلية في نفس الصف عمودين إلى اليسار (`B2`).
+
+## **ثوابت الصيغة والعوامل**
+
+يدعم مقيم الصيغ المدمج القيم المنطقية، القيم الرقمية، السلاسل النصية، قيم أخطاء الجداول، العوامل الحسابية، وعوامل المقارنة.
+
+### **الثوابت والعدديات**
+
+| النوع | أمثلة | ملاحظات |
+|---|---|---|
+| منطقي | `TRUE`, `FALSE` | يمكن استخدامها مباشرة في تعبيرات منطقية مثل `A2=TRUE`. |
+| رقمي | `1`, `0.5`, `.3`, `1E-2` | تُدعم الصيغ العشرية والعلمية. |
+| نصي | `"abc"`, `"2/3/2020 12:00"` | تُحاط القيم النصية بعلامات اقتباس مزدوجة داخل الصيغة. |
+| نتيجة خطأ | `#DIV/0!`, `#N/A`, `#REF!` | يمكن أن تُقيّم صيغة صحيحة إلى قيمة خطأ جدولية بدلاً من نتيجة عادية. |
+
+هذا المثال يستخدم عدة أنواع ثابتة:
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "A2")->setValue(false);
+    $workbook->getCell(0, "B2")->setFormula("A2=TRUE");
+    $workbook->getCell(0, "C2")->setFormula("1+0.5");
+    $workbook->getCell(0, "D2")->setFormula(".3*1E-2");
+    $workbook->getCell(0, "E2")->setFormula("\"abc\"");
+    $workbook->getCell(0, "F2")->setFormula("2/0");
+
+    $workbook->calculateFormulas();
+
+    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // خاطئ
+    $numericValue = java_values($workbook->getCell(0, "C2")->getValue()); // 1.5
+    $scientificValue = java_values($workbook->getCell(0, "D2")->getValue()); // 0.003
+    $stringValue = java_values($workbook->getCell(0, "E2")->getValue()); // abc
+    $errorValue = java_values($workbook->getCell(0, "F2")->getValue()); // #DIV/0!
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **العوامل الحسابية**
+
+| العامل | المعنى | مثال |
+|---|---|---|
+| `+` | جمع أو إشارة موجبة أحادية | `2+3` |
+| `-` | طرح أو نفي أحادي | `2-3`, `-3` |
+| `*` | ضرب | `2*3` |
+| `/` | قسمة | `2/3` |
+| `%` | نسبة مئوية | `30%` |
+| `^` | أس | `2^3` |
+
+استخدم الأقواس لجعل ترتيب التقييم واضحًا، على سبيل المثال `(A2+B2)*C2`.
+
+### **عوامل المقارنة**
+
+تعيد تعبيرات المقارنة قيمًا منطقية.
+
+| العامل | المعنى | مثال |
+|---|---|---|
+| `=` | مساوية لـ | `A2=3` |
+| `<>` | غير مساوية لـ | `A2<>3` |
+| `>` | أكبر من | `A2>3` |
+| `>=` | أكبر من أو يساوي | `A2>=3` |
+| `<` | أصغر من | `A2<3` |
+| `<=` | أصغر من أو يساوي | `A2<=3` |
+
+## **الدوال المسبقة التعريف المدعومة**
+
+يتضمن Aspose.Slides مقيم صيغ مدمج لأوراق عمل المخططات، لكنه ليس محرك حساب Excel كامل. مجموعة الدوال الموثقة محدودة إلى الدوال أدناه. لا تفترض أن أي دالة Excel عشوائية يمكن إعادة حسابها عبر [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
+
+| الدالة | الغرض أو الشكل المدعوم | مثال |
+|---|---|---|
+| `ABS` | القيمة المطلقة | `ABS(A2)` |
+| `AVERAGE` | المتوسط الحسابي | `AVERAGE(B2:B5)` |
+| `CEILING` | تقريب الرقم إلى الأعلى إلى مضاعف | `CEILING(A2,5)` |
+| `CHOOSE` | اختيار قيمة بحسب الفهرس | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | دمج قيم نصية | `CONCAT(A2,B2)` |
+| `CONCATENATE` | دمج قيم نصية | `CONCATENATE(A2," ",B2)` |
+| `DATE` | إنشاء قيمة تاريخ باستخدام نظام تاريخ 1900 | `DATE(2026,8,19)` |
+| `DAYS` | إرجاع عدد الأيام بين تاريخين | `DAYS(B2,A2)` |
+| `FIND` | العثور على نص داخل نص آخر | `FIND("-",A2)` |
+| `FINDB` | بحث نصي قائم على البايت | `FINDB("a",A2)` |
+| `IF` | نتيجة شرطية | `IF(A2>0,A2,0)` |
+| `INDEX` | شكل مرجع | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | شكل متجه | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | شكل متجه | `MATCH(A2,B2:B5,0)` |
+| `MAX` | القيمة العظمى | `MAX(B2:B5)` |
+| `SUM` | جمع القيم | `SUM(B2:B5)` |
+| `VLOOKUP` | بحث عمودي | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+القيود الموضحة في الجدول ذات أهمية: يتم توثيق `INDEX` في شكل مرجع، بينما يتم توثيق `LOOKUP` و `MATCH` في شكل متجه. يستخدم `DATE` نظام تاريخ 1900. يجب اعتبار أي ميزات أو دوال غير مدرجة هنا غير مدعومة من قِبل مقيم صيغ Aspose.Slides إلا إذا تم توثيقها بشكل منفصل.
+
+## **حساب الصيغ باستخدام ثقافة مفضلة**
+
+تفسّر بعض دوال دفتر عمل المخطط النص وفق قواعد خاصة بالثقافة. هذا مهم بشكل خاص للدوال المصممة للغات تستخدم مجموعات أحرف مزدوجة البايت (DBCS). لحساب هذه الصيغ بشكل صحيح، أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/)، عيّن الثقافة المفضلة عبر [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture)، عيّن خيارات جدول البيانات عبر [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions)، ثم حمّل العرض التقديمي.
+
+يختار المثال التالي الثقافة اليابانية، يفتح عرضًا تقديميًا باستخدام خيارات التحميل المكوّنة، ويستدعي [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) لكل دفتر عمل مخطط:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+تُعد الثقافة المفضلة جزءًا من تكوين تحميل العرض التقديمي، لذا حددها قبل إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). استخدم الثقافة المتوافقة مع صيغ دفتر العمل؛ على سبيل المثال، استخدم `ja-JP` للصيغ التي يجب أن تتبع قواعد حساب DBCS اليابانية.
 
-لنعين بعض القيم في الخلايا باستخدام طريقة
-[**ChartDataCell::setValue**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) للنوع **Object**، مما يعني أنه يمكنك تعيين أي قيمة:
+## **إعادة الحساب والقيم المخزنة مؤقتًا**
+
+تخزن ملفات الجداول عادةً كلًا من الصيغة وقيمتها المحسوبة الأخيرة. يمكن لـ Aspose.Slides قراءة قيمة مخزنة مؤقتًا من [ChartDataCell::getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#getValue) عندما يتم تحميل العرض التقديمي ولم تتغير بيانات المخطط ذات الصلة.
+
+بعد تعديل خلايا الإدخال أو الصيغ، لا تعتمد على نتيجة مخزنة قديمة. استدعِ [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) قبل قراءة القيم المحسوبة أو حفظ بيانات المخطط التي تعتمد عليها.
+
+بالنسبة للصيغ خارج المجموعة المدعومة، قد لا يتمكن Aspose.Slides من تحليل الصيغة أو تحديد تبعياتها. إذا تم تعديل دفتر العمل، لا يمكن الاعتماد على القيمة المخزنة السابقة. في هذه الحالة، قد يؤدي قراءة قيمة خلية ذات بيانات غير مدعومة إلى رفع استثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellunsupporteddataexception/).
+
+إذا كان مخططك يعتمد على دوال Excel لا يقوم Aspose.Slides بتقييمها، احسب تلك الصيغ باستخدام محرك جدول بيانات يدعمها واكتب القيم الناتجة مرة أخرى إلى دفتر عمل المخطط. لا تستبدل الصيغ غير المدعومة بقيم مقدرة.
+
+## **معالجة أخطاء الصيغ**
+
+هناك نوعان مختلفان من المشكلات للتمييز بينهما.
+
+* يمكن أن تكون الصيغة صالحة لكنها تُنتج نتيجة خطأ جدولية مثل `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, أو `#VALUE!`. في هذه الحالة، يكون رمز الخطأ نتيجة للخلية ويمكن إرجاعه عبر [ChartDataCell::getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#getValue).
+
+* يمكن أن تفشل الصيغة أثناء التحليل أو الإشارة أو التبعيات أو مستوى البيانات المدعومة. يوفر Aspose.Slides استثناءات خاصة بالجداول لهذه الحالات: [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellcircularreferenceexception/), و[CellUnsupportedDataException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellunsupporteddataexception/).
+
+في PHP عبر Java، تُظهر استثناءات Java من خلال `JavaException`. عندما تأتي الصيغ من قوالب أو إدخال المستخدم، عالجها حول إعادة الحساب والوصول إلى القيمة. يُحدِّد الاستثناء Java المُبلغ عنه في تتبع المكدس الفشل الجدولي المحدد:
+
 ```php
-  $workbook->getCell(0, "F2")->setValue(-2.5);
-  $workbook->getCell(0, "G3")->setValue(6.3);
-  $workbook->getCell(0, "H4")->setValue(3);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("SUM(B2:B5)");
+
+    try {
+        $workbook->calculateFormulas();
+        echo java_values($cell->getValue()) . PHP_EOL;
+    } catch (JavaException $ex) {
+        $ex->printStackTrace();
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **القيود العملية**
 
-الآن لكتابة صيغة في الخلية، يمكنك استخدام طريقة
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setFormula).
+دعم الصيغ في أوراق عمل المخططات مخصص لمجموعة محددة من حسابات الجداول، وليس لتوافق Excel الكامل. احتفظ بهذه القيود في الاعتبار عند تصميم سير عمل تقارير:
 
-*ملاحظة*: تُستخدم طريقة
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setFormula) لتعيين مراجع خلايا بنمط A1.
+- استخدم فقط الثوابت، العوامل، المراجع، والدوال الموثقة عندما تحتاج إلى أن يعيد Aspose.Slides حساب الصيغ.
+- أعد الحساب بعد تعديل الخلايا التي تعتمد عليها ناتج الصيغة.
+- اعتبر القيم المخزنة مؤقتًا من العروض التقديمية المحمّلة لقطات، ولا تعتمد عليها كبديل لإعادة الحساب بعد التعديلات.
+- اختبر الصيغ من القوالب الحالية قبل الاعتماد على قيمها المحسوبة، خاصةً إذا استخدمت دوالًا خارج القائمة الموثقة.
+- بالنسبة للصيغ التي تحتاج إلى محرك حساب جداول كامل، احسبها خارجيًا ثم حدّث دفتر عمل المخطط بالقيم الناتجة.
 
-لتعيين صيغة بنمط R1C1، يمكنك استخدام طريقة
-[**ChartDataCell::setR1C1Formula**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
+## **الأسئلة المتكررة**
 
-ثم إذا قرأت القيم من الخلايا B2 و C2، سيتم حسابها:
-```php
-  $value1 = $cell1->getValue();// 7.8
+**ما الفرق بين [ChartDataCell::setFormula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setFormula) و[ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setR1C1Formula)؟**
 
-  $value2 = $cell2->getValue();// 2.1
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setFormula) يخزن تعبيرًا بنمط A1 مثل `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#setR1C1Formula) يخزن تعبيرًا بنمط R1C1 مثل `RC[-2]-RC[-1]`. استخدم الترميز الذي يتطابق أفضل مع طريقة توليدك أو نسخك للصيغ.
 
+**هل يجب قراءة الخلية نفسها أم قيمتها بعد الحساب؟**
 
-```
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#getCell) يُرجع كائنًا من نوع [ChartDataCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/). للحصول على النتيجة المحسوبة، استدعِ طريقة [ChartDataCell::getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/#getValue) لتلك الخلية بعد إعادة الحساب.
 
+**متى يجب استدعاء [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)؟**
 
-## **الثوابت المنطقية**
-يمكنك استخدام الثوابت المنطقية مثل *FALSE* و *TRUE* في صيغ الخلايا:
-```php
-  $workbook->getCell(0, "A2")->setValue(false);
-  $cell = $workbook->getCell(0, "B2");
-  $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// القيمة تحتوي على المنطقية "false"
-```
+استدعِ [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) بعد تعديل قيم الإدخال أو الصيغ وقبل الاعتماد على النتائج المحسوبة. هذا يُحدّث قيم الصيغ التي يدعمها المقيم المدمج.
 
+**هل يدعم Aspose.Slides جميع دوال Excel؟**
 
-## **الثوابت العددية**
-يمكن استخدام الأرقام بنظام عادي أو علمي لإنشاء صيغ جدول بيانات الرسم:
-```php
-  $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
-  $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
+لا. يدعم المقيم المدمج مجموعة محدودة موثقة من الدوال. لا يُفترض أن تُعاد حساب الدوال خارج هذه المجموعة بشكل صحيح. إذا كان مطلوبًا توافق كامل مع صيغ Excel، أجرِ الحساب باستخدام محرك جدول بيانات مناسب واكتب القيم النهائية إلى دفتر عمل المخطط.
 
-```
+**ماذا يحدث إذا احتوى عرض تقديمي محمّل على صيغة غير مدعومة؟**
 
+إذا لم تتغير بيانات المخطط، قد يظل دفتر العمل يحتوي على قيمة مخزنة مسبقًا. بعد تعديل البيانات ذات الصلة، قد لا تكون تلك القيمة المخزنة صالحة. محاولة الوصول إلى خلية لا يمكن التعامل مع صيغتها قد تُثير استثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellunsupporteddataexception/).
 
-## **الثوابت النصية**
-الثابت النصي (أو الحرفي) هو قيمة محددة تُستخدم كما هي ولا تتغيّر. قد تكون الثوابت النصية: تواريخ، نصوص، أرقام، إلخ:
-```php
-  $workbook->getCell(0, "A2")->setFormula("\"abc\"");
-  $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
+**هل قيم أخطاء الصيغ هي نفسها استثناءات PHP؟**
 
-```
+لا. النتيجة مثل `#DIV/0!` هي قيمة جدولية ناتجة عن حساب صالح. أما فشل معالجة الجداول مثل [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellinvalidformulaexception/) أو [CellCircularReferenceException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cellcircularreferenceexception/) فهي استثناءات Java تُظهر إلى PHP عبر `JavaException`.
 
+**هل يُحدّث المخطط تلقائيًا عندما تتغير خلية الصيغة؟**
 
-## **ثوابت الخطأ**
-أحيانًا لا يمكن حساب النتيجة بواسطة الصيغة. في هذه الحالة يُظهر رمز الخطأ في الخلية بدلًا من قيمتها. لكل نوع خطأ رمز محدد:
+يمكن لسلسلة المخطط الإشارة إلى خلايا دفتر العمل. أعد حساب دفتر العمل أولاً، ثم احفظ أو عرِض العرض التقديمي. إذا أشارت نقاط بيانات المخطط إلى الخلايا المحسوبة، سيستخدم المخطط تلك القيم المحدثة؛ لا يلزم وجود طريقة تحديث منفصلة للمخطط في هذا سير العمل.
 
-- #DIV/0! – تحاول الصيغة القسمة على الصفر.
-- #GETTING_DATA – قد تظهر في خلية بينما لا تزال قيمتها تُحسب.
-- #N/A – المعلومات مفقودة أو غير متوفرة. قد يكون السبب: الخلايا المستخدمة في الصيغة فارغة، وجود مساحة إضافية، خطأ إملائي، إلخ.
-- #NAME? – لا يمكن العثور على خلية أو كائن صيغة باسم معين.
-- #NULL! – قد تظهر عندما يكون هناك خطأ في الصيغة مثل: (,) أو مساحة تُستَخدم بدلًا من نقطتين (:).
-- #NUM! – الرقم في الصيغة قد يكون غير صالح، طويل جدًا أو صغير جدًا، إلخ.
-- #REF! – مرجع خلية غير صالح.
-- #VALUE! – نوع قيمة غير متوقع. مثال: قيمة نصية تُوضع في خلية رقمية.
-```php
-  $cell = $workbook->getCell(0, "A2");
-  $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// القيمة تحتوي على السلسلة "#DIV/0!"
-```
+**هل يمكن للمخططات استخدام دفتر عمل Excel خارجي؟**
 
+نعم، يمكن تكوين بيانات المخطط لاستخدام دفتر عمل خارجي عبر واجهة برمجة بيانات المخطط. ومع ذلك، فإن سير عمل حساب الصيغ الموصوف في هذه المقالة يتعلق بدفتر عمل بيانات المخطط ومجموعة الصيغ التي يقيمها Aspose.Slides. لا تفترض أن [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) يُعيد حساب جميع الصيغ في ملف XLSX خارجي بشكل كامل.
 
-## **العوامل الحسابية**
-يمكنك استخدام جميع العوامل الحسابية في صيغ جدول بيانات الرسم:
+**هل يمكنني استخدام صيغ تُشير إلى ورقة عمل أو دفتر عمل آخر؟**
 
-|**العامل**|**المعنى**|**مثال**|
-| :- | :- | :- |
-|+ (إشارة الجمع)|جمع أو جمع أحادي|2 + 3|
-|- (إشارة الطرح)|طرح أو نفي|2 - 3<br>-3|
-|* (نجمة)|ضرب|2 * 3|
-|/ (شرطة مائلة)|قسمة|2 / 3|
-|% (علامة النسبة)|نسبة مئوية|30%|
-|^ (ق caret)|أس|2 ^ 3|
+قد توجد مراجع بنمط Excel في دفاتر عمل المخططات، لكن تقييم الصيغ يقتصر على المحلل ومجموعة الدوال المدعومة. إذا كان المرجع عبر ورقة أو دفتر عمل أمرًا أساسيًا، تحقق من صحة الصيغة مع إصدار Aspose.Slides المستهدف. بالنسبة لسير العمل الذي يتطلب توافقًا واسعًا مع مراجع Excel، احسب دفتر العمل خارجيًا واكتب القيم المحلولة مرة أخرى إلى بيانات المخطط.
 
-*ملاحظة*: لتغيير ترتيب التقييم، احطِ الجزء الذي يُحسب أولًا بأقواس.
+**هل يجب أن تبدأ سلاسل الصيغ بـ `=`؟**
 
-## **العوامل المقارنة**
-يمكنك مقارنة قيم الخلايا باستخدام عوامل المقارنة. عندما تُقارن قيمتين بهذه العوامل، تكون النتيجة قيمة منطقية إما *TRUE* أو *FALSE*:
-
-|**العامل**|**المعنى**|**مثال**|
-| :- | :- | :- |
-|= (علامة المساواة)|مساوٍ لـ|A2 = 3|
-|<> (علامة عدم المساواة)|ليس مساويًا لـ|A2 <> 3|
-|> (إشارة أكبر من)|أكبر من|A2 > 3|
-|>= (إشارة أكبر من أو يساوي)|أكبر من أو يساوي|A2 >= 3|
-|< (إشارة أصغر من)|أصغر من|A2 < 3|
-|<= (إشارة أصغر من أو يساوي)|أصغر من أو يساوي|A2 <= 3|
-
-## **مراجع خلايا بنمط A1**
-**مراجع خلايا بنمط A1** تُستَخدم في أوراق العمل التي يُعرّف فيها العمود بحرف (مثل "*A*") والصف برقم (مثل "*1*"). يمكن استخدام مراجع A1 بالشكل التالي:
-
-|**مرجع الخلية**|**مثال**|**مطلق**|**نسبي**|**مختلط**|
-| :- | :- | :- | :- | :- |
-|خلية|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|صف|$2:$2|2:2|-|
-|عمود|$A:$A|A:A|-|
-|نطاق|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-إليك مثال على استخدام مرجع خلية بنمط A1 في صيغة:
-```php
-  $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
-```
-
-
-## **مراجع خلايا بنمط R1C1**
-**مراجع خلايا بنمط R1C1** تُستَخدم في أوراق العمل التي يكون لكل من الصف والعمود معرف رقمي. يمكن استخدام مراجع R1C1 بالشكل التالي:
-
-|**مرجع الخلية**|**مثال**|**مطلق**|**نسبي**|**مختلط**|
-| :- | :- | :- | :- | :- |
-|خلية|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|صف|R2|R[2]|-|
-|عمود|C3|C[3]|-|
-|نطاق|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-إليك مثال على استخدام مرجع خلية بنمط R1C1 في صيغة:
-```php
-  $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-
-## **الدوال المعرفة مسبقًا**
-هناك دوال معرفة مسبقًا يمكن استخدامها في الصيغ لتبسيط تنفيذها. تُغلق هذه الدوال أكثر العمليات شيوعًا، مثل:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (نظام تاريخ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (نموذج مرجع)
-- LOOKUP (نموذج متجه)
-- MATCH (نموذج متجه)
-- MAX
-- SUM
-- VLOOKUP
-
-## **الأسئلة الشائعة**
-
-**هل تُدعم ملفات إكسل الخارجية كمصدر بيانات لرسم يحتوي على صيغ؟**
-
-نعم. يدعم Aspose.Slides ملفات العمل الخارجية كمصدر بيانات للرسوم، مما يتيح لك استخدام صيغ من ملف XLSX خارج العرض التقديمي.
-
-**هل يمكن لصيغ الرسوم الإشارة إلى أوراق داخل نفس ملف العمل باستخدام اسم الورقة؟**
-
-نعم. تتبع الصيغ نموذج الإشارة القياسي في إكسل، لذا يمكنك الإشارة إلى أوراق أخرى داخل نفس ملف العمل أو إلى ملف عمل خارجي. للمراجع الخارجية، أدرج المسار واسم ملف العمل باستخدام صياغة إكسل.
+تُعيّن أمثلة API في Aspose.Slides التعبيرات مثل `B2-C2` أو `SUM(B2:B5)` بدون `=` أوليًا. استخدام هذا الشكل يبقي الصيغ المولدة متوافقة مع أمثلة API الموثقة.

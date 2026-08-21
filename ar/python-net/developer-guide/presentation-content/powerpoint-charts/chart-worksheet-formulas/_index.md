@@ -5,239 +5,392 @@ type: docs
 weight: 70
 url: /ar/python-net/chart-worksheet-formulas/
 keywords:
-- مخطط جدول البيانات
+- مخطط جدول بيانات
 - ورقة عمل المخطط
 - صيغة المخطط
 - صيغة ورقة العمل
 - صيغة جدول البيانات
-- مصدر البيانات
+- دفتر بيانات المخطط
+- حساب الصيغ
+- الثقافة المفضلة
+- صيغة خاصة بالثقافة
+- DBCS
 - ثابت منطقي
 - ثابت عددي
 - ثابت نصي
 - ثابت خطأ
-- ثابت حسابي
-- عامل مقارنة
+- عامل حسابي
+- عامل مقارن
 - نمط A1
 - نمط R1C1
 - دالة معرفة مسبقًا
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تطبيق صيغ بنمط Excel في Aspose.Slides للـ Python عبر أوراق عمل المخطط في .NET وتوليد تقارير تلقائيًا عبر ملفات PPT و PPTX و ODP."
+description: "تطبيق صيغ على نمط Excel في Aspose.Slides للبايثون عبر .NET باستخدام أوراق عمل المخطط، إعادة حساب القيم، واستخدام النتائج في مخططات PowerPoint."
 ---
+## **نظرة عامة**
 
-## **حول صيغة جدول البيانات للمخطط في العرض التقديمي**
-**جدول بيانات المخطط** (أو ورقة عمل المخطط) في العرض التقديمي هو مصدر بيانات المخطط. جدول بيانات المخطط يحتوي على بيانات يتم تمثيلها على المخطط بطريقة رسومية. عند إنشاء مخطط في PowerPoint، يتم إنشاء ورقة العمل المرتبطة بهذا المخطط تلقائيًا أيضًا. يتم إنشاء ورقة عمل المخطط لجميع أنواع المخططات: مخطط خطي، مخطط شريطي، مخطط شمسية، مخطط دائري، إلخ. لعرض جدول بيانات المخطط في PowerPoint يجب النقر مزدوجًا على المخطط:
+عادةً ما تخزن مخططات PowerPoint بيانات المصدر الخاصة بها في ورقة عمل مدمجة. في Aspose.Slides للـ Python عبر .NET، يمكنك الوصول إلى تلك الورقة من خلال دفتر بيانات المخطط، كتابة قيم الإدخال، تعيين صيغ إلى الخلايا، حساب الصيغ المدعومة، واستخدام الخلايا المحسوبة كبيانات للمخطط.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+توضح هذه المقالة سير العمل الكامل للصيغ: إنشاء مخطط، ملء ورقة عمله، تعيين صيغ بنمط A1 أو R1C1، إعادة حسابها، قراءة القيم المحسوبة، ربط تلك الخلايا بسلسلة مخطط، وحفظ العرض التقديمي. كما تصف بنية الصيغ المدعومة، مجموعة الدالات المدمجة، القيم المخزنة مؤقتًا، الصيغ غير المدعومة، وأخطاء الأوراق الخاصة بالجدول.
 
+## **أوراق عمل المخططات والصيغ**
 
+تحتوي ورقة عمل المخطط على الفئات، أسماء السلاسل، والقيم المستخدمة من قبل المخطط. في PowerPoint، يمكنك فحص الورقة بفتح محرر بيانات المخطط:
 
-يحتوي جدول بيانات المخطط على أسماء عناصر المخطط (اسم الفئة: *Category1*، اسم السلسلة) وجدول ببيانات رقمية مناسبة لهذه الفئات والسلاسل. بشكل افتراضي، عندما تنشئ مخططًا جديدًا – يتم ضبط بيانات جدول بيانات المخطط على البيانات الافتراضية. ثم يمكنك تعديل بيانات جدول البيانات في ورقة العمل يدويًا.
+![مخطط PowerPoint مع ورقة عمل مدمجة مفتوحة، تُظهر بيانات الفئات والسلاسل](chart-worksheet-formulas_1.png)
 
-عادةً ما يمثل المخطط بيانات معقدة (مثل المحللين الماليين أو العلماء)، حيث الخلايا محسوبة من القيم في خلايا أخرى أو من بيانات ديناميكية أخرى. حساب قيمة الخلية يدويًا وتثبيتها داخل الخلية يجعل من الصعب تغييرها في المستقبل. إذا قمت بتغيير قيمة خلية معينة، سيتوجب تحديث جميع الخلايا التابعة لها أيضًا. علاوة على ذلك، قد تعتمد بيانات الجدول على بيانات جداول أخرى، مما يخلق مخطط بيانات عرض تقديمي معقد يحتاج إلى تحديث سهل ومرن.
+في Aspose.Slides، تُعرض الورقة عبر [دفتر بيانات المخطط](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdataworkbook/). استخدم خاصية [formula](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/formula/) للصيغ بنمط A1 وخاصية [r1c1_formula](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) للصيغ بنمط R1C1. بعد تعديل خلايا الإدخال أو الصيغ، استدعِ [calculate_formulas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) لإعادة حساب الصيغ المدعومة وتحديث قيم الخلايا المقابلة.
 
-**صيغة جدول بيانات المخطط** في العرض التقديمي هي تعبير لحساب وتحديث بيانات جدول بيانات المخطط تلقائيًا. تُعرّف صيغة جدول البيانات منطق حساب البيانات لخلية معينة أو مجموعة خلايا. صيغة جدول البيانات هي صيغة رياضية أو منطقية، تستخدم: مراجع الخلايا، الدوال الرياضية، العوامل المنطقية، العوامل الحسابية، دوال التحويل، الثوابت النصية، إلخ. تُكتب تعريف الصيغة داخل خلية، وهذه الخلية لا تحتوي على قيمة بسيطة. تقوم صيغة جدول البيانات بحساب القيمة وإرجاعها، ثم تُعيّن هذه القيمة للخلية. صيغ جدول بيانات المخططات في العروض التقديمية هي في الواقع نفس صيغ Excel، وتدعم نفس الدوال الافتراضية والعوامل والثوابت لتطبيقها.
+لا تزال الخلية المحسوبة تعرض نتيجتها عبر خاصية [value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/value/). هذا مهم عندما تحتاج إلى فحص نتيجة الصيغة في الكود أو استخدام الخلية كنقطة بيانات للمخطط.
 
-في [**Aspose.Slides** ](https://products.aspose.com/slides/python-net/) يُمثَّل جدول بيانات المخطط بـ 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/) الخاصية من نوع
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdataworkbook/). 
-يمكن تعيين صيغة جدول البيانات وتغييرها عبر الخاصية 
-[**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/). 
-الوظائف التالية مدعومة للصيغ في Aspose.Slides:
+## **إنشاء مخطط وحساب صيغ ورقة العمل**
 
-- الثوابت المنطقية
-- الثوابت العددية
-- الثوابت النصية
-- ثوابت الأخطاء
-- عوامل حسابية
-- عوامل مقارنة
-- مراجع خلايا بنمط A1
-- مراجع خلايا بنمط R1C1
-- الدوال المعرفة مسبقًا
+المثال التالي يوضح سير عمل متكامل من الطرف إلى الطرف. فهو يُنشئ مخطط عمودي مُجمَّع، ينظف البيانات التجريبية، يكتب قيم الإيرادات والنفقات ربع السنوية، يحسب الأرباح باستخدام صيغ، يقرأ النتائج، يستخدم الخلايا المحسوبة كقيم للمخطط، ويحفظ العرض التقديمي.
 
-
-
-عادةً ما تُخزن الجداول القيم المحسوبة الأخيرة للصيغة. إذا لم يتم تغيير بيانات المخطط بعد تحميل العرض التقديمي – خاصية **IChartDataCell.Value** تُعيد تلك القيم عند القراءة. ولكن إذا تم تغيير بيانات جدول البيانات، عند قراءة خاصية **ChartDataCell.Value** تُرمى الاستثناء **CellUnsupportedDataException** لل صيغ غير المدعومة. يحدث هذا لأنه عندما تُحلل الصيغ بنجاح، يتم تحديد تبعيات الخلايا وتحديد صحة القيم الأخيرة. أما إذا تعذّر تحليل الصيغة، لا يمكن ضمان صحة قيمة الخلية.
-
-## **إضافة صيغة جدول بيانات المخطط إلى العرض التقديمي**
-أولاً، أضف مخططًا يحتوي على بعض البيانات النموذجية إلى الشريحة الأولى من عرض تقديمي جديد باستخدام 
-[add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/). 
-تُنشأ ورقة عمل المخطط تلقائيًا ويمكن الوصول إليها عبر الخاصية 
-[**chart_data_workbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/):
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-لنكتب بعض القيم في الخلايا باستخدام الخاصية 
-[**value**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) 
-من نوع **Object**، مما يعني أنه يمكنك تعيين أي قيمة للخاصية:
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-
-الآن لكتابة صيغة إلى الخلية، يمكنك استخدام الخاصية 
-[**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/):
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
-
-
-*ملاحظة*: الخاصية [**IChartDataCell.Formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) تُستخدم لتعيين مراجع خلايا بنمط A1. 
-
-
-
-لتعيين مرجع الخلية [r1c1_formula](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/)، يمكنك استخدام الخاصية [**r1c1_formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/):
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-
-ثم استخدم طريقة [**calculate_formulas**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) لحساب جميع الصيغ داخل دفتر العمل وتحديث قيم الخلايا المقابلة:
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+نقاط بيانات المخطط تشير إلى `D2:D4`، لذا يستخدم المخطط قيم الأرباح المحسوبة. لا توجد دعوة منفصلة لتحديث المخطط في هذا سير العمل: أعد حساب دفتر العمل أولاً، ثم استخدم أو احفظ بيانات المخطط التي تشير إلى الخلايا المحسوبة.
 
+## **استخدام صيغ بنمط A1**
 
-## **الثوابت المنطقية**
-يمكنك استخدام الثوابت المنطقية مثل *FALSE* و *TRUE* في صيغ الخلايا:
+يعرّف تدوين A1 الأعمدة بالحروف والصفوف بالأرقام. عيّن التعبيرات بنمط A1 عبر [IChartDataCell.formula](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/formula/).
 
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-## **الثوابت العددية**
-يمكن استخدام الأرقام بنظام عادي أو علمي لإنشاء صيغ جدول بيانات المخطط:
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
+    workbook.calculate_formulas()
 
+    value = cell.value  # 19
+```
 
+نماذج المراجع الشائعة بنمط A1 هي:
 
-## **الثوابت النصية**
-الثابت النصي (أو الحرفي) هو قيمة محددة تُستخدم كما هي ولا تتغير. قد تكون الثوابت النصية: تواريخ، نصوص، أرقام، إلخ:
+| مرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| خلية | `A2` | `$A$2` | `A$2`, `$A2` |
+| صف | `2:2` | `$2:$2` | — |
+| عمود | `A:A` | `$A:$A` | — |
+| نطاق | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
+يمكن أن تتغير المراجع النسبية عندما يتم نقل أو نسخ الصيغة بواسطة تطبيق جدول بيانات. المراجع المطلقة تبقي الإحداثيين ثابتين، بينما المراجع المختلطة تثبت إما الصف أو العمود فقط.
 
+## **استخدام صيغ بنمط R1C1**
 
+يعرّف تدوين R1C1 الصفوف والأعمدة رقميًا. تستخدم المراجع النسبية إزاحات داخل أقواس مربعة. عيّن هذا النمط عبر [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
 
-## **ثوابت الأخطاء**
-أحيانًا لا يمكن حساب النتيجة عبر الصيغة. في هذه الحالة يُظهر رمز الخطأ في الخلية بدلاً من قيمتها. لكل نوع من الأخطاء رمز محدد:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-- #DIV/0! - تحاول الصيغة القسمة على صفر.
-- #GETTING_DATA - قد يُظهر على خلية بينما لا تزال قيمتها تُحسب.
-- #N/A - المعلومات مفقودة أو غير متوفرة. قد تكون الأسباب: الخلايا المستخدمة في الصيغة فارغة، وجود فراغ زائد، خطأ إملائي، إلخ.
-- #NAME? - لا يمكن العثور على خلية معينة أو كائن صيغة آخر باسمها. 
-- #NULL! - قد يظهر عندما يكون هناك خطأ في الصيغة، مثل:  (,) أو استخدام فراغ بدلاً من النقطتين (:).
-- #NUM! - الرقم في الصيغة قد يكون غير صالح، طويل جدًا أو قصير جدًا، إلخ.
-- #REF! - مرجع خلية غير صالح.
-- #VALUE! - نوع قيمة غير متوقع. على سبيل المثال، قيمة نصية تم تعيينها إلى خلية رقمية.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
 
+    workbook.calculate_formulas()
 
-## **العوامل الحسابية**
-يمكنك استخدام جميع العوامل الحسابية في صيغ ورقة عمل المخطط:
+    value = cell.value  # 7
+```
 
-|**العامل**|**المعنى**|**مثال**|
-| :- | :- | :- |
-|+ (علامة الجمع)|العملية الجمع أو الإشارة الموجبة الأحادية|2 + 3|
-|- (علامة الطرح)|العملية الطرح أو النفي|2 - 3<br>-3|
-|* (نجمة)|الضرب|2 * 3|
-|/ (شرطة مائلة)|القسمة|2 / 3|
-|% (نسبة مئوية)|النسبة المئوية|30%|
-|^ (سقف)|الرفع للأس|2 ^ 3|
+نماذج المراجع الشائعة بنمط R1C1 هي:
 
-*ملاحظة*: لتغيير ترتيب التقييم، ضع الجزء الذي يُحسب أولاً بين أقواس.
+| مرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| خلية | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| صف | `R[2]` | `R2` | — |
+| عمود | `C[3]` | `C3` | — |
+| نطاق | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
+على سبيل المثال، في الخلية `D2`، `RC[-2]` تعني الخلية في نفس الصف لكن عمودين إلى اليسار (`B2`).
 
+## **ثوابت الصيغ والعوامل**
 
-## **العوامل المقارنة**
-يمكنك مقارنة قيم الخلايا باستخدام عوامل المقارنة. عندما يتم مقارنة قيمتين باستخدام هذه العوامل، تكون النتيجة قيمة منطقية إما *TRUE* أو FALSE:
+يدعم مُقَيِّم الصيغ المدمج القيم المنطقية، القيم العددية، السلاسل، قيم أخطاء الجدول، والعوامل الحسابية ومقارنة.
 
-|**العامل**|**المعنى**|**مثال**|
-| :- | :- | :- |
-|= (علامة المساواة)|مساوٍ لـ|A2 = 3|
-|<> (علامة عدم المساواة)|غير مساوي لـ|A2 <> 3|
-|> (علامة أكبر من)|أكبر من|A2 > 3|
-|>= (علامة أكبر من أو مساوي)|أكبر من أو مساوي لـ|A2 >= 3|
-|< (علامة أصغر من)|أصغر من|A2 < 3|
-|<= (علامة أصغر من أو مساوي)|أصغر من أو مساوي لـ|A2 <= 3|
+### **الثوابت والليمِترات**
 
-## **مراجع خلايا بنمط A1**
-**مراجع خلايا بنمط A1** تُستخدم في أوراق العمل التي تكون فيها الأعمدة محددة بحرف (مثال: "*A*") والصفوف بأرقام (مثال: "*1*"). يمكن استخدام مراجع خلايا نمط A1 بالطريقة التالية:
+| النوع | أمثلة | ملاحظات |
+|---|---|---|
+| منطقي | `TRUE`, `FALSE` | يمكن استخدامها مباشرةً في تعبيرات منطقية مثل `A2=TRUE`. |
+| عددي | `1`, `0.5`, `.3`, `1E-2` | يدعم كل من الترميز العادي والعلمي. |
+| سلسلة | `"abc"`, `"2/3/2020 12:00"` | تُحاط القيم النصية بعلامات اقتباس مزدوجة داخل الصيغة. |
+| نتيجة خطأ | `#DIV/0!`, `#N/A`, `#REF!` | قد تُقيِّم صيغة صالحة إلى قيمة خطأ جدول بدلاً من نتيجة عادية. |
 
-|**مرجع الخلية**|**مثال**|||
-| :- | :- | :- | :- |
-||مطلق|نسبي|مختلط|
-|خلية|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|صف|$2:$2|2:2|‑|
-|عمود|$A:$A|A:A|‑|
-|نطاق|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+يستخدم هذا المثال عدة أنواع من الثوابت:
 
-إليك مثالًا على استخدام مرجع خلية بنمط A1 في صيغة:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
 
+    workbook.calculate_formulas()
 
-## **مراجع خلايا بنمط R1C1**
-**مراجع خلايا بنمط R1C1** تُستخدم في أوراق العمل التي يكون لكل من الصف والعمود معرف رقمي. يمكن استخدام مراجع خلايا نمط R1C1 بالطريقة التالية:
+    logical_value = workbook.get_cell(0, "B2").value  # خاطئ
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
 
-|**مرجع الخلية**|**مثال**|||
-| :- | :- | :- | :- |
-||مطلق|نسبي|مختلط|
-|خلية|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|صف|R2|R[2]|‑|
-|عمود|C3|C[3]|‑|
-|نطاق|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+### **العوامل الحسابية**
 
-إليك مثالًا على استخدام مرجع خلية بنمط A1 في صيغة:
+| عامل | معنى | مثال |
+|---|---|---|
+| `+` | جمع أو علامة زائد أحادية | `2+3` |
+| `-` | طرح أو نفي أحادي | `2-3`, `-3` |
+| `*` | ضرب | `2*3` |
+| `/` | قسمة | `2/3` |
+| `%` | نسبة مئوية | `30%` |
+| `^` | أس | `2^3` |
 
+استخدم الأقواس لتوضيح ترتيب التقييم، على سبيل المثال `(A2+B2)*C2`.
 
+### **العوامل المقارنة**
 
+تعيد تعبيرات المقارنة قيمًا منطقية.
 
-## **الدوال المعرفة مسبقًا**
-هناك دوال معرفة مسبقًا يمكن استخدامها في الصيغ لتبسيط تنفيذها. هذه الدوال تغلف أكثر العمليات شيوعًا، مثل:
+| عامل | معنى | مثال |
+|---|---|---|
+| `=` | يساوي | `A2=3` |
+| `<>` | لا يساوي | `A2<>3` |
+| `>` | أكبر من | `A2>3` |
+| `>=` | أكبر من أو يساوي | `A2>=3` |
+| `<` | أصغر من | `A2<3` |
+| `<=` | أصغر من أو يساوي | `A2<=3` |
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (نظام تاريخ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (نموذج المرجع)
-- LOOKUP (نموذج المتجه)
-- MATCH (نموذج المتجه)
-- MAX
-- SUM
-- VLOOKUP
+## **الدالات المعرفة مسبقًا المدعومة**
 
-## **الأسئلة المتكررة**
+يتضمن Aspose.Slides مُقَيِّم صيغ مدمج لأوراق عمل المخططات، لكنه ليس محرك حساب Excel كامل. مجموعة الدالات الموضحة في الجدول أدناه هي الوحيدة المدعومة. لا تفترض أن أي دالة Excel عشوائية يمكن إعادة حسابها عبر [calculate_formulas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
 
-**هل تدعم ملفات Excel الخارجية كمصدر بيانات لمخطط يحتوي على صيغ؟**
+| الدالة | الغرض أو الشكل المدعوم | مثال |
+|---|---|---|
+| `ABS` | القيمة المطلقة | `ABS(A2)` |
+| `AVERAGE` | المتوسط الحسابي | `AVERAGE(B2:B5)` |
+| `CEILING` | تقريب عدد إلى أعلى إلى مضاعف | `CEILING(A2,5)` |
+| `CHOOSE` | اختيار قيمة حسب الفهرس | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | دمج قيم النص | `CONCAT(A2,B2)` |
+| `CONCATENATE` | دمج قيم النص | `CONCATENATE(A2," ",B2)` |
+| `DATE` | إنشاء قيمة تاريخ باستخدام نظام التاريخ 1900 | `DATE(2026,8,19)` |
+| `DAYS` | إرجاع عدد الأيام بين تاريخين | `DAYS(B2,A2)` |
+| `FIND` | البحث عن نص داخل نص آخر | `FIND("-",A2)` |
+| `FINDB` | بحث نصي على مستوى البايت | `FINDB("a",A2)` |
+| `IF` | نتيجة شرطية | `IF(A2>0,A2,0)` |
+| `INDEX` | صيغة مرجعية | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | صيغة متجهة | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | صيغة متجهة | `MATCH(A2,B2:B5,0)` |
+| `MAX` | القيمة العظمى | `MAX(B2:B5)` |
+| `SUM` | جمع القيم | `SUM(B2:B5)` |
+| `VLOOKUP` | بحث عمودي | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-نعم. يدعم Aspose.Slides ملفات عمل خارجية كمصدر بيانات [المخطط](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatasourcetype/)، مما يتيح لك استخدام صيغ من ملف XLSX خارج العرض التقديمي.
+تُظهر القيود في الجدول أن `INDEX` موثقة بصيغة مرجعية، بينما `LOOKUP` و `MATCH` موثقتين بصورتهما المتجهتين. يستخدم `DATE` نظام تاريخ 1900. يجب اعتبار الدالات غير المدرجة هنا غير مدعومة من قِبَل مُقَيِّم الصيغ في Aspose.Slides إلا إذا وثقت بشكل منفصل.
 
-**هل يمكن لصيغ المخطط الإشارة إلى أوراق داخل نفس دفتر العمل عبر اسم الورقة؟**
+## **حساب الصيغ مع ثقافة مفضلة**
 
-نعم. تتبع الصيغ نموذج المرجعية القياسي في Excel، لذا يمكنك الإشارة إلى أوراق أخرى داخل نفس دفتر العمل أو دفتر عمل خارجي. للمراجع الخارجية، يجب تضمين المسار واسم دفتر العمل باستخدام تركيب Excel.
+تُفسّر بعض دالات دفتر العمل النص وفقًا لقواعد خاصة بالثقافة. وهذا مهم خاصةً للدالات التي تُستهدف لغات تستخدم مجموعات أحرف ذات بايتين (DBCS). لحساب هذه الصيغ بشكل صحيح، أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/)، عيّن [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/ar/python-net/aspose.slides/spreadsheetoptions/) عبر [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/ar/python-net/aspose.slides/loadoptions/spreadsheet_options/)، ثم حمِّل العرض التقديمي.
+
+المثال التالي يختار الثقافة اليابانية، يفتح عرضًا تقديميًا باستخدام خيارات التحميل المُكوَّنة، ويستدعي [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) لكل دفتر عمل مخطط:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+الثقافة المفضلة هي جزء من تكوين تحميل العرض التقديمي، لذا حدّدها قبل إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/). استخدم الثقافة التي تتوقعها صيغ دفتر العمل؛ على سبيل المثال، استخدم `ja-JP` للصيغ التي يجب أن تتبع قواعد حساب DBCS اليابانية.
+
+## **إعادة الحساب والقيم المخزنة مؤقتًا**
+
+عادةً ما تُخزن ملفات الجدول كلاً من الصيغة والقيمة التي تم حسابها مؤخرًا. لذا يمكن لـ Aspose.Slides قراءة قيمة مخزنة مؤقتًا من [IChartDataCell.value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/value/) عندما يُحمَّل العرض التقديمي ولم تُتغيّر بيانات المخطط ذات الصلة.
+
+بعد تعديل خلايا الإدخال أو الصيغ، لا تعتمد على نتيجة مخزنة قديمة. استدعِ [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) قبل قراءة القيم المحسوبة أو حفظ بيانات المخطط التي تعتمد عليها.
+
+بالنسبة للصيغ خارج المجموعة المدعومة، قد لا يتمكن Aspose.Slides من تحليل الصيغة أو تحديد تبعياتها. إذا تم تعديل دفتر العمل، لا يمكن الاعتماد على القيمة المخزنة السابقة. في هذه الحالة، قد يُثير قراءة قيمة خلية ذات بيانات غير مدعومة استثناءً من نوع [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+إذا كان المخطط يعتمد على دالات Excel لا يقيِّمها Aspose.Slides، احسب تلك الصيغ باستخدام محرك جدول بيانات يدعمها واكتب القيم الناتجة مرة أخرى إلى دفتر عمل المخطط. لا تستبدل الصيغ غير المدعومة بقيم مُخمنة.
+
+## **معالجة أخطاء الصيغ**
+
+هناك نوعان مختلفان من المشكلات يجب التمييز بينهما.
+
+يمكن أن تكون الصيغة صالحة لكنها تُنتج نتيجة خطأ جدول مثل `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, أو `#VALUE!`. في هذه الحالة، يُعد رمز الخطأ نتيجة للخلية ويمكن إرجاعه عبر `value`.
+
+قد تفشل الصيغة أيضًا أثناء التحليل، أو المرجع، أو التبعيات، أو على مستوى البيانات المدعومة. تُوفر Aspose.Slides استثناءات خاصة بالجدول لهذه الحالات: [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), و [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+عند جلب الصيغ من القوالب أو مدخلات المستخدم، عالج هذه الاستثناءات حول إعادة الحساب والوصول إلى القيمة:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **القيود العملية**
+
+دعم الصيغ في أوراق عمل المخططات موجه لمجموعة معرفة من حسابات الجداول، وليس لتوافق كامل مع Excel. ضع هذه القيود في الاعتبار عند تصميم سير عمل تقارير:
+
+- استخدم فقط الثوابت، العوامل، المراجع، والدالات الموثقة عندما تحتاج إلى أن يعيد Aspose.Slides حساب الصيغ.
+- أعد الحساب بعد تعديل الخلايا التي تعتمد عليها نتائج الصيغ.
+- اعتبر القيم المخزنة مؤقتًا من العروض المحملة لقطات، وليس بديلاً عن إعادة الحساب بعد التعديل.
+- اختبر الصيغ من القوالب القائمة قبل الاعتماد على قيمها المحسوبة، خاصةً إذا استخدمت دالات خارج القائمة الموثقة.
+- بالنسبة للصيغ التي تتطلب محرك حساب جدول كامل، احسبها خارجيًا ثم حدّث دفتر عمل المخطط بالقيم الناتجة.
+
+## **الأسئلة الشائعة**
+
+**ما الفرق بين `formula` و `r1c1_formula`؟**
+
+[formula](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/formula/) يخزن تعبيرًا بنمط A1 مثل `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) يخزن تعبيرًا بنمط R1C1 مثل `RC[-2]-RC[-1]`. استخدم النمط الذي يتوافق مع طريقة توليد أو نسخ الصيغ لديك.
+
+**هل يجب علي قراءة الخلية نفسها أم قيمتها بعد الحساب؟**
+
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) يُعيد كائن `IChartDataCell`. للحصول على النتيجة المحسوبة، اقرأ خاصية [value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/ichartdatacell/value/) لذلك بعد إعادة الحساب.
+
+**متى يجب استدعاء `calculate_formulas`؟**
+
+استدعِ [calculate_formulas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) بعد تعديل قيم الإدخال أو الصيغ وقبل الاعتماد على النتائج المحسوبة. هذا يُحدّث قيم الصيغ التي يدعمها المُقَيِّم المدمج.
+
+**هل يدعم Aspose.Slides كل دالات Excel؟**
+
+لا. يدعم المُقَيِّم المدمج مجموعة موثقة من الدالات. لا يجب افتراض أن الدالات خارج هذه المجموعة ستُعاد حسابها بشكل صحيح. إذا كنت تحتاج إلى توافق كامل مع صيغ Excel، نفِّذ الحساب باستخدام محرك جدول بيانات مناسب واكتب القيم النهائية إلى دفتر عمل المخطط.
+
+**ماذا يحدث إذا كان العرض التقديمي المحمل يحتوي على صيغة غير مدعومة؟**
+
+إذا لم تتغيّر بيانات المخطط، قد لا يزال دفتر العمل يحتوي على قيمة مخزنة مسبقًا. بعد تعديل البيانات ذات الصلة، قد لا تكون تلك القيمة المخزنة صالحة. الوصول إلى خلية لا يمكن معالجة صيغتها قد يُثير استثناءً من نوع [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**هل قيم أخطاء الصيغ هي نفسها استثناءات Python؟**
+
+لا. النتيجة مثل `#DIV/0!` هي قيمة جدول تُنتج من حساب صالح. الاستثناءات مثل [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) أو [CellCircularReferenceException](https://reference.aspose.com/slides/ar/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) تشير إلى أن الصيغة لا يمكن معالجتها بصورة طبيعية.
+
+**هل يُحدَّث المخطط تلقائيًا عندما تتغيّر خلية الصيغة؟**
+
+يمكن لسلسلة مخطط الإشارة إلى خلايا دفتر العمل. أعد حساب دفتر العمل أولاً، ثم احفظ أو عرِض العرض التقديمي. إذا كانت نقاط بيانات المخطط تُشير إلى الخلايا المحسوبة، فإن المخطط يستخدم تلك القيم المحدثة؛ لا تحتاج إلى طريقة تحديث مخطط منفصلة لهذا السيناريو.
+
+**هل يمكن للمخططات استخدام دفتر عمل Excel خارجي؟**
+
+نعم، يمكن تكوين بيانات المخطط لاستخدام دفتر عمل خارجي عبر واجهة برمجة بيانات المخطط. ومع ذلك، يقتصر سير عمل حساب الصيغ الموضّح في هذه المقالة على دفتر عمل بيانات المخطط ومجموعة الصيغ التي يقيمها Aspose.Slides. لا تفترض أن [calculate_formulas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) يوفر إعادة حساب كاملة لصيغ عشوائية في ملف XLSX خارجي.
+
+**هل يمكنني استخدام صيغ تشير إلى ورقة عمل أو دفتر عمل آخر؟**
+
+قد توجد مراجع بنمط Excel في دفاتر عمل المخططات، لكن تقييم الصيغ مقيد بالمُحلِّل ومجموعة الدالات المدعومة. إذا كان المرجع عبر ورقة أو دفتر عمل خارجي ضروريًا، تحقق من صحة الصيغة مع إصدار Aspose.Slides المستهدف. للعمليات التي تتطلب توافقًا واسعًا مع مراجع Excel، احسب دفتر العمل خارجيًا واكتب القيم المحلولة مرة أخرى إلى بيانات المخطط.
+
+**هل يجب أن تبدأ سلاسل الصيغ بـ `=`؟**
+
+تُعيّن أمثلة API في Aspose.Slides تعبيرات مثل `B2-C2` أو `SUM(B2:B5)` بدون `=` أوليًا. استخدام هذا الشكل يحافظ على توافق الصيغ المُولَّدة مع أمثلة API الموثقة.

@@ -1,249 +1,427 @@
 ---
-title: Använd diagramarbetsbladsformler i presentationer med JavaScript
-linktitle: Arbetsbladsformler
+title: "Applicera diagramkalkylbladsformler i presentationer med JavaScript"
+linktitle: "Kalkylbladsformler"
 type: docs
 weight: 70
 url: /sv/nodejs-java/chart-worksheet-formulas/
 keywords:
 - diagramkalkylblad
-- diagramark
+- diagramarbetsblad
 - diagramformel
 - arbetsbladsformel
 - kalkylbladsformel
-- datakälla
+- diagramdatabok
+- formelberäkning
+- föredragen kultur
+- kultur‑specifik formel
+- DBCS
 - logisk konstant
 - numerisk konstant
 - strängkonstant
 - felkonstant
-- aritmetisk konstant
-- jämförelsoperator
-- A1-stil
-- R1C1-stil
+- aritmetisk operator
+- jämförelseoperator
+- A1‑stil
+- R1C1‑stil
 - fördefinierad funktion
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Använd Excel‑liknande formler i Aspose.Slides för Node.js via Java‑diagramark och automatisera rapporter i PPT‑ och PPTX‑filer med JavaScript."
+description: "Applicera Excel‑liknande formler i Aspose.Slides för Node.js via Java‑diagramarbetsblad, beräkna om värden och använd resultaten i PowerPoint‑diagram."
 ---
 ## **Översikt**
 
-Ett diagramark är datakällan bakom ett diagram i en presentation. Det lagrar kategori‑ och serienamn tillsammans med de numeriska värden som visas i diagrammet. I Aspose.Slides är detta ark tillgängligt via diagramdataboken, vilket gör att du kan arbeta med diagramdata programmässigt.
+PowerPoint-diagram lagrar vanligtvis sina källdata i ett inbäddat kalkylblad. I Aspose.Slides för Node.js via Java kan du komma åt det kalkylbladet via diagramdataboken, skriva in värden, tilldela formler till celler, beräkna stödjade formler och använda de beräknade cellerna som diagramdata.
 
-Denna artikel förklarar hur du använder arkelformler i diagramdata så att cellvärden kan beräknas och uppdateras automatiskt i stället för att matas in manuellt. Den visar hur du tilldelar formler, använder både A1‑stil‑ och R1C1‑stil‑referenser, omräknar arbetsbokens formler och arbetar med de stödjade konstanterna, operatorerna, cellreferenserna och fördefinierade funktionerna som finns för diagramark i presentationer.
+Denna artikel förklarar hela formelarbetsflödet: skapa ett diagram, fylla i dess kalkylblad, tilldela A1‑stil‑ eller R1C1‑stil‑formler, beräkna om dem, läsa de beräknade värdena, koppla dessa celler till en diagramserie och spara presentationen. Den beskriver också den stödda formelsyntaxen, den inbyggda funktionsuppsättningen, cachade värden, ej stödda formler och kalkylblads‑specifika fel.
 
-## **Om diagramkalkylbladsformel i presentation**
-**Diagramkalkylblad** (eller diagramark) i en presentation är diagrammets datakälla. Diagramkalkylbladet innehåller data som visas i diagrammet i grafisk form. När du skapar ett diagram i PowerPoint skapas det tillhörande arket automatiskt. Diagramark skapas för alla diagramtyper: linjediagram, stapeldiagram, solstråle‑diagram, cirkeldiagram osv. För att se diagramkalkylbladet i PowerPoint ska du dubbelklicka på diagrammet:
+## **Diagramkalkylblad och formler**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Ett diagramkalkylblad innehåller de kategorier, seriernamn och värden som används av ett diagram. I PowerPoint kan du inspektera kalkylbladet genom att öppna diagramdataredigeraren:
 
+![PowerPoint-diagram med sitt inbäddade kalkylblad öppet, som visar kategori‑ och seriedata](chart-worksheet-formulas_1.png)
 
-Diagramkalkylbladet innehåller namnen på diagrammets element (Kategorinamn: *Category1*, Serienamn) och en tabell med numeriska data som hör till dessa kategorier och serier. Som standard, när du skapar ett nytt diagram ‑ diagramkalkylbladsdata fylls i med standarddata. Därefter kan du ändra kalkylbladsdata i arket manuellt.
+I Aspose.Slides exponeras kalkylbladet via klassen [ChartDataWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/). Använd [ChartDataCell.setFormula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) för A1‑stil‑formler och [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) för R1C1‑stil‑formler. Efter att ha ändrat inmatningsceller eller formler, anropa [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) för att beräkna om stödjade formler och uppdatera motsvarande cellvärden.
 
-Vanligtvis representerar diagrammet komplicerade data (t.ex. finansiella analyser, vetenskapliga analyser) med celler som beräknas från värden i andra celler eller från annan dynamisk data. Att beräkna ett cellvärde manuellt och hårdkoda det i cellen gör det svårt att ändra i framtiden. Om du ändrar värdet i en viss cell måste alla beroende celler också uppdateras. Dessutom kan tabelldata bero på data från andra tabeller, vilket skapar ett komplext presentationsdataschema som behöver uppdateras på ett enkelt och flexibelt sätt.
+En beräknad cell exponeras fortfarande via [ChartDataCell.getValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#getValue--). Detta är viktigt när du behöver inspektera ett formelresultat i kod eller använda cellen som ett diagramdatapunkt.
 
-**Diagramkalkylbladsformel** i en presentation är ett uttryck för att automatiskt beräkna och uppdatera diagramkalkylbladsdata. Kalkylbladsformeln definierar beräkningslogiken för en viss cell eller ett cellområde. En kalkylbladsformel är en matematisk eller logisk formel som använder: cellreferenser, matematiska funktioner, logiska operatorer, aritmetiska operatorer, konverteringsfunktioner, strängkonstanter osv. Formeln skrivs in i en cell som då inte innehåller ett enkelt värde. Kalkylbladsformeln beräknar värdet och returnerar det, varefter värdet tilldelas cellen. Diagramkalkylbladsformler i presentationer är i praktiken desamma som Excel‑formler, och samma standardfunktioner, operatorer och konstanter stöds.
+## **Skapa ett diagram och beräkna kalkylbladsformler**
 
-I [**Aspose.Slides**](https://products.aspose.com/slides/sv/nodejs-java/) representeras diagramkalkylbladet med
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--)‑metoden på typen
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataWorkbook).
-Kalkylbladsformel kan tilldelas och ändras med
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-)‑metoden.
-Följande funktionalitet stöds för formler i Aspose.Slides:
-
-- Logiska konstanter
-- Numeriska konstanter
-- Strängkonstanter
-- Felkonstanter
-- Aritmetiska operatorer
-- Jämförelsoperatorer
-- A1‑stil‑cellreferenser
-- R1C1‑stil‑cellreferenser
-- Fördefinierade funktioner
-
-
-Vanligtvis lagrar kalkylblad de senast beräknade formelvärdena. Om diagramdata inte ändrades efter att presentationen laddats ‑ [**ChartDataCell.getValue**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#getValue--)‑metoden returnerar dessa värden vid läsning. Men om kalkylbladsdata har ändrats, så kastar **ChartDataCell.Value**‑egenskapen [**CellUnsupportedDataException**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/CellUnsupportedDataException) för de formler som inte stöds. Detta beror på att när formler har parsats korrekt bestäms cellberoenden och korrektheten för de senaste värdena. Om formeln inte kan parsas kan korrektheten för cellvärdet inte garanteras.
-
-## **Lägg till diagramkalkylbladsformel i presentation**
-Först lägger du till ett diagram på den första sliden i en ny presentation med
-[ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeCollection#addChart-int-float-float-float-float-).
-Diagrammets ark skapas automatiskt och kan nås med
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--)‑metoden:
-
-
+Följande exempel demonstrerar ett komplett arbetsflöde. Det skapar ett staplat kolumndiagram, rensar exempeldata, skriver in kvartalsvisa intäkts‑ och kostnadsvärden, beräknar vinst med formler, läser resultaten, använder de beräknade cellerna som diagramvärden och sparar presentationen.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // ...
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 350);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    const category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    const category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    const category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    const profit1 = workbook.getCell(worksheetIndex, "D2");
+    const profit2 = workbook.getCell(worksheetIndex, "D3");
+    const profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    const q1Profit = profit1.getValue(); // 40
+    const q2Profit = profit2.getValue(); // 55
+    const q3Profit = profit3.getValue(); // 25
+
+    console.log("Q1 profit: " + q1Profit);
+    console.log("Q2 profit: " + q2Profit);
+    console.log("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    const profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Skriv några värden i celler med
-[**ChartDataCell.setValue**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#setValue-java.lang.Object-)‑egenskapen
-av typen **Object**, vilket innebär att du kan tilldela vilket värde som helst till egenskapen:
+Diagramdatapunkterna refererar `D2:D4`, så diagrammet använder de beräknade vinstvärdena. Det finns inget separat diagram‑uppdateringsanrop i detta arbetsflöde: beräkna först kalkylboken, använd eller spara sedan diagramdata som pekar på de beräknade cellerna.
+
+## **Använd A1‑stil‑formler**
+
+A1‑notation identifierar kolumner med bokstäver och rader med siffror. Tilldela A1‑stil‑uttryck via [ChartDataCell.setFormula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-).
 
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-För att skriva en formel i en cell kan du använda
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-)‑metoden:
+Vanliga A1‑referensformer är:
 
-*Obs*: [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-)‑metoden används för att ange A1‑stil‑cellreferenser.
+| Referens | Relativ | Absolut | Blandad |
+|---|---|---|---|
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Rad | `2:2` | `$2:$2` | — |
+| Kolumn | `A:A` | `$A:$A` | — |
+| Område | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-För att ange en [R1C1Formula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#getR1C1Formula--)‑cellreferens kan du använda
-[**ChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataCell#setR1C1Formula-java.lang.String-)‑metoden:
+Relativa referenser kan förändras när en formel flyttas eller kopieras i ett kalkylprogram. Absoluta referenser håller båda koordinaterna fasta, medan blandade referenser fixerar endast en rad eller en kolumn.
 
-När du sedan läser värdena från cellerna B2 och C2 kommer de att beräknas:
+## **Använd R1C1‑stil‑formler**
+
+R1C1‑notation identifierar både rader och kolumner numeriskt. Relativa referenser använder förskjutningar i hakparenteser. Tilldela denna syntax via [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    const cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Logiska konstanter**
-Du kan använda logiska konstanter såsom *FALSE* och *TRUE* i cellformler:
+Vanliga R1C1‑referensformer är:
+
+| Referens | Relativ | Absolut | Blandad |
+|---|---|---|---|
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Rad | `R[2]` | `R2` | — |
+| Kolumn | `C[3]` | `C3` | — |
+| Område | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Till exempel, i cell `D2` betyder `RC[-2]` cellen i samma rad två kolumner till vänster (`B2`).
+
+## **Formelkodkonstanter och operatorer**
+
+Den inbyggda formelutvärderaren stödjer logiska värden, numeriska litteraler, strängar, kalkylblads‑felvärden, aritmetiska operatorer och jämförelsesoperatorer.
+
+### **Konstanter och litteraler**
+
+| Typ | Exempel | Anmärkningar |
+|---|---|---|
+| Logisk | `TRUE`, `FALSE` | Kan användas direkt i logiska uttryck såsom `A2=TRUE`. |
+| Numerisk | `1`, `0.5`, `.3`, `1E-2` | Vanlig och vetenskaplig notation stödjs. |
+| Sträng | `"abc"`, `"2/3/2020 12:00"` | Textlitteraler omsluts av dubbla citattecken i formeln. |
+| Felresultat | `#DIV/0!`, `#N/A`, `#REF!` | En giltig formel kan utvärderas till ett kalkylblads‑felvärde i stället för ett normalt resultat. |
+
+Detta exempel använder flera konstanttyper:
 
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// värdet innehåller booleskt "false"
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    const logicalValue = workbook.getCell(0, "B2").getValue(); // falskt
+    const numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    const scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    const stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    const errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Numeriska konstanter**
-Tal kan användas i vanlig eller vetenskaplig notation för att skapa diagramkalkylbladsformler:
+### **Aritmetiska operatorer**
+
+| Operator | Betydelse | Exempel |
+|---|---|---|
+| `+` | Addition eller positivt unärt | `2+3` |
+| `-` | Subtraktion eller negation | `2-3`, `-3` |
+| `*` | Multiplikation | `2*3` |
+| `/` | Division | `2/3` |
+| `%` | Procent | `30%` |
+| `^` | Upphöjning | `2^3` |
+
+Använd parenteser för att göra utvärderingsordningen explicit, till exempel `(A2+B2)*C2`.
+
+### **Jämförelsesoperatorer**
+
+Jämförelseuttryck returnerar logiska värden.
+
+| Operator | Betydelse | Exempel |
+|---|---|---|
+| `=` | Lika med | `A2=3` |
+| `<>` | Inte lika med | `A2<>3` |
+| `>` | Större än | `A2>3` |
+| `>=` | Större än eller lika med | `A2>=3` |
+| `<` | Mindre än | `A2<3` |
+| `<=` | Mindre än eller lika med | `A2<=3` |
+
+## **Stödda fördefinierade funktioner**
+
+Aspose.Slides innehåller en inbyggd formelutvärderare för diagramkalkylblad, men den är inte en komplett Excel‑beräkningsmotor. Den dokumenterade funktionsuppsättningen är begränsad till funktionerna nedan. Anta inte att en godtycklig Excel‑funktion kan beräknas av [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
+
+| Funktion | Syfte eller stödjad form | Exempel |
+|---|---|---|
+| `ABS` | Absolutvärde | `ABS(A2)` |
+| `AVERAGE` | Aritmetiskt medelvärde | `AVERAGE(B2:B5)` |
+| `CEILING` | Runda upp ett tal till en multipel | `CEILING(A2,5)` |
+| `CHOOSE` | Välj ett värde efter index | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Sammanfoga textvärden | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Sammanfoga textvärden | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Skapa ett datumvärde med 1900‑datumsystemet | `DATE(2026,8,19)` |
+| `DAYS` | Returnera antal dagar mellan datum | `DAYS(B2,A2)` |
+| `FIND` | Hitta en textsträng i en annan | `FIND("-",A2)` |
+| `FINDB` | Byte‑orienterad textsökning | `FINDB("a",A2)` |
+| `IF` | Villkorligt resultat | `IF(A2>0,A2,0)` |
+| `INDEX` | Referensform | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektorform | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektorform | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximumvärde | `MAX(B2:B5)` |
+| `SUM` | Summera värden | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertikal sökning | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Begränsningarna i tabellen är betydande: `INDEX` dokumenteras i referensform, medan `LOOKUP` och `MATCH` dokumenteras i sina vektorformer. `DATE` använder 1900‑datumsystemet. Funktioner och egenskaper som inte listas här bör betraktas som ej stödda av Aspose.Slides‑formelutvärderaren, såvida de inte dokumenteras separat.
+
+## **Beräkna formler med föredragen kultur**
+
+Vissa kalkylbladsfunktioner tolkar text enligt kultur‑specifika regler. Detta är särskilt viktigt för funktioner avsedda för språk som använder dubbelbyte‑teckenuppsättningar (DBCS). För att beräkna sådana formler korrekt, skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/), sätt den föredragna kulturen med [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), tilldela kalkylbladsalternativen via [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) och ladda sedan presentationen.
+
+Följande exempel väljer den japanska kulturen, öppnar en presentation med de konfigurerade inläsningsalternativen och anropar [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) för varje diagramkalkylbok:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Strängkonstanter**
-En sträng‑ (eller literal)‑konstant är ett specifikt värde som används exakt som det är och som inte förändras. Strängkonstanter kan vara: datum, texter, tal osv.:
+Den föredragna kulturen är en del av konfigurationen för presentationsladdning, så ange den innan du skapar [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)-instansen. Använd den kultur som diagramkalkylbokens formler förväntar sig; till exempel `ja-JP` för formler som ska följa japanska DBCS‑beräkningsregler.
+
+## **Omberäkning och cachade värden**
+
+Kalkylbladsfiler lagrar vanligtvis både en formel och dess senast beräknade värde. Aspose.Slides kan därför läsa ett cachat värde från [ChartDataCell.getValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#getValue--) när en presentation laddas och den relevanta diagramdatan inte har ändrats.
+
+Efter att ha ändrat inmatningsceller eller formler, förlita dig inte på ett gammalt cached‑resultat. Anropa [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) innan du läser beräknade värden eller sparar diagramdata som beror på dem.
+
+För formler utanför den stödda delmängden kan Aspose.Slides misslyckas med att parsa formeln eller fastställa dess beroenden. Om kalkylboken har ändrats kan det tidigare cachade värdet inte längre anses pålitligt. I sådana fall kan läsning av en cells värde med osupporterad data utlösa [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Om ditt diagram är beroende av Excel‑funktioner som Aspose.Slides inte utvärderar, beräkna dessa formler med en kalkylblads‑motor som stödjer dem och skriv tillbaka de resulterande värdena till diagramkalkylboken. Ersätt inte osupporterade formler med gissade värden.
+
+## **Hantera formelfel**
+
+Det finns två olika typer av problem att skilja på.
+
+En formel kan vara giltig men producera ett kalkylblads‑felresultat såsom `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` eller `#VALUE!`. I så fall är fel‑tokenen ett cellresultat och kan returneras via [ChartDataCell.getValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#getValue--).
+
+En formel kan också misslyckas vid parsning, referens, beroende eller på stödjande‑databasisnivå. Aspose.Slides tillhandahåller kalkylblads‑specifika undantag för dessa fall: [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellcircularreferenceexception/) och [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+När formler kommer från mallar eller användarinmatning, fånga fel kring omberäkning och värdeåtkomst. Feldetaljerna identifierar det underliggande kalkylbladsproblemet:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        console.log(cell.getValue());
+    } catch (error) {
+        console.error("Formula processing error: " + error.message);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Felkonstanter**
-Ibland går det inte att beräkna ett resultat med formeln. I så fall visas en felkod i cellen i stället för värdet. Varje feltyp har en specifik kod:
+## **Praktiska begränsningar**
 
-- #DIV/0! ‑ formeln försöker dividera med noll.
-- #GETTING_DATA ‑ kan visas i en cell medan dess värde fortfarande beräknas.
-- #N/A ‑ information saknas eller är inte tillgänglig. Orsaker kan vara: cellerna i formeln är tomma, ett extra mellanslag, felstavning osv.
-- #NAME? ‑ en viss cell eller annat formelobjekt kan inte hittas med sitt namn.
-- #NULL! ‑ kan uppstå när formeln innehåller ett fel, t.ex. (,) eller ett mellanslag där ett kolon (:) bör stå.
-- #NUM! ‑ det numeriska värdet i formeln är ogiltigt, för långt eller för kort osv.
-- #REF! ‑ ogiltig cellreferens.
-- #VALUE! ‑ oväntad värdetyp. Till exempel en sträng i en numerisk cell.
+Formelstödet i diagramkalkylblad är avsett för en definierad delmängd av kalkylbladsberäkningar, inte för full Excel‑kompatibilitet. Ha dessa begränsningar i åtanke när du designar ett rapporteringsarbetsflöde:
 
-```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// värdet innehåller strängen "#DIV/0!"
-```
-
-## **Aritmetiska operatorer**
-Du kan använda alla aritmetiska operatorer i diagramarksformler:
-
-|**Operator**|**Betydelse**|**Exempel**|
-| :- | :- | :- |
-|+ (plus‑tecken)|Addition eller unary plus|2 + 3|
-|- (minus‑tecken)|Subtraktion eller negation|2 - 3<br>-3|
-|* (asterisk)|Multiplikation|2 * 3|
-|/ (snedstreck)|Division|2 / 3|
-|% (procenttecken)|Procent|30%|
-|^ (cirkumflex)|Exponentiering|2 ^ 3|
-
-*Obs*: För att ändra utvärderingsordning, omge den del av formeln som ska beräknas först med parenteser.
-
-## **Jämförelsoperatorer**
-Du kan jämföra cellvärden med jämförelsoperatorerna. När två värden jämförs med dessa operatorer blir resultatet ett logiskt värde, antingen *TRUE* eller *FALSE*:
-
-|**Operator**|**Betydelse**|**Resultat**|
-| :- | :- | :- |
-|= (lika‑tecken)|Lika med|A2 = 3|
-|<> (inte lika‑tecken)|Inte lika med|A2 <> 3|
-|> (större‑än‑tecken)|Större än|A2 > 3|
-|>= (större‑eller‑lika‑tecken)|Större än eller lika med|A2 >= 3|
-|< (mindre‑än‑tecken)|Mindre än|A2 < 3|
-|<= (mindre‑eller‑lika‑tecken)|Mindre än eller lika med|A2 <= 3|
-
-## **A1‑stil‑cellreferenser**
-**A1‑stil‑cellreferenser** används för kalkylblad där kolumnen har en bokstavsidentifierare (t.ex. "*A*") och raden har en numerisk identifierare (t.ex. "*1*"). A1‑stil‑cellreferenser kan användas på följande sätt:
-
-|**Cellreferens**|**Exempel**| | |
-| :- | :- | :- | :- |
-| | Absolut | Relativ | Blandad |
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Rad|$2:$2|2:2|-|
-|Kolumn|$A:$A|A:A|-|
-|Område|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-Här är ett exempel på hur man använder en A1‑stil‑cellreferens i en formel:
-
-```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-## **R1C1‑stil‑cellreferenser**
-**R1C1‑stil‑cellreferenser** används för kalkylblad där både rad och kolumn har numeriska identifierare. R1C1‑stil‑cellreferenser kan användas på följande sätt:
-
-|**Cellreferens**|**Exempel**| | |
-| :- | :- | :- | :- |
-| | Absolut | Relativ | Blandad |
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Rad|R2|R[2]|-|
-|Kolumn|C3|C[3]|-|
-|Område|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Här är ett exempel på hur man använder en R1C1‑stil‑cellreferens i en formel:
-
-```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-## **Fördefinierade funktioner**
-Det finns fördefinierade funktioner som kan användas i formler för att förenkla deras implementering. Dessa funktioner kapslar in de mest använda operationerna, såsom:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900‑datumsystem)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (referensform)
-- LOOKUP (vektorsform)
-- MATCH (vektorsform)
-- MAX
-- SUM
-- VLOOKUP
+- Använd endast de dokumenterade konstanterna, operatorerna, referenserna och funktionerna när du vill att Aspose.Slides ska beräkna formler.
+- Omberäkna efter att ha ändrat celler som formelresultat beror på.
+- Behandla cachade värden från inlästa presentationer som snapshots, inte som ersättning för omberäkning efter redigering.
+- Testa formler från befintliga mallar innan du förlitar dig på deras beräknade värden, särskilt när de använder funktioner utanför den dokumenterade listan.
+- För formler som kräver en fullständig kalkylblads‑beräkningsmotor, beräkna dem externt och uppdatera sedan diagramkalkylboken med de resulterande värdena.
 
 ## **FAQ**
 
-**Stöds externa Excel‑filer som datakälla för ett diagram med formler?**
+**Vad är skillnaden mellan [ChartDataCell.setFormula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) och [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-Ja. Aspose.Slides stöder externa arbetsböcker som ett [diagram‑datakällas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatasourcetype/), vilket gör att du kan använda formler från en XLSX‑fil utanför presentationen.
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) lagrar ett A1‑stil‑uttryck såsom `B2-C2`. [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) lagrar ett R1C1‑stil‑uttryck såsom `RC[-2]-RC[-1]`. Använd den notation som bäst matchar hur du genererar eller kopierar formler.
 
-**Kan diagramformler referera till blad i samma arbetsbok med bladnamn?**
+**Behöver jag läsa själva cellen eller dess värde efter beräkning?**
 
-Ja. Formler följer den vanliga Excel‑referensmodellen, så du kan referera till andra blad i samma arbetsbok eller en extern arbetsbok. För externa referenser inkluderar du sökväg och arbetsboksnamn med Excel‑syntaxen.
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) returnerar ett [ChartDataCell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/). För att hämta det beräknade resultatet, anropa den cellens [ChartDataCell.getValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#getValue--)‑metod efter omberäkning.
+
+**När ska jag anropa [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--)?**
+
+Anropa [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) efter att ha ändrat inmatningsvärden eller formler och innan du är beroende av de beräknade resultaten. Detta uppdaterar värdena för de formler som den inbyggda utvärderaren stödjer.
+
+**Stöder Aspose.Slides varje Excel‑funktion?**
+
+Nej. Den inbyggda utvärderaren stödjer en dokumenterad delmängd av funktioner. Funktioner utanför den delmängden bör inte antas beräknas korrekt. Om full Excel‑formelkompatibilitet krävs, utför beräkningen med en lämplig kalkylblads‑motor och skriv de slutgiltiga värdena till diagramkalkylboken.
+
+**Vad händer om en inläst presentation innehåller en osupporterad formel?**
+
+Om diagramdatan inte har ändrats kan kalkylboken fortfarande innehålla ett tidigare beräknat cachat värde. Efter att relaterad data har modifierats kan det cachade värdet vara ogiltigt. Åtkomst till en cell vars formel inte kan hanteras kan utlösa [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+**Är formelfelvärden desamma som undantag?**
+
+Nej. Ett resultat som `#DIV/0!` är ett kalkylblads‑värde skapat av en giltig beräkning. Undantag som [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellinvalidformulaexception/) eller [CellCircularReferenceException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cellcircularreferenceexception/) indikerar att formeln inte kan bearbetas normalt.
+
+**Uppdateras ett diagram automatiskt när en formelcell förändras?**
+
+En diagramserie kan referera kalkylblads­celler. Beräkna först kalkylboken, spara eller rendera sedan presentationen. Om diagramdatapunkterna refererar de beräknade cellerna använder diagrammet de uppdaterade värdena; inget separat diagram‑uppdateringsmetod behövs för detta arbetsflöde.
+
+**Kan diagram använda ett externt Excel‑kalkylblad?**
+
+Ja, diagramdata kan konfigureras att använda ett externt kalkylblad via diagram‑data‑API:t. Däremot avser arbetsflödet för formelberäkning som beskrivs i denna artikel diagramkalkylboken och formeldelmängden som utvärderas av Aspose.Slides. Anta inte att [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) ger fullständig omberäkning av godtyckliga formler i en extern XLSX‑fil.
+
+**Kan jag använda formler som refererar ett annat kalkylblad eller arbetsbok?**
+
+Excel‑stil‑referenser kan finnas i diagramkalkylböcker, men formelutvärderingen är begränsad av den stödda parsern och funktionsuppsättningen. Om en kors‑blad‑ eller extern referens är väsentlig, verifiera att den exakta formeln fungerar med din mål‑version av Aspose.Slides. För arbetsflöden som kräver bred Excel‑referens‑kompatibilitet, beräkna arbetsboken externt och skriv tillbaka de lösta värdena till diagramdatan.
+
+**Ska formelsträngar börja med `=`?**
+
+Aspose.Slides‑API‑exemplen tilldelar uttryck såsom `B2-C2` eller `SUM(B2:B5)` utan inledande `=`. Att använda den formen håller genererade formler i linje med de dokumenterade API‑exemplen.

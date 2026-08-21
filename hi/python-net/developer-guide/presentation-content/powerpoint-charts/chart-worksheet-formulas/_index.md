@@ -1,216 +1,396 @@
 ---
-title: "Python के साथ प्रस्तुतियों में चार्ट वर्कशीट फ़ॉर्मूले लागू करें"
-linktitle: "वर्कशीट फ़ॉर्मूले"
+title: Python के साथ प्रस्तुतियों में चार्ट कार्यपत्रक सूत्र लागू करें
+linktitle: कार्यपत्रक सूत्र
 type: docs
 weight: 70
 url: /hi/python-net/chart-worksheet-formulas/
 keywords:
-  - "चार्ट स्प्रेडशीट"
-  - "चार्ट वर्कशीट"
-  - "चार्ट फ़ॉर्मूला"
-  - "वर्कशीट फ़ॉर्मूला"
-  - "स्प्रेडशीट फ़ॉर्मूला"
-  - "डेटा स्रोत"
-  - "तार्किक स्थिरांक"
-  - "संख्यात्मक स्थिरांक"
-  - "स्ट्रिंग स्थिरांक"
-  - "त्रुटि स्थिरांक"
-  - "अंकगणितीय स्थिरांक"
-  - "तुलनात्मक ऑपरेटर"
-  - "A1 शैली"
-  - "R1C1 शैली"
-  - "पूर्वनिर्धारित फ़ंक्शन"
-  - "PowerPoint"
-  - "OpenDocument"
-  - "प्रस्तुति"
-  - "Python"
-  - "Aspose.Slides"
-description: "Aspose.Slides for Python में .NET चार्ट वर्कशीट के माध्यम से Excel‑शैली के फ़ॉर्मूले लागू करें और PPT, PPTX और ODP फ़ाइलों में रिपोर्टों को स्वचालित करें।"
----
-## **परिचय**
-
-एक चार्ट वर्कशीट प्रस्तुति में चार्ट के पीछे का डेटा स्रोत होता है। यह श्रेणी और श्रृंखला नामों को साथ ही चार्ट द्वारा प्रदर्शित संख्यात्मक मानों को संग्रहीत करती है। Aspose.Slides में यह वर्कशीट चार्ट डेटा वर्कबुक के माध्यम से उपलब्ध होती है, जो आपको प्रोग्रामेटिक रूप से चार्ट डेटा के साथ काम करने की अनुमति देती है।
-
-यह लेख समझाता है कि कैसे वर्कशीट फ़ॉर्मूले का उपयोग करके सेल मानों की स्वचालित गणना और अद्यतन किया जा सकता है, बजाय मैन्युअल रूप से मान दर्ज करने के। यह फ़ॉर्मूला असाइन करना, A1‑स्टाइल और R1C1‑स्टाइल रेफ़रेंसेज़ का उपयोग, वर्कबुक फ़ॉर्मूले को पुनः गणना करना, और प्रस्तुतियों में चार्ट वर्कशीट के लिए उपलब्ध स्थिरांक, ऑपरेटर, सेल रेफ़रेंसेज़ और पूर्वनिर्धारित फ़ंक्शन के साथ काम करना दिखाता है।
-
-## **प्रेज़ेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूला के बारे में**
-**चार्ट स्प्रेडशीट** (या चार्ट वर्कशीट) प्रस्तुति में चार्ट का डेटा स्रोत होती है। चार्ट स्प्रेडशीट में डेटा होते हैं, जो ग्राफ़िक रूप में चार्ट पर दिखाए जाते हैं। जब आप PowerPoint में चार्ट बनाते हैं, तो इस चार्ट से जुड़ी वर्कशीट स्वचालित रूप से बन जाती है। चार्ट वर्कशीट सभी प्रकार के चार्ट्स के लिए बनाई जाती है: लाइन चार्ट, बार चार्ट, सनबर्स्ट चार्ट, पाई चार्ट आदि। PowerPoint में चार्ट स्प्रेडशीट को देखने के लिए आपको चार्ट पर दो बार क्लिक करना चाहिए:
-
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
-
-चार्ट स्प्रेडशीट में चार्ट तत्वों के नाम (श्रेणी नाम: *Category1*, श्रृंखला नाम) और इन श्रेणियों एवं श्रृंखलाओं से संबंधित संख्यात्मक डेटा वाली तालिका होती है। डिफ़ॉल्ट रूप से, जब आप नया चार्ट बनाते हैं तो चार्ट स्प्रेडशीट डेटा डिफ़ॉल्ट डेटा के साथ सेट किया जाता है। फिर आप वर्कशीट डेटा को मैन्युअल रूप से बदल सकते हैं।
-
-आमतौर पर, चार्ट जटिल डेटा (जैसे वित्तीय विश्लेषण, वैज्ञानिक विश्लेषण) को दर्शाता है, जहाँ सेल्स की मान अन्य सेल्स या गतिशील डेटा से गणना किए जाते हैं। सेल के मान को मैन्युअल रूप से गणना करके हार्ड‑कोड करने से भविष्य में इसे बदलना कठिन हो जाता है। यदि आप किसी सेल का मान बदलते हैं, तो उस पर निर्भर सभी सेल्स को भी अद्यतन करना पड़ेगा। इसके अलावा, तालिका डेटा अन्य तालिकाओं के डेटा पर निर्भर हो सकता है, जिससे प्रस्तुति डेटा स्कीमा जटिल हो जाता है और उसे आसान एवं लचीले तरीके से अपडेट करने की आवश्यकता होती है।
-
-**प्रेज़ेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूला** एक अभिव्यक्ति है जो चार्ट स्प्रेडशीट डेटा को स्वचालित रूप से गणना और अपडेट करती है। स्प्रेडशीट फ़ॉर्मूला किसी विशेष सेल या सेल समूह के लिए डेटा गणना तर्क को परिभाषित करता है। यह गणितीय या तार्किक फ़ॉर्मूला हो सकता है, जिसमें उपयोग होते हैं: सेल रेफ़रेंसेज़, गणितीय फ़ंक्शन, तार्किक ऑपरेटर, अंकगणितीय ऑपरेटर, रूपांतरण फ़ंक्शन, स्ट्रिंग स्थिरांक आदि। फ़ॉर्मूला की परिभाषा एक सेल में लिखी जाती है, और यह सेल केवल एक सरल मान नहीं रखता। स्प्रेडशीट फ़ॉर्मूला मान की गणना करता है और उसे वापस देता है, फिर यह मान सेल को असाइन किया जाता है। प्रेज़ेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूले व्यावहारिक रूप से Excel फ़ॉर्मूले के समान होते हैं, और उनके कार्यान्वयन के लिए वही डिफ़ॉल्ट फ़ंक्शन, ऑपरेटर और स्थिरांक समर्थित होते हैं।
-
-[**Aspose.Slides**](https://products.aspose.com/slides/hi/python-net/) में चार्ट स्प्रेडशीट को 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdata/) प्रॉपर्टी के द्वारा 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdataworkbook/) प्रकार में दर्शाया जाता है। 
-स्प्रेडशीट फ़ॉर्मूला को [**formula**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/) प्रॉपर्टी के साथ असाइन और बदल सकते हैं। 
-Aspose.Slides में फ़ॉर्मूले के लिए निम्न कार्यक्षमताएँ समर्थित हैं:
-
+- चार्ट स्प्रेडशीट
+- चार्ट कार्यपत्रक
+- चार्ट सूत्र
+- कार्यपत्रक सूत्र
+- स्प्रेडशीट सूत्र
+- चार्ट डेटा वर्कबुक
+- सूत्र गणना
+- पसंदीदा संस्कृति
+- संस्कृति-विशिष्ट सूत्र
+- DBCS
 - तार्किक स्थिरांक
 - संख्यात्मक स्थिरांक
 - स्ट्रिंग स्थिरांक
 - त्रुटि स्थिरांक
 - अंकगणितीय ऑपरेटर
 - तुलना ऑपरेटर
-- A1‑स्टाइल सेल रेफ़रेंसेज़
-- R1C1‑स्टाइल सेल रेफ़रेंसेज़
+- A1 शैली
+- R1C1 शैली
 - पूर्वनिर्धारित फ़ंक्शन
+- PowerPoint
+- प्रस्तुति
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET के चार्ट कार्यपत्रकों में Excel-शैली के सूत्र लागू करें, मानों की पुनः गणना करें, और परिणामों को PowerPoint चार्ट में उपयोग करें।"
+---
+## **अवलोकन**
 
-आमतौर पर, स्प्रेडशीट अंतिम गणना किए गए फ़ॉर्मूले मानों को संग्रहीत करती है। यदि प्रस्तुति लोड करने के बाद चार्ट डेटा नहीं बदला गया है तो **IChartDataCell.Value** प्रॉपर्टी पढ़ने पर ये मान लौटाती है। लेकिन यदि स्प्रेडशीट डेटा बदला गया, तो **ChartDataCell.Value** प्रॉपर्टी पढ़ते समय असमर्थित फ़ॉर्मूले के कारण **CellUnsupportedDataException** फेंका जाता है। इसका कारण यह है कि फ़ॉर्मूले सफलतापूर्वक पार्स होने पर सेल निर्भरताएँ निर्धारित की जाती हैं और अंतिम मानों की शुद्धता तय होती है। यदि फ़ॉर्मूला पार्स नहीं हो पाता, तो सेल मान की शुद्धता की गारंटी नहीं दी जा सकती।
+PowerPoint चार्ट आमतौर पर अपना स्रोत डेटा एम्बेडेड कार्यपत्रक में संग्रहीत करते हैं। Aspose.Slides for Python via .NET में आप चार्ट डेटा कार्यपुस्तिका के माध्यम से उस कार्यपत्रक तक पहुंच सकते हैं, इनपुट मान लिख सकते हैं, सेल्स को सूत्र असाइन कर सकते हैं, समर्थित सूत्रों की गणना कर सकते हैं, और गणना किए गए सेल्स को चार्ट डेटा के रूप में उपयोग कर सकते हैं।
 
-## **प्रेज़ेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूला जोड़ें**
-सबसे पहले, नया प्रेज़ेंटेशन की पहली स्लाइड पर कुछ नमूना डेटा के साथ एक चार्ट जोड़ें 
-[add_chart](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ishapecollection/) का उपयोग करके। 
-चार्ट की वर्कशीट स्वचालित रूप से बनती है और इसे 
-[**chart_data_workbook**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdata/) प्रॉपर्टी के द्वारा एक्सेस किया जा सकता है:
+यह लेख पूर्ण सूत्र कार्यफ़्लो समझाता है: एक चार्ट बनाएं, उसकी कार्यपत्रक को भरें, A1‑स्टाइल या R1C1‑स्टाइल सूत्र असाइन करें, उन्हें पुनः गणना करें, गणना किए गए मान पढ़ें, उन सेल्स को चार्ट सीरीज़ से जोड़ें, और प्रस्तुति सहेजें। यह समर्थित सूत्र सिंटैक्स, अंतर्निहित फ़ंक्शन उपसमुच्चय, कैश किए गए मान, असमर्थित सूत्र, और कार्यपत्रक‑विशिष्ट त्रुटियों का भी विवरण देता है।
 
-```py
-import aspose.slides.charts as charts
+## **चार्ट कार्यपत्रक और सूत्र**
+
+एक चार्ट कार्यपत्रक में उन श्रेणियों, श्रृंखला नामों और मानों को शामिल किया जाता है जो चार्ट द्वारा उपयोग होते हैं। PowerPoint में आप चार्ट डेटा संपादक खोलकर कार्यपत्रक का निरीक्षण कर सकते हैं:
+
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
+
+Aspose.Slides में, कार्यपत्रक को [chart data workbook](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdataworkbook/) के माध्यम से उजागर किया जाता है। A1‑स्टाइल सूत्रों के लिए [formula](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/formula/) प्रॉपर्टी और R1C1‑स्टाइल सूत्रों के लिए [r1c1_formula](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) प्रॉपर्टी का उपयोग करें। इनपुट सेल्स या सूत्र बदलने के बाद, समर्थित सूत्रों को पुनः गणना करने और संबंधित सेल मानों को अपडेट करने के लिए [calculate_formulas](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) कॉल करें।
+
+एक गणना किया गया सेल अभी भी अपना परिणाम [value](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/value/) प्रॉपर्टी के माध्यम से उजागर करता है। यह तब महत्वपूर्ण होता है जब आपको कोड में सूत्र परिणाम की जांच करने या सेल को चार्ट डेटा बिंदु के रूप में उपयोग करने की आवश्यकता हो।
+
+## **एक चार्ट बनाएं और कार्यपत्रक सूत्रों की गणना करें**
+
+निम्न उदाहरण एक अंत‑से‑अंत कार्यफ़्लो दर्शाता है। यह एक क्लस्टर्ड कॉलम चार्ट बनाता है, नमूना डेटा को साफ़ करता है, त्रैमासिक राजस्व और खर्च मान लिखता है, सूत्रों के साथ लाभ की गणना करता है, परिणाम पढ़ता है, गणना किए गए सेल्स को चार्ट मानों के रूप में उपयोग करता है, और प्रस्तुति सहेजता है।
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
-चलो कुछ मानों को सेल्स में लिखते हैं 
-[**value**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/) प्रॉपर्टी 
-के **Object** प्रकार के साथ, जिसका अर्थ है आप किसी भी प्रकार का मान सेट कर सकते हैं:
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
-अब सेल में फ़ॉर्मूला लिखने के लिए आप 
-[**formula**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/) प्रॉपर्टी का उपयोग कर सकते हैं:
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
-*टिप्पणी*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/) प्रॉपर्टी A1‑स्टाइल सेल रेफ़रेंसेज़ को सेट करने के लिए उपयोग की जाती है। 
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
-R1C1‑स्टाइल सेल रेफ़रेंस सेट करने के लिए आप [**r1c1_formula**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/) प्रॉपर्टी का उपयोग कर सकते हैं:
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-फ़ॉर्मूले को पुनः गणना करने और संबंधित सेल मानों को अद्यतन करने के लिए [**calculate_formulas**](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/) मेथड का उपयोग करें:
-
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **तार्किक स्थिरांक**
-आप सेल फ़ॉर्मूले में *FALSE* और *TRUE* जैसी तार्किक स्थिराँकों का उपयोग कर सकते हैं:
+चार्ट डेटा पॉइंट्स `D2:D4` को संदर्भित करते हैं, इसलिए चार्ट गणना किए गए लाभ मानों का उपयोग करता है। इस कार्यफ़्लो में कोई अलग चार्ट‑रिफ्रेश कॉल नहीं है: पहले कार्यपुस्तिका को पुनः गणना करें, फिर गणना किए गए सेल्स को उपयोग करें या सहेजें।
 
-## **संख्यात्मक स्थिरांक**
-संख्याओं को सामान्य या वैज्ञानिक नोटेशन में उपयोग करके चार्ट स्प्रेडशीट फ़ॉर्मूला बना सकते हैं:
+## **A1‑स्टाइल सूत्रों का उपयोग करें**
 
-## **स्ट्रिंग स्थिरांक**
-स्ट्रिंग (या लिटरल) स्थिरांक वह विशिष्ट मान है जिसे जैसे का तैसा उपयोग किया जाता है और यह नहीं बदलता। स्ट्रिंग स्थिरांक में तिथियां, टेक्स्ट, संख्याएँ आदि हो सकती हैं:
+A1 नोटेशन कॉलम को अक्षरों और पंक्तियों को संख्याओं से पहचानता है। [IChartDataCell.formula](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/formula/) के माध्यम से A1‑स्टाइल अभिव्यक्तियां असाइन करें।
 
-## **त्रुटि स्थिरांक**
-कभी‑कभी फलित को फ़ॉर्मूला द्वारा गणना नहीं किया जा सकता। इस स्थिति में, सेल में उसके मान के स्थान पर त्रुटि कोड दिखाया जाता है। प्रत्येक त्रुटि प्रकार का एक विशिष्ट कोड होता है:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-- #DIV/0! - फ़ॉर्मूला शून्य से विभाजित करने की कोशिश करता है।  
-- #GETTING_DATA - सेल पर दिख सकता है जबकि उसका मान अभी गणना हो रहा है।  
-- #N/A - जानकारी अनुपलब्ध या उपलब्ध नहीं है। कारण हो सकते हैं: फ़ॉर्मूले में उपयोग किए गए सेल खाली हों, अतिरिक्त स्पेस हो, वर्तनी त्रुटि आदि।  
-- #NAME? - निर्दिष्ट सेल या अन्य फ़ॉर्मूला ऑब्जेक्ट नाम से नहीं मिला।  
-- #NULL! - फ़ॉर्मूला में त्रुटि के कारण हो सकता है, जैसे (,) या कोलन (:) के स्थान पर स्पेस।  
-- #NUM! - फ़ॉर्मूले में संख्यात्मक मान अवैध, बहुत बड़ा या बहुत छोटा हो सकता है।  
-- #REF! - अवैध सेल रेफ़रेंस।  
-- #VALUE! - अप्रत्याशित मान प्रकार। उदाहरण के लिए, स्ट्रिंग मान को संख्यात्मक सेल में सेट करना।
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **अंकगणितीय ऑपरेटर**
-आप चार्ट वर्कशीट फ़ॉर्मूलों में सभी अंकगणितीय ऑपरेटरों का उपयोग कर सकते हैं:
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-|**ऑपरेटर**|**अर्थ**|**उदाहरण**|
-| :- | :- | :- |
-|+ (प्लस चिह्न)|योग या यूनरी प्लस|2 + 3|
-|- (माइनस चिह्न)|घटाव या नकारात्मक|2 - 3<br>-3|
-|* (एस्टेरिस्क)|गुणन|2 * 3|
-|/ (फॉर्वर्ड स्लैश)|भाग|2 / 3|
-|% (प्रति चिह्न)|प्रतिशत|30%|
-|^ (केरट)|घात|2 ^ 3|
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
-*टिप्पणी*: मूल्यांकन का क्रम बदलने के लिए, जिस भाग की पहले गणना करनी है उसे कोष्ठकों में रखें।
+    workbook.calculate_formulas()
 
-## **तुलनात्मक ऑपरेटर**
-आप तुलना ऑपरेटरों के माध्यम से सेल मानों की तुलना कर सकते हैं। इन ऑपरेटरों से तुलना करने पर परिणाम *TRUE* या *FALSE* तार्किक मान होता है:
+    value = cell.value  # 19
+```
 
-|**ऑपरेटर**|**अर्थ**|**अर्थ**|
-| :- | :- | :- |
-|= (बराबर चिह्न)|बराबर है|A2 = 3|
-|<> (भिन्न चिह्न)|भिन्न है|A2 <> 3|
-|> (बड़ा चिह्न)|बड़ा है|A2 > 3|
-|>= (बड़ा या बराबर चिह्न)|बड़ा या बराबर है|A2 >= 3|
-|< (छोटा चिह्न)|छोटा है|A2 < 3|
-|<= (छोटा या बराबर चिह्न)|छोटा या बराबर है|A2 <= 3|
+आम A1 संदर्भ रूप हैं:
 
-## **A1‑स्टाइल सेल रेफ़रेंसेज़**
-**A1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग किए जाते हैं जहाँ स्तंभ में अक्षर पहचानकर्ता (जैसे "*A*") और पंक्ति में संख्यात्मक पहचानकर्ता (जैसे "*1*") होता है। A1‑स्टाइल सेल रेफ़रेंसेज़ को निम्न रूप में उपयोग किया जा सकता है:
+| संदर्भ | सापेक्ष | निरपेक्ष | मिश्रित |
+|---|---|---|---|
+| सेल | `A2` | `$A$2` | `A$2`, `$A2` |
+| पंक्ति | `2:2` | `$2:$2` | — |
+| स्तम्भ | `A:A` | `$A:$A` | — |
+| रेंज | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-|**सेल रेफ़रेंस**|**उदाहरण**|||
-| :- | :- | :- | :- |
-||परम|सापेक्ष|मिश्रित|
-|सेल|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|पंक्ति|$2:$2|2:2|-|
-|स्तंभ|$A:$A|A:A|-|
-|रेंज|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+सापेक्ष संदर्भ स्प्रेडशीट अनुप्रयोग द्वारा सूत्र को स्थानांतरित या कॉपी करने पर बदल सकते हैं। निरपेक्ष संदर्भ दोनों निर्देशांक को स्थिर रखते हैं, जबकि मिश्रित संदर्भ केवल पंक्ति या स्तम्भ को स्थिर करता है।
 
-यहाँ एक उदाहरण है जिससे आप फ़ॉर्मूले में A1‑स्टाइल सेल रेफ़रेंस का उपयोग कर सकते हैं:
+## **R1C1‑स्टाइल सूत्रों का उपयोग करें**
 
-## **R1C1‑स्टाइल सेल रेफ़रेंसेज़**
-**R1C1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग किए जाते हैं जहाँ पंक्ति और स्तंभ दोनों के पास संख्यात्मक पहचानकर्ता होता है। R1C1‑स्टाइल सेल रेफ़रेंसेज़ को निम्न रूप में उपयोग किया जा सकता है:
+R1C1 नोटेशन दोनों पंक्तियों और स्तम्भों को संख्यात्मक रूप से पहचानता है। सापेक्ष संदर्भ वर्ग कोष्ठकों में ऑफ़सेट का उपयोग करते हैं। इस सिंटैक्स को [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) के माध्यम से असाइन करें।
 
-|**सेल रेफ़रेंस**|**उदाहरण**|||
-| :- | :- | :- | :- |
-||परम|सापेक्ष|मिश्रित|
-|सेल|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|पंक्ति|R2|R[2]|-|
-|स्तंभ|C3|C[3]|-|
-|रेंज|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-यहाँ एक उदाहरण है जिससे आप फ़ॉर्मूले में R1C1‑स्टाइल सेल रेफ़रेंस का उपयोग कर सकते हैं:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **पूर्वनिर्धारित फ़ंक्शन**
-फ़ॉर्मुलों में उपयोग के लिए कई पूर्वनिर्धारित फ़ंक्शन उपलब्ध हैं जो उनके कार्यान्वयन को सरल बनाते हैं। ये फ़ंक्शन सामान्यतः उपयोग किए जाने वाले ऑपरेशनों को समेटते हैं, जैसे:
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 तिथि प्रणाली)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (रेफ़रेंस फ़ॉर्म)
-- LOOKUP (वेक्टर फ़ॉर्म)
-- MATCH (वेक्टर फ़ॉर्म)
-- MAX
-- SUM
-- VLOOKUP
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
+
+    workbook.calculate_formulas()
+
+    value = cell.value  # 7
+```
+
+आम R1C1 संदर्भ रूप हैं:
+
+| संदर्भ | सापेक्ष | निरपेक्ष | मिश्रित |
+|---|---|---|---|
+| सेल | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| पंक्ति | `R[2]` | `R2` | — |
+| स्तम्भ | `C[3]` | `C3` | — |
+| रेंज | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+उदाहरण के लिए, सेल `D2` में `RC[-2]` का अर्थ है समान पंक्ति में दो स्तम्भ बाएँ वाला सेल (`B2`)।
+
+## **सूत्र स्थिरांक और ऑपरेटर**
+
+अंतर्निहित सूत्र मूल्यांकनकर्ता तर्कात्मक मान, संख्यात्मक लिटरल, स्ट्रिंग, स्प्रेडशीट त्रुटि मान, अंकगणितीय ऑपरेटर, और तुलना ऑपरेटर का समर्थन करता है।
+
+### **स्थिरांक और लिटरल**
+
+| प्रकार | उदाहरण | नोट |
+|---|---|---|
+| तर्कात्मक | `TRUE`, `FALSE` | `A2=TRUE` जैसी तर्क अभिव्यक्तियों में सीधे उपयोग किया जा सकता है। |
+| संख्यात्मक | `1`, `0.5`, `.3`, `1E-2` | सामान्य और वैज्ञानिक नोटेशन दोनों समर्थित हैं। |
+| स्ट्रिंग | `"abc"`, `"2/3/2020 12:00"` | स्ट्रिंग लिटरल को सूत्र के भीतर डबल कोट्स में रखा जाता है। |
+| त्रुटि परिणाम | `#DIV/0!`, `#N/A`, `#REF!` | मान्य सूत्र कभी‑कभी सामान्य परिणाम के बजाय स्प्रेडशीट त्रुटि मान दे सकता है। |
+
+यह उदाहरण कई स्थिरांक प्रकारों का उपयोग करता है:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
+
+    workbook.calculate_formulas()
+
+    logical_value = workbook.get_cell(0, "B2").value  # गलत
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
+
+### **अंकगणितीय ऑपरेटर**
+
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `+` | जोड़ या यूनेरि प्लस | `2+3` |
+| `-` | घटाव या नकारात्मक | `2-3`, `-3` |
+| `*` | गुणन | `2*3` |
+| `/` | भाग | `2/3` |
+| `%` | प्रतिशत | `30%` |
+| `^` | घातांक | `2^3` |
+
+मूल्यांकन क्रम स्पष्ट करने के लिए कोष्ठकों का उपयोग करें, उदाहरण के लिए `(A2+B2)*C2`।
+
+### **तुलना ऑपरेटर**
+
+तुलना अभिव्यक्तियां तर्कात्मक मान लौटाती हैं।
+
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `=` | बराबर | `A2=3` |
+| `<>` | बराबर नहीं | `A2<>3` |
+| `>` | बड़ा | `A2>3` |
+| `>=` | बड़ा या बराबर | `A2>=3` |
+| `<` | छोटा | `A2<3` |
+| `<=` | छोटा या बराबर | `A2<=3` |
+
+## **समर्थित पूर्वनिर्धारित फ़ंक्शन**
+
+Aspose.Slides में चार्ट कार्यपत्रकों के लिए एक अंतर्निहित सूत्र मूल्यांकनकर्ता है, लेकिन यह पूर्ण Excel गणना इंजन नहीं है। दस्तावेज़ीकृत फ़ंक्शन सेट नीचे दिए गए फ़ंक्शनों तक सीमित है। यह न मानें कि कोई भी Excel फ़ंक्शन [calculate_formulas](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) द्वारा पुनः गणना किया जा सकता है।
+
+| फ़ंक्शन | उद्देश्य या समर्थित रूप | उदाहरण |
+|---|---|---|
+| `ABS` | निरपेक्ष मान | `ABS(A2)` |
+| `AVERAGE` | अंकगणितीय माध्य | `AVERAGE(B2:B5)` |
+| `CEILING` | संख्या को ऊपर की ओर गुणक तक गोल करें | `CEILING(A2,5)` |
+| `CHOOSE` | सूचकांक द्वारा मान चुनें | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | टेक्स्ट मान जोड़ें | `CONCAT(A2,B2)` |
+| `CONCATENATE` | टेक्स्ट मान जोड़ें | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 तिथि प्रणाली का उपयोग करके तिथि बनाएं | `DATE(2026,8,19)` |
+| `DAYS` | तिथियों के बीच दिन गिनें | `DAYS(B2,A2)` |
+| `FIND` | एक टेक्स्ट को दूसरे में खोजें | `FIND("-",A2)` |
+| `FINDB` | बाइट‑उन्मुख टेक्स्ट खोज | `FINDB("a",A2)` |
+| `IF` | शर्तीय परिणाम | `IF(A2>0,A2,0)` |
+| `INDEX` | संदर्भ रूप | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | वेक्टर रूप | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | वेक्टर रूप | `MATCH(A2,B2:B5,0)` |
+| `MAX` | अधिकतम मान | `MAX(B2:B5)` |
+| `SUM` | मान जोड़ें | `SUM(B2:B5)` |
+| `VLOOKUP` | लंबवत खोज | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+तालिका में दिखाए गए प्रतिबंध महत्वपूर्ण हैं: `INDEX` को संदर्भ रूप में प्रलेखित किया गया है, जबकि `LOOKUP` और `MATCH` को उनके वेक्टर रूप में। `DATE` 1900 तिथि प्रणाली का उपयोग करता है। यहाँ नहीं सूचीबद्ध फ़ंक्शन को Aspose.Slides सूत्र मूल्यांकनकर्ता द्वारा असमर्थित माना जाना चाहिए, जब तक कि वे अलग से प्रलेखित न हों।
+
+## **पसंदीदा संस्कृति के साथ सूत्रों की गणना**
+
+कुछ कार्यपुस्तिका फ़ंक्शन टेक्स्ट को संस्कृति‑विशिष्ट नियमों के अनुसार व्याख्या करते हैं। यह विशेष रूप से डबल‑बाइट कैरेक्टर सेट (DBCS) वाले भाषाओं के लिए महत्वपूर्ण है। ऐसे सूत्रों की सही गणना के लिए, [LoadOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/) बनाएं, [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/spreadsheet_options/) के माध्यम से [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/hi/python-net/aspose.slides/spreadsheetoptions/) सेट करें, और फिर प्रस्तुति लोड करें।
+
+निम्न उदाहरण जापानी संस्कृति चुनता है, कॉन्फ़िगर किए गए लोड विकल्पों के साथ प्रस्तुति खोलता है, और प्रत्येक चार्ट कार्यपुस्तिका के लिए [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) कॉल करता है:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+पसंदीदा संस्कृति प्रस्तुति लोडिंग कॉन्फ़िगरेशन का हिस्सा है, इसलिए इसे [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस बनाने से पहले निर्दिष्ट करें। कार्यपुस्तिका सूत्रों के लिए अपेक्षित संस्कृति उपयोग करें; उदाहरण के लिए, जापानी DBCS गणना नियमों के लिए `ja-JP` उपयोग करें।
+
+## **पुनः गणना और कैश किए गए मान**
+
+स्प्रेडशीट फ़ाइलें आमतौर पर सूत्र और उसका अंतिम गणना किया गया मान दोनों सहेजती हैं। Aspose.Slides इसलिए प्रस्तुति लोड होने पर जब संबंधित चार्ट डेटा में बदलाव नहीं किया गया हो, तब [IChartDataCell.value](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/value/) से एक कैश किया गया मान पढ़ सकता है।
+
+इनपुट सेल्स या सूत्र बदलने के बाद, पुराने कैश परिणाम पर भरोसा न करें। गणना किए गए मान पढ़ने या उन पर निर्भर चार्ट डेटा को सहेजने से पहले [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) कॉल करें।
+
+समर्थित उपसमुच्चय के बाहर के सूत्रों के लिए, Aspose.Slides संभवतः सूत्र को पार्स नहीं कर पाएगा या उसकी निर्भरताएँ निर्धारित नहीं कर पाएगा। यदि कार्यपुस्तिका संशोधित की गई है, तो पूर्व कैश मान अब विश्वसनीय नहीं रह सकता। ऐसी स्थिति में, असमर्थित डेटा वाले सेल के मान को पढ़ने से [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) उत्पन्न हो सकता है।
+
+यदि आपका चार्ट Excel फ़ंक्शन पर निर्भर है जिसे Aspose.Slides मूल्यांकन नहीं करता, तो उन फ़ंक्शन को किसी समर्थन योग्य स्प्रेडशीट इंजन से गणना करें और परिणाम मानों को चार्ट कार्यपुस्तिका में वापस लिखें। अनुमानित मानों से असमर्थित सूत्रों को प्रतिस्थापित न करें।
+
+## **सूत्र त्रुटियों को संभालें**
+
+दो प्रकार की समस्याओं में अंतर करना आवश्यक है।
+
+एक सूत्र वैध हो सकता है लेकिन स्प्रेडशीट त्रुटि परिणाम जैसे `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, या `#VALUE!` दे सकता है। इस स्थिति में त्रुटि टोकन सेल परिणाम है और `value` के माध्यम से लौटाया जा सकता है।
+
+एक सूत्र पार्सिंग, संदर्भ, निर्भरताओं, या समर्थित‑डेटा स्तर पर विफल हो सकता है। Aspose.Slides इन मामलों के लिए स्प्रेडशीट‑विशिष्ट अपवाद प्रदान करता है: [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), और [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)।
+
+जब सूत्र टेम्प्लेट या उपयोगकर्ता इनपुट से आते हैं, तो पुनः गणना और मान एक्सेस के आसपास इन अपवादों को संभालें:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **व्यवहारिक सीमाएँ**
+
+चार्ट कार्यपत्रकों में सूत्र समर्थन एक परिभाषित उपसमुच्चय के लिए है, न कि पूर्ण Excel संगतता के लिए। रिपोर्टिंग कार्यफ़्लो डिज़ाइन करते समय इन प्रतिबंधों को याद रखें:
+
+- जब आपको Aspose.Slides को सूत्र पुनः गणना करने की आवश्यकता हो, तब केवल दस्तावेज़ीकृत स्थिरांक, ऑपरेटर, संदर्भ और फ़ंक्शन का उपयोग करें।
+- उन सेल्स को बदलने के बाद पुनः गणना करें जिनके आधार पर सूत्र परिणाम निर्भर करते हैं।
+- लोड की गई प्रस्तुतियों से प्राप्त कैश मान स्नैपशॉट के रूप में मानें, संपादन के बाद पुनः गणना का विकल्प न समझें।
+- मौजूदा टेम्प्लेट से सूत्रों का परीक्षण करें और उनके गणना किए गए मानों पर भरोसा करने से पहले पुष्टि करें, विशेषकर जब वे दस्तावेज़ीकृत सूची के बाहर के फ़ंक्शन उपयोग करते हों।
+- उन सूत्रों के लिए जिनके लिए पूर्ण स्प्रेडशीट गणना इंजन आवश्यक है, उन्हें बाहरी रूप से गणना करें और फिर चार्ट कार्यपुस्तिका को परिणाम मानों से अपडेट करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या चार्ट के फ़ॉर्मूलों के साथ बाहरी Excel फ़ाइलों को डेटा स्रोत के रूप में समर्थित किया जाता है?**
+**`formula` और `r1c1_formula` में क्या अंतर है?**
 
-हाँ। Aspose.Slides बाहरी वर्कबुक को [चार्ट के डेटा स्रोत](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdatasourcetype/) के रूप में समर्थन देता है, जिससे आप प्रस्तुति के बाहर XLSX फ़ाइल से फ़ॉर्मूलों का उपयोग कर सकते हैं।
+[formula](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/formula/) A1‑स्टाइल अभिव्यक्ति जैसे `B2-C2` संग्रहीत करता है। [r1c1_formula](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) R1C1‑स्टाइल अभिव्यक्ति जैसे `RC[-2]-RC[-1]` संग्रहीत करता है। वह नोटेशन चुनें जो आपके सूत्र उत्पन्न या कॉपी करने के तरीके से सबसे अधिक मेल खाता हो।
 
-**क्या चार्ट फ़ॉर्मूले समान वर्कबुक में शीट नाम द्वारा अन्य शीट्स को रेफ़र कर सकते हैं?**
+**गणना के बाद मुझे सेल स्वयं पढ़नी चाहिए या उसका मान?**
 
-हाँ। फ़ॉर्मूले मानक Excel रेफ़रेंस मॉडल का पालन करते हैं, इसलिए आप समान वर्कबुक या बाहरी वर्कबुक की अन्य शीट्स को रेफ़र कर सकते हैं। बाहरी रेफ़रेंस के लिए Excel सिंटैक्स का उपयोग करके पाथ और वर्कबुक नाम शामिल करें।
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) एक `IChartDataCell` लौटाता है। पुनः गणना के बाद उस सेल की [value](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/ichartdatacell/value/) प्रॉपर्टी पढ़ें ताकि गणना किया गया परिणाम प्राप्त हो सके।
+
+**`calculate_formulas` को कब कॉल करना चाहिए?**
+
+इनपुट मान या सूत्र बदलने के बाद और गणना किए गए परिणामों पर निर्भर होने से पहले [calculate_formulas](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) कॉल करें। यह अंतर्निहित मूल्यांकनकर्ता द्वारा समर्थित सूत्रों के मान अपडेट करता है।
+
+**क्या Aspose.Slides हर Excel फ़ंक्शन का समर्थन करता है?**
+
+नहीं। अंतर्निहित मूल्यांकनकर्ता केवल दस्तावेज़ीकृत उपसमुच्चय का समर्थन करता है। इस उपसमुच्चय के बाहर के फ़ंक्शन को सही ढंग से पुनः गणना मानने की उम्मीद न करें। यदि पूर्ण Excel सूत्र संगतता आवश्यक है, तो गणना को उचित स्प्रेडशीट इंजन से करें और अंतिम मानों को चार्ट कार्यपुस्तिका में लिखें।
+
+**यदि लोड की गई प्रस्तुति में असमर्थित सूत्र हो तो क्या होता है?**
+
+यदि चार्ट डेटा नहीं बदला गया है, तो कार्यपुस्तिका में पहले से गणना किया हुआ कैश मान मौजूद हो सकता है। संबंधित डेटा संशोधित करने के बाद वह कैश मान वैध नहीं रह सकता। ऐसे सूत्र वाले सेल को एक्सेस करने से [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) उत्पन्न हो सकता है।
+
+**क्या सूत्र त्रुटि मान Python अपवाद के समान हैं?**
+
+नहीं। `#DIV/0!` जैसी त्रुटि मान एक वैध गणना द्वारा उत्पन्न स्प्रेडशीट मान है। [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) या [CellCircularReferenceException](https://reference.aspose.com/slides/hi/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) जैसे अपवाद दर्शाते हैं कि सूत्र सामान्य रूप से प्रोसेस नहीं किया जा सका।
+
+**क्या सूत्र सेल बदलने पर चार्ट स्वतः अपडेट होता है?**
+
+चार्ट श्रृंखला कार्यपुस्तिका सेल को संदर्भित कर सकती है। पहले कार्यपुस्तिका को पुनः गणना करें, फिर प्रस्तुति को सहेजें या रेंडर करें। यदि चार्ट डेटा पॉइंट्स गणना किए गए सेल्स को संदर्भित करते हैं, तो चार्ट उन अद्यतन मानों का उपयोग करेगा; इस कार्यफ़्लो के लिए कोई अलग चार्ट‑रिफ्रेश मेथड आवश्यक नहीं है।
+
+**क्या चार्ट बाहरी Excel कार्यपुस्तिका का उपयोग कर सकते हैं?**
+
+हाँ, चार्ट डेटा को चार्ट डेटा API के माध्यम से बाहरी कार्यपुस्तिका के साथ कॉन्फ़िगर किया जा सकता है। हालांकि, इस लेख में वर्णित सूत्र गणना कार्यफ़्लो चार्ट डेटा कार्यपुस्तिका और Aspose.Slides द्वारा मूल्यांकित सूत्र उपसमुच्चय पर केंद्रित है। यह न मानें कि [calculate_formulas](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) किसी भी बाहरी XLSX फ़ाइल में सभी सूत्रों को पूर्ण रूप से पुनः गणना करता है।
+
+**क्या मैं ऐसे सूत्र उपयोग कर सकता हूँ जो किसी अन्य कार्यपत्रक या कार्यपुस्तिका को संदर्भित करते हों?**
+
+Excel‑स्टाइल संदर्भ चार्ट कार्यपुस्तिकाओं में मौजूद हो सकते हैं, लेकिन सूत्र मूल्यांकन समर्थित पार्सर और फ़ंक्शन सेट द्वारा सीमित है। यदि क्रॉस‑शीट या बाहरी संदर्भ अनिवार्य है, तो अपने लक्ष्य Aspose.Slides संस्करण के साथ उस विशिष्ट सूत्र को सत्यापित करें। व्यापक Excel संदर्भ संगतता की आवश्यकता वाले कार्यफ़्लो के लिए, कार्यपुस्तिका को बाहरी रूप से गणना करें और हल किए गए मानों को चार्ट डेटा में वापस लिखें।
+
+**क्या सूत्र स्ट्रिंग `=` से शुरू होनी चाहिए?**
+
+Aspose.Slides API उदाहरण अभिव्यक्तियों को `B2-C2` या `SUM(B2:B5)` के रूप में बिना अग्रणी `=` के असाइन करते हैं। इस रूप का उपयोग करने से उत्पन्न सूत्र दस्तावेज़ीकृत API उदाहरणों के साथ संगत रहते हैं।

@@ -10,12 +10,16 @@ keywords:
 - 图表公式
 - 工作表公式
 - 电子表格公式
-- 数据源
+- 图表数据工作簿
+- 公式计算
+- 首选文化
+- 特定文化公式
+- 双字节字符集
 - 逻辑常量
 - 数值常量
 - 字符串常量
 - 错误常量
-- 算术常量
+- 算术运算符
 - 比较运算符
 - A1 样式
 - R1C1 样式
@@ -25,209 +29,397 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "通过 Java 图表工作表在 Aspose.Slides for Android 中应用 Excel 样式公式，并在 PPT 与 PPTX 文件中实现报告自动化。"
+description: "在 Aspose.Slides for Android via Java 的图表工作表中应用 Excel 样式公式，重新计算数值，并在 PowerPoint 图表中使用结果。"
 ---
+## **概述**
 
-## **关于演示文稿中图表电子表格公式**
-**Chart spreadsheet**（或 chart worksheet）在演示文稿中是图表的数据源。Chart spreadsheet 包含以图形方式在图表上呈现的数据。当您在 PowerPoint 中创建图表时，关联的工作表会自动创建。Chart worksheet 对所有类型的图表都会创建：折线图、柱形图、旭形图、饼图等。要在 PowerPoint 中查看 chart spreadsheet，您应该双击图表：
+PowerPoint 图表通常将其源数据存储在嵌入的工作表中。在 Aspose.Slides for Android via Java 中，您可以通过图表数据工作簿访问该工作表，写入输入值，为单元格分配公式，计算受支持的公式，并将计算后的单元格用作图表数据。
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+本文说明了完整的公式工作流：创建图表、填充其工作表、分配 A1 样式或 R1C1 样式公式、重新计算它们、读取计算结果、将这些单元格连接到图表系列，然后保存演示文稿。文章还描述了受支持的公式语法、内置函数子集、缓存值、不受支持的公式以及电子表格特有的错误。
 
+## **图表工作表和公式**
 
-Chart spreadsheet 包含图表元素的名称（类别名称：*Category1*，系列名称）以及一个包含对应这些类别和系列的数值数据的表格。默认情况下，创建新图表时，chart spreadsheet 数据会使用默认数据进行设置。然后您可以在工作表中手动更改电子表格数据。
+图表工作表包含图表使用的类别、系列名称和数值。在 PowerPoint 中，您可以通过打开图表数据编辑器来检查工作表：
 
-通常，图表表示复杂数据（例如财务分析、科学分析），其中的单元格是根据其他单元格的值或其他动态数据计算得到的。手动计算单元格的值并硬编码到单元格中，会导致将来难以更改。如果您更改某个单元格的值，所有依赖于它的单元格也需要更新。此外，表格数据可能依赖于其他表格的数据，从而形成一个需要以简便灵活方式更新的复杂演示数据方案。
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-演示文稿中的 **Chart spreadsheet formula** 是用于自动计算和更新 chart spreadsheet 数据的表达式。Spreadsheet formula 定义了某个单元格或一组单元格的数据计算逻辑。Spreadsheet formula 是数学公式或逻辑公式，使用：单元格引用、数学函数、逻辑运算符、算术运算符、转换函数、字符串常量等。公式的定义写入单元格，而该单元格本身不包含简单值。Spreadsheet formula 计算出值并返回，然后该值被分配给单元格。演示文稿中的 chart spreadsheet formulas 实际上与 Excel 公式相同，并支持相同的默认函数、运算符和常量。
+在 Aspose.Slides 中，工作表通过 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/) 接口公开。使用 [IChartDataCell.setFormula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) 处理 A1 样式公式，使用 [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) 处理 R1C1 样式公式。更改输入单元格或公式后，调用 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) 以重新计算受支持的公式并更新相应的单元格值。
 
-在 [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) 中，chart spreadsheet 由 [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) 方法表示，该方法属于 [**IChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook) 类型。
+已计算的单元格仍通过 [IChartDataCell.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#getValue--) 暴露其结果。这在需要在代码中检查公式结果或将单元格用作图表数据点时非常重要。
 
-可以使用 [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) 方法分配和更改 spreadsheet formula。
+## **创建图表并计算工作表公式**
 
-以下功能在 Aspose.Slides 的公式中受支持：
+下面的示例演示了端到端工作流。它创建一个聚簇柱形图，清除示例数据，写入季度收入和费用值，使用公式计算利润，读取结果，将计算后的单元格用作图表值，最后保存演示文稿。
 
-- 逻辑常量
-- 数值常量
-- 字符串常量
-- 错误常量
-- 算术运算符
-- 比较运算符
-- A1 样式单元格引用
-- R1C1 样式单元格引用
-- 预定义函数
-
-通常，电子表格会存储最近一次计算的公式值。如果在加载演示文稿后图表数据未更改，则 [**IChartDataCell.getValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getValue--) 方法在读取时返回这些值。但如果电子表格数据已被更改，在读取 **ChartDataCell.Value** 属性时会抛出 [**CellUnsupportedDataException**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CellUnsupportedDataException)，因为不支持的公式。这是因为当公式成功解析时，会确定单元格的依赖关系并确认最近值的正确性。但如果公式无法解析，则无法保证单元格值的正确性。
-
-## **向演示文稿添加 Chart Spreadsheet 公式**
-首先，使用 [IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-) 方法在新演示文稿的第一张幻灯片上添加图表。图表的工作表会自动创建，可通过 [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) 方法访问：
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+图表数据点引用 `D2:D4`，因此图表使用已计算的利润值。在此工作流中没有单独的图表刷新调用：先重新计算工作簿，然后使用或保存指向已计算单元格的图表数据。
 
-让我们使用 **Object** 类型的 [**IChartDataCell.setValue**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) 属性向单元格写入一些值，这意味着您可以向该属性设置任意值：
+## **使用 A1 样式公式**
+
+A1 记法使用字母标识列，数字标识行。通过 [IChartDataCell.setFormula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) 分配 A1 样式表达式。
+
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
+常见的 A1 引用形式如下：
 
-现在，要向单元格写入公式，您可以使用 [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) 方法：
+| 引用 | 相对 | 绝对 | 混合 |
+|---|---|---|---|
+| 单元格 | `A2` | `$A$2` | `A$2`, `$A2` |
+| 行 | `2:2` | `$2:$2` | — |
+| 列 | `A:A` | `$A:$A` | — |
+| 区域 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-*注意*：[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) 方法用于设置 A1 样式单元格引用。
+相对引用在公式被移动或复制时可能会更改。绝对引用固定两个坐标，混合引用仅固定行或列。
 
-要设置 [R1C1Formula](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--) 单元格引用，您可以使用 [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) 方法：
+## **使用 R1C1 样式公式**
 
-然后，如果尝试读取单元格 B2 和 C2 的值，它们将被计算出来：
+R1C1 记法使用数字标识行和列。相对引用使用方括号中的偏移量。通过 [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) 分配此语法。
+
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
+常见的 R1C1 引用形式如下：
 
-## **逻辑常量**
-您可以在单元格公式中使用逻辑常量，例如 *FALSE* 和 *TRUE*：
+| 引用 | 相对 | 绝对 | 混合 |
+|---|---|---|---|
+| 单元格 | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| 行 | `R[2]` | `R2` | — |
+| 列 | `C[3]` | `C3` | — |
+| 区域 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+例如，在单元格 `D2` 中，`RC[-2]` 表示同一行左侧两列的单元格（`B2`）。
+
+## **公式常量和运算符**
+
+内置公式求值器支持逻辑值、数值字面量、字符串、电子表格错误值、算术运算符和比较运算符。
+
+### **常量和字面量**
+
+| 类型 | 示例 | 说明 |
+|---|---|---|
+| 逻辑 | `TRUE`, `FALSE` | 可直接在逻辑表达式中使用，例如 `A2=TRUE`。 |
+| 数值 | `1`, `0.5`, `.3`, `1E-2` | 支持普通和科学计数法。 |
+| 字符串 | `"abc"`, `"2/3/2020 12:00"` | 文字字面量需在公式中用双引号括起。 |
+| 错误结果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可能评估为电子表格错误值，而不是普通结果。 |
+
+下面的示例使用了多种常量类型：
+
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // 该值包含布尔值 "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // false
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **算术运算符**
 
-## **数值常量**
-可以使用常规或科学计数法的数字来创建 chart spreadsheet 公式：
+| 运算符 | 含义 | 示例 |
+|---|---|---|
+| `+` | 加法或一元加号 | `2+3` |
+| `-` | 减法或取负 | `2-3`, `-3` |
+| `*` | 乘法 | `2*3` |
+| `/` | 除法 | `2/3` |
+| `%` | 百分比 | `30%` |
+| `^` | 幂运算 | `2^3` |
+
+使用圆括号显式指定计算顺序，例如 `(A2+B2)*C2`。
+
+### **比较运算符**
+
+比较表达式返回逻辑值。
+
+| 运算符 | 含义 | 示例 |
+|---|---|---|
+| `=` | 等于 | `A2=3` |
+| `<>` | 不等于 | `A2<>3` |
+| `>` | 大于 | `A2>3` |
+| `>=` | 大于或等于 | `A2>=3` |
+| `<` | 小于 | `A2<3` |
+| `<=` | 小于或等于 | `A2<=3` |
+
+## **受支持的预定义函数**
+
+Aspose.Slides 为图表工作表包含内置公式求值器，但它并非完整的 Excel 计算引擎。文档中列出的函数集合有限。不要假设任意 Excel 函数都可以通过 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) 重新计算。
+
+| 函数 | 目的或支持的形式 | 示例 |
+|---|---|---|
+| `ABS` | 绝对值 | `ABS(A2)` |
+| `AVERAGE` | 算术平均值 | `AVERAGE(B2:B5)` |
+| `CEILING` | 向上取整到指定倍数 | `CEILING(A2,5)` |
+| `CHOOSE` | 按索引选择值 | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | 连接文本值 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | 连接文本值 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 使用 1900 日期系统创建日期值 | `DATE(2026,8,19)` |
+| `DAYS` | 返回两个日期之间的天数 | `DAYS(B2,A2)` |
+| `FIND` | 在另一个文本中查找文本 | `FIND("-",A2)` |
+| `FINDB` | 按字节搜索文本 | `FINDB("a",A2)` |
+| `IF` | 条件结果 | `IF(A2>0,A2,0)` |
+| `INDEX` | 引用形式 | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | 向量形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | 向量形式 | `MATCH(A2,B2:B5,0)` |
+| `MAX` | 最大值 | `MAX(B2:B5)` |
+| `SUM` | 求和 | `SUM(B2:B5)` |
+| `VLOOKUP` | 纵向查找 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+表中显示的限制非常重要：`INDEX` 以引用形式记录，而 `LOOKUP` 与 `MATCH` 以向量形式记录。`DATE` 使用 1900 日期系统。未在此列出的功能应视为 Aspose.Slides 公式求值器不支持，除非另有文档说明。
+
+## **使用首选文化计算公式**
+
+某些工作簿函数会根据特定文化规则解释文本。对使用双字节字符集（DBCS）语言的函数尤为重要。要正确计算这些公式，请创建 [LoadOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/loadoptions/)，使用 [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-) 设置首选文化，通过 [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) 将其分配，然后加载演示文稿。
+
+以下示例选择日语文化，使用配置好的加载选项打开演示文稿，并对每个图表工作簿调用 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)：
+
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+首选文化是演示文稿加载配置的一部分，因此必须在创建 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 实例之前指定。使用工作簿公式期望的文化，例如对应日语 DBCS 计算规则时使用 `ja-JP`。
 
-## **字符串常量**
-字符串（或字面量）常量是直接使用且不改变的特定值。字符串常量可以是：日期、文本、数字等：
+## **重新计算与缓存值**
+
+电子表格文件通常同时存储公式及其上一次计算的值。Aspose.Slides 因此可以在加载演示文稿且相关图表数据未更改时，通过 [IChartDataCell.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#getValue--) 读取缓存值。
+
+更改输入单元格或公式后，请在读取计算值或保存依赖这些值的图表数据之前，调用 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)。
+
+对于超出受支持子集的公式，Aspose.Slides 可能无法解析公式或确定其依赖关系。如果工作簿已被修改，先前的缓存值将不再可靠。在这种情况下，读取包含不受支持数据的单元格可能会抛出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellunsupporteddataexception/)。
+
+如果您的图表依赖于 Aspose.Slides 不评估的 Excel 函数，请使用支持这些函数的电子表格引擎计算公式，并将结果写回图表工作簿。不要用猜测的值替代不受支持的公式。
+
+## **处理公式错误**
+
+需要区分两类问题。
+
+公式本身有效，但会产生电子表格错误结果，如 `#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!` 或 `#VALUE!`。此时错误标记是单元格结果，可通过 [IChartDataCell.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#getValue--) 返回。
+
+公式也可能在解析、引用、依赖或支持数据层面失败。Aspose.Slides 为这些情况提供特定的电子表格异常：[CellInvalidFormulaException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellcircularreferenceexception/) 和 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellunsupporteddataexception/)。
+
+当公式来自模板或用户输入时，请在重新计算和访问值的代码块周围捕获这些异常：
+
 ```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **实际限制**
 
-## **错误常量**
-有时无法通过公式计算出结果。在这种情况下，单元格会显示错误代码而不是其值。每种错误都有特定的代码：
+图表工作表中的公式支持旨在满足特定的电子表格计算子集，而非完整的 Excel 兼容性。设计报表工作流时请牢记以下约束：
 
-- #DIV/0! - 公式尝试除以零。
-- #GETTING_DATA - 当单元格的值仍在计算时可能显示此错误。
-- #N/A - 信息缺失或不可用。可能原因包括：公式中使用的单元格为空、存在多余空格、拼写错误等。
-- #NAME? - 无法根据名称找到某个单元格或其他公式对象。
-- #NULL! - 当公式中出现错误时可能出现，例如使用 (,) 或空格字符代替冒号 (:)。
-- #NUM! - 公式中的数值可能无效、过长或过小等。
-- #REF! - 无效的单元格引用。
-- #VALUE! - 意外的值类型。例如，将字符串值设置到数值单元格。
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // 该值包含字符串 "#DIV/0!"
-```
+- 仅使用文档中列出的常量、运算符、引用和函数，以便 Aspose.Slides 能重新计算公式。
+- 在更改公式结果依赖的单元格后重新计算。
+- 将从已加载演示文稿获得的缓存值视为快照，而非在编辑后替代重新计算的手段。
+- 在依赖模板中的计算值之前，对现有模板的公式进行测试，尤其是使用了文档外函数的情况。
+- 对于需要完整电子表格计算引擎的公式，请在外部计算后再将结果写入图表工作簿。
 
+## **常见问答**
 
-## **算术运算符**
-您可以在 chart worksheet 公式中使用所有算术运算符：
+**[IChartDataCell.setFormula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) 与 [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) 有何区别？**
 
-|**运算符**|**含义**|**示例**|
-| :- | :- | :- |
-|+（加号）|加法或一元加号|2 + 3|
-|-（减号）|减法或取负|2 - 3<br>-3|
-|*（星号）|乘法|2 * 3|
-|/（斜杠）|除法|2 / 3|
-|%（百分号）|百分比|30%|
-|^（脱字符）|幂运算|2 ^ 3|
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) 存储 A1 样式表达式，如 `B2-C2`。[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) 存储 R1C1 样式表达式，如 `RC[-2]-RC[-1]`。请根据生成或复制公式的方式选择使用的记法。
 
-*注意*：要改变计算顺序，请使用括号将需先计算的部分括起来。
+**在计算后，我需要读取单元格本身还是它的值？**
 
-## **比较运算符**
-您可以使用比较运算符比较单元格的值。当使用这些运算符比较两个值时，结果为逻辑值 *TRUE* 或 FALSE：
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) 返回一个 [IChartDataCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/)。在重新计算之后，调用该单元格的 [IChartDataCell.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#getValue--) 方法即可获得计算结果。
 
-|**运算符**|**含义**|**示例**|
-| :- | :- | :- |
-|=（等号）|等于|A2 = 3|
-|<>（不等号）|不等于|A2 <> 3|
-|>（大于号）|大于|A2 > 3|
-|>=（大于等于号）|大于等于|A2 >= 3|
-|<（小于号）|小于|A2 < 3|
-|<=（小于等于号）|小于等于|A2 <= 3|
+**何时应该调用 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)？**
 
-## **A1 样式单元格引用**
-**A1 样式单元格引用** 用于工作表，其中列使用字母标识（如 *A*），行使用数字标识（如 *1*）。A1 样式单元格引用可以按以下方式使用：
+在更改输入值或公式后，并在依赖计算结果之前，调用 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)。这会更新内置求值器支持的公式的值。
 
-|**单元格引用**|**示例**|||
-| :- | :- | :- | :- |
-||绝对 |相对 |混合|
-|单元格 |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|行 |$2:$2 |2:2 |-|
-|列 |$A:$A |A:A |-|
-|范围 |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+**Aspose.Slides 是否支持所有 Excel 函数？**
 
-下面是一个在公式中使用 A1 样式单元格引用的示例：
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+不支持。内置求值器仅支持文档中列出的函数子集。未列出的函数不应假设能够正确重新计算。如果需要完整的 Excel 公式兼容性，请使用适当的电子表格引擎进行计算，然后将最终值写入图表工作簿。
 
+**如果加载的演示文稿包含不受支持的公式会怎样？**
 
-## **R1C1 样式单元格引用**
-**R1C1 样式单元格引用** 用于工作表，其中行和列均使用数字标识。R1C1 样式单元格引用可以按以下方式使用：
+如果图表数据未更改，工作簿可能仍保留先前计算的缓存值。相关数据被修改后，该缓存值可能失效。访问无法处理的公式的单元格可能会抛出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellunsupporteddataexception/)。
 
-|**单元格引用**|**示例**|||
-| :- | :- | :- | :- |
-||绝对 |相对 |混合|
-|单元格 |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|行 |R2|R[2]|-|
-|列 |C3|C[3]|-|
-|范围 |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+**公式错误值等同于 Java 异常吗？**
 
-下面是一个在公式中使用 R1C1 样式单元格引用的示例：
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+不等同。`#DIV/0!` 等结果是由有效计算产生的电子表格值。诸如 [CellInvalidFormulaException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellinvalidformulaexception/) 或 [CellCircularReferenceException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/cellcircularreferenceexception/) 之类的异常表明公式无法正常处理。
 
+**当公式单元格更改时，图表会自动更新吗？**
 
-## **预定义函数**
-有一些预定义函数可在公式中使用，以简化实现。这些函数封装了最常用的操作，例如：
+图表系列可以引用工作簿单元格。先重新计算工作簿，然后保存或渲染演示文稿。如果图表数据点引用了已计算的单元格，图表会使用这些更新后的单元格值；此工作流不需要单独的图表刷新方法。
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE（1900 日期系统）
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX（引用形式）
-- LOOKUP（向量形式）
-- MATCH（向量形式）
-- MAX
-- SUM
-- VLOOKUP
+**图表可以使用外部 Excel 工作簿吗？**
 
-## **常见问题**
-**外部 Excel 文件是否支持作为包含公式的图表的数据源？**
+可以，图表数据可以通过图表数据 API 配置为使用外部工作簿。但本文描述的公式计算工作流仅涉及图表数据工作簿及 Aspose.Slides 所评估的公式子集。不要假设 [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) 能完整重新计算外部 XLSX 文件中的任意公式。
 
-是的。Aspose.Slides 支持将外部工作簿用作[图表的数据源](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatasourcetype/)，这使您可以使用演示文稿外部的 XLSX 中的公式。
+**我可以使用引用其他工作表或工作簿的公式吗？**
 
-**图表公式是否可以通过工作表名称引用同一本工作簿中的工作表？**
+Excel 样式的跨工作表或跨工作簿引用在图表工作簿中可能存在，但公式求值受限于支持的解析器和函数集。如果跨表或外部引用是必需的，请在目标 Aspose.Slides 版本中验证该公式的可用性。对于需要广泛 Excel 引用兼容性的工作流，请在外部计算工作簿并将解析后的值写回图表数据。
 
-是的。公式遵循标准的 Excel 引用模型，因此您可以引用同一工作簿或外部工作簿中的其他工作表。对于外部引用，请使用 Excel 语法包含路径和工作簿名称。
+**公式字符串需要以 `=` 开头吗？**
+
+Aspose.Slides API 示例中分配的表达式如 `B2-C2` 或 `SUM(B2:B5)` 均不带前导 `=`。使用这种形式可以使生成的公式与文档中的 API 示例保持一致。

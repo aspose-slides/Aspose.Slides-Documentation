@@ -1,248 +1,423 @@
 ---
-title: ใช้สูตรแผ่นงานแผนภูมิในงานพรีเซนเทชันบน Android
-linktitle: สูตรแผ่นงาน
+title: ใช้สูตร Worksheet ของแผนภูมิในงานนำเสนอบน Android
+linktitle: สูตร Worksheet
 type: docs
 weight: 70
 url: /th/androidjava/chart-worksheet-formulas/
 keywords:
-- แผ่นงานแผนภูมิ
-- แผ่นงานแผนภูมิ
+- แผนภูมิสเปรดชีต
+- Worksheet ของแผนภูมิ
 - สูตรแผนภูมิ
-- สูตรแผ่นงาน
+- สูตร Worksheet
 - สูตรสเปรดชีต
-- แหล่งข้อมูล
+- Workbook ข้อมูลแผนภูมิ
+- การคำนวนสูตร
+- วัฒนธรรมที่ต้องการ
+- สูตรที่กำหนดตามวัฒนธรรม
+- DBCS
 - ค่าคงที่ตรรกะ
-- ค่าคงที่จำนวน
+- ค่าคงที่เชิงตัวเลข
 - ค่าคงที่สตริง
 - ค่าคงที่ข้อผิดพลาด
-- ค่าคงที่คณิตศาสตร์
-- ตัวดำเนินการเปรียบเทียบ
-- สไตล์ A1
-- สไตล์ R1C1
+- เครื่องหมายคณิตศาสตร์
+- เครื่องหมายเปรียบเทียบ
+- รูปแบบ A1
+- รูปแบบ R1C1
 - ฟังก์ชันกำหนดล่วงหน้า
 - PowerPoint
-- งานพรีเซนเทชัน
+- งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ใช้สูตรแบบ Excel ใน Aspose.Slides สำหรับ Android ผ่านแผ่นงานแผนภูมิของ Java และอัตโนมัติการสร้างรายงานในไฟล์ PPT และ PPTX"
+description: "ใช้สูตรสไตล์ Excel ใน Aspose.Slides สำหรับ Android ผ่าน worksheet ของแผนภูมิ Java, คำนวนค่าใหม่, และใช้ผลลัพธ์ในแผนภูมิ PowerPoint."
 ---
 ## **ภาพรวม**
 
-แผ่นงานแผนภูมิเป็นแหล่งข้อมูลที่อยู่เบื้องหลังแผนภูมิในงานพรีเซนเทชัน มันเก็บชื่อของหมวดหมู่และชุดข้อมูลพร้อมกับค่าตัวเลขที่แผนภูมิแสดงในรูปแบบกราฟิก ใน Aspose.Slides แผ่นงานนี้สามารถเข้าถึงได้ผ่านแผนภูมิข้อมูลเวิร์กบุ๊ก ซึ่งทำให้คุณสามารถทำงานกับข้อมูลแผนภูมิได้ผ่านโปรแกรม
+PowerPoint charts มักจัดเก็บข้อมูลต้นทางใน worksheet ที่ฝังอยู่ในไฟล์ การใช้งาน Aspose.Slides for Android via Java คุณสามารถเข้าถึง worksheet นั้นผ่าน chart data workbook, เขียนค่าอินพุต, กำหนดสูตรให้กับเซลล์, คำนวณสูตรที่สนับสนุน, และใช้เซลล์ที่คำนวณแล้วเป็นข้อมูลสำหรับแผนภูมิ
 
-บทความนี้อธิบายวิธีการใช้สูตรในแผ่นงานแผนภูมิเพื่อให้ค่าของเซลล์คำนวณและอัปเดตโดยอัตโนมัติแทนการใส่ค่าด้วยตนเอง แสดงวิธีการกำหนดสูตร การใช้การอ้างอิงแบบ A1‑style และ R1C1‑style การคำนวณสูตรในเวิร์กบุ๊กใหม่ รวมถึงการทำงานกับค่าคงที่ ตัวดำเนินการ การอ้างอิงเซลล์ และฟังก์ชันกำหนดล่วงหน้าที่รองรับสำหรับแผ่นงานแผนภูมิในงานพรีเซนเทชัน
+บทความนี้อธิบายขั้นตอนการทำงานของสูตรอย่างครบถ้วน: สร้างแผนภูมิ, เติมข้อมูลลงใน worksheet, กำหนดสูตรแบบ A1 หรือ R1C1, คำนวนสูตรใหม่, อ่านค่าที่คำนวณแล้ว, เชื่อมต่อเซลล์เหล่านั้นกับ series ของแผนภูมิ, และบันทึกงานนำเสนอ นอกจากนี้ยังอธิบายไวยากรณ์สูตรที่สนับสนุน, ชุดฟังก์ชันที่มีมาให้, ค่าที่แคช, สูตรที่ไม่สนับสนุน, และข้อผิดพลาดที่เกี่ยวกับ spreadsheet
 
-## **เกี่ยวกับสูตรแผ่นงานแผนภูมิในงานพรีเซนเทชัน**
-**แผ่นงานแผนภูมิ** (หรือแผ่นงานแผนภูมิ) ในงานพรีเซนเทชันเป็นแหล่งข้อมูลของแผนภูมิ แผ่นงานแผนภูมิมีข้อมูลที่แสดงบนแผนภูมิในรูปแบบกราฟิก เมื่อคุณสร้างแผนภูมิใน PowerPoint แผ่นงานที่เชื่อมต่อกับแผนภูมินั้นจะถูกสร้างโดยอัตโนมัติด้วย แผ่นงานแผนภูมาถูกสร้างสำหรับทุกประเภทของแผนภูมิ: แผนภูมิเส้น, แผนภูมิแถบ, แผนภูมิดาว, แผนภูมิวงกลม ฯลฯ เพื่อดูแผ่นงานแผนภูมิใน PowerPoint ให้คลิกสองครั้งที่แผนภูมิ:
+## **Chart Worksheets and Formulas**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Worksheet ของแผนภูมิประกอบด้วยหมวดหมู่, ชื่อ series, และค่า ที่ใช้โดยแผนภูมิ ใน PowerPoint คุณสามารถตรวจสอบ worksheet ได้โดยการเปิด chart data editor:
 
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-แผ่นงานแผนภูมิมีชื่อขององค์ประกอบแผนภูมิ (Category Name: *Category1*, Serie Name) และตารางข้อมูลตัวเลขที่สอดคล้องกับหมวดหมู่และชุดข้อมูลเหล่านั้น โดยค่าเริ่มต้นเมื่อคุณสร้างแผนภูมิใหม่ – ข้อมูลแผ่นงานแผนภูมิจะตั้งค่าด้วยข้อมูลเริ่มต้น จากนั้นคุณสามารถเปลี่ยนข้อมูลในแผ่นงานได้ด้วยตนเอง
+ใน Aspose.Slides worksheet จะถูกเปิดให้เข้าถึงผ่านอินเทอร์เฟซ [IChartDataWorkbook](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/) ใช้ [IChartDataCell.setFormula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) สำหรับสูตรแบบ A1 และใช้ [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) สำหรับสูตรแบบ R1C1 หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร ให้เรียก [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) เพื่อคำนวณสูตรที่สนับสนุนและอัปเดตค่าเซลล์ที่สอดคล้องกัน
 
-โดยทั่วไปแผนภูมิจะแสดงข้อมูลที่ซับซ้อน (เช่น นักวิเคราะห์การเงิน, นักวิทยาศาสตร์) โดยมีเซลล์ที่คำนวณจากค่าของเซลล์อื่นหรือจากข้อมูลแบบไดนามิก การคำนวณค่าของเซลล์ด้วยตนเองและทำการกำหนดค่าแบบคงที่ทำให้ยากต่อการเปลี่ยนแปลงในอนาคต หากคุณเปลี่ยนค่าของเซลล์หนึ่ง เซลล์ที่อ้างอิงถึงมันจะต้องอัปเดตด้วย อีกทั้งข้อมูลตารางอาจพึ่งพาข้อมูลจากตารางอื่น สร้างโครงร่างข้อมูลงานพรีเซนเทชันที่ซับซ้อนและต้องการการอัปเดตที่ง่ายและยืดหยุ่น
+เซลล์ที่คำนวณแล้วยังคงเปิดเผยผลลัพธ์ผ่าน [IChartDataCell.getValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#getValue--) ซึ่งสำคัญเมื่อคุณต้องการตรวจสอบผลลัพธ์ของสูตรในโค้ดหรือใช้เซลล์เป็นจุดข้อมูลของแผนภูมิ
 
-**สูตรแผ่นงานแผนภูมิ** ในงานพรีเซนเทชันคือการแสดงผลลัพธ์เพื่อคำนวณและอัปเดตข้อมูลแผ่นงานแผนภูมิโดยอัตโนมัติ สูตรแผ่นงานกำหนดตรรกะการคำนวณข้อมูลสำหรับเซลล์หรือชุดของเซลล์ สูตรแผ่นงานอาจเป็นสูตรคณิตศาสตร์หรือสูตรตรรกะ ซึ่งใช้: การอ้างอิงเซลล์, ฟังก์ชันคณิตศาสตร์, ตัวดำเนินการตรรกะ, ตัวดำเนินการคณิตศาสตร์, ฟังก์ชันการแปลง, ค่าคงที่สตริง ฯลฯ นิยามของสูตรจะเขียนลงในเซลล์และเซลล์นั้นจะไม่เก็บค่าธรรมดา สูตรแผ่นงานคำนวณค่าและส่งค่ากลับ จากนั้นค่าที่ได้จะถูกกำหนดให้กับเซลล์ สูตรแผ่นงานแผนภูมิในงานพรีเซนเทชันนั้นเหมือนกับสูตร Excel และรองรับฟังก์ชัน, ตัวดำเนินการและค่าคงที่เริ่มต้นเดียวกันในการทำงาน
+## **Create a Chart and Calculate Worksheet Formulas**
 
-ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/androidjava/) แผ่นงานแผนภูมิมีการแทนที่ด้วยเมธอด
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) ของประเภท
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataWorkbook)  
-สูตรแผ่นงานสามารถกำหนดและเปลี่ยนแปลงได้ด้วยเมธอด
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-)  
-ฟังก์ชันต่อไปนี้รองรับสูตรใน Aspose.Slides:
-
-- ค่าคงที่ตรรกะ
-- ค่าคงที่จำนวน
-- ค่าคงที่สตริง
-- ค่าคงที่ข้อผิดพลาด
-- ตัวดำเนินการคณิตศาสตร์
-- ตัวดำเนินการเปรียบเทียบ
-- การอ้างอิงเซลล์แบบ A1‑style
-- การอ้างอิงเซลล์แบบ R1C1‑style
-- ฟังก์ชันกำหนดล่วงหน้า
-
-โดยทั่วไปสเปรดชีตจะเก็บค่าผลลัพธ์ของสูตรที่คำนวณล่าสุด หากหลังจากโหลดงานพรีเซนเทชันแล้วข้อมูลแผนภูมิไม่ได้ถูกเปลี่ยน – เมธอด [**IChartDataCell.getValue**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#getValue--) จะคืนค่าที่บันทึกไว้ขณะอ่าน แต่หากข้อมูลสเปรดชีตถูกเปลี่ยน ระหว่างการอ่านคุณสมบัติ **ChartDataCell.Value** จะทำให้เกิดข้อยกเว้น [**CellUnsupportedDataException**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/CellUnsupportedDataException) สำหรับสูตรที่ไม่รองรับ เนื่องจากเมื่อสูตรถูกแปลงสำเร็จ จะกำหนดการพึ่งพาเซลล์และตรวจสอบความถูกต้องของค่าล่าสุด แต่หากสูตรไม่สามารถแปลงได้ ความถูกต้องของค่าจะไม่รับประกัน
-
-## **เพิ่มสูตรแผ่นงานแผนภูมิเข้างานพรีเซนเทชัน**
-ก่อนอื่น ให้เพิ่มแผนภูมิลงในสไลด์แรกของงานพรีเซนเทชันใหม่ด้วยเมธอด
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-)  
-แผ่นงานของแผนภูมิจะถูกสร้างโดยอัตโนมัติและสามารถเข้าถึงได้ด้วยเมธอด
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) :
+ตัวอย่างต่อไปนี้สาธิตขั้นตอนทำงานตั้งแต่ต้นจนจบ มันสร้างแผนภูมิคอลัมน์แบบกลุ่ม, ลบข้อมูลตัวอย่าง, เขียนค่ารายได้และค่าใช้จ่ายไตรมาส, คำนวณกำไรด้วยสูตร, อ่านผลลัพธ์, ใช้เซลล์ที่คำนวณแล้วเป็นค่าของแผนภูมิ, และบันทึกงานนำเสนอ
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-เขียนค่าบางอย่างลงในเซลล์ด้วยเมธอด
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) ของประเภท **Object** ซึ่งหมายความว่าคุณสามารถกำหนดค่าใดก็ได้ให้กับคุณสมบัติ:
+จุดข้อมูลของแผนภูมิอ้างอิง `D2:D4` ดังนั้นแผนภูมิจะใช้ค่ากำไรที่คำนวณแล้ว ไม่ต้องมีการเรียกรีเฟรชแผนภูมิแยกต่างหากในขั้นตอนนี้: คำนวน workbook ก่อน, แล้วจึงใช้หรือบันทึกข้อมูลแผนภูมิที่อ้างอิงเซลล์ที่คำนวณ
+
+## **Use A1-Style Formulas**
+
+รูปแบบ A1 ระบุคอลัมน์ด้วยตัวอักษรและแถวด้วยตัวเลข กำหนดนิพจน์แบบ A1 ผ่าน [IChartDataCell.setFormula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
 
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-ต่อไปเพื่อกำหนดสูตรให้กับเซลล์ คุณสามารถใช้เมธอด
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) :
+รูปแบบการอ้างอิง A1 ที่พบบ่อยคือ:
 
-*หมายเหตุ*: เมธอด [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) ใช้สำหรับกำหนดการอ้างอิงเซลล์แบบ A1‑style  
+| อ้างอิง | สัมพัทธ์ | คงที่ | ผสม |
+|---|---|---|---|
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Row | `2:2` | `$2:$2` | — |
+| Column | `A:A` | `$A:$A` | — |
+| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-เพื่อกำหนดการอ้างอิงเซลล์แบบ [R1C1Formula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--) คุณสามารถใช้เมธอด
-[**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) :
+การอ้างอิงแบบสัมพัทธ์อาจเปลี่ยนเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปพลิเคชัน spreadsheet. การอ้างอิงแบบคงที่จะคงค่าพิกัดทั้งสองไว้, ส่วนการอ้างอิงแบบผสมจะคงแค่แถวหรือคอลัมน์หนึ่ง
 
-จากนั้นหากคุณอ่านค่าจากเซลล์ B2 และ C2 ค่าจะถูกคำนวณโดยอัตโนมัติ:
+## **Use R1C1-Style Formulas**
+
+รูปแบบ R1C1 ระบุทั้งแถวและคอลัมน์ด้วยตัวเลข การอ้างอิงแบบสัมพัทธ์ใช้การยกเว้นในวงเล็บเหลี่ยม [] กำหนดไวยากรณ์นี้ผ่าน [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **ค่าคงที่ตรรกะ**
-คุณสามารถใช้ค่าคงที่ตรรกะเช่น *FALSE* และ *TRUE* ในสูตรเซลล์ได้:
+รูปแบบการอ้างอิง R1C1 ที่พบบ่อยคือ:
+
+| อ้างอิง | สัมพัทธ์ | คงที่ | ผสม |
+|---|---|---|---|
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Row | `R[2]` | `R2` | — |
+| Column | `C[3]` | `C3` | — |
+| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+ตัวอย่างเช่น ในเซลล์ `D2` คำว่า `RC[-2]` หมายถึงเซลล์เดียวกันในแถวเดียวกันสองคอลัมน์ทางซ้าย (`B2`).
+
+## **Formula Constants and Operators**
+
+ตัวประเมินสูตรในตัวสนับสนุนค่าตรรกะ, ค่าตัวเลข, สตริง, ค่าข้อผิดพลาดของ spreadsheet, ตัวดำเนินการคณิตศาสตร์, และตัวดำเนินการเปรียบเทียบ
+
+### **ค่าคงที่และลิเทอรัล**
+
+| ประเภท | ตัวอย่าง | หมายเหตุ |
+|---|---|---|
+| Logical | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะ เช่น `A2=TRUE`. |
+| Numeric | `1`, `0.5`, `.3`, `1E-2` | รองรับการเขียนแบบธรรมดาและวิทยาศาสตร์. |
+| String | `"abc"`, `"2/3/2020 12:00"` | ลิเทอรัลข้อความอยู่ในเครื่องหมายอัญประกาศคู่ภายในสูตร. |
+| Error result | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่ถูกต้องอาจให้ค่าข้อผิดพลาดของ spreadsheet แทนผลลัพธ์ปกติ. |
+
+ตัวอย่างนี้ใช้หลายประเภทค่าคงที่:
 
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // ค่ามีบูลีน "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // false
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **ค่าคงที่จำนวน**
-สามารถใช้ตัวเลขในรูปแบบทั่วไปหรือแบบวิทยาศาสตร์เพื่อสร้างสูตรแผ่นงานแผนภูมิได้:
+### **ตัวดำเนินการคณิตศาสตร์**
+
+| ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
+|---|---|---|
+| `+` | บวกหรือเครื่องหมายบวกยูนรี | `2+3` |
+| `-` | ลบหรือเครื่องหมายลบยูนรี | `2-3`, `-3` |
+| `*` | คูณ | `2*3` |
+| `/` | หาร | `2/3` |
+| `%` | เปอร์เซ็นต์ | `30%` |
+| `^` | ยกกำลัง | `2^3` |
+
+ใช้วงเล็บเพื่อระบุลำดับการประเมินอย่างชัดเจน เช่น `(A2+B2)*C2`.
+
+### **ตัวดำเนินการเปรียบเทียบ**
+
+| ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
+|---|---|---|
+| `=` | เท่ากับ | `A2=3` |
+| `<>` | ไม่เท่ากับ | `A2<>3` |
+| `>` | มากกว่า | `A2>3` |
+| `>=` | มากกว่า หรือเท่ากับ | `A2>=3` |
+| `<` | น้อยกว่า | `A2<3` |
+| `<=` | น้อยกว่า หรือเท่ากับ | `A2<=3` |
+
+## **Supported Predefined Functions**
+
+Aspose.Slides มีตัวประเมินสูตรในตัวสำหรับ worksheet ของแผนภูมิ แต่ไม่ใช่เครื่องมือคำนวน Excel ครบวงจร ชุดฟังก์ชันที่ระบุไว้จำกัดอยู่ที่ฟังก์ชันด้านล่าง อย่าเชื่อว่าฟังก์ชัน Excel ใด ๆ สามารถคำนวนใหม่ได้โดย [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+
+| ฟังก์ชัน | วัตถุประสงค์หรือรูปแบบที่สนับสนุน | ตัวอย่าง |
+|---|---|---|
+| `ABS` | ค่าตัวเลขค่าสัมบูรณ์ | `ABS(A2)` |
+| `AVERAGE` | ค่าเฉลี่ยทางคณิตศาสตร์ | `AVERAGE(B2:B5)` |
+| `CEILING` | ปัดเลขขึ้นเป็นหลายของจำนวน | `CEILING(A2,5)` |
+| `CHOOSE` | เลือกค่าตามดัชนี | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | เชื่อมต่อค่าข้อความ | `CONCAT(A2,B2)` |
+| `CONCATENATE` | เชื่อมต่อค่าข้อความ | `CONCATENATE(A2," ",B2)` |
+| `DATE` | สร้างค่าวันที่โดยใช้ระบบวันที่ 1900 | `DATE(2026,8,19)` |
+| `DAYS` | คืนจำนวนวันที่ห่างกันระหว่างวันที่ | `DAYS(B2,A2)` |
+| `FIND` | ค้นหาค่าข้อความหนึ่งภายในอีกค่า | `FIND("-",A2)` |
+| `FINDB` | ค้นหาข้อความแบบไบท์ | `FINDB("a",A2)` |
+| `IF` | ผลลัพธ์ตามเงื่อนไข | `IF(A2>0,A2,0)` |
+| `INDEX` | รูปแบบการอ้างอิง | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | รูปแบบเวกเตอร์ | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | รูปแบบเวกเตอร์ | `MATCH(A2,B2:B5,0)` |
+| `MAX` | ค่ามากที่สุด | `MAX(B2:B5)` |
+| `SUM` | ผลรวมของค่า | `SUM(B2:B5)` |
+| `VLOOKUP` | ค้นหาตามแนวตั้ง | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+ข้อจำกัดที่แสดงในตารางมีความสำคัญ: `INDEX` ระบุในรูปแบบการอ้างอิง, ส่วน `LOOKUP` และ `MATCH` ระบุในรูปแบบเวกเตอร์. `DATE` ใช้ระบบวันที่ 1900. ฟังก์ชันและคุณลักษณะที่ไม่ได้ระบุที่นี่ควรถือว่าไม่สนับสนุนโดยตัวประเมินสูตรของ Aspose.Slides ยกเว้นว่าจะมีการระบุแยกต่างหาก
+
+## **Calculate Formulas with a Preferred Culture**
+
+ฟังก์ชันบางตัวของ chart workbook จะตีความข้อความตามกฎของวัฒนธรรมเฉพาะ ซึ่งสำคัญเป็นพิเศษสำหรับฟังก์ชันที่ออกแบบสำหรับภาษาที่ใช้ชุดอักขระสองไบต์ (DBCS) เพื่อคำนวณสูตรเหล่านี้อย่างถูกต้อง ให้สร้าง [LoadOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/), ตั้งค่าวัฒนธรรมที่ต้องการด้วย [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), กำหนดตัวเลือก spreadsheet ผ่าน [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), แล้วโหลดงานนำเสนอ
+
+ตัวอย่างต่อไปนี้เลือกวัฒนธรรมญี่ปุ่น, เปิดงานนำเสนอด้วยตัวเลือกการโหลดที่กำหนด, และเรียก [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) สำหรับทุก chart workbook:
 
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **ค่าคงที่สตริง**
-ค่าคงที่สตริง (หรือ literal) คือค่าที่ใช้ตามที่ระบุและไม่เปลี่ยนแปลง ค่าคงที่สตริงอาจเป็น: วันที่, ข้อความ, ตัวเลข ฯลฯ :
+วัฒนธรรมที่ต้องการเป็นส่วนหนึ่งของการกำหนดค่าการโหลดงานนำเสนอ ดังนั้นให้ระบุก่อนสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ใช้วัฒนธรรมที่สูตรใน workbook คาดหวัง; ตัวอย่างเช่น ใช้ `ja-JP` สำหรับสูตรที่ต้องปฏิบัติตามกฎการคำนวน DBCS ของญี่ปุ่น
+
+## **Recalculation and Cached Values**
+
+ไฟล์ spreadsheet มักเก็บทั้งสูตรและค่าที่คำนวนล่าสุด Aspose.Slides จึงสามารถอ่านค่าที่แคชจาก [IChartDataCell.getValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#getValue--) เมื่อโหลดงานนำเสนอและข้อมูลแผนภูมิที่เกี่ยวข้องไม่ได้ถูกเปลี่ยนแปลง
+
+หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร อย่าอ้างอิงค่าที่แคชเก่า ให้เรียก [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) ก่อนอ่านค่าที่คำนวนแล้วหรือบันทึกข้อมูลแผนภูมิที่ขึ้นกับค่านั้น
+
+สำหรับสูตรที่อยู่นอกชุดที่สนับสนุน Aspose.Slides อาจไม่สามารถแยกวิเคราะห์สูตรหรือระบุการพึ่งพาได้ หาก workbook ถูกแก้ไข ค่าที่แคชก่อนหน้านี้จะไม่ถือว่าเชื่อถือได้ ในสถานการณ์นั้น การอ่านค่าของเซลล์ที่มีข้อมูลที่ไม่สนับสนุนอาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+หากแผนภูมิของคุณพึ่งพาฟังก์ชัน Excel ที่ Aspose.Slides ไม่ประมวลผล ให้คำนวนสูตรเหล่านั้นด้วยเอนจิ้น spreadsheet ที่สนับสนุนและเขียนค่าที่ได้กลับไปยัง chart workbook อย่าแทนสูตรที่ไม่สนับสนุนด้วยค่าที่คาดเดา
+
+## **Handle Formula Errors**
+
+มีสองประเภทของปัญหาที่ต้องแยกแยะ
+
+สูตรอาจถูกต้องแต่ให้ผลลัพธ์เป็นข้อผิดพลาดของ spreadsheet เช่น `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, หรือ `#VALUE!` ในกรณีนี้ โทเคนข้อผิดพลาดเป็นผลลัพธ์ของเซลล์และสามารถคืนค่าผ่าน [IChartDataCell.getValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#getValue--)
+
+สูตรอาจล้มเหลวที่ขั้นตอนการแยกวิเคราะห์, การอ้างอิง, การพึ่งพา, หรือระดับข้อมูลที่สนับสนุน Aspose.Slides มีข้อยกเว้นเฉพาะ spreadsheet สำหรับกรณีเหล่านี้: [CellInvalidFormulaException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellcircularreferenceexception/), และ [CellUnsupportedDataException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellunsupporteddataexception/)
+
+เมื่อสูตรมาจากเทมเพลตหรืออินพุตของผู้ใช้ ให้จัดการกับข้อยกเว้นเหล่านี้รอบการคำนวนใหม่และการเข้าถึงค่า:
 
 ```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **ค่าคงที่ข้อผิดพลาด**
-บางครั้งสูตรไม่สามารถคำนวณผลลัพธ์ได้ ในกรณีนั้นจะมีรหัสข้อผิดพลาดแสดงในเซลล์แทนค่าจริง แต่ละประเภทของข้อผิดพลาดมีรหัสเฉพาะ:
+## **Practical Limitations**
 
-- #DIV/0! - สูตรพยายามหารด้วยศูนย์
-- #GETTING_DATA - อาจปรากฏในเซลล์ขณะค่ากำลังคำนวณ
-- #N/A - ข้อมูลหายหรือไม่พร้อมใช้งาน เช่น เซลล์ที่ใช้ในสูตรว่างเปล่า, มีช่องว่างเพิ่ม, การพิมพ์ผิด ฯลฯ
-- #NAME? - ไม่พบเซลล์หรือวัตถุสูตรตามชื่อ
-- #NULL! - เกิดเมื่อสูตรมีข้อผิดพลาด เช่น (,) หรือใช้ช่องว่างแทนเครื่องหมายโคลอน (:)
-- #NUM! - ตัวเลขในสูตรไม่ถูกต้อง, ยาวเกินไปหรือสั้นเกินไป ฯลฯ
-- #REF! - การอ้างอิงเซลล์ไม่ถูกต้อง
-- #VALUE! - ชนิดค่าไม่ตรงกัน ตัวอย่างเช่น ค่าสตริงถูกตั้งให้กับเซลล์ตัวเลข
+การสนับสนุนสูตรใน worksheet ของแผนภูมิมุ่งเน้นที่ชุดย่อยที่กำหนดของการคำนวน spreadsheet ไม่ใช่ความเข้ากันได้เต็มรูปแบบกับ Excel โปรดจำข้อจำกัดเหล่านี้เมื่อออกแบบ workflow ของการรายงาน:
 
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // ค่ามีสตริง "#DIV/0!"
-```
-
-## **ตัวดำเนินการคณิตศาสตร์**
-คุณสามารถใช้ตัวดำเนินการคณิตศาสตร์ทั้งหมดในสูตรแผ่นงานแผนภูมิได้:
-
-|**ตัวดำเนินการ**|**ความหมาย**|**ตัวอย่าง**|
-| :- | :- | :- |
-|+ (บวก) |การบวกหรือบวกเชิงบวก|2 + 3|
-|- (ลบ) |การลบหรือการทำให้เป็นลบ|2 - 3<br>-3|
-|* (ดอกจัน) |การคูณ|2 * 3|
-|/ (ทับ) |การหาร|2 / 3|
-|% (เปอร์เซ็นต์) |เปอร์เซ็นต์|30%|
-|^ (ยกกำลัง) |ยกกำลัง|2 ^ 3|
-
-*หมายเหตุ*: หากต้องการเปลี่ยนลำดับการคำนวณ ให้ใส่วงเล็บล้อมรอบส่วนของสูตรที่ต้องการคำนวณก่อน
-
-## **ตัวดำเนินการเปรียบเทียบ**
-คุณสามารถเปรียบเทียบค่าของเซลล์ด้วยตัวดำเนินการเปรียบเทียบ เมื่อเปรียบเทียบสองค่าโดยใช้ตัวดำเนินการเหล่านี้ ผลลัพธ์จะเป็นค่าตรรกะ *TRUE* หรือ FALSE:
-
-|**ตัวดำเนินการ**|**ความหมาย**|**ตัวอย่าง**|
-| :- | :- | :- |
-|= (เท่ากับ) |เท่ากับ|A2 = 3|
-|<> (ไม่เท่ากับ) |ไม่เท่ากับ|A2 <> 3|
-|> (มากกว่า) |มากกว่า|A2 > 3|
-|>= (มากกว่าหรือเท่ากับ) |มากกว่าหรือเท่ากับ|A2 >= 3|
-|< (น้อยกว่า) |น้อยกว่า|A2 < 3|
-|<= (น้อยกว่าหรือเท่ากับ) |น้อยกว่าหรือเท่ากับ|A2 <= 3|
-
-## **การอ้างอิงเซลล์แบบ A1‑style**
-**การอ้างอิงเซลล์แบบ A1‑style** ใช้กับแผ่นงานที่คอลัมน์มีตัวอักษรระบุ (เช่น "*A*") และแถวมีตัวเลขระบุ (เช่น "*1*") การอ้างอิงแบบนี้สามารถใช้ได้ดังนี้:
-
-|**การอ้างอิงเซลล์**|**ตัวอย่าง**| | |
-| :- | :- | :- | :- |
-| |Absolute|Relative|Mixed|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-ตัวอย่างการใช้การอ้างอิงเซลล์แบบ A1‑style ในสูตร:
-
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-## **การอ้างอิงเซลล์แบบ R1C1‑style**
-**การอ้างอิงเซลล์แบบ R1C1‑style** ใช้กับแผ่นงานที่ทั้งแถวและคอลัมน์มีตัวเลขระบุ การอ้างอิงแบบนี้สามารถใช้ได้ดังนี้:
-
-|**การอ้างอิงเซลล์**|**ตัวอย่าง**| | |
-| :- | :- | :- | :- |
-| |Absolute|Relative|Mixed|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-ตัวอย่างการใช้การอ้างอิงเซลล์แบบ A1‑style ในสูตร:
-
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-## **ฟังก์ชันกำหนดล่วงหน้า**
-มีฟังก์ชันกำหนดล่วงหน้าที่สามารถใช้ในสูตรเพื่อทำให้การทำงานง่ายขึ้น ฟังก์ชันเหล่านี้รวมถึงการดำเนินการที่ใช้บ่อย เช่น:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (ระบบวันที่ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (รูปแบบอ้างอิง)
-- LOOKUP (รูปแบบเวกเตอร์)
-- MATCH (รูปแบบเวกเตอร์)
-- MAX
-- SUM
-- VLOOKUP
+- ใช้เฉพาะค่าคงที่, ตัวดำเนินการ, การอ้างอิง, และฟังก์ชันที่ระบุไว้เมื่อคุณต้องการให้ Aspose.Slides คำนวนสูตรใหม่.
+- คำนวนใหม่หลังจากเปลี่ยนเซลล์ที่ผลลัพธ์สูตรขึ้นกับ.
+- ถือค่าที่แคชจากงานนำเข้าที่โหลดเป็นสแนปชอต, ไม่ใช่การแทนที่การคำนวนใหม่หลังการแก้ไข.
+- ทดสอบสูตรจากเทมเพลตที่มีอยู่ก่อนพึ่งพาค่าที่คำนวนแล้ว, โดยเฉพาะเมื่อใช้ฟังก์ชันนอกรายการที่ระบุ.
+- สำหรับสูตรที่ต้องการเอนจิ้นคำนวน spreadsheet เต็มรูปแบบ, คำนวนสูตรนั้นภายนอกแล้วอัปเดต chart workbook ด้วยค่าที่ได้.
 
 ## **FAQ**
 
-**ไฟล์ Excel ภายนอกรองรับเป็นแหล่งข้อมูลของแผนภูมิที่มีสูตรหรือไม่?**
+**ความแตกต่างระหว่าง [IChartDataCell.setFormula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) กับ [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-ใช่ Aspose.Slides รองรับเวิร์กบุ๊กภายนอกเป็น [chart's data source](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdatasourcetype/) ซึ่งทำให้คุณสามารถใช้สูตรจากไฟล์ XLSX นอกงานพรีเซนเทชันได้
+[IChartDataCell.setFormula] เก็บนิพจน์แบบ A1 เช่น `B2-C2`. [IChartDataCell.setR1C1Formula] เก็บนิพจน์แบบ R1C1 เช่น `RC[-2]-RC[-1]`. ใช้รูปแบบที่ตรงกับวิธีที่คุณสร้างหรือคัดลอกสูตร.
 
-**สูตรแผนภูมิสามารถอ้างอิงชีตภายในเวิร์กบุ๊กเดียวกันโดยใช้ชื่อชีตได้หรือไม่?**
+**ฉันต้องอ่านเซลล์เองหรือค่าของมันหลังการคำนวนหรือไม่?**
 
-ใช่ สูตรจะปฏิบัติตามโมเดลการอ้างอิงของ Excel มาตรฐาน ดังนั้นคุณสามารถอ้างอิงชีตอื่นภายในเวิร์กบุ๊กเดียวกันหรือเวิร์กบุ๊กภายนอกได้ สำหรับการอ้างอิงภายนอกให้ใส่พาธและชื่อเวิร์กบุ๊กโดยใช้ไวยากรณ์ของ Excel
+[IChartDataWorkbook.getCell] คืนค่า [IChartDataCell]. เพื่อให้ได้ผลลัพธ์ที่คำนวนแล้ว ให้เรียกเมธอด [IChartDataCell.getValue] ของเซลล์นั้นหลังการคำนวนใหม่.
+
+**ฉันควรเรียก [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) เมื่อไหร่?**
+
+ให้เรียก [IChartDataWorkbook.calculateFormulas] หลังจากเปลี่ยนค่าอินพุตหรือสูตรและก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวนแล้ว. การเรียกนี้จะอัปเดตค่าของสูตรที่ตัวประเมินในตัวสนับสนุน.
+
+**Aspose.Slides รองรับทุกฟังก์ชันของ Excel หรือไม่?**
+
+ไม่. ตัวประเมินในตัวสนับสนุนชุดฟังก์ชันที่ระบุไว้เท่านั้น ฟังก์ชันนอกชุดนั้นไม่ควรถือว่าคำนวนได้อย่างถูกต้อง. หากต้องการความเข้ากันได้เต็มรูปแบบของสูตร Excel, ให้คำนวนด้วยเอนจิ้น spreadsheet ที่เหมาะสมและเขียนค่าที่ได้ไปยัง chart workbook.
+
+**จะเกิดอะไรขึ้นหากงานนำเสนอที่โหลดมีสูตรที่ไม่สนับสนุน?**
+
+หากข้อมูลแผนภูมิไม่ได้เปลี่ยน แบคค่าที่คำนวนไว้ก่อนหน้าอาจยังคงอยู่. หลังจากข้อมูลที่เกี่ยวข้องถูกแก้ไข แบคค่านั้นอาจไม่ถูกต้องแล้ว. การเข้าถึงเซลล์ที่สูตรไม่สามารถจัดการได้อาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+**ค่าข้อผิดพลาดของสูตรเป็นเหมือนกับข้อยกเว้นของ Java หรือไม่?**
+
+ไม่. ผลลัพธ์เช่น `#DIV/0!` เป็นค่าของ spreadsheet ที่เกิดจากการคำนวนที่ถูกต้อง. ข้อยกเว้นเช่น [CellInvalidFormulaException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellinvalidformulaexception/) หรือ [CellCircularReferenceException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/cellcircularreferenceexception/) แสดงว่ารูปแบบสูตรไม่สามารถประมวลผลได้ตามปกติ.
+
+**แผนภูมิจะอัปเดตโดยอัตโนมัติเมื่อเซลล์สูตรเปลี่ยนหรือไม่?**
+
+Series ของแผนภูมิสามารถอ้างอิงเซลล์ workbook. คำนวน workbook ก่อนแล้วบันทึกหรือแสดงงานนำเสนอ. หากจุดข้อมูลของแผนภูมิอ้างอิงเซลล์ที่คำนวนแล้ว แผนภูมิจะใช้ค่าเหล่านั้น; ไม่ต้องมีเมธอดรีเฟรชแผนภูมิแยกต่างหากใน workflow นี้.
+
+**แผนภูมิสามารถใช้ workbook Excel ภายนอกได้หรือไม่?**
+
+ได้, ข้อมูลแผนภูมิสามารถกำหนดให้ใช้ workbook ภายนอกผ่าน API ของข้อมูลแผนภูมิ. อย่างไรก็ตาม workflow การคำนวนสูตรที่อธิบายในบทความนี้เกี่ยวกับ chart data workbook และชุดสูตรที่ Aspose.Slides ประเมิน. อย่าคาดว่า [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) จะคำนวนสูตรทั้งหมดในไฟล์ XLSX ภายนอกอย่างเต็มที่.
+
+**ฉันสามารถใช้สูตรที่อ้างอิง worksheet หรือ workbook อื่นได้หรือไม่?**
+
+การอ้างอิงแบบ Excel อาจมีอยู่ใน chart workbook, แต่การประเมินสูตรถูกจำกัดโดย parser และชุดฟังก์ชันที่สนับสนุน. หากการอ้างอิงข้าม sheet หรือภายนอกเป็นสิ่งจำเป็น ให้ตรวจสอบสูตรนั้นกับเวอร์ชัน Aspose.Slides ที่คุณใช้. สำหรับ workflow ที่ต้องการความเข้ากันได้ของการอ้างอิง Excel อย่างกว้างขวาง, คำนวน workbook ภายนอกและเขียนค่าที่ได้กลับไปยังข้อมูลแผนภูมิ.
+
+**สูตรควรขึ้นต้นด้วย `=` หรือไม่?**
+
+ตัวอย่าง API ของ Aspose.Slides กำหนดนิพจน์เช่น `B2-C2` หรือ `SUM(B2:B5)` โดยไม่ต้องมี `=` นำหน้า การใช้รูปแบบนี้ทำให้สูตรที่สร้างสอดคล้องกับตัวอย่าง API ที่ระบุ.

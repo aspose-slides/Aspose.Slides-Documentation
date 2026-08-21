@@ -1,245 +1,427 @@
 ---
-title: Εφαρμογή τύπων φύλλου εργασίας διαγράμματος σε παρουσιάσεις με JavaScript
+title: Εφαρμογή Τύπων Φύλλου Εργασίας Διαγράμματος σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
 linktitle: Τύποι Φύλλου Εργασίας
 type: docs
 weight: 70
 url: /el/nodejs-java/chart-worksheet-formulas/
 keywords:
-- φύλλο εργασίας διαγράμματος
+- λογιστικό φύλλο διαγράμματος
 - φύλλο εργασίας διαγράμματος
 - τύπος διαγράμματος
 - τύπος φύλλου εργασίας
-- τύπος υπολογιστικού φύλλου
-- πηγή δεδομένων
+- τύπος λογιστικού φύλλου
+- βιβλίο δεδομένων διαγράμματος
+- υπολογισμός τύπου
+- προτιμώμενος πολιτισμός
+- τύπος ειδικός για πολιτισμό
+- DBCS
 - λογική σταθερά
 - αριθμητική σταθερά
 - σταθερά συμβολοσειράς
 - σταθερά σφάλματος
-- αριθμητική σταθερά
+- αριθμητικός τελεστής
 - τελεστής σύγκρισης
-- στυλ A1
-- στυλ R1C1
-- προεγγεκριμένη συνάρτηση
+- μορφή A1
+- μορφή R1C1
+- προκαθορισμένη συνάρτηση
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Εφαρμόστε τύπους σε στυλ Excel στο Aspose.Slides για Node.js μέσω φύλλων εργασίας διαγράμματος Java και αυτοματοποιήστε αναφορές σε αρχεία PPT και PPTX με JavaScript."
+description: "Εφαρμόστε τύπους σε στυλ Excel στο Aspose.Slides για Node.js μέσω φύλλων εργασίας διαγράμματος Java, επαναϋπολογίστε τις τιμές και χρησιμοποιήστε τα αποτελέσματα σε διαγράμματα PowerPoint."
 ---
 ## **Επισκόπηση**
 
-Ένα φύλλο εργασίας διαγράμματος είναι η πηγή δεδομένων πίσω από ένα διάγραμμα σε μια παρουσίαση. Αποθηκεύει τα ονόματα κατηγοριών και σειρών μαζί με τις αριθμητικές τιμές που εμφανίζει το διάγραμμα. Στο Aspose.Slides, αυτό το φύλλο εργασίας είναι διαθέσιμο μέσω του βιβλίου εργασίας δεδομένων διαγράμματος, το οποίο σας επιτρέπει να εργάζεστε με τα δεδομένα του διαγράμματος προγραμματιστικά.
+Τα διαγράμματα PowerPoint συνήθως αποθηκεύουν τα δεδομένα προέλευσης σε ένα ενσωματωμένο φύλλο εργασίας. Στο Aspose.Slides για Node.js μέσω Java, μπορείτε να αποκτήσετε πρόσβαση σε αυτό το φύλλο εργασίας μέσω του βιβλίου εργασίας δεδομένων διαγράμματος, να γράψετε τιμές εισόδου, να αντιστοιχίσετε τύπους σε κελιά, να υπολογίσετε τους υποστηριζόμενους τύπους και να χρησιμοποιήσετε τα υπολογισμένα κελιά ως δεδομένα διαγράμματος.
 
-Αυτό το άρθρο εξηγεί πώς να χρησιμοποιήσετε τύπους φύλλου εργασίας στα δεδομένα διαγράμματος ώστε οι τιμές των κελιών να υπολογίζονται και να ενημερώνονται αυτόματα αντί να εισάγονται χειροκίνητα. Δείχνει πώς να αντιστοιχίσετε τύπους, να χρησιμοποιήσετε αναφορές σε στυλ A1 και R1C1, να επανυπολογίσετε τους τύπους του βιβλίου εργασίας και να δουλέψετε με τους υποστηριζόμενους σταθερούς, τελεστές, αναφορές κελιών και προεγγεκριμένες συναρτήσεις που διατίθενται για φύλλα εργασίας διαγραμμάτων σε παρουσιάσεις.
+Αυτό το άρθρο εξηγεί τη πλήρη ροή εργασίας των τύπων: δημιουργία διαγράμματος, γέμισμα του φύλλου εργασίας του, ανάθεση τύπων σε μορφή A1 ή R1C1, επαναυπολογισμό τους, ανάγνωση των υπολογιζόμενων τιμών, σύνδεση αυτών των κελιών με μια σειρά διαγράμματος και αποθήκευση της παρουσίασης. Περιγράφει επίσης τη σύνταξη των υποστηριζόμενων τύπων, το ενσωματωμένο υποσύνολο λειτουργιών, τις αποθηκευμένες τιμές, τους μη υποστηριζόμενους τύπους και τα σφάλματα ειδικά για λογιστικά φύλλα.
 
-## **Σχετικά με τη Συνάρτηση Φύλλου Εργασίας Διαγράμματος στην Παρουσίαση**
-**Chart spreadsheet** (ή φύλλο εργασίας διαγράμματος) σε μια παρουσίαση είναι η πηγή δεδομένων του διαγράμματος. Το Chart spreadsheet περιέχει δεδομένα, τα οποία εμφανίζονται στο διάγραμμα με γραφικό τρόπο. Όταν δημιουργείτε ένα διάγραμμα στο PowerPoint, το φύλλο εργασίας που συσχετίζεται με αυτό το διάγραμμα δημιουργείται αυτόματα. Το φύλλο εργασίας δημιουργείται για όλους τους τύπους διαγραμμάτων: διάγραμμα γραμμής, ραβδί, ηλιακός κλάδος, πίτας κλπ. Για να δείτε το Chart spreadsheet στο PowerPoint, πρέπει να κάνετε διπλό κλικ στο διάγραμμα:
+## **Φύλλα Εργασίας Διαγράμματος και Τύποι**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Ένα φύλλο εργασίας διαγράμματος περιέχει τις κατηγορίες, τα ονόματα σειρών και τις τιμές που χρησιμοποιεί ένα διάγραμμα. Στο PowerPoint, μπορείτε να επιθεωρήσετε το φύλλο εργασίας ανοίγοντας τον επεξεργαστή δεδομένων διαγράμματος:
 
+![Διάγραμμα PowerPoint με ανοικτό το ενσωματωμένο φύλλο εργασίας του, που εμφανίζει τα δεδομένα κατηγοριών και σειρών](chart-worksheet-formulas_1.png)
 
-Το Chart spreadsheet περιέχει τα ονόματα στοιχείων του διαγράμματος (Όνομα Κατηγορίας: *Category1*, Όνομα Σειράς) και έναν πίνακα με αριθμητικά δεδομένα κατάλληλα για αυτές τις κατηγορίες και σειρές. Από προεπιλογή, όταν δημιουργείτε ένα νέο διάγραμμα, τα δεδομένα του Chart spreadsheet ορίζονται με τα προεπιλεγμένα δεδομένα. Στη συνέχεια μπορείτε να αλλάξετε τα δεδομένα του φύλλου εργασίας χειροκίνητα.
+Στο Aspose.Slides, το φύλλο εργασίας εκτίθεται μέσω της κλάσης [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) . Χρησιμοποιήστε [ChartDataCell.setFormula](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) για τύπους μορφής A1 και [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) για τύπους μορφής R1C1. Αφού αλλάξετε τα κελιά εισόδου ή τους τύπους, καλέστε [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) για να επαναϋπολογίσετε τους υποστηριζόμενους τύπους και να ενημερώσετε τις αντίστοιχες τιμές κελιών.
 
-Συνήθως, το διάγραμμα αναπαριστά σύνθετα δεδομένα (π.χ. χρηματοοικονομικοί αναλυτές, επιστημονικοί αναλυτές), έχοντας κελιά που υπολογίζονται από τις τιμές σε άλλα κελιά ή από άλλα δυναμικά δεδομένα. Ο χειροκίνητος υπολογισμός της τιμής ενός κελιού και η ενσωμάτωσή του στο κελί καθιστούν δύσκολη την αλλαγή του στο μέλλον. Αν αλλάξετε την τιμή ενός συγκεκριμένου κελιού, όλα τα κελιά που εξαρτώνται από αυτό θα χρειαστεί επίσης να ενημερωθούν. Επιπλέον, τα δεδομένα του πίνακα μπορεί να εξαρτώνται από δεδομένα άλλων πινάκων, δημιουργώντας ένα σύνθετο σχήμα δεδομένων παρουσίασης που χρειάζεται εύκολης και ευέλικτης ενημέρωσης.
+Ένα υπολογισμένο κελί εξακολουθεί να εκτίδει το αποτέλεσμα του μέσω του [ChartDataCell.getValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#getValue--). Αυτό είναι σημαντικό όταν χρειάζεται να εξετάσετε το αποτέλεσμα ενός τύπου στον κώδικα ή να χρησιμοποιήσετε το κελί ως σημείο δεδομένων διαγράμματος.
 
-**Chart spreadsheet formula** σε μια παρουσίαση είναι μια έκφραση για αυτόματο υπολογισμό και ενημέρωση των δεδομένων του Chart spreadsheet. Ο τύπος φύλλου εργασίας ορίζει τη λογική υπολογισμού δεδομένων για ένα συγκεκριμένο κελί ή σύνολο κελιών. Ο τύπος φύλλου εργασίας είναι μαθηματικός ή λογικός τύπος, ο οποίος χρησιμοποιεί: παραπομπές κελιών, μαθηματικές συναρτήσεις, λογικούς τελεστές, αριθμητικούς τελεστές, συναρτήσεις μετατροπής, σταθερές συμβολοσειράς κ.λπ. Ο ορισμός του τύπου γράφεται σε ένα κελί, και αυτό το κελί δεν περιέχει απλή τιμή. Ο τύπος φύλλου εργασίας υπολογίζει την τιμή και την επιστρέφει, στη συνέχεια αυτή η τιμή εκχωρείται στο κελί. Οι τύποι φύλλου εργασίας διαγραμμάτων στις παρουσιάσεις είναι στην ουσία οι ίδιοι με τύπους του Excel και υποστηρίζουν τις ίδιες προεπιλεγμένες συναρτήσεις, τελεστές και σταθερές για την υλοποίησή τους.
+## **Δημιουργία Διαγράμματος και Υπολογισμός Τύπων Φύλλου Εργασίας**
 
-Στο [**Aspose.Slides**](https://products.aspose.com/slides/el/nodejs-java/) το Chart spreadsheet αντιπροσωπεύεται με τη μέθοδο 
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) του τύπου 
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
-Ο τύπος φύλλου εργασίας μπορεί να αντιστοιχιστεί και να τροποποιηθεί με τη μέθοδο 
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-).
-Η παρακάτω λειτουργικότητα υποστηρίζεται για τύπους στο Aspose.Slides:
-
-- Λογικές σταθερές
-- Αριθμητικές σταθερές
-- Σταθερές συμβολοσειράς
-- Σταθερές σφάλματος
-- Αριθμητικοί τελεστές
-- Τελεστές σύγκρισης
-- Αναφορές κελιών στυλ A1
-- Αναφορές κελιών στυλ R1C1
-- Προεγγεκριμένες συναρτήσεις
-
-
-Κανονικά, τα φύλλα εργασίας αποθηκεύουν τις τελευταίες υπολογισμένες τιμές των τύπων. Εάν μετά τη φόρτωση της παρουσίασης τα δεδομένα του διαγράμματος δεν έχουν αλλάξει, η μέθοδος [**ChartDataCell.getValue**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#getValue--) επιστρέφει εκείνες τις τιμές κατά την ανάγνωση. Αλλά, εάν τα δεδομένα του φύλλου εργασίας έχουν αλλάξει, κατά την ανάγνωση της ιδιότητας **ChartDataCell.Value**  πετάει το σφάλμα [**CellUnsupportedDataException**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/CellUnsupportedDataException) για τους μη υποστηριζόμενους τύπους. Αυτό συμβαίνει επειδή όταν οι τύποι αναλύονται επιτυχώς, καθορίζονται οι εξαρτήσεις των κελιών και η ορθότητα των τελευταίων τιμών. Αν ο τύπος δεν μπορεί να αναλυθεί, η ορθότητα της τιμής του κελιού δεν μπορεί να εγγυηθεί.
-
-## **Προσθήκη Συνάρτησης Φύλλου Εργασίας Διαγράμματος στην Παρουσίαση**
-Πρώτα, προσθέστε ένα διάγραμμα στην πρώτη διαφάνεια μιας νέας παρουσίασης με 
-[ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection#addChart-int-float-float-float-float-).
-Το φύλλο εργασίας του διαγράμματος δημιουργείται αυτόματα και μπορεί να προσπελαστεί με τη μέθοδο 
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) :
+Το παρακάτω παράδειγμα επιδεικνύει μια πλήρη ροή εργασίας. Δημιουργεί ένα γραμμικό στήλης σύγχρονο διάγραμμα, διαγράφει τα δείγματα δεδομένων, γράφει τριμηνιαίες τιμές εσόδων και εξόδων, υπολογίζει το κέρδος με τύπους, διαβάζει τα αποτελέσματα, χρησιμοποιεί τα υπολογισμένα κελιά ως τιμές διαγράμματος και αποθηκεύει την παρουσίαση.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // ...
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 350);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    const category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    const category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    const category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    const profit1 = workbook.getCell(worksheetIndex, "D2");
+    const profit2 = workbook.getCell(worksheetIndex, "D3");
+    const profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    const q1Profit = profit1.getValue(); // 40
+    const q2Profit = profit2.getValue(); // 55
+    const q3Profit = profit3.getValue(); // 25
+
+    console.log("Q1 profit: " + q1Profit);
+    console.log("Q2 profit: " + q2Profit);
+    console.log("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    const profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Ας γράψουμε μερικές τιμές σε κελιά με την ιδιότητα 
-[**ChartDataCell.setValue**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#setValue-java.lang.Object-) του τύπου **Object**, που σημαίνει ότι μπορείτε να ορίσετε οποιαδήποτε τιμή στην ιδιότητα:
+Τα σημεία δεδομένων του διαγράμματος αναφέρονται στο `D2:D4`, οπότε το διάγραμμα χρησιμοποιεί τις υπολογισμένες τιμές κέρδους. Δεν υπάρχει ξεχωριστή κλήση ανανέωσης διαγράμματος σε αυτή τη ροή εργασίας: επαναϋπολογίστε πρώτα το βιβλίο εργασίας, μετά χρησιμοποιήστε ή αποθηκεύστε τα δεδομένα διαγράμματος που δείχνουν στα υπολογισμένα κελιά.
+
+## **Χρήση Τύπων σε Μορφή A1**
+
+Η σημειολογία A1 αναγνωρίζει τις στήλες με γράμματα και τις γραμμές με αριθμούς. Αναθέστε εκφράσεις μορφής A1 μέσω του [ChartDataCell.setFormula](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-).
 
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-Τώρα για να γράψετε τύπο στο κελί, μπορείτε να χρησιμοποιήσετε τη 
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) μέθοδο:
+Οι συνηθισμένες μορφές αναφοράς A1 είναι:
 
-*Note*: [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) χρησιμοποιείται για ορισμό αναφορών κελιών στυλ A1. 
+| Αναφορά | Σχετικό | Απόλυτο | Μικτό |
+|---|---|---|---|
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Row | `2:2` | `$2:$2` | — |
+| Column | `A:A` | `$A:$A` | — |
+| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Για να ορίσετε την αναφορά κελιού [R1C1Formula](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#getR1C1Formula--), μπορείτε να χρησιμοποιήσετε τη μέθοδο [**ChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataCell#setR1C1Formula-java.lang.String-):
+Οι σχετικές αναφορές μπορούν να αλλάξουν όταν ένας τύπος μετακινείται ή αντιγράφεται από μια εφαρμογή λογιστικού φύλλου. Οι απόλυτες αναφορές διατηρούν και τις δύο συντεταγμένες σταθερές, ενώ οι μικτές αναφορές σταθεροποιούν μόνο μια γραμμή ή μια στήλη.
 
-Στη συνέχεια, αν διαβάσετε τις τιμές από τα κελιά B2 και C2, θα υπολογιστούν:
+## **Χρήση Τύπων σε Μορφή R1C1**
+
+Η σημειολογία R1C1 αναγνωρίζει τόσο τις γραμμές όσο και τις στήλες αριθμητικά. Οι σχετικές αναφορές χρησιμοποιούν αντιστάσεις σε αγκύλες. Αντιθέστε αυτή τη σύνταξη μέσω του [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    const cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Λογικές Σταθερές**
-Μπορείτε να χρησιμοποιήσετε λογικές σταθερές όπως *FALSE* και *TRUE* σε τύπους κελιών:
+Οι συνηθισμένες μορφές αναφοράς R1C1 είναι:
+
+| Αναφορά | Σχετικό | Απόλυτο | Μικτό |
+|---|---|---|---|
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Row | `R[2]` | `R2` | — |
+| Column | `C[3]` | `C3` | — |
+| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Για παράδειγμα, στο κελί `D2`, το `RC[-2]` σημαίνει το κελί στην ίδια γραμμή δύο στήλες αριστερά (`B2`).
+
+## **Σταθερές και Τέλεσοι Τύπων**
+
+Ο ενσωματωμένος αξιολογητής τύπων υποστηρίζει λογικές τιμές, αριθμητικούς κυριολεκτικούς, συμβολοσειρές, τιμές σφάλματος λογιστικού φύλλου, αριθμητικούς τελεστές και τελεστές σύγκρισης.
+
+### **Σταθερές και Κυριολεκτικά**
+
+| Τύπος | Παραδείγματα | Σχόλια |
+|---|---|---|
+| Λογικό | `TRUE`, `FALSE` | Μπορεί να χρησιμοποιηθεί απευθείας σε λογικές εκφράσεις όπως `A2=TRUE`. |
+| Αριθμητικό | `1`, `0.5`, `.3`, `1E-2` | Υποστηρίζονται η κοινή και η επιστημονική σημειογραφία. |
+| Συμβολοσειρά | `"abc"`, `"2/3/2020 12:00"` | Τα κυριολεκτικά κείμενα περιβάλλονται με διπλά εισαγωγικά μέσα στον τύπο. |
+| Αποτέλεσμα σφάλματος | `#DIV/0!`, `#N/A`, `#REF!` | Ένας έγκυρος τύπος μπορεί να αξιολογηθεί σε τιμή σφάλματος λογιστικού φύλλου αντί για κανονικό αποτέλεσμα. |
+
+Αυτό το παράδειγμα χρησιμοποιεί διάφορους τύπους σταθερών:
 
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// η τιμή περιέχει λογική τιμή "false"
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    const logicalValue = workbook.getCell(0, "B2").getValue(); // ψευδές
+    const numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    const scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    const stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    const errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Αριθμητικές Σταθερές**
-Αριθμοί μπορούν να χρησιμοποιηθούν σε κοινές ή επιστημονικές σημειώσεις για δημιουργία τύπου φύλλου εργασίας διαγράμματος:
+### **Αριθμητικοί Τέλεσοι**
+
+| Τέλεσας | Σημασία | Παράδειγμα |
+|---|---|---|
+| `+` | Πρόσθεση ή μοναδικό συν | `2+3` |
+| `-` | Αφαίρεση ή άρνηση | `2-3`, `-3` |
+| `*` | Πολλαπλασιασμός | `2*3` |
+| `/` | Διαίρεση | `2/3` |
+| `%` | Ποσοστό | `30%` |
+| `^` | Αναβάθμιση σε δύναμη | `2^3` |
+
+Χρησιμοποιήστε παρενθέσεις για να κάνετε ρητό τον порядок εκτίμησης, π.χ. `(A2+B2)*C2`.
+
+### **Τέλεσοι Σύγκρισης**
+
+Οι εκφράσεις σύγκρισης επιστρέφουν λογικές τιμές.
+
+| Τέλεσας | Σημασία | Παράδειγμα |
+|---|---|---|
+| `=` | Ίσο με | `A2=3` |
+| `<>` | Διαφορετικό από | `A2<>3` |
+| `>` | Μεγαλύτερο από | `A2>3` |
+| `>=` | Μεγαλύτερο ή ίσο με | `A2>=3` |
+| `<` | Μικρότερο από | `A2<3` |
+| `<=` | Μικρότερο ή ίσο με | `A2<=3` |
+
+## **Υποστηριζόμενες Προκαθορισμένες Συναρτήσεις**
+
+Το Aspose.Slides περιλαμβάνει έναν ενσωματωμένο αξιολογητή τύπων για φύλλα εργασίας διαγράμματος, αλλά δεν είναι πλήρης μηχανή υπολογισμού Excel. Το τεκμηριωμένο σύνολο συναρτήσεων περιορίζεται στις παρακάτω συναρτήσεις. Μην υποθέτετε ότι μια αυθαίρετη συνάρτηση Excel μπορεί να επαναϋπολογιστεί από το [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
+
+| Συνάρτηση | Σκοπός ή υποστηριζόμενη μορφή | Παράδειγμα |
+|---|---|---|
+| `ABS` | Απόλυτη τιμή | `ABS(A2)` |
+| `AVERAGE` | Αριθμητικός μέσος | `AVERAGE(B2:B5)` |
+| `CEILING` | Στρογγυλοποίηση αριθμού προς τα πάνω σε πολλαπλάσιο | `CEILING(A2,5)` |
+| `CHOOSE` | Επιλογή τιμής με βάση δείκτη | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Σύνδεση τιμών κειμένου | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Σύνδεση τιμών κειμένου | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Δημιουργία τιμής ημερομηνίας χρησιμοποιώντας το σύστημα ημερομηνίας 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Επιστρέφει τον αριθμό ημερών μεταξύ ημερομηνιών | `DAYS(B2,A2)` |
+| `FIND` | Εντοπίζει μία τιμή κειμένου μέσα σε άλλη | `FIND("-",A2)` |
+| `FINDB` | Αναζήτηση κειμένου με προσανατολισμό σε byte | `FINDB("a",A2)` |
+| `IF` | Αποτέλεσμα υπό συνθήκη | `IF(A2>0,A2,0)` |
+| `INDEX` | Μορφή αναφοράς | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Μορφή διανύσματος | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Μορφή διανύσματος | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Μέγιστη τιμή | `MAX(B2:B5)` |
+| `SUM` | Άθροιση τιμών | `SUM(B2:B5)` |
+| `VLOOKUP` | Κατακόρυφη αναζήτηση | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Οι περιορισμοί που φαίνονται στον πίνακα είναι σημαντικοί: το `INDEX` τεκμηριώνεται σε μορφή αναφοράς, ενώ τα `LOOKUP` και `MATCH` τεκμηριώνονται σε μορφές διανύσματος. Το `DATE` χρησιμοποιεί το σύστημα ημερομηνίας 1900. Οι δυνατότητες και οι συναρτήσεις που δεν αναφέρονται εδώ πρέπει να θεωρούνται μη υποστηριζόμενες από τον αξιολογητή τύπων Aspose.Slides, εκτός εάν τεκμηριώνονται ξεχωριστά.
+
+## **Υπολογισμός Τύπων με Προτιμώμενο Πολιτισμό**
+
+Κάποιες λειτουργίες του βιβλίου εργασίας διαγράμματος ερμηνεύουν κείμενο σύμφωνα με κανόνες ειδικούς για τον πολιτισμό. Αυτό είναι ιδιαίτερα σημαντικό για λειτουργίες που προορίζονται για γλώσσες που χρησιμοποιούν σύνολα χαρακτήρων διπλού byte (DBCS). Για να υπολογίσετε σωστά τέτοιους τύπους, δημιουργήστε [LoadOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/), ορίστε τον προτιμώμενο πολιτισμό με [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), αντιστοιχίστε τις επιλογές λογιστικού φύλλου μέσω του [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), και κατόπιν φορτώστε την παρουσίαση.
+
+Το παρακάτω παράδειγμα επιλέγει τον Ιαπωνικό πολιτισμό, ανοίγει μια παρουσίαση με τις ρυθμισμένες επιλογές φόρτωσης και καλεί το [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) για κάθε βιβλίο εργασίας διαγράμματος:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Σταθερές Συμβολοσειράς**
-Σταθερά συμβολοσειράς (ή κυριολεκτική) είναι μια συγκεκριμένη τιμή που χρησιμοποιείται ως έχει και δεν αλλάζει. Σταθερές συμβολοσειράς μπορεί να είναι: ημερομηνίες, κείμενα, αριθμοί κλπ.:
+Ο προτιμώμενος πολιτισμός αποτελεί μέρος της διαμόρφωσης φόρτωσης παρουσίασης, επομένως ορίστε τον πριν δημιουργήσετε το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/). Χρησιμοποιήστε τον πολιτισμό που απαιτούν οι τύποι του βιβλίου εργασίας· για παράδειγμα, χρησιμοποιήστε `ja-JP` για τύπους που πρέπει να ακολουθούν τους Ιαπωνικούς κανόνες υπολογισμού DBCS.
+
+## **Επαναϋπολογισμός και Αποθηκευμένες Τιμές**
+
+Τα αρχεία λογιστικού φύλλου συνήθως αποθηκεύουν τόσο τον τύπο όσο και την τελευταία υπολογισμένη τιμή του. Το Aspose.Slides μπορεί έτσι να διαβάσει μια αποθηκευμένη τιμή από το [ChartDataCell.getValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#getValue--) όταν μια παρουσίαση φορτώνεται και τα αντίστοιχα δεδομένα διαγράμματος δεν έχουν αλλάξει.
+
+Μετά την αλλαγή κελιών εισόδου ή τύπων, μην βασίζεστε σε παλιά αποθηκευμένα αποτελέσματα. Καλέστε το [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) πριν διαβάσετε τις υπολογισμένες τιμές ή αποθηκεύσετε δεδομένα διαγράμματος που εξαρτώνται από αυτές.
+
+Για τύπους εκτός του υποστηριζόμενου υποσυνόλου, το Aspose.Slides μπορεί να μην είναι σε θέση να αναλύσει τον τύπο ή να καθορίσει τις εξαρτήσεις του. Εάν το βιβλίο εργασίας έχει τροποποιηθεί, η προηγούμενη αποθηκευμένη τιμή δεν μπορεί πλέον να θεωρηθεί αξιόπιστη. Σε αυτήν την κατάσταση, η ανάγνωση της τιμής ενός κελιού με μη υποστηριζόμενα δεδομένα μπορεί να προκαλέσει το [CellUnsupportedDataException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Εάν το διάγραμμά σας εξαρτάται από συναρτήσεις Excel που το Aspose.Slides δεν αξιολογεί, υπολογίστε αυτούς τους τύπους με μια μηχανή λογιστικού φύλλου που τις υποστηρίζει και γράψτε τις προκύπτουσες τιμές πίσω στο βιβλίο εργασίας διαγράμματος. Μην αντικαθιστάτε μη υποστηριζόμενους τύπους με τιμές που εικάζετε.
+
+## **Διαχείριση Σφαλμάτων Τύπων**
+
+Υπάρχουν δύο διαφορετικά είδη προβλημάτων που πρέπει να ξεχωριστούν.
+
+Ένας τύπος μπορεί να είναι έγκυρος αλλά να παράγει αποτέλεσμα σφάλματος λογιστικού φύλλου όπως `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` ή `#VALUE!`. Σε αυτήν την περίπτωση, το σφάλμα είναι αποτέλεσμα κελιού και μπορεί να επιστραφεί μέσω του [ChartDataCell.getValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#getValue--).
+
+Ένας τύπος μπορεί επίσης να αποτύχει στο στάδιο της ανάλυσης, της αναφοράς, της εξάρτησης ή του επιτρεπόμενου δεδομένου. Το Aspose.Slides παρέχει εξαιρέσεις ειδικές για λογιστικά φύλλα για αυτές τις περιπτώσεις: [CellInvalidFormulaException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellcircularreferenceexception/), και [CellUnsupportedDataException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Όταν οι τύποι προέρχονται από πρότυπα ή εισροές χρηστών, πιάστε τα σφάλματα γύρω από τον επαναϋπολογισμό και την πρόσβαση στην τιμή. Τα στοιχεία σφάλματος ταυτοποιούν το υποκείμενο πρόβλημα του λογιστικού φύλλου:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        console.log(cell.getValue());
+    } catch (error) {
+        console.error("Formula processing error: " + error.message);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Σταθερές Σφάλματος**
-Μερικές φορές δεν είναι δυνατόν να υπολογιστεί το αποτέλεσμα από τον τύπο. Σε αυτή την περίπτωση, ο κωδικός σφάλματος εμφανίζεται στο κελί αντί για την τιμή του. Κάθε τύπος σφάλματος έχει έναν συγκεκριμένο κωδικό:
+## **Πρακτικοί Περιορισμοί**
 
-- #DIV/0! - ο τύπος προσπαθεί να διαιρέσει με το μηδέν.
-- #GETTING_DATA - μπορεί να εμφανιστεί σε κελί, ενώ η τιμή του εξακολουθεί να υπολογίζεται.
-- #N/A - λείπουν ή δεν είναι διαθέσιμες πληροφορίες. Μερικοί λόγοι μπορεί να είναι: τα κελιά που χρησιμοποιούνται στον τύπο είναι κενά, υπάρχει επιπλέον κενό διάστημα, ορθογραφικό λάθος κλπ.
-- #NAME? - δεν μπορεί να βρεθεί κάποιο κελί ή άλλο αντικείμενο τύπου με το όνομά του.
-- #NULL! - μπορεί να εμφανιστεί όταν υπάρχει λάθος στον τύπο, π.χ.  (,) ή κενό χαρακτήρα αντί για άνω-κάτω (:) .
-- #NUM! - ο αριθμός στον τύπο είναι άκυρος, πολύ μεγάλος ή πολύ μικρός κλπ.
-- #REF! - άκυρη παραπομπή κελιού.
-- #VALUE! - απροσδόκητος τύπος τιμής. Για παράδειγμα, συμβολοσειρά σε αριθμητικό κελί.
+Η υποστήριξη τύπων σε φύλλα εργασίας διαγράμματος προορίζεται για ένα καθορισμένο υποσύνολο υπολογισμών λογιστικού φύλλου, όχι για πλήρη συμβατότητα με το Excel. Κρατήστε αυτούς τους περιορισμούς στο νου όταν σχεδιάζετε μια ροή εργασίας αναφοράς:
 
-```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// η τιμή περιέχει τη συμβολοσειρά "#DIV/0!"
-```
+- Χρησιμοποιήστε μόνο τις τεκμηριωμένες σταθερές, τελεστές, αναφορές και συναρτήσεις όταν χρειάζεστε το Aspose.Slides να επαναϋπολογίσει τύπους.
+- Επαναϋπολογίστε μετά την αλλαγή κελιών από τα οποία εξαρτώνται τα αποτελέσματα των τύπων.
+- Αντιμετωπίζετε τις αποθηκευμένες τιμές από φορτωμένες παρουσιάσεις ως στιγμιότυπα, όχι ως αντικατάσταση του επαναϋπολογισμού μετά από επεξεργασίες.
+- Δοκιμάστε τους τύπους από υπάρχοντα πρότυπα πριν βασιστείτε στις υπολογισμένες τιμές τους, ειδικά όταν χρησιμοποιούν συναρτήσεις εκτός του τεκμηριωμένου καταλόγου.
+- Για τύπους που απαιτούν πλήρη μηχανή υπολογισμού λογιστικού φύλλου, υπολογίστε τους εξωτερικά και στη συνέχεια ενημερώστε το βιβλίο εργασίας διαγράμματος με τις προκύπτουσες τιμές.
 
-## **Αριθμητικοί Τελεστές**
-Μπορείτε να χρησιμοποιήσετε όλους τους αριθμητικούς τελεστές σε τύπους φύλλου εργασίας διαγράμματος:
+## **FAQ**
 
-|**Τελεστής**|**Σημασία**|**Παράδειγμα**|
-| :- | :- | :- |
-|+ (συν) |Πρόσθεση ή μοναδιαίο πρόσημο|2 + 3|
-|- (μείον) |Αφαίρεση ή άρνηση |2 - 3<br>-3|
-|* (αστέρι)|Πολλαπλασιασμός |2 * 3|
-|/ (πρισματική) |Διαίρεση |2 / 3|
-|% (ποσοστό) |Ποσοστό |30%|
-|^ (πανάρας) |Υπολογισμός δύναμης |2 ^ 3|
+**Ποια είναι η διαφορά μεταξύ [ChartDataCell.setFormula] και [ChartDataCell.setR1C1Formula];**
 
-*Note*: Για να αλλάξετε τη σειρά εκτίμησης, τοποθετήστε σε παρενθέσεις το τμήμα του τύπου που πρέπει να υπολογιστεί πρώτο.
+[ChartDataCell.setFormula] αποθηκεύει μια έκφραση σε μορφή A1 όπως `B2-C2`. [ChartDataCell.setR1C1Formula] αποθηκεύει μια έκφραση σε μορφή R1C1 όπως `RC[-2]-RC[-1]`. Χρησιμοποιήστε τη σημειολογία που ταιριάζει καλύτερα στον τρόπο που δημιουργείτε ή αντιγράφετε τύπους.
 
-## **Τελεστές Σύγκρισης**
-Μπορείτε να συγκρίνετε τις τιμές κελιών με τους τελεστές σύγκρισης. Όταν συγκρίνονται δύο τιμές με αυτούς τους τελεστές, το αποτέλεσμα είναι λογική τιμή είτε *TRUE* είτε *FALSE*:
+**Πρέπει να διαβάσω το ίδιο το κελί ή την τιμή του μετά τον υπολογισμό;**
 
-|**Τελεστής**|**Σημασία**|**Σημασία**|
-| :- | :- | :- |
-|= (ίσον) |Ισοδυναμεί με |A2 = 3|
-|<> (διαφορετικό) |Δεν είναι ίσο με|A2 <> 3|
-|> (μεγαλύτερο) |Μεγαλύτερο από|A2 > 3|
-|>= (μεγαλύτερο ή ίσο) |Μεγαλύτερο ή ίσο με|A2 >= 3|
-|< (μικρότερο) |Μικρότερο από|A2 < 3|
-|<= (μικρότερο ή ίσο) |Μικρότερο ή ίσο με|A2 <= 3|
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) επιστρέφει ένα [ChartDataCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/). Για να αποκτήσετε το υπολογισμένο αποτέλεσμα, καλέστε τη μέθοδο [ChartDataCell.getValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#getValue--) του κελιού μετά τον επαναϋπολογισμό.
 
-## **Αναφορές Κελιών Στυλ A1**
-**Αναφορές κελιών στυλ A1** χρησιμοποιούνται για φύλλα εργασίας όπου η στήλη έχει αλφαβητική ταυτότητα (π.χ. "*A*") και η σειρά αριθμητική ταυτότητα (π.χ. "*1*"). Οι αναφορές κελιών στυλ A1 μπορούν να χρησιμοποιηθούν ως εξής:
+**Πότε πρέπει να καλέσω το [ChartDataWorkbook.calculateFormulas];**
 
-|**Αναφορά κελιού**|**Παράδειγμα**|**Απόλυτο**|**Σχετικό**|**Μικτό**|
-| :- | :- | :- | :- | :- |
-||Απόλυτο |Σχετικό |Μικτό|
-|Κελί |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Σειρά |$2:$2 |2:2 |-|
-|Στήλη |$A:$A |A:A |-|
-|Εύρος |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Καλέστε το [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) μετά την αλλαγή τιμών εισόδου ή τύπων και πριν βασιστείτε στα υπολογισμένα αποτελέσματα. Αυτό ενημερώνει τις τιμές των τύπων που υποστηρίζονται από τον ενσωματωμένο αξιολογητή.
 
+**Υποστηρίζει το Aspose.Slides κάθε συνάρτηση του Excel;**
 
-Παράδειγμα χρήσης αναφοράς κελιού στυλ A1 σε τύπο:
+Όχι. Ο ενσωματωμένος αξιολογητής υποστηρίζει ένα τεκμηριωμένο υποσύνολο συναρτήσεων. Οι συναρτήσεις εκτός αυτού του υποσυνόλου δεν πρέπει να θεωρούνται ότι επαναϋπολογίζονται σωστά. Εάν απαιτείται πλήρη συμβατότητα τύπων Excel, εκτελέστε τον υπολογισμό με μια κατάλληλη μηχανή λογιστικού φύλλου και γράψτε τις τελικές τιμές στο βιβλίο εργασίας διαγράμματος.
 
-```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+**Τι συμβαίνει αν μια φορτωμένη παρουσίαση περιέχει μη υποστηριζόμενο τύπο;**
 
-## **Αναφορές Κελιών Στυλ R1C1**
-**Αναφορές κελιών στυλ R1C1** χρησιμοποιούνται για φύλλα εργασίας όπου τόσο η σειρά όσο και η στήλη έχουν αριθμητική ταυτότητα. Οι αναφορές κελιών στυλ R1C1 μπορούν να χρησιμοποιηθούν ως εξής:
+Εάν τα δεδομένα διαγράμματος δεν έχουν αλλάξει, το βιβλίο εργασίας μπορεί ακόμα να περιέχει μια προηγούμενη υπολογισμένη αποθηκευμένη τιμή. Μετά την τροποποίηση των σχετικών δεδομένων, αυτή η αποθηκευμένη τιμή μπορεί να μην είναι πλέον έγκυρη. Η πρόσβαση σε κελί του οποίου ο τύπος δεν μπορεί να αντιμετωπιστεί μπορεί να προκαλέσει το [CellUnsupportedDataException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellunsupporteddataexception/).
 
-|**Αναφορά κελιού**|**Παράδειγμα**|**Απόλυτο**|**Σχετικό**|**Μικτό**|
-| :- | :- | :- | :- | :- |
-||Απόλυτο |Σχετικό |Μικτό|
-|Κελί |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Σειρά |R2|R[2]|-|
-|Στήλη |C3|C[3]|-|
-|Εύρος |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+**Είναι οι τιμές σφάλματος τύπων οι ίδιες με τις εξαιρέσεις;**
 
+Όχι. Ένα αποτέλεσμα όπως `#DIV/0!` είναι τιμή λογιστικού φύλλου που παράγεται από έγκυρο υπολογισμό. Εξαιρέσεις όπως [CellInvalidFormulaException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellinvalidformulaexception/) ή [CellCircularReferenceException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cellcircularreferenceexception/) υποδεικνύουν ότι ο τύπος δεν μπορεί να επεξεργαστεί κανονικά.
 
-Παράδειγμα χρήσης αναφοράς κελιού στυλ R1C1 σε τύπο:
+**Ενημερώνεται αυτόματα ένα διάγραμμα όταν αλλάζει ένα κελί τύπου;**
 
-```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+Μια σειρά διαγράμματος μπορεί να αναφέρεται σε κελιά του βιβλίου εργασίας. Επαναϋπολογίστε πρώτα το βιβλίο εργασίας, μετά αποθηκεύστε ή αποδώστε την παρουσίαση. Εάν τα σημεία δεδομένων του διαγράμματος αναφέρονται στα υπολογισμένα κελιά, το διάγραμμα χρησιμοποιεί αυτές τις ενημερωμένες τιμές κελιών· δεν απαιτείται ξεχωριστή μέθοδος ανανέωσης διαγράμματος για αυτήν τη ροή εργασίας.
 
-## **Προεγγεκριμένες Συναρτήσεις**
-Υπάρχουν προεγγεκριμένες συναρτήσεις που μπορούν να χρησιμοποιηθούν σε τύπους για να απλοποιήσουν την υλοποίησή τους. Αυτές οι συναρτήσεις ενσωματώνουν τις πιο κοινές λειτουργίες, όπως:
+**Μπορούν τα διαγράμματα να χρησιμοποιούν εξωτερικό βιβλίο εργασίας Excel;**
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (σύστημα ημερομηνίας 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (μορφή παραπομπής)
-- LOOKUP (μορφή διανύσματος)
-- MATCH (μορφή διανύσματος)
-- MAX
-- SUM
-- VLOOKUP
+Ναι, τα δεδομένα διαγράμματος μπορούν να ρυθμιστούν να χρησιμοποιούν εξωτερικό βιβλίο εργασίας μέσω του API δεδομένων διαγράμματος. Ωστόσο, η ροή εργασίας υπολογισμού τύπων που περιγράφεται σε αυτό το άρθρο αφορά το βιβλίο εργασίας δεδομένων διαγράμματος και το υποσύνολο τύπων που αξιολογεί το Aspose.Slides. Μην υποθέετε ότι το [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) παρέχει πλήρη επαναϋπολογισμό αυθαίρετων τύπων σε εξωτερικό αρχείο XLSX.
 
-## **Συχνές Ερωτήσεις**
+**Μπορώ να χρησιμοποιήσω τύπους που αναφέρονται σε άλλο φύλλο εργασίας ή βιβλίο εργασίας;**
 
-**Υποστηρίζονται εξωτερικά αρχεία Excel ως πηγή δεδομένων για διάγραμμα με τύπους;**
+Οι αναφορές τύπου Excel μπορεί να υπάρχουν σε βιβλία εργασίας διαγράμματος, αλλά η αξιολόγηση τύπων περιορίζεται από τον υποστηριζόμενο αναλυτή και το σύνολο συναρτήσεων. Εάν μια αναφορά μεταξύ φύλλων ή εξωτερική αναφορά είναι απαραίτητη, επικυρώστε αυτόν τον ακριβή τύπο με την έκδοση Aspose.Slides που στοχεύετε. Για ροές εργασίας που απαιτούν ευρεία συμβατότητα αναφορών Excel, υπολογίστε το βιβλίο εργασίας εξωτερικά και γράψτε τις επιλυμένες τιμές πίσω στα δεδομένα διαγράμματος.
 
-Ναι. Το Aspose.Slides υποστηρίζει εξωτερικά βιβλία εργασίας ως [πηγή δεδομένων διαγράμματος](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatasourcetype/), που σας επιτίνει να χρησιμοποιήσετε τύπους από ένα XLSX εκτός της παρουσίασης.
+**Πρέπει οι σπυράκτες τύπων να ξεκινούν με `=`;**
 
-**Μπορούν οι τύποι διαγράμματος να παραπέμπουν σε φύλλα εντός του ίδιου βιβλίου εργασίας με το όνομα του φύλλου;**
-
-Ναι. Οι τύποι ακολουθούν το προτύπωμα αναφοράς του Excel, έτσι μπορείτε να παραπέμπετε σε άλλα φύλλα εντός του ίδιου βιβλίου ή σε εξωτερικό βιβλίο. Για εξωτερικές παραπομπές, συμπεριλάβετε τη διαδρομή και το όνομα του βιβλίου εργασίας χρησιμοποιώντας τη σύνταξη του Excel.
+Τα παραδείγματα API του Aspose.Slides αντιστοιχούν εκφράσεις όπως `B2-C2` ή `SUM(B2:B5)` χωρίς το προαπενόσημα `=`. Η χρήση αυτής της μορφής διατηρεί τους παραγόμενους τύπους σύμφωνους με τα τεκμηριωμένα παραδείγματα API.

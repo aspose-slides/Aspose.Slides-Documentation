@@ -1,215 +1,396 @@
 ---
-title: "在簡報中使用 Python 套用圖表工作表公式"
-linktitle: "工作表公式"
+title: 使用 Python 在簡報中套用圖表工作表公式
+linktitle: 工作表公式
 type: docs
 weight: 70
 url: /zh-hant/python-net/chart-worksheet-formulas/
 keywords:
-- "圖表試算表"
-- "圖表工作表"
-- "圖表公式"
-- "工作表公式"
-- "試算表公式"
-- "資料來源"
-- "邏輯常數"
-- "數值常數"
-- "字串常數"
-- "錯誤常數"
-- "算術常數"
-- "比較運算子"
-- "A1 樣式"
-- "R1C1 樣式"
-- "預定義函式"
-- "PowerPoint"
-- "OpenDocument"
-- "簡報"
-- "Python"
-- "Aspose.Slides"
-description: "在 Aspose.Slides for Python 中透過 .NET 圖表工作表套用 Excel 風格的公式，並自動化 PPT、PPTX 與 ODP 檔案的報告。"
----
-## **概述**
-
-圖表工作表是簡報中圖表背後的資料來源。它儲存類別名稱與系列名稱，以及圖表所顯示的數值。於 Aspose.Slides 中，透過 chart data workbook 可取得此工作表，讓您以程式方式操作圖表資料。
-
-本文說明如何在圖表資料中使用工作表公式，使儲存格值能自動計算與更新，而非手動輸入。內容包括指派公式、使用 A1 及 R1C1 參照樣式、重新計算工作簿公式，以及在簡報圖表工作表中支援的常數、運算子、儲存格參照與內建函式的使用方式。
-
-## **關於簡報中的圖表試算表公式**
-**圖表試算表**（或圖表工作表）是圖表的資料來源。圖表試算表包含資料，這些資料會以圖形方式呈現在圖表上。當您在 PowerPoint 中建立圖表時，系統會自動建立與該圖表關聯的工作表。圖表工作表會為所有圖表類型建立：折線圖、長條圖、環形圖、圓餅圖等。要在 PowerPoint 中檢視圖表試算表，請雙擊圖表：
-
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
-
-圖表試算表包含圖表元素的名稱（類別名稱：*Category1*、系列名稱）以及對應這些類別與系列的數值資料表。預設情況下，建立新圖表時，圖表試算表資料會以預設資料填入。之後您可以手動變更工作表中的資料。
-
-通常，圖表會呈現複雜資料（例如財務分析、科學分析），其中儲存格的值是由其他儲存格或動態資料計算而得。若手動計算並硬編碼儲存格值，未來若要變更將相當困難。當您變更某個儲存格的值時，所有依賴於該儲存格的儲存格也必須同步更新。此外，表格資料可能依賴其他表格的資料，形成需要彈性且容易更新的簡報資料結構。
-
-**圖表試算表公式**是用來自動計算與更新圖表試算表資料的表達式。公式定義某個或一組儲存格的資料計算邏輯。公式可以是數學或邏輯公式，使用：儲存格參照、數學函式、邏輯運算子、算術運算子、轉換函式、字串常數等。公式的定義寫入儲存格，而該儲存格不含單純值。公式會計算出結果並回傳，然後將結果指派給儲存格。簡報中的圖表試算表公式實際上與 Excel 公式相同，支援相同的預設函式、運算子與常數。
-
-在 [**Aspose.Slides**](https://products.aspose.com/slides/zh-hant/python-net/) 中，圖表試算表以 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdata/) 屬性呈現，屬於 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdataworkbook/) 類型。  
-公式可以透過 
-[**formula**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/) 屬性指派與變更。  
-在 Aspose.Slides 中支援的公式功能包括：
-
+- 圖表試算表
+- 圖表工作表
+- 圖表公式
+- 工作表公式
+- 試算表公式
+- 圖表資料工作簿
+- 公式計算
+- 首選語系
+- 語系特定公式
+- DBCS
 - 邏輯常數
 - 數值常數
 - 字串常數
 - 錯誤常數
 - 算術運算子
 - 比較運算子
-- A1 參照樣式
-- R1C1 參照樣式
-- 內建函式
+- A1 風格
+- R1C1 風格
+- 預定義函式
+- PowerPoint
+- 簡報
+- Python
+- Aspose.Slides
+description: "在 Aspose.Slides for Python via .NET 的圖表工作表中套用 Excel 風格公式，重新計算數值，並將結果用於 PowerPoint 圖表。"
+---
+## **概觀**
 
-通常，試算表會儲存最後計算出的公式值。若在簡報載入後圖表資料未變更，**IChartDataCell.Value** 屬性會回傳這些值。但若試算表資料已變更，讀取 **ChartDataCell.Value** 屬性時會拋出 **CellUnsupportedDataException**，因為無法保證未支援公式的儲存格值正確性。這是因為成功解析公式時會確定儲存格相依關係與最後值的正確性；若公式無法解析，則無法保證儲存格值的正確性。
+PowerPoint 圖表通常將其來源資料儲存在嵌入式工作表中。在 Aspose.Slides for Python via .NET 中，您可以透過圖表資料工作簿存取該工作表、寫入輸入值、將公式指派給儲存格、計算支援的公式，並將計算結果的儲存格作為圖表資料使用。
 
-## **將圖表試算表公式加入簡報**
-首先，使用 [add_chart](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishapecollection/) 在新簡報的第一張投影片中加入一個帶有範例資料的圖表。圖表的工作表會自動建立，並可透過 
-[**chart_data_workbook**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdata/) 屬性存取：
+本文說明完整的公式工作流程：建立圖表、填入工作表、指派 A1 風格或 R1C1 風格公式、重新計算它們、讀取計算值、將這些儲存格連結至圖表系列，最後儲存簡報。同時也描述支援的公式語法、內建函式子集、快取值、未支援的公式以及試算表特定錯誤。
 
-```py
-import aspose.slides.charts as charts
+## **圖表工作表與公式**
+
+圖表工作表包含圖表使用的類別、系列名稱與數值。在 PowerPoint 中，您可以開啟圖表資料編輯器來檢視工作表：
+
+![PowerPoint 圖表開啟其嵌入式工作表，顯示類別與系列資料](chart-worksheet-formulas_1.png)
+
+在 Aspose.Slides 中，工作表透過[圖表資料工作簿](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdataworkbook/)暴露。對於 A1 風格公式使用[formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/formula/)屬性，對於 R1C1 風格公式使用[r1c1_formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/)屬性。變更輸入儲存格或公式後，呼叫[calculate_formulas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/)以重新計算支援的公式並更新相應的儲存格值。
+
+計算後的儲存格仍透過[value](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/value/)屬性公開其結果。當您需要在程式碼中檢查公式結果或將儲存格用作圖表資料點時，這點非常重要。
+
+## **建立圖表並計算工作表公式**
+
+以下範例示範端對端工作流程。它建立叢集柱狀圖、清除範例資料、寫入季營收與費用值、使用公式計算利潤、讀取結果、將計算後的儲存格作為圖表值，最後儲存簡報。
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
-接著，使用 **Object** 型別的 
-[**value**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/) 屬性寫入儲存格值，意味著您可以對該屬性設定任意值：
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
-現在要在儲存格寫入公式，可使用 
-[**formula**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/) 屬性：
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
-*注意*：[**IChartDataCell.Formula**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/) 屬性用於設定 A1 參照樣式的儲存格。
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
-若要設定 
-[r1c1_formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/) 參照，可使用 [**r1c1_formula**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/) 屬性：
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-然後呼叫 [**calculate_formulas**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/) 方法，以計算工作簿內所有公式並更新相應儲存格的值：
-
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **邏輯常數**
-您可以在儲存格公式中使用 *FALSE* 與 *TRUE* 這類邏輯常數：
+圖表資料點參照 `D2:D4`，因此圖表使用計算出的利潤值。在此工作流程中沒有單獨的圖表重新整理呼叫：先重新計算工作簿，然後使用或儲存指向計算儲存格的圖表資料。
 
-## **數值常數**
-數字可以使用常規或科學記號表示，以建立圖表試算表公式：
+## **使用 A1 風格公式**
 
-## **字串常數**
-字串（或文字）常數是指直接使用且不會變動的特定值。字串常數可能是日期、文字、數字等：
+A1 表示法以字母標示欄、以數字標示列。透過[IChartDataCell.formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/formula/)指派 A1 風格表達式。
 
-## **錯誤常數**
-有時公式無法計算出結果，這時會在儲存格中顯示錯誤代碼而非值。每種錯誤都有特定代碼：
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-- #DIV/0! ‑ 公式嘗試除以零。
-- #GETTING_DATA ‑ 可能在儲存格仍在計算時顯示。
-- #N/A ‑ 資訊缺失或不可用。可能原因包括：公式使用的儲存格為空、存在多餘的空格字元、拼寫錯誤等。
-- #NAME? ‑ 找不到某個儲存格或其他公式物件的名稱。
-- #NULL! ‑ 公式中出現錯誤的逗號或使用空格取代冒號 (:) 時可能出現。
-- #NUM! ‑ 公式中的數值無效、過長或過小等。
-- #REF! ‑ 無效的儲存格參照。
-- #VALUE! ‑ 不符合預期的值類型，例如將字串值設定到數值儲存格。
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **算術運算子**
-您可以在圖表工作表公式中使用所有算術運算子：
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-|**運算子**|**說明**|**範例**|
-| :- | :- | :- |
-|+（加號）|加法或一元正號|2 + 3|
-|-（減號）|減法或取負|2 - 3<br>-3|
-|*（星號）|乘法|2 * 3|
-|/（斜線）|除法|2 / 3|
-|%（百分號）|百分比|30%|
-|^（脫字符）|指數|2 ^ 3|
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
-*注意*：如需改變計算順序，請使用括號將需先計算的部分括起來。
+    workbook.calculate_formulas()
 
-## **比較運算子**
-您可以使用比較運算子比較儲存格的值。使用這些運算子比較兩個值時，結果為布林值 *TRUE* 或 *FALSE*：
+    value = cell.value  # 19
+```
 
-|**運算子**|**說明**|**範例**|
-| :- | :- | :- |
-|=（等號）|等於|A2 = 3|
-|<>（不等號）|不等於|A2 <> 3|
-|>（大於號）|大於|A2 > 3|
-|>=（大於等於號）|大於或等於|A2 >= 3|
-|<（小於號）|小於|A2 < 3|
-|<=（小於等於號）|小於或等於|A2 <= 3|
+常見的 A1 參照形式如下：
 
-## **A1 參照樣式**
-**A1 參照樣式**用於列以字母標識（例如 "*A*"）而行以數字標識（例如 "*1*"）的工作表。A1 參照樣式可如下使用：
+| 參照 | 相對 | 絕對 | 混合 |
+|---|---|---|---|
+| 儲存格 | `A2` | `$A$2` | `A$2`, `$A2` |
+| 列 | `2:2` | `$2:$2` | — |
+| 欄 | `A:A` | `$A:$A` | — |
+| 範圍 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-|**儲存格參照**|**範例**| | |
-| :- | :- | :- | :- |
-| |絕對參照|相對參照|混合參照|
-|儲存格|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|列|$2:$2|2:2| - |
-|欄|$A:$A|A:A| - |
-|範圍|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+相對參照在公式被移動或複製時會改變。絕對參照則固定兩個座標，混合參照僅固定列或欄其中之一。
 
-以下為在公式中使用 A1 參照樣式的範例：
+## **使用 R1C1 風格公式**
 
-## **R1C1 參照樣式**
-**R1C1 參照樣式**用於列與欄皆以數字標識的工作表。R1C1 參照樣式可如下使用：
+R1C1 表示法以數字同時標示列與欄。相對參照使用方括號內的位移。透過[IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/)指派此語法。
 
-|**儲存格參照**|**範例**| | |
-| :- | :- | :- | :- |
-| |絕對參照|相對參照|混合參照|
-|儲存格|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|列|R2|R[2]| - |
-|欄|C3|C[3]| - |
-|範圍|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-以下為在公式中使用 R1C1 參照樣式的範例：
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **預定義函式**
-以下是可在公式中使用的預定義函式，以簡化實作。這些函式封裝了最常用的操作，例如：
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE（1900 日期系統）
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX（參照形式）
-- LOOKUP（向量形式）
-- MATCH（向量形式）
-- MAX
-- SUM
-- VLOOKUP
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
+
+    workbook.calculate_formulas()
+
+    value = cell.value  # 7
+```
+
+常見的 R1C1 參照形式如下：
+
+| 參照 | 相對 | 絕對 | 混合 |
+|---|---|---|---|
+| 儲存格 | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| 列 | `R[2]` | `R2` | — |
+| 欄 | `C[3]` | `C3` | — |
+| 範圍 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+例如，在儲存格 `D2` 中，`RC[-2]` 代表同一列左移兩欄的儲存格（`B2`）。
+
+## **公式常數與運算子**
+
+內建公式評估器支援布林值、數值常數、字串、試算表錯誤值、算術運算子與比較運算子。
+
+### **常數與文字**
+
+| 類型 | 範例 | 備註 |
+|---|---|---|
+| 布林 | `TRUE`, `FALSE` | 可直接用於如 `A2=TRUE` 的布林表達式。 |
+| 數值 | `1`, `0.5`, `.3`, `1E-2` | 支援一般與科學記號。 |
+| 字串 | `"abc"`, `"2/3/2020 12:00"` | 文字常數須以雙引號包住於公式內。 |
+| 錯誤結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式也可能評估為試算表錯誤值，而非正常結果。 |
+
+以下範例使用多種常數類型：
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
+
+    workbook.calculate_formulas()
+
+    logical_value = workbook.get_cell(0, "B2").value  # 假
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
+
+### **算術運算子**
+
+| 運算子 | 意義 | 範例 |
+|---|---|---|
+| `+` | 加法或單項正號 | `2+3` |
+| `-` | 減法或負號 | `2-3`, `-3` |
+| `*` | 乘法 | `2*3` |
+| `/` | 除法 | `2/3` |
+| `%` | 百分比 | `30%` |
+| `^` | 次方 | `2^3` |
+
+使用括號明確指定計算順序，例如 `(A2+B2)*C2`。
+
+### **比較運算子**
+
+比較表達式會傳回布林值。
+
+| 運算子 | 意義 | 範例 |
+|---|---|---|
+| `=` | 等於 | `A2=3` |
+| `<>` | 不等於 | `A2<>3` |
+| `>` | 大於 | `A2>3` |
+| `>=` | 大於或等於 | `A2>=3` |
+| `<` | 小於 | `A2<3` |
+| `<=` | 小於或等於 | `A2<=3` |
+
+## **支援的預定義函式**
+
+Aspose.Slides 包含用於圖表工作表的內建公式評估器，但它並非完整的 Excel 計算引擎。文件中僅列出以下函式。請勿假設任意 Excel 函式皆可由 [calculate_formulas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) 重新計算。
+
+| 函式 | 目的或支援形式 | 範例 |
+|---|---|---|
+| `ABS` | 絕對值 | `ABS(A2)` |
+| `AVERAGE` | 算術平均 | `AVERAGE(B2:B5)` |
+| `CEILING` | 向上取整至倍數 | `CEILING(A2,5)` |
+| `CHOOSE` | 依索引選取值 | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | 連接文字值 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | 連接文字值 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 使用 1900 日期系統建立日期值 | `DATE(2026,8,19)` |
+| `DAYS` | 回傳兩日期之天數差 | `DAYS(B2,A2)` |
+| `FIND` | 在文字中尋找文字 | `FIND("-",A2)` |
+| `FINDB` | 以位元組為單位的文字搜尋 | `FINDB("a",A2)` |
+| `IF` | 條件結果 | `IF(A2>0,A2,0)` |
+| `INDEX` | 參照形式 | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | 向量形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | 向量形式 | `MATCH(A2,B2:B5,0)` |
+| `MAX` | 最大值 | `MAX(B2:B5)` |
+| `SUM` | 加總 | `SUM(B2:B5)` |
+| `VLOOKUP` | 垂直搜尋 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+表格中顯示的限制相當重要：`INDEX` 以參照形式記載，而 `LOOKUP` 與 `MATCH` 以向量形式記載。`DATE` 使用 1900 日期系統。未列於此處的功能應視為 Aspose.Slides 公式評估器不支援，除非另有文件說明。
+
+## **使用偏好語系計算公式**
+
+某些工作簿函式會依語系規則解讀文字。這對於使用雙位元組字元集（DBCS）的語言尤為重要。若要正確計算此類公式，請建立[LoadOptions](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/)，透過[LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/spreadsheet_options/) 設定[SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/spreadsheetoptions/)，然後載入簡報。
+
+以下範例選取日語語系，使用已配置的載入選項開啟簡報，並對每個圖表工作簿呼叫[ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/)：
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+偏好語系是簡報載入設定的一部份，須在建立[Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/)實例之前指定。使用工作簿公式所需的語系，例如針對日語 DBCS 計算規則使用 `ja-JP`。
+
+## **重新計算與快取值**
+
+試算表檔案通常同時儲存公式與最後一次計算的值。Aspose.Slides 因此在載入簡報且相關圖表資料未變更時，會從[IChartDataCell.value](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/value/) 讀取快取值。
+
+變更輸入儲存格或公式後，請於讀取計算值或儲存依賴於它們的圖表資料之前，呼叫[ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/)。
+
+對於不在支援子集內的公式，Aspose.Slides 可能無法解析公式或確定其相依性。若工作簿已被修改，先前的快取值將不再可靠。此時讀取含未支援資料的儲存格值可能拋出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+
+如果您的圖表依賴於 Aspose.Slides 無法評估的 Excel 函式，請使用支援這些函式的試算表引擎先計算，然後將結果寫回圖表工作簿。不要以猜測值取代未支援的公式。
+
+## **處理公式錯誤**
+
+需區分兩種不同的問題類型。
+
+公式本身可能有效，但會產生試算表錯誤結果，如 `#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!`。此類錯誤代號是儲存格結果，可透過 `value` 取得。
+
+公式也可能在解析、參照、相依性或支援資料層面失敗。Aspose.Slides 為這些情況提供試算表專屬例外：[CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/)、[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+
+當公式來自範本或使用者輸入時，請在重新計算與存取值的程式區塊中捕捉這些例外：
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **實務限制**
+
+圖表工作表的公式支援旨在提供限定的試算表計算子集，而非完整的 Excel 相容性。設計報表工作流程時請記得以下限制：
+
+- 僅使用文件中列出的常數、運算子、參照與函式，才能讓 Aspose.Slides 重新計算公式。
+- 在變更公式結果所依賴的儲存格後，務必重新計算。
+- 將載入簡報時的快取值視為快照，而非編輯後的重新計算替代方案。
+- 在依賴既有範本的公式前，先測試其計算結果，特別是使用了文件未列出的函式時。
+- 需要完整試算表計算引擎的公式，請先在外部計算後再更新圖表工作簿的值。
 
 ## **常見問題**
 
-**是否支援將外部 Excel 檔案作為帶有公式的圖表資料來源？**
+**`formula` 與 `r1c1_formula` 有何差異？**
 
-是的。Aspose.Slides 支援將外部工作簿作為 [圖表資料來源](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdatasourcetype/)，讓您可使用簡報外的 XLSX 中的公式。
+[formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/formula/) 儲存 A1 風格的表達式，例如 `B2-C2`。[r1c1_formula](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) 儲存 R1C1 風格的表達式，例如 `RC[-2]-RC[-1]`。請依照您產生或複製公式的慣用表示法選擇。
 
-**圖表公式能否透過工作表名稱引用同一工作簿中的其他工作表？**
+**計算後需要讀取儲存格本身還是其值？**
 
-可以。公式遵循標準 Excel 參照模型，您可以引用同一工作簿或外部工作簿中的其他工作表。對於外部參照，請使用 Excel 語法加入路徑與工作簿名稱。
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) 會回傳 `IChartDataCell`。重新計算後，取該儲存格的[value](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/ichartdatacell/value/) 屬性即可取得計算結果。
+
+**何時應呼叫 `calculate_formulas`？**
+
+在變更輸入值或公式之後，且在依賴計算結果之前，呼叫[calculate_formulas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/)。這會更新內建評估器支援的公式值。
+
+**Aspose.Slides 是否支援所有 Excel 函式？**
+
+不支援。內建評估器僅支援文件列出的子集。未列出的函式不應假設能正確重新計算。若需要完整的 Excel 公式相容性，請使用適當的試算表引擎完成計算，然後將最終值寫入圖表工作簿。
+
+**若載入的簡報包含未支援的公式會怎樣？**
+
+如果圖表資料未變更，工作簿可能仍保留先前計算的快取值。當相關資料被修改後，該快取值可能不再有效。存取無法處理的公式之儲存格時，可能拋出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+
+**公式錯誤值等同於 Python 例外嗎？**
+
+不等同。`#DIV/0!` 之類的結果是由有效計算產生的試算表值。像 [CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) 或 [CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) 這類例外表示公式無法正常處理。
+
+**公式儲存格變更時圖表會自動更新嗎？**
+
+圖表系列可以參照工作簿儲存格。先重新計算工作簿，然後儲存或渲染簡報。如果圖表資料點參照的是計算後的儲存格，圖表會使用這些已更新的值；此工作流程不需要額外的圖表重新整理方法。
+
+**圖表可以使用外部 Excel 工作簿嗎？**
+
+可以，圖表資料可透過圖表資料 API 設定使用外部工作簿。然而，本文描述的公式計算工作流程僅與圖表資料工作簿及 Aspose.Slides 評估的公式子集相關。不要假設 [calculate_formulas](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) 能完整重新計算外部 XLSX 檔案中的任意公式。
+
+**可以使用參照其他工作表或工作簿的公式嗎？**
+
+圖表工作簿中可能出現 Excel 風格的跨工作表或跨檔案參照，但公式評估受支援的解析器與函式集合限制。若跨表或外部參照為必要，請先以目標 Aspose.Slides 版本驗證該公式。對於需要廣泛 Excel 參照相容性的工作流程，請在外部計算工作簿，然後將解析後的值寫回圖表資料。
+
+**公式字串需要以 `=` 開頭嗎？**
+
+Aspose.Slides API 範例會指派如 `B2-C2` 或 `SUM(B2:B5)` 之類的表達式，且不含前置的 `=`。使用此形式可使產生的公式與文件中的 API 範例保持一致。

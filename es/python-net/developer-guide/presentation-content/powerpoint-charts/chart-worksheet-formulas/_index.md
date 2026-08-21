@@ -1,228 +1,396 @@
 ---
-title: Aplicar fórmulas de hoja de cálculo de gráfico en presentaciones con Python
-linktitle: Fórmulas de hoja de cálculo
+title: Aplicar fórmulas de hoja de trabajo en presentaciones con Python
+linktitle: Fórmulas de hoja de trabajo
 type: docs
 weight: 70
 url: /es/python-net/chart-worksheet-formulas/
 keywords:
-- hoja de cálculo de gráfico
-- hoja de trabajo de gráfico
-- fórmula de gráfico
+- hoja de cálculo del gráfico
+- hoja de trabajo del gráfico
+- fórmula del gráfico
+- fórmula de hoja de trabajo
 - fórmula de hoja de cálculo
-- fórmula de hoja de cálculo
-- fuente de datos
+- libro de datos del gráfico
+- cálculo de fórmula
+- cultura preferida
+- fórmula específica de cultura
+- DBCS
 - constante lógica
 - constante numérica
 - constante de cadena
 - constante de error
-- constante aritmética
+- operador aritmético
 - operador de comparación
 - estilo A1
 - estilo R1C1
 - función predefinida
 - PowerPoint
-- OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Aplicar fórmulas al estilo Excel en Aspose.Slides para Python mediante hojas de cálculo de gráfico .NET y automatizar informes en archivos PPT, PPTX y ODP."
+description: "Aplicar fórmulas al estilo Excel en las hojas de cálculo de gráficos de Aspose.Slides para Python via .NET, recalcular valores y usar los resultados en gráficos de PowerPoint."
 ---
+## **Visión general**
 
-## **Acerca de la fórmula de hoja de cálculo de gráfico en la presentación**
-**Chart spreadsheet** (o hoja de cálculo de gráfico) en una presentación es la fuente de datos del gráfico. La hoja de cálculo del gráfico contiene datos, que se representan en el gráfico de forma gráfica. Cuando crea un gráfico en PowerPoint, la hoja de cálculo asociada a ese gráfico se crea automáticamente. La hoja de cálculo del gráfico se crea para todos los tipos de gráficos: gráfico de líneas, gráfico de barras, gráfico de explosión, gráfico circular, etc. Para ver la hoja de cálculo del gráfico en PowerPoint debe hacer doble clic en el gráfico:
+Los gráficos de PowerPoint suelen almacenar sus datos fuente en una hoja de cálculo incrustada. En Aspose.Slides for Python via .NET, puedes acceder a esa hoja a través del libro de datos del gráfico, escribir valores de entrada, asignar fórmulas a celdas, calcular fórmulas compatibles y usar las celdas calculadas como datos del gráfico.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Este artículo explica el flujo completo de trabajo de fórmulas: crear un gráfico, rellenar su hoja de cálculo, asignar fórmulas en estilo A1 o R1C1, recalcularlas, leer los valores calculados, conectar esas celdas a una serie del gráfico y guardar la presentación. También describe la sintaxis de fórmulas admitida, el subconjunto de funciones integradas, valores en caché, fórmulas no compatibles y errores específicos de hojas de cálculo.
 
+## **Hojas de cálculo de gráficos y fórmulas**
 
+Una hoja de cálculo de gráfico contiene las categorías, nombres de series y valores utilizados por un gráfico. En PowerPoint, puedes inspeccionar la hoja abriendo el editor de datos del gráfico:
 
-La hoja de cálculo del gráfico contiene los nombres de los elementos del gráfico (Nombre de categoría: *Category1*, Nombre de serie) y una tabla con datos numéricos correspondientes a esas categorías y series. Por defecto, cuando crea un gráfico nuevo, los datos de la hoja de cálculo del gráfico se establecen con los datos predeterminados. Luego puede cambiar los datos de la hoja manualmente.
+![Gráfico de PowerPoint con su hoja de cálculo incrustada abierta, mostrando datos de categorías y series](chart-worksheet-formulas_1.png)
 
-Normalmente, el gráfico representa datos complejos (p. ej., analistas financieros, analistas científicos), con celdas que se calculan a partir de los valores de otras celdas o de otros datos dinámicos. Calcular el valor de una celda manualmente y codificarlo directamente en la celda dificulta su modificación futura. Si cambia el valor de una celda determinada, todas las celdas dependientes de ella también deberán actualizarse. Además, los datos de la tabla pueden depender de datos de otras tablas, creando un esquema de datos de presentación complejo que necesita ser actualizado de forma fácil y flexible.
+En Aspose.Slides, la hoja está expuesta a través del [libro de datos del gráfico](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdataworkbook/). Usa la propiedad [formula](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/formula/) para fórmulas en estilo A1 y la propiedad [r1c1_formula](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) para fórmulas en estilo R1C1. Después de cambiar celdas de entrada o fórmulas, llama a [calculate_formulas](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) para recalcular las fórmulas compatibles y actualizar los valores de las celdas correspondientes.
 
-**Chart spreadsheet formula** en la presentación es una expresión para calcular y actualizar automáticamente los datos de la hoja de cálculo del gráfico. La fórmula de hoja de cálculo define la lógica de cálculo de datos para una celda o conjunto de celdas. La fórmula de hoja de cálculo es una fórmula matemática o lógica, que usa: referencias a celdas, funciones matemáticas, operadores lógicos, operadores aritméticos, funciones de conversión, constantes de cadena, etc. La definición de la fórmula se escribe en una celda, y esa celda no contiene un valor simple. La fórmula de hoja de cálculo calcula el valor y lo devuelve, y luego ese valor se asigna a la celda. Las fórmulas de hoja de cálculo de gráficos en presentaciones son en realidad las mismas que las fórmulas de Excel, y se admiten las mismas funciones, operadores y constantes predeterminados para su implementación.
+Una celda calculada sigue exponiendo su resultado a través de la propiedad [value](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/value/). Esto es importante cuando necesitas inspeccionar el resultado de una fórmula en código o usar la celda como punto de datos del gráfico.
 
-En [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) la hoja de cálculo del gráfico se representa con la propiedad [**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/) del tipo [**IChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdataworkbook/). La fórmula de hoja de cálculo puede asignarse y modificarse con la propiedad [**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/). La siguiente funcionalidad está soportada para fórmulas en Aspose.Slides:
+## **Crear un gráfico y calcular fórmulas de la hoja de cálculo**
 
-- Constantes lógicas
-- Constantes numéricas
-- Constantes de cadena
-- Constantes de error
-- Operadores aritméticos
-- Operadores de comparación
-- Referencias a celdas estilo A1
-- Referencias a celdas estilo R1C1
-- Funciones predefinidas
+El siguiente ejemplo muestra un flujo de trabajo de extremo a extremo. Crea un gráfico de columnas agrupadas, borra los datos de ejemplo, escribe valores trimestrales de ingresos y gastos, calcula el beneficio con fórmulas, lee los resultados, utiliza las celdas calculadas como valores del gráfico y guarda la presentación.
 
-
-
-Normalmente, las hojas de cálculo almacenan los últimos valores calculados de las fórmulas. Si después de cargar la presentación los datos del gráfico no se cambiaron, la propiedad **IChartDataCell.Value** devuelve esos valores al leer. Pero, si los datos de la hoja se modificaron, al leer la propiedad **ChartDataCell.Value** se lanza la excepción **CellUnsupportedDataException** por las fórmulas no admitidas. Esto ocurre porque, cuando las fórmulas se analizan correctamente, se determinan las dependencias de celdas y la corrección de los últimos valores. Sin embargo, si la fórmula no puede analarse, no se puede garantizar la corrección del valor de la celda.
-## **Agregar fórmula de hoja de cálculo de gráfico a la presentación**
-Primero, agregue un gráfico con algunos datos de ejemplo a la primera diapositiva de una nueva presentación con [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/). La hoja de cálculo del gráfico se crea automáticamente y puede accederse con la propiedad [**chart_data_workbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/):
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-Escribamos algunos valores en celdas con la propiedad [**value**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) del tipo **Object**, lo que significa que puede establecer cualquier valor en la propiedad:
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-
-Ahora, para escribir una fórmula en la celda, puede usar la propiedad [**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/):
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
-
-
-*Nota*: La propiedad [**IChartDataCell.Formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) se usa para establecer referencias a celdas estilo A1. 
-
-
-
-Para establecer la referencia de celda [r1c1_formula](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/), puede usar la propiedad [**r1c1_formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/):
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-
-Luego use el método [**calculate_formulas**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) para calcular todas las fórmulas dentro del libro y actualizar los valores de las celdas correspondientes:
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Los puntos de datos del gráfico hacen referencia a `D2:D4`, por lo que el gráfico utiliza los valores de beneficio calculados. No hay una llamada separada para actualizar el gráfico en este flujo: recalcule primero el libro y luego use o guarde los datos del gráfico que apuntan a las celdas calculadas.
 
+## **Usar fórmulas en estilo A1**
 
-## **Constantes lógicas**
-Puede usar constantes lógicas como *FALSE* y *TRUE* en las fórmulas de celda:
+La notación A1 identifica columnas con letras y filas con números. Asigna expresiones en estilo A1 a través de [IChartDataCell.formula](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/formula/).
 
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-## **Constantes numéricas**
-Los números pueden usarse en notación común o científica para crear fórmulas de hoja de cálculo de gráfico:
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
+    workbook.calculate_formulas()
 
+    value = cell.value  # 19
+```
 
+Formas comunes de referencia A1 son:
 
-## **Constantes de cadena**
-Una constante de cadena (o literal) es un valor específico que se usa tal cual y no cambia. Las constantes de cadena pueden ser: fechas, textos, números, etc.:
+| Referencia | Relativa | Absoluta | Mixta |
+|---|---|---|---|
+| Celda | `A2` | `$A$2` | `A$2`, `$A2` |
+| Fila | `2:2` | `$2:$2` | — |
+| Columna | `A:A` | `$A:$A` | — |
+| Rango | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
+Las referencias relativas pueden cambiar cuando una fórmula se mueve o copia en una aplicación de hoja de cálculo. Las referencias absolutas mantienen ambas coordenadas fijas, mientras que las referencias mixtas fijan solo una fila o una columna.
 
+## **Usar fórmulas en estilo R1C1**
 
+La notación R1C1 identifica filas y columnas numéricamente. Las referencias relativas usan desplazamientos entre corchetes. Asigna esta sintaxis a través de [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
 
-## **Constantes de error**
-A veces no es posible calcular el resultado mediante la fórmula. En ese caso, el código de error se muestra en la celda en lugar de su valor. Cada tipo de error tiene un código específico:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-- #DIV/0! - la fórmula intenta dividir por cero.
-- #GETTING_DATA - puede mostrarse en una celda mientras su valor todavía se está calculando.
-- #N/A - falta información o no está disponible. Algunas razones pueden ser: las celdas usadas en la fórmula están vacías, un carácter de espacio extra, error ortográfico, etc.
-- #NAME? - no se puede encontrar una cierta celda u otro objeto de fórmula por su nombre.
-- #NULL! - puede aparecer cuando hay un error en la fórmula, como:  (,) o un carácter de espacio usado en lugar de dos puntos (:).
-- #NUM! - el número en la fórmula puede ser inválido, demasiado largo o demasiado pequeño, etc.
-- #REF! - referencia a celda inválida.
-- #VALUE! - tipo de valor inesperado. Por ejemplo, valor de cadena asignado a una celda numérica.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
 
+    workbook.calculate_formulas()
 
-## **Operadores aritméticos**
-Puede usar todos los operadores aritméticos en las fórmulas de la hoja de cálculo del gráfico:
+    value = cell.value  # 7
+```
 
-|**Operador**|**Significado**|**Ejemplo**|
-| :- | :- | :- |
-|+ (signo más)|Suma o signo positivo unario|2 + 3|
-|- (signo menos)|Resta o negación|2 - 3<br>-3|
-|* (asterisco)|Multiplicación|2 * 3|
-|/ (barra inclinada)|División|2 / 3|
-|% (signo de porcentaje)|Porcentaje|30%|
-|^ (acento circunflejo)|Exponenciación|2 ^ 3|
+Formas comunes de referencia R1C1 son:
 
-*Nota*: Para cambiar el orden de evaluación, encierre entre paréntesis la parte de la fórmula que debe calcularse primero.
+| Referencia | Relativa | Absoluta | Mixta |
+|---|---|---|---|
+| Celda | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Fila | `R[2]` | `R2` | — |
+| Columna | `C[3]` | `C3` | — |
+| Rango | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
+Por ejemplo, en la celda `D2`, `RC[-2]` significa la celda en la misma fila dos columnas a la izquierda (`B2`).
 
-## **Operadores de comparación**
-Puede comparar los valores de las celdas con los operadores de comparación. Cuando se comparan dos valores con estos operadores, el resultado es un valor lógico *TRUE* o FALSE:
+## **Constantes y operadores de fórmula**
 
-|**Operador**|**Significado**|**Ejemplo**|
-| :- | :- | :- |
-|= (signo igual)|Igual a|A2 = 3|
-|<> (signo distinto)|Distinto de|A2 <> 3|
-|> (signo mayor que)|Mayor que|A2 > 3|
-|>= (signo mayor o igual que)|Mayor o igual que|A2 >= 3|
-|< (signo menor que)|Menor que|A2 < 3|
-|<= (signo menor o igual que)|Menor o igual que|A2 <= 3|
+El evaluador de fórmulas integrado admite valores lógicos, literales numéricos, cadenas, valores de error de hoja de cálculo, operadores aritméticos y operadores de comparación.
 
-## **Referencias a celdas estilo A1**
-**Las referencias a celdas estilo A1** se usan para las hojas donde la columna tiene un identificador de letra (p. ej., "*A*") y la fila tiene un identificador numérico (p. ej., "*1*"). Las referencias estilo A1 pueden usarse de la siguiente manera:
+### **Constantes y literales**
 
-|**Referencia**|**Ejemplo**|**Absoluta**|**Relativa**|**Mixta**|
-| :- | :- | :- | :- | :- |
-|Celda|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Fila|$2:$2|2:2|-|
-|Columna|$A:$A|A:A|-|
-|Rango|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+| Tipo | Ejemplos | Notas |
+|---|---|---|
+| Lógico | `TRUE`, `FALSE` | Puede usarse directamente en expresiones lógicas como `A2=TRUE`. |
+| Numérico | `1`, `0.5`, `.3`, `1E-2` | Se admiten notación común y notación científica. |
+| Cadena | `"abc"`, `"2/3/2020 12:00"` | Los literales de texto van entre comillas dobles dentro de la fórmula. |
+| Resultado de error | `#DIV/0!`, `#N/A`, `#REF!` | Una fórmula válida puede evaluarse a un valor de error de hoja de cálculo en lugar de un resultado normal. |
 
-A continuación se muestra un ejemplo de cómo usar una referencia a celda estilo A1 en una fórmula:
+Este ejemplo usa varios tipos de constantes:
 
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
 
-## **Referencias a celdas estilo R1C1**
-**Las referencias a celdas estilo R1C1** se usan para las hojas donde tanto la fila como la columna tienen identificador numérico. Las referencias estilo R1C1 pueden usarse de la siguiente manera:
+    workbook.calculate_formulas()
 
-|**Referencia**|**Ejemplo**|**Absoluta**|**Relativa**|**Mixta**|
-| :- | :- | :- | :- | :- |
-|Celda|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Fila|R2|R[2]|-|
-|Columna|C3|C[3]|-|
-|Rango|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+    logical_value = workbook.get_cell(0, "B2").value  # Falso
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
 
-A continuación se muestra un ejemplo de cómo usar una referencia a celda estilo A1 en una fórmula:
+### **Operadores aritméticos**
 
+| Operador | Significado | Ejemplo |
+|---|---|---|
+| `+` | Suma o signo positivo unario | `2+3` |
+| `-` | Resta o negación | `2-3`, `-3` |
+| `*` | Multiplicación | `2*3` |
+| `/` | División | `2/3` |
+| `%` | Porcentaje | `30%` |
+| `^` | Exponenciación | `2^3` |
 
+Utiliza paréntesis para hacer explícito el orden de evaluación, por ejemplo `(A2+B2)*C2`.
 
+### **Operadores de comparación**
 
-## **Funciones predefinidas**
-Existen funciones predefinidas que pueden usarse en las fórmulas para simplificar su implementación. Estas funciones encapsulan las operaciones más usadas, como:
+Las expresiones de comparación devuelven valores lógicos.
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (sistema de fechas 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (forma de referencia)
-- LOOKUP (forma vectorial)
-- MATCH (forma vectorial)
-- MAX
-- SUM
-- VLOOKUP
+| Operador | Significado | Ejemplo |
+|---|---|---|
+| `=` | Igual a | `A2=3` |
+| `<>` | No igual a | `A2<>3` |
+| `>` | Mayor que | `A2>3` |
+| `>=` | Mayor o igual que | `A2>=3` |
+| `<` | Menor que | `A2<3` |
+| `<=` | Menor o igual que | `A2<=3` |
+
+## **Funciones predefinidas admitidas**
+
+Aspose.Slides incluye un evaluador de fórmulas integrado para hojas de cálculo de gráficos, pero no es un motor de cálculo completo de Excel. El conjunto de funciones documentado se limita a las funciones siguientes. No asumas que una función de Excel arbitraria pueda ser recalculada por [calculate_formulas](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
+
+| Función | Propósito o forma admitida | Ejemplo |
+|---|---|---|
+| `ABS` | Valor absoluto | `ABS(A2)` |
+| `AVERAGE` | Media aritmética | `AVERAGE(B2:B5)` |
+| `CEILING` | Redondear un número hacia arriba al múltiplo | `CEILING(A2,5)` |
+| `CHOOSE` | Seleccionar un valor por índice | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Unir valores de texto | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Unir valores de texto | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Crear un valor de fecha usando el sistema de fechas 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Devolver el número de días entre fechas | `DAYS(B2,A2)` |
+| `FIND` | Buscar una cadena dentro de otra | `FIND("-",A2)` |
+| `FINDB` | Búsqueda de texto orientada a bytes | `FINDB("a",A2)` |
+| `IF` | Resultado condicional | `IF(A2>0,A2,0)` |
+| `INDEX` | Forma de referencia | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Forma vectorial | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Forma vectorial | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Valor máximo | `MAX(B2:B5)` |
+| `SUM` | Sumar valores | `SUM(B2:B5)` |
+| `VLOOKUP` | Búsqueda vertical | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Las limitaciones mostradas en la tabla son importantes: `INDEX` está documentado en forma de referencia, mientras que `LOOKUP` y `MATCH` están documentados en sus formas vectoriales. `DATE` usa el sistema de fechas 1900. Las características y funciones no listadas aquí deben considerarse no compatibles con el evaluador de fórmulas de Aspose.Slides a menos que estén documentadas por separado.
+
+## **Calcular fórmulas con una cultura preferida**
+
+Algunas funciones del libro de datos del gráfico interpretan texto según reglas específicas de cultura. Esto es especialmente importante para funciones destinadas a idiomas que usan conjuntos de caracteres de doble byte (DBCS). Para calcular esas fórmulas correctamente, crea [LoadOptions](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/), establece [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/es/python-net/aspose.slides/spreadsheetoptions/) a través de [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/spreadsheet_options/) y luego carga la presentación.
+
+El siguiente ejemplo selecciona la cultura japonesa, abre una presentación con las opciones de carga configuradas y llama a [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) para cada libro de datos del gráfico:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+La cultura preferida forma parte de la configuración de carga de la presentación, por lo que debe especificarse antes de crear la instancia de [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/). Usa la cultura que esperan las fórmulas del libro; por ejemplo, `ja-JP` para fórmulas que deben seguir las reglas de cálculo DBCS japonesas.
+
+## **Recalculación y valores en caché**
+
+Los archivos de hoja de cálculo suelen almacenar tanto una fórmula como su último valor calculado. Aspose.Slides puede leer un valor en caché desde [IChartDataCell.value](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/value/) cuando se carga una presentación y los datos del gráfico relevantes no se han cambiado.
+
+Después de cambiar celdas de entrada o fórmulas, no confíes en un resultado antiguo en caché. Llama a [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) antes de leer valores calculados o guardar datos del gráfico que dependan de ellos.
+
+Para fórmulas fuera del subconjunto admitido, Aspose.Slides puede ser incapaz de analizar la fórmula o establecer sus dependencias. Si el libro ha sido modificado, el valor en caché anterior ya no se puede considerar fiable. En esa situación, leer el valor de una celda con datos no compatibles puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Si tu gráfico depende de funciones de Excel que Aspose.Slides no evalúa, calcula esas fórmulas con un motor de hoja de cálculo que las admita y escribe los valores resultantes de nuevo en el libro de datos del gráfico. No reemplaces fórmulas no compatibles por valores adivinados.
+
+## **Manejar errores de fórmula**
+
+Existen dos tipos diferentes de problemas a distinguir.
+
+Una fórmula puede ser válida pero producir un resultado de error de hoja de cálculo como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. En este caso, el token de error es un resultado de celda y puede devolverse a través de `value`.
+
+Una fórmula también puede fallar en el nivel de análisis, referencia, dependencia o datos admitidos. Aspose.Slides ofrece excepciones específicas de hoja de cálculo para estos casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) y [CellUnsupportedDataException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Cuando las fórmulas provienen de plantillas o de la entrada del usuario, gestiona estas excepciones alrededor de la recalculación y el acceso al valor:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **Limitaciones prácticas**
+
+El soporte de fórmulas en las hojas de cálculo de gráficos está pensado para un subconjunto definido de cálculos de hoja, no para compatibilidad total con Excel. Ten en cuenta estas limitaciones al diseñar un flujo de trabajo de informes:
+
+- Utiliza solo las constantes, operadores, referencias y funciones documentadas cuando necesites que Aspose.Slides recalcule fórmulas.
+- Recalcula después de cambiar celdas de las que dependen los resultados de las fórmulas.
+- Considera los valores en caché de las presentaciones cargadas como instantáneas, no como sustituto de la recalculación tras ediciones.
+- Prueba las fórmulas de plantillas existentes antes de confiar en sus valores calculados, especialmente cuando usan funciones fuera de la lista documentada.
+- Para fórmulas que requieren un motor de cálculo completo de hoja de cálculo, calcúlalas externamente y luego actualiza el libro de datos del gráfico con los valores resultantes.
 
 ## **Preguntas frecuentes**
 
-**¿Se admiten archivos Excel externos como fuente de datos para un gráfico con fórmulas?**
+**¿Cuál es la diferencia entre `formula` y `r1c1_formula`?**
 
-Sí. Aspose.Slides admite libros externos como [fuente de datos de un gráfico](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatasourcetype/), lo que permite usar fórmulas de un XLSX fuera de la presentación.
+[formula](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/formula/) almacena una expresión en estilo A1 como `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) almacena una expresión en estilo R1C1 como `RC[-2]-RC[-1]`. Usa la notación que mejor se ajuste a cómo generas o copias las fórmulas.
 
-**¿Pueden las fórmulas de un gráfico referenciar hojas dentro del mismo libro por nombre de hoja?**
+**¿Necesito leer la celda en sí o su valor después del cálculo?**
 
-Sí. Las fórmulas siguen el modelo estándar de referencias de Excel, por lo que puede referenciar otras hojas dentro del mismo libro o un libro externo. Para referencias externas, incluya la ruta y el nombre del libro usando la sintaxis de Excel.
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) devuelve un `IChartDataCell`. Para obtener el resultado calculado, lee la propiedad [value](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/ichartdatacell/value/) de esa celda después de la recalculación.
+
+**¿Cuándo debo llamar a `calculate_formulas`?**
+
+Llama a [calculate_formulas](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) después de modificar valores de entrada o fórmulas y antes de depender de los resultados calculados. Esto actualiza los valores de las fórmulas que el evaluador integrado admite.
+
+**¿Aspose.Slides admite todas las funciones de Excel?**
+
+No. El evaluador integrado admite un subconjunto documentado de funciones. Las funciones fuera de ese subconjunto no deben asumirse como recalculables correctamente. Si se requiere compatibilidad total con fórmulas de Excel, realiza el cálculo con un motor de hoja de cálculo adecuado y escribe los valores finales en el libro de datos del gráfico.
+
+**¿Qué ocurre si una presentación cargada contiene una fórmula no compatible?**
+
+Si los datos del gráfico no han cambiado, el libro puede seguir conteniendo un valor en caché calculado previamente. Tras modificar los datos relacionados, ese valor en caché puede dejar de ser válido. Acceder a una celda cuya fórmula no pueda procesarse puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**¿Los valores de error de fórmula son lo mismo que las excepciones de Python?**
+
+No. Un resultado como `#DIV/0!` es un valor de hoja de cálculo producido por un cálculo válido. Excepciones como [CellInvalidFormulaException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/es/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) indican que la fórmula no puede procesarse normalmente.
+
+**¿Un gráfico se actualiza automáticamente cuando cambia una celda de fórmula?**
+
+Una serie del gráfico puede hacer referencia a celdas del libro. Recalcula el libro primero, luego guarda o renderiza la presentación. Si los puntos de datos del gráfico hacen referencia a las celdas calculadas, el gráfico usa esos valores actualizados; no se requiere un método de actualización separado para este flujo de trabajo.
+
+**¿Los gráficos pueden usar un libro de Excel externo?**
+
+Sí, los datos del gráfico pueden configurarse para usar un libro externo mediante la API de datos del gráfico. Sin embargo, el flujo de cálculo de fórmulas descrito en este artículo se refiere al libro de datos del gráfico y al subconjunto de fórmulas evaluado por Aspose.Slides. No asumas que [calculate_formulas](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) proporciona una recalculación completa de fórmulas arbitrarias en un archivo XLSX externo.
+
+**¿Puedo usar fórmulas que hagan referencia a otra hoja de cálculo o libro?**
+
+Las referencias al estilo Excel pueden existir en los libros de datos del gráfico, pero la evaluación de fórmulas está limitada por el analizador y el conjunto de funciones admitidos. Si una referencia cruzada de hoja o externa es esencial, valida esa fórmula exacta con la versión de Aspose.Slides que utilizas. Para flujos que requieren una compatibilidad amplia de referencias de Excel, calcula el libro externamente y escribe los valores resueltos de nuevo en los datos del gráfico.
+
+**¿Deben las cadenas de fórmula comenzar con `=`?**
+
+Los ejemplos de la API de Aspose.Slides asignan expresiones como `B2-C2` o `SUM(B2:B5)` sin un `=` inicial. Usar esa forma mantiene las fórmulas generadas consistentes con los ejemplos documentados de la API.

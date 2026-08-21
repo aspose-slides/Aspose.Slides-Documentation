@@ -1,21 +1,25 @@
 ---
-title: Terapkan Rumus Worksheet Grafik dalam Presentasi Menggunakan PHP
-linktitle: Rumus Worksheet
+title: Terapkan Formula Lembar Kerja Diagram dalam Presentasi di PHP
+linktitle: Formula Lembar Kerja
 type: docs
 weight: 70
 url: /id/php-java/chart-worksheet-formulas/
 keywords:
-- spreadsheet grafik
-- worksheet grafik
-- rumus grafik
-- rumus worksheet
-- rumus spreadsheet
-- sumber data
+- spreadsheet diagram
+- lembar kerja diagram
+- formula diagram
+- formula lembar kerja
+- formula spreadsheet
+- buku kerja data diagram
+- perhitungan formula
+- budaya pilihan
+- formula khusus budaya
+- DBCS
 - konstanta logika
 - konstanta numerik
 - konstanta string
-- konstanta error
-- konstanta aritmatika
+- konstanta kesalahan
+- operator aritmetika
 - operator perbandingan
 - gaya A1
 - gaya R1C1
@@ -24,230 +28,386 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Terapkan rumus bergaya Excel di Aspose.Slides untuk PHP melalui worksheet grafik Java dan otomatisasi laporan di file PPT serta PPTX."
+description: "Terapkan formula gaya Excel dalam lembar kerja diagram Aspose.Slides untuk PHP via Java, hitung ulang nilai, dan gunakan hasilnya dalam diagram PowerPowerPoint."
 ---
 ## **Ikhtisar**
 
-Worksheet grafik adalah sumber data di balik grafik dalam sebuah presentasi. Worksheet ini menyimpan nama kategori dan seri bersama dengan nilai numerik yang ditampilkan oleh grafik. Dalam Aspose.Slides, worksheet ini tersedia melalui workbook data grafik, yang memungkinkan Anda bekerja dengan data grafik secara programatis.
+Diagram PowerPoint biasanya menyimpan data sumbernya dalam lembar kerja yang disematkan. Di Aspose.Slides untuk PHP via Java, Anda dapat mengakses lembar kerja tersebut melalui buku kerja data diagram, menulis nilai input, menetapkan formula ke sel, menghitung formula yang didukung, dan menggunakan sel yang dihitung sebagai data diagram.
 
-Artikel ini menjelaskan cara menggunakan rumus worksheet dalam data grafik sehingga nilai sel dapat dihitung dan diperbarui secara otomatis alih-alih dimasukkan secara manual. Artikel ini menunjukkan cara menetapkan rumus, menggunakan referensi bergaya A1 dan R1C1, menghitung ulang rumus workbook, serta bekerja dengan konstanta, operator, referensi sel, dan fungsi bawaan yang didukung untuk worksheet grafik dalam presentasi.
+Artikel ini menjelaskan alur kerja formula lengkap: membuat diagram, mengisi lembar kerja, menetapkan formula gaya A1 atau R1C1, menghitung ulang, membaca nilai yang dihitung, menghubungkan sel‑sel tersebut ke seri diagram, dan menyimpan presentasi. Artikel ini juga menjelaskan sintaks formula yang didukung, subset fungsi bawaan, nilai yang di‑cache, formula yang tidak didukung, dan kesalahan spesifik spreadsheet.
 
-## **Tentang Rumus Spreadsheet Grafik dalam Presentasi**
-**Spreadsheet grafik** (atau worksheet grafik) dalam presentasi adalah sumber data grafik. Spreadsheet grafik berisi data, yang ditampilkan pada grafik dalam bentuk visual. Ketika Anda membuat grafik di PowerPoint, worksheet yang terkait dengan grafik ini juga dibuat secara otomatis. Worksheet grafik dibuat untuk semua jenis grafik: diagram garis, diagram batang, diagram sunburst, diagram pai, dll. Untuk melihat spreadsheet grafik di PowerPoint Anda harus mengklik ganda pada grafik:
+## **Lembar Kerja Diagram dan Formula**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Lembar kerja diagram berisi kategori, nama seri, dan nilai yang digunakan oleh diagram. Di PowerPoint, Anda dapat memeriksa lembar kerja dengan membuka editor data diagram:
 
+![Diagram PowerPoint dengan lembar kerja tersemat terbuka, menampilkan data kategori dan seri](chart-worksheet-formulas_1.png)
 
-Spreadsheet grafik berisi nama elemen grafik (Nama Kategori: *Category1*, Nama Seri) dan tabel dengan data numerik yang sesuai dengan kategori dan seri tersebut. Secara default, ketika Anda membuat grafik baru – data spreadsheet grafik diatur dengan data bawaan. Kemudian Anda dapat mengubah data spreadsheet secara manual di worksheet.
+Di Aspose.Slides, lembar kerja diekspos melalui kelas [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/). Gunakan [ChartDataCell::setFormula](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setFormula) untuk formula gaya A1 dan [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setR1C1Formula) untuk formula gaya R1C1. Setelah mengubah sel input atau formula, panggil [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) untuk menghitung ulang formula yang didukung dan memperbarui nilai sel yang bersangkutan.
 
-Biasanya, grafik mewakili data yang kompleks (mis. analis keuangan, analis ilmiah), dengan sel yang dihitung dari nilai di sel lain atau dari data dinamis lainnya. Menghitung nilai sel secara manual dan menuliskannya secara keras ke dalam sel membuatnya sulit diubah di masa mendatang. Jika Anda mengubah nilai suatu sel, semua sel yang bergantung padanya juga harus diperbarui. Lebih lagi, data tabel dapat bergantung pada data dari tabel lain, menciptakan skema data presentasi yang kompleks dengan kebutuhan pembaruan yang mudah dan fleksibel.
+Sel yang dihitung tetap menyediakan hasilnya melalui [ChartDataCell::getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#getValue). Ini penting ketika Anda perlu memeriksa hasil formula dalam kode atau menggunakan sel sebagai titik data diagram.
 
-**Rumus spreadsheet grafik** dalam presentasi adalah ekspresi untuk secara otomatis menghitung dan memperbarui data spreadsheet grafik. Rumus spreadsheet mendefinisikan logika perhitungan data untuk sel tertentu atau sekumpulan sel. Rumus spreadsheet adalah rumus matematika atau logika, yang menggunakan: referensi sel, fungsi matematika, operator logika, operator aritmatika, fungsi konversi, konstanta string, dll. Definisi rumus dituliskan ke dalam sel, dan sel tersebut tidak berisi nilai sederhana. Rumus spreadsheet menghitung nilai dan mengembalikannya, kemudian nilai tersebut ditetapkan ke sel. Rumus spreadsheet grafik dalam presentasi sebenarnya sama dengan rumus Excel, dan mendukung fungsi, operator, serta konstanta default yang sama untuk implementasinya.
+## **Buat Diagram dan Hitung Formula Lembar Kerja**
 
-Di [**Aspose.Slides**](https://products.aspose.com/slides/id/php-java/) spreadsheet grafik direpresentasikan dengan metode
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#getChartDataWorkbook) dari tipe
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
-Rumus spreadsheet dapat ditetapkan dan diubah dengan 
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setFormula).
-Fungsionalitas berikut didukung untuk rumus di Aspose.Slides:
-
-- Konstanta logika
-- Konstanta numerik
-- Konstanta string
-- Konstanta error
-- Operator aritmatika
-- Operator perbandingan
-- Referensi sel bergaya A1
-- Referensi sel bergaya R1C1
-- Fungsi bawaan
-
-
-Biasanya, spreadsheet menyimpan nilai rumus yang terakhir dihitung. Jika setelah pemuatan presentasi, data grafik tidak diubah – [**ChartDataCell::getValue**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#getValue) mengembalikan nilai tersebut saat dibaca. Namun, jika data spreadsheet telah diubah, saat membaca nilai, ia melempar [**CellUnsupportedDataException**](https://reference.aspose.com/slides/id/php-java/aspose.slides/CellUnsupportedDataException) untuk rumus yang tidak didukung. Hal ini karena ketika rumus berhasil diparse, ketergantungan sel ditentukan dan keabsahan nilai terakhir dapat dipastikan. Tetapi, bila rumus tidak dapat diparse, keabsahan nilai sel tidak dapat dijamin.
-
-## **Menambahkan Rumus Spreadsheet Grafik ke Presentasi**
-Pertama, tambahkan grafik ke slide pertama dari presentasi baru dengan 
-[ShapeCollection::addChart](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/#addChart).
-Worksheet grafik secara otomatis dibuat dan dapat diakses dengan 
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#getChartDataWorkbook) method:
+Contoh berikut menunjukkan alur kerja end‑to‑end. Contoh ini membuat diagram kolom berkelompok, menghapus data contoh, menulis nilai pendapatan dan pengeluaran per kuartal, menghitung keuntungan dengan formula, membaca hasilnya, menggunakan sel yang dihitung sebagai nilai diagram, dan menyimpan presentasi.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 350);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $workbook->clear($worksheetIndex);
+
+    $category1 = $workbook->getCell($worksheetIndex, "A2", "Q1");
+    $category2 = $workbook->getCell($worksheetIndex, "A3", "Q2");
+    $category3 = $workbook->getCell($worksheetIndex, "A4", "Q3");
+
+    $workbook->getCell($worksheetIndex, "B1", "Revenue");
+    $workbook->getCell($worksheetIndex, "C1", "Expenses");
+    $workbook->getCell($worksheetIndex, "D1", "Profit");
+
+    $workbook->getCell($worksheetIndex, "B2")->setValue(120.0);
+    $workbook->getCell($worksheetIndex, "C2")->setValue(80.0);
+    $workbook->getCell($worksheetIndex, "B3")->setValue(150.0);
+    $workbook->getCell($worksheetIndex, "C3")->setValue(95.0);
+    $workbook->getCell($worksheetIndex, "B4")->setValue(135.0);
+    $workbook->getCell($worksheetIndex, "C4")->setValue(110.0);
+
+    $profit1 = $workbook->getCell($worksheetIndex, "D2");
+    $profit2 = $workbook->getCell($worksheetIndex, "D3");
+    $profit3 = $workbook->getCell($worksheetIndex, "D4");
+
+    $profit1->setFormula("B2-C2");
+    $profit2->setFormula("B3-C3");
+    $profit3->setFormula("B4-C4");
+
+    $workbook->calculateFormulas();
+
+    $q1Profit = java_values($profit1->getValue()); // 40
+    $q2Profit = java_values($profit2->getValue()); // 55
+    $q3Profit = java_values($profit3->getValue()); // 25
+
+    echo "Q1 profit: " . $q1Profit . PHP_EOL;
+    echo "Q2 profit: " . $q2Profit . PHP_EOL;
+    echo "Q3 profit: " . $q3Profit . PHP_EOL;
+
+    $chart->getChartData()->getCategories()->add($category1);
+    $chart->getChartData()->getCategories()->add($category2);
+    $chart->getChartData()->getCategories()->add($category3);
+
+    $profitSeries = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, "D1"), $chart->getType());
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit1);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit2);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit3);
+    $profitSeries->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("chart-formulas.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Poin data diagram merujuk ke `D2:D4`, sehingga diagram menggunakan nilai keuntungan yang dihitung. Tidak ada pemanggilan refresh diagram terpisah dalam alur kerja ini: hitung ulang buku kerja terlebih dahulu, kemudian gunakan atau simpan data diagram yang merujuk ke sel yang dihitung.
+
+## **Gunakan Formula Gaya A1**
+
+Notasi A1 mengidentifikasi kolom dengan huruf dan baris dengan angka. Tetapkan ekspresi gaya A1 melalui [ChartDataCell::setFormula](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setFormula).
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "C3")->setValue(10);
+    $workbook->getCell(0, "F2")->setValue(2);
+    $workbook->getCell(0, "G2")->setValue(3);
+    $workbook->getCell(0, "H2")->setValue(4);
+
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("C3+SUM(F2:H2)");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 19
+} finally {
+    $presentation->dispose();
+}
+```
+
+Bentuk referensi A1 umum adalah:
+
+| Referensi | Relatif | Absolut | Campuran |
+|---|---|---|---|
+| Sel | `A2` | `$A$2` | `A$2`, `$A2` |
+| Baris | `2:2` | `$2:$2` | — |
+| Kolom | `A:A` | `$A:$A` | — |
+| Rentang | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+Referensi relatif dapat berubah ketika formula dipindahkan atau disalin oleh aplikasi spreadsheet. Referensi absolut menjaga kedua koordinat tetap tetap, sementara referensi campuran memperbaiki hanya baris atau kolom.
+
+## **Gunakan Formula Gaya R1C1**
+
+Notasi R1C1 mengidentifikasi baik baris maupun kolom secara numerik. Referensi relatif menggunakan offset dalam tanda kurung siku. Tetapkan sintaks ini melalui [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "B2")->setValue(12);
+    $workbook->getCell(0, "C2")->setValue(5);
+
+    $cell = $workbook->getCell(0, "D2");
+    $cell->setR1C1Formula("RC[-2]-RC[-1]");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 7
+} finally {
+    $presentation->dispose();
+}
+```
+
+Bentuk referensi R1C1 umum adalah:
+
+| Referensi | Relatif | Absolut | Campuran |
+|---|---|---|---|
+| Sel | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Baris | `R[2]` | `R2` | — |
+| Kolom | `C[3]` | `C3` | — |
+| Rentang | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Sebagai contoh, pada sel `D2`, `RC[-2]` berarti sel pada baris yang sama dua kolom ke kiri (`B2`).
+
+## **Konstanta dan Operator Formula**
+
+Evalutor formula bawaan mendukung nilai logika, literal numerik, string, nilai kesalahan spreadsheet, operator aritmetika, dan operator perbandingan.
+
+### **Konstanta dan Literal**
+
+| Tipe | Contoh | Catatan |
+|---|---|---|
+| Logika | `TRUE`, `FALSE` | Dapat digunakan langsung dalam ekspresi logika seperti `A2=TRUE`. |
+| Numerik | `1`, `0.5`, `.3`, `1E-2` | Notasi umum dan ilmiah didukung. |
+| String | `"abc"`, `"2/3/2020 12:00"` | Literal teks dikelilingi oleh tanda kutip ganda di dalam formula. |
+| Hasil Kesalahan | `#DIV/0!`, `#N/A`, `#REF!` | Formula yang valid dapat menghasilkan nilai kesalahan spreadsheet alih‑alih hasil normal. |
+
+Contoh ini menggunakan beberapa tipe konstanta:
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "A2")->setValue(false);
+    $workbook->getCell(0, "B2")->setFormula("A2=TRUE");
+    $workbook->getCell(0, "C2")->setFormula("1+0.5");
+    $workbook->getCell(0, "D2")->setFormula(".3*1E-2");
+    $workbook->getCell(0, "E2")->setFormula("\"abc\"");
+    $workbook->getCell(0, "F2")->setFormula("2/0");
+
+    $workbook->calculateFormulas();
+
+    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // false
+    $numericValue = java_values($workbook->getCell(0, "C2")->getValue()); // 1.5
+    $scientificValue = java_values($workbook->getCell(0, "D2")->getValue()); // 0.003
+    $stringValue = java_values($workbook->getCell(0, "E2")->getValue()); // abc
+    $errorValue = java_values($workbook->getCell(0, "F2")->getValue()); // #DIV/0!
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Operator Aritmetika**
+
+| Operator | Makna | Contoh |
+|---|---|---|
+| `+` | Penjumlahan atau tanda plus unary | `2+3` |
+| `-` | Pengurangan atau negasi | `2-3`, `-3` |
+| `*` | Perkalian | `2*3` |
+| `/` | Pembagian | `2/3` |
+| `%` | Persentase | `30%` |
+| `^` | Pemangkatan | `2^3` |
+
+Gunakan tanda kurung untuk membuat urutan evaluasi eksplisit, misalnya `(A2+B2)*C2`.
+
+### **Operator Perbandingan**
+
+Ekspresi perbandingan mengembalikan nilai logika.
+
+| Operator | Makna | Contoh |
+|---|---|---|
+| `=` | Sama dengan | `A2=3` |
+| `<>` | Tidak sama dengan | `A2<>3` |
+| `>` | Lebih besar dari | `A2>3` |
+| `>=` | Lebih besar atau sama dengan | `A2>=3` |
+| `<` | Lebih kecil dari | `A2<3` |
+| `<=` | Lebih kecil atau sama dengan | `A2<=3` |
+
+## **Fungsi Bawaan yang Didukung**
+
+Aspose.Slides menyertakan evaluator formula bawaan untuk lembar kerja diagram, tetapi bukan mesin perhitungan Excel lengkap. Set fungsi yang didokumentasikan terbatas pada fungsi di bawah ini. Jangan mengasumsikan bahwa fungsi Excel apa pun dapat dihitung ulang oleh [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
+
+| Fungsi | Tujuan atau bentuk yang didukung | Contoh |
+|---|---|---|
+| `ABS` | Nilai absolut | `ABS(A2)` |
+| `AVERAGE` | Rata‑rata aritmetika | `AVERAGE(B2:B5)` |
+| `CEILING` | Membulatkan angka ke atas ke kelipatan | `CEILING(A2,5)` |
+| `CHOOSE` | Memilih nilai berdasarkan indeks | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Menggabungkan nilai teks | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Menggabungkan nilai teks | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Membuat nilai tanggal menggunakan sistem tanggal 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Mengembalikan jumlah hari antara tanggal | `DAYS(B2,A2)` |
+| `FIND` | Mencari satu nilai teks di dalam teks lain | `FIND("-",A2)` |
+| `FINDB` | Pencarian teks berbasis byte | `FINDB("a",A2)` |
+| `IF` | Hasil bersyarat | `IF(A2>0,A2,0)` |
+| `INDEX` | Bentuk referensi | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Bentuk vektor | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Bentuk vektor | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Nilai maksimum | `MAX(B2:B5)` |
+| `SUM` | Menjumlahkan nilai | `SUM(B2:B5)` |
+| `VLOOKUP` | Pencarian vertikal | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Batasan yang ditunjukkan dalam tabel signifikan: `INDEX` didokumentasikan dalam bentuk referensi, sementara `LOOKUP` dan `MATCH` didokumentasikan dalam bentuk vektor mereka. `DATE` menggunakan sistem tanggal 1900. Fitur dan fungsi yang tidak tercantum di sini harus dianggap tidak didukung oleh evaluator formula Aspose.Slides kecuali mereka didokumentasikan secara terpisah.
+
+## **Hitung Formula dengan Budaya Pilihan**
+
+Beberapa fungsi buku kerja diagram menafsirkan teks menurut aturan khusus budaya. Ini terutama penting untuk fungsi yang ditujukan bagi bahasa yang menggunakan set karakter dua byte (DBCS). Untuk menghitung formula tersebut dengan benar, buat [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/), set budaya pilihan dengan [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/id/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), tetapkan opsi spreadsheet melalui [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions), dan kemudian muat presentasi.
+
+Contoh berikut memilih budaya Jepang, membuka presentasi dengan opsi muat yang dikonfigurasi, dan memanggil [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) untuk setiap buku kerja diagram:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Mari menuliskan beberapa nilai ke sel dengan [**ChartDataCell::setValue**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setValue) method dari tipe **Object**, yang berarti Anda dapat menetapkan nilai apa pun:
+Budaya pilihan merupakan bagian dari konfigurasi pemuatan presentasi, jadi tentukan sebelum membuat instance [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Gunakan budaya yang diharapkan oleh formula buku kerja; misalnya, gunakan `ja-JP` untuk formula yang harus mengikuti aturan perhitungan DBCS Jepang.
+
+## **Penghitungan Ulang dan Nilai yang Di‑cache**
+
+Berkas spreadsheet biasanya menyimpan baik formula maupun nilai terakhir yang dihitung. Oleh karena itu Aspose.Slides dapat membaca nilai yang di‑cache dari [ChartDataCell::getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#getValue) saat presentasi dimuat dan data diagram yang relevan belum berubah.
+
+Setelah mengubah sel input atau formula, jangan bergantung pada hasil cache lama. Panggil [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) sebelum membaca nilai yang dihitung atau menyimpan data diagram yang bergantung pada mereka.
+
+Untuk formula di luar subset yang didukung, Aspose.Slides mungkin tidak dapat mengurai formula atau menetapkan dependensinya. Jika buku kerja telah dimodifikasi, nilai cache sebelumnya tidak lagi dapat dianggap dapat diandalkan. Dalam situasi tersebut, membaca nilai sel dengan data yang tidak didukung dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellunsupporteddataexception/).
+
+Jika diagram Anda bergantung pada fungsi Excel yang tidak dievaluasi oleh Aspose.Slides, hitung formula tersebut dengan mesin spreadsheet yang mendukungnya dan tulis kembali nilai hasilnya ke buku kerja diagram. Jangan mengganti formula yang tidak didukung dengan nilai tebakan.
+
+## **Menangani Kesalahan Formula**
+
+Ada dua jenis masalah yang berbeda untuk dibedakan.
+
+Formula dapat valid tetapi menghasilkan nilai kesalahan spreadsheet seperti `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, atau `#VALUE!`. Dalam kasus ini, token kesalahan merupakan hasil sel dan dapat dikembalikan melalui [ChartDataCell::getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#getValue).
+
+Formula juga dapat gagal pada tingkat parsing, referensi, dependensi, atau data yang didukung. Aspose.Slides menyediakan pengecualian khusus spreadsheet untuk kasus ini: [CellInvalidFormulaException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellcircularreferenceexception/), dan [CellUnsupportedDataException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellunsupporteddataexception/).
+
+Di PHP via Java, pengecualian Java ditampilkan melalui `JavaException`. Ketika formula berasal dari templat atau input pengguna, tangani di sekitar penghitungan ulang dan akses nilai. Pengecualian Java yang dilaporkan dalam jejak tumpukan mengidentifikasi kegagalan spreadsheet spesifik:
 
 ```php
-  $workbook->getCell(0, "F2")->setValue(-2.5);
-  $workbook->getCell(0, "G3")->setValue(6.3);
-  $workbook->getCell(0, "H4")->setValue(3);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("SUM(B2:B5)");
 
+    try {
+        $workbook->calculateFormulas();
+        echo java_values($cell->getValue()) . PHP_EOL;
+    } catch (JavaException $ex) {
+        $ex->printStackTrace();
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Sekarang untuk menuliskan rumus ke sel, Anda dapat menggunakan 
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setFormula) method.
+## **Batasan Praktis**
 
-*Catatan*: [**ChartDataCell::setFormula**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setFormula) method digunakan untuk menetapkan referensi sel bergaya A1. 
+Dukungan formula dalam lembar kerja diagram ditujukan untuk subset tertentu perhitungan spreadsheet, bukan untuk kompatibilitas penuh Excel. Ingat batasan ini saat merancang alur kerja pelaporan:
 
-Untuk menetapkan rumus dalam gaya R1C1, Anda dapat menggunakan [**ChartDataCell::setR1C1Formula**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setR1C1Formula) method.
-
-Kemudian jika Anda mencoba membaca nilai dari sel B2 dan C2, nilai tersebut akan dihitung:
-
-```php
-  $value1 = $cell1->getValue();// 7.8
-
-  $value2 = $cell2->getValue();// 2.1
-
-
-```
-
-## **Konstanta Logika**
-Anda dapat menggunakan konstanta logika seperti *FALSE* dan *TRUE* dalam rumus sel:
-
-```php
-  $workbook->getCell(0, "A2")->setValue(false);
-  $cell = $workbook->getCell(0, "B2");
-  $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// nilai berisi boolean "false"
-
-
-```
-
-## **Konstanta Numerik**
-Angka dapat digunakan dalam notasi umum atau ilmiah untuk membuat rumus spreadsheet grafik:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
-  $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
-
-```
-
-## **Konstanta String**
-Konstanta string (atau literal) adalah nilai spesifik yang digunakan apa adanya dan tidak berubah. Konstanta string dapat berupa: tanggal, teks, angka, dll.:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("\"abc\"");
-  $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
-
-```
-
-## **Konstanta Error**
-Kadang-kadang tidak mungkin menghitung hasil dengan rumus. Dalam kasus tersebut, kode error ditampilkan di sel alih-alih nilainya. Setiap jenis error memiliki kode spesifik:
-
-- #DIV/0! – rumus mencoba membagi dengan nol.
-- #GETTING_DATA – mungkin muncul pada sel saat nilainya masih dihitung.
-- #N/A – informasi hilang atau tidak tersedia. Beberapa alasan dapat berupa: sel yang dipakai dalam rumus kosong, ada karakter spasi ekstra, salah eja, dll.
-- #NAME? – sel tertentu atau objek rumus lain tidak dapat ditemukan berdasarkan namanya. 
-- #NULL! – dapat muncul ketika ada kesalahan dalam rumus, seperti:  (,) atau karakter spasi yang digunakan alih-alih titik dua (:).
-- #NUM! – nilai numerik dalam rumus tidak valid, terlalu panjang atau terlalu kecil, dll.
-- #REF! – referensi sel tidak valid.
-- #VALUE! – tipe nilai tidak terduga. Misalnya, nilai string ditempatkan pada sel numerik.
-
-```php
-  $cell = $workbook->getCell(0, "A2");
-  $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// nilai berisi string "#DIV/0!"
-
-
-```
-
-## **Operator Aritmatika**
-Anda dapat menggunakan semua operator aritmatika dalam rumus worksheet grafik:
-
-|**Operator**|**Makna**|**Contoh**|
-| :- | :- | :- |
-|+ (tanda plus)|Penjumlahan atau tanda plus unary|2 + 3|
-|- (tanda minus)|Pengurangan atau negasi|2 - 3<br>-3|
-|* (asterisk)|Perkalian|2 * 3|
-|/ (garis miring)|Pembagian|2 / 3|
-|% (tanda persen)|Persen|30%|
-|^ (caret)|Eksponensial|2 ^ 3|
-
-*Catatan*: Untuk mengubah urutan evaluasi, letakkan dalam tanda kurung bagian rumus yang ingin dihitung terlebih dahulu.
-
-## **Operator Perbandingan**
-Anda dapat membandingkan nilai sel dengan operator perbandingan. Ketika dua nilai dibandingkan menggunakan operator ini, hasilnya adalah nilai logika *TRUE* atau FALSE:
-
-|**Operator**|**Arti**|**Contoh**|
-| :- | :- | :- |
-|= (tanda sama dengan)|Sama dengan|A2 = 3|
-|<> (tanda tidak sama dengan)|Tidak sama dengan|A2 <> 3|
-|> (tanda lebih besar)|Lebih besar|A2 > 3|
-|>= (tanda lebih besar atau sama dengan)|Lebih besar atau sama dengan|A2 >= 3|
-|< (tanda lebih kecil)|Lebih kecil|A2 < 3|
-|<= (tanda lebih kecil atau sama dengan)|Lebih kecil atau sama dengan|A2 <= 3|
-
-## **Referensi Sel Bergaya A1**
-**Referensi sel bergaya A1** digunakan untuk worksheet, di mana kolom memiliki identifikator huruf (mis. "*A*") dan baris memiliki identifikator numerik (mis. "*1*"). Referensi sel bergaya A1 dapat digunakan sebagai berikut:
-
-|**Referensi sel**|**Contoh**|||
-| :- | :- | :- | :- |
-||Absolut|Relatif|Campuran|
-|Sel|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Baris|$2:$2|2:2|-|
-|Kolom|$A:$A|A:A|-|
-|Rentang|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-Berikut contoh penggunaan referensi sel bergaya A1 dalam rumus:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
-
-```
-
-## **Referensi Sel Bergaya R1C1**
-**Referensi sel bergaya R1C1** digunakan untuk worksheet, di mana baik baris maupun kolom memiliki identifikator numerik. Referensi sel bergaya R1C1 dapat digunakan sebagai berikut:
-
-|**Referensi sel**|**Contoh**|||
-| :- | :- | :- | :- |
-||Absolut|Relatif|Campuran|
-|Sel|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Baris|R2|R[2]|-|
-|Kolom|C3|C[3]|-|
-|Rentang|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-Berikut contoh penggunaan referensi sel bergaya A1 dalam rumus:
-
-```php
-  $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-
-```
-
-## **Fungsi Bawaan**
-Ada fungsi bawaan yang dapat digunakan dalam rumus untuk menyederhanakan implementasinya. Fungsi-fungsi ini mencakup operasi yang paling umum digunakan, seperti:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (sistem tanggal 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (bentuk referensi)
-- LOOKUP (bentuk vektor)
-- MATCH (bentuk vektor)
-- MAX
-- SUM
-- VLOOKUP
+- Gunakan hanya konstanta, operator, referensi, dan fungsi yang didokumentasikan ketika Anda memerlukan Aspose.Slides menghitung ulang formula.
+- Hitung ulang setelah mengubah sel yang menjadi dependensi hasil formula.
+- Anggap nilai yang di‑cache dari presentasi yang dimuat sebagai snapshot, bukan sebagai pengganti penghitungan ulang setelah edit.
+- Uji formula dari templat yang ada sebelum mengandalkan nilai yang dihitung, terutama bila mereka menggunakan fungsi di luar daftar yang didokumentasikan.
+- Untuk formula yang memerlukan mesin perhitungan spreadsheet lengkap, hitung secara eksternal kemudian perbarui buku kerja diagram dengan nilai hasilnya.
 
 ## **FAQ**
 
-**Apakah file Excel eksternal didukung sebagai sumber data untuk grafik dengan rumus?**
+**Apa perbedaan antara [ChartDataCell::setFormula](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setFormula) dan [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#setR1C1Formula)?**
 
-Ya. Aspose.Slides mendukung workbook eksternal sebagai [sumber data grafik](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatasourcetype/), yang memungkinkan Anda menggunakan rumus dari file XLSX di luar presentasi.
+[ChartDataCell::setFormula] menyimpan ekspresi gaya A1 seperti `B2-C2`. [ChartDataCell::setR1C1Formula] menyimpan ekspresi gaya R1C1 seperti `RC[-2]-RC[-1]`. Gunakan notasi yang paling cocok dengan cara Anda menghasilkan atau menyalin formula.
 
-**Dapatkah rumus grafik merujuk ke lembar dalam workbook yang sama dengan nama lembar?**
+**Apakah saya perlu membaca sel itu sendiri atau nilainya setelah perhitungan?**
 
-Ya. Rumus mengikuti model referensi standar Excel, sehingga Anda dapat merujuk lembar lain dalam workbook yang sama atau workbook eksternal. Untuk referensi eksternal, sertakan jalur dan nama workbook menggunakan sintaks Excel.
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#getCell) mengembalikan sebuah [ChartDataCell]. Untuk memperoleh hasil yang dihitung, panggil metode [ChartDataCell::getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/#getValue) pada sel tersebut setelah penghitungan ulang.
+
+**Kapan saya harus memanggil [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)?**
+
+Hubungi [ChartDataWorkbook::calculateFormulas] setelah mengubah nilai input atau formula dan sebelum Anda bergantung pada hasil yang dihitung. Ini memperbarui nilai formula yang didukung oleh evaluator bawaan.
+
+**Apakah Aspose.Slides mendukung semua fungsi Excel?**
+
+Tidak. Evaluator bawaan mendukung subset fungsi yang didokumentasikan. Fungsi di luar subset tersebut tidak boleh diasumsikan dapat dihitung ulang dengan benar. Jika diperlukan kompatibilitas formula Excel penuh, lakukan perhitungan dengan mesin spreadsheet yang sesuai dan tulis nilai akhir ke buku kerja diagram.
+
+**Apa yang terjadi jika presentasi yang dimuat berisi formula yang tidak didukung?**
+
+Jika data diagram tidak berubah, buku kerja mungkin masih berisi nilai cache yang telah dihitung sebelumnya. Setelah data terkait dimodifikasi, nilai cache tersebut mungkin tidak lagi valid. Mengakses sel dengan formula yang tidak dapat ditangani dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellunsupporteddataexception/).
+
+**Apakah nilai kesalahan formula sama dengan pengecualian PHP?**
+
+Tidak. Hasil seperti `#DIV/0!` adalah nilai spreadsheet yang dihasilkan oleh perhitungan yang valid. Kegagalan pemrosesan spreadsheet seperti [CellInvalidFormulaException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellinvalidformulaexception/) atau [CellCircularReferenceException](https://reference.aspose.com/slides/id/php-java/aspose.slides/cellcircularreferenceexception/) adalah pengecualian Java yang ditampilkan ke PHP melalui `JavaException`.
+
+**Apakah diagram diperbarui secara otomatis ketika sel formula berubah?**
+
+Sebuah seri diagram dapat merujuk ke sel buku kerja. Hitung ulang buku kerja terlebih dahulu, kemudian simpan atau render presentasi. Jika poin data diagram merujuk ke sel yang dihitung, diagram akan menggunakan nilai sel yang diperbarui; tidak diperlukan metode refresh diagram terpisah untuk alur kerja ini.
+
+**Dapatkah diagram menggunakan buku kerja Excel eksternal?**
+
+Ya, data diagram dapat dikonfigurasi untuk menggunakan buku kerja eksternal melalui API data diagram. Namun, alur kerja perhitungan formula yang dijelaskan dalam artikel ini berkaitan dengan buku kerja data diagram dan subset formula yang dievaluasi oleh Aspose.Slides. Jangan mengasumsikan bahwa [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) memberikan penghitungan penuh untuk formula apa pun dalam file XLSX eksternal.
+
+**Dapatkah saya menggunakan formula yang merujuk ke lembar kerja atau buku kerja lain?**
+
+Referensi gaya Excel mungkin ada dalam buku kerja diagram, tetapi evaluasi formula dibatasi oleh parser dan set fungsi yang didukung. Jika referensi lintas lembar atau eksternal penting, validasi formula tersebut dengan versi Aspose.Slides yang Anda gunakan. Untuk alur kerja yang memerlukan kompatibilitas referensi Excel yang luas, hitung buku kerja secara eksternal dan tulis nilai yang terurai kembali ke data diagram.
+
+**Haruskah string formula dimulai dengan `=`?**
+
+Contoh API Aspose.Slides menetapkan ekspresi seperti `B2-C2` atau `SUM(B2:B5)` tanpa `=` di depan. Menggunakan bentuk itu menjaga formula yang dihasilkan konsisten dengan contoh API yang didokumentasikan.

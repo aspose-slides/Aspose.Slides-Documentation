@@ -1,6 +1,6 @@
 ---
-title: .NET में प्रस्तुतियों में चार्ट वर्कशीट फ़ॉर्मूले लागू करें
-linktitle: वर्कशीट फ़ॉर्मूले
+title: ".NET में प्रेज़ेंटेशन में चार्ट वर्कशीट फ़ॉर्मूले लागू करें"
+linktitle: "वर्कशीट फ़ॉर्मूले"
 type: docs
 weight: 70
 url: /hi/net/chart-worksheet-formulas/
@@ -10,218 +10,419 @@ keywords:
 - चार्ट फ़ॉर्मूला
 - वर्कशीट फ़ॉर्मूला
 - स्प्रेडशीट फ़ॉर्मूला
-- डेटा स्रोत
-- लॉजिकल कॉन्स्टेंट
-- न्यूमेरिकल कॉन्स्टेंट
-- स्ट्रिंग कॉन्स्टेंट
-- एरर कॉन्स्टेंट
-- अंकगणितीय कॉन्स्टेंट
-- तुलना ऑपरेटर
-- A1 शैली
-- R1C1 शैली
-- प्रीडिफाइंड फ़ंक्शन
-- PowerPoint
-- प्रस्तुति
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides के लिए .NET चार्ट वर्कशीट में Excel-शैली के फ़ॉर्मूले लागू करें और PPT तथा PPTX फ़ाइलों में रिपोर्टों को स्वचालित करें।"
----
-## **परिचय**
-
-एक चार्ट वर्कशीट प्रस्तुति में चार्ट के पीछे का डेटा स्रोत है। यह श्रेणी और श्रृंखला के नामों को चार्ट द्वारा दिखाए गए संख्यात्मक मानों के साथ संग्रहीत करता है। Aspose.Slides में, यह वर्कशीट चार्ट डेटा वर्कबुक के माध्यम से उपलब्ध है, जिससे आप प्रोग्रामेटिक रूप से चार्ट डेटा के साथ काम कर सकते हैं।
-
-यह लेख बताता है कि चार्ट डेटा में वर्कशीट फ़ॉर्मूले कैसे उपयोग करें ताकि सेल मानों की गणना और अद्यतन स्वतः हो सके, मैन्युअल रूप से दर्ज करने के बजाय। यह दिखाता है कि फ़ॉर्मूले कैसे असाइन करें, A1‑स्टाइल और R1C1‑स्टाइल दोनों संदर्भों का उपयोग करें, वर्कबुक फ़ॉर्मूले को पुनः गणना करें, और प्रस्तुतियों में चार्ट वर्कशीट के लिए उपलब्ध समर्थित कॉन्स्टेंट, ऑपरेटर, सेल रेफ़रेंस और प्री‑डिफाइंड फ़ंक्शन के साथ कैसे काम करें।
-
-## **प्रस्तुति में चार्ट स्प्रेडशीट फ़ॉर्मूले के बारे में**
-**Chart spreadsheet** (या chart worksheet) प्रस्तुति में चार्ट का डेटा स्रोत है। Chart spreadsheet में डेटा होता है, जिसे ग्राफ़िक रूप में चार्ट पर प्रदर्शित किया जाता है। जब आप PowerPoint में एक चार्ट बनाते हैं, तो इस चार्ट से जुड़ी वर्कशीट भी स्वचालित रूप से बनाई जाती है। Chart worksheet सभी प्रकार के चार्ट्स के लिए बनाई जाती है: लाइन चार्ट, बार चार्ट, सनबर्स्ट चार्ट, पाई चार्ट आदि। PowerPoint में chart spreadsheet देखने के लिए आपको चार्ट पर डबल‑क्लिक करना चाहिए:
-
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
-
-Chart spreadsheet में चार्ट तत्वों के नाम (Category Name: *Category1*, Serie Name) और इन श्रेणियों एवं श्रृंखलाओं से संबंधित संख्यात्मक डेटा वाली तालिका होती है। डिफ़ॉल्ट रूप से, जब आप नया चार्ट बनाते हैं – चार्ट स्प्रेडशीट डेटा डिफ़ॉल्ट डेटा के साथ सेट होता है। फिर आप वर्कशीट में डेटा को मैन्युअल रूप से बदल सकते हैं।
-
-आमतौर पर, चार्ट जटिल डेटा को दर्शाता है (जैसे वित्तीय विश्लेषक, वैज्ञानिक विश्लेषक), जिसमें ऐसे सेल होते हैं जो अन्य सेल्स के मानों या अन्य डायनामिक डेटा से गणना होते हैं। सेल का मान मैन्युअल रूप से गणना करके उसे हार्ड‑कोड करने से भविष्य में उसे बदलना कठिन हो जाता है। यदि आप किसी विशिष्ट सेल का मान बदलते हैं, तो उस पर निर्भर सभी सेल्स को भी अपडेट करना पड़ेगा। इसके अलावा, तालिका डेटा अन्य तालिकाओं के डेटा पर निर्भर हो सकता है, जिससे प्रस्तुति डेटा स्कीमा जटिल हो जाता है और उसे आसान एवं लचीले तरीके से अपडेट करने की आवश्यकता होती है।
-
-**Chart spreadsheet formula** प्रस्तुति में एक अभिव्यक्ति है जो चार्ट स्प्रेडशीट डेटा को स्वचालित रूप से गणना और अपडेट करती है। स्प्रेडशीट फ़ॉर्मूला किसी विशिष्ट सेल या सेल्स के सेट के लिए डेटा गणना लॉजिक को परिभाषित करता है। यह एक गणितीय फ़ॉर्मूला या लॉजिकल फ़ॉर्मूला हो सकता है, जिसमें उपयोग होते हैं: सेल रेफ़रेंसेज़, गणितीय फ़ंक्शन, लॉजिकल ऑपरेटर, अंकगणितीय ऑपरेटर, रूपांतरण फ़ंक्शन, स्ट्रिंग कॉन्स्टेंट आदि। फ़ॉर्मूला की परिभाषा एक सेल में लिखी जाती है, और वह सेल केवल एक साधारण मान नहीं रखता। स्प्रेडशीट फ़ॉर्मूला मान की गणना करता है और उसे वापस लौटाता है, फिर यह मान सेल को असाइन किया जाता है। प्रस्तुति में चार्ट स्प्रेडशीट फ़ॉर्मूले वास्तव में Excel फ़ॉर्मूले के समान होते हैं, और उनके कार्यान्वयन के लिए वही डिफ़ॉल्ट फ़ंक्शन, ऑपरेटर और कॉन्स्टेंट समर्थित होते हैं।
-
-In [**Aspose.Slides**](https://products.aspose.com/slides/hi/net/) chart spreadsheet is represented with 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property of the
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook) type. 
-Spreadsheet formula can be assigned and changed with 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/properties/formula) property. 
-The following functionality is supported for formulas in Aspose.Slides:
-
-- लॉजिकल कॉन्स्टेंट
-- न्यूमेरिकल कॉन्स्टेंट
+- चार्ट डेटा वर्कबुक
+- फ़ॉर्मूला गणना
+- पसंदीदा संस्कृति
+- संस्कृति-विशिष्ट फ़ॉर्मूला
+- DBCS
+- तर्कीय कॉन्स्टेंट
+- संख्यात्मक कॉन्स्टेंट
 - स्ट्रिंग कॉन्स्टेंट
 - एरर कॉन्स्टेंट
 - अंकगणितीय ऑपरेटर
-- तुलना ऑपरेटर
-- A1‑स्टाइल सेल रेफ़रेंसेज़
-- R1C1‑स्टाइल सेल रेफ़रेंसेज़
-- प्री‑डिफाइंड फ़ंक्शन
+- तुलनात्मक ऑपरेटर
+- A1 शैली
+- R1C1 शैली
+- पूर्वपरिभाषित फ़ंक्शन
+- PowerPoint
+- प्रेज़ेंटेशन
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET के लिए Aspose.Slides में Excel-शैली के फ़ॉर्मूले लागू करें, चार्ट वर्कशीट्स में मानों को पुनर्गणना करें, और परिणामों को PowerPoint चार्ट्स में उपयोग करें."
+---
+## **अवलोकन**
 
-आम तौर पर, स्प्रेडशीट अंतिम गणना किए गए फ़ॉर्मूला मानों को संग्रहीत करता है। यदि प्रस्तुति लोड करने के बाद चार्ट डेटा नहीं बदला गया – **IChartDataCell.Value** property उन मानों को पढ़ते समय लौटाता है। लेकिन यदि स्प्रेडशीट डेटा बदला गया, तो **ChartDataCell.Value** property पढ़ते समय **CellUnsupportedDataException** फेंकती है क्योंकि असमर्थित फ़ॉर्मूले मौजूद होते हैं। यह इसलिए है क्योंकि फ़ॉर्मूले सफलतापूर्वक पार्स होने पर सेल निर्भरताएँ निर्धारित हो जाती हैं और अंतिम मानों की शुद्धता तय की जाती है। यदि फ़ॉर्मूला पार्स नहीं किया जा सकता, तो सेल मान की शुद्धता गारंटी नहीं की जा सकती।
+PowerPoint चार्ट आमतौर पर अपने स्रोत डेटा को एम्बेडेड वर्कशीट में संग्रहीत करते हैं। Aspose.Slides for .NET में, आप उस वर्कशीट तक चार्ट डेटा वर्कबुक के माध्यम से पहुँच सकते हैं, इनपुट मान लिख सकते हैं, सेल्स को फ़ॉर्मूला असाइन कर सकते हैं, समर्थित फ़ॉर्मूले की गणना कर सकते हैं, और गणना किए गए सेल्स को चार्ट डेटा के रूप में उपयोग कर सकते हैं।
 
-## **प्रस्तुति में चार्ट स्प्रेडशीट फ़ॉर्मूला जोड़ें**
-पहले, नई प्रस्तुति की पहली स्लाइड में कुछ नमूना डेटा के साथ एक चार्ट जोड़ें 
-[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/hi/net/aspose.slides.ishapecollection/addchart/methods/1)। 
-चार्ट की वर्कशीट स्वचालित रूप से बनाई जाती है और इसे एक्सेस किया जा सकता है 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property से:
+यह लेख संपूर्ण फ़ॉर्मूला कार्यप्रवाह को समझाता है: चार्ट बनाना, उसकी वर्कशीट को भरना, A1‑स्टाइल या R1C1‑स्टाइल फ़ॉर्मूले असाइन करना, उन्हें पुनर्गणना करना, गणना किए गए मान पढ़ना, उन सेल्स को चार्ट सीरीज़ से जोड़ना, और प्रेज़ेंटेशन सहेजना। यह समर्थित फ़ॉर्मूला सिंटैक्स, बिल्ट‑इन फ़ंक्शन उपसमुच्चय, कैश्ड मान, असमर्थित फ़ॉर्मूले, और स्प्रेडशीट‑विशिष्ट त्रुटियों का भी विवरण देता है।
 
-``` csharp
+## **चार्ट वर्कशीट्स और फ़ॉर्मूले**
 
-using (var presentation = new Presentation())
+एक चार्ट वर्कशीट में कैटेगरीज, सीरीज़ नाम, और मान होते हैं जो चार्ट द्वारा उपयोग किए जाते हैं। PowerPoint में, आप चार्ट डेटा एडिटर खोलकर वर्कशीट को देख सकते हैं:
 
-{
+![PowerPoint चार्ट जिसके एम्बेडेड वर्कशीट खुला है, जिसमें कैटेगरी और सीरीज़ डेटा दिखाया गया है](chart-worksheet-formulas_1.png)
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+Aspose.Slides में, वर्कशीट को [chart data workbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/) के माध्यम से एक्सपोज़ किया जाता है। A1‑स्टाइल फ़ॉर्मूले के लिये [Formula](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/formula/) प्रॉपर्टी और R1C1‑स्टाइल फ़ॉर्मूले के लिये [R1C1Formula](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/r1c1formula/) प्रॉपर्टी का उपयोग करें। इनपुट सेल्स या फ़ॉर्मूले बदलने के बाद, समर्थित फ़ॉर्मूले को पुनर्गणना करने और सम्बंधित सेल मानों को अपडेट करने के लिये [CalculateFormulas](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करें।
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+एक गणना किया गया सेल अभी भी अपने परिणाम को [Value](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/value/) प्रॉपर्टी के माध्यम से उजागर करता है। यह तब महत्वपूर्ण होता है जब आपको कोड में फ़ॉर्मूला परिणाम की जाँच करनी हो या सेल को चार्ट डेटा पॉइंट के रूप में उपयोग करना हो।
 
-    // ...
+## **एक चार्ट बनाएं और वर्कशीट फ़ॉर्मूले गणना करें**
 
-}
+निम्न उदाहरण एक एंड‑टू‑एंड कार्यप्रवाह को दर्शाता है। यह एक क्लस्टर्ड कॉलम चार्ट बनाता है, नमूना डेटा साफ़ करता है, तिमाही राजस्व और खर्च मान लिखता है, फ़ॉर्मूले से लाभ की गणना करता है, परिणाम पढ़ता है, गणना किए गए सेल्स को चार्ट मानों के रूप में उपयोग करता है, और प्रेज़ेंटेशन सहेजता है।
 
-```
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-आइए **Object** प्रकार की [**IChartDataCell.Value**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/properties/value) property में कुछ मान लिखें, जिसका अर्थ है आप इस प्रॉपर्टी में कोई भी मान सेट कर सकते हैं:
+using var presentation = new Presentation();
 
-``` csharp
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-workbook.GetCell(0, "F2").Value = -2.5;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+workbook.Clear(worksheetIndex);
 
-workbook.GetCell(0, "G3").Value = 6.3;
+var category1 = workbook.GetCell(worksheetIndex, "A2", "Q1");
+var category2 = workbook.GetCell(worksheetIndex, "A3", "Q2");
+var category3 = workbook.GetCell(worksheetIndex, "A4", "Q3");
 
-workbook.GetCell(0, "H4").Value = 3;
+workbook.GetCell(worksheetIndex, "B1", "Revenue");
+workbook.GetCell(worksheetIndex, "C1", "Expenses");
+workbook.GetCell(worksheetIndex, "D1", "Profit");
 
-```
+workbook.GetCell(worksheetIndex, "B2").Value = 120.0;
+workbook.GetCell(worksheetIndex, "C2").Value = 80.0;
+workbook.GetCell(worksheetIndex, "B3").Value = 150.0;
+workbook.GetCell(worksheetIndex, "C3").Value = 95.0;
+workbook.GetCell(worksheetIndex, "B4").Value = 135.0;
+workbook.GetCell(worksheetIndex, "C4").Value = 110.0;
 
-अब सेल में फ़ॉर्मूला लिखने के लिए आप [**IChartDataCell.Formula**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/properties/formula) property का उपयोग कर सकते हैं:
+var profit1 = workbook.GetCell(worksheetIndex, "D2");
+var profit2 = workbook.GetCell(worksheetIndex, "D3");
+var profit3 = workbook.GetCell(worksheetIndex, "D4");
 
-``` csharp
-workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
-```
+profit1.Formula = "B2-C2";
+profit2.Formula = "B3-C3";
+profit3.Formula = "B4-C4";
 
-*Note*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/properties/formula) property A1‑स्टाइल सेल रेफ़रेंसेज़ सेट करने के लिए उपयोग की जाती है।
-
-R1C1 फ़ॉर्मूला सेट करने के लिए, आप [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) प्रॉपर्टी का उपयोग कर सकते हैं:
-
-``` csharp
-workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
-```
-
-फिर वर्कबुक के सभी फ़ॉर्मूले गणना करने और संबंधित सेल मानों को अपडेट करने के लिए [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) मेथड का उपयोग करें:
-
-``` csharp
 workbook.CalculateFormulas();
 
-object value1 = workbook.GetCell(0, "B2"); // 7.8
+var q1Profit = Convert.ToDouble(profit1.Value); // 40
+var q2Profit = Convert.ToDouble(profit2.Value); // 55
+var q3Profit = Convert.ToDouble(profit3.Value); // 25
 
-object value2 = workbook.GetCell(0, "C2"); // 2.1
+Console.WriteLine($"Q1 profit: {q1Profit}");
+Console.WriteLine($"Q2 profit: {q2Profit}");
+Console.WriteLine($"Q3 profit: {q3Profit}");
 
+chart.ChartData.Categories.Add(category1);
+chart.ChartData.Categories.Add(category2);
+chart.ChartData.Categories.Add(category3);
+
+var profitSeries = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, "D1"), chart.Type);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit1);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit2);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit3);
+profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-## **लॉजिकल कॉन्स्टेंट**
-आप सेल फ़ॉर्मूले में *FALSE* और *TRUE* जैसे लॉजिकल कॉन्स्टेंट का उपयोग कर सकते हैं:
+चार्ट डेटा पॉइंट्स `D2:D4` को संदर्भित करते हैं, इसलिए चार्ट गणना किए गए लाभ मानों का उपयोग करता है। इस कार्यप्रवाह में कोई अलग चार्ट‑रिफ्रेश कॉल नहीं है: पहले वर्कबुक को पुनर्गणना करें, फिर उन कैल्क्युलेटेड सेल्स को उपयोग या सहेजें।
 
-## **न्यूमेरिकल कॉन्स्टेंट**
-संख्याएँ सामान्य या वैज्ञानिक संकेतन में उपयोग की जा सकती हैं ताकि चार्ट स्प्रेडशीट फ़ॉर्मूला बनाया जा सके:
+## **A1‑स्टाइल फ़ॉर्मूले उपयोग करें**
 
-## **स्ट्रिंग कॉन्स्टेंट**
-स्ट्रिंग (या लिटरल) कॉन्स्टेंट एक विशिष्ट मान है जिसे जैसा है वैसा उपयोग किया जाता है और यह बदलता नहीं है। स्ट्रिंग कॉन्स्टेंट में तिथियाँ, पाठ, संख्याएँ आदि शामिल हो सकते हैं:
+A1 नोटेशन में कॉलम को अक्षरों से और पंक्तियों को अंकों से पहचाना जाता है। [IChartDataCell.Formula](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/formula/) के माध्यम से A1‑स्टाइल अभिव्यक्तियां असाइन करें।
 
-## **एरर कॉन्स्टेंट**
-कभी‑कभी फ़ॉर्मूले से परिणाम निकालना संभव नहीं रहता। ऐसे में मूल्य के बजाय सेल में एरर कोड दिखाया जाता है। प्रत्येक एरर प्रकार का एक विशिष्ट कोड होता है:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-- #DIV/0! - फ़ॉर्मूला शून्य से भाग देने की कोशिश करता है।
-- #GETTING_DATA - सेल पर दिख सकता है, जबकि उसका मान अभी गणना हो रहा है।
-- #N/A - सूचना अनुपलब्ध या गायब है। कुछ कारण हो सकते हैं: फ़ॉर्मूले में प्रयुक्त सेल खाली है, अतिरिक्त स्पेस कैरेक्टर, टाइपो आदि।
-- #NAME? - किसी सेल या फ़ॉर्मूला ऑब्जेक्ट को उसके नाम से खोजा नहीं जा सका।
-- #NULL! - फ़ॉर्मूले में गलत सिंटैक्स, जैसे (,) या कोलन (:) की जगह स्पेस या अन्य कैरेक्टर।
-- #NUM! - फ़ॉर्मूले में संख्या अमान्य, बहुत बड़ी या बहुत छोटी है।
-- #REF! - अमान्य सेल रेफ़रेंस।
-- #VALUE! - अनपेक्षित वैल्यू टाइप। उदाहरण के लिए, स्ट्रिंग वैल्यू को संख्यात्मक सेल में सेट करना।
+using var presentation = new Presentation();
 
-## **अंकगणितीय ऑपरेटर**
-आप चार्ट वर्कशीट फ़ॉर्मूले में सभी अंकगणितीय ऑपरेटर का उपयोग कर सकते हैं:
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-|**ऑपरेटर**|**अर्थ**|**उदाहरण**|
-| :- | :- | :- |
-|+ (प्लस)|जोड़ या यूनरी प्लस|2 + 3|
-|- (माइनस)|घटाव या नकारात्मक|2 - 3<br>-3|
-|* (एस्टेरिस्क)|गुणन|2 * 3|
-|/ (फॉरवर्ड स्लैश)|भाजन|2 / 3|
-|% (प्रतिशत)|प्रतिशत|30%|
-|^ (केरेट)|घातांक|2 ^ 3|
+workbook.GetCell(0, "C3").Value = 10;
+workbook.GetCell(0, "F2").Value = 2;
+workbook.GetCell(0, "G2").Value = 3;
+workbook.GetCell(0, "H2").Value = 4;
 
-*Note*: मूल्यांकन क्रम बदलने के लिए फ़ॉर्मूले के उस हिस्से को कोष्ठकों में घीरेँ जिसे पहले गणना करना है।
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "C3+SUM(F2:H2)";
 
-## **तुलना ऑपरेटर**
-आप इन ऑपरेटरों का उपयोग करके सेल मानों की तुलना कर सकते हैं। जब दो मान इन ऑपरेटरों से तुलना होते हैं, तो परिणाम एक लॉजिकल मान होता है, *TRUE* या *FALSE*:
+workbook.CalculateFormulas();
 
-|**ऑपरेटर**|**अर्थ**|**अर्थ**|
-| :- | :- | :- |
-|= (इक्वल साइन)|समान|A2 = 3|
-|<> (नॉट इक्वल)|असमान|A2 <> 3|
-|> (ग्रेटर दैन)|बड़ा|A2 > 3|
-|>= (ग्रेटर दैन or इक्क्वल)|बड़ा या बराबर|A2 >= 3|
-|< (लेस दैन)|छोटा|A2 < 3|
-|<= (लेस दैन or इक्क्वल)|छोटा या बराबर|A2 <= 3|
+var value = cell.Value; // 19
+```
 
-## **A1‑स्टाइल सेल रेफ़रेंसेज़**
-**A1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग होते हैं जहाँ कॉलम का पहचानकर्ता अक्षर (जैसे "*A*") और पंक्ति का पहचानकर्ता अंक (जैसे "*1*") होता है। A1‑स्टाइल सेल रेफ़रेंसेज़ को निम्नलिखित रूप में उपयोग किया जा सकता है:
+सामान्य A1 संदर्भ रूप इस प्रकार हैं:
 
-|**सेल रेफ़रेंस**|**उदाहरण**|||
-| :- | :- | :- | :- |
-||परिपूर्ण|सापेक्ष|मिश्रित|
-|सेल|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|पंक्ति|$2:$2|2:2|-|
-|स्तंभ|$A:$A|A:A|-|
-|रेंज|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+| संदर्भ | सापेक्ष | परिपूर्ण | मिश्रित |
+|---|---|---|---|
+| सेल | `A2` | `$A$2` | `A$2`, `$A2` |
+| पंक्ति | `2:2` | `$2:$2` | — |
+| कॉलम | `A:A` | `$A:$A` | — |
+| रेंज | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-A1‑स्टाइल सेल रेफ़रेंस को फ़ॉर्मूले में उपयोग करने का एक उदाहरण:
+सापेक्ष संदर्भ स्प्रेडशीट एप्लिकेशन द्वारा फ़ॉर्मूला को ले जाने या कॉपी करने पर बदल सकते हैं। परिपूर्ण संदर्भ दोनों निर्देशांक को स्थिर रखता है, जबकि मिश्रित संदर्भ केवल पंक्ति या कॉलम को स्थिर रखता है।
 
-## **R1C1‑स्टाइल सेल रेफ़रेंसेज़**
-**R1C1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग होते हैं जहाँ पंक्ति और कॉलम दोनों का पहचानकर्ता अंकात्मक होता है। R1C1‑स्टाइल सेल रेफ़रेंसेज़ को निम्नलिखित रूप में उपयोग किया जा सकता है:
+## **R1C1‑स्टाइल फ़ॉर्मूले उपयोग करें**
 
-|**सेल रेफ़रेंस**|**उदाहरण**|||
-| :- | :- | :- | :- |
-||परिपूर्ण|सापेक्ष|मिश्रित|
-|सेल|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|पंक्ति|R2|R[2]|-|
-|स्तंभ|C3|C[3]|-|
-|रेंज|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+R1C1 नोटेशन में पंक्तियों और कॉलम दोनों को संख्यात्मक रूप में पहचाना जाता है। सापेक्ष संदर्भ वर्ग कोष्ठकों में ऑफ़सेट का उपयोग करते हैं। इस सिंटैक्स को [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/r1c1formula/) के माध्यम से असाइन करें।
 
-R1C1‑स्टाइल सेल रेफ़रेंस को फ़ॉर्मूले में उपयोग करने का एक उदाहरण:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-## **प्री‑डिफाइंड फ़ंक्शन**
-फ़ॉर्मूले में उपयोग किए जा सकने वाले प्री‑डिफाइंड फ़ंक्शन हैं, जो कार्यान्वयन को सरल बनाते हैं। ये फ़ंक्शन सामान्यतः उपयोग किए जाने वाले ऑपरेशन्स को समेटते हैं, जैसे:
+using var presentation = new Presentation();
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 डेट सिस्टम)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (रेफ़रेंस फ़ॉर्म)
-- LOOKUP (वेक्टर फ़ॉर्म)
-- MATCH (वेक्टर फ़ॉर्म)
-- MAX
-- SUM
-- VLOOKUP
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-## **FAQ**
+workbook.GetCell(0, "B2").Value = 12;
+workbook.GetCell(0, "C2").Value = 5;
 
-**क्या फ़ॉर्मूले वाले चार्ट के लिए बाहरी Excel फ़ाइलों को डेटा स्रोत के रूप में समर्थित है?**
+var cell = workbook.GetCell(0, "D2");
+cell.R1C1Formula = "RC[-2]-RC[-1]";
 
-हाँ। Aspose.Slides एक चार्ट के डेटा स्रोत के रूप में बाहरी वर्कबुक को सपोर्ट करता है, जिससे आप प्रस्तुति के बाहर की XLSX फ़ाइल से फ़ॉर्मूले उपयोग कर सकते हैं।
+workbook.CalculateFormulas();
 
-**क्या चार्ट फ़ॉर्मूले उसी वर्कबुक के भीतर शीट नाम द्वारा शीट्स को संदर्भित कर सकते हैं?**
+var value = cell.Value; // 7
+```
 
-हाँ। फ़ॉर्मूले मानक Excel रेफ़रेंस मॉडल का पालन करते हैं, इसलिए आप उसी वर्कबुक में अन्य शीट्स या बाहरी वर्कबुक को संदर्भित कर सकते हैं। बाहरी रेफ़रेंस के लिए Excel सिंटैक्स के अनुसार पथ और वर्कबुक नाम शामिल करें।
+सामान्य R1C1 संदर्भ रूप इस प्रकार हैं:
+
+| संदर्भ | सापेक्ष | परिपूर्ण | मिश्रित |
+|---|---|---|---|
+| सेल | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| पंक्ति | `R[2]` | `R2` | — |
+| कॉलम | `C[3]` | `C3` | — |
+| रेंज | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+उदाहरण के लिए, सेल `D2` में `RC[-2]` का अर्थ है उसी पंक्ति में दो कॉलम बाएँ वाला सेल (`B2`)।
+
+## **फ़ॉर्मूला कॉन्स्टेंट्स और ऑपरेटर्स**
+
+बिल्ट‑इन फ़ॉर्मूला इवैल्यूएटर लॉजिकल वैल्यूज़, न्यूमेरिक लिटेरल्स, स्ट्रिंग्स, स्प्रेडशीट एरर वैल्यूज़, एरिथ्मेटिक ऑपरेटर्स, और कम्पेरेज़न ऑपरेटर्स को सपोर्ट करता है।
+
+### **कॉन्स्टेंट्स और लिटेरल्स**
+
+| प्रकार | उदाहरण | नोट्स |
+|---|---|---|
+| लॉजिकल | `TRUE`, `FALSE` | सीधे लॉजिकल अभिव्यक्तियों जैसे `A2=TRUE` में उपयोग किया जा सकता है। |
+| न्यूमेरिक | `1`, `0.5`, `.3`, `1E-2` | सामान्य और वैज्ञानिक नोटेशन दोनों समर्थित हैं। |
+| स्ट्रिंग | `"abc"`, `"2/3/2020 12:00"` | टेक्स्ट लिटेरल्स फ़ॉर्मूला के भीतर डबल कोट्स में लिखे जाते हैं। |
+| एरर परिणाम | `#DIV/0!`, `#N/A`, `#REF!` | एक वैध फ़ॉर्मूला सामान्य परिणाम के बजाय स्प्रेडशीट एरर वैल्यू में भीevaluate हो सकता है। |
+
+यह उदाहरण कई कॉन्स्टेंट प्रकारों का उपयोग करता है:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+workbook.GetCell(0, "A2").Value = false;
+workbook.GetCell(0, "B2").Formula = "A2=TRUE";
+workbook.GetCell(0, "C2").Formula = "1+0.5";
+workbook.GetCell(0, "D2").Formula = ".3*1E-2";
+workbook.GetCell(0, "E2").Formula = "\"abc\"";
+workbook.GetCell(0, "F2").Formula = "2/0";
+
+workbook.CalculateFormulas();
+
+var logicalValue = workbook.GetCell(0, "B2").Value; // गलत
+var numericValue = workbook.GetCell(0, "C2").Value; // 1.5
+var scientificValue = workbook.GetCell(0, "D2").Value; // 0.003
+var stringValue = workbook.GetCell(0, "E2").Value; // abc
+var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
+```
+
+### **अंकगणितीय ऑपरेटर्स**
+
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `+` | जोड़ या यूनरी प्लस | `2+3` |
+| `-` | घटाव या निगेटिव | `2-3`, `-3` |
+| `*` | गुणा | `2*3` |
+| `/` | भाग | `2/3` |
+| `%` | प्रतिशत | `30%` |
+| `^` | घात | `2^3` |
+
+मूल्यांकन क्रम स्पष्ट करने के लिये कोष्ठकों का प्रयोग करें, उदाहरण के लिये `(A2+B2)*C2`।
+
+### **कम्पेरेज़न ऑपरेटर्स**
+
+कम्पेरेज़न अभिव्यक्तियां लॉजिकल मान देती हैं।
+
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `=` | बराबर | `A2=3` |
+| `<>` | बराबर नहीं | `A2<>3` |
+| `>` | बड़ा | `A2>3` |
+| `>=` | बड़ा या बराबर | `A2>=3` |
+| `<` | छोटा | `A2<3` |
+| `<=` | छोटा या बराबर | `A2<=3` |
+
+## **समर्थित प्री‑डिफ़ाइंड फ़ंक्शन्स**
+
+Aspose.Slides चार्ट वर्कशीट्स के लिये एक बिल्ट‑इन फ़ॉर्मूला इवैल्यूएटर शामिल करता है, लेकिन यह पूर्ण Excel गणना इंजन नहीं है। दस्तावेज़ित फ़ंक्शन सेट नीचे दिए गए फ़ंक्शन्स तक सीमित है। यह मान कर न चलें कि कोई भी मनचाहा Excel फ़ंक्शन [CalculateFormulas](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) द्वारा पुनर्गणित किया जा सकता है।
+
+| फ़ंक्शन | उद्देश्य या समर्थित रूप | उदाहरण |
+|---|---|---|
+| `ABS` | पूर्ण मान | `ABS(A2)` |
+| `AVERAGE` | औसत | `AVERAGE(B2:B5)` |
+| `CEILING` | संख्या को ऊपर की ओर निकटतम गुणज तक राउंड | `CEILING(A2,5)` |
+| `CHOOSE` | सूचकांक द्वारा मान चुनें | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | टेक्स्ट मानों को जोड़ें | `CONCAT(A2,B2)` |
+| `CONCATENATE` | टेक्स्ट मानों को जोड़ें | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 तारीख प्रणाली का उपयोग कर तिथि मान बनाएं | `DATE(2026,8,19)` |
+| `DAYS` | दो तिथियों के बीच दिनों की संख्या | `DAYS(B2,A2)` |
+| `FIND` | एक टेक्स्ट को दूसरे में खोजें | `FIND("-",A2)` |
+| `FINDB` | बाइट‑ओरिएंटेड टेक्स्ट सर्च | `FINDB("a",A2)` |
+| `IF` | शर्तीय परिणाम | `IF(A2>0,A2,0)` |
+| `INDEX` | रेफ़रेंस रूप | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | वेक्टर रूप | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | वेक्टर रूप | `MATCH(A2,B2:B5,0)` |
+| `MAX` | अधिकतम मान | `MAX(B2:B5)` |
+| `SUM` | योग | `SUM(B2:B5)` |
+| `VLOOKUP` | वर्टिकल लुकअप | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+टेबल में दिखाए प्रतिबंध महत्वपूर्ण हैं: `INDEX` रेफ़रेंस रूप में दस्तावेज़ित है, जबकि `LOOKUP` और `MATCH` अपने वेक्टर रूप में हैं। `DATE` 1900 प्रणाली का उपयोग करता है। यहाँ न सूचीबद्ध फीचर्स और फ़ंक्शन Aspose.Slides फ़ॉर्मूला इवैल्यूएटर द्वारा असमर्थित माने जाएंगे, जब तक कि वे अलग से दस्तावेज़ित न हों।
+
+## **पसंदीदा संस्कृति के साथ फ़ॉर्मूले गणना करें**
+
+कुछ चार्ट वर्कबुक फ़ंक्शन टेक्स्ट को संस्कृति‑विशिष्ट नियमों के अनुसार व्याख्या करते हैं। यह विशेष रूप से उन फ़ंक्शनों के लिये महत्वपूर्ण है जो डबल‑बाइट कैरेक्टर सेट (DBCS) वाले भाषाओं के लिये होते हैं। ऐसे फ़ॉर्मूले सही ढंग से गणना करने के लिये, [LoadOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/) बनाएं, [LoadOptions.SpreadsheetOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/spreadsheetoptions/) के माध्यम से [ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/hi/net/aspose.slides/ispreadsheetoptions/preferredculture/) सेट करें, और फिर प्रेज़ेंटेशन लोड करें।
+
+निम्न उदाहरण जापानी संस्कृति चुनता है, कॉन्फ़िगर्ड लोड ऑप्शन्स के साथ प्रेज़ेंटेशन खोलता है, और प्रत्येक चार्ट वर्कबुक के लिये [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करता है:
+
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
+
+पसंदीदा संस्कृति प्रेज़ेंटेशन लोडिंग कॉन्फ़िगरेशन का हिस्सा है, इसलिए इसे [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) इंस्टेंस बनाने से पहले निर्दिष्ट करें। वर्कबुक फ़ॉर्मूले द्वारा अपेक्षित संस्कृति का उपयोग करें; उदाहरण के लिये, जापानी DBCS गणना नियमों के लिये `ja-JP` उपयोग करें।
+
+## **पुनर्गणना और कैश्ड वैल्यूज़**
+
+स्प्रेडशीट फ़ाइलें सामान्यतः फ़ॉर्मूला और उसके अंतिम गणना किए गए मान दोनों को संग्रहीत करती हैं। Aspose.Slides इसलिए [IChartDataCell.Value](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/value/) से कैश्ड वैल्यू पढ़ सकता है, जब प्रेज़ेंटेशन लोड किया जाता है और सम्बंधित चार्ट डेटा में कोई बदलाव नहीं हुआ है।
+
+इनपुट सेल्स या फ़ॉर्मूले बदलने के बाद, पुराने कैश्ड परिणाम पर भरोसा न करें। गणना किए गए मान पढ़ने या उन पर निर्भर चार्ट डेटा सहेजने से पहले [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करें।
+
+समर्थित उपसमुच्चय के बाहर के फ़ॉर्मूले के लिये, Aspose.Slides को फ़ॉर्मूला पार्स करने या उसकी निर्भरताओं को स्थापित करने में असमर्थता हो सकती है। यदि वर्कबुक बदल दिया गया है, तो पूर्व कैश्ड मान अब भरोसेमंद नहीं माना जा सकता। ऐसे में असमर्थित डेटा वाले सेल के मान को पढ़ने से [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellunsupporteddataexception/) उठाया जा सकता है।
+
+यदि आपका चार्ट उन Excel फ़ंक्शन्स पर निर्भर है जिन्हें Aspose.Slides मूल्यांकन नहीं करता, तो उन फ़ॉर्मूलों को किसी ऐसे स्प्रेडशीट इंजन से गणना करें जो उनका समर्थन करता हो और उत्पन्न मानों को चार्ट वर्कबुक में लिखें। असमर्थित फ़ॉर्मूले को अनुमानित मानों से न बदलें।
+
+## **फ़ॉर्मूला त्रुटियों को संभालें**
+
+दो प्रकार की समस्याओं को अलग‑अलग पहचानना आवश्यक है।
+
+एक फ़ॉर्मूला वैध हो सकता है लेकिन स्प्रेडशीट त्रुटि परिणाम जैसे `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, या `#VALUE!` दे सकता है। इस मामले में, त्रुटि टोकन सेल परिणाम है और `Value` के माध्यम से लौटाया जा सकता है।
+
+एक फ़ॉर्मूला पार्सिंग, रेफ़रेंस, निर्भरता, या समर्थित‑डेटा स्तर पर भी विफल हो सकता है। Aspose.Slides इन मामलों के लिये स्प्रेडशीट‑विशिष्ट एक्सेप्शन प्रदान करता है: [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellcircularreferenceexception/), और [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)।
+
+जब फ़ॉर्मूले टेम्प्लेट या उपयोगकर्ता इनपुट से आते हैं, तो पुनर्गणना और वैल्यू एक्सेस के चारों ओर इन एक्सेप्शन को हैंडल करें:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Spreadsheet;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "SUM(B2:B5)";
+
+try
+{
+    workbook.CalculateFormulas();
+    Console.WriteLine(cell.Value);
+}
+catch (CellInvalidFormulaException ex)
+{
+    Console.Error.WriteLine($"Invalid formula: {ex.Message}");
+}
+catch (CellInvalidReferenceException ex)
+{
+    Console.Error.WriteLine($"Invalid cell reference: {ex.Message}");
+}
+catch (CellCircularReferenceException ex)
+{
+    Console.Error.WriteLine($"Circular reference: {ex.Message}");
+}
+catch (CellUnsupportedDataException ex)
+{
+    Console.Error.WriteLine($"Unsupported spreadsheet data: {ex.Message}");
+}
+```
+
+## **व्यावहारिक सीमाएँ**
+
+चार्ट वर्कशीट में फ़ॉर्मूला समर्थन एक परिभाषित उपसमुच्चय के लिये है, न कि पूर्ण Excel संगतता के लिये। रिपोर्टिंग कार्यप्रवाह डिजाइन करते समय इन प्रतिबंधों को याद रखें:
+
+- जब आप Aspose.Slides को फ़ॉर्मूले पुनर्गणना करवाना चाहते हैं, केवल दस्तावेज़ित कॉन्स्टेंट्स, ऑपरेटर्स, रेफ़रेंसेस और फ़ंक्शन्स का उपयोग करें।
+- उन सेल्स को बदलने के बाद पुनर्गणना करें जिनपर फ़ॉर्मूला परिणाम निर्भर करता है।
+- लोड किए गए प्रेज़ेंटेशनों से प्राप्त कैश्ड मानों को स्नैपशॉट मानें, संशोधनों के बाद पुनर्गणना के विकल्प के रूप में न लें।
+- मौजूदा टेम्प्लेट्स के फ़ॉर्मूले को उनके गणना किए गए मानों पर भरोसा करने से पहले परीक्षण करें, विशेषकर जब वे दस्तावेज़ित सूची से बाहर के फ़ंक्शन्स का उपयोग करते हों।
+- उन फ़ॉर्मूलों के लिये जो पूर्ण स्प्रेडशीट गणना इंजन की आवश्यकता रखते हैं, उन्हें बाहरी रूप से गणना करें और फिर चार्ट वर्कबुक को परिणामी मानों से अपडेट करें।
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**`Formula` और `R1C1Formula` में क्या अंतर है?**
+
+[Formula](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/formula/) A1‑स्टाइल अभिव्यक्ति जैसे `B2-C2` को संग्रहीत करता है। [R1C1Formula](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/r1c1formula/) R1C1‑स्टाइल अभिव्यक्ति जैसे `RC[-2]-RC[-1]` को संग्रहीत करता है। वह नोटेशन प्रयोग करें जो आपके फ़ॉर्मूले उत्पन्न या कॉपी करने के तरीके से मेल खाता हो।
+
+**गणना के बाद क्या मुझे सेल स्वयं पढ़ना चाहिए या उसका मान?**
+
+[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/getcell/) एक `IChartDataCell` लौटाता है। पुनर्गणना के बाद उस सेल की [Value](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdatacell/value/) प्रॉपर्टी को पढ़कर गणना किया गया परिणाम प्राप्त करें।
+
+**`CalculateFormulas` को कब कॉल करना चाहिए?**
+
+इनपुट मानों या फ़ॉर्मूलों को बदलने के बाद और गणना किए गए परिणामों पर निर्भर होने से पहले [CalculateFormulas](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करें। यह बिल्ट‑इन इवैल्यूएटर द्वारा समर्थित फ़ॉर्मूलों के मानों को अपडेट करता है।
+
+**क्या Aspose.Slides हर Excel फ़ंक्शन को समर्थन देता है?**
+
+नहीं। बिल्ट‑इन इवैल्यूएटर दस्तावेज़ित फ़ंक्शनों के उपसमुच्चय को समर्थन देता है। उस उपसमुच्चय के बाहर के फ़ंक्शन यह मान कर न चलें कि वे सही ढंग से पुनर्गणित होंगे। अगर पूर्ण Excel फ़ॉर्मूला संगतता आवश्यक है, तो गणना को उपयुक्त स्प्रेडशीट इंजन से करें और अंतिम मानों को चार्ट वर्कबुक में लिखें।
+
+**यदि लोड किए गए प्रेज़ेंटेशन में असमर्थित फ़ॉर्मूला हो तो क्या होता है?**
+
+यदि चार्ट डेटा नहीं बदला है, तो वर्कबुक में पहले से गणना किया गया कैश्ड मान मौजूद रह सकता है। संबंधित डेटा बदलने के बाद वह कैश्ड मान अब मान्य नहीं रह सकता। ऐसा फ़ॉर्मूला वाला सेल एक्सेस करने से [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellunsupporteddataexception/) उठ सकता है।
+
+**क्या फ़ॉर्मूला एरर वैल्यूज़ .NET एक्सेप्शन के समान हैं?**
+
+नहीं। `#DIV/0!` जैसी परिणाम एक वैध फ़ॉर्मूला द्वारा उत्पन्न स्प्रेडशीट वैल्यू है। इसके विपरीत, [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) या [CellCircularReferenceException](https://reference.aspose.com/slides/hi/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) जैसे एक्सेप्शन दर्शाते हैं कि फ़ॉर्मूला सामान्य रूप से प्रोसेस नहीं हो सका।
+
+**क्या फ़ॉर्मूले वाले सेल बदलने पर चार्ट स्वतः अपडेट होता है?**
+
+चार्ट सीरीज़ वर्कबुक सेल्स को संदर्भित कर सकती है। पहले वर्कबुक को पुनर्गणना करें, फिर प्रेज़ेंटेशन सहेजें या रेंडर करें। यदि चार्ट डेटा पॉइंट्स गणना किए गए सेल्स को संदर्भित करते हैं, तो चार्ट उन अपडेटेड मानों का उपयोग करेगा; इस कार्यप्रवाह के लिये कोई अलग चार्ट‑रिफ्रेश मेथड आवश्यक नहीं है।
+
+**क्या चार्ट बाहरी Excel वर्कबुक का उपयोग कर सकते हैं?**
+
+हाँ, चार्ट डेटा को चार्ट डेटा API के माध्यम से बाहरी वर्कबुक से कॉन्फ़िगर किया जा सकता है। हालांकि, इस लेख में वर्णित फ़ॉर्मूला गणना कार्यप्रवाह केवल चार्ट डेटा वर्कबुक और Aspose.Slides द्वारा मूल्यांकन किए जाने वाले फ़ॉर्मूला उपसमुच्चय से सम्बंधित है। यह मान कर न चलें कि [CalculateFormulas](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) बाहरी XLSX फ़ाइल में मनचाहे फ़ॉर्मूलों की पूर्ण पुनर्गणना करता है।
+
+**क्या मैं ऐसे फ़ॉर्मूले उपयोग कर सकता हूँ जो किसी अन्य वर्कशीट या वर्कबुक को संदर्भित करते हैं?**
+
+Excel‑स्टाइल रेफ़रेंसेस चार्ट वर्कबुक में मौजूद हो सकते हैं, लेकिन फ़ॉर्मूला मूल्यांकन समर्थित पार्सर और फ़ंक्शन सेट से सीमित है। यदि क्रॉस‑शीट या बाहरी रेफ़रेंस आवश्यक है, तो अपने लक्ष्य Aspose.Slides संस्करण के साथ सटीक फ़ॉर्मूला को सत्यापित करें। व्यापक Excel रेफ़रेंस संगतता की आवश्यकता वाले कार्यप्रवाहों के लिये, वर्कबुक को बाहरी रूप से गणना करें और हल किए गए मानों को वापस चार्ट डेटा में लिखें।
+
+**क्या फ़ॉर्मूला स्ट्रिंग्स को `=` से शुरू होना चाहिए?**
+
+Aspose.Slides API उदाहरण `B2-C2` या `SUM(B2:B5)` जैसी अभिव्यक्तियों को बिना अग्रणी `=` के असाइन करते हैं। इस रूप का उपयोग करने से उत्पन्न फ़ॉर्मूले दस्तावेज़ित API उदाहरणों के साथ संगत रहते हैं।

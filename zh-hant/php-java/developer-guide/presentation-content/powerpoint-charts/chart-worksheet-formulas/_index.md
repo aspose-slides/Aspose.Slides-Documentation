@@ -1,5 +1,5 @@
 ---
-title: 在簡報中使用 PHP 套用圖表工作表公式
+title: 在 PHP 簡報中套用圖表工作表公式
 linktitle: 工作表公式
 type: docs
 weight: 70
@@ -10,12 +10,16 @@ keywords:
 - 圖表公式
 - 工作表公式
 - 試算表公式
-- 資料來源
+- 圖表資料工作簿
+- 公式計算
+- 首選語系
+- 語系特定公式
+- DBCS
 - 邏輯常數
 - 數值常數
 - 字串常數
 - 錯誤常數
-- 算術常數
+- 算術運算子
 - 比較運算子
 - A1 風格
 - R1C1 風格
@@ -24,226 +28,386 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "在 Aspose.Slides for PHP 中透過 Java 圖表工作表套用 Excel 風格公式，並自動化 PPT 與 PPTX 檔案的報表。"
+description: "在 Aspose.Slides for PHP via Java 的圖表工作表中套用 Excel 風格公式，重新計算數值，並在 PowerPoint 圖表中使用結果。"
 ---
-## **概述**
+## **概觀**
 
-圖表工作表是簡報中圖表的資料來源。它儲存類別與系列名稱以及圖表顯示的數值。在 Aspose.Slides 中，這個工作表可透過圖表資料工作簿取得，讓您以程式方式處理圖表資料。
+PowerPoint 圖表通常將其來源資料儲存在嵌入式工作表中。於 Aspose.Slides for PHP via Java，您可以透過圖表資料工作簿存取該工作表、寫入輸入值、為儲存格指派公式、計算支援的公式，並使用計算後的儲存格作為圖表資料。
 
-本文說明如何在圖表資料中使用工作表公式，使儲存格值能自動計算與更新，而不必手動輸入。內容包括指派公式、使用 A1 風格與 R1C1 風格參照、重新計算工作簿公式，以及在簡報中的圖表工作表可使用的常數、運算子、儲存格參照與預定義函式。
+本文說明完整的公式工作流程：建立圖表、填充其工作表、指派 A1 風格或 R1C1 風格的公式、重新計算、讀取計算值、將這些儲存格連接到圖表序列，最後儲存簡報。亦說明支援的公式語法、內建函式子集、快取值、未支援的公式以及試算表特定錯誤。
 
-## **關於簡報中的圖表試算表公式**
-**圖表試算表**（或圖表工作表）在簡報中是圖表的資料來源。圖表試算表包含資料，這些資料會以圖形方式顯示在圖表上。當您在 PowerPoint 中建立圖表時，會自動建立與該圖表關聯的工作表。圖表工作表會為所有圖表類型建立：折線圖、長條圖、旭日圖、圓餅圖等。要在 PowerPoint 中看到圖表試算表，只需雙擊圖表：
+## **圖表工作表與公式**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+圖表工作表包含圖表使用的類別、序列名稱與數值。在 PowerPoint 中，您可以開啟圖表資料編輯器檢視工作表：
 
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-圖表試算表包含圖表元素的名稱（類別名稱：*Category1*、系列名稱）以及對應於這些類別與系列的數值資料表。預設情況下，建立新圖表時，圖表試算表資料會以預設資料填入。之後您可以手動變更試算表資料。
+在 Aspose.Slides 中，工作表透過 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/) 類別公開。對於 A1 風格公式使用 [ChartDataCell::setFormula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula)，對於 R1C1 風格公式使用 [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setR1C1Formula)。在變更輸入儲存格或公式後，呼叫 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 重新計算支援的公式並更新相應的儲存格值。
 
-通常圖表會呈現複雜資料（例如財務分析師、科學分析師），其中的儲存格是由其他儲存格的值或其他動態資料計算而得。若手動計算儲存格值並硬編碼，未來變更將變得困難。若變更某個儲存格的值，所有依賴它的儲存格都必須同時更新。此外，表格資料可能依賴其他表格的資料，形成複雜的簡報資料結構，需要以簡易且彈性的方式更新。
+計算後的儲存格仍透過 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#getValue) 取得結果。當您需要在程式碼中檢查公式結果或將儲存格作為圖表資料點時，這點非常重要。
 
-**圖表試算表公式** 在簡報中是一個自動計算與更新圖表試算表資料的表達式。公式為特定儲存格或儲存格集合定義資料計算邏輯。公式可能是數學或邏輯公式，使用：儲存格參照、數學函式、邏輯運算子、算術運算子、轉換函式、字串常數等。公式的定義寫入儲存格，該儲存格不再僅含單一值。公式計算出結果並回傳，然後將結果指派給儲存格。簡報中的圖表試算表公式實際上與 Excel 公式相同，支援相同的預設函式、運算子與常數。
+## **建立圖表並計算工作表公式**
 
-在 [**Aspose.Slides**](https://products.aspose.com/slides/zh-hant/php-java/) 中，圖表試算表由
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/#getChartDataWorkbook) 方法表示於
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/) 型別。
-可使用
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula) 方法指派與變更試算表公式。Aspose.Slides 支援的公式功能包括：
-
-- 邏輯常數
-- 數值常數
-- 字串常數
-- 錯誤常數
-- 算術運算子
-- 比較運算子
-- A1 風格儲存格參照
-- R1C1 風格儲存格參照
-- 預定義函式
-
-
-通常試算表會儲存最後計算的公式值。若簡報載入後圖表資料未變更，則 [**ChartDataCell::getValue**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#getValue) 會回傳這些值。但若試算表資料已變更，在讀取值時會拋出 [**CellUnsupportedDataException**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/CellUnsupportedDataException) 以表示公式不支援。這是因為當公式成功解析時，會確定儲存格之間的相依性並驗證最後值的正確性；若公式無法解析，則無法保證儲存格值的正確性。
-
-## **在簡報中新增圖表試算表公式**
-首先，使用 [ShapeCollection::addChart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/#addChart) 在新簡報的第一張投影片上新增圖表。圖表的工作表會自動建立，可透過
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/#getChartDataWorkbook) 方法存取：
+下列範例示範端對端工作流程。它建立群組柱狀圖、清除範例資料、寫入季度收入與支出值、使用公式計算利潤、讀取結果、將計算後的儲存格作為圖表值，最後儲存簡報。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 350);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $workbook->clear($worksheetIndex);
+
+    $category1 = $workbook->getCell($worksheetIndex, "A2", "Q1");
+    $category2 = $workbook->getCell($worksheetIndex, "A3", "Q2");
+    $category3 = $workbook->getCell($worksheetIndex, "A4", "Q3");
+
+    $workbook->getCell($worksheetIndex, "B1", "Revenue");
+    $workbook->getCell($worksheetIndex, "C1", "Expenses");
+    $workbook->getCell($worksheetIndex, "D1", "Profit");
+
+    $workbook->getCell($worksheetIndex, "B2")->setValue(120.0);
+    $workbook->getCell($worksheetIndex, "C2")->setValue(80.0);
+    $workbook->getCell($worksheetIndex, "B3")->setValue(150.0);
+    $workbook->getCell($worksheetIndex, "C3")->setValue(95.0);
+    $workbook->getCell($worksheetIndex, "B4")->setValue(135.0);
+    $workbook->getCell($worksheetIndex, "C4")->setValue(110.0);
+
+    $profit1 = $workbook->getCell($worksheetIndex, "D2");
+    $profit2 = $workbook->getCell($worksheetIndex, "D3");
+    $profit3 = $workbook->getCell($worksheetIndex, "D4");
+
+    $profit1->setFormula("B2-C2");
+    $profit2->setFormula("B3-C3");
+    $profit3->setFormula("B4-C4");
+
+    $workbook->calculateFormulas();
+
+    $q1Profit = java_values($profit1->getValue()); // 40
+    $q2Profit = java_values($profit2->getValue()); // 55
+    $q3Profit = java_values($profit3->getValue()); // 25
+
+    echo "Q1 profit: " . $q1Profit . PHP_EOL;
+    echo "Q2 profit: " . $q2Profit . PHP_EOL;
+    echo "Q3 profit: " . $q3Profit . PHP_EOL;
+
+    $chart->getChartData()->getCategories()->add($category1);
+    $chart->getChartData()->getCategories()->add($category2);
+    $chart->getChartData()->getCategories()->add($category3);
+
+    $profitSeries = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, "D1"), $chart->getType());
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit1);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit2);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit3);
+    $profitSeries->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("chart-formulas.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+圖表資料點參照 `D2:D4`，因此圖表使用計算出的利潤值。此工作流程中沒有單獨的圖表重新整理呼叫：先重新計算工作簿，然後使用或儲存指向計算儲存格的圖表資料。
+
+## **使用 A1 風格公式**
+
+A1 表記法以字母識別欄、以數字識別列。透過 [ChartDataCell::setFormula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula) 指派 A1 風格的運算式。
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "C3")->setValue(10);
+    $workbook->getCell(0, "F2")->setValue(2);
+    $workbook->getCell(0, "G2")->setValue(3);
+    $workbook->getCell(0, "H2")->setValue(4);
+
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("C3+SUM(F2:H2)");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 19
+} finally {
+    $presentation->dispose();
+}
+```
+
+常見的 A1 參照形式如下：
+
+| 參照 | 相對 | 絕對 | 混合 |
+|---|---|---|---|
+| 儲存格 | `A2` | `$A$2` | `A$2`, `$A2` |
+| 列 | `2:2` | `$2:$2` | — |
+| 欄 | `A:A` | `$A:$A` | — |
+| 範圍 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+相對參照在公式被移動或複製時會變更。絕對參照會將兩個座標固定，混合參照則僅固定列或欄。
+
+## **使用 R1C1 風格公式**
+
+R1C1 表記法以數字識別列與欄。相對參照使用方括號內的位移。透過 [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 指派此語法。
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "B2")->setValue(12);
+    $workbook->getCell(0, "C2")->setValue(5);
+
+    $cell = $workbook->getCell(0, "D2");
+    $cell->setR1C1Formula("RC[-2]-RC[-1]");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 7
+} finally {
+    $presentation->dispose();
+}
+```
+
+常見的 R1C1 參照形式如下：
+
+| 參照 | 相對 | 絕對 | 混合 |
+|---|---|---|---|
+| 儲存格 | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| 列 | `R[2]` | `R2` | — |
+| 欄 | `C[3]` | `C3` | — |
+| 範圍 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+例如，在儲存格 `D2` 中，`RC[-2]` 表示同列左移兩欄的儲存格 (`B2`)。
+
+## **公式常數與運算子**
+
+內建公式評估器支援邏輯值、數值常數、字串、試算表錯誤值、算術運算子與比較運算子。
+
+### **常數與字面值**
+
+| 類型 | 範例 | 備註 |
+|---|---|---|
+| 邏輯 | `TRUE`, `FALSE` | 可直接用於邏輯運算式，如 `A2=TRUE`。 |
+| 數值 | `1`, `0.5`, `.3`, `1E-2` | 支援一般與科學記號。 |
+| 字串 | `"abc"`, `"2/3/2020 12:00"` | 文字字面值需以雙引號包住於公式中。 |
+| 錯誤結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可能評估為試算表錯誤值，而非正常結果。 |
+
+此範例使用了多種常數類型：
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "A2")->setValue(false);
+    $workbook->getCell(0, "B2")->setFormula("A2=TRUE");
+    $workbook->getCell(0, "C2")->setFormula("1+0.5");
+    $workbook->getCell(0, "D2")->setFormula(".3*1E-2");
+    $workbook->getCell(0, "E2")->setFormula("\"abc\"");
+    $workbook->getCell(0, "F2")->setFormula("2/0");
+
+    $workbook->calculateFormulas();
+
+    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // false
+    $numericValue = java_values($workbook->getCell(0, "C2")->getValue()); // 1.5
+    $scientificValue = java_values($workbook->getCell(0, "D2")->getValue()); // 0.003
+    $stringValue = java_values($workbook->getCell(0, "E2")->getValue()); // abc
+    $errorValue = java_values($workbook->getCell(0, "F2")->getValue()); // #DIV/0!
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **算術運算子**
+
+| 運算子 | 說明 | 範例 |
+|---|---|---|
+| `+` | 加法或單元正號 | `2+3` |
+| `-` | 減法或負號 | `2-3`, `-3` |
+| `*` | 乘法 | `2*3` |
+| `/` | 除法 | `2/3` |
+| `%` | 百分比 | `30%` |
+| `^` | 指數 | `2^3` |
+
+使用括號明確指定運算順序，例如 `(A2+B2)*C2`。
+
+### **比較運算子**
+
+比較運算式傳回邏輯值。
+
+| 運算子 | 說明 | 範例 |
+|---|---|---|
+| `=` | 等於 | `A2=3` |
+| `<>` | 不等於 | `A2<>3` |
+| `>` | 大於 | `A2>3` |
+| `>=` | 大於或等於 | `A2>=3` |
+| `<` | 小於 | `A2<3` |
+| `<=` | 小於或等於 | `A2<=3` |
+
+## **支援的預定義函式**
+
+Aspose.Slides 內建的公式評估器僅支援以下函式，並非完整的 Excel 計算引擎。請勿假設任意 Excel 函式皆能被 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 重新計算。
+
+| 函式 | 目的或支援形式 | 範例 |
+|---|---|---|
+| `ABS` | 絕對值 | `ABS(A2)` |
+| `AVERAGE` | 算術平均值 | `AVERAGE(B2:B5)` |
+| `CEILING` | 向上取整至倍數 | `CEILING(A2,5)` |
+| `CHOOSE` | 依索引選取值 | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | 連接文字值 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | 連接文字值 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 以 1900 日期系統建立日期值 | `DATE(2026,8,19)` |
+| `DAYS` | 返迴兩個日期之間的天數 | `DAYS(B2,A2)` |
+| `FIND` | 在文字中尋找另一文字 | `FIND("-",A2)` |
+| `FINDB` | 位元組導向的文字搜尋 | `FINDB("a",A2)` |
+| `IF` | 條件結果 | `IF(A2>0,A2,0)` |
+| `INDEX` | 參照形式 | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | 向量形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | 向量形式 | `MATCH(A2,B2:B5,0)` |
+| `MAX` | 最大值 | `MAX(B2:B5)` |
+| `SUM` | 加總 | `SUM(B2:B5)` |
+| `VLOOKUP` | 垂直搜尋 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+表格中顯示的限制相當重要：`INDEX` 以參照形式記錄，而 `LOOKUP` 與 `MATCH` 以向量形式記錄。`DATE` 使用 1900 日期系統。未列於此處的功能與函式應視為 Aspose.Slides 公式評估器不支援，除非另有文件說明。
+
+## **以首選語系計算公式**
+
+某些工作簿函式會依語系規則解讀文字，特別是針對使用雙位元組字元集 (DBCS) 的語言。若要正確計算此類公式，請建立 [LoadOptions](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/loadoptions/)，使用 [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture) 設定首選語系，透過 [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions) 指派試算表選項，然後載入簡報。
+
+以下範例選取日語語系，使用設定好的載入選項開啟簡報，並對每個圖表工作簿呼叫 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)：
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-讓我們使用 **Object** 型別的 [**ChartDataCell::setValue**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setValue) 方法在儲存格寫入一些值，這表示您可以設定任何值：
+首選語系屬於簡報載入設定的一部份，因此必須在建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 實例之前指定。使用工作簿公式所需的語系，例如對應日本 DBCS 計算規則的 `ja-JP`。
+
+## **重新計算與快取值**
+
+試算表檔案通常同時儲存公式與最後計算的值。Aspose.Slides 因此能在載入簡報且相關圖表資料未變更時，從 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#getValue) 讀取快取值。
+
+在變更輸入儲存格或公式後，請不要依賴舊的快取結果。呼叫 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 後，再讀取計算值或儲存依賴這些值的圖表資料。
+
+對於不在支援子集內的公式，Aspose.Slides 可能無法解析公式或確定其相依性。若工作簿已被修改，先前的快取值不再可靠。此時，讀取包含未支援資料的儲存格可能拋出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellunsupporteddataexception/)。
+
+如果您的圖表依賴於 Aspose.Slides 無法評估的 Excel 函式，請使用支援該函式的試算表引擎先行計算，然後將結果寫回圖表工作簿。不要以猜測值取代未支援的公式。
+
+## **處理公式錯誤**
+
+需要區分兩種不同的問題。
+
+1. 公式本身有效，但產生試算表錯誤結果，如 `#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!`。此時錯誤代碼是儲存格的結果，可透過 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#getValue) 取得。
+
+2. 公式在解析、參照、相依性或支援資料層面失敗。Aspose.Slides 為此提供試算表特定例外： [CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellcircularreferenceexception/)、[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellunsupporteddataexception/)。
+
+在 PHP via Java 中，Java 例外會透過 `JavaException` 轉譯。當公式來源於範本或使用者輸入時，請在重新計算與取得值的程式區塊周圍處理此例外。堆疊追蹤中顯示的 Java 例外會指出具體的試算表失敗原因：
 
 ```php
-  $workbook->getCell(0, "F2")->setValue(-2.5);
-  $workbook->getCell(0, "G3")->setValue(6.3);
-  $workbook->getCell(0, "H4")->setValue(3);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("SUM(B2:B5)");
 
+    try {
+        $workbook->calculateFormulas();
+        echo java_values($cell->getValue()) . PHP_EOL;
+    } catch (JavaException $ex) {
+        $ex->printStackTrace();
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-現在要在儲存格寫入公式，可使用
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula) 方法。
+## **實務限制**
 
-*註*: [**ChartDataCell::setFormula**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula) 方法用於設定 A1 風格儲存格參照。
+圖表工作表的公式支援旨在提供一組已定義的試算表計算子集，而非完整的 Excel 相容性。設計報表工作流程時請留意以下限制：
 
-若要以 R1C1 風格設定公式，可使用 [**ChartDataCell::setR1C1Formula**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 方法。
-
-接著若讀取儲存格 B2 與 C2 的值，會自動計算：
-
-```php
-  $value1 = $cell1->getValue();// 7.8
-
-  $value2 = $cell2->getValue();// 2.1
-
-
-```
-
-## **邏輯常數**
-您可以在儲存格公式中使用 *FALSE* 與 *TRUE* 等邏輯常數：
-
-```php
-  $workbook->getCell(0, "A2")->setValue(false);
-  $cell = $workbook->getCell(0, "B2");
-  $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// 該值包含布林 "false"
-```
-
-## **數值常數**
-可使用一般或科學記號的數字建立圖表試算表公式：
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
-  $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
-
-```
-
-## **字串常數**
-字串（或文字）常數是指直接使用且不會變動的特定值。字串常數可能是：日期、文字、數字等：
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("\"abc\"");
-  $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
-
-```
-
-## **錯誤常數**
-有時公式無法計算出結果，這時會在儲存格中顯示錯誤代碼而非值。每種錯誤都有特定代碼：
-
-- #DIV/0! - 公式嘗試除以零。
-- #GETTING_DATA - 可能在儲存格仍在計算時顯示。
-- #N/A - 資訊遺失或不可用。原因可能包括：公式中使用的儲存格為空、額外的空白字元、拼寫錯誤等。
-- #NAME? - 無法依名稱找到某個儲存格或其他公式物件。
-- #NULL! - 公式中出現錯誤，例如使用 (,) 或以空格取代冒號 (:)。
-- #NUM! - 公式中的數值無效、過長或過短等。
-- #REF! - 無效的儲存格參照。
-- #VALUE! - 值類型不符合預期，例如將字串值放入數值儲存格。
-
-```php
-  $cell = $workbook->getCell(0, "A2");
-  $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// 該值包含字串 "#DIV/0!"
-
-
-```
-
-## **算術運算子**
-您可以在圖表工作表公式中使用所有算術運算子：
-
-|**運算子**|**說明**|**範例**|
-| :- | :- | :- |
-|+ (plus sign)|加法或單項正號|2 + 3|
-|- (minus sign)|減法或負號|2 - 3<br>-3|
-|* (asterisk)|乘法|2 * 3|
-|/ (forward slash)|除法|2 / 3|
-|% (percent sign)|百分比|30%|
-|^ (caret)|次方|2 ^ 3|
-
-*註*: 若要變更計算順序，請將欲先計算的部分以括號括起。
-
-## **比較運算子**
-您可以使用比較運算子比較儲存格的值。使用這些運算子比較兩個值時，結果會是 *TRUE* 或 *FALSE* 的邏輯值：
-
-|**運算子**|**說明**|**說明**|
-| :- | :- | :- |
-|= (equal sign)|等於|A2 = 3|
-|<> (not equal sign)|不等於|A2 <> 3|
-|> (greater than sign)|大於|A2 > 3|
-|>= (greater than or equal to sign)|大於或等於|A2 >= 3|
-|< (less than sign)|小於|A2 < 3|
-|<= (less than or equal to sign)|小於或等於|A2 <= 3|
-
-## **A1 風格儲存格參照**
-**A1 風格儲存格參照** 用於欄位以字母識別（例如 "*A*"）且列以數字識別（例如 "*1*"）的工作表。A1 風格儲存格參照的使用方式如下：
-
-|**儲存格參照**|**範例**|||
-| :- | :- | :- | :- |
-||**絕對**|**相對**|**混合**|
-|儲存格|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|列|$2:$2|2:2|-|
-|欄|$A:$A|A:A|-|
-|範圍|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-以下範例示範如何在公式中使用 A1 風格儲存格參照：
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
-
-```
-
-## **R1C1 風格儲存格參照**
-**R1C1 風格儲存格參照** 用於欄列皆以數字識別的工作表。R1C1 風格儲存格參照的使用方式如下：
-
-|**儲存格參照**|**範例**|||
-| :- | :- | :- | :- |
-||**絕對**|**相對**|**混合**|
-|儲存格|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|列|R2|R[2]|-|
-|欄|C3|C[3]|-|
-|範圍|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-以下範例示範如何在公式中使用 R1C1 風格儲存格參照：
-
-```php
-  $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-## **預定義函式**
-以下是可在公式中使用的預定義函式，可簡化實作。這些函式封裝了最常用的操作，例如：
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+- 僅使用文件化的常數、運算子、參照與函式，才能讓 Aspose.Slides 重新計算公式。
+- 在變更公式結果所依賴的儲存格後，務必重新計算。
+- 將載入簡報時的快取值視為快照，而非編輯後不重新計算的替代方案。
+- 在依賴既有範本的計算結果前，先測試其公式，尤其是使用未列於文件的函式時。
+- 對於需要完整試算表計算引擎的公式，請先於外部計算，再將結果寫回圖表工作簿。
 
 ## **常見問題**
 
-**外部 Excel 檔案是否支援作為包含公式的圖表資料來源？**
+**[ChartDataCell::setFormula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula) 與 [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 有何差異？**
 
-是。Aspose.Slides 支援外部工作簿作為[圖表的資料來源](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatasourcetype/)，讓您可以使用簡報外部的 XLSX 公式。
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setFormula) 會儲存 A1 風格的表達式，例如 `B2-C2`。[ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 會儲存 R1C1 風格的表達式，例如 `RC[-2]-RC[-1]`。請依您產生或複製公式的方式選擇最適合的表記法。
 
-**圖表公式是否可以透過工作表名稱參照同一工作簿內的工作表？**
+**計算後，我需要讀取儲存格本身還是其值？**
 
-是。公式遵循標準的 Excel 參照模型，您可以參照同一工作簿或外部工作簿中的其他工作表。對於外部參照，請使用 Excel 語法包含路徑和工作簿名稱。
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#getCell) 會返回一個 [ChartDataCell](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/)。在重新計算之後，呼叫該儲存格的 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdatacell/#getValue) 以取得計算結果。
+
+**什麼時候應該呼叫 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)？**
+
+在變更輸入值或公式後，且在依賴計算結果之前，請呼叫 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)。這會更新內建評估器支援的公式值。
+
+**Aspose.Slides 是否支援所有 Excel 函式？**
+
+否。內建評估器僅支援文件化的子集。未列於子集的函式不應假設能正確重新計算。若需完整的 Excel 公式相容性，請使用適當的試算表引擎進行計算，並將最終值寫入圖表工作簿。
+
+**如果載入的簡報包含未支援的公式會發生什麼？**
+
+若圖表資料未變更，工作簿可能仍保有先前計算的快取值。相關資料變更後，該快取值可能不再有效。存取無法處理的公式所在的儲存格可能拋出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellunsupporteddataexception/)。
+
+**公式錯誤值等同於 PHP 例外嗎？**
+
+不等同。`#DIV/0!` 之類的結果是由有效計算產生的試算表值。像 [CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellinvalidformulaexception/) 或 [CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cellcircularreferenceexception/) 之類的試算表處理失敗會以 Java 例外形式透過 `JavaException` 轉換至 PHP。
+
+**當公式儲存格變更時，圖表會自動更新嗎？**
+
+圖表序列可以參照工作簿儲存格。先重新計算工作簿，然後儲存或渲染簡報即可。只要圖表資料點參照計算後的儲存格，圖表就會使用更新後的值，無需額外的圖表重新整理方法。
+
+**圖表能使用外部 Excel 工作簿嗎？**
+
+可以，圖表資料可透過圖表資料 API 設定使用外部工作簿。然而，本篇文章描述的公式計算工作流程僅針對圖表工作簿與 Aspose.Slides 評估的公式子集。不要假設 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 會完整重新計算外部 XLSX 檔案中的任意公式。
+
+**我可以使用參照其他工作表或工作簿的公式嗎？**
+
+圖表工作簿中可能出現 Excel 風格的跨表或跨檔案參照，但公式評估受限於支援的解析器與函式集。若跨表或外部參照為必要，請先在目標 Aspose.Slides 版本上驗證該公式。對於需要廣泛 Excel 參照相容性的工作流程，請於外部計算工作簿，然後將解析後的值寫回圖表資料。
+
+**公式字串需要以 `=` 開頭嗎？**
+
+Aspose.Slides API 範例在指派表達式時使用 `B2-C2` 或 `SUM(B2:B5)`，不加前置的 `=`。採用此形式可使產生的公式與文件中的 API 範例保持一致。
