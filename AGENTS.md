@@ -37,6 +37,9 @@ content, front matter, links, resources, and the platform-specific sample valida
 - For all other platforms, use the existing validator under `tools/<platform>/` to compile the
   example. Their documentation checks are compile-only: do not run the example or verify its actual
   results.
+- In the final report, explicitly state for every affected platform whether the code examples were
+  compiled. Include the compilation result when they were compiled, or the reason when compilation
+  was not performed.
 - Do not create ad hoc validation projects or install another product copy.
 
 Do not add build tooling, linters, or CI unless the user explicitly requests it.
