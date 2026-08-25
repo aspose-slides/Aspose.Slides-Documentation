@@ -329,50 +329,9 @@ A custom positive DPI value can be passed instead of a predefined value when a s
 
 Compression is intended for raster images. SVG and metafile content is not reduced by this raster compression workflow. Also remember that lower resolution and deleted cropped regions cannot be recovered from the optimized presentation. Choose a target resolution based on the largest size at which the image will actually be viewed or exported rather than applying the lowest DPI globally.
 
-## **Inspect Image Effects**
+## **Manage Image Transform Effects**
 
-Picture effects are stored on the picture used by the frame. The image transform collection can contain effects such as fixed alpha modulation for transparency and luminance for brightness and contrast. The example below safely reads both kinds of effects from the first picture frame on a slide:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    let pictureFrame = null;
-
-    for (let i = 0; i < slide.getShapes().size(); i++) {
-        const shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-            pictureFrame = shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (let i = 0; i < imageTransform.size(); i++) {
-            const effect = imageTransform.get_Item(i);
-            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-                const transparency = 100 - effect.getAmount();
-                console.log("Transparency: " + transparency);
-            }
-
-            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
-                const luminance = effect.getEffective();
-                console.log("Brightness: " + luminance.getBrightness());
-                console.log("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-These effects change how the image is rendered in the frame; they do not rewrite the original embedded image bytes.
+For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/nodejs-java/image-transform-effects/).
 
 ## **Lock Picture Frame Geometry**
 
