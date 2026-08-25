@@ -210,6 +210,8 @@ try {
 
 The heading follows the major font and the body text follows the minor font. Text that has an explicit font name instead of a theme identifier will not automatically switch when the theme font scheme changes.
 
+The major and minor font collections can also contain font mappings for individual writing systems, such as Cyrillic, Arabic, Japanese, Georgian, and Thaana. To inspect, add, replace, or remove these mappings, see [Script-Specific Theme Fonts](/slides/nodejs-java/script-specific-font-mappings/).
+
 {{% alert color="info" title="Tip" %}}
 
 For more information about presentation fonts, see [PowerPoint Fonts](/slides/nodejs-java/powerpoint-fonts/).

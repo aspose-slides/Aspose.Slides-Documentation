@@ -22,6 +22,8 @@ description: "Embed custom fonts in PowerPoint slides with Aspose.Slides for Pyt
 
 Aspose.Slides for Python lets you provide custom fonts at runtime so presentations render correctly even when the required fonts aren’t installed on the host system. During export to PDF or images, you can supply font folders or in-memory font data to preserve text layout, glyph metrics, and typography. This makes server-side rendering predictable across different environments, removes OS-level font dependencies, and prevents unwanted fallbacks or reflow. The article shows how to register font sources.
 
+A presentation theme can reference different font families for individual writing systems. These mappings store font names but do not install or load the font files. See [Script-Specific Theme Fonts](/slides/python-net/script-specific-font-mappings/) to manage the mappings, and use the loading options below to make the referenced fonts available for consistent rendering.
+
 Aspose.Slides lets you load the following fonts using the `load_external_font` and `load_external_fonts` methods of the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class:
 
 - TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).

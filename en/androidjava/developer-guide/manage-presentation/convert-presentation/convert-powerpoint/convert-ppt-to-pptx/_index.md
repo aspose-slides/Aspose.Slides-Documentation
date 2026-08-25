@@ -92,7 +92,7 @@ For important documents, reopen the generated PPTX programmatically and inspect 
 
 Use PPTX when the presentation will be edited in current PowerPoint versions, exchanged with systems that work with Open XML packages, or stored in a format that is easier to inspect and recover than legacy binary PPT. Keep the original PPT as an archival or rollback copy until the converted presentation has passed your fidelity checks.
 
-If you need PDF, HTML, images, XPS, or another output type instead, use the format-specific guidance in [Convert Presentations to Multiple Formats](/androidjava/convert-presentation/) rather than assuming that all targets preserve editable PowerPoint features.
+If you need PDF, HTML, images, XPS, or another output type instead, use the format-specific guidance in [Convert Presentations to Multiple Formats](/slides/androidjava/convert-presentation/) rather than assuming that all targets preserve editable PowerPoint features.
 
 ## **Online Converter**
 
@@ -100,10 +100,10 @@ For an occasional file or a quick comparison, you can use the [online PPT to PPT
 
 ## **Related Articles**
 
-- [PPT vs PPTX](/androidjava/ppt-vs-pptx/)
-- [Save Presentations on Android](/androidjava/save-presentation/)
-- [Supported File Formats](/androidjava/supported-file-formats/)
-- [Open Presentations on Android](/androidjava/open-presentation/)
+- [PPT vs PPTX](/slides/androidjava/ppt-vs-pptx/)
+- [Save Presentations on Android](/slides/androidjava/save-presentation/)
+- [Supported File Formats](/slides/androidjava/supported-file-formats/)
+- [Open Presentations on Android](/slides/androidjava/open-presentation/)
 
 ## **FAQ**
 

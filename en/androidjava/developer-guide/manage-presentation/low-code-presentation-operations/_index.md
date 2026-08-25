@@ -51,7 +51,7 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/androidjava/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/androidjava/convert-presentation/) for format-specific workflows and options.
+The [Convert](https://reference.aspose.com/slides/androidjava/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/androidjava/convert-presentation/) for format-specific workflows and options.
 
 ## **Merge Presentations**
 
@@ -64,7 +64,7 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/androidjava/merge-presentation/) for those scenarios.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/androidjava/merge-presentation/) for those scenarios.
 
 ## **Iterate Through Presentation Elements**
 
@@ -143,7 +143,7 @@ try {
 }
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/androidjava/slide-master/) and [Embedded Font](/androidjava/embedded-font/).
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/androidjava/slide-master/) and [Embedded Font](/slides/androidjava/embedded-font/).
 
 ## **FAQ**
 
@@ -173,8 +173,8 @@ No. These helpers operate on the loaded [Presentation](https://reference.aspose.
 
 ## **Related Articles**
 
-- [Convert Presentation](/androidjava/convert-presentation/)
-- [Merge Presentations](/androidjava/merge-presentation/)
-- [Slide Master](/androidjava/slide-master/)
-- [Manage Text Box](/androidjava/manage-textbox/)
-- [Embedded Font](/androidjava/embedded-font/)
+- [Convert Presentation](/slides/androidjava/convert-presentation/)
+- [Merge Presentations](/slides/androidjava/merge-presentation/)
+- [Slide Master](/slides/androidjava/slide-master/)
+- [Manage Text Box](/slides/androidjava/manage-textbox/)
+- [Embedded Font](/slides/androidjava/embedded-font/)

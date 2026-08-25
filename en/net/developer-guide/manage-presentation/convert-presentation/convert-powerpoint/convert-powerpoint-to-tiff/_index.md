@@ -56,7 +56,7 @@ The property [BwConversionMode](https://reference.aspose.com/slides/net/aspose.s
 
 {{% alert color="info" title="Note" %}}
 
-[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/bwconversionmode/) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/). See [Control Black-and-White Rendering for Shapes](/net/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/bwconversionmode/) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/). See [Control Black-and-White Rendering for Shapes](/slides/net/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
 
 {{% /alert %}}
 
