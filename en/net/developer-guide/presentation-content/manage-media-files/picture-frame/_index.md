@@ -265,41 +265,9 @@ A custom positive DPI value can be passed instead of an enum value when a specif
 
 Compression is intended for raster images. SVG and metafile content is not reduced by this raster compression workflow. Also remember that lower resolution and deleted cropped regions cannot be recovered from the optimized presentation. Choose a target resolution based on the largest size at which the image will actually be viewed or exported rather than applying the lowest DPI globally.
 
-## **Inspect Image Effects**
+## **Manage Image Transform Effects**
 
-Picture effects are stored on the picture used by the frame. The image transform collection can contain effects such as fixed alpha modulation for transparency and luminance for brightness and contrast. The example below safely reads both kinds of effects from the first picture frame on a slide:
-
-```csharp
-using System;
-using System.Linq;
-using Aspose.Slides;
-using Aspose.Slides.Effects;
-
-using var presentation = new Presentation("sample.pptx");
-var slide = presentation.Slides[0];
-var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
-
-if (pictureFrame != null)
-{
-    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparency = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Transparency: " + transparency);
-        }
-
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            Console.WriteLine("Brightness: " + luminance.Brightness);
-            Console.WriteLine("Contrast: " + luminance.Contrast);
-        }
-    }
-}
-```
-
-These effects change how the image is rendered in the frame; they do not rewrite the original embedded image bytes.
+For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/slides/net/image-transform-effects/).
 
 ## **Lock Picture Frame Geometry**
 
