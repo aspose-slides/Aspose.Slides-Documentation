@@ -57,7 +57,7 @@ The method [setBwConversionMode](https://reference.aspose.com/slides/androidjava
 
 {{% alert color="info" title="Note" %}}
 
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-). See [Control Black-and-White Rendering for Shapes](/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-). See [Control Black-and-White Rendering for Shapes](/slides/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
 
 {{% /alert %}}
 

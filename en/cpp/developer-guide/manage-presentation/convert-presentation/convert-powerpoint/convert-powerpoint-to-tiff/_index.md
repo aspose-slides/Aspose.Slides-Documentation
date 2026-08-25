@@ -60,7 +60,7 @@ The method [set_BwConversionMode](https://reference.aspose.com/slides/cpp/aspose
 
 {{% alert color="info" title="Note" %}}
 
-[TiffOptions::set_BwConversionMode](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/). See [Control Black-and-White Rendering for Shapes](/cpp/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
+[TiffOptions::set_BwConversionMode](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/). See [Control Black-and-White Rendering for Shapes](/slides/cpp/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
 
 {{% /alert %}}
 

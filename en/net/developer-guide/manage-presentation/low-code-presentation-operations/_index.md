@@ -51,7 +51,7 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/net/convert-presentation/) for format-specific workflows and options.
+The [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/net/convert-presentation/) for format-specific workflows and options.
 
 ## **Merge Presentations**
 
@@ -64,7 +64,7 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/net/merge-presentation/) for those scenarios.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/net/merge-presentation/) for those scenarios.
 
 ## **Iterate Through Presentation Elements**
 
@@ -144,7 +144,7 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/net/slide-master/) and [Embedded Font](/net/embedded-font/).
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/net/slide-master/) and [Embedded Font](/slides/net/embedded-font/).
 
 ## **FAQ**
 
@@ -174,8 +174,8 @@ No. These helpers operate on the loaded [Presentation](https://reference.aspose.
 
 ## **Related Articles**
 
-- [Convert Presentation](/net/convert-presentation/)
-- [Merge Presentations](/net/merge-presentation/)
-- [Slide Master](/net/slide-master/)
-- [Manage Text Box](/net/manage-textbox/)
-- [Embedded Font](/net/embedded-font/)
+- [Convert Presentation](/slides/net/convert-presentation/)
+- [Merge Presentations](/slides/net/merge-presentation/)
+- [Slide Master](/slides/net/slide-master/)
+- [Manage Text Box](/slides/net/manage-textbox/)
+- [Embedded Font](/slides/net/embedded-font/)

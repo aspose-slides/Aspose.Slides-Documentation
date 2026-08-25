@@ -62,7 +62,7 @@ for input_path in input_directory.glob("*.ppt"):
         print(f"Failed: {input_path} ({exception})")
 ```
 
-For production workloads, log the complete exception, decide whether an existing output file may be overwritten, and write failed file names to a retry or review queue. Corrupt files, password-protected files opened without the required password, inaccessible paths, and unsupported content can all cause a conversion to fail. See [Password-Protected Presentations](/python-net/password-protected-presentation/) for loading encrypted files.
+For production workloads, log the complete exception, decide whether an existing output file may be overwritten, and write failed file names to a retry or review queue. Corrupt files, password-protected files opened without the required password, inaccessible paths, and unsupported content can all cause a conversion to fail. See [Password-Protected Presentations](/slides/python-net/password-protected-presentation/) for loading encrypted files.
 
 ## **Fidelity and Legacy Features**
 
@@ -76,7 +76,7 @@ For important documents, reopen the generated PPTX programmatically and inspect 
 
 Use PPTX when the presentation will be edited in current PowerPoint versions, exchanged with systems that work with Open XML packages, or stored in a format that is easier to inspect and recover than legacy binary PPT. Keep the original PPT as an archival or rollback copy until the converted presentation has passed your fidelity checks.
 
-If you need PDF, HTML, images, XPS, or another output type instead, use the format-specific guidance in [Convert Presentations to Multiple Formats](/python-net/convert-presentation/) rather than assuming that all targets preserve editable PowerPoint features.
+If you need PDF, HTML, images, XPS, or another output type instead, use the format-specific guidance in [Convert Presentations to Multiple Formats](/slides/python-net/convert-presentation/) rather than assuming that all targets preserve editable PowerPoint features.
 
 ## **Online Converter**
 
@@ -84,10 +84,10 @@ For an occasional file or a quick comparison, you can use the [online PPT to PPT
 
 ## **Related Articles**
 
-- [PPT vs PPTX](/python-net/ppt-vs-pptx/)
-- [Save Presentations in Python](/python-net/save-presentation/)
-- [Supported File Formats](/python-net/supported-file-formats/)
-- [Open Presentations in Python](/python-net/open-presentation/)
+- [PPT vs PPTX](/slides/python-net/ppt-vs-pptx/)
+- [Save Presentations in Python](/slides/python-net/save-presentation/)
+- [Supported File Formats](/slides/python-net/supported-file-formats/)
+- [Open Presentations in Python](/slides/python-net/open-presentation/)
 
 ## **FAQ**
 

@@ -331,7 +331,7 @@ Compression is intended for raster images. SVG and metafile content is not reduc
 
 ## **Manage Image Transform Effects**
 
-For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/nodejs-java/image-transform-effects/).
+For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/slides/nodejs-java/image-transform-effects/).
 
 ## **Lock Picture Frame Geometry**
 

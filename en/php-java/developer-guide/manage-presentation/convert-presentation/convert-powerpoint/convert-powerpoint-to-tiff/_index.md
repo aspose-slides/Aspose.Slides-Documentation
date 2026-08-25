@@ -54,7 +54,7 @@ The method [setBwConversionMode](https://reference.aspose.com/slides/php-java/as
 
 {{% alert color="info" title="Note" %}}
 
-[TiffOptions::setBwConversionMode](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/#setBwConversionMode) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode). See [Control Black-and-White Rendering for Shapes](/php-java/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
+[TiffOptions::setBwConversionMode](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/#setBwConversionMode) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode). See [Control Black-and-White Rendering for Shapes](/slides/php-java/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
 
 {{% /alert %}}
 

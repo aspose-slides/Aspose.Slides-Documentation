@@ -350,7 +350,7 @@ try {
 }
 ```
 
-For more information, see [Compare Presentation Slides](/nodejs-java/compare-slides/).
+For more information, see [Compare Presentation Slides](/slides/nodejs-java/compare-slides/).
 
 ## **Set Slide Master View as the Default View**
 
@@ -372,7 +372,7 @@ try {
 }
 ```
 
-For more view settings, see [Save Presentation](/nodejs-java/save-presentation/).
+For more view settings, see [Save Presentation](/slides/nodejs-java/save-presentation/).
 
 ## **Remove Unused Master Slides**
 

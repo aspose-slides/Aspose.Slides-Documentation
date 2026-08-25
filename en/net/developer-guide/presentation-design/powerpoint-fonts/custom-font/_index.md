@@ -28,7 +28,9 @@ Loaded fonts are used when a presentation is rendered or exported, for example t
 
 Registering custom fonts for rendering is separate from embedding fonts into a PPTX file. If a font must be stored inside the presentation itself, use the font embedding features explicitly.
 
-{{% alert color="info" %}} 
+A presentation theme can reference different font families for individual writing systems. These mappings store font names but do not install or load the font files. See [Script-Specific Theme Fonts](/slides/net/script-specific-font-mappings/) to manage the mappings, and use the loading options below to make the referenced fonts available for consistent rendering.
+
+{{% alert color="info" title="Note" %}}
 
 Aspose Slides allows you to load these fonts using the [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) method:
 

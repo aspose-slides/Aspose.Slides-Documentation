@@ -58,7 +58,7 @@ The method [setBwConversionMode](https://reference.aspose.com/slides/nodejs-java
 
 {{% alert color="info" title="Note" %}}
 
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). See [Control Black-and-White Rendering for Shapes](/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). See [Control Black-and-White Rendering for Shapes](/slides/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
 
 {{% /alert %}}
 

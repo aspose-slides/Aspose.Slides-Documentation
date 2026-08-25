@@ -10,6 +10,9 @@ and unavailable data with conditional branches and non-throwing diagnostic outpu
 In prose, link each mentioned public API class, interface, method, property, and enumeration directly
 to the platform API Reference member page when one exists. Verify the target.
 
+When mentioning a method in prose, omit trailing parentheses from its name, including in link labels:
+write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
+
 ## Shared style
 
 - Keep each statement on one physical line. Simplify long statements with meaningful intermediate values.
