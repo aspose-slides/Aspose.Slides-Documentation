@@ -209,7 +209,7 @@ try {
 }
 ```
 
-The cloned slides are appended to the specified destination section. To preserve several source sections, recreate those sections in the destination and map each source slide to the corresponding destination section.
+The cloned slides are appended to the specified destination section. To preserve several source sections, enumerate [Presentation.getSections](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSections--), retrieve each source section's current slides with [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/java/com.aspose.slides/isection/#getSlidesListOfSection--), recreate the sections in the destination, and clone each returned slide into its corresponding destination section. See [Manage Slide Sections](/slides/java/slide-section/) for a complete section-enumeration example, including empty sections and structural changes.
 
 ## **Merge Multiple Presentations Safely**
 
@@ -264,7 +264,7 @@ Do not assume that two masters or layouts with the same name are visually equiva
 
 ### **Notes and Comments**
 
-Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](https://docs.aspose.com/slides/java/presentation-notes/) and [presentation comments](https://docs.aspose.com/slides/java/presentation-comments/).
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](/slides/java/presentation-notes/) and [presentation comments](/slides/java/presentation-comments/).
 
 If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
 
@@ -278,7 +278,7 @@ Aspose.Slides explicitly tracks automatically cloned masters, but this should no
 
 ### **Embedded Fonts and Font Availability**
 
-Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) and manage embedding explicitly as described in [Embed Fonts in Presentations](https://docs.aspose.com/slides/java/embedded-font/).
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) and manage embedding explicitly as described in [Embed Fonts in Presentations](/slides/java/embedded-font/).
 
 Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
 
@@ -304,19 +304,19 @@ Opening an encrypted source does not automatically apply the same protection to 
 
 ### **Large Presentations and Memory Use**
 
-Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](https://docs.aspose.com/slides/java/manage-blob/) for large-file strategies.
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](/slides/java/manage-blob/) for large-file strategies.
 
 For large files, prefer loading from file paths when possible, dispose each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
 
 ### **Thread Safety**
 
-Do not load, modify, save, or clone the same [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance concurrently from multiple threads. Keep each presentation instance confined to one merge operation. If you parallelize independent jobs, use independent presentation instances and follow the [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/java/multithreading/).
+Do not load, modify, save, or clone the same [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance concurrently from multiple threads. Keep each presentation instance confined to one merge operation. If you parallelize independent jobs, use independent presentation instances and follow the [Aspose.Slides multithreading guidance](/slides/java/multithreading/).
 
 ## **FAQ**
 
 **How do I keep each source presentation's original design?**
 
-Use [`addClone(sourceSlide)`](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
+Use [addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
 
 **How do I make imported slides use the destination theme?**
 
@@ -332,7 +332,7 @@ Yes, but slide content is not automatically redesigned for the destination dimen
 
 **Can I merge PPT, PPTX, and ODP presentations into one file?**
 
-Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](https://docs.aspose.com/slides/java/supported-file-formats/).
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](/slides/java/supported-file-formats/).
 
 **Are source sections preserved automatically?**
 
