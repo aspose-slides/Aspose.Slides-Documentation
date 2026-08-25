@@ -1,489 +1,360 @@
 ---
-title: Quản lý Khung Hình trong Bản Trình Chiếu bằng .NET
-linktitle: Khung Hình
+title: Quản lý khung ảnh trong các bản trình bày bằng .NET
+linktitle: Khung ảnh
 type: docs
 weight: 10
 url: /vi/net/picture-frame/
 keywords:
-- khung hình
-- thêm khung hình
-- tạo khung hình
-- thêm hình ảnh
-- tạo hình ảnh
+- khung ảnh
+- thêm khung ảnh
+- tạo khung ảnh
+- hình ảnh nhúng
+- hình ảnh liên kết
 - trích xuất hình ảnh
 - hình ảnh raster
-- hình ảnh vector
+- hình ảnh SVG
 - cắt hình ảnh
-- vùng đã cắt
-- thuộc tính StretchOff
-- định dạng khung hình
-- thuộc tính khung hình
+- xóa các khu vực đã cắt
+- nén hình ảnh
+- StretchOffset
+- định dạng khung ảnh
 - tỷ lệ tương đối
 - hiệu ứng hình ảnh
-- tỷ lệ khía cạnh
-- độ trong suốt hình ảnh
+- tỷ lệ khung hình
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Thêm khung hình vào các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho .NET. Tinh giản quy trình làm việc và nâng cao thiết kế slide."
+description: "Tạo, định dạng, liên kết, cắt, trích xuất và nén khung ảnh trong bản trình bày với Aspose.Slides cho .NET."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khung hình là một hình dạng chứa một hình ảnh — giống như một bức tranh trong khung.
+Khung ảnh là một hình dạng trên slide hiển thị hình ảnh. Trong Aspose.Slides, tài nguyên hình ảnh và hình dạng hiển thị nó là các đối tượng riêng biệt: một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sở hữu các tài nguyên hình ảnh nhúng thông qua bộ sưu tập [Images](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/images/), trong khi một [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) kiểm soát vị trí, kích thước, định dạng đường viền, xoay, cắt, hiệu ứng ảnh và các cài đặt cấp khung khác.
 
-Bạn có thể thêm hình ảnh vào một slide thông qua khung hình. Bằng cách này, bạn định dạng hình ảnh bằng cách định dạng khung hình.
+Sự tách biệt này hữu ích khi cùng một hình ảnh được hiển thị hơn một lần. Thêm hình ảnh vào bản trình bày một lần, giữ lại đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/), và sử dụng tài nguyên hình ảnh đó khi tạo các khung ảnh.
 
-{{% alert title="Mẹo" color="primary" %}} 
-Aspose cung cấp các bộ chuyển đổi miễn phí — [JPEG sang PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG sang PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt) — cho phép người dùng tạo nhanh các bản trình chiếu từ hình ảnh. 
-{{% /alert %}} 
+Khung ảnh có thể chứa hình ảnh raster như PNG hoặc JPEG và hình ảnh vector SVG. Chúng cũng có thể tham chiếu tới hình ảnh liên kết thay vì lưu trữ byte hình ảnh trong bản trình bày. Lựa chọn này ảnh hưởng đến tính di động, kích thước tệp, khả năng trích xuất và hành vi xuất, vì vậy việc quyết định cách lưu trữ hình ảnh trước khi áp dụng định dạng hoặc tối ưu là cần thiết.
 
-## **Tạo Khung Hình**
+## **Thêm và Định dạng Hình ảnh Nhúng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation). 
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage) bằng cách thêm một hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/net/aspose.slides/iimagecollection) liên kết với đối tượng presentation sẽ được sử dụng để lấp đầy hình dạng.
-4. Xác định độ rộng và chiều cao của hình ảnh.
-5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe) dựa trên độ rộng và chiều cao của hình ảnh thông qua phương thức `AddPictureFrame` được cung cấp bởi đối tượng shape liên kết với slide đã tham chiếu.
-6. Thêm một khung hình (chứa hình ảnh) vào slide.
-7. Ghi bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+Đối với hình ảnh nhúng, thêm dữ liệu hình ảnh vào bản trình bày và tạo khung ảnh bằng [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addpictureframe/). Hình ảnh trở thành một phần của gói bản trình bày, vì vậy bản trình bày vẫn tự chứa khi di chuyển sang máy tính khác.
 
-```c#
- // Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX
- using (Presentation pres = new Presentation())
- {
-     // Lấy slide đầu tiên
-     ISlide slide = pres.Slides[0];
+Ví dụ sau thêm một hình JPEG, tạo khung ở kích thước gốc của hình và áp dụng định dạng đường viền và xoay:
 
-     // Tải một hình ảnh và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu
-     IImage image = Images.FromFile("aspose-logo.jpg");
-     IPPImage ppImage = pres.Images.AddImage(image);
-     image.Dispose();
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Thêm một khung hình với chiều cao và chiều rộng bằng nhau
-     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-     // Áp dụng một số định dạng cho khung hình
-     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-     pictureFrame.LineFormat.Width = 20;
-     pictureFrame.Rotation = 45;
-
-     // Ghi bản trình chiếu ra tệp PPTX
-     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
- }
-```
-
-{{% alert color="warning" %}} 
-Khung hình cho phép bạn nhanh chóng tạo các slide trình chiếu dựa trên hình ảnh. Khi kết hợp khung hình với các tùy chọn lưu của Aspose.Slides, bạn có thể điều khiển các thao tác nhập/xuất để chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Bạn có thể muốn xem các trang này: chuyển đổi [hình ảnh sang JPG](https://products.aspose.com/slides/vi/net/conversion/image-to-jpg/); chuyển đổi [JPG sang hình ảnh](https://products.aspose.com/slides/vi/net/conversion/jpg-to-image/); chuyển đổi [JPG sang PNG](https://products.aspose.com/slides/vi/net/conversion/jpg-to-png/), chuyển đổi [PNG sang JPG](https://products.aspose.com/slides/vi/net/conversion/png-to-jpg/); chuyển đổi [PNG sang SVG](https://products.aspose.com/slides/vi/net/conversion/png-to-svg/), chuyển đổi [SVG sang PNG](https://products.aspose.com/slides/vi/net/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **Tạo Khung Hình với Tỷ Lệ Tương Đối**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation). 
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-4. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage) bằng cách thêm một hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/net/aspose.slides/iimagecollection) liên kết với đối tượng presentation sẽ được sử dụng để lấp đầy hình dạng.
-5. Xác định độ rộng và chiều cao tương đối của hình ảnh trong khung hình.
-6. Ghi bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-```c#
- // Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX
- using (Presentation presentation = new Presentation())
- {
-     // Tải một hình ảnh và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu
-     IImage image = Images.FromFile("aspose-logo.jpg");
-     IPPImage ppImage = presentation.Images.AddImage(image);
-     image.Dispose();
-
-     // Thêm một khung hình vào slide
-     IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-     // Đặt tỷ lệ tương đối cho chiều rộng và chiều cao
-     pictureFrame.RelativeScaleHeight = 0.8f;
-     pictureFrame.RelativeScaleWidth = 1.35f;
-
-     // Lưu bản trình chiếu
-     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
- }
-```
-
-## **Trích Xuất Hình Ảnh Raster từ Khung Hình**
-
-Bạn có thể trích xuất hình ảnh raster từ các đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe) và lưu chúng dưới dạng PNG, JPG và các định dạng khác. Ví dụ mã dưới đây minh họa cách trích xuất một hình ảnh từ tài liệu "sample.pptx" và lưu nó ở định dạng PNG.
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **Trích Xuất Hình Ảnh SVG từ Khung Hình**
-
-Khi một bản trình chiếu chứa đồ họa SVG được đặt bên trong các hình dạng [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/), Aspose.Slides cho .NET cho phép bạn lấy lại các hình ảnh vector gốc với độ chính xác đầy đủ. Bằng việc duyệt bộ sưu tập hình dạng của slide, bạn có thể xác định từng [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/), kiểm tra xem [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) nền có chứa nội dung SVG hay không, sau đó lưu hình ảnh đó vào đĩa hoặc stream ở định dạng SVG gốc.
-
-Ví dụ mã sau minh họa cách trích xuất một hình ảnh SVG từ một khung hình:
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-## **Lấy Độ Trong Suất của Hình Ảnh**
+Khung ảnh kiểm soát hình học hiển thị; thay đổi kích thước khung không làm thay đổi kích thước pixel gốc được lưu trong tài nguyên hình ảnh nhúng. Sự khác biệt này trở nên quan trọng khi cắt hoặc nén hình ảnh sau này.
 
-Aspose.Slides cho phép bạn lấy hiệu ứng trong suốt được áp dụng cho một hình ảnh. Đoạn mã C# này minh họa thao tác:
+## **Sử dụng Tỷ lệ Tương đối**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **Lấy Độ Sáng và Độ Tương Phản của Hình Ảnh**
-
-Aspose.Slides cho phép bạn lấy hiệu ứng độ sáng và độ tương phản được áp dụng cho một hình ảnh. Giao diện [ILuminance](https://reference.aspose.com/slides/vi/net/aspose.slides.effects/iluminance/) đại diện cho hiệu ứng biến đổi này của hình ảnh.
-
-Đoạn mã C# này minh họa cách lấy cài đặt độ sáng và độ tương phản từ một khung hình:
+[IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) cung cấp khả năng tỷ lệ chiều rộng và chiều cao tương đối cho khung. Giá trị `1.0` tương ứng với 100 % kích thước ảnh gốc. Tỷ lệ tương đối hữu ích khi quy trình làm việc cần duy trì mối quan hệ với kích thước ảnh nguồn thay vì tính toán kích thước cuối cùng thủ công.
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
-Tất cả các hiệu ứng được áp dụng cho hình ảnh có thể tìm thấy trong [Aspose.Slides.Effects](https://reference.aspose.com/slides/vi/net/aspose.slides.effects/). 
-{{% /alert %}}
+Tỷ lệ tương đối thay đổi cài đặt tỷ lệ của khung; nó không thực hiện việc lấy mẫu lại hoặc nén hình ảnh nhúng.
 
-## **Định Dạng Khung Hình**
+## **Hình ảnh Nhúng và Liên kết**
 
-Aspose.Slides cung cấp nhiều tùy chọn định dạng có thể áp dụng cho một khung hình. Sử dụng các tùy chọn này, bạn có thể thay đổi khung hình để đáp ứng các yêu cầu cụ thể.
+Một hình ảnh nhúng lưu dữ liệu hình ảnh bên trong bản trình bày và do đó là lựa chọn an toàn nhất cho tính di động và việc hiển thị dự đoán được. Một hình ảnh liên kết lưu đường dẫn vị trí ngoài thông qua liên kết [ISlidesPicture](https://reference.aspose.com/slides/vi/net/aspose.slides/islidespicture/) thay vì nhúng dữ liệu ảnh theo cùng cách.
 
-1. Tạo một thể hiện của lớp [Presentation](http://www.aspose.com/api/net/slides/vi/aspose.slides/) . 
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage) bằng cách thêm một hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/net/aspose.slides/iimagecollection) liên kết với đối tượng presentation sẽ được sử dụng để lấp đầy hình dạng.
-4. Xác định độ rộng và chiều cao của hình ảnh.
-5. Tạo một `PictureFrame` dựa trên độ rộng và chiều cao của hình ảnh thông qua phương thức [AddPictureFrame](http://www.aspose.com/api/net/slides/vi/aspose.slides/ishapecollection/methods/addpictureframe) được cung cấp bởi đối tượng [IShapes](http://www.aspose.com/api/net/slides/vi/aspose.slides/ishapecollection) liên kết với slide đã tham chiếu.
-6. Thêm khung hình (chứa hình ảnh) vào slide.
-7. Đặt màu viền của khung hình.
-8. Đặt độ rộng viền của khung hình.
-9. Xoay khung hình bằng cách đưa cho nó một giá trị dương hoặc âm.
-   * Giá trị dương sẽ xoay hình ảnh theo chiều kim đồng hồ. 
-   * Giá trị âm sẽ xoay hình ảnh ngược chiều kim đồng hồ.
-10. Thêm khung hình (chứa hình ảnh) vào slide.
-11. Ghi bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
+Hình ảnh liên kết có thể giảm lượng dữ liệu hình ảnh lưu trong PPTX, nhưng chúng tạo ra một phụ thuộc bên ngoài. Tệp liên kết phải vẫn có thể truy cập được bởi ứng dụng mở hoặc hiển thị bản trình bày. Nếu đường dẫn thay đổi, tệp bị di chuyển hoặc tài nguyên không khả dụng, hình ảnh liên kết có thể không hiển thị như mong đợi. Đối với các bản trình bày phải được gửi email, lưu trữ hoặc hiển thị trong môi trường cách ly, hình ảnh nhúng thường đáng tin cậy hơn.
 
-```c#
-// Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Lấy slide đầu tiên
-    ISlide slide = presentation.Slides[0];
+### **Thêm hình ảnh Liên kết**
 
-    // Tải một hình ảnh và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Thêm một khung hình với chiều cao và chiều rộng tương đương của hình ảnh
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Áp dụng một số định dạng cho khung hình
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Ghi bản trình chiếu ra tệp PPTX
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}} 
-Aspose gần đây đã phát triển một công cụ [Collage Maker miễn phí](https://products.aspose.app/slides/vi/collage). Nếu bạn cần [ghép JPG/JPEG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG, [tạo lưới ảnh từ các bức ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), bạn có thể sử dụng dịch vụ này. 
-{{% /alert %}}
-
-## **Thêm Hình Ảnh dưới Dạng Liên Kết**
-
-Để tránh kích thước bản trình chiếu quá lớn, bạn có thể thêm hình ảnh (hoặc video) thông qua các liên kết thay vì nhúng tệp trực tiếp vào bản trình chiếu. Đoạn mã C# này cho thấy cách thêm một hình ảnh và video vào một placeholder:
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Cắt Hình Ảnh**
-
-Đoạn mã C# này cho thấy cách cắt một hình ảnh hiện có trên một slide:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // Tạo một đối tượng hình ảnh mới
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Thêm một PictureFrame vào Slide
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // Cắt hình ảnh (giá trị phần trăm)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // Lưu kết quả
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Xóa Các Vùng Đã Cắt của Hình Ảnh**
-
-Nếu bạn muốn xóa các vùng đã cắt của một hình ảnh chứa trong khung, bạn có thể sử dụng phương thức [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Phương thức này trả về hình ảnh đã cắt hoặc hình ảnh gốc nếu không cần cắt.
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Lấy PictureFrame từ slide đầu tiên
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Xóa các vùng đã cắt của hình ảnh PictureFrame và trả về hình ảnh đã cắt
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // Lưu kết quả
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="LƯU Ý" color="warning" %}} 
-Phương thức [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) sẽ thêm hình ảnh đã cắt vào bộ sưu tập hình ảnh của bản trình chiếu. Nếu hình ảnh chỉ được sử dụng trong [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/) đã xử lý, thiết lập này có thể giảm kích thước bản trình chiếu. Ngược lại, số lượng hình ảnh trong bản trình chiếu sẽ tăng.
-
-Phương thức này chuyển đổi các metafile WMF/EMF sang hình ảnh PNG raster trong quá trình cắt. 
-{{% /alert %}}
-
-## **Nén Hình Ảnh**
-
-Bạn có thể nén một hình ảnh trong bản trình chiếu bằng cách sử dụng phương thức [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/compressimage/). Phương thức này nén hình ảnh bằng cách giảm kích thước dựa trên kích thước hình dạng và độ phân giải được chỉ định, với tùy chọn xóa các vùng đã cắt.
-
-Nó điều chỉnh kích thước và độ phân giải của hình ảnh tương tự như tính năng **Picture Format → Compress Pictures → Resolution** của PowerPoint.
-
-Các ví dụ C# sau đây minh họa cách nén một hình ảnh trong bản trình chiếu bằng cách chỉ định độ phân giải mục tiêu và tùy chọn loại bỏ các vùng đã cắt:
+Ví dụ sau tạo một khung ảnh và trỏ tới một tệp ảnh cục bộ. Nó chỉ xử lý việc liên kết ảnh; liên kết video là một quy trình phương tiện riêng và được cố ý không trộn vào ví dụ này.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Nén hình ảnh với độ phân giải mục tiêu 150 DPI (độ phân giải Web) và loại bỏ các vùng đã cắt.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Kiểm tra kết quả của quá trình nén.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Hoặc sử dụng trực tiếp một giá trị DPI tùy chỉnh:
+Sử dụng liên kết khi việc quản lý tệp bên ngoài là có chủ đích. Không sử dụng chúng chỉ để thay thế nén: một PPTX nhỏ với các phụ thuộc ảnh bị hỏng thường ít hữu ích hơn một bản trình bày lớn tự chứa.
+
+## **Trích xuất Hình ảnh từ Khung ảnh**
+
+Trước khi trích xuất hình ảnh từ bản trình bày hiện có, hãy kiểm tra xem hình dạng thực sự là một [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) và nó có chứa hình ảnh nhúng hay không. Các khung ảnh liên kết có thể không chứa byte hình ảnh có thể trích xuất theo cùng cách.
+
+### **Trích xuất Hình ảnh Raster**
+
+API hình ảnh hiện đại sử dụng [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) trực tiếp và không yêu cầu wrapper ảnh hệ thống cũ. Ví dụ sau tìm hình raster nhúng đầu tiên trên một slide và lưu nó dưới dạng PNG:
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // Nén hình ảnh thành 150 DPI (độ phân giải web), loại bỏ các vùng đã cắt.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert title="LƯU Ý" color="warning" %}} 
-Phương thức chuyển đổi hình ảnh sang độ phân giải thấp hơn dựa trên kích thước hình dạng và DPI đã cung cấp. Các khu vực đã cắt cũng có thể được xóa để tối ưu hóa kích thước tệp.  
-Nếu hình ảnh là metafile (WMF/EMF) hoặc SVG, việc nén sẽ không được áp dụng. Ngoài ra, chất lượng JPEG được giữ nguyên hoặc giảm nhẹ tùy theo độ phân giải, tương tự như cách PowerPoint xử lý JPEG độ phân giải cao. 
-{{% /alert %}}
+Lưu qua [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) chuyển đổi hình ảnh đã trích xuất sang định dạng đầu ra đã yêu cầu. Nếu bạn cần byte đã mã hoá được lưu trong bản trình bày thay vì tệp raster đã chuyển đổi, hãy sử dụng dữ liệu nhị phân của tài nguyên ảnh thay thế.
 
-## **Khóa Tỷ Lệ Khung Hình**
+### **Trích xuất Hình ảnh SVG**
 
-Nếu bạn muốn một hình dạng chứa hình ảnh giữ tỷ lệ khung hình ngay cả khi thay đổi kích thước ảnh, bạn có thể sử dụng thuộc tính [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframelock/aspectratiolocked/) để đặt cài đặt *Lock Aspect Ratio*.
+Đối với ảnh SVG, [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) cung cấp một đối tượng [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage/). Điều này cho phép bạn lấy dữ liệu SVG trực tiếp thay vì raster hoá ảnh trước.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```csharp
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // Đặt hình dạng để bảo toàn tỷ lệ khung hình khi thay đổi kích thước
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert title="LƯU Ý" color="warning" %}} 
-Cài đặt *Lock Aspect Ratio* này chỉ bảo tồn tỷ lệ khung hình chứ không phải hình ảnh bên trong. 
-{{% /alert %}}
+Giữ nội dung SVG dưới dạng SVG bảo lưu nguồn vector trong bản trình bày. Các xuất raster như PNG hoặc JPEG buộc phải render nội dung vector thành pixel. Xuất slide dưới dạng PDF hoặc SVG cũng là một thao tác render, vì vậy đồ họa xuất không nên được xem là bản sao byte‑for‑byte của SVG nhúng gốc; hãy sử dụng dữ liệu [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage/) nhúng khi cần tài nguyên vector gốc.
 
-## **Sử Dụng Thuộc Tính StretchOffset**
+## **Cắt Hình ảnh**
 
-Sử dụng các thuộc tính [StretchOffsetLeft](https://reference.aspose.com/slides/vi/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/vi/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/vi/net/aspose.slides/picturefillformat/properties/stretchoffsetright) và [StretchOffsetBottom](https://reference.aspose.com/slides/vi/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) từ giao diện [IPictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat) và lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/picturefillformat), bạn có thể chỉ định một hình chữ nhật lấp đầy.
+Cắt thay đổi phần của hình ảnh hiển thị bên trong khung. Các giá trị cắt trên [IPictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/) là phần trăm của kích thước ảnh nguồn. Cắt không xóa các pixel ẩn khỏi hình ảnh nhúng; nó chỉ thay đổi vùng hiển thị.
 
-Khi xác định việc kéo giãn cho một hình ảnh, một hình chữ nhật nguồn sẽ được tỷ lệ để khớp với hình chữ nhật lấp đầy đã chỉ định. Mỗi cạnh của hình chữ nhật lấp đầy được định nghĩa bằng một phần trăm offset so với cạnh tương ứng của hộp bao quanh hình dạng. Một phần trăm dương chỉ ra việc thu hẹp, trong khi một phần trăm âm chỉ ra việc mở rộng.
+Ví dụ sau tìm một khung ảnh một cách an toàn và áp dụng các giá trị cắt:
 
-1. Tạo một thể hiện của [Presentation](http://www.aspose.com/api/net/slides/vi/aspose.slides/) . 
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Thêm một hình chữ nhật `AutoShape`. 
-4. Tạo một hình ảnh. 
-5. Đặt loại lấp đầy cho hình dạng. 
-6. Đặt chế độ lấp đầy hình ảnh cho hình dạng. 
-7. Thêm một hình ảnh đã đặt để lấp đầy hình dạng. 
-8. Chỉ định offset của hình ảnh từ cạnh tương ứng của hộp bao quanh hình dạng 
-9. Ghi bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX. 
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // Đặt hình ảnh kéo giãn từ mỗi phía trong phần thân hình dạng
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Câu Hỏi Thường Gặp**
+Vì dữ liệu ảnh ẩn vẫn còn, việc cắt có thể được thay đổi sau mà không mất pixel gốc. Nếu kích thước tệp quan trọng hơn tính khả thi việc hoàn tác, các vùng đã cắt có thể được loại bỏ vật lý như mô tả trong phần tiếp theo.
 
-**Làm sao tôi có thể biết những định dạng hình ảnh nào được hỗ trợ cho PictureFrame?**
+## **Xóa Dữ liệu Hình ảnh Đã Cắt**
 
-Aspose.Slides hỗ trợ cả hình ảnh raster (PNG, JPEG, BMP, GIF, v.v.) và hình ảnh vector (ví dụ, SVG) thông qua đối tượng hình ảnh được gán cho một [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/). Danh sách các định dạng được hỗ trợ thường trùng khớp với khả năng của công cụ chuyển đổi slide và hình ảnh.
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) loại bỏ dữ liệu ảnh nằm ngoài hình chữ nhật cắt hiện tại và trả về tài nguyên ảnh kết quả. Điều này có thể giảm kích thước tệp, nhưng là một tối ưu hoá phá hủy: sau khi bản trình bày được lưu, các pixel đã xóa sẽ không còn khả dụng cho thao tác hủy cắt sau này.
 
-**Việc thêm hàng chục hình ảnh lớn sẽ ảnh hưởng như thế nào đến kích thước và hiệu năng của PPTX?**
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Nhúng hình ảnh lớn làm tăng kích thước tệp và sử dụng bộ nhớ; liên kết hình ảnh giúp giảm kích thước bản trình chiếu nhưng yêu cầu các tệp bên ngoài vẫn phải truy cập được. Aspose.Slides cung cấp khả năng thêm hình ảnh bằng liên kết để giảm kích thước tệp.
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-**Làm sao tôi có thể khóa một đối tượng hình ảnh tránh việc di chuyển/đổi kích thước ngoài ý muốn?**
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
+}
+```
 
-Sử dụng [shape locks](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/pictureframelock/) cho một [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/) (ví dụ, vô hiệu hóa di chuyển hoặc thay đổi kích thước). Cơ chế khóa được mô tả cho các hình dạng trong một [bài viết bảo vệ](/slides/vi/net/applying-protection-to-presentation/) riêng và được hỗ trợ cho nhiều loại hình dạng, bao gồm [PictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/pictureframe/).
+Phương thức có thể thêm một tài nguyên ảnh mới vào bản trình bày. Nếu hình ảnh gốc cũng được các khung ảnh khác sử dụng, các khung đó vẫn cần tài nguyên hiện có, vì vậy việc xóa các khu vực đã cắt không nhất thiết giảm tổng số ảnh. Cắt nội dung WMF hoặc EMF bằng phương thức này sẽ raster hoá kết quả cắt thành PNG.
 
-**Độ chính xác vector SVG có được bảo lưu khi xuất bản trình chiếu sang PDF/hình ảnh không?**
+## **Nén Hình ảnh Raster**
 
-Aspose.Slides cho phép trích xuất SVG từ một [PictureFrame] như vector gốc. Khi [xuất sang PDF](/slides/vi/net/convert-powerpoint-to-pdf/) hoặc [định dạng raster](/slides/vi/net/convert-powerpoint-to-png/), kết quả có thể được raster hoá tùy vào cài đặt xuất; thực tế SVG gốc được lưu dưới dạng vector được xác nhận qua hành vi trích xuất.
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/compressimage/) giảm độ phân giải raster so với kích thước hiển thị của ảnh. Nó cũng có thể loại bỏ các khu vực đã cắt trong cùng một thao tác. Phương thức trả về `true` khi ảnh đã được thay đổi kích thước hoặc cắt và `false` khi không cần thay đổi.
+
+Sử dụng giá trị [PicturesCompression](https://reference.aspose.com/slides/vi/net/aspose.slides.export/picturescompression/) đã định nghĩa trước khi độ phân giải mục tiêu chuẩn là đủ:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+Một giá trị DPI dương tùy chỉnh có thể được truyền thay cho giá trị enum khi cần mục tiêu cụ thể.
+
+Nén được thiết kế cho hình ảnh raster. Nội dung SVG và metafile không bị giảm bằng quy trình nén raster này. Cũng nhớ rằng độ phân giải thấp hơn và các vùng đã cắt bị xóa không thể khôi phục từ bản trình bày đã tối ưu. Chọn độ phân giải mục tiêu dựa trên kích thước lớn nhất mà hình ảnh thực sự sẽ được xem hoặc xuất, thay vì áp dụng DPI thấp nhất cho toàn bộ.
+
+## **Quản lý Hiệu ứng Biến đổi Hình ảnh**
+
+Để xem quy trình hoàn chỉnh bao gồm độ sáng, độ tương phản, biến đổi màu, làm mờ, hiệu ứng alpha, chuỗi có thứ tự, kiểm tra, loại bỏ và xác minh vòng lặp, tham khảo [Image Transform Effects](/slides/vi/net/image-transform-effects/).
+
+## **Khóa Hình học Khung ảnh**
+
+Cài đặt [IPictureFrameLock](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframelock/) kiểm soát các thao tác chỉnh sửa bị vô hiệu hoá cho một khung ảnh. Ví dụ, khóa tỷ lệ duy trì tỉ lệ hình dạng khi thay đổi kích thước.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+Khóa áp dụng cho hình dạng khung ảnh. Nó không buộc hình ảnh nguồn phải được lấy mẫu lại hoặc luôn thay đổi tỉ lệ.
+
+## **Điều chỉnh Giá trị StretchOffset**
+
+Khi chế độ lấp đầy ảnh là stretch, các giá trị stretch‑offset trên [IPictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/) xác định hình chữ nhật lấp đầy tương đối với hộp bao của khung ảnh. Phần trăm dương tạo một lề vào từ cạnh, trong khi phần trăm âm tạo một lề ra.
+
+Điều này khác với cắt. Các giá trị cắt chọn phần nào của ảnh nguồn hiển thị; offset stretch thay đổi hình chữ nhật mà ảnh lấp đầy được kéo dãn vào.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+Sử dụng offset stretch để đặt vị trí lấp đầy. Sử dụng thuộc tính cắt khi mục tiêu là ẩn các cạnh của ảnh nguồn.
+
+## **Xem xét Lưu trữ, Kích thước Tệp và Xuất**
+
+Các đánh đổi chính dễ quản lý hơn khi lưu trữ ảnh và định dạng khung ảnh được xử lý riêng rẽ:
+
+- **Hình ảnh nhúng** làm cho bản trình bày tự chứa và là lựa chọn đáng tin cậy nhất cho việc chia sẻ và render phía server, nhưng ảnh raster lớn làm tăng kích thước PPTX và sử dụng bộ nhớ.
+- **Hình ảnh liên kết** có thể giữ gói nhỏ hơn, nhưng bản trình bày phụ thuộc vào các tệp bên ngoài vẫn còn khả dụng tại các đường dẫn hoặc vị trí lưu.
+- **Cắt** ban đầu không phá hủy. Các pixel ẩn vẫn nhúng cho đến khi các khu vực đã cắt được xóa rõ ràng hoặc loại bỏ trong quá trình nén.
+- **Nén** có thể giảm đáng kể kích thước tệp cho các ảnh raster quá lớn, nhưng nó hy sinh độ phân giải nguồn. Nên áp dụng sau khi biết kích thước hiển thị trên slide.
+- **Hình ảnh SVG** nên giữ dưới dạng SVG khi việc bảo lưu vector quan trọng. Trích xuất SVG nhúng trực tiếp khi bạn cần tài nguyên vector. Các xuất slide raster luôn chuyển slide đã render thành pixel.
+- **Ảnh lặp lại** nên tái sử dụng tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) hiện có khi có thể thay vì tải cùng một tệp nhiều lần vào quy trình bản trình bày.
+
+Đối với các bản trình bày lớn, tối ưu hoá ảnh thường hiệu quả nhất khi được thực hiện có chọn lọc: giữ logo và sơ đồ dưới dạng vector, nén ảnh chụp theo kích thước hiển thị thực tế, loại bỏ pixel đã cắt chỉ khi không cần chỉnh sửa sau, và tránh liên kết bên ngoài trừ khi quản lý phụ thuộc là một phần của thiết kế triển khai.
+
+## **CÂU HỎI THƯỜNG GẶP**
+
+**Khung ảnh và tài nguyên hình ảnh có gì khác nhau?**
+
+[IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) đại diện cho một tài nguyên hình ảnh liên kết với bản trình bày. [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) là một hình dạng trên slide hiển thị hình ảnh và lưu trữ các thuộc tính cấp khung như kích thước, xoay, giá trị cắt, hiệu ứng và khóa.
+
+**Nên nhúng hay liên kết ảnh?**
+
+Nhúng ảnh khi bản trình bày phải di động, lưu trữ hoặc render mà không cần truy cập tài nguyên bên ngoài. Liên kết ảnh chỉ khi việc giữ các tệp ảnh bên ngoài PPTX là có chủ đích và các vị trí bên ngoài có thể được duy trì một cách đáng tin cậy.
+
+**Cắt ảnh có giảm kích thước PPTX không?**
+
+Không tự động. Cài đặt cắt bình thường ẩn một phần ảnh nguồn nhưng vẫn giữ các pixel bên dưới. Sử dụng [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) hoặc nén ảnh kèm loại bỏ khu vực đã cắt khi các pixel đó có thể bị xóa vĩnh viễn.
+
+**Có thể khôi phục chất lượng ảnh sau khi nén không?**
+
+Không. Nén có thể giảm độ phân giải raster lưu trữ, và việc xóa các khu vực đã cắt sẽ loại bỏ dữ liệu ảnh. Giữ ảnh nguồn gốc bên ngoài bản trình bày nếu sau này có thể cần chỉnh sửa độ phân giải cao.
+
+**Nên xử lý ảnh SVG như thế nào?**
+
+Giữ nội dung SVG dưới dạng SVG khi độ chính xác vector quan trọng. [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage/) nhúng có thể được trích xuất trực tiếp. Render slide sang định dạng raster như PNG hoặc JPEG sẽ raster hoá SVG như một phần của ảnh slide.
+
+**Làm sao tránh ép kiểu không an toàn khi đọc slide hiện có?**
+
+Kiểm tra loại hình dạng trước khi sử dụng các thành viên chuyên cho khung ảnh. Phép khớp mẫu với [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) hoặc lọc bộ sưu tập hình dạng theo giao diện này giúp tránh ép kiểu không hợp lệ và cho phép mã xử lý các slide không chứa khung ảnh.

@@ -1,503 +1,360 @@
 ---
-title: จัดการกรอบรูปในงานนำเสนอด้วย .NET
-linktitle: กรอบรูป
+title: จัดการกรอบรูปภาพในงานนำเสนอด้วย .NET
+linktitle: กรอบรูปภาพ
 type: docs
 weight: 10
 url: /th/net/picture-frame/
 keywords:
-- กรอบรูป
-- เพิ่มกรอบรูป
-- สร้างกรอบรูป
-- เพิ่มภาพ
-- สร้างภาพ
+- กรอบรูปภาพ
+- เพิ่มกรอบรูปภาพ
+- สร้างกรอบรูปภาพ
+- ภาพฝัง
+- ภาพเชื่อมโยง
 - สกัดภาพ
-- ภาพเรสเตอร์
-- ภาพเวกเตอร์
-- ครอบตัดภาพ
-- พื้นที่ที่ถูกครอบตัด
-- คุณสมบัติ StretchOff
-- การจัดรูปแบบกรอบรูป
-- คุณสมบัติกรอบรูป
-- สเกลสัมพันธ์
-- เอฟเฟกต์ภาพ
+- ภาพแรสเตอร์
+- ภาพ SVG
+- ครอบภาพ
+- ลบพื้นที่ที่ครอป
+- บีบอัดภาพ
+- StretchOffset
+- การจัดรูปแบบกรอบรูปภาพ
+- สเกลสัมพัทธ์
+- เอฟเฟ็กต์ภาพ
 - อัตราส่วนภาพ
-- ความโปร่งใสของภาพ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เพิ่มกรอบรูปลงในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET. ทำให้กระบวนการทำงานของคุณเป็นระบบและเพิ่มประสิทธิภาพการออกแบบสไลด์."
+description: "สร้าง, จัดรูปแบบ, เชื่อมโยง, ครอบ, สกัด, และบีบอัดกรอบรูปภาพในงานนำเสนอด้วย Aspose.Slides สำหรับ .NET."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-กรอบรูปคือรูปทรงที่บรรจุภาพ—มันคล้ายรูปภาพในกรอบ  
+กรอบรูปภาพเป็นรูปทรงสไลด์ที่แสดงภาพหนึ่งภาพ ใน Aspose.Slides, ทรัพยากรภาพและรูปทรงที่แสดงมันเป็นวัตถุแยกกัน: a [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เป็นเจ้าของทรัพยากรภาพที่ฝังอยู่ผ่านคอลเลกชัน [Images](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/images/) , ในขณะที่ [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) ควบคุมตำแหน่ง, ขนาด, การจัดรูปแบบเส้น, การหมุน, การครอบ, ผลกระทบภาพ, และการตั้งค่าระดับกรอบอื่น ๆ
 
-คุณสามารถเพิ่มภาพลงในสไลด์ผ่านกรอบรูปได้ วิธีนี้คุณสามารถจัดรูปแบบภาพโดยการจัดรูปแบบกรอบรูป  
+การแยกนี้มีประโยชน์เมื่อภาพเดียวกันถูกแสดงมากกว่าหนึ่งครั้ง เพิ่มภาพไปยังงานนำเสนอครั้งเดียว เก็บ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ที่ส่งคืนไว้ และใช้ทรัพยากรภาพนั้นเมื่อสร้างกรอบรูปภาพ
 
-{{% alert  title="เคล็ดลับ" color="primary" %}} 
-Aspose มีตัวแปลงฟรี—[JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ที่ช่วยให้ผู้ใช้สร้างงานนำเสนอได้อย่างรวดเร็วจากภาพ.  
-{{% /alert %}} 
+กรอบรูปภาพสามารถบรรจุภาพแรสเตอร์เช่น PNG หรือ JPEG และภาพเวกเตอร์ SVG ได้ นอกจากนี้ยังสามารถอ้างอิงภาพที่เชื่อมโยงแทนการเก็บไบต์ภาพในงานนำเสนอ ตัวเลือกนี้มีผลต่อการพกพา, ขนาดไฟล์, การสกัดและพฤติกรรมการส่งออก ดังนั้นจึงควรตัดสินใจว่าภาพจะถูกจัดเก็บอย่างไรก่อนทำการจัดรูปแบบหรือการปรับแต่ง
 
-## **สร้างกรอบรูป**
+## **เพิ่มและจัดรูปแบบภาพฝัง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage) โดยเพิ่มภาพลงใน [IImagescollection](https://reference.aspose.com/slides/th/net/aspose.slides/iimagecollection) ที่เชื่อมโยงกับอ็อบเจ็กต์ presentation ซึ่งจะใช้เติมรูปทรง  
-4. ระบุความกว้างและความสูงของภาพ  
-5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe) โดยอิงความกว้างและความสูงของภาพผ่านเมธอด `AddPictureFrame` ที่เปิดให้ใช้โดยอ็อบเจ็กต์ shape ที่เชื่อมโยงกับสไลด์ที่อ้างอิง  
-6. เพิ่มกรอบรูป (ที่บรรจุรูปภาพ) ลงในสไลด์  
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+สำหรับภาพฝัง ให้เพิ่มข้อมูลภาพไปยังงานนำเสนอและสร้างกรอบรูปภาพด้วย [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addpictureframe/) ภาพจะกลายเป็นส่วนหนึ่งของแพ็กเกจงานนำเสนอ ดังนั้นงานนำเสนอจะยังคงเป็นอิสระเมื่อย้ายไปยังคอมพิวเตอร์เครื่องอื่น
 
-โค้ด C# นี้แสดงวิธีสร้างกรอบรูป:  
+ตัวอย่างต่อไปนี้เพิ่มภาพ JPEG, สร้างกรอบที่มีขนาดตามมิติเดิมของภาพ, และใช้การจัดรูปแบบเส้นและการหมุน:
 
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
- using (Presentation pres = new Presentation())
- {
-     // รับสไลด์แรก
-     ISlide slide = pres.Slides[0];
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // โหลดภาพและเพิ่มลงในคอลเลกชันภาพของงานนำเสนอ
-     IImage image = Images.FromFile("aspose-logo.jpg");
-     IPPImage ppImage = pres.Images.AddImage(image);
-     image.Dispose();
-
-     // เพิ่มกรอบรูปด้วยความสูงและความกว้างเดียวกัน
-     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-     // ใช้การจัดรูปแบบบางอย่างกับกรอบรูป
-     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-     pictureFrame.LineFormat.Width = 20;
-     pictureFrame.Rotation = 45;
-
-     // บันทึกงานนำเสนอเป็นไฟล์ PPTX
-     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
- }
-```
-
-{{% alert color="warning" %}} 
-กรอบรูปช่วยให้คุณสร้างสไลด์การนำเสนอจากภาพได้อย่างรวดเร็ว เมื่อคุณผสมกรอบรูปกับตัวเลือกการบันทึกของ Aspose.Slides คุณสามารถจัดการการป้อนเข้า/ออกเพื่อแปลงภาพจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง คุณอาจต้องการดูหน้านี้: แปลง [image to JPG](https://products.aspose.com/slides/th/net/conversion/image-to-jpg/); แปลง [JPG to image](https://products.aspose.com/slides/th/net/conversion/jpg-to-image/); แปลง [JPG to PNG](https://products.aspose.com/slides/th/net/conversion/jpg-to-png/), แปลง [PNG to JPG](https://products.aspose.com/slides/th/net/conversion/png-to-jpg/); แปลง [PNG to SVG](https://products.aspose.com/slides/th/net/conversion/png-to-svg/), แปลง [SVG to PNG](https://products.aspose.com/slides/th/net/conversion/svg-to-png/).  
-{{% /alert %}}
-
-## **สร้างกรอบรูปด้วยการปรับสเกลสัมพันธ์**
-
-โดยการปรับสเกลสัมพันธ์ของภาพ คุณสามารถสร้างกรอบรูปที่ซับซ้อนได้มากขึ้น  
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มภาพลงในคอลเลกชันภาพของ presentation  
-4. สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage) โดยเพิ่มภาพลงใน [IImagescollection](https://reference.aspose.com/slides/th/net/aspose.slides/iimagecollection) ที่เชื่อมโยงกับอ็อบเจ็กต์ presentation ซึ่งจะใช้เติมรูปทรง  
-5. ระบุความกว้างและความสูงสัมพันธ์ของภาพในกรอบรูป  
-6. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด C# นี้แสดงวิธีสร้างกรอบรูปด้วยการปรับสเกลสัมพันธ์:  
-
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
- using (Presentation presentation = new Presentation())
- {
-     // โหลดภาพและเพิ่มลงในคอลเลกชันภาพของงานนำเสนอ
-     IImage image = Images.FromFile("aspose-logo.jpg");
-     IPPImage ppImage = presentation.Images.AddImage(image);
-     image.Dispose();
-
-     // เพิ่มกรอบรูปลงในสไลด์
-     IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-     // ตั้งค่าความกว้างและความสูงสเกลสัมพันธ์
-     pictureFrame.RelativeScaleHeight = 0.8f;
-     pictureFrame.RelativeScaleWidth = 1.35f;
-
-     // บันทึกงานนำเสนอ
-     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
- }
-```
-
-## **สกัดภาพเรสเตอร์จากกรอบรูป**
-
-คุณสามารถสกัดภาพเรสเตอร์จากอ็อบเจ็กต์ [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe) และบันทึกเป็น PNG, JPG และรูปแบบอื่น ๆ ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดภาพจากเอกสาร "sample.pptx" และบันทึกเป็นรูปแบบ PNG  
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **สกัดภาพ SVG จากกรอบรูป**
-
-เมื่อการนำเสนอมีกราฟิก SVG ที่วางอยู่ภายในรูปทรง [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/) Aspose.Slides for .NET จะให้คุณดึงภาพเวกเตอร์ดั้งเดิมพร้อมความเที่ยงตรงเต็มที่โดยการเดินผ่านคอลเลกชันรูปทรงของสไลด์ คุณสามารถระบุแต่ละ [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/), ตรวจสอบว่า [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ที่อยู่ภายในมีเนื้อหา SVG หรือไม่ แล้วบันทึกภาพนั้นลงดิสก์หรือสตรีมในรูปแบบ SVG ดั้งเดิม  
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีสกัดภาพ SVG จากกรอบรูป:  
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-## **รับค่าความโปร่งใสของภาพ**
+กรอบรูปภาพควบคุมเรขาคณิตที่แสดง; การเปลี่ยนขนาดกรอบจะไม่เปลี่ยนมิติพิกเซลเดิมที่เก็บในทรัพยากรภาพฝัง การแยกนี้สำคัญเมื่อทำการครอบหรือบีบอัดภาพในภายหลัง
 
-Aspose.Slides อนุญาตให้คุณรับค่าเอฟเฟกต์ความโปร่งใสที่ใช้กับภาพ โค้ด C# นี้แสดงการทำงาน:  
+## **ใช้สเกลสัมพัทธ์**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **รับค่าแสงสว่างและคอนทราสต์ของภาพ**
-
-Aspose.Slides อนุญาตให้คุณรับค่าเอฟเฟกต์แสงสว่างและคอนทราสต์ที่ใช้กับภาพ อินเทอร์เฟซ [ILuminance](https://reference.aspose.com/slides/th/net/aspose.slides.effects/iluminance/) แทนการแปลงภาพนี้  
-
-โค้ด C# นี้แสดงวิธีรับการตั้งค่าแสงสว่างและคอนทราสต์จากกรอบรูป:  
+[IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) เปิดเผยการสเกลความกว้างและความสูงแบบสัมพัทธ์สำหรับกรอบ ค่า `1.0` ตรงกับ 100% ของขนาดภาพต้นฉบับ สเกลสัมพัทธ์มีประโยชน์เมื่อเวิร์กโฟลว์ต้องคงความสัมพันธ์กับขนาดภาพต้นฉบับแทนการคำนวณมิติสุดท้ายด้วยตนเอง
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
-เอฟเฟกต์ทั้งหมดที่ใช้กับภาพสามารถพบได้ใน [Aspose.Slides.Effects](https://reference.aspose.com/slides/th/net/aspose.slides.effects/).  
-{{% /alert %}}
+สเกลสัมพัทธ์เปลี่ยนการตั้งค่าสเกลของกรอบ; มันไม่ทำการสุ่มตัวอย่างหรือบีบอัดภาพฝัง
 
-## **การจัดรูปแบบกรอบรูป**
+## **ภาพฝังและภาพเชื่อมโยง**
 
-Aspose.Slides มีตัวเลือกการจัดรูปแบบหลายอย่างที่สามารถนำไปใช้กับกรอบรูปได้ ด้วยตัวเลือกเหล่านั้นคุณสามารถปรับกรอบรูปให้ตรงตามข้อกำหนดเฉพาะ  
+ภาพฝังเก็บข้อมูลภาพภายในงานนำเสนอและจึงเป็นตัวเลือกที่ปลอดภัยที่สุดสำหรับการพกพาและการเรนเดอร์ที่คาดเดาได้ ภาพเชื่อมโยงเก็บตำแหน่งภายนอกผ่านพาธลิงก์ของ [ISlidesPicture](https://reference.aspose.com/slides/th/net/aspose.slides/islidespicture/) แทนการฝังข้อมูลภาพในวิธีเดียวกัน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](http://www.aspose.com/api/net/slides/th/aspose.slides/)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage) โดยเพิ่มภาพลงใน [IImagescollection](https://reference.aspose.com/slides/th/net/aspose.slides/iimagecollection) ที่เชื่อมโยงกับอ็อบเจ็กต์ presentation ซึ่งจะใช้เติมรูปทรง  
-4. ระบุความกว้างและความสูงของภาพ  
-5. สร้าง `PictureFrame` โดยอิงความกว้างและความสูงของภาพผ่านเมธอด [AddPictureFrame](http://www.aspose.com/api/net/slides/th/aspose.slides/ishapecollection/methods/addpictureframe) ที่เปิดให้ใช้โดยอ็อบเจ็กต์ [IShapes](http://www.aspose.com/api/net/slides/th/aspose.slides/ishapecollection) ที่เชื่อมโยงกับสไลด์ที่อ้างอิง  
-6. เพิ่มกรอบรูป (ที่บรรจุรูปภาพ) ลงในสไลด์  
-7. ตั้งค่าสีเส้นของกรอบรูป  
-8. ตั้งค่าความกว้างของเส้นกรอบรูป  
-9. หมุนกรอบรูปโดยกำหนดค่าเป็นบวกหรือเป็นลบ  
-   * ค่าบวกจะหมุนภาพตามเข็มนาฬิกา  
-   * ค่าลบจะหมุนภาพย้อนเข็มนาฬิกา  
-10. เพิ่มกรอบรูป (ที่บรรจุรูปภาพ) ลงในสไลด์ (ขั้นตอนนี้ซ้ำเพื่อย้ำ)  
-11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+ภาพเชื่อมโยงสามารถลดปริมาณข้อมูลภาพที่เก็บใน PPTX ได้ แต่จะนำพาขึ้นอยู่กับไฟล์ภายนอก ไฟล์ที่เชื่อมโยงต้องสามารถเข้าถึงได้โดยแอปพลิเคชันที่เปิดหรือเรนเดอร์งานนำเสนอ หากพาธเปลี่ยน, ไฟล์ถูกย้าย, หรือทรัพยากรไม่พร้อมใช้งาน ภาพเชื่อมโยงอาจไม่แสดงตามที่คาดไว้ สำหรับงานนำเสนอที่ต้องส่งอีเมล, จัดเก็บ, หรือเรนเดอร์ในสภาพแวดล้อมที่แยกจากกัน, ภาพฝังมักจะเชื่อถือได้มากกว่า
 
-โค้ด C# นี้แสดงกระบวนการจัดรูปแบบกรอบรูป:  
+### **เพิ่มภาพเชื่อมโยง**
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-using (Presentation presentation = new Presentation())
-{
-    // รับสไลด์แรก
-    ISlide slide = presentation.Slides[0];
-
-    // โหลดภาพและเพิ่มลงในคอลเลกชันภาพของงานนำเสนอ
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // เพิ่มกรอบรูปด้วยความสูงและความกกว้างที่เท่ากับของภาพ
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // ใช้การจัดรูปแบบบางอย่างกับกรอบรูป
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // บันทึกงานนำเสนอเป็นไฟล์ PPTX
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}} 
-Aspose เพิ่งพัฒนา [Collage Maker ฟรี](https://products.aspose.app/slides/th/collage) หากคุณต้องการรวมภาพ JPG/JPEG หรือ PNG, สร้างกริดจากรูปภาพ, คุณสามารถใช้บริการนี้ได้.  
-{{% /alert %}}
-
-## **เพิ่มภาพเป็นลิงก์**
-
-เพื่อหลีกเลี่ยงขนาดงานนำเสนอที่ใหญ่เกินไป คุณสามารถเพิ่มภาพ (หรือวิดีโอ) ผ่านลิงก์แทนการฝังไฟล์ลงในงานนำเสนอโดยตรง โค้ด C# นี้แสดงวิธีเพิ่มภาพและวิดีโอลงในตัวแทรก:  
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ครอบตัดภาพ**
-
-โค้ด C# นี้แสดงวิธีครอบตัดภาพที่มีอยู่บนสไลด์:  
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // สร้างอ็อบเจ็กต์ภาพใหม่
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // เพิ่ม PictureFrame ลงในสไลด์
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // ครอบตัดภาพ (ค่าร้อยละ)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // บันทึกผลลัพธ์
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ลบพื้นที่ที่ถูกครอบตัดของภาพ**
-
-หากต้องการลบพื้นที่ที่ถูกครอบตัดของภาพที่อยู่ในกรอบ คุณสามารถใช้เมธอด [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ซึ่งเมธอดนี้จะคืนภาพที่ถูกครอบตัดหรือภาพต้นฉบับหากไม่ต้องการครอบตัด  
-
-โค้ด C# นี้แสดงการทำงานดังกล่าว:  
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // รับ PictureFrame จากสไลด์แรก
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // ลบพื้นที่ที่ถูกครอบตัดของภาพ PictureFrame และคืนภาพที่ถูกครอบตัด
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // บันทึกผลลัพธ์
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="หมายเหตุ" color="warning" %}} 
-เมธอด [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) จะเพิ่มภาพที่ถูกครอบตัดไปยังคอลเลกชันภาพของ presentation หากภาพใช้งานเฉพาะใน [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/) การตั้งค่านี้จะช่วยลดขนาดไฟล์งานนำเสนอ มิฉะนั้นจำนวนภาพในงานนำเสนอที่ได้จะเพิ่มขึ้น  
-
-เมธอดนี้แปลงไฟล์เมต้าไฟล์ WMF/EMF เป็นภาพ PNG แบบเรสเตอร์ในขั้นตอนการครอบตัด.  
-{{% /alert %}}
-
-## **บีบอัดภาพ**
-
-คุณสามารถบีบอัดรูปภาพในงานนำเสนอโดยใช้เมธอด [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/compressimage/) เมธอดนี้บีบอัดภาพโดยลดขนาดตามขนาดรูปทรงและความละเอียดที่ระบุ พร้อมตัวเลือกลบพื้นที่ที่ถูกครอบตัด  
-
-การทำงานนี้ปรับขนาดและความละเอียดของภาพคล้ายกับคุณลักษณะ **Picture Format → Compress Pictures → Resolution** ของ PowerPoint  
-
-ตัวอย่าง C# ด้านล่างแสดงวิธีบีบอัดภาพในงานนำเสนอโดยระบุความละเอียดเป้าหมายและลบพื้นที่ที่ถูกครอบตัด (ถ้าต้องการ):  
+ตัวอย่างต่อไปนี้สร้างกรอบรูปภาพและชี้ไปที่ไฟล์ภาพในเครื่อง มุ่งเน้นเฉพาะการเชื่อมโยงภาพ; การเชื่อมโยงวิดีโอเป็นเวิร์กโฟลว์สื่อแยกต่างหากและไม่ได้ผสมเข้ากับตัวอย่างนี้โดยเจตนา
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // บีบอัดภาพด้วยความละเอียดเป้าหมาย 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอบตัด.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // ตรวจสอบผลลัพธ์การบีบอัด.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-หรือใช้ค่าความละเอียด DPI ที่กำหนดเองโดยตรง:  
+ใช้ลิงก์เมื่อการจัดการไฟล์ภายนอกเป็นเจตนา ไม่ควรใช้เป็นการแทนที่การบีบอัด: PPTX ขนาดเล็กที่มีการพึ่งพาภาพเสียหายมักจะใช้งานได้น้อยกว่าการนำเสนอที่เป็นอิสระแต่มีขนาดใหญ่กว่า
+
+## **สกัดภาพจากกรอบรูปภาพ**
+
+ก่อนสกัดภาพจากงานนำเสนอที่มีอยู่, ตรวจสอบให้แน่ใจว่ารูปทรงเป็น [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) จริงและมีภาพฝังอยู่ กรอบรูปภาพที่เชื่อมโยงอาจไม่มีไบต์ภาพที่สามารถสกัดได้ในลักษณะเดียวกัน
+
+### **สกัดภาพแรสเตอร์**
+
+API ภาพสมัยใหม่ใช้ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) โดยตรงและไม่ต้องอาศัย wrapper ระบบภาพแบบเก่า ตัวอย่างต่อไปนี้ค้นหาภาพแรสเตอร์ฝังแรกบนสไลด์และบันทึกเป็น PNG:
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // บีบอัดภาพเป็น 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอบตัด.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert title="หมายเหตุ" color="warning" %}} 
-เมธอดจะเปลี่ยนภาพเป็นความละเอียดต่ำกว่าโดยอิงตามขนาดรูปทรงและ DPI ที่กำหนด พื้นที่ที่ถูกครอบตัดก็สามารถลบได้เพื่อเพิ่มประสิทธิภาพขนาดไฟล์  
-หากภาพเป็นเมต้าไฟล์ (WMF/EMF) หรือ SVG การบีบอัดจะไม่ถูกนำมาใช้เช่นกัน นอกจากนี้คุณภาพ JPEG จะถูกเก็บไว้หรือถูกลดลงเล็กน้อยตามความละเอียด ซึ่งคล้ายกับการจัดการของ PowerPoint ต่อ JPEG ความละเอียดสูง.  
-{{% /alert %}}
+การบันทึกผ่าน [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) จะเปลี่ยนภาพที่สกัดเป็นรูปแบบผลลัพธ์ที่ต้องการ หากต้องการไบต์ที่เข้ารหัสที่เก็บในงานนำเสนอแทนไฟล์แรสเตอร์ที่แปลงแล้วให้ใช้ข้อมูลไบนารีของทรัพยากรภาพแทน
 
-## **ล็อกอัตราส่วนภาพ**
+### **สกัดภาพ SVG**
 
-หากต้องการให้รูปทรงที่บรรจุภาพคงอัตราส่วนเดิมแม้จะเปลี่ยนขนาดภาพ คุณสามารถใช้คุณสมบัติ [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframelock/aspectratiolocked/) เพื่อกำหนดการตั้งค่า *Lock Aspect Ratio*  
+สำหรับภาพ SVG, [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) เปิดเผยออบเจ็กต์ [ISvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/isvgimage/) ซึ่งทำให้คุณดึงข้อมูล SVG ได้โดยตรงแทนการเรนเดอร์ภาพก่อน
 
-โค้ด C# นี้แสดงวิธีล็อกอัตราส่วนของรูปทรง:  
+```csharp
+using System.IO;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // ตั้งค่ารูปร่างให้คงอัตราส่วนเมื่อปรับขนาด
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert title="หมายเหตุ" color="warning" %}} 
-การตั้งค่า *Lock Aspect Ratio* นี้จะคงอัตราส่วนของรูปทรงเท่านั้น ไม่ได้คงอัตราส่วนของภาพที่บรรจุอยู่.  
-{{% /alert %}}
+การเก็บเนื้อหา SVG เป็น SVG จะคงไว้ซึ่งแหล่งเวกเตอร์ภายในงานนำเสนอ การส่งออกเป็นแรสเตอร์เช่น PNG หรือ JPEG จะต้องแปลงเนื้อหาเวกเตอร์เป็นพิกเซล การส่งออกสไลด์เป็น PDF หรือ SVG ก็เป็นกระบวนการเรนเดอร์เช่นกัน ดังนั้นกราฟิกที่ส่งออกจึงไม่ควรถือว่าเป็นสำเนาแบบไบต์ต่อไบต์ของ SVG ฝังต้นฉบับ; ใช้ข้อมูล [ISvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/isvgimage/) ฝังเมื่อจำเป็นต้องใช้ทรัพยากรเวกเตอร์ดั้งเดิมเอง
 
-## **ใช้คุณสมบัติ StretchOff**
+## **ครอปภาพ**
 
-โดยใช้คุณสมบัติ [StretchOffsetLeft](https://reference.aspose.com/slides/th/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/th/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/th/net/aspose.slides/picturefillformat/properties/stretchoffsetright) และ [StretchOffsetBottom](https://reference.aspose.com/slides/th/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) จากอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/picturefillformat) คุณสามารถกำหนดสี่เหลี่ยมเติม  
+การครอปเปลี่ยนส่วนที่มองเห็นของภาพภายในกรอบ ค่าครอปบน [IPictureFillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/) เป็นเปอร์เซ็นต์ของมิติต้นฉบับของภาพ การครอปไม่ได้ลบพิกเซลที่ซ่อนอยู่จากภาพฝัง; มันเพียงเปลี่ยนพื้นที่ที่มองเห็น
 
-เมื่อกำหนดการยืดสำหรับภาพ สี่เหลี่ยมต้นฉบับจะถูกสเกลให้พอดีกับสี่เหลี่ยมเติมที่ระบุ แต่ละขอบของสี่เหลี่ยมเติมถูกกำหนดโดยเปอร์เซ็นต์ออฟเซ็ตจากขอบที่สอดคล้องของกล่องขอบเขตรูปทรง ค่าเปอร์เซ็นต์บวกหมายถึงการย่อเข้ามา ขนาดลบหมายถึงการขยายออกไป  
+ตัวอย่างต่อไปนี้ค้นหากรอบรูปภาพอย่างปลอดภัยและใช้ค่าครอป:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](http://www.aspose.com/api/net/slides/th/aspose.slides/)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มสี่เหลี่ยม `AutoShape`  
-4. สร้างภาพ  
-5. ตั้งค่าชนิดการเติมของรูปทรง  
-6. ตั้งค่าโหมดเติมรูปภาพของรูปทรง  
-7. เพิ่มภาพชุดเพื่อเติมรูปทรง  
-8. ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตรูปทรง  
-9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-โค้ด C# นี้แสดงกระบวนการที่ใช้คุณสมบัติ StretchOff:  
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-```c#
-using (Presentation pres = new Presentation())
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // ตั้งค่าการยืดภาพจากทุกด้านในเนื้อหารูปร่าง
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **คำถามที่พบบ่อย**
+เพราะข้อมูลภาพที่ซ่อนอยู่ยังคงอยู่, การครอปสามารถเปลี่ยนแปลงได้ภายหลังโดยไม่สูญเสียพิกเซลต้นฉบับ หากขนาดไฟล์เป็นสิ่งสำคัญกว่าการย้อนกลับ, พื้นที่ที่ครอปสามารถลบออกจริงได้ตามที่อธิบายในส่วนต่อไป
 
-**ฉันจะค้นหารูปแบบไฟล์ภาพที่รองรับสำหรับ PictureFrame ได้อย่างไร?**  
+## **ลบข้อมูลภาพที่ถูกครอป**
 
-Aspose.Slides รองรับทั้งภาพเรสเตอร์ (PNG, JPEG, BMP, GIF ฯลฯ) และภาพเวกเตอร์ (เช่น SVG) ผ่านอ็อบเจ็กต์ภาพที่กำหนดให้กับ [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/). รายการรูปแบบที่รองรับโดยทั่วไปตรงกับความสามารถของเอ็นจินการแปลงสไลด์และภาพ.
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) จะลบข้อมูลภาพที่อยู่นอกสี่เหลี่ยมครอปปัจจุบันและส่งคืนทรัพยากรภาพที่ได้ผลลัพธ์นี้ ซึ่งสามารถลดขนาดไฟล์ได้ แต่เป็นการเพิ่มประสิทธิภาพที่ทำลาย: หลังจากบันทึกงานนำเสนอแล้ว พิกเซลที่ลบจะไม่สามารถเรียกคืนสำหรับการยกเลิกครอปในภายหลังได้
 
-**การเพิ่มภาพขนาดใหญ่หลายสิบรูปจะส่งผลต่อขนาดและประสิทธิภาพของไฟล์ PPTX อย่างไร?**  
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-การฝังภาพขนาดใหญ่จะเพิ่มขนาดไฟล์และใช้หน่วยความจำมากขึ้น; การลิงก์ภาพช่วยให้ขนาดงานนำเสนอเล็กลงแต่ต้องให้ไฟล์ภายนอกสามารถเข้าถึงได้. Aspose.Slides มีความสามารถในการเพิ่มภาพแบบลิงก์เพื่อลดขนาดไฟล์.
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-**ฉันจะล็อกอ็อบเจ็กต์ภาพจากการย้ายหรือปรับขนาดโดยไม่ได้ตั้งใจได้อย่างไร?**  
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
+}
+```
 
-ใช้ [shape locks](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/pictureframelock/) สำหรับ [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/) (เช่น ปิดการย้ายหรือการปรับขนาด). กลไกการล็อกนี้อธิบายไว้ในบทความการปกป้องรูปทรงแยกต่างหาก [/slides/th/net/applying-protection-to-presentation/] และรองรับหลายประเภทรูปทรงรวมถึง [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/).
+เมธอดนี้อาจเพิ่มทรัพยากรภาพใหม่ลงในงานนำเสนอ หากภาพต้นฉบับถูกใช้โดยกรอบรูปภาพอื่น ๆ ด้วย, กรอบเหล่านั้นยังคงต้องการทรัพยากรเดิมอยู่ ดังนั้นการลบพื้นที่ที่ครอปไม่จำเป็นต้องลดจำนวนภาพทั้งหมด การครอปเนื้อหา WMF หรือ EMF ด้วยเมธอดนี้จะทำให้ผลลัพธ์ที่ครอปเป็น PNG
 
-**ความเที่ยงตรงของเวกเตอร์ SVG จะถูกเก็บไว้เมื่อนำออกเป็น PDF/ภาพหรือไม่?**  
+## **บีบอัดภาพแรสเตอร์**
 
-Aspose.Slides อนุญาตให้สกัด SVG จาก [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/) เป็นเวกเตอร์ดั้งเดิม เมื่อ [exporting to PDF](/slides/th/net/convert-powerpoint-to-pdf/) หรือ [raster formats](/slides/th/net/convert-powerpoint-to-png/) ผลลัพธ์อาจถูกเรสเตอร์ขึ้นอยู่กับการตั้งค่าเอ็กซ์พอร์ท; การสกัดยืนยันว่า SVG ดั้งเดิมยังคงเป็นเวกเตอร์.
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/compressimage/) ลดความละเอียดของภาพแรสเตอร์สัมพันธ์กับขนาดที่ภาพแสดง มันยังสามารถลบพื้นที่ที่ครอปในขั้นตอนเดียวได้ เมธอดจะคืนค่า `true` เมื่อภาพถูกปรับขนาดหรือครอปและคืนค่า `false` เมื่อไม่มีการเปลี่ยนแปลงใด ๆ จำเป็น
+
+ใช้ค่ากำหนดล่วงหน้า [PicturesCompression](https://reference.aspose.com/slides/th/net/aspose.slides.export/picturescompression/) เมื่อความละเอียดเป้าหมายมาตรฐานเพียงพอ:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+สามารถส่งค่า DPI บวกที่กำหนดเองแทนค่าที่เป็น enum ได้เมื่อจำเป็นต้องกำหนดเป้าหมายเฉพาะ
+
+การบีบอัดมุ่งเน้นที่ภาพแรสเตอร์ SVG และเนื้อหาเมทาฟายล์จะไม่ได้รับผลจากเวิร์กโฟลว์บีบอัดแรสเตอร์นี้ อย่าลืมว่าความละเอียดที่ต่ำลงและการลบพื้นที่ที่ครอปไม่สามารถกู้คืนจากงานนำเสนอที่ปรับปรุงแล้วได้ เลือกความละเอียดเป้าหมายตามขนาดสูงสุดที่ภาพจะถูกดูหรือส่งออกจริง ๆ แทนการใช้ DPI ต่ำสุดทั่วทั้งงาน
+
+## **จัดการเอฟเฟ็กต์การแปลงภาพ**
+
+สำหรับเวิร์กโฟลว์ครบถ้วนที่ครอบคลุมความสว่าง, ความคอนทราสต์, การแปลงสี, เบลอ, เอฟเฟ็กต์อัลฟา, เชนที่สั่ง, การตรวจสอบ, การลบ, และการตรวจสอบรอบสอง, ดู [Image Transform Effects](/slides/th/net/image-transform-effects/)
+
+## **ล็อกเรขาคณิตกรอบรูปภาพ**
+
+การตั้งค่า [IPictureFrameLock](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframelock/) ควบคุมการดำเนินการแก้ไขใด ๆ ที่ถูกปิดสำหรับกรอบรูปภาพ ตัวอย่างเช่น การล็อกอัตราส่วนภาพจะคงอัตราส่วนของรูปทรงขณะเปลี่ยนขนาด
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+การล็อกนี้ใช้กับรูปทรงกรอบรูปภาพ ไม่บังคับให้ภาพต้นฉบับต้องถูกสุ่มตัวอย่างหรือเปลี่ยนแปลงถาวรให้เป็นอัตราส่วนเดียวกัน
+
+## **ปรับค่า StretchOffset**
+
+เมื่อโหมดการเติมภาพเป็น stretch, ค่า stretch‑offset บน [IPictureFillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/) จะกำหนดสี่เหลี่ยมเติมสัมพันธ์กับกรอบรูปภาพ ค่าร้อยละบวกจะสร้างการย่อจากขอบ, ขณะที่ค่าร้อยละลบจะสร้างการขยายออก
+
+นี่แตกต่างจากการครอป ค่าครอปเลือกส่วนของภาพต้นฉบับที่มองเห็น; stretch offsets ปรับสี่เหลี่ยมที่ภาพเติมที่มองเห็นถูกยืด
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+ใช้ stretch offsets เพื่อจัดตำแหน่งการเติม ใช้คุณสมบัติครอปเมื่อเป้าหมายคือการซ่อนขอบของภาพต้นฉบับ
+
+## **การจัดเก็บ, ขนาดไฟล์, และข้อควรพิจารณาการส่งออก**
+
+การต่อรองหลักจะง่ายขึ้นเมื่อการจัดเก็บภาพและการจัดรูปแบบกรอบรูปภาพถูกแยกกันจัดการ:
+
+- **ภาพฝัง** ทำให้การนำเสนอเป็นอิสระและเป็นทางเลือกที่เชื่อถือได้ที่สุดสำหรับการแชร์และการเรนเดอร์ฝั่งเซิร์ฟเวอร์, แต่ภาพแรสเตอร์ขนาดใหญ่จะเพิ่มขนาด PPTX และการใช้หน่วยความจำ
+- **ภาพเชื่อมโยง** สามารถทำให้แพ็กเกจเล็กลง, แต่การนำเสนอพึ่งพาไฟล์ภายนอกที่ต้องคงอยู่ที่พาธหรือที่ตั้งที่บันทึกไว้
+- **การครอป** เริ่มต้นเป็นแบบไม่ทำลาย; พิกเซลที่ซ่อนอยู่ยังคงฝังอยู่จนกว่าจะมีการลบพื้นที่ที่ครอปโดยเจตนาหรือระหว่างการบีบอัด
+- **การบีบอัด** สามารถลดขนาดไฟล์อย่างมีนัยสำคัญสำหรับภาพแรสเตอร์ที่ใหญ่เกินไป, แต่จะเสียความละเอียดของต้นฉบับ ควรทำหลังจากทราบขนาดบนสไลด์ที่ต้องการแล้ว
+- **ภาพ SVG** ควรคงเป็น SVG เมื่อความสมบูรณ์ของเวกเตอร์สำคัญ; สกัด SVG ฝังโดยตรงเมื่อคุณต้องการทรัพยากรเวกเตอร์เอง การส่งออกสไลด์เป็นแรสเตอร์จะเปลี่ยนสไลด์ที่เรนเดอร์เป็นพิกเซลเสมอ
+- **ภาพซ้ำ** ควรใช้ทรัพยากร [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ที่มีอยู่แล้วเมื่อทำได้แทนการโหลดไฟล์เดียวกันหลายครั้งในเวิร์กโฟลว์ของงานนำเสนอ
+
+สำหรับงานนำเสนอขนาดใหญ่, การปรับภาพมักจะมีประสิทธิภาพที่สุดเมื่อทำอย่างเลือกสรร: รักษาโลโก้และแผนภาพเป็นเนื้อหาเวกเตอร์, บีบอภาพถ่ายตามขนาดการแสดงจริง, ลบพิกเซลที่ครอปเฉพาะเมื่อไม่ต้องการการแก้ไขภายหลัง, และหลีกเลี่ยงลิงก์ภายนอกเว้นแต่การจัดการการพึ่งพาจะเป็นส่วนหนึ่งของการออกแบบการปรับใช้
+
+## **FAQ**
+
+**ความแตกต่างระหว่างกรอบรูปภาพและทรัพยากรภาพคืออะไร?**
+
+[IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) แสดงถึงทรัพยากรภาพที่เชื่อมโยงกับงานนำเสนอ [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) คือรูปทรงบนสไลด์ที่แสดงภาพและเก็บเรขาคณิตระดับกรอบและการจัดรูปแบบ เช่น ขนาด, การหมุน, ค่าครอป, เอฟเฟ็กต์, และการล็อก
+
+**ควรฝังหรือเชื่อมโยงภาพ?**
+
+ฝังภาพเมื่อการนำเสนอจำเป็นต้องพกพา, เก็บถาวร, หรือเรนเดอร์โดยไม่ต้องอาศัยทรัพยากรภายนอก เชื่อมโยงภาพเฉพาะเมื่อต้องการเก็บไฟล์ภาพอยู่นอก PPTX โดยตั้งใจและตำแหน่งภายนอกสามารถจัดการได้อย่างเชื่อถือได้
+
+**การครอปลดขนาดไฟล์ PPTX หรือไม่?**
+
+ไม่โดยตรง การตั้งค่าครอปปกติจะซ่อนส่วนของภาพต้นฉบับแต่ยังคงพิกเซลไว้ ใช้ [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) หรือบีบอัดภาพพร้อมการลบพื้นที่ที่ครอปเมื่อพิกเซลเหล่านั้นสามารถทิ้งได้อย่างถาวร
+
+**ฉันสามารถเรียกคืนคุณภาพภาพหลังบีบอัดได้หรือไม่?**
+
+ไม่ได้ การบีบอัดสามารถลดความละเอียดแรสเตอร์ที่จัดเก็บและการลบพื้นที่ที่ครอปจะทำให้ข้อมูลภาพหายไป เก็บภาพต้นฉบับไว้ภายนอกงานนำเสนอหากอาจต้องแก้ไขด้วยความละเอียดสูงในภายหลัง
+
+**ควรจัดการภาพ SVG อย่างไร?**
+
+เก็บเนื้อหา SVG เป็น SVG เมื่อความแม่นยำของเวกเตอร์สำคัญ สามารถสกัด [ISvgImage](https://reference.aspose.com/slides/th/net/aspose.slides/isvgimage/) ฝังโดยตรง การเรนเดอร์สไลด์เป็นรูปแบบแรสเตอร์เช่น PNG หรือ JPEG จะทำให้ SVG ถูกแปลงเป็นพิกเซล
+
+**จะหลีกเลี่ยงการแคสต์ที่ไม่ปลอดภัยเมื่ออ่านสไลด์ที่มีอยู่ได้อย่างไร?**
+
+ตรวจสอบประเภทของรูปทรงก่อนใช้สมาชิกเฉพาะกรอบรูปภาพ ใช้การจับคู่รูปแบบกับ [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) หรือกรองคอลเลกชันรูปทรงด้วยอินเทอร์เฟซนั้นเพื่อหลีกเลี่ยงการแคสต์ที่ไม่ถูกต้องและให้โค้ดจัดการสไลด์ที่ไม่มีกรอบรูปภาพได้อย่างเหมาะสม

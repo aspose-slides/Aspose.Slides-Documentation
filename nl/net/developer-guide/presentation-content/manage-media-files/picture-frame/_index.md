@@ -1,508 +1,360 @@
 ---
-title: Beheer afbeeldingskaders in presentaties in .NET
-linktitle: Afbeeldingskader
+title: Beheer afbeeldingframes in presentaties in .NET
+linktitle: Afbeeldingsframe
 type: docs
 weight: 10
 url: /nl/net/picture-frame/
 keywords:
-- afbeeldingskader
-- afbeeldingskader toevoegen
-- afbeeldingskader maken
-- afbeelding toevoegen
-- afbeelding maken
+- afbeeldingframe
+- afbeeldingframe toevoegen
+- afbeeldingframe maken
+- ingesloten afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
 - rasterafbeelding
-- vectorafbeelding
+- SVG-afbeelding
 - afbeelding bijsnijden
-- bijgesneden gebied
-- StretchOff-eigenschap
-- opmaak van afbeeldingskader
-- eigenschappen van afbeeldingskader
+- bijgesneden gebieden verwijderen
+- afbeelding comprimeren
+- StretchOffset
+- opmaak van afbeeldingframe
 - relatieve schaal
 - afbeeldingseffect
 - beeldverhouding
-- afbeeldingstransparantie
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Voeg afbeeldingskaders toe aan PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET. Vereenvoudig uw workflow en verbeter het ontwerp van dia's."
+description: "Afbeeldingsframes maken, opmaken, koppelen, bijsnijden, extraheren en comprimeren in presentaties met Aspose.Slides voor .NET."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een afbeeldingskader is een vorm die een afbeelding bevat — het is als een foto in een lijst. 
+Een afbeeldingframe is een dia‑vorm die een afbeelding toont. In Aspose.Slides zijn de afbeeldingsresource en de vorm die deze weergeeft aparte objecten: een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) bezit ingebedde afbeeldingsresources via zijn [Images](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/images/)‑collectie, terwijl een [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, afbeeldingseffecten en andere frame‑niveau instellingen regelt.
 
-U kunt een afbeelding aan een dia toevoegen via een afbeeldingskader. Op deze manier kunt u de afbeelding opmaken door het afbeeldingskader op te maken.
+Deze scheiding is handig wanneer dezelfde afbeelding meer dan één keer wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/), en gebruik die afbeeldingsresource bij het maken van afbeeldingframes.
 
-{{% alert  title="Tip" color="primary" %}} 
+Afbeeldingframes kunnen raster‑afbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gekoppelde afbeeldingen in plaats van de afbeeldingsbytes in de presentatie op te slaan. De keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is nuttig om te bepalen hoe de afbeelding moet worden opgeslagen voordat formattering of optimalisatie wordt toegepast.
 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die gebruikers in staat stellen snel presentaties te maken vanuit afbeeldingen. 
+## **Een ingebedde afbeelding toevoegen en formatteren**
 
-{{% /alert %}} 
+Voor een ingebedde afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een afbeeldingframe met [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addpictureframe/). De afbeelding wordt onderdeel van het presentatie‑pakket, waardoor de presentatie zelf‑containend blijft wanneer hij naar een andere computer wordt verplaatst.
 
-## **Maak een afbeeldingskader**
+Het volgende voorbeeld voegt een JPEG‑afbeelding toe, maakt een frame met de oorspronkelijke afmetingen van de afbeelding en past lijnopmaak en rotatie toe:
 
-1. Maak een instantie van de [Presentation ](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)klasse. 
-2. Haal de referentie van een dia op via de index. 
-3. Maak een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage)‑object door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/net/aspose.slides/iimagecollection) die aan het presentatie‑object is gekoppeld en die zal worden gebruikt om de vorm te vullen. 
-4. Geef de breedte en hoogte van de afbeelding op. 
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe) op basis van de breedte en hoogte van de afbeelding via de `AddPictureFrame`‑methode die wordt aangeboden door het vorm‑object dat aan de verwijzende dia is gekoppeld. 
-6. Voeg een afbeeldingskader (met de afbeelding) toe aan de dia. 
-7. Sla de gewijzigde presentatie op als een PPTX‑bestand. 
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Instantieert de Presentation-klasse die een PPTX-bestand voorstelt
-using (Presentation pres = new Presentation())
-{
-    // Haalt de eerste dia op
-    ISlide slide = pres.Slides[0];
-
-    // Laadt een afbeelding en voegt deze toe aan de afbeeldingscollectie van de presentatie
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Voegt een afbeeldingskader toe met dezelfde hoogte en breedte
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Past wat opmaak toe op het afbeeldingskader
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Schrijft de presentatie weg naar een PPTX-bestand
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-
-Afbeeldingskaders stellen u in staat snel presentatiedia's te maken op basis van afbeeldingen. Wanneer u een afbeeldingskader combineert met de opslaan‑opties van Aspose.Slides, kunt u in‑ en uitvoerbewerkingen manipuleren om afbeeldingen van het ene formaat naar het andere te converteren. Mogelijk wilt u deze pagina's bekijken: converteer [image to JPG](https://products.aspose.com/slides/nl/net/conversion/image-to-jpg/); converteer [JPG to image](https://products.aspose.com/slides/nl/net/conversion/jpg-to-image/); converteer [JPG to PNG](https://products.aspose.com/slides/nl/net/conversion/jpg-to-png/), converteer [PNG to JPG](https://products.aspose.com/slides/nl/net/conversion/png-to-jpg/); converteer [PNG to SVG](https://products.aspose.com/slides/nl/net/conversion/png-to-svg/), converteer [SVG to PNG](https://products.aspose.com/slides/nl/net/conversion/svg-to-png/). 
-
-{{% /alert %}} 
-
-## **Maak een afbeeldingskader met relatieve schaal**
-
-Door de relatieve schaal van een afbeelding aan te passen, kunt u een complexer afbeeldingskader maken. 
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse. 
-2. Haal de referentie van een dia op via de index. 
-3. Voeg een afbeelding toe aan de afbeeldingscollectie van de presentatie. 
-4. Maak een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage)‑object door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/net/aspose.slides/iimagecollection) die aan het presentatie‑object is gekoppeld en die zal worden gebruikt om de vorm te vullen. 
-5. Geef de relatieve breedte en hoogte van de afbeelding op in het afbeeldingskader. 
-6. Sla de gewijzigde presentatie op als een PPTX‑bestand. 
-
-```c#
-// Instantieert de Presentation-klasse die een PPTX-bestand voorstelt
-using (Presentation presentation = new Presentation())
-{
-    // Laadt een afbeelding en voegt deze toe aan de afbeeldingcollectie van de presentatie
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Voegt een afbeeldingskader toe aan de dia
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Stelt de relatieve schaalbreedte en -hoogte in
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // Slaat de presentatie op
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Rasterafbeeldingen extraheren uit afbeeldingskaders**
-
-U kunt rasterafbeeldingen extraheren uit [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe)‑objecten en deze opslaan als PNG, JPG en andere formaten. Het onderstaande code‑voorbeeld laat zien hoe u een afbeelding uit het document "sample.pptx" kunt extraheren en opslaan in PNG‑formaat.
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **SVG‑afbeeldingen extraheren uit afbeeldingskaders**
-
-Wanneer een presentatie SVG‑grafieken bevat die in [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/)‑vormen geplaatst zijn, stelt Aspose.Slides voor .NET u in staat de oorspronkelijke vectorafbeeldingen met volledige nauwkeurigheid op te halen. Door de vormcollectie van de dia te doorlopen, kunt u elk [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/) identificeren, controleren of de onderliggende [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) SVG‑inhoud bevat, en vervolgens die afbeelding opslaan op schijf of in een stream in het oorspronkelijke SVG‑formaat.
-
-Het volgende code‑voorbeeld toont hoe u een SVG‑afbeelding uit een afbeeldingskader kunt extraheren:
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-## **Transparantie van een afbeelding ophalen**
+Het afbeeldingframe bepaalt de weergegeven geometrie; het wijzigen van de frame‑grootte verandert de originele pixelafmetingen die in de ingebedde afbeeldingsresource zijn opgeslagen. Dit onderscheid wordt belangrijk bij later bijsnijden of comprimeren van een afbeelding.
 
-Aspose.Slides stelt u in staat het transparantie‑effect van een afbeelding op te halen. Deze C#‑code demonstreert de bewerking:
+## **Relatieve schaal gebruiken**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **Helderheid en contrast van een afbeelding ophalen**
-
-Aspose.Slides stelt u in staat de helderheids‑ en contrast‑effecten van een afbeelding op te halen. De [ILuminance](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iluminance/)‑interface vertegenwoordigt dit afbeeldingstransformatieseffect.
-
-Deze C#‑code toont hoe u de helderheids‑ en contrastinstellingen van een afbeeldingskader kunt ophalen:
+[IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) biedt relatieve breedte‑ en hoogteschaling voor het frame. Een waarde van `1.0` komt overeen met 100 % van de oorspronkelijke afbeeldingsgrootte. Relatieve schaal is handig wanneer een workflow een relatie tot de bronafbeeldingsgrootte wil behouden in plaats van handmatig de eindafmetingen te berekenen.
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
-Alle effecten die op afbeeldingen worden toegepast, zijn te vinden in [Aspose.Slides.Effects](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/).
-{{% /alert %}}
+Relatieve schaal wijzigt de schaalinstellingen van het frame; het her­samplet of comprimeert de ingebedde afbeelding niet.
 
-## **Opmaak van afbeeldingskader**
+## **Ingebedde en gekoppelde afbeeldingen**
 
-Aspose.Slides biedt tal van opmaakopties die op een afbeeldingskader kunnen worden toegepast. Met deze opties kunt u een afbeeldingskader aanpassen zodat het aan specifieke eisen voldoet.
+Een ingebedde afbeelding slaat afbeeldingsdata binnen de presentatie op en is daardoor de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde afbeelding slaat een externe locatie op via het [ISlidesPicture](https://reference.aspose.com/slides/nl/net/aspose.slides/islidespicture/)‑koppelingspad in plaats van de afbeeldingsdata op dezelfde manier in te sluiten.
 
-1. Maak een instantie van de [Presentation](http://www.aspose.com/api/net/slides/nl/aspose.slides/)‑klasse. 
-2. Haal de referentie van een dia op via de index. 
-3. Maak een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage)‑object door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/net/aspose.slides/iimagecollection) die aan het presentatie‑object is gekoppeld en die zal worden gebruikt om de vorm te vullen. 
-4. Geef de breedte en hoogte van de afbeelding op. 
-5. Maak een `PictureFrame` op basis van de breedte en hoogte van de afbeelding via de [AddPictureFrame](http://www.aspose.com/api/net/slides/nl/aspose.slides/ishapecollection/methods/addpictureframe)‑methode die wordt aangeboden door het [IShapes](http://www.aspose.com/api/net/slides/nl/aspose.slides/ishapecollection)‑object dat aan de verwijzende dia is gekoppeld. 
-6. Voeg het afbeeldingskader (met de afbeelding) toe aan de dia. 
-7. Stel de lijmkleur van het afbeeldingskader in. 
-8. Stel de lijmdikte van het afbeeldingskader in. 
-9. Roteer het afbeeldingskader door een positieve of negatieve waarde toe te passen. 
-   * Een positieve waarde roteert de afbeelding met de klok mee. 
-   * Een negatieve waarde roteert de afbeelding tegen de klok in. 
-10. Voeg het afbeeldingskader (met de afbeelding) toe aan de dia. 
-11. Sla de gewijzigde presentatie op als een PPTX‑bestand. 
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeeldingsdata in de PPTX verminderen, maar ze introduceren een externe afhankelijkheid. Het gekoppelde bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of rendert. Als het pad verandert, het bestand wordt verplaatst, of de resource niet beschikbaar is, wordt de gekoppelde afbeelding mogelijk niet zoals verwacht weergegeven. Voor presentaties die moeten worden gemaild, gearchiveerd of gerenderd in geïsoleerde omgevingen, zijn ingebedde afbeeldingen doorgaans betrouwbaarder.
 
-```c#
-// Instantieert de Presentation-klasse die een PPTX-bestand voorstelt
-using (Presentation presentation = new Presentation())
-{
-    // Haalt de eerste dia op
-    ISlide slide = presentation.Slides[0];
+### **Een gekoppelde afbeelding toevoegen**
 
-    // Laadt een afbeelding en voegt deze toe aan de afbeeldingcollectie van de presentatie
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Voegt een afbeeldingskader toe met dezelfde hoogte en breedte als de afbeelding
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Past wat opmaak toe op het afbeeldingskader
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Schrijft de presentatie naar een PPTX-bestand
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}}
-
-Aspose heeft onlangs een [gratis Collage Maker](https://products.aspose.app/slides/nl/collage) ontwikkeld. Als u ooit [JPG/JPEG](https://products.aspose.app/slides/nl/collage/jpg) of PNG‑afbeeldingen wilt samenvoegen, of [roosters uit foto’s wilt maken](https://products.aspose.app/slides/nl/collage/photo-grid), kunt u deze service gebruiken. 
-
-{{% /alert %}}
-
-## **Een afbeelding toevoegen als link**
-
-Om grote presentaties te vermijden, kunt u afbeeldingen (of video’s) via koppelingen toevoegen in plaats van de bestanden direct in de presentatie te embedden. Deze C#‑code laat zien hoe u een afbeelding en video aan een placeholder toevoegt:
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Afbeeldingen bijsnijden**
-
-Deze C#‑code laat zien hoe u een bestaande afbeelding op een dia kunt bijsnijden:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // Maakt een nieuw afbeeldingobject
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Voegt een PictureFrame toe aan een dia
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // Bijsnijdt de afbeelding (percentage waarden)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // Slaat het resultaat op
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Bijsneden gebieden van een afbeelding verwijderen**
-
-Als u de bijgesneden gebieden van een afbeelding in een kader wilt verwijderen, kunt u de [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/)‑methode gebruiken. Deze methode retourneert de bijgesneden afbeelding of de oorspronkelijke afbeelding als bijsnijden niet nodig is.
-
-Deze C#‑code demonstreert de bewerking:
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Haalt het PictureFrame op van de eerste dia
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Verwijdert bijgesneden delen van de PictureFrame-afbeelding en retourneert de bijgesneden afbeelding
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // Slaat het resultaat op
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-De [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/)‑methode voegt de bijgesneden afbeelding toe aan de afbeeldingcollectie van de presentatie. Als de afbeelding alleen in het verwerkte [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/) wordt gebruikt, kan deze aanpak de presentatie‑grootte verkleinen. Anders neemt het aantal afbeeldingen in de resulterende presentatie toe.
-
-Deze methode converteert WMF/EMF‑metabestanden naar raster‑PNG‑afbeeldingen tijdens de bijsnijdbewerking. 
-
-{{% /alert %}}
-
-## **Afbeeldingen comprimeren**
-
-U kunt een afbeelding in een presentatie comprimeren met de [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/compressimage/)‑methode.
-Deze methode comprimeert een afbeelding door de grootte te verkleinen op basis van de vormgrootte en de opgegeven resolutie, met de mogelijkheid om bijgesneden gebieden te verwijderen.
-
-Hij past de grootte en resolutie van de afbeelding aan, vergelijkbaar met de PowerPoint‑functie **Afbeeldingsformaat → Afbeeldingen comprimeren → Resolutie**.
-
-De volgende C#‑voorbeelden tonen hoe u een afbeelding in een presentatie kunt comprimeren door een doel‑resolutie op te geven en optioneel bijgesneden gebieden te verwijderen:
+Het volgende voorbeeld maakt een afbeeldingframe en wijst het naar een lokaal afbeeldingsbestand. Het behandelt alleen het koppelen van afbeeldingen; het koppelen van video’s is een apart mediaproces en wordt opzettelijk niet gemengd in dit voorbeeld.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Comprimeer de afbeelding met een doelresolutie van 150 DPI (webresolutie) en verwijder bijgesneden delen.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Controleer het resultaat van de compressie.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Of rechtstreeks een aangepaste DPI‑waarde gebruiken:
+Gebruik koppelingen wanneer extern bestandsbeheer intentioneel is. Gebruik ze niet louter als vervanging voor compressie: een kleine PPTX met defecte afbeeldings‑afhankelijkheden is meestal minder bruikbaar dan een grotere, zelf‑containende presentatie.
+
+## **Afbeeldingen uit afbeeldingframes extraheren**
+
+Voordat je een afbeelding uit een bestaande presentatie extraheert, controleer je of een vorm daadwerkelijk een [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) is en of deze een ingebedde afbeelding bevat. Gekoppelde afbeeldingframes bevatten mogelijk geen afbeeldingsbytes die op dezelfde manier kunnen worden geëxtraheerd.
+
+### **Een raster‑afbeelding extraheren**
+
+De moderne afbeeldings‑API gebruikt [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) direct en vereist niet langer de oudere systeem‑image‑wrapper. Het volgende voorbeeld zoekt de eerste ingebedde raster‑afbeelding op een dia en slaat deze op als PNG:
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // Comprimeer de afbeelding tot 150 DPI (webresolutie) en verwijder bijgesneden delen.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Opslaan via [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) zet de geëxtraheerde afbeelding om naar het gevraagde uitvoerformaat. Als je de gecodeerde bytes die in de presentatie zijn opgeslagen wilt hebben in plaats van een geconverteerd raster‑bestand, gebruik dan de binaire data van de afbeeldingsresource.
 
-De methode converteert de afbeelding naar een lagere resolutie op basis van de grootte van de vorm en de opgegeven DPI. Bijgesneden gebieden kunnen eveneens worden verwijderd om de bestandsgrootte te optimaliseren.  
-Als de afbeelding een metabestand (WMF/EMF) of SVG is, wordt compressie niet toegepast. Bovendien wordt de JPEG‑kwaliteit behouden of iets verminderd op basis van de resolutie, vergelijkbaar met hoe PowerPoint omgaat met hoge‑resolutie JPEG’s. 
+### **Een SVG‑afbeelding extraheren**
 
-{{% /alert %}}
+Voor een SVG‑afbeelding biedt de [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) een [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/)‑object. Hiermee kun je de SVG‑data direct ophalen in plaats van de afbeelding eerst te rasteren.
 
-## **Beeldverhouding vergrendelen**
+```csharp
+using System.IO;
+using Aspose.Slides;
 
-Als u wilt dat een vorm met een afbeelding zijn beeldverhouding behoudt, zelfs nadat u de afmetingen van de afbeelding hebt gewijzigd, kunt u de eigenschap [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframelock/aspectratiolocked/) gebruiken om de *Beeldverhouding vergrendelen*‑instelling in te stellen. 
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-Deze C#‑code laat zien hoe u de beeldverhouding van een vorm vergrendelt:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var shape in slide.Shapes)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // Stelt de vorm in om de beeldverhouding te behouden bij het schalen
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Het behouden van SVG‑inhoud als SVG bewaart de vector‑bron binnen de presentatie. Raster‑exporten zoals PNG of JPEG renderen die vector‑inhoud onvermijdelijk naar pixels. PDF‑ of SVG‑dia‑export is eveneens een render‑operatie, dus de geëxporteerde graphics moeten niet worden beschouwd als een bit‑voor‑bit‑kopie van de originele ingebedde SVG; gebruik de ingebedde [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/)‑data wanneer de originele vector‑resource zelf nodig is.
 
-Deze *Beeldverhouding vergrendelen*‑instelling behoudt alleen de beeldverhouding van de vorm en niet van de afbeelding die erin zit. 
+## **Een afbeelding bijsnijden**
 
-{{% /alert %}}
+Bijsnijden verandert welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijdwaarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/) zijn percentages van de afmetingen van de bronafbeelding. Bijsnijden verwijdert de verborgen pixels niet direct uit de ingebedde afbeelding; het wijzigt alleen het zichtbare gebied.
 
-## **Gebruik de StretchOff‑eigenschap**
+Het volgende voorbeeld vindt veilig een afbeeldingframe en past bijsnijdwaarden toe:
 
-Door de [StretchOffsetLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/nl/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/nl/net/aspose.slides/picturefillformat/properties/stretchoffsetright) en [StretchOffsetBottom](https://reference.aspose.com/slides/nl/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom)‑eigenschappen van de [IPictureFillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat)‑interface en de [PictureFillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/picturefillformat)‑klasse te gebruiken, kunt u een vulrechthoek specificeren. 
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Wanneer rekken voor een afbeelding wordt opgegeven, wordt een bronrechthoek geschaald om te passen binnen de opgegeven vulrechthoek. Elke rand van de vulrechthoek wordt gedefinieerd door een procentuele offset ten opzichte van de overeenkomstige rand van de begrenzings‑box van de vorm. Een positief percentage geeft een inset aan, een negatief percentage een outset. 
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-1. Maak een instantie van de [Presentation](http://www.aspose.com/api/net/slides/nl/aspose.slides/)‑klasse. 
-2. Haal de referentie van een dia op via de index. 
-3. Voeg een rechthoekige `AutoShape` toe. 
-4. Maak een afbeelding. 
-5. Stel het vultype van de vorm in. 
-6. Stel de afbeeldingvullingsmodus van de vorm in. 
-7. Voeg een afbeelding toe om de vorm te vullen. 
-8. Geef de afbeeldingsoffsets op ten opzichte van de overeenkomstige rand van de begrenzings‑box van de vorm 
-9. Sla de gewijzigde presentatie op als een PPTX‑bestand. 
-
-```c#
-using (Presentation pres = new Presentation())
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // Stelt de afbeelding in die vanaf elke kant binnen het vormlichaam wordt uitgerekt
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
+
+Omdat de verborgen afbeeldingsdata nog aanwezig is, kan het bijsnijden later worden aangepast zonder de originele pixels te verliezen. Als bestandsgrootte belangrijker is dan omkeerbaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
+
+## **Bijsneden afbeeldingsdata verwijderen**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) verwijdert afbeeldingsdata buiten het huidige bijsnijd‑rechthoek en retourneert de resulterende afbeeldingsresource. Dit kan de bestandsgrootte verkleinen, maar is een destructieve optimalisatie: nadat de presentatie is opgeslagen, zijn de verwijderde pixels niet meer beschikbaar voor een later “uncrop”‑proces.
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+De methode kan een nieuwe afbeeldingsresource aan de presentatie toevoegen. Als de originele afbeelding ook door andere afbeeldingframes wordt gebruikt, hebben die frames nog steeds hun bestaande resource nodig, zodat het verwijderen van bijgesneden gebieden niet per se het totale aantal afbeeldingen vermindert. Het bijsnijden van WMF‑ of EMF‑inhoud met deze methode rastert het bijgesneden resultaat naar PNG.
+
+## **Raster‑afbeeldingen comprimeren**
+
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/compressimage/) vermindert de resolutie van een raster‑afbeelding relatief ten opzichte van de grootte waarin de afbeelding wordt weergegeven. Het kan ook bijgesneden gebieden in dezelfde bewerking verwijderen. De methode retourneert `true` wanneer de afbeelding is geschaald of bijgesneden en `false` wanneer er geen wijziging nodig was.
+
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/net/aspose.slides.export/picturescompression/)‑waarde wanneer een standaard doelresolutie voldoende is:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+Een aangepaste positieve DPI‑waarde kan in plaats van een enum‑waarde worden doorgegeven wanneer een specifiek doel vereist is.
+
+Compressie is bedoeld voor raster‑afbeeldingen. SVG‑ en metafile‑inhoud wordt niet gereduceerd door deze raster‑compressieworkflow. Houd er ook rekening mee dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie op basis van de grootste weergave‑ of exportgrootte van de afbeelding in plaats van de laagst mogelijke DPI globaal toe te passen.
+
+## **Beheer van afbeeldings‑transformatieseffecten**
+
+Voor een volledige workflow die helderheid, contrast, kleurtransformaties, vervaging, alfa‑effecten, geordende ketens, inspectie, verwijdering en round‑trip‑verificatie omvat, zie [Image Transform Effects](/slides/nl/net/image-transform-effects/).
+
+## **Geometrie van afbeeldingframes vergrendelen**
+
+De [IPictureFrameLock](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframelock/)‑instellingen bepalen welke bewerkingsacties zijn uitgeschakeld voor een afbeeldingframe. Bijvoorbeeld, de vergrendeling van de beeldverhouding behoudt de proporties van de vorm terwijl deze wordt vergroot of verkleind.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+De vergrendeling geldt voor de afbeeldingframe‑vorm. Het dwingt de bronafbeelding niet om te worden geresampled of permanent aangepast naar dezelfde beeldverhouding.
+
+## **De StretchOffset‑waarden aanpassen**
+
+Wanneer de vulmodus van een afbeelding “stretch” is, definiëren de stretch‑offset‑waarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/) het vulrechthoek ten opzichte van de omhullende doos van het afbeeldingframe. Positieve percentages creëren een insnijding vanaf een rand, terwijl negatieve percentages een uitstulping veroorzaken.
+
+Dit verschilt van bijsnijden. Bijsnijdwaarden bepalen welk deel van de bronafbeelding zichtbaar is; stretch‑offsets wijzigen het rechthoek waarin de zichtbare afbeelding wordt uitgerekt.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+Gebruik stretch‑offsets voor de plaatsing van de vulling. Gebruik bijsnijd‑eigenschappen wanneer het doel is om randen van de bronafbeelding te verbergen.
+
+## **Opslag, bestandsgrootte en exportoverwegingen**
+
+De belangrijkste afwegingen zijn makkelijker te beheren wanneer afbeeldingsopslag en afbeeldingframe‑formattering afzonderlijk worden behandeld:
+
+- **Ingebedde afbeeldingen** maken de presentatie zelf‑containend en zijn het betrouwbaarst voor delen en server‑side rendering, maar grote raster‑afbeeldingen vergroten de PPTX‑grootte en het geheugenverbruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar moeten blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingebed tot bijgesneden gebieden expliciet worden verwijderd of tijdens compressie.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote raster‑afbeeldingen, maar offert de bronresolutie op. Het dient pas te worden toegepast nadat de uiteindelijke weergavegrootte op de dia bekend is.
+- **SVG‑afbeeldingen** moeten als SVG blijven wanneer vectorbehoud belangrijk is. Extraheer de ingebedde SVG rechtstreeks wanneer je de vector‑resource zelf nodig hebt. Raster‑dia‑exporten converteren altijd de gerenderde dia naar pixels.
+- **Herhaalde afbeeldingen** moeten een bestaande [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/)‑resource hergebruiken wanneer mogelijk in plaats van herhaaldelijk hetzelfde bestand in de presentatie‑workflow te laden.
+
+Voor grote presentaties is afbeeldingoptimalisatie meestal het meest effectief wanneer deze selectief wordt toegepast: houd logo’s en diagrammen als vector‑content, comprimeer foto’s volgens hun werkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer later bewerken niet vereist is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
 ## **FAQ**
 
-**Hoe kan ik achterhalen welke afbeeldingsformaten worden ondersteund voor PictureFrame?**
+**Wat is het verschil tussen een afbeeldingframe en een afbeeldingsresource?**
 
-Aspose.Slides ondersteunt zowel raster‑afbeeldingen (PNG, JPEG, BMP, GIF, enz.) als vector‑afbeeldingen (bijvoorbeeld SVG) via het afbeeldingobject dat aan een [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/) is toegewezen. De lijst met ondersteunde formaten overlapt over het algemeen met de mogelijkheden van de dia‑ en afbeelding‑conversie‑engine.
+Een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) vertegenwoordigt een afbeeldingsresource die aan de presentatie is gekoppeld. Een [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat, zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-**Hoe beïnvloedt het toevoegen van tientallen grote afbeeldingen de grootte en prestaties van een PPTX?**
+**Moet ik afbeeldingen insluiten of koppelen?**
 
-Het insluiten van grote afbeeldingen vergroot de bestandsgrootte en het geheugenverbruik; afbeeldingen via koppelingen toevoegen houdt de presentaties kleiner, maar vereist dat de externe bestanden toegankelijk blijven. Aspose.Slides biedt de mogelijkheid om afbeeldingen via een link toe te voegen om de bestandsgrootte te verkleinen.
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet worden zonder toegang tot externe resources. Koppel afbeeldingen alleen wanneer het opzettelijk is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar kunnen worden beheerd.
 
-**Hoe kan ik een afbeeldingobject vergrendelen tegen per ongeluk verplaatsen/vergroten?**
+**Vermindert bijsnijden de PPTX‑bestandsgrootte?**
 
-Gebruik [vormvergrendelingen](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/pictureframelock/) voor een [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/) (bijvoorbeeld om verplaatsen of schalen uit te schakelen). Het vergrendelingsmechanisme wordt beschreven voor vormen in een apart [beschermingsartikel](/slides/nl/net/applying-protection-to-presentation/) en wordt ondersteund voor verschillende vormtypen, inclusief [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/).
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/nl/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) of beeldcompressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden weggegooid.
 
-**Wordt de vector‑nauwkeurigheid van SVG behouden bij het exporteren van een presentatie naar PDF/afbeeldingen?**
+**Kan ik de beeldkwaliteit herstellen na compressie?**
 
-Aspose.Slides maakt het mogelijk een SVG uit een [PictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/pictureframe/) te extraheren als de oorspronkelijke vector. Bij het [exporteren naar PDF](/slides/nl/net/convert-powerpoint-to-pdf/) of [rasterformaten](/slides/nl/net/convert-powerpoint-to-png/) kan het resultaat gerasterd worden, afhankelijk van de exportinstellingen; het feit dat de oorspronkelijke SVG als vector is opgeslagen, wordt bevestigd door het extractie‑gedrag.
+Nee. Compressie kan de opgeslagen rasterresolutie verlagen en het verwijderen van bijgesneden gebieden wist afbeeldingsdata. Houd de originele bronafbeelding buiten de presentatie als later bewerken met hoge resolutie vereist kan zijn.
+
+**Hoe moeten SVG‑afbeeldingen worden behandeld?**
+
+Behoud SVG‑content als SVG wanneer vector‑fidelity van belang is. De ingebedde [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/) kan direct worden geëxtraheerd. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
+
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+
+Controleer het vormtype voordat je afbeelding‑frame‑specifieke leden gebruikt. Pattern‑matching met [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) of het filteren van de vorm‑collectie op die interface voorkomt ongeldige casts en laat de code dia’s zonder afbeeldingframes correct afhandelen.

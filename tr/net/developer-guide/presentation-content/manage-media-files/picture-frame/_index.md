@@ -1,515 +1,360 @@
 ---
-title: .NET'te Sunumlarda Resim Çerçevelerini Yönetme
-linktitle: Resim Çerçevesi
+title: ".NET'te Sunumlarda Resim Çerçevelerini Yönetme"
+linktitle: "Resim Çerçevesi"
 type: docs
 weight: 10
 url: /tr/net/picture-frame/
 keywords:
-- resim çerçevesi
-- resim çerçevesi ekle
-- resim çerçevesi oluştur
-- görsel ekle
-- görsel oluştur
-- görsel çıkar
-- raster görüntü
-- vektör görüntü
-- görüntüyü kırp
-- kırpılmış alan
-- StretchOff özelliği
-- resim çerçevesi biçimlendirme
-- resim çerçevesi özellikleri
-- göreli ölçek
-- görsel efekti
-- en boy oranı
-- görsel şeffaflığı
-- PowerPoint
-- OpenDocument
-- sunum
-- .NET
-- C#
-- Aspose.Slides
-description: Aspose.Slides for .NET ile PowerPoint ve OpenDocument sunumlarına resim çerçeveleri ekleyin. İş akışınızı düzenleyin ve slayt tasarımlarını geliştirin.
+- "resim çerçevesi"
+- "resim çerçevesi ekle"
+- "resim çerçevesi oluştur"
+- "gömülü görüntü"
+- "bağlantılı görüntü"
+- "görüntüyü çıkar"
+- "raster görüntü"
+- "SVG görüntü"
+- "görüntüyü kırp"
+- "kırpılmış alanları sil"
+- "görüntüyü sıkıştır"
+- "StretchOffset"
+- "resim çerçevesi biçimlendirme"
+- "göreli ölçek"
+- "görüntü efekti"
+- "en‑boy oranı"
+- "PowerPoint"
+- "OpenDocument"
+- "sunum"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET ile sunumlardaki resim çerçevelerini oluşturma, biçimlendirme, bağlama, kırpma, çıkarma ve sıkıştırma."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Resim çerçevesi, bir resmi içeren bir şekildir—çerçeve içindeki bir fotoğraf gibidir.  
+Bir resim çerçevesi, bir görüntüyü gösteren bir slayt şeklidir. Aspose.Slides'de, görüntü kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) gömülü görüntü kaynaklarını [Görüntüler](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/images/) koleksiyonu aracılığıyla sahiplenirken, bir [IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) görüntünün konumunu, boyutunu, çizgi biçimlendirmesini, döndürülmesini, kırpılmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarları kontrol eder.
 
-Bir slayta resmi bir resim çerçevesi aracılığıyla ekleyebilirsiniz. Bu sayede resmi, resim çerçevesini biçimlendirerek formatlayabilirsiniz.
+Bu ayrım, aynı görüntünün birden fazla kez gösterildiği durumlarda faydalıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu görüntü kaynağını kullanın.
 
-{{% alert  title="Tip" color="primary" %}} 
+Resim çerçeveleri PNG veya JPEG gibi raster görüntüleri ve SVG gibi vektör görüntüleri içerebilir. Ayrıca görüntü baytlarını sunumda saklamak yerine bağlantılı (linked) görüntülere referans verebilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl saklanacağına karar vermek faydalıdır.
 
-Aspose, ücretsiz dönüştürücüler—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—sağlayarak kullanıcıların resimlerden hızlıca sunum oluşturmasını sağlar. 
+## **Gömülü Görüntü Ekleme ve Biçimlendirme**
 
-{{% /alert %}} 
+Gömülü bir görüntü için, görüntü verilerini sunuma ekleyin ve bir resim çerçevesi oluşturmak için [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addpictureframe/) yöntemini kullanın. Görüntü, sunum paketinin bir parçası haline gelir, bu sayede sunum başka bir bilgisayara taşındığında da kendine yeterli kalır.
 
-## **Resim Çerçevesi Oluşturma**
+Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile döndürme uygular:
 
-1. [Presentation ](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation)class örneği oluşturun. 
-2. Bir slaydın referansını dizini üzerinden alın. 
-3. Sunum nesnesine bağlı olan [IImagescollection](https://reference.aspose.com/slides/tr/net/aspose.slides/iimagecollection) içine bir resim ekleyerek [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage) nesnesi oluşturun; bu nesne şekli doldurmak için kullanılacaktır. 
-4. Resmin genişliğini ve yüksekliğini belirtin. 
-5. Referans verilen slayda ait şekil nesnesi tarafından sunulan `AddPictureFrame` yöntemiyle resmin genişliği ve yüksekliğine göre bir [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe) oluşturun. 
-6. Resim çerçevesini (içindeki resmi) slayta ekleyin. 
-7. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Aşağıdaki C# kodu, bir resim çerçevesi oluşturmayı gösterir:
-
-```c#
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-using (Presentation pres = new Presentation())
-{
-    // İlk slaytı alır
-    ISlide slide = pres.Slides[0];
-
-    // Bir görüntü yükler ve sunumun görüntü koleksiyonuna ekler
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Aynı yüksekliğe ve genişliğe sahip bir resim çerçevesi ekler
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Resim çerçevesine bazı biçimlendirmeler uygular
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Sunumu bir PPTX dosyasına yazar
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-
-Resim çerçeveleri, resimlere dayalı sunum slaytlarını hızlıca oluşturmanızı sağlar. Resim çerçevesini Aspose.Slides kaydetme seçenekleriyle birleştirerek giriş/çıkış işlemlerini yönlendirebilir, resimleri bir formattan diğerine dönüştürebilirsiniz. Şu sayfalara da göz atabilirsiniz: [image to JPG](https://products.aspose.com/slides/tr/net/conversion/image-to-jpg/) dönüştürme; [JPG to image](https://products.aspose.com/slides/tr/net/conversion/jpg-to-image/) dönüştürme; [JPG to PNG](https://products.aspose.com/slides/tr/net/conversion/jpg-to-png/) dönüştürme, [PNG to JPG](https://products.aspose.com/slides/tr/net/conversion/png-to-jpg/) dönüştürme; [PNG to SVG](https://products.aspose.com/slides/tr/net/conversion/png-to-svg/) dönüştürme, [SVG to PNG](https://products.aspose.com/slides/tr/net/conversion/svg-to-png/) dönüştürme.
-
-{{% /alert %}}
-
-## **Göreli Ölçekli Resim Çerçevesi Oluşturma**
-
-Bir resmin göreli ölçeklemesini değiştirerek daha karmaşık bir resim çerçevesi oluşturabilirsiniz. 
-
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) class örneği oluşturun. 
-2. Bir slaydın referansını dizini üzerinden alın. 
-3. Sunumun resim koleksiyonuna bir resim ekleyin. 
-4. Sunum nesnesine bağlı olan [IImagescollection](https://reference.aspose.com/slides/tr/net/aspose.slides/iimagecollection) içine bir resim ekleyerek [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage) nesnesi oluşturun; bu nesne şekli doldurmak için kullanılacaktır. 
-5. Resim çerçevesindeki resmin göreli genişliğini ve yüksekliğini belirtin. 
-6. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
-
-Aşağıdaki C# kodu, göreli ölçekli bir resim çerçevesi oluşturmayı gösterir:
-
-```c#
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-using (Presentation presentation = new Presentation())
-{
-    // Bir görüntü yükler ve sunumun görüntü koleksiyonuna ekler
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Slayta bir resim çerçevesi ekler
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Göreli ölçek genişliğini ve yüksekliğini ayarlar
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // Sunumu kaydeder
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Resim Çerçevelerinden Raster Görüntü Çıkarma**
-
-[PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe) nesnelerinden raster görüntüleri çıkarabilir ve PNG, JPG gibi formatlarda kaydedebilirsiniz. Aşağıdaki kod örneği, “sample.pptx” belgesinden bir görüntüyü çıkarıp PNG formatında kaydetmeyi gösterir.
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **Resim Çerçevelerinden SVG Görüntü Çıkarma**
-
-Bir sunum, [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/) şekilleri içinde SVG grafikleri barındırıyorsa, Aspose.Slides for .NET, özgün vektör görüntülerini tam özgünlükle almanıza olanak tanır. Slaydın şekil koleksiyonunu dolaşarak her bir [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/) nesnesini tanımlayabilir, altında yatan [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesnesinin SVG içeriği taşıyıp taşımadığını kontrol edebilir ve ardından bu görüntüyü yerel SVG formatında diske ya da akıma kaydedebilirsiniz.
-
-Aşağıdaki kod örneği, bir resim çerçevesinden SVG görüntüsü çıkarmayı gösterir:
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Görüntünün Şeffaflığını Alma**
+Resim çerçevesi, görüntünün gösterilen geometrisini kontrol eder; çerçeve boyutunu değiştirmek, gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra bir görüntüyü kırpma veya sıkıştırma yaptığınızda önem kazanır.
 
-Aspose.Slides, bir görüntüye uygulanan şeffaflık etkisini almanıza imkan tanır. Bu C# kodu işlemi gösterir:
+## **Göreli Ölçeği Kullan**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **Bir Görüntünün Parlaklık ve Kontrastını Alma**
-
-Aspose.Slides, bir görüntüye uygulanan parlaklık ve kontrast etkisini almanıza imkan tanır. Bu görüntü dönüşüm etkisini temsil eden [ILuminance](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iluminance/) arayüzüdür.
-
-Aşağıdaki C# kodu, bir resim çerçevesinden parlaklık ve kontrast ayarlarını almayı gösterir:
+[IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) çerçeve için göreli genişlik ve yükseklik ölçeklendirmesini ortaya koyar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreli ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynağın boyutu ile bir ilişki koruması gerektiğinde işe yarar.
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
-Görüntülere uygulanan tüm efektler [Aspose.Slides.Effects](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/) içinde bulunabilir.
-{{% /alert %}}
+Göreli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örneklemez veya sıkıştırmaz.
 
-## **Resim Çerçevesi Biçimlendirme**
+## **Gömülü ve Bağlantılı Görüntüler**
 
-Aspose.Slides, bir resim çerçevesine uygulanabilecek birçok biçimlendirme seçeneği sunar. Bu seçenekleri kullanarak bir resim çerçevesini belirli gereksinimlere uygun hâle getirebilirsiniz.
+Gömülü bir resim, görüntü verilerini sunum içinde saklar ve bu nedenle taşınabilirlik ve öngörülebilir görüntüleme açısından en güvenli tercihtir. Bağlantılı bir resim ise görüntü verilerini aynı şekilde gömmek yerine [ISlidesPicture](https://reference.aspose.com/slides/tr/net/aspose.slides/islidespicture/) bağlantı yolu aracılığıyla harici bir konuma işaret eder.
 
-1. [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) class örneği oluşturun. 
-2. Bir slaydın referansını dizini üzerinden alın. 
-3. Sunum nesnesine bağlı olan [IImagescollection](https://reference.aspose.com/slides/tr/net/aspose.slides/iimagecollection) içine bir resim ekleyerek [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage) nesnesi oluşturun; bu nesne şekli doldurmak için kullanılacaktır. 
-4. Resmin genişliğini ve yüksekliğini belirtin. 
-5. Referans verilen slayda ait [IShapes](http://www.aspose.com/api/net/slides/tr/aspose.slides/ishapecollection) nesnesi üzerinden sunulan [AddPictureFrame](http://www.aspose.com/api/net/slides/tr/aspose.slides/ishapecollection/methods/addpictureframe) yöntemiyle resmin genişliği ve yüksekliğine göre bir `PictureFrame` oluşturun. 
-6. Resim çerçevesini (içindeki resmi) slayta ekleyin. 
-7. Resim çerçevesinin kenar çizgi rengini ayarlayın. 
-8. Resim çerçevesinin kenar çizgi kalınlığını ayarlayın. 
-9. Resim çerçevesini pozitif ya da negatif bir değer vererek döndürün.  
-   * Pozitif değer, görüntüyü saat yönünde döndürür.  
-   * Negatif değer, görüntüyü saat yönünün tersine döndürür. 
-10. Resim çerçevesini (içindeki resmi) slayta ekleyin. 
-11. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
+Bağlantılı görüntüler PPTX içinde saklanan veri miktarını azaltabilir, ancak harici bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama için erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa ya da kaynak kullanılamaz olursa, bağlantılı resim beklendiği gibi gösterilemez. Sunumun e-posta ile gönderilmesi, arşivlenmesi veya izole ortamda render edilmesi gerekiyorsa, gömülü görüntüler genellikle daha güvenilirdir.
 
-Aşağıdaki C# kodu, resim çerçevesi biçimlendirme sürecini gösterir:
+### **Bağlantılı Görüntü Ekleme**
 
-```c#
-// PPTX dosyasını temsil eden Presentation sınıfını örnekler
-using (Presentation presentation = new Presentation())
-{
-    // İlk slaytı alır
-    ISlide slide = presentation.Slides[0];
-
-    // Bir görüntü yükler ve sunumun görüntü koleksiyonuna ekler
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Resmin eşdeğer yüksekliği ve genişliğiyle bir resim çerçevesi ekler
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Resim çerçevesine bazı biçimlendirmeler uygular
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Sunumu bir PPTX dosyasına yazar
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}}
-
-Aspose yakın zamanda ücretsiz bir [Collage Maker](https://products.aspose.app/slides/tr/collage) geliştirdi. JPG/JPEG veya PNG görüntüleri birleştirmeniz, fotoğraflardan ızgara oluşturmanız gerektiğinde bu hizmeti kullanabilirsiniz. 
-
-{{% /alert %}}
-
-## **Bir Görüntüyü Bağlantı Olarak Ekleme**
-
-Sunum dosyalarının boyutunu azaltmak için görüntüleri (veya videoları) doğrudan dosyaya gömmek yerine bağlantı yoluyla ekleyebilirsiniz. Bu C# kodu, bir yer tutucu içine görüntü ve video eklemeyi gösterir:
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Görüntüleri Kırpma**
-
-Bu C# kodu, bir slayt üzerindeki mevcut bir görüntüyü kırpmayı gösterir:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // Yeni bir görüntü nesnesi oluşturur
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Bir slayta PictureFrame ekler
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // Görüntüyü kırpar (yüzde değerleri)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // Sonucu kaydeder
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Bir Resim Çerçevesinin Kırpılmış Alanlarını Silme**
-
-Bir çerçeve içinde bulunan görüntünün kırpılmış alanlarını silmek istiyorsanız, [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) yöntemini kullanabilirsiniz. Bu yöntem, kırpılmış görüntüyü ya da kırpma gerekmediğinde orijinal görüntüyü döndürür.
-
-Aşağıdaki C# kodu işlemi göstermektedir:
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // İlk slayttan PictureFrame'i alır
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // PictureFrame görüntüsünün kırpılmış alanlarını siler ve kırpılmış görüntüyü döndürür
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // Sonucu kaydeder
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) yöntemi, kırpılmış görüntüyü sunumun resim koleksiyonuna ekler. Görüntü yalnızca işlenen [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/) içinde kullanılıyorsa bu yapı sunum boyutunu azaltabilir. Aksi takdirde sonuç sunumdaki resim sayısı artar.
-
-Bu yöntem, kırpma işlemi sırasında WMF/EMF metafile'larını raster PNG görüntüsüne dönüştürür. 
-
-{{% /alert %}}
-
-## **Görüntüleri Sıkıştırma**
-
-Bir sunumdaki resmi, [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/compressimage/) yöntemiyle sıkıştırabilirsiniz. Bu yöntem, şekil boyutuna ve belirtilen çözünürlüğe göre resmi küçülterek, isteğe bağlı olarak kırpılmış alanları silebilir. 
-
-PowerPoint'in **Picture Format → Compress Pictures → Resolution** özelliğine benzer şekilde resmin boyutunu ve çözünürlüğünü ayarlar.
-
-Aşağıdaki C# örnekleri, hedef bir çözünürlük belirleyerek ve isteğe bağlı olarak kırpılmış alanları kaldırarak bir sunumda görüntüyü sıkıştırmayı gösterir:
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir görüntü dosyasına yönlendirir. Sadece görüntü bağlamayı gösterir; video bağlama ayrı bir medya iş akışıdır ve bu örneğe bilinçli olarak dahil edilmemiştir.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Görüntüyü hedef çözünürlük 150 DPI (Web çözünürlüğü) ile sıkıştırır ve kırpılmış alanları kaldırır.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Sıkıştırmanın sonucunu kontrol eder.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Veya doğrudan özel bir DPI değeri kullanarak:
+Dış dosya yönetimi kasıtlıysa bağlantıları kullanın. Sıkıştırma yerine yalnızca bir alternatif olarak kullanmayın: kırık görüntü bağımlılıklarına sahip küçük bir PPTX, genellikle büyük, kendi kendine yeten bir sunumdan daha az kullanışlıdır.
+
+## **Resim Çerçevelerinden Görüntü Çıkarma**
+
+Mevcut bir sunumdan görüntü çıkarmadan önce, bir şeklin gerçekten bir [IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) olup olmadığını ve gömülü bir görüntü içerip içermediğini kontrol edin. Bağlantılı resim çerçeveleri, aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+
+### **Raster Görüntü Çıkarma**
+
+Modern görüntü API'si, eski sistem-görüntü sarmalayıcısına ihtiyaç duymadan doğrudan [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // Görüntüyü 150 DPI (web çözünürlüğü) sıkıştırır, kırpılmış alanları kaldırır.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+[IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunum içinde saklanan kodlanmış baytlara (dönüştürülmüş raster dosyası yerine) ihtiyacınız varsa, görüntü kaynağının ikili verisini kullanın.
 
-Yöntem, şeklin boyutu ve sağlanan DPI temelinde görüntüyü daha düşük bir çözünürlüğe dönüştürür. Dosya boyutunu optimize etmek için kırpılmış bölgeler de silinebilir.  
-Görüntü bir metafile (WMF/EMF) ya da SVG ise sıkıştırma uygulanmaz. JPEG kalitesi, çözünürlüğe bağlı olarak korunur veya hafifçe düşer; bu davranış PowerPoint'in yüksek çözünürlüklü JPEG'leri ele almasıyla benzerlik gösterir.
+### **SVG Görüntüsü Çıkarma**
 
-{{% /alert %}}
+Bir SVG resmi için, [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) bir [ISvgImage](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/) nesnesi sağlar. Bu sayede SVG verisini doğrudan alabilir, resmi önce rasterlaştırmadan elde edebilirsiniz.
 
-## **En Boy Oranını Kilitleme**
+```csharp
+using System.IO;
+using Aspose.Slides;
 
-Bir şekil içindeki görüntünün boyutlarını değiştirdiğinizde bile şeklin en boy oranını korumak istiyorsanız, *Lock Aspect Ratio* ayarını belirlemek için [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframelock/aspectratiolocked/) özelliğini kullanabilirsiniz. 
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-Aşağıdaki C# kodu, bir şeklin en boy oranını kilitlemeyi gösterir:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var shape in slide.Shapes)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // Şeklin yeniden boyutlandırmada en boy oranını korumasını ayarlar
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarımlar bu vektör içeriği piksellere dönüştürür. PDF veya SVG slayt dışa aktarımı da bir render işlemi olduğundan, dışa aktarılan grafikler özgün gömülü SVG'nin bayt‑bayt bir kopyası olarak değerlendirilmemeli; orijinal vektör kaynağı gerektiğinde gömülü [ISvgImage](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/) verisi kullanılmalıdır.
 
-Bu *Lock Aspect Ratio* ayarı yalnızca şeklin en boy oranını korur, içerdiği resmi değil.
+## **Görüntüyü Kırpma**
 
-{{% /alert %}}
+Kırpma, çerçeve içinde hangi görüntü bölümünün görüneceğini değiştirir. [IPictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/) üzerindeki kırpma değerleri, kaynak görüntünün boyutlarının yüzdesi olarak verilir. Kırpma, gizli pikselleri gömülü görüntüden hemen silmez; yalnızca görünür bölgeyi değiştirir.
 
-## **StretchOff Özelliğini Kullanma**
+Aşağıdaki örnek bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
 
-[IPictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat) arayüzü ve [PictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/picturefillformat) sınıfı üzerinden [StretchOffsetLeft](https://reference.aspose.com/slides/tr/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/tr/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/tr/net/aspose.slides/picturefillformat/properties/stretchoffsetright) ve [StretchOffsetBottom](https://reference.aspose.com/slides/tr/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) özelliklerini kullanarak bir doldurma dikdörtgeni belirtebilirsiniz. 
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Bir görüntü için germe (stretch) belirtildiğinde, kaynak dikdörtgen belirtilen doldurma dikdörtgenine sığacak şekilde ölçeklenir. Doldurma dikdörtgeninin her kenarı, şeklin sınırlayıcı kutusunun karşı kenarına göre yüzde offset ile tanımlanır. Pozitif yüzde bir içeriği (inset) belirtirken negatif yüzde bir dışarıyı (outset) belirtir.
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-1. [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) class örneği oluşturun. 
-2. Bir slaydın referansını dizini üzerinden alın. 
-3. Bir `AutoShape` dikdörtgeni ekleyin. 
-4. Bir resim oluşturun. 
-5. Şeklin doldurma türünü ayarlayın. 
-6. Şeklin resim doldurma modunu ayarlayın. 
-7. Şekli doldurmak için bir resim ekleyin. 
-8. Resim offset'lerini şeklin sınırlayıcı kutusunun karşı kenarına göre belirtin. 
-9. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
-
-Aşağıdaki C# kodu, StretchOff özelliğinin kullanıldığı bir süreci gösterir:
-
-```c#
-using (Presentation pres = new Presentation())
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // Şekil gövdesinde görüntünün her yanından gerilmesini ayarlar
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
+
+Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu geri dönüşümden daha önemliyse, sonraki bölümde açıklanan gibi kırpılmış bölgeler fiziksel olarak kaldırılabilir.
+
+## **Kırpılmış Görüntü Verisini Kaldırma**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) mevcut kırpma dikdörtgeninin dışındaki görüntü verisini kaldırır ve sonuçtaki görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir “uncrop” işleminde artık mevcut değildir.
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+Yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü başka resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynağa ihtiyaç duyar; bu nedenle kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterlaştırır.
+
+## **Raster Görüntüleri Sıkıştırma**
+
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/compressimage/) raster görüntünün çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
+
+Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/net/aspose.slides.export/picturescompression/) değeri kullanın:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+Belirli bir hedef gerektiğinde enum değeri yerine pozitif bir DPI değeri de geçirilebilir.
+
+Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinmiş kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. Hedef çözünürlüğü, görüntünün gerçekte görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; tüm sunumda en düşük DPI’yı uygulamaktan kaçının.
+
+## **Görüntü Dönüşüm Efektlerini Yönetme**
+
+Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, denetleme, kaldırma ve çift yönlü doğrulama gibi tam bir iş akışı için **[Görüntü Dönüşüm Efektleri](/slides/tr/net/image-transform-effects/)** bölümüne bakın.
+
+## **Resim Çerçevesi Geometrisini Kilitleme**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, en‑boy oranı kilidi, şekil yeniden boyutlandırılırken orantıların korunmasını sağlar.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+Kilitleme, sadece resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en‑boy oranına yeniden örneklenmesi veya kalıcı olarak değiştirilmesi zorunlu kılmaz.
+
+## **StretchOffset Değerlerini Ayarlama**
+
+Dolgu modu “stretch” olduğunda, [IPictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/) üzerindeki stretch‑offset değerleri, dolgu dikdörtgenini resim çerçevesinin sınır kutusuna göre tanımlar. Pozitif yüzdeler kenardan içeriye bir girinti oluştururken, negatif yüzdeler dışarıya bir çıkıntı yaratır.
+
+Bu, kırpma işleminden farklıdır. Kırpma değerleri, kaynak görüntünün hangi kısmının görüneceğini seçerken; stretch offset değerleri, görünen resim dolgusunun hangi dikdörtgene uzatılacağını değiştirir.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+Dolgu yerleşimi için stretch offset kullanın. Kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
+
+## **Depolama, Dosya Boyutu ve Dışa Aktarma Hususları**
+
+Görüntü depolama ve resim‑çerçeve biçimlendirmesi ayrı ayrı ele alındığında temel denge noktaları daha net yönetilir:
+
+- **Gömülü görüntüler** sunumu kendi içinde tutar ve paylaşım ile sunucu tarafı render için en güvenilir seçenektir; ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görüntüler** paket boyutunu küçültür, fakat sunumun harici dosyaların belirtilen yollarda mevcut olmasına bağımlı olmasını getirir.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene ya da sıkıştırma sırasında kaldırılana kadar gömülü kalır.
+- **Sıkıştırma**, aşırı büyük raster görüntülerin dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Hedef slayt boyutu bilindikten sonra uygulanmalıdır.
+- **SVG görüntüler**, vektör korunumu önemliyse SVG olarak tutulmalıdır. Vektör kaynağına ihtiyaç duyduğunuzda gömülü SVG’yi doğrudan çıkarın. Raster slayt dışa aktarımları her zaman slaytı piksellere dönüştürür.
+- **Tekrarlanan görüntüler**, mümkün olduğunca aynı [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) kaynağını yeniden kullanmalı, aynı dosyayı sunuma defalarca yüklemekten kaçınmalıdır.
+
+Büyük sunumlarda, görüntü optimizasyonu seçici olarak yapıldığında daha etkilidir: logolar ve diyagramlar vektör içerik olarak kalmalı, fotoğraflar gerçek gösterim boyutuna göre sıkıştırılmalı, kırpılmış pikseller yalnızca daha sonraki düzenleme gerekmiyorsa kaldırılmalı ve dış bağlantılar, bağımlılık yönetimi dağıtım tasarımının bir parçası değilse kullanılmamalıdır.
 
 ## **SSS**
 
-**Resim Çerçevesi için hangi görüntü formatlarının desteklendiğini nasıl öğrenebilirim?**
+**Resim çerçevesi ile görüntü kaynağı arasındaki fark nedir?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/) nesnesine atanan görüntü nesnesi aracılığıyla raster (PNG, JPEG, BMP, GIF vb.) ve vektör (ör. SVG) görüntüleri destekler. Desteklenen formatların listesi, slayt ve görüntü dönüştürme motorunun yetenekleriyle genellikle örtüşür.
+Bir [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) sunuma bağlı bir görüntü kaynağını temsil eder. Bir [IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) ise bir slayttaki resmi gösteren, çerçeve‑düzeyinde boyut, döndürme, kırpma, efekt ve kilit gibi biçimlendirmeleri depolayan şekildir.
 
-**Yüzlerce büyük görüntü eklemek PPTX boyutunu ve performansını nasıl etkiler?**
+**Görüntüleri gömmeli mi yoksa bağlamalı mıyım?**
 
-Büyük görüntüleri gömmek dosya boyutunu ve bellek kullanımını artırır; görüntüleri bağlamak (link) dosya boyutunu düşük tutar ancak dış dosyaların erişilebilir olmasını gerektirir. Aspose.Slides, dosya boyutunu azaltmak için görüntüleri bağlantı yoluyla ekleme imkanı sunar.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına tutmak ve dış konumları güvenilir bir şekilde yönetebileceğiniz durumlarda ise bağlayın.
 
-**Bir görüntü nesnesini yanlışlıkla taşınması/yeniden boyutlandırılmasından nasıl kilitleyebilirim?**
+**Kırpma PPTX dosya boyutunu azaltır mı?**
 
-[PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/) için [shape locks](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/pictureframelock/) (ör. hareketi veya yeniden boyutlandırmayı devre dışı bırakma) kullanın. Kilitleme mekanizması, çeşitli şekil türleri için ayrı bir [protection article](/slides/tr/net/applying-protection-to-presentation/) içinde açıklanmıştır.
+Tek başına azaltmaz. Normal kırpma ayarları, kaynak görüntünün bir kısmını gizler ancak altındaki pikselleri tutar. Kırpılmış alanları kalıcı olarak kaldırmak için [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) veya kırpılmış‑alan kaldırmalı sıkıştırma kullanılmalıdır.
 
-**SVG vektör özgünlüğü, bir sunumu PDF/görüntülere dışa aktarırken korunur mu?**
+**Sıkıştırma sonrası görüntü kalitesini geri getirebilir miyim?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/pictureframe/) içindeki SVG'yi özgün vektör olarak çıkarabilir. [PDF'ye dışa aktarırken](/slides/tr/net/convert-powerpoint-to-pdf/) veya [raster formatlara](/slides/tr/net/convert-powerpoint-to-png/) çıkış yapılırken, ayarlara bağlı olarak sonuç rasterleştirilebilir; ancak SVG'nin vektör olarak saklandığı, çıkarma davranışıyla doğrulanır.
+Hayır. Sıkıştırma depolanan raster çözünürlüğü düşürür ve kırpılmış bölgelerin kaldırılması görüntü verisini siler. Daha sonraki yüksek çözünürlüklü düzenleme ihtiyacı olabilecekse orijinal kaynağı sunum dışına saklayın.
+
+**SVG görüntüler nasıl ele alınmalı?**
+
+Vektör bütünlüğünün önemli olduğu durumlarda SVG içeriği SVG olarak tutun. Gömülü [ISvgImage](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster bir formata slayt renderlamak, SVG’yi piksellere dönüştürür.
+
+**Mevcut slaytları okurken güvenli olmayan tip dönüşümlerinden nasıl kaçınabilirim?**
+
+Resim‑çerçevesi‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. [IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) ile desen eşlemesi yaparak ya da şekil koleksiyonunu bu arabirime göre filtreleyerek geçersiz tip dönüşümlerinden kaçınıp, resim çerçevesi içermeyen slaytları sorunsuz işleyebilirsiniz.

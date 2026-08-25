@@ -1,528 +1,441 @@
 ---
-title: Képkeretek kezelése prezentációkban JavaScript használatával
-linktitle: Képkeret
+title: "Képkeretek kezelése prezentációkban JavaScript használatával"
+linktitle: "Képkeret"
 type: docs
 weight: 10
 url: /hu/nodejs-java/picture-frame/
 keywords:
-- képkeret
-- képkeret hozzáadása
-- képkeret létrehozása
-- kép hozzáadása
-- kép létrehozása
-- kép kinyerése
-- raszteres kép
-- vektorkép
-- kép vágása
-- levágott terület
-- StretchOff tulajdonság
-- képkeret formázása
-- képkeret tulajdonságai
-- relatív méretezés
-- kép effektus
-- oldalarány
-- kép átlátszóság
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Adjon hozzá képkereteket PowerPoint és OpenDocument prezentációkhoz az Aspose.Slides for Node.js via Java segítségével. Egyszerűsítse munkafolyamatát és javítsa a diák tervezését."
+- "képkeret"
+- "képkeret hozzáadása"
+- "képkeret létrehozása"
+- "beágyazott kép"
+- "csatolt kép"
+- "kép kinyerése"
+- "raszteres kép"
+- "SVG kép"
+- "kép vágása"
+- "vágott területek törlése"
+- "kép tömörítése"
+- "StretchOffset"
+- "képkeret formázása"
+- "relatív méretezés"
+- "kép effektus"
+- "oldalarány"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Képkeretek létrehozása, formázása, csatolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Node.js Java segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A képkeret olyan alakzat, amely képet tartalmaz – ez olyan, mint egy kép egy keretben.  
-Képet egy diára képkeret segítségével adhat hozzá. Így a képet a képkeret formázásával formázhatja.
+A képkeret egy dián lévő alakzat, amely egy képet jelenít meg. Az Aspose.Slides-ban a képernyöző erőforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) rendelkezik beágyazott képernyöző erőforrásokkal a [ImageCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/imagecollection/) segítségével, míg egy [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgatását, vágását, képhatásait és egyéb keretszintű beállításokat.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose ingyenes konvertálókat kínál — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyek lehetővé teszik, hogy a felhasználók gyorsan prezentációkat hozzanak létre képekből. 
-{{% /alert %}} 
+Ez a szétválasztás akkor hasznos, ha ugyanaz a kép többször jelenik meg. Adj hozzá képet a prezentációhoz egyszer, tartsd meg a visszakapott [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ppimage/), és használd ezt a képernyöző erőforrást a képkeretek létrehozásakor.
 
-## **Képkeret létrehozása**
+A képkeretek raszteres képeket (például PNG vagy JPEG) és vektoros SVG képeket egyaránt tartalmazhatnak. Emellett hivatkozhatnak csatolt (linked) képekre is, ahelyett, hogy a kép bájtjait a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért célszerű eldönteni, hogyan legyen a kép tárolva a formázás vagy optimalizálás előtt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Hozzon létre egy `PPImage` objektumot a prezentációhoz kapcsolódó [ImagesCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ImageCollection) kép hozzáadásával, amelyet az alakzat kitöltésére használnak.  
-4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PictureFrame) objektumot a kép szélessége és magassága alapján a `addPictureFrame` metódus segítségével, amely a hivatkozott diához tartozó alakzat objektumon keresztül érhető el.  
-6. Adjon hozzá egy képkeretet (amely a képet tartalmazza) a diához.  
-7. Írja ki a módosított prezentációt PPTX fájlként.  
+## **Beágyazott kép hozzáadása és formázása**
 
-Ez a JavaScript kód megmutatja, hogyan hozhat létre képkeretet:
+Beágyazott kép esetén add hozzá a képadatot a prezentációhoz, és hozz létre egy képkeretet a [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) metódussal. A kép a prezentáció csomag részévé válik, így a prezentáció önálló marad, ha másik számítógépre kerül.
+
+A következő példa PNG képet ad hozzá, a kép natív méreteivel hoz létre egy keretet, és vonalformázást és forgatást alkalmaz:
 
 ```javascript
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt reprezentál
-var pres = new aspose.slides.Presentation();
-try {
-    // Lekéri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Példányosítja az Image osztályt
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Képkeretet ad hozzá a kép megfelelő magasságával és szélességével
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // A PPTX fájlt a lemezre írja
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-A képkeretek lehetővé teszik, hogy gyorsan prezentációs diákat hozzunk létre képek alapján. Amikor a képkeretet kombinálja az Aspose.Slides mentési beállításaival, manipulálhatja a bemenet/kimenet műveleteket a képek formátumok közötti konvertálásához.
-
-## **Képkeret létrehozása relatív méretezéssel**
-
-A kép relatív méretezésének módosításával összetettebb képkeretet hozhat létre.  
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Adjon hozzá egy képet a prezentáció képgyűjteményéhez.  
-4. Hozzon létre egy `PPImage` objektumot a prezentációhoz kapcsolódó [ImagesCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ImageCollection) kép hozzáadásával, amelyet az alakzat kitöltésére használnak.  
-5. Adja meg a kép relatív szélességét és magasságát a képkeretben.  
-6. Írja ki a módosított prezentációt PPTX fájlként.  
-
-Ez a JavaScript kód megmutatja, hogyan hozhat létre képkeretet relatív méretezéssel:
-
-```javascript
-// Példányosítja a Presentation osztályt, amely a PPTX-et reprezentálja
-var pres = new aspose.slides.Presentation();
-try {
-    // Lekéri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Példányosítja az Image osztályt
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Képkeretet ad hozzá a kép magasságával és szélességével megegyező méretekkel
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Relatív skála beállítása szélesség és magasság szerint
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // A PPTX fájlt a lemezre írja
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Raster képek kinyerése képkeretekből**
-
-Raster képeket tud kinyerni a [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PictureFrame) objektumokból, és PNG, JPG, illetve egyéb formátumokban menteni őket. Az alábbi kódpélda bemutatja, hogyan lehet egy képet kinyerni a "sample.pptx" dokumentumból, és PNG formátumban menteni.
-
-```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
-        try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **SVG képek kinyerése képkeretekből**
-
-Amikor egy prezentáció SVG grafikát tartalmaz, amely [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) alakzatokba van ágyazva, az Aspose.Slides for Node.js Java-n keresztül lehetővé teszi, hogy az eredeti vektor képeket teljes hűséggel lekérje. A dia alakzat-gyűjteményének bejárásával azonosíthatja minden egyes [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) objektumot, ellenőrizheti, hogy a hozzá tartozó [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ppimage/) SVG tartalmat tartalmaz-e, majd elmentheti a képet a lemezre vagy áramlásba natív SVG formátumban.
-
-Ezen kódpélda bemutatja, hogyan lehet SVG képet kinyerni egy képkeretből:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Kép átlátszóságának lekérése**
-
-Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott átlátszósági hatást. Ez a JavaScript kód bemutatja a műveletet:
-
-```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Kép fényerő és kontrasztjának lekérése**
-
-Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott fényerő és kontraszt hatást. A [Luminance](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/luminance/) osztály képviseli ezt a képtranszformációs hatást.
-
-Ez a JavaScript kód bemutatja, hogyan lehet lekérni a fényerő és a kontraszt beállításait egy képkeretből:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A képkeret szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti, a beágyazott képernyöző erőforrásban tárolt pixelméreteket. Ez a különbség későbbi vágás vagy tömörítés esetén fontos.
+
+## **Relatív méretezés használata**
+
+[PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) a keret relatív szélesség- és magasságarányos méretezését a [setRelativeScaleWidth](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) és a [setRelativeScaleHeight](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-) metódusokkal teszi elérhetővé. Az `1.0` érték az eredeti kép 100 %-át jelenti. A relatív méretezés akkor hasznos, amikor egy munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével a végleges méretek kézi számítása helyett.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A relatív méretezés módosítja a keret skálabeállításait; nem mintavételezi vagy tömöríti a beágyazott képet.
+
+## **Beágyazott és csatolt képek**
+
+A beágyazott kép a képadatokat a prezentáción belül tárolja, ezért a hordozhatóság és a kiszámítható megjelenítés szempontjából a legbiztonságosabb választás. A csatolt kép a [Picture.setLinkPathLong](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) metódussal külső helyet tárol, ahelyett, hogy a képadatokat beágyazná.
+
+A csatolt képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A csatolt fájlnak elérhetőnek kell maradnia az alkalmazás számára, amely a prezentációt megnyitja vagy rendereli. Ha az útvonal megváltozik, a fájl áthelyeződik, vagy az erőforrás nem érhető el, a csatolt kép nem biztos, hogy a várt módon jelenik meg. Azoknál a prezentációknál, amelyeket e‑mailben kell küldeni, archiválni vagy elszigetelt környezetben renderelni, a beágyazott képek általában megbízhatóbbak.
+
+### **Csatolt kép hozzáadása**
+
+A következő példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a képcsatolásra vonatkozik; a videócsatolás külön média munkafolyamat, és szándékosan nincs keverve ebben a példában.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Használd a hivatkozásokat, ha a külső fájlkezelés szándékos. Ne alkalmazd őket csak a tömörítés helyettesítésére: egy kis PPTX, amely megszakadt képfüggőségekkel rendelkezik, általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
+
+## **Képek kinyerése képkeretekből**
+
+Mielőtt képet nyernél ki egy meglévő prezentációból, ellenőrizd, hogy az alakzat valóban [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/), és tartalmaz-e beágyazott képet. A csatolt képkeretek nem feltétlenül tartalmazzák a kinyerhető képbájtokat.
+
+### **Raszeres kép kinyerése**
+
+A modern kép API közvetlenül az [IImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/iimage/) használatát javasolja. A következő példa megtalálja az első beágyazott raszteres képet egy dián, és PNG formátumban menti el:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
         }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
+
+        const rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Képkeret formázása**
+Az [IImage.save](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/iimage/#save) hívás a kinyert képet a kért kimeneti formátumba konvertálja. Ha a prezentációban tárolt kódolt bájtokra van szükség, nem konvertált raszteres fájlra, használd a képernyöző erőforrás bináris adatait.
 
-Az Aspose.Slides számos formázási lehetőséget kínál, amelyeket a képkeretre lehet alkalmazni. Ezekkel a beállításokkal módosíthatja a képkeretet, hogy megfeleljen a speciális követelményeknek.
+### **SVG kép kinyerése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Hozzon létre egy `PPImage` objektumot a prezentációhoz kapcsolódó [ImagesCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ImageCollection) kép hozzáadásával, amelyet az alakzat kitöltésére használnak.  
-4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy `PictureFrame` objektumot a kép szélessége és magassága alapján a [addPictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) metódus segítségével, amely a hivatkozott diához tartozó [Shapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection) objektumon keresztül érhető el.  
-6. Adjon hozzá egy képkeretet (amely a képet tartalmazza) a diához.  
-7. Állítsa be a képkeret vonalszínét.  
-8. Állítsa be a képkeret vonalvastagságát.  
-9. Forgassa el a képkeretet, pozitív vagy negatív értéket megadva.  
-   * A pozitív érték a képet az óramutató járásával megegyező irányba forgatja.  
-   * A negatív érték a képet az óramutató járásával ellentétes irányba forgatja.  
-10. Adjon hozzá egy képkeretet (amely a képet tartalmazza) a diához.  
-11. Írja ki a módosított prezentációt PPTX fájlként.  
-
-Ez a JavaScript kód bemutatja a képkeret formázási folyamatát:
+SVG kép esetén a [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ppimage/) egy [SvgImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/svgimage/) objektumot kínál. Ez lehetővé teszi az SVG adat közvetlen lekérését anélkül, hogy a képet előbb raszterizálnád.
 
 ```javascript
-// Példányosítja a Presentation osztályt, amely a PPTX-et képviseli
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Lekéri az első diát
-    var sld = pres.getSlides().get_Item(0);
-    // Példányosítja az Image osztályt
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Képkeretet ad hozzá a kép magasságával és szélességével megegyezően
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Alkalmaz némi formázást a PictureFrameEx-re
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // A PPTX fájlt a lemezre írja
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
 
-{{% alert title="Tip" color="primary" %}}
-
-Az Aspose nemrég fejlesztett egy [ingyenes Collage Maker](https://products.aspose.app/slides/hu/collage) szolgáltatást. Ha valaha is [JPG/JPEG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG képeket szeretne egyesíteni, illetve [rácsokat szeretne készíteni fotókból](https://products.aspose.app/slides/hu/collage/photo-grid), használhatja ezt a szolgáltatást. 
-
-{{% /alert %}}
-
-## **Kép hozzáadása hivatkozásként**
-
-A nagy prezentációs méretek elkerülése érdekében képeket (vagy videókat) hivatkozásokon keresztül adhat hozzá ahelyett, hogy a fájlokat közvetlenül beágyazná a prezentációkba. Ez a JavaScript kód bemutatja, hogyan adhat képet és videót egy helykitöltőbe:
-
-```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
             continue;
         }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
         }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
     }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Az SVG tartalom SVG‑ként való megtartása megőrzi a vektoros forrást a prezentáción belül. A PNG vagy JPEG‑hez hasonló raszteres exportok szükségszerűen pixelekre alakítják a vektort. A PDF vagy SVG diásexport szintén renderelési művelet, ezért az exportált grafikát nem szabad az eredeti beágyazott SVG bájt‑pontos másolataként kezelni; használd a beágyazott [SvgImage.getSvgData](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/svgimage/#getSvgData--) adatot, ha az eredeti vektoros erőforrásra van szükség.
 
 ## **Kép vágása**
 
-Ez a JavaScript kód bemutatja, hogyan vághat le egy meglévő képet a dián:
+A vágás megváltoztatja, hogy a kép mely része látható a keretben. A [PictureFillFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/) vágási értékei a forráskép méretének százalékai. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható régiót módosítja.
+
+A következő példa biztonságosan megtalál egy képkeretet, és alkalmaz vágási értékeket:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
-// Létrehoz egy új képobjektumot
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Képkeretet ad egy diához
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Levágja a képet (százalék értékek)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Elmenti az eredményt
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Képkeret levágott területeinek törlése**
-
-Ha törölni szeretné a képkeretben levágott területeket, használhatja a [deletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) metódust. Ez a metódus a levágott képet vagy az eredeti képet adja vissza, ha a vágás nem szükséges.
-
-Ez a JavaScript kód bemutatja a műveletet:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Lekéri a PictureFrame-et az első diáról
-    var picFrame = slide.getShapes().get_Item(0);
-    // Törli a PictureFrame kép levágott területeit, és visszaadja a levágott képet
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Elmenti az eredményt
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-A [deletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) metódus hozzáadja a levágott képet a prezentáció képgyűjteményéhez. Ha a kép csak a feldolgozott [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/)‑ben van használva, ez a beállítás csökkentheti a prezentáció méretét. Ellenkező esetben a kész prezentációban lévő képek száma nőni fog.
-
-A metódus a vágási művelet során WMF/EMF metafájlokat raszteres PNG képpé konvertál. 
-
-{{% /alert %}}
-
-## **Képek tömörítése**
-
-Egy képet a prezentációban tömöríthet a [PictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) metódussal. Ez a metódus a képet a alakzat mérete és a megadott felbontás alapján csökkentve tömöríti, a levágott területek törlésének lehetőségével.
-
-Ez a képméretet és felbontást úgy állítja be, mint a PowerPoint **Picture Format → Compress Pictures → Resolution** funkciója.
-
-A következő JavaScript példák bemutatják, hogyan lehet egy képet tömöríteni a prezentációban célfelbontás megadásával, és opcionálisan a levágott területek eltávolításával:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
+    let pictureFrame = null;
 
-    // Tömöríti a képet 150 DPI (web felbontás) célfelbontással és eltávolítja a levágott területeket.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Ellenőrzi a tömörítés eredményét.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
     }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Vagy egy másik előre definiált DPI érték használatával:
+Mivel a rejtett képadatok továbbra is jelen vannak, a vágás később megváltoztatható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszavonhatóság, a vágott területeket fizikailag is eltávolíthatod a következő szakaszban leírtak szerint.
+
+## **Vágott képadatok eltávolítása**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) eltávolítja a képadatokat a jelenlegi vágótéglalapon kívül, és visszaadja a keletkezett képernyöző erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizálás: a prezentáció mentése után az eltávolított pixelek már nem állnak rendelkezésre a későbbi vágás visszafordításához.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
+    let pictureFrame = null;
 
-    // Tömöríti a képet 96 DPI-re (e-mail felbontás), eltávolítva a levágott területeket.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+A metódus új képernyöző erőforrást adhat a prezentációhoz. Ha az eredeti képet más képkeretek is használják, ezeknek továbbra is szükségük van a meglévő erőforrásra, így a vágott területek törlése nem feltétlenül csökkenti a képek összlétszámát. WMF vagy EMF tartalom vágása ezzel a módszerrel a vágott eredményt PNG‑re rasterizálja.
 
-A metódus a képet az alakzat mérete és a megadott DPI alapján alacsonyabb felbontásra konvertálja. A levágott területek is törölhetők a fájlméret optimalizálása érdekében. Ha a kép metafájl (WMF/EMF) vagy SVG, a tömörítés nem kerül alkalmazásra. Emellett a JPEG minősége a felbontás alapján megmarad vagy enyhén csökken, hasonlóan ahhoz, ahogy a PowerPoint a nagy felbontású JPEG‑eket kezeli.
+## **Raszteres képek tömörítése**
 
-{{% /alert %}}
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) csökkenti a raszteres kép felbontását a kép megjelenítési méretéhez viszonyítva. Ugyanebben a műveletben eltávolíthatja a vágott területeket is. A metódus `true`‑t ad vissza, ha a képet átméretezték vagy vágották, és `false`‑t, ha nem volt változás.
 
-## **Arányok zárolása**
-
-Ha egy képet tartalmazó alakzatot szeretne megőrizni az arányait, még akkor is, ha a kép méreteit megváltoztatja, használhatja a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) metódust az *Arányok zárolása* beállítás beállításához.
-
-Ez a JavaScript kód megmutatja, hogyan lehet zárolni egy alakzat arányait:
+Használj előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // Állítsa be az alakzatot, hogy a méretezéskor megőrizze az oldalarányt
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Egy egyedi, pozitív DPI érték is megadható, ha konkrét célra van szükség.
+
+A tömörítés raszteres képekre vonatkozik. SVG és metafájl tartalmat ez a raszter tömörítési munkafolyamat nem csökkenti. Ne feledd, hogy az alacsonyabb felbontású és a törölt vágott területek már nem állíthatók helyre az optimalizált prezentációból. Válassz célfelbontást a legnagyobb méret alapján, amelyen a képet ténylegesen megtekintik vagy exportálják, ahelyett, hogy globálisan a legalacsonyabb DPI‑t alkalmaznád.
+
+## **Képtranszformációs hatások kezelése**
+
+A fényerő, kontraszt, színátalakítások, elmosás, alfa‑effektek, sorrend szerinti láncok, ellenőrzés, eltávolítás és körkörös ellenőrzés teljes munkafolyamatáért lásd a [Image Transform Effects](/nodejs-java/image-transform-effects/) oldalt.
+
+## **Képkeret geometria zárolása**
+
+A [PictureFrameLock](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframelock/) beállításai határozzák meg, hogy a képkeret mely szerkesztési műveletei vannak letiltva. Például a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) megtartja az alakzat arányait, amikor átméretezik.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch (e) {console.log(e);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+A zárolás a képkeret alakzatra vonatkozik. Nem kényszeríti a forrásképet, hogy ugyanazzal az aránnyal legyen újramintavételezve vagy véglegesen módosítva.
 
-Ez az *Arányok zárolása* beállítás csak az alakzat arányát őrzi meg, nem a benne lévő képet. 
-{{% /alert %}}
+## **StretchOffset értékek igazítása**
 
-## **StretchOff tulajdonság használata**
+Ha a kép kitöltési mód a nyújtás (stretch), akkor a [PictureFillFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/) stretch‑offset értékei a kitöltő téglalapot a képkeret határoló dobozához viszonyítva definiálják. A pozitív százalékos értékek szélről beljebb tolásokat, a negatív százalékok pedig kifelé nyúlásokat eredményeznek.
 
-A [PictureFillFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PictureFillFormat) osztály [setStretchOffsetLeft]..., [setStretchOffsetTop]..., [setStretchOffsetRight]... és [setStretchOffsetBottom]... metódusainak használatával megadhat egy kitöltő téglalapot.
-
-Ha egy kép nyújtását határozza meg, a forrástéglalap a megadott kitöltő téglalap méretéhez lesz méretezve. A kitöltő téglalap minden élét a forma határdobozának megfelelő élétől mért százalékos eltolás definiálja. A pozitív százalék beavatkozik (inset), a negatív százalék pedig kiinduló pontot (outset) jelöl.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Adjon hozzá egy `AutoShape` téglalapot.  
-4. Hozzon létre egy képet.  
-5. Állítsa be az alakzat kitöltési típusát.  
-6. Állítsa be az alakzat képtöltési módját.  
-7. Adjon meg egy képet, amely kitölti az alakzatot.  
-8. Adja meg a kép eltolásait a forma határoló dobozának megfelelő élétől.  
-9. Írja ki a módosított prezentációt PPTX fájlként.  
-
-Ez a JavaScript kód bemutat egy olyan folyamatot, amelyben a StretchOff tulajdonságot használják:
+Ez különbözik a vágástól. A vágási értékek meghatározzák, hogy a forráskép mely része látható; a stretch‑offsetok a látható képkitöltésnek a téglalapba való nyújtását változtatják.
 
 ```javascript
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát
-    var slide = pres.getSlides().get_Item(0);
-    // Példányosítja az ImageEx osztályt
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        sourceImage.dispose();
     }
-    // AutoShape-et ad a diához, téglalap típusú
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Beállítja az alakzat kitöltési típusát
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Beállítja az alakzat képkitöltési módját
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Beállítja a képet, hogy kitöltse az alakzatot
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Megadja a kép eltolásait a alakzat határdobozának megfelelő élétől
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // A PPTX fájlt a lemezre írja
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Használd a stretch‑offsetokat a kitöltés elhelyezéséhez. Használd a vágási tulajdonságokat, ha a forráskép széleket szeretnéd elrejteni.
+
+## **Tárolás, fájlméret és exportálási szempontok**
+
+A fő kompromisszumok könnyebben kezelhetők, ha a képtárolás és a képkeret formázása külön-külön történik:
+
+- **Beágyazott képek** önállóvá teszik a prezentációt, és a megosztás és szerveroldali renderelés szempontjából a legmegbízhatóbbak, de a nagy raszteres képek növelik a PPTX méretét és a memóriahasználatot.
+- **Csatolt képek** kisebb csomagméretet eredményezhetnek, de a prezentáció függ a külső fájlok rendelkezésre állásától a tárolt útvonalakon vagy helyeken.
+- **Vágás** eleinte nem destruktív. A rejtett pixelek addig beágyazva maradnak, amíg a vágott területeket kifejezetten nem törlik vagy nem távolítják el a tömörítés során.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túl nagy raszteres képek esetén, de a forrásfelbontást feláldozza. Az átméretezést a dián ténylegesen megjelenő méret ismerete után kell alkalmazni.
+- **SVG képek** esetén maradjanak SVG‑ként, ha a vektoros megőrzés fontos. Kinyerheted a beágyazott SVG‑t közvetlenül, ha maga a vektoros erőforrás szükséges. A raszteres diák exportálása mindig a megjelenített diát pixelekre konvertálja.
+- **Ismétlődő képek** esetén használj már létező [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ppimage/) erőforrást, ha lehetséges, ahelyett, hogy ugyanazt a fájlt többször betöltenéd a munkafolyamatba.
+
+Nagy prezentációk esetén a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven alkalmazod: tartsd a logókat és diagramokat vektoros tartalomként, tömörítsd a fényképeket a valós megjelenítési méretük szerint, csak akkor távolítsd el a vágott pixeleket, ha későbbi szerkesztés nem szükséges, és kerüld a külső hivatkozásokat, hacsak a függőségkezelés nem része a telepítési tervezésnek.
 
 ## **GYIK**
 
-**Hogyan tudom megtudni, hogy mely képformátumok támogatottak a PictureFrame esetén?**  
-Az Aspose.Slides támogat mind raszteres képeket (PNG, JPEG, BMP, GIF stb.), mind vektor képeket (például SVG) a [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/)‑hez rendelt képobjektumon keresztül. A támogatott formátumok listája általában átfedésben van a dia- és képkonvertáló motor képességeivel.
+**Mi a különbség egy képkeret és egy képernyöző erőforrás között?**
 
-**Hogyan befolyásolja a PPTX méretét és teljesítményét a tucatnyi nagy kép hozzáadása?**  
-A nagy képek beágyazása megnöveli a fájlméretet és a memóriahasználatot; a képek hivatkozásként való hozzáadása segít csökkenteni a prezentáció méretét, de megköveteli, hogy a külső fájlok elérhetők maradjanak. Az Aspose.Slides lehetővé teszi a képek hivatkozásként történő hozzáadását a fájlméret csökkentése érdekében.
+Egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ppimage/) képpernyöző erőforrást jelent, amely a prezentációhoz van társítva. Egy [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) egy alakzat a dián, amely képet jelenít meg, és keretszintű geometriai és formázási információkat tárol, például méretet, forgatást, vágási értékeket, effekteket és zárakat.
 
-**Hogyan tudom zárolni egy képtárgyat a véletlen mozgatás/átméretezés ellen?**  
-Használjon [shape locks](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) egy [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) esetén (például a mozgatás vagy átméretezés letiltásával). A zárolási mechanizmus többféle alakzattípushoz támogatott, beleértve a [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/)‑t is.
+**Beágyazzam vagy csatoljam a képeket?**
 
-**Megmarad-e az SVG vektor hűsége, amikor a prezentációt PDF/ képek formátumba exportáljuk?**  
-Az Aspose.Slides lehetővé teszi egy SVG kinyerését a [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) objektumból eredeti vektor formátumban. A [PDF-be exportálás](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) vagy [raszteres formátumokba](/slides/hu/nodejs-java/convert-powerpoint-to-png/) esetén az eredmény a export beállításaitól függően raszterizálódhat; az eredeti SVG vektorként való tárolása a kinyerési viselkedés által bizonyított.
+Beágyazd a képeket, ha a prezentációnak hordozhatónak, archiválhatónak vagy külső erőforrások hozzáférése nélkül kell renderelned. Csak akkor csatolj képeket, ha a képfájlok külső tárolása szándékos, és a külső helyek megbízhatóan karbantarthatók.
+
+**Csökkenti-e a vágás a PPTX fájlméretét?**
+
+Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de a pixeleket megtartják. Használd a [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) vagy a kép tömörítését vágott‑terület eltávolítással, ha ezeket a pixeleket véglegesen el lehet távolítani.
+
+**Vissza tudom állítani a képminőséget a tömörítés után?**
+
+Nem. A tömörítés csökkentheti a tárolt raszteres felbontást, és a vágott területek eltávolítása a képadatok elvesztését jelenti. Ha később nagy felbontású szerkesztésre van szükség, tartsd meg az eredeti forrásképet a prezentáción kívül.
+
+**Hogyan kezeljem az SVG képeket?**
+
+Tartsd meg az SVG tartalmat SVG‑ként, ha a vektoros pontosság fontos. A beágyazott [SvgImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/svgimage/) közvetlenül kinyerhető. A dia raszteres formátumba (PNG vagy JPEG) történő renderelése a SVG‑t a dia képeként raszterizálja.
+
+**Hogyan kerülhetem el a nem biztonságos cast‑eket meglévő diák olvasásakor?**
+
+Ellenőrizd az alakzat típusát, mielőtt képkeret‑specifikus tagokhoz férnél hozzá. Egy `java.instanceOf` ellenőrzés a [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/) ellen ellenőrzi a helytelen cast‑eket, és lehetővé teszi a kód számára, hogy a nem képkeretet tartalmazó diákat megfelelően kezelje.

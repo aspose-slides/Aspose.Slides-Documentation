@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση πλαισίων εικόνας σε παρουσιάσεις σε .NET
+title: Διαχείριση πλαισίων εικόνας σε παρουσιάσεις στο .NET
 linktitle: Πλαίσιο εικόνας
 type: docs
 weight: 10
@@ -8,498 +8,353 @@ keywords:
 - πλαίσιο εικόνας
 - προσθήκη πλαισίου εικόνας
 - δημιουργία πλαισίου εικόνας
-- προσθήκη εικόνας
-- δημιουργία εικόνας
+- ενσωματωμένη εικόνα
+- συνδεδεμένη εικόνα
 - εξαγωγή εικόνας
-- ράστερ εικόνα
-- διανυσματική εικόνα
-- περικοπή εικόνας
-- περιοχή περικοπής
-- ιδιότητα StretchOff
+- ραστερ εικόνα
+- SVG εικόνα
+- αποκοπή εικόνας
+- διαγραφή αποκομμένων περιοχών
+- συμπίεση εικόνας
+- StretchOffset
 - μορφοποίηση πλαισίου εικόνας
-- ιδιότητες πλαισίου εικόνας
 - σχετική κλίμακα
 - εφέ εικόνας
-- αναλογία διαστάσεων
-- διαφάνεια εικόνας
+- λόγος διαστάσεων
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Προσθέστε πλαίσια εικόνας σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για .NET. Απλοποιήστε τη ροή εργασίας σας και βελτιώστε το σχεδιασμό των διαφανειών."
+description: "Δημιουργία, μορφοποίηση, σύνδεση, αποκοπή, εξαγωγή και συμπίεση πλαισίων εικόνας σε παρουσιάσεις με το Aspose.Slides για .NET."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένα πλαίσιο εικόνας είναι ένα σχήμα που περιέχει μια εικόνα—είναι σαν μια εικόνα σε πλαίσιο.  
+Ένα πλαίσιο εικόνας είναι ένα σχήμα διαφάνειας που εμφανίζει μια εικόνα. Στο Aspose.Slides, ο πόρος εικόνας και το σχήμα που την εμφανίζει είναι ξεχωριστά αντικείμενα: ένα [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) κατέχει ενσωματωμένους πόρους εικόνας μέσω της συλλογής [Images](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/images/) ενώ ένα [IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) ελέγχει τη θέση, το μέγεθος, τη μορφοποίηση γραμμής, την περιστροφή, την αποκοπή, τα εφέ εικόνας και άλλες ρυθμίσεις επιπέδου πλαισίου.
 
-Μπορείτε να προσθέσετε μια εικόνα σε μια διαφάνεια μέσω ενός πλαισίου εικόνας. Με αυτόν τον τρόπο, διαμορφώνετε την εικόνα μορφοποιώντας το πλαίσιο εικόνας.
+Αυτή η διάσπαση είναι χρήσιμη όταν η ίδια εικόνα εμφανίζεται περισσότερο από μία φορά. Προσθέστε την εικόνα στην παρουσίαση μία φορά, κρατήστε το επιστραφέν [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/), και χρησιμοποιήστε αυτόν τον πόρο εικόνας όταν δημιουργείτε πλαίσια εικόνας.
 
-{{% alert  title="Συμβουλή" color="primary" %}} 
+Τα πλαίσια εικόνας μπορούν να περιέχουν ραστερ εικόνες όπως PNG ή JPEG και διανυσματικές SVG εικόνες. Μπορούν επίσης να αναφέρονται σε συνδεδεμένες εικόνες αντί να αποθηκεύουν τα δεδομένα της εικόνας στην παρουσίαση. Η επιλογή αυτή επηρεάζει την φορητότητα, το μέγεθος αρχείου, την εξαγωγή και τη συμπεριφορά εξαγωγής, επομένως είναι χρήσιμο να αποφασίσετε πώς θα αποθηκευτεί η εικόνα πριν εφαρμόσετε μορφοποίηση ή βελτιστοποίηση.
 
-Η Aspose παρέχει δωρεάν μετατροπείς—[JPEG σε PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG σε PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που επιτρέπουν στους χρήστες να δημιουργούν παρουσιάσεις γρήγορα από εικόνες. 
+## **Προσθήκη και μορφοποίηση ενσωματωμένης εικόνας**
 
-{{% /alert %}} 
+Για μια ενσωματωμένη εικόνα, προσθέστε τα δεδομένα εικόνας στην παρουσίαση και δημιουργήστε ένα πλαίσιο εικόνας με [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addpictureframe/). Η εικόνα γίνεται μέρος του πακέτου παρουσίασης, έτσι η παρουσίαση παραμένει αυτό-συνεκτική όταν μεταφερθεί σε υπολογιστή.
 
-## **Δημιουργία Πλαισίου Εικόνας**
+Το παρακάτω παράδειγμα προσθέτει μια JPEG εικόνα, δημιουργεί ένα πλαίσιο με τις φυσικές διαστάσεις της εικόνας και εφαρμόζει μορφοποίηση γραμμής και περιστροφή:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation). 
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage) προσθέτοντας μια εικόνα στη συλλογή [IImagescollection](https://reference.aspose.com/slides/el/net/aspose.slides/iimagecollection) που είναι συσχετισμένη με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για τη γέμιση του σχήματος.
-4. Καθορίστε το πλάτος και το ύψος της εικόνας.
-5. Δημιουργήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe) με βάση το πλάτος και το ύψος της εικόνας μέσω της μεθόδου `AddPictureFrame` που εκτίθεται από το αντικείμενο σχήματος που σχετίζεται με τη διαφάνεια αναφοράς.
-6. Προσθέστε ένα πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Δημιουργεί μια παρουσία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-using (Presentation pres = new Presentation())
-{
-    // Λαμβάνει την πρώτη διαφάνεια
-    ISlide slide = pres.Slides[0];
-
-    // Φορτώνει μια εικόνα και τη προσθέτει στη συλλογή εικόνων της παρουσίασης
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Προσθέτει ένα πλαίσιο εικόνας με το ίδιο ύψος και πλάτος
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Εφαρμόζει κάποιες μορφοποιήσεις στο πλαίσιο εικόνας
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Αποθηκεύει την παρουσίαση σε αρχείο PPTX
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-
-Τα πλαίσια εικόνας σας επιτρέπουν να δημιουργήσετε γρήγορα διαφάνειες παρουσίασης βασισμένες σε εικόνες. Όταν συνδυάσετε το πλαίσιο εικόνας με τις επιλογές αποθήκευσης του Aspose.Slides, μπορείτε να διαχειριστείτε λειτουργίες εισόδου/εξόδου για να μετατρέψετε εικόνες από μια μορφή σε άλλη. Μπορείτε να δείτε αυτές τις σελίδες: μετατροπή [image to JPG](https://products.aspose.com/slides/el/net/conversion/image-to-jpg/)· μετατροπή [JPG to image](https://products.aspose.com/slides/el/net/conversion/jpg-to-image/)· μετατροπή [JPG to PNG](https://products.aspose.com/slides/el/net/conversion/jpg-to-png/), μετατροπή [PNG to JPG](https://products.aspose.com/slides/el/net/conversion/png-to-jpg/), μετατροπή [PNG to SVG](https://products.aspose.com/slides/el/net/conversion/png-to-svg/), μετατροπή [SVG to PNG](https://products.aspose.com/slides/el/net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-## **Δημιουργία Πλαισίου Εικόνας με Σχετική Κλίμακα**
-
-Με την τροποποίηση της σχετικής κλιμάκωσης μιας εικόνας, μπορείτε να δημιουργήσετε ένα πιο περίπλοκο πλαίσιο εικόνας. 
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation). 
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε μια εικόνα στη συλλογή εικόνων της παρουσίασης.
-4. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage) προσθέτοντας μια εικόνα στη συλλογή [IImagescollection](https://reference.aspose.com/slides/el/net/aspose.slides/iimagecollection) που είναι συσχετισμένη με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για τη γέμιση του σχήματος.
-5. Καθορίστε το σχετικό πλάτος και ύψος της εικόνας στο πλαίσιο εικόνας.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-```c#
-// Δημιουργεί μια παρουσία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Φορτώνει μια εικόνα και τη προσθέτει στη συλλογή εικόνων της παρουσίασης
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Προσθέτει ένα πλαίσιο εικόνας στη διαφάνεια
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Ορίζει το σχετικό πλάτος και ύψος κλίμακας
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // Αποθηκεύει την παρουσίαση
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Εξαγωγή Ράστερ Εικόνων από Πλαίσια Εικόνας**
-
-Μπορείτε να εξάγετε ράστερ εικόνες από αντικείμενα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe) και να τις αποθηκεύσετε σε μορφές PNG, JPG και άλλες. Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε μια εικόνα από το έγγραφο "sample.pptx" και να την αποθηκεύσετε σε μορφή PNG.
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **Εξαγωγή SVG Εικόνων από Πλαίσια Εικόνας**
-
-Όταν μια παρουσίαση περιέχει γραφικά SVG τοποθετημένα μέσα σε σχήματα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/) , το Aspose.Slides για .NET σας επιτρέπει να ανακτήσετε τις αρχικές διανυσματικές εικόνες με πλήρη πιστότητα. Διασχίζοντας τη συλλογή σχημάτων της διαφάνειας, μπορείτε να εντοπίσετε κάθε [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/), να ελέγξετε αν το υποκείμενο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) περιέχει περιεχόμενο SVG, και έπειτα να αποθηκεύσετε αυτήν την εικόνα σε δίσκο ή ροή στη φυσική της μορφή SVG.
-
-Ο ακόλουθος κώδικας δείχνει πώς να εξάγετε μια SVG εικόνα από ένα πλαίσιο εικόνας:
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-## **Λήψη Διαφάνειας Εικόνας**
+Το πλαίσιο εικόνας ελέγχει τη γεωμετρία που εμφανίζεται· η αλλαγή του μεγέθους του πλαισίου δεν αλλάζει τις αρχικές διαστάσεις εικονοστοιχείων που αποθηκεύονται στον ενσωματωμένο πόρο εικόνας. Αυτή η διάκριση γίνεται σημαντική όταν αποκόπτεται ή συμπιέζεται μια εικόνα αργότερα.
 
-Η Aspose.Slides σας επιτρέπει να λάβετε το αποτέλεσμα διαφάνειας που εφαρμόζεται σε μια εικόνα. Αυτός ο κώδικας C# επιδεικνύει τη λειτουργία:
+## **Χρήση σχετικού κλίμακας**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **Λήψη Φωτεινότητας και Αντίθεσης Εικόνας**
-
-Η Aspose.Slides σας επιτρέπει να λάβετε το αποτέλεσμα φωτεινότητας και αντίθεσης που εφαρμόζεται σε μια εικόνα. Η διεπαφή [ILuminance](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iluminance/) αντιπροσωπεύει αυτήν την μετατροπή εικόνας.
-
-Αυτός ο κώδικας C# δείχνει πώς να λάβετε τις ρυθμίσεις φωτεινότητας και αντίθεσης από ένα πλαίσιο εικόνας:
+[IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) εκθέτει σχετική κλίμακα πλάτους και ύψους για το πλαίσιο. Μια τιμή `1.0` αντιστοιχεί σε 100 % του αρχικού μεγέθους της εικόνας. Η σχετική κλίμακα είναι χρήσιμη όταν μια ροή εργασίας χρειάζεται να διατηρήσει τη σχέση με το μέγεθος της πηγαίας εικόνας αντί να υπολογίζει τις τελικές διαστάσεις χειροκίνητα.
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
-Όλες οι επιδράσεις που εφαρμόζονται στις εικόνες μπορούν να βρεθούν στο [Aspose.Slides.Effects](https://reference.aspose.com/slides/el/net/aspose.slides.effects/).
-{{% /alert %}}
+Η σχετική κλίμακα αλλάζει τις ρυθμίσεις κλίμακας του πλαισίου· δεν επαναδείγματο ή συμπιέζει την ενσωματωμένη εικόνα.
 
-## **Μορφοποίηση Πλαισίου Εικόνας**
+## **Ενσωματωμένες και συνδεδεμένες εικόνες**
 
-Το Aspose.Slides παρέχει πολλές επιλογές μορφοποίησης που μπορούν να εφαρμοστούν σε ένα πλαίσιο εικόνας. Χρησιμοποιώντας αυτές τις επιλογές, μπορείτε να τροποποιήσετε ένα πλαίσιο εικόνας ώστε να ανταποκρίνεται σε συγκεκριμένες απαιτήσεις.
+Μια ενσωματωμένη εικόνα αποθηκεύει τα δεδομένα εικόνας μέσα στην παρουσίαση και επομένως αποτελεί την ασφαλέστερη επιλογή για φορητότητα και προβλέψιμη απόδοση. Μια συνδεδεμένη εικόνα αποθηκεύει μια εξωτερική θέση μέσω του μονοπατιού συνδέσμου [ISlidesPicture](https://reference.aspose.com/slides/el/net/aspose.slides/islidespicture/) αντί να ενσωματώνει τα δεδομένα εικόνας με τον ίδιο τρόπο.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](http://www.aspose.com/api/net/slides/el/aspose.slides/). 
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage) προσθέτοντας μια εικόνα στη συλλογή [IImagescollection](https://reference.aspose.com/slides/el/net/aspose.slides/iimagecollection) που είναι συσχετισμένη με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για τη γέμιση του σχήματος.
-4. Καθορίστε το πλάτος και το ύψος της εικόνας.
-5. Δημιουργήστε ένα `PictureFrame` με βάση το πλάτος και το ύψος της εικόνας μέσω της μεθόδου [AddPictureFrame](http://www.aspose.com/api/net/slides/el/aspose.slides/ishapecollection/methods/addpictureframe) που εκτίθεται από το αντικείμενο [IShapes](http://www.aspose.com/api/net/slides/el/aspose.slides/ishapecollection) που σχετίζεται με τη διαφάνεια αναφοράς.
-6. Προσθέστε το πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-7. Ορίστε το χρώμα γραμμής του πλαισίου εικόνας.
-8. Ορίστε το πάχος γραμμής του πλαισίου εικόνας.
-9. Περιστρέψτε το πλαίσιο εικόνας δίνοντάς του μια θετική ή αρνητική τιμή.
-   * Μια θετική τιμή περιστρέφει την εικόνα δεξιόστροφα. 
-   * Μια αρνητική τιμή περιστρέφει την εικόνα αριστερόστροφα.
-10. Προσθέστε το πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Οι συνδεδεμένες εικόνες μπορούν να μειώσουν το πλήθος των δεδομένων εικόνας που αποθηκεύονται στο PPTX, αλλά εισάγουν εξωτερική εξάρτηση. Το συνδεδεμένο αρχείο πρέπει να παραμένει προσβάσιμο στην εφαρμογή που ανοίγει ή αποδίδει την παρουσίαση. Εάν το μονοπάτι αλλάξει, το αρχείο μετακινηθεί ή ο πόρος είναι μη διαθέσιμος, η συνδεδεμένη εικόνα ενδέχεται να μην εμφανιστεί όπως αναμένεται. Για παρουσιάσεις που πρέπει να αποσταλούν μέσω email, να αρχειοθετηθούν ή να αποδοθούν σε απομονωμένα περιβάλλοντα, οι ενσωματωμένες εικόνες είναι συνήθως πιο αξιόπιστες.
 
-```c#
-// Δημιουργεί μια παρουσία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-using (Presentation presentation = new Presentation())
-{
-    // Λαμβάνει την πρώτη διαφάνεια
-    ISlide slide = presentation.Slides[0];
+### **Προσθήκη συνδεδεμένης εικόνας**
 
-    // Φορτώνει μια εικόνα και τη προσθέτει στη συλλογή εικόνων της παρουσίασης
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Προσθέτει ένα πλαίσιο εικόνας με το ίδιο ύψος και πλάτος της εικόνας
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Εφαρμόζει κάποιες μορφοποιήσεις στο πλαίσιο εικόνας
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Αποθηκεύει την παρουσίαση σε αρχείο PPTX
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}}
-
-Η Aspose ανέπτυξε πρόσφατα ένα [free Collage Maker](https://products.aspose.app/slides/el/collage). Εάν χρειαστεί ποτέ να [συγχωνεύσετε JPG/JPEG](https://products.aspose.app/slides/el/collage/jpg) ή PNG εικόνες, ή να [δημιουργήσετε πλέγματα από φωτογραφίες](https://products.aspose.app/slides/el/collage/photo-grid), μπορείτε να χρησιμοποιήσετε αυτήν την υπηρεσία. 
-
-{{% /alert %}}
-
-## **Προσθήκη Εικόνας ως Σύνδεσμο**
-
-Για να αποφύγετε μεγάλα μεγέθη παρουσίασης, μπορείτε να προσθέσετε εικόνες (ή βίντεο) μέσω συνδέσμων αντί να ενσωματώνετε τα αρχεία απευθείας στις παρουσιάσεις. Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε μια εικόνα και βίντεο σε έναν placeholder:
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Περικοπή Εικόνων**
-
-Αυτός ο κώδικας C# δείχνει πώς να περικόψετε μια υπάρχουσα εικόνα σε μια διαφάνεια:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // Δημιουργεί ένα νέο αντικείμενο εικόνας
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Προσθέτει ένα PictureFrame σε μια διαφάνεια
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // Κόβει την εικόνα (τιμές ποσοστών)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // Αποθηκεύει το αποτέλεσμα
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Διαγραφή Περιοχών Περικοπής σε Πλαίσιο**
-
-Εάν θέλετε να διαγράψετε τις περιοχές περικοπής μιας εικόνας που περιέχεται σε ένα πλαίσιο, μπορείτε να χρησιμοποιήσετε τη μέθοδο [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Αυτή η μέθοδος επιστρέφει την περικομμένη εικόνα ή την αρχική εικόνα εάν η περικοπή δεν είναι απαραίτητη.
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Λαμβάνει το PictureFrame από την πρώτη διαφάνεια
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Διαγράφει τις περιοχές περικοπής της εικόνας του PictureFrame και επιστρέφει την περικομμένη εικόνα
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // Αποθηκεύει το αποτέλεσμα
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="ΣΗΜΕΙΩΣΗ" color="warning" %}} 
-
-Η μέθοδος [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) προσθέτει την περικομμένη εικόνα στη συλλογή εικόνων της παρουσίασης. Εάν η εικόνα χρησιμοποιείται μόνο στο επεξεργασμένο [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/), αυτή η ρύθμιση μπορεί να μειώσει το μέγεθος της παρουσίασης. Διαφορετικά, ο αριθμός των εικόνων στην τελική παρουσίαση θα αυξηθεί.
-
-Η μέθοδος μετατρέπει τα μετααρχικά αρχεία WMF/EMF σε ράστερ εικόνα PNG κατά τη διαδικασία περικοπής. 
-
-{{% /alert %}}
-
-## **Συμπίεση Εικόνων**
-
-Μπορείτε να συμπιέσετε μια εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/compressimage/). Αυτή η μέθοδος συμπιέζει μια εικόνα μειώνοντας το μέγεθός της με βάση το μέγεθος του σχήματος και την καθορισμένη ανάλυση, με τη δυνατότητα διαγραφής περιοχών περικοπής. 
-
-Προσαρμόζει το μέγεθος και την ανάλυση της εικόνας παρόμοια με τη λειτουργία **Picture Format → Compress Pictures → Resolution** του PowerPoint.
-
-Τα παρακάτω παραδείγματα C# δείχνουν πώς να συμπιέσετε μια εικόνα σε μια παρουσίαση καθορίζοντας μια στοχευμένη ανάλυση και προαιρετικά αφαιρώντας περιοχές περικοπής:
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο εικόνας και το συνδέει με ένα τοπικό αρχείο εικόνας. Ασχολείται μόνο με τη σύνδεση εικόνας· η σύνδεση βίντεο είναι ξεχωριστή ροή πολυμέσων και σκόπιμα δεν αναμιγνύεται σε αυτό το παράδειγμα.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Συμπιέστε την εικόνα με στοχευμένη ανάλυση 150 DPI (ανάλυση Web) και αφαιρέστε τις περιοχές περικοπής.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Ελέγξτε το αποτέλεσμα της συμπίεσης.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Ή χρησιμοποιώντας απευθείας μια προσαρμοσμένη τιμή DPI:
+Χρησιμοποιήστε συνδέσμους όταν η εξωτερική διαχείριση αρχείων είναι σκόπιμη. Μην τους χρησιμοποιείτε απλώς ως υποκατάστατο συμπίεσης: ένα μικρό PPTX με σπασμένες εξαρτήσεις εικόνας είναι συνήθως λιγότερο χρήσιμο από μια μεγαλύτερη αυτό-συνεκτική παρουσίαση.
+
+## **Εξαγωγή εικόνων από πλαίσια εικόνας**
+
+Πριν εξάγετε μια εικόνα από μια υπάρχουσα παρουσίαση, ελέγξτε ότι ένα σχήμα είναι πραγματικά ένα [IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) και ότι περιέχει ενσωματωμένη εικόνα. Τα συνδεδεμένα πλαίσια εικόνας ενδέχεται να μην περιέχουν τα δεδομένα εικόνας που μπορούν να εξαχθούν με τον ίδιο τρόπο.
+
+### **Εξαγωγή ραστερ εικόνας**
+
+Το σύγχρονο API εικόνας χρησιμοποιεί απευθείας το [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) και δεν απαιτεί τον παλαιότερο περιτυλίγτη συστήματος‑εικόνας. Το παρακάτω παράδειγμα εντοπίζει την πρώτη ενσωματωμένη ραστερ εικόνα σε μια διαφάνεια και την αποθηκεύει ως PNG:
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // Συμπιέστε την εικόνα στα 150 DPI (ανάλυση Web), αφαιρώντας τις περιοχές περικοπής.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert title="ΣΗΜΕΙΩΣΗ" color="warning" %}} 
+Η αποθήκευση μέσω [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) μετατρέπει την εξαγόμενη εικόνα στη ζητούμενη μορφή εξόδου. Εάν χρειάζεστε τα κωδικοποιημένα bytes που αποθηκεύονται στην παρουσίαση αντί για ένα μετατρεπόμενο ραστερ αρχείο, χρησιμοποιήστε τα δυαδικά δεδομένα του πόρου εικόνας.
 
-Η μέθοδος μετατρέπει την εικόνα σε χαμηλότερη ανάλυση με βάση το μέγεθος του σχήματος και το παρεχόμενο DPI. Οι περιοχές περικοπής μπορούν επίσης να διαγραφούν για βελτιστοποίηση του μεγέθους του αρχείου.  
-Εάν η εικόνα είναι μετααρχείο (WMF/EMF) ή SVG, η συμπίεση δεν θα εφαρμοστεί. Επίσης, η ποιότητα JPEG διατηρείται ή μειώνεται ελαφρώς ανάλογα με την ανάλυση, όπως γίνεται στο PowerPoint για υψηλής ανάλυσης JPEGs.
+### **Εξαγωγή SVG εικόνας**
 
-{{% /alert %}}
+Για μια SVG εικόνα, το [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) εκθέτει ένα αντικείμενο [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/). Αυτό σας επιτρέπει να ανακτήσετε τα SVG δεδομένα απευθείας αντί να ραστεροποιήσετε πρώτα την εικόνα.
 
-## **Κλείδωμα Αναλογίας Διαστάσεων**
+```csharp
+using System.IO;
+using Aspose.Slides;
 
-Εάν θέλετε ένα σχήμα που περιέχει μια εικόνα να διατηρεί την αναλογία διαστάσεών του ακόμη και μετά την αλλαγή των διαστάσεων της εικόνας, μπορείτε να χρησιμοποιήσετε την ιδιότητα [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframelock/aspectratiolocked/) για να ορίσετε τη ρύθμιση *Lock Aspect Ratio*. 
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-Αυτός ο κώδικας C# δείχνει πώς να κλειδάρετε την αναλογία διαστάσεων ενός σχήματος:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var shape in slide.Shapes)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // Ορίζει το σχήμα να διατηρεί την αναλογία διαστάσεων όταν αλλάζει το μέγεθος
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert title="ΣΗΜΕΙΩΣΗ" color="warning" %}} 
+Διατηρώντας το περιεχόμενο SVG ως SVG διατηρείται η διανυσματική πηγή μέσα στην παρουσίαση. Οι ραστερ εξαγωγές όπως PNG ή JPEG αποδίδουν αναγκαστικά αυτό το διανυσματικό περιεχόμενο σε εικονοστοιχεία. Η εξαγωγή διαφάνειας σε PDF ή SVG αποτελεί επίσης λειτουργία απόδοσης, επομένως τα εξαγόμενα γραφικά δεν θα πρέπει να θεωρηθούν ακριβές αντίγραφα byte‑για‑byte του αρχικού ενσωματωμένου SVG· χρησιμοποιήστε τα δεδομένα του ενσωματωμένου [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) όταν απαιτείται ο ίδιος ο αρχικός διανυσματικός πόρος.
 
-Αυτή η ρύθμιση *Lock Aspect Ratio* διατηρεί μόνο την αναλογία διαστάσεων του σχήματος και όχι της εικόνας που περιέχει.
+## **Αποκοπή εικόνας**
 
-{{% /alert %}}
+Η αποκοπή αλλάζει ποιο μέρος της εικόνας είναι ορατό εντός του πλαισίου. Οι τιμές αποκοπής στο [IPictureFillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/) είναι ποσοστά των διαστάσεων της πηγαίας εικόνας. Η αποκοπή δεν διαγράφει αρχικά τα κρυφά εικονοστοιχεία από την ενσωματωμένη εικόνα· αλλάζει μόνο την ορατή περιοχή.
 
-## **Χρήση της Ιδιότητας StretchOff**
+Το παρακάτω παράδειγμα εντοπίζει με ασφάλεια ένα πλαίσιο εικόνας και εφαρμόζει τιμές αποκοπής:
 
-Χρησιμοποιώντας τις ιδιότητες [StretchOffsetLeft](https://reference.aspose.com/slides/el/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/el/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/el/net/aspose.slides/picturefillformat/properties/stretchoffsetright) και [StretchOffsetBottom](https://reference.aspose.com/slides/el/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) από τη διεπαφή [IPictureFillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat) και την κλάση [PictureFillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/picturefillformat), μπορείτε να καθορίσετε ένα ορθογώνιο γεμίσματος. 
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Όταν ορίζεται stretching για μια εικόνα, ένα αρχικό ορθογώνιο κλιμακώνεται ώστε να ταιριάζει στο καθορισμένο ορθογώνιο γεμίσματος. Κάθε πλευρά του ορθογωνίου ορίζεται από ένα ποσοστό μετατόπισης από την αντίστοιχη πλευρά του περιθωρίου του σχήματος. Ένα θετικό ποσοστό υποδεικνύει εσοχή, ενώ ένα αρνητικό ποσοστό υποδεικνύει εξόρθηση.
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](http://www.aspose.com/api/net/slides/el/aspose.slides/). 
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο `AutoShape`. 
-4. Δημιουργήστε μια εικόνα.
-5. Ορίστε τον τύπο γεμίσματος του σχήματος.
-6. Ορίστε τη λειτουργία γεμίσματος εικόνας του σχήματος.
-7. Προσθέστε μια εικόνα για γέμισμα του σχήματος.
-8. Καθορίστε τις μετατοπίσεις εικόνας από την αντίστοιχη πλευρά του περιθωρίου του σχήματος.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-```c#
-using (Presentation pres = new Presentation())
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // Ορίζει την εικόνα να τεντωθεί από κάθε πλευρά στο σώμα του σχήματος
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+Επειδή τα κρυφά δεδομένα εικόνας παραμένουν, η αποκοπή μπορεί να αλλάξει αργότερα χωρίς απώλεια των αρχικών εικονοστοιχείων. Εάν το μέγεθος αρχείου είναι πιο σημαντικό από την δυνατότητα επαναφοράς, οι αποκομμένες περιοχές μπορούν να αφαιρεθούν φυσικά όπως περιγράφεται στην επόμενη ενότητα.
 
-**Πώς μπορώ να μάθω ποιες μορφές εικόνας υποστηρίζονται για το PictureFrame;**
+## **Αφαίρεση δεδομένων αποκομμένης εικόνας**
 
-Το Aspose.Slides υποστηρίζει τόσο ραστέρ εικόνες (PNG, JPEG, BMP, GIF κλπ.) όσο και διανυσματικές εικόνες (π.χ., SVG) μέσω του αντικειμένου εικόνας που ανατίθεται σε ένα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/). Η λίστα των υποστηριζόμενων μορφών γενικά συμπίπτει με τις δυνατότητες της μηχανής διαφάνειας και μετατροπής εικόνας.
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) αφαιρεί τα δεδομένα εικόνας εκτός του τρέχοντος ορθογωνίου αποκοπής και επιστρέφει τον προκύπτοντα πόρο εικόνας. Αυτό μπορεί να μειώσει το μέγεθος αρχείου, αλλά αποτελεί καταστροφική βελτιστοποίηση: μετά την αποθήκευση της παρουσίασης, τα αφαιρεθέντα εικονοστοιχεία δεν είναι πλέον διαθέσιμα για επαναφορά.
 
-**Πώς θα επηρεάσει η προσθήκη δεκάδων μεγάλων εικόνων το μέγεθος και την απόδοση του PPTX;**
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Η ενσωμάτωση μεγάλων εικόνων αυξάνει το μέγεθος του αρχείου και τη χρήση μνήμης· η σύνδεση εικόνων βοηθά στη διατήρηση του μικρότερου μεγέθους της παρουσίασης, αλλά απαιτεί τα εξωτερικά αρχεία να είναι προσβάσιμα. Το Aspose.Slides παρέχει τη δυνατότητα προσθήκης εικόνων μέσω συνδέσμου για μείωση του μεγέθους του αρχείου.
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο εικόνας από τυχαία μετακίνηση/αλλαγή μεγέθους;**
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
+}
+```
 
-Χρησιμοποιήστε τα [shape locks](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/pictureframelock/) για ένα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/) (π.χ., απενεργοποίηση μετακίνησης ή αλλαγής μεγέθους). Ο μηχανισμός κλειδώματος περιγράφεται για σχήματα σε ξεχωριστό [protection article](/slides/el/net/applying-protection-to-presentation/) και υποστηρίζεται για διάφορους τύπους σχημάτων, συμπεριλαμβανομένου του [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/).
+Η μέθοδος μπορεί να προσθέσει νέο πόρο εικόνας στην παρουσίαση. Εάν η αρχική εικόνα χρησιμοποιείται επίσης από άλλα πλαίσια εικόνας, αυτά τα πλαίσια χρειάζονται ακόμη τον υπάρχοντα πόρο, οπότε η διαγραφή των αποκομμένων περιοχών δεν μειώνει υποχρεωτικά τον συνολικό αριθμό εικόνων. Η αποκοπή WMF ή EMF περιεχομένου με αυτή τη μέθοδο ραστεροποιεί το αποτέλεσμα σε PNG.
 
-**Διατηρείται η πιστότητα του διανύσματος SVG κατά την εξαγωγή μιας παρουσίασης σε PDF/εικόνες;**
+## **Συμπίεση ραστερ εικόνων**
 
-Το Aspose.Slides επιτρέπει την εξαγωγή ενός SVG από ένα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/pictureframe/) ως το αρχικό διάνυσμα. Κατά την [εξαγωγή σε PDF](/slides/el/net/convert-powerpoint-to-pdf/) ή σε [ραστέρ μορφές](/slides/el/net/convert-powerpoint-to-png/), το αποτέλεσμα μπορεί να ραστεροποιηθεί ανάλογα με τις ρυθμίσεις εξαγωγής· το γεγονός ότι το αρχικό SVG αποθηκεύεται ως διάνυσμα επιβεβαιώνεται από τη συμπεριφορά εξαγωγής.
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/compressimage/) μειώνει την ανάλυση ραστερ εικόνας σχετικά με το μέγεθος με το οποίο η εικόνα εμφανίζεται. Μπορεί επίσης να αφαιρέσει περιοχές αποκοπής στην ίδια λειτουργία. Η μέθοδος επιστρέφει `true` όταν η εικόνα έχει αλλάξει μέγεθος ή αποκοπεί και `false` όταν δεν απαιτήθηκε αλλαγή.
+
+Χρησιμοποιήστε μια προ‑καθορισμένη τιμή [PicturesCompression](https://reference.aspose.com/slides/el/net/aspose.slides.export/picturescompression/) όταν μια τυπική στόχευση ανάλυσης είναι επαρκής:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+Μπορείτε επίσης να περάσετε μια προσαρμοσμένη θετική τιμή DPI αντί για τιμή enum όταν απαιτείται συγκεκριμένος στόχος.
+
+Η συμπίεση προορίζεται για ραστερ εικόνες. Το SVG και το περιεχόμενο μετααρχειάς δεν μειώνονται από αυτή τη ροή συμπίεσης ραστερ. Επίσης, θυμηθείτε ότι η χαμηλότερη ανάλυση και οι διαγραμμένες αποκομμένες περιοχές δεν μπορούν να ανακτηθούν από την βελτιστοποιημένη παρουσίαση. Επιλέξτε στόχο ανάλυσης βάσει του μέγιστου μεγέθους στο οποίο η εικόνα θα προβληθεί ή θα εξαχθεί, αντί να εφαρμόζετε το χαμηλότερο DPI παγκοσμίως.
+
+## **Διαχείριση εφέ μετασχηματισμού εικόνας**
+
+Για πλήρη ροή εργασίας που καλύπτει φωτεινότητα, αντίθεση, χρωματικούς μετασχηματισμούς, θόλωση, εφέ άλφα, αλυσίδες εντολών, επιθεώρηση, αφαίρεση και επαλήθευση round‑trip, δείτε [Image Transform Effects](/slides/el/net/image-transform-effects/).
+
+## **Κλείδωμα γεωμετρίας πλαισίου εικόνας**
+
+Οι ρυθμίσεις [IPictureFrameLock](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframelock/) ελέγχουν ποιες λειτουργίες επεξεργασίας είναι απενεργοποιημένες για ένα πλαίσιο εικόνας. Για παράδειγμα, το κλείδωμα λόγου διαστάσεων διατηρεί τις αναλογίες του σχήματος ενώ μεταβάλλεται το μέγεθός του.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+Το κλείδωμα εφαρμόζεται στο σχήμα του πλαισίου εικόνας. Δεν αναγκάζει την πηγαία εικόνα να επαναδειγματοληφθεί ή να αλλάξει μόνιμα στο ίδιο λόγο διαστάσεων.
+
+## **Προσαρμογή τιμών StretchOffset**
+
+Όταν η λειτουργία γεμίσματος εικόνας είναι stretch, οι τιμές stretch‑offset στο [IPictureFillFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/) ορίζουν το ορθογώνιο γέμισμα σχετικό με το περιοριστικό πλαίσιο του πλαισίου εικόνας. Θετικά ποσοστά δημιουργούν εσοχή από την άκρη, ενώ αρνητικά ποσοστά δημιουργούν έξοδο.
+
+Αυτό διαφέρει από την αποκοπή. Οι τιμές αποκοπής επιλέγουν ποιο μέρος της πηγαίας εικόνας είναι ορατό· τα stretch offset αλλάζουν το ορθογώνιο μέσα στο οποίο τεντώνεται το ορατό γεμίσμα εικόνας.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+Χρησιμοποιήστε stretch offset για τοποθέτηση γεμίσματος. Χρησιμοποιήστε ιδιότητες αποκοπής όταν ο στόχος είναι η απόκρυψη άκρων της πηγαίας εικόνας.
+
+## **Αποθήκευση, μέγεθος αρχείου και παραμέτρους εξαγωγής**
+
+Τα κύρια εμπορικά σημεία γίνονται πιο εύκολα στη διαχείριση όταν η αποθήκευση εικόνας και η μορφοποίηση πλαισίου αντιμετωπίζονται χωριστά:
+
+- **Ενσωματωμένες εικόνες** κάνουν την παρουσίαση αυτό‑συνεκτική και είναι οι πιο αξιόπιστες για κοινή χρήση και απόδοση διακομιστή, αλλά μεγάλες ραστερ εικόνες αυξάνουν το μέγεθος PPTX και τη χρήση μνήμης.
+- **Συνδεδεμένες εικόνες** μπορούν να κρατήσουν το πακέτο μικρότερο, αλλά η παρουσίαση εξαρτάται από εξωτερικά αρχεία που παραμένουν διαθέσιμα στις αποθηκευμένες διαδρομές ή θέσεις.
+- **Αποκοπή** είναι αρχικά μη καταστροφική. Τα κρυφά εικονοστοιχεία παραμένουν ενσωματωμένα μέχρι να διαγραφούν ρητά οι αποκομμένες περιοχές ή να αφαιρεθούν κατά τη συμπίεση.
+- **Συμπίεση** μπορεί να μειώσει σημαντικά το μέγεθος αρχείου για υπερμεγέθη ραστερ εικόνες, αλλά θυσιάζει την πηγαία ανάλυση. Θα πρέπει να εφαρμοστεί αφού γνωριστεί το προοριζόμενο μέγεθος στην διαφάνεια.
+- **SVG εικόνες** πρέπει να παραμείνουν ως SVG όταν η διατήρηση διανυσματικής μορφής είναι σημαντική. Εξάγετε το ενσωματωμένο SVG απευθείας όταν χρειάζεστε τον ίδιο τον διανυσματικό πόρο. Οι ραστερ εξαγωγές διαφάνειας μετατρέπουν πάντα τη διαφάνεια σε εικονοστοιχεία.
+- **Επανάληψη εικόνων** πρέπει να επαναχρησιμοποιεί έναν υπάρχοντα πόρο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) όταν είναι δυνατόν αντί να φορτώνεται ξανά το ίδιο αρχείο στην ροή εργασίας της παρουσίασης.
+
+Για μεγάλες παρουσιάσεις, η βελτιστοποίηση εικόνας είναι συνήθως πιο αποτελεσματική όταν πραγματοποιείται επιλεκτικά: διατηρείτε λογότυπα και διαγράμματα ως διανυσματικό περιεχόμενο, συμπιέζετε φωτογραφίες ανάλογα με το πραγματικό μέγεθος προβολής, αφαιρείτε αποκομμένα pixels μόνο όταν δεν απαιτείται επεγγιή αργότερα, και αποφεύγετε εξωτερικούς συνδέσμους εκτός εάν η διαχείριση εξαρτήσεων αποτελεί μέρος του σχεδίου ανάπτυξης.
+
+## **Συχνές Ερωτήσεις**
+
+**Ποια είναι η διαφορά μεταξύ πλαισίου εικόνας και πόρου εικόνας;**
+
+Ένα [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) αντιπροσωπεύει έναν πόρο εικόνας που συνδέεται με την παρουσίαση. Ένα [IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) είναι ένα σχήμα σε μια διαφάνεια που εμφανίζει μια εικόνα και αποθηκεύει τη γεωμετρία και τη μορφοποίηση σε επίπεδο πλαισίου όπως μέγεθος, περιστροφή, τιμές αποκοπής, εφέ και κλειδώματα.
+
+**Πρέπει να ενσωματώνω ή να συνδέω τις εικόνες;**
+
+Ενσωματώστε εικόνες όταν η παρουσίαση πρέπει να είναι φορητή, αρχειοθετημένη ή αποδοθεί χωρίς πρόσβαση σε εξωτερικούς πόρους. Συνδέστε εικόνες μόνο όταν η αποθήκευση των αρχείων εικόνας εκτός του PPTX είναι σκόπιμη και οι εξωτερικές θέσεις μπορούν να διατηρηθούν αξιόπιστα.
+
+**Μειώνει η αποκοπή το μέγεθος αρχείου PPTX;**
+
+Όχι από μόνη της. Οι κανονικές ρυθμίσεις αποκοπής κρύβουν τμήματα της πηγαίας εικόνας αλλά διατηρούν τα υποκείμενα εικονοστοιχεία. Χρησιμοποιήστε [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ή συμπίεση εικόνας με αφαίρεση αποκομμένων περιοχών όταν αυτά τα εικονοστοιχεία μπορούν να διαγραφούν μόνιμα.
+
+**Μπορώ να αποκαταστήσω την ποιότητα εικόνας μετά τη συμπίεση;**
+
+Όχι. Η συμπίεση μπορεί να μειώσει την αποθηκευμένη ραστερ ανάλυση, και η αφαίρεση αποκομμένων περιοχών διαγράφει δεδομένα εικόνας. Κρατήστε την αρχική πηγαία εικόνα εκτός της παρουσίασης εάν απαιτείται μεταγενέστερη επεξεργασία υψηλής ανάλυσης.
+
+**Πώς πρέπει να διαχειρίζομαι τις SVG εικόνες;**
+
+Διατηρήστε το περιεχόμενο SVG ως SVG όταν η διανυσματική ακεραιότητα είναι σημαντική. Το ενσωματωμένο [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) μπορεί να εξαχθεί απευθείας. Η απόδοση μιας διαφάνειας σε ραστερ μορφή όπως PNG ή JPEG ραστεροποιεί το SVG ως μέρος της εικόνας της διαφάνειας.
+
+**Πώς μπορώ να αποφύγω μη ασφαλείς μετατροπές τύπων κατά την ανάγνωση υπαρχουσών διαφανειών;**
+
+Ελέγξτε τον τύπο του σχήματος πριν χρησιμοποιήσετε μέλη ειδικά για πλαίσια εικόνας. Η αντιστοίχιση τύπου με [IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) ή το φιλτράρισμα της συλλογής σ shapes με αυτό το interface αποφεύγει άκυρες μετατροπές και επιτρέπει στον κώδικα να διαχειρίζεται διαφάνειες που δεν περιέχουν πλαίσια εικόνας.

@@ -1,5 +1,5 @@
 ---
-title: 管理 Android 上簡報中的圖片框
+title: 在 Android 上管理簡報中的圖片框
 linktitle: 圖片框
 type: docs
 weight: 10
@@ -8,551 +8,422 @@ keywords:
 - 圖片框
 - 新增圖片框
 - 建立圖片框
-- 新增影像
-- 建立影像
-- 提取影像
-- 點陣影像
-- 向量影像
-- 裁剪影像
-- 已裁剪區域
-- StretchOff 屬性
+- 嵌入式圖像
+- 連結圖像
+- 抽取圖像
+- 點陣圖像
+- SVG 圖像
+- 裁切圖像
+- 刪除裁切區域
+- 壓縮圖像
+- StretchOffset
 - 圖片框格式設定
-- 圖片框屬性
-- 相對比例
-- 影像效果
-- 寬高比
-- 影像透明度
+- 相對比例尺
+- 圖像效果
+- 長寬比
 - PowerPoint
 - OpenDocument
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java 將圖片框加入 PowerPoint 與 OpenDocument 簡報。簡化工作流程並提升投影片設計。"
+description: "使用 Aspose.Slides for Android via Java 在簡報中建立、格式化、連結、裁切、抽取與壓縮圖片框。"
 ---
-## **簡介**
+## **概述**
 
-圖片框是一種包含影像的形狀──就像在框架中的圖片。
+圖片框是一種投影片形狀，用於顯示圖像。在 Aspose.Slides 中，圖像資源與顯示它的形狀是分離的物件：一個 [簡報](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 透過其 [IImageCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimagecollection/) 擁有嵌入式圖像資源，而 [IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/) 控制圖像的位置、大小、線條格式、旋轉、裁切、圖片效果以及其他框架層級設定。
 
-您可以透過圖片框將影像加入投影片。這樣就能透過格式化圖片框來格式化影像。
+此分離在同一圖像顯示多次時相當有用。將圖像加入簡報一次，保留回傳的 [IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ippimage/)，在建立圖片框時重複使用該圖像資源。
 
-{{% alert  title="提示" color="primary" %}} 
+圖片框可以包含 PNG 或 JPEG 等點陣圖，亦可包含 SVG 向量圖。它們也可以參考連結圖像，而不是把圖像位元組儲存在簡報中。此選擇會影響可攜性、檔案大小、抽取與匯出行為，因此在套用格式或最佳化之前，先決定圖像的儲存方式是很重要的。
 
-Aspose 提供免費轉換器──[JPEG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 和 [PNG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)──讓使用者能夠快速從影像建立簡報。 
+## **新增與格式化嵌入式圖像**
 
-{{% /alert %}} 
+對於嵌入式圖像，將圖像資料加入簡報，並使用 [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) 建立圖片框。圖像會成為簡報套件的一部分，因而在移動到其他電腦時仍保持自足。
 
-## **建立圖片框**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 透過將影像加入與簡報物件相關聯的 [IImagescollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IImageCollection) 中，建立 [IPPImage]() 物件，以用於填充形狀。  
-4. 指定影像的寬度和高度。  
-5. 透過與參考投影片相關的形狀物件所公開的 `AddPictureFrame` 方法，根據影像的寬度與高度建立 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/PictureFrame)。  
-6. 將圖片框（包含圖片）加入投影片。  
-7. 將已修改的簡報寫入為 PPTX 檔案。  
-
-以下 Java 程式碼示範如何建立圖片框：
+以下範例加入 JPEG 圖像，依圖像原始尺寸建立框架，並套用線條格式與旋轉：
 
 ```java
-// 實例化代表 PPTX 檔案的 Presentation 類別
-Presentation pres = new Presentation();
-try {
-    // 取得第一張投影片
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // 實例化 Image 類別
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // 加入與圖片等高寬的圖片框
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-## **建立相對比例的圖片框**
-
-透過調整影像的相對縮放，您可以建立更複雜的圖片框。 
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 將影像加入簡報的影像集合中。  
-4. 透過將影像加入與簡報物件相關聯的 [IImagescollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IImageCollection) 中，建立 [IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPPImage) 物件，以用於填充形狀。  
-5. 在圖片框中指定影像的相對寬度與高度。  
-6. 將已修改的簡報寫入為 PPTX 檔案。  
-
-以下 Java 程式碼示範如何建立具有相對比例的圖片框：
-
-```java
-// 實例化代表 PPTX 的 Presentation 類別
-Presentation pres = new Presentation();
-try {
-    // 取得第一張投影片
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // 實例化 Image 類別
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // 加入與圖片等高寬的圖片框
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // 設定相對比例的寬度與高度
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **從圖片框提取點陣圖影像**
-
-您可以從 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/PictureFrame) 物件中提取點陣圖影像，並將其儲存為 PNG、JPG 等格式。以下程式碼範例示範如何從文件 "sample.pptx" 中提取影像並以 PNG 格式儲存。
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **從圖片框提取 SVG 影像**
-
-當簡報包含放置於 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/) 形狀中的 SVG 圖形時，Aspose.Slides for Android（透過 Java）讓您能夠完整保留原始向量影像。透過遍歷投影片的形狀集合，您可以識別每個 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/)，檢查底層的 [IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ippimage/) 是否包含 SVG 內容，然後將該影像以原生 SVG 格式儲存至磁碟或串流。
-
-以下程式碼範例示範如何從圖片框提取 SVG 影像：
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **取得影像的透明度**
+圖片框控制顯示的幾何形狀；變更框架尺寸不會改變嵌入式圖像資源中儲存的原始像素尺寸。此差異在稍後裁切或壓縮圖像時變得重要。
 
-Aspose.Slides 允許您取得套用於影像的透明度效果。以下 Java 程式碼示範此操作：
+## **使用相對比例尺**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **取得影像的亮度與對比度**
-
-Aspose.Slides 允許您取得套用於影像的亮度與對比度效果。[ILuminance](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iluminance/) 介面表示此影像轉換效果。
-
-以下 Java 程式碼示範如何從圖片框取得亮度與對比度設定：
+[IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/) 透過 [setRelativeScaleWidth](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) 與 [setRelativeScaleHeight](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) 暴露相對寬度與高度的比例尺。值 `1.0` 代表原始圖片大小的 100%。相對比例尺在工作流程需要保留與來源圖像尺寸之關係，而不是手動計算最終尺寸時非常有用。
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **圖片框格式設定**
+相對比例尺會變更框架的比例設定；它不會重新取樣或壓縮嵌入式圖像。
 
-Aspose.Slides 提供許多可套用於圖片框的格式設定選項。使用這些選項，您可以調整圖片框以符合特定需求。
+## **嵌入式與連結圖像**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 透過將影像加入與簡報物件相關聯的 [IImagescollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IImageCollection) 中，建立 [IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPPImage) 物件，以用於填充形狀。  
-4. 指定影像的寬度和高度。  
-5. 透過與參考投影片相關的 [IShapes](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection) 物件所公開的 [AddPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) 方法，根據影像的寬度與高度建立 `PictureFrame`。  
-6. 將圖片框（包含圖片）加入投影片。  
-7. 設定圖片框的線條顏色。  
-8. 設定圖片框的線條寬度。  
-9. 透過給予正值或負值來旋轉圖片框。  
-   * 正數值會使影像順時針旋轉。  
-   * 負數值會使影像逆時針旋轉。  
-10. 將圖片框（包含圖片）加入投影片。  
-11. 將已修改的簡報寫入為 PPTX 檔案。  
+嵌入式圖片將圖像資料儲存在簡報內，是可攜性與可預測渲染最安全的選擇。連結圖片則透過 [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) 方法儲存外部位置，而不是以相同方式嵌入圖像資料。
 
-以下 Java 程式碼示範圖片框格式設定的流程：
+連結圖像可以減少 PPTX 中儲存的圖像資料量，但會產生外部相依性。連結的檔案必須保持可供開啟或渲染簡報的應用程式存取。若路徑變更、檔案被移動或資源不可用，連結圖片可能無法如預期顯示。對於必須以電子郵件傳送、封存或在隔離環境中渲染的簡報，嵌入式圖像通常較為可靠。
+
+### **新增連結圖像**
+
+以下範例建立圖片框並指向本機圖像檔。此範例僅處理圖像連結；影片連結屬於另類媒體工作流程，故未混入此範例。
 
 ```java
-// 實例化代表 PPTX 的 Presentation 類別
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // 取得第一張投影片
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // 實例化 Image 類別
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // 加入與圖片等高寬的圖片框
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // 對 PictureFrameEx 套用一些格式設定
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="提示" color="primary" %}}
+在外部檔案管理是有意為之時使用連結。不要僅將其當作壓縮的替代方案：一個含有破損圖像相依性的 PPTX 通常不如較大的自足簡報實用。
 
-Aspose 最近開發了 [免費拼貼製作工具](https://products.aspose.app/slides/zh-hant/collage)。如果您需要 [合併 JPG/JPEG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG 影像，或是 [從照片建立格線](https://products.aspose.app/slides/zh-hant/collage/photo-grid)，都可以使用此服務。 
+## **從圖片框抽取圖像**
 
-{{% /alert %}}
+在從現有簡報抽取圖像之前，先確認形狀確實為 [IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/) 且包含嵌入式圖像。連結圖片框可能不含可直接抽取的圖像位元組。
 
-## **將影像作為連結加入**
+### **抽取點陣圖像**
 
-為了避免簡報檔案過大，您可以透過連結加入影像（或影片），而非直接嵌入檔案。以下 Java 程式碼示範如何將影像與影片加入佔位區：
+現代圖像 API 直接使用 [IImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimage/) ，不需要較舊的 Java 圖像封裝器。以下範例尋找投影片上第一個嵌入式點陣圖，並將其儲存為 PNG：
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+透過 [IImage.save](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 進行儲存會將抽取的圖像轉換成指定的輸出格式。若需要簡報中儲存的編碼位元組，而非已轉換的點陣檔，請使用圖像資源的二進位資料。
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **抽取 SVG 圖像**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+對於 SVG 圖片，[IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ippimage/) 會暴露一個 [ISvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgimage/) 物件。這讓您可以直接取得 SVG 資料，而不必先將圖片光柵化。
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+將 SVG 內容保留為 SVG 會在簡報內保留向量來源。PNG 或 JPEG 等點陣匯出必須將向量內容轉換為像素。PDF 或 SVG 投影片匯出同樣是一個渲染操作，因此匯出的圖形不應視為原始嵌入 SVG 的逐位元拷貝；若需要原始向量資源，請使用嵌入的 [ISvgImage.getSvgData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgimage/#getSvgData--) 資料。
+
+## **裁切圖像**
+
+裁切會改變框架內可見的圖像區域。[IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/) 上的裁切值是相對於來源圖像尺寸的百分比。裁切不會立即從嵌入式圖像中刪除被隱藏的像素；它僅改變可見區域。
+
+以下範例安全地找到圖片框，並套用裁切值：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **裁剪影像**
-
-以下 Java 程式碼示範如何裁剪投影片上現有的影像：
-
-```java
-Presentation pres = new Presentation();
-// 建立新的影像物件
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // 在投影片上加入圖片框
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // 裁剪影像（百分比值）
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // 儲存結果
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **刪除圖片的裁剪區域**
-
-如果您想刪除框內影像的裁剪區域，可以使用 [deletePictureCroppedAreas()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) 方法。若不需要裁剪，該方法會回傳原始影像。
-
-以下 Java 程式碼示範此操作：
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // 從第一張投影片取得 PictureFrame
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // 刪除 PictureFrame 影像的裁剪區域並回傳裁剪後的影像
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // 儲存結果
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="注意" color="warning" %}} 
-
-使用 [deletePictureCroppedAreas()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) 方法會將裁剪後的影像加入簡報的影像集合中。如果該影像僅在已處理的 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/) 中使用，這個設定可減少簡報大小。否則，最終簡報中的影像數量將會增加。
-
-此方法在裁剪操作中會將 WMF/EMF 中繪圖檔轉換為點陣 PNG 影像。 
-
-{{% /alert %}}
-
-## **壓縮影像**
-
-您可以使用 [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) 方法壓縮簡報中的圖片。此方法會依據形狀大小與指定解析度縮減影像大小，並可選擇刪除裁剪區域。
-
-它的作用與 PowerPoint 的 **Picture Format > Compress Pictures > Resolution** 功能相似。
-
-以下 Java 範例示範如何透過指定目標解析度，並可選擇移除裁剪區域，來壓縮簡報中的影像：
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // 壓縮圖片，目標解析度為 150 DPI（網頁解析度）且移除裁剪區域。
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // 檢查壓縮結果。
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-或直接使用自訂 DPI 值：
+因為隱藏的圖像資料仍然存在，之後仍可更改裁切而不失去原始像素。若檔案大小比可逆性更重要，可如下一節所述實際移除裁切區域。
+
+## **移除裁切圖像資料**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) 會移除當前裁切矩形之外的圖像資料，並回傳結果圖像資源。這可以減少檔案大小，但屬於破壞性最佳化：簡報儲存後，被移除的像素將無法再用於稍後的取消裁切操作。
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // 壓縮圖片至 150 DPI（網頁解析度），並移除裁剪區域。
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
+此方法可能會在簡報中加入新的圖像資源。若原始圖像同時被其他圖片框使用，這些框仍需要其既有資源，因此刪除裁切區域不一定會降低圖像總數。使用此方法裁切 WMF 或 EMF 內容會將裁切結果光柵化為 PNG。
 
-此方法會依據形狀大小與提供的 DPI 將影像轉換為較低解析度。裁剪區域亦可一併刪除以優化檔案大小。若影像為 WMF/EMF 或 SVG 中繪圖檔，則不會套用壓縮。JPEG 影像的品質會依解析度稍微降低，與 PowerPoint 對高解析度 JPEG 的處理方式相同。 
+## **壓縮點陣圖像**
 
-{{% /alert %}}
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) 會根據圖片實際顯示尺寸降低點陣圖解析度。它也可以在同一次操作中移除裁切區域。當圖像被重新調整大小或裁切時，方法回傳 `true`；若無需變更則回傳 `false`。
 
-## **鎖定寬高比**
-
-如果您希望包含影像的形狀在變更影像尺寸後仍保留寬高比，可使用 [setAspectRatioLocked](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) 方法設定 *Lock Aspect Ratio* 屬性。
-
-以下 Java 程式碼示範如何鎖定形狀的寬高比：
+當標準目標解析度足以時，可使用預定義的 [PicturesCompression](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/picturescompression/) 值：
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // 設定形狀在調整大小時保留寬高比
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+若需要特定目標，可改為傳入自訂的正 DPI 數值。
+
+壓縮僅適用於點陣圖像。SVG 與圖形檔內容不會透過此點陣壓縮工作流程減少。亦請記得，較低的解析度與已刪除的裁切區域無法從最佳化後的簡報中復原。應根據圖像實際檢視或匯出時的最大尺寸來選擇目標解析度，而非全局套用最低 DPI。
+
+## **管理圖像變換效果**
+
+欲取得涵蓋亮度、對比、顏色變換、模糊、透明度效果、排序鏈、檢查、移除與往返驗證的完整工作流程，請參閱 [Image Transform Effects](/androidjava/image-transform-effects/)。
+
+## **鎖定圖片框幾何形狀**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframelock/) 設定控制哪些編輯操作對圖片框被停用。舉例來說，[setAspectRatioLocked](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) 會在調整大小時保留形狀比例。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
+此鎖定套用於圖片框形狀本身。它不會強制來源圖像重新取樣或永久改變為相同的長寬比。
 
-此 *Lock Aspect Ratio* 設定僅保留形狀本身的寬高比，並不影響其內含的影像。 
+## **調整 StretchOffset 值**
 
-{{% /alert %}}
+當圖片填充模式為 stretch 時，[IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/) 上的 stretch‑offset 值定義相對於圖片框邊界盒的填充矩形。正百分比會從邊緣向內縮進，負百分比則向外延伸。
 
-## **使用 StretchOff 屬性**
-
-使用 [StretchOffsetLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-)、[StretchOffsetTop](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--)、[StretchOffsetRight](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) 與 [StretchOffsetBottom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) 屬性，透過 [IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPictureFillFormat) 介面及 [PictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IPictureFillFormat) 類別，您可以指定填充矩形。
-
-當對影像指定拉伸時，來源矩形會依據指定的填充矩形比例縮放。填充矩形的每一邊皆以相對於形狀邊界框相應邊緣的百分比偏移來定義。正百分比代表內縮，負百分比代表外延。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 新增一個矩形 `AutoShape`。  
-4. 建立影像。  
-5. 設定形狀的填充類型。  
-6. 設定形狀的圖片填充模式。  
-7. 將圖片設定為填充形狀。  
-8. 指定影像相對於形狀邊界框相應邊緣的偏移量。  
-9. 將已修改的簡報寫入為 PPTX 檔案。  
-
-以下 Java 程式碼示範使用 StretchOff 屬性的流程：
+這與裁切不同。裁切值決定來源圖像的哪一部份可見；stretch offset 則改變可見圖片填充被拉伸的矩形。
 
 ```java
-// 實例化代表 PPTX 檔案的 Presentation 類別
-Presentation pres = new Presentation();
-try {
-    // 取得第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // 實例化 ImageEx 類別
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // 加入設定為矩形的 AutoShape
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // 設定形狀的填充類型
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // 設定形狀的圖片填充模式
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // 設定影像以填充形狀
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // 指定影像相對於形狀邊界框相應邊緣的偏移量
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **常見問題**
+使用 stretch offset 進行填充定位。若目標是隱藏來源圖像邊緣，請使用裁切屬性。
 
-**如何找出 PictureFrame 支援的影像格式？**
+## **儲存、檔案大小與匯出考量**
 
-Aspose.Slides 透過指派給 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/) 的影像物件，同時支援點陣圖格式（如 PNG、JPEG、BMP、GIF 等）與向量格式（例如 SVG）。支援的格式列表大致與投影片與影像轉換引擎的功能相疊合。
+當圖像儲存與圖片框格式分別處理時，主要權衡較易管理：
 
-**大量加入大型影像會如何影響 PPTX 檔案大小與效能？**
+- **嵌入式圖像** 使簡報自足，對於共享與伺服器端渲染最可靠，但大型點陣圖會增加 PPTX 大小與記憶體使用量。
+- **連結圖像** 可以讓套件較小，但簡報依賴外部檔案在儲存路徑或位置仍可存取。
+- **裁切** 起初為非破壞性。隱藏的像素會持續嵌入，直至明確刪除裁切區域或在壓縮時移除。
+- **壓縮** 能大幅減少過大點陣圖的檔案大小，但會犧牲來源解析度。應在已確定投影片上最終尺寸後再套用。
+- **SVG 圖像** 若向量保存重要，應保留為 SVG。當需要向量資源本身時，直接抽取嵌入的 SVG。投影片的點陣匯出始終會將渲染的投影片轉換為像素。
+- **重複圖像** 應盡可能重複使用已有的 [IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ippimage/) 資源，而不是在簡報工作流程中一再載入相同檔案。
 
-嵌入大型影像會增加檔案大小與記憶體需求；透過連結加入影像可減少簡報大小，但必須確保外部檔案仍可存取。Aspose.Slides 提供透過連結加入影像的功能，以降低檔案體積。
+對於大型簡報，圖像最佳化通常在選擇性執行時最有效：將標誌與圖表保留為向量內容，根據實際顯示尺寸壓縮照片，僅在不需日後編輯時移除裁切像素，除非相依性管理是部署設計的一部份，否則避免使用外部連結。
 
-**如何防止影像物件被意外移動或調整大小？**
+## **常見問答**
 
-可使用 [shape locks](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) 針對 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/) 設定鎖定（例如停用移動或調整大小）。此鎖定機制支援多種形狀類型，包括 PictureFrame。
+**圖片框與圖像資源有何不同？**
 
-**匯出簡報為 PDF 或影像時，SVG 向量的保真度是否得以保留？**
+[IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ippimage/) 代表與簡報關聯的圖像資源。[IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/) 則是投影片上的形狀，用於顯示圖像並儲存框架層級的幾何與格式資訊，如大小、旋轉、裁切值、效果與鎖定。
 
-Aspose.Slides 允許從 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe/) 提取 SVG 作為原始向量。匯出至 PDF 或點陣格式（如 PNG）時，結果可能會根據匯出設定被點陣化；然而，透過提取行為可驗證原始 SVG 仍以向量形式儲存。
+**應該嵌入還是連結圖像？**
+
+當簡報必須具備可攜性、封存或在沒有外部資源的情況下渲染時，請嵌入圖像。僅在刻意將圖像檔案保留在 PPTX 之外且能可靠維持外部位置時才使用連結圖像。
+
+**裁切會減少 PPTX 檔案大小嗎？**
+
+單純的裁切不會。一般裁切設定會隱藏來源圖像的部份，但仍保留底層像素。若想永久移除這些像素，可使用 [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) 或在壓縮時同時移除裁切區域。
+
+**壓縮後可以恢復圖像品質嗎？**
+
+不能。壓縮會降低儲存的點陣解析度，刪除裁切區域會丟棄圖像資料。若日後需要高解析度編輯，請將原始來源圖像保留在簡報外部。
+
+**SVG 圖像該如何處理？**
+
+當向量忠實度重要時，請將 SVG 內容保留為 SVG。可直接抽取嵌入的 [ISvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgimage/)。將投影片渲染為 PNG 或 JPEG 等點陣格式時，會將 SVG 向量光柵化為圖像。
+
+**如何避免在讀取現有投影片時產生不安全的轉型？**
+
+在使用圖片框專屬成員之前，先檢查形狀類型。對 [IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/) 做 `instanceof` 檢查，可避免無效的轉型，並讓程式碼能處理不含圖片框的投影片。

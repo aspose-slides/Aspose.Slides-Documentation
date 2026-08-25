@@ -1,500 +1,524 @@
 ---
-title: Beheer afbeeldingframes in presentaties met C++
-linktitle: Afbeeldingsframe
+title: Beheer foto‑frames in presentaties met C++
+linktitle: Foto‑frame
 type: docs
 weight: 10
 url: /nl/cpp/picture-frame/
 keywords:
-- afbeeldingframe
-- afbeeldingframe toevoegen
-- afbeeldingframe maken
-- afbeelding toevoegen
-- afbeelding maken
+- foto‑frame
+- foto‑frame toevoegen
+- foto‑frame maken
+- ingesloten afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
-- rasterafbeelding
-- vectorafbeelding
+- raster‑afbeelding
+- SVG‑afbeelding
 - afbeelding bijsnijden
-- bijgesneden gebied
-- StretchOff-eigenschap
-- opmaak van afbeeldingframe
-- eigenschappen van afbeeldingframe
+- bijgesneden gebieden verwijderen
+- afbeelding comprimeren
+- StretchOffset
+- foto‑frame opmaak
 - relatieve schaal
 - afbeeldingseffect
-- aspectverhouding
-- afbeeldingstransparantie
+- aspectratio
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Voeg afbeeldingframes toe aan PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor C++. Vereenvoudig uw workflow en verbeter het ontwerp van dia's."
+description: "Maak, formatteer, link, bijsnijd, extraheer en comprimeer foto‑frames in presentaties met Aspose.Slides voor C++."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Een afbeeldingframe is een vorm die een afbeelding bevat — het is als een foto in een lijst.  
+Een foto‑frame is een dia‑vorm die een afbeelding weergeeft. In Aspose.Slides zijn de afbeelding‑resource en de vorm die deze weergeeft afzonderlijke objecten: een [Presentatie](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) bezit ingesloten afbeelding‑resources via zijn [afbeeldingsverzameling](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_images/), terwijl een [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, foto‑effecten en andere frame‑niveau instellingen van de afbeelding regelt.
 
-U kunt een afbeelding aan een dia toevoegen via een afbeeldingframe. Op deze manier kunt u de afbeelding opmaken door het afbeeldingframe op te maken.
+Deze scheiding is handig wanneer dezelfde afbeelding meer dan eens wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/), en gebruik die afbeelding‑resource bij het maken van foto‑frames.
 
-{{% alert title="Tip" color="primary" %}} 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die het mogelijk maken snel presentaties te maken vanuit afbeeldingen. 
-{{% /alert %}} 
+Foto‑frames kunnen raster‑afbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gekoppelde afbeeldingen in plaats van de afbeeldingsbytes in de presentatie op te slaan. De keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is verstandig om te bepalen hoe de afbeelding moet worden opgeslagen voordat je opmaak of optimalisatie toepast.
 
-## **Maak een afbeeldingframe**
+## **Een Ingesloten Afbeelding Toevoegen en Opmaken**
 
-1. Maak een instantie van de [Presentation class](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation).  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Maak een [IPPImage](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_p_p_image)-object door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_image_collection) die gekoppeld is aan het presentatie‑object en die gebruikt zal worden om de vorm te vullen.  
-4. Geef de breedte en hoogte van de afbeelding op.  
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_frame) op basis van de breedte en hoogte van de afbeelding via de `AddPictureFrame`‑methode die beschikbaar is op het vorm‑object dat gekoppeld is aan de referentie‑dia.  
-6. Voeg een afbeeldingframe (met de foto) toe aan de dia.  
-7. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
+Voor een ingesloten afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een foto‑frame met [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapecollection/addpictureframe/). De afbeelding wordt deel van het presentatiepakket, zodat de presentatie zelfvoorzienend blijft wanneer deze naar een andere computer wordt verplaatst.
 
-Deze C++‑code laat zien hoe u een afbeeldingframe maakt:
-
-```c++
-// Het pad naar de documentmap.
-const String outPath = u"../out/PictureFrameFormatting_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Laad de gewenste presentatie
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Benader de eerste dia
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Laadt de afbeelding die aan de afbeeldingscollectie van de presentatie wordt toegevoegd
-// Haalt de afbeelding op
-auto image = Images::FromFile(filePath);
-
-// Voegt een afbeelding toe aan de afbeeldingscollectie van de presentatie
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Voegt een afbeeldingframe toe aan de dia
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Stelt de relatieve schaal van breedte en hoogte in
-pf->set_RelativeScaleHeight(0.8);
-pf->set_RelativeScaleWidth(1.35);
-// Past wat opmaak toe op het afbeeldingframe
-pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-pf->get_LineFormat()->set_Width ( 20);
-pf->set_Rotation( 45);
-
-//Schrijft het PPTX-bestand naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert color="warning" %}} 
-Afbeeldingsframes laten u snel dia’s maken op basis van afbeeldingen. In combinatie met de opslaan‑opties van Aspose.Slides kunt u invoer/uitvoer‑bewerkingen uitvoeren om afbeeldingen van het ene formaat naar het andere te converteren. U wilt misschien de volgende pagina’s bekijken: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/cpp/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/cpp/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/cpp/conversion/jpg-to-png/), converteer [PNG naar JPG](https://products.aspose.com/slides/nl/cpp/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/cpp/conversion/png-to-svg/), converteer [SVG naar PNG](https://products.aspose.com/slides/nl/cpp/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **Maak een afbeeldingframe met relatieve schaal**
-
-Door de relatieve schaal van een afbeelding aan te passen, kunt u een meer geavanceerd afbeeldingframe maken.  
-
-1. Maak een instantie van de [Presentation class](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation).  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Voeg een afbeelding toe aan de presentatie‑afbeeldingscollectie.  
-4. Maak een [IPPImage](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_p_p_image)-object door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_image_collection) die gekoppeld is aan het presentatie‑object en die gebruikt zal worden om de vorm te vullen.  
-5. Geef de relatieve breedte en hoogte van de afbeelding op in het afbeeldingframe.  
-6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze C++‑code laat zien hoe u een afbeeldingframe met relatieve schaal maakt:
-
-```c++
-// Het pad naar de documentmap.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Laadt de gewenste presentatie
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Benader de eerste dia
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Laadt de afbeelding die aan de afbeeldingscollectie van de presentatie wordt toegevoegd
-// Haalt de afbeelding op
-auto image = Images::FromFile(filePath);
-
-// Voegt een afbeelding toe aan de afbeeldingscollectie van de presentatie
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Voegt een afbeeldingframe toe aan de dia
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Stelt de relatieve schaal van breedte en hoogte in
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//Schrijft het PPTX-bestand naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Raster‑afbeeldingen uit afbeeldingframes extraheren**
-
-U kunt raster‑afbeeldingen uit [PictureFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_frame)-objecten extraheren en opslaan in PNG, JPG en andere formaten. Het onderstaande code‑voorbeeld toont hoe u een afbeelding uit het document “sample.pptx” haalt en opslaat in PNG‑formaat.
-
-```c++
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstSlide = presentation->get_Slide(0);
-auto firstShape = firstSlide->get_Shape(0);
-    
-if (ObjectExt::Is<IPictureFrame>(firstShape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
-
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
-}
-
-presentation->Dispose();
-```
-
-## **SVG‑afbeeldingen uit afbeeldingframes extraheren**
-
-Wanneer een presentatie SVG‑graphics bevat die in [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/)‑vormen zijn geplaatst, maakt Aspose.Slides voor C++ het mogelijk de originele vector‑afbeeldingen met volledige nauwkeurigheid op te halen. Door de vormcollectie van de dia te doorlopen, kunt u elke [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/) identificeren, controleren of de onderliggende [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) SVG‑inhoud bevat, en vervolgens die afbeelding opslaan op schijf of in een stream in het oorspronkelijke SVG‑formaat.
-
-Het volgende code‑voorbeeld toont hoe u een SVG‑afbeelding uit een afbeeldingframe haalt:
+Het volgende voorbeeld voegt een JPEG‑afbeelding toe, maakt een frame aan met de originele afmetingen van de afbeelding, en past lijnopmaak en rotatie toe:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
 
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-if (ObjectExt::Is<IPictureFrame>(shape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
-    if (svgImage != nullptr)
-    {
-        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Transparantie van een afbeelding ophalen**
-
-Aspose.Slides maakt het mogelijk de transparantie‑effecten op een afbeelding op te halen. Deze C++‑code demonstreert de bewerking:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
-    {
-        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
-    }
-}
-```
-
-{{% alert color="primary" %}} 
-Alle effecten die op afbeeldingen worden toegepast, zijn te vinden in [Aspose::Slides::Effects](https://reference.aspose.com/slides/nl/cpp/aspose.slides.effects/). 
-{{% /alert %}}
-
-## **Helderheid en contrast van een afbeelding ophalen**
-
-Aspose.Slides maakt het mogelijk de helderheid‑ en contrast‑effecten op een afbeelding op te halen. De interface [ILuminance](https://reference.aspose.com/slides/nl/cpp/aspose.slides.effects/iluminance/) vertegenwoordigt dit afbeeldingstransformatie‑effect.
-
-Deze C++‑code toont hoe u de helderheid‑ en contrastinstellingen van een afbeeldingframe ophaalt:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-
-auto shape = slide->get_Shape(0);
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
-
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<ILuminance>(effect))
-    {
-        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
-        auto brightness = luminance->get_Brightness();
-        auto contrast = luminance->get_Contrast();
-
-        Console::WriteLine(System::String(u"Brightness: ") + brightness);
-        Console::WriteLine(System::String(u"Contrast: ") + contrast);
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Opmaak van afbeeldingframes**
-
-Aspose.Slides biedt vele opmaakopties die op een afbeeldingframe kunnen worden toegepast. Met die opties kunt u een afbeeldingframe aanpassen zodat het voldoet aan specifieke eisen.
-
-1. Maak een instantie van de [Presentation class](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation).  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Maak een [IPPImage](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_p_p_image)-object door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_image_collection) die gekoppeld is aan het presentatie‑object en die gebruikt zal worden om de vorm te vullen.  
-4. Geef de breedte en hoogte van de afbeelding op.  
-5. Maak een `PictureFrame` op basis van de breedte en hoogte van de afbeelding via de [AddPictureFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9)‑methode die beschikbaar is op het [IShapes](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection)‑object dat gekoppeld is aan de referentie‑dia.  
-6. Voeg het afbeeldingframe (met de foto) toe aan de dia.  
-7. Stel de lijnkleur van het afbeeldingframe in.  
-8. Stel de lijndikte van het afbeeldingframe in.  
-9. Roteer het afbeeldingframe door een positieve of negatieve waarde op te geven.  
-   * Een positieve waarde roteert de afbeelding met de klok mee.  
-   * Een negatieve waarde roteert de afbeelding tegen de klok in.  
-10. Voeg het afbeeldingframe (met de foto) opnieuw toe aan de dia.  
-11. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze C++‑code demonstreert het opmaakproces van een afbeeldingframe:
-
-```c++
-// Het pad naar de documentmap.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Laadt de gewenste presentatie.
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Benadert de eerste dia.
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// Laadt de afbeelding die aan de afbeeldingscollectie van de presentatie wordt toegevoegd.
-// Haalt de afbeelding op.
-auto image = Images::FromFile(filePath);
-
-// Voegt een afbeelding toe aan de afbeeldingscollectie van de presentatie.
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Voegt een afbeeldingframe toe aan de dia.
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Stelt de relatieve schaal van breedte en hoogte in.
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//Schrijft het PPTX-bestand naar schijf.
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert title="Tip" color="primary" %}} 
-Aspose heeft recentelijk een [gratis Collage Maker](https://products.aspose.app/slides/nl/collage) ontwikkeld. Als u ooit [JPG/JPEG](https://products.aspose.app/slides/nl/collage/jpg) of PNG‑afbeeldingen wilt samenvoegen, of [rasteren uit foto’s maken](https://products.aspose.app/slides/nl/collage/photo-grid), kunt u deze service gebruiken. 
-{{% /alert %}}
-
-## **Een afbeelding als link toevoegen**
-
-Om grote presentaties te vermijden, kunt u afbeeldingen (of video's) via links toevoegen in plaats van de bestanden direct in te sluiten. Deze C++‑code laat zien hoe u een afbeelding en video toevoegt aan een placeholder:
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"input.pptx");
-auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-
-for (auto& autoShape : shapes)
-{
-    if (autoShape->get_Placeholder() == nullptr)
-        continue;
-
-    switch (autoShape->get_Placeholder()->get_Type())
-    {
-        case Aspose::Slides::PlaceholderType::Picture:
-        {
-            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
-            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-
-        case Aspose::Slides::PlaceholderType::Media:
-        {
-            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
-            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-    }
-}
-
-for (auto& shape : shapesToRemove)
-{
-    shapes->Remove(shape);
-}
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Afbeeldingen bijsnijden**
-
-Deze C++‑code toont hoe u een bestaande afbeelding op een dia kunt bijsnijden:
-
-```CPP
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
-    
-auto presentation = System::MakeObject<Presentation>();
-// Maakt een nieuw afbeeldingobject
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// Voegt een afbeeldingframe toe aan een dia
-auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
-
-// Bijsnijdt de afbeelding (percentage waarden)
-picFrame->get_PictureFormat()->set_CropLeft(23.6f);
-picFrame->get_PictureFormat()->set_CropRight(21.5f);
-picFrame->get_PictureFormat()->set_CropTop(3.0f);
-picFrame->get_PictureFormat()->set_CropBottom(31.0f);
-
-// Slaat het resultaat op
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Bijsneden gebieden van een afbeelding verwijderen**
-
-Als u de bijgesneden gebieden van een afbeelding in een frame wilt verwijderen, kunt u de methode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) gebruiken. Deze methode retourneert de bijgesneden afbeelding of de originele afbeelding als bijsnijden niet nodig is.
-
-Deze C++‑code demonstreert de bewerking:
-
-```c++
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Gets the PictureFrame from the first slide
-System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
-
-// Deletes cropped areas of the PictureFrame image and returns the cropped image
-System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
-
-// Saves the result
-presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-```
-
-{{% alert title="OPMERKING" color="warning" %}} 
-De methode [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) voegt de bijgesneden afbeelding toe aan de presentatie‑afbeeldingscollectie. Als de afbeelding alleen in het verwerkte [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/) wordt gebruikt, kan deze instelling de presentatiesize verkleinen. Anders zal het aantal afbeeldingen in de uiteindelijke presentatie toenemen.  
-
-Deze methode converteert WMF/EMF‑metabestanden naar raster‑PNG‑afbeeldingen tijdens het bijsnijden. 
-{{% /alert %}}
-
-## **Afbeeldingen comprimeren**
-
-U kunt een afbeelding in een presentatie comprimeren met de methode [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/compressimage/). Deze methode comprimeert een afbeelding door de grootte te reduceren op basis van de vormgrootte en opgegeven resolutie, met de optie om bijgesneden gebieden te verwijderen.
-
-Het past de grootte en resolutie van de afbeelding aan, vergelijkbaar met de PowerPoint‑functie **Afbeeldingsopmaak → Afbeeldingen comprimeren → Resolutie**.
-
-De volgende C++‑voorbeelden tonen hoe u een afbeelding in een presentatie comprimeert door een doelformaat op te geven en eventueel bijgesneden gebieden te verwijderen:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
-bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-// Check the result of the compression.
-if (result)
-{
-    System::Console::WriteLine(u"Image successfully compressed.");
-}
-else
-{
-    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
-}
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pictureFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pictureFrame->get_LineFormat()->set_Width(3.0);
+pictureFrame->set_Rotation(15.0f);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Of door direct een aangepaste DPI‑waarde te gebruiken:
+Het foto‑frame bepaalt de weergegeven geometrie; het wijzigen van de frame‑grootte verandert de oorspronkelijke pixel‑afmetingen die in de ingesloten afbeelding‑resource zijn opgeslagen. Dit onderscheid wordt belangrijk bij latere bijsnijden of compressie van een afbeelding.
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+## **Relatieve Schaling Gebruiken**
+
+[IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) biedt relatieve breedte‑ en hoogte‑schaling voor het frame. Een waarde van `1.0` komt overeen met 100 % van de originele afbeeldingsgrootte. Relatieve schaal is handig wanneer een workflow de verhouding tot de bronafbeeldingsgrootte moet behouden in plaats van handmatig de eindafmetingen te berekenen.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Comprimeer de afbeelding tot 150 DPI (webresolutie), en verwijder bijgesneden gebieden.
-pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, image);
+pictureFrame->set_RelativeScaleWidth(1.35f);
+pictureFrame->set_RelativeScaleHeight(0.8f);
+
+presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="OPMERKING" color="warning" %}} 
-De methode converteert de afbeelding naar een lagere resolutie op basis van de vormgrootte en opgegeven DPI. Bijgesneden gebieden kunnen tevens worden verwijderd om de bestandsgrootte te optimaliseren.  
-Als de afbeelding een metafile (WMF/EMF) of SVG is, wordt compressie niet toegepast. JPEG‑kwaliteit wordt bewaard of licht verlaagd afhankelijk van de resolutie, net zoals PowerPoint met hoge‑resolutie‑JPEG’s omgaat. 
-{{% /alert %}}
+Relatieve schaal wijzigt de schaalinstellingen van het frame; het resamplet of comprimeert de ingesloten afbeelding niet.
 
-## **Verhouding vergrendelen**
+## **Ingesloten en Gekoppelde Afbeeldingen**
 
-Als u wilt dat een vorm met een afbeelding haar verhoudingen behoudt, zelfs nadat u de afmetingen van de afbeelding aanpast, kunt u de methode [set_AspectRatioLocked()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) gebruiken om de instelling *Verhouding vergrendelen* in te schakelen.  
+Een ingesloten foto slaat afbeeldingsdata op binnen de presentatie en is daarom de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde foto slaat via het [ISlidesPicture](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidespicture/)‑koppelpads een externe locatie op in plaats van de afbeeldingsdata in dezelfde structuur in te sluiten.
 
-Deze C++‑code toont hoe u de verhouding van een vorm vergrendelt:
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeelding‑data in de PPTX verminderen, maar brengen een externe afhankelijkheid met zich mee. Het gekoppelde bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of rendert. Als het pad verandert, het bestand wordt verplaatst, of de bron onbereikbaar is, wordt de gekoppelde foto mogelijk niet zoals verwacht weergegeven. Voor presentaties die per e‑mail moeten worden verzonden, gearchiveerd of gerenderd in geïsoleerde omgevingen, zijn ingesloten afbeeldingen doorgaans betrouwbaarder.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+### **Een Gekoppelde Afbeelding Toevoegen**
 
-System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
-System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
+Het volgende voorbeeld maakt een foto‑frame aan en laat dit wijzen naar een lokaal afbeeldingsbestand. Het behandelt alleen afbeeldingskoppelingen; video‑koppelingen zijn een apart mediaproces en worden opzettelijk niet in dit voorbeeld gemengd.
 
-System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
 
-System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// set shape to have to preserve aspect ratio on resizing
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, nullptr);
+auto linkPath = Path::GetFullPath(u"linked-image.jpg");
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(linkPath);
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Gebruik koppelingen wanneer extern bestandsbeheer opzettelijk is. Gebruik ze niet louter als vervanging voor compressie: een kleine PPTX met kapotte afbeeldingsafhankelijkheden is meestal minder bruikbaar dan een grotere, zelfvoorzienende presentatie.
+
+## **Afbeeldingen Uit Foto‑Frames Extracten**
+
+Controleer alvorens een afbeelding uit een bestaande presentatie te extraheren of een vorm daadwerkelijk een [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) is en dat deze een ingesloten afbeelding bevat. Gekoppelde foto‑frames bevatten mogelijk geen afbeeldingsbytes die op dezelfde manier geëxtraheerd kunnen worden.
+
+### **Een Raster‑Afbeelding Extracten**
+
+De moderne afbeelding‑API gebruikt direct [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/). Het volgende voorbeeld vindt de eerste ingesloten raster‑foto op een dia en slaat deze op als PNG:
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr || embeddedImage->get_SvgImage() != nullptr)
+    {
+        continue;
+    }
+
+    auto rasterImage = embeddedImage->get_Image();
+    rasterImage->Save(u"extracted-image.png", ImageFormat::Png);
+    break;
+}
+
+presentation->Dispose();
+```
+
+Opslaan via [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/) converteert de geëxtraheerde afbeelding naar het gevraagde uitvoerformaat. Als je de gecodeerde bytes wilt die in de presentatie zijn opgeslagen in plaats van een geconverteerd raster‑bestand, gebruik dan de binaire data van de afbeelding‑resource.
+
+### **Een SVG‑Afbeelding Extracten**
+
+Voor een SVG‑foto stelt de [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) een [ISvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/isvgimage/)‑object beschikbaar. Dit laat je de SVG‑data direct ophalen in plaats van de foto eerst te rasteren.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr)
+    {
+        continue;
+    }
+
+    auto svgImage = embeddedImage->get_SvgImage();
+    if (svgImage == nullptr)
+    {
+        continue;
+    }
+
+    File::WriteAllBytes(u"extracted-image.svg", svgImage->get_SvgData());
+    break;
+}
+
+presentation->Dispose();
+```
+
+Het SVG‑inhoud als SVG behouden bewaart de vector‑bron binnen de presentatie. Raster‑exports zoals PNG of JPEG renderen die vectorinhoud noodzakelijkerwijs naar pixels. PDF‑ of SVG‑dia‑export is eveneens een renderoperatie, dus de geëxporteerde graphics moeten niet worden gezien als een bit‑voor‑bit kopie van de oorspronkelijke ingesloten SVG; gebruik de ingesloten [ISvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/isvgimage/)‑data wanneer de originele vector‑resource zelf vereist is.
+
+## **Een Afbeelding Bijsnijden**
+
+Bijsnijden verandert welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijwaarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/) zijn percentages van de bron‑afbeeldingsafmetingen. Bijsnijden verwijdert de verborgen pixels niet meteen uit de ingesloten afbeelding; het wijzigt alleen het zichtbare gebied.
+
+Het volgende voorbeeld vindt veilig een foto‑frame en past bijsnijwaarden toe:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    pictureFrame->get_PictureFormat()->set_CropLeft(23.6f);
+    pictureFrame->get_PictureFormat()->set_CropRight(21.5f);
+    pictureFrame->get_PictureFormat()->set_CropTop(3.0f);
+    pictureFrame->get_PictureFormat()->set_CropBottom(31.0f);
+    presentation->Save(u"cropped-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Omdat de verborgene afbeeldingsdata nog steeds aanwezig is, kan de bijsnijding later worden aangepast zonder verlies van de originele pixels. Als de bestandsgrootte belangrijker is dan de mogelijkheid tot terugdraaien, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
+
+## **Bijsneden Afbeeldingsdata Verwijderen**
+
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) verwijdert afbeeldingsdata buiten het huidige bijsnijdrechthoek en geeft de resulterende afbeelding‑resource terug. Dit kan de bestandsgrootte verkleinen, maar is een destructieve optimalisatie: na het opslaan van de presentatie zijn de verwijderde pixels niet meer beschikbaar voor een latere on‑bijsnijd‑bewerking.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"cropped-image.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto croppedImage = pictureFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+    if (croppedImage != nullptr)
+    {
+        presentation->Save(u"cropped-data-removed.pptx", SaveFormat::Pptx);
+    }
+}
+
+presentation->Dispose();
+```
+
+De methode kan een nieuwe afbeelding‑resource aan de presentatie toevoegen. Als de oorspronkelijke afbeelding ook door andere foto‑frames wordt gebruikt, hebben die frames nog steeds hun bestaande resource nodig, waardoor het verwijderen van bijgesneden gebieden niet per se het totale aantal afbeeldingen vermindert. Het bijsnijden van WMF‑ of EMF‑content met deze methode rastert het bijgesneden resultaat naar PNG.
+
+## **Raster‑Afbeeldingen Comprimeren**
+
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/compressimage/) vermindert de raster‑resolutie ten opzichte van de grootte waarop de foto wordt weergegeven. Het kan tevens bijgesneden gebieden in dezelfde bewerking verwijderen. De methode retourneert `true` wanneer de afbeelding is verkleind of bijgesneden en `false` wanneer geen wijziging nodig was.
+
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/picturescompression/)‑waarde wanneer een standaard doelresolutie voldoende is:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto compressed = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+    Console::WriteLine(compressed ? String(u"The image was compressed.") : String(u"No compression was necessary."));
+    presentation->Save(u"compressed-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Een aangepaste positieve DPI‑waarde kan worden meegegeven in plaats van een enum‑waarde wanneer een specifieke doelwaarde vereist is.
+
+Compressie is bedoeld voor raster‑afbeeldingen. SVG‑ en meta‑file‑content worden niet gereduceerd door deze raster‑compressieworkflow. Houd er ook rekening mee dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie gebaseerd op de grootste weergave‑ of exportgrootte van de afbeelding in plaats van wereldwijd de laagste DPI toe te passen.
+
+## **Afbeelding‑Transformatie‑Effecten Beheren**
+
+Voor een volledige workflow die helderheid, contrast, kleurtransformaties, onscherpte, alfa‑effecten, geordende ketens, inspectie, verwijdering en round‑trip‑verificatie omvat, zie [Image Transform Effects](/slides/nl/cpp/image-transform-effects/).
+
+## **Geometrie van Foto‑Frame Vergrendelen**
+
+De instellingen van [IPictureFrameLock](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframelock/) bepalen welke bewerkingsacties uitgeschakeld zijn voor een foto‑frame. Bijvoorbeeld, de [aspect‑ratio‑vergrendeling](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) behoudt de verhoudingen van de vorm tijdens het schalen.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
+
+presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert title="OPMERKING" color="warning" %}} 
-Deze *Verhouding vergrendelen*‑instelling behoudt alleen de verhouding van de vorm, niet van de afbeelding die erin zit. 
-{{% /alert %}}
+De vergrendeling geldt voor de foto‑frame‑vorm. Het dwingt de bronafbeelding niet om te worden geresampled of permanent te worden aangepast aan dezelfde beeldverhouding.
 
-## **Gebruik de StretchOff‑eigenschap**
+## **De StretchOffset‑Waarden Aanpassen**
 
-Met de eigenschappen [StretchOffsetLeft](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) en [StretchOffsetBottom](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) van de interface [IPictureFillFormat](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_picture_fill_format) en de class [PictureFillFormat](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.picture_fill_format) kunt u een vulrechthoek opgeven.  
+Wanneer de vulling‑modus van de foto op stretch staat, definiëren de stretch‑offset‑waarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/) het vullingsrechthoek ten opzichte van de begrenzende box van het foto‑frame. Positieve percentages creëren een insnijding vanaf een rand, terwijl negatieve percentages een uitsteeksel vormen.
 
-Wanneer uitrekken van een afbeelding is gespecificeerd, wordt een bronrechthoek geschaald om te passen binnen de opgegeven vulrechthoek. Elke rand van de vulrechthoek wordt gedefinieerd door een procentuele offset ten opzichte van de corresponderende rand van de begrenzende doos van de vorm. Een positieve procent is een inset; een negatieve procent is een outset.
+Dit verschilt van bijsnijden. Bijsnijwaarden bepalen welk deel van de bron‑afbeelding zichtbaar is; stretch‑offsets wijzigen het rechthoek waarin de zichtbare foto‑vulling wordt uitgerekt.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation)-class.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Voeg een rechthoek `AutoShape` toe.  
-4. Maak een afbeelding.  
-5. Stel het opvultype van de vorm in.  
-6. Stel de afbeelding‑opvulmodus van de vorm in.  
-7. Voeg een afbeelding toe om de vorm te vullen.  
-8. Geef de afbeeldingsoffsets op ten opzichte van de corresponderende rand van de begrenzende doos van de vorm.  
-9. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-Deze C++‑code demonstreert een proces waarbij de StretchOff‑eigenschap wordt gebruikt:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-auto slide = pres->get_Slide(0);
-auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Stelt in dat de afbeelding vanaf elke kant in het vormlichaam wordt uitgerekt
-auto pictureFormat = pictureFrame->get_PictureFormat();
-pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
-pictureFormat->set_StretchOffsetLeft(24.0f);
-pictureFormat->set_StretchOffsetRight(24.0f);
-pictureFormat->set_StretchOffsetTop(24.0f);
-pictureFormat->set_StretchOffsetBottom(24.0f);
+auto sourceImage = Images::FromFile(u"photo.png");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, image);
+pictureFrame->get_PictureFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFrame->get_PictureFormat()->set_StretchOffsetLeft(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetRight(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetTop(8.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetBottom(8.0f);
+
+presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+Gebruik stretch‑offsets voor het plaatsen van de vulling. Gebruik bijsnijd‑eigenschappen wanneer het doel is om randen van de bron‑afbeelding te verbergen.
+
+## **Opslag, Bestandsgrootte en Exportoverwegingen**
+
+De belangrijkste afwegingen zijn makkelijker te beheren wanneer afbeeldingsopslag en foto‑frame‑opmaak apart worden behandeld:
+
+- **Ingesloten afbeeldingen** maken de presentatie zelfvoorzienend en zijn het betrouwbaarst voor delen en server‑side rendering, maar grote raster‑afbeeldingen vergroten de PPTX‑grootte en het geheugenverbruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie hangt af van externe bestanden die beschikbaar blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingesloten totdat bijgesneden gebieden expliciet worden verwijderd of tijdens compressie.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote raster‑afbeeldingen, maar doet een compromis met de bronresolutie. Het moet worden toegepast nadat de uiteindelijke weergavemaat op de dia bekend is.
+- **SVG‑afbeeldingen** moeten als SVG worden behouden wanneer vectorbehoud belangrijk is. Extract de ingesloten SVG rechtstreeks wanneer je de vector‑resource zelf nodig hebt. Raster‑dia‑exports converteren altijd de gerenderde dia naar pixels.
+- **Meerdere keren gebruikte afbeeldingen** dienen een bestaande [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/)‑resource te hergebruiken wanneer mogelijk in plaats van herhaaldelijk hetzelfde bestand in de presentatieworkflow te laden.
+
+Voor grote presentaties is beeldoptimalisatie meestal het effectiefst wanneer selectief wordt toegepast: houd logo’s en diagrammen als vector‑content, comprimeer foto’s volgens hun werkelijke weergavemaat, verwijder bijgesneden pixels alleen wanneer latere bewerking niet vereist is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
 ## **FAQ**
 
-**Hoe kan ik achterhalen welke afbeeldingsformaten worden ondersteund voor PictureFrame?**  
-Aspose.Slides ondersteunt zowel raster‑afbeeldingen (PNG, JPEG, BMP, GIF, enz.) als vector‑afbeeldingen (bijvoorbeeld SVG) via het afbeelding‑object dat aan een [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/) is toegewezen. De lijst van ondersteunde formaten overlapt in de regel met de mogelijkheden van de dia‑ en afbeelding‑conversie‑engine.
+**Wat is het verschil tussen een foto‑frame en een afbeelding‑resource?**
 
-**Hoe beïnvloedt het toevoegen van tientallen grote afbeeldingen de grootte en prestaties van een PPTX?**  
-Het insluiten van grote afbeeldingen vergroot de bestandsgrootte en het geheugenverbruik; afbeeldingen via links toevoegen helpt de presentatiesize laag te houden, maar vereist dat de externe bestanden toegankelijk blijven. Aspose.Slides biedt de mogelijkheid om afbeeldingen per link toe te voegen om de bestandsgrootte te reduceren.
+Een [IPPImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ippimage/) vertegenwoordigt een afbeelding‑resource die aan de presentatie is gekoppeld. Een [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-**Hoe kan ik een afbeeldingobject vergrendelen tegen per ongeluk verplaatsen of schalen?**  
-Gebruik [vorm‑vergrendelingen](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/get_pictureframelock/) voor een [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/) (bijvoorbeeld verplaatsing of schaling uitschakelen). Het vergrendelingsmechanisme wordt beschreven voor vormen in een apart [beschermings‑artikel](/slides/nl/cpp/applying-protection-to-presentation/) en wordt ondersteund voor verschillende vormtypen, inclusief [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/).
+**Moet ik afbeeldingen insluiten of koppelen?**
 
-**Wordt de vector‑nauwkeurigheid van SVG bewaard bij het exporteren van een presentatie naar PDF/afbeeldingen?**  
-Aspose.Slides maakt het mogelijk een SVG uit een [PictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pictureframe/) te extraheren als de originele vector. Bij het [exporteren naar PDF](/slides/nl/cpp/convert-powerpoint-to-pdf/) of naar [raster‑formaten](/slides/nl/cpp/convert-powerpoint-to-png/) kan het resultaat worden gerasterd afhankelijk van de exportinstellingen; het feit dat de originele SVG als vector is opgeslagen, wordt bevestigd door het gedrag bij extractie.
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet worden zonder externe bronnen. Koppel afbeeldingen alleen wanneer het doelbewust is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar kunnen worden beheerd.
+
+**Vermindert bijsnijden de PPTX‑bestandsgrootte?**
+
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bron‑afbeelding maar behouden de onderliggende pixels. Gebruik [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) of afbeelding‑compressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden verwijderd.
+
+**Kan ik de afbeeldingskwaliteit herstellen na compressie?**
+
+Nee. Compressie kan de opgeslagen raster‑resolutie verminderen, en het verwijderen van bijgesneden gebieden gooit afbeeldingsdata weg. Bewaar de originele bronafbeelding buiten de presentatie als later bewerken op hoge resolutie vereist kan zijn.
+
+**Hoe moeten SVG‑afbeeldingen worden behandeld?**
+
+Behoud SVG‑content als SVG wanneer vector‑fidelity van belang is. De ingesloten [ISvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/isvgimage/) kan rechtstreeks worden geëxtraheerd. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
+
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+
+Controleer het vormtype voordat je foto‑frame‑specifieke leden gebruikt. Test de vorm met [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) vóór een runtime‑cast, en wijs het cast‑resultaat toe aan een lokale variabele voordat je foto‑frame‑specifieke leden benadert.

@@ -1,538 +1,441 @@
 ---
-title: Quản lý Khung Hình trong Bài Thuyết Trình bằng JavaScript
-linktitle: Khung Hình
+title: Quản lý khung ảnh trong bản trình chiếu bằng JavaScript
+linktitle: Khung ảnh
 type: docs
 weight: 10
 url: /vi/nodejs-java/picture-frame/
 keywords:
-- khung hình
-- thêm khung hình
-- tạo khung hình
-- thêm ảnh
-- tạo ảnh
+- khung ảnh
+- thêm khung ảnh
+- tạo khung ảnh
+- ảnh nhúng
+- ảnh liên kết
 - trích xuất ảnh
 - ảnh raster
-- ảnh vector
+- ảnh SVG
 - cắt ảnh
-- vùng đã cắt
-- thuộc tính StretchOff
-- định dạng khung hình
-- thuộc tính khung hình
+- xóa các vùng đã cắt
+- nén ảnh
+- StretchOffset
+- định dạng khung ảnh
 - tỷ lệ tương đối
 - hiệu ứng ảnh
 - tỷ lệ khung hình
-- độ trong suốt ảnh
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Thêm khung hình vào các bài thuyết trình PowerPoint và OpenDocument bằng Aspose.Slides cho Node.js qua Java. Tối ưu quy trình làm việc và nâng cao thiết kế slide."
+description: "Tạo, định dạng, liên kết, cắt, trích xuất và nén khung ảnh trong bản trình chiếu với Aspose.Slides cho Node.js thông qua Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khung hình là một hình dạng chứa một hình ảnh — nó giống như một bức tranh trong khung.
+Khung ảnh là một hình dạng trên slide hiển thị một hình ảnh. Trong Aspose.Slides, tài nguyên hình ảnh và hình dạng hiển thị nó là các đối tượng riêng biệt: một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) sở hữu các tài nguyên ảnh được nhúng thông qua [ImageCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/imagecollection/), trong khi một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) điều khiển vị trí, kích thước, định dạng đường viền, xoay, cắt, hiệu ứng ảnh và các thiết lập cấp khung khác.
 
-Bạn có thể thêm một hình ảnh vào slide thông qua khung hình. Bằng cách này, bạn định dạng hình ảnh bằng cách định dạng khung hình.
+Sự tách biệt này hữu ích khi cùng một ảnh được hiển thị nhiều lần. Thêm ảnh vào bản trình chiếu một lần, giữ lại đối tượng [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) được trả về, và sử dụng tài nguyên ảnh đó khi tạo các khung ảnh.
 
-{{% alert  title="Tip" color="primary" %}} 
+Khung ảnh có thể chứa ảnh raster như PNG hoặc JPEG và ảnh vector SVG. Chúng cũng có thể tham chiếu đến ảnh liên kết thay vì lưu trữ dữ liệu ảnh trong bản trình chiếu. Lựa chọn này ảnh hưởng đến khả năng di động, kích thước tệp, việc trích xuất và hành vi xuất, vì vậy nên quyết định cách lưu trữ ảnh trước khi áp dụng định dạng hoặc tối ưu hóa.
 
-Aspose cung cấp các trình chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—cho phép người dùng tạo nhanh các bài thuyết trình từ hình ảnh. 
+## **Thêm và Định dạng Ảnh Được Nhúng**
 
-{{% /alert %}} 
+Đối với ảnh được nhúng, thêm dữ liệu ảnh vào bản trình chiếu và tạo khung ảnh bằng [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). Ảnh sẽ trở thành một phần của gói bản trình chiếu, vì vậy bản trình chiếu vẫn tự chứa khi được chuyển sang máy tính khác.
 
-## **Tạo Khung Hình**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide qua chỉ mục của nó. 
-3. Tạo một đối tượng `PPImage` bằng cách thêm một hình ảnh vào [ImagesCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ImageCollection) được liên kết với đối tượng presentation sẽ được sử dụng để lấp đầy hình dạng.
-4. Xác định chiều rộng và chiều cao của hình ảnh.
-5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFrame) dựa trên chiều rộng và chiều cao của hình ảnh thông qua phương thức `addPictureFrame` được cung cấp bởi đối tượng shape liên kết với slide đã tham chiếu.
-6. Thêm khung hình (chứa ảnh) vào slide.
-7. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã JavaScript này cho bạn thấy cách tạo một khung hình:
+Ví dụ sau thêm một ảnh PNG, tạo khung với kích thước gốc của ảnh, và áp dụng định dạng đường viền cũng như xoay:
 
 ```javascript
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Lấy slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Khởi tạo lớp Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Thêm một khung hình với chiều cao và chiều rộng tương đương của ảnh
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Ghi tệp PPTX vào đĩa
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Khung hình cho phép bạn nhanh chóng tạo các slide thuyết trình dựa trên hình ảnh. Khi bạn kết hợp khung hình với các tùy chọn lưu của Aspose.Slides, bạn có thể thao tác các hoạt động nhập/xuất để chuyển đổi hình ảnh từ định dạng này sang định dạng khác.
-
-## **Tạo Khung Hình với Tỷ Lệ Tương Đối**
-
-Bằng cách thay đổi tỷ lệ tương đối của hình ảnh, bạn có thể tạo một khung hình phức tạp hơn. 
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide qua chỉ mục của nó. 
-3. Thêm một hình ảnh vào bộ sưu tập hình ảnh của presentation.
-4. Tạo một đối tượng [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PPImage) bằng cách thêm một hình ảnh vào [ImagesCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ImageCollection) được liên kết với đối tượng presentation sẽ được sử dụng để lấp đầy hình dạng.
-5. Xác định chiều rộng và chiều cao tương đối của hình ảnh trong khung hình.
-6. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã JavaScript này cho bạn thấy cách tạo một khung hình với tỷ lệ tương đối:
-
-```javascript
-// Khởi tạo lớp Presentation đại diện cho PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Lấy slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Khởi tạo lớp Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Thêm Khung Hình với chiều cao và chiều rộng tương đương của Hình ảnh
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Đặt tỷ lệ tương đối cho chiều rộng và chiều cao
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // Ghi tệp PPTX vào đĩa
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Trích Xuất Hình Ảnh Raster từ Khung Hình**
-
-Bạn có thể trích xuất hình ảnh raster từ các đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFrame) và lưu chúng ở định dạng PNG, JPG và các định dạng khác. Ví dụ mã dưới đây minh họa cách trích xuất một hình ảnh từ tài liệu "sample.pptx" và lưu nó ở định dạng PNG.
-
-```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
-        try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Trích Xuất Hình Ảnh SVG từ Khung Hình**
-
-Khi một bản trình bày chứa đồ họa SVG được đặt bên trong các hình dạng [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) , Aspose.Slides cho Node.js qua Java cho phép bạn lấy lại các hình ảnh vector gốc với độ chính xác đầy đủ. Bằng cách duyệt qua bộ sưu tập hình dạng của slide, bạn có thể xác định từng [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/), kiểm tra xem [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) cơ bản có chứa nội dung SVG hay không, và sau đó lưu hình ảnh đó vào đĩa hoặc luồng ở định dạng SVG gốc.
-
-Ví dụ mã dưới đây minh họa cách trích xuất một hình ảnh SVG từ một khung hình:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Lấy Độ Trong Suất của Hình Ảnh**
-
-Aspose.Slides cho phép bạn lấy hiệu ứng trong suốt được áp dụng cho một hình ảnh. Đoạn mã JavaScript này minh họa thao tác này:
-
-```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Lấy Độ Sáng và Độ Tương Phản của Hình Ảnh**
-
-Aspose.Slides cho phép bạn lấy hiệu ứng độ sáng và độ tương phản được áp dụng cho một hình ảnh. Lớp [Luminance](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/luminance/) đại diện cho hiệu ứng biến đổi hình ảnh này.
-
-Đoạn mã JavaScript này minh họa cách lấy cài đặt độ sáng và độ tương phản từ một khung hình:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Định Dạng Khung Hình**
+Khung ảnh điều khiển hình học được hiển thị; việc thay đổi kích thước khung không thay đổi kích thước pixel gốc được lưu trong tài nguyên ảnh được nhúng. Sự khác biệt này trở nên quan trọng khi cắt hoặc nén ảnh sau này.
 
-Aspose.Slides cung cấp nhiều tùy chọn định dạng có thể áp dụng cho khung hình. Sử dụng các tùy chọn này, bạn có thể chỉnh sửa khung hình để đáp ứng các yêu cầu cụ thể.
+## **Sử dụng Tỷ lệ Tương Đối**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide qua chỉ mục của nó. 
-3. Tạo một đối tượng [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PPImage) bằng cách thêm một hình ảnh vào [ImagesCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ImageCollection) được liên kết với đối tượng presentation sẽ được sử dụng để lấp đầy hình dạng.
-4. Xác định chiều rộng và chiều cao của hình ảnh.
-5. Tạo một `PictureFrame` dựa trên chiều rộng và chiều cao của hình ảnh thông qua phương thức [addPictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) được cung cấp bởi đối tượng [Shapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ShapeCollection) liên kết với slide đã tham chiếu.
-6. Thêm khung hình (chứa ảnh) vào slide.
-7. Đặt màu đường viền của khung hình.
-8. Đặt độ rộng đường viền của khung hình.
-9. Xoay khung hình bằng cách cung cấp giá trị dương hoặc âm.
-   * Giá trị dương sẽ xoay hình ảnh theo chiều kim đồng hồ. 
-   * Giá trị âm sẽ xoay hình ảnh ngược chiều kim đồng hồ.
-10. Thêm khung hình (chứa ảnh) vào slide.
-11. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã JavaScript này minh họa quy trình định dạng khung hình:
+[PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) cung cấp khả năng tỷ lệ rộng và cao tương đối cho khung thông qua [setRelativeScaleWidth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) và [setRelativeScaleHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Giá trị `1.0` tương đương với 100% kích thước ảnh gốc. Tỷ lệ tương đối hữu ích khi một quy trình cần duy trì mối quan hệ với kích thước ảnh nguồn thay vì tính toán kích thước cuối cùng một cách thủ công.
 
 ```javascript
-// Khởi tạo lớp Presentation đại diện cho PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Khởi tạo lớp Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Thêm Khung Hình với chiều cao và chiều rộng tương đương của Ảnh
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Áp dụng một số định dạng cho PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // Ghi tệp PPTX vào đĩa
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+Tỷ lệ tương đối thay đổi các thiết lập tỷ lệ của khung; nó không thực hiện tái mẫu hoặc nén ảnh được nhúng.
 
-Aspose gần đây đã phát triển một [công cụ Collage Maker miễn phí](https://products.aspose.app/slides/vi/collage). Nếu bạn cần [ghép nối JPG/JPEG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG, [tạo lưới từ ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), bạn có thể sử dụng dịch vụ này. 
+## **Ảnh Nhúng và Ảnh Liên Kết**
 
-{{% /alert %}}
+Một ảnh nhúng lưu trữ dữ liệu ảnh bên trong bản trình chiếu và do đó là lựa chọn an toàn nhất cho khả năng di động và việc hiển thị dự đoán được. Một ảnh liên kết lưu trữ vị trí bên ngoài thông qua phương thức [Picture.setLinkPathLong](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) thay vì nhúng dữ liệu ảnh theo cùng cách.
 
-## **Thêm Hình Ảnh dưới Dạng Liên Kết**
+Ảnh liên kết có thể giảm lượng dữ liệu ảnh lưu trong PPTX, nhưng chúng tạo ra một phụ thuộc bên ngoài. Tệp liên kết phải vẫn có thể truy cập được đối với ứng dụng mở hoặc hiển thị bản trình chiếu. Nếu đường dẫn thay đổi, tệp bị di chuyển, hoặc tài nguyên không khả dụng, ảnh liên kết có thể không được hiển thị như mong đợi. Đối với các bản trình chiếu cần được gửi email, lưu trữ, hoặc hiển thị trong môi trường cô lập, ảnh nhúng thường đáng tin cậy hơn.
 
-Để tránh kích thước bản trình bày lớn, bạn có thể thêm hình ảnh (hoặc video) qua các liên kết thay vì nhúng tệp trực tiếp vào bản trình bày. Đoạn mã JavaScript này cho bạn thấy cách thêm hình ảnh và video vào một placeholder:
+### **Thêm Ảnh Liên Kết**
+
+Ví dụ sau tạo một khung ảnh và trỏ tới một tệp ảnh cục bộ. Nó chỉ xử lý việc liên kết ảnh; liên kết video là một quy trình truyền thông riêng và không được trộn vào ví dụ này.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sử dụng liên kết khi việc quản lý tệp bên ngoài là có chủ đích. Đừng dùng chúng chỉ như một biện pháp thay thế cho nén: một PPTX nhỏ với các phụ thuộc ảnh bị hỏng thường kém hữu ích hơn so với một bản trình chiếu lớn tự chứa.
+
+## **Trích xuất Ảnh từ Khung Ảnh**
+
+Trước khi trích xuất ảnh từ một bản trình chiếu hiện có, hãy kiểm tra xem hình dạng thực sự là một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) và nó có chứa ảnh đã nhúng hay không. Các khung ảnh liên kết có thể không chứa byte ảnh có thể trích xuất theo cùng cách.
+
+### **Trích xuất Ảnh Raster**
+
+API ảnh hiện đại sử dụng [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/) trực tiếp. Ví dụ sau tìm ảnh raster được nhúng đầu tiên trên một slide và lưu nó dưới dạng PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
             continue;
         }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
         }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
 
-## **Cắt Hình Ảnh**
-
-Đoạn mã JavaScript này cho bạn thấy cách cắt một hình ảnh hiện có trên slide:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// Tạo đối tượng ảnh mới
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+        const rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
         }
+        break;
     }
-    // Thêm Khung Hình vào Slide
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Cắt ảnh (giá trị phần trăm)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Lưu kết quả
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Xóa Các Vùng Đã Cắt của Khung Hình**
-
-Nếu bạn muốn xóa các khu vực đã cắt của hình ảnh chứa trong khung, bạn có thể sử dụng phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Phương thức này trả về hình ảnh đã cắt hoặc hình ảnh gốc nếu không cần cắt.
-
-Đoạn mã JavaScript này minh họa thao tác:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Lấy PictureFrame từ slide đầu tiên
-    var picFrame = slide.getShapes().get_Item(0);
-    // Xóa các khu vực đã cắt của hình ảnh PictureFrame và trả về hình ảnh đã cắt
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Lưu kết quả
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-Phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) thêm hình ảnh đã cắt vào bộ sưu tập hình ảnh của bản trình bày. Nếu hình ảnh chỉ được sử dụng trong [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/), cấu hình này có thể giảm kích thước bản trình bày. Ngược lại, số lượng hình ảnh trong bản trình bày kết quả sẽ tăng.
-
-Phương thức này chuyển các metafile WMF/EMF thành hình ảnh PNG raster trong quá trình cắt. 
-
-{{% /alert %}}
-
-## **Nén Hình Ảnh**
-
-Bạn có thể nén một hình ảnh trong bản trình bày bằng phương thức [PictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) .
-Phương thức này nén hình ảnh bằng cách giảm kích thước dựa trên kích thước hình dạng và độ phân giải được chỉ định, với tùy chọn xóa các khu vực đã cắt.
-
-Nó điều chỉnh kích thước và độ phân giải của hình ảnh tương tự như tính năng **Picture Format → Compress Pictures → Resolution** của PowerPoint.
-
-Các ví dụ JavaScript dưới đây minh họa cách nén một hình ảnh trong bản trình bày bằng cách chỉ định độ phân giải mục tiêu và tùy chọn loại bỏ các khu vực đã cắt:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // Nén ảnh với độ phân giải mục tiêu 150 DPI (độ phân giải Web) và xóa các khu vực đã cắt.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Kiểm tra kết quả của việc nén.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Hoặc sử dụng giá trị DPI định sẵn khác:
+Lưu qua [IImage.save](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/#save) sẽ chuyển đổi ảnh đã trích xuất sang định dạng đầu ra yêu cầu. Nếu bạn cần các byte đã mã hoá lưu trong bản trình chiếu thay vì tệp raster đã chuyển đổi, hãy sử dụng dữ liệu nhị phân của tài nguyên ảnh.
+
+### **Trích xuất Ảnh SVG**
+
+Đối với ảnh SVG, [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) cung cấp một đối tượng [SvgImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/). Điều này cho phép bạn lấy dữ liệu SVG trực tiếp thay vì raster hoá ảnh trước.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Nén ảnh đến 96 DPI (độ phân giải email), xóa các khu vực đã cắt.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Giữ nội dung SVG dưới dạng SVG bảo tồn nguồn vector bên trong bản trình chiếu. Các xuất raster như PNG hoặc JPEG buộc phải render nội dung vector thành pixel. Xuất slide thành PDF hoặc SVG cũng là một hoạt động render, vì vậy đồ họa xuất ra không nên được coi là bản sao byte‑for‑byte của SVG đã nhúng; hãy sử dụng dữ liệu [SvgImage.getSvgData](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/#getSvgData--) khi cần tài nguyên vector gốc.
 
-Phương thức này chuyển hình ảnh sang độ phân giải thấp hơn dựa trên kích thước hình dạng và DPI được cung cấp. Các vùng đã cắt cũng có thể bị xóa để tối ưu kích thước tệp.
-Nếu hình ảnh là metafile (WMF/EMF) hoặc SVG, nén sẽ không được áp dụng. Ngoài ra, chất lượng JPEG được giữ nguyên hoặc giảm nhẹ dựa trên độ phân giải, tương tự như cách PowerPoint xử lý JPEG độ phân giải cao.
+## **Cắt Ảnh**
 
-{{% /alert %}}
+Cắt thay đổi phần nào của ảnh hiển thị bên trong khung. Các giá trị cắt trên [PictureFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/) là phần trăm của kích thước ảnh nguồn. Cắt không xóa ngay các pixel ẩn khỏi ảnh đã nhúng; nó chỉ thay đổi vùng hiển thị.
 
-## **Khóa Tỷ Lệ Khung Hình**
-
-Nếu bạn muốn một hình dạng chứa hình ảnh giữ tỷ lệ khung hình ngay cả khi thay đổi kích thước ảnh, bạn có thể sử dụng phương thức [setAspectRatioLocked](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) để thiết lập cài đặt *Lock Aspect Ratio*.
-
-Đoạn mã JavaScript này cho bạn thấy cách khóa tỷ lệ khung hình của một hình dạng:
+Ví dụ sau tìm một khung ảnh một cách an toàn và áp dụng các giá trị cắt:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // đặt hình dạng để giữ tỷ lệ khung khi thay đổi kích thước
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Vì dữ liệu ảnh ẩn vẫn còn tồn tại, việc cắt có thể được thay đổi sau mà không mất pixel gốc. Nếu kích thước tệp quan trọng hơn tính khả năng phục hồi, các vùng đã cắt có thể bị loại bỏ vật lý như mô tả trong phần tiếp theo.
+
+## **Xóa Dữ liệu Ảnh Đã Cắt**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) loại bỏ dữ liệu ảnh nằm ngoài hình chữ nhật cắt hiện tại và trả về tài nguyên ảnh kết quả. Điều này có thể giảm kích thước tệp, nhưng là một tối ưu hoá phá hủy: sau khi lưu bản trình chiếu, các pixel đã bị xóa sẽ không còn khả năng phục hồi cho thao tác “uncrop” sau này.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Phương thức có thể thêm một tài nguyên ảnh mới vào bản trình chiếu. Nếu ảnh gốc cũng được các khung ảnh khác sử dụng, những khung đó vẫn cần tài nguyên hiện có, vì vậy việc xóa các vùng đã cắt không nhất thiết giảm tổng số ảnh. Cắt nội dung WMF hoặc EMF bằng phương pháp này sẽ raster hoá kết quả đã cắt thành PNG.
+
+## **Nén Ảnh Raster**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) giảm độ phân giải ảnh raster tương đối với kích thước mà ảnh được hiển thị. Nó cũng có thể xóa các vùng đã cắt trong cùng một thao tác. Phương thức trả về `true` khi ảnh đã được thay đổi kích thước hoặc cắt và `false` khi không cần thay đổi nào.
+
+Sử dụng giá trị [PicturesCompression](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturescompression/) đã định sẵn khi một độ phân giải mục tiêu tiêu chuẩn là đủ:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Có thể truyền một giá trị DPI dương tùy chỉnh thay vì giá trị định sẵn khi cần một mục tiêu cụ thể.
+
+Nén nhằm vào ảnh raster. Nội dung SVG và metafile không bị giảm bởi quy trình nén raster này. Cũng nhớ rằng độ phân giải thấp hơn và các vùng đã cắt bị xóa không thể khôi phục từ bản trình chiếu đã tối ưu. Chọn độ phân giải mục tiêu dựa trên kích thước lớn nhất mà ảnh sẽ thực sự được xem hoặc xuất, thay vì áp dụng DPI thấp nhất cho toàn bộ.
+
+## **Quản lý Hiệu Ứng Biến Đổi Ảnh**
+
+Đối với quy trình hoàn chỉnh bao gồm độ sáng, độ tương phản, biến đổi màu, làm mờ, hiệu ứng alpha, chuỗi có thứ tự, kiểm tra, loại bỏ và xác thực vòng lặp, xem [Image Transform Effects](/nodejs-java/image-transform-effects/).
+
+## **Khóa Hình Học Khung Ảnh**
+
+Cài đặt [PictureFrameLock](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframelock/) kiểm soát các thao tác chỉnh sửa nào bị tắt cho một khung ảnh. Ví dụ, [setAspectRatioLocked](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) giữ nguyên tỷ lệ của hình dạng khi thay đổi kích thước.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch (e) {console.log(e);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Khóa áp dụng cho hình dạng khung ảnh. Nó không buộc ảnh nguồn phải được tái mẫu hoặc thay đổi vĩnh viễn theo cùng tỷ lệ.
 
-Cài đặt *Lock Aspect Ratio* này chỉ bảo tồn tỷ lệ của hình dạng chứ không phải hình ảnh bên trong.
+## **Điều Chỉnh Giá Trị StretchOffset**
 
-{{% /alert %}}
+Khi chế độ lấp đầy ảnh là stretch, các giá trị stretch‑offset trên [PictureFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/) định nghĩa hình chữ nhật lấp đầy tương đối với hộp giới hạn của khung ảnh. Phần trăm dương tạo ra một khoảng chèn từ cạnh, trong khi phần trăm âm tạo ra một khoảng mở rộng.
 
-## **Sử Dụng Thuộc Tính StretchOff**
-
-Sử dụng các phương thức [setStretchOffsetLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) và [setStretchOffsetBottom](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) từ lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PictureFillFormat), bạn có thể chỉ định một hình chữ nhật lấp đầy.
-
-Khi kéo dài được chỉ định cho một hình ảnh, hình chữ nhật nguồn sẽ được thu phóng để vừa với hình chữ nhật lấp đầy đã chỉ định. Mỗi cạnh của hình chữ nhật lấp đầy được xác định bởi phần trăm độ lệch so với cạnh tương ứng của hộp bao của hình dạng. Phần trăm dương chỉ độ lệch vào trong, trong khi phần trăm âm chỉ độ lệch ra ngoài.
-
-1. Tạo một thể hiện của [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) class.
-2. Lấy tham chiếu của slide qua chỉ mục của nó.
-3. Thêm một hình chữ nhật `AutoShape`. 
-4. Tạo một hình ảnh.
-5. Đặt loại lấp đầy cho hình dạng.
-6. Đặt chế độ lấp đầy hình ảnh cho hình dạng.
-7. Thêm một hình ảnh đã đặt để lấp đầy hình dạng.
-8. Xác định độ lệch hình ảnh từ cạnh tương ứng của hộp bao của hình dạng
-9. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã JavaScript này minh họa quy trình sử dụng tính năng StretchOff:
+Điều này khác với cắt. Giá trị cắt chọn phần nào của ảnh nguồn hiển thị; stretch offset thay đổi hình chữ nhật mà ảnh lấp đầy được kéo dãn vào.
 
 ```javascript
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy slide đầu tiên
-    var slide = pres.getSlides().get_Item(0);
-    // Khởi tạo lớp ImageEx
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        sourceImage.dispose();
     }
-    // Thêm một AutoShape dạng Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Đặt kiểu lấp đầy cho hình dạng
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Đặt chế độ lấp đầy hình ảnh cho hình dạng
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Đặt hình ảnh để lấp đầy hình dạng
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Xác định độ lệch của hình ảnh từ các cạnh tương ứng của hộp bao của hình dạng
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // Ghi tệp PPTX vào đĩa
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Sử dụng stretch offset để đặt vị trí lấp đầy. Sử dụng thuộc tính cắt khi mục tiêu là ẩn các cạnh của ảnh nguồn.
 
-**Làm thế nào tôi có thể biết các định dạng hình ảnh nào được hỗ trợ cho PictureFrame?**
+## **Lưu Trữ, Kích Thước Tệp và Cân Nhắc Khi Xuất**
 
-Aspose.Slides hỗ trợ cả hình ảnh raster (PNG, JPEG, BMP, GIF, v.v.) và hình ảnh vector (ví dụ, SVG) thông qua đối tượng hình ảnh được gán cho một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/). Danh sách các định dạng được hỗ trợ thường trùng khớp với khả năng của engine chuyển đổi slide và hình ảnh.
+Các cân bằng chính dễ quản lý hơn khi lưu trữ ảnh và định dạng khung ảnh được xem xét riêng biệt:
 
-**Việc thêm hàng chục hình ảnh lớn sẽ ảnh hưởng như thế nào tới kích thước và hiệu suất của PPTX?**
+- **Ảnh nhúng** làm cho bản trình chiếu tự chứa và là lựa chọn đáng tin cậy nhất cho việc chia sẻ và render phía server, nhưng ảnh raster lớn làm tăng kích thước PPTX và sử dụng bộ nhớ.
+- **Ảnh liên kết** có thể giữ gói nhỏ hơn, nhưng bản trình chiếu phụ thuộc vào các tệp bên ngoài phải vẫn khả dụng ở các đường dẫn hoặc vị trí đã lưu.
+- **Cắt** ban đầu không phá hủy. Các pixel ẩn vẫn được nhúng cho đến khi các vùng đã cắt được xóa rõ ràng hoặc loại bỏ trong quá trình nén.
+- **Nén** có thể giảm đáng kể kích thước tệp cho ảnh raster quá lớn, nhưng đánh đổi độ phân giải nguồn. Nên áp dụng sau khi đã biết kích thước hiển thị trên slide.
+- **Ảnh SVG** nên giữ dưới dạng SVG khi việc bảo tồn vector quan trọng. Trích xuất SVG đã nhúng trực tiếp khi bạn cần tài nguyên vector. Xuất slide dạng raster luôn chuyển đổi slide đã render thành pixel.
+- **Ảnh lặp lại** nên tái sử dụng tài nguyên [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) hiện có khi có thể thay vì liên tục tải cùng một tệp vào quy trình làm việc của bản trình chiếu.
 
-Nhúng hình ảnh lớn làm tăng kích thước tệp và mức sử dụng bộ nhớ; liên kết hình ảnh giúp giảm kích thước bản trình bày nhưng yêu cầu các tệp bên ngoài phải luôn có thể truy cập được. Aspose.Slides cung cấp khả năng thêm hình ảnh bằng liên kết để giảm dung lượng tệp.
+Đối với các bản trình chiếu lớn, tối ưu hoá ảnh thường hiệu quả nhất khi thực hiện có chọn lọc: giữ logo và sơ đồ dưới dạng vector, nén ảnh chụp theo kích thước hiển thị thực tế, loại bỏ pixel đã cắt chỉ khi không cần chỉnh sửa sau, và tránh liên kết ngoại nếu quản lý phụ thuộc không phải là một phần của thiết kế triển khai.
 
-**Làm sao tôi có thể khóa một đối tượng hình ảnh khỏi việc di chuyển/điều chỉnh kích thước vô tình?**
+## **Câu Hỏi Thường Gặp**
 
-Sử dụng [shape locks](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) cho một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) (ví dụ, vô hiệu hóa việc di chuyển hoặc thay đổi kích thước). Cơ chế khóa được hỗ trợ cho nhiều loại hình dạng, bao gồm cả [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/).
+**Khác biệt giữa khung ảnh và tài nguyên ảnh là gì?**
 
-**Độ trung thực vector SVG có được bảo lưu khi xuất bản trình bày sang PDF/hình ảnh không?**
+[PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) đại diện cho một tài nguyên ảnh gắn với bản trình chiếu. [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) là một hình dạng trên slide hiển thị ảnh và lưu trữ các thông tin hình học và định dạng cấp khung như kích thước, xoay, giá trị cắt, hiệu ứng và khóa.
 
-Aspose.Slides cho phép trích xuất SVG từ một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) dưới dạng vector gốc. Khi [xuất sang PDF](/slides/vi/nodejs-java/convert-powerpoint-to-pdf/) hoặc [các định dạng raster](/slides/vi/nodejs-java/convert-powerpoint-to-png/), kết quả có thể được raster hoá tùy thuộc vào cài đặt xuất; việc SVG gốc được lưu dưới dạng vector được xác nhận bằng hành vi trích xuất.
+**Nên nhúng hay liên kết ảnh?**
+
+Nhúng ảnh khi bản trình chiếu phải di động, lưu trữ hoặc render mà không cần truy cập tới tài nguyên bên ngoài. Liên kết ảnh chỉ khi việc giữ ảnh ngoài PPTX là có chủ đích và các vị trí bên ngoài có thể được duy trì một cách đáng tin cậy.
+
+**Cắt ảnh có giảm kích thước PPTX không?**
+
+Không tự động. Cài đặt cắt bình thường ẩn một phần ảnh nguồn nhưng vẫn giữ lại pixel nền. Sử dụng [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) hoặc nén ảnh kèm loại bỏ vùng đã cắt khi các pixel đó có thể bị loại bỏ vĩnh viễn.
+
+**Có thể khôi phục chất lượng ảnh sau khi nén không?**
+
+Không. Nén có thể giảm độ phân giải raster lưu trữ, và việc xóa các vùng đã cắt sẽ loại bỏ dữ liệu ảnh. Giữ bản gốc ảnh ngoài bản trình chiếu nếu sau này có thể cần chỉnh sửa ở độ phân giải cao.
+
+**Nên xử lý ảnh SVG như thế nào?**
+
+Giữ nội dung SVG dưới dạng SVG khi độ trung thực vector quan trọng. [SvgImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/) đã nhúng có thể được trích xuất trực tiếp. Render slide thành định dạng raster như PNG hoặc JPEG sẽ raster hoá SVG như một phần của ảnh slide.
+
+**Làm sao tránh ép kiểu không an toàn khi đọc slide hiện có?**
+
+Kiểm tra kiểu hình dạng trước khi sử dụng các thành viên đặc thù cho khung ảnh. Một kiểm tra `java.instanceOf` đối với [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) tránh các ép kiểu không hợp lệ và cho phép code xử lý các slide không chứa khung ảnh.

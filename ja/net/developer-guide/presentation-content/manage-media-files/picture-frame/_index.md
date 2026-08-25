@@ -6,509 +6,355 @@ weight: 10
 url: /ja/net/picture-frame/
 keywords:
 - 画像フレーム
-- 画像フレームを追加
-- 画像フレームを作成
-- 画像を追加
-- 画像を作成
-- 画像を抽出
-- ラスター画像
-- ベクター画像
-- 画像をトリミング
-- トリミング領域
-- StretchOff プロパティ
+- 画像フレームの追加
+- 画像フレームの作成
+- 埋め込み画像
+- リンク画像
+- 画像の抽出
+- ラスタ画像
+- SVG 画像
+- 画像のトリミング
+- トリミング領域の削除
+- 画像の圧縮
+- StretchOffset
 - 画像フレームの書式設定
-- 画像フレームのプロパティ
 - 相対スケール
-- 画像効果
+- 画像エフェクト
 - アスペクト比
-- 画像の透明度
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint と OpenDocument のプレゼンテーションに画像フレームを追加します。ワークフローを効率化し、スライドデザインを向上させましょう。"
+description: "Aspose.Slides for .NET を使用して、プレゼンテーション内の画像フレームを作成、書式設定、リンク、トリミング、抽出、圧縮します。"
 ---
-## **導入**
+## **概要**
 
-画像フレームは画像を含むシェイプです—フレーム内の画像のようなものです。
+画像フレームは画像を表示するスライドシェイプです。Aspose.Slides では、画像リソースとそれを表示するシェイプは別々のオブジェクトです。`[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/)` は埋め込み画像リソースをその `[Images](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/images/)` コレクションを通じて所有し、`[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/)` が画像の位置、サイズ、線の書式設定、回転、トリミング、画像効果、その他フレームレベルの設定を制御します。
 
-スライドに画像を画像フレームを通して追加できます。このように、画像フレームの書式設定を行うことで画像の書式設定が可能です。
+同じ画像を複数回表示する場合にこの分離は便利です。画像をプレゼンテーションに一度だけ追加し、返された `[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/)` を保持して、画像フレーム作成時にその画像リソースを使用します。
 
-{{% alert  title="Tip" color="primary" %}} 
+画像フレームは PNG や JPEG といったラスタ画像や SVG といったベクタ画像を含めることができます。また、画像バイトをプレゼンテーションに格納せずにリンク画像を参照させることも可能です。選択はポータビリティ、ファイルサイズ、抽出、エクスポート動作に影響するため、書式設定や最適化を行う前に画像の保存方法を決めておくと便利です。
 
-Aspose は無料のコンバータ —[JPEG to PowerPoint](https://products.aspose.app/slides/ja/import/jpg-to-ppt) および [PNG to PowerPoint](https://products.aspose.app/slides/ja/import/png-to-ppt) — を提供しており、画像から迅速にプレゼンテーションを作成できます。 
+## **埋め込み画像の追加と書式設定**
 
-{{% /alert %}} 
+埋め込み画像の場合、画像データをプレゼンテーションに追加し、`[IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/addpictureframe/)` で画像フレームを作成します。画像はプレゼンテーションパッケージの一部になるため、プレゼンテーションは別のコンピュータに移動しても自己完結します。
 
-## **画像フレームの作成**
-
-1. [Presentation ](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation)クラスのインスタンスを作成します。 
-2. インデックスを使用してスライドの参照を取得します。 
-3. プレゼンテーションオブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/ja/net/aspose.slides/iimagecollection) に画像を追加して、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage) オブジェクトを作成します。このオブジェクトはシェイプの塗りつぶしに使用されます。 
-4. 画像の幅と高さを指定します。 
-5. 参照されたスライドに関連付けられたシェイプオブジェクトが提供する `AddPictureFrame` メソッドを使用して、画像の幅と高さに基づく [PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe) を作成します。 
-6. スライドに画像フレーム（画像を含む）を追加します。 
-7. 変更されたプレゼンテーションを PPTX ファイルとして保存します。 
-
-この C# コードは画像フレームの作成方法を示しています：
-
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation pres = new Presentation())
-{
-    // 最初のスライドを取得します
-    ISlide slide = pres.Slides[0];
-
-    // 画像をロードし、プレゼンテーションの画像コレクションに追加します
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // 同じ高さと幅の画像フレームを追加します
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // 画像フレームにいくつかの書式設定を適用します
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // プレゼンテーションを PPTX ファイルに保存します
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-
-画像フレームを使用すると、画像に基づいたプレゼンテーションスライドを素早く作成できます。画像フレームと Aspose.Slides の保存オプションを組み合わせることで、画像を別の形式に変換する入出力操作を操作できます。以下のページもご参照ください：[画像を JPG に変換](https://products.aspose.com/slides/ja/net/conversion/image-to-jpg/); [JPG を画像に変換](https://products.aspose.com/slides/ja/net/conversion/jpg-to-image/); [JPG を PNG に変換](https://products.aspose.com/slides/ja/net/conversion/jpg-to-png/), [PNG を JPG に変換](https://products.aspose.com/slides/ja/net/conversion/png-to-jpg/); [PNG を SVG に変換](https://products.aspose.com/slides/ja/net/conversion/png-to-svg/), [SVG を PNG に変換](https://products.aspose.com/slides/ja/net/conversion/svg-to-png/)。 
-
-{{% /alert %}}
-
-## **相対スケールを使用した画像フレームの作成**
-
-画像の相対スケーリングを変更することで、より複雑な画像フレームを作成できます。 
-
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。 
-2. インデックスを使用してスライドの参照を取得します。 
-3. プレゼンテーションの画像コレクションに画像を追加します。 
-4. プレゼンテーションオブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/ja/net/aspose.slides/iimagecollection) に画像を追加して、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage) オブジェクトを作成します。このオブジェクトはシェイプの塗りつぶしに使用されます。 
-5. 画像フレーム内の画像の相対幅と相対高さを指定します。 
-6. 変更されたプレゼンテーションを PPTX ファイルとして保存します。 
-
-この C# コードは相対スケールを使用した画像フレームの作成方法を示しています：
-
-```c#
- // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
-{
-    // 画像をロードし、プレゼンテーションの画像コレクションに追加します
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // スライドに画像フレームを追加します
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // 相対スケールの幅と高さを設定します
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // プレゼンテーションを保存します
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **画像フレームからラスター画像を抽出する**
-
-[PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe) オブジェクトからラスター画像を抽出し、PNG、JPG などの形式で保存できます。以下のコード例は、ドキュメント "sample.pptx" から画像を抽出し、PNG 形式で保存する方法を示しています。
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **画像フレームから SVG 画像を抽出する**
-
-プレゼンテーションに [PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/) シェイプ内に配置された SVG グラフィックが含まれる場合、Aspose.Slides for .NET は元のベクター画像を完全な忠実度で取得できます。スライドのシェイプコレクションを走査することで、各 [PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/) を特定し、基になる [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) が SVG コンテンツを保持しているか確認し、ネイティブ SVG 形式でディスクまたはストリームに保存できます。
-
-以下のコード例は、画像フレームから SVG 画像を抽出する方法を示しています：
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
-```
-
-## **画像の透明度を取得する**
-
-Aspose.Slides を使用すると、画像に適用された透明効果を取得できます。この C# コードはその操作を示しています：
-
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **画像の明るさとコントラストを取得する**
-
-Aspose.Slides を使用すると、画像に適用された明るさとコントラスト効果を取得できます。[ILuminance](https://reference.aspose.com/slides/ja/net/aspose.slides.effects/iluminance/) インターフェイスはこの画像変換効果を表します。
-
-この C# コードは、画像フレームから明るさとコントラストの設定を取得する方法を示しています：
+次の例は JPEG 画像を追加し、画像のネイティブ寸法でフレームを作成し、線の書式設定と回転を適用します。
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
+```
+
+画像フレームは表示されるジオメトリを制御します。フレームサイズを変更しても、埋め込み画像リソースに保存された元のピクセル寸法は変わりません。この区別は後で画像をトリミングまたは圧縮する際に重要になります。
+
+## **相対スケールの使用**
+
+`[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/)` はフレームの相対幅・高さスケーリングを公開しています。値 `1.0` は元画像サイズの 100% に相当します。相対スケールは、最終寸法を手動で計算する代わりに、元画像サイズとの関係を保持したいワークフローで有用です。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
+```
+
+相対スケールはフレームのスケール設定を変更しますが、埋め込み画像をリサンプルしたり圧縮したりはしません。
+
+## **埋め込み画像とリンク画像**
+
+埋め込み画像は画像データをプレゼンテーション内部に保存するため、ポータビリティと予測可能なレンダリングに最も安全です。リンク画像は `[ISlidesPicture](https://reference.aspose.com/slides/ja/net/aspose.slides/islidespicture/)` のリンクパスを介して外部ロケーションを保存し、画像データは埋め込みません。
+
+リンク画像は PPTX 内の画像データ量を減らすことができますが、外部依存性を招きます。リンク先ファイルがアクセス可能である必要があり、パスが変わったりファイルが移動したり、リソースが利用できなくなると、リンク画像は期待通りに表示されません。メールで送信したり、アーカイブしたり、隔離環境でレンダリングする必要があるプレゼンテーションでは、埋め込み画像の方が通常は信頼性が高いです。
+
+### **リンク画像の追加**
+
+次の例は画像フレームを作成し、ローカル画像ファイルへポイントします。これは画像リンクのみを扱い、ビデオリンクは別のメディアワークフローであり、本例には意図的に混在させていません。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+外部ファイル管理が意図的な場合にリンクを使用してください。単に圧縮の代替として使用しないでください。画像依存性が壊れた小さな PPTX は、より大きな自己完結型プレゼンテーションほど有用ではありません。
+
+## **画像フレームから画像を抽出する**
+
+既存のプレゼンテーションから画像を抽出する前に、対象シェイプが実際に `[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/)` であり、埋め込み画像を含んでいるか確認してください。リンク画像フレームは同様に抽出できるバイトを保持していない場合があります。
+
+### **ラスタ画像の抽出**
+
+最新の画像 API は `[IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/)` を直接使用し、旧来のシステムイメージラッパーは不要です。次の例はスライド上の最初の埋め込みラスタ画像を見つけ、PNG として保存します。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
-
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
+    if (shape is not IPictureFrame pictureFrame)
     {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
-
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
+        continue;
     }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
+
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert color="primary" %}} 
-画像に適用されたすべての効果は [Aspose.Slides.Effects](https://reference.aspose.com/slides/ja/net/aspose.slides.effects/) にあります。 
-{{% /alert %}}
+`[IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/)` を介した保存は、抽出した画像を要求された出力形式に変換します。プレゼンテーションに格納されたエンコード済みバイトが必要な場合は、画像リソースのバイナリデータを使用してください。
 
-## **画像フレームの書式設定**
+### **SVG 画像の抽出**
 
-Aspose.Slides は画像フレームに適用できる多くの書式設定オプションを提供します。これらのオプションを使用して、画像フレームを特定の要件に合わせて変更できます。
+SVG 画像の場合、`[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/)` が `[ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage/)` オブジェクトを公開します。これにより、まず画像をラスタライズせずに SVG データを直接取得できます。
 
-1. [Presentation](http://www.aspose.com/api/net/slides/ja/aspose.slides/) クラスのインスタンスを作成します。 
-2. インデックスを使用してスライドの参照を取得します。 
-3. プレゼンテーションオブジェクトに関連付けられた [IImagescollection](https://reference.aspose.com/slides/ja/net/aspose.slides/iimagecollection) に画像を追加して、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage) オブジェクトを作成します。このオブジェクトはシェイプの塗りつぶしに使用されます。 
-4. 画像の幅と高さを指定します。 
-5. 参照されたスライドに関連付けられた [IShapes](http://www.aspose.com/api/net/slides/ja/aspose.slides/ishapecollection) オブジェクトが提供する [AddPictureFrame](http://www.aspose.com/api/net/slides/ja/aspose.slides/ishapecollection/methods/addpictureframe) メソッドを使用して、画像の幅と高さに基づく `PictureFrame` を作成します。 
-6. スライドに画像フレーム（画像を含む）を追加します。 
-7. 画像フレームの線の色を設定します。 
-8. 画像フレームの線幅を設定します。 
-9. 正または負の値を指定して画像フレームを回転させます。 
-   * 正の値は画像を時計回りに回転させます。 
-   * 負の値は画像を反時計回りに回転させます。 
-10. スライドに画像フレーム（画像を含む）を追加します。 
-11. 変更されたプレゼンテーションを PPTX ファイルとして保存します。 
+```csharp
+using System.IO;
+using Aspose.Slides;
 
-この C# コードは画像フレームの書式設定プロセスを示しています：
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
+foreach (var shape in slide.Shapes)
 {
-    // 最初のスライドを取得します
-    ISlide slide = presentation.Slides[0];
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // 画像をロードし、プレゼンテーションの画像コレクションに追加します
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    // 画像と同じ高さと幅の画像フレームを追加します
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // 画像フレームにいくつかの書式設定を適用します
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // プレゼンテーションを PPTX ファイルに保存します
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert color="primary" %}}
-
-Aspose は最近、[無料 Collage Maker](https://products.aspose.app/slides/ja/collage) を開発しました。JPG/JPEG や PNG 画像を [結合](https://products.aspose.app/slides/ja/collage/jpg) したり、[写真からグリッドを作成](https://products.aspose.app/slides/ja/collage/photo-grid) したりする必要がある場合は、このサービスをご利用ください。 
-
-{{% /alert %}}
-
-## **画像をリンクとして追加する**
-
-プレゼンテーションのサイズが大きくなるのを防ぐため、ファイルを直接埋め込む代わりにリンクを介して画像（または動画）を追加できます。この C# コードはプレースホルダーに画像と動画を追加する方法を示しています：
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
+SVG コンテンツを SVG のままで保持すると、プレゼンテーション内にベクタソースが保存されます。PNG や JPEG といったラスタエクスポートは、そのベクタコンテンツをピクセルに変換します。PDF や SVG スライドエクスポートも同様のレンダリング操作であるため、エクスポートされたグラフィックを元の埋め込み SVG のバイト単位コピーとして扱わないでください。元のベクタリソースが必要な場合は、埋め込み `[ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage/)` データを使用してください。
 
 ## **画像のトリミング**
 
-この C# コードはスライド上の既存画像をトリミングする方法を示しています：
+トリミングはフレーム内で画像のどの部分が表示されるかを変更します。`[IPictureFillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/)` のトリム値は元画像寸法に対するパーセンテージです。トリミングは埋め込み画像の隠れたピクセルを削除するのではなく、可視領域を変更するだけです。
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // 新しい画像オブジェクトを作成します
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // スライドに PictureFrame を追加します
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // 画像をトリミングします（パーセンテージ値）
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // 結果を保存します
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **画像フレームのトリミング領域を削除する**
-
-フレーム内に含まれる画像のトリミング領域を削除したい場合は、[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) メソッドを使用できます。このメソッドは、トリミングが不要な場合は元画像、必要な場合はトリミングされた画像を返します。
-
-この C# コードはその操作を示しています：
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // 最初のスライドから PictureFrame を取得します
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // PictureFrame 画像のトリミング領域を削除し、トリミングされた画像を返します
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // 結果を保存します
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) メソッドはトリミングされた画像をプレゼンテーションの画像コレクションに追加します。画像が処理された [PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/) のみで使用されている場合、この設定によりプレゼンテーションサイズを削減できます。そうでない場合、結果として得られるプレゼンテーションの画像数は増加します。
-
-このメソッドはトリミング操作中に WMF/EMF メタファイルをラスター PNG 画像に変換します。 
-
-{{% /alert %}}
-
-## **画像の圧縮**
-
-[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/compressimage/) メソッドを使用してプレゼンテーション内の画像を圧縮できます。このメソッドはシェイプのサイズと指定された解像度に基づいて画像のサイズを縮小し、トリミング領域を削除するオプションも提供します。
-
-PowerPoint の **Picture Format → Compress Pictures → Resolution** 機能と同様に、画像のサイズと解像度を調整します。
-
-以下の C# 例は、対象解像度を指定し、必要に応じてトリミング領域を削除してプレゼンテーション内の画像を圧縮する方法を示しています：
+次の例は画像フレームを安全に取得し、トリム値を適用します。
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
-
-    // 画像を 150 DPI（Web 解像度）のターゲット解像度で圧縮し、トリミング領域を削除します。
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
-
-    // 圧縮の結果を確認します。
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
 
-またはカスタム DPI 値を直接使用する場合：
+隠れた画像データは依然として存在するため、後からトリミングを変更しても元のピクセルは失われません。ファイルサイズが重要で、元に戻す必要がない場合は、次のセクションで説明するようにトリミング領域を物理的に除去できます。
+
+## **トリミングされた画像データの除去**
+
+`[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/)` は現在のトリミング矩形外の画像データを削除し、結果の画像リソースを返します。これによりファイルサイズが削減できますが、破壊的な最適化です。プレゼンテーションを保存した後は、削除されたピクセルは後からの「アンコート」操作では利用できなくなります。
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
-
-    // 画像を 150 DPI（ウェブ解像度）に圧縮し、トリミング領域を削除します。
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
-
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+このメソッドはプレゼンテーションに新しい画像リソースを追加することがあります。元画像が他の画像フレームでも使用されている場合、これらのフレームは既存のリソースを引き続き必要とするため、トリミング領域の削除が必ずしも画像総数を減らすわけではありません。WMF や EMF コンテンツをこのメソッドでトリミングすると、結果は PNG にラスタライズされます。
 
-このメソッドはシェイプのサイズと提供された DPI に基づいて画像を低解像度に変換します。トリミング領域も削除してファイルサイズを最適化できます。画像がメタファイル（WMF/EMF）や SVG の場合、圧縮は適用されません。また、JPEG の品質は解像度に応じて維持またはわずかに低下します。これは PowerPoint が高解像度 JPEG を処理する方法と同様です。 
+## **ラスタ画像の圧縮**
 
-{{% /alert %}}
+`[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/compressimage/)` は、画像が表示されるサイズに対してラスタ画像の解像度を下げます。また、同時にトリミング領域を除去できます。メソッドは画像がリサイズまたはトリミングされた場合に `true`、変更が不要だった場合に `false` を返します。
 
-## **アスペクト比のロック**
+標準的なターゲット解像度で十分な場合は、事前定義された `[PicturesCompression](https://reference.aspose.com/slides/ja/net/aspose.slides.export/picturescompression/)` 値を使用してください。
 
-画像を含むシェイプのサイズを変更してもアスペクト比を保持したい場合、[IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframelock/aspectratiolocked/) プロパティを使用して *Lock Aspect Ratio* 設定を行えます。 
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-この C# コードはシェイプのアスペクト比をロックする方法を示しています：
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (pictureFrame != null)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
-
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // リサイズ時に形状がアスペクト比を保持するように設定します
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+特定の目標が必要な場合は、列挙型の代わりにカスタムの正の DPI 値を渡すこともできます。
 
-この *Lock Aspect Ratio* 設定はシェイプのアスペクト比のみを保持し、シェイプ内の画像自体のアスペクト比は保持しません。 
+圧縮はラスタ画像を対象としています。SVG やメタファイルのコンテンツはこのラスタ圧縮ワークフローでは削減されません。また、解像度を下げたりトリミング領域を削除したりした画像は、最適化されたプレゼンテーションから復元できないことを覚えておいてください。最小 DPI を全体に適用するのではなく、実際に閲覧またはエクスポートされる最大サイズに基づいてターゲット解像度を選択してください。
 
-{{% /alert %}}
+## **画像変換エフェクトの管理**
 
-## **StretchOff プロパティの使用**
+明るさ、コントラスト、カラートランスフォーム、ブラー、アルファ効果、順序付きチェーン、検査、除去、往復検証を網羅した完全なワークフローについては、`[Image Transform Effects](/slides/ja/net/image-transform-effects/)` を参照してください。
 
-[StretchOffsetLeft](https://reference.aspose.com/slides/ja/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)、[StretchOffsetTop](https://reference.aspose.com/slides/ja/net/aspose.slides/picturefillformat/properties/stretchoffsettop)、[StretchOffsetRight](https://reference.aspose.com/slides/ja/net/aspose.slides/picturefillformat/properties/stretchoffsetright) および [StretchOffsetBottom](https://reference.aspose.com/slides/ja/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) プロパティは、[IPictureFillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/picturefillformat) クラスで使用でき、塗りつぶし矩形を指定できます。
+## **画像フレームジオメトリのロック**
 
-画像に対してストレッチが指定されると、ソース矩形が指定された塗りつぶし矩形に合わせて拡大縮小されます。塗りつぶし矩形の各辺は、シェイプのバウンディングボックスの対応する辺からのパーセンテージオフセットで定義されます。正のパーセンテージはインセット、負のパーセンテージはアウトセットを表します。
+`[IPictureFrameLock](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframelock/)` 設定は、画像フレームに対して無効化する編集操作を制御します。たとえば、アスペクト比ロックはサイズ変更時にシェイプの比例を保持します。
 
-1. [Presentation](http://www.aspose.com/api/net/slides/ja/aspose.slides/) クラスのインスタンスを作成します。 
-2. インデックスを使用してスライドの参照を取得します。 
-3. 矩形 `AutoShape` を追加します。 
-4. 画像を作成します。 
-5. シェイプの塗りつぶしタイプを設定します。 
-6. シェイプの画像塗りつぶしモードを設定します。 
-7. シェイプを塗りつぶす画像を追加します。 
-8. シェイプのバウンディングボックスの対応する辺からの画像オフセットを指定します。 
-9. 変更されたプレゼンテーションを PPTX ファイルとして保存します。 
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-この C# コードは StretchOff プロパティを使用したプロセスを示しています：
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
 
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 
-    // 形状本体の各側から画像を伸ばすように設定します
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
-}
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
+
+ロックは画像フレームシェイプに適用されます。元画像をリサンプルしたり、同じアスペクト比に永久に変更したりすることは強制しません。
+
+## **StretchOffset 値の調整**
+
+画像塗りつぶしモードがストレッチの場合、`[IPictureFillFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/)` の stretch‑offset 値は画像フレームのバウンディングボックスに対する塗りつぶし矩形を定義します。正のパーセンテージはエッジからのインセットを、負のパーセンテージはアウトセットを作ります。
+
+これはトリミングとは異なります。トリミング値は元画像のどの部分が可視になるかを選択し、ストレッチオフセットは可視画像塗りつぶしが伸縮される矩形を変更します。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+塗りつぶし位置を調整する際は stretch offset を使用し、元画像の端を隠す目的の場合はトリムプロパティを使用してください。
+
+## **保存、ファイルサイズ、エクスポートの考慮事項**
+
+画像保存と画像フレーム書式設定を別々に扱うと、主なトレードオフが管理しやすくなります。
+
+- **埋め込み画像** はプレゼンテーションを自己完結させ、共有やサーバー側レンダリングで最も信頼性が高いですが、大きなラスタ画像は PPTX のサイズとメモリ使用量を増加させます。
+- **リンク画像** はパッケージを小さく保てますが、プレゼンテーションは外部ファイルが保存パスやロケーションで利用可能であることに依存します。
+- **トリミング** は当初は非破壊的です。隠れたピクセルはトリミング領域が明示的に削除されるか圧縮時に除去されるまで埋め込まれたままです。
+- **圧縮** は過大なラスタ画像のファイルサイズを大幅に削減できますが、元の解像度を犠牲にします。スライド上の最終サイズが確定した後に適用すべきです。
+- **SVG 画像** はベクタ保存が重要な場合は SVG のままで保持すべきです。ベクタリソース自体が必要なときは埋め込み SVG を直接抽出してください。ラスタ形式へのスライドエクスポートは常にレンダリングされたスライドをピクセルに変換します。
+- **繰り返し使用される画像** は、同じファイルを何度もプレゼンテーションにロードする代わりに、可能な限り既存の `[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/)` リソースを再利用してください。
+
+大規模なプレゼンテーションでは、画像最適化は選択的に実施するのが最も効果的です。ロゴや図はベクタコンテンツとして保持し、写真は実際の表示サイズに合わせて圧縮し、後で編集が不要な場合にのみトリミングピクセルを削除し、外部リンクは依存管理がデプロイ設計の一部でない限り避けてください。
 
 ## **FAQ**
 
-**画像フレームでサポートされている画像形式はどのように確認できますか？**
+**画像フレームと画像リソースの違いは何ですか？**
 
-Aspose.Slides は、[PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/) に割り当てられた画像オブジェクトを通じて、ラスター画像 (PNG、JPEG、BMP、GIF など) とベクター画像 (例: SVG) の両方をサポートしています。サポートされる形式のリストは、スライドおよび画像変換エンジンの機能と概ね重なります。
+`[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/)` はプレゼンテーションに関連付けられた画像リソースを表し、`[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/)` は画像を表示し、サイズ、回転、トリミング値、エフェクト、ロックなどフレームレベルのジオメトリと書式設定を保持するスライド上のシェイプです。
 
-**多数の大きな画像を追加すると PPTX のサイズやパフォーマンスにどのような影響がありますか？**
+**画像は埋め込むべきですか、リンクすべきですか？**
 
-大きな画像を埋め込むとファイルサイズとメモリ使用量が増加します。画像をリンクとして追加するとプレゼンテーションのサイズを抑えられますが、外部ファイルが常にアクセス可能である必要があります。Aspose.Slides はリンクで画像を追加する機能を提供しており、ファイルサイズを削減できます。
+プレゼンテーションをポータブルに、アーカイブに、外部リソースなしでレンダリングする必要がある場合は埋め込み画像を使用してください。外部ファイルを PPTX の外に保持し、外部ロケーションを信頼性高く管理できる場合のみリンク画像を使用してください。
 
-**画像オブジェクトが誤って移動・サイズ変更されないようにロックする方法はありますか？**
+**トリミングは PPTX のファイルサイズを削減しますか？**
 
-[PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/) 用の [shape locks](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/pictureframelock/) を使用できます（例: 移動やサイズ変更を無効にする）。このロック機構は、別の記事の [protection article](/slides/ja/net/applying-protection-to-presentation/) で説明されており、PictureFrame を含むさまざまなシェイプタイプでサポートされています。
+単独では削減しません。通常のトリミング設定は画像の一部を非表示にするだけで、基になるピクセルは保持されます。ピクセルを永久に削除したい場合は `[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/)` またはトリミング領域除去を伴う画像圧縮を使用してください。
 
-**SVG ベクターの忠実度は、プレゼンテーションを PDF/画像にエクスポートする際に保持されますか？**
+**圧縮後に画像品質を元に戻すことはできますか？**
 
-Aspose.Slides は、[PictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/pictureframe/) から元のベクターとして SVG を抽出できます。PDF (/slides/ja/net/convert-powerpoint-to-pdf/) やラスター形式 (/slides/ja/net/convert-powerpoint-to-png/) にエクスポートする場合、エクスポート設定に応じてラスタライズされることがありますが、抽出時にベクターが保持されていることが確認できます。
+できません。圧縮は格納されたラスタ解像度を下げ、トリミング領域の除去は画像データを破棄します。後で高解像度での編集が必要になる可能性がある場合は、元のソース画像をプレゼンテーションの外に保存しておいてください。
+
+**SVG 画像はどのように扱うべきですか？**
+
+ベクタの忠実度が重要な場合は SVG コンテンツを SVG のままで保持してください。埋め込み `[ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage/)` は直接抽出できます。PNG や JPEG といったラスタ形式へのスライドレンダリングは、SVG をスライド画像の一部としてラスタライズします。
+
+**既存スライドを読むときに安全でないキャストを回避するには？**
+
+シェイプを使用する前にそのタイプを確認してください。`[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/)` でのパターンマッチングやインターフェイスでのコレクションフィルタリングを行うことで、無効なキャストを防ぎ、画像フレームを含まないスライドでもコードが安全に動作します。

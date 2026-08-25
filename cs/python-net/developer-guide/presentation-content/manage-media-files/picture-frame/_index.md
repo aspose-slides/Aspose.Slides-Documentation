@@ -1,481 +1,339 @@
 ---
-title: Přidání obrázkových rámců do prezentací pomocí Pythonu
-linktitle: Obrázkový rámec
+title: Správa obrázkových rámců v prezentacích s Pythonem
+linktitle: Obrázkový rám
 type: docs
 weight: 10
 url: /cs/python-net/picture-frame/
 keywords:
-- obrázkový rámec
-- přidat obrázkový rámec
-- vytvořit obrázkový rámec
-- přidat obrázek
-- vytvořit obrázek
+- obrázkový rám
+- přidat obrázkový rám
+- vytvořit obrázkový rám
+- vložený obrázek
+- propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
-- vektorový obrázek
-- oříznout obrázek
-- oříznutá oblast
-- vlastnost StretchOff
-- formátování obrázkového rámce
-- vlastnosti obrázkového rámce
+- SVG obrázek
+- ořezat obrázek
+- smazat ořezané oblasti
+- komprimovat obrázek
+- StretchOffset
+- formátování obrázkového rámu
 - relativní měřítko
 - efekt obrázku
 - poměr stran
-- průhlednost obrázku
 - PowerPoint
 - OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Přidejte obrázkové rámy do prezentací PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes .NET. Zjednodušte svůj pracovní postup a vylepšete návrhy snímků."
+description: "Vytvářejte, formátujte, odkazujte, ořezávejte, extrahujte a komprimujte obrázkové rámy v prezentacích pomocí Aspose.Slides pro Python přes .NET."
 ---
-## **Úvod**
+## **Přehled**
 
-Obrázkové rámy v Aspose.Slides for Python vám umožňují umisťovat a spravovat rastrové i vektorové obrázky jako nativní tvary snímků. Můžete vkládat obrázky ze souborů nebo streamů, umisťovat a měnit jejich velikost pomocí přesných souřadnic, aplikovat otáčení, nastavit průhlednost a kontrolovat pořadí Z spolu s ostatními tvary. API také podporuje ořezávání, zachování poměru stran, nastavení ohraničení a efektů a nahrazení podkladového obrázku bez přestavby rozvržení. Protože obrázkové rámy se chovají jako běžné tvary, můžete přidávat animace, hypertextové odkazy a alternativní text, což usnadňuje vytváření vizuálně bohatých a přístupných prezentací.
+Obrázkový rám je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdrojový obrázek a tvar, který jej zobrazuje, oddělené objekty: [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) vlastní vložené obrázkové zdroje prostřednictvím své [ImageCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/), zatímco [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) řídí pozici obrázku, velikost, formátování čáry, otočení, ořez, efekty obrázku a další nastavení na úrovni rámu.
 
-## **Vytvoření obrázkových rámců**
+Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/), a použijte tento zdroj obrázku při vytváření obrázkových rámů.
 
-Tato sekce ukazuje, jak vložit obrázek do snímku vytvořením [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) pomocí Aspose.Slides for Python. Naučíte se, jak načíst obrázek, umístit jej přesně na snímek a kontrolovat jeho velikost a formátování.
+Obrázkové rámce mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo uložení bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte snímek podle jeho indexu.
-3. Vytvořte [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) přidáním obrázku do [ImageCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/) prezentace. Tento obrázek bude použit k vyplnění tvaru.
-4. Zadejte šířku a výšku rámce.
-5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) dané velikosti pomocí metody [add_picture_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Uložte prezentaci jako soubor PPTX.
+## **Přidání a formátování vloženého obrázku**
 
-Následující kód v Pythonu ukazuje, jak vytvořit obrázkový rámec:
+U vloženého obrázku přidejte data obrázku do prezentace a vytvořte obrázkový rám pomocí [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_picture_frame/). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
 
-```py
-import aspose.slides as slides
-
-# Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
-with slides.Presentation() as presentation:
-    # Získáte první snímek.
-    slide = presentation.slides[0]
-
-    # Přidejte obrázek do prezentace.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Přidejte rámec obrázku s rozměry podle obrázku.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Uložte prezentaci jako PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-Obrázkové rámy vám umožňují rychle vytvářet snímky prezentací z obrázků. Když zkombinujete obrázkové rámy s možnostmi ukládání Aspose.Slides, můžete řídit I/O operace pro konverzi obrázků z jednoho formátu do druhého. Můžete se podívat na následující stránky: převod [image to JPG](https://products.aspose.com/slides/cs/python-net/conversion/image-to-jpg/); převod [JPG to image](https://products.aspose.com/slides/cs/python-net/conversion/jpg-to-image/); převod [JPG to PNG](https://products.aspose.com/slides/cs/python-net/conversion/jpg-to-png/); převod [PNG to JPG](https://products.aspose.com/slides/cs/python-net/conversion/png-to-jpg/); převod [PNG to SVG](https://products.aspose.com/slides/cs/python-net/conversion/png-to-svg/); převod [SVG to PNG](https://products.aspose.com/slides/cs/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Vytvoření obrázkových rámců s relativním měřítkem**
-
-Tato sekce demonstruje umístění obrázku s pevnou velikostí a následné použití škálování založeného na procentech nezávisle na jeho šířce a výšce. Protože procenta se mohou lišit, může se změnit poměr stran. Škálování se provádí relativně k původním rozměrům obrázku.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte snímek podle jeho indexu.
-3. Vytvořte [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) přidáním obrázku do [ImageCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/).
-4. Přidejte [PictureFrame] na snímek.
-5. Nastavte relativní šířku a výšku obrázkového rámce.
-6. Uložte prezentaci jako soubor PPTX.
-
-Následující kód v Pythonu ukazuje, jak vytvořit obrázkový rámec s relativním škálováním:
-
-```py
-import aspose.slides as slides
-
-# Vytvořte instanci třídy Presentation, která reprezentuje soubor PPTX.
-with slides.Presentation() as presentation:
-    # Získejte první snímek.
-    slide = presentation.slides[0]
-
-    # Přidejte obrázek do kolekce obrázků prezentace.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Přidejte rámec obrázku na snímek.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Nastavte relativní měřítko šířky a výšky.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Uložte prezentaci.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Extrahování rastrových obrázků z obrázkových rámců**
-
-Můžete extrahovat rastrové obrázky z objektů [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) a uložit je ve formátech PNG, JPG a dalších. Níže uvedený příklad kódu demonstruje, jak extrahovat obrázek z dokumentu "sample.pptx" a uložit jej ve formátu PNG.
+Následující příklad přidává JPEG obrázek, vytváří rám v původních rozměrech obrázku a aplikuje formátování čáry a otočení:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **Extrahování SVG obrázků z obrázkových rámců**
-
-Když prezentace obsahuje SVG grafiku umístěnou uvnitř tvarů [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/), Aspose.Slides for Python prostřednictvím .NET vám umožní získat původní vektorové obrázky s plnou věrností. Procházením kolekce tvarů snímku můžete identifikovat každý [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/), zkontrolovat, zda podkladový [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) obsahuje SVG obsah, a poté uložit tento obrázek na disk nebo do streamu v jeho nativním SVG formátu.
-
-Následující příklad kódu demonstruje, jak extrahovat SVG obrázek z obrázkového rámce:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Získání průhlednosti obrázku**
-
-Aspose.Slides vám umožňuje získat efekt průhlednosti aplikovaný na obrázek. Tento Python kód demonstruje operaci:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Všechny efekty aplikované na obrázky lze najít v [aspose.slides.effects](https://reference.aspose.com/slides/cs/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Získání jasu a kontrastu obrázku**
-
-Aspose.Slides vám umožňuje získat efekt jasu a kontrastu aplikovaný na obrázek. Třída [Luminance](https://reference.aspose.com/slides/cs/python-net/aspose.slides.effects/luminance/) představuje tento transformační efekt obrázku.
-
-Tento Python kód demonstruje, jak získat nastavení jasu a kontrastu z obrázkového rámce:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Formátování obrázkových rámců**
-
-Aspose.Slides poskytuje mnoho možností formátování, které můžete aplikovat na obrázkový rámec. S těmito možnostmi můžete upravit obrázkový rámec tak, aby splňoval konkrétní požadavky.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte snímek podle jeho indexu.
-3. Vytvořte [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) přidáním obrázku do [ImageCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imagecollection/) prezentace. Tento obrázek bude použit k vyplnění tvaru.
-4. Zadejte šířku a výšku rámce.
-5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) dané velikosti pomocí metody [add_picture_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Nastavte barvu čáry obrázkového rámce.
-7. Nastavte šířku čáry obrázkového rámce.
-8. Otočte obrázkový rámec zadáním kladné (ve směru hodinových ručiček) nebo záporné (proti směru hodinových ručiček) hodnoty.
-9. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující Python kód demonstruje proces formátování obrázkového rámce:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation, která reprezentuje soubor PPTX.
 with slides.Presentation() as presentation:
-    # Získejte první snímek.
     slide = presentation.slides[0]
 
-    # Přidejte obrázek do kolekce obrázků prezentace.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Přidejte rámec obrázku s rozměry podle obrázku.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Aplikujte formátování na obrázkový rámec.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Uložte prezentaci jako PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose vyvinulo zdarma [Collage Maker](https://products.aspose.app/slides/cs/collage). Pokud potřebujete [sloučit JPG/JPEG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG obrázky, nebo [vytvořit foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid), můžete použít tuto službu.
-{{% /alert %}}
+Obrázkový rám řídí zobrazovanou geometrii; změna velikosti rámu nemění původní rozměry pixelů uložených ve vloženém zdroji obrázku. Toto rozlišení je důležité při pozdějším ořezávání nebo kompresi obrázku.
 
-## **Přidání obrázků jako odkazů**
+## **Použití relativní měřítka**
 
-Aby byly soubory prezentací malé, můžete přidávat obrázky nebo videa prostřednictvím odkazů místo jejich vkládání přímo do prezentací. Následující Python kód ukazuje, jak vložit obrázek a video do zástupce:
+[PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) poskytuje [relative_scale_width](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/relative_scale_width/) a [relative_scale_height](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/relative_scale_height/) pro rám. Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Relativní měřítko mění nastavení měřítka rámu; nepřevzorkuje ani nekonprimuje vložený obrázek.
+
+## **Vložené a propojené obrázky**
+
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí cesty [Picture](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picture/) místo vložení dat obrázku stejným způsobem.
+
+Propojené obrázky mohou snížit množství dat uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které mají být zasílány e‑mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+
+### **Přidání propojeného obrázku**
+
+Následující příklad vytváří obrázkový rám a odkazuje na lokální soubor obrázku. Zabývá se pouze odkazováním na obrázek; odkazování na video je samostatný mediální workflow a záměrně není v tomto příkladu smícháno.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Používejte odkazy, když je externí správa souborů záměrem. Nepoužívejte je jen jako náhradu komprese: malý PPTX s nefunkčními závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+
+## **Extrahování obrázků z obrázkových rámů**
+
+Před extrahováním obrázku z existující prezentace ověřte, že tvar je skutečně [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) a že obsahuje vložený obrázek. Propojené obrázkové rámce nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+
+### **Extrahování rastrového obrázku**
+
+Moderní API obrázku používá přímo [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/). Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Ořezávání obrázků**
+Ukládání přes [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte vlastnost [PPImage.binary_data](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/binary_data/).
 
-V této sekci se naučíte, jak oříznout viditelnou oblast obrázku v obrázkovém rámci bez změny zdrojového souboru. Také se naučíte základní metodu aplikace okrajů ořezávání pro vytvoření čisté, zaměřené kompozice přímo na snímku.
+### **Extrahování SVG obrázku**
 
-Následující Python kód ukazuje, jak oříznout obrázek na snímku:
+Pro SVG obrázek poskytuje [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) objekt [SvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně renderují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také renderovací operací, takže exportovaná grafika by neměla být považována za bit‑po‑bitu kopii původního vloženého SVG; použijte vložený [SvgImage.svg_data](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/svg_data/), pokud je požadován původní vektorový zdroj.
+
+## **Ořez obrázku**
+
+Ořez mění, která část obrázku je viditelná uvnitř rámu. Hodnoty ořezu na [PictureFillFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
+
+Následující příklad bezpečně najde obrázkový rám a aplikuje hodnoty ořezu:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než reverzibilita, lze ořezané oblasti fyzicky odstranit, jak je popsáno v následující sekci.
+
+## **Odstranění ořezaných dat obrázku**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace jsou odstraněné pixely již nedostupné pro pozdější operaci "uncrop".
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Metoda může přidat nový zdroj obrázku do prezentace. Pokud je původní obrázek také používán jinými obrázkovými rámci, tyto rámce stále potřebují svůj existující zdroj, takže mazání ořezaných oblastí nutně nesnižuje celkový počet obrázků. Ořez WMF nebo EMF pomocí této metody rasterizuje ořezaný výsledek do PNG.
+
+## **Kompresní rastrových obrázků**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/compress_image/) snižuje rozlišení rastrového obrázku relativně k velikosti, v jaké je obrázek zobrazován. Může také odstranit ořezané oblasti ve stejném kroku. Metoda vrací `True`, když byl obrázek změněn velikostí nebo oříznut, a `False`, když změna nebyla potřebná.
+
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/picturescompression/), když stačí standardní cílové rozlišení:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Místo hodnoty výčtu lze předat vlastní kladnou hodnotu DPI, pokud je požadován konkrétní cíl.
+
+Komprese je určena pro rastrové obrázky. SVG a metafile obsah není tímto rastrovým kompresním workflow zmenšován. Také si pamatujte, že nižší rozlišení a smazané ořezané oblasti nelze z optimalizované prezentace obnovit. Vyberte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazován nebo exportován, místo aby se globálně používalo nejnižší DPI.
+
+## **Správa transformačních efektů obrázku**
+
+Pro kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řetězce, inspekci, odstranění a ověření round‑trip viz [Image Transform Effects](/slides/cs/python-net/image-transform-effects/).
+
+## **Uzamčení geometrie obrázkového rámu**
+
+Nastavení [PictureFrameLock](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframelock/) řídí, které úpravy jsou pro obrázkový rám zakázány. Například vlastnost [aspect_ratio_locked](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) zachovává proporce tvaru při změně velikosti.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Přidejte obrázek do kolekce obrázků prezentace.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Přidejte rámec obrázku na snímek.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Ořízněte obrázek (procentuální hodnoty).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Uložte výsledek.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Odstranění oříznutých oblastí obrázků**
-
-Pokud chcete odstranit oříznuté oblasti obrázku v rámci, použijte metodu [delete_picture_cropped_areas](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Tato metoda vrátí oříznutý obrázek nebo původní obrázek, pokud ořezávání není potřeba.
-
-Následující Python kód demonstruje operaci:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Získat PictureFrame z prvního snímku.
-    picture_frame = slides.shape[0]
-
-    # Získat PictureFrame z prvního snímku.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Uložit výsledek.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Metoda [delete_picture_cropped_areas](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) přidá oříznutý obrázek do kolekce obrázků prezentace. Pokud je obrázek použit pouze v zpracovaném [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/), může to snížit velikost prezentace; jinak se může počet obrázků ve výsledné prezentaci zvýšit.
-
-Během ořezávání tato metoda převádí WMF/EMF metafily na rastrový PNG obrázek.
-{{% /alert %}}
-
-## **Komprese obrázků**
-
-Můžete komprimovat obrázek v prezentaci pomocí metody [PictureFillFormat.compress_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/compress_image/).
-Tato metoda komprimuje obrázek snížením jeho velikosti na základě velikosti tvaru a zadaného rozlišení, s možností odstranění oříznutých oblastí.
-
-Upravuje velikost a rozlišení obrázku podobně jako funkce PowerPointu **Picture Format -> Compress Pictures -> Resolution**.
-
-Následující Python příklady demonstrují, jak komprimovat obrázek v prezentaci zadáním cílového rozlišení a volitelně odstraněním oříznutých oblastí:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Komprimujte obrázek s cílovým rozlišením 150 DPI (webové rozlišení) a odstraňte oříznuté oblasti.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Zkontrolujte výsledek komprimace.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Nebo přímo použitím vlastního DPI hodnoty:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Komprimujte obrázek na 150 DPI (webové rozlišení) a odstraňte oříznuté oblasti.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Metoda převádí obrázek na nižší rozlišení na základě velikosti tvaru a zadaného DPI. Oříznuté oblasti lze také odstranit pro optimalizaci velikosti souboru.
-Pokud je obrázek metafile (WMF/EMF) nebo SVG, komprese se nepoužije. Kvalita JPEG je zachována nebo mírně snížena podle rozlišení, podobně jako PowerPoint pracuje s vysokým rozlišením JPEG.
-{{% /alert %}}
-
-## **Uzamčení poměru stran**
-
-Pokud chcete, aby tvar obsahující obrázek zachoval svůj poměr stran po změně rozměrů obrázku, nastavte vlastnost [aspect_ratio_locked](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) na `True`.
-
-Následující Python kód ukazuje, jak uzamknout poměr stran tvaru:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Zamknout poměr stran při změně velikosti.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Toto nastavení *Lock Aspect Ratio* zachovává pouze poměr stran tvaru, nikoli poměr stran obrázku uvnitř něj.
-{{% /alert %}}
+Uzamčení se vztahuje na tvar obrázkového rámu. Nepřinutí zdrojový obrázek, aby byl převeden nebo trvale změněn na stejný poměr stran.
 
-## **Použití vlastností Stretch Offset**
+## **Úprava hodnot StretchOffset**
 
-Pomocí vlastností `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` a `stretch_offset_bottom` třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/) můžete definovat obdélník výplně.
+Když je režim výplně obrázku nastaven na stretch, hodnoty stretch‑offset na [PictureFillFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/) určují výplňový obdélník relativně k ohraničujícímu rámečku obrázkového rámu. Kladná procenta vytvářejí vnitřní odsazení od okraje, záporná procenta vytvářejí vnější odsazení.
 
-Když je pro obrázek zadáno natažení, zdrojový obdélník je škálován tak, aby se vešel do obdélníku výplně. Každá hrana obdélníku výplně je definována procentuálním posunem od odpovídající hrany ohraničujícího rámečku tvaru. Kladné procento určuje vnitřní odsazení, záporné procento vnější odsazení.
+To se liší od ořezu. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch offset mění obdélník, do kterého je viditelná výplň obrázku roztáhnuta.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte typ výplně tvaru.
-5. Nastavte režim výplně obrázkem tvaru.
-6. Načtěte obrázek.
-7. Přiřaďte obrázek k výplni tvaru.
-8. Zadejte posuny obrázku od odpovídajících hran ohraničujícího rámečku tvaru.
-9. Uložte prezentaci jako soubor PPTX.
-
-Následující Python kód demonstruje, jak použít vlastnosti Stretch Offset:
-
-```py
+```python
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation, která reprezentuje soubor PPTX.
 with slides.Presentation() as presentation:
-    # Získejte první snímek.
     slide = presentation.slides[0]
 
-    # Přidejte obdélníkový AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Nastavte typ výplně tvaru.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Nastavte režim výplně obrázkem tvaru.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Načtěte obrázek a přidejte jej do prezentace.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Přiřaďte obrázek k výplni tvaru.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Určete posuny obrázku od odpovídajících hran ohraničujícího rámečku tvaru.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Uložte soubor PPTX na disk.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose poskytuje zdarma převodníky—[JPEG to PowerPoint](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG to PowerPoint](https://products.aspose.app/slides/cs/import/png-to-ppt)—které umožňují rychle vytvářet prezentace z obrázků.
-{{% /alert %}}
+Používejte stretch offset pro umístění výplně. Používejte ořezové vlastnosti, když je cílem skrýt okraje zdrojového obrázku.
 
-## **FAQ**
+## **Úložiště, velikost souboru a úvahy o exportu**
 
-**Jak zjistit, které formáty obrázků jsou podporovány pro PictureFrame?**
+Hlavní kompromisy jsou snadněji říditelné, když jsou uložení obrázků a formátování obrázkových rámů řešeny odděleně:
 
-Aspose.Slides podporuje jak rastrové obrázky (PNG, JPEG, BMP, GIF atd.), tak vektorové obrázky (například SVG) prostřednictvím objektu obrázku, který je přiřazen k [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/). Seznam podporovaných formátů obecně překrývá možnosti enginu pro snímky a konverzi obrázků.
+- **Vložené obrázky** dělají prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side rendering, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na dostupnosti externích souborů na uložených cestách nebo umístěních.
+- **Ořez** je zpočátku nedestruktivní. Skryté pixely zůstávají vloženy, dokud nejsou ořezané oblasti výslovně smazány nebo odstraněny během komprese.
+- **Komprese** může výrazně snížit velikost souboru u příliš velkých rastrových obrázků, ale snižuje rozlišení zdroje. Měla by být aplikována po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektoru. Extrahujte vložené SVG přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly opakovaně používat existující zdroj [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/), pokud je to možné, místo opakovaného načítání stejného souboru do workflow prezentace.
 
-**Jaký bude dopad přidání desítek velkých obrázků na velikost a výkon PPTX?**
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: loga a diagramy ponechte jako vektorový obsah, komprimujte fotografie podle jejich skutečné velikosti zobrazení, odstraňujte ořezané pixely jen tehdy, když není potřeba další úpravy, a vyhněte se externím odkazům, pokud není řízení závislostí součástí nasazovacího designu.
 
-Vložení velkých obrázků zvyšuje velikost souboru a využití paměti; propojování obrázků pomáhá udržet velikost prezentace nízkou, ale vyžaduje, aby externí soubory zůstaly dostupné. Aspose.Slides nabízí možnost přidávat obrázky jako odkazy pro snížení velikosti souboru.
+## **Často kladené otázky**
 
-**Jak mohu uzamknout objekt obrázku před nechtěným přesouváním/změnou velikosti?**
+**Jaký je rozdíl mezi obrázkovým rámem a zdrojem obrázku?**
 
-Použijte [shape locks](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/picture_frame_lock/) pro [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) (například zakázat přesouvání nebo změnu velikosti). Mechanismus zamykání je popsán pro tvary v samostatném [protection article](/slides/cs/python-net/applying-protection-to-presentation/) a je podporován pro různé typy tvarů, včetně [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/).
+[PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) představuje zdroj obrázku spojený s prezentací. [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) je tvar na snímku, který zobrazuje obrázek a ukládá geometrické a formátovací informace na úrovni rámu, jako jsou velikost, otočení, hodnoty ořezu, efekty a zamčení.
 
-**Je zachována věrnost vektorového SVG při exportu prezentace do PDF/obrázků?**
+**Mám obrázky vkládat nebo propojovat?**
 
-Aspose.Slides umožňuje extrahovat SVG z [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) jako originální vektor. Při [exportu do PDF](/slides/cs/python-net/convert-powerpoint-to-pdf/) nebo [rastrých formátů](/slides/cs/python-net/convert-powerpoint-to-png/) může být výsledek rastrován v závislosti na nastavení exportu; fakt, že originální SVG je uložen jako vektor, je potvrzen chováním extrakce.
+Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslovaná bez přístupu k externím zdrojům. Propojujte obrázky jen tehdy, když je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
+
+**Snižuje ořez velikost souboru PPTX?**
+
+Samotný ořez ne. Normální nastavení ořezu skryje části zdrojového obrázku, ale uchovává podkladové pixely. Použijte [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) nebo kompresi obrázku s odstraněním ořezaných oblastí, když lze tyto pixely trvale zahodit.
+
+**Mohu po kompresi obnovit kvalitu obrázku?**
+
+Ne. Komprese může snížit uložené rastrové rozlišení a odstranění ořezaných oblastí ztrácí data obrázku. Uchovávejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava ve vysokém rozlišení.
+
+**Jak by měly být zacházeno se SVG obrázky?**
+
+Uchovávejte SVG obsah jako SVG, když je důležitá věrnost vektoru. Vložený [SvgImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/svgimage/) lze extrahovat přímo. Rendering snímku do rastrového formátu, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
+
+**Jak mohu předejít nebezpečným přetypováním při čtení existujících snímků?**
+
+Zkontrolujte typ tvaru před použitím členů specifických pro obrázkový rám. Použití `isinstance(shape, slides.PictureFrame)` zabraňuje neplatným přetypováním a umožňuje kódu správně zacházet se snímky, které neobsahují obrázkové rámce.

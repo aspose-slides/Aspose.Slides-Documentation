@@ -1,477 +1,339 @@
 ---
-title: เพิ่มกรอบรูปในงานนำเสนอด้วย Python
-linktitle: กรอบรูป
+title: จัดการ Picture Frame ในงานนำเสนอด้วย Python
+linktitle: กรอบรูปภาพ
 type: docs
 weight: 10
 url: /th/python-net/picture-frame/
 keywords:
-- กรอบรูป
-- เพิ่มกรอบรูป
-- สร้างกรอบรูป
-- เพิ่มภาพ
-- สร้างภาพ
+- กรอบรูปภาพ
+- เพิ่มกรอบรูปภาพ
+- สร้างกรอบรูปภาพ
+- ภาพที่ฝังอยู่
+- ภาพที่เชื่อมโยง
 - สกัดภาพ
 - ภาพแรสเตอร์
-- ภาพเวกเตอร์
-- ครอบภาพ
-- พื้นที่ที่ถูกครอบ
-- คุณสมบัติ StretchOff
-- การจัดรูปแบบกรอบรูป
-- คุณสมบัติกรอบรูป
-- สเกลสัมพันธ์
+- ภาพ SVG
+- ครอปภาพ
+- ลบพื้นที่ที่ถูกครอป
+- บีบอัดภาพ
+- StretchOffset
+- การจัดรูปแบบกรอบรูปภาพ
+- สเกลสัมพัทธ์
 - เอฟเฟกต์ภาพ
-- อัตราส่วน
-- ความโปร่งใสของภาพ
+- อัตราส่วนภาพ
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "เพิ่มกรอบรูปในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Python ผ่าน .NET. เพิ่มประสิทธิภาพการทำงานของคุณและปรับปรุงการออกแบบสไลด์."
+description: "สร้าง, จัดรูปแบบ, เชื่อมโยง, ครอป, สกัด, และบีบอัดกรอบรูปภาพในงานนำเสนอด้วย Aspose.Slides สำหรับ Python ผ่าน .NET."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-กรอบรูปใน Aspose.Slides for Python ให้คุณวางและจัดการภาพแรสเตอร์และเวกเตอร์เป็นรูปร่างสไลด์แบบดิบ คุณสามารถแทรกรูปภาพจากไฟล์หรือสตรีม, ตำแหน่งและปรับขนาดด้วยพิกัดที่แม่นยำ, เติมการหมุน, ตั้งค่าความโปร่งใส, และควบคุม z-order พร้อมกับรูปร่างอื่น ๆ API ยังรองรับการครอป, การรักษาอัตราส่วน, การตั้งค่าขอบและเอฟเฟกต์, และการเปลี่ยนภาพพื้นฐานโดยไม่ต้องสร้างเลเอาต์ใหม่ เนื่องจากกรอบรูปทำงานเช่นรูปร่างทั่วไป คุณสามารถเพิ่มแอนิเมชัน, ไฮเปอร์ลิงก์, และข้อความแทนที่ ทำให้การสร้างงานนำเสนอที่มีภาพสวยงามและเข้าถึงได้ง่ายเป็นเรื่องตรงไปตรงมา
+Picture frame เป็นรูปทรงของสไลด์ที่แสดงภาพ ใน Aspose.Slides, ทรัพยากรภาพและรูปทรงที่แสดงภาพเป็นอ็อบเจกต์แยกกัน: a [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) เป็นเจ้าของทรัพยากรภาพที่ฝังอยู่ผ่าน [ImageCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/) ของมัน, ในขณะที่ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ควบคุมตำแหน่งของภาพ, ขนาด, การจัดรูปแบบเส้น, การหมุน, การครอป, เอฟเฟกต์ของรูปภาพ, และการตั้งค่าระดับเฟรมอื่น ๆ
 
-## **สร้างกรอบรูป**
+การแยกนี้มีประโยชน์เมื่อภาพเดียวกันถูกแสดงมากกว่าหนึ่งครั้ง เพิ่มภาพลงในงานนำเสนอหนึ่งครั้ง, เก็บ [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) ที่ส่งกลับ, แล้วใช้ทรัพยากรภาพนั้นเมื่อต้องสร้าง picture frame
 
-ส่วนนี้แสดงวิธีแทรกภาพลงในสไลด์โดยสร้าง [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ด้วย Aspose.Slides for Python คุณจะได้เรียนรู้วิธีโหลดภาพ, วางบนสไลด์อย่างแม่นยำ, และควบคุมขนาดและการจัดรูปแบบของมัน
+Picture frame สามารถบรรจุภาพแบบ raster เช่น PNG หรือ JPEG และภาพแบบ vector SVG ได้ ทั้งนี้ยังสามารถอ้างอิงภาพที่เชื่อมโยงแทนการจัดเก็บไบต์ของภาพไว้ในงานนำเสนอ ตัวเลือกนี้ส่งผลต่อความพกพา, ขนาดไฟล์, การสกัด, และพฤติกรรมการส่งออก จึงควรตัดสินใจว่าจะจัดเก็บภาพอย่างไรก่อนทำการจัดรูปแบบหรือการปรับแต่ง
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-2. รับสไลด์ตามดัชนีของมัน  
-3. สร้าง [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) โดยเพิ่มภาพลงใน [ImageCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/) ของการนำเสนอ ภาพนี้จะใช้เพื่อเติมรูปร่าง  
-4. ระบุความกว้างและความสูงของกรอบ  
-5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ขนาดนั้นโดยใช้เมธอด [add_picture_frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_picture_frame/)  
-6. บันทึกการนำเสนอเป็นไฟล์ PPTX  
+## **เพิ่มและจัดรูปแบบภาพที่ฝังอยู่**
 
-โค้ด Python ด้านล่างแสดงวิธีสร้างกรอบรูป:
+สำหรับภาพที่ฝังอยู่, เพิ่มข้อมูลภาพลงในงานนำหน้าและสร้าง picture frame ด้วย [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_picture_frame/) ภาพจะกลายเป็นส่วนหนึ่งของแพ็คเกจงานนำเสนอ, ดังนั้นงานนำเสนอจะยังคงเป็นอิสระเมื่อย้ายไปยังคอมพิวเตอร์เครื่องอื่น
 
-```py
-import aspose.slides as slides
-
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อเป็นตัวแทนไฟล์ PPTX.
-with slides.Presentation() as presentation:
-    # ดึงสไลด์แรก.
-    slide = presentation.slides[0]
-
-    # เพิ่มรูปภาพลงในงานนำเสนอ.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # เพิ่มกรอบรูปที่มีขนาดเท่ากับภาพ.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # บันทึกงานนำเสนอเป็น PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-กรอบรูปช่วยให้คุณสร้างสไลด์การนำเสนอจากภาพได้อย่างรวดเร็ว เมื่อคุณรวมกรอบรูปกับตัวเลือกการบันทึกของ Aspose.Slides คุณสามารถควบคุมการดำเนินการ I/O เพื่อแปลงภาพจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง คุณอาจต้องการดูหน้าต่อไปนี้: แปลง [รูปภาพเป็น JPG](https://products.aspose.com/slides/th/python-net/conversion/image-to-jpg/); แปลง [JPG เป็นรูปภาพ](https://products.aspose.com/slides/th/python-net/conversion/jpg-to-image/); แปลง [JPG เป็น PNG](https://products.aspose.com/slides/th/python-net/conversion/jpg-to-png/); แปลง [PNG เป็น JPG](https://products.aspose.com/slides/th/python-net/conversion/png-to-jpg/); แปลง [PNG เป็น SVG](https://products.aspose.com/slides/th/python-net/conversion/png-to-svg/); แปลง [SVG เป็น PNG](https://products.aspose.com/slides/th/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **สร้างกรอบรูปด้วยสเกลสัมพันธ์**
-
-ส่วนนี้สาธิตการวางภาพด้วยขนาดคงที่ แล้วใช้การสเกลตามเปอร์เซ็นต์แยกกันสำหรับความกว้างและความสูง เนื่องจากเปอร์เซ็นต์อาจต่างกัน อัตราส่วนอาจเปลี่ยนแปลง การสเกลทำโดยอิงจากมิติเดิมของภาพ
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-2. รับสไลด์ตามดัชนีของมัน  
-3. สร้าง [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) โดยเพิ่มภาพลงใน [ImageCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/)  
-4. เพิ่ม [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ลงในสไลด์  
-5. ตั้งค่าความกว้างและความสูงสัมพันธ์ของกรอบรูป  
-6. บันทึกการนำเสนอเป็นไฟล์ PPTX  
-
-โค้ด Python ด้านล่างแสดงวิธีสร้างกรอบรูปด้วยการสเกลสัมพันธ์:
-
-```py
-import aspose.slides as slides
-
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อเป็นตัวแทนไฟล์ PPTX.
-with slides.Presentation() as presentation:
-    # ดึงสไลด์แรก.
-    slide = presentation.slides[0]
-
-    # เพิ่มรูปภาพลงในคอลเลกชันภาพของงานนำเสนอ.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # เพิ่มกรอบรูปลงในสไลด์.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # ตั้งค่าความกว้างและความสูงสเกลสัมพันธ์.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # บันทึกงานนำเสนอ.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **สกัดภาพแรสเตอร์จากกรอบรูป**
-
-คุณสามารถสกัดภาพแรสเตอร์จากอ็อบเจ็กต์ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) แล้วบันทึกเป็น PNG, JPG หรือรูปแบบอื่น ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดภาพจากเอกสาร “sample.pptx” และบันทึกเป็นรูปแบบ PNG
+ตัวอย่างต่อไปนี้เพิ่มภาพ JPEG, สร้างเฟรมที่มีมิติเดิมของภาพ, และใช้การจัดรูปแบบเส้นและการหมุน:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **สกัดภาพ SVG จากกรอบรูป**
-
-เมื่อการนำเสนอมีกราฟิก SVG อยู่ในรูปร่าง [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) Aspose.Slides for Python via .NET ให้คุณดึงภาพเวกเตอร์ดั้งเดิมออกมาโดยคงความละเอียดเต็มโดยการเดินทางผ่านคอลเลกชันรูปร่างของสไลด์ คุณสามารถระบุแต่ละ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/), ตรวจสอบว่า [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) ที่อยู่ข้างใต้มีเนื้อหา SVG หรือไม่ แล้วบันทึกภาพนั้นลงดิสก์หรือสตรีมในรูปแบบ SVG ดิบ
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีสกัดภาพ SVG จากกรอบรูป:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **รับความโปร่งใสของภาพ**
-
-Aspose.Slides ให้คุณดึงเอาเอฟเฟกต์ความโปร่งใสที่ใช้กับภาพได้ โค้ด Python ด้านล่างแสดงการทำงานนี้:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-เอฟเฟกต์ทั้งหมดที่ใช้กับภาพสามารถพบได้ใน [aspose.slides.effects](https://reference.aspose.com/slides/th/python-net/aspose.slides.effects/)  
-{{% /alert %}}
-
-## **รับความสว่างและความคอนทราสต์ของภาพ**
-
-Aspose.Slides ให้คุณดึงเอาเอฟเฟกต์ความสว่างและความคอนทราสต์ที่ใช้กับภาพได้ คลาส [Luminance](https://reference.aspose.com/slides/th/python-net/aspose.slides.effects/luminance/) แทนการแปลงเอฟเฟกต์นี้ของภาพ
-
-โค้ด Python ด้านล่างแสดงวิธีรับการตั้งค่าความสว่างและความคอนทราสต์จากกรอบรูป:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **การจัดรูปแบบกรอบรูป**
-
-Aspose.Slides มีตัวเลือกการจัดรูปแบบมากมายที่คุณสามารถใช้กับกรอบรูปได้ ด้วยตัวเลือกเหล่านี้คุณสามารถปรับกรอบรูปให้ตรงตามความต้องการเฉพาะ
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-2. รับสไลด์ตามดัชนีของมัน  
-3. สร้าง [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) โดยเพิ่มภาพลงใน [ImageCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/imagecollection/) ของการนำเสนอ ภาพนี้จะใช้เพื่อเติมรูปร่าง  
-4. ระบุความกว้างและความสูงของกรอบ  
-5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ขนาดนั้นโดยใช้เมธอด [add_picture_frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_picture_frame/) ของสไลด์  
-6. ตั้งค่าสีเส้นของกรอบรูป  
-7. ตั้งค่าความกว้างของเส้นกรอบรูป  
-8. หมุนกรอบรูปโดยระบุค่าบวก (ตามเข็มนาฬิกา) หรือค่าลบ (ทวนเข็มนาฬิกา)  
-9. บันทึกการนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX  
-
-โค้ด Python ด้านล่างแสดงกระบวนการจัดรูปแบบกรอบรูป:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อเป็นตัวแทนไฟล์ PPTX.
 with slides.Presentation() as presentation:
-    # ดึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    # เพิ่มรูปภาพลงในคอลเลกชันภาพของงานนำเสนอ.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # เพิ่มกรอบรูปที่มีขนาดเท่ากับภาพ.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # ใช้การจัดรูปแบบกับกรอบรูป.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # บันทึกงานนำเสนอเป็น PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose ได้พัฒนาเครื่องมือฟรี [Collage Maker](https://products.aspose.app/slides/th/collage) หากคุณต้องการ [รวม JPG/JPEG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG, หรือ [สร้างกริดรูปถ่าย](https://products.aspose.app/slides/th/collage/photo-grid) คุณสามารถใช้บริการนี้ได้  
-{{% /alert %}}
+Picture frame ควบคุมเรขาคณิตที่แสดง; การเปลี่ยนขนาดเฟรมจะไม่เปลี่ยนมิติพิกเซลต้นฉบับที่จัดเก็บในทรัพยากรภาพที่ฝังอยู่ ความแตกต่างนี้สำคัญเมื่อทำการครอปหรือบีบอัดภาพในภายหลัง
 
-## **เพิ่มรูปภาพเป็นลิงก์**
+## **ใช้สเกลสัมพัทธ์**
 
-เพื่อให้ไฟล์การนำเสนอมีขนาดเล็ก คุณสามารถเพิ่มรูปภาพหรือวิดีโอกับลิงก์แทนการฝังไฟล์โดยตรงในงานนำเสนอ โค้ด Python ด้านล่างแสดงวิธีแทรกรูปภาพและวิดีโอลงใน placeholder:
+[PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) เปิดให้ใช้ [relative_scale_width](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/relative_scale_width/) และ [relative_scale_height](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/relative_scale_height/) สำหรับเฟรม ค่า `1.0` แทน 100% ของขนาดรูปภาพดั้งเดิม สเกลสัมพัทธ์มีประโยชน์เมื่อเวิร์กโฟลว์ต้องการรักษาความสัมพันธ์กับขนาดภาพต้นฉบับแทนการคำนวณมิติสุดท้ายด้วยตนเอง
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+สเกลสัมพัทธ์เปลี่ยนการตั้งค่าสเกลของเฟรม; มันไม่ทำการรีแซมพลิงหรือบีบอัดภาพที่ฝังอยู่
+
+## **ภาพที่ฝังอยู่และภาพที่เชื่อมโยง**
+
+ภาพที่ฝังอยู่เก็บข้อมูลภาพภายในงานนำเสนอและจึงเป็นตัวเลือกที่ปลอดภัยที่สุดสำหรับความพกพาและการแสดงผลที่คาดเดาได้ ภาพที่เชื่อมโยงจะเก็บตำแหน่งภายนอกผ่านเส้นทางลิงก์ [Picture](https://reference.aspose.com/slides/th/python-net/aspose.slides/picture/) แทนการฝังข้อมูลภาพในลักษณะเดียวกัน
+
+ภาพที่เชื่อมโยงสามารถลดปริมาณข้อมูลภาพที่เก็บใน PPTX ได้, แต่จะสร้างการพึ่งพาภายนอก ไฟล์ที่เชื่อมโยงต้องยังคงเข้าถึงได้สำหรับแอปพลิเคชันที่เปิดหรือเรนเดอร์งานนำเสนอ หากเส้นทางเปลี่ยน, ไฟล์ถูกย้าย, หรือทรัพยากรไม่พร้อมใช้งาน, ภาพที่เชื่อมโยงอาจไม่แสดงตามที่คาดหวัง สำหรับงานนำเสนอที่ต้องส่งอีเมล, จัดเก็บ, หรือเรนเดอร์ในสภาพแวดล้อมแยก, ภาพที่ฝังอยู่มักจะเชื่อถือได้มากกว่า
+
+### **เพิ่มภาพที่เชื่อมโยง**
+
+ตัวอย่างต่อไปนี้สร้าง picture frame แล้วชี้ไปยังไฟล์ภาพในเครื่อง มันจัดการเฉพาะการเชื่อมโยงภาพ; การเชื่อมโยงวิดีโอเป็นเวิร์กโฟลว์สื่อแยกต่างหากและไม่ได้รวมไว้ในตัวอย่างนี้โดยเจตนา
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+ใช้ลิงก์เมื่อการจัดการไฟล์ภายนอกเป็นสิ่งตั้งใจ. อย่าใช้เป็นเพียงการทดแทนการบีบอัด: PPTX ขนาดเล็กที่มีการพึ่งพาภาพเสียหายมักจะใช้งานได้น้อยกว่าการนำเสนอที่มีขนาดใหญ่แต่เป็นอิสระ
+
+## **สกัดภาพจาก Picture Frame**
+
+ก่อนสกัดภาพจากงานนำเสนอที่มีอยู่, ตรวจสอบให้แน่ใจว่ารูปทรงเป็นจริง ๆ แล้วเป็น [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) และว่ามันมีภาพที่ฝังอยู่ Picture frame ที่เชื่อมโยงอาจไม่มีไบต์ของภาพที่สกัดได้ในลักษณะเดียวกัน
+
+### **สกัดภาพ Raster**
+
+API ภาพสมัยใหม่ใช้ [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) โดยตรง ตัวอย่างต่อไปนี้ค้นหาภาพ raster ที่ฝังอยู่แรกบนสไลด์และบันทึกเป็น PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
+
+การบันทึกผ่าน [IImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/iimage/) จะแปลงภาพที่สกัดเป็นรูปแบบผลลัพธ์ที่ร้องขอ หากคุณต้องการไบต์ที่เข้ารหัสที่จัดเก็บในงานนำเสนอแทนไฟล์ raster ที่แปลงแล้ว, ใช้คุณสมบัติ [PPImage.binary_data](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/binary_data/) แทน
+
+### **สกัดภาพ SVG**
+
+สำหรับภาพ SVG, [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) เปิดให้ใช้วัตถุ [SvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/) ซึ่งทำให้คุณดึงข้อมูล SVG โดยตรงแทนการเรสเตอร์ไลซ์ภาพก่อน
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+การเก็บเนื้อหา SVG เป็น SVG จะคงความเป็นเวกเตอร์ของแหล่งข้อมูลภายในงานนำเสนอ การส่งออกเป็น raster เช่น PNG หรือ JPEG จะต้องเรนเดอร์เนื้อหาเวกเตอร์นั้นเป็นพิกเซล การส่งออกสไลด์เป็น PDF หรือ SVG ก็เป็นการเรนเดอร์เช่นกัน, ดังนั้นกราฟิกที่ส่งออกจึงไม่ควรถูกมองว่าเป็นสำเนาไบต์ต่อไบต์ของ SVG ที่ฝังอยู่เดิม; ใช้ [SvgImage.svg_data](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/svg_data/) เมื่อจำเป็นต้องใช้แหล่งเวกเตอร์ต้นฉบับ
 
 ## **ครอปภาพ**
 
-ในส่วนนี้คุณจะได้เรียนรู้วิธีครอปรูปภาพภายในกรอบรูปโดยไม่ต้องแก้ไขไฟล์ต้นทาง คุณยังจะได้เรียนรู้วิธีการกำหนดขอบครอปเพื่อสร้างภาพที่สะอาดและเน้นจุดสนใจโดยตรงบนสไลด์
+การครอปเปลี่ยนส่วนที่เห็นของภาพภายในเฟรม ค่าครอปบน [PictureFillFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/) เป็นเปอร์เซ็นต์ของมิติภาพต้นฉบับ การครอปไม่ลบพิกเซลที่ซ่อนไว้จากภาพที่ฝังอยู่เริ่มต้น; มันเพียงเปลี่ยนพื้นที่ที่มองเห็น
 
-โค้ด Python ด้านล่างแสดงวิธีครอปรูปบนสไลด์:
+ตัวอย่างต่อไปนี้ค้นหา picture frame อย่างปลอดภัยและนำค่าครอปไปใช้:
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+เนื่องจากข้อมูลภาพที่ซ่อนไว้ยังคงอยู่, ค่าครอปสามารถเปลี่ยนได้ในภายหลังโดยไม่สูญเสียพิกเซลต้นฉบับ หากขนาดไฟล์เป็นสิ่งสำคัญกว่าการย้อนกลับ, พื้นที่ที่ครอปแล้วสามารถลบออกทางกายภาพตามที่อธิบายในส่วนถัดไป
+
+## **ลบข้อมูลภาพที่ถูกครอป**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) จะลบข้อมูลภาพที่อยู่นอกสี่เหลี่ยมครอปปัจจุบันและคืนทรัพยากรภาพที่ได้ผลลัพธ์ ซึ่งอาจลดขนาดไฟล์ได้, แต่เป็นการปรับให้เสียหาย: หลังจากบันทึกงานนำเสนอ, พิกเซลที่ลบจะไม่สามารถกู้คืนเพื่อทำการ "uncrop" ได้อีก
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+เมธอดนี้อาจเพิ่มทรัพยากรภาพใหม่ลงในงานนำเสนอ หากภาพต้นฉบับยังถูกใช้โดย picture frame อื่น ๆ, เฟรมเหล่านั้นยังคงต้องการทรัพยากรเดิม, ดังนั้นการลบพื้นที่ที่ครอปไม่ได้จำเป็นต้องลดจำนวนภาพทั้งหมด การครอป WMF หรือ EMF ด้วยเมธอดนี้จะทำให้ผลลัพธ์ที่ครอปถูกเรสเตอร์ไลซ์เป็น PNG
+
+## **บีบอัดภาพ Raster**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/compress_image/) ลดความละเอียดของภาพ raster ตามขนาดที่ภาพแสดงอยู่ มันยังสามารถลบพื้นที่ที่ครอปได้ในการทำงานเดียวกัน เมธอดจะคืนค่า `True` เมื่อภาพถูกปรับขนาดหรือครอปและ `False` เมื่อไม่มีการเปลี่ยนแปลงใด ๆ จำเป็น
+
+ใช้ค่าที่กำหนดไว้ล่วงหน้าใน [PicturesCompression](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/picturescompression/) เมื่อความละเอียดเป้าหมายมาตรฐานเพียงพอ:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+สามารถส่งค่าความละเอียด DPI บวกที่กำหนดเองแทนค่าที่เป็น enum ได้เมื่อจำเป็นต้องการเป้าหมายเฉพาะ
+
+การบีบอัดออกแบบมาสำหรับภาพ raster; เนื้อหา SVG และเมตาไฟล์จะไม่ได้รับการลดโดยเวิร์กโฟลว์บีบอัด raster นี้ อีกทั้งจำไว้ว่า ความละเอียดที่ต่ำและการลบพื้นที่ที่ครอปแล้วไม่สามารถกู้คืนจากงานนำเสนอที่ปรับให้เหมาะสมนั้นได้ เลือกความละเอียดเป้าหมายตามขนาดสูงสุดที่ภาพจะถูกมองเห็นหรือส่งออกจริง แทนการใช้ DPI ต่ำสุดทั่วทั้งงาน
+
+## **จัดการเอฟเฟกต์การแปลงภาพ**
+
+สำหรับเวิร์กโฟลว์ครบวงจรที่ครอบคลุมความสว่าง, คอนทราสต, การแปลงสี, เบลอ, เอฟเฟกต์อัลฟ่า, เชนที่จัดลำดับ, การตรวจสอบ, การลบ, และการตรวจสอบรอบกลับ, ดูที่ [Image Transform Effects](/slides/th/python-net/image-transform-effects/)
+
+## **ล็อกเรขาคณิตของ Picture Frame**
+
+การตั้งค่า [PictureFrameLock](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframelock/) ควบคุมการดำเนินการแก้ไขใดที่ถูกปิดการใช้งานสำหรับ picture frame ตัวอย่างเช่นคุณสมบัติ [aspect_ratio_locked](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) จะรักษาสัดส่วนของรูปทรงขณะปรับขนาด
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # เพิ่มรูปภาพลงในคอลเลกชันภาพของงานนำเสนอ.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # เพิ่มกรอบรูปลงในสไลด์.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # ครอบตัดรูปภาพ (ค่าร้อยละ).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # บันทึกผลลัพธ์.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **ลบพื้นที่ที่ถูกครอปของภาพ**
-
-หากต้องการลบพื้นที่ที่ถูกครอปของภาพในกรอบ ให้ใช้เมธอด [delete_picture_cropped_areas](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) เมธอดนี้จะคืนค่าภาพที่ถูกครอป หรือภาพเดิมหากไม่มีการครอป
-
-โค้ด Python ด้านล่างแสดงการทำงานนี้:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # รับ PictureFrame จากสไลด์แรก.
-    picture_frame = slides.shape[0]
-
-    # รับ PictureFrame จากสไลด์แรก.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # บันทึกผลลัพธ์.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-เมธอด [delete_picture_cropped_areas](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) จะเพิ่มภาพที่ถูกครอปลงในคอลเลกชันภาพของการนำเสนอ หากภาพถูกใช้เพียงใน [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) ที่ประมวลผลแล้ว นี้อาจลดขนาดของการนำเสนอ; หากไม่ใช่ จำนวนภาพในผลลัพธ์อาจเพิ่มขึ้น
-
-ระหว่างการครอป เมธอดนี้จะแปลงไฟล์เมตาฟไฟล์ WMF/EMF ไปเป็นภาพแรสเตอร์ PNG  
-{{% /alert %}}
-
-## **บีบอัดภาพ**
-
-คุณสามารถบีบอัดรูปในงานนำเสนอโดยใช้เมธอด [PictureFillFormat.compress_image](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/compress_image/)  
-เมธอดนี้บีบอัดภาพโดยลดขนาดตามขนาดรูปร่างและความละเอียดที่กำหนด พร้อมตัวเลือกเพื่อลบพื้นที่ที่ครอป
-
-มันปรับขนาดและความละเอียดของรูปภาพเช่นเดียวกับฟีเจอร์ **Picture Format → Compress Pictures → Resolution** ของ PowerPoint
-
-ตัวอย่าง Python ด้านล่างแสดงวิธีบีบอัดภาพในงานนำเสนอโดยระบุความละเอียดเป้าหมายและเลือกลบพื้นที่ที่ครอป (ถ้าต้องการ):
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # บีบอัดภาพด้วยความละเอียดเป้าหมาย 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอบ.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # ตรวจสอบผลลัพธ์ของการบีบอัด.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-หรือใช้ค่ DPI แบบกำหนดเองโดยตรง:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # บีบอัดภาพเป็น 150 DPI (ความละเอียดเว็บ) โดยลบพื้นที่ที่ถูกครอบ.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-เมธอดจะเปลี่ยนภาพเป็นความละเอียดที่ต่ำลงตามขนาดรูปร่างและ DPI ที่ให้ไว้ พื้นที่ที่ถูกครอปสามารถลบได้เพื่อเพิ่มประสิทธิภาพขนาดไฟล์  
-หากภาพเป็นเมตาฟไฟล์ (WMF/EMF) หรือ SVG การบีบอัดจะไม่ถูกนำไปใช้ อีกทั้งคุณภาพ JPEG จะถูกเก็บหรือปรับลดเล็กน้อยตามความละเอียดเช่นเดียวกับ PowerPoint  
-{{% /alert %}}
-
-## **ล็อคอัตราส่วนของภาพ**
-
-หากต้องการให้รูปร่างที่บรรจุภาพคงอัตราส่วนหลังจากเปลี่ยนขนาดภาพ ให้ตั้งค่า [aspect_ratio_locked](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) เป็น `True`
-
-โค้ด Python ด้านล่างแสดงวิธีล็อคอัตราส่วนของรูปร่าง:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # ล็อคอัตราส่วนเมื่อปรับขนาด.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-การตั้งค่า *Lock Aspect Ratio* นี้จะคงอัตราส่วนของรูปร่างเท่านั้น ไม่ได้คงอัตราส่วนของภาพภายในรูปร่าง  
-{{% /alert %}}
+การล็อกนี้ใช้กับรูปทรง picture frame เท่านั้น ไม่บังคับให้ภาพต้นฉบับต้องถูกรีแซมพลิงหรือเปลี่ยนเป็นสัดส่วนเดียวอย่างถาวร
 
-## **ใช้คุณสมบัติ Stretch Offset**
+## **ปรับค่า StretchOffset**
 
-โดยใช้คุณสมบัติ `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` และ `stretch_offset_bottom` ของคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/) คุณสามารถกำหนดสี่เหลี่ยมเติมได้
+เมื่อโหมดการเติมรูปภาพเป็น stretch, ค่าที่เรียกว่า stretch‑offset บน [PictureFillFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/) จะกำหนดสี่เหลี่ยมเติมสัมพันธ์กับกรอบของ picture frame เปอร์เซ็นต์บวกจะสร้างการเยื้องจากขอบ, ส่วนเปอร์เซ็นต์ลบจะขยายออกไป
 
-เมื่อกำหนดการยืดสำหรับภาพ สี่เหลี่ยมต้นฉบับจะถูกสเกลเพื่อให้พอดีกับสี่เหลี่ยมเติม แต่ละขอบของสี่เหลี่ยมเติมจะถูกกำหนดโดยออฟเซ็ตเปอร์เซ็นต์จากขอบที่สอดคล้องของกล่องขอบเขตของรูปร่าง ออฟเซ็ตเปอร์เซ็นต์บวกระบุการย่อตัวเข้ามา ส่วนออฟเซ็ตลบระบุการขยายออกไป
+นี่แตกต่างจากการครอป ค่าครอปเลือกส่วนของภาพต้นฉบับที่เห็นได้; stretch offset ปรับสี่เหลี่ยมที่ภาพเติมที่เห็นถูกยืดออก
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)  
-2. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน  
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) สี่เหลี่ยม  
-4. ตั้งค่าชนิดการเติมของรูปร่าง  
-5. ตั้งค่าโหมดเติมรูปภาพของรูปร่าง  
-6. โหลดภาพ  
-7. กำหนดภาพให้เติมรูปทรง  
-8. ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตของรูปร่าง  
-9. บันทึกการนำเสนอเป็นไฟล์ PPTX  
-
-โค้ด Python ด้านล่างสาธิตวิธีใช้คุณสมบัติ Stretch Offset:
-
-```py
+```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX.
 with slides.Presentation() as presentation:
-    # ดึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    # เพิ่ม AutoShape สี่เหลี่ยมผืนผ้า.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # ตั้งค่าชนิดการเติมของรูปร่าง.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # ตั้งค่าโหมดการเติมรูปภาพของรูปร่าง.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # โหลดภาพและเพิ่มเข้าไปในงานนำเสนอ.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # กำหนดภาพเพื่อเติมรูปร่าง.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตของรูปร่าง.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # บันทึกไฟล์ PPTX ลงดิสก์.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose มีเครื่องแปลงฟรี — [JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt) — ที่ช่วยให้คุณสร้างงานนำเสนอจากภาพได้อย่างรวดเร็ว  
-{{% /alert %}}
+ใช้ stretch offset เพื่อวางตำแหน่งการเติม ใช้คุณสมบัติการครอปเมื่อต้องการซ่อนขอบของภาพต้นฉบับ
 
-## **คำถามที่พบบ่อย**
+## **การจัดเก็บ, ขนาดไฟล์, และข้อควรพิจารณาในการส่งออก**
 
-**ฉันจะตรวจสอบได้ว่าแบบฟอร์มภาพใดบ้างที่รองรับสำหรับ PictureFrame?**  
-Aspose.Slides รองรับทั้งภาพแรสเตอร์ (PNG, JPEG, BMP, GIF ฯลฯ) และภาพเวกเตอร์ (เช่น SVG) ผ่านอ็อบเจ็กต์ภาพที่กำหนดให้กับ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) รายการรูปแบบที่รองรับโดยทั่วไปจะทับซ้อนกับความสามารถของเอนจินการแปลงสไลด์และภาพ
+การแลกเปลี่ยนหลักจะจัดการได้ง่ายขึ้นเมื่อการจัดเก็บภาพและการจัดรูปแบบ picture‑frame ถูกแยกออกจากกัน:
 
-**การเพิ่มรูปภาพขนาดใหญ่หลายสิบภาพจะส่งผลต่อขนาดและประสิทธิภาพของไฟล์ PPTX อย่างไร?**  
-การฝังภาพขนาดใหญ่จะเพิ่มขนาดไฟล์และการใช้หน่วยความจำ; การลิงก์ภาพช่วยให้ขนาดการนำเสนอเล็กลงแต่ต้องให้ไฟล์ภายนอกยังคงเข้าถึงได้ Aspose.Slides มีความสามารถในการเพิ่มภาพโดยลิงก์เพื่อ ลดขนาดไฟล์
+- **ภาพที่ฝังอยู่** ทำให้งานนำเสนอเป็นอิสระและเป็นตัวเลือกที่เชื่อถือได้ที่สุดสำหรับการแชร์และการเรนเดอร์ฝั่งเซิร์ฟเวอร์, แต่ภาพ raster ขนาดใหญ่จะเพิ่มขนาด PPTX และการใช้หน่วยความจำ
+- **ภาพที่เชื่อมโยง** สามารถทำให้แพ็คเกจเล็กลง, แต่งานนำเสนอจะพึ่งพาไฟล์ภายนอกที่ยังคงอยู่ตามเส้นทางหรือสถานที่ที่เก็บไว้
+- **การครอป** ในตอนแรกไม่ทำลาย; พิกเซลที่ซ่อนไว้ยังคงฝังอยู่จนกว่าจะลบพื้นที่ที่ครอปอย่างชัดเจนหรือถูกลบระหว่างการบีบอัด
+- **การบีบอัด** สามารถลดขนาดไฟล์ได้อย่างมากสำหรับภาพ raster ที่ใหญ่เกินไป, แต่จะเสียความละเอียดต้นฉบับ ควรทำเมื่อขนาดบนสไลด์ที่ต้องการแสดงได้ถูกกำหนดแล้ว
+- **ภาพ SVG** ควรคงเป็น SVG เมื่อการรักษาเวกเตอร์สำคัญ; สกัด SVG ที่ฝังอยู่โดยตรงเมื่อคุณต้องการแหล่งเวกเตอร์เอง การส่งออกสไลด์เป็น raster จะเปลี่ยนสไลด์ที่เรนเดอร์ให้เป็นพิกเซลเสมอ
+- **ภาพที่ใช้ซ้ำ** ควรใช้ทรัพยากร [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) ที่มีอยู่แล้วเมื่อเป็นไปได้ แทนการโหลดไฟล์เดียวกันซ้ำ ๆ เข้าเวิร์กโฟลว์ของงานนำเสนอ
 
-**ฉันจะล็อคอ็อบเจ็กต์ภาพไม่ให้ถูกย้ายหรือปรับขนาดโดยบังเอิญได้อย่างไร?**  
-ใช้ [shape locks](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/picture_frame_lock/) สำหรับ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) (เช่น ปิดการย้ายหรือการปรับขนาด) กลไกการล็อคอธิบายไว้สำหรับรูปร่างในบทความการปกป้องแยกต่างหาก [/slides/th/python-net/applying-protection-to-presentation/] และรองรับหลายประเภทรูปร่างรวมถึง [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/)
+สำหรับงานนำเสนอขนาดใหญ่, การปรับภาพให้เหมาะสมมักจะได้ผลดีที่สุดเมื่อทำแบบเลือกตามส่วน: เก็บโลโก้และไดอะแกรมเป็นเนื้อหาเวกเตอร์, บีบอัดภาพถ่ายตามขนาดการแสดงจริง, ลบพิกเซลที่ครอปเฉพาะเมื่อไม่ต้องการการแก้ไขต่อ, และหลีกเลี่ยงลิงก์ภายนอกเว้นแต่การจัดการการพึ่งพาจะเป็นส่วนหนึ่งของการออกแบบการปรับใช้
 
-**ความละเอียดของเวกเตอร์ SVG จะคงไว้เมื่อส่งออกการนำเสนอเป็น PDF/ภาพหรือไม่?**  
-Aspose.Slides อนุญาตให้สกัด SVG จาก [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) เป็นเวกเตอร์ดั้งเดิม เมื่อ [exporting to PDF](/slides/th/python-net/convert-powerpoint-to-pdf/) หรือ [raster formats](/slides/th/python-net/convert-powerpoint-to-png/) ผลลัพธ์อาจถูกแปลงเป็นแรสเตอร์ขึ้นอยู่กับการตั้งค่าการส่งออก; ความจริงที่ว่า SVG ดั้งเดิมถูกเก็บเป็นเวกเตอร์ได้รับการยืนยันจากพฤติกรรมการสกัดนี้.
+## **FAQ**
+
+**ความแตกต่างระหว่าง picture frame และทรัพยากรภาพคืออะไร?**
+
+[PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) แทนทรัพยากรภาพที่เชื่อมโยงกับงานนำเสนอ ส่วน [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) คือรูปทรงบนสไลด์ที่แสดงภาพและเก็บเรขาคณิตและการจัดรูปแบบระดับเฟรม เช่น ขนาด, การหมุน, ค่าครอป, เอฟเฟกต์, และการล็อก
+
+**ควรฝังภาพหรือเชื่อมโยงภาพ?**
+
+ฝังภาพเมื่อโครงการต้องการความพกพา, การเก็บรักษา, หรือการเรนเดอร์โดยไม่ต้องอ้างอิงทรัพยากรภายนอก เชื่อมโยงภาพเฉพาะเมื่อต้องการเก็บไฟล์ภาพนอก PPTX อย่างตั้งใจและตำแหน่งภายนอกสามารถจัดการได้อย่างเชื่อถือได้
+
+**การครอปลดขนาดไฟล์ PPTX หรือไม่?**
+
+ไม่โดยตนเอง การตั้งค่าครอปปกติจะซ่อนส่วนของภาพต้นฉบับแต่ยังคงพิกเซลพื้นฐานไว้ ใช้ [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/th/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) หรือการบีบอัดภาพพร้อมการลบพื้นที่ที่ครอปเมื่อพิกเซลเหล่านั้นสามารถกำจัดได้อย่างถาวร
+
+**ฉันสามารถกู้คืนคุณภาพภาพหลังการบีบอัดได้หรือไม่?**
+
+ไม่ได้ การบีบอัดอาจลดความละเอียด raster ที่เก็บไว้, และการลบพื้นที่ที่ครอปจะทำให้ข้อมูลภาพหายไป เก็บภาพต้นฉบับไว้ภายนอกงานนำเสนอหากอาจต้องการแก้ไขความละเอียดสูงในภายหลัง
+
+**ควรจัดการภาพ SVG อย่างไร?**
+
+เก็บเนื้อหา SVG เป็น SVG เมื่อความแม่นยำของเวกเตอร์สำคัญ; สามารถสกัด [SvgImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/svgimage/) ที่ฝังอยู่โดยตรง การเรนเดอร์สไลด์เป็นรูปแบบ raster เช่น PNG หรือ JPEG จะทำให้ SVG ถูกแปลงเป็นพิกเซล
+
+**จะหลีกเลี่ยงการ cast ที่ไม่ปลอดภัยเมื่ออ่านสไลด์ที่มีอยู่ได้อย่างไร?**
+
+ตรวจสอบชนิดของรูปทรงก่อนใช้สมาชิกเฉพาะ picture‑frame การใช้ `isinstance(shape, slides.PictureFrame)` จะหลีกเลี่ยงการ cast ที่ไม่ถูกต้องและทำให้โค้ดจัดการกับสไลด์ที่ไม่มี picture frame ได้อย่างปลอดภัย

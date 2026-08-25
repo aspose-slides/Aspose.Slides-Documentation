@@ -1,5 +1,5 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम प्रबंधित करें
+title: C++ का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम्स प्रबंधित करें
 linktitle: पिक्चर फ्रेम
 type: docs
 weight: 10
@@ -8,488 +8,517 @@ keywords:
 - पिक्चर फ्रेम
 - पिक्चर फ्रेम जोड़ें
 - पिक्चर फ्रेम बनाएं
-- छवि जोड़ें
-- छवि बनाएं
-- छवि निकालें
-- रास्टर छवि
-- वेक्टर छवि
-- छवि क्रॉप करें
-- क्रॉप किया गया क्षेत्र
-- StretchOff प्रॉपर्टी
+- एम्बेडेड इमेज
+- लिंक्ड इमेज
+- इमेज निकालें
+- रास्टर इमेज
+- SVG इमेज
+- इमेज को क्रॉप करें
+- क्रॉप्ड क्षेत्रों को हटाएं
+- इमेज संपीड़ित करें
+- StretchOffset
 - पिक्चर फ्रेम फ़ॉर्मेटिंग
-- पिक्चर फ्रेम प्रॉपर्टी
-- सापेक्ष स्केल
-- छवि इफ़ेक्ट
+- रिलेटिव स्केल
+- इमेज इफ़ेक्ट
 - आस्पेक्ट रेशियो
-- छवि पारदर्शिता
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ PowerPoint और OpenDocument प्रस्तुतियों में पिक्चर फ्रेम जोड़ें। अपने कार्यप्रवाह को सुगम बनाएं और स्लाइड डिज़ाइन को बेहतर बनाएं।"
+description: "Aspose.Slides for C++ के साथ प्रस्तुतियों में पिक्चर फ्रेम्स बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संपीड़ित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-एक पिक्चर फ्रेम एक ऐसा आकार है जो एक छवि को समेटे रहता है—यह फ्रेम में चित्र की तरह है।
+एक picture frame एक slide shape है जो एक इमेज प्रदर्शित करता है। Aspose.Slides में, इमेज रिसोर्स और वह shape जो इसे दिखाता है, अलग‑अलग ऑब्जेक्ट होते हैं: एक [प्रेजेंटेशन](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) अपने [image collection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_images/) के माध्यम से एम्बेडेड इमेज रिसोर्स को रखता है, जबकि एक [IPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframe/) इमेज की स्थिति, आकार, लाइन फ़ॉर्मेटिंग, घुमाव, क्रॉपिंग, picture effects और अन्य frame‑level सेटिंग्स को नियंत्रित करता है।
 
-आप एक पिक्चर फ्रेम के माध्यम से स्लाइड में छवि जोड़ सकते हैं। इस प्रकार, आप पिक्चर फ्रेम को फ़ॉर्मेट करके छवि को फ़ॉर्मेट कर सकते हैं।
+यह विभाजन तब उपयोगी होता है जब एक ही इमेज कई बार दिखाया जाता है। इमेज को प्रेजेंटेशन में एक बार जोड़ें, लौटाए गए [IPPImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ippimage/) को रखें, और picture frames बनाते समय उसी इमेज रिसोर्स का उपयोग करें।
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose मुफ्त कनवर्टर्स प्रदान करता है—[JPEG to PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG to PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो उपयोगकर्ताओं को छवियों से जल्दी प्रस्तुतियां बनाने की अनुमति देते हैं।
-{{% /alert %}} 
+Picture frames raster इमेज जैसे PNG या JPEG और vector SVG इमेज दोनों को रख सकते हैं। वे लिंक्ड इमेज की ओर भी इशारा कर सकते हैं, जिससे इमेज बाइट्स प्रेजेंटेशन में संग्रहीत नहीं होते। यह चयन पोर्टेबिलिटी, फ़ाइल आकार, एक्सट्रैक्शन और एक्सपोर्ट व्यवहार को प्रभावित करता है, इसलिए फ़ॉर्मेटिंग या ऑप्टिमाइज़ेशन लागू करने से पहले यह तय करना उपयोगी है कि इमेज कैसे संग्रहीत की जाए।
 
-## **एक पिक्चर फ्रेम बनाएं**
+## **एक एम्बेडेड इमेज जोड़ें और फ़ॉर्मेट करें**
 
-1. [Presentation class](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) की एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें। 
-3. प्रस्तुति ऑब्जेक्ट से जुड़ी [IImagescollection](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_image_collection) में एक छवि जोड़कर एक [IPPImage](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_p_p_image) ऑब्जेक्ट बनाएं, जिसका उपयोग आकार को भरने के लिए किया जाएगा।
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें।
-5. रेफ़रेंस किए गए स्लाइड से जुड़े शैप ऑब्जेक्ट द्वारा उपलब्ध `AddPictureFrame` मेथड का उपयोग करके, छवि की चौड़ाई और ऊँचाई के आधार पर एक [PictureFrame](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_frame) बनाएं।
-6. स्लाइड में एक पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+एक एम्बेडेड इमेज के लिए, इमेज डेटा को प्रेजेंटेशन में जोड़ें और [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/shapecollection/addpictureframe/) का उपयोग करके picture frame बनाएं। इमेज प्रेजेंटेशन पैकेज का हिस्सा बन जाती है, इसलिए प्रेजेंटेशन दूसरे कंप्यूटर पर ले जाने पर भी स्वयं‑समाहित रहता है।
 
-```c++
-// दस्तावेज़ निर्देशिका का पथ।
-const String outPath = u"../out/PictureFrameFormatting_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// इच्छित प्रस्तुति लोड करें
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// पहली स्लाइड तक पहुँचें
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// प्रस्तुति इमेज कलेक्शन में जोड़ी जाने वाली छवि लोड करता है
-// चित्र प्राप्त करता है
-auto image = Images::FromFile(filePath);
-
-// प्रस्तुति की इमेज कलेक्शन में एक छवि जोड़ता है
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// स्लाइड में एक पिक्चर फ्रेम जोड़ता है
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// रिलेटिव स्केल की चौड़ाई और ऊँचाई सेट करता है
-pf->set_RelativeScaleHeight(0.8);
-pf->set_RelativeScaleWidth(1.35);
-// पिक्चर फ्रेम पर कुछ फ़ॉर्मेटिंग लागू करता है
-pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-pf->get_LineFormat()->set_Width ( 20);
-pf->set_Rotation( 45);
-
-//Writes the PPTX file to disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert color="warning" %}} 
-पिक्चर फ्रेम आपको छवियों के आधार पर जल्दी प्रस्तुति स्लाइड बनाने की अनुमति देते हैं। जब आप पिक्चर फ्रेम को Aspose.Slides के सहेजने विकल्पों के साथ मिलाते हैं, तो आप इनपुट/आउटपुट ऑपरेशन्स को नियंत्रित करके छवियों को एक फ़ॉर्मेट से दूसरे फ़ॉर्मेट में परिवर्तित कर सकते हैं। आप निम्न पेज देख सकते हैं: convert [image to JPG](https://products.aspose.com/slides/hi/cpp/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/hi/cpp/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/hi/cpp/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/hi/cpp/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/hi/cpp/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/hi/cpp/conversion/svg-to-png/)।
-{{% /alert %}}
-
-## **रिलेटिव स्केल के साथ पिक्चर फ्रेम बनाएं**
-
-इमेज के रिलेटिव स्केल को बदलकर आप अधिक जटिल पिक्चर फ्रेम बना सकते हैं। 
-
-1. [Presentation class](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) की एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें। 
-3. प्रस्तुति इमेज कलेक्शन में एक छवि जोड़ें।
-4. प्रस्तुति ऑब्जेक्ट से जुड़ी [IImagescollection](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_image_collection) में एक छवि जोड़कर एक [IPPImage](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_p_p_image) ऑब्जेक्ट बनाएं, जिसका उपयोग आकार को भरने के लिए किया जाएगा।
-5. पिक्चर फ्रेम में छवि की रिलेटिव चौड़ाई और ऊँचाई निर्दिष्ट करें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-```c++
-// दस्तावेज़ निर्देशिका का पथ।
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// इच्छित प्रस्तुति लोड करता है
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// पहली स्लाइड तक पहुँचता है
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// प्रस्तुति इमेज कलेक्शन में जोड़ी जाने वाली छवि लोड करता है
-// चित्र प्राप्त करता है
-auto image = Images::FromFile(filePath);
-
-// प्रस्तुति की इमेज कलेक्शन में एक छवि जोड़ता है
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// स्लाइड में एक पिक्चर फ्रेम जोड़ता है
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// रिलेटिव स्केल की चौड़ाई और ऊँचाई सेट करता है
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//Writes the PPTX file to disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **पिक्चर फ्रेम से रास्टर छवियों को निकालें**
-
-[PictureFrame](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_frame) ऑब्जेक्ट्स से रास्टर छवियों को निकाल सकते हैं और उन्हें PNG, JPG आदि फ़ॉर्मेट में सहेज सकते हैं। नीचे दिया गया कोड उदाहरण दिखाता है कि दस्तावेज़ "sample.pptx" से छवि को निकालकर PNG फ़ॉर्मेट में कैसे सहेजा जाए। 
-
-```c++
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstSlide = presentation->get_Slide(0);
-auto firstShape = firstSlide->get_Shape(0);
-    
-if (ObjectExt::Is<IPictureFrame>(firstShape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
-
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
-}
-
-presentation->Dispose();
-```
-
-## **पिक्चर फ्रेम से SVG छवियों को निकालें**
-
-जब कोई प्रस्तुति SVG ग्राफिक्स को [PictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/) आकारों के भीतर रखती है, तो Aspose.Slides for C++ आपको मूल वेक्टर छवियों को पूरी सटीकता के साथ पुनः प्राप्त करने देता है। स्लाइड की शैप कलेक्शन को ट्रैवर्स करके आप प्रत्येक [PictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/) की पहचान कर सकते हैं, जांच सकते हैं कि अंतर्निहित [IPPImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ippimage/) में SVG सामग्री है या नहीं, और फिर उस छवि को डिस्क या स्ट्रीम में उसके मूल SVG फ़ॉर्मेट में सहेज सकते हैं।
+निम्न उदाहरण JPEG इमेज जोड़ता है, इमेज के मूल आयामों पर एक फ्रेम बनाता है, और लाइन फ़ॉर्मेटिंग तथा घुमाव लागू करता है:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
 
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-if (ObjectExt::Is<IPictureFrame>(shape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
-    if (svgImage != nullptr)
-    {
-        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
-    }
-}
-
-presentation->Dispose();
-```
-
-## **छवि की ट्रांसपरेंसी प्राप्त करें**
-
-Aspose.Slides आपको छवि पर लागू ट्रांसपरेंसी इफ़ेक्ट को प्राप्त करने की अनुमति देता है। यह C++ कोड इस ऑपरेशन को प्रदर्शित करता है:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
-    {
-        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
-    }
-}
-```
-
-{{% alert color="primary" %}} 
-छवियों पर लागू सभी इफ़ेक्ट्स [Aspose::Slides::Effects](https://reference.aspose.com/slides/hi/cpp/aspose.slides.effects/) में पाए जा सकते हैं।
-{{% /alert %}}
-
-## **छवि की ब्राइटनेस और कंट्रास्ट प्राप्त करें**
-
-Aspose.Slides आपको छवि पर लागू ब्राइटनेस और कंट्रास्ट इफ़ेक्ट को प्राप्त करने की अनुमति देता है। [ILuminance](https://reference.aspose.com/slides/hi/cpp/aspose.slides.effects/iluminance/) इंटरफ़ेस इस इमेज ट्रांसफ़ॉर्म इफ़ेक्ट का प्रतिनिधित्व करता है।
-
-यह C++ कोड पिक्चर फ्रेम से ब्राइटनेस और कंट्रास्ट सेटिंग्स प्राप्त करने को दर्शाता है:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-
-auto shape = slide->get_Shape(0);
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
-
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<ILuminance>(effect))
-    {
-        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
-        auto brightness = luminance->get_Brightness();
-        auto contrast = luminance->get_Contrast();
-
-        Console::WriteLine(System::String(u"Brightness: ") + brightness);
-        Console::WriteLine(System::String(u"Contrast: ") + contrast);
-    }
-}
-
-presentation->Dispose();
-```
-
-## **पिक्चर फ्रेम फॉर्मेटिंग**
-
-Aspose.Slides कई फॉर्मेटिंग विकल्प प्रदान करता है जिन्हें पिक्चर फ्रेम पर लागू किया जा सकता है। इन विकल्पों का उपयोग करके आप पिक्चर फ्रेम को इस प्रकार बदल सकते हैं कि वह विशिष्ट आवश्यकताओं को पूरा करे।
-
-1. [Presentation class](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) की एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें। 
-3. प्रस्तुति ऑब्जेक्ट से जुड़ी [IImagescollection](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_image_collection) में एक छवि जोड़कर एक [IPPImage](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_p_p_image) ऑब्जेक्ट बनाएं, जिसका उपयोग आकार को भरने के लिए किया जाएगा।
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें।
-5. रेफ़रेंस किए गए स्लाइड से जुड़े [IShapes](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_shape_collection) ऑब्जेक्ट द्वारा उपलब्ध [AddPictureFrame](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) मेथड का उपयोग करके, छवि की चौड़ाई और ऊँचाई के आधार पर एक `PictureFrame` बनाएं।
-6. स्लाइड में पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें।
-7. पिक्चर फ्रेम की लाइन रंग सेट करें।
-8. पिक्चर फ्रेम की लाइन चौड़ाई सेट करें।
-9. पिक्चर फ्रेम को सकारात्मक या नकारात्मक मान देकर घुमाएँ।
-   * सकारात्मक मान छवि को घड़ी की दिशा में घुमाता है। 
-   * नकारात्मक मान छवि को प्रतिक्लॉकवाइज़ घुमाता है।
-10. स्लाइड में पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें।
-11. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-```c++
-// दस्तावेज़ निर्देशिका का पथ।
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// इच्छित प्रस्तुति लोड करता है
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// पहली स्लाइड तक पहुँचता है
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// प्रस्तुति इमेज कलेक्शन में जोड़ी जाने वाली छवि लोड करता है
-// चित्र प्राप्त करता है
-auto image = Images::FromFile(filePath);
-
-// प्रस्तुति की इमेज कलेक्शन में एक छवि जोड़ता है
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// स्लाइड में एक पिक्चर फ्रेम जोड़ता है
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// रिलेटिव स्केल की चौड़ाई और ऊँचाई सेट करता है
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-// PPTX फ़ाइल को डिस्क पर लिखता है
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose ने हाल ही में एक मुफ्त कोलाज मेकर [free Collage Maker](https://products.aspose.app/slides/hi/collage) विकसित किया है। यदि आपको कभी [merge JPG/JPEG](https://products.aspose.app/slides/hi/collage/jpg) या PNG छवियों को मर्ज करना हो, या फोटो से ग्रिड बनाना हो, तो आप इस सेवा का उपयोग कर सकते हैं। 
-{{% /alert %}}
-
-## **एक लिंक के रूप में छवि जोड़ें**
-
-बड़ी प्रस्तुति फ़ाइलों के आकार को कम करने के लिए, आप छवियों (या वीडियो) को लिंक के माध्यम से जोड़ सकते हैं, बजाय इसके कि फ़ाइलों को सीधे प्रस्तुति में एम्बेड किया जाए। यह C++ कोड दिखाता है कि प्लेसहोल्डर में छवि और वीडियो कैसे जोड़ें:
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"input.pptx");
-auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-
-for (auto& autoShape : shapes)
-{
-    if (autoShape->get_Placeholder() == nullptr)
-        continue;
-
-    switch (autoShape->get_Placeholder()->get_Type())
-    {
-        case Aspose::Slides::PlaceholderType::Picture:
-        {
-            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
-            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-
-        case Aspose::Slides::PlaceholderType::Media:
-        {
-            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
-            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-    }
-}
-
-for (auto& shape : shapesToRemove)
-{
-    shapes->Remove(shape);
-}
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **छवियों को क्रॉप करें**
-
-यह C++ कोड दिखाता है कि स्लाइड पर मौजूद छवि को कैसे क्रॉप किया जाए: 
-
-``` CPP
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
-    
-auto presentation = System::MakeObject<Presentation>();
-// नई छवि ऑब्जेक्ट बनाता है
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// स्लाइड में एक पिक्चर फ्रेम जोड़ता है
-auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
-
-// छवि को क्रॉप करता है (प्रतिशत मान)
-picFrame->get_PictureFormat()->set_CropLeft(23.6f);
-picFrame->get_PictureFormat()->set_CropRight(21.5f);
-picFrame->get_PictureFormat()->set_CropTop(3.0f);
-picFrame->get_PictureFormat()->set_CropBottom(31.0f);
-
-// परिणाम सहेजता है
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-
-```
-
-## **पिक्चर के क्रॉप किए गए क्षेत्रों को हटाएँ**
-
-यदि आप फ्रेम में सम्मिलित छवि के क्रॉप किए गए क्षेत्रों को हटाना चाहते हैं, तो आप [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) मेथड का उपयोग कर सकते हैं। यह मेथड क्रॉप की गई छवि या मूल छवि को लौटाता है यदि क्रॉप करना आवश्यक नहीं है।
-
-```c++
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// पहली स्लाइड से PictureFrame प्राप्त करता है
-System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
-
-// PictureFrame छवि के क्रॉप किए गए क्षेत्रों को हटाता है और क्रॉप की गई छवि लौटाता है
-System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
-
-// परिणाम सहेजता है
-presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-[IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) मेथड क्रॉप की गई छवि को प्रस्तुति इमेज कलेक्शन में जोड़ता है। यदि छवि केवल प्रोसेस किए गए [PictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/) में उपयोग हुई है, तो यह सेटअप प्रस्तुति का आकार कम कर सकता है। अन्यथा, परिणामस्वरूप प्रस्तुति में छवियों की संख्या बढ़ जाएगी।
-
-यह मेथड क्रॉपिंग ऑपरेशन में WMF/EMF मेटाफाइल को रास्टर PNG छवि में परिवर्तित करता है। 
-{{% /alert %}}
-
-## **छवियों को संकुचित करें**
-
-आप प्रस्तुति में एक चित्र को [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/compressimage/) मेथड का उपयोग करके संकुचित कर सकते हैं।
-यह मेथड आकार को शैप के आकार और निर्दिष्ट रिज़ॉल्यूशन के आधार पर घटाकर, तथा क्रॉप किए हुए क्षेत्रों को हटाने के विकल्प के साथ, छवि को संकुचित करता है।
-
-यह चित्र का आकार और रिज़ॉल्यूशन को PowerPoint की **Picture Format -> Compress Pictures -> Resolution** सुविधा के समान समायोजित करता है।
-
-निम्न C++ उदाहरण दर्शाते हैं कि लक्ष्य रिज़ॉल्यूशन निर्दिष्ट करके और वैकल्पिक रूप से क्रॉप किए हुए क्षेत्रों को हटाकर प्रस्तुति में छवि को कैसे संकुचित किया जाए:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// लक्ष्य रिज़ॉल्यूशन 150 DPI (वेब रिज़ॉल्यूशन) के साथ छवि को संपीड़ित करें और क्रॉप किए गए क्षेत्रों को हटाएँ।
-bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-// संपीड़न के परिणाम की जाँच करें।
-if (result)
-{
-    System::Console::WriteLine(u"Image successfully compressed.");
-}
-else
-{
-    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
-}
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pictureFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pictureFrame->get_LineFormat()->set_Width(3.0);
+pictureFrame->set_Rotation(15.0f);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-या सीधे एक कस्टम DPI मान का उपयोग करके:
+picture frame प्रदर्शित ज्योमेट्री को नियंत्रित करता है; फ्रेम का आकार बदलने से एम्बेडेड इमेज रिसोर्स में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर तब महत्वपूर्ण हो जाता है जब बाद में इमेज को क्रॉप या संकुचित किया जाता है।
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+## **रिलेटिव स्केल का उपयोग करें**
+
+[IPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframe/) फ्रेम के लिए रिलेटिव चौड़ाई और ऊँचाई स्केलिंग को उजागर करता है। `1.0` का मान मूल picture आकार का 100 % दर्शाता है। रिलेटिव स्केल तब उपयोगी होता है जब वर्कफ़्लो को स्रोत इमेज आकार के संबंध को बनाए रखना आवश्यक हो, बजाय अंतिम आयामों की मैन्युअल गणना के।
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// छवि को 150 DPI (वेब रिज़ॉल्यूशन) पर संपीड़ित करता है, क्रॉप किए गए क्षेत्रों को हटाते हुए।
-pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, image);
+pictureFrame->set_RelativeScaleWidth(1.35f);
+pictureFrame->set_RelativeScaleHeight(0.8f);
+
+presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-यह मेथड शैप के आकार और प्रदान किए गए DPI के आधार पर छवि को कम रिज़ॉल्यूशन में परिवर्तित करता है। क्रॉप किए गए क्षेत्रों को भी फ़ाइल आकार को अनुकूलित करने के लिए हटाया जा सकता है।
-यदि छवि एक मेटाफाइल (WMF/EMF) या SVG है, तो संपीड़न लागू नहीं होगा। साथ ही, JPEG की गुणवत्ता रिज़ॉल्यूशन के अनुसार बरकरार या थोड़ी घटाई जाएगी, जैसा कि PowerPoint उच्च‑रिज़ॉल्यूशन JPEG को संभालता है।
-{{% /alert %}}
+रिलेटिव स्केल फ्रेम के स्केल सेटिंग्स को बदलता है; यह एम्बेडेड इमेज को री‑सैंपल या कॉम्प्रेस नहीं करता।
 
-## **आस्पेक्ट रेशियो लॉक करें**
+## **एम्बेडेड और लिंक्ड इमेज**
 
-यदि आप चाहते हैं कि छवि वाला शैप इमेज के आयाम बदलने के बाद भी अपना आस्पेक्ट रेशियो बनाए रखे, तो आप *Lock Aspect Ratio* सेटिंग को सेट करने के लिए [set_AspectRatioLocked()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) मेथड का उपयोग कर सकते हैं। 
+एक एम्बेडेड picture इमेज डेटा को प्रेजेंटेशन के भीतर संग्रहीत करता है और इसलिए पोर्टेबिलिटी और पूर्वानुमानित रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। एक लिंक्ड picture इमेज डेटा को एम्बेड करने के बजाय [ISlidesPicture](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidespicture/) लिंक पाथ के माध्यम से बाहरी स्थान में रखता है।
 
-यह C++ कोड दिखाता है कि शैप के आस्पेक्ट रेशियो को कैसे लॉक किया जाए:
+लिंक्ड इमेज PPTX में संग्रहीत इमेज डेटा की मात्रा को कम कर सकते हैं, लेकिन वे एक बाहरी निर्भरता लाते हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन द्वारा सुलभ रहना चाहिए जो प्रेजेंटेशन को खोलता या रेंडर करता है। यदि पाथ बदल जाता है, फ़ाइल ले जाया जाता है, या रिसोर्स उपलब्ध नहीं रहता, तो लिंक्ड picture अपेक्षा अनुसार नहीं दिख सकता। उन प्रेजेंटेशन के लिए जिन्हें ई‑मेल, अभिलेख या अलग‑थलग वातावरण में रेंडर करने की आवश्यकता होती है, एम्बेडेड इमेज आमतौर पर अधिक विश्वसनीय होते हैं।
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+### **एक लिंक्ड इमेज जोड़ें**
 
-System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
-System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
+निम्न उदाहरण एक picture frame बनाता है और उसे स्थानीय इमेज फ़ाइल की ओर इशारा करता है। यह केवल इमेज लिंकिंग से निपटता है; वीडियो लिंकिंग एक अलग मीडिया वर्कफ़्लो है और जानबूझकर इस उदाहरण में शामिल नहीं किया गया है।
 
-System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
 
-System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// set shape to have to preserve aspect ratio on resizing
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, nullptr);
+auto linkPath = Path::GetFullPath(u"linked-image.jpg");
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(linkPath);
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+जब बाहरी फ़ाइल प्रबंधन इरादा हो तो लिंक का प्रयोग करें। उन्हें केवल संपीड़न के विकल्प के रूप में उपयोग न करें: टूटे हुए इमेज निर्भरताओं के साथ छोटा PPTX आमतौर पर बड़े स्वयं‑समाहित प्रेजेंटेशन से कम उपयोगी होता है।
+
+## **Picture Frames से इमेज निकालें**
+
+किसी मौजूदा प्रेजेंटेशन से इमेज निकालने से पहले, जाँचें कि shape वास्तव में एक [IPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframe/) है और उसमें एम्बेडेड इमेज है। लिंक्ड picture frames में ऐसे इमेज बाइट्स नहीं हो सकते जिन्हें समान तरीके से निकाला जा सके।
+
+### **एक Raster इमेज निकालें**
+
+आधुनिक इमेज API सीधे [IImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/) का उपयोग करता है। निम्न उदाहरण पहले एम्बेडेड raster picture को स्लाइड पर ढूंढता है और उसे PNG के रूप में सहेजता है:
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr || embeddedImage->get_SvgImage() != nullptr)
+    {
+        continue;
+    }
+
+    auto rasterImage = embeddedImage->get_Image();
+    rasterImage->Save(u"extracted-image.png", ImageFormat::Png);
+    break;
+}
+
+presentation->Dispose();
+```
+
+[IImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/) के माध्यम से सहेजने से निकाली गई इमेज अनुरोधित आउटपुट फ़ॉर्मेट में परिवर्तित हो जाती है। यदि आपको प्रस्तुतिकरण में संग्रहीत एन्कोडेड बाइट्स चाहिए, तो raster फ़ाइल को परिवर्तित करने के बजाय इमेज रिसोर्स का बाइनरी डेटा उपयोग करें।
+
+### **एक SVG इमेज निकालें**
+
+एक SVG picture के लिए, [IPPImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ippimage/) एक [ISvgImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/) ऑब्जेक्ट को उजागर करता है। यह आपको SVG डेटा सीधे प्राप्त करने की अनुमति देता है, बिना पहले picture को rasterize किए।
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr)
+    {
+        continue;
+    }
+
+    auto svgImage = embeddedImage->get_SvgImage();
+    if (svgImage == nullptr)
+    {
+        continue;
+    }
+
+    File::WriteAllBytes(u"extracted-image.svg", svgImage->get_SvgData());
+    break;
+}
+
+presentation->Dispose();
+```
+
+SVG सामग्री को SVG के रूप में रखना प्रस्तुति के भीतर वेक्टर स्रोत को संरक्षित करता है। PNG या JPEG जैसे raster निर्यात अनिवार्य रूप से वह वेक्टर सामग्री को पिक्सेल में रेंडर करता है। PDF या SVG स्लाइड निर्यात भी एक रेंडरिंग ऑपरेशन है, इसलिए निर्यातित ग्राफ़िक्स को मूल एम्बेडेड SVG की बाइट‑दर‑बाइट कॉपी न मानें; जब मूल वेक्टर रिसोर्स स्वयं आवश्यक हो तो एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/) डेटा का उपयोग करें।
+
+## **इमेज को क्रॉप करें**
+
+क्रॉपिंग फ्रेम के भीतर इमेज के कौन से भाग दिखेंगे, इसे बदलती है। [IPictureFillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/) पर क्रॉप वैल्यू स्रोत इमेज आयामों का प्रतिशत होते हैं। क्रॉपिंग मूल एम्बेडेड इमेज से छिपे पिक्सेल को प्रारंभिक रूप से हटाती नहीं है; यह केवल दृश्य क्षेत्र को बदलती है।
+
+निम्न उदाहरण एक picture frame को सुरक्षित रूप से ढूंढता है और क्रॉप वैल्यू लागू करता है:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    pictureFrame->get_PictureFormat()->set_CropLeft(23.6f);
+    pictureFrame->get_PictureFormat()->set_CropRight(21.5f);
+    pictureFrame->get_PictureFormat()->set_CropTop(3.0f);
+    pictureFrame->get_PictureFormat()->set_CropBottom(31.0f);
+    presentation->Save(u"cropped-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+क्योंकि छुपा इमेज डेटा अभी भी मौजूद है, क्रॉप को बाद में मूल पिक्सेल खोए बिना बदला जा सकता है। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनरावर्तितता की आवश्यकता नहीं है, तो अगले सेक्शन में वर्णित अनुसार क्रॉपेड क्षेत्रों को भौतिक रूप से हटा सकते हैं।
+
+## **क्रॉप्ड इमेज डेटा हटाएँ**
+
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) वर्तमान क्रॉप रेक्टेंगल के बाहर के इमेज डेटा को हटाता है और परिणामी इमेज रिसोर्स लौटाता है। यह फ़ाइल आकार को घटा सकता है, लेकिन यह एक विनाशकारी ऑप्टिमाइज़ेशन है: प्रेजेंटेशन सहेजे जाने के बाद हटाए गए पिक्सेल बाद के अनक्रॉप ऑपरेशन में उपलब्ध नहीं रहेंगे।
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"cropped-image.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto croppedImage = pictureFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+    if (croppedImage != nullptr)
+    {
+        presentation->Save(u"cropped-data-removed.pptx", SaveFormat::Pptx);
+    }
+}
+
+presentation->Dispose();
+```
+
+यह मेथड प्रेजेंटेशन में नई इमेज रिसोर्स जोड़ सकता है। यदि मूल इमेज अन्य picture frames द्वारा भी उपयोग की जाती है, तो उन फ्रेमों को अभी भी अपने मौजूदा रिसोर्स की आवश्यकता होगी, इसलिए क्रॉप्ड क्षेत्रों को हटाना जरूरी नहीं कि कुल इमेज संख्या घटाए। WMF या EMF सामग्री को इस मेथड से क्रॉप करने से परिणाम PNG में rasterize हो जाता है।
+
+## **Raster इमेज को संपीड़ित करें**
+
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/compressimage/) raster इमेज रिज़ॉल्यूशन को उस आकार के सापेक्ष घटाता है जिस पर picture प्रदर्शित होती है। यह उसी ऑपरेशन में क्रॉप्ड क्षेत्रों को भी हटा सकता है। मेथड `true` लौटाता है जब इमेज को रिसाइज़ या क्रॉप किया गया हो और `false` जब कोई परिवर्तन आवश्यक न हो।
+
+जब एक मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो, तो एक पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/picturescompression/) मान उपयोग करें:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto compressed = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+    Console::WriteLine(compressed ? String(u"The image was compressed.") : String(u"No compression was necessary."));
+    presentation->Save(u"compressed-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+जब विशेष लक्ष्य आवश्यक हो तो enum मान के बजाय कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+
+संकुचन raster इमेज के लिए अभिप्रेत है। SVG और मेटाफाइल सामग्री इस raster संपीड़न वर्कफ़्लो द्वारा नहीं घटती। यह भी याद रखें कि कम रिज़ॉल्यूशन और हटाए गए क्रॉप्ड क्षेत्रों को ऑप्टिमाइज़्ड प्रेजेंटेशन से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य रिज़ॉल्यूशन को उस सबसे बड़े आकार के आधार पर चुनें जिस पर इमेज वास्तव में देखी या निर्यात की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करके।
+
+## **Image Transform Effects प्रबंधित करें**
+
+ब्राइटनेस, कंट्रास्ट, कलर ट्रांसफ़ॉर्मेशन, ब्लर, अल्फ़ा इफ़ेक्ट, ऑर्डर्ड चेन, निरीक्षण, हटाना और राउंड‑ट्रिप वेरिफिकेशन को कवर करने वाले पूर्ण वर्कफ़्लो के लिए देखें [Image Transform Effects](/slides/hi/cpp/image-transform-effects/)।
+
+## **Picture Frame ज्योमेट्री को लॉक करें**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframelock/) सेटिंग्स निर्धारित करती हैं कि picture frame पर कौन‑से संपादन ऑपरेशन निष्क्रिय हैं। उदाहरण के लिए, [aspect‑ratio lock](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) आकार बदलते समय shape के अनुपात को बनाए रखता है।
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
+
+presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-यह *Lock Aspect Ratio* सेटिंग केवल शैप के आस्पेक्ट रेशियो को सुरक्षित रखती है, न कि उसके अंदर की छवि को।
-{{% /alert %}}
+लॉक picture frame shape पर लागू होता है। यह स्रोत इमेज को री‑सैंपल या स्थायी रूप से समान अनुपात में बदलता नहीं है।
 
-## **StretchOff प्रॉपर्टी का प्रयोग करें**
+## **StretchOffset वैल्यू समायोजित करें**
 
-[IPictureFillFormat](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_picture_fill_format) इंटरफ़ेस और [PictureFillFormat](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_fill_format) क्लास से [StretchOffsetLeft](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) और [StretchOffsetBottom](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) प्रॉपर्टीज़ का उपयोग करके आप एक फ़िल रेक्टैंगल निर्दिष्ट कर सकते हैं। 
+जब picture fill मोड stretch हो, तो [IPictureFillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/) पर stretch‑offset वैल्यू picture frame के बाउंडिंग बॉक्स के सापेक्ष fill रेक्टेंगल को परिभाषित करती हैं। सकारात्मक प्रतिशत किनारे से एक inset बनाते हैं, जबकि नकारात्मक प्रतिशत एक outset बनाते हैं।
 
-जब छवि के स्ट्रेचिंग को निर्दिष्ट किया जाता है, तो स्रोत रेक्टैंगल को निर्दिष्ट फ़िल रेक्टैंगल में फिट होने के लिए स्केल किया जाता है। फ़िल रेक्टैंगल का प्रत्येक किनारा शैप के बाउंडिंग बॉक्स के संबंधित किनारे से प्रतिशत ऑफ़सेट द्वारा निर्धारित होता है। सकारात्मक प्रतिशत इनसेट को दर्शाता है। नकारात्मक प्रतिशत आउटसेट को दर्शाता है।
+यह क्रॉपिंग से अलग है। क्रॉप वैल्यू स्रोत इमेज के दृश्य भाग को चुनती हैं; stretch offsets वह रेक्टेंगल बदलते हैं जिसमें दिखाई देने वाला picture fill खींचा जाता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास की एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. एक रेक्टैंगल `AutoShape` जोड़ें। 
-4. एक छवि बनाएं।
-5. शैप की फ़िल टाइप सेट करें।
-6. शैप की पिक्चर फ़िल मोड सेट करें।
-7. शैप को भरने के लिए एक इमेज सेट करें।
-8. शैप के बाउंडिंग बॉक्स के संबंधित किनारे से इमेज ऑफ़सेट निर्दिष्ट करें।
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-auto slide = pres->get_Slide(0);
-auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// आकार के बॉडी के प्रत्येक किनारे से छवि को स्ट्रेच करता है
-auto pictureFormat = pictureFrame->get_PictureFormat();
-pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
-pictureFormat->set_StretchOffsetLeft(24.0f);
-pictureFormat->set_StretchOffsetRight(24.0f);
-pictureFormat->set_StretchOffsetTop(24.0f);
-pictureFormat->set_StretchOffsetBottom(24.0f);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
+auto sourceImage = Images::FromFile(u"photo.png");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, image);
+pictureFrame->get_PictureFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFrame->get_PictureFormat()->set_StretchOffsetLeft(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetRight(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetTop(8.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetBottom(8.0f);
+
+presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+fill प्लेसमेंट के लिए stretch offsets उपयोग करें। स्रोत‑इमेज किनारों को छिपाने के लक्ष्य के लिए crop प्रॉपर्टी उपयोग करें।
+
+## **स्टोरेज, फ़ाइल आकार, और एक्सपोर्ट विचार**
+
+जब इमेज स्टोरेज और picture‑frame फ़ॉर्मेटिंग को अलग‑अलग संभालते हैं, तब मुख्य ट्रेड‑ऑफ़ अधिक आसानी से प्रबंधित होते हैं:
+
+- **एम्बेडेड इमेज** प्रेजेंटेशन को स्वयं‑समाहित बनाते हैं और साझा करने तथा सर्वर‑साइड रेंडरिंग के लिए सबसे विश्वसनीय होते हैं, लेकिन बड़े raster इमेज PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
+- **लिंक्ड इमेज** पैकेज को छोटा रख सकते हैं, लेकिन प्रेजेंटेशन को बाहरी फ़ाइलों के उपलब्ध रहने पर निर्भर बनाते हैं।
+- **क्रॉपिंग** प्रारम्भ में गैर‑विनाशकारी होती है। छिपे पिक्सेल एम्बेडेड रहते हैं जब तक कि क्रॉप्ड क्षेत्रों को स्पष्ट रूप से हटाया न जाए या संपीड़न के दौरान हटाया न जाए।
+- **संकुचन** अत्यधिक बड़े raster इमेज के फ़ाइल आकार को काफी घटा सकता है, लेकिन यह स्रोत रिज़ॉल्यूशन की कीमत पर करता है। इसे स्लाइड पर इच्छित आकार ज्ञात होने के बाद लागू करना चाहिए।
+- **SVG इमेज** को वेक्टर संरक्षण आवश्यक होने पर SVG रूप में ही रखना चाहिए। जब आपको स्वयं वेक्टर रिसोर्स चाहिए, तो एम्बेडेड SVG को सीधे निकालें। Raster स्लाइड निर्यात हमेशा रेंडर किए गए स्लाइड को पिक्सेल में बदलते हैं।
+- **दोहराई गई इमेज** को संभव हो तो मौजूदा [IPPImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ippimage/) रिसोर्स को पुनः उपयोग करना चाहिए, न कि वही फ़ाइल बार‑बार प्रेजेंटेशन वर्कफ़्लो में लोड करना।
+
+बड़ी प्रेजेंटेशन के लिए, इमेज ऑप्टिमाइज़ेशन आमतौर पर तब सबसे प्रभावी होता है जब चयनात्मक रूप से किया जाए: लोगो और डायग्राम को वेक्टर सामग्री के रूप में रखें, फ़ोटोग्राफ़ को उनके वास्तविक डिस्प्ले आकार के अनुसार संपीड़ित करें, क्रॉप्ड पिक्सेल को तभी हटाएँ जब बाद में संपादन की आवश्यकता न हो, और बाहरी लिंक तभी उपयोग करें जब निर्भरता प्रबंधन डिप्लॉयमेंट डिज़ाइन का हिस्सा हो।
 
 ## **FAQ**
 
-**PictureFrame के लिए कौन से इमेज फ़ॉर्मेट समर्थित हैं, यह कैसे पता करूं?**
+**एक picture frame और इमेज रिसोर्स में क्या अंतर है?**
 
-Aspose.Slides दोनों रास्टर इमेज (PNG, JPEG, BMP, GIF आदि) और वेक्टर इमेज (जैसे SVG) को सपोर्ट करता है, जो कि एक [PictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/) को असाइन किए गए इमेज ऑब्जेक्ट के माध्यम से होता है। समर्थित फ़ॉर्मेटों की सूची आम तौर पर स्लाइड और इमेज कन्वर्ज़न इंजन की क्षमताओं के साथ ओवरलैप करती है।
+एक [IPPImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ippimage/) प्रेजेंटेशन से जुड़ी इमेज रिसोर्स का प्रतिनिधित्व करता है। एक [IPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframe/) स्लाइड पर वह shape है जो इमेज प्रदर्शित करता है और फ्रेम‑लेवल ज्योमेट्री व फ़ॉर्मेटिंग जैसे आकार, घुमाव, क्रॉप वैल्यू, इफ़ेक्ट और लॉक को संग्रहीत करता है।
 
-**दसियों बड़ी छवियों को जोड़ने से PPTX का आकार और प्रदर्शन पर क्या असर पड़ेगा?**
+**मुझे इमेज एम्बेड करनी चाहिए या लिंक?**
 
-बड़ी छवियों को एम्बेड करने से फ़ाइल आकार और मेमोरी उपयोग बढ़ता है; लिंक के माध्यम से छवियों को जोड़ने से प्रस्तुति का आकार घटता है, लेकिन इसके लिए बाहरी फ़ाइलों का सुलभ रहना आवश्यक है। Aspose.Slides लिंक के द्वारा छवियों को जोड़ने की सुविधा प्रदान करता है जिससे फ़ाइल आकार कम किया जा सके।
+जब प्रेजेंटेशन को पोर्टेबल, अभिलेखित या बाहरी रिसोर्स के बिना रेंडर करने की आवश्यकता हो, तो इमेज एम्बेड करें। केवल तब ही इमेज लिंक करें जब इमेज फ़ाइलों को PPTX के बाहर रखना इरादा हो और बाहरी स्थानों को भरोसेमंद तरीके से बनाए रखा जा सके।
 
-**इमेज ऑब्जेक्ट को आकस्मिक रूप से मूव/रिज़ाइज़ होने से कैसे लॉक करूँ?**
+**क्या क्रॉपिंग PPTX फ़ाइल आकार कम करती है?**
 
-[shape locks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/get_pictureframelock/) का उपयोग करके आप एक [PictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/) (उदाहरण के लिए, मूव या रिसाइज़ को डिसेबल करना) को लॉक कर सकते हैं। लॉकिंग मैकेनिज़्म शैप्स के लिए एक अलग [protection article](/slides/hi/cpp/applying-protection-to-presentation/) में वर्णित है और विभिन्न शैप टाइप्स जैसे कि [PictureFrame] के लिए सपोर्टेड है।
+केवल इससे नहीं। सामान्य क्रॉप सेटिंग स्रोत इमेज के हिस्सों को छिपाती हैं लेकिन मूल पिक्सेल को रखती हैं। जब उन पिक्सेल को स्थायी रूप से हटाया जा सके, तब [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) या क्रॉप्ड‑एरिया हटाने वाला इमेज संपीड़न उपयोग करें।
 
-**प्रेज़ेंटेशन को PDF/इमेज में एक्सपोर्ट करने पर SVG वेक्टर की फिडेलिटी बनी रहती है क्या?**
+**क्या संपीड़न के बाद इमेज क्वालिटी बहाल की जा सकती है?**
 
-Aspose.Slides आपको एक [PictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pictureframe/) से मूल वेक्टर के रूप में SVG को निकालने की अनुमति देता है। जब [PDF में एक्सपोर्ट](/slides/hi/cpp/convert-powerpoint-to-pdf/) या [रास्टर फ़ॉर्मेट्स](/slides/hi/cpp/convert-powerpoint-to-png/) में आउटपुट किया जाता है, तो एक्सपोर्ट सेटिंग्स के आधार पर परिणाम रास्टराइज़ हो सकता है; मूल SVG वेक्टर के रूप में संग्रहीत रहता है यह एक्सट्रैक्शन व्यवहार द्वारा पुष्टि होती है।
+नहीं। संपीड़न संग्रहीत raster रिज़ॉल्यूशन को घटा सकता है, और क्रॉप्ड क्षेत्रों को हटाना इमेज डेटा को नष्ट कर देता है। यदि बाद में हाई‑रिज़ॉल्यूशन संपादन की संभावना हो, तो मूल स्रोत इमेज को प्रेजेंटेशन के बाहर रखें।
+
+**SVG इमेज को कैसे संभालें?**
+
+जब वेक्टर फिडेलिटी महत्वपूर्ण हो, तो SVG सामग्री को SVG रूप में रखें। एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/) को सीधे निकाला जा सकता है। PNG या JPEG जैसे raster फ़ॉर्मेट में स्लाइड रेंडर करने से SVG पिक्सेल में rasterize हो जाता है।
+
+**मौजूदा स्लाइड पढ़ते समय असुरक्षित cast से कैसे बचें?**
+
+picture‑frame‑विशिष्ट सदस्य उपयोग करने से पहले shape टाइप की जाँच करें। रूपांतरण लागू करने से पहले shape को [IPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframe/) के साथ परीक्षण करें, और cast परिणाम को स्थानीय वैरिएबल में असाइन करके picture‑frame‑विशिष्ट सदस्य तक पहुँचें।

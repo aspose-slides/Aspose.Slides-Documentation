@@ -8,479 +8,353 @@ keywords:
 - képkeret
 - képkeret hozzáadása
 - képkeret létrehozása
-- kép hozzáadása
-- kép létrehozása
+- beágyazott kép
+- hivatkozott kép
 - kép kinyerése
 - raszteres kép
-- vektoros kép
-- kép vágása
-- kivágott terület
-- StretchOff tulajdonság
+- SVG kép
+- kép levágása
+- levágott területek törlése
+- kép tömörítése
+- StretchOffset
 - képkeret formázása
-- képkeret tulajdonságai
 - relatív méretezés
-- képhatás
-- képarány
-- kép átlátszósága
+- kép effektus
+- arány
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Adj hozzá képkereteket PowerPoint és OpenDocument prezentációkhoz az Aspose.Slides for .NET segítségével. Egyszerűsítsd a munkafolyamatot és javítsd a diák tervezését."
+description: "Képkeretek létrehozása, formázása, hivatkozás, levágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for .NET segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A képkeret egy olyan alakzat, amely képet tartalmaz — olyan, mint egy kép keretben.  
+A képkeret egy dia alakzat, amely képet jelenít meg. Az Aspose.Slides-ban a képernyő erőforrása és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) a beágyazott képernyő erőforrásokat a [Images](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/images/) gyűjteményén keresztül kezeli, míg egy [IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, elforgatását, levágását, képeffektusait és egyéb keretszintű beállításait.
 
-Képet egy diára a képkereten keresztül adhatunk hozzá. Így a kép formázása a képkeret formázásával történik.
+Ez a szétválasztás hasznos, ha ugyanaz a kép többször is megjelenik. Adja hozzá a képet egyszer a prezentációhoz, tartsa meg a visszaadott [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumot, és használja ezt a képernyő erőforrást a képkeretek létrehozásakor.
 
-{{% alert title="Tipp" color="primary" %}} 
-Az Aspose ingyenes konvertereket kínál — [JPEG‑t PowerPoint‑ba](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG‑t PowerPoint‑ba](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyek lehetővé teszik a felhasználók számára, hogy gyorsan prezentációkat hozzanak létre képekből. 
-{{% /alert %}} 
+A képkeretek raster képeket (például PNG vagy JPEG) és vektor SVG képeket is tartalmazhatnak. A kép helyett hivatkozott képekre is hivatkozhatnak, ahelyett, hogy a kép bájtjait a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért célszerű eldönteni, hogyan tárolja a képet, mielőtt formázást vagy optimalizálást végezne.
 
-## **Képkeret létrehozása**
+## **Beágyazott kép hozzáadása és formázása**
 
-1. Hozzon létre egy példányt a [Prezentáció ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage) objektumot úgy, hogy képet ad hozzá a prezentáció objektumhoz kapcsolódó [IImagescollection](https://reference.aspose.com/slides/hu/net/aspose.slides/iimagecollection) gyűjteményhez, amelyet az alakzat kitöltésére használnak.  
-4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe) objektumot a kép szélessége és magassága alapján a `AddPictureFrame` módszerrel, amely a hivatkozott diához kapcsolódó alakzatobjektumon keresztül érhető el.  
-6. Adjon hozzá egy képkeretet (a képet tartalmazó) a diához.  
-7. Írja ki a módosított prezentációt PPTX fájlként.  
+Beágyazott kép esetén adja hozzá a képadatokat a prezentációhoz, és hozzon létre egy képkeretet a [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addpictureframe/) metódussal. A kép a prezentációcsomag része lesz, így a prezentáció önmagában is működik, amikor egy másik számítógépre helyezik át.
 
-```c#
-// Példányosítja a Presentation osztályt, amely PPTX fájlt képvisel
-using (Presentation pres = new Presentation())
-{
-    // Lekéri az első diát
-    ISlide slide = pres.Slides[0];
+Az alábbi példa JPEG képet ad hozzá, a kép natív méreteiben hoz létre egy keretet, és vonalformázást valamint elforgatást alkalmaz:
 
-    // Betölt egy képet, és hozzáadja a prezentáció képgyűjteményéhez
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Hozzáad egy képkeretet ugyanazzal a magassággal és szélességgel
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Alkalmaz némi formázást a képkeretre
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Elmenti a prezentációt egy PPTX fájlba
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-A képkeretek gyorsan létrehozhatnak olyan prezentációs diákat, amelyek képek alapján készülnek. Ha a képkeretet az Aspose.Slides mentési beállításaival kombinálja, a bemeneti/kimeneti műveleteket felhasználva könnyen konvertálhat képeket egyik formátumból a másikba. Érdemes megnézni ezeket az oldalakat: konvertálás [kép JPG‑re](https://products.aspose.com/slides/hu/net/conversion/image-to-jpg/); konvertálás [JPG‑t képre](https://products.aspose.com/slides/hu/net/conversion/jpg-to-image/); konvertálás [JPG‑t PNG‑re](https://products.aspose.com/slides/hu/net/conversion/jpg-to-png/), konvertálás [PNG‑t JPG‑re](https://products.aspose.com/slides/hu/net/conversion/png-to-jpg/); konvertálás [PNG‑t SVG‑re](https://products.aspose.com/slides/hu/net/conversion/png-to-svg/), konvertálás [SVG‑t PNG‑re](https://products.aspose.com/slides/hu/net/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **Képkeret létrehozása relatív méretezéssel**
-
-1. Hozzon létre egy példányt a [Prezentáció](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Adjon hozzá egy képet a prezentáció képgyűjteményéhez.  
-4. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage) objektumot úgy, hogy képet ad hozzá a prezentáció objektumhoz kapcsolódó [IImagescollection](https://reference.aspose.com/slides/hu/net/aspose.slides/iimagecollection) gyűjteményhez, amelyet az alakzat kitöltésére használnak.  
-5. Adja meg a kép relatív szélességét és magasságát a képkeretben.  
-6. Írja ki a módosított prezentációt PPTX fájlként.  
-
-```c#
-// Példányosítja a Presentation osztályt, amely PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
-{
-    // Betölt egy képet, és hozzáadja a prezentáció képgyűjteményéhez
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Hozzáad egy képkeretet a diához
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Beállítja a relatív méretezés szélességét és magasságát
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // Elmenti a prezentációt
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Raszteres képek kinyerése képkeretekből**
-
-Képet kinyerhet a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe) objektumokból, és elmentheti PNG, JPG vagy más formátumban. Az alábbi kódrészlet bemutatja, hogyan nyerhet ki egy képet a „sample.pptx” dokumentumból, és mentheti PNG formátumban.  
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **SVG képek kinyerése képkeretekből**
-
-Amikor egy prezentáció SVG grafikákat tartalmaz, amelyeket [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) alakzatokba ágyaztak, az Aspose.Slides for .NET lehetővé teszi az eredeti vektoros képek teljes hűségű visszanyerését. A dia alakzatgyűjteményének bejárásával azonosíthatja az egyes [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) objektumokat, ellenőrizheti, hogy a mögöttes [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) SVG tartalmat hordoz‑e, majd elmentheti az eredeti SVG formátumban lemezre vagy streambe.  
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
-{
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-## **Kép átlátszóságának lekérdezése**
+A képkeret szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti pixeles méreteket, amelyek a beágyazott képernyő erőforrásban vannak tárolva. Ez a különbség későbbi levágás vagy tömörítés esetén válik fontosá.
 
-Az Aspose.Slides lehetővé teszi a képre alkalmazott átlátszósági effektus lekérdezését. Ez a C# kód mutatja a műveletet:  
+## **Relatív méretezés használata**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **Kép fényerőnek és kontrasztnak a lekérdezése**
-
-Az Aspose.Slides lehetővé teszi a képre alkalmazott fényerő‑ és kontraszt‑effektus lekérdezését. Az [ILuminance](https://reference.aspose.com/slides/hu/net/aspose.slides.effects/iluminance/) interfész képviseli ezt a képtranszformációs hatást.  
-
-Ez a C# kód bemutatja, hogyan kérdezhetők le a fényerő‑ és kontraszt‑beállítások egy képkeretből:  
+[IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) relatív szélesség‑ és magasság‑arányt biztosít a kerethez. Az `1.0` érték az eredeti kép 100 %-ának felel meg. A relatív méretezés hasznos, ha a munkafolyamatnak a forráskép méretéhez viszonyított arányt kell megőriznie a végső méretek kézi kiszámítása helyett.
 
 ```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
-Az összes képre alkalmazott effektus megtalálható a [Aspose.Slides.Effects](https://reference.aspose.com/slides/hu/net/aspose.slides.effects/) névtérben.  
-{{% /alert %}}
+A relatív méretezés megváltoztatja a keret méretbeállításait; nem resample‑eli vagy tömöríti a beágyazott képet.
 
-## **Képkeret formázása**
+## **Beágyazott és hivatkozott képek**
 
-Az Aspose.Slides számos formázási lehetőséget biztosít, amelyeket egy képkeretre alkalmazhat. Ezekkel a beállításokkal a képkeretet a kívánt követelményekhez igazíthatja.  
+A beágyazott kép a képadatokat a prezentációban tárolja, ezért a legbiztonságosabb választás a hordozhatóság és a kiszámítható megjelenítés szempontjából. A hivatkozott kép egy külső helyet tárol a [ISlidesPicture](https://reference.aspose.com/slides/hu/net/aspose.slides/islidespicture/) hivatkozási útvonalon keresztül, ahelyett, hogy a kép adatokat ugyanúgy beágyazná.
 
-1. Hozzon létre egy példányt a [Presentation](http://www.aspose.com/api/net/slides/hu/aspose.slides/)osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage) objektumot úgy, hogy képet ad hozzá a [IImagescollection](https://reference.aspose.com/slides/hu/net/aspose.slides/iimagecollection) gyűjteményhez, amelyet a prezentáció objektum használ a forma kitöltéséhez.  
-4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy `PictureFrame`‑et a kép szélessége és magassága alapján a [AddPictureFrame](http://www.aspose.com/api/net/slides/hu/aspose.slides/ishapecollection/methods/addpictureframe) módszerrel, amely a [IShapes](http://www.aspose.com/api/net/slides/hu/aspose.slides/ishapecollection) objektumon keresztül érhető el a hivatkozott dián.  
-6. Adja hozzá a képkeretet (a képet tartalmazó) a diához.  
-7. Állítsa be a képkeret vonalszínét.  
-8. Állítsa be a képkeret vonalszélességét.  
-9. Forgassa el a képkeretet pozitív vagy negatív érték megadásával.  
-   * A pozitív érték az alakzatot az óramutató járásával megegyező irányba forgat.  
-   * A negatív érték az óramutató járásával ellentétes irányba forgat.  
-10. Adja hozzá a képkeretet (a képet tartalmazó) a diához.  
-11. Írja ki a módosított prezentációt PPTX fájlként.  
+A hivatkozott képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget vezetnek be. A hivatkozott fájlnak elérhetőnek kell maradnia a prezentációt megnyitó vagy renderelő alkalmazás számára. Ha az útvonal megváltozik, a fájl áthelyezésre kerül, vagy a forrás nem áll rendelkezésre, a hivatkozott kép nem jelenhet meg a várt módon. Azoknál a prezentációknál, amelyeket e‑mailben kell elküldeni, archiválni vagy izolált környezetben renderelni, a beágyazott képek általában megbízhatóbbak.
 
-```c#
-// Példányosítja a Presentation osztályt, amely PPTX fájlt képvisel
-using (Presentation presentation = new Presentation())
-{
-    // Lekéri az első diát
-    ISlide slide = presentation.Slides[0];
+### **Hivatkozott kép hozzáadása**
 
-    // Betölt egy képet, és hozzáadja a prezentáció képgyűjteményéhez
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Hozzáad egy képkeretet a kép ekvivalens magasságával és szélességével
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Alkalmaz némi formázást a képkeretre
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Elmenti a prezentációt PPTX fájlba
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}} 
-Az Aspose nemrég fejlesztett egy [ingyenes Collage Maker](https://products.aspose.app/slides/hu/collage) szolgáltatást. Ha JPG/JPEG vagy PNG képeket szeretne egyesíteni, vagy rácsot készíteni fényképekből, ezt a szolgáltatást használhatja. 
-{{% /alert %}}
-
-## **Kép hozzáadása linkként**
-
-A nagy prezentációs méretek elkerülése érdekében a képeket (vagy videókat) linkeken keresztül adhatja hozzá a beágyazás helyett. Ez a C# kód bemutatja, hogyan adhat képet és videót egy helyőrzőhöz:  
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Képek vágása**
-
-Ez a C# kód bemutatja, hogyan vághat le egy meglévő képet egy dián:  
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // Létrehozza az új kép objektumot
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Hozzáad egy PictureFrame-et egy diához
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // Levágja a képet (százalékos értékek)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // Elmenti az eredményt
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Kivágott területek törlése képből**
-
-Ha a keretben lévő kép kivágott részeit szeretné törölni, használja az [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódust. A metódus visszaadja a kivágott képet, vagy az eredeti képet, ha a vágás nem szükséges.  
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Lekéri a PictureFrame-et az első diáról
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Törli a PictureFrame kép kivágott területeit és visszaadja a kivágott képet
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // Elmenti az eredményt
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-Az [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódus hozzáadja a kivágott képet a prezentáció képgyűjteményéhez. Ha a képet csak a feldolgozott [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) használja, ez a beállítás csökkentheti a prezentáció méretét. Ellenkező esetben a keletkező prezentációban a képek száma növekedni fog.  
-
-Ez a metódus a vágási művelet során a WMF/EMF metafájlokat raszteres PNG képpé konvertálja. 
-{{% /alert %}}
-
-## **Képek tömörítése**
-
-Képet tömöríthet egy prezentációban az [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/compressimage/) metódussal.  
-Ez a metódus a kép méretét csökkenti a forma mérete és a megadott felbontás alapján, lehetővé téve a kivágott területek törlését is.  
-
-A módszer úgy módosítja a kép méretét és felbontását, mint a PowerPoint **Képformátum → Képek tömörítése → Felbontás** funkciója.  
-
-Az alábbi C# példák bemutatják, hogyan tömöríthet egy képet a prezentációban egy célfelbontás megadásával, és opcionálisan a kivágott területek eltávolításával:  
+Az alábbi példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a kép hivatkozásával foglalkozik; a videó hivatkozás egy külön média‑munkafolyamat, és szándékosan nincs összekeverve ebben a példában.
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Tömöríti a képet 150 DPI (web felbontás) célfelbontással, és eltávolítja a kivágott területeket.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Check the result of the compression.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Vagy egy egyéni DPI‑érték közvetlen használatával:  
+Használja a hivatkozásokat, amikor a külső fájlkezelés szándékos. Ne használja őket pusztán tömörítés helyettesítésére: egy kis PPTX törött kép‑függőségekkel általában kevésbé hasznos, mint egy nagyobb önálló prezentáció.
+
+## **Képek kinyerése a képkeretekből**
+
+Mielőtt képet nyerne ki egy meglévő prezentációból, ellenőrizze, hogy az alakzat ténylegesen egy [IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/)‑e, és hogy tartalmaz‑e beágyazott képet. A hivatkozott képkeretek nem feltétlenül tartalmaznak olyan kép‑bájtokat, amelyeket ugyanúgy ki lehetne nyerni.
+
+### **Raster kép kinyerése**
+
+A modern kép‑API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑t használja, és nem igényli a régebbi rendszer‑kép wrapper‑t. Az alábbi példa megtalálja az első beágyazott raster képet egy dián, és PNG‑ként menti el:
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    // Tömöríti a képet 150 DPI (web felbontás) méretre, eltávolítva a kivágott területeket.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-A metódus a képet alacsonyabb felbontásra konvertálja a forma mérete és a megadott DPI alapján. A kivágott területek törlése is optimalizálja a fájlméretet.  
-Ha a kép metafájl (WMF/EMF) vagy SVG, a tömörítés nem kerül alkalmazásra. A JPEG minősége a felbontás függvényében marad vagy enyhén csökken, hasonlóan a PowerPoint viselkedéséhez. 
-{{% /alert %}}
+A [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) használatával a kinyert kép a kért kimeneti formátumba kerül konvertálásra. Ha a prezentációban tárolt kódolt bájtokra van szüksége, a konvertált raster fájl helyett használja a kép erőforrás bináris adatait.
 
-## **Oldalarány zárolása**
+### **SVG kép kinyerése**
 
-Ha egy képet tartalmazó alakzatnak meg szeretné tartani az oldalarányát akkor is, ha a kép mérete változik, használhatja az [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframelock/aspectratiolocked/) tulajdonságot az *Oldalarány zárolása* beállításhoz.  
+SVG kép esetén a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) egy [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) objektumot biztosít. Ez lehetővé teszi, hogy közvetlenül a SVG adatot szerezze meg, anélkül, hogy a képet először rasterizálná.
 
-Ez a C# kód megmutatja, hogyan zárolhatja egy alakzat oldalarányát:  
+```csharp
+using System.IO;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
 
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // Beállítja a formát, hogy az átméretezéskor megtartsa az oldalarányt
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-Ez az *Oldalarány zárolása* beállítás csak az alakzat oldalarányát őrzi meg, nem a benne lévő képet. 
-{{% /alert %}}
+Az SVG tartalom SVG‑ként való megőrzése biztosítja a vektor forrást a prezentációban. A PNG vagy JPEG‑s raster exportok kötelezően pixelre renderelik a vektort. A PDF vagy SVG dia‑export is egy renderelési művelet, így az exportált grafika nem tekinthető bite‑pontos másolatnak az eredeti beágyazott SVG‑ből; használja a beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) adatot, ha a vektor forrásra van szükség.
 
-## **A StretchOff tulajdonság használata**
+## **Kép levágása**
 
-A [StretchOffsetLeft](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat/properties/stretchoffsetright) és [StretchOffsetBottom](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) tulajdonságokat az [IPictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat) interfész és a [PictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat) osztály segítségével megadhatja egy kitöltő téglalapként.  
+A levágás megváltoztatja, hogy a kép mely része látható a kereten belül. A [IPictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/) levágási értékei a forráskép méreteinek százalékai. A levágás eleinte nem törli a rejtett pixeleket a beágyazott képből; csak a látható területet változtatja.
 
-Ha egy kép nyújtása meg van adva, egy forrástéglalap skálázódik, hogy illeszkedjen a megadott kitöltő téglalapba. A kitöltő téglalap minden élét a forma körülhatároló keretének megfelelő élétől számított százalékos eltolás határozza meg. A pozitív százalék belső eltolást, a negatív százalék külső eltolást jelent.  
+Az alábbi példa biztonságosan megtalál egy képkeretet, és alkalmazza a levágási értékeket:
 
-1. Hozzon létre egy példányt a [Presentation](http://www.aspose.com/api/net/slides/hu/aspose.slides/)osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Adjon hozzá egy `AutoShape` téglalapot.  
-4. Hozzon létre egy képet.  
-5. Állítsa be az alakzat kitöltési típusát.  
-6. Állítsa be az alakzat képkitöltési módját.  
-7. Adjon meg egy képet a forma kitöltéséhez.  
-8. Adja meg a kép eltolásait a forma körülhatároló keretének megfelelő élhez képest.  
-9. Írja ki a módosított prezentációt PPTX fájlként.  
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // Beállítja a képet, hogy minden oldalról nyújtott legyen a forma testében
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
+
+Mivel a rejtett képadatok még mindig jelen vannak, a levágást később módosíthatja anélkül, hogy elveszítené az eredeti pixeleket. Ha a fájlméret fontosabb, mint a visszavonhatóság, a levágott területek fizikailag eltávolíthatók a következő szakaszban leírt módon.
+
+## **Levágott képadatok eltávolítása**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) eltávolítja a képadatokat a jelenlegi levágási téglalapon kívül, és visszaadja a keletkezett kép‑erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a eltávolított pixelek már nem állnak rendelkezésre későbbi visszalevágáshoz.
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+A metódus új kép‑erőforrást adhat a prezentációhoz. Ha az eredeti képet más képkeretek is használják, azoknak továbbra is a meglévő erőforrásra van szükségük, így a levágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom levágása ezzel a módszerrel a levágott eredményt PNG‑re rasterizálja.
+
+## **Raster képek tömörítése**
+
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/compressimage/) csökkenti a raster kép felbontását a kép megjelenített méretéhez viszonyítva. Ugyanebben a műveletben eltávolíthatja a levágott területeket is. A metódus `true`‑t ad vissza, ha a kép mérete módosult vagy levágás történt, és `false`‑t, ha nem volt szükség változtatásra.
+
+Használjon előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/net/aspose.slides.export/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+Speciális cél esetén egy saját, pozitív DPI érték is megadható enum érték helyett.
+
+A tömörítés raster képekre vonatkozik. SVG és metafájl tartalom nem csökken ezen a raster‑tömörítési munkafolyamaton. Ne feledje, hogy az alacsonyabb felbontás és a törölt levágott területek már nem állíthatók vissza a optimalizált prezentációból. Válasszon célfelbontást a legnagyobb tényleges megjelenítési vagy exportálási méret alapján, ne pedig a legkisebb DPI‑t globálisan alkalmazza.
+
+## **Kép‑transzformációs hatások kezelése**
+
+A fényerő, kontraszt, színátalakítások, elmosás, alfa‑hatások, rendelt láncok, ellenőrzés, eltávolítás és round‑trip ellenőrzés teljes munkafolyamatairól lásd a [Image Transform Effects](/slides/hu/net/image-transform-effects/) oldalon.
+
+## **Képkeret geometria zárolása**
+
+Az [IPictureFrameLock](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframelock/) beállítások szabályozzák, hogy mely szerkesztési műveletek vannak letiltva egy képkeretnél. Például az arányzár a méretezés során megtartja az alakzat arányait.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+A zár a képkeret alakzatára vonatkozik. Nem kényszeríti a forrásképet, hogy ugyanarra az arányra legyen resample‑olva vagy végleg módosítva.
+
+## **StretchOffset értékek módosítása**
+
+Amikor a kép kitöltési módja „stretch”, a [IPictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/) stretch‑offset értékei a kitöltési téglalapot a képkeret határoló keretéhez képest definiálják. A pozitív százalékok a szélről beljebb hoznak, a negatív százalékok pedig kifelé.
+
+Ez különbözik a levágástól. A levágási értékek határozzák meg, hogy a forráskép mely része látható; a stretch‑offsetok a látható kitöltés téglalapját módosítják.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+Használja a stretch‑offsetokat a kitöltés elhelyezéséhez. Használja a levágási tulajdonságokat, ha a cél a forráskép széleinek elrejtése.
+
+## **Tárolás, fájlméret és exportálási szempontok**
+
+A fő kompromisszumok könnyebben kezelhetők, ha a képtárolás és a képkeret‑formázás különállóként kezelődik:
+
+- **Beágyazott képek** önmagukban tartalmazzák a prezentációt, és a legmegbízhatóbbak megosztás és szerver‑oldali renderelés esetén, de a nagy raster képek megnövelik a PPTX méretét és a memóriahasználatot.
+- **Hivatkozott képek** kisebb csomagot eredményezhetnek, de a prezentáció a külső fájlok elérhetőségétől függ.
+- **Levágás** eleinte nem destruktív. A rejtett pixelek addig be vannak ágyazva, amíg a levágott területeket kifejezetten nem törlik vagy nem távolítják el tömörítés közben.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlnagy raster képek esetén, de a forrásfelbontás feláldozásával jár. A kívánt dián megjelenő méret ismeretében kell alkalmazni.
+- **SVG képek** esetén a vektor megőrzése érdekében SVG‑ként kell megtartani őket. A beágyazott SVG közvetlen kinyerése akkor szükséges, ha a vektor forrásra van szükség. A raster dia‑exportok mindig a diaszöveget pixelekre konvertálják.
+- **Ismétlődő képek** esetén a meglévő [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) erőforrás újrafelhasználása ajánlott, ahelyett, hogy ugyanazt a fájlt többször betöltené a munkafolyamatba.
+
+Nagy prezentációk esetén a képek optimalizálása általában akkor a leghatékonyabb, ha szelektíven történik: tartsa a logókat és diagramokat vektor tartalomként, tömörítse a fényképeket a tényleges megjelenítési méretüknek megfelelően, csak akkor távolítsa el a levágott pixeleket, ha a későbbi szerkesztés nem szükséges, és kerüljön a külső hivatkozásokat, hacsak a függőségkezelés nem része a telepítési tervnek.
 
 ## **GYIK**
 
-**Hogyan tudom megtudni, mely képformátumok támogatottak a PictureFrame‑hez?**  
-Az Aspose.Slides támogatja a raszteres képeket (PNG, JPEG, BMP, GIF stb.) és a vektoros képeket (például SVG) a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/)‑hez rendelt képobjektumon keresztül. A támogatott formátumok listája általában átfedésben van a dia- és képkonverziós motor képességeivel.
+**Mi a különbség a képkeret és a kép‑erőforrás között?**
 
-**Hogyan befolyásolja a több tucat nagy kép PPTX méretét és teljesítményét?**  
-A nagy képek beágyazása növeli a fájlméretet és a memóriahasználatot; a képek linkkel való hozzáadása segít csökkenteni a prezentáció méretét, de az külső fájloknak elérhetőnek kell maradniuk. Az Aspose.Slides lehetővé teszi a képek linkkel való hozzáadását a fájlméret csökkentése érdekében.
+Az [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) egy a prezentációhoz társított kép‑erőforrást képviseli. Egy [IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) egy dia alakzata, amely egy képet jelenít meg, és a keretszintű geometriát és formázást tárolja, mint például méret, elforgatás, levágási értékek, effektusok és zárolások.
 
-**Hogyan zárolhatok egy képobjektumot a véletlen mozgatás/átméretezés ellen?**  
-Használjon [alakzatzárolásokat](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/pictureframelock/) egy [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) számára (például a mozgatás vagy átméretezés letiltása). A zárolási mechanizmust külön [védelmi cikk]( /slides/hu/net/applying-protection-to-presentation/) ismerteti, és több alakzattípusra is vonatkozik, beleértve a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) elemeket is.
+**Beágyazzam vagy hivatkozzak a képekre?**
 
-**Megmarad-e az SVG vektorhűség, ha a prezentációt PDF‑be vagy képekbe exportálom?**  
-Az Aspose.Slides lehetővé teszi egy SVG kinyerését egy [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/)‑ből eredeti vektorként. PDF‑re vagy raszteres formátumokra ([PDF](/slides/hu/net/convert-powerpoint-to-pdf/) vagy [PNG](/slides/hu/net/convert-powerpoint-to-png/)) exportálás esetén az eredmény rasterizálódhat a kimeneti beállításoktól függően; a kinyerési viselkedés megerősíti, hogy az eredeti SVG vektor marad.
+Beágyazza a képeket, ha a prezentációnak hordozhatónak, archiváltnak vagy külső források nélkül rendereltnek kell lennie. Hivatkozzon képekre csak akkor, ha a képfájlok kívül tartása szándékos, és a külső helyek megbízhatóan karbantarthatók.
+
+**Csökkenti-e a levágás a PPTX fájlméretét?**
+
+Nem önmagában. A szokásos levágási beállítások elrejtik a forráskép részeit, de a pixelek továbbra is tárolódnak. Használja a [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) vagy a kép‑tömörítést levágott‑terület-eltávolítással, ha ezeket a pixeleket véglegesen el akarja távolítani.
+
+**Visszaállítható a képminőség a tömörítés után?**
+
+Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a levágott területek eltávolítása adatvesztést eredményez. Tartsa meg az eredeti forrásképet a prezentáción kívül, ha később magas felbontású szerkesztésre lehet szükség.
+
+**Hogyan kell kezelni az SVG képeket?**
+
+Tartsa az SVG tartalmat SVG‑ként, ha a vektor pontossága fontos. A beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) közvetlenül kinyerhető. A dia raster formátumba (PNG vagy JPEG) való renderelése a SVG‑t pixelekre alakítja.
+
+**Hogyan kerülhető el a nem biztonságos cast használata meglévő diák olvasásakor?**
+
+Ellenőrizze a forma típusát, mielőtt képkeret‑specifikus tagokat használna. Az [IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) mintázat‑illesztés vagy a forma‑gyűjtemény ezen interfész alapján való szűrése elkerüli az érvénytelen cast‑eket, és lehetővé teszi, hogy a kód olyan diákat is kezeljen, amelyek nem tartalmaznak képkeretet.

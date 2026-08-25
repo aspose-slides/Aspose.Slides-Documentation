@@ -1,164 +1,295 @@
 ---
-title: Beheer afbeeldingsframes in presentaties met PHP
-linktitle: Afbeeldingsframe
+title: Beheer beeldframes in presentaties met PHP
+linktitle: Beeldframe
 type: docs
 weight: 10
 url: /nl/php-java/picture-frame/
 keywords:
-- afbeeldingsframe
-- afbeeldingsframe toevoegen
-- afbeeldingsframe maken
-- afbeelding toevoegen
-- afbeelding maken
+- beeldframe
+- beeldframe toevoegen
+- beeldframe maken
+- ingesloten afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
 - rasterafbeelding
-- vectorafbeelding
+- SVG-afbeelding
 - afbeelding bijsnijden
-- bijgesneden gebied
-- StretchOff eigenschap
-- afbeeldingsframe opmaak
-- afbeeldingsframe eigenschappen
+- bijgesneden gebieden verwijderen
+- afbeelding comprimeren
+- StretchOffset
+- beeldframe-opmaak
 - relatieve schaal
 - afbeeldingseffect
-- aspectratio
-- afbeeldingstransparantie
+- beeldverhouding
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Voeg afbeeldingsframes toe aan PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor PHP via Java. Versnel uw workflow en verbeter het ontwerp van dia's."
+description: "Maak, formatteer, link, snijd bij, extraheer en comprimeer beeldframes in presentaties met Aspose.Slides voor PHP via Java."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een afbeeldingframe is een vorm die een afbeelding bevat – het is als een foto in een lijst.
+Een beeldframe is een dia‑vorm die een afbeelding weergeeft. In Aspose.Slides zijn de afbeeldingsbron en de vorm die deze weergeeft aparte objecten: een [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) bezit ingesloten afbeeldingsbronnen via zijn [ImageCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagecollection/), terwijl een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, afbeeldingseffecten en andere instellingen op frame‑niveau regelt.
 
-U kunt een afbeelding aan een dia toevoegen via een afbeeldingframe. Op deze manier formatteert u de afbeelding door het afbeeldingframe te formatteren.
+Deze scheiding is nuttig wanneer dezelfde afbeelding meer dan één keer wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/), en gebruik die afbeeldingsbron bij het maken van beeldframes.
 
-{{% alert  title="Tip" color="primary" %}} 
+Beeldframes kunnen rasterafbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gekoppelde afbeeldingen in plaats van de afbeeldingsbytes in de presentatie op te slaan. De keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is nuttig om vóór het toepassen van opmaak of optimalisatie te bepalen hoe de afbeelding moet worden opgeslagen.
 
-Aspose biedt gratis converters — [JPEG to PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG to PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt) — die gebruikers in staat stellen snel presentaties te maken van afbeeldingen. 
+## **Een ingesloten afbeelding toevoegen en opmaken**
 
-{{% /alert %}} 
+Voor een ingesloten afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een beeldframe met [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/addpictureframe/). De afbeelding wordt onderdeel van het presentatiepakket, zodat de presentatie zelf‑voorzien blijft wanneer deze naar een andere computer wordt verplaatst.
 
-## **Maak een afbeeldingframe**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-2. Haal via zijn index een referentie naar een dia op. 
-3. Maak een [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/)‑object door een afbeelding toe te voegen aan de [ImageCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagecollection/) die hoort bij het presentatie‑object dat zal worden gebruikt om de vorm te vullen.
-4. Specificeer de breedte en hoogte van de afbeelding.
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) op basis van de breedte en hoogte van de afbeelding via de `addPictureFrame`‑methode die wordt blootgesteld door het vorm‑object dat hoort bij de refererende dia.
-6. Voeg het afbeeldingframe (dat de afbeelding bevat) toe aan de dia.
-7. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze PHP‑code laat zien hoe u een afbeeldingframe maakt:
+Het volgende voorbeeld voegt een JPEG‑afbeelding toe, maakt een frame met de oorspronkelijke afmetingen van de afbeelding en past lijnopmaak en rotatie toe:
 
 ```php
-  # Instantieert de Presentation-klasse die een PPTX-bestand voorstelt
-  $pres = new Presentation();
-  try {
-    # Haalt de eerste dia op
-    $sld = $pres->getSlides()->get_Item(0);
-    # Instantieert de Image-klasse
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Voegt een afbeeldingframe toe met dezelfde hoogte en breedte als de afbeelding
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Schrijft het PPTX-bestand naar de schijf
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Afbeeldingsframes stellen u in staat snel dia’s te maken op basis van afbeeldingen. Wanneer u een afbeeldingframe combineert met de opslaan‑opties van Aspose.Slides, kunt u in‑ en uitvoerbewerkingen manipuleren om afbeeldingen van het ene formaat naar het andere te converteren. U wilt wellicht deze pagina’s raadplegen: converteer [image to JPG](https://products.aspose.com/slides/nl/php-java/conversion/image-to-jpg/); converteer [JPG to image](https://products.aspose.com/slides/nl/php-java/conversion/jpg-to-image/); converteer [JPG to PNG](https://products.aspose.com/slides/nl/php-java/conversion/jpg-to-png/), converteer [PNG to JPG](https://products.aspose.com/slides/nl/php-java/conversion/png-to-jpg/); converteer [PNG to SVG](https://products.aspose.com/slides/nl/php-java/conversion/png-to-svg/), converteer [SVG to PNG](https://products.aspose.com/slides/nl/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-## **Maak een afbeeldingframe met relatieve schaal**
-
-Door de relatieve schaal van een afbeelding aan te passen, kunt u een complexer afbeeldingframe maken. 
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-2. Haal via zijn index een referentie naar een dia op. 
-3. Voeg een afbeelding toe aan de afbeeldingcollectie van de presentatie.
-4. Maak een [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/)‑object door een afbeelding toe te voegen aan de [ImageCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagecollection/) die hoort bij het presentatie‑object dat zal worden gebruikt om de vorm te vullen.
-5. Specificeer de relatieve breedte en hoogte van de afbeelding in het afbeeldingframe.
-6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze PHP‑code laat zien hoe u een afbeeldingframe met relatieve schaal maakt:
-
-```php
-  # Instantieert de Presentation-klasse die de PPTX voorstelt
-  $pres = new Presentation();
-  try {
-    # Haalt de eerste dia op
-    $sld = $pres->getSlides()->get_Item(0);
-    # Instantieert de Image-klasse
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Voegt een afbeeldingframe toe met dezelfde hoogte en breedte als de afbeelding
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Stelt de relatieve schaal van breedte en hoogte in
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # Schrijft het PPTX-bestand naar de schijf
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Rasterafbeeldingen extraheren uit afbeeldingframes**
-
-U kunt rasterafbeeldingen extraheren uit [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/)‑objecten en opslaan in PNG, JPG en andere formaten. Het onderstaande code‑voorbeeld toont hoe u een afbeelding uit het document “sample.pptx” kunt extraheren en opslaan in PNG‑formaat.
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **SVG‑afbeeldingen extraheren uit afbeeldingframes**
+Het beeldframe bepaalt de weergegeven geometrie; het wijzigen van de frame‑grootte verandert de originele pixelafmetingen die in de ingesloten afbeeldingsbron zijn opgeslagen. Dit onderscheid wordt belangrijk bij later bijsnijden of comprimeren van een afbeelding.
 
-Wanneer een presentatie SVG‑graphics bevat die in [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/)‑vormen zijn geplaatst, laat Aspose.Slides for PHP via Java u de originele vector‑afbeeldingen met volledige getrouwheid ophalen. Door de vormcollectie van de dia te doorlopen, kunt u elk [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) identificeren, controleren of de onderliggende [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/) SVG‑inhoud bevat, en vervolgens die afbeelding opslaan op schijf of in een stream in het oorspronkelijke SVG‑formaat.
+## **Relatieve schaal gebruiken**
 
-Het volgende code‑voorbeeld toont hoe u een SVG‑afbeelding uit een afbeeldingframe kunt extraheren:
+[PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) biedt relatieve breedte‑ en hoogte‑schaal voor het frame via [setRelativeScaleWidth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/setrelativescalewidth/) en [setRelativeScaleHeight](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Een waarde van `1.0` komt overeen met 100 % van de originele afbeeldingsgrootte. Relatieve schaal is nuttig wanneer een werkstroom een relatie tot de bronafbeeldingsgrootte moet behouden in plaats van de uiteindelijke afmetingen handmatig te berekenen.
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Relatieve schaal wijzigt de schaalinstellingen van het frame; het herschaalt of comprimeert de ingesloten afbeelding niet.
+
+## **Ingesloten en gekoppelde afbeeldingen**
+
+Een ingesloten afbeelding slaat afbeeldingsdata op binnen de presentatie en is daarom de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde afbeelding bewaart een externe locatie via de [Picture::setLinkPathLong](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picture/setlinkpathlong/)‑methode in plaats van de afbeeldingsdata op dezelfde manier in te sluiten.
+
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeeldingsdata in de PPTX verminderen, maar ze introduceren een externe afhankelijkheid. Het gekoppelde bestand moet beschikbaar blijven voor de applicatie die de presentatie opent of rendert. Als het pad wijzigt, het bestand wordt verplaatst of de bron niet meer beschikbaar is, wordt het gekoppelde beeld mogelijk niet zoals verwacht weergegeven. Voor presentaties die moeten worden gemaild, gearchiveerd of gerenderd in geïsoleerde omgevingen, zijn ingesloten afbeeldingen doorgaans betrouwbaarder.
+
+### **Een gekoppelde afbeelding toevoegen**
+
+Het volgende voorbeeld maakt een beeldframe aan en wijst het naar een lokaal afbeeldingsbestand. Het behandelt alleen afbeeldingkoppelingen; video‑koppelingen vormen een aparte media‑werkstroom en worden bewust niet gemengd in dit voorbeeld.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Gebruik koppelingen wanneer extern bestandbeheer opzettelijk is. Gebruik ze niet alleen als vervanging voor compressie: een kleine PPTX met kapotte afbeeldingsafhankelijkheden is meestal minder bruikbaar dan een grotere zelf‑voorzienende presentatie.
+
+## **Afbeeldingen extraheren uit beeldframes**
+
+Controleer vóór het extraheren van een afbeelding uit een bestaande presentatie of een vorm daadwerkelijk een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) is en of deze een ingesloten afbeelding bevat. Gekoppelde beeldframes kunnen mogelijk geen afbeeldingsbytes bevatten die op dezelfde manier kunnen worden geëxtraheerd.
+
+### **Een raster‑afbeelding extraheren**
+
+De moderne afbeeldings‑API gebruikt [IImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/iimage/) direct. Het volgende voorbeeld vindt de eerste ingesloten raster‑afbeelding op een dia en slaat deze op als PNG:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Opslaan via [IImage::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/iimage/#save) converteert de geëxtraheerde afbeelding naar het gewenste uitvoerformaat. Als je de gecodeerde bytes wilt die in de presentatie zijn opgeslagen in plaats van een geconverteerd raster‑bestand, gebruik dan de binaire data van de afbeeldingsbron.
+
+### **Een SVG‑afbeelding extraheren**
+
+Voor een SVG‑beeld levert de [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/) een [SvgImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/svgimage/)‑object. Hiermee kun je de SVG‑data direct ophalen in plaats van de afbeelding eerst te rasteren.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Het behouden van SVG‑inhoud als SVG behoudt de vector‑bron binnen de presentatie. Raster‑exporten zoals PNG of JPEG renderen die vectorinhoud noodzakelijkerwijs om naar pixels. PDF‑ of SVG‑dia‑export is eveneens een render‑handeling, dus de geëxporteerde grafieken moeten niet worden beschouwd als een byte‑voor‑byte kopie van de originele ingesloten SVG; gebruik de ingesloten [SvgImage::getSvgData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/svgimage/getsvgdata/)‑data wanneer de oorspronkelijke vector‑bron zelf vereist is.
+
+## **Een afbeelding bijsnijden**
+
+Bijsnijden verandert welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijdwaarden op [PictureFillFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/) zijn percentages van de bronafbeeldingsafmetingen. Bijsnijden verwijdert de verborgen pixels niet onmiddellijk uit de ingesloten afbeelding; het verandert alleen het zichtbare gebied.
+
+Het volgende voorbeeld zoekt veilig een beeldframe en past bijsnijdwaarden toe:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Omdat de verborgen afbeeldingsdata nog steeds aanwezig is, kan de bijsnijding later worden gewijzigd zonder de originele pixels te verliezen. Als bestandsgrootte belangrijker is dan terugdraaibaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
+
+## **Bijsneden afbeeldingsdata verwijderen**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) verwijdert afbeeldingsdata buiten het huidige bijsnijdrechthoek en levert de resulterende afbeeldingsbron terug. Dit kan de bestandsgrootte verkleinen, maar het is een destructieve optimalisatie: nadat de presentatie is opgeslagen, zijn de verwijderde pixels niet meer beschikbaar voor een latere on‑crop‑operatie.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -166,372 +297,161 @@ try {
 }
 ```
 
-## **Transparantie van een afbeelding ophalen**
+De methode kan een nieuwe afbeeldingsbron aan de presentatie toevoegen. Als de originele afbeelding ook door andere beeldframes wordt gebruikt, hebben die frames nog steeds hun bestaande bron nodig, waardoor het verwijderen van bijgesneden gebieden niet noodzakelijkerwijs het totale aantal afbeeldingen verlaagt. Het bijsnijden van WMF‑ of EMF‑inhoud met deze methode rastert het bijgesneden resultaat naar PNG.
 
-Aspose.Slides maakt het mogelijk de transparantie‑effecten op een afbeelding op te halen. Deze PHP‑code demonstreert de bewerking:
+## **Raster‑afbeeldingen comprimeren**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) vermindert de resolutie van raster‑afbeeldingen ten opzichte van de grootte waarin de afbeelding wordt weergegeven. Het kan tevens bijgesneden gebieden verwijderen in dezelfde bewerking. De methode retourneert `true` wanneer de afbeelding is verkleind of bijgesneden en `false` wanneer geen wijziging nodig was.
 
-## **Helderheid en contrast van een afbeelding ophalen**
-
-Aspose.Slides maakt het mogelijk de helderheid‑ en contrast‑effecten op een afbeelding op te halen. De [Luminance](https://reference.aspose.com/slides/nl/php-java/aspose.slides/luminance/)‑klasse vertegenwoordigt dit afbeeldings‑transformatie‑effect.
-
-Deze PHP‑code laat zien hoe u de helderheid‑ en contrastinstellingen van een afbeeldingframe ophaalt:
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturescompression/)‑waarde wanneer een standaard doelresolutie voldoende is:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **Afbeeldingsframe‑opmaak**
-
-Aspose.Slides biedt veel opmaakopties die op een afbeeldingframe kunnen worden toegepast. Met die opties kunt u een afbeeldingframe aanpassen zodat het aan specifieke eisen voldoet.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-2. Haal via zijn index een referentie naar een dia op. 
-3. Maak een [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/)‑object door een afbeelding toe te voegen aan de [ImageCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagecollection/) die hoort bij het presentatie‑object dat zal worden gebruikt om de vorm te vullen.
-4. Specificeer de breedte en hoogte van de afbeelding.
-5. Maak een `PictureFrame` op basis van de breedte en hoogte van de afbeelding via de [addPictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/addpictureframe/)‑methode die wordt blootgesteld door het [ShapeCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/)‑object dat hoort bij de refererende dia.
-6. Voeg het afbeeldingframe (dat de afbeelding bevat) toe aan de dia.
-7. Stel de lijnkleur van het afbeeldingframe in.
-8. Stel de lijndikte van het afbeeldingframe in.
-9. Roteer het afbeeldingframe door een positieve of negatieve waarde op te geven.
-   * Een positieve waarde roteert de afbeelding met de klok mee. 
-   * Een negatieve waarde roteert de afbeelding tegen de klok in.
-10. Voeg het afbeeldingframe (dat de afbeelding bevat) opnieuw toe aan de dia.
-11. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze PHP‑code laat het opmaakproces van een afbeeldingframe zien:
-
-```php
-  # Instantieert de Presentation-klasse die de PPTX voorstelt
-  $pres = new Presentation();
-  try {
-    # Haalt de eerste dia op
-    $sld = $pres->getSlides()->get_Item(0);
-    # Instantieert de Image-klasse
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Voegt een Picture Frame toe met dezelfde hoogte en breedte als de afbeelding
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Past enige opmaak toe op PictureFrameEx
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # Schrijft het PPTX-bestand naar de schijf
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose heeft recentelijk een [gratis Collage Maker](https://products.aspose.app/slides/nl/collage) ontwikkeld. Als u ooit [JPG/JPEG](https://products.aspose.app/slides/nl/collage/jpg) of PNG‑afbeeldingen wilt [samensmelten] of foto‑roosters wilt [maken](https://products.aspose.app/slides/nl/collage/photo-grid), kunt u deze dienst gebruiken. 
-
-{{% /alert %}}
-
-## **Een afbeelding als koppeling toevoegen**
-
-Om grote presentaties te voorkomen, kunt u afbeeldingen (of video's) via koppelingen toevoegen in plaats van de bestanden direct in de presentatie in te sluiten. Deze PHP‑code toont hoe u een afbeelding en een video in een placeholder kunt toevoegen:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Afbeeldingen bijsnijden**
-
-Deze PHP‑code laat zien hoe u een bestaande afbeelding op een dia kunt bijsnijden:
-
-```php
-  $pres = new Presentation();
-  # Creëert een nieuw afbeeldingobject
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Voegt een PictureFrame toe aan een dia
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # Bijsnijdt de afbeelding (percentagewaarden)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # Slaat het resultaat op
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Bijsnijden van gebieden van een afbeelding verwijderen**
-
-Als u de bijgesneden gebieden van een afbeelding die in een frame zit wilt verwijderen, kunt u de methode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) gebruiken. Deze methode retourneert de bijgesneden afbeelding of de originele afbeelding als bijsnijden niet nodig is.
-
-Deze PHP‑code demonstreert de bewerking:
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # Haalt het PictureFrame op van de eerste dia
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # Verwijdert bijgesneden gebieden van de PictureFrame-afbeelding en retourneert de bijgesneden afbeelding
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # Slaat het resultaat op
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="OPMERKING" color="warning" %}} 
-
-De methode [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) voegt de bijgesneden afbeelding toe aan de afbeeldingcollectie van de presentatie. Als de afbeelding alleen wordt gebruikt in het verwerkte [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/), kan deze instelling de presentatiegrootte verkleinen. Anders neemt het aantal afbeeldingen in de uiteindelijke presentatie toe.
-
-Deze methode converteert WMF/EMF‑metabestanden naar raster‑PNG‑afbeeldingen tijdens de bijsnijdbewerking. 
-
-{{% /alert %}}
-
-## **Afbeeldingen comprimeren**
-
-U kunt een afbeelding in een presentatie comprimeren met de methode [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) . Deze methode comprimeert een afbeelding door de grootte te verkleinen op basis van de vormgrootte en de opgegeven resolutie, met de optie om bijgesneden gebieden te verwijderen.
-
-Hij past de grootte en resolutie van de afbeelding aan op dezelfde manier als de PowerPoint‑functie **Afbeeldingsopmaak → Afbeeldingen comprimeren → Resolutie**.
-
-De volgende PHP‑voorbeelden tonen hoe u een afbeelding in een presentatie kunt comprimeren door een doelresolutie op te geven en eventueel bijgesneden gebieden te verwijderen:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Comprimeer de afbeelding met een doelresolutie van 150 DPI (webresolutie) en verwijder bijgesneden gebieden.
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # Controleer het resultaat van de compressie.
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Of door direct een aangepaste DPI‑waarde te gebruiken:
+Een aangepaste positieve DPI‑waarde kan in plaats van een vooraf gedefinieerde waarde worden opgegeven wanneer een specifiek doel vereist is.
+
+Compressie is bedoeld voor raster‑afbeeldingen. SVG‑ en metafile‑inhoud wordt niet verkleind door deze raster‑compressieworkflow. Denk er ook aan dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie op basis van de grootste weergave‑ of exportgrootte van de afbeelding in plaats van globaal de laagste DPI toe te passen.
+
+## **Beeld‑transformatie‑effecten beheren**
+
+Voor een volledige werkstroom die helderheid, contrast, kleurovergangen, vervaging, alfa‑effecten, geordende ketens, inspectie, verwijdering en round‑trip‑verificatie omvat, zie [Image Transform Effects](/php-java/image-transform-effects/).
+
+## **Beeldframe‑geometrie vergrendelen**
+
+De [PictureFrameLock](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframelock/)‑instellingen bepalen welke bewerkingsacties zijn uitgeschakeld voor een beeldframe. Bijvoorbeeld, [setAspectRatioLocked](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) behoudt de verhoudingen van de vorm terwijl deze wordt geschaald.
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
 
-    # Comprimeer de afbeelding tot 150 DPI (webresolutie), waarbij bijgesneden gebieden worden verwijderd.
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
-
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-{{% alert title="OPMERKING" color="warning" %}} 
-
-De methode zet de afbeelding om naar een lagere resolutie op basis van de vormgrootte en de opgegeven DPI. Bijgesneden gebieden kunnen eveneens worden verwijderd om de bestandsgrootte te optimaliseren.  
-Als de afbeelding een metabestand (WMF/EMF) of SVG is, wordt compressie niet toegepast. Ook wordt de JPEG‑kwaliteit behouden of licht verminderd afhankelijk van de resolutie, op dezelfde manier als PowerPoint bij hoge‑resolutie JPEG's.
-
-{{% /alert %}}
-
-## **Verhoudingsvergrendeling**
-
-Als u wilt dat een vorm die een afbeelding bevat zijn verhoudingen behoudt, zelfs nadat u de afmetingen van de afbeelding verandert, kunt u de methode [setAspectRatioLocked](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) gebruiken om de instelling *Verhoudingsvergrendeling* in te stellen.
-
-Deze PHP‑code laat zien hoe u de verhoudingsvergrendeling van een vorm toepast:
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # stel de vorm in om de aspectratio te behouden bij het schalen
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="OPMERKING" color="warning" %}} 
+De vergrendeling geldt voor de beeldframe‑vorm. Het dwingt de bronafbeelding niet tot herschalen of permanent wijzigen naar dezelfde beeldverhouding.
 
-Deze instelling *Verhoudingsvergrendeling* behoudt alleen de verhoudingen van de vorm en niet van de afbeelding die erin zit.
+## **De StretchOffset‑waarden aanpassen**
 
-{{% /alert %}}
+Wanneer de opvulmodus van de afbeelding “stretch” is, bepalen de stretch‑offset‑waarden op [PictureFillFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/) het opvullende rechthoek ten opzichte van de omhullende doos van het beeldframe. Positieve percentages creëren een inspringing vanaf een rand, terwijl negatieve percentages een uitstulping veroorzaken.
 
-## **De StretchOff‑eigenschap gebruiken**
-
-Met de methoden [setStretchOffsetLeft](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/), [setStretchOffsetTop](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/setstretchoffsettop/), [setStretchOffsetRight](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) en [setStretchOffsetBottom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) van de [PictureFillFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/)‑klasse kunt u een vulrechthoek opgeven.
-
-Wanneer er rekwerk wordt gespecificeerd voor een afbeelding, wordt een bronrechthoek geschaald om te passen binnen de opgegeven vulrechthoek. Elke rand van de vulrechthoek wordt gedefinieerd door een percentage‑offset ten opzichte van de corresponderende rand van de begrenzings­box van de vorm. Een positief percentage geeft een inlage aan, een negatief percentage een uitsteeksel.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-2. Haal via zijn index een referentie naar een dia op.
-3. Voeg een rechthoek `AutoShape` toe. 
-4. Maak een afbeelding.
-5. Stel het vultype van de vorm in.
-6. Stel de afbeelding‑vulmodus van de vorm in.
-7. Voeg een afbeelding toe om de vorm te vullen.
-8. Specificeer afbeeldings‑offsets ten opzichte van de corresponderende rand van de begrenzings­box van de vorm.
-9. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze PHP‑code demonstreert een proces waarbij de StretchOff‑eigenschap wordt gebruikt:
+Dit verschilt van bijsnijden. Bijsnijdwaarden bepalen welk deel van de bronafbeelding zichtbaar is; stretch‑offsets wijzigen het rechthoek waarin de zichtbare afbeelding wordt uitgerekt.
 
 ```php
-  # Instantieert de Presentation-klasse die een PPTX-bestand voorstelt
-  $pres = new Presentation();
-  try {
-    # Haalt de eerste dia op
-    $slide = $pres->getSlides()->get_Item(0);
-    # Instantieert de ImageEx-klasse
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # Voegt een AutoShape toe ingesteld op rechthoek
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Stelt het vultype van de vorm in
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # Stelt de afbeeldingvulmodus van de vorm in
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Stelt de afbeelding in om de vorm te vullen
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Specificeert de afbeeldingsoffsets ten opzichte van de corresponderende rand van de begrenzingsbox van de vorm
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # Schrijft het PPTX-bestand naar de schijf
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Veelgestelde vragen**
+Gebruik stretch‑offsets voor het positioneren van de opvulling. Gebruik bijsnijd‑eigenschappen wanneer het doel is om randen van de bronafbeelding te verbergen.
 
-**Hoe kan ik achterhalen welke afbeeldingsformaten worden ondersteund voor een afbeeldingframe?**
+## **Opslag, bestandsgrootte en export‑overwegingen**
 
-Aspose.Slides ondersteunt zowel raster‑afbeeldingen (PNG, JPEG, BMP, GIF, enz.) als vector‑afbeeldingen (bijvoorbeeld SVG) via het afbeeldingsobject dat is toegewezen aan een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/). De lijst met ondersteunde formaten overlapt doorgaans met de mogelijkheden van de slide‑ en afbeeldingconversie‑engine.
+De belangrijkste afwegingen zijn gemakkelijker te beheren wanneer afbeeldingopslag en beeldframe‑opmaak afzonderlijk worden behandeld:
 
-**Hoe beïnvloedt het toevoegen van tientallen grote afbeeldingen de PPTX‑grootte en -prestaties?**
+- **Ingesloten afbeeldingen** maken de presentatie zelf‑voorzien en zijn het betrouwbaarst voor delen en server‑side rendering, maar grote raster‑afbeeldingen vergroten de PPTX‑grootte en het geheugenverbruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingesloten totdat bijgesneden gebieden expliciet worden verwijderd of tijdens compressie worden weggelaten.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote raster‑afbeeldingen, maar schaft resolutie van de bron in. Het moet worden toegepast nadat de beoogde grootte op de dia bekend is.
+- **SVG‑afbeeldingen** moeten als SVG blijven wanneer vectorbehoud belangrijk is. Extraheer de ingesloten SVG direct wanneer je de vector‑bron zelf nodig hebt. Raster‑dia‑exporten converteren altijd de gerenderde dia naar pixels.
+- **Herhaalde afbeeldingen** moeten bij voorkeur een bestaande [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/)‑bron hergebruiken in plaats van telkens dezelfde bestand opnieuw te laden in de werkstroom.
 
-Het insluiten van grote afbeeldingen vergroot de bestandsgrootte en het geheugenverbruik; afbeeldingen koppelen helpt de presentatiegrootte te beperken, maar vereist dat de externe bestanden beschikbaar blijven. Aspose.Slides biedt de mogelijkheid om afbeeldingen via een koppeling toe te voegen om de bestandsgrootte te reduceren.
+Voor grote presentaties is afbeeldingoptimalisatie meestal het meest effectief wanneer deze selectief wordt uitgevoerd: bewaar logo’s en diagrammen als vectorinhoud, comprimeer foto’s volgens hun werkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer latere bewerking niet nodig is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
-**Hoe kan ik een afbeeldingsobject vergrendelen tegen onbedoeld verplaatsen of schalen?**
+## **FAQ**
 
-Gebruik [shape locks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/getpictureframelock/) voor een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) (bijvoorbeeld om verplaatsen of schalen uit te schakelen). Het vergrendelingsmechanisme wordt ondersteund voor diverse vormtypen, inclusief [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/).
+**Wat is het verschil tussen een beeldframe en een afbeeldingsbron?**
 
-**Is de vector‑getrouwheid van SVG behouden bij het exporteren van een presentatie naar PDF/afbeeldingen?**
+Een [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/) vertegenwoordigt een afbeeldingsbron die aan de presentatie is gekoppeld. Een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-Aspose.Slides maakt het mogelijk een SVG uit een [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) te extraheren als de originele vector. Bij het [exporteren naar PDF](/slides/nl/php-java/convert-powerpoint-to-pdf/) of [rasterformaten](/slides/nl/php-java/convert-powerpoint-to-png/) kan het resultaat afhankelijk van de exportinstellingen gerasterd worden; het feit dat de oorspronkelijke SVG als vector is opgeslagen, wordt bevestigd door het extractiegedrag.
+**Moet ik afbeeldingen insluiten of koppelen?**
+
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet kunnen worden zonder toegang tot externe bronnen. Koppel afbeeldingen alleen wanneer het bewust is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar kunnen worden onderhouden.
+
+**Vermindert bijsnijden de bestandsgrootte van de PPTX?**
+
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) of afbeeldingscompressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden weggelaten.
+
+**Kan ik de beeldkwaliteit herstellen na compressie?**
+
+Nee. Compressie kan de opgeslagen rasterresolutie verlagen, en het verwijderen van bijgesneden gebieden wis de afbeeldingsdata. Bewaar de originele bronafbeelding buiten de presentatie als later bewerken in hoge resolutie vereist kan zijn.
+
+**Hoe moet ik SVG‑afbeeldingen behandelen?**
+
+Behoud SVG‑inhoud als SVG wanneer vector‑fideliteit van belang is. De ingesloten [SvgImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/svgimage/) kan direct worden geëxtraheerd. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
+
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+
+Controleer het vormtype voordat je beeldframe‑specifieke leden gebruikt. Een `java_instanceof`‑controle tegen [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) voorkomt ongeldige casts en laat de code dia’s die geen beeldframes bevatten adequaat afhandelen.

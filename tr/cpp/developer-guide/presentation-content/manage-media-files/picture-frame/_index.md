@@ -8,510 +8,517 @@ keywords:
 - resim çerçevesi
 - resim çerçevesi ekle
 - resim çerçevesi oluştur
-- görüntü ekle
-- görüntü oluştur
+- gömülü görüntü
+- bağlantılı görüntü
 - görüntü çıkar
 - raster görüntü
-- vektör görüntü
+- SVG görüntü
 - görüntüyü kırp
-- kırpılmış alan
-- StretchOff özelliği
+- kırpılmış alanları sil
+- görüntüyü sıkıştır
+- StretchOffset
 - resim çerçevesi biçimlendirme
-- resim çerçevesi özellikleri
-- göreli ölçek
+- bağıl ölçek
 - görüntü efekti
 - en-boy oranı
-- görüntü şeffaflığı
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint ve OpenDocument sunumlarına resim çerçeveleri ekleyin. İş akışınızı kolaylaştırın ve slayt tasarımlarını geliştirin."
+description: "Aspose.Slides for C++ ile sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Resim çerçevesi, bir görüntüyü içeren bir şekildir—çerçeve içinde bir resim gibidir. 
+Bir resim çerçevesi, bir resmi görüntüleyen slayt şeklidir. Aspose.Slides'ta, görüntü kaynağı ve onu görüntüleyen şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) kendi [görüntü koleksiyonu](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_images/) aracılığıyla gömülü görüntü kaynaklarını sahiplenirken, bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) görüntünün konumunu, boyutunu, çizgi biçimlendirmesini, döndürmesini, kırpmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarları kontrol eder.
 
-Bir slayta bir resim çerçevesi aracılığıyla görüntü ekleyebilirsiniz. Böylece, resmi resim çerçevesini biçimlendirerek biçimlendirebilirsiniz.
+Bu ayrım, aynı görüntünün birden fazla kez gösterildiği durumlarda yararlıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu görüntü kaynağını kullanın.
 
-{{% alert  title="İpucu" color="primary" %}} 
+Resim çerçeveleri PNG veya JPEG gibi raster görüntüleri ve SVG gibi vektör görüntüleri içerebilir. Ayrıca görüntü baytlarını sunuma depolamak yerine bağlantılı görüntülere de başvurabilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek faydalıdır.
 
-Aspose, insanlara görüntülerden hızlı bir şekilde sunumlar oluşturma imkanı sağlayan ücretsiz dönüştürücüler—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—sunmaktadır. 
+## **Gömülü Bir Görüntüyü Ekle ve Biçimlendir**
 
-{{% /alert %}} 
+Gömülü bir görüntü için, görüntü verilerini sunuma ekleyin ve [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shapecollection/addpictureframe/) ile bir resim çerçevesi oluşturun. Görüntü, sunum paketinin bir parçası haline gelir, böylece sunum başka bir bilgisayara taşındığında da bağımsız kalır.
 
-## **Resim Çerçevesi Oluşturma**
-
-1. Sunum sınıfının bir örneğini oluşturun.
-2. İndeksi aracılığıyla bir slaydın referansını alın. 
-3. Şekli doldurmak için kullanılacak sunum nesnesine bağlı [IImagescollection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_image_collection)'a bir görüntü ekleyerek bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_p_p_image) nesnesi oluşturun.
-4. Görüntünün genişliğini ve yüksekliğini belirtin.
-5. Referans alınan slayda bağlı şekil nesnesi tarafından sunulan `AddPictureFrame` yöntemiyle görüntünün genişliği ve yüksekliğine dayalı bir [PictureFrame](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_frame) oluşturun.
-6. Slayta bir resim çerçevesi (resmi içeren) ekleyin.
-7. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Bu C++ kodu, bir resim çerçevesi nasıl oluşturulacağını gösterir:
-
-```c++
-// Belge dizinine giden yol.
-const String outPath = u"../out/PictureFrameFormatting_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// İstenen sunumu yükle
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// İlk slayta erişir
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Sunumun görüntü koleksiyonuna eklenecek görüntüyü yükler
-// Resmi alır
-auto image = Images::FromFile(filePath);
-
-// Sunumun görüntü koleksiyonuna bir görüntü ekler
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Slayta bir resim çerçevesi ekler
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Göreli ölçek genişliğini ve yüksekliğini ayarlar
-pf->set_RelativeScaleHeight(0.8);
-pf->set_RelativeScaleWidth(1.35);
-// PictureFrame'e bazı biçimlendirmeler uygular
-pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-pf->get_LineFormat()->set_Width ( 20);
-pf->set_Rotation( 45);
-
-//PPTX dosyasını diske yazar
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert color="warning" %}} 
-
-Resim çerçeveleri, görüntülere dayalı sunum slaytlarını hızlı bir şekilde oluşturmanızı sağlar. Resim çerçevesini Aspose.Slides kaydetme seçenekleriyle birleştirdiğinizde, görüntüleri bir formatta diğerine dönüştürmek için giriş/çıkış işlemlerini yönetebilirsiniz. Şu sayfalara göz atabilirsiniz: [image to JPG](https://products.aspose.com/slides/tr/cpp/conversion/image-to-jpg/) dönüştürme; [JPG to image](https://products.aspose.com/slides/tr/cpp/conversion/jpg-to-image/) dönüştürme; [JPG to PNG](https://products.aspose.com/slides/tr/cpp/conversion/jpg-to-png/) dönüştürme, [PNG to JPG](https://products.aspose.com/slides/tr/cpp/conversion/png-to-jpg/) dönüştürme; [PNG to SVG](https://products.aspose.com/slides/tr/cpp/conversion/png-to-svg/) dönüştürme, [SVG to PNG](https://products.aspose.com/slides/tr/cpp/conversion/svg-to-png/) dönüştürme.
-
-{{% /alert %}}
-
-## **Göreli Ölçekle Resim Çerçevesi Oluşturma**
-
-Bir görüntünün göreli ölçeklendirmesini değiştirerek daha karmaşık bir resim çerçevesi oluşturabilirsiniz. 
-
-1. Sunum sınıfının bir örneğini oluşturun.
-2. İndeksi aracılığıyla bir slaydın referansını alın. 
-3. Sunumun görüntü koleksiyonuna bir resim ekleyin.
-4. Şekli doldurmak için kullanılacak sunum nesnesine bağlı [IImagescollection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_image_collection)'a bir görüntü ekleyerek bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_p_p_image) nesnesi oluşturun.
-5. Resim çerçevesinde görüntünün göreli genişliğini ve yüksekliğini belirtin.
-6. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Bu C++ kodu, göreli ölçekli bir resim çerçevesi nasıl oluşturulacağını gösterir:
-
-```c++
-// Belgeler dizinine giden yol.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// İstenen sunumu yükler
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// İlk slayta erişir
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Sunumun görüntü koleksiyonuna eklenecek görüntüyü yükler
-// Resmi alır
-auto image = Images::FromFile(filePath);
-
-// Sunumun görüntü koleksiyonuna bir görüntü ekler
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Slayta bir resim çerçevesi ekler
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Göreli ölçek genişliğini ve yüksekliğini ayarlar
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//PPTX dosyasını diske yazar
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Resim Çerçevelerinden Raster Görüntüleri Çıkarma**
-
-[IPictureFrame](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_frame) nesnelerinden raster görüntüler çıkarabilir ve PNG, JPG ve diğer formatlarda kaydedebilirsiniz. Aşağıdaki kod örneği, "sample.pptx" belgesinden bir görüntüyü çıkarıp PNG formatında kaydetmeyi göstermektedir.
-
-```c++
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstSlide = presentation->get_Slide(0);
-auto firstShape = firstSlide->get_Shape(0);
-    
-if (ObjectExt::Is<IPictureFrame>(firstShape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
-
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
-}
-
-presentation->Dispose();
-```
-
-## **Resim Çerçevelerinden SVG Görüntüleri Çıkarma**
-
-Bir sunum, [PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) şekilleri içinde SVG grafikleri içerdiğinde, Aspose.Slides for C++ orijinal vektör görüntülerini tam doğrulukla almanıza olanak tanır. Slaydın şekil koleksiyonunu dolaşarak her bir [PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) öğesini belirleyebilir, altında bulunan [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) SVG içeriğine sahip mi kontrol edebilir ve ardından bu görüntüyü yerel SVG formatında diske ya da akışa kaydedebilirsiniz.
-
-Aşağıdaki kod örneği, bir resim çerçevesinden SVG görüntüsü nasıl çıkarılacağını göstermektedir:
+Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile döndürme uygular:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
 
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-if (ObjectExt::Is<IPictureFrame>(shape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
-    if (svgImage != nullptr)
-    {
-        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Bir Görüntünün Şeffaflığını Alma**
-
-Aspose.Slides, bir görüntüye uygulanan şeffaflık efektini almanıza izin verir. Bu C++ kodu işlemi göstermektedir:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
-    {
-        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
-    }
-}
-```
-
-{{% alert color="primary" %}} 
-Görüntülere uygulanan tüm efektler [Aspose::Slides::Effects](https://reference.aspose.com/slides/tr/cpp/aspose.slides.effects/) içinde bulunabilir.
-{{% /alert %}}
-
-## **Bir Görüntünün Parlaklık ve Kontrastını Alma**
-
-Aspose.Slides, bir görüntüye uygulanan parlaklık ve kontrast efektini almanıza izin verir. [ILuminance](https://reference.aspose.com/slides/tr/cpp/aspose.slides.effects/iluminance/) arayüzü bu görüntü dönüşüm efektini temsil eder.
-
-Bu C++ kodu, bir resim çerçevesinden parlaklık ve kontrast ayarlarını nasıl alacağınızı gösterir:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-
-auto shape = slide->get_Shape(0);
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
-
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<ILuminance>(effect))
-    {
-        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
-        auto brightness = luminance->get_Brightness();
-        auto contrast = luminance->get_Contrast();
-
-        Console::WriteLine(System::String(u"Brightness: ") + brightness);
-        Console::WriteLine(System::String(u"Contrast: ") + contrast);
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Resim Çerçevesi Biçimlendirme**
-
-Aspose.Slides, bir resim çerçevesine uygulanabilen birçok biçimlendirme seçeneği sunar. Bu seçenekleri kullanarak, belirli gereksinimlere uyması için bir resim çerçevesini değiştirebilirsiniz.
-
-1. Sunum sınıfının bir örneğini oluşturun.
-2. İndeksi aracılığıyla bir slaydın referansını alın. 
-3. Şekli doldurmak için kullanılacak sunum nesnesine bağlı [IImagescollection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_image_collection)'a bir görüntü ekleyerek bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_p_p_image) nesnesi oluşturun.
-4. Görüntünün genişliğini ve yüksekliğini belirtin.
-5. Referans alınan slayda bağlı [IShapes](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_shape_collection) nesnesi tarafından sunulan [AddPictureFrame](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) yöntemiyle görüntünün genişliği ve yüksekliğine dayalı bir `PictureFrame` oluşturun.
-6. Resim çerçevesini (içindeki resimle birlikte) slayta ekleyin.
-7. Resim çerçevesinin çizgi rengini ayarlayın.
-8. Resim çerçevesinin çizgi kalınlığını ayarlayın.
-9. Resim çerçevesini pozitif ya da negatif bir değer vererek döndürün.
-   * Pozitif bir değer görüntüyü saat yönünde döndürür. 
-   * Negatif bir değer görüntüyü saat yönünün tersine döndürür.
-10. Resim çerçevesini (içindeki resimle birlikte) slayta ekleyin.
-11. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Bu C++ kodu, resim çerçevesi biçimlendirme sürecini göstermektedir:
-
-```c++
-// Belgeler dizinine giden yol.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// İstenen sunumu yükler
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// İlk slayta erişir
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// Sunumun görüntü koleksiyonuna eklenecek görüntüyü yükler
-// Resmi alır
-auto image = Images::FromFile(filePath);
-
-// Sunumun görüntü koleksiyonuna bir görüntü ekler
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Slayta bir resim çerçevesi ekler
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Göreli ölçek genişliğini ve yüksekliğini ayarlar
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//PPTX dosyasını diske yazar
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert title="İpucu" color="primary" %}}
-
-Aspose, yakın zamanda ücretsiz bir [Collage Maker](https://products.aspose.app/slides/tr/collage) geliştirdi. JPG/JPEG veya PNG görüntülerini birleştirmeniz, fotoğraflardan ızgara oluşturmanız gerektiğinde bu hizmeti kullanabilirsiniz. 
-
-{{% /alert %}}
-
-## **Bir Görüntüyü Bağlantı Olarak Ekleme**
-
-Sunum dosyalarının boyutunu büyük ölçüde azaltmak için, dosyaları doğrudan gömmek yerine bağlantılar üzerinden resim (veya video) ekleyebilirsiniz. Bu C++ kodu, bir yer tutucuya nasıl resim ve video ekleyeceğinizi gösterir:
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"input.pptx");
-auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-
-for (auto& autoShape : shapes)
-{
-    if (autoShape->get_Placeholder() == nullptr)
-        continue;
-
-    switch (autoShape->get_Placeholder()->get_Type())
-    {
-        case Aspose::Slides::PlaceholderType::Picture:
-        {
-            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
-            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-
-        case Aspose::Slides::PlaceholderType::Media:
-        {
-            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
-            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-    }
-}
-
-for (auto& shape : shapesToRemove)
-{
-    shapes->Remove(shape);
-}
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Görüntüleri Kırpma**
-
-Bu C++ kodu, bir slayd üzerindeki mevcut bir resmi nasıl kırpacağınızı gösterir: 
-
-```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
-    
-auto presentation = System::MakeObject<Presentation>();
-// Yeni resim nesnesi oluşturur
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// Slayta bir PictureFrame ekler
-auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
-
-// Görüntüyü kırpar (yüzde değerleri)
-picFrame->get_PictureFormat()->set_CropLeft(23.6f);
-picFrame->get_PictureFormat()->set_CropRight(21.5f);
-picFrame->get_PictureFormat()->set_CropTop(3.0f);
-picFrame->get_PictureFormat()->set_CropBottom(31.0f);
-
-// Sonucu kaydeder
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Bir Resmin Kırpılmış Alanlarını Silme**
-
-Bir çerçeve içinde bulunan bir görüntünün kırpılmış alanlarını silmek istiyorsanız, [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metodunu kullanabilirsiniz. Bu yöntem, kırpma gereksizse kırpılmış görüntüyü ya da orijinal görüntüyü döndürür.
-
-Bu C++ kodu, işlemi göstermektedir: 
-
-```c++
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// İlk slayttan PictureFrame'i alır
-System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
-
-// PictureFrame görüntüsünün kırpılmış alanlarını siler ve kırpılmış görüntüyü döndürür
-System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
-
-// Sonucu kaydeder
-presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-```
-
-{{% alert title="NOT" color="warning" %}} 
-
-[IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) yöntemi, kırpılmış görüntüyü sunumun görüntü koleksiyonuna ekler. Görüntü sadece işlenen [PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) içinde kullanılıyorsa, bu yapı sunum boyutunu azaltabilir. Aksi takdirde, sonuçtaki sunumdaki görüntü sayısı artar.
-
-Bu yöntem, kırpma işlemi sırasında WMF/EMF metafilelerini raster PNG görüntüsüne dönüştürür. 
-
-{{% /alert %}}
-
-## **Görüntüleri Sıkıştırma**
-
-Bir sunumdaki resmi, [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/compressimage/) yöntemiyle sıkıştırabilirsiniz.
-Bu yöntem, şekil boyutuna ve belirtilen çözünürlüğe göre görüntünün boyutunu azaltarak sıkıştırır ve kırpılmış alanları silme seçeneği sunar.
-
-Resmin boyut ve çözünürlüğünü PowerPoint'in **Picture Format → Compress Pictures → Resolution** özelliğine benzer şekilde ayarlar.
-
-Aşağıdaki C++ örnekleri, hedef bir çözünürlük belirleyerek ve isteğe bağlı olarak kırpılmış alanları kaldırarak bir sunumdaki resmi nasıl sıkıştıracağınızı göstermektedir:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Görüntüyü 150 DPI (Web çözünürlüğü) hedef çözünürlük ile sıkıştır ve kırpılmış alanları kaldır.
-bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-// Sıkıştırmanın sonucunu kontrol et.
-if (result)
-{
-    System::Console::WriteLine(u"Image successfully compressed.");
-}
-else
-{
-    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
-}
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pictureFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pictureFrame->get_LineFormat()->set_Width(3.0);
+pictureFrame->set_Rotation(15.0f);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Veya doğrudan özel bir DPI değeri kullanarak:
+Resim çerçevesi görüntülenen geometriyi kontrol eder; çerçeve boyutunu değiştirmek gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra görüntüyü kırpma veya sıkıştırma yapıldığında önem kazanır.
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
+## **Bağıl Ölçeği Kullan**
 
-// Görüntüyü 150 DPI (web çözünürlüğü) sıkıştırarak, kırpılmış alanları kaldır.
-pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
-
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-{{% alert title="NOT" color="warning" %}}
-
-Yöntem, şeklin boyutu ve sağlanan DPI'ye göre görüntüyü daha düşük bir çözünürlüğe dönüştürür. Kırpılmış bölgeler de dosya boyutunu optimize etmek için silinebilir.
-Görüntü bir metafile (WMF/EMF) veya SVG ise sıkıştırma uygulanmaz. Ayrıca JPEG kalitesi, çözünürlüğe bağlı olarak hafifçe düşebilir; bu, PowerPoint'in yüksek çözünürlüklü JPEG'leri nasıl ele aldığına benzer.
-
-{{% /alert %}}
-
-## **En-Boy Oranını Kilitleme**
-
-Bir görüntü içeren bir şeklin, görüntü boyutları değiştirildiğinde bile en-boy oranını korumasını istiyorsanız, *Lock Aspect Ratio* ayarını ayarlamak için [set_AspectRatioLocked()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) yöntemini kullanabilirsiniz. 
-
-Bu C++ kodu, bir şeklin en‑boy oranını nasıl kilitleyeceğinizi gösterir:
-
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
-System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
-
-System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
-
-System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
-
-// Şeklin yeniden boyutlandırmada en-boy oranını korumasını ayarla
-pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
-```
-
-{{% alert title="NOT" color="warning" %}} 
-
-Bu *Lock Aspect Ratio* ayarı yalnızca şeklin en‑boy oranını korur, içinde bulunan görüntüyü değil.
-
-{{% /alert %}}
-
-## **StretchOff Özelliğini Kullanma**
-
-[IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_picture_fill_format) arayüzü ve [PictureFillFormat](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_fill_format) sınıfındaki [StretchOffsetLeft](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) ve [StretchOffsetBottom](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) özelliklerini kullanarak bir doldurma dikdörtgeni belirtebilirsiniz. 
-
-Bir görüntünün uzatılması belirtildiğinde, kaynak dikdörtgen belirtilen doldurma dikdörtgenine sığacak şekilde ölçeklendirilir. Doldurma dikdörtgeninin her kenarı, şeklin sınırlayıcı kutusunun ilgili kenarından bir yüzde kaymasıyla tanımlanır. Pozitif bir yüzde içeri çekmeyi, negatif bir yüzde dışarı itmeyi gösterir.
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-2. İndeksi aracılığıyla bir slaydın referansını alın.
-3. Bir `AutoShape` dikdörtgeni ekleyin. 
-4. Bir görüntü oluşturun.
-5. Şeklin dolgu tipini ayarlayın.
-6. Şeklin resim dolgu modunu ayarlayın.
-7. Şekli dolduracak bir görüntü ekleyin.
-8. Görüntü ofsetlerini şeklin sınırlayıcı kutusunun ilgili kenarına göre belirtin.
-9. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
-
-Bu C++ kodu, StretchOff özelliğinin kullanıldığı bir süreci göstermektedir:
+[IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) çerçeve için bağıl genişlik ve yükseklik ölçeklemesini sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Bağıl ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuna bir ilişki koruması gerektiğinde kullanışlıdır.
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-auto slide = pres->get_Slide(0);
-auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-// Şekil gövdesinde görüntünün her taraftan gerildiğini ayarlar
-auto pictureFormat = pictureFrame->get_PictureFormat();
-pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
-pictureFormat->set_StretchOffsetLeft(24.0f);
-pictureFormat->set_StretchOffsetRight(24.0f);
-pictureFormat->set_StretchOffsetTop(24.0f);
-pictureFormat->set_StretchOffsetBottom(24.0f);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, image);
+pictureFrame->set_RelativeScaleWidth(1.35f);
+pictureFrame->set_RelativeScaleHeight(0.8f);
+
+presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+Bağıl ölçek, çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örnekleme veya sıkıştırma yapmaz.
+
+## **Gömülü ve Bağlantılı Görüntüler**
+
+Gömülü bir resim, görüntü verilerini sunum içinde depolar ve bu yüzden taşınabilirlik ve öngörülebilir render için en güvenli seçenektir. Bağlantılı bir resim, aynı şekilde görüntü verilerini gömmek yerine [ISlidesPicture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidespicture/) bağlantı yolu aracılığıyla harici bir konumu saklar.
+
+Bağlantılı görüntüler PPTX içinde depolanan görüntü verisi miktarını azaltabilir, ancak dış bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak kullanılamaz olursa, bağlantılı resim beklendiği gibi görüntülenmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamda render edilmesi gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
+
+### **Bağlantılı Bir Görüntü Ekle**
+
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir görüntü dosyasına yönlendirir. Bu sadece görüntü bağlantısını gösterir; video bağlantısı ayrı bir medya iş akışıdır ve kasıtlı olarak bu örneğe karıştırılmamıştır.
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, nullptr);
+auto linkPath = Path::GetFullPath(u"linked-image.jpg");
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(linkPath);
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Dış dosya yönetimi kasıtlıysa bağlantıları kullanın. Sıkıştırma yerine sadece bir yedekleme olarak kullanmayın: kırık görüntü bağımlılıklarına sahip küçük bir PPTX, genellikle daha büyük, bağımsız bir sunumdan daha az kullanışlıdır.
+
+## **Resimleri Resim Çerçevelerinden Çıkar**
+
+Mevcut bir sunumdan bir görüntüyü çıkarmadan önce, bir şeklin gerçekten bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) olduğu ve gömülü bir görüntü içerdiği doğrulanmalıdır. Bağlantılı resim çerçeveleri aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+
+### **Raster Görüntü Çıkar**
+
+Modern görüntü API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr || embeddedImage->get_SvgImage() != nullptr)
+    {
+        continue;
+    }
+
+    auto rasterImage = embeddedImage->get_Image();
+    rasterImage->Save(u"extracted-image.png", ImageFormat::Png);
+    break;
+}
+
+presentation->Dispose();
+```
+
+[IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunumda saklanan kodlanmış baytlara ihtiyacınız varsa, dönüştürülmüş raster dosya yerine görüntü kaynağının ikili verisini kullanın.
+
+### **SVG Görüntü Çıkar**
+
+SVG resmi için, [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) bir [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) nesnesi sunar. Bu sayede SVG verisini doğrudan alabilir, resmi önce rasterleştirmeniz gerekmez.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr)
+    {
+        continue;
+    }
+
+    auto svgImage = embeddedImage->get_SvgImage();
+    if (svgImage == nullptr)
+    {
+        continue;
+    }
+
+    File::WriteAllBytes(u"extracted-image.svg", svgImage->get_SvgData());
+    break;
+}
+
+presentation->Dispose();
+```
+
+SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarmalar bu vektör içeriği piksel olarak render eder. PDF veya SVG slayt dışa aktarması da bir render işlemi olduğundan, dışa aktarılan grafikler orijinal gömülü SVG'nin bayt‑bayt kopyası olarak görülmemelidir; orijinal vektör kaynağı gerektiğinde gömülü [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) verisi kullanılmalıdır.
+
+## **Bir Görüntüyü Kırp**
+
+Kırpma, çerçeve içinde görüntünün hangi kısmının görüneceğini değiştirir. [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) üzerindeki kırpma değerleri, kaynak görüntü boyutlarının yüzdesidir. Kırpma, gömülü görüntüden gizli pikselleri başlangıçta silmez; sadece görünür bölgeyi değiştirir.
+
+Aşağıdaki örnek bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    pictureFrame->get_PictureFormat()->set_CropLeft(23.6f);
+    pictureFrame->get_PictureFormat()->set_CropRight(21.5f);
+    pictureFrame->get_PictureFormat()->set_CropTop(3.0f);
+    pictureFrame->get_PictureFormat()->set_CropBottom(31.0f);
+    presentation->Save(u"cropped-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu, geri dönüşümden daha çok bir sorun ise, sonraki bölümde açıklanan şekilde kırpılmış bölgeler fiziksel olarak kaldırılabilir.
+
+## **Kırpılmış Görüntü Verisini Kaldır**
+
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) mevcut kırpma dikdörtgeni dışındaki görüntü verisini kaldırır ve sonuçtaki görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir kırpmayı geri alma işlemi için mevcut değildir.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"cropped-image.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto croppedImage = pictureFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+    if (croppedImage != nullptr)
+    {
+        presentation->Save(u"cropped-data-removed.pptx", SaveFormat::Pptx);
+    }
+}
+
+presentation->Dispose();
+```
+
+Bu yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü diğer resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynaklarını gerektirir; bu nedenle kırpılmış bölgelerin silinmesi toplam görüntü sayısını mutlaka azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG'ye rasterleştirir.
+
+## **Raster Görüntüleri Sıkıştır**
+
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/compressimage/) raster görüntü çözünürlüğünü, resmin görüntülendiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, resim yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
+
+Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlanmış bir [PicturesCompression](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/picturescompression/) değeri kullanın:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto compressed = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+    Console::WriteLine(compressed ? String(u"The image was compressed.") : String(u"No compression was necessary."));
+    presentation->Save(u"compressed-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Belirli bir hedef gerektiğinde bir enum değeri yerine özel pozitif DPI değeri de geçirilebilir.
+
+Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinmiş kırpılmış bölgelerin optimize edilmiş sunumdan geri getirilemeyeceğini unutmayın. Hedef çözünürlüğü, görüntünün gerçekte görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; küresel olarak en düşük DPI'yı uygulamaktan kaçının.
+
+## **Görüntü Dönüşüm Efektlerini Yönet**
+
+Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, denetleme, kaldırma ve çift yönlü doğrulama gibi tam bir iş akışı için [Image Transform Effects](/slides/tr/cpp/image-transform-effects/) bölümüne bakın.
+
+## **Resim Çerçevesi Geometrisini Kilitle**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakıldığını kontrol eder. Örneğin, [aspect-ratio lock](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) yeniden boyutlandırma sırasında şeklin oranını korur.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
+
+presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Kilitleme, resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
+
+## **StretchOffset Değerlerini Ayarla**
+
+Resim doldurma modu stretch olduğunda, [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri bir kenardan içe doğru bir boşluk oluştururken, negatif yüzde değerleri dışa doğru bir genişleme yapar.
+
+Bu, kırpmadan farklıdır. Kırpma değerleri kaynak görüntünün hangi kısmının görüneceğini seçerken, stretch offsetler görüntünün uzatılacağı dikdörtgeni değiştirir.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.png");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, image);
+pictureFrame->get_PictureFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFrame->get_PictureFormat()->set_StretchOffsetLeft(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetRight(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetTop(8.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetBottom(8.0f);
+
+presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Doldurma yerleştirmesi için stretch offsetleri kullanın. Kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
+
+## **Depolama, Dosya Boyutu ve Dışa Aktarma Hususları**
+
+Görüntü depolama ve resim‑çerçeve biçimlendirmesi ayrı ayrı ele alındığında temel tavizler yönetimi daha kolaydır:
+
+- **Gömülü görüntüler** sunumu bağımsız hâle getirir ve paylaşım ve sunucu tarafı render için en güvenilir olandır, ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görüntüler** paketi daha küçük tutabilir, ancak sunumun dış dosyaların belirtilen yollar veya konumlarda mevcut olmasına bağımlı olmasını gerektirir.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene veya sıkıştırma sırasında kaldırılıncaya kadar gömülü kalır.
+- **Sıkıştırma**, aşırı büyük raster görüntüler için dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Slayt üzerindeki hedef boyut bilindikten sonra uygulanmalıdır.
+- **SVG görüntüler**, vektör korumasının önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağı gerektiğinde gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarmaları her zaman render edilen slaytı piksele dönüştürür.
+- **Tekrarlanan görüntüler**, mümkün olduğunda aynı [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kaynağını yeniden kullanmalı, aynı dosyayı sunuma defalarca yüklemekten kaçınmalıdır.
+
+Büyük sunumlar için görüntü optimizasyonu genellikle seçici olarak yapıldığında en etkilidir: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutuna göre sıkıştırın, kırpılmış pikselleri yalnızca daha sonra düzenleme gerekmiyorsa kaldırın ve dış bağlantıları yalnızca bağımlılık yönetimi dağıtım tasarımının bir parçasıysa kullanın.
 
 ## **SSS**
 
-**PictureFrame için hangi görüntü formatlarının desteklendiğini nasıl öğrenebilirim?**
+**Bir resim çerçevesi ile bir görüntü kaynağı arasındaki fark nedir?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) içine atanan görüntü nesnesi üzerinden raster görüntüler (PNG, JPEG, BMP, GIF vb.) ve vektör görüntüler (örneğin SVG) desteği sunar. Desteklenen formatların listesi genellikle slayt ve görüntü dönüştürme motorunun yetenekleriyle örtüşür.
+[IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) sunuma bağlı bir görüntü kaynağını temsil eder. [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) bir slayttaki şekildir ve bir görüntüyü gösterir; çerçeve‑seviyesinde boyut, döndürme, kırpma değerleri, efektler ve kilitlemeler gibi biçimlendirmeleri depolar.
 
-**Yüzlerce büyük görüntü eklemek PPTX dosyasının boyutunu ve performansını nasıl etkiler?**
+**Görüntüleri gömmeli miyim yoksa bağlamalı mı?**
 
-Büyük görüntüleri gömmek dosya boyutunu ve bellek kullanımını artırır; görüntülere bağlantı vermek sunum boyutunu düşük tutar ancak harici dosyaların erişilebilir olmasını gerektirir. Aspose.Slides, dosya boyutunu azaltmak için bağlantı yoluyla resim ekleme imkanı sağlar.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklar olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına tutmak ve dış konumların güvenilir şekilde yönetilebileceği durumlarda yalnızca bağlayın.
 
-**Bir görüntü nesnesini yanlışlıkla hareket ettirilmekten/yeniden boyutlandırılmaktan nasıl koruyabilirim?**
+**Kırpma PPTX dosya boyutunu azaltır mı?**
 
-[PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) için [shape locks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/get_pictureframelock/) kullanın (örneğin hareketi veya yeniden boyutlandırmayı devre dışı bırakın). Kilitleme mekanizması, şekiller için ayrı bir [protection article](/slides/tr/cpp/applying-protection-to-presentation/) içinde açıklanmıştır ve [PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) dahil çeşitli şekil tipleri için desteklenir.
+Tek başına azaltmaz. Normal kırpma ayarları, kaynak görüntünün parçalarını gizler ancak altındaki pikselleri tutar. Kırpılmış bölgeleri tamamen kaldırmak için [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) veya kırpılmış alan kaldırma içeren görüntü sıkıştırmasını kullanın.
 
-**Bir sunumu PDF/görüntülere dışa aktarırken SVG vektör bütünlüğü korunur mu?**
+**Sıkıştırmadan sonra görüntü kalitesini geri getirebilir miyim?**
 
-Aspose.Slides, bir [PictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pictureframe/) içinden SVG'yi orijinal vektör olarak çıkarabilir. PDF'ye [/slides/tr/cpp/convert-powerpoint-to-pdf/] veya raster formatlara [/slides/tr/cpp/convert-powerpoint-to-png/] dışa aktarırken, sonuç ayarlara bağlı olarak rasterleştirilebilir; orijinal SVG'nin vektör olarak depolandığı çıkarım davranışıyla doğrulanır.
+Hayır. Sıkıştırma depolanan raster çözünürlüğü düşürebilir ve kırpılmış bölgelerin kaldırılması görüntü verisini yok eder. Daha sonra yüksek çözünürlüklü düzenleme gerekebileceği durumlarda orijinal kaynak görüntüyü sunum dışında tutun.
+
+**SVG görüntüler nasıl ele alınmalı?**
+
+Vektör bütünlüğünün önemsediği durumlarda SVG içeriğini SVG olarak tutun; gömülü [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster formatlara slayt render edildiğinde SVG piksele rasterleştirilir.
+
+**Mevcut slaytları okurken güvenli olmayan tip dönüşümlerinden nasıl kaçınılır?**
+
+Resim‑çerçeve‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ile denetleyin, ardından çalışma zamanında tip dönüşümünü uygulayın ve dönüşüm sonucunu yerel bir değişkende tutarak çerçeve‑özel üyelere erişin.

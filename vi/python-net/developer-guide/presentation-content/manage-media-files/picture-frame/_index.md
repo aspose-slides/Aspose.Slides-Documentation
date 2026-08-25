@@ -1,481 +1,339 @@
 ---
-title: Thêm Khung Hình Ảnh vào Bản Trình Chiếu với Python
-linktitle: Khung Hình Ảnh
+title: Quản lý Khung Ảnh trong Bản Trình Chiếu bằng Python
+linktitle: Khung Ảnh
 type: docs
 weight: 10
 url: /vi/python-net/picture-frame/
 keywords:
-- khung hình ảnh
-- thêm khung hình ảnh
-- tạo khung hình ảnh
-- thêm hình ảnh
-- tạo hình ảnh
-- trích xuất hình ảnh
-- hình ảnh raster
-- hình ảnh vector
-- cắt hình ảnh
-- vùng đã cắt
-- thuộc tính StretchOff
-- định dạng khung hình ảnh
-- thuộc tính khung hình ảnh
+- khung ảnh
+- thêm khung ảnh
+- tạo khung ảnh
+- ảnh nhúng
+- ảnh liên kết
+- trích xuất ảnh
+- ảnh raster
+- ảnh SVG
+- cắt ảnh
+- xóa các khu vực đã cắt
+- nén ảnh
+- StretchOffset
+- định dạng khung ảnh
 - tỷ lệ tương đối
-- hiệu ứng hình ảnh
-- tỷ lệ khung
-- trong suốt hình ảnh
+- hiệu ứng ảnh
+- tỷ lệ khung hình
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Thêm khung hình ảnh vào các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Python qua .NET. Đơn giản hoá quy trình làm việc và nâng cao thiết kế slide."
+description: "Tạo, định dạng, liên kết, cắt, trích xuất và nén khung ảnh trong bản trình chiếu với Aspose.Slides cho Python qua .NET."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khung hình ảnh trong Aspose.Slides for Python cho phép bạn đặt và quản lý các hình ảnh raster và vector như các hình dạng slide gốc. Bạn có thể chèn hình ảnh từ tệp hoặc luồng, định vị và thay đổi kích thước chúng bằng các tọa độ chính xác, áp dụng xoay, đặt độ trong suốt và kiểm soát thứ tự z cùng với các hình dạng khác. API cũng hỗ trợ cắt, duy trì tỷ lệ khung hình, thiết lập viền và hiệu ứng, cũng như thay thế hình ảnh nền mà không cần xây dựng lại bố cục. Vì khung hình ảnh hoạt động giống như các hình dạng thông thường, bạn có thể thêm hoạt ảnh, siêu liên kết và văn bản thay thế, giúp việc tạo các bản trình bày giàu hình ảnh và có khả năng truy cập trở nên đơn giản.
+Khung ảnh là một hình dạng trên slide hiển thị một hình ảnh. Trong Aspose.Slides, tài nguyên hình ảnh và hình dạng hiển thị nó là các đối tượng riêng biệt: một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) sở hữu các tài nguyên ảnh được nhúng thông qua [ImageCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/), trong khi một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) kiểm soát vị trí, kích thước, định dạng đường viền, xoay, cắt, hiệu ứng hình ảnh và các cài đặt cấp khung khác.
 
-## **Tạo Khung Hình Ảnh**
+Sự tách biệt này hữu ích khi cùng một hình ảnh được hiển thị nhiều lần. Thêm hình ảnh vào bản trình chiếu một lần, giữ lại đối tượng [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) trả về và sử dụng tài nguyên hình ảnh đó khi tạo khung ảnh.
 
-Phần này trình bày cách chèn một hình ảnh vào slide bằng cách tạo một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) với Aspose.Slides for Python. Bạn sẽ học cách tải hình ảnh, đặt nó chính xác trên slide và kiểm soát kích thước cùng định dạng.
+Khung ảnh có thể chứa các hình ảnh raster như PNG hoặc JPEG và các hình ảnh vector SVG. Chúng cũng có thể tham chiếu đến các hình ảnh được liên kết thay vì lưu trữ dữ liệu ảnh trong bản trình chiếu. Lựa chọn này ảnh hưởng đến tính di động, kích thước tệp, việc trích xuất và hành vi xuất, vì vậy việc quyết định cách lưu trữ hình ảnh trước khi áp dụng định dạng hoặc tối ưu là cần thiết.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-2. Lấy một slide theo chỉ số của nó.
-3. Tạo một [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) bằng cách thêm hình ảnh vào [ImageCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/) của bản trình chiếu. Hình ảnh này sẽ được dùng để làm nền cho hình dạng.
-4. Xác định chiều rộng và chiều cao của khung.
-5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) có kích thước này bằng phương thức [add_picture_frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Lưu bản trình chiếu dưới dạng tệp PPTX.
+## **Thêm và Định dạng Hình ảnh Nhúng**
 
-Mã Python sau cho thấy cách tạo một khung hình ảnh:
+Đối với hình ảnh nhúng, thêm dữ liệu ảnh vào bản trình chiếu và tạo một khung ảnh bằng [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_picture_frame/). Hình ảnh sẽ trở thành một phần của gói bản trình chiếu, do đó bản trình chiếu vẫn tự chứa khi được chuyển sang máy tính khác.
 
-```py
-import aspose.slides as slides
-
-# Khởi tạo lớp Presentation để đại diện cho tệp PPTX.
-with slides.Presentation() as presentation:
-    # Lấy slide đầu tiên.
-    slide = presentation.slides[0]
-
-    # Thêm hình ảnh vào bản trình chiếu.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Thêm một khung hình ảnh có kích thước tương ứng với hình.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Lưu bản trình chiếu dưới dạng PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-Khung hình ảnh cho phép bạn nhanh chóng tạo các slide trình chiếu từ hình ảnh. Khi kết hợp khung hình ảnh với các tùy chọn lưu của Aspose.Slides, bạn có thể kiểm soát các thao tác I/O để chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Bạn có thể tham khảo các trang sau: chuyển đổi [image to JPG](https://products.aspose.com/slides/vi/python-net/conversion/image-to-jpg/); chuyển đổi [JPG to image](https://products.aspose.com/slides/vi/python-net/conversion/jpg-to-image/); chuyển đổi [JPG to PNG](https://products.aspose.com/slides/vi/python-net/conversion/jpg-to-png/); chuyển đổi [PNG to JPG](https://products.aspose.com/slides/vi/python-net/conversion/png-to-jpg/); chuyển đổi [PNG to SVG](https://products.aspose.com/slides/vi/python-net/conversion/png-to-svg/); chuyển đổi [SVG to PNG](https://products.aspose.com/slides/vi/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Tạo Khung Hình Ảnh với Tỷ Lệ Tương Đối**
-
-Phần này minh họa cách đặt một hình ảnh với kích thước cố định, sau đó áp dụng tỷ lệ phần trăm riêng biệt cho chiều rộng và chiều cao. Vì các phần trăm có thể khác nhau, tỷ lệ khung hình có thể thay đổi. Việc phóng to/thu nhỏ được thực hiện dựa trên kích thước gốc của hình ảnh.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) .
-2. Lấy một slide theo chỉ số của nó.
-3. Tạo một [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) bằng cách thêm hình ảnh vào [ImageCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/) của bản trình chiếu.
-4. Thêm một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) vào slide.
-5. Đặt chiều rộng và chiều cao tương đối cho khung hình ảnh.
-6. Lưu bản trình chiếu dưới dạng tệp PPTX.
-
-Mã Python sau cho thấy cách tạo một khung hình ảnh với tỷ lệ tương đối:
-
-```py
-import aspose.slides as slides
-
-# Khởi tạo lớp Presentation để đại diện cho tệp PPTX.
-with slides.Presentation() as presentation:
-    # Lấy slide đầu tiên.
-    slide = presentation.slides[0]
-
-    # Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Thêm một khung hình ảnh vào slide.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Đặt tỷ lệ chiều rộng và chiều cao tương đối.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Lưu bản trình chiếu.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Trích Xuất Hình Ảnh Raster từ Khung Hình Ảnh**
-
-Bạn có thể trích xuất các hình ảnh raster từ các đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) và lưu chúng dưới dạng PNG, JPG và các định dạng khác. Ví dụ mã bên dưới minh họa cách trích xuất một hình ảnh từ tài liệu “sample.pptx” và lưu nó ở định dạng PNG.
+Ví dụ sau thêm một hình ảnh JPEG, tạo khung ở kích thước gốc của ảnh, và áp dụng định dạng đường viền cùng việc xoay:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **Trích Xuất Hình Ảnh SVG từ Khung Hình Ảnh**
-
-Khi một bản trình chiếu chứa đồ họa SVG được đặt bên trong các hình dạng [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/), Aspose.Slides for Python via .NET cho phép bạn lấy lại các hình ảnh vector gốc với độ trung thực đầy đủ. Bằng cách duyệt qua bộ sưu tập hình dạng của slide, bạn có thể xác định từng [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/), kiểm tra xem [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) nền có chứa nội dung SVG hay không, rồi lưu hình ảnh đó ra đĩa hoặc luồng ở định dạng SVG gốc.
-
-Mã mẫu sau minh họa cách trích xuất một hình ảnh SVG từ khung hình ảnh:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Lấy Độ Trong Suốt Của Hình Ảnh**
-
-Aspose.Slides cho phép bạn lấy hiệu ứng trong suốt được áp dụng cho một hình ảnh. Đoạn mã Python sau thể hiện thao tác này:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Tất cả các hiệu ứng được áp dụng cho hình ảnh có thể được tìm thấy trong [aspose.slides.effects](https://reference.aspose.com/slides/vi/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Lấy Độ Sáng và Độ Tương Phản Của Hình Ảnh**
-
-Aspose.Slides cho phép bạn lấy hiệu ứng độ sáng và độ tương phản được áp dụng cho một hình ảnh. Lớp [Luminance](https://reference.aspose.com/slides/vi/python-net/aspose.slides.effects/luminance/) đại diện cho hiệu ứng chuyển đổi này.
-
-Đoạn mã Python sau minh họa cách lấy các cài đặt độ sáng và độ tương phản từ một khung hình ảnh:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Định Dạng Khung Hình Ảnh**
-
-Aspose.Slides cung cấp nhiều tùy chọn định dạng mà bạn có thể áp dụng cho một khung hình ảnh. Với các tùy chọn này, bạn có thể điều chỉnh khung hình ảnh để đáp ứng các yêu cầu cụ thể.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) .
-2. Lấy một slide theo chỉ số của nó.
-3. Tạo một [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) bằng cách thêm hình ảnh vào [ImageCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imagecollection/) của bản trình chiếu. Hình ảnh này sẽ được dùng để làm nền cho hình dạng.
-4. Xác định chiều rộng và chiều cao của khung.
-5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) có kích thước này bằng phương thức [add_picture_frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_picture_frame/) của slide.
-6. Đặt màu đường viền cho khung hình ảnh.
-7. Đặt độ rộng đường viền cho khung hình ảnh.
-8. Xoay khung hình ảnh bằng cách cung cấp một giá trị dương (theo chiều kim đồng hồ) hoặc âm (ngược chiều kim đồng hồ).
-9. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-Đoạn mã Python sau minh họa quy trình định dạng khung hình ảnh:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Khởi tạo lớp Presentation để đại diện cho tệp PPTX.
 with slides.Presentation() as presentation:
-    # Lấy slide đầu tiên.
     slide = presentation.slides[0]
 
-    # Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Thêm một khung hình ảnh có kích thước tương ứng với hình.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Áp dụng định dạng cho khung hình ảnh.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Lưu bản trình chiếu dưới dạng PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose đã phát triển một công cụ miễn phí [Collage Maker](https://products.aspose.app/slides/vi/collage). Nếu bạn cần [kết hợp JPG/JPEG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG, hoặc [tạo lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), bạn có thể sử dụng dịch vụ này.
-{{% /alert %}}
+Khung ảnh kiểm soát hình học được hiển thị; việc thay đổi kích thước khung không thay đổi kích thước pixel gốc được lưu trong tài nguyên hình ảnh nhúng. Sự khác biệt này trở nên quan trọng khi cắt hoặc nén ảnh sau này.
 
-## **Thêm Hình Ảnh dưới Dạng Liên Kết**
+## **Sử dụng Tỷ lệ Tương đối**
 
-Để giữ cho các tệp bản trình chiếu có kích thước nhỏ, bạn có thể thêm hình ảnh hoặc video dưới dạng liên kết thay vì nhúng trực tiếp các tệp vào bản trình chiếu. Đoạn mã Python sau cho thấy cách chèn một hình ảnh và một video vào một placeholder:
+[PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) cung cấp [relative_scale_width](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/relative_scale_width/) và [relative_scale_height](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/relative_scale_height/) cho khung. Giá trị `1.0` tương đương với 100% kích thước ảnh gốc. Tỷ lệ tương đối hữu ích khi quy trình công việc cần giữ mối quan hệ với kích thước ảnh nguồn thay vì tính toán kích thước cuối cùng thủ công.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Tỷ lệ tương đối thay đổi cài đặt tỉ lệ của khung; nó không thực hiện lấy mẫu lại hoặc nén ảnh nhúng.
+
+## **Hình ảnh Nhúng và Liên kết**
+
+Một hình ảnh nhúng lưu trữ dữ liệu ảnh bên trong bản trình chiếu và do đó là lựa chọn an toàn nhất cho tính di động và việc hiển thị dự đoán được. Một hình ảnh liên kết lưu trữ vị trí bên ngoài thông qua đường dẫn liên kết [Picture](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picture/) thay vì nhúng dữ liệu ảnh theo cùng cách.
+
+Hình ảnh liên kết có thể giảm lượng dữ liệu ảnh lưu trong PPTX, nhưng chúng tạo ra một phụ thuộc bên ngoài. Tệp liên kết phải vẫn có thể truy cập được đối với ứng dụng mở hoặc render bản trình chiếu. Nếu đường dẫn thay đổi, tệp bị di chuyển, hoặc tài nguyên không khả dụng, hình ảnh liên kết có thể không hiển thị như mong đợi. Đối với các bản trình chiếu cần được gửi qua email, lưu trữ, hoặc render trong môi trường cô lập, hình ảnh nhúng thường đáng tin cậy hơn.
+
+### **Thêm Hình ảnh Liên kết**
+
+Ví dụ sau tạo một khung ảnh và trỏ nó tới tệp ảnh cục bộ. Nó chỉ xử lý việc liên kết ảnh; việc liên kết video là một quy trình truyền thông riêng và không được trộn vào ví dụ này.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Sử dụng liên kết khi việc quản lý tệp bên ngoài là có chủ ý. Đừng sử dụng chúng chỉ để thay thế cho việc nén: một PPTX nhỏ với các phụ thuộc ảnh bị hỏng thường kém hữu ích hơn so với một bản trình chiếu lớn tự chứa.
+
+## **Trích xuất Hình ảnh từ Khung Ảnh**
+
+Trước khi trích xuất ảnh từ một bản trình chiếu hiện có, kiểm tra xem hình dạng thực sự là một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) và rằng nó chứa một ảnh nhúng. Các khung ảnh liên kết có thể không chứa dữ liệu ảnh có thể trích xuất theo cùng cách.
+
+### **Trích xuất Hình ảnh Raster**
+
+API hình ảnh hiện đại sử dụng [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) trực tiếp. Ví dụ sau tìm ảnh raster nhúng đầu tiên trên một slide và lưu nó dưới dạng PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Cắt Hình Ảnh**
+Lưu qua [IImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iimage/) chuyển đổi ảnh đã trích xuất sang định dạng đầu ra được yêu cầu. Nếu bạn cần các byte đã mã hoá được lưu trong bản trình chiếu thay vì tệp raster đã chuyển đổi, hãy sử dụng thuộc tính [PPImage.binary_data](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/binary_data/) thay thế.
 
-Trong phần này, bạn sẽ học cách cắt vùng hiển thị của một hình ảnh trong khung hình ảnh mà không làm thay đổi tệp nguồn. Bạn cũng sẽ học phương pháp cơ bản để áp dụng các lề cắt nhằm tạo ra một bố cục sạch sẽ, tập trung trực tiếp trên slide.
+### **Trích xuất Hình ảnh SVG**
 
-Đoạn mã Python sau cho thấy cách cắt một hình ảnh trên slide:
+Đối với ảnh SVG, [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) cung cấp một đối tượng [SvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/). Điều này cho phép bạn lấy dữ liệu SVG trực tiếp thay vì raster hoá ảnh trước.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Giữ nội dung SVG dưới dạng SVG bảo tồn nguồn vector bên trong bản trình chiếu. Các xuất raster như PNG hoặc JPEG bắt buộc phải render nội dung vector thành pixel. Xuất slide sang PDF hoặc SVG cũng là một thao tác render, vì vậy đồ họa đã xuất không nên được coi là bản sao byte‑for‑byte của SVG nhúng gốc; hãy sử dụng [SvgImage.svg_data](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/svg_data/) khi cần tài nguyên vector gốc.
+
+## **Cắt Ảnh**
+
+Cắt thay đổi phần ảnh nào hiển thị trong khung. Các giá trị cắt trên [PictureFillFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/) là phần trăm của kích thước ảnh nguồn. Cắt không xóa ngay các pixel ẩn khỏi ảnh nhúng; nó chỉ thay đổi vùng hiển thị.
+
+Ví dụ sau tìm một khung ảnh một cách an toàn và áp dụng các giá trị cắt:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Vì dữ liệu ảnh ẩn vẫn còn tồn tại, việc cắt có thể được thay đổi sau mà không mất pixel gốc. Nếu kích thước tệp quan trọng hơn tính khả dụng lại, các vùng đã cắt có thể được loại bỏ thực sự như mô tả trong phần tiếp theo.
+
+## **Xóa Dữ liệu Ảnh Đã Cắt**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) loại bỏ dữ liệu ảnh nằm ngoài hình chữ nhật cắt hiện tại và trả về tài nguyên ảnh kết quả. Điều này có thể giảm kích thước tệp, nhưng là một tối ưu phá hủy: sau khi bản trình chiếu được lưu, các pixel đã xóa không còn khả dụng cho thao tác hủy cắt sau này.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Phương thức có thể thêm một tài nguyên ảnh mới vào bản trình chiếu. Nếu ảnh gốc cũng được các khung ảnh khác sử dụng, những khung đó vẫn cần tài nguyên hiện có, vì vậy việc xóa các khu vực đã cắt không nhất thiết giảm tổng số ảnh. Cắt nội dung WMF hoặc EMF bằng phương thức này raster hoá kết quả đã cắt thành PNG.
+
+## **Nén Hình ảnh Raster**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/compress_image/) giảm độ phân giải ảnh raster so với kích thước mà ảnh được hiển thị. Nó cũng có thể loại bỏ các vùng đã cắt trong cùng một thao tác. Phương thức trả về `True` khi ảnh đã được thay đổi kích thước hoặc cắt và `False` khi không có thay đổi nào cần thiết.
+
+Sử dụng một giá trị [PicturesCompression](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/picturescompression/) định sẵn khi độ phân giải mục tiêu tiêu chuẩn là đủ:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Một giá trị DPI dương tùy chỉnh có thể được truyền vào thay cho giá trị enum khi cần mục tiêu cụ thể.
+
+Nén được thiết kế cho ảnh raster. Nội dung SVG và metafile không bị giảm qua quy trình nén raster này. Cũng nhớ rằng độ phân giải thấp hơn và các khu vực đã cắt bị xóa không thể khôi phục từ bản trình chiếu đã tối ưu. Chọn độ phân giải mục tiêu dựa trên kích thước lớn nhất mà ảnh sẽ thực sự được xem hoặc xuất, thay vì áp dụng DPI thấp nhất cho toàn bộ.
+
+## **Quản lý Hiệu ứng Biến đổi Ảnh**
+
+Đối với một quy trình đầy đủ bao gồm độ sáng, độ tương phản, biến đổi màu, làm mờ, hiệu ứng alpha, chuỗi có thứ tự, kiểm tra, loại bỏ và xác minh vòng lại, xem [Image Transform Effects](/slides/vi/python-net/image-transform-effects/).
+
+## **Khóa Hình học Khung Ảnh**
+
+Cài đặt [PictureFrameLock](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframelock/) điều khiển các thao tác chỉnh sửa nào bị vô hiệu hoá cho một khung ảnh. Ví dụ, thuộc tính [aspect_ratio_locked](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) giữ tỷ lệ hình dạng khi nó được thay đổi kích thước.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Thêm một khung hình ảnh vào slide.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Cắt hình ảnh (giá trị phần trăm).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Lưu kết quả.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Xóa Các Vùng Đã Cắt Của Hình Ảnh**
-
-Nếu bạn muốn xóa các vùng đã cắt của một hình ảnh trong khung, hãy sử dụng phương thức [delete_picture_cropped_areas](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Phương thức này trả về hình ảnh đã cắt, hoặc hình ảnh gốc nếu không cần cắt.
-
-Đoạn mã Python sau minh họa thao tác này:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Lấy PictureFrame từ slide đầu tiên.
-    picture_frame = slides.shape[0]
-
-    # Lấy PictureFrame từ slide đầu tiên.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Lưu kết quả.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Phương thức [delete_picture_cropped_areas](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) thêm hình ảnh đã cắt vào bộ sưu tập hình ảnh của bản trình chiếu. Nếu hình ảnh chỉ được sử dụng trong [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) đã xử lý, việc này có thể giảm kích thước bản trình chiếu; nếu không, số lượng hình ảnh trong bản trình chiếu kết quả có thể tăng.
-
-Trong quá trình cắt, phương thức này chuyển đổi các tệp metafile WMF/EMF sang hình ảnh raster PNG.
-{{% /alert %}}
-
-## **Nén Hình Ảnh**
-
-Bạn có thể nén một hình ảnh trong bản trình chiếu bằng phương thức [PictureFillFormat.compress_image](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/compress_image/).
-Phương thức này nén hình ảnh bằng cách giảm kích thước dựa trên kích thước hình dạng và độ phân giải được chỉ định, với tùy chọn xóa các vùng đã cắt.
-
-Nó điều chỉnh kích thước và độ phân giải của hình ảnh tương tự như tính năng **Picture Format -> Compress Pictures -> Resolution** của PowerPoint.
-
-Các ví dụ Python sau minh họa cách nén một hình ảnh trong bản trình chiếu bằng cách chỉ định độ phân giải mục tiêu và tùy chọn xóa các vùng đã cắt:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Nén hình ảnh với độ phân giải mục tiêu 150 DPI (độ phân giải Web) và xóa các khu vực đã cắt.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Kiểm tra kết quả của quá trình nén.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Hoặc sử dụng giá trị DPI tùy chỉnh trực tiếp:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Nén hình ảnh tới 150 DPI (độ phân giải web), xóa các khu vực đã cắt.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Phương thức này chuyển đổi hình ảnh sang độ phân giải thấp hơn dựa trên kích thước của hình dạng và DPI được cung cấp. Các vùng đã cắt cũng có thể bị xóa để tối ưu kích thước tệp.
-Nếu hình ảnh là một metafile (WMF/EMF) hoặc SVG, việc nén sẽ không được áp dụng. Ngoài ra, chất lượng JPEG được bảo lưu hoặc giảm nhẹ tùy theo độ phân giải, tương tự như cách PowerPoint xử lý JPEG độ phân giải cao.
-{{% /alert %}}
-
-## **Khóa Tỷ Lệ Khung Hình**
-
-Nếu bạn muốn một hình dạng chứa hình ảnh giữ nguyên tỷ lệ khung sau khi thay đổi kích thước của hình ảnh, hãy đặt thuộc tính [aspect_ratio_locked](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) thành `True`.
-
-Đoạn mã Python sau cho thấy cách khóa tỷ lệ khung của một hình dạng:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Khóa tỷ lệ khung khi thay đổi kích thước.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Cài đặt *Lock Aspect Ratio* này chỉ bảo tồn tỷ lệ khung của hình dạng, không phải tỷ lệ khung của hình ảnh bên trong nó.
-{{% /alert %}}
+Khóa áp dụng cho hình dạng khung ảnh. Nó không buộc ảnh nguồn phải được lấy mẫu lại hoặc thay đổi vĩnh viễn thành cùng tỷ lệ.
 
-## **Sử Dụng Các Thuộc Tính Stretch Offset**
+## **Điều chỉnh Giá trị StretchOffset**
 
-Bằng cách sử dụng các thuộc tính `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` và `stretch_offset_bottom` của lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/), bạn có thể định nghĩa một hình chữ nhật lấp đầy.
+Khi chế độ lấp đầy ảnh là stretch, các giá trị stretch‑offset trên [PictureFillFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/) xác định hình chữ nhật lấp đầy tương đối với hộp bao của khung ảnh. Phần trăm dương tạo ra một phần lùi vào từ cạnh, trong khi phần trăm âm tạo ra một phần mở rộng ra ngoài.
 
-Khi được chỉ định stretch cho một hình ảnh, hình chữ nhật nguồn sẽ được thu phóng để vừa với hình chữ nhật lấp đầy. Mỗi cạnh của hình chữ nhật lấp đầy được xác định bằng một phần trăm độ lệch so với cạnh tương ứng của hộp bao quanh của hình dạng. Một phần trăm dương chỉ ra inset, trong khi một phần trăm âm chỉ ra outset.
+Điều này khác với cắt. Giá trị cắt chọn phần ảnh nguồn nào được hiển thị; các offset stretch thay đổi hình chữ nhật mà phần ảnh lấp đầy được kéo dãn vào.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) .
-2. Lấy tham chiếu tới một slide theo chỉ số của nó.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) dạng hình chữ nhật.
-4. Đặt loại fill cho hình dạng.
-5. Đặt chế độ fill ảnh cho hình dạng.
-6. Tải một hình ảnh.
-7. Gán hình ảnh để fill cho hình dạng.
-8. Xác định độ lệch của hình ảnh từ các cạnh tương ứng của hộp bao quanh của hình dạng.
-9. Lưu bản trình chiếu dưới dạng tệp PPTX.
-
-Đoạn mã Python sau minh họa cách sử dụng các thuộc tính Stretch Offset:
-
-```py
+```python
 import aspose.slides as slides
 
-# Khởi tạo lớp Presentation đại diện cho tệp PPTX.
 with slides.Presentation() as presentation:
-    # Lấy slide đầu tiên.
     slide = presentation.slides[0]
 
-    # Thêm một AutoShape dạng hình chữ nhật.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Đặt loại fill cho hình dạng.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Đặt chế độ fill ảnh cho hình dạng.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Tải hình ảnh và thêm vào bản trình chiếu.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Gán hình ảnh để fill cho hình dạng.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Xác định độ lệch của hình ảnh từ các cạnh tương ứng của hộp bao quanh của hình dạng.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Lưu tệp PPTX vào đĩa.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose cung cấp các công cụ chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—giúp bạn nhanh chóng tạo bản trình chiếu từ hình ảnh.
-{{% /alert %}}
+Sử dụng stretch offsets để đặt vị trí lấp đầy. Sử dụng thuộc tính cắt khi mục tiêu là ẩn các cạnh của ảnh nguồn.
 
-## **Câu Hỏi Thường Gặp**
+## **Lưu trữ, Kích thước Tệp và Các Lưu ý Khi Xuất**
 
-**Làm thế nào để tôi biết những định dạng hình ảnh nào được hỗ trợ cho PictureFrame?**
+Những cân nhắc chính dễ quản lý hơn khi việc lưu trữ ảnh và định dạng khung ảnh được xem xét riêng biệt:
 
-Aspose.Slides hỗ trợ cả hình ảnh raster (PNG, JPEG, BMP, GIF, v.v.) và hình ảnh vector (ví dụ, SVG) thông qua đối tượng ảnh được gán cho một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/). Danh sách các định dạng được hỗ trợ thường trùng với khả năng của engine chuyển đổi slide và hình ảnh.
+- **Ảnh nhúng** làm cho bản trình chiếu tự chứa và là đáng tin cậy nhất cho việc chia sẻ và render phía máy chủ, nhưng các ảnh raster lớn làm tăng kích thước PPTX và nhu cầu bộ nhớ.
+- **Ảnh liên kết** có thể giữ gói nhỏ hơn, nhưng bản trình chiếu phụ thuộc vào các tệp bên ngoài phải vẫn khả dụng tại các đường dẫn hoặc vị trí đã lưu.
+- **Cắt ảnh** ban đầu là không phá hủy. Các pixel ẩn vẫn được nhúng cho tới khi các khu vực đã cắt được xóa rõ ràng hoặc loại bỏ trong quá trình nén.
+- **Nén** có thể giảm đáng kể kích thước tệp cho các ảnh raster quá lớn, nhưng nó hy sinh độ phân giải nguồn. Nên áp dụng sau khi biết kích thước cuối cùng trên slide.
+- **Ảnh SVG** nên giữ dưới dạng SVG khi việc bảo tồn vector quan trọng. Trích xuất SVG nhúng trực tiếp khi bạn cần tài nguyên vector. Các xuất slide raster luôn chuyển đổi slide đã render thành pixel.
+- **Ảnh lặp lại** nên tái sử dụng một tài nguyên [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) hiện có khi có thể thay vì tải cùng tệp nhiều lần vào quy trình làm việc.
 
-**Việc thêm hàng chục hình ảnh lớn sẽ ảnh hưởng như thế nào đến kích thước và hiệu năng của PPTX?**
+Đối với các bản trình chiếu lớn, tối ưu hóa ảnh thường hiệu quả nhất khi thực hiện có chọn lọc: giữ logo và sơ đồ dưới dạng nội dung vector, nén ảnh chụp theo kích thước hiển thị thực tế, loại bỏ pixel đã cắt chỉ khi không cần chỉnh sửa sau, và tránh liên kết bên ngoài trừ khi quản lý phụ thuộc là một phần của thiết kế triển khai.
 
-Nhúng hình ảnh lớn làm tăng kích thước tệp và mức sử dụng bộ nhớ; liên kết hình ảnh giúp giảm kích thước bản trình chiếu nhưng đòi hỏi các tệp bên ngoài phải luôn khả dụng. Aspose.Slides cung cấp khả năng thêm hình ảnh bằng liên kết để giảm kích thước tệp.
+## **FAQ**
 
-**Làm sao tôi có thể khóa một đối tượng hình ảnh tránh việc di chuyển/điều chỉnh kích thước vô tình?**
+**Khác biệt giữa khung ảnh và tài nguyên ảnh là gì?**
 
-Sử dụng [shape locks](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/picture_frame_lock/) cho một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) (ví dụ, vô hiệu hoá di chuyển hoặc thay đổi kích thước). Cơ chế khóa được mô tả cho các hình dạng trong một [bài viết bảo vệ](/slides/vi/python-net/applying-protection-to-presentation/) riêng và được hỗ trợ cho nhiều loại hình dạng, bao gồm [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/).
+Một [PPImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ppimage/) đại diện cho tài nguyên ảnh liên kết với bản trình chiếu. Một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) là một hình dạng trên slide hiển thị ảnh và lưu trữ các thuộc tính cấp khung như kích thước, xoay, giá trị cắt, hiệu ứng và khóa.
 
-**Độ trung thực của vector SVG có được giữ nguyên khi xuất bản trình chiếu sang PDF/hình ảnh không?**
+**Tôi nên nhúng hay liên kết ảnh?**
 
-Aspose.Slides cho phép trích xuất một SVG từ một [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/) dưới dạng vector gốc. Khi [xuất ra PDF](/slides/vi/python-net/convert-powerpoint-to-pdf/) hoặc [định dạng raster](/slides/vi/python-net/convert-powerpoint-to-png/), kết quả có thể được raster hoá tùy thuộc vào cài đặt xuất; việc SVG gốc được lưu dưới dạng vector được xác nhận qua hành vi trích xuất.
+Nhúng ảnh khi bản trình chiếu phải di động, lưu trữ hoặc render mà không cần tài nguyên bên ngoài. Liên kết ảnh chỉ khi việc giữ các tệp ảnh bên ngoài PPTX là có chủ ý và các vị trí bên ngoài có thể được duy trì đáng tin cậy.
+
+**Cắt ảnh có giảm kích thước PPTX không?**
+
+Không tự động. Cài đặt cắt thông thường ẩn một phần ảnh nguồn nhưng giữ các pixel bên dưới. Sử dụng [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/vi/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) hoặc nén ảnh kèm loại bỏ vùng đã cắt khi có thể xóa các pixel đó vĩnh viễn.
+
+**Tôi có thể khôi phục chất lượng ảnh sau khi nén không?**
+
+Không. Nén có thể giảm độ phân giải raster đã lưu và việc xóa các vùng đã cắt sẽ loại bỏ dữ liệu ảnh. Giữ ảnh nguồn gốc bên ngoài bản trình chiếu nếu cần chỉnh sửa độ phân giải cao sau này.
+
+**Ảnh SVG nên được xử lý như thế nào?**
+
+Giữ nội dung SVG dưới dạng SVG khi độ trung thực vector quan trọng. [SvgImage](https://reference.aspose.com/slides/vi/python-net/aspose.slides/svgimage/) nhúng có thể được trích xuất trực tiếp. Render một slide sang định dạng raster như PNG hoặc JPEG sẽ raster hoá SVG như một phần của ảnh slide.
+
+**Làm sao tránh ép kiểu không an toàn khi đọc slide hiện có?**
+
+Kiểm tra kiểu hình dạng trước khi sử dụng các thành viên đặc thù của khung ảnh. Sử dụng `isinstance(shape, slides.PictureFrame)` tránh các ép kiểu không hợp lệ và cho phép code xử lý các slide không chứa khung ảnh.
