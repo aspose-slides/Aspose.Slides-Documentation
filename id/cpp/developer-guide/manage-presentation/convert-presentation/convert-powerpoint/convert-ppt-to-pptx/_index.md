@@ -1,14 +1,14 @@
 ---
-title: Konversi PPT ke PPTX dalam C++
+title: Mengonversi PPT ke PPTX dalam C++
 linktitle: PPT ke PPTX
 type: docs
 weight: 20
 url: /id/cpp/convert-ppt-to-pptx/
 keywords:
-- konversi PowerPoint
-- konversi presentasi
-- konversi slide
-- konversi PPT
+- mengonversi PowerPoint
+- mengonversi presentasi
+- mengonversi slide
+- mengonversi PPT
 - PPT ke PPTX
 - simpan PPT sebagai PPTX
 - ekspor PPT ke PPTX
@@ -16,52 +16,117 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Konversi presentasi PPT lama ke PPTX modern dengan cepat dalam C++ menggunakan Aspose.Slides — tutorial jelas, contoh kode gratis, tanpa ketergantungan Microsoft Office."
+description: "Mengonversi file PPT lama ke PPTX dalam C++ dengan Aspose.Slides. Menyertakan contoh C++ untuk konversi satu file dan batch, penanganan kesalahan, serta catatan ketepatan."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengonversi Presentasi PowerPoint dalam format PPT menjadi format PPTX menggunakan C++. Topik berikut dibahas.
+PPT adalah format PowerPoint biner lama, sedangkan PPTX adalah format Open XML yang lebih baru. Aspose.Slides untuk C++ dapat memuat file PPT dan menyimpannya sebagai PPTX tanpa Microsoft PowerPoint. Artikel ini menunjukkan cara mengonversi satu file atau sebuah direktori file dan menjelaskan apa yang harus diverifikasi setelah konversi.
 
-- Mengonversi PPT ke PPTX dalam C++
+## **Mengonversi File PPT ke PPTX**
 
-## **Mengonversi PPT ke PPTX dalam C++**
+Muat file sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/), lalu panggil [Presentation::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) dengan argumen [SaveFormat::Pptx](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveformat/). Buang objek presentasi ketika tidak lagi diperlukan untuk melepaskan sumber dayanya.
 
-Untuk kode contoh C++ yang mengonversi PPT ke PPTX, lihat bagian di bawah yaitu [Convert PPT to PPTX](#convert-ppt-to-pptx). Kode tersebut hanya memuat file PPT dan menyimpannya dalam format PPTX. Dengan menentukan format penyimpanan yang berbeda, Anda juga dapat menyimpan file PPT ke banyak format lain seperti PDF, XPS, ODP, HTML, dll. seperti yang dibahas dalam artikel-artikel berikut.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 
-- [Konversi PPT ke PDF dalam C++](/slides/id/cpp/convert-powerpoint-to-pdf/)
-- [Konversi PPT ke XPS dalam C++](/slides/id/cpp/convert-powerpoint-to-xps/)
-- [Konversi PPT ke HTML dalam C++](/slides/id/cpp/convert-powerpoint-to-html/)
-- [Konversi PPT ke ODP dalam C++](/slides/id/cpp/save-presentation/)
-- [Konversi PPT ke PNG dalam C++](/slides/id/cpp/convert-powerpoint-to-png/)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-## **Mengonversi PPT ke PPTX**
+// Muat presentasi PPT lama.
+auto presentation = System::MakeObject<Presentation>(u"presentation.ppt");
 
-Untuk mengonversi Presentasi PPT ke PPTX, cukup berikan nama file dan format penyimpanan ke metode [Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/). Contoh kode C++ di bawah ini mengonversi Presentasi dari PPT ke PPTX menggunakan opsi default. Untuk informasi lebih lanjut, silakan lihat dokumentasi ini [tautan](/slides/id/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion).
+// Simpan presentasi dalam format PPTX.
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PPTtoPPTX-PPTtoPPTX.cpp" >}}
+Ekstensi file tidak memilih format output secara otomatis; argumen [SaveFormat::Pptx](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveformat/) yang melakukannya. Jaga agar jalur input dan output berbeda bila Anda perlu mempertahankan file PPT asli.
+
+## **Mengonversi Beberapa File PPT**
+
+Contoh berikut mengonversi setiap file `.ppt` dalam satu direktori. Setiap file diproses secara independen, sehingga satu konversi yang gagal tidak menghentikan sisa batch.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"input";
+String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory, u"*.ppt", SearchOption::TopDirectoryOnly);
+for (const auto& inputPath : inputPaths)
+{
+    auto outputFileName = Path::GetFileNameWithoutExtension(inputPath) + u".pptx";
+    auto outputPath = Path::Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+        presentation->Save(outputPath, SaveFormat::Pptx);
+        presentation->Dispose();
+        Console::WriteLine(String::Format(u"Converted: {0}", inputPath));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Failed: {0} ({1})", inputPath, exception->get_Message()));
+    }
+}
+```
+
+Untuk beban kerja produksi, log seluruh pengecualian, tentukan apakah file output yang ada boleh ditimpa, dan tulis nama file yang gagal ke antrean retry atau review. File yang rusak, file yang dilindungi kata sandi dan dibuka tanpa kata sandi yang diperlukan, jalur yang tidak dapat diakses, serta konten yang tidak didukung semuanya dapat menyebabkan konversi gagal. Lihat [Password-Protected Presentations](/slides/id/cpp/password-protected-presentation/) untuk memuat file terenkripsi.
+
+## **Ketepatan dan Fitur Warisan**
+
+Konversi biasanya mempertahankan slide, master, tata letak, teks, bentuk, gambar, tabel, dan diagram. Namun, PPT dan PPTX tidak mewakili setiap fitur dengan cara yang persis sama. Fitur warisan yang tidak memiliki padanan PPTX, atau tidak didukung oleh perpustakaan, dapat dinormalisasi, dihilangkan, atau ditampilkan secara berbeda.
+
+Periksa file yang telah dikonversi bila mengandung animasi, transisi, objek OLE tersemat atau tertaut, kontrol ActiveX, media tersemat, font yang tidak umum, atau makro VBA. File PPTX biasa bukan format yang mendukung makro, jadi gunakan alur kerja yang mendukung makro bila VBA harus tetap tersedia. Juga verifikasi bahwa font yang diperlukan dan sumber daya eksternal ada di lingkungan tempat presentasi yang dikonversi akan dibuka atau dirender.
+
+Untuk dokumen penting, buka kembali PPTX yang dihasilkan secara programatis dan periksa jumlah slide serta kontennya, lalu bandingkan tampilan dan perilaku slide‑show di penampil yang dituju. Jangan menganggap panggilan [Presentation::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) yang berhasil sebagai bukti bahwa setiap fitur warisan memiliki representasi PPTX yang tepat.
+
+## **Kapan Menggunakan PPTX**
+
+Gunakan PPTX ketika presentasi akan diedit di versi PowerPoint terkini, dipertukarkan dengan sistem yang bekerja dengan paket Open XML, atau disimpan dalam format yang lebih mudah diperiksa dan dipulihkan dibandingkan PPT biner lama. Simpan PPT asli sebagai salinan arsip atau rollback hingga presentasi yang dikonversi melewati pemeriksaan ketepatan Anda.
+
+Jika Anda memerlukan PDF, HTML, gambar, XPS, atau jenis output lain, gunakan panduan khusus format di [Convert Presentations to Multiple Formats](/slides/id/cpp/convert-presentation/) alih-alih mengasumsikan bahwa semua target mempertahankan fitur PowerPoint yang dapat diedit.
+
+## **Konverter Online**
+
+Untuk file sesekali atau perbandingan cepat, Anda dapat menggunakan [online PPT to PPTX converter](https://products.aspose.app/slides/id/conversion/ppt-to-pptx). Untuk konversi berulang, pemrosesan batch, atau penanganan error tingkat aplikasi, gunakan API C++.
+
+## **Artikel Terkait**
+
+- [Save Presentations in C++](/slides/id/cpp/save-presentation/)
+- [Supported File Formats](/slides/id/cpp/supported-file-formats/)
+- [Open Presentations in C++](/slides/id/cpp/open-presentation/)
 
 ## **FAQ**
 
-**Apa perbedaan antara format PPT dan PPTX?**
+**Apakah saya dapat mengonversi PPT ke PPTX tanpa Microsoft PowerPoint terpasang?**
 
-PPT adalah format file biner lama yang digunakan oleh Microsoft PowerPoint, sedangkan PPTX adalah format berbasis XML yang lebih baru yang diperkenalkan pada Microsoft Office 2007. File PPTX menawarkan kinerja lebih baik, ukuran file yang lebih kecil, dan pemulihan data yang lebih baik.
+Ya. Aspose.Slides untuk C++ memuat dan menyimpan file presentasi tanpa memerlukan Microsoft PowerPoint.
 
-**Apakah Aspose.Slides mendukung konversi batch banyak file PPT ke PPTX?**
+**Apakah konversi PPT ke PPTX akan mempertahankan semua konten secara persis?**
 
-Ya, Anda dapat menggunakan Aspose.Slides dalam sebuah loop untuk mengonversi banyak file PPT ke PPTX secara programatis, sehingga cocok untuk skenario konversi batch.
+Konversi mempertahankan konten presentasi umum, tetapi ketepatan mutlak tidak dijamin untuk setiap fitur warisan atau yang tidak didukung. Tinjau file yang dihasilkan bila mengandung makro, objek OLE atau ActiveX, media, animasi khusus, atau font yang tidak umum.
 
-**Apakah konten dan pemformatan akan tetap terjaga setelah konversi?**
+**Apakah saya dapat mengonversi file PPT yang dilindungi kata sandi?**
 
-Aspose.Slides menjaga kesetiaan tinggi dalam mengonversi presentasi. Tata letak slide, animasi, bentuk, diagram, dan elemen desain lainnya tetap terjaga selama konversi PPT ke PPTX.
+Ya, jika Anda menyediakan kata sandi yang benar saat memuat file. Kata sandi yang hilang atau salah menyebabkan operasi pemuatan gagal.
 
-**Apakah saya dapat mengonversi format lain seperti PDF atau HTML dari file PPT?**
+**Haruskah saya menghapus file PPT setelah konversi?**
 
-Ya, Aspose.Slides mendukung konversi file PPT ke berbagai format, termasuk PDF, XPS, HTML, ODP, serta format gambar seperti PNG dan JPEG.
-
-**Apakah memungkinkan mengonversi PPT ke PPTX tanpa Microsoft PowerPoint terpasang?**
-
-Ya, Aspose.Slides adalah API mandiri dan tidak memerlukan Microsoft PowerPoint atau perangkat lunak pihak ketiga apa pun untuk melakukan konversi.
-
-**Apakah ada alat daring yang tersedia untuk konversi PPT ke PPTX?**
-
-Ya, Anda dapat menggunakan aplikasi web gratis [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/id/conversion/ppt-to-pptx) untuk melakukan konversi langsung di peramban Anda tanpa menulis kode apa pun.
+Simpan file asli sampai Anda memverifikasi PPTX di penampil dan alur kerja yang penting bagi Anda. Ini memberikan salinan rollback bila fitur warisan dikonversi secara berbeda.

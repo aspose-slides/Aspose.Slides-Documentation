@@ -1,6 +1,6 @@
 ---
-title: Эффективно объединять презентации в .NET
-linktitle: Объединить презентации
+title: Эффективное объединение презентаций в .NET
+linktitle: Объединение презентаций
 type: docs
 weight: 40
 url: /ru/net/merge-presentation/
@@ -20,249 +20,304 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Без труда объединяйте презентации PowerPoint (PPT, PPTX) и OpenDocument (ODP) с помощью Aspose.Slides для .NET, упрощая ваш рабочий процесс."
+description: "Узнайте, как объединять презентации PowerPoint и OpenDocument в .NET, клонируя слайды, управляя мастерами и макетами, изменяя размер содержимого слайдов, сохранять разделы и обрабатывать защищённые или большие файлы."
 ---
+## **Обзор**
 
-## **Оптимизируйте объединение презентаций**
+Aspose.Slides for .NET объединяет презентации, клонируя слайды из одного [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) в другой. Основная операция – [ISlideCollection.AddClone](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/), которая может сохранять форматирование исходного слайда или присоединять клонированный слайд к мастеру или макету в целевой презентации.
 
-С помощью [Aspose.Slides for .NET](https://products.aspose.com/slides/net/), беспрепятственно объединяйте презентации PowerPoint, сохраняя стили, макеты и все элементы. В отличие от других инструментов, Aspose.Slides объединяет презентации без компромиссов в качестве и без потери данных. Объединяйте целые презентации, отдельные слайды и даже файлы разных форматов (PPT в PPTX и т.д.).
+В этой статье рассматриваются самые распространённые сценарии объединения:
 
-### **Функции объединения**
+- объединить все слайды с сохранением их исходного форматирования;
+- объединить выбранные слайды;
+- применить мастер из целевой презентации;
+- применить конкретный макет из целевой презентации;
+- нормализовать разные размеры слайдов перед объединением;
+- добавить клонированные слайды в раздел;
+- объединить несколько презентаций в один сквозной процесс;
+- обработать мастеры, ресурсы, заметки, комментарии, мультимедиа, шрифты, пароли, большие файлы и вопросы многопоточности.
 
-- **Full Presentation Merge:** Соберите все слайды в один файл.  
-- **Specific Slide Merge:** Выберите и объедините выбранные слайды.  
-- **Cross-Format Merge:** Интегрируйте презентации разных форматов, сохраняя целостность.  
+## **Как клонирование слайдов влияет на мастера и макеты**
 
-{{% alert title="Tip" color="primary" %}}  
+Слайд наследует большую часть внешнего вида от своего макета и мастера. По этой причине выбранный вами перегрузка клонирования определяет, как объединённый слайд будет интегрирован в целевую презентацию.
 
-Ищете быстрый и **бесплатный онлайн‑инструмент** для **объединения презентаций PowerPoint**? Попробуйте [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+Используйте [ISlideCollection.AddClone](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/) одним из следующих способов:
 
-- **Merge PowerPoint files easily**: Объединяйте несколько презентаций **PPT, PPTX, ODP** в один файл.  
-- **Supports different formats**: Объединяйте **PPT в PPTX**, **PPTX в ODP** и другие.  
-- **No installation required**: Работает прямо в вашем браузере, быстро и безопасно.  
+- `AddClone(sourceSlide)` — сохраняет макет и форматирование исходного слайда. При необходимости исходный мастер может быть автоматически клонирован в целевую презентацию. Aspose.Slides отслеживает автоматически клонированные мастера, чтобы повторяющиеся слайды, использующие один и тот же исходный мастер, не приводили к многократному клонированию этого мастера.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — присоединяет клонированный слайд к конкретному целевому [IMasterSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/imasterslide/). Aspose.Slides ищет подходящий макет под этим мастером по типу макета или имени.
+- `AddClone(sourceSlide, destinationLayout)` — напрямую присоединяет клонированный слайд к конкретному целевому [ILayoutSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/ilayoutslide/).
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+Мастер или макет, передаваемый в перегрузку `AddClone`, должен принадлежать **целевой** презентации, а не исходной.
 
-Начните объединять ваши файлы PowerPoint с помощью **бесплатного онлайн‑инструмента Aspose** уже сегодня!  
+## **Объединить все презентации и сохранить форматирование источника**
 
-{{% /alert %}}
+Самый простой способ – копировать каждый слайд из исходной презентации в целевую. Это подходящий вариант, когда импортированные слайды должны сохранять свою исходную тему, мастер и отношения макетов.
 
-## **Объединение презентаций**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Когда вы [объединяете одну презентацию с другой](https://products.aspose.com/slides/net/merger/ppt/), вы фактически соединяете их слайды в одну презентацию, получая один файл.  
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-{{% alert title="Info" color="info" %}}
-
-Большинство программ для презентаций (PowerPoint или OpenOffice) не имеют функций, позволяющих пользователям объединять презентации таким образом.  
-
-Однако [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) позволяет объединять презентации различными способами. Вы можете объединять презентации со всеми их фигурами, стилями, текстами, форматированием, комментариями, анимациями и т.д., не беспокоясь о потере качества или данных.  
-
-**See also**  
-
-[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
-
-{{% /alert %}}
-
-### **Что можно объединять**
-
-С помощью Aspose.Slides, вы можете объединять  
-
-- полные презентации. Все слайды из презентаций оказываются в одной презентации  
-- конкретные слайды. Выбранные слайды оказываются в одной презентации  
-- презентации в одном формате (PPT в PPT, PPTX в PPTX и т.д.) и в разных форматах (PPT в PPTX, PPTX в ODP и т.д.) друг с другом.  
-
-{{% alert title="Note" color="warning" %}} 
-
-Помимо презентаций, Aspose.Slides позволяет объединять другие файлы:  
-
-- [Изображения](https://products.aspose.com/slides/net/merger/image-to-image/), такие как [JPG to JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) или [PNG to PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-- Документы, такие как [PDF to PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) или [HTML to HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-- И два разных файла, например [image to PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) или [TIFF to PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).  
-
-{{% /alert %}}
-
-### **Опции объединения**
-
-Вы можете применить параметры, определяющие, будет ли  
-
-- каждый слайд в результирующей презентации сохраняет уникальный стиль  
-- для всех слайдов в результирующей презентации используется определённый стиль.  
-
-Для объединения презентаций Aspose.Slides предоставляет методы [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) (из интерфейса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)). Существует несколько реализаций методов `AddClone`, определяющих параметры процесса объединения презентаций. Каждый объект Presentation имеет коллекцию [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), поэтому вы можете вызвать метод `AddClone` у презентации, в которую хотите объединить слайды.  
-
-Метод `AddClone` возвращает объект `ISlide`, который является клоном исходного слайда. Слайды в результирующей презентации просто копируют слайды из источника. Поэтому вы можете вносить изменения в полученные слайды (например, применять стили, параметры форматирования или макеты), не опасаясь, что исходные презентации будут затронуты.  
-
-## **Объединение презентаций** 
-
-Aspose.Slides предоставляет метод [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone), который позволяет объединять слайды, сохраняя их макеты и стили (параметры по умолчанию).  
-
-Этот C#‑код показывает, как объединить презентации:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+В результирующей презентации может быть несколько мастеров, если у источника и назначения разные дизайны. Это ожидаемо, когда форматирование источника сохраняется намеренно.
+
+## **Объединить выбранные слайды**
+
+Не обязательно клонировать каждый слайд. Пример ниже импортирует только выбранные индексы слайдов из исходной презентации.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+Проверяйте индексы слайдов перед клонированием, если они поступают от пользователя или из внешних конфигураций.
+
+## **Объединить слайды с использованием мастера назначения**
+
+Используйте перегрузку [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/), когда импортированные слайды должны следовать мастеру, уже принадлежащему целевой презентации.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides выбирает подходящий макет под указанным мастером, сопоставляя тип или имя макета источника. Если подходящего макета нет и `allowCloneMissingLayout` равно `true`, макет источника клонируется, чтобы слайд мог быть добавлен. Если он `false`, выбрасывается [PptxEditException](https://reference.aspose.com/slides/ru/net/aspose.slides/pptxeditexception/).
+
+Используйте `false`, когда хотите, чтобы объединение завершилось ошибкой вместо добавления дополнительного макета в мастер назначения.
+
+## **Объединить слайды с использованием конкретного макета назначения**
+
+Используйте перегрузку [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/), когда точно знаете, какой целевой макет должны использовать импортированные слайды.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+Применение целевого макета меняет наследуемую связь макета; это не изменяет содержание исходного слайда. Если у исходного и целевого макетов разная структура заполнителей, проверьте результат, чтобы убедиться, что наследуемое форматирование и поведение заполнителей соответствуют ожиданиям.
+
+## **Объединить презентации с разными размерами слайдов**
+
+Презентации с разными размерами слайдов можно объединять, но клонирование слайда в презентацию с другим размером не преобразует автоматически его содержимое под новый холст. Формы могут сместиться, масштабироваться неожиданно или выйти за пределы видимой области слайда.
+
+Практический подход – изменить размер исходной презентации перед клонированием. Метод [SlideSize.SetSize](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesize/setsize/) может масштабировать существующее содержимое при изменении размеров слайда. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesizescaletype/) масштабирует содержимое так, чтобы оно вписалось в требуемый размер.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+Изменение размера меняет объект исходной презентации в памяти. Если оригинальная исходная презентация должна оставаться неизменной для других операций, откройте отдельный экземпляр для объединения.
+
+## **Объединить слайды в раздел презентации**
+
+Базовый цикл клонирования слайдов не воссоздаёт иерархию разделов исходной презентации. Если разделы важны в итоге, создайте или выберите разделы в целевой презентации и явно клонируйте слайды в них с помощью [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+Клонированные слайды добавляются в указанный целевой раздел. Чтобы сохранить несколько исходных разделов, пройдите по [Presentation.Sections](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/sections/), получите текущие слайды каждого исходного раздела через [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/ru/net/aspose.slides/isection/getslideslistofsection/), воссоздайте разделы в назначении и клонируйте каждый полученный слайд в соответствующий целевой раздел. См. [Manage Slide Sections](/slides/ru/net/slide-section/) для полного примера перечисления разделов, включая пустые разделы и структурные изменения.
+
+## **Безопасное объединение нескольких презентаций**
+
+Следующий сквозной пример использует первую презентацию как целевую, нормализует размер слайда каждого последующего источника, держит каждый источник открытым только во время копирования и сохраняет итоговый файл один раз.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Объединение презентаций с шаблоном слайдов** 
-
-Aspose.Slides предоставляет метод [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2), который позволяет объединять слайды, применяя шаблон мастер‑слайда презентации. Таким образом, при необходимости, вы можете изменить стиль слайдов в результирующей презентации.  
-
-Этот код на C# демонстрирует описанную операцию:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
+Это полезная отправная точка для сохранения исходного форматирования импортируемых слайдов. Если ваш результат должен использовать единую тему назначения, замените простой вызов `AddClone(slide)` на соответствующую перегрузку мастера или макета назначения, показанную выше.
 
-{{% alert title="Note" color="warning" %}} 
+## **Практические соображения**
 
-Макет слайда для мастер‑слайда определяется автоматически. Если подходящий макет не может быть определён, и параметр `allowCloneMissingLayout` метода `AddClone` установлен в true, используется макет исходного слайда. В противном случае будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).  
+### **Мастера, макеты и точность форматирования**
 
-{{% /alert %}}
+По умолчанию клонирование слайдов может автоматически перенести требуемый мастер источника в целевую презентацию. Aspose.Slides ведёт внутренний реестр автоматически клонированных мастеров, чтобы избежать многократного клонирования одного и того же мастера. Мастера, клонированные вручную, в этот реестр не попадают, поэтому избегайте предварительного клонирования мастеров, если только вам не нужен явный контроль над их структурой.
 
-Если вы хотите, чтобы слайды в результирующей презентации имели другой макет слайда, используйте метод [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1).  
+Не полагайтесь на то, что два мастера или макета с одинаковым именем визуально эквивалентны. Если корпоративный шаблон должен контролировать окончательный внешний вид, явно выбирайте мастер или макет назначения и проверяйте результат после объединения.
 
-## **Объединение определённых слайдов из презентаций** 
+### **Заметки и комментарии**
 
-Объединение конкретных слайдов из нескольких презентаций полезно для создания пользовательских наборов слайдов. Aspose.Slides for .NET позволяет выбирать и импортировать только нужные вам слайды. API сохраняет форматирование, макет и дизайн исходных слайдов.  
+Заметки докладчика и комментарии к слайдам связаны с содержимым слайда и копируются при клонировании. Aspose.Slides также предоставляет специальные API для [presentation notes](/slides/ru/net/presentation-notes/) и [presentation comments](/slides/ru/net/presentation-comments/).
 
-Следующий C#‑код создаёт новую презентацию, добавляет титульные слайды из двух других презентаций и сохраняет результат в файл:  
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+Если важен формат страницы заметок, проверьте объединённую презентацию, поскольку мастера заметок находятся на уровне презентации и могут различаться между исходными файлами. Для сценариев рецензирования также проверяйте авторов комментариев и вложенные обсуждения после объединения файлов от разных авторов или шаблонов.
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+### **Изображения, аудио, видео, OLE‑объекты и внешние ссылки**
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+Слайды могут ссылаться на ресурсы уровня презентации, такие как изображения, встроенный аудио, видео и OLE‑данные. Клонируйте сам слайд, а не только его видимые фигуры, чтобы Aspose.Slides мог сохранить отношения слайда к его ресурсам.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+Встроенные и связанные ресурсы следует обрабатывать по‑разному. Связанное аудио, видео, OLE‑объект или гиперссылка остаются зависимыми от внешнего источника; клонирование слайда не превращает внешнюю ссылку во встроенный контент. Тестируйте пути и URL внешних ресурсов в среде, где будет открываться объединённая презентация.
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Aspose.Slides явно отслеживает автоматически клонированные мастера, но это не следует воспринимать как общую гарантию того, что идентичные бинарные ресурсы из несвязанных исходных презентаций всегда будут дедуплицированы. Если важно размер выходного файла, проверьте объединённый пакет и измерьте результатinstead of relying on implicit deduplication.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-  
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+### **Встроенные шрифты и их доступность**
+
+Шрифты управляются на уровне презентации. Если типографика должна оставаться одинаковой на разных машинах, не полагайтесь только на клонирование слайдов как гарантию наличия всех необходимых шрифтов в целевом окружении. Вы можете проверить встроенные шрифты через [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager/getembeddedfonts/) и управлять их встраиванием явно, как описано в [Embed Fonts in Presentations](/slides/ru/net/embedded-font/).
+
+Также убедитесь, что вам разрешено встраивать используемые в исходных файлах шрифты. Лицензионные ограничения могут запрещать встраивание.
+
+### **Презентации, защищённые паролем**
+
+Исходный файл, защищённый паролем, необходимо успешно открыть перед тем, как его слайды можно будет клонировать. Укажите пароль через [LoadOptions.Password](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
+Открытие зашифрованного источника не применяет автоматически ту же защиту к целевой презентации. При необходимости настройте защиту вывода отдельно.
 
-## **Объединение презентаций с макетом слайда** 
+### **Большие презентации и использование памяти**
 
-Этот C#‑код показывает, как объединить слайды из презентаций, применяя выбранный вами макет слайда, чтобы получить одну итоговую презентацию:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+Большие презентации, содержащие изображения высокого разрешения, аудио, видео или другие крупные бинарные объекты, могут потреблять значительный объём памяти. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/blobmanagementoptions/) предоставляет настройки для управления BLOB и временными файлами. См. [Manage Presentation BLOBs](/slides/ru/net/manage-blob/) для стратегий работы с крупными файлами.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+Для больших файлов предпочтительно загружать их по пути к файлу, как только это возможно, освобождать каждый исходный объект презентации сразу после его объединения и избегать многократного сохранения промежуточных результатов, если только ваш процесс не требует контрольных точек.
 
+### **Безопасность потоков**
 
-## **Объединение презентаций с разными размерами слайдов** 
+Не загружайте, не изменяйте, не сохраняйте и не клонируйте один и тот же экземпляр [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) одновременно из разных потоков. Держите каждый экземпляр презентации в рамках одной операции объединения. Если вы параллелите независимые задачи, используйте отдельные экземпляры презентаций и следуйте рекомендациям [Aspose.Slides multithreading guidance](/slides/ru/net/multithreading/).
 
-{{% alert title="Note" color="warning" %}} 
+## **Часто задаваемые вопросы**
 
-Вы не можете объединять презентации с разными размерами слайдов.  
+**Как сохранить оригинальный дизайн каждой исходной презентации?**  
+Используйте [AddClone](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/) без указания мастера или макета назначения. Aspose.Slides может автоматически клонировать мастер источника, когда он требуется импортированному слайду.
 
-{{% /alert %}}
+**Как заставить импортированные слайды использовать тему назначения?**  
+Используйте перегрузку, принимающую мастер назначения. Передайте мастер из целевой презентации, а не из источника. Aspose.Slides попытается сопоставить каждый исходный слайд с подходящим макетом под этим мастером.
 
-Чтобы объединить 2 презентации с разными размерами слайдов, необходимо изменить размер одной из презентаций, чтобы он совпадал с размером другой.  
+**Когда следует использовать конкретный макет назначения вместо мастера?**  
+Выбирайте конкретный макет, когда каждый импортированный слайд должен использовать один известный макет. Используйте мастер, когда хотите, чтобы Aspose.Slides выбирал среди макетов этого мастера на основе типа или имени исходного макета.
 
-Этот пример кода демонстрирует описанную операцию:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**Можно ли объединять презентации с разными размерами слайдов?**  
+Да, но содержимое слайдов не будет автоматически переработано под новые размеры. При необходимости предсказуемого размещения сначала измените размер исходной презентации, например с помощью [SlideSize.SetSize](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesize/setsize/) и [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ru/net/aspose.slides/slidesizescaletype/).
 
+**Можно ли объединять PPT, PPTX и ODP в один файл?**  
+Да. Загрузите каждую исходную презентацию, клонируйте необходимые слайды в одну целевую и сохраните её в поддерживаемом формате вывода. Поскольку форматы презентаций не поддерживают полностью одинаковый набор функций, проверьте сложный контент после кросс‑форматных объединений. См. [Supported File Formats](/slides/ru/net/supported-file-formats/).
 
-## **Объединение слайдов в раздел презентации** 
+**Сохраняются ли исходные разделы автоматически?**  
+Нет, базовый цикл, который только клонирует слайды, этого не делает. Воссоздайте необходимые разделы в целевой презентации и используйте перегрузку раздела метода [AddClone](https://reference.aspose.com/slides/ru/net/aspose.slides/islidecollection/addclone/), если структура разделов должна быть сохранена.
 
-Этот C#‑код показывает, как объединить конкретный слайд в раздел презентации:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+**Сохраняются ли заметки докладчика и комментарии?**  
+Они копируются вместе с клонированным слайдом. Для процессов, зависящих от стилей мастера заметок, авторов комментариев или вложенных данных рецензирования, проверьте объединённый результат, поскольку эти сценарии включают структуры уровня презентации, а не только содержания слайдов.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**Что происходит с аудио, видео, OLE‑объектами и гиперссылками?**  
+Встроенный контент переносится как часть отношений ресурсов клонированного слайда. Внешние ссылки остаются внешними, поэтому их целевые файлы или URL должны быть доступны после объединения.
 
+**Гарантировано ли, что все встроенные шрифты из каждого источника будут доступны в объединённой презентации?**  
+Не полагайтесь только на клонирование слайдов для развертывания шрифтов. Проверьте встроенные шрифты в целевой презентации и явно управляйте их встраиванием или внешней доступностью, если типографика важна.
 
-Слайд добавляется в конец раздела.  
+**Как объединить файл, защищённый паролем?**  
+Откройте его с правильным [LoadOptions.Password](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/password/), затем клонируйте его слайды обычным способом. Защита вывода настраивается отдельно.
 
-{{% alert title="Tip" color="primary" %}}
+**Как работать с очень большими презентациями?**  
+Используйте управление BLOB, когда крупные бинарные объекты доминируют в потреблении памяти, предпочтительно загружайте файлы по пути, быстро освобождайте исходные презентации после их объединения и сохраняйте окончательный результат только один раз, когда это необходимо.
 
-Aspose предоставляет [БЕСПЛАТНОЕ веб‑приложение Collage](https://products.aspose.app/slides/collage). С помощью этой онлайн‑службы вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG изображения, создавать [фото‑сетки](https://products.aspose.app/slides/collage/photo-grid) и т.д.  
-
-{{% /alert %}}
-
-## **FAQ**
-
-**Сохраняются ли заметки докладчика при объединении?**
-
-Да. При клонировании слайдов Aspose.Slides переносит все элементы слайда, включая заметки, форматирование и анимацию.
-
-**Переносятся ли комментарии и их авторы?**
-
-Комментарии, как часть содержимого слайда, копируются вместе со слайдом. Метки авторов комментариев сохраняются как объекты комментариев в полученной презентации.
-
-**Что делать, если исходная презентация защищена паролем?**
-
-Её необходимо [открыть с паролем](/slides/ru/net/password-protected-presentation/) с помощью [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); после загрузки эти слайды можно безопасно клонировать в незапароленный целевой файл (или в защищённый файл).
-
-**Насколько потокобезопасна операция объединения?**
-
-Не используйте тот же экземпляр [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/net/multithreading/). Рекомендуемое правило — «один документ — один поток»; разные файлы могут обрабатываться параллельно в отдельных потоках.
+**Можно ли клонировать слайды из нескольких потоков?**  
+Не используйте один экземпляр [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) одновременно в нескольких потоках. Держите каждую операцию объединения в отдельном экземпляре презентации.

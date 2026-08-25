@@ -1,111 +1,128 @@
 ---
 title: 在 PHP 中将 PPT 转换为 PPTX
-linktitle: PPT 到 PPTX
+linktitle: PPT 转 PPTX
 type: docs
 weight: 20
 url: /zh/php-java/convert-ppt-to-pptx/
 keywords:
 - 转换 PowerPoint
-- 转换 演示文稿
-- 转换 幻灯片
+- 转换演示文稿
+- 转换幻灯片
 - 转换 PPT
-- PPT 到 PPTX
+- PPT 转 PPTX
 - 将 PPT 保存为 PPTX
 - 导出 PPT 为 PPTX
 - PowerPoint
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 将旧版 PPT 演示文稿快速转换为现代 PPTX — 清晰的教程、免费代码示例，无需 Microsoft Office。"
+description: "使用 Aspose.Slides 在 PHP 中将旧版 PPT 文件转换为 PPTX。包括单文件和批量转换的 PHP 示例、错误处理以及保真度说明。"
 ---
-
 ## **概述**
 
-本文介绍如何使用 PHP 以及在线 PPT 到 PPTX 转换应用将 PowerPoint 演示文稿的 PPT 格式转换为 PPTX 格式。涵盖以下主题。
+PPT 是旧的二进制 PowerPoint 格式，而 PPTX 是更新的 Open XML 格式。Aspose.Slides for PHP via Java 可以在不依赖 Microsoft PowerPoint 的情况下加载 PPT 文件并将其保存为 PPTX。本文展示如何转换单个文件或整个目录的文件，并说明转换后需要检查哪些内容。
 
-- 将 PPT 转换为 PPTX
+## **将 PPT 文件转换为 PPTX**
 
-## **在 PHP 中将 PPT 转换为 PPTX**
+使用 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类加载源文件，然后调用 [Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save) 并传入 [SaveFormat::Pptx](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/#Pptx)。`finally` 块会释放演示文稿并释放其资源。
 
-有关将 PPT 转换为 PPTX 的 Java 示例代码，请参阅下面的章节，即 [Convert PPT to PPTX](#convert-ppt-to-pptx)。它仅加载 PPT 文件并以 PPTX 格式保存。通过指定不同的保存格式，还可以将 PPT 文件保存为 PDF、XPS、ODP、HTML 等多种格式，详见这些文章。
-
-- [Convert PPT to PDF in PHP](/slides/zh/php-java/convert-powerpoint-to-pdf/)
-- [Convert PPT to XPS in PHP](/slides/zh/php-java/convert-powerpoint-to-xps/)
-- [Convert PPT to HTML in PHP](/slides/zh/php-java/convert-powerpoint-to-html/)
-- [Convert PPT to ODP in PHP](/slides/zh/php-java/save-presentation/)
-- [Convert PPT to PNG in PHP](/slides/zh/php-java/convert-powerpoint-to-png/)
-
-## **关于 PPT 到 PPTX 的转换**
-使用 Aspose.Slides API 将旧的 PPT 格式转换为 PPTX。如果需要将成千上万的 PPT 演示文稿转换为 PPTX 格式，最佳方案是以编程方式完成。使用 Aspose.Slides API 只需几行代码即可实现。该 API 完全兼容 PPT 转 PPTX，并且能够：
-
-- 转换复杂的母版、布局和幻灯片结构。
-- 转换包含图表的演示文稿。
-- 转换包含组合形状、自动形状（如矩形和椭圆）、自定义几何形状的演示文稿。
-- 转换具有纹理和图片填充样式的自动形状。
-- 转换包含占位符、文本框和文本持有者的演示文稿。
-
-{{% alert color="primary" %}} 
-了解更多 [**Aspose.Slides PPT 到 PPTX 转换**](https://products.aspose.app/slides/conversion/ppt-to-pptx) 应用：
-
-[](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-此应用基于 [**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) 构建，可实时查看基本 PPT 到 PPTX 转换功能。Aspose.Slides Conversion 是一个 Web 应用，允许拖拽 PPT 格式的演示文件并下载转换后的 PPTX。
-
-查看其他实时的 [**Aspose.Slides Conversion**](https://products.aspose.app/slides/conversion/) 示例。
-{{% /alert %}} 
-
-## **将 PPT 转换为 PPTX**
-Aspose.Slides for PHP via Java 现已支持开发者使用 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 类实例访问 PPT，并将其转换为相应的 [PPTX](https://docs.fileformat.com/presentation/pptx/) 格式。目前，它支持对 [PPT](https://docs.fileformat.com/presentation/ppt/) 部分转换为 PPTX。有关 PPT 到 PPTX 转换支持的功能和不支持的功能的更多详情，请参阅本文档 [link](/slides/zh/php-java/ppt-to-pptx-conversion/)。
-
-Aspose.Slides for PHP via Java 提供了表示 **PPTX** 演示文件的 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 类。实例化对象后，Presentation 类现在也可以访问 **PPT**。以下示例演示如何将 PPT 演示文稿转换为 PPTX 演示文稿。
 ```php
-  # 实例化一个表示 PPTX 文件的 Presentation 对象
-  $pres = new Presentation("Aspose.ppt");
-  try {
-    # 将 PPTX 演示文稿保存为 PPTX 格式
-    $pres->save("ConvertedAspose.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+// 加载旧版 PPT 演示文稿。
+$presentation = new Presentation("presentation.ppt");
+try {
+    // 将演示文稿保存为 PPTX 格式。
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+文件扩展名本身并不会决定输出格式；真正决定的是 [SaveFormat::Pptx](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/#Pptx) 参数。如果需要保留原始 PPT 文件，请确保输入路径和输出路径不同。
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**图 1：源 PPT 演示文稿**|
+## **批量转换 PPT 文件**
 
-上述代码片段在转换后生成了以下 PPTX 演示文稿
+下面的示例会转换指定目录下的所有 `.ppt` 文件。每个文件独立处理，单个转换失败不会导致整个批处理停止。
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**图 2：转换后生成的 PPTX 演示文稿**|
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **常见问题**
+$inputDirectory = "input";
+$outputDirectory = "output";
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    throw new RuntimeException("Cannot create the output directory: " . $outputDirectory);
+}
 
-**PPT 与 PPTX 格式有什么区别？**
+$inputFiles = [];
+foreach (new DirectoryIterator($inputDirectory) as $fileInfo) {
+    if ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === "ppt") {
+        $inputFiles[] = $fileInfo->getPathname();
+    }
+}
 
-PPT 是 Microsoft PowerPoint 使用的较旧的二进制文件格式，而 PPTX 是自 Microsoft Office 2007 起引入的基于 XML 的新格式。PPTX 文件提供更好的性能、更小的文件大小以及改进的数据恢复能力。
+foreach ($inputFiles as $inputPath) {
+    $outputFileName = pathinfo($inputPath, PATHINFO_FILENAME) . ".pptx";
+    $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $outputFileName;
+    $presentation = null;
 
-**Aspose.Slides 是否支持批量将多个 PPT 文件转换为 PPTX？**
+    try {
+        $presentation = new Presentation($inputPath);
+        $presentation->save($outputPath, SaveFormat::Pptx);
+        echo "Converted: " . $inputPath . PHP_EOL;
+    } catch (Throwable $exception) {
+        fwrite(STDERR, "Failed: " . $inputPath . " (" . $exception->getMessage() . ")" . PHP_EOL);
+    } finally {
+        if ($presentation !== null) {
+            $presentation->dispose();
+        }
+    }
+}
+```
 
-是的，您可以在循环中使用 Aspose.Slides 以编程方式将多个 PPT 文件批量转换为 PPTX，适用于批量转换场景。
+在生产环境中，记录完整的异常信息，判断是否允许覆盖已有的输出文件，并将失败的文件名写入重试或审查队列。文件损坏、未提供正确密码的受密码保护文件、路径不可访问以及不受支持的内容都可能导致转换失败。有关加载加密文件，请参阅 [Password-Protected Presentations](/slides/zh/php-java/password-protected-presentation/)。
 
-**转换后内容和格式会被保留吗？**
+## **保真度与旧版特性**
 
-Aspose.Slides 在转换演示文稿时保持高保真度。幻灯片布局、动画、形状、图表以及其他设计元素在 PPT 到 PPTX 转换过程中都会被保留。
+转换通常会保留幻灯片、母版、布局、文本、形状、图像、表格和图表。但 PPT 与 PPTX 并非以完全相同的方式表示所有特性。没有 PPTX 对应项的旧版特性，或库不支持的特性，可能会被标准化、忽略或以不同方式显示。
 
-**我可以将 PPT 文件转换为 PDF 或 HTML 等其他格式吗？**
+当转换后的文件包含动画、转场、嵌入或链接的 OLE 对象、ActiveX 控件、嵌入媒体、非常规字体或 VBA 宏时，请仔细检查。普通 PPTX 文件不是宏启用格式，因此在必须保留 VBA 时请使用相应的宏启用工作流。同时，确保所需的字体和外部资源在打开或渲染转换后演示文稿的环境中可用。
 
-可以，Aspose.Slides 支持将 PPT 文件转换为 [多种格式](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/)，包括 PDF、XPS、HTML、ODP 以及 PNG、JPEG 等图像格式。
+对于重要文档，建议以编程方式重新打开生成的 PPTX，检查关键幻灯片数量和内容，然后在目标查看器中比较其外观和放映行为。不要把一次成功的 [Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save) 调用视为所有旧版特性都有精确 PPTX 表现的证明。
 
-**是否可以在未安装 Microsoft PowerPoint 的情况下进行 PPT 到 PPTX 的转换？**
+## **何时使用 PPTX**
 
-可以，Aspose.Slides 是独立的 API，无需 Microsoft PowerPoint 或任何第三方软件即可完成转换。
+当演示文稿需要在当前版本的 PowerPoint 中编辑、与使用 Open XML 包的系统交换，或以更易检查和恢复的格式存储时，使用 PPTX。将原始 PPT 保留为归档或回滚副本，直到转换后的演示文稿通过了您的保真度检查。
 
-**是否有在线工具可用于 PPT 到 PPTX 的转换？**
+如果需要 PDF、HTML、图像、XPS 或其他输出类型，请参阅 [Convert Presentations to Multiple Formats](/slides/zh/php-java/convert-presentation/) 中针对各格式的指南，而不要假设所有目标都能保留可编辑的 PowerPoint 特性。
 
-可以，您可以使用免费的 [Aspose.Slides PPT 到 PPTX 转换器](https://products.aspose.app/slides/conversion/ppt-to-pptx) 网页应用，在浏览器中直接完成转换，无需编写任何代码。
+## **在线转换器**
+
+对于偶尔的文件或快速比较，您可以使用 [online PPT to PPTX converter](https://products.aspose.app/slides/zh/conversion/ppt-to-pptx)。如需重复转换、批量处理或在应用层面进行错误处理，请使用 PHP API。
+
+## **相关文章**
+
+- [PPT vs PPTX](/slides/zh/php-java/ppt-vs-pptx/)
+- [Save Presentations in PHP](/slides/zh/php-java/save-presentation/)
+- [Supported File Formats](/slides/zh/php-java/supported-file-formats/)
+- [Open Presentations in PHP](/slides/zh/php-java/open-presentation/)
+
+## **常见问答**
+
+**是否可以在未安装 Microsoft PowerPoint 的情况下将 PPT 转换为 PPTX？**
+
+可以。Aspose.Slides for PHP via Java 能在不依赖 Microsoft PowerPoint 的情况下加载和保存演示文稿文件。
+
+**PPT 转 PPTX 转换能完全保留所有内容吗？**
+
+它能保留常见的演示文稿内容，但对每个旧版或不受支持的特性并不保证完全保真。若文件包含宏、OLE 或 ActiveX 对象、媒体、专用动画或非常规字体，请仔细检查生成的文件。
+
+**可以转换受密码保护的 PPT 文件吗？**
+
+可以，只要在加载文件时提供正确的密码。缺少或错误的密码会导致加载失败。
+
+**转换后是否应删除原始 PPT 文件？**
+
+请保留原始文件，直到您在相关查看器和工作流中验证了 PPTX 的正确性。这可以在出现旧版特性转换差异时提供回滚副本。

@@ -1,58 +1,74 @@
 ---
-title: PowerPoint-prezentációk konvertálása TIFF formátumba .NET-ben
-titlelink: PowerPoint TIFF-re
+title: PowerPoint bemutatók konvertálása TIFF-be .NET-ben
+titlelink: PowerPoint TIFF-be
 type: docs
 weight: 90
 url: /hu/net/convert-powerpoint-to-tiff/
 keywords:
 - PowerPoint konvertálása
 - OpenDocument konvertálása
-- prezentáció konvertálása
+- bemutató konvertálása
 - dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
-- PowerPoint TIFF-re
-- prezentáció TIFF-re
-- dia TIFF-re
-- PPT TIFF-re
-- PPTX TIFF-re
-- PPT mentése TIFFként
-- PPTX mentése TIFFként
+- PowerPoint TIFF-be
+- bemutató TIFF-be
+- dia TIFF-be
+- PPT TIFF-be
+- PPTX TIFF-be
+- PPT mentése TIFF-ként
+- PPTX mentése TIFF-ként
 - PPT exportálása TIFF-be
 - PPTX exportálása TIFF-be
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan konvertálhat egyszerűen PowerPoint (PPT, PPTX) prezentációkat magas minőségű TIFF képekké az Aspose.Slides for .NET használatával. C# kódpéldák."
+description: "Ismerje meg, hogyan konvertálhat egyszerűen PowerPoint (PPT, PPTX) bemutatókat magas minőségű TIFF képekké az Aspose.Slides for .NET segítségével. C# kódrészletek."
 ---
 ## **Bevezetés**
 
-A TIFF (**Tagged Image File Format**) egy széles körben használt, veszteségmentes raszteres képformátum, amely kivételes minőségéről és a grafika részletes megőrzéséről ismert. Tervezők, fotósok és asztali kiadók gyakran választják a TIFF-et, hogy megőrizzék a rétegeket, a színpontosságot és az eredeti beállításokat képeikben.
+A TIFF (**Tagged Image File Format**) egy széles körben használt, veszteségmentes raszteres képfájl-formátum, amely kimagasló minőségéről és a grafika részletes megőrzéséről ismert. Tervezők, fotósok és asztali kiadók gyakran választják a TIFF-et, hogy megőrizzék a rétegeket, a színpontosságot és az eredeti beállításokat képeiken.
 
-Az Aspose.Slides segítségével könnyedén konvertálhatja PowerPoint‑diait (PPT, PPTX) és OpenDocument‑diait (ODP) közvetlenül magas minőségű TIFF képekké, biztosítva, hogy bemutatói a lehető legnagyobb vizuális hűséget megőrizzék. 
+Az Aspose.Slides segítségével egyszerűen konvertálhatja PowerPoint-diái (PPT, PPTX) és OpenDocument-diái (ODP) közvetlenül magas minőségű TIFF képekké, biztosítva, hogy a bemutatók maximális vizuális hűséggel maradjanak.
 
-## **Prezentáció konvertálása TIFF formátumba**
+## **Bemutató konvertálása TIFF formátumba**
 
-A [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályban a [Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódus használatával gyorsan konvertálhatja az egész PowerPoint‑prezentációt TIFF‑be. A kapott TIFF képek az alapértelmezett diaméretnek felelnek meg.
+A [Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódus használatával, amely a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályban érhető el, gyorsan konvertálhat egy teljes PowerPoint bemutatót TIFF-be. Az eredményül kapott TIFF képek az alapértelmezett diamérethez igazodnak.
+
+Az alábbi C# kód bemutatja, hogyan konvertálhatunk egy PowerPoint bemutatót TIFF formátumba:
 
 ```cs
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP stb.) képviseli.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Hozzon létre egy Presentation osztály példányt, amely egy bemutató fájlt (PPT, PPTX, ODP stb.) képviseli.
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
-    // Mentse a prezentációt TIFF formátumba.
+    // Mentse a bemutatót TIFF formátumba.
     presentation.Save("Output.tiff", SaveFormat.Tiff);
 }
 ```
 
-## **Prezentáció konvertálása fekete-fehér TIFF formátumba**
+## **Bemutató konvertálása fekete-fehér TIFF-be**
 
-A [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/) osztályban a [BwConversionMode](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/bwconversionmode/) tulajdonság lehetővé teszi, hogy megadja az algoritmust, amelyet egy színes dia vagy kép fekete‑fehér TIFF‑be konvertálásakor használ. Vegye figyelembe, hogy ez a beállítás csak akkor érvényes, ha a [CompressionType](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/compressiontype/) tulajdonság `CCITT4` vagy `CCITT3` értékre van állítva.
+A [BwConversionMode](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/bwconversionmode/) tulajdonság a [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/) osztályban lehetővé teszi, hogy meghatározza az algoritmust, amely a színes dia vagy kép fekete-fehér TIFF-be konvertálásakor használatos. Vegye figyelembe, hogy ez a beállítás csak akkor érvényes, ha a [CompressionType](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/compressiontype/) tulajdonság `CCITT4` vagy `CCITT3` értékre van állítva.
 
-Tegyük fel, hogy van egy "sample.pptx" fájlunk a következő diával:
+{{% alert color="info" title="Note" %}}
 
-![Egy prezentációs dia](slide_black_and_white.png)
+A [TiffOptions.BwConversionMode](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/bwconversionmode/) egy exportszintű beállítás, amely egy pixelkonvertálási algoritmust választ a teljes TIFF képhez. Ahhoz, hogy egy egyedi alakzat megjelenését szabályozza fekete-fehér megjelenítési mód aktiválásakor, használja az [IShape.BlackWhiteMode](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/blackwhitemode/). Tekintse meg a [Control Black-and-White Rendering for Shapes](/slides/hu/net/shape-formatting/#control-black-and-white-rendering-for-shapes) oldalt példákért.
+
+{{% /alert %}}
+
+Tegyük fel, hogy van egy "sample.pptx" fájl a következő diával:
+
+![A presentation slide](slide_black_and_white.png)
+
+Az alábbi C# kód bemutatja, hogyan konvertálhatjuk a színes diát fekete-fehér TIFF-be:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 TiffOptions tiffOptions = new TiffOptions
 {
     CompressionType = TiffCompressionTypes.CCITT4,
@@ -67,14 +83,20 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 Az eredmény:
 
-![Fekete-fehér TIFF](TIFF_black_and_white.png)
+![Black-and-White TIFF](TIFF_black_and_white.png)
 
-## **Prezentáció konvertálása egyéni méretű TIFF‑be**
+## **Bemutató konvertálása egyedi méretű TIFF-be**
 
-Ha speciális méretű TIFF‑képre van szüksége, a [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/) osztályban elérhető tulajdonságok segítségével állíthatja be a kívánt értékeket. Például az [ImageSize](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/imagesize/) tulajdonság lehetővé teszi a létrehozott kép méretének meghatározását.
+Ha egy meghatározott méretű TIFF képre van szüksége, a [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/) osztályban elérhető tulajdonságokkal beállíthatja a kívánt értékeket. Például az [ImageSize](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/imagesize/) tulajdonság lehetővé teszi a létrehozandó kép méretének meghatározását.
+
+Az alábbi C# kód bemutatja, hogyan konvertálhatunk egy PowerPoint bemutatót egyedi méretű TIFF képekké:
 
 ```cs
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP stb.) reprezentál.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Hozzon létre egy Presentation osztály példányt, amely egy bemutató fájlt (PPT, PPTX, ODP stb.) képvisel.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -83,8 +105,8 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     tiffOptions.CompressionType = TiffCompressionTypes.Default;
     /* 
     Tömörítési típusok:
-        Default - Az alapértelmezett tömörítési séma (LZW) meghatározása.
-        None - Nincs tömörítés.
+        Default - Megadja az alapértelmezett tömörítési sémát (LZW).
+        None - Megadja, hogy nincs tömörítés.
         CCITT3
         CCITT4
         LZW
@@ -93,7 +115,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     // A mélység a tömörítési típustól függ, és nem állítható manuálisan.
 
-    // Állítsa be a kép DPI értékét.
+    // Állítsa be a kép DPI-jét.
     tiffOptions.DpiX = 200;
     tiffOptions.DpiY = 200;
 
@@ -105,50 +127,57 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         NotesPosition = NotesPositions.BottomFull
     };
 
-    // Mentse a prezentációt TIFF formátumba a megadott mérettel.
+    // Mentse a bemutatót TIFF formátumba a megadott mérettel.
     presentation.Save("custom_size.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-## **Prezentáció konvertálása egyéni képpontformátumú TIFF‑be**
+## **Bemutató konvertálása egyedi képpontformátumú TIFF-be**
 
-A [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions) osztályban található [PixelFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/pixelformat/) tulajdonság használatával megadhatja a kívánt képpontformátumot a létrehozott TIFF‑képhez.
+A [PixelFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/pixelformat/) tulajdonság a [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions) osztályból lehetővé teszi, hogy megadja a kívánt képpontformátumot a létrehozandó TIFF képhez.
+
+Az alábbi C# kód bemutatja, hogyan konvertálhatunk egy PowerPoint bemutatót egyedi képpontformátumú TIFF képre:
 
 ```cs
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP stb.) reprezentál.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Létrehozza a Presentation osztályt, amely egy bemutató fájlt (PPT, PPTX, ODP stb.) képvisel.
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
    
     tiffOptions.PixelFormat = ImagePixelFormat.Format8bppIndexed;
     /*
-    Az ImagePixelFormat a következő értékeket tartalmazza (a dokumentáció szerint):
-        Format1bppIndexed - 1 bit per pixel, indexelt.
-        Format4bppIndexed - 4 bit per pixel, indexelt.
-        Format8bppIndexed - 8 bit per pixel, indexelt.
+    ImagePixelFormat tartalmazza a következő értékeket (ahogy a dokumentációban szerepel):
+        Format1bppIndexed - 1 bit per pixel, indexált.
+        Format4bppIndexed - 4 bit per pixel, indexált.
+        Format8bppIndexed - 8 bit per pixel, indexált.
         Format24bppRgb    - 24 bit per pixel, RGB.
         Format32bppArgb   - 32 bit per pixel, ARGB.
     */
 
-    // Mentse a prezentációt TIFF formátumba a megadott képmérettel.
+    // Mentse a bemutatót TIFF formátumba a megadott képmérettel.
     presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-{{% alert title="Tipp" color="primary" %}}
-Tekintse meg az Aspose [INGYENES PowerPoint‑Poszter konvertálót](https://products.aspose.app/slides/hu/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+
+Nézze meg az Aspose ingyenes [PowerPoint poszter konvertálóját](https://products.aspose.app/slides/hu/conversion/convert-ppt-to-poster-online).
+
 {{% /alert %}}
 
 ## **GYIK**
 
-**Átkonvertálhatok egyetlen diát az egész PowerPoint‑prezentáció helyett TIFF‑be?**
+**Átkonvertálhatok egy egyedi diát a teljes PowerPoint bemutató helyett TIFF-be?**
 
-Igen. Az Aspose.Slides lehetővé teszi, hogy a PowerPoint‑ és OpenDocument‑prezentációkból származó egyedi diákat különálló TIFF‑képekké konvertálja.
+Igen. Az Aspose.Slides lehetővé teszi, hogy a PowerPoint és OpenDocument bemutatók egyedi diáit külön-külön TIFF képpé konvertálja.
 
-**Van valamilyen korlát a diák számában a prezentáció TIFF‑be konvertálásakor?**
+**Van korlátozás a diák számában a bemutató TIFF-be konvertálásakor?**
 
-Nem, az Aspose.Slides nem szab korlátozást a diák számára. Bármilyen méretű prezentációt konvertálhat TIFF formátumba.
+Nem, az Aspose.Slides nem szab korlátozást a diák számára. Bármilyen méretű bemutatót konvertálhat TIFF formátumba.
 
-**A PowerPoint‑animációk és áttűnési hatások megmaradnak a diák TIFF‑be konvertálásakor?**
+**A PowerPoint animációk és áttűnési effektusok megmaradnak a diák TIFF-be konvertálásakor?**
 
-Nem, a TIFF statikus képformátum. Ezért az animációk és áttűnési hatások nem maradnak meg; csak a diák statikus pillanatképei kerülnek exportálásra.
+Nem, a TIFF egy statikus képformátum. Ezért az animációk és áttűnési effektusok nem maradnak meg; csak a diák statikus pillanatképe kerül exportálásra.

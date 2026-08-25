@@ -26,18 +26,18 @@ description: "เรียนรู้วิธีแปลงงานนำเ
 ---
 ## **บทนำ**
 
-TIFF (**Tagged Image File Format**) คือรูปแบบภาพเรสเตอร์ที่ไม่มีการสูญเสียซึ่งได้รับความนิยมอย่างกว้างขวางและเป็นที่รู้จักด้วยคุณภาพที่ยอดเยี่ยมและการรักษารายละเอียดของกราฟิกอย่างครบถ้วน นักออกแบบ, ช่างภาพ, และผู้ทำสื่อบนเดสก์ท็อปมักเลือกใช้ TIFF เพื่อรักษาชั้น, ความแม่นยำของสี, และการตั้งค่าเดิมในภาพของพวกเขา.
+TIFF (**Tagged Image File Format**) คือรูปแบบไฟล์ภาพเรสเตอร์แบบไม่สูญเสียคุณภาพที่ได้รับความนิยมอย่างกว้างขวาง เนื่องจากคุณภาพยอดเยี่ยมและการเก็บรายละเอียดของกราฟิกได้อย่างสมบูรณ์ นักออกแบบ, ช่างภาพ, และผู้จัดพิมพ์บนเดสก์ท็อปมักเลือกใช้ TIFF เพื่อคงหลายชั้น, ความแม่นยำของสี, และการตั้งค่าเดิมของภาพ
 
-โดยใช้ Aspose.Slides คุณสามารถแปลงสไลด์ PowerPoint (PPT, PPTX) และสไลด์ OpenDocument (ODP) ของคุณเป็นภาพ TIFF คุณภาพสูงได้อย่างง่ายดาย เพื่อให้การนำเสนอของคุณคงคุณภาพภาพสูงสุด.
+โดยใช้ Aspose.Slides คุณสามารถแปลงสไลด์ PowerPoint (PPT, PPTX) และสไลด์ OpenDocument (ODP) เป็นภาพ TIFF คุณภาพสูงได้อย่างง่ายดาย ทำให้การนำเสนอของคุณคงความละเอียดสูงสุดของภาพ
 
-## **แปลงงานนำเสนอเป็น TIFF**
+## **แปลงงานพรีเซนเทชันเป็น TIFF**
 
-โดยใช้วิธีการ [save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) ที่จัดเตรียมโดยคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) คุณสามารถแปลงงานนำเสนอ PowerPoint ทั้งหมดเป็น TIFF ได้อย่างรวดเร็ว ภาพ TIFF ที่ได้จะสอดคล้องกับขนาดสไลด์เริ่มต้น.
+โดยใช้เมธอด [save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) ที่มาจากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) คุณสามารถแปลงงานพรีเซนเทชัน PowerPoint ทั้งหมดเป็น TIFF ได้อย่างรวดเร็ว ภาพ TIFF ที่ได้จะสอดคล้องกับขนาดสไลด์เริ่มต้น
 
-โค้ดนี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็น TIFF:
+โค้ดตัวอย่างแสดงวิธีแปลงงานพรีเซนเทชัน PowerPoint เป็น TIFF:
 
 ```php
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ (PPT, PPTX, ODP, ฯลฯ).
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ (PPT, PPTX, ODP ฯลฯ).
 $presentation = new Presentation("presentation.pptx");
 try {
     // บันทึกงานนำเสนอเป็น TIFF.
@@ -47,15 +47,19 @@ try {
 }
 ```
 
-## **แปลงงานนำเสนอเป็น TIFF ขาว-ดำ**
+## **แปลงงานพรีเซนเทชันเป็น TIFF ขาว-ดำ**
 
-เมธอด [setBwConversionMode](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#setBwConversionMode) ในคลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) ให้คุณกำหนดอัลกอริทึมที่ใช้เมื่อแปลงสไลด์หรือภาพสีเป็น TIFF ขาว-ดำ โปรดทราบว่าการตั้งค่านี้ใช้เฉพาะเมื่อเมธอด [setCompressionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#getCompressionType) ถูกตั้งเป็น `CCITT4` หรือ `CCITT3`.
+เมธอด [setBwConversionMode](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#setBwConversionMode) ในคลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) ให้คุณกำหนดอัลกอริทึมที่ใช้เมื่อแปลงสไลด์หรือภาพสีเป็น TIFF ขาว-ดำ โปรดทราบว่าการตั้งค่านี้ใช้ได้เฉพาะเมื่อเมธอด [setCompressionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#getCompressionType) ถูกตั้งค่าเป็น `CCITT4` หรือ `CCITT3`
 
-สมมติว่าเรามีไฟล์ "sample.pptx" ที่มีสไลด์ดังต่อไปนี้:
+{{% alert color="info" title="หมายเหตุ" %}}
+[TiffOptions::setBwConversionMode](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#setBwConversionMode) เป็นการตั้งค่าระดับการส่งออกที่เลือกอัลกอริทึมการแปลงพิกเซลสำหรับภาพ TIFF ทั้งหมด หากต้องการกำหนดวิธีการแสดงผลของรูปร่างแต่ละรูปเมื่อเปิดโหมดแสดงผลขาว-ดำ ให้ใช้เมธอด [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/#setBlackWhiteMode) ดูตัวอย่างได้ที่ [Control Black-and-White Rendering for Shapes](/slides/th/php-java/shape-formatting/#control-black-and-white-rendering-for-shapes)
+{{% /alert %}}
 
-![สไลด์งานนำเสนอ](slide_black_and_white.png)
+สมมติว่าเรามีไฟล์ “sample.pptx” ที่มีสไลด์ดังต่อไปนี้:
 
-โค้ดนี้แสดงวิธีการแปลงสไลด์สีเป็น TIFF ขาว-ดำ:
+![สไลด์การนำเสนอ](slide_black_and_white.png)
+
+โค้ดตัวอย่างแสดงวิธีแปลงสไลด์สีเป็น TIFF ขาว-ดำ:
 
 ```php
 $tiffOptions = new TiffOptions();
@@ -74,14 +78,14 @@ try {
 
 ![TIFF ขาว-ดำ](TIFF_black_and_white.png)
 
-## **แปลงงานนำเสนอเป็น TIFF ด้วยขนาดกำหนดเอง**
+## **แปลงงานพรีเซนเทชันเป็น TIFF ด้วยขนาดกำหนดเอง**
 
-หากคุณต้องการภาพ TIFF ที่มีขนาดเฉพาะ คุณสามารถตั้งค่าที่ต้องการโดยใช้เมธอดที่มีใน [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) ตัวอย่างเช่นเมธอด [setImageSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#getImageSize) ให้คุณกำหนดขนาดของภาพที่ได้.
+หากคุณต้องการภาพ TIFF ที่มีขนาดเฉพาะ คุณสามารถตั้งค่าตามที่ต้องการได้โดยใช้เมธอดที่มีใน [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) ตัวอย่างเช่น เมธอด [setImageSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#getImageSize) ให้คุณระบุขนาดของภาพผลลัพธ์
 
-โค้ดนี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็นภาพ TIFF ด้วยขนาดกำหนดเอง:
+โค้ดตัวอย่างแสดงวิธีแปลงงานพรีเซนเทชัน PowerPoint เป็นภาพ TIFF ที่มีขนาดกำหนดเอง:
 
 ```php
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ (PPT, PPTX, ODP, ฯลฯ).
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ (PPT, PPTX, ODP ฯลฯ).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
@@ -104,7 +108,7 @@ try {
     $tiffOptions->setDpiX(200);
     $tiffOptions->setDpiY(200);
 
-    // ตั้งค่าขนาดของภาพ.
+    // ตั้งค่าขนาดภาพ.
     $tiffOptions->setImageSize(new Java("java.awt.Dimension", 1728, 1078));
 
     $notesOptions = new NotesCommentsLayoutingOptions();
@@ -118,14 +122,14 @@ try {
 }
 ```
 
-## **แปลงงานนำเสนอเป็น TIFF ด้วยรูปแบบพิกเซลของภาพกำหนดเอง**
+## **แปลงงานพรีเซนเทชันเป็น TIFF ด้วยรูปแบบพิกเซลของภาพที่กำหนดเอง**
 
-โดยใช้เมธอด [setPixelFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#getPixelFormat) จากคลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) คุณสามารถกำหนดรูปแบบพิกเซลที่ต้องการสำหรับภาพ TIFF ที่ได้.
+โดยใช้เมธอด [setPixelFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/#getPixelFormat) จากคลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) คุณสามารถกำหนดรูปแบบพิกเซลที่ต้องการสำหรับภาพ TIFF ผลลัพธ์ได้
 
-โค้ดนี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็นภาพ TIFF ด้วยรูปแบบพิกเซลกำหนดเอง:
+โค้ดตัวอย่างแสดงวิธีแปลงงานพรีเซนเทชัน PowerPoint เป็นภาพ TIFF ที่มีรูปแบบพิกเซลกำหนดเอง:
 
 ```php
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ (PPT, PPTX, ODP, ฯลฯ).
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ (PPT, PPTX, ODP ฯลฯ).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
@@ -133,9 +137,9 @@ try {
     $tiffOptions->setPixelFormat(ImagePixelFormat::Format8bppIndexed);
     /*
     ImagePixelFormat มีค่าต่อไปนี้ (ตามที่ระบุในเอกสาร):
-        Format1bppIndexed - 1 บิตต่อพิกเซล, แบบกำกับดัชนี.
-        Format4bppIndexed - 4 บิตต่อพิกเซล, แบบกำกับดัชนี.
-        Format8bppIndexed - 8 บิตต่อพิกเซล, แบบกำกับดัชนี.
+        Format1bppIndexed - 1 บิตต่อพิกเซล, แบบดัชนี.
+        Format4bppIndexed - 4 บิตต่อพิกเซล, แบบดัชนี.
+        Format8bppIndexed - 8 บิตต่อพิกเซล, แบบดัชนี.
         Format24bppRgb    - 24 บิตต่อพิกเซล, RGB.
         Format32bppArgb   - 32 บิตต่อพิกเซล, ARGB.
     */
@@ -147,20 +151,20 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-ลองดู [เครื่องแปลง PowerPoint เป็นโปสเตอร์ฟรี](https://products.aspose.app/slides/th/conversion/convert-ppt-to-poster-online) ของ Aspose.
+{{% alert title="เคล็ดลับ" color="info" %}}
+ลองดูเครื่องมือแปลง PowerPoint เป็นโปสเตอร์ฟรีของ Aspose ที่ [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/th/conversion/convert-ppt-to-poster-online)
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถแปลงสไลด์เดี่ยวแทนการแปลงงานนำเสนอ PowerPoint ทั้งหมดเป็น TIFF ได้หรือไม่?**
+**ฉันสามารถแปลงสไลด์เดี่ยวแทนการแปลงงานพรีเซนเทชันทั้งหมดเป็น TIFF ได้หรือไม่?**
 
-ได้ ทั้งนี้ Aspose.Slides อนุญาตให้คุณแปลงสไลด์เดี่ยวจากงานนำเสนอ PowerPoint และ OpenDocument เป็นภาพ TIFF แยกกัน
+ได้เลย Aspose.Slides รองรับการแปลงสไลด์เดี่ยวจากงานพรีเซนเทชัน PowerPoint หรือ OpenDocument เป็นภาพ TIFF แยกกัน
 
-**มีข้อจำกัดใดเกี่ยวกับจำนวนสไลด์เมื่อแปลงงานนำเสนอเป็น TIFF หรือไม่?**
+**มีขีดจำกัดจำนวนสไลด์เมื่อแปลงงานพรีเซนเทชันเป็น TIFF หรือไม่?**
 
-ไม่มี Aspose.Slides ไม่ได้กำหนดขีดจำกัดใดๆ สำหรับจำนวนสไลด์ คุณสามารถแปลงงานนำเสนอที่มีขนาดใดก็ได้เป็นรูปแบบ TIFF
+ไม่มี Aspose.Slides ไม่ได้กำหนดข้อจำกัดใด ๆ สำหรับจำนวนสไลด์ คุณสามารถแปลงงานพรีเซนเทชันขนาดใดก็ได้เป็นรูปแบบ TIFF
 
-**การเคลื่อนไหวและเอฟเฟกต์การเปลี่ยนของ PowerPoint จะถูกคงไว้เมื่อแปลงสไลด์เป็น TIFF หรือไม่?**
+**ภาพเคลื่อนไหวและเอฟเฟกต์การเปลี่ยนของ PowerPoint จะถูกเก็บไว้เมื่อตอนแปลงสไลด์เป็น TIFF หรือไม่?**
 
-ไม่ เพราะ TIFF เป็นรูปแบบภาพคงที่ ดังนั้นการเคลื่อนไหวและเอฟเฟกต์การเปลี่ยนจะไม่ถูกคงไว้ มีเพียงภาพนิ่งของสไลด์ที่ถูกส่งออกเท่านั้น
+ไม่เช่นนั้น TIFF เป็นรูปแบบภาพนิ่ง ดังนั้นภาพเคลื่อนไหวและเอฟเฟกต์การเปลี่ยนจะไม่ถูกเก็บไว้ มีเพียงภาพนิ่งของสไลด์เท่านั้นที่ถูกส่งออก

@@ -1,5 +1,5 @@
 ---
-title: Lägg till digitala signaturer i presentationer med Python
+title: Lägg till digitala signaturer i presentationer i Python
 linktitle: Digital signatur
 type: docs
 weight: 10
@@ -9,81 +9,161 @@ keywords:
 - digitalt certifikat
 - certifikatutfärdare
 - PFX-certifikat
+- PKCS#12
+- validera signatur
 - PowerPoint
-- OpenDocument
-- presentation
+- PPTX
+- presentationssäkerhet
 - Python
 - Aspose.Slides
-description: "Lär dig hur du digitalt signerar PowerPoint- och OpenDocument-filer med Aspose.Slides för Python via .NET. Skydda dina presentationer på några sekunder med tydliga kodexempel."
+description: "Lär dig hur du signerar befintliga PPTX-presentationer med PFX-certifikat och använder Aspose.Slides för Python via .NET för att validera eller ta bort digitala signaturer."
 ---
-## **Introduktion**
+## **Översikt**
 
-**Digitalt certifikat** används för att skapa en lösenordsskyddad PowerPoint-presentation, markerad som skapad av en viss organisation eller person. Digitalt certifikat kan erhållas genom att kontakta en auktoriserad organisation – en certifikatutfärdare. Efter att ha installerat digitalt certifikat i systemet kan det användas för att lägga till en digital signatur i presentationen via Fil → Info → Skydda presentation:
+En digital signatur hjälper mottagaren att fastställa vem som har signerat en presentation och om det signerade innehållet har ändrats. Tre relaterade säkerhetskoncept är viktiga här:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Ett **digitalt certifikat** är en elektronisk behörighet som kopplar en identitet till en publik nyckel. En betrodd certifikatutfärdare (CA) kan utfärda ett certifikat, eller så kan en organisation använda ett självsignerat certifikat för interna arbetsflöden.
+- En **digital signatur** skapas från presentationsinnehållet och certifikatinnehavarens privata nyckel. Certifikatets publika nyckel kan sedan användas för att verifiera signaturen. En signatur ger bevis på ursprung och integritet; den krypterar inte presentationen.
+- **Lösenordsskydd** styr om en användare kan öppna eller ändra en presentation. Det är separat från digital signering och beskrivs i [Password-Protected Presentations](/slides/sv/python-net/password-protected-presentation/).
 
-En presentation kan innehålla mer än en digital signatur. När den digitala signaturen har lagts till i presentationen visas ett särskilt meddelande i PowerPoint:
+PowerPoint erbjuder kommandot **Add a Digital Signature** under **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation menu with Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
-För att signera en presentation eller kontrollera äktheten hos presentationssignaturer tillhandahåller **Aspose.Slides API** klassen [**DigitalSignature**](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/), klassen [**DigitalSignatureCollection**](https://reference.aspose.com/slides/sv/python-net/aspose.slides/DigitalSignatureCollection/) och egenskapen [**Presentation.digital_signatures**](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/digital_signatures/). För närvarande stöds digitala signaturer endast för PPTX‑format.
+När en signerad presentation öppnas kan PowerPoint visa ett signaturstatus‑meddelande.
 
-## **Lägg till digital signatur från PFX‑certifikat**
+![PowerPoint notification stating that the presentation contains valid signatures](digital-signature-status-in-powerpoint.png)
 
-Kodexemplet nedan visar hur man lägger till en digital signatur från ett PFX‑certifikat:
+Aspose.Slides exponerar signaturer via [Presentation.digital_signatures](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/digital_signatures/), en [DigitalSignatureCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignaturecollection/) vars objekt är [DigitalSignature](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/)‑objekt. En presentation kan innehålla flera signaturer.
 
-1. Öppna PFX‑filen och skicka PFX‑lösenordet till [**DigitalSignature**](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/)‑objektet.  
-1. Lägg till den skapade signaturen i presentationsobjektet.
+## **Förstå PFX‑certifikat och lösenord**
 
-```py
+En PFX‑fil, även känd som en PKCS#12‑fil och vanligtvis med filändelsen `.pfx` eller `.p12`, kan innehålla ett X.509‑certifikat, dess privata nyckel och certifikatkedjan. Den privata nyckeln är det som gör det möjligt för innehavaren att skapa en signatur. Ett certifikat utan en åtkomlig privat nyckel kan inte användas för att signera en presentation.
+
+PFX‑lösenordet skyddar certifikatpaketet och den privata nyckeln. Det är **inte** ett lösenord för att öppna eller redigera presentationen. Checka inte in PFX‑filer eller deras lösenord i källkontrollen. I produktion, begränsa åtkomsten till certifikatfilen och hämta dess lösenord från en hemlig lagring eller en annan skyddad konfigurationskälla. Exemplen nedan använder en miljövariabel endast för att undvika att inbädda lösenordet i koden.
+
+## **Lägg till en digital signatur i en presentation**
+
+För att signera en riktig presentationsarbetsflöde, läs in en befintlig PPTX‑fil, skapa en [DigitalSignature](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/) från ett PFX‑certifikat och dess lösenord, lägg till signaturen i presentationens samling och spara till en PPTX‑fil.
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Skapa DigitalSignature-objekt med PFX-fil och PFX-lösenord 
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # Kommentera ny digital signatur
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # Lägg till digital signatur i presentationen
-    pres.digital_signatures.add(signature)
-
-    # spara presentationen
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nu är det möjligt att kontrollera om presentationen signerades digitalt och inte har modifierats:
+Att spara resultatet under ett nytt namn bevarar den osignerade källfilen. Värdet i [DigitalSignature.comments](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/comments/) beskriver signaturens syfte; det är ingen säkerhetskontroll.
 
-```py
-# Öppna presentation
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+## **Validera digitala signaturer**
 
-        print("Signatures used to sign the presentation: ")
-        # Kontrollera om alla digitala signaturer är giltiga
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+När du läser in en signerad PPTX‑fil, inspektera varje objekt i [Presentation.digital_signatures](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/digital_signatures/). Egenskapen [DigitalSignature.is_valid](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/is_valid/) anger om den inbäddade signaturen är giltig för det aktuella presentationsinnehållet.
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+```python
+import hashlib
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
+
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
+
+Ett ogiltigt resultat betyder ofta att det signerade presentationsinnehållet eller signaturdata har ändrats efter signering, eller att filen är skadad. Att ta bort alla signaturer producerar en osignerad presentation, så att bara kontrollera giltigheten för objekten räcker inte: ett säkerhetskänsligt arbetsflöde måste också verifiera att det förväntade antalet signaturer och förväntade undertecknare finns.
+
+Egenskapen [DigitalSignature.certificate](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/certificate/) ger certifikatdata som en byte‑array. Exemplet beräknar dess SHA‑256‑fingeravtryck så att en applikation kan jämföra det med fingeravtrycket för ett förväntat undertecknarcertifikat.
+
+Detta giltighetsresultat bör inte betraktas som ett fullständigt beslut om certifikat‑förtroende. Beroende på din säkerhetspolicy kan din applikation också behöva bygga och validera X.509‑certifikatkedjan, kontrollera certifikatets giltighetsperiod och återkallningsstatus, bekräfta förväntat ämne eller thumbprint, verifiera nyckelanvändning och utvärdera en betrodd tidsstämpel. Värdet i [DigitalSignature.sign_time](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignature/sign_time/) är i sig inte ett bevis från en betrodd tidsstämpel‑utfärdare.
+
+## **Ta bort digitala signaturer**
+
+Att ta bort signaturer förändrar presentationens säkerhetsstatus. Följande exempel läser in en signerad PPTX‑fil, tar bort alla signaturer med [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignaturecollection/clear/), och sparar en osignerad kopia.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+För att bara ta bort en signatur, anropa [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/sv/python-net/aspose.slides/digitalsignaturecollection/remove_at/) med dess noll‑baserade index. Spara till en ny fil om du inte uttryckligen ska skriva över den signerade originalfilen i ditt arbetsflöde.
+
+## **Redigerings‑ och formataspekter**
+
+- En signatur gör inte en presentation skrivskyddad. Användare och applikationer kan fortfarande redigera filen, men ändringar i signerat innehåll gör vanligtvis den befintliga signaturen ogiltig.
+- Slutför alla avsedda redigeringar innan du signerar. Om en presentation måste ändras, spara den reviderade presentationen och signera den revisionen igen.
+- Behåll slutresultatet i PPTX‑format. Att konvertera en signerad presentation till ett annat format överför inte den ursprungliga PPTX‑signaturen som en giltig signatur för den konverterade filen.
+- Behandla certifikatets privata nyckel som känslig. Alla som får tag i den privata nyckeln och dess lösenord kan kunna skapa signaturer som ser ut att komma från certifikatets innehavare.
+- Behåll den osignerade källfilen eller en annan kontrollerad kopia när din dokument‑bevarandepolicy kräver det.
 
 ## **FAQ**
 
-**Kan jag ta bort befintliga signaturer från en fil?**
+**Krypterar en digital signatur presentationen?**
 
-Ja. Samlingen av digitala signaturer stödjer att ta bort enskilda objekt och att rensa den helt; efter att du sparat filen kommer presentationen inte ha några signaturer.
+Nej. En digital signatur ger bevis om ursprung och integritet, men presentationsinnehållet förblir läsbart om ingen separat kryptering tillämpas. Använd [password protection](/slides/sv/python-net/password-protected-presentation/) när åtkomst till innehållet måste begränsas.
 
-**Blir filen skrivskyddad efter signering?**
+**Är PFX‑lösenordet samma som presentationens lösenord?**
 
-Nej. En signatur bevarar integritet och författarskap men blockerar inte redigering. För att begränsa redigering, kombinera den med ["Read-only" eller ett lösenord](/slides/sv/python-net/password-protected-presentation/).
+Nej. PFX‑lösenordet låser upp den privata nyckeln som lagras i certifikatpaketet. Det styr inte vem som kan öppna eller redigera PPTX‑filen.
 
-**Kommer signaturen att visas korrekt i olika versioner av PowerPoint?**
+**Kan jag använda ett självsignerat certifikat?**
 
-Signaturen är skapad för OOXML‑behållaren (PPTX). Moderna versioner av PowerPoint som stödjer OOXML‑signaturer visar statusen för sådana signaturer korrekt.
+Tekniskt kan ett självsignerat certifikat användas när det inkluderar en åtkomlig privat nyckel. Mottagare kommer dock inte automatiskt att lita på det, såvida inte certifikatet explicit har lagts till i deras betrodda miljö. Offentliga eller tvärorganisations‑arbetsflöden använder vanligtvis ett certifikat utfärdat av en betrodd CA.
+
+**Vad gör en signatur ogiltig?**
+
+Att ändra signerat presentationsinnehåll eller signaturdata efter signering kan ogiltigförklara signaturen. Filskada kan också leda till att valideringen misslyckas. Om alla signaturer tas bort är presentationen osignerad snarare än att den innehåller en ogiltig signatur.
+
+**Betyder en giltig signatur att jag ska lita på undertecknaren?**
+
+Inte i sig. Signaturens integritet och förtroendet för undertecknaren är separata beslut. En produktionsvalideringspolicy bör också kontrollera certifikatkedjan, giltighetsperiod, återkallningsstatus, förväntad identitet, nyckelanvändning och eventuella krav på betrodda tidsstämplar.
+
+**Vad händer när certifikatet löper ut?**
+
+Certifikatets utgång ändrar inte presentationsbytes, men det påverkar utvärderingen av certifikat‑förtroende. Huruvida en signatur förblir acceptabel beror på din policy och på om en giltig betrodd tidsstämpel kan bevisa att signeringen skedde medan certifikatet var giltigt. Lita inte enbart på den visade signeringstiden som en betrodd tidsstämpel.
+
+**Kan en signerad presentation fortfarande redigeras?**
+
+Ja. Signering låser inte filen. Att redigera signerat innehåll gör vanligtvis den befintliga signaturen ogiltig, så slutför presentationen först och signera den slutgiltiga revisionen.
+
+**Kan en presentation innehålla mer än en signatur?**
+
+Ja. Lägg till varje signatur i [Presentation.digital_signatures](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/digital_signatures/) innan du sparar. Vid validering, inspektera varje signatur och bekräfta att alla erforderliga undertecknare finns.
+
+**Vilka presentationsformat stödjer dessa operationer?**
+
+Aspose.Slides stödjer de digital‑signatur‑operationer som beskrivs här endast för PPTX. PPT‑ och OpenDocument‑presentationsformat stöds inte av detta API‑arbetsflöde.
+
+**Kan jag ta bort en signatur utan att påverka bilderna?**
+
+Ja. Du kan ta bort en signatur eller tömma hela samlingen och sedan spara presentationen. Bildinnehållet förblir tillgängligt, men den sparade filen innehåller inte längre beviset på den borttagna signaturen.

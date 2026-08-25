@@ -1,6 +1,6 @@
 ---
-title: Personalizza i caratteri PowerPoint in Python
-linktitle: Font personalizzato
+title: Personalizza i caratteri di PowerPoint in Python
+linktitle: Carattere personalizzato
 type: docs
 weight: 20
 url: /it/python-net/custom-font/
@@ -8,7 +8,7 @@ keywords:
 - carattere
 - carattere personalizzato
 - carattere esterno
-- caricare carattere
+- caricamento carattere
 - gestire i caratteri
 - cartella dei caratteri
 - PowerPoint
@@ -19,68 +19,70 @@ description: "Incorpora caratteri personalizzati nelle diapositive PowerPoint co
 ---
 ## **Panoramica**
 
-Aspose.Slides per Python consente di fornire caratteri personalizzati a runtime in modo che le presentazioni vengano renderizzate correttamente anche quando i caratteri richiesti non sono installati sul sistema host. Durante l'esportazione in PDF o immagini, è possibile fornire cartelle dei caratteri o dati dei caratteri in memoria per preservare il layout del testo, le metriche dei glifi e la tipografia. Questo rende il rendering lato server prevedibile su ambienti diversi, elimina le dipendenze dei caratteri a livello di OS e impedisce fallback indesiderati o riformattazioni. L'articolo mostra come registrare le sorgenti dei caratteri.
+Aspose.Slides per Python consente di fornire caratteri personalizzati a runtime in modo che le presentazioni vengano renderizzate correttamente anche quando i caratteri richiesti non sono installati sul sistema host. Durante l'esportazione in PDF o immagini, è possibile fornire cartelle di font o dati di font in memoria per preservare il layout del testo, le metriche dei glifi e la tipografia. Questo rende il rendering lato server prevedibile su ambienti diversi, elimina le dipendenze di sistema relative ai caratteri e impedisce fallback indesiderati o riorganizzazioni del testo. L'articolo mostra come registrare le origini dei font.
+
+Un tema di presentazione può fare riferimento a famiglie di caratteri diverse per singoli sistemi di scrittura. Queste mappature memorizzano i nomi dei font ma non installano né caricano i file dei font. Vedi [Script-Specific Theme Fonts](/slides/it/python-net/script-specific-font-mappings/) per gestire le mappature e utilizza le opzioni di caricamento qui sotto per rendere disponibili i font di riferimento per un rendering coerente.
 
 Aspose.Slides consente di caricare i seguenti caratteri usando i metodi `load_external_font` e `load_external_fonts` della classe [FontsLoader](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/):
 
-- Caratteri TrueType (.ttf) e TrueType Collection (.ttc). Vedi [TrueType](https://en.wikipedia.org/wiki/TrueType).
-- Caratteri OpenType (.otf). Vedi [OpenType](https://en.wikipedia.org/wiki/OpenType).
+- Font TrueType (.ttf) e TrueType Collection (.ttc). Vedi [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- Font OpenType (.otf). Vedi [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-## **Carica caratteri personalizzati**
+## **Caricare Font Personalizzati**
 
-Aspose.Slides consente di caricare i caratteri utilizzati in una presentazione senza installarli sul sistema. Ciò influisce sull'output di esportazione—come PDF, immagini e altri formati supportati—così i documenti risultanti appaiono coerenti tra gli ambienti. I caratteri vengono caricati da directory personalizzate.
+Aspose.Slides permette di caricare i font utilizzati in una presentazione senza installarli sul sistema. Questo influisce sull'output di esportazione—come PDF, immagini e altri formati supportati—così i documenti risultanti appaiono coerenti su tutti gli ambienti. I font vengono caricati da cartelle personalizzate.
 
-1. Specifica una o più cartelle che contengono i file dei caratteri.
-2. Chiama il metodo statico [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/load_external_fonts/) per caricare i caratteri da quelle cartelle.
-3. Carica e renderizza/esporta la presentazione.
-4. Chiama [FontsLoader.clear_cache](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/clear_cache/) per svuotare la cache dei caratteri.
+1. Specificare una o più cartelle che contengono i file dei font.
+2. Chiamare il metodo statico [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/load_external_fonts/) per caricare i font da quelle cartelle.
+3. Caricare e renderizzare/esportare la presentazione.
+4. Chiamare [FontsLoader.clear_cache](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/clear_cache/) per svuotare la cache dei font.
 
-La seguente esempio di codice dimostra il processo di caricamento dei caratteri:
+Il seguente esempio di codice mostra il processo di caricamento dei font:
 
 ```py
 import aspose.slides as slides
 
-# Definisci le cartelle che contengono i file dei caratteri personalizzati.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# Definisci le cartelle che contengono i file dei font personalizzati.
+font_folders = ["fonts", "external_fonts"]
 
-# Carica i caratteri personalizzati dalle cartelle specificate.
+# Carica i font personalizzati dalle cartelle specificate.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
-    # Esegui il render/esporta la presentazione (ad es., in PDF, immagini o altri formati) utilizzando i caratteri caricati.
+    # Renderizza/esporta la presentazione (ad es., in PDF, immagini o altri formati) usando i font caricati.
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# Svuota la cache dei caratteri al termine del lavoro.
+# Svuota la cache dei font dopo aver terminato il lavoro.
 slides.FontsLoader.clear_cache()
 ```
 
-{{% alert color="info" title="Nota" %}}
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/load_external_fonts/) aggiunge cartelle aggiuntive ai percorsi di ricerca dei caratteri, ma non modifica l'ordine di inizializzazione dei caratteri.
-I caratteri sono inizializzati in questo ordine:
+{{% alert color="info" title="Note" %}}
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/load_external_fonts/) aggiunge cartelle aggiuntive ai percorsi di ricerca dei font, ma non modifica l'ordine di inizializzazione dei font.  
+I font vengono inizializzati in questo ordine:
 
-1. Il percorso predefinito dei caratteri del sistema operativo.
-1. I percorsi caricati tramite [FontsLoader](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/).
+1. Il percorso predefinito dei font del sistema operativo.  
+1. I percorsi caricati tramite [FontsLoader](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsloader/).  
 {{%/alert %}}
 
-## **Ottieni la cartella dei caratteri personalizzati**
+## **Ottenere la Cartella dei Font Personalizzati**
 
-Aspose.Slides fornisce il metodo `get_font_folders` per recuperare le cartelle dei caratteri. Restituisce sia le cartelle aggiunte tramite `load_external_fonts` sia le cartelle dei caratteri di sistema.
+Aspose.Slides fornisce il metodo `get_font_folders` per recuperare le cartelle dei font. Restituisce sia le cartelle aggiunte tramite `load_external_fonts` sia le cartelle dei font di sistema.
 
 Questo codice Python mostra come utilizzare `get_font_folders`:
 
 ```python
 import aspose.slides as slides
 
-# Questa chiamata restituisce le cartelle controllate per i file dei caratteri.
-# Queste includono le cartelle aggiunte tramite il metodo load_external_fonts e le cartelle dei caratteri di sistema.
+# Questa chiamata restituisce le cartelle controllate per i file dei font.
+# Queste includono le cartelle aggiunte tramite il metodo load_external_fonts e le cartelle di sistema dei font.
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Specifica caratteri personalizzati per una presentazione**
+## **Specificare Font Personalizzati per una Presentazione**
 
-Aspose.Slides fornisce la proprietà `document_level_font_sources`, che consente di specificare caratteri esterni da utilizzare con una presentazione.
+Aspose.Slides fornisce la proprietà `document_level_font_sources`, che consente di specificare i font esterni da utilizzare con una presentazione.
 
-Il seguente esempio Python mostra come utilizzare `document_level_font_sources`:
+Il seguente esempio Python mostra come usare `document_level_font_sources`:
 
 ```python
 import aspose.slides as slides
@@ -98,16 +100,16 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
     # Lavora con la presentazione.
-    # CustomFont1, CustomFont2 e i caratteri dalle cartelle assets\fonts e global\fonts (e le loro sottocartelle) sono disponibili per la presentazione.
+    # CustomFont1, CustomFont2 e i font dalle cartelle assets\fonts e global\fonts (e le loro sottocartelle) sono disponibili per la presentazione.
     # ...
     print(len(presentation.slides))
 ```
 
-## **Carica caratteri esterni da dati binari**
+## **Caricare Font Esterni da Dati Binari**
 
-Aspose.Slides fornisce il metodo `load_external_font` per caricare caratteri esterni da dati binari.
+Aspose.Slides fornisce il metodo `load_external_font` per caricare font esterni da dati binari.
 
-Il seguente esempio Python dimostra il caricamento di un carattere da un array di byte:
+Il seguente esempio Python dimostra il caricamento di un font da un array di byte:
 
 ```python
 import aspose.slides as slides
@@ -117,13 +119,14 @@ def read_all_bytes(file_path):
         file_data = file_stream.read()
     return file_data
 
-# Carica i caratteri esterni da array di byte.
+# Carica i font esterni da array di byte.
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
-        # I caratteri esterni sono disponibili per tutta la durata di questa istanza di presentazione.
+    with slides.Presentation() as presentation:
+        # I font esterni sono disponibili per tutta la durata di questa istanza di presentazione.
         print("processing")
 finally:
     slides.FontsLoader.clear_cache()
@@ -131,17 +134,22 @@ finally:
 
 ## **FAQ**
 
-**I caratteri personalizzati influiscono sull'esportazione in tutti i formati (PDF, PNG, SVG, HTML)?**  
-Sì. I caratteri collegati sono utilizzati dal renderer in tutti i formati di esportazione.
+### I font personalizzati influenzano l'esportazione in tutti i formati (PDF, PNG, SVG, HTML)?
 
-**I caratteri personalizzati vengono incorporati automaticamente nel PPTX risultante?**  
-No. Registrare un carattere per il rendering non è lo stesso di incorporarlo in un PPTX. Se hai bisogno che il carattere sia incluso nel file della presentazione, devi utilizzare le [funzionalità di incorporamento](/slides/it/python-net/embedded-font/).
+Sì. I font collegati vengono utilizzati dal motore di rendering per tutti i formati di esportazione.
 
-**Posso controllare il comportamento di fallback quando un carattere personalizzato manca di alcuni glifi?**  
-Sì. Configura la [sostituzione dei caratteri](/slides/it/python-net/font-substitution/), le [regole di sostituzione](/slides/it/python-net/font-replacement/) e i [set di fallback](/slides/it/python-net/fallback-font/) per definire esattamente quale carattere viene usato quando il glifo richiesto è mancante.
+### I font personalizzati vengono incorporati automaticamente nel PPTX risultante?
 
-**Posso usare i caratteri in contenitori Linux/Docker senza installarli a livello di sistema?**  
-Sì. Puntare alle proprie cartelle dei caratteri o caricare i caratteri da array di byte. Questo elimina qualsiasi dipendenza dalle directory dei caratteri di sistema nell'immagine del contenitore.
+No. Registrare un font per il rendering non è la stessa cosa di incorporarlo in un PPTX. Se è necessario che il font sia presente all'interno del file della presentazione, è necessario utilizzare le [funzionalità di incorporamento](/slides/it/python-net/embedded-font/).
 
-**E per quanto riguarda le licenze—posso incorporare qualsiasi carattere personalizzato senza restrizioni?**  
-Sei responsabile della conformità alle licenze dei caratteri. I termini variano; alcune licenze vietano l'incorporamento o l'uso commerciale. Rivedi sempre il contratto di licenza (EULA) del carattere prima di distribuire i risultati.
+### Posso controllare il comportamento di fallback quando un font personalizzato non dispone di alcuni glifi?
+
+Sì. Configura la [sostituzione dei font](/slides/it/python-net/font-substitution/), le [regole di sostituzione](/slides/it/python-net/font-replacement/) e i [set di fallback](/slides/it/python-net/fallback-font/) per definire esattamente quale font utilizzare quando il glifo richiesto è mancante.
+
+### Posso usare i font in container Linux/Docker senza installarli a livello di sistema?
+
+Sì. Indica le tue cartelle di font o carica i font da array di byte. Questo elimina qualsiasi dipendenza dalle directory di sistema nel container.
+
+### Cosa riguarda la licenza—posso incorporare qualsiasi font personalizzato senza restrizioni?
+
+Sei responsabile della conformità alle licenze dei font. I termini variano; alcune licenze vietano l'incorporamento o l'uso commerciale. Consulta sempre l'EULA del font prima di distribuire i risultati.

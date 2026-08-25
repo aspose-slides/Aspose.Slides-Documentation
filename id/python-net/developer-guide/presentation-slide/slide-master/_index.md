@@ -1,53 +1,55 @@
 ---
-title: "Kelola Master Slide Presentasi di Python"
-linktitle: "Master Slide"
+title: Kelola Slide Master Presentasi di Python
+linktitle: Slide Master
 type: docs
 weight: 80
 url: /id/python-net/slide-master/
 keywords:
+- slide master
 - master slide
-- master slide
-- master slide PPT
-- banyak master slide
-- bandingkan master slide
+- slide master PPT
+- banyak slide master
+- bandingkan slide master
 - latar belakang
 - placeholder
-- kloning master slide
-- salin master slide
-- duplikasi master slide
-- master slide tidak digunakan
+- gandakan slide master
+- salin slide master
+- duplikasi slide master
+- slide master yang tidak terpakai
 - PowerPoint
 - OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Kelola master slide di Aspose.Slides untuk Python via .NET: akses, edit, kloning, bandingkan, dan hapus master slide dalam presentasi PowerPoint dan OpenDocument."
+description: "Kelola slide master di Aspose.Slides untuk Python via .NET: akses, edit, menggandakan, membandingkan, dan menghapus slide master dalam presentasi PowerPoint dan OpenDocument."
 ---
 ## **Gambaran Umum**
 
-**master slide** mendefinisikan pengaturan desain bersama untuk sekelompok slide. Ia dapat berisi bentuk umum, logo, latar belakang, gaya teks, pengaturan tema, dan pengaturan footer. Di PowerPoint, mengedit master slide merupakan cara umum untuk menjaga konsistensi presentasi tanpa mengulang format yang sama pada setiap slide.
+Sebuah **slide master** mendefinisikan pengaturan desain bersama untuk sekelompok slide. Ia dapat berisi bentuk umum, logo, latar belakang, gaya teks, pengaturan tema, dan pengaturan footer. Di PowerPoint, mengedit slide master adalah cara biasa untuk menjaga konsistensi presentasi tanpa mengulang format yang sama pada setiap slide.
 
-Aspose.Slides for Python via .NET mendukung model yang sama. Sebuah presentasi dapat berisi satu atau lebih master slide, dan setiap master slide dapat berisi beberapa layout slide. Slide normal biasanya tidak merujuk langsung ke master slide. Sebaliknya, slide normal menggunakan layout slide, dan layout slide tersebut merupakan bagian dari master slide.
+Aspose.Slides for Python via .NET mendukung model yang sama. Sebuah presentasi dapat berisi satu atau lebih slide master, dan setiap slide master dapat berisi beberapa layout slide. Slide normal biasanya tidak merujuk langsung ke slide master. Sebaliknya, slide normal menggunakan layout slide, dan layout slide tersebut milik sebuah slide master.
 
-The hierarchy is:
+Hierarki nya adalah:
 
-1. **Master slide** - mendefinisikan desain dan tema bersama.
-2. **Layout slide** - mendefinisikan susunan khusus placeholder dan pemformatan tingkat layout.
-3. **Slide normal** - berisi konten presentasi sebenarnya dan menggunakan satu layout slide.
+1. **Slide master** – mendefinisikan desain dan tema bersama.
+1. **Layout slide** – mendefinisikan susunan placeholder dan format tingkat layout tertentu.
+1. **Normal slide** – berisi konten presentasi sebenarnya dan menggunakan satu layout slide.
 
-![Hierarki master slide, layout slide, dan slide normal](slide-master_2.jpg)
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-Di Aspose.Slides, master slide diwakili oleh kelas [MasterSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslide/) . Semua master slide dalam sebuah presentasi tersedia melalui koleksi `Presentation.masters` .
+Di Aspose.Slides, slide master direpresentasikan oleh kelas [MasterSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslide/). Semua master slide dalam sebuah presentasi dapat diakses melalui koleksi `Presentation.masters`.
 
 {{% alert color="info" title="Inheritance" %}}
-Ketika properti yang sama didefinisikan pada lebih dari satu tingkat, tingkat yang lebih spesifik yang menang. Misalnya, jika master slide dan layout slide keduanya mendefinisikan latar belakang, slide yang berbasis layout tersebut akan menggunakan latar belakang layout. Untuk informasi lebih lanjut tentang layout slide, lihat [Apply or Change Slide Layouts](/python-net/slide-layout/) .
+
+Ketika properti yang sama didefinisikan pada lebih dari satu level, level yang lebih spesifik yang menang. Misalnya, jika sebuah master slide dan sebuah layout slide keduanya mendefinisikan latar belakang, slide yang berbasis pada layout tersebut menggunakan latar belakang layout. Untuk informasi lebih lanjut tentang layout slide, lihat [Apply or Change Slide Layouts](/slides/id/python-net/slide-layout/).
+
 {{% /alert %}}
 
-## **Akses Master Slide**
+## **Mengakses Slide Master**
 
 Di PowerPoint, Anda dapat membuka tampilan Slide Master dari **View** > **Slide Master**.
 
-![Perintah Slide Master pada tab View di PowerPoint](slide-master_3.jpg)
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
 Di Aspose.Slides, gunakan koleksi `masters` untuk mengakses master slide:
 
@@ -63,7 +65,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Anda juga dapat memperoleh master slide yang digunakan oleh slide normal melalui layoutnya:
+Anda juga dapat memperoleh slide master yang digunakan oleh slide normal melalui layout-nya:
 
 ```python
 import aspose.slides as slides
@@ -77,26 +79,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Apa yang Dimiliki Master Slide**
+## **Apa yang Dimiliki Slide Master**
 
-Master slide adalah objek yang mirip slide. Ia mewarisi perilaku slide umum dari kelas [BaseSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/baseslide/) , sehingga ia menampilkan banyak properti slide yang sama yang digunakan oleh slide normal dan layout. Anggota khusus master terdaftar pada halaman API [MasterSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslide/) .
+Sebuah master slide adalah objek mirip slide. Ia mewarisi perilaku slide umum dari kelas [BaseSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/baseslide/), sehingga mengekspos banyak properti slide yang sama yang digunakan oleh slide normal dan layout. Anggota khusus master terdaftar pada halaman API [MasterSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslide/).
 
-Commonly used master slide members include:
+Anggota master slide yang sering digunakan meliputi:
 
-| Anggota | Tujuan |
+| Member | Purpose |
 | --- | --- |
-| `background` | Menetapkan latar belakang slide tingkat master. |
-| `shapes` | Menyimpan shape yang ditempatkan pada master, seperti logo, bingkai gambar, dan teks bersama. |
+| `background` | Menetapkan latar belakang slide pada level master. |
+| `shapes` | Menyimpan bentuk yang ditempatkan pada master, seperti logo, bingkai gambar, dan teks bersama. |
 | `layout_slides` | Menyimpan layout slide yang menjadi milik master. |
-| `theme_manager` | Memberikan akses ke API tema master. |
-| `header_footer_manager` | Mengontrol header, footer, tanggal, dan nomor slide untuk master dan layout turunannya. |
+| `theme_manager` | Menyediakan akses ke API tema master. |
+| `header_footer_manager` | Mengontrol header, footer, tanggal, dan nomor slide untuk master dan layout anaknya. |
 | `get_depending_slides` | Mengembalikan slide normal yang bergantung pada master melalui layout mereka. |
 
-## **Menambahkan Gambar ke Master Slide**
+## **Menambahkan Gambar ke Slide Master**
 
-Ketika Anda menambahkan gambar ke master slide, gambar tersebut muncul pada slide yang menggunakan layout dari master tersebut. Ini berguna untuk logo, watermark, pita dekoratif, dan elemen visual berulang lainnya.
+Ketika Anda menambahkan gambar ke master slide, gambar tersebut muncul pada slide yang menggunakan layout dari master itu. Hal ini berguna untuk logo, watermark, pita dekoratif, dan elemen visual berulang lainnya.
 
-The following example adds a logo to the first master slide:
+Contoh berikut menambahkan logo ke master slide pertama:
 
 ```python
 import aspose.slides as slides
@@ -120,17 +122,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk informasi lebih lanjut tentang bingkai gambar, lihat [Picture Frame](/python-net/picture-frame/) .
+Untuk informasi lebih lanjut tentang bingkai gambar, lihat [Picture Frame](/slides/id/python-net/picture-frame/).
 
 ## **Bekerja dengan Placeholder**
 
-Placeholder biasanya didefinisikan pada layout slide. Master slide menyediakan gaya dan tema bersama yang diwarisi oleh layout tersebut, sementara setiap layout menentukan placeholder mana yang tersedia dan di mana mereka ditempatkan.
+Placeholder biasanya didefinisikan pada layout slide. Slide master menyediakan gaya dan tema bersama yang diwarisi oleh layout tersebut, sementara setiap layout menentukan placeholder apa yang tersedia dan di mana penempatannya.
 
 Di PowerPoint, perintah placeholder tersedia di tampilan Slide Master.
 
-![Perintah Insert Placeholder dalam tampilan Slide Master PowerPoint](slide-master_5.png)
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
+Untuk menambahkan placeholder baru dengan Aspose.Slides, kerjakan layout slide yang menjadi milik master:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +153,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Anda juga dapat memformat shape placeholder yang sudah ada pada master slide. Contoh berikut menemukan placeholder judul dan menerapkan isian gradien linear:
+Anda juga dapat memformat bentuk placeholder yang sudah ada pada master slide. Contoh berikut menemukan placeholder judul dan menerapkan isian gradien linear:
 
 ```python
 import aspose.pydrawing as draw
@@ -178,18 +180,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Placeholder judul yang diformat yang diwarisi oleh slide normal](slide-master_8.png)
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-Untuk opsi placeholder dan pemformatan teks lebih lanjut, lihat [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) dan [Text Formatting](/python-net/text-formatting/) .
+Untuk lebih banyak opsi pemformatan placeholder dan teks, lihat [Set Prompt Text in Placeholder](/slides/id/python-net/manage-placeholder/) dan [Text Formatting](/slides/id/python-net/text-formatting/).
 
-## **Mengubah Latar Belakang Master Slide**
+## **Mengubah Latar Belakang Slide Master**
 
-Latar belakang master diwarisi oleh layout dan slide yang tidak menimpanya. Contoh berikut menetapkan warna latar belakang solid untuk master slide pertama:
+Latar belakang master diwariskan oleh layout dan slide yang tidak menimpanya. Contoh berikut menetapkan warna latar belakang solid untuk master slide pertama:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,9 +207,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk topik terkait, lihat [Presentation Background](/python-net/presentation-background/) dan [Presentation Theme](/python-net/presentation-theme/) .
+Untuk topik terkait, lihat [Presentation Background](/slides/id/python-net/presentation-background/) dan [Presentation Theme](/slides/id/python-net/presentation-theme/).
 
-## **Menduplikasi Master Slide ke Presentasi Lain**
+## **Menggandakan Slide Master ke Presentasi Lain**
 
 Gunakan metode `add_clone` pada kelas [MasterSlideCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslidecollection/) untuk menyalin master slide ke presentasi lain. Master yang disalin kemudian dapat digunakan oleh layout dan slide dalam presentasi tujuan.
 
@@ -222,15 +224,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Jika Anda perlu menduplikasi slide normal bersama master-nya, lihat [Clone Slides](/python-net/clone-slides/) .
+Jika Anda perlu menggandakan slide normal bersama master-nya, lihat [Clone Slides](/slides/id/python-net/clone-slides/).
 
-## **Menambahkan Beberapa Master Slide**
+## **Menambahkan Beberapa Slide Master**
 
-Sebuah presentasi dapat berisi beberapa master slide. Ini berguna ketika bagian yang berbeda memerlukan branding, struktur halaman, atau pengaturan tema yang berbeda.
+Sebuah presentasi dapat berisi banyak master slide. Hal ini berguna ketika bagian yang berbeda memerlukan branding, struktur halaman, atau pengaturan tema yang berbeda.
 
-![Perintah PowerPoint untuk menyisipkan dan mengelola master slide](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-The following example clones the default master, gives the clone a different background, gets a blank layout under that cloned master, and adds a new slide based on that layout:
+Contoh berikut menggandakan master default, memberi klon latar belakang yang berbeda, memperoleh layout kosong di bawah master yang digandakan, dan menambahkan slide baru berdasarkan layout tersebut:
 
 ```python
 import aspose.pydrawing as draw
@@ -256,9 +258,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Membandingkan Master Slide**
+## **Membandingkan Slide Master**
 
-Master slide dapat dibandingkan dengan metode `equals` yang diwarisi dari kelas [BaseSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/baseslide/) . Perbandingan memeriksa struktur dan konten statis, seperti shape, teks, pemformatan, animasi, dan pengaturan slide lainnya. Ini tidak membandingkan pengidentifikasi unik, seperti ID slide, atau nilai placeholder dinamis, seperti tanggal saat ini.
+Slide master dapat dibandingkan dengan metode `equals` yang diwarisi dari kelas [BaseSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/baseslide/). Perbandingan memeriksa struktur dan konten statis, seperti bentuk, teks, pemformatan, animasi, dan pengaturan slide lainnya. Tidak dibandingkan pengidentifikasi unik, seperti ID slide, atau nilai placeholder dinamis, seperti tanggal saat ini.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +283,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-Untuk informasi lebih lanjut, lihat [Compare Presentation Slides](/python-net/compare-slides/) .
+Untuk informasi lebih lanjut, lihat [Compare Presentation Slides](/slides/id/python-net/compare-slides/).
 
-## **Menetapkan Tampilan Master Slide sebagai Tampilan Default**
+## **Menetapkan Tampilan Slide Master sebagai Tampilan Default**
 
-Gunakan properti `last_view` pada [ViewProperties] presentasi untuk mengontrol tampilan yang pertama kali dibuka PowerPoint. Contoh berikut membuka presentasi dalam tampilan Slide Master:
+Gunakan properti `last_view` pada [ViewProperties](https://reference.aspose.com/slides/id/python-net/aspose.slides/viewproperties/) presentasi untuk mengontrol tampilan yang pertama kali dibuka PowerPoint. Contoh berikut membuka presentasi dalam tampilan Slide Master:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +297,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk pengaturan tampilan lebih lanjut, lihat [Save Presentation](/python-net/save-presentation/) .
+Untuk pengaturan tampilan lainnya, lihat [Save Presentation](/slides/id/python-net/save-presentation/).
 
-## **Menghapus Master Slide yang Tidak Digunakan**
+## **Menghapus Slide Master yang Tidak Digunakan**
 
-Presentasi kadang-kadang berisi master slide yang tidak lagi digunakan oleh slide normal mana pun. Menghapus master yang tidak digunakan dapat mengurangi ukuran file dan menyederhanakan pemeliharaan templat.
+Presentasi kadang berisi slide master yang tidak lagi dipakai oleh slide normal mana pun. Menghapus master yang tidak terpakai dapat mengurangi ukuran file dan mempermudah pemeliharaan templat.
 
-Gunakan `remove_unused` untuk menghapus master yang tidak digunakan dari koleksi `masters` :
+Gunakan `remove_unused` untuk menghapus master yang tidak terpakai dari koleksi `masters`:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +313,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Anda juga dapat menggunakan metode low-code `remove_unused_master_slides` dari kelas [Compress](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/) :
+Anda juga dapat menggunakan metode low‑code `remove_unused_master_slides` dari kelas [Compress](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/):
 
 ```python
 import aspose.slides as slides
@@ -323,18 +325,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-**Apa perbedaan antara master slide dan layout slide?**
+### Apa perbedaan antara slide master dan layout slide?
 
-Master slide mendefinisikan pengaturan desain bersama seperti tema, latar belakang, shape umum, dan gaya teks. Layout slide merupakan bagian dari master slide dan mendefinisikan susunan khusus placeholder. Slide normal menggunakan layout slide, sehingga ia mewarisi dari layout serta master.
+Slide master mendefinisikan pengaturan desain bersama seperti tema, latar belakang, bentuk umum, dan gaya teks. Layout slide merupakan bagian dari slide master dan mendefinisikan susunan placeholder tertentu. Slide normal menggunakan layout slide, sehingga mewarisi dari layout dan master.
 
-**Apakah satu presentasi dapat berisi beberapa master slide?**
+### Dapatkah satu presentasi berisi beberapa slide master?
 
-Ya. Sebuah presentasi dapat berisi beberapa master slide. Gunakan beberapa master ketika bagian yang berbeda memerlukan sistem visual atau branding yang berbeda.
+Ya. Sebuah presentasi dapat berisi beberapa slide master. Gunakan beberapa master ketika bagian yang berbeda memerlukan sistem visual atau branding yang berbeda.
 
-**Haruskah saya menambahkan placeholder ke master slide atau layout slide?**
+### Haruskah saya menambahkan placeholder ke slide master atau layout slide?
 
-Dalam kebanyakan kasus, tambahkan placeholder ke layout slide. Letakkan elemen visual bersama dan pemformatan bersama pada master slide, kemudian letakkan placeholder konten pada layout yang akan digunakan slide normal.
+Dalam kebanyakan kasus, tambahkan placeholder ke layout slide. Letakkan elemen visual bersama dan format bersama pada slide master, kemudian letakkan placeholder konten pada layout yang akan digunakan slide normal.
 
-**Apakah saya dapat menghapus master slide yang masih digunakan?**
+### Bisakah saya menghapus slide master yang masih digunakan?
 
-Tidak. Master slide yang memiliki slide tergantung tidak dapat dihapus secara langsung dengan aman. Pertama pindahkan slide tersebut ke layout di bawah master lain, atau gunakan metode pembersihan master yang tidak terpakai yang hanya menghapus master yang tidak digunakan.
+Tidak. Slide master yang memiliki slide tergantung tidak dapat dihapus secara langsung dengan aman. Pindahkan dulu slide tersebut ke layout di bawah master lain, atau gunakan metode pembersihan master yang tidak terpakai yang hanya menghapus master yang tidak digunakan.

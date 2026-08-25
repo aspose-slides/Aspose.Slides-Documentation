@@ -1,6 +1,6 @@
 ---
-title: Efektivně sloučit prezentace v PHP
-linktitle: Sloučit prezentace
+title: Efektivní sloučení prezentací v PHP
+linktitle: Sloučení prezentací
 type: docs
 weight: 40
 url: /cs/php-java/merge-presentation/
@@ -19,266 +19,390 @@ keywords:
 - kombinovat ODP
 - PHP
 - Aspose.Slides
-description: "Jednoduše sloučte prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) pomocí Aspose.Slides pro PHP via Java, což zjednoduší váš pracovní postup."
+description: "Zjistěte, jak v PHP sloučit PowerPoint a OpenDocument prezentace pomocí klonování snímků, řízení masterů a rozložení, změny velikosti obsahu snímků, zachování sekcí a zpracování chráněných nebo velkých souborů."
 ---
 ## **Přehled**
 
-Aspose.Slides umožňuje sloučit prezentace klonováním snímků z jedné prezentace do druhé. Tento článek vysvětluje, jak sloučit celé prezentace nebo vybrané snímky, použít hlavní snímek nebo konkrétní rozvržení během sloučení, pracovat s prezentacemi s různými velikostmi snímků a přidat sloučené snímky do sekce prezentace. Také se zabývá praktickými poznámkami souvisejícími se sloučeným obsahem, včetně poznámek k řečníkovi, komentářů, souborů chráněných heslem a používání vláken.
+Aspose.Slides pro PHP přes Java sloučuje prezentace klonováním snímků z jedné [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) do druhé. Hlavní operací je [SlideCollection::addClone()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/), která může zachovat formátování zdrojového snímku nebo připojit klonovaný snímek k masteru či rozložení v cílové prezentaci.
 
-## **Sloučení prezentací**
+Tento článek pokrývá nejčastější pracovní postupy sloučení:
 
-Když sloučíte jednu prezentaci s druhou, v podstatě kombinujete jejich snímky do jedné prezentace a získáte jeden soubor. 
+- sloučit všechny snímky a zachovat jejich zdrojové formátování;
+- sloučit vybrané snímky;
+- použít master z cílové prezentace;
+- použít konkrétní rozložení z cílové prezentace;
+- normalizovat různé velikosti snímků před sloučením;
+- přidat klonované snímky do sekce;
+- sloučit několik prezentací v jednom kompletním pracovním postupu;
+- zpracovat mastery, zdroje, poznámky, komentáře, média, fonty, hesla, velké soubory a problémy s vícevláknovým zpracováním.
 
-{{% alert title="Info" color="info" %}}
+## **Jak klonování snímků ovlivňuje mastery a rozložení**
 
-Většina programů pro prezentace (PowerPoint nebo OpenOffice) postrádá funkce, které uživatelům umožňují kombinovat prezentace tímto způsobem. 
+Snímek dědí velkou část svého vzhledu od svého rozložení a masteru. Z tohoto důvodu vybraná přetížení klonování určuje, jak bude sloučený snímek integrován do cílové prezentace.
 
-[**Aspose.Slides pro PHP via Java**](https://products.aspose.com/slides/cs/php-java/), však umožňuje sloučit prezentace různými způsoby. Můžete sloučit prezentace se všemi jejich tvary, styly, texty, formátováním, komentáři, animacemi atd., aniž byste se museli obávat ztráty kvality nebo dat.
+Použijte [SlideCollection::addClone()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/) jedním z následujících způsobů:
 
-**Viz také**
+- `addClone(sourceSlide)` — zachovat rozložení a formátování zdrojového snímku. V případě potřeby může být zdrojový master automaticky naklonován do cílové prezentace. Aspose.Slides automaticky sledovaně klonované mastery tak, aby se opakovaně neklonovaly stejné mastery.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — připojit klonovaný snímek k určitému cílovému [MasterSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/). Aspose.Slides vyhledá odpovídající rozložení pod tímto masterem podle typu nebo názvu rozložení.
+- `addClone(sourceSlide, destinationLayout)` — připojit klonovaný snímek přímo k určitému cílovému [LayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/).
 
-[**Klonovat snímky**](/slides/cs/php-java/clone-slides/).
+Master nebo rozložení předané přetížení `addClone` musí patřit **cílové** prezentaci, nikoli zdrojové prezentaci.
 
-{{% /alert %}}
+## **Sloučit celé prezentace a zachovat formátování zdroje**
 
-### **Co lze sloučit**
-
-S Aspose.Slides můžete sloučit
-
-* celé prezentace. Všechny snímky z prezentací skončí v jedné prezentaci
-* specifické snímky. Vybrané snímky skončí v jedné prezentaci
-* prezentace v jednom formátu (PPT na PPT, PPTX na PPTX atd.) a v různých formátech (PPT na PPTX, PPTX na ODP atd.) mezi sebou. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Kromě prezentací umožňuje Aspose.Slides sloučit i jiné soubory:
-
-* [Obrázky](https://products.aspose.com/slides/cs/php-java/merger/image-to-image/), například [JPG na JPG](https://products.aspose.com/slides/cs/php-java/merger/jpg-to-jpg/) nebo [PNG na PNG](https://products.aspose.com/slides/cs/php-java/merger/png-to-png/)
-* Dokumenty, například [PDF na PDF](https://products.aspose.com/slides/cs/php-java/merger/pdf-to-pdf/) nebo [HTML na HTML](https://products.aspose.com/slides/cs/php-java/merger/html-to-html/)
-* A dva různé soubory, například [obrázek na PDF](https://products.aspose.com/slides/cs/php-java/merger/image-to-pdf/) nebo [JPG na PDF](https://products.aspose.com/slides/cs/php-java/merger/jpg-to-pdf/) nebo [TIFF na PDF](https://products.aspose.com/slides/cs/php-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Možnosti sloučení**
-
-Můžete použít možnosti, které určují, zda
-
-* každý snímek ve výstupní prezentaci zachová jedinečný styl
-* konkrétní styl je použit pro všechny snímky ve výstupní prezentaci. 
-
-Pro sloučení prezentací poskytuje Aspose.Slides metody [addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/) (z třídy [SlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/)). Existuje několik implementací metod `addClone`, které definují parametry procesu sloučení prezentací. Každý objekt Presentation má kolekci [slide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getslides/), takže můžete zavolat metodu `addClone` z prezentace, do které chcete sloučit snímky.
-
-Metoda `addClone` vrací objekt `Slide`, který je klonem zdrojového snímku. Snímky ve výstupní prezentaci jsou jednoduše kopií snímků ze zdroje. Proto můžete měnit výsledné snímky (například aplikovat styly, formátování nebo rozvržení) aniž byste se museli obávat, že by to ovlivnilo zdrojové prezentace.
-
-## **Sloučení prezentací** 
-
-Aspose.Slides poskytuje metodu [addClone(Slide)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/), která umožňuje kombinovat snímky, přičemž snímky zachovávají své rozvržení a styly (výchozí parametry).
-
-Tento PHP kód ukazuje, jak sloučit prezentace:
+Nejjednodušší sloučení zkopíruje každý snímek ze zdrojové prezentace do cílové prezentace. Toto je vhodná volba, když mají importované snímky zachovat své původní téma, master a vztahy rozložení.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-## **Sloučení prezentací s hlavním snímkem** 
+Výsledná prezentace může obsahovat více masterů, pokud zdroj a cíl používají odlišné designy. To je očekávané, když je záměrně zachováno formátování zdroje.
 
-Aspose.Slides poskytuje metodu [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/) , která umožňuje kombinovat snímky při použití šablony hlavního snímku prezentace. Tímto způsobem můžete v případě potřeby změnit styl snímků ve výstupní prezentaci.
+## **Sloučit vybrané snímky**
 
-Tento kód demonstruje popsanou operaci:
+Nemusíte klonovat každý snímek. Následující příklad importuje jen vybrané indexy snímků ze zdrojové prezentace.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Ověřte indexy snímků před klonováním, pokud pocházejí od uživatele nebo z externí konfigurace.
 
-Rozvržení snímku pro hlavní snímek je určeno automaticky. Když nelze určit vhodné rozvržení, pokud je boolean parametr `allowCloneMissingLayout` metody `addClone` nastaven na true, použije se rozvržení zdrojového snímku. V opačném případě bude vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PptxEditException).
+## **Sloučit snímky pomocí cílového masteru**
 
-{{% /alert %}}
-
-Pokud chcete, aby snímky ve výstupní prezentaci měly jiné rozvržení snímku, použijte při sloučení místo toho metodu [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/) .
-
-## **Sloučení konkrétních snímků z prezentací** 
-
-Sloučení konkrétních snímků z více prezentací je užitečné pro tvorbu vlastních sad snímků. Aspose.Slides pro PHP via Java vám umožňuje vybrat a importovat pouze snímky, které potřebujete. API zachovává formátování, rozvržení a design originálních snímků.
-
-Následující PHP kód vytvoří novou prezentaci, přidá titulní snímky ze dvou ostatních prezentací a uloží výsledek do souboru:
+Použijte přetížení [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/), když mají importované snímky následovat master, který již patří do cílové prezentace.
 
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides vybere vhodné rozložení pod zadaným masterem porovnáním typu nebo názvu rozložení ze zdrojového snímku. Pokud neexistuje vhodné rozložení a `allowCloneMissingLayout` je `true`, zdrojové rozložení se naklonuje, aby mohl být snímek přidán. Pokud je `false`, je vyvolána [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/).
+
+Použijte `false`, když chcete, aby sloučení selhalo místo toho, aby se do cílového masteru zavádělo další rozložení.
+
+## **Sloučit snímky pomocí konkrétního cílového rozložení**
+
+Použijte přetížení [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/), když přesně víte, které cílové rozložení mají importované snímky použít.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Použití cílového rozložení mění zděděný vztah rozložení; ne redesignuje obsah zdrojového snímku. Pokud mají zdrojové a cílové rozložení odlišné struktury placeholderů, zkontrolujte výsledek, aby bylo jisté, že zděděné formátování a chování placeholderů jsou vhodné.
+
+## **Sloučit prezentace s různými velikostmi snímků**
+
+Prezentace s různými rozměry snímků mohou být sloučeny, ale klonování snímku do prezentace s jinou velikostí automaticky neredesinuje jeho obsah na novém plátně. Tvary se tak mohou jevit jako posunuté, nečekaně škálované nebo mimo viditelnou oblast snímku.
+
+Praktický postup je změnit velikost zdrojové prezentace před klonováním. Metoda [SlideSize::setSize()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidesize/setsize/) může měřítkově upravit existující obsah při změně rozměrů snímku. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidesizescaletype/) škáluje obsah tak, aby se vešel do požadované velikosti.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Změna velikosti mění objekt zdrojové prezentace v paměti. Pokud potřebujete původní zdrojovou prezentaci neporušenou pro další operace, otevřete pro sloučení samostatnou instanci.
+
+## **Sloučit snímky do sekce prezentace**
+
+Základní smyčka klonování snímků neobnovuje hierarchii sekcí zdrojové prezentace. Pokud jsou sekce důležité ve výstupu, vytvořte nebo vyberte sekce v cílové prezentaci a explicitně do nich klonujte snímky pomocí [addClone(Slide, Section)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/).
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Klonované snímky jsou připojeny k určené cílové sekci. Pro zachování několika zdrojových sekcí projděte [Presentation::getSections](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation/#getSections), získejte aktuální snímky každé zdrojové sekce pomocí [Section::getSlidesListOfSection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Section/#getSlidesListOfSection), znovu vytvořte sekce v cíli a klonujte každý vrácený snímek do odpovídající cílové sekce. Viz [Manage Slide Sections](/slides/cs/php-java/slide-section/) pro kompletní příklad enumerace sekcí, včetně prázdných sekcí a strukturálních změn.
+
+## **Bezpečné sloučení více prezentací**
+
+Následující end‑to‑end příklad používá první prezentaci jako cíl, normalizuje velikost snímku každého dalšího zdroje, udržuje každý zdroj otevřený jen po dobu kopírování a ukládá finální soubor jednou.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
 
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
-## **Sloučení prezentací s rozvržením snímku** 
+Toto je užitečná výchozí hodnota pro zachování formátování importovaných snímků. Pokud výstup musí používat jednotné téma cíle, nahraďte jednoduché volání `addClone($slide)` příslušným přetížením masteru nebo rozložení, jak bylo ukázáno dříve.
 
-Tento PHP kód ukazuje, jak kombinovat snímky z prezentací při aplikaci požadovaného rozvržení snímku, aby vznikla jedna výstupní prezentace:
+## **Praktické úvahy**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+### **Mastery, rozložení a věrnost formátování**
 
-## **Sloučení prezentací s různými velikostmi snímků** 
+Výchozí klonování snímků může automaticky přenést potřebný zdrojový master do cílové prezentace. Aspose.Slides udržuje interní registr pro automaticky klonované mastery, aby nedošlo k opakovanému klonování stejného masteru. Manuálně klonované mastery nejsou tímto registretem sledovány, takže se vyhněte předběžnému klonování masterů, pokud nepřejete explicitní kontrolu nad strukturou masteru.
 
-{{% alert title="Note" color="warning" %}} 
+Nepředpokládejte, že dva mastery nebo rozložení se stejným názvem jsou vizuálně ekvivalentní. Pokud firemní šablona musí řídit finální vzhled, vyberte explicitně cílový master nebo rozložení a po sloučení výsledek ověřte.
 
-Nemůžete sloučit prezentace s různými velikostmi snímků. 
+### **Poznámky a komentáře**
 
-{{% /alert %}}
+Poznámky přednášejícího a komentáře ke snímkům jsou spojeny s obsahem snímku a jsou při klonování zkopírovány. Aspose.Slides také poskytuje dedikované API pro [presentation notes](/slides/cs/php-java/presentation-notes/) a [presentation comments](/slides/cs/php-java/presentation-comments/).
 
-Pro sloučení 2 prezentací s různými velikostmi snímků musíte upravit velikost jedné z prezentací, aby odpovídala velikosti druhé.
+Pokud je důležité formátování stránky s poznámkami, ověřte sloučenou prezentaci, protože mastery pro poznámky jsou objekty na úrovni celé prezentace a mohou se mezi zdrojovými soubory lišit. Pro recenzní workflow ověřte také autory komentářů a vlákna komentářů po kombinaci souborů od různých autorů nebo šablon.
 
-Tento ukázkový kód demonstruje popsanou operaci:
+### **Obrázky, audio, video, OLE objekty a externí odkazy**
+
+Snímky mohou odkazovat na zdroje na úrovni prezentace, jako jsou obrázky, vložené audio, vložené video a OLE data. Klonujte samotný snímek místo kopírování jen jeho viditelných tvarů, aby Aspose.Slides mohlo udržet vztahy snímku k těmto zdrojům.
+
+Vložené a odkazované zdroje je třeba zacházet odlišně. Odkazovaný audio, video, OLE objekt nebo hypertextový odkaz zůstává závislý na externím cíli; klonování snímku nepromění externí odkaz na vložený obsah. Otestujte cesty a URL odkazovaných zdrojů v prostředí, kde bude sloučená prezentace otevírána.
+
+Aspose.Slides výslovně sleduje automaticky klonované mastery, ale to neznamená, že identické binární zdroje z nesouvisejících zdrojových prezentací budou vždy deduplikovány. Pokud je důležitá velikost výstupního souboru, prohlédněte sloučený balíček a změřte výsledek místo spoléhání se na implicitní deduplikaci.
+
+### **Vložené fonty a dostupnost fontů**
+
+Fonty jsou spravovány na úrovni prezentace. Pokud musí typografie zůstat konzistentní mezi stroji, nepředpokládejte, že klonování snímků samotných zaručí, že každý požadovaný font bude dostupný v cílovém prostředí. Vložené fonty můžete zkontrolovat pomocí [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getembeddedfonts/) a spravovat jejich vložení explicitně, jak je popsáno v [Embed Fonts in Presentations](/slides/cs/php-java/embedded-font/).
+
+Také ověřte, že máte oprávnění vložit fonty použité ve zdrojových souborech. Licenční podmínky fontů mohou omezovat vkládání.
+
+### **Prezentace chráněné heslem**
+
+Zdroj chráněný heslem musí být úspěšně otevřen, než mohou být jeho snímky klonovány. Heslo se předává pomocí [LoadOptions::setPassword()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/setpassword/).
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Pracujte s dešifrovanou prezentací.
+} finally {
+    $source->dispose();
+}
 ```
 
-## **Sloučení snímků do sekce prezentace** 
+Otevření šifrovaného zdroje automaticky nepřenáší stejnou ochranu na cílovou prezentaci. Ochranu výstupu nastavte samostatně, pokud je potřeba.
 
-Tento PHP kód ukazuje, jak sloučit konkrétní snímek do sekce v prezentaci:
+### **Velké prezentace a využití paměti**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+Velké prezentace obsahující vysoce rozlišené obrázky, audio, video nebo jiné velké binární objekty mohou spotřebovat značnou paměť. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) poskytuje ovládání BLOBů a dočasných souborů. Viz [Open Presentations](/slides/cs/php-java/open-presentation/#open-large-presentations) pro příklad velkých souborů v PHP přes Java.
 
-Snímek je přidán na konec sekce. 
+U velkých souborů raději načítejte z cest k souborům, co nejdříve uvolněte každou zdrojovou prezentaci po jejím sloučení a vyhněte se opakovanému ukládání mezivýsledků, pokud workflow nevyžaduje kontrolní body.
 
-## **Viz také**
+### **Bezpečnost vláken**
 
-
-Aspose poskytuje [ZDARMA Online Collage Maker](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit obrázky [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a další.
-
-Vyzkoušejte [Aspose FREE Online Merger](https://products.aspose.app/slides/cs/merger). Umožňuje sloučit PowerPoint prezentace ve stejném formátu (např. PPT na PPT, PPTX na PPTX) nebo napříč různými formáty (např. PPT na PPTX, PPTX na ODP).
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/cs/merger)
+Nenačítejte, neupravujte, neukládejte ani neklonujte instance [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) ve více vláknech. Tyto operace nejsou podporovány pro vícevláknové použití v PHP přes Java. Pokud potřebujete paralelní úlohy sloučení, spusťte je v oddělených jednovláknových procesech, přičemž každý proces používá vlastní instance prezentací, a řiďte se [Aspose.Slides multithreading guidance](/slides/cs/php-java/multithreading/).
 
 ## **Často kladené otázky**
 
-**Existují nějaká omezení počtu snímků při sloučení prezentací?**
+**Jak zachovat původní design každé zdrojové prezentace?**
 
-Žádná striktní omezení. Aspose.Slides zvládne velké soubory, ale výkon závisí na velikosti a systémových zdrojích. Pro velmi velké prezentace se doporučuje používat 64‑bitový JVM a přidělit dostatečnou haldu paměti.
+Použijte [SlideCollection::addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/) bez zadání cílového masteru či rozložení. Aspose.Slides může automaticky klonovat zdrojový master, pokud jej importovaný snímek potřebuje.
 
-**Mohu sloučit prezentace s vloženým videem nebo zvukem?**
+**Jak zajistit, aby importované snímky používaly téma cíle?**
 
-Ano, Aspose.Slides zachovává multimediální obsah vložený do snímků, ale výsledná prezentace může být výrazně větší.
+Použijte přetížení, které přijímá cílový master. Předávejte master z cílové prezentace, ne ze zdrojové. Aspose.Slides se pokusí přiřadit každý zdrojový snímek k vhodnému rozložení pod tímto masterem.
 
-**Budou písma při sloučení prezentací zachována?**
+**Kdy použít konkrétní cílové rozložení místo cílového masteru?**
 
-Ano. Písma použité ve zdrojových prezentacích jsou zachována ve výstupním souboru, pokud jsou nainstalována v systému nebo [vložená](/slides/cs/php-java/embedded-font/).
+Použijte konkrétní rozložení, když mají všechny importované snímky využívat jedno známo rozložení. Použijte master, když chcete, aby Aspose.Slides vybralo mezi rozloženími toho masteru na základě typu nebo názvu zdrojového rozložení.
+
+**Lze sloučit prezentace s různými velikostmi snímků?**
+
+Ano, ale obsah snímku se automaticky neredesinuje na nové rozměry. Nejprve změňte velikost zdrojové prezentace, pokud potřebujete předvídatelné umístění, například pomocí [SlideSize::setSize()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidesize/setsize/) a [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidesizescaletype/).
+
+**Mohu sloučit PPT, PPTX a ODP prezentace do jednoho souboru?**
+
+Ano. Načtěte každou zdrojovou prezentaci, klonujte požadované snímky do jedné cílové a uložte cíl v podporovaném výstupním formátu. Protože formáty prezentací nepodporují přesně stejnou sadu funkcí, po cross‑format sloučení ověřte složitý obsah. Viz [Supported File Formats](/slides/cs/php-java/supported-file-formats/).
+
+**Jsou zdrojové sekce automaticky zachovány?**
+
+Ne, při základní smyčce, která jen klonuje snímky. Vytvořte požadované sekce v cíli a použijte sekční přetížení [addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/addclone/), pokud musí být struktura sekcí zachována.
+
+**Jsou poznámky přednášejícího a komentáře zachovány?**
+
+Ano, jsou zkopírovány s klonovaným snímkem. Pro workflow závislé na stylování masteru pro poznámky, autorech komentářů nebo vláknových recenzích ověřte sloučený výsledek, protože tyto scénáře zahrnují struktury na úrovni prezentace i snímku.
+
+**Co se stane s audiem, videem, OLE objekty a hypertextovými odkazy?**
+
+Vložený obsah je přenesen jako součást vztahů zdrojů klonovaného snímku. Externí odkazy zůstávají externí, takže jejich cílové soubory nebo URL musí být po sloučení stále dostupné.
+
+**Jsou vložené fonty ze všech zdrojů garantovány v sloučené prezentaci?**
+
+Nespoléhejte se pouze na klonování snímků pro nasazení fontů. Prohlédněte vložené fonty v cíli a explicitně spravujte jejich vložení nebo externí dostupnost, pokud je typografie důležitá.
+
+**Jak sloučit soubor chráněný heslem?**
+
+Otevřete jej s použitím správného [LoadOptions::setPassword()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/setpassword/), pak normálně klonujte jeho snímky. Ochrana výstupu se nastavuje samostatně.
+
+**Jak postupovat u velmi velkých prezentací?**
+
+Použijte správu BLOB, pokud velké binární objekty dominují paměťovému využití, upřednostněte načítání z cest k souborům, rychle uvolněte zdrojové prezentace po jejich sloučení a finální výsledek uložte jen jednou, když je potřeba.
+
+**Mohu sloučit snímky z více vláken?**
+
+Načítání, ukládání nebo klonování prezentací ve více vláknech není podporováno v PHP přes Java. Pro paralelní práci použijte samostatné jednovláknové procesy a v každém procesu izolujte instance prezentací.

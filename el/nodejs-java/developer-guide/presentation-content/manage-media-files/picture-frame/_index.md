@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Πλαισίων Εικόνας σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
+title: Διαχειριστείτε Πλαισία Εικόνας σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
 linktitle: Πλαίσιο Εικόνας
 type: docs
 weight: 10
@@ -8,528 +8,434 @@ keywords:
 - πλαίσιο εικόνας
 - προσθήκη πλαισίου εικόνας
 - δημιουργία πλαισίου εικόνας
-- προσθήκη εικόνας
-- δημιουργία εικόνας
+- ενσωματωμένη εικόνα
+- συνδεδεμένη εικόνα
 - εξαγωγή εικόνας
-- raster εικόνα
-- διανυσματική εικόνα
-- περικοπή εικόνας
-- περιοχή περικοπής
-- ιδιότητα StretchOff
+- ραστερ εικόνα
+- SVG εικόνα
+- κοπή εικόνας
+- διαγραφή κομμένων περιοχών
+- συμπίεση εικόνας
+- StretchOffset
 - μορφοποίηση πλαισίου εικόνας
-- ιδιότητες πλαισίου εικόνας
-- σχετική κλίμακα
+- σχετική κλίμακας
 - εφέ εικόνας
 - αναλογία διαστάσεων
-- διαφάνεια εικόνας
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Προσθέστε πλαίσια εικόνας σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Node.js μέσω Java. Βελτιώστε τη ροή εργασίας σας και ενισχύστε το σχεδιασμό των διαφανειών."
+description: "Δημιουργήστε, μορφοποιήστε, συνδέστε, κόψτε, εξάγετε και συμπιέστε πλαίσια εικόνας σε παρουσιάσεις με το Aspose.Slides για Node.js μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένα πλαίσιο εικόνας είναι ένα σχήμα που περιέχει μια εικόνα—είναι σαν μια εικόνα μέσα σε ένα πλαίσιο.  
+Ένα πλαίσιο εικόνας είναι ένα σχήμα διαφάνειας που εμφανίζει μια εικόνα. Στο Aspose.Slides, ο πόρος εικόνας και το σχήμα που την εμφανίζει είναι ξεχωριστά αντικείμενα: ένα [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) διαθέτει ενσωματωμένους πόρους εικόνας μέσω του [ImageCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imagecollection/), ενώ ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) ελέγχει τη θέση, το μέγεθος, τη μορφοποίηση γραμμής, την περιστροφή, την κοπή, τα εφέ εικόνας και άλλες ρυθμίσεις επιπέδου πλαισίου.
 
-Μπορείτε να προσθέσετε μια εικόνα σε μια διαφάνεια μέσω ενός πλαισίου εικόνας. Με αυτόν τον τρόπο, μπορείτε να μορφοποιήσετε την εικόνα μορφοποιώντας το πλαίσιο εικόνας.
+Αυτή η διάσπαση είναι χρήσιμη όταν η ίδια εικόνα εμφανίζεται περισσότερες από μία φορές. Προσθέστε την εικόνα στην παρουσίαση μία φορά, κρατήστε το επιστρεφόμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/), και χρησιμοποιήστε αυτόν τον πόρο εικόνας όταν δημιουργείτε πλαίσια εικόνας.
 
-{{% alert  title="Συμβουλή" color="primary" %}} 
+Τα πλαίσια εικόνας μπορούν να περιλαμβάνουν ραστές εικόνες όπως PNG ή JPEG και διανυσματικές εικόνες SVG. Μπορούν επίσης να αναφέρονται σε συνδεδεμένες εικόνες αντί να αποθηκεύουν τα bytes της εικόνας στην παρουσίαση. Η επιλογή επηρεάζει τη φορητότητα, το μέγεθος του αρχείου, την εξαγωγή και τη συμπεριφορά εξαγωγής, επομένως είναι χρήσιμο να αποφασίσετε πώς θα αποθηκευτεί η εικόνα πριν εφαρμόσετε μορφοποίηση ή βελτιστοποίηση.
 
-Η Aspose προσφέρει δωρεάν μετατροπείς—[JPEG σε PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG σε PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που επιτρέπουν στους χρήστες να δημιουργούν παρουσιάσεις γρήγορα από εικόνες. 
+## **Προσθήκη και Μορφοποίηση Ενσωματωμένης Εικόνας**
 
-{{% /alert %}} 
+Για μια ενσωματωμένη εικόνα, προσθέστε τα δεδομένα εικόνας στην παρουσίαση και δημιουργήστε ένα πλαίσιο εικόνας με [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). Η εικόνα γίνεται μέρος του πακέτου παρουσίασης, ώστε η παρουσίαση να διατηρείται αυτόνομη όταν μεταφερθεί σε υπολογιστή.
 
-## **Δημιουργία Πλαισίου Εικόνας**
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο `PPImage` προσθέτοντας μια εικόνα στη [ImagesCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ImageCollection) που συσχετίζεται με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για το γέμισμα του σχήματος.
-4. Καθορίστε το πλάτος και το ύψος της εικόνας.
-5. Δημιουργήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFrame) με βάση το πλάτος και το ύψος της εικόνας μέσω της μεθόδου `addPictureFrame` που εκτίθεται από το αντικείμενο σχήματος που συσχετίζεται με τη διαφάνεια.
-6. Προσθέστε ένα πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-7. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας:
+Το παρακάτω παράδειγμα προσθέτει μια εικόνα PNG, δημιουργεί ένα πλαίσιο στις φυσικές διαστάσεις της εικόνας και εφαρμόζει μορφοποίηση γραμμής και περιστροφή:
 
 ```javascript
-// Δημιουργεί μια παρουσία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Δημιουργεί μια παρουσία της κλάσης Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Προσθέτει ένα πλαίσιο εικόνας με το ισοδύναμο ύψος και πλάτος της εικόνας
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Τα πλαίσια εικόνας σας επιτρέπουν να δημιουργείτε γρήγορα διαφάνειες παρουσίασης βασισμένες σε εικόνες. Όταν συνδυάσετε το πλαίσιο εικόνας με τις επιλογές αποθήκευσης του Aspose.Slides, μπορείτε να διαχειριστείτε τις λειτουργίες εισόδου/εξόδου για να μετατρέψετε εικόνες από μια μορφή στην άλλη.
-
-## **Δημιουργία Πλαισίου Εικόνας με Σχετική Κλίμακα**
-
-Αλλάζοντας τη σχετική κλίμακα μιας εικόνας, μπορείτε να δημιουργήσετε ένα πιο σύνθετο πλαίσιο εικόνας. 
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Προσθέστε μια εικόνα στη συλλογή εικόνων της παρουσίασης.
-4. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη [ImagesCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ImageCollection) που συσχετίζεται με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για το γέμισμα του σχήματος.
-5. Καθορίστε το σχετικό πλάτος και ύψος της εικόνας στο πλαίσιο εικόνας.
-6. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας με σχετική κλίμακα:
-
-```javascript
-// Δημιουργεί κλάση Presentation που αντιπροσωπεύει το PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Δημιουργεί την κλάση Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Προσθέτει πλαίσιο εικόνας με ύψος και πλάτος ισοδύναμα της εικόνας
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Ορίζει σχετική κλίμακα πλάτους και ύψους
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Εξαγωγή Raster Εικόνων από Πλαίσια Εικόνας**
-
-Μπορείτε να εξάγετε raster εικόνες από αντικείμενα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFrame) και να τις αποθηκεύσετε σε PNG, JPG και άλλες μορφές. Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε μια εικόνα από το έγγραφο «sample.pptx» και να την αποθηκεύσετε σε μορφή PNG.
-
-```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
-        try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Εξαγωγή SVG Εικόνων από Πλαίσια Εικόνας**
-
-Όταν μια παρουσίαση περιέχει γραφικά SVG τοποθετημένα μέσα σε σχήματα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/), το Aspose.Slides for Node.js via Java σάς επιτρέπει να αποκτήσετε τις αρχικές διανυσματικές εικόνες με πλήρη πιστότητα. Διατρέχοντας τη συλλογή σχημάτων της διαφάνειας, μπορείτε να εντοπίσετε κάθε [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/), να ελέγξετε εάν το υποκείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) περιέχει περιεχόμενο SVG, και στη συνέχεια να αποθηκεύσετε αυτήν την εικόνα στο δίσκο ή σε ρεύμα στην μητρική της μορφή SVG.
-
-Το ακόλουθο παράδειγμα κώδικα δείχνει πώς να εξάγετε μια SVG εικόνα από ένα πλαίσιο εικόνας:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Λήψη Διαφάνειας Εικόνας**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε το εφέ διαφάνειας που εφαρμόζεται σε μια εικόνα. Αυτός ο κώδικας JavaScript επιδεικνύει τη λειτουργία:
-
-```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Λήψη Φωτεινότητας και Αντίθεσης Εικόνας**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε το εφέ φωτεινότητας και αντίθεσης που εφαρμόζεται σε μια εικόνα. Η κλάση [Luminance](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/luminance/) αντιπροσωπεύει αυτή τη μετασχηματιστική ενέργεια της εικόνας.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να λάβετε τις ρυθμίσεις φωτεινότητας και αντίθεσης από ένα πλαίσιο εικόνας:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Μορφοποίηση Πλαισίου Εικόνας**
+Το πλαίσιο εικόνας ελέγχει τη γεωμετρία που εμφανίζεται· η αλλαγή του μεγέθους του πλαισίου δεν αλλάζει τις αρχικές διαστάσεις pixel που είναι αποθηκευμένες στο ενσωματωμένο πόρο εικόνας. Αυτή η διάκριση γίνεται σημαντική όταν επεξεργάζεστε ή συμπιέζετε μια εικόνα αργότερα.
 
-Το Aspose.Slides παρέχει πολλές επιλογές μορφοποίησης που μπορούν να εφαρμοστούν σε ένα πλαίσιο εικόνας. Χρησιμοποιώντας αυτές τις επιλογές, μπορείτε να τροποποιήσετε ένα πλαίσιο εικόνας ώστε να ταιριάζει σε συγκεκριμένες απαιτήσεις.
+## **Χρήση Σχετικού Κλίμακας**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη [ImagesCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ImageCollection) που συσχετίζεται με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για το γέμισμα του σχήματος.
-4. Καθορίστε το πλάτος και το ύψος της εικόνας.
-5. Δημιουργήστε ένα `PictureFrame` με βάση το πλάτος και το ύψος της εικόνας μέσω της μεθόδου [addPictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) που εκτίθεται από το αντικείμενο [Shapes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection) που σχετίζεται με τη διαφάνεια.
-6. Προσθέστε το πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-7. Ορίστε το χρώμα γραμμής του πλαισίου εικόνας.
-8. Ορίστε το πάχος γραμμής του πλαισίου εικόνας.
-9. Περιστρέψτε το πλαίσιο εικόνας δίνοντας του είτε θετική είτε αρνητική τιμή.
-   * Μια θετική τιμή περιστρέφει την εικόνα δεξιόστροφα.
-   * Μια αρνητική τιμή περιστρέφει την εικόνα αριστερόστροφα.
-10. Προσθέστε ξανά το πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-11. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει τη διαδικασία μορφοποίησης του πλαισίου εικόνας:
+[PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) εκθέτει σχετική κλίμακα πλάτους και ύψους για το πλαίσιο μέσω [setRelativeScaleWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) και [setRelativeScaleHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Μια τιμή `1.0` αντιστοιχεί στο 100 % του αρχικού μεγέθους της εικόνας. Η σχετική κλίμακα είναι χρήσιμη όταν μια ροή εργασίας χρειάζεται να διατηρήσει τη σχέση με το μέγεθος της πηγαίας εικόνας αντί να υπολογίζει τελικά διαστάσεις χειροκίνητα.
 
 ```javascript
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει το PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    var sld = pres.getSlides().get_Item(0);
-    // Δημιουργεί την κλάση Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Προσθέτει Πλαίσιο Εικόνας με ύψος και πλάτος ισοδύναμα της Εικόνας
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Εφαρμόζει κάποιες μορφοποιήσεις στο PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Συμβουλή" color="primary" %}}
+Η σχετική κλίμακα αλλάζει τις ρυθμίσεις κλίμακας του πλαισίου· δεν επαναδειγματώνει ή συμπιέζει την ενσωματωμένη εικόνα.
 
-Η Aspose ανέπτυξε πρόσφατα ένα [δωρεάν Collage Maker](https://products.aspose.app/slides/el/collage). Αν χρειαστεί ποτέ να [συγχωνεύσετε JPG/JPEG](https://products.aspose.app/slides/el/collage/jpg) ή PNG εικόνες, ή να [δημιουργήσετε πλέγματα από φωτογραφίες](https://products.aspose.app/slides/el/collage/photo-grid), μπορείτε να χρησιμοποιήσετε αυτήν την υπηρεσία. 
+## **Ενσωματωμένες και Συνδεδεμένες Εικόνες**
 
-{{% /alert %}}
+Μια ενσωματωμένη εικόνα αποθηκεύει τα δεδομένα εικόνας μέσα στην παρουσίαση και αποτελεί επομένως την πιο ασφαλή επιλογή για φορητότητα και προβλέψιμη απόδοση. Μια συνδεδεμένη εικόνα αποθηκεύει μια εξωτερική τοποθεσία μέσω της μεθόδου [Picture.setLinkPathLong](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) αντί να ενσωματώνει τα δεδομένα της εικόνας με τον ίδιο τρόπο.
 
-## **Προσθήκη Εικόνας ως Σύνδεσμο**
+Οι συνδεδεμένες εικόνες μπορούν να μειώσουν την ποσότητα δεδομένων εικόνας που αποθηκεύεται στο PPTX, αλλά εισάγουν εξωτερική εξάρτηση. Το συνδεδεμένο αρχείο πρέπει να παραμένει προσβάσιμο στην εφαρμογή που ανοίγει ή αποδίδει την παρουσίαση. Εάν αλλάξει η διαδρομή, μετακινηθεί το αρχείο ή ο πόρος γίνει μη διαθέσιμος, η συνδεδεμένη εικόνα ενδέχεται να μην εμφανιστεί όπως αναμένεται. Για παρουσιάσεις που πρέπει να αποσταλούν μέσω email, να αρχειοθετηθούν ή να αποδοθούν σε απομονωμένα περιβάλλοντα, οι ενσωματωμένες εικόνες είναι συνήθως πιο αξιόπιστες.
 
-Για να αποφύγετε μεγάλα μεγέθη παρουσίασης, μπορείτε να προσθέτετε εικόνες (ή βίντεο) μέσω συνδέσμων αντί να ενσωματώνετε τα αρχεία απευθείας στην παρουσίαση. Αυτός ο κώδικας JavaScript δείχνει πώς να προσθέσετε μια εικόνα και ένα βίντεο σε ένα σύμβολο κράτησης θέσης:
+### **Προσθήκη Συνδεδεμένης Εικόνας**
+
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο εικόνας και το κατευθύνει σε τοπικό αρχείο εικόνας. Ασχολείται μόνο με τη σύνδεση εικόνας· η σύνδεση βίντεο είναι ξεχωριστή ροή πολυμέσων και δεν έχει ενσωματωθεί σκόπιμα σε αυτό το παράδειγμα.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Χρησιμοποιήστε συνδέσεις όταν η διαχείριση εξωτερικών αρχείων είναι σκόπιμη. Μην τις χρησιμοποιείτε μόνο ως αντικατάσταση συμπίεσης: ένα μικρό PPTX με σπασμένες εξαρτήσεις εικόνας είναι συνήθως λιγότερο χρήσιμο από μία μεγαλύτερη, αυτόνομη παρουσίαση.
+
+## **Εξαγωγή Εικόνων από Πλαίσια Εικόνας**
+
+Πριν εξαγάγετε μια εικόνα από μια υπάρχουσα παρουσίαση, ελέγξτε ότι ένα σχήμα είναι πραγματικά ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) και ότι περιέχει ενσωματωμένη εικόνα. Τα συνδεδεμένα πλαίσια εικόνας ενδέχεται να μην περιέχουν bytes εικόνας που μπορούν να εξαχθούν με τον ίδιο τρόπο.
+
+### **Εξαγωγή Ραστερ Εικόνας**
+
+Το σύγχρονο API εικόνας χρησιμοποιεί άμεσα το [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/). Το παρακάτω παράδειγμα βρίσκει την πρώτη ενσωματωμένη ραστερ εικόνα σε μια διαφάνεια και την αποθηκεύει ως PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
             continue;
         }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
         }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
 
-## **Περικοπή Εικόνας**
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να περικόψετε μια υπάρχουσα εικόνα σε μια διαφάνεια:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// Δημιουργεί νέο αντικείμενο εικόνας
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+        const rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
         }
+        break;
     }
-    // Προσθέτει Πλαίσιο Εικόνας σε μια Διαφάνεια
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Κόβει την εικόνα (τιμές ποσοστών)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Αποθηκεύει το αποτέλεσμα
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Διαγραφή Περιοχών Περικοπής του Πλαισίου Εικόνας**
-
-Εάν θέλετε να διαγράψετε τις περιοχές που έχουν περικοπεί από μια εικόνα που περιέχεται σε ένα πλαίσιο, μπορείτε να χρησιμοποιήσετε τη μέθοδο [deletePictureCroppedAreas()](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . Αυτή η μέθοδος επιστρέφει την περικομμένη εικόνα ή την αρχική εάν η περικοπή είναι περιττή.
-
-Αυτός ο κώδικας JavaScript επιδεικνύει τη λειτουργία:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Λαμβάνει το PictureFrame από την πρώτη διαφάνεια
-    var picFrame = slide.getShapes().get_Item(0);
-    // Διαγράφει τις περικομμένες περιοχές της εικόνας PictureFrame και επιστρέφει την περικομμένη εικόνα
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Αποθηκεύει το αποτέλεσμα
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="ΣΗΜΕΙΩΣΗ" color="warning" %}} 
-
-Η μέθοδος [deletePictureCroppedAreas()](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) προσθέτει την περικομμένη εικόνα στη συλλογή εικόνων της παρουσίασης. Εάν η εικόνα χρησιμοποιείται μόνο στο επεξεργασμένο [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/), αυτή η ρύθμιση μπορεί να μειώσει το μέγεθος της παρουσίασης. Διαφορετικά, ο αριθμός των εικόνων στην τελική παρουσίαση θα αυξηθεί.
-
-Αυτή η μέθοδος μετατρέπει αρχεία WMF/EMF σε raster εικόνα PNG κατά την πράξη της περικοπής. 
-
-{{% /alert %}}
-
-## **Συμπίεση Εικόνων**
-
-Μπορείτε να συμπιέσετε μια εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [PictureFillFormat.compressImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) . Αυτή η μέθοδος συμπιέζει μια εικόνα μειώνοντας το μέγεθός της βάσει του μεγέθους του σχήματος και της καθορισμένης ανάλυσης, με την επιλογή διαγραφής των περιοχών που έχουν περικοπεί.
-
-Ρυθμίζει το μέγεθος και την ανάλυση της εικόνας παρόμοια με τη λειτουργία **Picture Format → Compress Pictures → Resolution** του PowerPoint.
-
-Τα παρακάτω παραδείγματα JavaScript δείχνουν πώς να συμπιέσετε μια εικόνα σε μια παρουσίαση καθορίζοντας μια στοχευμένη ανάλυση και προαιρετικά αφαιρώντας περιοχές που έχουν περικοπεί:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // Συμπιέζει την εικόνα με στόχο ανάλυση 150 DPI (ανάλυση ιστού) και αφαιρεί τις περικομμένες περιοχές.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Ελέγχει το αποτέλεσμα της συμπίεσης.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Ή χρησιμοποιώντας άλλη προεπιλεγμένη τιμή DPI:
+Η αποθήκευση μέσω [IImage.save](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/#save) μετατρέπει την εξαγόμενη εικόνα στη ζητούμενη μορφή εξόδου. Εάν χρειάζεστε τα κωδικοποιημένα bytes που είναι αποθηκευμένα στην παρουσίαση αντί για ένα μετασχηματισμένο ραστερ αρχείο, χρησιμοποιήστε τα δυαδικά δεδομένα του πόρου εικόνας.
+
+### **Εξαγωγή SVG Εικόνας**
+
+Για μια SVG εικόνα, το [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) εκθέτει ένα αντικείμενο [SvgImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/). Αυτό σας επιτρέπει να ανακτήσετε τα δεδομένα SVG άμεσα αντί να ραστεροποιήσετε πρώτα την εικόνα.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
 
-    // Συμπιέζει την εικόνα σε 96 DPI (ανάλυση email), αφαιρώντας τις περικομμένες περιοχές.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="ΣΗΜΕΙΩΣΗ" color="warning" %}} 
+Η διατήρηση του περιεχομένου SVG ως SVG διαφυλάσσει την διανυσματική πηγή μέσα στην παρουσίαση. Οι εξαγωγές σε ραστερ όπως PNG ή JPEG απαραίτητα αποδίδουν αυτό το διανυσματικό περιεχόμενο σε pixel. Η εξαγωγή διαφάνειας σε PDF ή SVG αποτελεί επίσης διαδικασία απόδοσης, οπότε τα εξαγώμενα γραφικά δεν πρέπει να θεωρούνται ακριβές αντίγραφα byte‑για‑byte του αρχικού ενσωματωμένου SVG· χρησιμοποιήστε τα δεδομένα [SvgImage.getSvgData](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/#getSvgData--) όταν απαιτείται ο ίδιος ο πόρος διανύσματος.
 
-Η μέθοδος μετατρέπει την εικόνα σε χαμηλότερη ανάλυση βάσει του μεγέθους του σχήματος και του παρεχόμενου DPI. Οι περικομμένες περιοχές μπορούν επίσης να διαγραφούν για βελτιστοποίηση του μεγέθους του αρχείου. Εάν η εικόνα είναι μεταφόρμα (WMF/EMF) ή SVG, η συμπίεση δεν θα εφαρμοστεί. Επίσης, η ποιότητα JPEG διατηρείται ή μειώνεται ελαφρώς ανάλογα με την ανάλυση, παρόμοια με την αντιμετώπιση υψηλής ανάλυσης JPEG από το PowerPoint.
+## **Κοπή Εικόνας**
 
-{{% /alert %}}
+Η κοπή αλλάζει ποιο τμήμα της εικόνας είναι ορατό μέσα στο πλαίσιο. Οι τιμές κοπής στο [PictureFillFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/) είναι ποσοστά των διαστάσεων της πηγαίας εικόνας. Η κοπή δεν διαγράφει αρχικά τα κρυφά pixel από την ενσωματωμένη εικόνα· απλώς αλλάζει την ορατή περιοχή.
 
-## **Κλείδωμα Αναλογίας Διαστάσεων**
-
-Εάν θέλετε ένα σχήμα που περιέχει μια εικόνα να διατηρεί την αναλογία διαστάσεων ακόμη και μετά την αλλαγή των διαστάσεων της εικόνας, μπορείτε να χρησιμοποιήσετε τη μέθοδο [setAspectRatioLocked](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) για να ορίσετε τη ρύθμιση *Lock Aspect Ratio*.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να κλειδώσετε την αναλογία διαστάσεων ενός σχήματος:
+Το παρακάτω παράδειγμα εντοπίζει με ασφάλεια ένα πλαίσιο εικόνας και εφαρμόζει τιμές κοπής:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // ορίστε το σχήμα ώστε να διατηρεί την αναλογία διαστάσεων κατά την αλλαγή μεγέθους
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert title="ΣΗΜΕΙΩΣΗ" color="warning" %}} 
+Καθώς τα κρυφά δεδομένα εικόνας παραμένουν, η κοπή μπορεί να αλλάξει αργότερα χωρίς να χαθούν τα αρχικά pixel. Εάν το μέγεθος του αρχείου είναι πιο σημαντικό από την αντιστροφικότητα, οι κομμένες περιοχές μπορούν να αφαιρεθούν φυσικά όπως περιγράφεται στην επόμενη ενότητα.
 
-Αυτή η ρύθμιση *Lock Aspect Ratio* διατηρεί μόνο την αναλογία διαστάσεων του σχήματος και όχι της εικόνας που περιέχει.
+## **Αφαίρεση Δεδομένων Κομμένης Εικόνας**
 
-{{% /alert %}}
-
-## **Χρήση Ιδιότητας StretchOff**
-
-Χρησιμοποιώντας τις μεθόδους [setStretchOffsetLeft](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) και [setStretchOffsetBottom](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) από την κλάση [PictureFillFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PictureFillFormat), μπορείτε να ορίσετε ένα ορθογώνιο γέμισης.
-
-Όταν καθορίζεται τέντωμα για μια εικόνα, ένα ορθογώνιο προέλευσης κλιμακώνεται ώστε να ταιριάζει στο καθορισμένο ορθογώνιο γέμισης. Κάθε άκρη του ορθογωνίου γέμισης ορίζεται από ένα ποσοστό offset από την αντίστοιχη άκρη του περιβλήματος του σχήματος. Ένα θετικό ποσοστό υποδεικνύει ενδοχώριο, ενώ ένα αρνητικό ποσοστό εξωχώριο.
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο `AutoShape`. 
-4. Δημιουργήστε μια εικόνα.
-5. Ορίστε τον τύπο γέμισης του σχήματος.
-6. Ορίστε τη λειτουργία γέμισματος εικόνας του σχήματος.
-7. Προσθέστε μια ορισμένη εικόνα για να γεμίσει το σχήμα.
-8. Καθορίστε τα offsets της εικόνας από την αντίστοιχη άκρη του περιβλήματος του σχήματος.
-9. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει μια διαδικασία κατά την οποία χρησιμοποιείται η ιδιότητα StretchOff:
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) αφαιρεί τα δεδομένα εικόνας εκτός του τρέχοντος ορθογωνίου κοπής και επιστρέφει τον προκύπτοντα πόρο εικόνας. Αυτό μπορεί να μειώσει το μέγεθος του αρχείου, αλλά είναι μια καταστροφική βελτιστοποίηση: μετά την αποθήκευση της παρουσίασης, τα αφαιρεμένα pixel δεν είναι πλέον διαθέσιμα για μετέπειτα αποκόπωση.
 
 ```javascript
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    var slide = pres.getSlides().get_Item(0);
-    // Δημιουργεί την κλάση ImageEx
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    // Προσθέτει AutoShape ορισμένο σε Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Ορίζει τον τύπο γέμισματος του σχήματος
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Ορίζει τη λειτουργία γέμισματος εικόνας του σχήματος
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Ορίζει την εικόνα για γέμισμα του σχήματος
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Καθορίζει τις μετατοπίσεις της εικόνας από την αντίστοιχη άκρη του πλαισίου του σχήματος
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
+
+Η μέθοδος μπορεί να προσθέσει έναν νέο πόρο εικόνας στην παρουσίαση. Εάν η αρχική εικόνα χρησιμοποιείται επίσης από άλλα πλαίσια εικόνας, αυτά τα πλαίσια εξακολουθούν να χρειάζονται τον υπάρχοντα πόρο, οπότε η διαγραφή των κομμένων περιοχών δεν μειώνει απαραίτητα τον συνολικό αριθμό εικόνων. Η κοπή περιεχομένου WMF ή EMF με αυτή τη μέθοδο ραστεροποιεί το κομμένο αποτέλεσμα σε PNG.
+
+## **Συμπίεση Ραστερ Εικόνων**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) μειώνει την ανάλυση της ραστερ εικόνας σε σχέση με το μέγεθος με το οποίο η εικόνα εμφανίζεται. Μπορεί επίσης να αφαιρέσει κομμένες περιοχές στην ίδια λειτουργία. Η μέθοδος επιστρέφει `true` όταν η εικόνα έχει αλλαγεί μέγεθος ή κοπεί και `false` όταν δεν ήταν απαραίτητη καμία αλλαγή.
+
+Χρησιμοποιήστε μια προορισμένη τιμή [PicturesCompression](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturescompression/) όταν μια τυπική ανάλυση στόχου είναι επαρκής:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Μια προσαρμοσμένη θετική τιμή DPI μπορεί να περαστεί αντί για προορισμένη τιμή όταν απαιτείται συγκεκριμένος στόχος.
+
+Η συμπίεση προορίζεται για ραστερ εικόνες. Το περιεχόμενο SVG και Μεταφίλων δεν μειώνεται από αυτή τη ροή συμπίεσης ραστερ. Επίσης, θυμηθείτε ότι η χαμηλότερη ανάλυση και οι διαγραμμένες κομμένες περιοχές δεν μπορούν να ανακτηθούν από την βελτιστοποιημένη παρουσίαση. Επιλέξτε ανάλυση στόχου με βάση το μεγαλύτερο μέγεθος στο οποίο η εικόνα θα προβληθεί ή θα εξαχθεί πραγματικά, αντί να εφαρμόζετε το χαμηλότερο DPI παγκοσμίως.
+
+## **Διαχείριση Εφέ Μετασχηματισμού Εικόνας**
+
+Για πλήρη ροή εργασίας που καλύπτει φωτεινότητα, αντίθεση, χρωματικούς μετασχηματισμούς, θόλωση, εφέ άλφα, αλυσίδες, έλεγχο, αφαίρεση και επαλήθευση κύκλου ζωής, δείτε [Image Transform Effects](/slides/el/nodejs-java/image-transform-effects/).
+
+## **Κλείδωμα Γεωμετρίας Πλαισίου Εικόνας**
+
+Οι ρυθμίσεις [PictureFrameLock](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframelock/) ελέγχουν ποιες λειτουργίες επεξεργασίας είναι απενεργοποιημένες για ένα πλαίσιο εικόνας. Για παράδειγμα, το [setAspectRatioLocked](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) διατηρεί τις αναλογίες του σχήματος ενώ αλλάζει μέγεθος.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το κλείδωμα εφαρμόζεται στο σχήμα του πλαισίου εικόνας. Δεν αναγκάζει την πηγαία εικόνα να επαναδειγματωθεί ή να αλλάξει μόνιμα στην ίδια αναλογία.
+
+## **Προσαρμογή Τιμών StretchOffset**
+
+Όταν η λειτουργία γεμίσματος εικόνας είναι τέντωμα, οι τιμές stretch‑offset στο [PictureFillFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/) ορίζουν το γεωμετρικό ορθογώνιο γεμίσματος σε σχέση με το περίγραμμα του πλαισίου εικόνας. Θετικά ποσοστά δημιουργούν εσοχή από την άκρη, ενώ αρνητικά ποσοστά δημιουργούν προεξοχή.
+
+Αυτό διαφέρει από την κοπή. Οι τιμές κοπής επιλέγουν ποιο τμήμα της πηγαίας εικόνας είναι ορατό· οι offsets τέντωσης αλλάζουν το ορθογώνιο στο οποίο τεντώνεται το ορατό γέμισμα εικόνας.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Χρησιμοποιήστε τα stretch‑offsets για τοποθέτηση γεμίσματος. Χρησιμοποιήστε τις ιδιότητες κοπής όταν ο στόχος είναι η απόκρυψη άκρων της πηγαίας εικόνας.
+
+## **Αποθήκευση, Μέγεθος Αρχείου και Σκέψεις Εξαγωγών**
+
+Οι κύριες ανταλλαγές είναι πιο εύκολα διαχειρίσιμες όταν η αποθήκευση εικόνας και η μορφοποίηση πλαισίου αντιμετωπίζονται ξεχωριστά:
+
+- **Ενσωματωμένες εικόνες** κάνουν την παρουσίαση αυτόνομη και είναι οι πιο αξιόπιστες για κοινή χρήση και απόδοση στην πλευρά του διακομιστή, αλλά μεγάλες ραστερ εικόνες αυξάνουν το μέγεθος του PPTX και τη χρήση μνήμης.
+- **Συνδεδεμένες εικόνες** μπορούν να διατηρήσουν το πακέτο μικρότερο, αλλά η παρουσίαση εξαρτάται από εξωτερικά αρχεία που πρέπει να παραμένουν διαθέσιμα στις αποθηκευμένες διαδρομές ή τοποθεσίες.
+- **Κοπή** αρχικά δεν είναι καταστροφική. Τα κρυφά pixel παραμένουν ενσωματωμένα μέχρι οι κομμένες περιοχές να διαγραφούν ή να αφαιρεθούν κατά τη συμπίεση.
+- **Συμπίεση** μπορεί να μειώσει σημαντικά το μέγεθος του αρχείου για υπερμεγέθη ραστερ εικόνες, αλλά θυσιάζει την αρχική ανάλυση. Θα πρέπει να εφαρμοστεί μετά τον καθορισμό του τελικού μεγέθους στην διαφάνεια.
+- **Εικόνες SVG** πρέπει να παραμείνουν SVG όταν η διατήρηση του διανύσματος είναι σημαντική. Εξάγετε το ενσωματωμένο SVG άμεσα όταν χρειάζεστε τον διανυσματικό πόρο. Οι εξαγωγές διαφάνειας σε ραστερ πάντα μετατρέπουν τη διαφάνεια σε pixel.
+- **Επαναλαμβανόμενες εικόνες** πρέπει να επαναχρησιμοποιούν έναν υπάρχοντα πόρο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) όταν είναι δυνατόν αντί να φορτώνουν ξανά το ίδιο αρχείο στη ροή εργασίας παρουσίασης.
+
+Για μεγάλες παρουσιάσεις, η βελτιστοποίηση εικόνας είναι συνήθως πιο αποδοτική όταν πραγματοποιείται επιλεκτικά: διατηρήστε λογότυπα και διαγράμματα ως διανυσματικό περιεχόμενο, συμπιέστε φωτογραφίες ανάλογα με το πραγματικό μέγεθος εμφάνισης, αφαιρέστε τα κομμένα pixel μόνο όταν δεν απαιτείται περαιτέρω επεξεργασία, και αποφύγετε εξωτερικούς συνδέσμους εκτός εάν η διαχείριση εξαρτήσεων αποτελεί μέρος του σχεδιασμού ανάπτυξης.
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να μάθω ποιες μορφές εικόνας υποστηρίζονται για το PictureFrame;**
+**Ποια είναι η διαφορά μεταξύ ενός πλαισίου εικόνας και ενός πόρου εικόνας;**
 
-Το Aspose.Slides υποστηρίζει τόσο raster εικόνες (PNG, JPEG, BMP, GIF κ.λπ.) όσο και διανυσματικές εικόνες (π.χ., SVG) μέσω του αντικειμένου εικόνας που ανατίθεται σε ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/). Η λίστα των υποστηριζόμενων μορφών γενικά συμπίπτει με τις δυνατότητες του κινητήρα διαφάνειας και μετατροπής εικόνας.
+Ένα [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ppimage/) αντιπροσωπεύει έναν πόρο εικόνας που σχετίζεται με την παρουσίαση. Ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) είναι ένα σχήμα σε μια διαφάνεια που εμφανίζει μια εικόνα και αποθηκεύει τη γεωμετρία και τη μορφοποίηση επιπέδου πλαισίου όπως το μέγεθος, η περιστροφή, οι τιμές κοπής, τα εφέ και οι κλειδώσεις.
 
-**Πώς θα επηρεάσει η προσθήκη δεκάδων μεγάλων εικόνων το μέγεθος και την απόδοση του PPTX;**
+**Πρέπει να ενσωματώνω ή να συνδέω εικόνες;**
 
-Η ενσωμάτωση μεγάλων εικόνων αυξάνει το μέγεθος του αρχείου και τη χρήση μνήμης· η σύνδεση εικόνων βοηθά στη διατήρηση του μικρότερου μεγέθους παρουσίασης, αλλά απαιτεί τα εξωτερικά αρχεία να παραμένουν προσβάσιμα. Το Aspose.Slides παρέχει τη δυνατότητα προσθήκης εικόνων μέσω συνδέσμου για μείωση του μεγέθους του αρχείου.
+Ενσωματώστε εικόνες όταν η παρουσίαση πρέπει να είναι φορητή, αρχειοθετημένη ή αποδοθεί χωρίς πρόσβαση σε εξωτερικούς πόρους. Συνδέστε εικόνες μόνο όταν η αποθήκευση των αρχείων εικόνας εκτός του PPTX είναι σκόπιμη και οι εξωτερικές τοποθεσίες μπορούν να διατηρηθούν αξιόπιστα.
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο εικόνας ώστε να μην μετακινηθεί/αλλάξει μέγεθος τυχαία;**
+**Μειώνει η κοπή το μέγεθος του αρχείου PPTX;**
 
-Χρησιμοποιήστε τα [shape locks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) για ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) (π.χ., να απενεργοποιήσετε τη μετακίνηση ή το μέγεθος). Ο μηχανισμός κλειδώματος υποστηρίζεται για διάφορους τύπους σχημάτων, συμπεριλαμβανομένου του [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/).
+Όχι από μόνο της. Οι κανονικές ρυθμίσεις κοπής αποκρύπτουν τμήματα της πηγαίας εικόνας αλλά κρατούν τα υποκείμενα pixel. Χρησιμοποιήστε [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) ή συμπίεση εικόνας με αφαίρεση κομμένων περιοχών όταν τα pixel μπορούν να απορριφθούν μόνιμα.
 
-**Διατηρείται η πιστότητα του διανύσματος SVG όταν εξάγεται μια παρουσίαση σε PDF/εικόνες;**
+**Μπορώ να αποκαταστήσω την ποιότητα της εικόνας μετά τη συμπίεση;**
 
-Το Aspose.Slides επιτρέπει την εξαγωγή ενός SVG από ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) ως το αρχικό διάνυσμα. Όταν γίνεται [εξαγωγή σε PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/) ή σε [raster μορφές](/slides/el/nodejs-java/convert-powerpoint-to-png/), το αποτέλεσμα ενδέχεται να γίνει raster ανάλογα με τις ρυθμίσεις εξαγωγής· το γεγονός ότι το αρχικό SVG αποθηκεύεται ως διάνυσμα επιβεβαιώνεται από τη συμπεριφορά εξαγωγής.
+Όχι. Η συμπίεση μπορεί να μειώσει την αποθηκευμένη ραστερ ανάλυση, και η αφαίρεση κομμένων περιοχών διαγράφει δεδομένα εικόνας. Διατηρήστε την αρχική πηγή εικόνας εκτός της παρουσίασης εάν μπορεί να απαιτηθεί επεξεργασία υψηλής ανάλυσης αργότερα.
+
+**Πώς πρέπει να διαχειρίζομαι τις SVG εικόνες;**
+
+Διατηρήστε το περιεχόμενο SVG ως SVG όταν η ακεραιότητα του διανύσματος είναι σημαντική. Το ενσωματωμένο [SvgImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/) μπορεί να εξαχθεί άμεσα. Η απόδοση μιας διαφάνειας σε ραστερ μορφή όπως PNG ή JPEG ραστεροποιεί το SVG ως μέρος της εικόνας διαφάνειας.
+
+**Πώς μπορώ να αποφύγω μη ασφαλείς μετατροπές τύπου κατά την ανάγνωση υπαρχουσών διαφανειών;**
+
+Ελέγξτε τον τύπο του σχήματος πριν χρησιμοποιήσετε μέλη ειδικά για πλαίσια εικόνας. Μια проверка `java.instanceOf` έναντι του [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/) αποφεύγει άκυρες μετατροπές και επιτρέπει στον κώδικα να διαχειριστεί διαφάνειες που δεν περιέχουν πλαίσια εικόνας.

@@ -1,214 +1,362 @@
 ---
-title: Java'da Sunumları Etkili Bir Şekilde Birleştirin
+title: Java'da Sunumları Verimli Bir Şekilde Birleştirme
 linktitle: Sunumları Birleştir
 type: docs
 weight: 40
 url: /tr/java/merge-presentation/
 keywords:
-- PowerPoint birleştir
+- PowerPoint'i birleştir
 - sunumları birleştir
 - slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
-- PowerPoint birleştir
-- sunumları birleştir
-- slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
+- PPT'yi birleştir
+- PPTX'i birleştir
+- ODP'yi birleştir
+- PowerPoint'i bir araya getir
+- sunumları bir araya getir
+- slaytları bir araya getir
+- PPT'yi bir araya getir
+- PPTX'i bir araya getir
+- ODP'yi bir araya getir
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumlarını sorunsuz bir şekilde birleştirerek iş akışınızı hızlandırın."
+description: "Java'da slaytları klonlayarak, master ve layoutları kontrol ederek, slayt içeriğini yeniden boyutlandırarak, bölümleri koruyarak ve korumalı ya da büyük dosyaları yöneterek PowerPoint ve OpenDocument sunumlarını nasıl birleştireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-PowerPoint ve OpenDocument sunumlarını birleştirmek, özellikle rapor oluşturma, farklı kaynaklardan slayt derleme veya sunum iş akışlarını otomatikleştirme gibi durumlarda birçok Java uygulamasında yaygın bir görevdir. Aspose.Slides for Java, Microsoft PowerPoint, LibreOffice veya OpenOffice kurmadan birden fazla PPT, PPTX veya ODP dosyasını tek bir sunumda birleştirmek için güçlü ve kullanımı kolay bir API sağlar.
+Aspose.Slides for Java, bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) dan diğerine slaytları klonlayarak sunumları birleştirir. Ana işlem, kaynak slaydın biçimlendirmesini koruyabilen veya klonlanan slaytı hedef sunumdaki bir master veya layouta ekleyebilen [ISlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) metodudur.
 
-Bu rehberde, sadece birkaç satır Java kodu kullanarak PowerPoint ve OpenDocument sunumlarını nasıl birleştireceğinizi öğreneceksiniz. Hazır örnekler sunacağız ve birleştirme işlemi sırasında slayt biçimlendirmesini, düzenleri ve diğer sunum öğelerini nasıl koruyacağınızı göstereceğiz.
+Bu makale en yaygın birleştirme senaryolarını kapsar:
 
-İster kurumsal düzeyde bir uygulama ister basit bir otomasyon aracı geliştiriyor olun, Aspose.Slides Java'da sunumları birleştirmeyi hızlı, güvenilir ve ölçeklenebilir kılar. Aspose.Slides for Java, sunumları farklı şekillerde birleştirmenize olanak tanır. Tüm şekiller, stiller, metin, biçimlendirme, yorumlar, animasyonlar ve daha fazlası ile birlikte sunumları birleştirebilir—kalite veya veri kaybı konusunda endişe etmeden.
-{{% alert color="primary" %}}
-Ayrıca bakınız: [Clone Slides](https://docs.aspose.com/slides/tr/java/clone-slides/)
-{{% /alert %}}
-### **Ne Birleştirilebilir?**
+- tüm slaytları, kaynak biçimlendirmeleri korunarak birleştirme;
+- seçili slaytları birleştirme;
+- hedef sunumdan bir master uygulama;
+- hedef sunumdan belirli bir layout uygulama;
+- birleştirmeden önce farklı slayt boyutlarını normalleştirme;
+- klonlanan slaytları bir bölüme ekleme;
+- birden fazla sunumu uçtan uca bir iş akışında birleştirme;
+- masterlar, kaynaklar, notlar, yorumlar, medya, fontlar, parolalar, büyük dosyalar ve çoklu iş parçacığı konularını ele alma.
 
-Aspose.Slides ile aşağıdakileri birleştirebilirsiniz:
+## **Slayt Klonlamanın Master ve Layoutlara Etkisi**
 
-**Tüm sunumlar** – birden fazla sunumdaki tüm slaytlar tek bir sunumda birleştirilir.
+Bir slayt, görünümünün büyük bir kısmını layout ve masterdan devralır. Bu yüzden seçtiğiniz klonlama aşırı yüklemesi, birleştirilen slaydın hedef sunum içinde nasıl entegre edileceğini belirler.
 
-**Belirli slaytlar** – yalnızca seçilen slaytlar tek bir sunumda birleştirilir.
+[ISlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/) metodunu aşağıdaki şekillerde kullanın:
 
-**Aynı formatta sunumlar** (örn. PPT'den PPT'ye, PPTX'ten PPTX'e) ve **farklı formatlarda sunumlar** (örn. PPT'den PPTX'e, PPTX'ten ODP'ye).
+- `addClone(sourceSlide)` — kaynak slaydın layout ve biçimlendirmesini korur. Gerektiğinde, kaynak master otomatik olarak hedef sunuma klonlanabilir. Aspose.Slides, otomatik klonlanan masterları izler; aynı kaynak masterı kullanan tekrar eden slaytlar bu masterın birden çok kez klonlanmasını önler.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — klonlanan slaytı belirli bir hedef [IMasterSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/) e ekler. Aspose.Slides, o master altında layout tipine veya adına göre eşleşen bir layout arar.
+- `addClone(sourceSlide, destinationLayout)` — klonlanan slaytı doğrudan belirli bir hedef [ILayoutSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/) e ekler.
 
-### **Birleştirme Seçenekleri**
+`addClone` aşırı yüklemesine verilen master ya da layout, **hedef** sunuma ait olmalı, kaynak sunuma ait olmamalıdır.
 
-Şu belirleyen seçenekleri uygulayabilirsiniz:
-- Çıktı sunumundaki her slayt özgün stilini korur
-- Çıktı sunumundaki tüm slaytlara belirli bir stil uygulanır
+## **Tüm Sunumları Birleştir ve Kaynak Biçimlendirmesini Koru**
 
-Sunumları birleştirmek için, Aspose.Slides, [ISlideCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/) arayüzündeki `AddClone` yöntemlerini sağlar. Birleştirme işleminin nasıl davranacağını belirleyen çeşitli `AddClone` yöntem aşırı yüklemeleri vardır. Her [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesinin bir Slides koleksiyonu vardır. Bu nedenle, slaytları birleştirmek istediğiniz hedef sunumda bir `AddClone` yöntemi çağırabilirsiniz.
+En basit birleştirme, kaynak sunumdaki tüm slaytları hedef sunuma kopyalar. Bu, içe aktarılan slaytların orijinal tema, master ve layout ilişkilerini koruması gerektiğinde uygun bir seçimdir.
 
-`AddClone` yöntemi, kaynak slaydın bir klonu olan bir [ISlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/) nesnesi döndürür. Çıktı sunumundaki oluşan slaytlar, orijinal slaytların basit kopyalarıdır. Bu, klonlanmış slaytları güvenle değiştirmenizi sağlar—örneğin stiller, biçimlendirme seçenekleri veya düzenler uygulamak—kaynak sunumu etkilemeden.
-## **Sunumları Birleştir**
-
-Aspose.Slides, slaytları orijinal düzenlerini ve stillerini koruyarak birleştirmenizi sağlayan [AddClone(ISlide)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) yöntemini sunar (varsayılan davranış).  
-Aşağıdaki Java kodu, sunumların nasıl birleştirileceğini gösterir:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
-## **Sunumları Bir Slayt Ana Şablonu ile Birleştir**
 
-Aspose.Slides, bir sunum şablonundan slayt ana şablonu uygulayarak slaytları birleştirmenizi sağlayan [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.IMasterSlide-boolean-) yöntemini sunar. Bu sayede, gerekirse, çıktı sunumdaki slaytların stilini değiştirebilirsiniz.  
-Aşağıdaki Java kodu bu işlemi gösterir:
+Kaynak ve hedef farklı tasarımlar kullandığında sonuç sunum birden çok master içerebilir. Bu, kaynak biçimlendirmesinin bilinçli olarak korunması durumunda beklenen bir durumdur.
+
+## **Seçili Slaytları Birleştir**
+
+Tüm slaytları klonlamanız gerekmez. Aşağıdaki örnek, kaynak sunumdan yalnızca seçili slayt indekslerini içe aktarır.
+
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
-        presentation1.getSlides().addClone(slide, masterSlide, true);
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
-{{% alert title="Note" color="warning" %}}
-Slaytın düzeni otomatik olarak belirlenir. Uygun bir düzen bulunamadığında ve `AddClone` yönteminin `allowCloneMissingLayout` boolean parametresi `true` olarak ayarlandığında, kaynak slayttan düzen kullanılır. Aksi takdirde bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) istisnası fırlatılır.
-{{% /alert %}}
-## **Sunumlardan Belirli Slaytları Birleştir**
 
-Birden fazla sunumdan belirli slaytları birleştirmek, özelleştirilmiş slayt desteleri oluşturmak için faydalıdır. Aspose.Slides for Java, yalnızca ihtiyacınız olan slaytları seçip içe aktarmanıza olanak tanır. API, orijinal slaytların biçimlendirmesini, düzenini ve tasarımını korur.  
-Aşağıdaki Java kodu yeni bir sunum oluşturur, iki diğer sunumdan başlık slaytları ekler ve sonucu bir dosyaya kaydeder:
+Kullanıcı girdisi ya da dış yapılandırmadan gelen indeksler klonlanmadan önce doğrulanmalıdır.
+
+## **Hedef Master Kullanarak Slaytları Birleştir**
+
+İçe aktarılan slaytların zaten hedef sunuma ait bir masterı takip etmesi gerektiğinde [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) aşırı yüklemesini kullanın.
+
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
-## **Sunumları Bir Slayt Düzeni ile Birleştir**
 
-Birleştirme sırasında çıktı slaytlarına farklı bir slayt düzeni uygulamak için, bunun yerine [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ILayoutSlide-) yöntemini kullanın.  
-Aşağıdaki Java kodu, tercih ettiğiniz slayt düzenini uygulayarak birden fazla sunumdan slaytları nasıl birleştireceğinizi ve tek bir çıktı sunumu elde edeceğinizi gösterir:
+Aspose.Slides, kaynak layoutun tipine veya adına göre belirtilen master altında uygun bir layout seçer. Uygun bir layout bulunmazsa ve `allowCloneMissingLayout` `true` ise, kaynak layout klonlanır ve slayt eklenebilir. `false` ise bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) fırlatılır.
+
+Ek bir layout eklenmesini istemiyorsanız birleştirmenin başarısız olmasını sağlamak için `false` kullanın.
+
+## **Belirli Bir Hedef Layout Kullanarak Slaytları Birleştir**
+
+İçe aktarılacak slaytların kesinlikle hangi hedef layoutu kullanması gerektiğini bildiğinizde [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) aşırı yüklemesini kullanın.
+
 ```java
-int layoutIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
-        presentation1.getSlides().addClone(slide, layoutSlide);
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
+
+Hedef layoutun uygulanması, kalıtılan layout ilişkisinin değişmesini sağlar; kaynak slayt içeriğini yeniden tasarlamaz. Kaynak ve hedef layoutların yer tutucu yapıları farklı ise, kalıtılan biçimlendirme ve yer tutucu davranışının uygun olduğundan emin olmak için sonucu inceleyin.
+
 ## **Farklı Slayt Boyutlarına Sahip Sunumları Birleştir**
 
-Farklı slayt boyutlarına sahip iki sunumu birleştirmek için, birini diğer sunumun slayt boyutuna göre yeniden boyutlandırmalısınız.  
-Aşağıdaki Java kodu bu işlemi gösterir:
-```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    Dimension2D slideSize = presentation1.getSlideSize().getSize();
-    float slideWidth = (float) slideSize.getWidth();
-    float slideHeight = (float) slideSize.getHeight();
-    
-    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+Farklı slayt boyutlarına sahip sunumlar birleştirilebilir, ancak bir slaytı başka bir boyuta sahip bir sunuma klonlamak, içeriği yeni kanvas için otomatik olarak yeniden tasarlamaz. Şekiller bu yüzden kaymış, beklenmedik şekilde ölçeklenmiş ya da görünür slayt alanının dışına çıkmış görünebilir.
 
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+Pratik bir yaklaşım, klonlamadan önce kaynak sunumu yeniden boyutmaktır. [SlideSize.setSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidesize/#setSize-float-float-int-) metodu, slayt boyutlarını değiştirirken mevcut içeriği ölçeklendirebilir. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidesizescaletype/) ise içeriği istenen boyuta sığdırmak için ölçeklendirir.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    Dimension2D sourceSize = source.getSlideSize().getSize();
+    Dimension2D destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            (float) destinationSize.getWidth(), 
+            (float) destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
+
+Yeniden boyutlandırma, kaynak sunum nesnesini bellek içinde değiştirir. Orijinal kaynak sunumun diğer işlemler için değişmeden kalması gerekiyorsa, birleştirme sırasında ayrı bir örnek açın.
+
 ## **Slaytları Bir Sunum Bölümüne Birleştir**
 
-Slaytları belirli bir sunum bölümüne birleştirmek, içeriği düzenlemeye ve slayt gezinimini iyileştirmeye yardımcı olur. Aspose.Slides, slaytları mevcut bölümlere birleştirmenizi sağlar. Bu, her slaydın özgün biçimlendirmesini korurken net bir yapı oluşturur.  
-Aşağıdaki Java kodu, belirli bir slaytı bir sunum bölümüne nasıl birleştirileceğini gösterir:
-```java
-int sectionIndex = 0;
+Temel slayt-klonlama döngüsü, kaynak sunumun bölüm hiyerarşisini yeniden oluşturmaz. Çıktıda bölümler önemliyse, hedef sunumda bölümler oluşturup slaytları açıkça [addClone(ISlide, ISection)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) ile klonlayın.
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+```java
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ISection section = presentation1.getSections().get_Item(sectionIndex);
-        presentation1.getSlides().addClone(slide, section);
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
-Slayt, bölümün sonuna eklenir.
-## **İlgili Bağlantılar**
 
-Aspose, bir [ÜCRETSİZ Çevrimiçi Kolaj Oluşturucu](https://products.aspose.app/slides/tr/collage) sağlar. Bu çevrimiçi hizmeti kullanarak, [JPG'den JPG'ye](https://products.aspose.app/slides/tr/collage/jpg) veya PNG'den PNG'ye resimleri birleştirebilir, [fotoğraf ızgaraları](https://products.aspose.app/slides/tr/collage/photo-grid) oluşturabilir ve daha fazlasını yapabilirsiniz.
+Klonlanan slaytlar belirtilen hedef bölüme eklenir. Birden çok kaynak bölümünü korumak için [Presentation.getSections](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSections--) döngüsüyle bölümleri enumerate edin, her kaynak bölümün mevcut slaytlarını [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getSlidesListOfSection--) ile alın, hedefte bölümleri yeniden oluşturun ve her dönen slaytı ilgili hedef bölümüne klonlayın. Boş bölümler ve yapısal değişiklikleri içeren tam bir örnek için [Slide Bölümlerini Yönet](/slides/tr/java/slide-section/) sayfasına bakın.
 
-[Aspose ÜCRETSİZ Çevrimiçi Birleştirici](https://products.aspose.app/slides/tr/merger)'yi inceleyin. Aynı formatta (örn. PPT'den PPT'ye, PPTX'ten PPTX'e) veya farklı formatlarda (örn. PPT'den PPTX'e, PPTX'ten ODP'ye) PowerPoint sunumlarını birleştirmenizi sağlar.
+## **Birden Çok Sunumu Güvenli Bir Şekilde Birleştir**
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/tr/merger)
+Aşağıdaki uçtan uca örnek, ilk sunumu hedef olarak kullanır, her ek kaynak için slayt boyutunu normalleştirir, her kaynağı yalnızca kopyalanırken açık tutar ve sonunda dosyayı bir kez kaydeder.
 
-Sunumların yanı sıra, Aspose.Slides diğer dosyaları da birleştirmenize olanak tanır:
-- [**Görseller**](https://products.aspose.com/slides/tr/java/merger/image-to-image/), örneğin [JPG'den JPG'ye](https://products.aspose.com/slides/tr/java/merger/jpg-to-jpg/) veya [PNG'den PNG'ye](https://products.aspose.com/slides/tr/java/merger/png-to-png/)
-- **Belgeler**, örneğin [PDF'den PDF'ye](https://products.aspose.com/slides/tr/java/merger/pdf-to-pdf/) veya [HTML'den HTML'ye](https://products.aspose.com/slides/tr/java/merger/html-to-html/)
-- **Karışık dosya türleri**, örneğin [görselden PDF'e](https://products.aspose.com/slides/tr/java/merger/image-to-pdf/), [JPG'den PDF'e](https://products.aspose.com/slides/tr/java/merger/jpg-to-pdf/) veya [TIFF'ten PDF'e](https://products.aspose.com/slides/tr/java/merger/tiff-to-pdf/) 
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    Dimension2D mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            Dimension2D sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    (float) mergedSize.getWidth(), 
+                    (float) mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Bu, içe aktarılan slaytların kaynak biçimlendirmesini korumak için kullanışlı bir temel oluşturur. Çıktınız tek bir hedef teması kullanmalıysa, basit `addClone(slide)` çağrısını önceki örneklerde gösterilen uygun hedef‑master veya hedef‑layout aşırı yüklemesiyle değiştirin.
+
+## **Pratik Hususlar**
+
+### **Masterlar, Layoutlar ve Biçimlendirme Doğruluğu**
+
+Varsayılan slayt klonlama, gereken kaynak masterı otomatik olarak hedef sunuma getirebilir. Aspose.Slides, aynı masterın tekrarlı klonlanmasını önlemek için otomatik klonlanan masterları içsel bir kayıt defterinde tutar. Manuel olarak klonlanan masterlar bu kayıt defterine eklenmez; bu yüzden masterları önceden klonlarken, yapı üzerinde açık kontrol ihtiyacınız yoksa kaçının.
+
+Aynı ada sahip iki master veya layoutun görsel olarak eşdeğer olduğunu varsaymayın. Kurumsal bir şablon nihai görünümü kontrol etmeli ise, hedef masterı veya layoutu açıkça seçin ve birleştirme sonrası sonucu doğrulayın.
+
+### **Notlar ve Yorumlar**
+
+Konuşmacı notları ve slayt yorumları, slayt içeriğiyle ilişkilidir ve bir slayt klonlandığında kopyalanır. Aspose.Slides ayrıca [sunum notları](/slides/tr/java/presentation-notes/) ve [sunum yorumları](/slides/tr/java/presentation-comments/) için özel API’ler sunar.
+
+Not sayfası biçimlendirmesi önemliyse, birleştirilmiş sunumu kontrol edin; çünkü not masterları sunum‑seviyesinde nesnelerdir ve kaynak dosyalar arasında farklılık gösterebilir. İnceleme iş akışları için, farklı yazar ya da şablonlardan gelen dosyaları birleştirdikten sonra yorum yazarlarını ve iş parçacıklı yorumları da doğrulayın.
+
+### **Görseller, Ses, Video, OLE Nesneleri ve Dış Bağlantılar**
+
+Slaytlar, sunum‑seviyesinde görseller, gömülü ses, gömülü video ve OLE verileri gibi kaynaklara referans verebilir. Sadece görünür şekilleri kopyalamak yerine slaytı tamamen klonlayın; böylece Aspose.Slides slaydın kaynaklarla ilişkisini korur.
+
+Gömülü ve bağlantılı kaynaklar farklı şekilde işlenmelidir. Bağlantılı bir ses, video, OLE nesnesi ya da hiperlink, dış hedefine bağımlı kalır; slaytı klonlamak bir dış bağlantıyı gömülü içeriğe dönüştürmez. Bağlantılı kaynak yollarını ve URL’leri, birleştirilen sunumun açılacağı ortamda test edin.
+
+Aspose.Slides otomatik klonlanan masterları izler, ancak bu, farklı kaynak sunumlardan gelen aynı ikili kaynakların her zaman ayıklanacağı anlamına gelmez. Çıktı dosya boyutu önemliyse, birleştirilmiş paketi inceleyin ve sonucu ölçün; örtülü deduplikasyona güvenmeyin.
+
+### **Gömülü Fontlar ve Font Kullanılabilirliği**
+
+Fontlar sunum‑seviyesinde yönetilir. Tipografi farklı makinelerde tutarlı kalmalıysa, yalnızca slayt klonlamanın gerekli tüm fontların hedef ortamda mevcut olduğunu garantilemediğini varsayın. Gömülü fontları [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ile inceleyebilir ve [Sunumlarda Fontları Gömme](/slides/tr/java/embedded-font/) bölümünde açıklanan şekilde açıkça yönetebilirsiniz.
+
+Ayrıca, kaynak dosyalarda kullanılan fontları gömmek için lisans izninizin olup olmadığını doğrulayın. Font lisansları gömme işlemine kısıtlama getirebilir.
+
+### **Parola Korumalı Sunumlar**
+
+Parola korumalı bir kaynağı, slaytları klonlamadan önce başarıyla açmanız gerekir. Parolayı [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ile sağlayın.
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // Şifresi çözülmüş sunumla çalış.
+} finally {
+    source.dispose();
+}
+```
+
+Şifreli bir kaynağı açmak, aynı korumanın hedef sunuma otomatik olarak uygulanacağı anlamına gelmez. Gerektiğinde çıktı korumasını ayrı olarak yapılandırın.
+
+### **Büyük Sunumlar ve Bellek Kullanımı**
+
+Yüksek çözünürlüklü görseller, ses, video veya diğer büyük ikili nesneler içeren büyük sunumlar önemli miktarda bellek tüketebilir. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) BLOB yönetimi ve geçici dosya kullanımını kontrol eder. Büyük‑dosya stratejileri için [Sunum BLOB’larını Yönet](/slides/tr/java/manage-blob/) sayfasına bakın.
+
+Büyük dosyalar için mümkün olduğunca dosya yollarından yükleme tercih edin, her kaynak sunumu birleştirildikten hemen sonra serbest bırakın ve iş akışı kontrol noktaları gerektirmiyorsa ara sonuçları tekrarlamalı olarak kaydetmekten kaçının.
+
+### **İş Parçacığı Güvenliği**
+
+Aynı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneğini birden çok iş parçacığından aynı anda yüklemeyin, değiştirmeyin, kaydetmeyin veya klonlamayın. Her bir sunum örneğini tek bir birleştirme işlemiyle sınırlı tutun. Bağımsız işleri paralelleştiriyorsanız, bağımsız sunum örnekleri kullanın ve [Aspose.Slides çok iş parçacıklı kullanım rehberi](/slides/tr/java/multithreading/)ni izleyin.
+
 ## **SSS**
 
-**Sunumları birleştirirken slayt sayısı konusunda herhangi bir sınırlama var mı?**  
-Sınırlı bir sınırlama yoktur. Aspose.Slides büyük dosyaları işleyebilir, ancak performans dosyanın boyutu ve sistem kaynaklarına bağlıdır. Çok büyük sunumlar için 64‑bit bir JVM kullanmanız ve yeterli yığın belleği ayırmanız önerilir.
+**Her bir kaynak sunumun orijinal tasarımını nasıl korurum?**
 
-**Gömülü video veya ses içeren sunumları birleştirebilir miyim?**  
-Evet, Aspose.Slides slaytlara gömülü çoklu ortam içeriğini korur, ancak son sunum önemli ölçüde daha büyük olabilir.
+Bir hedef master veya layout sağlamadan [addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) kullanın. Aspose.Slides, gerektiğinde kaynak masterı otomatik olarak klonlayabilir.
 
-**Sunumları birleştirirken yazı tipleri korunacak mı?**  
-Evet. Kaynak sunumlarda kullanılan yazı tipleri, sistemde yüklü oldukları veya [gömülü](/slides/tr/java/embedded-font/) varsayımıyla çıktı dosyasında korunur.
+**İçe aktarılan slaytların hedef temayı kullanmasını nasıl sağlarım?**
+
+Hedef masterı kabul eden aşırı yüklemeyi kullanın. Masterı kaynak sunumdan değil, hedef sunumdan alın. Aspose.Slides, her kaynak slaytı o masterın uygun bir layoutuna eşlemeye çalışır.
+
+**Ne zaman belirli bir hedef layout kullanmalı, master yerine?**
+
+Her içe aktarılan slaydın aynı bilinen layoutu kullanması gerektiğinde belirli bir layout kullanın. Master, kaynak layout tipine veya adına göre o masterın layoutları arasından seçim yapmasını istediğinizde tercih edilir.
+
+**Farklı slayt boyutlarına sahip sunumlar birleştirilebilir mi?**
+
+Evet, ancak slayt içeriği hedef boyutlara otomatik olarak yeniden tasarlanmamaktadır. Öngörülebilir yerleşim için önce [SlideSize.setSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidesize/#setSize-float-float-int-) ve [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidesizescaletype/) ile kaynak sunumu yeniden boyutlandırın.
+
+**PPT, PPTX ve ODP sunumlarını tek bir dosyada birleştirebilir miyim?**
+
+Evet. Her kaynak sunumu yükleyin, gerekli slaytları tek bir hedefe klonlayın ve hedefi desteklenen bir çıktı formatında kaydedin. Sunum formatları aynı özellik setini tam olarak desteklemediğinden, çapraz‑format birleştirmelerden sonra karmaşık içeriği doğrulayın. [Desteklenen Dosya Biçimleri](/slides/tr/java/supported-file-formats/) sayfasına bakın.
+
+**Kaynak bölümler otomatik olarak korunur mu?**
+
+Sadece slaytları klonlayan temel bir döngü bölümleri korumaz. Bölüm yapısını korumanız gerekiyorsa, hedefte gerekli bölümleri yeniden oluşturun ve [addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ISection-) section aşırı yüklemesini kullanın.
+
+**Konuşmacı notları ve yorumlar korunur mu?**
+
+Klonlanan slaytla birlikte kopyalanırlar. Not‑master stili, yorum yazarları veya iş parçacıklı inceleme verileri gibi sunum‑seviyesi yapılar da dahil olmak üzere, birleştirilmiş sonucun doğrulanması gerekir.
+
+**Ses, video, OLE nesneleri ve hiperlinkler ne olur?**
+
+Gömülü içerikler, klonlanan slaydın kaynak ilişkileriyle birlikte taşınır. Dış bağlantılar dışarıda kalır; bu yüzden hedef ortamda hâlâ erişilebilir olmaları gerekir.
+
+**Her kaynaktan gelen gömülü fontlar birleştirilmiş sunumda mevcut olur mu?**
+
+Sadece slayt klonlamaya güvenmeyin; hedefte gömülü fontları inceleyin ve tipografi önemliyse font gömme veya harici font kullanılabilirliğini açıkça yönetin.
+
+**Parola korumalı bir dosyayı nasıl birleştiririm?**
+
+Doğru [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ile açın, ardından slaytlarını normal şekilde klonlayın. Çıktı koruması ayrı olarak yapılandırılır.
+
+**Çok büyük sunumları nasıl yönetirim?**
+
+BLOB yönetimini kullanın, çok büyük dosyalar için dosya‑yolu yüklemeyi tercih edin, kaynak sunumları hızla serbest bırakın ve final dosyasını yalnızca gerektiğinde kaydedin.
+
+**Slaytları çoklu iş parçacığından birleştirebilir miyim?**
+
+Aynı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneğini birden fazla iş parçacığından aynı anda kullanmayın. Her bir birleştirme işlemini kendi sunum örnekleriyle izole tutun.

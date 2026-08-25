@@ -1,160 +1,295 @@
 ---
-title: "Správa obrázkových rámů v prezentacích pomocí PHP"
-linktitle: "Obrázkový rám"
+title: Spravovat rámy obrázků v prezentacích pomocí PHP
+linktitle: Rám obrázku
 type: docs
 weight: 10
 url: /cs/php-java/picture-frame/
 keywords:
-- obrázkový rám
-- přidat obrázkový rám
-- vytvořit obrázkový rám
-- přidat obrázek
-- vytvořit obrázek
+- rám obrázku
+- přidat rám obrázku
+- vytvořit rám obrázku
+- vložený obrázek
+- propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
-- vektorový obrázek
+- SVG obrázek
 - oříznout obrázek
-- oříznutá oblast
-- vlastnost StretchOff
-- formátování obrázkového rámu
-- vlastnosti obrázkového rámu
+- smazat ořezané oblasti
+- komprimovat obrázek
+- StretchOffset
+- formátování rámu obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
-- průhlednost obrázku
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Přidejte obrázkové rámy do prezentací PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java. Zjednodušte svůj pracovní postup a vylepšete návrhy snímků."
+description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámy obrázků v prezentacích pomocí Aspose.Slides pro PHP přes Java."
 ---
-## **Úvod**
+## **Přehled**
 
-Obrázkový rám je tvar, který obsahuje obrázek – je to jako obrázek v rámu. 
+Rám obrázku je tvar na snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, oddělené objekty: [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své [ImageCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/), zatímco [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) řídí pozici obrázku, velikost, formátování čar, otáčení, oříznutí, efekty obrázku a další nastavení na úrovni rámu.
 
-Můžete přidat obrázek do snímku pomocí obrázkového rámu. Tímto způsobem můžete formátovat obrázek formátováním obrázkového rámu.
+Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/), a použijte tento zdroj obrázku při vytváření rámů obrázků.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose poskytuje zdarma převodníky—[JPEG do PowerPointu](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPointu](https://products.aspose.app/slides/cs/import/png-to-ppt)—které uživatelům umožňují rychle vytvářet prezentace z obrázků. 
-{{% /alert %}} 
+Rámy obrázků mohou obsahovat rastrové obrázky, jako jsou PNG nebo JPEG, i vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, před aplikací formátování nebo optimalizace.
 
-## **Vytvořit obrázkový rám**
+## **Přidání a formátování vloženého obrázku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte referenci na snímek pomocí jeho indexu. 
-3. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) přidáním obrázku do [ImageCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/), která je součástí objektu prezentace a bude použita k vyplnění tvaru.
-4. Zadejte šířku a výšku obrázku.
-5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) na základě šířky a výšky obrázku pomocí metody `addPictureFrame`, která je k dispozici u objektu tvaru přidruženého k odkazovanému snímku.
-6. Přidejte obrázkový rám (obsahující obrázek) na snímek.
-7. Uložte upravenou prezentaci jako soubor PPTX.
+Pro vložený obrázek přidejte data obrázku do prezentace a vytvořte rám obrázku pomocí [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addpictureframe/). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
 
-Tento PHP kód vám ukazuje, jak vytvořit obrázkový rám:
+Následující příklad přidá JPEG obrázek, vytvoří rám v nativních rozměrech obrázku a použije formátování čar a otáčení:
 
 ```php
-  # Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-  $pres = new Presentation();
-  try {
-    # Získá první snímek
-    $sld = $pres->getSlides()->get_Item(0);
-    # Vytvoří instanci třídy Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Přidá obrázkový rám se stejnou výškou a šířkou obrázku
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Zapíše soubor PPTX na disk
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
-Obrázkové rámy vám umožňují rychle vytvářet snímky prezentace založené na obrázcích. Když spojíte obrázkový rám s volbami ukládání Aspose.Slides, můžete manipulovat s operacemi vstupu/výstupu k převodu obrázků z jednoho formátu do druhého. Můžete si také prohlédnout tyto stránky: převést [obrázek do JPG](https://products.aspose.com/slides/cs/php-java/conversion/image-to-jpg/); převést [JPG na obrázek](https://products.aspose.com/slides/cs/php-java/conversion/jpg-to-image/); převést [JPG na PNG](https://products.aspose.com/slides/cs/php-java/conversion/jpg-to-png/); převést [PNG na JPG](https://products.aspose.com/slides/cs/php-java/conversion/png-to-jpg/); převést [PNG na SVG](https://products.aspose.com/slides/cs/php-java/conversion/png-to-svg/); převést [SVG na PNG](https://products.aspose.com/slides/cs/php-java/conversion/svg-to-png/). 
-{{% /alert %}}
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-## **Vytvořit obrázkový rám s relativním měřítkem**
-
-Úpravou relativního měřítka obrázku můžete vytvořit složitější obrázkový rám. 
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte referenci na snímek pomocí jeho indexu. 
-3. Přidejte obrázek do kolekce obrázků prezentace.
-4. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) přidáním obrázku do [ImageCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/) související s objektem prezentace, který bude použit k vyplnění tvaru.
-5. Zadejte relativní šířku a výšku obrázku v obrázkovém rámu.
-6. Uložte upravenou prezentaci jako soubor PPTX.
-
-Tento PHP kód vám ukazuje, jak vytvořit obrázkový rám s relativním měřítkem:
-
-```php
-  # Vytvořit instanci třídy Presentation, která představuje PPTX
-  $pres = new Presentation();
-  try {
-    # Získá první snímek
-    $sld = $pres->getSlides()->get_Item(0);
-    # Vytvořit instanci třídy Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Přidá obrázkový rám se stejnou výškou a šířkou jako obrázek
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Nastavuje relativní měřítko šířky a výšky
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # Zapíše soubor PPTX na disk
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Extrahovat rastrové obrázky z obrázkových rámů**
-
-Můžete extrahovat rastrové obrázky z objektů [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) a uložit je ve formátech PNG, JPG a dalších. Níže uvedený příklad kódu ukazuje, jak extrahovat obrázek z dokumentu „sample.pptx“ a uložit jej ve formátu PNG.
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Extrahovat SVG obrázky z obrázkových rámů**
+Rám obrázku řídí zobrazenou geometrii; změna velikosti rámu nemění původní rozměry pixelů uložené ve vloženém zdroji obrázku. Toto rozlišení se stává důležitým při ořezávání nebo kompresi obrázku později.
 
-Když prezentace obsahuje SVG grafiku umístěnou uvnitř tvarů [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/), Aspose.Slides for PHP via Java vám umožní získat původní vektorové obrázky s plnou věrností. Procházením kolekce tvarů snímku můžete identifikovat každý [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/), zkontrolovat, zda podkladový [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) obsahuje SVG obsah, a poté tento obrázek uložit na disk nebo do proudu v jeho nativním SVG formátu.
+## **Použití relativní škály**
 
-Následující příklad kódu demonstruje, jak extrahovat SVG obrázek z obrázkového rámu:
+[PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) poskytuje relativní škálu šířky a výšky rámu prostřednictvím [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/setrelativescalewidth/) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní škála je užitečná, když workflow potřebuje zachovat poměr k velikosti zdrojového obrázku místo ručního výpočtu finálních rozměrů.
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Relativní škála mění nastavení škály rámu; nepřevzorkuje ani nekonprimuje vložený obrázek.
+
+## **Vložené a propojené obrázky**
+
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je tak nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [Picture::setLinkPathLong](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picture/setlinkpathlong/) místo vkládání dat obrázku stejným způsobem.
+
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které musí být posílány e‑mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+
+### **Přidání propojeného obrázku**
+
+Následující příklad vytvoří rám obrázku a nasměruje jej na místní soubor obrázku. Zabývá se pouze odkazováním na obrázek; odkazování na video je samostatný workflow a je úmyslně v tomto příkladu nepletené.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Používejte odkazy, když je správa externích souborů záměrná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+
+## **Extrahování obrázků z rámů obrázků**
+
+Před extrahováním obrázku z existující prezentace zkontrolujte, že tvar je skutečně [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) a že obsahuje vložený obrázek. Propojené rámy obrázků nemusí obsahovat bajty obrazu, které lze extrahovat stejným způsobem.
+
+### **Extrahování rastrového obrázku**
+
+Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/). Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ukládání pomocí [IImage::save](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/#save) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo převedeného rastrového souboru, použijte binární data zdroje obrázku.
+
+### **Extrahování SVG obrázku**
+
+Pro SVG obrázek poskytuje [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) objekt [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj v prezentaci. Rasterové exporty jako PNG nebo JPEG nutně renderují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také renderovací operace, takže exportovaná grafika by neměla být považována za bit‑podle‑bitovou kopii původního vloženého SVG; použijte data [SvgImage::getSvgData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/getsvgdata/) při potřebě samotného vektorového zdroje.
+
+## **Ořezávání obrázku**
+
+Ořezávání mění, která část obrázku je viditelná uvnitř rámu. Hodnoty ořezu na [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořezování počátečně neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
+
+Následující příklad bezpečně najde rám obrázku a použije hodnoty ořezu:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit, aniž by se ztratily původní pixely. Pokud je velikost souboru důležitější než reverzibilita, lze ořezané oblasti fyzicky odstranit, jak je popsáno v následující sekci.
+
+## **Odstranění ořezaných dat obrázku**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace již nejsou odstraněné pixely k dispozici pro pozdější ne‑ořez operaci.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -162,362 +297,161 @@ try {
 }
 ```
 
-## **Získat průhlednost obrázku**
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán jinými rámy, tyto rámy stále potřebují svůj existující zdroj, takže mazání ořezaných oblastí nutně nesnižuje celkový počet obrázků. Ořezávání obsahu WMF nebo EMF touto metodou rasterizuje ořezaný výsledek do PNG.
 
-Aspose.Slides umožňuje získat efekt průhlednosti aplikovaný na obrázek. Tento PHP kód demonstruje operaci:
+## **Kompresi rastrových obrázků**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) snižuje rozlišení rastrových obrázků vzhledem k velikosti, při které je obrázek zobrazen. Může také v téže operaci odstranit ořezané oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když žádná změna nebyla potřebná.
 
-## **Získat jas a kontrast obrázku**
-
-Aspose.Slides umožňuje získat efekt jasu a kontrastu aplikovaný na obrázek. Třída [Luminance](https://reference.aspose.com/slides/cs/php-java/aspose.slides/luminance/) reprezentuje tento transformátor obrázku.
-
-Tento PHP kód demonstruje, jak získat nastavení jasu a kontrastu z obrázkového rámu:
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturescompression/), když stačí standardní cílové rozlišení:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **Formátování obrázkového rámu**
-
-Aspose.Slides poskytuje mnoho možností formátování, které lze aplikovat na obrázkový rám. Pomocí těchto možností můžete upravit obrázkový rám tak, aby splňoval konkrétní požadavky.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte referenci na snímek pomocí jeho indexu. 
-3. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) přidáním obrázku do [ImageCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/) související s objektem prezentace, který bude použit k vyplnění tvaru.
-4. Zadejte šířku a výšku obrázku.
-5. Vytvořte `PictureFrame` na základě šířky a výšky obrázku pomocí metody [addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addpictureframe/) vystavené objektem [ShapeCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/) přidruženým k odkazovanému snímku.
-6. Přidejte obrázkový rám (obsahující obrázek) na snímek.
-7. Nastavte barvu čáry obrázkového rámu.
-8. Nastavte šířku čáry obrázkového rámu.
-9. Otočte obrázkový rám zadáním kladné nebo záporné hodnoty.
-   * Kladná hodnota otáčí obrázek po směru hodinových ručiček. 
-   * Záporná hodnota otáčí obrázek proti směru hodinových ručiček.
-10. Přidejte obrázkový rám (obsahující obrázek) na snímek.
-11. Uložte upravenou prezentaci jako soubor PPTX.
-
-Tento PHP kód demonstruje proces formátování obrázkového rámu:
-
-```php
-  # Vytvoří instanci třídy Presentation, která představuje PPTX
-  $pres = new Presentation();
-  try {
-    # Získá první snímek
-    $sld = $pres->getSlides()->get_Item(0);
-    # Vytvoří instanci třídy Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Přidá obrázkový rám se stejnou výškou a šířkou jako obrázek
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Aplikuje určité formátování na PictureFrameEx
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # Zapíše soubor PPTX na disk
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-Aspose nedávno vyvinulo [bezplatný Collage Maker](https://products.aspose.app/slides/cs/collage). Pokud někdy potřebujete [sloučit JPG/JPEG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG obrázky, [vytvořit mřížky z fotografií](https://products.aspose.app/slides/cs/collage/photo-grid), můžete tento servis použít. 
-{{% /alert %}}
-
-## **Přidat obrázek jako odkaz**
-
-Aby se předešlo velkým velikostem prezentací, můžete obrázky (nebo videa) přidávat prostřednictvím odkazů místo vložení souborů přímo do prezentací. Tento PHP kód vám ukazuje, jak přidat obrázek a video do zástupce:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Oříznout obrázky**
-
-Tento PHP kód vám ukazuje, jak oříznout existující obrázek na snímku:
-
-```php
-  $pres = new Presentation();
-  # Vytvoří nový objekt obrázku
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Přidá obrázkový rám na snímek
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # Ořízne obrázek (procentuální hodnoty)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # Uloží výsledek
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Smazat oříznuté oblasti obrázku**
-
-Pokud chcete smazat oříznuté oblasti obrázku obsaženého v rámu, můžete použít metodu [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas). Tato metoda vrátí oříznutý obrázek nebo původní obrázek, pokud oříznutí není nutné.
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # Získá PictureFrame z prvního snímku
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # Odstraní oříznuté oblasti obrázku PictureFrame a vrátí oříznutý obrázek
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # Uloží výsledek
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) přidává oříznutý obrázek do kolekce obrázků prezentace. Pokud je obrázek použit pouze v zpracovávaném [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/), může toto nastavení snížit velikost prezentace. V opačném případě se počet obrázků ve výsledné prezentaci zvýší.
-
-Metoda převádí WMF/EMF metafily na rastrový PNG obrázek během ořezávací operace. 
-{{% /alert %}}
-
-## **Komprimovat obrázky**
-
-Můžete komprimovat obrázek v prezentaci pomocí metody [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_). Tato metoda komprimuje obrázek snížením jeho velikosti na základě velikosti tvaru a zadaného rozlišení, s možností smazat oříznuté oblasti.
-
-Upravuje velikost a rozlišení obrázku podobně jako funkce PowerPointu **Picture Format -> Compress Pictures -> Resolution**.
-
-Následující PHP příklady demonstrují, jak komprimovat obrázek v prezentaci zadáním cílového rozlišení a volitelným odstraněním oříznutých oblastí:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Komprimuje obrázek s cílovým rozlišením 150 DPI (webové rozlišení) a odstraní oříznuté oblasti.
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # Zkontroluje výsledek komprese.
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Nebo přímo použitím vlastního DPI hodnoty:
+Místo předdefinované hodnoty lze zadat vlastní kladnou DPI, pokud je vyžadován konkrétní cíl.
+
+Komprese je určena pro rastrové obrázky. SVG a metafile obsah není touto rasterovou kompresí zmenšen. Také pamatujte, že nižší rozlišení a odstraněné ořezané oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
+
+## **Správa transformačních efektů obrázku**
+
+Pro kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řetězce, inspekci, odstranění a ověření round‑trip viz [Image Transform Effects](/slides/cs/php-java/image-transform-effects/).
+
+## **Uzamčení geometrie rámu obrázku**
+
+Nastavení [PictureFrameLock](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/) řídí, které editační operace jsou pro rám obrázku zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) zachovává proporce tvaru při jeho změně velikosti.
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
 
-    # Komprimuje obrázek na 150 DPI (webové rozlišení), odstraňuje oříznuté oblasti.
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
-
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-Metoda převádí obrázek na nižší rozlišení na základě velikosti tvaru a zadaného DPI. Oříznuté oblasti lze také smazat pro optimalizaci velikosti souboru.  
-Pokud je obrázek metafile (WMF/EMF) nebo SVG, komprese se nepoužije. Kvalita JPEG je také zachována nebo mírně snížena podle rozlišení, podobně jako PowerPoint zachází s vysoce rozlišenými JPEGy. 
-{{% /alert %}}
-
-## **Zamknout poměr stran**
-
-Pokud chcete, aby tvar obsahující obrázek si zachoval poměr stran i po změně rozměrů obrázku, můžete použít metodu [setAspectRatioLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) k nastavení volby *Lock Aspect Ratio*.
-
-Tento PHP kód vám ukazuje, jak zamknout poměr stran tvaru:
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # nastavit tvar, aby zachoval poměr stran při změně velikosti
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Nastavení *Lock Aspect Ratio* zachovává pouze poměr stran tvaru a ne obrázku, který obsahuje. 
-{{% /alert %}}
+Uzamčení se vztahuje na tvar rámu obrázku. Nevyžaduje, aby byl zdrojový obrázek převeden nebo trvale změněn na stejný poměr stran.
 
-## **Použít vlastnost StretchOff**
+## **Úprava hodnot StretchOffset**
 
-Pomocí metod [setStretchOffsetLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/), [setStretchOffsetTop](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/setstretchoffsettop/), [setStretchOffsetRight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) a [setStretchOffsetBottom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) můžete specifikovat výplňový obdélník.
+Když je režim výplně obrázku nastaven na „stretch“, hodnoty stretch‑offset na [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) definují výplňový obdélník relativně k ohraničovacímu rámečku rámu obrázku. Kladná procenta vytvářejí vstup z okraje, záporná procenta pak výstup.
 
-Když je pro obrázek specifikováno natahování, zdrojový obdélník je měněn tak, aby zaplnil zadaný výplňový obdélník. Každá hrana výplňového obdélníku je definována procentuálním posunem od odpovídající hrany ohraničovacího rámečku tvaru. Kladné procento určuje vnitřní odsazení, zatímco záporné procento určuje vnější výstupek.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte referenci na snímek pomocí jeho indexu.
-3. Přidejte obdélník `AutoShape`. 
-4. Vytvořte obrázek.
-5. Nastavte typ výplně tvaru.
-6. Nastavte režim výplně obrázkem tvaru.
-7. Přidejte nastavený obrázek pro výplň tvaru.
-8. Určete posuny obrázku od odpovídající hrany ohraničovacího rámečku tvaru.
-9. Uložte upravenou prezentaci jako soubor PPTX.
-
-Tento PHP kód demonstruje proces, ve kterém je použita vlastnost StretchOff:
+To se liší od ořezávání. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch offsety mění obdélník, do kterého je viditelná výplň obrázku natažena.
 
 ```php
-  # Instancuje třídu Presentation, která představuje soubor PPTX
-  $pres = new Presentation();
-  try {
-    # Získá první snímek
-    $slide = $pres->getSlides()->get_Item(0);
-    # Instancuje třídu ImageEx
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # Přidá AutoShape nastavený na obdélník
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Nastaví typ výplně tvaru
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # Nastaví režim výplně obrázkem tvaru
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Nastaví obrázek pro výplň tvaru
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Určí posuny obrázku od odpovídající hrany ohraničujícího rámečku tvaru
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # Zapíše soubor PPTX na disk
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Používejte stretch offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
+
+## **Úložiště, velikost souboru a úvahy o exportu**
+
+Hlavní kompromisy jsou snáze říditelné, když je ukládání obrázků a formátování rámu oddělené:
+
+- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side vykreslování, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na externích souborech, které musí zůstat dostupné na uložených cestách nebo místech.
+- **Ořezávání** je zpočátku ne‑destruktivní. Skryté pixely zůstávají vložené, dokud nejsou ořezané oblasti výslovně smazány nebo odstraněny během komprese.
+- **Kompresí** lze výrazně snížit velikost souboru u převyšujících rastrových obrázků, ale snižuje se rozlišení zdroje. Měla by být aplikována po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektorové podoby. Vložený SVG lze extrahovat přímo, pokud potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly při možnosti znovu použít existující zdroj [PPImage] místo opakovaného načítání stejného souboru do workflow prezentace.
+
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: ponechejte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné velikosti zobrazení, odstraňujte ořezané pixely jen tehdy, když není potřeba další úpravy, a vyhněte se externím odkazům, pokud není správa závislostí součástí návrhu nasazení.
 
 ## **Často kladené otázky**
 
-**Jak zjistit, které formáty obrázků jsou podporovány pro PictureFrame?**
+**Jaký je rozdíl mezi rámem obrázku a zdrojem obrázku?**
 
-Aspose.Slides podporuje jak rastrové obrázky (PNG, JPEG, BMP, GIF atd.), tak vektorové obrázky (např. SVG) prostřednictvím objektu obrázku přiřazeného k [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/). Seznam podporovaných formátů obecně překrývá schopnosti motoru pro snímky a konverzi obrázků.
+[PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) představuje zdroj obrázku spojený s prezentací. [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) je tvar na snímku, který zobrazí obrázek a ukládá geometrické a formátovací informace na úrovni rámu, jako jsou velikost, otáčení, hodnoty ořezu, efekty a uzamčení.
 
-**Jaký dopad bude mít přidání desítek velkých obrázků na velikost a výkon PPTX?**
+**Mám obrázky vkládat nebo linkovat?**
 
-Vkládání velkých obrázků zvyšuje velikost souboru a spotřebu paměti; prolinkování obrázků pomáhá udržet velikost prezentace nízkou, ale vyžaduje, aby externí soubory zůstaly přístupné. Aspose.Slides poskytuje možnost přidávat obrázky pomocí odkazu ke snížení velikosti souboru.
+Vkládejte obrázky, když musí být prezentace přenosná, archivována nebo vykreslována bez přístupu k externím zdrojům. Linkujte obrázky pouze tehdy, když je úmyslné mít soubory mimo PPTX a externí umístění lze spolehlivě udržovat.
 
-**Jak mohu zamknout objekt obrázku před neúmyslným posunutím nebo změnou velikosti?**
+**Snižuje ořezávání velikost souboru PPTX?**
 
-Použijte [shape locks](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/getpictureframelock/) pro [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) (např. zakázat posun nebo změnu velikosti). Zamykací mechanismus je podporován pro různé typy tvarů, včetně [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/).
+Samotné ořezání ne. Normální nastavení ořezu skryje části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) nebo kompresi obrázku s odstraněním ořezaných oblastí, když lze tyto pixely trvale odstranit.
 
-**Zůstane vektorová věrnost SVG zachována při exportu prezentace do PDF/obrázků?**
+**Mohu po kompresi obnovit kvalitu obrázku?**
 
-Aspose.Slides umožňuje extrahovat SVG z [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) jako originální vektor. Při [exportu do PDF](/slides/cs/php-java/convert-powerpoint-to-pdf/) nebo [rasterových formátů](/slides/cs/php-java/convert-powerpoint-to-png/) může být výsledek rasterizován v závislosti na nastaveních exportu; fakt, že původní SVG je uložen jako vektor, je potvrzen chováním při extrakci.
+Ne. Komprese může snížit uložené rozlišení rastrového obrázku a odstranění ořezaných oblastí ztrácí data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava ve vysokém rozlišení.
+
+**Jak mám zacházet s SVG obrázky?**
+
+Uchovávejte SVG obsah jako SVG, když je důležitá vektorová věrnost. Vložený [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/) lze extrahovat přímo. Rendering snímku do rastrového formátu, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
+
+**Jak mohu předejít nebezpečným přetypováním při čtení existujících snímků?**
+
+Před použitím členů specifických pro rám obrázku zkontrolujte typ tvaru. Kontrola `java_instanceof` vůči [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) zabrání neplatným přetypováním a umožní kódu zpracovat snímky, které neobsahují rámy obrázků.

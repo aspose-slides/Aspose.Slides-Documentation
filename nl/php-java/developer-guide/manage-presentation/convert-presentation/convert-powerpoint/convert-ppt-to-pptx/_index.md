@@ -1,5 +1,5 @@
 ---
-title: PPT naar PPTX converteren in PHP
+title: Converteer PPT naar PPTX in PHP
 linktitle: PPT naar PPTX
 type: docs
 weight: 20
@@ -16,96 +16,113 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Converteer oude PPT-presentaties naar modern PPTX snel met Aspose.Slides voor PHP via Java — duidelijke handleiding, gratis code-voorbeelden, geen afhankelijkheid van Microsoft Office."
+description: "Converteer legacy PPT-bestanden naar PPTX in PHP met Aspose.Slides. Inclusief PHP-voorbeelden voor één bestand en batchconversie, foutafhandeling en nauwkeurigheidsnotities."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u een PowerPoint‑presentatie in PPT‑formaat naar PPTX‑formaat kunt converteren met PHP en met een online PPT‑naar‑PPTX‑conversie‑app. De volgende onderwerpen worden behandeld.
+PPT is het legacy-binaire PowerPoint-formaat, terwijl PPTX het nieuwere Open XML-formaat is. Aspose.Slides for PHP via Java kan een PPT-bestand laden en opslaan als PPTX zonder Microsoft PowerPoint. Dit artikel toont hoe u één bestand of een map met bestanden kunt converteren en legt uit wat er gecontroleerd moet worden na de conversie.
 
-- PPT naar PPTX converteren
+## **Converteer een PPT-bestand naar PPTX**
 
-## **PPT naar PPTX converteren in PHP**
-
-Voor voorbeeldcode in Java om PPT naar PPTX te converteren, zie de onderstaande sectie, namelijk [PPT naar PPTX converteren](#convert-ppt-to-pptx). Het laadt gewoon het PPT‑bestand en slaat het op in PPTX‑formaat. Door verschillende opslagformaten op te geven, kunt u het PPT‑bestand ook opslaan in vele andere formaten zoals PDF, XPS, ODP, HTML, enz., zoals besproken in deze artikelen.
-
-- [PPT naar PDF converteren in PHP](/slides/nl/php-java/convert-powerpoint-to-pdf/)
-- [PPT naar XPS converteren in PHP](/slides/nl/php-java/convert-powerpoint-to-xps/)
-- [PPT naar HTML converteren in PHP](/slides/nl/php-java/convert-powerpoint-to-html/)
-- [PPT naar ODP converteren in PHP](/slides/nl/php-java/save-presentation/)
-- [PPT naar PNG converteren in PHP](/slides/nl/php-java/convert-powerpoint-to-png/)
-
-## **Over PPT naar PPTX-conversie**
-Converteer het oude PPT‑formaat naar PPTX met de Aspose.Slides‑API. Als u duizenden PPT‑presentaties naar PPTX‑formaat moet converteren, is de beste oplossing om dit programmatisch te doen. Met de Aspose.Slides‑API is het mogelijk om dit in slechts enkele regels code te realiseren. De API ondersteunt volledige compatibiliteit voor het converteren van PPT‑presentaties naar PPTX en maakt het mogelijk om:
-
-- Complexe structuren van masters, lay-outs en dia's converteren.
-- Presentaties met grafieken converteren.
-- Presentaties met groepen vormen, auto‑shapes (zoals rechthoeken en ellipsen), vormen met aangepaste geometrie converteren.
-- Presentaties met texturen en opvulstijlen voor afbeeldingen in auto‑shapes converteren.
-- Presentaties met placeholders, tekstkaders en tekstvullingen converteren.
-
-{{% alert color="primary" %}} 
-
-Bekijk de app [**Aspose.Slides PPT naar PPTX-conversie**](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx) app:
-
-[](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx)
-
-Deze app is gebouwd op basis van de [**Aspose.Slides API**](https://products.aspose.com/slides/nl/php-java/), zodat u een levend voorbeeld kunt zien van de basisfunctionaliteit voor PPT‑naar‑PPTX‑conversie. Aspose.Slides Conversion is een webapp, waarmee u een presentatiebestand in PPT‑formaat kunt slepen en het geconverteerde PPTX‑bestand kunt downloaden.
-
-Bekijk andere live [**Aspose.Slides-conversie**](https://products.aspose.app/slides/nl/conversion/) voorbeelden.
-{{% /alert %}} 
-
-## **PPT naar PPTX converteren**
-Aspose.Slides voor PHP via Java maakt het nu voor ontwikkelaars mogelijk om toegang te krijgen tot de PPT met behulp van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)-klasse en deze te converteren naar het overeenkomstige [PPTX](https://docs.fileformat.com/presentation/pptx/)‑formaat. Momenteel ondersteunt het gedeeltelijke conversie van [PPT](https://docs.fileformat.com/presentation/ppt/) naar PPTX. Voor meer details over welke functies wel en niet ondersteund worden bij de PPT‑naar‑PPTX‑conversie, ga naar deze documentatie [link](/slides/nl/php-java/ppt-to-pptx-conversion/).
-
-Aspose.Slides voor PHP via Java biedt de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)-klasse die een **PPTX**‑presentatiebestand vertegenwoordigt. De Presentation‑klasse kan nu ook **PPT**‑bestanden benaderen via Presentation wanneer het object wordt geïnstalleerd. Het volgende voorbeeld toont hoe u een PPT‑presentatie naar een PPTX‑presentatie kunt converteren.
+Laad het bronbestand met de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) class, roep vervolgens [Presentation::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#save) aan met [SaveFormat::Pptx](https://reference.aspose.com/slides/nl/php-java/aspose.slides/saveformat/#Pptx). Het `finally`-blok ruimt de presentatie op en geeft de resources vrij.
 
 ```php
-  # Maak een Presentation-object aan dat een PPTX-bestand representeert
-  $pres = new Presentation("Aspose.ppt");
-  try {
-    # Sla de PPTX-presentatie op in PPTX-formaat
-    $pres->save("ConvertedAspose.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+// Laad de legacy PPT-presentatie.
+$presentation = new Presentation("presentation.ppt");
+try {
+    // Sla de presentatie op in PPTX-formaat.
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Figuur: Bron‑PPT‑presentatie**|
+De bestandsextensie bepaalt niet automatisch het uitvoerformaat; het argument [SaveFormat::Pptx](https://reference.aspose.com/slides/nl/php-java/aspose.slides/saveformat/#Pptx) doet dat. Houd de invoer- en uitvoer-paden verschillend als u het oorspronkelijke PPT-bestand wilt behouden.
 
-De bovenstaande code‑snippet genereerde de volgende PPTX‑presentatie na conversie
+## **Converteer meerdere PPT-bestanden**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Figuur: Gegenereerde PPTX‑presentatie na conversie**|
+Het volgende voorbeeld converteert elk `.ppt`-bestand in één map. Elk bestand wordt onafhankelijk verwerkt, zodat één mislukte conversie de rest van de batch niet stopt.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$inputDirectory = "input";
+$outputDirectory = "output";
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    throw new RuntimeException("Cannot create the output directory: " . $outputDirectory);
+}
+
+$inputFiles = [];
+foreach (new DirectoryIterator($inputDirectory) as $fileInfo) {
+    if ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === "ppt") {
+        $inputFiles[] = $fileInfo->getPathname();
+    }
+}
+
+foreach ($inputFiles as $inputPath) {
+    $outputFileName = pathinfo($inputPath, PATHINFO_FILENAME) . ".pptx";
+    $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $outputFileName;
+    $presentation = null;
+
+    try {
+        $presentation = new Presentation($inputPath);
+        $presentation->save($outputPath, SaveFormat::Pptx);
+        echo "Converted: " . $inputPath . PHP_EOL;
+    } catch (Throwable $exception) {
+        fwrite(STDERR, "Failed: " . $inputPath . " (" . $exception->getMessage() . ")" . PHP_EOL);
+    } finally {
+        if ($presentation !== null) {
+            $presentation->dispose();
+        }
+    }
+}
+```
+
+Voor productie-workloads moet de volledige uitzondering worden gelogd, besluiten of een bestaand uitvoerbestand mag worden overschreven, en mislukte bestandsnamen naar een herhaal- of beoordelings-queue schrijven. Beschadigde bestanden, met een wachtwoord beveiligde bestanden die zonder het vereiste wachtwoord worden geopend, ontoegankelijke paden en niet-ondersteunde inhoud kunnen allemaal een conversie doen falen. Zie [Password-Protected Presentations](/slides/nl/php-java/password-protected-presentation/) voor het laden van versleutelde bestanden.
+
+## **Nauwkeurigheid en legacy-functies**
+
+Conversie behoudt normaal gesproken dia's, masters, lay-outs, tekst, vormen, afbeeldingen, tabellen en grafieken. PPT en PPTX vertegenwoordigen echter niet elke functionaliteit op exact dezelfde manier. Een legacy-functie zonder PPTX-equivalent, of die niet door de bibliotheek wordt ondersteund, kan genormaliseerd, weggelaten of anders weergegeven worden.
+
+Controleer het geconverteerde bestand wanneer het animaties, overgangen, ingebedde of gekoppelde OLE-objecten, ActiveX-besturingselementen, ingebedde media, ongebruikelijke lettertypen of VBA-macro's bevat. Een regulier PPTX-bestand is geen macro-ingeschakeld formaat, dus gebruik een geschikte macro-ingeschakelde workflow wanneer VBA beschikbaar moet blijven. Verifieer ook dat vereiste lettertypen en externe bronnen aanwezig zijn in de omgeving waarin de geconverteerde presentatie wordt geopend of gerenderd.
+
+Voor belangrijke documenten moet u de gegenereerde PPTX programmatisch opnieuw openen en belangrijke aantallen dia's en inhoud inspecteren, daarna de weergave en diavoorstelling-gedrag vergelijken in de beoogde viewer. Beschouw een succesvolle aanroep van [Presentation::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#save) niet als bewijs dat elke legacy-functie een exacte PPTX-representatie heeft.
+
+## **Wanneer PPTX gebruiken**
+
+Gebruik PPTX wanneer de presentatie wordt bewerkt in huidige PowerPoint-versies, wordt uitgewisseld met systemen die met Open XML-pakketten werken, of wordt opgeslagen in een formaat dat makkelijker te inspecteren en te herstellen is dan het legacy-binaire PPT. Bewaar het oorspronkelijke PPT als archief- of rollback-kopie totdat de geconverteerde presentatie uw nauwkeurigheidscontroles heeft doorstaan.
+
+Als u in plaats daarvan PDF, HTML, afbeeldingen, XPS of een ander outputtype nodig heeft, gebruik dan de formaat-specifieke richtlijnen in [Convert Presentations to Multiple Formats](/slides/nl/php-java/convert-presentation/) in plaats van aan te nemen dat alle doelen bewerkbare PowerPoint-functies behouden.
+
+## **Online-converter**
+
+Voor een incidenteel bestand of een snelle vergelijking kunt u de [online PPT to PPTX converter](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx) gebruiken. Voor herhaalbare conversies, batch-verwerking of foutafhandeling op toepassingsniveau, gebruik de PHP-API.
+
+## **Gerelateerde artikelen**
+
+- [PPT vs PPTX](/slides/nl/php-java/ppt-vs-pptx/)
+- [Presentaties opslaan in PHP](/slides/nl/php-java/save-presentation/)
+- [Ondersteunde bestandsformaten](/slides/nl/php-java/supported-file-formats/)
+- [Presentaties openen in PHP](/slides/nl/php-java/open-presentation/)
 
 ## **Veelgestelde vragen**
 
-**Wat is het verschil tussen PPT‑ en PPTX‑formaten?**
+**Kan ik PPT naar PPTX converteren zonder Microsoft PowerPoint geïnstalleerd?**
 
-PPT is het oudere binaire bestandsformaat dat door Microsoft PowerPoint wordt gebruikt, terwijl PPTX het nieuwere, op XML gebaseerde formaat is dat werd geïntroduceerd met Microsoft Office 2007. PPTX‑bestanden bieden betere prestaties, een kleinere bestandsgrootte en verbeterde gegevensherstel.
+Ja. Aspose.Slides for PHP via Java laadt en slaat presentaties op zonder dat Microsoft PowerPoint vereist is.
 
-**Ondersteunt Aspose.Slides batchconversie van meerdere PPT‑bestanden naar PPTX?**
+**Zal de conversie van PPT naar PPTX alle inhoud precies behouden?**
 
-Ja, u kunt Aspose.Slides in een lus gebruiken om meerdere PPT‑bestanden programmatisch naar PPTX te converteren, waardoor het geschikt is voor batch‑conversiescenario’s.
+Het behoudt de gangbare presentatiewijzigingen, maar exacte nauwkeurigheid is niet gegarandeerd voor elke legacy- of niet-ondersteunde functie. Controleer het gegenereerde bestand wanneer het macro’s, OLE- of ActiveX-objecten, media, gespecialiseerde animaties of ongebruikelijke lettertypen bevat.
 
-**Blijven de inhoud en opmaak behouden na conversie?**
+**Kan ik een met wachtwoord beveiligd PPT-bestand converteren?**
 
-Aspose.Slides behoudt een hoge nauwkeurigheid bij het converteren van presentaties. Dia‑lay-outs, animaties, vormen, grafieken en andere ontwerpelementen blijven behouden tijdens de conversie van PPT naar PPTX.
+Ja, als u het juiste wachtwoord opgeeft bij het laden van het bestand. Een ontbrekend of onjuist wachtwoord zorgt ervoor dat de laad-operatie faalt.
 
-**Kan ik andere formaten zoals PDF of HTML vanuit PPT‑bestanden converteren?**
+**Moet ik het PPT-bestand na de conversie verwijderen?**
 
-Ja, Aspose.Slides ondersteunt het converteren van PPT‑bestanden naar [meerdere formaten](https://reference.aspose.com/slides/nl/php-java/aspose.slides/saveformat/), waaronder PDF, XPS, HTML, ODP en beeldformaten zoals PNG en JPEG.
-
-**Is het mogelijk om PPT naar PPTX te converteren zonder Microsoft PowerPoint geïnstalleerd?**
-
-Ja, Aspose.Slides is een zelfstandige API en vereist geen Microsoft PowerPoint of andere software van derden om de conversie uit te voeren.
-
-**Is er een online tool beschikbaar voor PPT naar PPTX‑conversie?**
-
-Ja, u kunt de gratis [Aspose.Slides PPT naar PPTX‑converter](https://products.aspose.app/slides/nl/conversion/ppt-to-pptx) webapplicatie gebruiken om de conversie rechtstreeks in uw browser uit te voeren zonder enige code te schrijven.
+Bewaar het origineel totdat u de PPTX hebt gecontroleerd in de viewers en workflows die voor u van belang zijn. Dit biedt een rollback-kopie als een legacy-functie anders wordt geconverteerd.

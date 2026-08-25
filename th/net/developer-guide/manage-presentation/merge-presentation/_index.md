@@ -11,249 +11,326 @@ keywords:
 - รวม PPT
 - รวม PPTX
 - รวม ODP
-- ผสาน PowerPoint
-- ผสานงานนำเสนอ
-- ผสานสไลด์
-- ผสาน PPT
-- ผสาน PPTX
-- ผสาน ODP
+- รวม PowerPoint
+- รวมงานนำเสนอ
+- รวมสไลด์
+- รวม PPT
+- รวม PPTX
+- รวม ODP
 - .NET
 - C#
 - Aspose.Slides
-description: "รวม PowerPoint (PPT, PPTX) และการนำเสนอ OpenDocument (ODP) อย่างง่ายดายด้วย Aspose.Slides สำหรับ .NET เพื่อปรับปรุงกระบวนการทำงานของคุณ"
+description: "เรียนรู้วิธีการรวมงานนำเสนอ PowerPoint และ OpenDocument ใน .NET ด้วยการโคลนสไลด์, ควบคุมมาสเตอร์และเลเอาต์, ปรับขนาดเนื้อหาสไลด์, รักษาส่วน, และจัดการไฟล์ที่มีการป้องกันหรือไฟล์ขนาดใหญ่."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณรวมงานนำเสนอโดยการโคลนสไลด์จากงานนำเสนอหนึ่งไปยังอีกงานหนึ่ง บทความนี้อธิบายวิธีการรวมงานนำเสนอทั้งหมดหรือสไลด์ที่เลือก ใช้สไลด์มัสเตอร์หรือเค้าโหนดเฉพาะในระหว่างการรวม จัดการงานนำเสนอที่มีขนาดสไลด์ต่างกัน และเพิ่มสไลด์ที่รวมแล้วไปยังส่วนของงานนำเสนอ นอกจากนี้ยังครอบคลุมบันทึกที่เป็นประโยชน์เกี่ยวกับเนื้อหาที่รวมไว้ รวมถึงบันทึกของผู้พูด ความคิดเห็น ไฟล์ต้นฉบับที่ป้องกันด้วยรหัสผ่าน และการใช้เธรด
+Aspose.Slides for .NET รวมงานนำเสนอโดยการโคลนสไลด์จาก [งานนำเสนอ](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) หนึ่งไปยังอีกงานนำเสนอหนึ่ง การดำเนินการหลักคือ [ISlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/), ซึ่งสามารถคงรูปแบบของสไลด์ต้นฉบับ หรือแนบสไลด์ที่โคลนไปยังมาสเตอร์หรือเลเอาต์ในงานนำเสนอปลายทางได้
 
-## **เพิ่มประสิทธิภาพการรวมงานนำเสนอของคุณ**
+บทความนี้ครอบคลุมเวิร์กโฟลว์การรวมที่พบบ่อยที่สุด:
 
-ด้วย [Aspose.Slides for .NET](https://products.aspose.com/slides/th/net/), คุณสามารถรวมงานนำเสนอ PowerPoint ได้อย่างไร้รอยต่อพร้อมคงสไตล์ เค้าโหนด และทุกองค์ประกอบไว้เช่นเดิม ไม่เหมือนกับเครื่องมืออื่น ๆ Aspose.Slides จะผสานงานนำเสนอโดยไม่ลดคุณภาพหรือสูญเสียข้อมูล สามารถรวมงานนำเสนอทั้งหมด สไลด์เฉพาะ และแม้กระทั่งรูปแบบไฟล์ต่าง ๆ (PPT to PPTX เป็นต้น)
+- รวมสไลด์ทั้งหมดพร้อมคงรูปแบบต้นฉบับ;
+- รวมสไลด์ที่เลือก;
+- ใช้มาสเตอร์จากงานนำเสนอปลายทาง;
+- ใช้เลเอาต์เฉพาะจากงานนำเสนอปลายทาง;
+- ทำให้ขนาดสไลด์ที่ต่างกันเป็นมาตรฐานก่อนการรวม;
+- เพิ่มสไลด์ที่โคลนเข้าไปในส่วน;
+- รวมงานนำเสนอหลายไฟล์ในเวิร์กโฟลว์ชนิดปลายทางถึงปลายทาง;
+- จัดการมาสเตอร์, ทรัพยากร, โน้ต, ความคิดเห็น, สื่อ, ฟอนต์, รหัสผ่าน, ไฟล์ขนาดใหญ่, และข้อกังวลเรื่องการทำงานหลายเธรด
 
-### **คุณสมบัติการรวม**
+## **ผลของการโคลนสไลด์ต่อมาสเตอร์และเลเอาต์**
 
-- **การรวมงานนำเสนอเต็มรูปแบบ:** รวบรวมสไลด์ทั้งหมดเป็นไฟล์เดียว
-- **การรวมสไลด์เฉพาะ:** เลือกและรวมสไลด์ที่เลือก
-- **การรวมข้ามรูปแบบ:** รวมงานนำเสนอที่มีรูปแบบต่างกันโดยคงความสมบูรณ์ไว้
+สไลด์สืบทอดลักษณะส่วนใหญ่จากเลเอาต์และมาสเตอร์ ดังนั้นการเลือก overload ของการโคลนจะกำหนดว่สไลด์ที่รวมจะถูกผสานเข้ากับงานนำเสนอปลายทางอย่างไร
 
-{{% alert title="Tip" color="primary" %}}  
-กำลังมองหาเครื่องมือออนไลน์ **ฟรี** ที่ **รวบรวมงานนำเสนอ PowerPoint** อย่างรวดเร็วหรือไม่? ลองใช้ [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/th/merger)  
+ใช้ [ISlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) ในวิธีใดวิธีหนึ่งต่อไปนี้:
 
-- **รวมไฟล์ PowerPoint ได้อย่างง่ายดาย**: รวมงานนำเสนอหลายไฟล์ **PPT, PPTX, ODP** เป็นไฟล์เดียว  
-- **รองรับรูปแบบต่าง ๆ**: รวม **PPT to PPTX**, **PPTX to ODP** และอื่น ๆ  
-- **ไม่ต้องติดตั้ง**: ทำงานโดยตรงในเบราว์เซอร์ของคุณ รวดเร็วและปลอดภัย  
+- `AddClone(sourceSlide)` — คงเลเอาต์และรูปแบบของสไลด์ต้นฉบับ เมื่อจำเป็น มาสเตอร์ต้นฉบับจะถูกโคลนเข้าสู่งานนำเสนอปลายทางโดยอัตโนมัติ Aspose.Slides จะติดตามมาสเตอร์ที่โคลนโดยอัตโนมัติเพื่อหลีกเลี่ยงการโคลนมาสเตอร์เดียวกันหลายครั้ง
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — แนบสไลด์ที่โคลนไปยัง [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) ปลายทางเฉพาะ Aspose.Slides จะค้นหาเลเอาต์ที่ตรงกันภายใต้มาสเตอร์นั้นโดยประเภทหรือชื่อของเลเอาต์
+- `AddClone(sourceSlide, destinationLayout)` — แนบสไลด์ที่โคลนโดยตรงไปยัง [ILayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/) ปลายทางเฉพาะ
 
-[![รวมไฟล์ PowerPoint ออนไลน์](slides-merger.png)](https://products.aspose.app/slides/th/merger)  
+มาสเตอร์หรือเลเอาต์ที่ส่งให้ overload `AddClone` ต้องเป็นของ **งานนำเสนอปลายทาง** ไม่ใช่งานนำเสนอแหล่ง
 
-เริ่มรวมไฟล์ PowerPoint ของคุณด้วย **เครื่องมือออนไลน์ฟรีของ Aspose** วันนี้!  
-{{% /alert %}}
+## **รวมงานนำเสนอทั้งหมดและคงรูปแบบต้นฉบับ**
 
-## **การรวมงานนำเสนอ**
+การรวมที่ง่ายที่สุดคือคัดลอกทุกสไลด์จากงานนำเสนอแหล่งไปยังงานนำเสนอปลายทาง นี่เป็นตัวเลือกที่เหมาะเมื่อต้องการให้สไลด์ที่นำเข้ารักษาธีม, มาสเตอร์, และความสัมพันธ์ของเลเอาต์เดิมไว้
 
-เมื่อคุณ [รวมงานนำเสนอหนึ่งกับอีกงานนำเสนอหนึ่ง](https://products.aspose.com/slides/th/net/merger/ppt/), คุณจะทำการรวมสไลด์ของพวกเขาไว้ในงานนำเสนอเดียวเพื่อให้ได้ไฟล์หนึ่งไฟล์  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% alert title="Info" color="info" %}}  
-โปรแกรมนำเสนอส่วนใหญ่ (PowerPoint หรือ OpenOffice) ขาดฟังก์ชันที่ให้ผู้ใช้รวมงานนำเสนอในลักษณะดังกล่าว  
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/th/net/) อย่างไรก็ตาม ให้คุณรวมงานนำเสนอได้หลายวิธี คุณสามารถรวมงานนำเสนอพร้อมกับรูปร่าง สไตล์ ข้อความ การจัดรูปแบบ ความคิดเห็น การเคลื่อนไหว ฯลฯ โดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล  
-
-**ดูเพิ่มเติม**  
-
-[โคลนสไลด์](https://docs.aspose.com/slides/th/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
-{{% /alert %}}
-
-### **สิ่งที่สามารถรวมได้**
-
-ด้วย Aspose.Slides คุณสามารถรวม  
-
-* งานนำเสนอทั้งหมด ทุกสไลด์จากงานนำเสนอจะถูกรวมเป็นงานนำเสนอเดียว  
-* สไลด์เฉพาะ สไลด์ที่เลือกจะถูกรวมเป็นงานนำเสนอเดียว  
-* งานนำเสนอในรูปแบบเดียวกัน (PPT to PPT, PPTX to PPTX เป็นต้น) และในรูปแบบต่าง ๆ (PPT to PPTX, PPTX to ODP เป็นต้น) ไปยังกันและกัน  
-
-{{% alert title="Note" color="warning" %}}  
-นอกเหนือจากงานนำเสนอ Aspose.Slides ยังช่วยให้คุณรวมไฟล์อื่นได้:
-
-* [ภาพ](https://products.aspose.com/slides/th/net/merger/image-to-image/), เช่น [JPG to JPG](https://products.aspose.com/slides/th/net/merger/jpg-to-jpg/) หรือ [PNG to PNG](https://products.aspose.com/slides/th/net/merger/png-to-png/)
-* เอกสาร, เช่น [PDF to PDF](https://products.aspose.com/slides/th/net/merger/pdf-to-pdf/) หรือ [HTML to HTML](https://products.aspose.com/slides/th/net/merger/html-to-html/)
-* และไฟล์สองประเภทที่แตกต่างกัน เช่น [image to PDF](https://products.aspose.com/slides/th/net/merger/image-to-pdf/) หรือ [JPG to PDF](https://products.aspose.com/slides/th/net/merger/jpg-to-pdf/) หรือ [TIFF to PDF](https://products.aspose.com/slides/th/net/merger/tiff-to-pdf/)
-
-{{% /alert %}}
-
-### **ตัวเลือกการรวม**
-
-คุณสามารถกำหนดตัวเลือกที่บ่งบอกว่า  
-
-* แต่ละสไลด์ในงานนำเสนอผลลัพธ์จะคงสไตล์ที่เป็นเอกลักษณ์  
-* สไตล์เฉพาะจะถูกใช้กับสไลด์ทั้งหมดในงานนำเสนอผลลัพธ์  
-
-เพื่อรวมงานนำเสนอ Aspose.Slides มีเมธอด [AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/methods/addclone) (จากอินเทอร์เฟซ [ISlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection)) มีหลายแนวทางการใช้งานของเมธอด `AddClone` ที่กำหนดพารามิเตอร์ของกระบวนการรวมงานนำเสนอ ทุกออบเจ็กต์ Presentation มีคอลเลกชัน [Slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/properties/slides) ดังนั้นคุณสามารถเรียกเมธอด `AddClone` จากงานนำเสนอที่ต้องการรวมสไลด์เข้าไป  
-
-เมธอด `AddClone` จะคืนค่าออบเจ็กต์ `ISlide` ซึ่งเป็นสำเนาของสไลด์ต้นทาง สไลด์ในงานนำเสนอผลลัพธ์จึงเป็นสำเนาของสไลด์จากต้นทาง ดังนั้นคุณสามารถแก้ไขสไลด์ผลลัพธ์ (เช่น ใส่สไตล์หรือการตั้งค่าการจัดรูปแบบหรือเค้าโหนด) ได้โดยไม่ต้องกังวลว่าต้นฉบับจะได้รับผลกระทบ  
-
-## **รวมงานนำเสนอ**  
-
-Aspose.Slides มีเมธอด [**AddClone (ISlide)**](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/methods/addclone) ที่ช่วยให้คุณรวมสไลด์โดยสไลด์คงเค้าโหนดและสไตล์ตามค่าเริ่มต้น  
-
-โค้ด C# นี้แสดงวิธีการรวมงานนำเสนอ:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+งานนำเสนอที่ได้อาจมีมาสเตอร์หลายตัวเมื่อแหล่งและปลายทางใช้ดีไซน์ต่างกัน ซึ่งเป็นพฤติกรรมที่คาดหวังเมื่อคงรูปแบบต้นฉบับไว้
+
+## **รวมสไลด์ที่เลือก**
+
+คุณไม่จำเป็นต้องโคลนทุกสไลด์ ตัวอย่างต่อไปนี้นำเข้าเฉพาะตำแหน่งสไลด์ที่เลือกจากงานนำเสนอแหล่ง
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+ตรวจสอบตำแหน่งสไลด์ก่อนทำการโคลนเมื่อค่ามาจากอินพุตของผู้ใช้หรือการกำหนดค่าภายนอก
+
+## **รวมสไลด์โดยใช้มาสเตอร์ปลายทาง**
+
+ใช้ overload [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) เมื่อสไลด์ที่นำเข้าต้องปฏิบัติตามมาสเตอร์ที่อยู่ในงานนำเสนอปลายทางอยู่แล้ว
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides จะเลือกเลเอาต์ที่เหมาะสมภายใต้มาสเตอร์ที่ระบุโดยการจับคู่ประเภทหรือชื่อของเลเอาต์ต้นฉบับ หากไม่มีเลเอาต์ที่เหมาะสมและ `allowCloneMissingLayout` เป็น `true` จะโคลนเลเอาต์ต้นฉบับเพื่อให้สไลด์สามารถเพิ่มได้ หากเป็น `false` จะเกิด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/) ขึ้น
+
+ใช้ค่า `false` เมื่อคุณต้องการให้การรวมล้มเหลวแทนที่จะเพิ่มเลเอาต์ใหม่เข้าสู่มาสเตอร์ปลายทาง
+
+## **รวมสไลด์โดยใช้เลเอาต์ปลายทางเฉพาะ**
+
+ใช้ overload [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) เมื่อคุณทราบเลเอาต์ปลายทางที่สไลด์นำเข้าต้องใช้อย่างชัดเจน
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+การใช้เลเอาต์ปลายทางจะเปลี่ยนความสัมพันธ์ของเลเอาต์ที่สืบทอด; มันไม่ได้ออกแบบเนื้อหาสไลด์ต้นฉบับใหม่ หากเลเอาต์ของแหล่งและปลายทางมีโครงสร้าง placeholder แตกต่างกัน ให้ตรวจสอบผลลัพธ์เพื่อยืนยันว่าการจัดรูปแบบและพฤติกรรม placeholder ที่สืบทอดนั้นเหมาะสม
+
+## **รวมงานนำเสนอที่มีขนาดสไลด์ต่างกัน**
+
+งานนำเสนอที่มีขนาดสไลด์ต่างกันสามารถรวมกันได้ แต่การโคลนสไลด์เข้าสู่งานนำเสนอที่มีขนาดสไลด์อื่นจะไม่ออกแบบเนื้อหาใหม่อัตโนมัติให้พอกับผืนผ้าใบใหม่ รูปร่างอาจปรากฏเป็นการย้าย, ยืดหดที่ไม่คาดคิด, หรืออยู่นอกพื้นที่สไลด์ที่มองเห็นได้
+
+วิธีการที่เป็นประโยชน์คือปรับขนาดงานนำเสนอแหล่งก่อนโคลน วิธี [SlideSize.SetSize](https://reference.aspose.com/slides/th/net/aspose.slides/slidesize/setsize/) สามารถปรับสเกลเนื้อหาที่มีอยู่ในขณะเปลี่ยนขนาดสไลด์ได้ และ [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/th/net/aspose.slides/slidesizescaletype/) จะสเกลเนื้อหาให้พอดีกับขนาดที่ร้องขอ
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+การปรับขนาดจะเปลี่ยนวัตถุงานนำเสนอแหล่งในหน่วยความจำ หากคุณต้องการให้งานนำเสนอแหล่งต้นฉบับยังคงไม่เปลี่ยนสำหรับการดำเนินการอื่น ให้เปิดอินสแตนซ์แยกสำหรับการรวม
+
+## **รวมสไลด์ไปยังส่วนของงานนำเสนอ**
+
+ลูปการโคลนสไลด์พื้นฐานจะไม่สร้างลำดับชั้นของส่วนจากงานนำเสนอแหล่ง หากส่วนมีความสำคัญในผลลัพธ์ ให้สร้างหรือเลือกส่วนในงานนำเสนอปลายทางและโคลนสไลด์เข้าไปในส่วนเหล่านั้นโดยใช้ [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/)
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+สไลด์ที่โคลนจะถูกต่อท้ายในส่วนปลายทางที่ระบุ เพื่อคงหลายส่วนจากแหล่ง ให้วนลูป [Presentation.Sections](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/sections/), ดึงสไลด์ปัจจุบันของแต่ละส่วนแหล่งด้วย [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/th/net/aspose.slides/isection/getslideslistofsection/), สร้างส่วนในปลายทางใหม่, แล้วโคลนสไลด์ที่คืนค่ามาเข้าไปในส่วนปลายทางที่สอดคล้องกัน ดูตัวอย่างการจัดการส่วนสไลด์เต็มรูปแบบได้ที่ [Manage Slide Sections](/slides/th/net/slide-section/) ซึ่งรวมถึงส่วนว่างและการเปลี่ยนแปลงโครงสร้าง
+
+## **รวมหลายงานนำเสนออย่างปลอดภัย**
+
+ตัวอย่างแบบปลายทางถึงปลายทางต่อไปนี้ใช้งานนำเสนอแรกเป็นปลายทาง, ทำให้ขนาดสไลด์ของแต่ละแหล่งเป็นมาตรฐาน, เปิดแต่ละแหล่งเฉพาะขณะทำการคัดลอก, และบันทึกไฟล์สุดท้ายเพียงครั้งเดียว
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **รวมงานนำเสนอด้วยสไลด์มัสเตอร์**  
-
-Aspose.Slides มีเมธอด [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/th/net/aspose.slides.islidecollection/addclone/methods/2) ที่ช่วยให้คุณรวมสไลด์โดยใช้เทมเพลตสไลด์มัสเตอร์ หากต้องการคุณสามารถเปลี่ยนสไตล์ของสไลด์ในงานนำเสนอผลลัพธ์ได้  
-
-โค้ด C# นี้สาธิตการดำเนินการดังกล่าว:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}  
-เค้าโหนดสไลด์สำหรับสไลด์มัสเตอร์จะถูกกำหนดโดยอัตโนมัติ หากไม่สามารถกำหนดเค้าโหนดที่เหมาะสมได้ และพารามิเตอร์ `allowCloneMissingLayout` ของเมธอด `AddClone` ถูกตั้งเป็น true เค้าโหนดของสไลด์ต้นทางจะถูกใช้ หากไม่เช่นนั้นจะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception)  
-{{% /alert %}}
+นี่เป็นพื้นฐานที่มีประโยชน์สำหรับการคงรูปแบบต้นฉบับของสไลด์ที่นำเข้า หากผลลัพธ์ต้องใช้งานธีมเดียวของปลายทาง ให้เปลี่ยนการเรียก `AddClone(slide)` ธรรมดาเป็น overload ของมาสเตอร์หรือเลเอาต์ปลายทางที่แสดงไว้ก่อนหน้า
 
-หากต้องการให้สไลด์ในงานนำเสนอผลลัพธ์มีเค้าโหนดสไลด์ที่ต่างออกไป ให้ใช้เมธอด [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/net/aspose.slides.islidecollection/addclone/methods/1) แทนในขณะทำการรวม  
+## **ข้อพิจารณาเชิงปฏิบัติ**
 
-## **รวมสไลด์เฉพาะจากงานนำเสนอ**  
+### **มาสเตอร์, เลเออต์, และความถูกต้องของการจัดรูปแบบ**
 
-การรวมสไลด์เฉพาะจากหลายงานนำเสนอเป็นประโยชน์สำหรับการสร้างชุดสไลด์ที่กำหนดเอง Aspose.Slides for .NET ให้คุณเลือกและนำเข้าเฉพาะสไลด์ที่ต้องการ API จะคงการจัดรูปแบบ เค้าโหนด และการออกแบบของสไลด์ต้นฉบับไว้  
+การโคลนสไลด์โดยค่าเริ่มต้นสามารถนำมาสเตอร์ของแหล่งที่จำเป็นเข้าสู่งานนำเสนอปลายทางได้โดยอัตโนมัติ Aspose.Slides จะเก็บทะเบียนภายในสำหรับมาสเตอร์ที่โคลนอัตโนมัติเพื่อหลีกเลี่ยงการโคลนมาสเตอร์เดียวกันหลายครั้ง มาสเตอร์ที่โคลนด้วยตนเองไม่ได้รับการติดตามโดยทะเบียนนั้น ดังนั้นควรหลีกเลี่ยงการโคลนมาสเตอร์ล่วงหน้า เว้นแต่คุณต้องการควบคุมโครงสร้างมาสเตอร์อย่างชัดเจน
 
-โค้ด C# ต่อไปนี้สร้างงานนำเสนอใหม่ เพิ่มสไลด์หัวเรื่องจากงานนำเสนอสองไฟล์ แล้วบันทึกผลลัพธ์ลงไฟล์:  
+อย่าสันนิษฐานว่ามาสเตอร์หรือเลเออต์สองตัวที่มีชื่อเดียวกันจะดูเหมือนกัน หากเทมเพลตองค์กรต้องการควบคุมรูปลักษณ์สุดท้าย ให้เลือกมาสเตอร์หรือเลเอาต์ปลายทางอย่างเจาะจงและตรวจสอบผลลัพธ์หลังการรวม
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+### **โน้ตและความคิดเห็น**
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+โน้ตวิทยากรและความคิดเห็นของสไลด์เชื่อมโยงกับเนื้อหาสไลด์และจะถูกคัดลอกเมื่อลูกศรโคลนสไลด์ Aspose.Slides ยังมี API เฉพาะสำหรับ [presentation notes](/slides/th/net/presentation-notes/) และ [presentation comments](/slides/th/net/presentation-comments/)
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+หากการจัดรูปแบบของหน้าโน้ตสำคัญ ให้ตรวจสอบงานนำเสนอที่รวมแล้วเนื่องจากมาสเตอร์ของโน้ตเป็นออบเจ็กต์ระดับงานนำเสนอและอาจแตกต่างระหว่างไฟล์แหล่ง สำหรับเวิร์กโฟลว์การรีวิวให้ตรวจสอบผู้เขียนความคิดเห็นและการแสดงความคิดเห็นแบบโซ่หลังจากรวมไฟล์จากผู้เขียนหรือเทมเพลตต่างกัน
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+### **รูปภาพ, เสียง, วิดีโอ, วัตถุ OLE, และลิงก์ภายนอก**
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+สไลด์อาจอ้างอิงทรัพยากรระดับงานนำเสนอเช่นรูปภาพ, เสียงฝัง, วิดีโอฝัง, และข้อมูล OLE ให้โคลนสไลด์เองแทนการคัดลอกเฉพาะรูปร่างที่มองเห็น เพื่อให้ Aspose.Slides รักษาความสัมพันธ์ของสไลด์ต่อทรัพยากรเหล่านั้น
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```  
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+ทรัพยากรที่ฝังและที่ลิงก์ควรจัดการต่างกัน ลิงก์เสียง, วิดีโอ, วัตถุ OLE, หรือไฮเปอร์ลิงก์ที่เชื่อมต่อจะยังคงพึ่งพาแหล่งภายนอก; การโคลนสไลด์ไม่ได้เปลี่ยนลิงก์ภายนอกเป็นเนื้อหาฝัง ให้ทดสอบเส้นทางและ URL ของทรัพยากรที่ลิงก์ในสภาพแวดล้อมที่งานนำเสนอที่รวมจะถูกเปิด
+
+Aspose.Slides ติดตามมาสเตอร์ที่โคลนโดยอัตโนมัติ แต่ไม่ควรถือว่าเป็นการรับประกันทั่วไปว่าทรัพยากรไบนารีที่เหมือนกันจากงานนำเสนอแหล่งที่ไม่ได้เชื่อมต่อกันจะถูกกำจัดซ้ำเสมอ หากขนาดไฟล์ผลลัพธ์สำคัญ ให้ตรวจสอบแพ็กเกจที่รวมและวัดผลลัพธ์แทนการพึ่งพาการกำจัดซ้ำโดยไม่ชัดเจน
+
+### **ฟอนต์ฝังและความพร้อมใช้งานของฟอนต์**
+
+ฟอนต์จัดการระดับงานนำเสนอ หากต้องการให้การพิมพ์รักษาความสม่ำเสมอระหว่างเครื่อง อย่าสันนิษฐานว่าการโคลนสไลด์เพียงอย่างเดียวทำให้ฟอนต์ที่ต้องการทั้งหมดพร้อมใช้งานในสภาพแวดล้อมปลายทาง คุณสามารถตรวจสอบฟอนต์ที่ฝังไว้ด้วย [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getembeddedfonts/) และจัดการการฝังอย่างเจาะจงตามที่อธิบายใน [Embed Fonts in Presentations](/slides/th/net/embedded-font/)
+
+ตรวจสอบด้วยว่าคุณมีสิทธิ์ฝังฟอนต์ที่ใช้ในไฟล์แหล่ง ฟอนต์บางตัวอาจมีใบอนุญาตห้ามฝัง
+
+### **งานนำเสนอที่ป้องกันด้วยรหัสผ่าน**
+
+แหล่งที่ป้องกันด้วยรหัสผ่านต้องเปิดสำเร็จก่อนที่จะโคลนสไลด์ได้ ให้ส่งรหัสผ่านผ่าน [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/)
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-## **รวมงานนำเสนอด้วยเค้าโหนดสไลด์**  
+การเปิดแหล่งที่เข้ารหัสไม่ได้ทำให้การป้องกันเดียวกันถูกนำไปใช้กับงานนำเสนอปลายทางโดยอัตโนมัติ ให้กำหนดการป้องกันผลลัพธ์แยกต่างหากเมื่อจำเป็น
 
-โค้ด C# นี้แสดงวิธีรวมสไลด์จากงานนำเสนอพร้อมใส่เค้าโหนดสไลด์ที่คุณต้องการเพื่อให้ได้งานนำเสนอผลลัพธ์หนึ่งไฟล์:  
+### **งานนำเสนอขนาดใหญ่และการใช้หน่วยความจำ**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+งานนำเสนอขนาดใหญ่ที่มีรูปภาพความละเอียดสูง, เสียง, วิดีโอ หรือวัตถุไบนารีขนาดอื่น ๆ สามารถใช้หน่วยความจำจำนวนมากได้ [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/blobmanagementoptions/) ให้ตัวเลือกสำหรับการจัดการ BLOB และการใช้ไฟล์ชั่วคราว ดู [Manage Presentation BLOBs](/slides/th/net/manage-blob/) สำหรับกลยุทธ์ไฟล์ขนาดใหญ่
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+สำหรับไฟล์ขนาดใหญ่ ให้โหลดจากเส้นทางไฟล์เมื่อเป็นไปได้ ปิดการใช้งานงานนำเสนอแหล่งทันทีหลังการรวมเสร็จ และหลีกเลี่ยงการบันทึกผลลัพธ์ชั่วคราวซ้ำ ๆ เว้นแต่ว่าเวิร์กโฟลว์ต้องการจุดตรวจ
 
-## **รวมงานนำเสนอที่มีขนาดสไลด์ต่างกัน**  
+### **ความปลอดภัยของเธรด**
 
-{{% alert title="Note" color="warning" %}}  
-คุณไม่สามารถรวมงานนำเสนอที่มีขนาดสไลด์ต่างกันได้  
-{{% /alert %}}  
+ห้ามโหลด, แก้ไข, บันทึก, หรือโคลนอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เดียวกันพร้อมกันจากหลายเธรด ให้จำกัดอินสแตนซ์งานนำเสนอแต่ละอันให้ใช้กับการดำเนินการรวมหนึ่งครั้งเท่านั้น หากคุณทำงานแบบขนานให้ใช้อินสแตนซ์งานนำเสนอที่แยกจากกันและปฏิบัติตาม [Aspose.Slides multithreading guidance](/slides/th/net/multithreading/)
 
-เพื่อรวมงานนำเสนอ 2 ไฟล์ที่มีขนาดสไลด์ต่างกัน คุณต้องปรับขนาดหนึ่งในงานนำเสนอให้ตรงกับขนาดของอีกงานนำเสนอหนึ่ง  
+## **FAQ**
 
-โค้ดตัวอย่างนี้สาธิตการดำเนินการดังกล่าว:  
+**ฉันจะรักษาการออกแบบต้นฉบับของแต่ละงานนำเสนอได้อย่างไร?**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+ใช้ [AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) โดยไม่ระบุมาสเตอร์หรือเลเอาต์ปลายทาง Aspose.Slides สามารถโคลนมาสเตอร์ของแหล่งโดยอัตโนมัติเมื่อสไลด์ที่นำเข้าต้องการ
 
-## **รวมสไลด์ไปยังส่วนของงานนำเสนอ**  
+**ฉันจะทำให้สไลด์ที่นำเข้าใช้ธีมของปลายทางได้อย่างไร?**
 
-โค้ด C# นี้แสดงวิธีรวมสไลด์เฉพาะไปยังส่วนในงานนำเสนอ:  
+ใช้ overload ที่รับมาสเตอร์ปลายทาง ส่งมาสเตอร์จากงานนำเสนอปลายทาง ไม่ใช่จากแหล่ง Aspose.Slides จะพยายามแมปสไลด์แต่ละอันไปยังเลเอาต์ที่เหมาะสมภายใต้มาสเตอร์นั้น
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+**เมื่อใดควรใช้เลเอาต์ปลายทางเฉพาะแทนมาสเตอร์ปลายทาง?**
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+ใช้เลเอาต์เฉพาะเมื่อสไลด์ที่นำเข้าทุกสไลด์ต้องใช้เลเอาต์เดียวที่รู้จัก ใช้มาสเตอร์เมื่อคุณต้องการให้ Aspose.Slides เลือกเลเอาต์จากมาสเตอร์นั้นตามประเภทหรือชื่อของเลเออต์ต้นฉบับ
 
-สไลด์จะถูกเพิ่มที่ตำแหน่งท้ายของส่วน  
+**งานนำเสนอที่มีขนาดสไลด์ต่างกันสามารถรวมกันได้หรือไม่?**
 
-{{% alert title="Tip" color="primary" %}}  
-Aspose มีแอปเว็บ **ฟรี** ที่ชื่อ [Collage](https://products.aspose.app/slides/th/collage) ใช้บริการออนไลน์นี้คุณสามารถรวม [JPG to JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG to PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) เป็นต้น  
-{{% /alert %}}
+ได้ แต่เนื้อหาสไลด์จะไม่ถูกออกแบบใหม่อัตโนมัติตามมิติปลายทาง ให้ปรับขนาดงานนำแหล่งก่อนเมื่อคุณต้องการตำแหน่งที่คาดเดาได้ เช่นใช้ [SlideSize.SetSize](https://reference.aspose.com/slides/th/net/aspose.slides/slidesize/setsize/) และ [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/th/net/aspose.slides/slidesizescaletype/)
 
-## **คำถามที่พบบ่อย**
 
-**บันทึกของผู้พูดจะถูกเก็บไว้ระหว่างการรวมหรือไม่?**  
+**ฉันสามารถรวมไฟล์ PPT, PPTX, และ ODP เป็นไฟล์เดียวได้หรือไม่?**
 
-ใช่ เมื่อทำการโคลนสไลด์ Aspose.Slides จะคัดลอกองค์ประกอบสไลด์ทั้งหมดรวมถึงบันทึก, การจัดรูปแบบและแอนิเมชัน
+ได้ เปิดงานนำเสนอแต่ละไฟล์, โคลนสไลด์ที่ต้องการเข้าไปในงานนำเสนอปลายทางหนึ่ง, แล้วบันทึกปลายทางในรูปแบบที่รองรับ เนื่องจากรูปแบบไฟล์งานนำเสนอไม่สนับสนุนชุดคุณสมบัติเช่นเดียวกันทั้งหมด ควรตรวจสอบเนื้อหาซับซ้อนหลังการรวมข้ามรูปแบบ ดู [Supported File Formats](/slides/th/net/supported-file-formats/)
 
-**ความคิดเห็นและผู้เขียนจะถูกถ่ายโอนหรือไม่?**  
+**ส่วนของแหล่งจะถูกคงไว้โดยอัตโนมัติหรือไม่?**
 
-ความคิดเห็นซึ่งเป็นส่วนหนึ่งของเนื้อหาสไลด์จะถูกคัดลอกพร้อมสไลด์ และข้อมูลผู้เขียนจะถูกเก็บเป็นออบเจ็กต์ความคิดเห็นในงานนำเสนอผลลัพธ์
+ไม่ได้จากลูปพื้นฐานที่โคลนสไลด์เท่านั้น ให้สร้างส่วนที่ต้องการในปลายทางและใช้ overload ของส่วนใน [AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) เมื่อโครงสร้างส่วนต้องถูกคงไว้
 
-**ถ้างานนำเสนอแหล่งที่มาป้องกันด้วยรหัสผ่านจะทำอย่างไร?**  
+**โน้ตวิทยากรและความคิดเห็นจะถูกคงไว้หรือไม่?**
 
-ต้องเปิดด้วย [รหัสผ่าน](/slides/th/net/password-protected-presentation/) ผ่าน [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/) หลังจากโหลดแล้วสไลด์เหล่านั้นสามารถโคลนไปยังไฟล์เป้าหมายที่ไม่มีรหัสผ่าน (หรือไฟล์ที่มีการป้องกันได้เช่นกัน)
+พวกมันจะถูกคัดลอกพร้อมสไลด์ที่โคลน สำหรับเวิร์กโฟลว์ที่ขึ้นกับสไตล์ของโน้ตมาสเตอร์, ผู้เขียนความคิดเห็น, หรือข้อมูลการรีวิวแบบโซ่ ให้ตรวจสอบผลลัพธ์ที่รวมเนื่องจากสถานการณ์เหล่านั้นเกี่ยวข้องกับโครงสร้างระดับงานนำเสนอเช่นเดียวกับเนื้อหาระดับสไลด์
 
-**การดำเนินการรวมเป็น thread‑safe มากแค่ไหน?**  
+**เกิดอะไรขึ้นกับเสียง, วิดีโอ, วัตถุ OLE, และไฮเปอร์ลิงก์?**
 
-ห้ามใช้ออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เดียวกันจากหลายเธรด คำแนะนำที่แนะนำคือ “หนึ่งเอกสาร — หนึ่งเธรด” ไฟล์ต่าง ๆ สามารถประมวลผลพร้อมกันในเธรดแยกต่างหากได้.
+เนื้อหาที่ฝังจะถูกนำไปเป็นส่วนหนึ่งของความสัมพันธ์ทรัพยากรของสไลด์ที่โคลน ลิงก์ภายนอกจะยังคงเป็นลิงก์ภายนอก ดังนั้นไฟล์หรือ URL ปลายทางต้องยังคงพร้อมใช้งานหลังการรวม
+
+**ฟอนต์ที่ฝังจากทุกแหล่งจะได้รับการรับรองว่ามีอยู่ในงานนำเสนอที่รวมหรือไม่?**
+
+อย่าพึ่งพาการโคลนสไลด์อย่างเดียวสำหรับการจัดจำหน่ายฟอนต์ ตรวจสอบฟอนต์ที่ฝังในปลายทางและจัดการการฝังฟอนต์หรือความพร้อมใช้งานฟอนต์ภายนอกอย่างชัดเจนเมื่อการพิมพ์เป็นสิ่งสำคัญ
+
+**ฉันจะรวมไฟล์ที่ป้องกันด้วยรหัสผ่านได้อย่างไร?**
+
+เปิดไฟล์ด้วย [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/) ที่ถูกต้อง จากนั้นโคลนสไลด์ตามปกติ การป้องกันผลลัพธ์จะต้องกำหนดแยกต่างหาก
+
+**ฉันควรจัดการงานนำเสนอขนาดใหญ่อย่างไร?**
+
+ใช้การจัดการ BLOB เมื่อออบเจกต์ไบนารีขนาดใหญ่ครองหน่วยความจำเป็นส่วนใหญ่, โหลดจากเส้นทางไฟล์สำหรับไฟล์ขนาดใหญ่อย่างเต็มที่, ปิดการใช้งานงานนำเสนอแหล่งทันทีหลังการรวม, และบันทึกผลลัพธ์สุดท้ายเฉพาะเมื่อจำเป็น
+
+**ฉันสามารถโคลนสไลด์จากหลายเธรดพร้อมกันได้หรือไม่?**
+
+ห้ามใช้อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เดียวกันพร้อมกันจากหลายเธรด ให้แยกการดำเนินการรวมแต่ละงานนำเสนอออกเป็นอินสแตนซ์ของตนเองและปฏิบัติตามแนวทางการทำงานหลายเธรดของ Aspose.Slides.

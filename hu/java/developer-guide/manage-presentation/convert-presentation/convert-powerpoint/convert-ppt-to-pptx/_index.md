@@ -1,14 +1,14 @@
 ---
-title: PPT-t PPTX-re konvertálása Java-ban
+title: PPT konvertálása PPTX-re Java-ban
 linktitle: PPT PPTX-re
 type: docs
 weight: 20
 url: /hu/java/convert-ppt-to-pptx/
 keywords:
-- PowerPoint konvertálása
-- prezentáció konvertálása
-- dia konvertálása
-- PPT konvertálása
+- PowerPoint konvertálás
+- prezentáció konvertálás
+- dia konvertálás
+- PPT konvertálás
 - PPT PPTX-re
 - PPT mentése PPTX-ként
 - PPT exportálása PPTX-be
@@ -16,94 +16,107 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Konvertálja a régi PPT prezentációkat modern PPTX-re gyorsan Java-ban az Aspose.Slides segítségével — átfogó útmutató, ingyenes kódminták, Microsoft Office függőség nélkül."
+description: "Örökölt PPT fájlok konvertálása PPTX-re Java-val az Aspose.Slides segítségével. Tartalmaz Java példákat egyetlen fájl és kötegelt konverzióra, hiba kezelésre és pontossági megjegyzésekre."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan lehet a PowerPoint PPT formátumú prezentációt PPTX formátumba konvertálni Java-val és az online PPT‑PPTX konvertáló alkalmazással. A következő témát tárgyalja.
+A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for Java képes betölteni egy PPT fájlt és PPTX‑ként menteni anélkül, hogy a Microsoft PowerPointra lenne szükség. Ez a cikk bemutatja, hogyan konvertáljunk egyetlen fájlt vagy egy könyvtárban lévő fájlokat, és ismerteti, mit kell ellenőrizni a konverzió után.
 
-- PPT konvertálása PPTX-re Java-ban
+## **PPT fájl konvertálása PPTX formátumba**
 
-## **PPT konvertálása PPTX-re Java-ban**
-
-A Java mintakódhoz, amely PPT‑t konvertál PPTX‑re, tekintse meg az alábbi szekciót, azaz [Convert PPT to PPTX](#convert-ppt-to-pptx). Ez csak betölti a PPT fájlt, és PPTX formátumban menti. Különböző mentési formátumok megadásával a PPT fájlt számos más formátumba is mentheti, például PDF, XPS, ODP, HTML stb., ahogyan ezekben a cikkekben tárgyaltuk.
-
-- [PPT konvertálása PDF‑re Java‑ban](/slides/hu/java/convert-powerpoint-to-pdf/)
-- [PPT konvertálása XPS‑re Java‑ban](/slides/hu/java/convert-powerpoint-to-xps/)
-- [PPT konvertálása HTML‑re Java‑ban](/slides/hu/java/convert-powerpoint-to-html/)
-- [PPT konvertálása ODP‑re Java‑ban](/slides/hu/java/save-presentation/)
-- [PPT konvertálása PNG‑re Java‑ban](/slides/hu/java/convert-powerpoint-to-png/)
-
-## **A PPT‑t PPTX‑re konvertálásról**
-Konvertálja a régi PPT formátumot PPTX‑re az Aspose.Slides API segítségével. Ha ezrek PPT prezentációját kell PPTX formátumba konvertálni, a legjobb megoldás a programozott mód. Az Aspose.Slides API‑val ez csak néhány kódsorban megoldható. Az API teljes kompatibilitást biztosít a PPT prezentációk PPTX‑re konvertálásához, és lehetővé teszi:
-
-- Bonyolult mestersablonok, elrendezések és diák struktúrájának konvertálása.
-- Diagramokkal rendelkező prezentáció konvertálása.
-- Csoportos alakzatokkal, automatikus alakzatokkal (például téglalapok és ellipszisek), egyedi geometriájú alakzatokkal rendelkező prezentáció konvertálása.
-- Textúrákkal és képekkel kitöltött automatikus alakzatokkal rendelkező prezentáció konvertálása.
-- Helyettesítőkkel, szövegkeretekkel és szövegmegjelenítőkkel rendelkező prezentáció konvertálása.
-
-{{% alert color="primary" %}} 
-
-Tekintse meg az [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) alkalmazást:
-
-[](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
-
-Ez az alkalmazás az [**Aspose.Slides API**](https://products.aspose.com/slides/hu/java/) alapján épült, így élő példát láthat az alap PPT‑PPTX konvertálási képességekre. Az Aspose.Slides Conversion egy webalkalmazás, amely lehetővé teszi PPT formátumú prezentáció fájlok feltöltését és PPTX formátumba konvertált változatuk letöltését.
-
-Találjon más élő [**Aspose.Slides Conversion**](https://products.aspose.app/slides/hu/conversion/) példákat.
-{{% /alert %}} 
-
-## **PPT konvertálása PPTX‑re**
-Az Aspose.Slides for Java most lehetővé teszi a fejlesztők számára, hogy a PPT‑t a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányával érjék el, és azt a megfelelő [PPTX](https://docs.fileformat.com/presentation/pptx/) formátumba konvertálják. Jelenleg részleges konvertálást támogat a [PPT](https://docs.fileformat.com/presentation/ppt/) és PPTX között. A PPT‑PPTX konvertálásban támogatott és nem támogatott funkciókról további információkért tekintse meg ezt a dokumentációt [link](/slides/hu/java/ppt-to-pptx-conversion/).
-
-Az Aspose.Slides for Java kínálja a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályt, amely **PPTX** prezentációs fájlt képviseli. A Presentation osztály most már a **PPT** fájlhoz is hozzáférhet a példányosításkor. Az alábbi példa bemutatja, hogyan konvertáljon egy PPT prezentációt PPTX Presentation‑re.
+Töltse be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztállyal, majd hívja meg a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/#Pptx) argumentummal. A `finally` blokk felszabadítja a prezentációt és elengedi az erőforrásait.
 
 ```java
-// Hozzon létre egy Presentation objektumot, amely PPTX fájlt képvisel
-Presentation pres = new Presentation("Aspose.ppt");
+// Töltsd be a régi PPT prezentációt.
+com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-// PPTX prezentáció mentése PPTX formátumba
-    pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
+    // Mentsd el a prezentációt PPTX formátumban.
+    presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Ábra: Forrás PPT prezentáció**|
+A fájlkiterjesztés önmagában nem határozza meg a kimeneti formátumot; ezt a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/#Pptx) argumentum végzi. Ha meg kell őrizni az eredeti PPT fájlt, a bemeneti és kimeneti útvonalakat tegye különbözővé.
 
-A fenti kódrészlet a konvertálás után a következő PPTX prezentációt hozza létre
+## **Több PPT fájl konvertálása**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Ábra: A konvertálás után létrehozott PPTX prezentáció**|
+Az alábbi példa minden `.ppt` fájlt konvertál egy könyvtárban. Minden fájlt önállóan dolgoz fel, így egy sikertelen konverzió nem állítja le a többi darabot.
+
+```java
+java.io.File inputDirectory = new java.io.File("input");
+java.io.File outputDirectory = new java.io.File("output");
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    throw new IllegalStateException("Cannot create the output directory: " + outputDirectory);
+}
+
+java.io.File[] inputFiles = inputDirectory.listFiles((directory, name) -> name.toLowerCase(java.util.Locale.ROOT).endsWith(".ppt"));
+if (inputFiles == null) {
+    throw new IllegalStateException("Cannot read the input directory: " + inputDirectory);
+}
+
+for (java.io.File inputFile : inputFiles) {
+    String inputPath = inputFile.getPath();
+    String fileName = inputFile.getName();
+    String outputFileName = fileName.substring(0, fileName.length() - 4) + ".pptx";
+    String outputPath = new java.io.File(outputDirectory, outputFileName).getPath();
+    com.aspose.slides.Presentation presentation = null;
+
+    try {
+        presentation = new com.aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, com.aspose.slides.SaveFormat.Pptx);
+        System.out.println("Converted: " + inputPath);
+    } catch (Exception exception) {
+        System.err.println("Failed: " + inputPath + " (" + exception.getMessage() + ")");
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Éles környezetben naplózza a teljes kivételt, döntse el, hogy a meglévő kimeneti fájlt felülírhatja-e, és írja a sikertelen fájlneveket egy újrapróbálási vagy felülvizsgálati sorba. Sérült fájlok, jelszóval védett, de a szükséges jelszó nélkül megnyitott fájlok, elérhetetlen útvonalak és nem támogatott tartalom mind a konverzió kudarcát okozhatják. Lásd a [Password-Protected Presentations](/slides/hu/java/password-protected-presentation/) szakaszt a titkosított fájlok betöltéséhez.
+
+## **Pontosság és örökölt funkciók**
+
+A konverzió általában megőrzi a diák, mesterdiák, elrendezések, szövegek, alakzatok, képek, táblázatok és diagramok tartalmát. Azonban a PPT és a PPTX nem ábrázolja minden funkciót pontosan ugyanúgy. Egy örökölt funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálható, kihagyható vagy másként jeleníthető meg.
+
+Ellenőrizze a konvertált fájlt, ha animációkat, átmeneteket, beágyazott vagy hivatkozott OLE-objektumokat, ActiveX vezérlőket, beágyazott médiát, ritka betűkészleteket vagy VBA makrókat tartalmaz. A sima PPTX fájl nem makró‑engedélyezett formátum, ezért használjon megfelelő makró‑engedélyezett munkafolyamatot, amikor a VBA-nak elérhetőnek kell maradnia. Győződjön meg továbbá arról, hogy a szükséges betűkészletek és külső erőforrások jelen vannak abban a környezetben, ahol a konvertált prezentációt megnyitják vagy renderelik.
+
+Fontos dokumentumok esetén nyissa meg programozottan a létrehozott PPTX‑et, ellenőrizze a kulcsfontosságú diák számát és tartalmát, majd hasonlítsa össze a megjelenését és a diavetítés viselkedését a kívánt megjelenítőben. Ne tekintse a sikeres [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) hívást bizonyítéknak arra, hogy minden örökölt funkció pontos PPTX megfelelővel rendelkezik.
+
+## **Mikor használjuk a PPTX‑et**
+
+Használja a PPTX‑et, ha a prezentációt a jelenlegi PowerPoint verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerekkel cserélik, vagy olyan formátumban tárolják, amely könnyebben ellenőrizhető és visszaállítható, mint a régi bináris PPT. Tartsa meg az eredeti PPT‑t archiválási vagy visszaállítási másolatként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseken.
+
+Ha PDF‑et, HTML‑t, képeket, XPS‑t vagy más kimeneti típust kíván, használja a [Convert Presentations to Multiple Formats](/slides/hu/java/convert-presentation/) útmutatót a célformátumokhoz, ahelyett, hogy azt feltételezné, minden cél megőrzi a szerkeszthető PowerPoint‑jellemzőket.
+
+## **Online konverter**
+
+Alkalmi fájlok vagy gyors összehasonlítás esetén használhatja az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) szolgáltatást. Ismétlődő konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hiba‑kezeléshez használja a Java API‑t.
+
+## **Kapcsolódó cikkek**
+
+- [PPT vs PPTX](/slides/hu/java/ppt-vs-pptx/)
+- [Save Presentations in Java](/slides/hu/java/save-presentation/)
+- [Supported File Formats](/slides/hu/java/supported-file-formats/)
+- [Open Presentations in Java](/slides/hu/java/open-presentation/)
 
 ## **GYIK**
 
-**Mi a különbség a PPT és PPTX formátumok között?**
+**Konvertálhatok PPT‑t PPTX‑be anélkül, hogy a Microsoft PowerPoint telepítve lenne?**
 
-A PPT a Microsoft PowerPoint által használt régebbi bináris fájlformátum, míg a PPTX a Microsoft Office 2007‑tel bevezetett új, XML‑alapú formátum. A PPTX fájlok jobb teljesítményt, kisebb fájlméretet és fejlettebb adat‑helyreállítást biztosítanak.
+Igen. Az Aspose.Slides for Java a prezentációs fájlokat betölti és menti anélkül, hogy a Microsoft PowerPointra szükség lenne.
 
-**Támogatja-e az Aspose.Slides a több PPT fájl PPTX‑re történő tömeges konvertálását?**
+**A PPT‑ról PPTX‑re történő konverzió minden tartalmat pontosan megőriz?**
 
-Igen, az Aspose.Slides egy ciklusban több PPT fájlt is programozott módon PPTX‑re konvertálhat, így alkalmas tömeges konvertálási forgatókönyvekre.
+A gyakori prezentációs tartalmat megőrzi, de a pontos pontosság nem garantált minden örökölt vagy nem támogatott funkció esetén. Tekintse át a generált fájlt, ha makrókat, OLE‑ vagy ActiveX‑objektumokat, médiát, speciális animációkat vagy ritka betűkészleteket tartalmaz.
 
-**Megmaradnak-e a tartalom és a formázás a konvertálás után?**
+**Konvertálhatok jelszóval védett PPT fájlt?**
 
-Az Aspose.Slides magas hűséggel konvertálja a prezentációkat. A diaelrendezések, animációk, alakzatok, diagramok és egyéb tervezési elemek megmaradnak a PPT‑PPTX konvertálás során.
+Igen, ha a betöltéskor a helyes jelszót adja meg. Hiányzó vagy helytelen jelszó esetén a betöltés sikertelen lesz.
 
-**Konvertálhatok más formátumokat, például PDF vagy HTML, PPT fájlokból?**
+**Töröjem a PPT fájlt a konverzió után?**
 
-Igen, az Aspose.Slides támogatja a PPT fájlok konvertálását [több formátumba](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/), többek között PDF, XPS, HTML, ODP és képfájlok, például PNG és JPEG formátumba.
-
-**Lehetséges‑e PPT‑t PPTX‑re konvertálni Microsoft PowerPoint telepítése nélkül?**
-
-Igen, az Aspose.Slides egy önálló API, és nem igényel Microsoft PowerPoint‑ot vagy más harmadik fél szoftvert a konvertáláshoz.
-
-**Van‑e online eszköz a PPT‑PPTX konvertáláshoz?**
-
-Igen, használhatja az ingyenes [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) webalkalmazást, amely közvetlenül a böngészőben végzi el a konvertálást kód írása nélkül.
+Tartsa meg az eredetit, amíg a PPTX‑et a Önnek fontos megjelenítőkben és munkafolyamatokban ellenőrizte. Ez visszaállítási másolatot biztosít, ha egy örökölt funkció másként konvertálódik.

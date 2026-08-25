@@ -1,6 +1,6 @@
 ---
 title: Java에서 PPT를 PPTX로 변환
-linktitle: PPT에서 PPTX로
+linktitle: PPT를 PPTX로
 type: docs
 weight: 20
 url: /ko/java/convert-ppt-to-pptx/
@@ -9,101 +9,114 @@ keywords:
 - 프레젠테이션 변환
 - 슬라이드 변환
 - PPT 변환
-- PPT에서 PPTX로
+- PPT를 PPTX로
 - PPT를 PPTX로 저장
 - PPT를 PPTX로 내보내기
 - PowerPoint
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides를 사용하여 Java에서 레거시 PPT 프레젠테이션을 현대적인 PPTX로 빠르게 변환합니다 — 명확한 튜토리얼, 무료 코드 샘플, Microsoft Office 의존 없음."
+description: "Aspose.Slides를 사용하여 Java에서 레거시 PPT 파일을 PPTX로 변환합니다. 단일 파일 및 배치 변환, 오류 처리, 정밀도 메모에 대한 Java 예제가 포함되어 있습니다."
 ---
 ## **개요**
 
-이 문서는 Java와 온라인 PPT to PPTX 변환 앱을 사용하여 PPT 형식의 PowerPoint 프레젠테이션을 PPTX 형식으로 변환하는 방법을 설명합니다. 다음 주제가 포함됩니다.
+PPT는 레거시 바이너리 PowerPoint 형식이고, PPTX는 최신 Open XML 형식입니다. Aspose.Slides for Java는 Microsoft PowerPoint 없이 PPT 파일을 로드하고 PPTX로 저장할 수 있습니다. 이 문서에서는 파일 하나 또는 디렉터리의 파일들을 변환하는 방법과 변환 후 확인해야 할 사항을 설명합니다.
 
-- Java에서 PPT를 PPTX로 변환
+## **PPT 파일을 PPTX로 변환**
 
-## **Java에서 PPT를 PPTX로 변환**
-
-Java에서 PPT를 PPTX로 변환하는 샘플 코드는 아래 섹션, 즉 [Convert PPT to PPTX](#convert-ppt-to-pptx)를 참조하십시오. 해당 코드는 PPT 파일을 로드하고 PPTX 형식으로 저장합니다. 다른 저장 형식을 지정하면 PDF, XPS, ODP, HTML 등 여러 다른 형식으로 PPT 파일을 저장할 수 있으며, 이에 대해서는 아래 기사에서 다룹니다.
-
-- [Java에서 PPT를 PDF로 변환](/slides/ko/java/convert-powerpoint-to-pdf/)
-- [Java에서 PPT를 XPS로 변환](/slides/ko/java/convert-powerpoint-to-xps/)
-- [Java에서 PPT를 HTML로 변환](/slides/ko/java/convert-powerpoint-to-html/)
-- [Java에서 PPT를 ODP로 변환](/slides/ko/java/save-presentation/)
-- [Java에서 PPT를 PNG로 변환](/slides/ko/java/convert-powerpoint-to-png/)
-
-## **PPT to PPTX 변환에 대해**
-오래된 PPT 형식을 PPTX로 변환하려면 Aspose.Slides API를 사용하십시오. 수천 개의 PPT 프레젠테이션을 PPTX 형식으로 변환해야 하는 경우, 프로그래밍 방식으로 수행하는 것이 최선의 솔루션입니다. Aspose.Slides API를 사용하면 몇 줄의 코드만으로 가능하며, API는 PPT 프레젠테이션을 PPTX로 완전 호환 변환을 지원합니다. 다음과 같은 작업이 가능합니다:
-
-- 마스터, 레이아웃 및 슬라이드의 복잡한 구조 변환.
-- 차트가 포함된 프레젠테이션 변환.
-- 그룹 도형, 자동 도형(예: 사각형 및 타원), 사용자 정의 기하학 도형이 포함된 프레젠테이션 변환.
-- 자동 도형에 텍스처 및 이미지 채우기 스타일이 적용된 프레젠테이션 변환.
-- 플레이스홀더, 텍스트 프레임 및 텍스트 보유자가 포함된 프레젠테이션 변환.
-
-{{% alert color="primary" %}} 
-
-다음 [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx) 앱을 살펴보세요:
-
-[](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx)
-
-이 앱은 [**Aspose.Slides API**](https://products.aspose.com/slides/ko/java/)를 기반으로 구축되었으며, 기본 PPT to PPTX 변환 기능의 실시간 예제를 확인할 수 있습니다. Aspose.Slides Conversion은 웹 앱으로, PPT 형식의 프레젠테이션 파일을 드롭하고 PPTX로 변환된 파일을 다운로드할 수 있습니다.
-
-다른 실시간 [**Aspose.Slides Conversion**](https://products.aspose.app/slides/ko/conversion/) 예제를 찾아보세요.
-{{% /alert %}} 
-
-## **PPT를 PPTX로 변환**
-Aspose.Slides for Java는 이제 개발자가 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation) 클래스를 통해 PPT에 접근하고 이를 해당 [PPTX](https://docs.fileformat.com/presentation/pptx/) 형식으로 변환할 수 있게 합니다. 현재는 [PPT ](https://docs.fileformat.com/presentation/ppt/)를 PPTX로 부분 변환을 지원합니다. PPT to PPTX 변환에서 지원 및 비지원되는 기능에 대한 자세한 내용은 이 문서 [링크](/slides/ko/java/ppt-to-pptx-conversion/)를 참고하십시오.
-
-Aspose.Slides for Java는 **PPTX** 프레젠테이션 파일을 나타내는 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation) 클래스를 제공합니다. Presentation 클래스는 이제 객체를 인스턴스화할 때 **PPT**에도 접근할 수 있습니다. 다음 예제는 PPT 프레젠테이션을 PPTX Presentation으로 변환하는 방법을 보여줍니다.
+소스 파일을 [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스로 로드한 다음, [Presentation.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#save-java.lang.String-int-)에 [SaveFormat.Pptx](https://reference.aspose.com/slides/ko/java/com.aspose.slides/saveformat/#Pptx)를 지정하여 호출합니다. `finally` 블록은 프레젠테이션을 해제하고 자원을 반환합니다.
 
 ```java
-// PPTX 파일을 나타내는 Presentation 객체를 인스턴스화합니다
-Presentation pres = new Presentation("Aspose.ppt");
+// 레거시 PPT 프레젠테이션을 로드합니다.
+com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-// PPTX 프레젠테이션을 PPTX 형식으로 저장합니다
-    pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
+    // 프레젠테이션을 PPTX 형식으로 저장합니다.
+    presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Figure : 원본 PPT 프레젠테이션**|
+파일 확장자만으로는 출력 형식을 결정하지 않으며, [SaveFormat.Pptx](https://reference.aspose.com/slides/ko/java/com.aspose.slides/saveformat/#Pptx) 인수가 담당합니다. 원본 PPT 파일을 유지해야 할 경우 입력 및 출력 경로를 서로 다르게 설정하십시오.
 
-위 코드 조각은 변환 후 다음 PPTX 프레젠테이션을 생성합니다.
+## **여러 PPT 파일 변환**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Figure: 변환 후 생성된 PPTX 프레젠테이션**|
+다음 예제는 하나의 디렉터리 내 모든 `.ppt` 파일을 변환합니다. 각 파일은 독립적으로 처리되므로 하나의 변환 실패가 배치 전체를 중단시키지 않습니다.
+
+```java
+java.io.File inputDirectory = new java.io.File("input");
+java.io.File outputDirectory = new java.io.File("output");
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    throw new IllegalStateException("Cannot create the output directory: " + outputDirectory);
+}
+
+java.io.File[] inputFiles = inputDirectory.listFiles((directory, name) -> name.toLowerCase(java.util.Locale.ROOT).endsWith(".ppt"));
+if (inputFiles == null) {
+    throw new IllegalStateException("Cannot read the input directory: " + inputDirectory);
+}
+
+for (java.io.File inputFile : inputFiles) {
+    String inputPath = inputFile.getPath();
+    String fileName = inputFile.getName();
+    String outputFileName = fileName.substring(0, fileName.length() - 4) + ".pptx";
+    String outputPath = new java.io.File(outputDirectory, outputFileName).getPath();
+    com.aspose.slides.Presentation presentation = null;
+
+    try {
+        presentation = new com.aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, com.aspose.slides.SaveFormat.Pptx);
+        System.out.println("Converted: " + inputPath);
+    } catch (Exception exception) {
+        System.err.println("Failed: " + inputPath + " (" + exception.getMessage() + ")");
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+프로덕션 환경에서는 전체 예외를 로그에 기록하고, 기존 출력 파일을 덮어쓸지 여부를 판단하며, 실패한 파일 이름을 재시도 또는 검토 큐에 기록하십시오. 손상된 파일, 필요한 비밀번호 없이 열려진 암호 보호 파일, 접근 불가능한 경로, 지원되지 않는 콘텐츠 등은 모두 변환 실패의 원인이 될 수 있습니다. 암호화된 파일을 로드하는 방법은 [Password-Protected Presentations](/slides/ko/java/password-protected-presentation/)를 참고하십시오.
+
+## **정밀도 및 레거시 기능**
+
+변환은 일반적으로 슬라이드, 마스터, 레이아웃, 텍스트, 도형, 이미지, 표, 차트를 보존합니다. 그러나 PPT와 PPTX는 모든 기능을 완전히 동일하게 표현하지는 않습니다. PPTX에 해당이 없거나 라이브러리에서 지원되지 않는 레거시 기능은 정규화되거나 생략되거나 다르게 표시될 수 있습니다.
+
+변환된 파일에 애니메이션, 전환, 내장 또는 연결된 OLE 객체, ActiveX 컨트롤, 삽입된 미디어, 일반적이지 않은 글꼴 또는 VBA 매크로가 포함된 경우 확인하십시오. 일반 PPTX 파일은 매크로 지원 형식이 아니므로 VBA가 필요할 경우 적절한 매크로 지원 워크플로를 사용해야 합니다. 또한 변환된 프레젠테이션을 열거나 렌더링할 환경에 필요한 글꼴과 외부 리소스가 존재하는지도 확인하십시오.
+
+중요한 문서의 경우, 생성된 PPTX를 프로그래밍 방식으로 다시 열어 핵심 슬라이드 수와 내용을 검사하고, 의도된 뷰어에서 외관 및 슬라이드 쇼 동작을 비교하십시오. 성공적인 [Presentation.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 호출이 모든 레거시 기능이 정확히 PPTX로 변환되었다는 증거로 여겨서는 안 됩니다.
+
+## **PPTX를 사용해야 할 때**
+
+프레젠테이션을 현재 버전 PowerPoint에서 편집하거나, Open XML 패키지를 사용하는 시스템과 교환하거나, 레거시 바이너리 PPT보다 검사 및 복구가 쉬운 형식으로 저장하려면 PPTX를 사용하십시오. 변환된 프레젠테이션이 정밀도 검증을 통과할 때까지 원본 PPT를 보관 또는 롤백용 복사본으로 유지하십시오.
+
+PDF, HTML, 이미지, XPS 또는 다른 출력 형식이 필요한 경우, 모든 대상이 편집 가능한 PowerPoint 기능을 보존한다는 가정 대신 [Convert Presentations to Multiple Formats](/slides/ko/java/convert-presentation/)에 제공된 형식별 가이드를 따르십시오.
+
+## **온라인 변환기**
+
+가끔 파일을 변환하거나 빠르게 비교하려면 [online PPT to PPTX converter](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx)를 사용할 수 있습니다. 반복적인 변환, 배치 처리, 또는 애플리케이션 수준 오류 처리가 필요할 경우 Java API를 사용하십시오.
+
+## **관련 문서**
+
+- [PPT vs PPTX](/slides/ko/java/ppt-vs-pptx/)
+- [Java에서 프레젠테이션 저장](/slides/ko/java/save-presentation/)
+- [지원되는 파일 형식](/slides/ko/java/supported-file-formats/)
+- [Java에서 프레젠테이션 열기](/slides/ko/java/open-presentation/)
 
 ## **FAQ**
 
-**PPT와 PPTX 형식의 차이점은 무엇인가요?**
-
-PPT는 Microsoft PowerPoint에서 사용되는 오래된 이진 파일 형식이며, PPTX는 Microsoft Office 2007에서 도입된 최신 XML 기반 형식입니다. PPTX 파일은 성능이 더 뛰어나고 파일 크기가 감소하며 데이터 복구가 향상됩니다.
-
-**Aspose.Slides가 여러 PPT 파일을 PPTX로 일괄 변환하는 것을 지원하나요?**
-
-예, Aspose.Slides를 루프 내에서 사용하여 여러 PPT 파일을 프로그래밍 방식으로 PPTX로 변환할 수 있으므로 일괄 변환 시나리오에 적합합니다.
-
-**변환 후 내용과 서식이 유지되나요?**
-
-Aspose.Slides는 프레젠테이션 변환 시 높은 충실도를 유지합니다. 슬라이드 레이아웃, 애니메이션, 도형, 차트 및 기타 디자인 요소가 PPT에서 PPTX로 변환되는 동안 보존됩니다.
-
-**PPT 파일을 PDF나 HTML과 같은 다른 형식으로 변환할 수 있나요?**
-
-예, Aspose.Slides는 PPT 파일을 [multiple formats](https://reference.aspose.com/slides/ko/java/com.aspose.slides/saveformat/)로 변환을 지원하며, 여기에는 PDF, XPS, HTML, ODP 및 PNG, JPEG와 같은 이미지 형식이 포함됩니다.
-
 **Microsoft PowerPoint가 설치되지 않은 상태에서 PPT를 PPTX로 변환할 수 있나요?**
 
-예, Aspose.Slides는 독립형 API이며 변환을 수행하기 위해 Microsoft PowerPoint나 타사 소프트웨어가 필요하지 않습니다.
+예. Aspose.Slides for Java는 Microsoft PowerPoint 없이도 프레젠테이션 파일을 로드하고 저장할 수 있습니다.
 
-**PPT를 PPTX로 변환할 수 있는 온라인 도구가 있나요?**
+**PPT를 PPTX로 변환하면 모든 콘텐츠가 정확히 보존되나요?**
 
-예, 무료 [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx) 웹 애플리케이션을 사용하면 코드를 작성하지 않고도 브라우저에서 직접 변환을 수행할 수 있습니다.
+일반적인 프레젠테이션 콘텐츠는 보존하지만, 모든 레거시 또는 지원되지 않는 기능에 대해 정확한 정밀도가 보장되지는 않습니다. 매크로, OLE 또는 ActiveX 객체, 미디어, 특수 애니메이션 또는 일반적이지 않은 글꼴이 포함된 경우 생성된 파일을 검토하십시오.
+
+**암호로 보호된 PPT 파일을 변환할 수 있나요?**
+
+예, 파일을 로드할 때 올바른 비밀번호를 제공하면 가능합니다. 비밀번호가 없거나 잘못된 경우 로드 작업이 실패합니다.
+
+**변환 후 PPT 파일을 삭제해야 하나요?**
+
+중요한 뷰어와 워크플로에서 PPTX를 확인할 때까지 원본을 유지하십시오. 레거시 기능이 다르게 변환될 경우 롤백 복사본을 제공하기 위함입니다.

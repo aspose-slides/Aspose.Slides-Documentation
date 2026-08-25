@@ -19,197 +19,287 @@ keywords:
 - combinar ODP
 - Python
 - Aspose.Slides
-description: "Fusiona sin esfuerzo presentaciones PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para Python vía .NET, optimizando tu flujo de trabajo."
+description: "Aprenda cómo fusionar presentaciones PowerPoint y OpenDocument en Python clonando diapositivas, controlando maestras y diseños, redimensionando el contenido de las diapositivas, preservando secciones y manejando archivos protegidos o grandes."
 ---
+## **Visión general**
 
-## **Optimiza la combinación de presentaciones**
+Aspose.Slides for Python a través de .NET combina presentaciones clonando diapositivas de una [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) a otra. La operación principal es [SlideCollection.add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/), que puede conservar el formato de la diapositiva origen o enlazar la diapositiva clonada a una diapositiva maestra o de diseño en la presentación de destino.
 
-Con [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/), puedes combinar sin problemas presentaciones PowerPoint manteniendo estilos, diseños y todos los elementos. A diferencia de otras herramientas, Aspose.Slides combina presentaciones sin comprometer la calidad ni perder datos. Combina barajas completas, diapositivas específicas o incluso diferentes formatos de archivo (p. ej., PPT a PPTX).
+Este artículo cubre los flujos de trabajo de combinación más habituales:
 
-### **Funciones de combinación**
+- combinar todas las diapositivas conservando su formato original;  
+- combinar diapositivas seleccionadas;  
+- aplicar una maestra de la presentación de destino;  
+- aplicar un diseño específico de la presentación de destino;  
+- normalizar diferentes tamaños de diapositiva antes de combinar;  
+- añadir diapositivas clonadas a una sección;  
+- combinar varias presentaciones en un flujo de trabajo integral;  
+- gestionar maestras, recursos, notas, comentarios, medios, fuentes, contraseñas, archivos grandes y problemas de multihilo.
 
-- **Combinación de presentación completa:** Agrupa todas las diapositivas en un solo archivo.
-- **Combinación de diapositivas específicas:** Elige y combina diapositivas seleccionadas.
-- **Combinación entre formatos:** Integra presentaciones de distintos formatos, manteniendo la integridad.
+## **Cómo afecta la clonación de diapositivas a maestras y diseños**
 
-## **Combinación de presentaciones**
+Una diapositiva hereda gran parte de su apariencia de su diseño y maestra. Por esa razón, la sobrecarga de clonación que elija determina cómo se integra la diapositiva combinada en la presentación de destino.
 
-Cuando combinas una presentación en otra, esencialmente unes sus diapositivas en una sola presentación para producir un único archivo. La mayoría de los programas de presentación—como PowerPoint o OpenOffice—no ofrecen funcionalidades que permitan combinar presentaciones de esta manera.
+Utilice [SlideCollection.add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/) de una de estas formas:
 
-Sin embargo, [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/) permite combinar presentaciones de varias formas. Puedes combinar presentaciones con todas sus formas, estilos, texto, formato, comentarios y animaciones, sin pérdida de calidad ni de datos.
+- `add_clone(source_slide)` — conserva el diseño y formato de la diapositiva origen. Cuando sea necesario, la maestra origen puede clonarse automáticamente en la presentación de destino. Aspose.Slides rastrea las maestras clonadas automáticamente para que diapositivas repetidas que usan la misma maestra origen no provoquen una clonación repetida de esa maestra.  
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — enlaza la diapositiva clonada a una [IMasterSlide](https://reference.aspose.com/slides/es/python-net/aspose.slides/imasterslide/) de destino específica. Aspose.Slides busca un diseño coincidente bajo esa maestra por tipo o nombre de diseño.  
+- `add_clone(source_slide, destination_layout)` — enlaza la diapositiva clonada directamente a una [ILayoutSlide](https://reference.aspose.com/slides/es/python-net/aspose.slides/ilayoutslide/) de destino específica.
 
-**Ver también**
+La maestra o el diseño pasados a una sobrecarga `add_clone` deben pertenecer a la **presentación de destino**, no a la presentación de origen.
 
-[Clonar diapositivas de PowerPoint en Python](/slides/es/python-net/clone-slides/)
+## **Combinar presentaciones completas y conservar el formato origen**
 
-### **Qué se puede combinar**
+La combinación más sencilla copia cada diapositiva de la presentación origen a la presentación de destino. Esta es la opción adecuada cuando las diapositivas importadas deben conservar su tema, maestra y relaciones de diseño originales.
 
-Con Aspose.Slides, puedes combinar:
-
-- Presentaciones completas: todas las diapositivas de las barajas de origen se combinan en una sola presentación.
-- Diapositivas específicas: solo las diapositivas seleccionadas se combinan en una sola presentación.
-- Presentaciones del mismo formato (p. ej., PPT→PPT, PPTX→PPTX) o entre diferentes formatos (p. ej., PPT→PPTX, PPTX→ODP).
-
-### **Opciones de combinación**
-
-Puedes controlar si:
-- Cada diapositiva en la presentación de salida conserva su estilo original, o
-- Se aplica un único estilo a todas las diapositivas de la presentación de salida.
-
-Para combinar presentaciones, Aspose.Slides proporciona los métodos [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) en la clase [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/). Estas sobrecargas de método definen cómo se realiza la combinación. Cada objeto [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) expone una colección [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/), por lo que llamas a `add_clone` en la colección de diapositivas de la presentación de destino.
-
-El método `add_clone` devuelve un `Slide`—un clon de la diapositiva de origen. Las diapositivas en la presentación de salida son copias de las originales, por lo que puedes modificar las diapositivas resultantes (por ejemplo, aplicar estilos, formato o diseños) sin afectar a las presentaciones de origen.
-
-## **Combinar presentaciones** 
-
-Aspose.Slides proporciona el método [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) que permite combinar diapositivas conservando sus diseños y estilos (usando los parámetros predeterminados).
-
-El siguiente ejemplo en Python muestra cómo combinar presentaciones:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+La presentación resultante puede contener varias maestras cuando el origen y el destino usan diseños diferentes. Esto es normal cuando se decide preservar intencionadamente el formato origen.
 
-## **Combinar presentaciones con una diapositiva maestra**
+## **Combinar diapositivas seleccionadas**
 
-Aspose.Slides proporciona el método [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) que permite combinar diapositivas aplicando una diapositiva maestra de una plantilla. De este modo, cuando sea necesario, puedes volver a dar estilo a las diapositivas en la presentación de salida.
+No es necesario clonar todas las diapositivas. El siguiente ejemplo importa sólo los índices de diapositiva seleccionados de la presentación origen.
 
-El siguiente ejemplo en Python demuestra esta operación:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Valide los índices de diapositiva antes de clonarlos cuando provengan de la entrada del usuario o de una configuración externa.
 
-{{% alert title="Nota" color="warning" %}}
-El diseño apropiado bajo la diapositiva maestra especificada se determina automáticamente. Si no se encuentra un diseño adecuado y el parámetro booleano `allow_clone_missing_layout` del método `add_clone` está configurado a `True`, se utiliza el diseño de la diapositiva de origen. De lo contrario, se lanza una [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/).
-{{% /alert %}}
+## **Combinar diapositivas usando una maestra de destino**
 
-Para aplicar un diseño de diapositiva diferente a las diapositivas en la presentación de salida, usa el método [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) al combinar.
+Utilice la sobrecarga [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/) cuando las diapositivas importadas deban seguir una maestra que ya pertenece a la presentación de destino.
 
-## **Combinar diapositivas específicas de presentaciones**
-
-Combinar diapositivas específicas de varias presentaciones es útil al crear barajas personalizadas. Aspose.Slides te permite seleccionar e importar solo las diapositivas que necesitas, conservando el formato, diseño y estilo originales de las diapositivas.
-
-El siguiente ejemplo en Python crea una nueva presentación, añade diapositivas de título de dos presentaciones distintas y guarda el resultado en un archivo:
-```py
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
-
-
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Combinar presentaciones con un diseño de diapositiva**
-
-El siguiente ejemplo en Python muestra cómo combinar diapositivas de varias presentaciones aplicando un diseño de diapositiva específico para producir una única presentación de salida:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
+
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Aspose.Slides selecciona un diseño apropiado bajo la maestra especificada coincidiendo con el tipo o el nombre del diseño origen. Si no existe un diseño adecuado y `allow_clone_missing_layout` es `True`, el diseño origen se clona para que la diapositiva pueda añadirse. Si es `False`, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/python-net/aspose.slides/pptxeditexception/).
+
+Use `False` cuando desee que la combinación falle en lugar de introducir un diseño adicional en la maestra de destino.
+
+## **Combinar diapositivas usando un diseño de destino específico**
+
+Utilice la sobrecarga [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/) cuando sepa exactamente qué diseño de destino deben usar las diapositivas importadas.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Aplicar un diseño de destino cambia la relación de diseño heredada; no rediseña el contenido de la diapositiva origen. Si los diseños origen y destino tienen estructuras de marcadores de posición diferentes, inspeccione el resultado para confirmar que el formato heredado y el comportamiento de los marcadores son adecuados.
 
 ## **Combinar presentaciones con tamaños de diapositiva diferentes**
 
-{{% alert title="Nota" color="warning" %}}
-No puedes combinar directamente presentaciones que tengan tamaños de diapositiva diferentes.
-{{% /alert %}}
+Las presentaciones con dimensiones de diapositiva distintas pueden combinarse, pero clonar una diapositiva en una presentación con otro tamaño de diapositiva no rediseña automáticamente su contenido para el nuevo lienzo. Las formas pueden aparecer desplazadas, escaladas inesperadamente o fuera del área visible de la diapositiva.
 
-Para combinar dos presentaciones con tamaños de diapositiva diferentes, primero redimensiona una presentación de modo que su tamaño de diapositiva coincida con el de la otra.
+Un enfoque práctico es cambiar el tamaño de la presentación origen antes de clonar. El método [SlideSize.set_size](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidesize/set_size/) puede escalar el contenido existente mientras se modifican las dimensiones de la diapositiva. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidesizescaletype/) escala el contenido para que se ajuste al tamaño solicitado.
 
-El siguiente fragmento de código muestra este proceso:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Redimensionar modifica el objeto de presentación origen en memoria. Si necesita que la presentación origen original permanezca sin cambios para otras operaciones, abra una instancia separada para la combinación.
 
 ## **Combinar diapositivas en una sección de presentación**
 
-El siguiente ejemplo en Python muestra cómo combinar una diapositiva específica en una sección de una presentación:
-```py
+El bucle básico de clonación de diapositivas no recrea la jerarquía de secciones de la presentación origen. Si las secciones son relevantes en la salida, cree o seleccione secciones en la presentación de destino y clone las diapositivas en ellas explícitamente con [SlideCollection.add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/).
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Las diapositivas clonadas se añaden al final de la sección de destino especificada. Para conservar varias secciones de origen, recorra [Presentation.sections](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/sections/), obtenga las diapositivas actuales de cada sección de origen con [Section.get_slides_list_of_section](https://reference.aspose.com/slides/es/python-net/aspose.slides/section/get_slides_list_of_section/), recree las secciones en el destino y clone cada diapositiva devuelta en su sección de destino correspondiente. Consulte [Manage Slide Sections](/slides/es/python-net/slide-section/) para un ejemplo completo de enumeración de secciones, incluidas secciones vacías y cambios estructurales.
 
-La diapositiva se añade al final de la sección. 
+## **Combinar varias presentaciones de forma segura**
 
-{{% alert title="Consejo" color="primary" %}}
-¿Buscas una herramienta **gratuita en línea** y rápida para **combinar presentaciones PowerPoint**? Prueba el [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).
+El siguiente ejemplo integral usa la primera presentación como destino, normaliza el tamaño de diapositiva de cada origen adicional, mantiene cada origen abierto solo mientras se copia y guarda el archivo final una sola vez.
 
-- **Combina archivos PowerPoint fácilmente**: Une varias presentaciones **PPT, PPTX, ODP** en un solo archivo.  
-- **Soporta diferentes formatos**: Combina **PPT a PPTX**, **PPTX a ODP**, y más.  
-- **No requiere instalación**: Funciona directamente en tu navegador, rápido y seguro.  
+```python
+import aspose.slides as slides
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
 
-¡Comienza a combinar tus archivos PowerPoint con la herramienta **gratuita en línea de Aspose** hoy mismo!  
-{{% /alert %}}
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
 
-{{% alert title="Consejo" color="primary" %}}
-Aspose ofrece una aplicación web **GRATUITA** de collage ([FREE Collage web app](https://products.aspose.app/slides/collage)). Con este servicio en línea, puedes combinar imágenes [JPG a JPG](https://products.aspose.app/slides/collage/jpg) o PNG a PNG, crear [cuadrículas de fotos](https://products.aspose.app/slides/collage/photo-grid), etc. 
-{{% /alert %}}
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
 
-## **FAQ**
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
 
-**¿Se conservan las notas del orador al combinar?**
+Este es un punto de partida útil para conservar el formato origen de las diapositivas importadas. Si su salida debe usar un único tema de destino, sustituya la llamada simple `add_clone(slide)` por la sobrecarga de maestra o diseño de destino adecuada mostrada anteriormente.
 
-Sí. Al clonar diapositivas, Aspose.Slides transfiere todos los elementos de la diapositiva, incluidas las notas, el formato y las animaciones.
+## **Consideraciones prácticas**
 
-**¿Se transfieren los comentarios y sus autores?**
+### **Maestras, diseños y fidelidad del formato**
 
-Los comentarios, como parte del contenido de la diapositiva, se copian con la diapositiva. Las etiquetas de autor de los comentarios se conservan como objetos de comentario en la presentación resultante.
+La clonación predeterminada de diapositivas puede traer automáticamente una maestra origen requerida a la presentación de destino. Aspose.Slides mantiene un registro interno de maestras clonadas automáticamente para evitar clonar la misma maestra repetidamente. Las maestras clonadas manualmente no se registran en ese registro, por lo que debe evitar preclonar maestras a menos que necesite control explícito sobre la estructura de maestras.
 
-**¿Qué ocurre si la presentación de origen está protegida con contraseña?**
+No asuma que dos maestras o diseños con el mismo nombre sean visualmente equivalentes. Si una plantilla corporativa debe controlar la apariencia final, elija explícitamente una maestra o diseño de destino y verifique el resultado después de la combinación.
 
-Debe [abrirse con la contraseña](/slides/es/python-net/password-protected-presentation/) mediante [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/); tras la carga, esas diapositivas pueden clonarse de forma segura en un archivo de destino sin protección (o también protegido).
+### **Notas y comentarios**
 
-**¿Qué tan seguro es el proceso de combinación en entornos multihilo?**
+Las notas del orador y los comentarios de diapositiva están asociados al contenido de la diapositiva y se copian cuando una diapositiva se clona. Aspose.Slides también expone API dedicadas para [presentation notes](/slides/es/python-net/presentation-notes/) y [presentation comments](/slides/es/python-net/presentation-comments/).
 
-No utilices la misma instancia de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) desde [varios hilos](/slides/es/python-net/multithreading/). La regla recomendada es "un documento — un hilo"; diferentes archivos pueden procesarse en paralelo en hilos separados.
+Si el formato de la página de notas es importante, verifique la presentación combinada porque las maestras de notas son objetos a nivel de presentación y pueden diferir entre archivos origen. Para flujos de revisión, también verifique los autores de los comentarios y los hilos de comentarios después de combinar archivos de distintos autores o plantillas.
+
+### **Imágenes, audio, vídeo, objetos OLE y enlaces externos**
+
+Las diapositivas pueden referenciar recursos a nivel de presentación como imágenes, audio incrustado, vídeo incrustado y datos OLE. Clone la diapositiva completa en lugar de copiar solo sus formas visibles para que Aspose.Slides mantenga las relaciones de la diapositiva con sus recursos.
+
+Los recursos incrustados y los vinculados deben tratarse de forma diferente. Un audio, vídeo, objeto OLE o hipervínculo vinculado sigue dependiendo de su destino externo; clonar una diapositiva no convierte un enlace externo en contenido incrustado. Pruebe las rutas y URL de los recursos vinculados en el entorno donde se abrirá la presentación combinada.
+
+Aspose.Slides rastrea explícitamente las maestras clonadas automáticamente, pero no debe considerarse una garantía general de que recursos binarios idénticos de presentaciones origen no relacionadas se deduplicarán siempre. Si el tamaño del archivo de salida es importante, inspeccione el paquete combinado y mida el resultado en lugar de confiar en la deduplicación implícita.
+
+### **Fuentes incrustadas y disponibilidad de fuentes**
+
+Las fuentes se gestionan a nivel de presentación. Si la tipografía debe permanecer coherente entre máquinas, no asuma que clonar sólo diapositivas garantice que cada fuente requerida esté disponible en el entorno de destino. Puede inspeccionar las fuentes incrustadas con [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/es/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) y gestionar la incrustación explícitamente como se describe en [Embed Fonts in Presentations](/slides/es/python-net/embedded-font/).
+
+También verifique que tenga permiso para incrustar las fuentes usadas por los archivos origen. Las licencias de fuentes pueden restringir la incrustación.
+
+### **Presentaciones protegidas con contraseña**
+
+Una fuente protegida con contraseña debe abrirse correctamente antes de que sus diapositivas puedan clonarse. Proporcione la contraseña a través de [LoadOptions.password](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/password/).
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Abrir una fuente cifrada no aplica automáticamente la misma protección a la presentación de destino. Configure la protección de salida por separado cuando sea necesario.
+
+### **Presentaciones grandes y uso de memoria**
+
+Las presentaciones grandes que contienen imágenes de alta resolución, audio, vídeo u otros objetos binarios voluminosos pueden consumir mucha memoria. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/blob_management_options/) ofrece controles para la gestión de BLOB y el uso de archivos temporales. Consulte [Manage Presentation BLOBs](/slides/es/python-net/manage-blob/) para estrategias con archivos grandes.
+
+Para archivos grandes, prefiera cargar desde rutas de archivo cuando sea posible, cierre cada presentación origen tan pronto como haya sido combinada y evite guardar resultados intermedios repetidamente a menos que el flujo requiera puntos de control. Usar `with slides.Presentation(...)` asegura que los recursos de la presentación se liberen al salir del contexto.
+
+### **Seguridad en hilos**
+
+No cargue, guarde ni clone una instancia de [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) concurrentemente desde varios hilos. Mantenga cada operación de combinación en un solo hilo. Si paraleliza trabajos de combinación independientes, use procesos independientes de un solo hilo e instancias de presentación independientes como se describe en la [guía de multihilo de Aspose.Slides](/slides/es/python-net/multithreading/).
+
+## **Preguntas frecuentes**
+
+**¿Cómo mantengo el diseño original de cada presentación origen?**
+
+Utilice [add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/) sin proporcionar una maestra o diseño de destino. Aspose.Slides puede clonar automáticamente la maestra origen cuando la necesita la diapositiva importada.
+
+**¿Cómo hago que las diapositivas importadas usen el tema de destino?**
+
+Use la sobrecarga que acepta una maestra de destino. Pase una maestra de la presentación de destino, no de la origen. Aspose.Slides intentará asignar cada diapositiva origen a un diseño apropiado bajo esa maestra.
+
+**¿Cuándo debo usar un diseño de destino específico en vez de una maestra de destino?**
+
+Use un diseño específico cuando todas las diapositivas importadas deban usar un único diseño conocido. Use una maestra cuando quiera que Aspose.Slides seleccione entre los diseños de esa maestra según el tipo o nombre del diseño origen.
+
+**¿Se pueden combinar presentaciones con tamaños de diapositiva diferentes?**
+
+Sí, pero el contenido de la diapositiva no se rediseña automáticamente para las dimensiones de destino. Cambie el tamaño de la presentación origen primero cuando necesite una colocación predecible, por ejemplo con [SlideSize.set_size](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidesize/set_size/) y [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidesizescaletype/).
+
+**¿Puedo combinar presentaciones PPT, PPTX y ODP en un solo archivo?**
+
+Sí. Cargue cada presentación origen, clone las diapositivas necesarias en una única presentación de destino y guarde el destino en un formato de salida compatible. Como los formatos de presentación no soportan exactamente el mismo conjunto de funciones, verifique el contenido complejo después de combinaciones entre formatos. Consulte [Supported File Formats](/slides/es/python-net/supported-file-formats/).
+
+**¿Se conservan automáticamente las secciones del origen?**
+
+No, con un bucle básico que sólo clona diapositivas. Recree las secciones necesarias en el destino y use la sobrecarga de sección de [add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/add_clone/) cuando la estructura de secciones deba preservarse.
+
+**¿Se conservan las notas del orador y los comentarios?**
+
+Se copian con la diapositiva clonada. Para flujos que dependen del estilo del maestro de notas, de los autores de comentarios o de datos de revisión en hilos, verifique el resultado combinado porque esos escenarios también implican estructuras a nivel de presentación además del contenido de la diapositiva.
+
+**¿Qué ocurre con audio, vídeo, objetos OLE y hipervínculos?**
+
+El contenido incrustado se lleva como parte de las relaciones de recursos de la diapositiva clonada. Los enlaces externos siguen siendo externos, por lo que sus archivos o URL de destino deben seguir estando disponibles después de la combinación.
+
+**¿Se garantiza que las fuentes incrustadas de cada origen estén disponibles en la presentación combinada?**
+
+No confíe sólo en la clonación de diapositivas para la distribución de fuentes. Inspeccione las fuentes incrustadas del destino y gestione la incrustación de fuentes o la disponibilidad de fuentes externas explícitamente cuando la tipografía sea importante.
+
+**¿Cómo combino un archivo protegido con contraseña?**
+
+Ábralo con la [LoadOptions.password](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/password/) correcta y luego clone sus diapositivas normalmente. La protección de salida se configura por separado.
+
+**¿Cómo debo manejar presentaciones muy grandes?**
+
+Use la gestión de BLOB cuando los objetos binarios grandes dominen el uso de memoria, prefiera la carga desde rutas de archivo para archivos muy grandes, cierre las presentaciones origen con prontitud y guarde el resultado final sólo cuando sea necesario.
+
+**¿Puedo combinar diapositivas desde varios hilos?**
+
+No cargue, guarde ni clone instancias de [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) en varios hilos. Mantenga cada operación de combinación en un solo hilo; use procesos independientes de un solo hilo si necesita paralelizar trabajos de combinación separados.

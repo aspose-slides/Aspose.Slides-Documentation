@@ -1,5 +1,5 @@
 ---
-title: Menggabungkan Presentasi secara Efisien di PHP
+title: Gabungkan Presentasi Secara Efisien di PHP
 linktitle: Gabungkan Presentasi
 type: docs
 weight: 40
@@ -19,266 +19,390 @@ keywords:
 - gabungkan ODP
 - PHP
 - Aspose.Slides
-description: Gabungkan presentasi PowerPoint (PPT, PPTX) dan OpenDocument (ODP) dengan mudah menggunakan Aspose.Slides untuk PHP via Java, menyederhanakan alur kerja Anda.
+description: "Pelajari cara menggabungkan presentasi PowerPoint dan OpenDocument di PHP dengan menyalin slide, mengontrol master dan layout, mengubah ukuran konten slide, mempertahankan bagian, serta menangani file yang dilindungi atau berukuran besar."
 ---
-## **Ikhtisar**
+## **Ringkasan**
 
-Aspose.Slides memungkinkan Anda menggabungkan presentasi dengan mengkloning slide dari satu presentasi ke presentasi lain. Artikel ini menjelaskan cara menggabungkan seluruh presentasi atau slide tertentu, menggunakan slide master atau tata letak spesifik selama penggabungan, menangani presentasi dengan ukuran slide yang berbeda, dan menambahkan slide yang digabung ke dalam bagian presentasi. Artikel ini juga mencakup catatan praktis terkait konten yang digabung, termasuk catatan pembicara, komentar, file sumber yang dilindungi kata sandi, dan penggunaan thread.
+Aspose.Slides untuk PHP via Java menggabungkan presentasi dengan menyalin slide dari satu [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) ke yang lain. Operasi utama adalah [SlideCollection::addClone()](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/), yang dapat mempertahankan format slide sumber atau menempelkan slide yang disalin ke master atau layout di presentasi tujuan.
 
-## **Penggabungan Presentasi**
+Artikel ini mencakup alur kerja penggabungan yang paling umum:
 
-Saat Anda menggabungkan satu presentasi ke presentasi lain, Anda pada dasarnya menggabungkan slide‑slide mereka dalam satu presentasi untuk memperoleh satu berkas.
+- menggabungkan semua slide sambil mempertahankan format sumbernya;
+- menggabungkan slide terpilih;
+- menerapkan master dari presentasi tujuan;
+- menerapkan layout tertentu dari presentasi tujuan;
+- menormalkan ukuran slide yang berbeda sebelum digabungkan;
+- menambahkan slide yang disalin ke sebuah bagian;
+- menggabungkan beberapa presentasi dalam satu alur kerja end-to-end;
+- menangani master, sumber daya, catatan, komentar, media, font, kata sandi, file besar, dan masalah multithreading.
 
-{{% alert title="Info" color="info" %}}
+## **Bagaimana Penyalinan Slide Mempengaruhi Master dan Layout**
 
-Sebagian besar program presentasi (PowerPoint atau OpenOffice) tidak memiliki fungsi yang memungkinkan pengguna menggabungkan presentasi dengan cara tersebut.
+Sebuah slide mewarisi banyak tampilan visualnya dari layout dan master. Oleh karena itu, overload penyalinan yang Anda pilih menentukan bagaimana slide yang digabungkan diintegrasikan ke dalam presentasi tujuan.
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/id/php-java/), bagaimanapun, memungkinkan Anda menggabungkan presentasi dengan berbagai cara. Anda dapat menggabungkan presentasi beserta semua bentuk, gaya, teks, pemformatan, komentar, animasi, dll. tanpa harus khawatir tentang kehilangan kualitas atau data.
+Gunakan [SlideCollection::addClone()](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) dengan salah satu cara berikut:
 
-**Lihat juga**
+- `addClone(sourceSlide)` — mempertahankan layout dan format slide sumber. Jika diperlukan, master sumber dapat disalin secara otomatis ke dalam presentasi tujuan. Aspose.Slides melacak master yang disalin secara otomatis sehingga slide berulang yang menggunakan master sumber yang sama tidak menyebabkan master tersebut disalin berulang kali.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — menempelkan slide yang disalin ke [MasterSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) tujuan tertentu. Aspose.Slides mencari layout yang cocok di bawah master tersebut berdasarkan tipe atau nama layout.
+- `addClone(sourceSlide, destinationLayout)` — menempelkan slide yang disalin langsung ke [LayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/) tujuan tertentu.
 
-[Clone Slides](/slides/id/php-java/clone-slides/).
+Master atau layout yang diberikan ke overload `addClone` harus berasal dari **presentasi tujuan**, bukan dari presentasi sumber.
 
-{{% /alert %}}
+## **Gabungkan Seluruh Presentasi dan Pertahankan Format Sumber**
 
-### **Apa yang Dapat Digabung**
-
-Dengan Aspose.Slides, Anda dapat menggabungkan 
-
-* seluruh presentasi. Semua slide dari presentasi tersebut berakhir dalam satu presentasi
-* slide tertentu. Slide yang dipilih berakhir dalam satu presentasi
-* presentasi dalam satu format (PPT ke PPT, PPTX ke PPTX, dll.) dan dalam format berbeda (PPT ke PPTX, PPTX ke ODP, dll.) satu sama lain. 
-
-{{% alert title="Catatan" color="warning" %}} 
-
-Selain presentasi, Aspose.Slides memungkinkan Anda menggabungkan file lain:
-
-* [Images](https://products.aspose.com/slides/id/php-java/merger/image-to-image/), seperti [JPG ke JPG](https://products.aspose.com/slides/id/php-java/merger/jpg-to-jpg/) atau [PNG ke PNG](https://products.aspose.com/slides/id/php-java/merger/png-to-png/)
-* Dokumen, seperti [PDF ke PDF](https://products.aspose.com/slides/id/php-java/merger/pdf-to-pdf/) atau [HTML ke HTML](https://products.aspose.com/slides/id/php-java/merger/html-to-html/)
-* Dan dua file berbeda seperti [image ke PDF](https://products.aspose.com/slides/id/php-java/merger/image-to-pdf/) atau [JPG ke PDF](https://products.aspose.com/slides/id/php-java/merger/jpg-to-pdf/) atau [TIFF ke PDF](https://products.aspose.com/slides/id/php-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Opsi Penggabungan**
-
-Anda dapat menerapkan opsi yang menentukan apakah
-
-* setiap slide dalam presentasi output mempertahankan gaya unik
-* gaya tertentu digunakan untuk semua slide dalam presentasi output. 
-
-Untuk menggabungkan presentasi, Aspose.Slides menyediakan metode [addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) (dari kelas [SlideCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/)). Ada beberapa implementasi metode `addClone` yang menentukan parameter proses penggabungan presentasi. Setiap objek Presentation memiliki koleksi [slide](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/getslides/), sehingga Anda dapat memanggil metode `addClone` dari presentasi yang ingin Anda tambahkan slide.
-
-Metode `addClone` mengembalikan objek `Slide`, yang merupakan klon dari slide sumber. Slide dalam presentasi output hanyalah salinan slide dari sumber. Karena itu, Anda dapat mengubah slide hasil (misalnya, menerapkan gaya atau opsi pemformatan atau tata letak) tanpa harus khawatir presentasi sumber terpengaruh. 
-
-## **Menggabungkan Presentasi** 
-
-Aspose.Slides menyediakan metode [addClone(Slide)](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) yang memungkinkan Anda menggabungkan slide sambil mempertahankan tata letak dan gaya slide (parameter default).
-
-Kode PHP berikut menunjukkan cara menggabungkan presentasi:
+Penggabungan paling sederhana menyalin setiap slide dari presentasi sumber ke presentasi tujuan. Ini merupakan pilihan yang tepat ketika slide yang diimpor harus menjaga tema, master, dan hubungan layout aslinya.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-## **Menggabungkan Presentasi dengan Slide Master**
+Presentasi yang dihasilkan mungkin berisi beberapa master ketika sumber dan tujuan menggunakan desain yang berbeda. Hal ini diharapkan ketika format sumber sengaja dipertahankan.
 
-Aspose.Slides menyediakan metode [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) yang memungkinkan Anda menggabungkan slide sambil menerapkan templat slide master. Dengan cara ini, bila diperlukan, Anda dapat mengubah gaya slide dalam presentasi output.
+## **Gabungkan Slide Terpilih**
 
-Kode berikut mendemonstrasikan operasi yang dijelaskan:
+Anda tidak harus menyalin setiap slide. Contoh berikut mengimpor hanya indeks slide terpilih dari presentasi sumber.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-{{% alert title="Catatan" color="warning" %}} 
+Validasi indeks slide sebelum menyalin ketika indeks tersebut berasal dari input pengguna atau konfigurasi eksternal.
 
-Tata letak slide untuk slide master ditentukan secara otomatis. Ketika tata letak yang sesuai tidak dapat ditentukan, jika parameter boolean `allowCloneMissingLayout` pada metode `addClone` diatur ke true, tata letak untuk slide sumber akan digunakan. Jika tidak, [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/PptxEditException) akan dilempar.
+## **Gabungkan Slide Menggunakan Master Tujuan**
 
-{{% /alert %}}
-
-Jika Anda menginginkan slide dalam presentasi output memiliki tata letak slide yang berbeda, gunakan metode [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) sebagai gantinya saat menggabungkan.
-
-## **Menggabungkan Slide Tertentu dari Presentasi**
-
-Menggabungkan slide tertentu dari beberapa presentasi berguna untuk membuat dek slide khusus. Aspose.Slides for PHP via Java memungkinkan Anda memilih dan mengimpor hanya slide yang Anda perlukan. API menjaga pemformatan, tata letak, dan desain slide asli.
-
-Kode PHP berikut membuat presentasi baru, menambahkan slide judul dari dua presentasi lain, dan menyimpan hasilnya ke file:
+Gunakan overload [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) ketika slide yang diimpor harus mengikuti master yang sudah menjadi bagian dari presentasi tujuan.
 
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides memilih layout yang sesuai di bawah master yang ditentukan dengan mencocokkan tipe atau nama layout sumber. Jika tidak ada layout yang cocok dan `allowCloneMissingLayout` bernilai `true`, layout sumber akan disalin sehingga slide dapat ditambahkan. Jika bernilai `false`, sebuah [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxeditexception/) akan dilempar.
+
+Gunakan `false` ketika Anda ingin penggabungan gagal daripada menambahkan layout tambahan ke master tujuan.
+
+## **Gabungkan Slide Menggunakan Layout Tujuan Tertentu**
+
+Gunakan overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) ketika Anda sudah mengetahui layout tujuan mana yang harus digunakan oleh slide yang diimpor.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Menerapkan layout tujuan mengubah hubungan layout yang diwarisi; hal ini tidak merancang ulang konten slide sumber. Jika layout sumber dan tujuan memiliki struktur placeholder yang berbeda, periksa hasilnya untuk memastikan bahwa format yang diwarisi dan perilaku placeholder sudah tepat.
+
+## **Gabungkan Presentasi dengan Ukuran Slide Berbeda**
+
+Presentasi dengan dimensi slide yang berbeda dapat digabungkan, tetapi menyalin slide ke presentasi dengan ukuran slide lain tidak secara otomatis merancang ulang kontennya untuk kanvas baru. Oleh karena itu, bentuk dapat terlihat bergeser, berubah skala secara tak terduga, atau berada di luar area slide yang terlihat.
+
+Pendekatan praktis adalah mengubah ukuran presentasi sumber sebelum menyalin. Metode [SlideSize::setSize()](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidesize/setsize/) dapat menskalakan konten yang ada sambil mengubah dimensi slide. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidesizescaletype/) menskalakan konten agar muat dalam ukuran yang diminta.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Mengubah ukuran mengubah objek presentasi sumber dalam memori. Jika Anda memerlukan presentasi sumber asli tetap tidak berubah untuk operasi lain, buka instance terpisah untuk penggabungan.
+
+## **Gabungkan Slide ke Bagian Presentasi**
+
+Loop penyalinan slide dasar tidak membuat kembali hierarki bagian (section) presentasi sumber. Jika bagian penting dalam output, buat atau pilih bagian di presentasi tujuan dan salin slide ke dalamnya secara eksplisit dengan [addClone(Slide, Section)](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/).
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Slide yang disalin ditambahkan ke bagian tujuan yang ditentukan. Untuk mempertahankan beberapa bagian sumber, enumerasi [Presentation::getSections](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation/#getSections), ambil slide saat ini dari tiap bagian sumber dengan [Section::getSlidesListOfSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getSlidesListOfSection), buat kembali bagian di tujuan, dan salin tiap slide yang dikembalikan ke bagian tujuan yang bersesuaian. Lihat [Manage Slide Sections](/slides/id/php-java/slide-section/) untuk contoh enumerasi bagian lengkap, termasuk bagian kosong dan perubahan struktural.
+
+## **Gabungkan Beberapa Presentasi dengan Aman**
+
+Contoh end-to-end berikut menggunakan presentasi pertama sebagai tujuan, menormalkan ukuran slide setiap sumber tambahan, membuka tiap sumber hanya saat sedang disalin, dan menyimpan file akhir sekali saja.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
 
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
-## **Menggabungkan Presentasi dengan Tata Letak Slide**
+Ini merupakan baseline yang berguna untuk mempertahankan format sumber slide yang diimpor. Jika output Anda harus menggunakan satu tema tujuan, ganti pemanggilan sederhana `addClone($slide)` dengan overload master atau layout tujuan yang sesuai seperti yang ditunjukkan sebelumnya.
 
-Kode PHP ini menunjukkan cara menggabungkan slide dari presentasi sambil menerapkan tata letak slide pilihan Anda sehingga menghasilkan satu presentasi output:
+## **Pertimbangan Praktis**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+### **Master, Layout, dan Keakuratan Format**
 
-## **Menggabungkan Presentasi dengan Ukuran Slide Berbeda**
+Penyalinan slide default dapat secara otomatis membawa master sumber yang diperlukan ke dalam presentasi tujuan. Aspose.Slides menyimpan registri internal untuk master yang disalin otomatis agar tidak menyalin master yang sama berulang-ulang. Master yang disalin secara manual tidak tercatat dalam registri tersebut, jadi hindari menyalin master terlebih dahulu kecuali Anda memerlukan kontrol eksplisit atas struktur master.
 
-{{% alert title="Catatan" color="warning" %}} 
+Jangan menganggap dua master atau layout dengan nama yang sama secara visual identik. Jika template perusahaan harus mengontrol tampilan akhir, pilih master atau layout tujuan secara eksplisit dan verifikasi hasil setelah penggabungan.
 
-Anda tidak dapat menggabungkan presentasi dengan ukuran slide yang berbeda. 
+### **Catatan dan Komentar**
 
-{{% /alert %}}
+Catatan pembicara dan komentar slide terkait dengan konten slide dan disalin ketika slide disalin. Aspose.Slides juga menyediakan API khusus untuk [presentation notes](/slides/id/php-java/presentation-notes/) dan [presentation comments](/slides/id/php-java/presentation-comments/).
 
-Untuk menggabungkan 2 presentasi dengan ukuran slide yang berbeda, Anda harus mengubah ukuran salah satu presentasi agar ukurannya cocok dengan presentasi yang lain. 
+Jika format halaman catatan penting, periksa presentasi yang digabung karena master catatan berada pada level presentasi dan mungkin berbeda antar file sumber. Untuk alur kerja review, verifikasi juga penulis komentar dan komentar beruntai setelah menggabungkan file dari penulis atau template yang berbeda.
 
-Kode contoh berikut mendemonstrasikan operasi yang dijelaskan:
+### **Gambar, Audio, Video, Objek OLE, dan Tautan Eksternal**
+
+Slide dapat merujuk pada sumber daya pada tingkat presentasi seperti gambar, audio tertanam, video tertanam, dan data OLE. Salin slide itu sendiri, bukan hanya bentuk yang terlihat, sehingga Aspose.Slides dapat mempertahankan hubungan slide dengan sumber dayanya.
+
+Sumber daya yang tertanam dan yang ditautkan harus diperlakukan berbeda. Audio, video, objek OLE, atau hiperta yang ditautkan tetap bergantung pada target eksternal; menyalin slide tidak mengubah tautan eksternal menjadi konten tertanam. Uji jalur dan URL sumber daya yang ditautkan di lingkungan tempat presentasi yang digabung akan dibuka.
+
+Aspose.Slides melacak master yang disalin otomatis, tetapi hal ini tidak berarti bahwa semua sumber daya biner yang identik dari presentasi sumber yang tidak terkait akan selalu didedupikasi. Jika ukuran file output penting, inspeksi paket yang digabung dan ukur hasilnya alih-alih mengandalkan deduplikasi implisit.
+
+### **Font Tertanam dan Ketersediaan Font**
+
+Font dikelola pada tingkat presentasi. Jika tipografi harus konsisten di seluruh mesin, jangan menganggap bahwa menyalin slide saja menjamin semua font yang diperlukan tersedia di lingkungan tujuan. Anda dapat memeriksa font tertanam dengan [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getembeddedfonts/) dan mengelola penanaman secara eksplisit seperti yang dijelaskan dalam [Embed Fonts in Presentations](/slides/id/php-java/embedded-font/).
+
+Juga pastikan Anda memiliki izin untuk menanamkan font yang digunakan oleh file sumber. Lisensi font dapat membatasi penanaman.
+
+### **Presentasi yang Dilindungi Kata Sandi**
+
+Sumber yang dilindungi kata sandi harus dibuka berhasil sebelum slidenya dapat disalin. Berikan kata sandi melalui [LoadOptions::setPassword()](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/setpassword/).
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Bekerja dengan presentasi yang telah didekripsi.
+} finally {
+    $source->dispose();
+}
 ```
 
-## **Menggabungkan Slide ke Bagian Presentasi**
+Membuka sumber yang terenkripsi tidak secara otomatis menerapkan perlindungan yang sama pada presentasi tujuan. Konfigurasikan perlindungan output secara terpisah bila diperlukan.
 
-Kode PHP ini menunjukkan cara menggabungkan slide tertentu ke sebuah bagian dalam presentasi:
+### **Presentasi Besar dan Penggunaan Memori**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+Presentasi besar yang berisi gambar resolusi tinggi, audio, video, atau objek biner besar lainnya dapat memakan memori yang signifikan. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) menyediakan kontrol untuk penanganan BLOB dan penggunaan file sementara. Lihat [Open Presentations](/slides/id/php-java/open-presentation/#open-large-presentations) untuk contoh file besar PHP via Java.
 
-Slide ditambahkan di akhir bagian. 
+Untuk file besar, lebih baik memuat dari jalur file bila memungkinkan, buang (dispose) setiap presentasi sumber segera setelah selesai digabung, dan hindari menyimpan hasil menengah berulang kali kecuali alur kerja memerlukan checkpoint.
 
-## **Lihat Juga**
+### **Keamanan Thread**
 
-
-Aspose menyediakan [FREE Online Collage Maker](https://products.aspose.app/slides/id/collage). Dengan layanan online ini, Anda dapat menggabungkan [JPG ke JPG](https://products.aspose.app/slides/id/collage/jpg) atau PNG ke PNG, membuat [photo grids](https://products.aspose.app/slides/id/collage/photo-grid), dan lainnya.
-
-Coba [Aspose FREE Online Merger](https://products.aspose.app/slides/id/merger). Layanan ini memungkinkan Anda menggabungkan presentasi PowerPoint dalam format yang sama (misalnya PPT ke PPT, PPTX ke PPTX) atau antara format yang berbeda (misalnya PPT ke PPTX, PPTX ke ODP).
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/id/merger)
+Jangan memuat, memodifikasi, menyimpan, atau menyalin instance [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) di beberapa thread. Operasi tersebut tidak didukung untuk penggunaan multithread di PHP via Java. Jika Anda memerlukan pekerjaan penggabungan paralel, jalankan dalam proses terpisah yang masing‑masing menggunakan instance presentasi sendiri, dan ikuti panduan [Aspose.Slides multithreading guidance](/slides/id/php-java/multithreading/).
 
 ## **FAQ**
 
-**Apakah ada batasan jumlah slide saat menggabungkan presentasi?**
+**Bagaimana cara mempertahankan desain asli masing‑masing presentasi sumber?**
 
-Tidak ada batasan ketat. Aspose.Slides dapat menangani berkas besar, tetapi kinerja tergantung pada ukuran berkas dan sumber daya sistem. Untuk presentasi yang sangat besar, disarankan menggunakan JVM 64‑bit dan menyediakan memori heap yang cukup.
+Gunakan [SlideCollection::addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) tanpa memberikan master atau layout tujuan. Aspose.Slides dapat menyalin master sumber secara otomatis ketika diperlukan oleh slide yang diimpor.
 
-**Apakah saya dapat menggabungkan presentasi dengan video atau audio yang disematkan?**
+**Bagaimana cara membuat slide yang diimpor menggunakan tema tujuan?**
 
-Ya, Aspose.Slides mempertahankan konten multimedia yang disematkan dalam slide, tetapi presentasi akhir mungkin menjadi jauh lebih besar.
+Gunakan overload yang menerima master tujuan. Berikan master dari presentasi tujuan, bukan dari sumber. Aspose.Slides akan mencoba memetakan tiap slide sumber ke layout yang sesuai di bawah master tersebut.
 
-**Apakah font akan dipertahankan saat menggabungkan presentasi?**
+**Kapan harus menggunakan layout tujuan tertentu daripada master tujuan?**
 
-Ya. Font yang digunakan dalam presentasi sumber dipertahankan dalam berkas output, dengan asumsi font tersebut terpasang di sistem atau [embedded](/slides/id/php-java/embedded-font/).
+Gunakan layout tertentu ketika setiap slide yang diimpor harus memakai satu layout yang sudah dikenal. Gunakan master ketika Anda ingin Aspose.Slides memilih di antara layout master tersebut berdasarkan tipe atau nama layout sumber.
+
+**Apakah presentasi dengan ukuran slide berbeda dapat digabungkan?**
+
+Ya, tetapi konten slide tidak secara otomatis dirancang ulang untuk dimensi tujuan. Ubah ukuran presentasi sumber terlebih dahulu ketika Anda memerlukan penempatan yang dapat diprediksi, misalnya dengan [SlideSize::setSize()](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidesize/setsize/) dan [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidesizescaletype/).
+
+**Bisakah saya menggabungkan file PPT, PPTX, dan ODP menjadi satu file?**
+
+Ya. Muat tiap presentasi sumber, salin slide yang diperlukan ke satu tujuan, dan simpan tujuan dalam format output yang didukung. Karena format presentasi tidak mendukung set fitur yang persis sama, verifikasi konten kompleks setelah penggabungan lintas format. Lihat [Supported File Formats](/slides/id/php-java/supported-file-formats/).
+
+**Apakah bagian sumber (source sections) dipertahankan secara otomatis?**
+
+Tidak oleh loop dasar yang hanya menyalin slide. Buat kembali bagian yang diperlukan di tujuan dan gunakan overload section dari [addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/addclone/) ketika struktur bagian harus dipertahankan.
+
+**Apakah catatan pembicara dan komentar dipertahankan?**
+
+Mereka disalin bersama slide yang disalin. Untuk alur kerja yang bergantung pada styling master catatan, penulis komentar, atau data review beruntai, verifikasi hasil penggabungan karena skenario tersebut melibatkan struktur pada tingkat presentasi serta konten pada tingkat slide.
+
+**Apa yang terjadi pada audio, video, objek OLE, dan tautan?**
+
+Konten tertanam dibawa sebagai bagian dari hubungan sumber daya slide yang disalin. Tautan eksternal tetap eksternal, sehingga file atau URL target harus tetap tersedia setelah penggabungan.
+
+**Apakah font tertanam dari setiap sumber dijamin tersedia di presentasi yang digabung?**
+
+Jangan mengandalkan penyalinan slide saja untuk penyebaran font. Periksa font tertanam di tujuan dan kelola penanaman font atau ketersediaan font eksternal secara eksplisit ketika tipografi penting.
+
+**Bagaimana cara menggabungkan file yang dilindungi kata sandi?**
+
+Buka dengan [LoadOptions::setPassword()](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/setpassword/) yang benar, lalu salin slidennya seperti biasa. Perlindungan output dikonfigurasi terpisah.
+
+**Bagaimana sebaiknya menangani presentasi yang sangat besar?**
+
+Gunakan manajemen BLOB ketika objek biner besar mendominasi penggunaan memori, lebih pilih memuat dari jalur file untuk file sangat besar, buang (dispose) presentasi sumber segera setelah selesai digabung, dan simpan hasil akhir hanya ketika diperlukan.
+
+**Bisakah saya menggabungkan slide dari beberapa thread?**
+
+Memuat, menyimpan, atau menyalin presentasi di beberapa thread tidak didukung dalam PHP via Java. Untuk pekerjaan paralel, gunakan proses single‑thread terpisah dan pastikan instance presentasi terisolasi di setiap proses.

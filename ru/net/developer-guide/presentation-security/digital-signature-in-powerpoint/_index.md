@@ -1,5 +1,5 @@
 ---
-title: Добавление цифровых подписей к презентациям в .NET
+title: Добавление цифровых подписей в презентации на .NET
 linktitle: Цифровая подпись
 type: docs
 weight: 10
@@ -9,84 +9,168 @@ keywords:
 - цифровой сертификат
 - центр сертификации
 - сертификат PFX
+- PKCS#12
+- проверка подписи
 - PowerPoint
-- OpenDocument
-- презентация
+- PPTX
+- безопасность презентаций
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как цифрово подписывать файлы PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Защитите свои слайды за секунды с помощью понятных примеров кода."
+description: "Узнайте, как подписывать существующие PPTX презентации с помощью сертификатов PFX и использовать Aspose.Slides для .NET для проверки или удаления цифровых подписей."
 ---
+## **Обзор**
 
-**Цифровой сертификат** используется для создания презентации PowerPoint, защищённой паролем, отмеченной как созданная определённой организацией или лицом. Цифровой сертификат можно получить, обратившись в уполномоченную организацию — центр сертификации. После установки цифрового сертификата в системе им можно добавить цифровую подпись к презентации через File -> Info -> Protect Presentation:
+Цифровая подпись помогает получателю определить, кто подписал презентацию и изменилось ли подписанное содержимое. Здесь важны три связанных концепции безопасности:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **digital certificate** — это электронные учётные данные, связывающие личность с открытым ключом. Доверенный центр сертификации (CA) может выдать сертификат, либо организация может использовать самоподписанный сертификат для внутренних процессов.
+- **digital signature** создаётся из содержимого презентации и закрытого ключа владельца сертификата. Открытый ключ сертификата затем используется для проверки подписи. Подпись предоставляет доказательство происхождения и целостности; она не шифрует презентацию.
+- **Password protection** управляет тем, может ли пользователь открыть или изменить презентацию. Это отдельный механизм от цифровой подписи и описан в [Password-Protected Presentations](/slides/ru/net/password-protected-presentation/).
 
-Презентация может содержать более одной цифровой подписи. После добавления цифровой подписи к презентации в PowerPoint появится специальное сообщение:
+PowerPoint предоставляет команду **Add a Digital Signature** в разделе **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Меню PowerPoint Защита презентации с выделенной командой Добавить цифровую подпись](add-digital-signature-in-powerpoint.png)
 
-Для подписи презентации или проверки подлинности её подписей **Aspose.Slides API** предоставляет интерфейсы [**IDigitalSignature**](https://reference.aspose.com/slides/net/aspose.slides/idigitalsignature), [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/net/aspose.slides/IDigitalSignatureCollection) и свойство [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/properties/digitalsignatures). В настоящее время цифровые подписи поддерживаются только для формата PPTX.
+После открытия подписанной презентации PowerPoint может показать уведомление о статусе подписи.
 
-## **Добавление цифровой подписи из сертификата PFX**
-1. Откройте файл PFX и передайте пароль PFX объекту [**DigitalSignature**](https://reference.aspose.com/slides/net/aspose.slides/digitalsignature)object.
-2. Добавьте созданную подпись в объект презентации.
-```c#
-using (Presentation pres = new Presentation())
+![Уведомление PowerPoint о том, что презентация содержит действительные подписи](digital-signature-status-in-powerpoint.png)
+
+Aspose.Slides открывает подписи через [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/digitalsignatures/), [IDigitalSignatureCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/idigitalsignaturecollection/) чьи элементы реализуют [IDigitalSignature](https://reference.aspose.com/slides/ru/net/aspose.slides/idigitalsignature/). Презентация может содержать несколько подписей.
+
+## **Понимание сертификатов PFX и паролей**
+
+Файл PFX, также известный как файл PKCS#12 и обычно имеющий расширение `.pfx` или `.p12`, может содержать сертификат X.509, его закрытый ключ и цепочку сертификатов. Закрытый ключ позволяет владельцу создавать подпись. Сертификат без доступного закрытого ключа нельзя использовать для подписи презентации.
+
+Пароль PFX защищает пакет сертификата и закрытый ключ. Это **не** пароль для открытия или редактирования презентации. Не добавляйте файлы PFX и их пароли в систему контроля версий. В продакшн‑среде ограничьте доступ к файлу сертификата и получайте его пароль из хранилища секретов или другого защищённого источника конфигурации. В приведённых ниже примерах переменная среды используется лишь для того, чтобы не встраивать пароль в код.
+
+## **Добавление цифровой подписи в презентацию**
+
+Чтобы подписать реальную презентацию, загрузите существующий файл PPTX, создайте [DigitalSignature](https://reference.aspose.com/slides/ru/net/aspose.slides/digitalsignature/) из сертификата PFX и его пароля, добавьте подпись в коллекцию презентации и сохраните её в файл PPTX.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var certificatePassword = Environment.GetEnvironmentVariable("PFX_PASSWORD")
+    ?? throw new InvalidOperationException("Set the PFX_PASSWORD environment variable.");
+
+using var presentation = new Presentation("InputPresentation.pptx");
+
+var signature = new DigitalSignature("signing-certificate.pfx", certificatePassword)
 {
-    // Создать объект DigitalSignature с файлом PFX и паролем PFX 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
+    Comments = "Approved for release."
+};
 
-    // Комментарий новой цифровой подписи
-    signature.Comments = "Aspose.Slides digital signing test.";
-
-    // Добавить цифровую подпись к презентации
-    pres.DigitalSignatures.Add(signature);
-
-    // Сохранить презентацию
-    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-}
+presentation.DigitalSignatures.Add(signature);
+presentation.Save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 ```
 
+Сохранение результата под новым именем сохраняет исходный файл без подписи. Значение [DigitalSignature.Comments](https://reference.aspose.com/slides/ru/net/aspose.slides/digitalsignature/comments/) описывает цель подписи; это не элемент управления безопасностью.
 
-Теперь можно проверить, была ли презентация подписана цифровой подписью и не была изменена:
-```c#
-// Открыть презентацию
-using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
+## **Проверка цифровых подписей**
+
+При загрузке подписанного файла PPTX проверяйте каждый элемент в [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/digitalsignatures/). Свойство [IDigitalSignature.IsValid](https://reference.aspose.com/slides/ru/net/aspose.slides/idigitalsignature/isvalid/) указывает, является ли встроенная подпись действительной для текущего содержимого презентации.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+var signatureCount = presentation.DigitalSignatures.Count;
+
+if (signatureCount == 0)
 {
-    if (pres.DigitalSignatures.Count > 0)
+    Console.WriteLine("The presentation does not contain digital signatures.");
+}
+else
+{
+    var allSignaturesAreValid = true;
+
+    foreach (var signature in presentation.DigitalSignatures)
     {
-        bool allSignaturesAreValid = true;
+        var signatureStatus = signature.IsValid ? "VALID" : "INVALID";
+        var signerName = signature.Certificate.SubjectName.Name;
 
-        Console.WriteLine("Signatures used to sign the presentation: ");
+        Console.WriteLine(
+            $"{signerName}, {signature.SignTime:yyyy-MM-dd HH:mm:ss} -- {signatureStatus}");
 
-        // Проверить, являются ли все цифровые подписи действительными
-        foreach (DigitalSignature signature in pres.DigitalSignatures)
-        {
-            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
-                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.IsValid;
-        }
-
-        if (allSignaturesAreValid)
-            Console.WriteLine("Presentation is genuine, all signatures are valid.");
-        else
-            Console.WriteLine("Presentation has been modified since signing.");
+        allSignaturesAreValid &= signature.IsValid;
     }
+
+    Console.WriteLine(allSignaturesAreValid
+        ? "All embedded signatures are valid for the current presentation."
+        : "At least one embedded signature is invalid.");
 }
 ```
 
+Недействительный результат обычно означает, что содержимое подписанной презентации или данные подписи изменились после подписи, либо файл повреждён. Удаление всех подписей приводит к не подписанной презентации, поэтому проверка только валидности элементов недостаточна: в чувствительном к безопасности процессе необходимо также убедиться, что присутствует ожидаемое количество подписей и ожидаемые идентичности подписантов.
 
-## **Часто задаваемые вопросы**
+Этот результат не следует расценивать как окончательное решение о доверии к сертификату. В зависимости от политики безопасности ваше приложение может также построить и проверить цепочку сертификатов X.509, проверить даты действия сертификата и статус отзыва, подтвердить ожидаемый субъект или отпечаток, проверить назначение ключа и оценить доверенный временной штамп. Значение [IDigitalSignature.SignTime](https://reference.aspose.com/slides/ru/net/aspose.slides/idigitalsignature/signtime/) само по себе не является доказательством от доверенного сервиса временных меток.
 
-**Можно ли удалить существующие подписи из файла?**
+## **Удаление цифровых подписей**
 
-Да. Коллекция цифровых подписей поддерживает [удаление отдельных элементов](https://reference.aspose.com/slides/net/aspose.slides/digitalsignaturecollection/removeat/) и [полную очистку](https://reference.aspose.com/slides/net/aspose.slides/digitalsignaturecollection/clear/); после сохранения файла в презентации не будет подписей.
+Удаление подписей меняет состояние безопасности презентации. В следующем примере загружается подписанный файл PPTX, все подписи удаляются с помощью [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/ru/net/aspose.slides/idigitalsignaturecollection/clear/), и сохраняется копия без подписи.
 
-**Становится ли файл только для чтения после подписи?**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Нет. Подпись сохраняет целостность и авторство, но не блокирует редактирование. Чтобы ограничить редактирование, комбинируйте её с ["Read-only" or a password](/slides/ru/net/password-protected-presentation/).
+using var presentation = new Presentation("InputPresentation-signed.pptx");
 
-**Будет ли подпись отображаться корректно в разных версиях PowerPoint?**
+presentation.DigitalSignatures.Clear();
+presentation.Save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+```
 
-Подпись создаётся для контейнера OOXML (PPTX). Современные версии PowerPoint, поддерживающие подписи OOXML, отображают их статус корректно.
+Чтобы удалить только одну подпись, вызовите [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/ru/net/aspose.slides/idigitalsignaturecollection/removeat/) с её нулевым индексом. Сохраняйте в новый файл, если перезапись подписанного оригинала не является явной частью вашего процесса.
+
+## **Редактирование и особенности форматов**
+
+- Подпись не делает презентацию доступной только для чтения. Пользователи и приложения всё ещё могут редактировать файл, но изменения в подписанном содержимом обычно делают существующую подпись недействительной.
+- Выполняйте все необходимые правки до подписи. Если презентацию нужно изменить, сохраните её новую версию и подпишите её снова.
+- Оставляйте окончательный результат в формате PPTX. Преобразование подписанной презентации в другой формат не переносит оригинальную подпись PPTX как действительную подпись в преобразованном файле.
+- Относитесь к закрытому ключу сертификата как к конфиденциальной информации. Любой, получивший закрытый ключ и его пароль, может создавать подписи, которые выглядят как подписи владельца сертификата.
+- Храните не подписанный исходник или другую контролируемую копию, если ваша политика удержания документов требует этого.
+
+## **FAQ**
+
+**Шифрует ли цифровая подпись презентацию?**
+
+Нет. Цифровая подпись предоставляет доказательства происхождения и целостности, но содержимое презентации остаётся читаемым, если не применено отдельное шифрование. Используйте [password protection](/slides/ru/net/password-protected-presentation/), когда необходимо ограничить доступ к содержимому.
+
+**Совпадает ли пароль PFX с паролем презентации?**
+
+Нет. Пароль PFX разблокирует закрытый ключ, хранящийся в пакете сертификата. Он не контролирует, кто может открыть или редактировать файл PPTX.
+
+**Можно ли использовать самоподписанный сертификат?**
+
+Технически да, если у него есть доступный закрытый ключ. Получатели автоматически не доверяют такому сертификату, если только он явно не добавлен в их доверенную среду. Для публичных или межорганизационных процессов обычно используют сертификат, выданный доверенным CA.
+
+**Что делает подпись недействительной?**
+
+Изменение подписанного содержимого презентации или данных подписи после подписи делает её недействительной. Повреждение файла также может вызвать ошибку проверки. Если все подписи удалены, презентация считается не подписанной, а не содержащей недействительную подпись.
+
+**Означает ли действительная подпись, что подпись заслуживает доверия?**
+
+Не сама по себе. Целостность подписи и доверие к подписанту – это отдельные решения. Политика проверки в продакшн должна также проверять цепочку сертификатов, период действия, статус отзыва, ожидаемую идентичность, назначение ключа и любые требования к доверенным временным меткам.
+
+**Что происходит, когда срок действия сертификата истекает?**
+
+Истечение срока действия сертификата не меняет байты презентации, но влияет на оценку доверия к сертификату. Приёмлемость подписи зависит от вашей политики и от того, есть ли действительный доверенный временной штамп, подтверждающий, что подпись была произведена, пока сертификат был действителен. Не полагайтесь только на отображаемое время подписи как на доверенный временной штамп.
+
+**Можно ли редактировать подписанную презентацию?**
+
+Да. Подпись не блокирует файл. Редактирование подписанного содержимого, как правило, делает существующую подпись недействительной, поэтому завершите работу над презентацией и подпишите окончательную версию.
+
+**Может ли презентация содержать более одной подписи?**
+
+Да. Добавляйте каждую подпись в [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/digitalsignatures/) перед сохранением. При проверке осмотрите каждую подпись и убедитесь, что присутствуют все требуемые подписанты.
+
+**Какие форматы презентаций поддерживают эти операции?**
+
+Aspose.Slides поддерживает описанные здесь операции с цифровой подписью только для формата PPTX. Форматы PPT и OpenDocument не поддерживаются этим API‑процессом.
+
+**Можно ли удалить подпись, не затронув слайды?**
+
+Да. Вы можете удалить одну подпись или очистить всю коллекцию, затем сохранить презентацию. Содержимое слайдов остаётся, но сохранённый файл больше не содержит доказательств удалённой подписи.

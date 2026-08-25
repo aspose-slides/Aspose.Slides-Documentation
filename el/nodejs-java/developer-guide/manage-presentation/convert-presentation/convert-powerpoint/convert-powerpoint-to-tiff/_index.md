@@ -1,5 +1,5 @@
 ---
-title: Μετατροπή παρουσιάσεων PowerPoint σε TIFF με JavaScript
+title: Μετατροπή Παρουσιάσεων PowerPoint σε TIFF με JavaScript
 titlelink: PowerPoint σε TIFF
 type: docs
 weight: 90
@@ -23,22 +23,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να μετατρέπετε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) σε εικόνες υψηλής ποιότητας TIFF χρησιμοποιώντας το Aspose.Slides για Node.js, με παραδείγματα κώδικα JavaScript."
+description: "Μάθετε πώς να μετατρέπετε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) σε εικόνες TIFF υψηλής ποιότητας χρησιμοποιώντας το Aspose.Slides για Node.js, με παραδείγματα κώδικα JavaScript."
 ---
 ## **Εισαγωγή**
 
-TIFF (**Tagged Image File Format**) είναι ένα ευρέως χρησιμοποιούμενο, χωρίς απώλειες μορφότυπο raster εικόνας γνωστό για την εξαιρετική του ποιότητα και τη λεπτομερή διατήρηση των γραφικών. Σχεδιαστές, φωτογράφοι και εκδότες επιφάνειας εργασίας συχνά επιλέγουν TIFF για να διατηρήσουν τις στρώσεις, την ακριβή χρωματική απόδοση και τις αρχικές ρυθμίσεις στις εικόνες τους.
+TIFF (**Μορφή Αρχείου Εικόνας Με Ετικέτες**) είναι μια ευρέως χρησιμοποιούμενη, ασφαλής μορφή raster εικόνας γνωστή για την εξαιρετική ποιότητα και τη λεπτομερή διατήρηση των γραφικών. Σχεδιαστές, φωτογράφοι και εκδότες επιλέγουν συχνά TIFF για να διατηρήσουν τα στρώματα, την ακρίβεια χρωμάτων και τις αρχικές ρυθμίσεις στις εικόνες τους.
 
-Με το Aspose.Slides, μπορείτε εύκολα να μετατρέψετε τις διαφάνειες PowerPoint (PPT, PPTX) και τις διαφάνειες OpenDocument (ODP) άμεσα σε εικόνες υψηλής ποιότητας TIFF, εξασφαλίζοντας ότι οι παρουσιάσεις σας διατηρούν το μέγιστο οπτικό πιστότητα.
+Με τη χρήση του Aspose.Slides, μπορείτε εύκολα να μετατρέψετε τις διαφάνειες PowerPoint (PPT, PPTX) και τις διαφάνειες OpenDocument (ODP) απευθείας σε εικόνες υψηλής ποιότητας TIFF, εξασφαλίζοντας ότι οι παρουσιάσεις σας διατηρούν τη μέγιστη οπτική πιστότητα.
 
-## **Μετατροπή μιας παρουσίασης σε TIFF**
+## **Μετατροπή Παρουσίασης σε TIFF**
 
 Χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) που παρέχεται από την κλάση [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/), μπορείτε γρήγορα να μετατρέψετε ολόκληρη μια παρουσίαση PowerPoint σε TIFF. Οι παραγόμενες εικόνες TIFF αντιστοιχούν στο προεπιλεγμένο μέγεθος διαφάνειας.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε TIFF:
 
 ```js
-// Δημιουργήστε το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP, κ.λπ.).
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP κ.λπ.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     // Αποθηκεύστε την παρουσίαση ως TIFF.
@@ -48,17 +51,24 @@ try {
 }
 ```
 
-## **Μετατροπή μιας παρουσίασης σε Ασπρόμαυρο TIFF**
+## **Μετατροπή Παρουσίασης σε Ασπρόμαυρο TIFF**
 
-Η μέθοδος [setBwConversionMode](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) σας επιτρέπει να ορίσετε τον αλγόριθμο που χρησιμοποιείται όταν μετατρέπετε μια χρωματιστή διαφάνεια ή εικόνα σε ασπρόμαυρο TIFF. Σημειώστε ότι αυτή η ρύθμιση εφαρμόζεται μόνο όταν η μέθοδος [setCompressionType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) είναι ρυθμισμένη σε `CCITT4` ή `CCITT3`.
+Η μέθοδος [setBwConversionMode](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) σας επιτρέπει να καθορίσετε τον αλγόριθμο που χρησιμοποιείται κατά τη μετατροπή μιας έγχρωμης διαφάνειας ή εικόνας σε ασπρόμαυρο TIFF. Σημειώστε ότι αυτή η ρύθμιση εφαρμόζεται μόνο όταν η μέθοδος [setCompressionType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) ορίζεται σε `CCITT4` ή `CCITT3`.
 
-Ας πούμε ότι έχουμε ένα αρχείο "sample.pptx" με την ακόλουθη διαφάνεια:
+{{% alert color="info" title="Σημείωση" %}}
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) είναι ρύθμιση επιπέδου εξαγωγής που επιλέγει αλγόριθμο μετατροπής pixel για ολόκληρη την εικόνα TIFF. Για να ορίσετε πώς πρέπει να εμφανίζεται ένα μεμονωμένο σχήμα όταν είναι ενεργή η ασπρόμαυρη λειτουργία, χρησιμοποιήστε τη μέθοδο [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). Δείτε το άρθρο [Control Black-and-White Rendering for Shapes](/slides/el/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) για παραδείγματα.
+{{% /alert %}}
+
+Ας υποθέσουμε ότι έχουμε ένα αρχείο «sample.pptx» με την ακόλουθη διαφάνεια:
 
 ![Διαφάνεια παρουσίασης](slide_black_and_white.png)
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε τη χρωματιστή διαφάνεια σε ασπρόμαυρο TIFF:
+Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε την έγχρωμη διαφάνεια σε ασπρόμαυρο TIFF:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let tiffOptions = new aspose.slides.TiffOptions();
 tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
@@ -75,14 +85,18 @@ try {
 
 ![Ασπρόμαυρο TIFF](TIFF_black_and_white.png)
 
-## **Μετατροπή μιας παρουσίασης σε TIFF με προσαρμοσμένο μέγεθος**
+## **Μετατροπή Παρουσίασης σε TIFF με Προσαρμοσμένο Μέγεθος**
 
-Εάν χρειάζεστε μια εικόνα TIFF με συγκεκριμένες διαστάσεις, μπορείτε να ορίσετε τις επιθυμητές τιμές χρησιμοποιώντας τις μεθόδους που διατίθενται στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/). Για παράδειγμα, η μέθοδος [setImageSize](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setImageSize) σάς επιτρέπει να καθορίσετε το μέγεθος της παραγόμενης εικόνας.
+Αν χρειάζεστε μια εικόνα TIFF με συγκεκριμένες διαστάσεις, μπορείτε να ορίσετε τις επιθυμητές τιμές χρησιμοποιώντας τις μεθόδους που διατίθενται στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/). Για παράδειγμα, η μέθοδος [setImageSize](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setImageSize) σας επιτρέπει να καθορίσετε το μέγεθος της παραγόμενης εικόνας.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνες TIFF με προσαρμοσμένο μέγεθος:
 
 ```js
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP, κ.λπ.).
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP κ.λπ.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -91,15 +105,15 @@ try {
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
     /*
     Τύποι συμπίεσης:
-        Default - Καθορίζει το προεπιλεγμένο σχήμα συμπίεσης (LZW).
-        None - Καθορίζει ότι δεν υπάρχει συμπίεση.
+        Default - Ορίζει το προεπιλεγμένο σχήμα συμπίεσης (LZW).
+        None - Δεν χρησιμοποιεί συμπίεση.
         CCITT3
         CCITT4
         LZW
         RLE
     */
 
-    // Το βάθος εξαρτάται από τον τύπο συμπίεσης και δεν μπορεί να οριστεί χειροκίνητα.
+    // Το βάθος χρώματος ελέγχεται από τη μορφή pixel (δείτε το παρακάτω παράδειγμα); CCITT3 και CCITT4 πάντα δημιουργούν 1 bit ανά pixel.
 
     // Ορίστε το DPI της εικόνας.
     tiffOptions.setDpiX(200);
@@ -119,26 +133,29 @@ try {
 }
 ```
 
-## **Μετατροπή μιας παρουσίασης σε TIFF με προσαρμοσμένη μορφή εικονοστοιχείου**
+## **Μετατροπή Παρουσίασης σε TIFF με Προσαρμοσμένη Μορφή Pixel Εικόνας**
 
-Χρησιμοποιώντας τη μέθοδο [setPixelFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) από την κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/), μπορείτε να ορίσετε την προτιμώμενη μορφή εικονοστοιχείου για την παραγόμενη εικόνα TIFF.
+Χρησιμοποιώντας τη μέθοδο [setPixelFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) από την κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/), μπορείτε να καθορίσετε την προτιμώμενη μορφή pixel για την παραγόμενη εικόνα TIFF.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνα TIFF με προσαρμοσμένη μορφή εικονοστοιχείου:
+Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε μια εικόνα TIFF με προσαρμοσμένη μορφή pixel:
 
 ```js
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP, κ.λπ.).
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP κ.λπ.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
 
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
     /*
-    Το ImagePixelFormat περιέχει τις ακόλουθες τιμές (όπως αναφέρεται στην τεκμηρίωση):
-        Format1bppIndexed - 1 bit ανά εικονοστοιχείο, με ευρετήριο.
-        Format4bppIndexed - 4 bits ανά εικονοστοιχείο, με ευρετήριο.
-        Format8bppIndexed - 8 bits ανά εικονοστοιχείο, με ευρετήριο.
-        Format24bppRgb    - 24 bits ανά εικονοστοιχείο, RGB.
-        Format32bppArgb   - 32 bits ανά εικονοστοιχείο, ARGB.
+    ImagePixelFormat περιέχει τις ακόλουθες τιμές (όπως αναφέρεται στην τεκμηρίωση):
+        Format1bppIndexed - 1 bit ανά pixel, με ευρετήριο.
+        Format4bppIndexed - 4 bit ανά pixel, με ευρετήριο.
+        Format8bppIndexed - 8 bit ανά pixel, με ευρετήριο.
+        Format24bppRgb    - 24 bit ανά pixel, RGB.
+        Format32bppArgb   - 32 bit ανά pixel, ARGB.
     */
 
     /// Αποθηκεύστε την παρουσίαση ως TIFF με το καθορισμένο μέγεθος εικόνας.
@@ -148,20 +165,20 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Δείτε τον [ΔΩΡΕΑΝ μετατροπέα PowerPoint σε αφίσα](https://products.aspose.app/slides/el/conversion/convert-ppt-to-poster-online) της Aspose.
+{{% alert title="Συμβουλή" color="info" %}}
+Δοκιμάστε το [ΔΩΡΕΑΝ εργαλείο μετατροπής PowerPoint σε αφίσα](https://products.aspose.app/slides/el/conversion/convert-ppt-to-poster-online) της Aspose.
 {{% /alert %}}
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να μετατρέψω μια μεμονωμένη διαφάνεια αντί για ολόκληρη παρουσίαση PowerPoint σε TIFF;**
+**Μπορώ να μετατρέψω μια μεμονωμένη διαφάνεια αντί για ολόκληρη την παρουσίαση PowerPoint σε TIFF;**
 
-Ναι. Το Aspose.Slides σας επιτρέπει να μετατρέψετε μεμονωμένες διαφάνειες από παρουσιάσεις PowerPoint και OpenDocument σε εικόνες TIFF ξεχωριστά.
+Ναι. Το Aspose.Slides επιτρέπει τη μετατροπή μεμονωμένων διαφανειών από παρουσιάσεις PowerPoint και OpenDocument σε εικόνες TIFF ξεχωριστά.
 
-**Υπάρχει κάποιο όριο στον αριθμό των διαφανειών όταν μετατρέπεται μια παρουσίαση σε TIFF;**
+**Υπάρχει κάποιο όριο στον αριθμό των διαφανειών κατά τη μετατροπή μιας παρουσίασης σε TIFF;**
 
 Όχι, το Aspose.Slides δεν επιβάλλει περιορισμούς στον αριθμό των διαφανειών. Μπορείτε να μετατρέψετε παρουσιάσεις οποιουδήποτε μεγέθους σε μορφή TIFF.
 
-**Διατηρούνται οι κινήσεις και τα εφέ μετάβασης του PowerPoint όταν μετατρέπονται οι διαφάνειες σε TIFF;**
+**Διατηρούνται οι κινούμενες εικόνες και τα εφέ μετάβασης του PowerPoint όταν μετατρέπονται οι διαφάνειες σε TIFF;**
 
-Όχι, το TIFF είναι μορφότυπο στατικής εικόνας. Συνεπώς, οι κινήσεις και τα εφέ μετάβασης δεν διατηρούνται· εξάγονται μόνο στατικές στιγμιότυπες των διαφανειών.
+Όχι, το TIFF είναι μορφή στατικής εικόνας. Συνεπώς, τα κινούμενα εφέ και τα εφέ μετάβασης δεν διατηρούνται· εξάγονται μόνο στατικά στιγμιότυπα των διαφανειών.

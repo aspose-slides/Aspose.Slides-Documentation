@@ -6,20 +6,22 @@ weight: 20
 url: /id/python-net/custom-font/
 keywords:
 - font
-- font khusus
+- font kustom
 - font eksternal
-- muat font
-- kelola font
+- memuat font
+- mengelola font
 - folder font
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Sematkan font khusus dalam slide PowerPoint dengan Aspose.Slides untuk Python melalui .NET agar presentasi Anda tajam dan konsisten di semua perangkat."
+description: "Sertakan font kustom dalam slide PowerPoint dengan Aspose.Slides untuk Python melalui .NET agar presentasi Anda tetap tajam dan konsisten di semua perangkat."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides untuk Python memungkinkan Anda menyediakan font khusus pada waktu berjalan sehingga presentasi ditampilkan dengan benar bahkan ketika font yang diperlukan tidak terpasang di sistem host. Selama mengekspor ke PDF atau gambar, Anda dapat menyediakan folder font atau data font dalam memori untuk mempertahankan tata letak teks, metrik glif, dan tipografi. Ini membuat rendering sisi server dapat diprediksi di berbagai lingkungan, menghilangkan ketergantungan font tingkat OS, dan mencegah fallback atau reflow yang tidak diinginkan. Artikel ini menunjukkan cara mendaftarkan sumber font.
+Aspose.Slides untuk Python memungkinkan Anda menyediakan font khusus pada waktu berjalan sehingga presentasi ditampilkan dengan benar meskipun font yang dibutuhkan tidak terpasang di sistem host. Saat mengekspor ke PDF atau gambar, Anda dapat memberikan folder font atau data font dalam memori untuk menjaga tata letak teks, metrik glif, dan tipografi. Hal ini membuat rendering sisi server dapat diprediksi di berbagai lingkungan, menghilangkan ketergantungan font pada tingkat OS, dan mencegah fallback atau reflow yang tidak diinginkan. Artikel ini menunjukkan cara mendaftarkan sumber font.
+
+Tema presentasi dapat merujuk ke keluarga font yang berbeda untuk sistem penulisan individual. Pemetaan ini menyimpan nama font tetapi tidak menginstal atau memuat file font. Lihat [Script-Specific Theme Fonts](/slides/id/python-net/script-specific-font-mappings/) untuk mengelola pemetaan, dan gunakan opsi pemuatan di bawah ini agar font yang dirujuk tersedia untuk rendering yang konsisten.
 
 Aspose.Slides memungkinkan Anda memuat font berikut menggunakan metode `load_external_font` dan `load_external_fonts` dari kelas [FontsLoader](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsloader/):
 
@@ -28,20 +30,22 @@ Aspose.Slides memungkinkan Anda memuat font berikut menggunakan metode `load_ext
 
 ## **Muat Font Kustom**
 
-Aspose.Slides memungkinkan Anda memuat font yang digunakan dalam sebuah presentasi tanpa menginstalnya di sistem. Hal ini memengaruhi output ekspor—seperti PDF, gambar, dan format lain yang didukung—sehingga dokumen hasil tampak konsisten di semua lingkungan. Font dimuat dari direktori khusus.
+Aspose.Slides memungkinkan Anda memuat font yang digunakan dalam sebuah presentasi tanpa menginstalnya di sistem. Hal ini memengaruhi output ekspor—seperti PDF, gambar, dan format lain yang didukung—sehingga dokumen yang dihasilkan tampak konsisten di berbagai lingkungan. Font dimuat dari direktori khusus.
 
 1. Tentukan satu atau beberapa folder yang berisi file font.
 2. Panggil metode statis [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsloader/load_external_fonts/) untuk memuat font dari folder tersebut.
 3. Muat dan render/ekspor presentasi.
-4. Panggil [FontsLoader.clear_cache](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsloader/clear_cache/) untuk menghapus cache font.
+4. Panggil [FontsLoader.clear_cache](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsloader/clear_cache/) untuk membersihkan cache font.
+
+Contoh kode berikut menunjukkan proses pemuatan font:
 
 ```py
 import aspose.slides as slides
 
-# Tetapkan folder yang berisi file font khusus.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# Tentukan folder yang berisi file font kustom.
+font_folders = ["fonts", "external_fonts"]
 
-# Muat font khusus dari folder yang ditentukan.
+# Muat font kustom dari folder yang ditentukan.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
@@ -52,18 +56,19 @@ with slides.Presentation("sample.pptx") as presentation:
 slides.FontsLoader.clear_cache()
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Catatan" %}}
 [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsloader/load_external_fonts/) menambahkan folder tambahan ke jalur pencarian font, tetapi tidak mengubah urutan inisialisasi font.
-
 Font diinisialisasi dalam urutan berikut:
 
-1. Jalur font default sistem operasi.
+1. Jalur font sistem operasi default.
 1. Jalur yang dimuat melalui [FontsLoader](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsloader/).
 {{%/alert %}}
 
 ## **Dapatkan Folder Font Kustom**
 
-Aspose.Slides menyediakan metode `get_font_folders` untuk mengambil folder font. Metode ini mengembalikan baik folder yang ditambahkan melalui `load_external_fonts` maupun folder font sistem.
+Aspose.Slides menyediakan metode `get_font_folders` untuk mendapatkan folder font. Metode ini mengembalikan baik folder yang ditambahkan melalui `load_external_fonts` maupun folder font sistem.
+
+Kode Python berikut menunjukkan cara menggunakan `get_font_folders`:
 
 ```python
 import aspose.slides as slides
@@ -75,7 +80,9 @@ font_folders = slides.FontsLoader.get_font_folders()
 
 ## **Tentukan Font Kustom untuk Presentasi**
 
-Aspose.Slides menyediakan properti `document_level_font_sources`, yang memungkinkan Anda menentukan font eksternal yang akan digunakan dengan sebuah presentasi.
+Aspose.Slides menyediakan properti `document_level_font_sources`, yang memungkinkan Anda menentukan font eksternal yang akan digunakan dalam sebuah presentasi.
+
+Contoh Python berikut menunjukkan cara menggunakan `document_level_font_sources`:
 
 ```python
 import aspose.slides as slides
@@ -93,7 +100,7 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
     # Bekerja dengan presentasi.
-    # CustomFont1, CustomFont2, dan font dari folder assets\fonts dan global\fonts (beserta subfoldernya) tersedia untuk presentasi.
+    # CustomFont1, CustomFont2, dan font dari folder assets\fonts serta global\fonts (beserta subfoldernya) tersedia untuk presentasi.
     # ...
     print(len(presentation.slides))
 ```
@@ -101,6 +108,8 @@ with slides.Presentation("Fonts.pptx", load_options) as presentation:
 ## **Muat Font Eksternal dari Data Biner**
 
 Aspose.Slides menyediakan metode `load_external_font` untuk memuat font eksternal dari data biner.
+
+Contoh Python berikut menunjukkan pemuatan font dari array byte:
 
 ```python
 import aspose.slides as slides
@@ -125,22 +134,22 @@ finally:
 
 ## **FAQ**
 
-**Apakah font kustom memengaruhi ekspor ke semua format (PDF, PNG, SVG, HTML)?**
+### Apakah font kustom memengaruhi ekspor ke semua format (PDF, PNG, SVG, HTML)?
 
 Ya. Font yang terhubung digunakan oleh renderer pada semua format ekspor.
 
-**Apakah font kustom secara otomatis disematkan ke dalam PPTX yang dihasilkan?**
+### Apakah font kustom secara otomatis disertakan dalam PPTX yang dihasilkan?
 
-Tidak. Mendaftarkan font untuk rendering tidak sama dengan menyematkannya ke dalam PPTX. Jika Anda membutuhkan font yang dibawa di dalam file presentasi, Anda harus menggunakan [fitur penyematan](/slides/id/python-net/embedded-font/).
+Tidak. Mendaftarkan font untuk rendering tidak sama dengan menyertakan (embed) ke dalam PPTX. Jika Anda memerlukan font yang dibawa di dalam file presentasi, Anda harus menggunakan [fitur penyertaan](/slides/id/python-net/embedded-font/).
 
-**Apakah saya dapat mengontrol perilaku fallback ketika font kustom tidak memiliki glif tertentu?**
+### Bisakah saya mengontrol perilaku fallback ketika font kustom tidak memiliki beberapa glif?
 
-Ya. Konfigurasikan [substitusi font](/slides/id/python-net/font-substitution/), [aturan penggantian](/slides/id/python-net/font-replacement/), dan [set fallback](/slides/id/python-net/fallback-font/) untuk menentukan secara tepat font mana yang digunakan ketika glif yang diminta tidak ada.
+Ya. Konfigurasikan [font substitution](/slides/id/python-net/font-substitution/), [replacement rules](/slides/id/python-net/font-replacement/), dan [fallback sets](/slides/id/python-net/fallback-font/) untuk menentukan secara tepat font mana yang digunakan ketika glif yang diminta tidak ada.
 
-**Apakah saya dapat menggunakan font di kontainer Linux/Docker tanpa menginstalnya secara sistem-wide?**
+### Bisakah saya menggunakan font di kontainer Linux/Docker tanpa menginstalnya secara sistem?
 
-Ya. Arahkan ke folder font Anda sendiri atau muat font dari array byte. Ini menghilangkan ketergantungan pada direktori font sistem dalam gambar kontainer.
+Ya. Arahkan ke folder font Anda sendiri atau muat font dari array byte. Ini menghilangkan ketergantungan pada direktori font sistem dalam image kontainer.
 
-**Bagaimana dengan lisensi—apakah saya dapat menyematkan font kustom apa pun tanpa batasan?**
+### Bagaimana dengan lisensi—apakah saya dapat menyertakan (embed) font kustom apa pun tanpa batasan?
 
-Anda bertanggung jawab atas kepatuhan lisensi font. Syaratnya bervariasi; beberapa lisensi melarang penyematan atau penggunaan komersial. Selalu tinjau EULA font sebelum mendistribusikan hasil.
+Anda bertanggung jawab atas kepatuhan lisensi font. Syaratnya bervariasi; beberapa lisensi melarang penyertaan atau penggunaan komersial. Selalu tinjau EULA font sebelum mendistribusikan hasil.

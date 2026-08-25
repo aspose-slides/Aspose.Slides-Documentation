@@ -7,61 +7,126 @@ url: /de/cpp/convert-ppt-to-pptx/
 keywords:
 - PowerPoint konvertieren
 - Präsentation konvertieren
-- Folie konvertieren
+- Folien konvertieren
 - PPT konvertieren
 - PPT zu PPTX
 - PPT als PPTX speichern
-- PPT zu PPTX exportieren
+- PPT nach PPTX exportieren
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Konvertieren Sie Legacy-PPT-Präsentationen schnell in moderne PPTX mit C++ und Aspose.Slides - klare Anleitung, kostenlose Code-Beispiele, ohne Microsoft Office-Abhängigkeit."
+description: "Konvertieren Sie Legacy-PPT-Dateien zu PPTX in C++ mit Aspose.Slides. Enthält C++-Beispiele für Einzeldatei- und Batch-Konvertierung, Fehlerbehandlung und Genauigkeits-Hinweise."
 ---
-
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man eine PowerPoint‑Präsentation im PPT‑Format mithilfe von C++ in das PPTX‑Format konvertiert. Das folgende Thema wird behandelt.
+PPT ist das ältere binäre PowerPoint-Format, während PPTX das neuere Open‑XML‑Format ist. Aspose.Slides für C++ kann eine PPT‑Datei laden und sie ohne Microsoft PowerPoint als PPTX speichern. Dieser Artikel zeigt, wie man eine einzelne Datei oder ein Verzeichnis von Dateien konvertiert und erklärt, was nach der Konvertierung zu überprüfen ist.
 
-- PPT nach PPTX in C++ konvertieren
+## **Konvertieren einer PPT‑Datei zu PPTX**
 
-## **PPT nach PPTX in C++ konvertieren**
+Laden Sie die Quelldatei mit der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/), und rufen Sie dann [Presentation::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/save/) mit dem Argument [SaveFormat::Pptx](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/saveformat/) auf. Entsorgen Sie die Präsentation, sobald sie nicht mehr benötigt wird, um ihre Ressourcen freizugeben.
 
-Für C++‑Beispielcode zum Konvertieren von PPT nach PPTX siehe bitte den Abschnitt unten, d.h.[Convert PPT to PPTX](#convert-ppt-to-pptx). Er lädt lediglich die PPT‑Datei und speichert sie im PPTX‑Format. Durch Angabe verschiedener Speicherformate können Sie die PPT‑Datei auch in viele andere Formate wie PDF, XPS, ODP, HTML usw. speichern, wie in diesen Artikeln beschrieben.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 
-- [PPT nach PDF in C++ konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf/)
-- [PPT nach XPS in C++ konvertieren](/slides/de/cpp/convert-powerpoint-to-xps/)
-- [PPT nach HTML in C++ konvertieren](/slides/de/cpp/convert-powerpoint-to-html/)
-- [PPT nach ODP in C++ konvertieren](/slides/de/cpp/save-presentation/)
-- [PPT nach PNG in C++ konvertieren](/slides/de/cpp/convert-powerpoint-to-png/)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-## **PPT nach PPTX konvertieren**
-Um eine PPT‑Präsentation in PPTX zu konvertieren, übergeben Sie einfach den Dateinamen und das Speicherformat an die [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) Methode der [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) Klasse. Das untenstehende C++‑Codebeispiel konvertiert eine Präsentation von PPT nach PPTX mit den Standardoptionen. Weitere Informationen finden Sie in dieser Dokumentation [link](/slides/de/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion).
+// Load the legacy PPT presentation.
+auto presentation = System::MakeObject<Presentation>(u"presentation.ppt");
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PPTtoPPTX-PPTtoPPTX.cpp" >}}
+// Save the presentation in PPTX format.
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Die Dateierweiterung bestimmt das Ausgabeformat nicht; das Argument [SaveFormat::Pptx](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/saveformat/) tut es. Verwenden Sie unterschiedliche Eingabe‑ und Ausgabepfade, wenn Sie die ursprüngliche PPT‑Datei behalten möchten.
+
+## **Konvertieren mehrerer PPT‑Dateien**
+
+Das folgende Beispiel konvertiert jede `.ppt`‑Datei in einem Verzeichnis. Jede Datei wird unabhängig verarbeitet, sodass ein fehlgeschlagener Vorgang den Rest des Stapels nicht stoppt.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"input";
+String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory, u"*.ppt", SearchOption::TopDirectoryOnly);
+for (const auto& inputPath : inputPaths)
+{
+    auto outputFileName = Path::GetFileNameWithoutExtension(inputPath) + u".pptx";
+    auto outputPath = Path::Combine(outputDirectory, outputFileName);
+
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+        presentation->Save(outputPath, SaveFormat::Pptx);
+        presentation->Dispose();
+        Console::WriteLine(String::Format(u"Converted: {0}", inputPath));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Failed: {0} ({1})", inputPath, exception->get_Message()));
+    }
+}
+```
+
+Für produktive Workloads sollten Sie die vollständige Ausnahme protokollieren, entscheiden, ob eine vorhandene Ausgabedatei überschrieben werden darf, und fehlgeschlagene Dateinamen in eine Wiederholungs‑ oder Prüfungswarteschlange schreiben. Beschädigte Dateien, passwortgeschützte Dateien, die ohne das erforderliche Passwort geöffnet werden, nicht erreichbare Pfade und nicht unterstützte Inhalte können die Konvertierung zum Scheitern bringen. Siehe [Password‑Protected Presentations](/slides/de/cpp/password-protected-presentation/) zum Laden verschlüsselter Dateien.
+
+## **Genauigkeit und Legacy‑Funktionen**
+
+Die Konvertierung bewahrt normalerweise Folien, Master, Layouts, Text, Formen, Bilder, Tabellen und Diagramme. PPT und PPTX repräsentieren jedoch nicht jedes Feature exakt auf dieselbe Weise. Ein Legacy‑Feature, das kein PPTX‑Äquivalent hat oder von der Bibliothek nicht unterstützt wird, kann normalisiert, weggelassen oder anders dargestellt werden.
+
+Überprüfen Sie die konvertierte Datei, wenn sie Animationen, Übergänge, eingebettete oder verknüpfte OLE‑Objekte, ActiveX‑Steuerelemente, eingebettete Medien, seltene Schriften oder VBA‑Makros enthält. Eine reine PPTX‑Datei ist kein makrofähiges Format; verwenden Sie daher einen geeigneten makrofähigen Workflow, wenn VBA erhalten bleiben muss. Stellen Sie außerdem sicher, dass erforderliche Schriften und externe Ressourcen in der Umgebung vorhanden sind, in der die konvertierte Präsentation geöffnet oder gerendert wird.
+
+Für wichtige Dokumente öffnen Sie das erzeugte PPTX programmgesteuert erneut, prüfen Sie wichtige Folienzahlen und Inhalte und vergleichen Sie anschließend Aussehen und Bildlaufverhalten im gewünschten Viewer. Betrachten Sie einen erfolgreichen Aufruf von [Presentation::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/save/) nicht als Beweis dafür, dass jedes Legacy‑Feature eine exakte PPTX‑Darstellung besitzt.
+
+## **Wann PPTX verwenden**
+
+Verwenden Sie PPTX, wenn die Präsentation in aktuellen PowerPoint‑Versionen bearbeitet, mit Systemen ausgetauscht wird, die Open‑XML‑Pakete verarbeiten, oder in einem Format gespeichert werden soll, das leichter zu inspizieren und wiederherzustellen ist als das alte binäre PPT. Bewahren Sie das ursprüngliche PPT als Archiv‑ oder Rückfallkopie auf, bis die konvertierte Präsentation Ihre Genauigkeitsprüfungen bestanden hat.
+
+Falls Sie stattdessen PDF, HTML, Bilder, XPS oder ein anderes Ausgabeformat benötigen, nutzen Sie die formatbezogene Anleitung in [Convert Presentations to Multiple Formats](/slides/de/cpp/convert-presentation/) und gehen Sie nicht davon aus, dass alle Ziele editierbare PowerPoint‑Features erhalten.
+
+## **Online‑Konverter**
+
+Für eine einzelne Datei oder einen schnellen Vergleich können Sie den [online PPT to PPTX converter](https://products.aspose.app/slides/de/conversion/ppt-to-pptx) verwenden. Für wiederholbare Konvertierungen, Batch‑Verarbeitung oder fehlerbehaftete Anwendungslogik nutzen Sie die C++‑API.
+
+## **Verwandte Artikel**
+
+- [Save Presentations in C++](/slides/de/cpp/save-presentation/)
+- [Supported File Formats](/slides/de/cpp/supported-file-formats/)
+- [Open Presentations in C++](/slides/de/cpp/open-presentation/)
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen den Formaten PPT und PPTX?**
+**Kann ich PPT zu PPTX konvertieren, ohne Microsoft PowerPoint installiert zu haben?**
 
-PPT ist das ältere binäre Dateiformat, das von Microsoft PowerPoint verwendet wird, während PPTX das neuere, auf XML basierende Format ist, das mit Microsoft Office 2007 eingeführt wurde. PPTX‑Dateien bieten bessere Leistung, kleinere Dateigröße und verbesserte Datenwiederherstellung.
+Ja. Aspose.Slides für C++ lädt und speichert Präsentationsdateien, ohne dass Microsoft PowerPoint erforderlich ist.
 
-**Unterstützt Aspose.Slides die Stapelkonvertierung mehrerer PPT‑Dateien zu PPTX?**
+**Wird die PPT‑zu‑PPTX‑Konvertierung sämtliche Inhalte exakt erhalten?**
 
-Ja, Sie können Aspose.Slides in einer Schleife verwenden, um mehrere PPT‑Dateien programmgesteuert zu PPTX zu konvertieren, was es für Stapelkonvertierungsszenarien geeignet macht.
+Sie erhält die gängigen Präsentationsinhalte, jedoch ist eine exakte Treue für jedes Legacy‑ oder nicht unterstützte Feature nicht garantiert. Überprüfen Sie die erzeugte Datei, wenn sie Makros, OLE‑ oder ActiveX‑Objekte, Medien, spezialisierte Animationen oder seltene Schriften enthält.
 
-**Werden Inhalt und Formatierung nach der Konvertierung beibehalten?**
+**Kann ich eine passwortgeschützte PPT‑Datei konvertieren?**
 
-Aspose.Slides gewährleistet eine hohe Treue bei der Konvertierung von Präsentationen. Folienlayouts, Animationen, Formen, Diagramme und andere Designelemente bleiben bei der Konvertierung von PPT zu PPTX erhalten.
+Ja, sofern Sie beim Laden das korrekte Passwort angeben. Ein fehlendes oder falsches Passwort führt zum Fehlschlag des Ladevorgangs.
 
-**Kann ich andere Formate wie PDF oder HTML aus PPT‑Dateien konvertieren?**
+**Sollte ich die PPT‑Datei nach der Konvertierung löschen?**
 
-Ja, Aspose.Slides unterstützt die Konvertierung von PPT‑Dateien in mehrere Formate, darunter PDF, XPS, HTML, ODP und Bildformate wie PNG und JPEG.
-
-**Ist es möglich, PPT nach PPTX zu konvertieren, ohne dass Microsoft PowerPoint installiert ist?**
-
-Ja, Aspose.Slides ist eine eigenständige API und erfordert weder Microsoft PowerPoint noch andere Drittanbieter‑Software für die Durchführung der Konvertierung.
-
-**Gibt es ein Online‑Tool für die Konvertierung von PPT zu PPTX?**
-
-Ja, Sie können die kostenlose Webanwendung [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/conversion/ppt-to-pptx) nutzen, um die Konvertierung direkt in Ihrem Browser durchzuführen, ohne Code zu schreiben.
+Bewahren Sie das Original auf, bis Sie das PPTX in den relevanten Viewern und Workflows geprüft haben. So haben Sie eine Rückfallkopie, falls ein Legacy‑Feature anders konvertiert wird.

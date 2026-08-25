@@ -1,5 +1,5 @@
 ---
-title: Μετατροπή Παρουσιάσεων PowerPoint σε TIFF με PHP
+title: Μετατροπή παρουσιάσεων PowerPoint σε TIFF σε PHP
 titlelink: PowerPoint σε TIFF
 type: docs
 weight: 90
@@ -22,23 +22,25 @@ keywords:
 - εξαγωγή PPTX σε TIFF
 - PHP
 - Aspose.Slides
-description: "Μάθετε πώς να μετατρέπετε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) σε εικόνες υψηλής ποιότητας TIFF χρησιμοποιώντας Aspose.Slides για PHP μέσω Java, με παραδείγματα κώδικα."
+description: "Μάθετε πώς να μετατρέπετε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) σε εικόνες TIFF υψηλής ποιότητας χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java, με παραδείγματα κώδικα."
 ---
 ## **Εισαγωγή**
 
-TIFF (**Tagged Image File Format**) είναι μια ευρέως χρησιμοποιούμενη, χωρίς απώλειες μορφή raster εικόνας γνωστή για την εξαιρετική ποιότητα και τη λεπτομερή διατήρηση των γραφικών. Σχεδιαστές, φωτογράφοι και εκδότες επιφάνειας εργασίας συχνά επιλέγουν το TIFF για να διατηρούν τα επίπεδα, την ακρίβεια των χρωμάτων και τις αρχικές ρυθμίσεις στις εικόνες τους.
+TIFF (**Tagged Image File Format**) είναι ένα ευρέως χρησιμοποιούμενο, μη απωλεστικό μορφότυπο raster εικόνας γνωστό για την εξαιρετική του ποιότητα και τη λεπτομερή διατήρηση των γραφικών. Σχεδιαστές, φωτογράφοι και γραφίστες συνήθως επιλέγουν TIFF για τη διατήρηση των στρωμάτων, της ακρίβειας χρωμάτων και των αρχικών ρυθμίσεων στις εικόνες τους.
 
-Με τη χρήση του Aspose.Slides, μπορείτε εύκολα να μετατρέψετε τις διαφάνειες PowerPoint (PPT, PPTX) και τις διαφάνειες OpenDocument (ODP) απευθείας σε εικόνες υψηλής ποιότητας TIFF, εξασφαλίζοντας ότι οι παρουσιάσεις σας διατηρούν τη μέγιστη οπτική πιστότητα.
+Χρησιμοποιώντας το Aspose.Slides, μπορείτε εύκολα να μετατρέψετε τις διαφάνειες PowerPoint (PPT, PPTX) και τις διαφάνειες OpenDocument (ODP) απευθείας σε εικόνες TIFF υψηλής ποιότητας, διασφαλίζοντας ότι οι παρουσιάσεις σας διατηρούν τη μέγιστη οπτική πιστότητα. 
 
 ## **Μετατροπή Παρουσίασης σε TIFF**
 
-Χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#save) που παρέχεται από την κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) μπορείτε γρήγορα να μετατρέψετε ολόκληρη την παρουσίαση PowerPoint σε TIFF. Οι παραγόμενες εικόνες TIFF αντιστοιχούν στο προεπιλεγμένο μέγεθος διαφάνειας.
+Χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#save) που παρέχεται από την κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/), μπορείτε γρήγορα να μετατρέψετε ολόκληρη μια παρουσίαση PowerPoint σε TIFF. Οι παραγόμενες εικόνες TIFF αντιστοιχούν στο προεπιλεγμένο μέγεθος διαφάνειας.
+
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε TIFF:
 
 ```php
-// Δημιουργήστε το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP, κλπ).
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP κλπ).
 $presentation = new Presentation("presentation.pptx");
 try {
-    // Αποθηκεύστε την παρουσίαση ως TIFF.
+    // Αποθήκευση της παρουσίασης ως TIFF.
     $presentation->save("output.tiff", SaveFormat::Tiff);
 } finally {
     $presentation->dispose();
@@ -47,11 +49,17 @@ try {
 
 ## **Μετατροπή Παρουσίασης σε Ασπρόμαυρο TIFF**
 
-Η μέθοδος [setBwConversionMode](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#setBwConversionMode) στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/) σας επιτρέπει να ορίσετε τον αλγόριθμο που χρησιμοποιείται κατά τη μετατροπή μιας έγχρωμης διαφάνειας ή εικόνας σε ασπρόμαυρο TIFF. Σημειώστε ότι αυτή η ρύθμιση εφαρμόζεται μόνο όταν η μέθοδος [setCompressionType](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#getCompressionType) έχει οριστεί σε `CCITT4` ή `CCITT3`.
+Η μέθοδος [setBwConversionMode](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#setBwConversionMode) στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/) επιτρέπει να καθορίσετε τον αλγόριθμο που χρησιμοποιείται κατά τη μετατροπή μιας έγχρωμης διαφάνειας ή εικόνας σε ασπρόμαυρο TIFF. Σημειώστε ότι αυτή η ρύθμιση ισχύει μόνο όταν η μέθοδος [setCompressionType](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#getCompressionType) ορίζεται σε `CCITT4` ή `CCITT3`.
 
-Ας υποθέσουμε ότι έχουμε ένα αρχείο «sample.pptx» με την ακόλουθη διαφάνεια:
+{{% alert color="info" title="Note" %}}
+Το [TiffOptions::setBwConversionMode](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#setBwConversionMode) είναι μια ρύθμιση επιπέδου εξαγωγής που επιλέγει έναν αλγόριθμο μετατροπής pixel για ολόκληρη την εικόνα TIFF. Για να καθορίσετε πώς πρέπει να εμφανίζεται ένα μεμονωμένο σχήμα όταν η κατάσταση ασπρόμαυρης εμφάνισης είναι ενεργή, χρησιμοποιήστε το [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/#setBlackWhiteMode). Δείτε το [Control Black-and-White Rendering for Shapes](/slides/el/php-java/shape-formatting/#control-black-and-white-rendering-for-shapes) για παραδείγματα.
+{{% /alert %}}
+
+Ας πούμε ότι έχουμε ένα αρχείο "sample.pptx" με την ακόλουθη διαφάνεια:
 
 ![Διαφάνεια παρουσίασης](slide_black_and_white.png)
+
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε την έγχρωμη διαφάνεια σε ασπρόμαυρο TIFF:
 
 ```php
 $tiffOptions = new TiffOptions();
@@ -70,12 +78,14 @@ try {
 
 ![Ασπρόμαυρο TIFF](TIFF_black_and_white.png)
 
-## **Μετατροπή Παρουσίασης σε TIFF με Προσαρμοσμένο Μέγεθος**
+## **Μετατροπή Παρουσιασης σε TIFF με Προσαρμοσμένο Μέγεθος**
 
-Εάν χρειάζεστε εικόνα TIFF με συγκεκριμένες διαστάσεις, μπορείτε να ορίσετε τις επιθυμητές τιμές χρησιμοποιώντας τις μεθόδους που διατίθενται στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/). Για παράδειγμα, η μέθοδος [setImageSize](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#getImageSize) σας επιτρέπει να καθορίσετε το μέγεθος της παραγόμενης εικόνας.
+Αν χρειάζεστε μια εικόνα TIFF με συγκεκριμένες διαστάσεις, μπορείτε να ορίσετε τις επιθυμητές τιμές χρησιμοποιώντας τις μεθόδους που διατίθενται στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/). Για παράδειγμα, η μέθοδος [setImageSize](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#getImageSize) σας επιτρέπει να ορίσετε το μέγεθος της προκύπτουσας εικόνας.
+
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνες TIFF με προσαρμοσμένο μέγεθος:
 
 ```php
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP, κλπ).
+// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP κλπ).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
@@ -85,7 +95,7 @@ try {
     /*
     Τύποι συμπίεσης:
         Default - Καθορίζει το προεπιλεγμένο σχήμα συμπίεσης (LZW).
-        None - Καθορίζει ότι δεν υπάρχει συμπίεση.
+        None - Καθορίζει χωρίς συμπίεση.
         CCITT3
         CCITT4
         LZW
@@ -112,19 +122,21 @@ try {
 }
 ```
 
-## **Μετατροπή Παρουσίασης σε TIFF με Προσαρμοσμένη Μορφή Πιξελών Εικόνας**
+## **Μετατροπή Παρουσιασης σε TIFF με Προσαρμοσμένη Μορφή Πιξελών Εικόνας**
 
-Χρησιμοποιώντας τη μέθοδο [setPixelFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#getPixelFormat) από την κλάση [TiffOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/), μπορείτε να καθορίσετε την προτιμώμενη μορφή πιξελών για την παραγόμενη εικόνα TIFF.
+Χρησιμοποιώντας τη μέθοδο [setPixelFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/#getPixelFormat) από την κλάση [TiffOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/tiffoptions/), μπορείτε να καθορίσετε την προτιμώμενη μορφή πιξελών για την προκύπτουσα εικόνα TIFF.
+
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνα TIFF με προσαρμοσμένη μορφή πιξελών:
 
 ```php
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP, κλπ).
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης (PPT, PPTX, ODP κλπ).
 $presentation = new Presentation("presentation.pptx");
 try {
     $tiffOptions = new TiffOptions();
 
     $tiffOptions->setPixelFormat(ImagePixelFormat::Format8bppIndexed);
     /*
-    Το ImagePixelFormat περιέχει τις ακόλουθες τιμές (όπως αναφέρεται στην τεκμηρίωση):
+    Το ImagePixelFormat περιέχει τις παρακάτω τιμές (σύμφωνα με την τεκμηρίωση):
         Format1bppIndexed - 1 bit ανά pixel, με ευρετήριο.
         Format4bppIndexed - 4 bits ανά pixel, με ευρετήριο.
         Format8bppIndexed - 8 bits ανά pixel, με ευρετήριο.
@@ -139,8 +151,8 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Δείτε το ΔΩΡΕΑΝ μετατροπέα PowerPoint σε Αφίσα της Aspose [εδώ](https://products.aspose.app/slides/el/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+Δοκιμάστε το [ΔΩΡΕΑΝ Μετατροπέας PowerPoint σε Αφίσα](https://products.aspose.app/slides/el/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**
@@ -151,8 +163,8 @@ try {
 
 **Υπάρχει κάποιο όριο στον αριθμό των διαφανειών κατά τη μετατροπή μιας παρουσίασης σε TIFF;**
 
-Όχι, το Aspose.Slides δεν θέτει περιορισμούς στον αριθμό των διαφανειών. Μπορείτε να μετατρέψετε παρουσιάσεις οποιουδήποτε μεγέθους σε μορφή TIFF.
+Όχι, το Aspose.Slides δεν επιβάλλει περιορισμούς στον αριθμό των διαφανειών. Μπορείτε να μετατρέψετε παρουσιάσεις οποιουδήποτε μεγέθους σε μορφή TIFF.
 
-**Διατηρούνται οι κινούμενες εικόνες και τα εφέ μετάβασης του PowerPoint όταν μετατρέπονται οι διαφάνειες σε TIFF;**
+**Διατηρούνται οι κινήσεις και τα εφέ μετάβασης του PowerPoint όταν μετατρέπονται οι διαφάνειες σε TIFF;**
 
-Όχι, το TIFF είναι μια στατική μορφή εικόνας. Επομένως, τα κινούμενα στοιχεία και τα εφέ μετάβασης δεν διατηρούνται· εξάγονται μόνο στατικές στιγμιότυπες των διαφανειών.
+Όχι, το TIFF είναι μια μορφή στατικής εικόνας. Συνεπώς, οι κινήσεις και τα εφέ μετάβασης δεν διατηρούνται· εξάγονται μόνο στατικά στιγμιότυπα των διαφανειών.

@@ -1,5 +1,5 @@
 ---
-title: Αποδοτική Συγχώνευση Παρουσιάσεων σε .NET
+title: Αποτελεσματική Συγχώνευση Παρουσιάσεων στο .NET
 linktitle: Συγχώνευση Παρουσιάσεων
 type: docs
 weight: 40
@@ -20,244 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Χωρίς κόπο, συγχωνεύστε παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) με το Aspose.Slides για .NET, βελτιώνοντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να συγχωνεύετε παρουσιάσεις PowerPoint και OpenDocument στο .NET κλωνοποιώντας διαφάνειες, ελέγχοντας masters και layouts, αλλάζοντας το μέγεθος του περιεχομένου των διαφανειών, διατηρώντας ενότητες και διαχειρίζοντας προστατευμένα ή μεγάλα αρχεία."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σάς επιτρέπει να συγχωνεύετε παρουσιάσεις κλωνοποιώντας διαφάνειες από μία παρουσίαση σε άλλη. Αυτό το άρθρο εξηγεί πώς να συγχωνεύσετε ολόκληρες παρουσιάσεις ή επιλεγμένες διαφάνειες, να χρησιμοποιήσετε έναν master slide ή μια συγκεκριμένη διάταξη κατά τη συγχώνευση, να χειριστείτε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών και να προσθέσετε τις συγχωνευμένες διαφάνειες σε ενότητα παρουσίασης. Περιλαμβάνει επίσης πρακτικές σημειώσεις σχετικά με το συγχωνευμένο περιεχόμενο, όπως σημειώσεις ομιλητή, σχόλια, αρχεία με κωδικό πρόσβασης και χρήση νήματος.
+Το Aspose.Slides for .NET συγχωνεύει παρουσιάσεις κλωνοποιώντας διαφάνειες από μία [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) σε άλλη. Η κύρια λειτουργία είναι η [ISlideCollection.AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/), η οποία μπορεί να διατηρήσει τη μορφοποίηση της πηγαίας διαφάνειας ή να συνδέσει τη κλωνοποιημένη διαφάνεια με ένα master ή layout στην προοριζόμενη παρουσίαση.
 
-## **Βελτιστοποίηση Συγχώνευσης Παρουσιάσεων**
+Αυτό το άρθρο καλύπτει τις πιο συνηθισμένες ροές εργασίας συγχώνευσης:
 
-Με το [Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/), συνδυάστε απρόσκοπτα παρουσιάσεις PowerPoint διατηρώντας τα στυλ, τις διατάξεις και όλα τα στοιχεία. Σε αντίθεση με άλλα εργαλεία, το Aspose.Slides ενώνει παρουσιάσεις χωρίς να υποβαθμίζει την ποιότητα ή να χάνει δεδομένα. Συγχωνεύστε ολόκληρες παρουσιάσεις, συγκεκριμένες διαφάνειες και ακόμη διαφορετικές μορφές αρχείων (PPT προς PPTX κ.λπ.).
+- συγχώνευση όλων των διαφανειών διατηρώντας τη μορφοποίηση της πηγής·
+- συγχώνευση επιλεγμένων διαφανειών·
+- εφαρμογή master από την προοριζόμενη παρουσίαση·
+- εφαρμογή συγκεκριμένου layout από την προοριζόμενη παρουσίαση·
+- εξομάλυνση διαφορετικών μεγεθών διαφανειών πριν τη συγχώνευση·
+- προσθήκη κλωνοποιημένων διαφανειών σε ενότητα·
+- συγχώνευση πολλαπλών παρουσιάσεων σε μία ολοκληρωμένη διαδικασία·
+- διαχείριση masters, πόρων, σημειώσεων, σχολίων, πολυμέσων, γραμματοσειρών, κωδικών, μεγάλων αρχείων και θεμάτων πολυνηματικότητας.
 
-### **Χαρακτηριστικά Συγχώνευσης**
+## **Πώς η Κλωνοποίηση Διαφανειών Επηρεάζει Masters και Layouts**
 
-- **Συγκόνωση Όλων των Παρούσιασεων**: Συναρμολόγηση όλων των διαφανειών σε ένα ενιαίο αρχείο.  
-- **Συγκόνωση Συγκεκριμένων Διαφανείων**: Επιλογή και συνδυασμός των επιλεγμένων διαφανειών.  
-- **Διαμέσο Συγκόνωση Μορφων**: Ενσωμάτωση παρουσιάσεων διαφορετικών μορφών, διατηρώντας την ακεραιότητα.
+Μια διαφάνεια κληρονομεί μεγάλο μέρος της εμφάνισής της από το layout και το master της. Για αυτόν τον λόγο, η υπερφόρτωση κλωνοποίησης που επιλέγετε καθορίζει πώς θα ενσωματωθεί η συγχωνευμένη διαφάνεια στην προοριζόμενη παρουσίαση.
 
-{{% alert title="Συμβουλή" color="primary" %}}  
-Αναζητάτε ένα γρήγορο και **δωρεάν διαδικτυακό εργαλείο** για **συγχώνευση παρουσιάσεων PowerPoint**; Δοκιμάστε το [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/el/merger).  
-- **Συγχώνευση αρχείων PowerPoint εύκολα**: Συνδυάστε πολλαπλές παρουσιάσεις **PPT, PPTX, ODP** σε ένα αρχείο.  
-- **Υποστηρίζει διαφορετικές μορφές**: Συγχώνευση **PPT σε PPTX**, **PPTX σε ODP** κ.ά.  
-- **Δεν απαιτείται εγκατάσταση**: Λειτουργεί απευθείας στον περιηγητή σας, γρήγορα και ασφαλώς.  
+Χρησιμοποιήστε την [ISlideCollection.AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/) με έναν από τους παρακάτω τρόπους:
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/el/merger)  
+- `AddClone(sourceSlide)` — διατηρεί το layout και τη μορφοποίηση της πηγαίας διαφάνειας. Όταν απαιτείται, το πηγαίο master μπορεί να κλωνοποιηθεί αυτόματα στην προοριζόμενη παρουσίαση. Το Aspose.Slides καταγράφει αυτόματα κλωνοποιημένα masters ώστε επαναλαμβανόμενες διαφάνειες που χρησιμοποιούν το ίδιο πηγαίο master να μην κλωνοποιούν το master ξανά.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — συνδέει τη κλωνοποιημένη διαφάνεια με ένα συγκεκριμένο προοριζόμενο [IMasterSlide](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslide/). Το Aspose.Slides αναζητά ένα ταιριαστό layout κάτω από αυτό το master με βάση τον τύπο ή το όνομα του layout.
+- `AddClone(sourceSlide, destinationLayout)` — συνδέει τη κλωνοποιημένη διαφάνεια απευθείας με ένα συγκεκριμένο προοριζόμενο [ILayoutSlide](https://reference.aspose.com/slides/el/net/aspose.slides/ilayoutslide/).
 
-Ξεκινήστε τη συγχώνευση των αρχείων PowerPoint με το **δωρεάν διαδικτυακό εργαλείο Aspose** σήμερα!  
-{{% /alert %}}
+Το master ή το layout που παρέχεται σε μια υπερφόρτωση `AddClone` πρέπει να ανήκει στην **προοριζόμενη** παρουσίαση, όχι στην πηγαία παρουσίαση.
 
-## **Συγχώνευση Παρουσιάσεων**
+## **Συγχώνευση Ολόκληρων Παρουσιάσεων και Διατήρηση Μορφοποίησης Πηγής**
 
-Όταν [συγχωνεύετε μια παρουσίαση με άλλη](https://products.aspose.com/slides/el/net/merger/ppt/), συνδυάζετε ουσιαστικά τις διαφάνειές της σε μία ενιαία παρουσίαση για να παραχθεί ένα αρχείο.
+Η πιο απλή συγχώνευση αντιγράφει κάθε διαφάνεια από την πηγαία παρουσίαση στην προοριζόμενη. Αυτή είναι η κατάλληλη επιλογή όταν οι εισαγόμενες διαφάνειες πρέπει να διατηρήσουν το αρχικό θέμα, master και σχέσεις layout.
 
-{{% alert title="Πληροφορίες" color="info" %}}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Τα περισσότερα προγράμματα παρουσίασης (PowerPoint ή OpenOffice) δεν διαθέτουν λειτουργίες που να επιτρέπουν στους χρήστες να συνδυάζουν παρουσιάσεις με αυτόν τον τρόπο.
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-Το [Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/) επιτρέπει, ωστόσο, τη συγχώνευση παρουσιάσεων με διαφορετικούς τρόπους. Μπορείτε να συγχωνεύσετε παρουσιάσεις με όλα τα σχήματα, στυλ, κείμενα, μορφοποιήσεις, σχόλια, κινούμενα σχέδια κ.λπ., χωρίς να ανησυχείτε για απώλεια ποιότητας ή δεδομένων.
-
-**Δείτε επίσης**
-
-[Clone Slides](https://docs.aspose.com/slides/el/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
-{{% /alert %}}
-
-### **Τι Μπορεί να Συγχωνευτεί**
-
-Με το Aspose.Slides, μπορείτε να συγχωνεύσετε  
-
-* ολόκληρες παρουσιάσεις. Όλες οι διαφάνειες από τις πηγές καταλήγουν σε μία παρουσίαση  
-* συγκεκριμένες διαφάνειες. Οι επιλεγμένες διαφάνειες καταλήγουν σε μία παρουσίαση  
-* παρουσιάσεις σε μία μορφή (PPT σε PPT, PPTX σε PPTX κ.λπ.) και σε διαφορετικές μορφές (PPT σε PPTX, PPTX σε ODP κ.λπ.) μεταξύ τους.  
-
-{{% alert title="Σημείωση" color="warning" %}}  
-
-Εκτός από παρουσιάσεις, το Aspose.Slides επιτρέπει τη συγχώνευση και άλλων αρχείων:
-
-* [Images](https://products.aspose.com/slides/el/net/merger/image-to-image/), όπως [JPG σε JPG](https://products.aspose.com/slides/el/net/merger/jpg-to-jpg/) ή [PNG σε PNG](https://products.aspose.com/slides/el/net/merger/png-to-png/)  
-* Έγγραφα, όπως [PDF σε PDF](https://products.aspose.com/slides/el/net/merger/pdf-to-pdf/) ή [HTML σε HTML](https://products.aspose.com/slides/el/net/merger/html-to-html/)  
-* Και δύο διαφορετικά αρχεία, όπως [image σε PDF](https://products.aspose.com/slides/el/net/merger/image-to-pdf/), [JPG σε PDF](https://products.aspose.com/slides/el/net/merger/jpg-to-pdf/) ή [TIFF σε PDF](https://products.aspose.com/slides/el/net/merger/tiff-to-pdf/).  
-
-{{% /alert %}}
-
-### **Επιλογές Συγχώνευσης**
-
-Μπορείτε να εφαρμόσετε επιλογές που καθορίζουν εάν  
-
-* κάθε διαφάνεια στην τελική παρουσίαση διατηρεί μοναδικό στυλ  
-* ένα συγκεκριμένο στυλ χρησιμοποιείται για όλες τις διαφάνειες στην τελική παρουσίαση.  
-
-Για τη συγχώνευση παρουσιάσεων, το Aspose.Slides παρέχει μεθόδους [AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/methods/addclone) (από τη διεπαφή [ISlideCollection](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection)). Υπάρχουν πολλές υλοποιήσεις των μεθόδων `AddClone` που ορίζουν τις παραμέτρους της διαδικασίας συγχώνευσης. Κάθε αντικείμενο Presentation έχει μια συλλογή [Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/properties/slides), επομένως μπορείτε να καλέσετε τη μέθοδο `AddClone` από την παρουσίαση στην οποία θέλετε να συγχωνεύσετε τις διαφάνειες.  
-
-Η μέθοδος `AddClone` επιστρέφει ένα αντικείμενο `ISlide`, το οποίο είναι κλώνος της πηγαίας διαφάνειας. Οι διαφάνειες στην έξοδο είναι απλώς αντίγραφα των διαφανειών της πηγής. Συνεπώς, μπορείτε να τροποποιήσετε τις προκύπτουσες διαφάνειες (π.χ. να εφαρμόσετε στυλ, επιλογές μορφοποίησης ή διατάξεις) χωρίς να επηρεάσετε τις πηγαίες παρουσιάσεις.  
-
-## **Συγχώνευση Παρουσιάσεων** 
-
-Το Aspose.Slides παρέχει τη μέθοδο [**AddClone (ISlide)**](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/methods/addclone) που επιτρέπει τον συνδυασμό διαφανειών ενώ οι διαφάνειες διατηρούν τις διατάξεις και τα στυλ τους (προεπιλεγμένες παράμετροι).  
-
-Αυτός ο κώδικας C# δείχνει πώς να συγχωνεύσετε παρουσιάσεις:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide);
 }
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Master Slide**
+Η προκύπτουσα παρουσίαση ενδέχεται να περιέχει πολλαπλά masters όταν η πηγή και ο προορισμός χρησιμοποιούν διαφορετικά σχέδια. Αυτό είναι αναμενόμενο όταν η μορφοποίηση της πηγής διατηρείται σκόπιμα.
 
-Το Aspose.Slides παρέχει τη μέθοδο [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/el/net/aspose.slides.islidecollection/addclone/methods/2) που επιτρέπει τον συνδυασμό διαφανειών εφαρμόζοντας ένα πρότυπο master slide. Με αυτόν τον τρόπο, εάν χρειαστεί, μπορείτε να αλλάξετε το στυλ των διαφανειών στην τελική παρουσίαση.  
+## **Συγχώνευση Επιλεγμένων Διαφανειών**
 
-Αυτός ο κώδικας C# παρουσιάζει τη λειτουργία:
+Δεν χρειάζεται να κλωνοποιήσετε κάθε διαφάνεια. Το παρακάτω παράδειγμα εισάγει μόνο τις επιλεγμένες διαφάνειες από την πηγαία παρουσίαση.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(source.Slides[index]);
 }
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Σημείωση" color="warning" %}}  
+Επαληθεύστε τους δείκτες διαφανειών πριν την κλωνοποίηση όταν προέρχονται από είσοδο χρήστη ή εξωτερική διαμόρφωση.
 
-Η διάταξη της διαφάνειας για το master slide καθορίζεται αυτόματα. Εάν δεν μπορεί να καθοριστεί κατάλληλη διάταξη, και η παράμετρος `allowCloneMissingLayout` της μεθόδου `AddClone` είναι true, χρησιμοποιείται η διάταξη της πηγαίας διαφάνειας. Διαφορετικά, θα εξαχθεί μια εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/net/aspose.slides/pptxeditexception).  
-{{% /alert %}}
+## **Συγχώνευση Διαφανειών Χρησιμοποιώντας Master Προορισμού**
 
-Αν θέλετε οι διαφάνειες στην έξοδο να έχουν διαφορετική διάταξη, χρησιμοποιήστε τη μέθοδο [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/net/aspose.slides.islidecollection/addclone/methods/1) κατά τη συγχώνευση.  
+Χρησιμοποιήστε την υπερφόρτωση [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/) όταν οι εισαγόμενες διαφάνειες πρέπει να ακολουθούν ένα master που ήδη ανήκει στην προοριζόμενη παρουσίαση.
 
-## **Συγχώνευση Συγκεκριμένων Διαφανειών από Παρουσιάσεις**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Η συγχώνευση συγκεκριμένων διαφανειών από πολλαπλές παρουσιάσεις είναι χρήσιμη για τη δημιουργία προσαρμοσμένων σετ διαφανειών. Το Aspose.Slides for .NET επιτρέπει την επιλογή και εισαγωγή μόνο των διαφανειών που χρειάζεστε. Το API διατηρεί τη μορφοποίηση, τη διάταξη και το σχεδιασμό των αρχικών διαφανειών.  
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-Ο παρακάτω κώδικας C# δημιουργεί μια νέα παρουσίαση, προσθέτει διαφάνειες τίτλου από δύο άλλες παρουσιάσεις και αποθηκεύει το αποτέλεσμα σε αρχείο:
+var destinationMaster = destination.Masters[0];
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
+foreach (var slide in source.Slides)
 {
-    presentation.Slides.RemoveAt(0);
-
-    ISlide slide1 = GetTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
-
-    ISlide slide2 = GetTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
-
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
 }
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διάταξη Διαφάνειας**
+Το Aspose.Slides επιλέγει ένα κατάλληλο layout κάτω από το καθορισμένο master ταιριάσκοντας τον τύπο ή το όνομα του πηγαίου layout. Εάν δεν υπάρχει κατάλληλο layout και το `allowCloneMissingLayout` είναι `true`, το πηγαίο layout κλωνοποιείται ώστε η διαφάνεια να προστεθεί. Εάν είναι `false`, ρίχνεται μια [PptxEditException](https://reference.aspose.com/slides/el/net/aspose.slides/pptxeditexception/).
 
-Αυτός ο κώδικας C# δείχνει πώς να συνδυάσετε διαφάνειες από παρουσιάσεις εφαρμόζοντας την προτιμώμενη διάταξη διαφάνειας για να παραχθεί μία τελική παρουσίαση:
+Χρησιμοποιήστε `false` όταν θέλετε η συγχώνευση να αποτύχει αντί να εισαχθεί ένα επιπλέον layout στο προοριζόμενο master.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+## **Συγχώνευση Διαφανειών Χρησιμοποιώντας Συγκεκριμένο Layout Προορισμού**
+
+Χρησιμοποιήστε την υπερφόρτωση [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/) όταν γνωρίζετε ακριβώς ποιο προοριζόμενο layout πρέπει να χρησιμοποιήσουν οι εισαγόμενες διαφάνειες.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide, destinationLayout);
 }
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 ```
+
+Η εφαρμογή ενός προοριζόμενου layout αλλάζει τη κληρονομημένη σχέση layout· δεν επανασχεδιάζει το περιεχόμενο της πηγαίας διαφάνειας. Εάν τα layout της πηγής και του προορισμού έχουν διαφορετικές δομές placeholders, εξετάστε το αποτέλεσμα για να επιβεβαιώσετε ότι η κληρονομημένη μορφοποίηση και η συμπεριφορά των placeholders είναι κατάλληλη.
 
 ## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφανειών**
 
-{{% alert title="Σημείωση" color="warning" %}}  
+Παρουσιάσεις με διαφορετικές διαστάσεις διαφάνειας μπορούν να συγχωνευτούν, αλλά η κλωνοποίηση μιας διαφάνειας σε παρουσίαση με άλλο μέγεθος δεν επανασχεδιάζει αυτόματα το περιεχόμενό της για το νέο καμβά. Έτσι, σχήματα μπορεί να εμφανιστούν μετατοπισμένα, κλιμακωμένα απρόσμενα ή εκτός ορατής περιοχής της διαφάνειας.
 
-Δεν μπορείτε να συγχωνεύσετε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών.  
-{{% /alert %}}
+Μια πρακτική προσέγγιση είναι να αλλάξετε το μέγεθος της πηγαίας παρουσίασης πριν την κλωνοποίηση. Η μέθοδος [SlideSize.SetSize](https://reference.aspose.com/slides/el/net/aspose.slides/slidesize/setsize/) μπορεί να κλιμακώσει το υπάρχον περιεχόμενο ενώ αλλάζει τις διαστάσεις της διαφάνειας. Το [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/el/net/aspose.slides/slidesizescaletype/) κλιμακώνει το περιεχόμενο ώστε να ταιριάζει στο ζητούμενο μέγεθος.
 
-Για να συγχωνεύσετε 2 παρουσιάσεις με διαφορετικά μεγέθη διαφανειών, πρέπει να αλλάξετε το μέγεθος μίας από τις παρουσιάσεις ώστε να ταιριάζει με αυτό της άλλης.  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Αυτό το δείγμα κώδικα παρουσιάζει τη λειτουργία:
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
 {
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
 }
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 ```
+
+Η αλλαγή μεγέθους τροποποιεί το αντικείμενο της πηγαίας παρουσίασης στη μνήμη. Εάν χρειάζεστε την αρχική πηγή αμετάβλητη για άλλες λειτουργίες, ανοίξτε ένα ξεχωριστό αντίInstance για τη συγχώνευση.
 
 ## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης**
 
-Αυτός ο κώδικας C# δείχνει πώς να συγχωνεύσετε μια συγκεκριμένη διαφάνεια σε μια ενότητα της παρουσίασης:
+Ο βασικός βρόχος κλωνοποίησης διαφανειών δεν επαναδημιουργεί τη ιεραρχία ενοτήτων της πηγαίας παρουσίασης. Εάν οι ενότητες έχουν σημασία στο τελικό αποτέλεσμα, δημιουργήστε ή επιλέξτε ενότητες στην προοριζόμενη παρουσίαση και κλωνοποιήστε διαφάνειες σε αυτές ρητά με το [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/).
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
 {
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide, importedSection);
 }
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
 ```
 
-Η διαφάνεια προστίθεται στο τέλος της ενότητας.  
+Οι κλωνοποιημένες διαφάνειες προσαρτώνται στην καθορισμένη προοριζόμενη ενότητα. Για να διατηρήσετε πολλές πηγαίες ενότητες, κάντε επανάληψη στα [Presentation.Sections](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/sections/), ανακτήστε τις τρέχουσες διαφάνειες κάθε πηγής με το [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/el/net/aspose.slides/isection/getslideslistofsection/), ξαναδημιουργήστε τις ενότητες στον προορισμό και κλωνοποιήστε κάθε διαφάνεια στην αντίστοιχη προοριζόμενη ενότητα. Δείτε το [Manage Slide Sections](/slides/el/net/slide-section/) για πλήρες παράδειγμα επανάληψης ενοτήτων, συμπεριλαμβανομένων των κενών ενοτήτων και των δομικών αλλαγών.
 
-{{% alert title="Συμβουλή" color="primary" %}}  
+## **Ασφαλής Συγχώνευση Πολλαπλών Παρουσιάσεων**
 
-Το Aspose παρέχει μια [ΔΩΡΕΑΝ εφαρμογή Collage στο web](https://products.aspose.app/slides/el/collage). Χρησιμοποιώντας αυτήν την online υπηρεσία, μπορείτε να συγχωνεύσετε [JPG σε JPG](https://products.aspose.app/slides/el/collage/jpg) ή PNG σε PNG εικόνες, να δημιουργήσετε [πλέγματα φωτογραφιών](https://products.aspose.app/slides/el/collage/photo-grid) κ.ά.  
-{{% /alert %}}
+Το παρακάτω ολοκληρωμένο παράδειγμα χρησιμοποιεί την πρώτη παρουσίαση ως προορισμό, εξομαλύνει το μέγεθος διαφάνειας κάθε πρόσθετης πηγής, κρατά κάθε πηγή ανοιχτή μόνο όσο αντιγράφεται και αποθηκεύει το τελικό αρχείο μια μόνο φορά.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
+    {
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
+    }
+
+    foreach (var slide in source.Slides)
+    {
+        merged.Slides.AddClone(slide);
+    }
+}
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+Αυτή είναι μια χρήσιμη βάση για διατήρηση της μορφοποίησης πηγής των εισαγόμενων διαφανειών. Εάν το τελικό σας αποτέλεσμα πρέπει να χρησιμοποιεί ένα ενιαίο θέμα προορισμού, αντικαταστήστε την απλή κλήση `AddClone(slide)` με την κατάλληλη υπερφόρτωση master ή layout που παρουσιάστηκε νωρίτερα.
+
+## **Πρακτικές Παρατηρήσεις**
+
+### **Masters, Layouts και Πιστότητα Μορφοποίησης**
+
+Η προεπιλεγμένη κλωνοποίηση διαφανειών μπορεί αυτόματα να φέρει ένα απαιτούμενο master πηγής στην προοριζόμενη παρουσίαση. Το Aspose.Slides διατηρεί εσωτερικό μητρώο για τα αυτόματα κλωνοποιημένα masters ώστε να αποφεύγεται η πολλαπλή κλωνοποίηση του ίδιου master. Τα χειροκίνητα κλωνοποιημένα masters δεν καταγράφονται σε αυτό το μητρώο, γι' αυτό αποφεύγετε την προ-κλωνοποίηση masters εκτός εάν χρειάζεστε άμεσο έλεγχο της δομής του master.
+
+Μην υποθέτετε ότι δύο masters ή layouts με το ίδιο όνομα είναι οπτικά ισοδύναμα. Εάν ένα εταιρικό πρότυπο πρέπει να ελέγξει την τελική εμφάνιση, επιλέξτε ρητά ένα master ή layout προορισμού και επαληθεύστε το αποτέλεσμα μετά τη συγχώνευση.
+
+### **Σημειώσεις και Σχόλια**
+
+Οι σημειώσεις ομιλητή και τα σχόλια στις διαφάνειες συνδέονται με το περιεχόμενο της διαφάνειας και αντιγράφονται όταν κλωνοποιείται η διαφάνεια. Το Aspose.Slides παρέχει επίσης ειδικά API για [presentation notes](/slides/el/net/presentation-notes/) και [presentation comments](/slides/el/net/presentation-comments/).
+
+Εάν η μορφοποίηση της σελίδας σημειώσεων είναι σημαντική, επαληθεύστε την συγχωνευμένη παρουσίαση επειδή οι masters σημειώσεων είναι αντικείμενα επιπέδου παρουσίασης και μπορεί να διαφέρουν μεταξύ των αρχείων πηγής. Για διεργασίες ελέγχου, επαληθεύστε επίσης τους συγγραφείς σχολίων και τα νήματα σχολίων μετά τη συνένωση αρχείων από διαφορετικούς συγγραφείς ή πρότυπα.
+
+### **Εικόνες, Ήχος, Βίντεο, Αντικείμενα OLE και Εξωτερικοί Σύνδεσμοι**
+
+Οι διαφάνειες μπορούν να αναφέρονται σε πόρους επιπέδου παρουσίασης όπως εικόνες, ενσωματωμένο ήχο, ενσωματωμένο βίντεο και δεδομένα OLE. Κλωνοποιήστε τη διαφάνεια ολοκληρωτικά αντί να αντιγράφετε μόνο τα ορατά σχήματα, ώστε το Aspose.Slides να διατηρήσει τις σχέσεις της διαφάνειας με τους πόρους της.
+
+Οι ενσωματωμένοι και σύνδεσμοι πόρων πρέπει να αντιμετωπίζονται διαφορετικά. Ένας συνδεδεμένος ήχος, βίντεο, αντικείμενο OLE ή υπερσύνδεσμος παραμένει εξαρτημένος από τον εξωτερικό του προορισμό· η κλωνοποίηση μιας διαφάνειας δεν μετατρέπει έναν εξωτερικό σύνδεσμο σε ενσωματωμένο περιεχόμενο. Δοκιμάστε τις διαδρομές και τις διευθύνσεις URL των εξωτερικών πόρων στο περιβάλλον όπου θα ανοιχτεί η συγχωνευμένη παρουσίαση.
+
+Το Aspose.Slides καταγράφει αυτόματα κλωνοποιημένα masters, αλλά αυτό δεν πρέπει να θεωρείται γενική εγγύηση ότι παρόμοιο δυαδικό περιεχόμενο από άσχετες πηγές θα αφαιρεθεί αυτόματα. Εάν το μέγεθος του αρχείου εξόδου είναι κρίσιμο, εξετάστε το τελικό πακέτο και μετρήστε το αποτέλεσμα αντί να βασίζεστε σε μηχανισμούς αυτόματης αποσυμπίεσης.
+
+### **Ενσωματωμένες Γραμματοσειρές και Διαθεσιμότητα Γραμματοσειρών**
+
+Οι γραμματοσειρές διαχειρίζονται επιπέδου παρουσίασης. Εάν η τυπογραφία πρέπει να παραμείνει συνεπής μεταξύ των μηχανημάτων, μην υποθέτετε ότι η κλωνοποίηση διαφανειών εξασφαλίζει την παρουσία κάθε απαιτούμενης γραμματοσειράς στο περιβάλλον προορισμού. Μπορείτε να ελέγξετε τις ενσωματωμένες γραμματοσειρές με το [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/el/net/aspose.slides/fontsmanager/getembeddedfonts/) και να διαχειριστείτε την ενσωμάτωση όπως περιγράφεται στο [Embed Fonts in Presentations](/slides/el/net/embedded-font/).
+
+Επιβεβαιώστε επίσης ότι έχετε το δικαίωμα να ενσωματώσετε τις γραμματοσειρές που χρησιμοποιούν τα αρχεία πηγής· οι άδειες γραμματοσειρών μπορεί να περιορίζουν την ενσωμάτωση.
+
+### **Παρουσιάσεις με Κωδικό Πρόσβασης**
+
+Μια πηγαία παρουσίαση προστατευμένη με κωδικό πρέπει να ανοίξει επιτυχώς πριν τις διαφάνειές της κλωνοποιήσετε. Παρέχετε τον κωδικό μέσω του [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
+```
+
+Το άνοιγμα ενός κρυπτογραφημένου αρχείου δεν εφαρμόζει αυτόματα την ίδια προστασία στην προοριζόμενη παρουσίαση. Διαμορφώστε την προστασία εξόδου ξεχωριστά εάν απαιτείται.
+
+### **Μεγάλες Παρουσιάσεις και Χρήση Μνήμης**
+
+Οι μεγάλες παρουσιάσεις που περιλαμβάνουν εικόνες υψηλής ανάλυσης, ήχο, βίντεο ή άλλα μεγάλα δυαδικά αντικείμενα μπορεί να καταναλώνουν σημαντική μνήμη. Το [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/blobmanagementoptions/) παρέχει ελέγχους για τη διαχείριση BLOB και τη χρήση προσωρινών αρχείων. Δείτε το [Manage Presentation BLOBs](/slides/el/net/manage-blob/) για στρατηγικές μεγάλων αρχείων.
+
+Για μεγάλα αρχεία, προτιμήστε τη φόρτωση από διαδρομές αρχείων όταν είναι δυνατόν, απελευθερώστε κάθε πηγαία παρουσίαση αμέσως μετά τη συγχώνευση και αποφύγετε την επαναλαμβανόμενη αποθήκευση ενδιάμεσων αποτελεσμάτων εκτός εάν η ροή εργασίας απαιτεί σημεία ελέγχου.
+
+### **Ασφάλεια Πολυνηματικότητας**
+
+Μην φορτώνετε, τροποποιείτε, αποθηκεύετε ή κλωνοποιείτε το ίδιο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) ταυτόχρονα από πολλαπλά νήματα. Κρατήστε κάθε παρουσίαση περιορισμένη σε μία λειτουργία συγχώνευσης. Εάν παράγετε ανεξάρτητες εργασίες παράλληλα, χρησιμοποιήστε ανεξάρτητα αντικείμενα παρουσίασης και ακολουθήστε τις οδηγίες πολυνηματικότητας του [Aspose.Slides multithreading guidance](/slides/el/net/multithreading/).
 
 ## **Συχνές Ερωτήσεις**
 
-**Διατηρούνται οι σημειώσεις ομιλητή κατά τη συγχώνευση;**
+**Πώς μπορώ να διατηρήσω το αρχικό σχεδιασμό κάθε πηγαίας παρουσίασης;**
 
-Ναι. Κατά την κλωνοποίηση διαφανειών, το Aspose.Slides μεταφέρει όλα τα στοιχεία της διαφάνειας, συμπεριλαμβανομένων των σημειώσεων, της μορφοποίησης και των κινούμενων σχεδίων.
+Χρησιμοποιήστε το [AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/) χωρίς να παρέχετε master ή layout προορισμού. Το Aspose.Slides μπορεί να κλωνοποιήσει αυτόματα το πηγαίο master όταν απαιτείται από την εισαγόμενη διαφάνεια.
 
-**Μεταφέρονται τα σχόλια και οι συγγραφείς τους;**
+**Πώς κάνω ώστε οι εισαγόμενες διαφάνειες να χρησιμοποιούν το θέμα προορισμού;**
 
-Τα σχόλια, ως μέρος του περιεχομένου της διαφάνειας, αντιγράφονται μαζί με τη διαφάνεια. Οι ετικέτες των συγγραφέων των σχολίων διατηρούνται ως αντικείμενα σχολίου στην τελική παρουσίαση.
+Χρησιμοποιήστε την υπερφόρτωση που αποδέχεται ένα master προορισμού. Παρέχετε ένα master από την προοριζόμενη παρουσίαση, όχι από την πηγή. Το Aspose.Slides θα προσπαθήσει να αντιστοιχίσει κάθε πηγαία διαφάνεια σε ένα κατάλληλο layout κάτω από αυτό το master.
 
-**Τι γίνεται αν η πηγαία παρουσίαση είναι προστατευμένη με κωδικό;**
+**Πότε πρέπει να χρησιμοποιήσω συγκεκριμένο layout προορισμού αντί για master προορισμού;**
 
-Πρέπει να [ανοιχθεί με τον κωδικό πρόσβασης](/slides/el/net/password-protected-presentation/) μέσω του [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/); μετά τη φόρτωση, οι διαφάνειες μπορούν να κλωνοποιηθούν με ασφάλεια σε ένα αρχείο χωρίς κωδικό (ή και σε προστατευμένο αρχείο).  
+Χρησιμοποιήστε συγκεκριμένο layout όταν κάθε εισαγόμενη διαφάνεια πρέπει να χρησιμοποιεί ένα γνωστό layout. Χρησιμοποιήστε master όταν θέλετε το Aspose.Slides να επιλέξει μεταξύ των layout του master με βάση τον τύπο ή το όνομα του πηγαίου layout.
 
-**Πόσο ασφαλής είναι η λειτουργία συγχώνευσης ως προς τα νήματα;**
+**Μπορούν να συγχωνευτούν παρουσιάσεις με διαφορετικά μεγέθη διαφανειών;**
 
-Μην χρησιμοποιείτε την ίδια παρουσίαση ([Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/)) από [πολλαπλά νήματα](/slides/el/net/multithreading/). Ο συνιστώμενος κανόνας είναι «ένα έγγραφο — ένα νήμα»· διαφορετικά αρχεία μπορούν να επεξεργαστούν παράλληλα σε ξεχωριστά νήματα.
+Ναι, αλλά το περιεχόμενο της διαφάνειας δεν επανασχεδιάζεται αυτόματα για τις διαστάσεις προορισμού. Αλλάξτε το μέγεθος της πηγαίας παρουσίασης πρώτα όταν χρειάζεται προβλεπόμενη τοποθέτηση, για παράδειγμα με το [SlideSize.SetSize](https://reference.aspose.com/slides/el/net/aspose.slides/slidesize/setsize/) και το [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/el/net/aspose.slides/slidesizescaletype/).
+
+**Μπορώ να συγχωνεύσω PPT, PPTX και ODP παρουσιάσεις σε ένα αρχείο;**
+
+Ναι. Φορτώστε κάθε πηγαία παρουσίαση, κλωνοποιήστε τις απαιτούμενες διαφάνειες σε έναν προορισμό και αποθηκεύστε τον προορισμό σε υποστηριζόμενη μορφή εξόδου. Επειδή οι μορφές παρουσίασης δεν υποστηρίζουν ακριβώς το ίδιο σύνολο λειτουργιών, επαληθεύστε το πολύπλοκο περιεχόμενο μετά τη διαμορφωτική συγχώνευση. Δείτε τις [Supported File Formats](/slides/el/net/supported-file-formats/).
+
+**Διατηρούνται αυτόματα οι ενότητες πηγής;**
+
+Όχι, με έναν βασικό βρόχο που κλωνοποιεί μόνο διαφάνειες. Δημιουργήστε τις απαιτούμενες ενότητες στον προορισμό και χρησιμοποιήστε την υπερφόρτωση ενότητας του [AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/islidecollection/addclone/) όταν η δομή ενότητας πρέπει να διατηρηθεί.
+
+**Διατηρούνται οι σημειώσεις ομιλητή και τα σχόλια;**
+
+Αντιγράφονται μαζί με τη κλωνοποιημένη διαφάνεια. Για ροές εργασίας που εξαρτώνται από το στυλ του master σημειώσεων, τους συγγραφείς σχολίων ή τα νήματα ανασκόπησης, επαληθεύστε το συγχωνευμένο αποτέλεσμα, καθώς αυτά τα σενάρια περιλαμβάνουν δομές επιπέδου παρουσίασης καθώς και περιεχόμενο διαφάνειας.
+
+**Τι συμβαίνει με ήχο, βίντεο, αντικείμενα OLE και υπερσυνδέσμους;**
+
+Το ενσωματωμένο περιεχόμενο μεταφέρεται ως μέρος των σχέσεων πόρων της κλωνοποιημένης διαφάνειας. Οι εξωτερικοί σύνδεσμοι παραμένουν εξωτερικοί, επομένως τα αρχεία-στόχοι ή οι URL τους πρέπει να είναι διαθέσιμα μετά τη συγχώνευση.
+
+**Εγγυώνται οι ενσωματωμένες γραμματοσειρές από κάθε πηγή να είναι διαθέσιμες στη συγχωνευμένη παρουσίαση;**
+
+Μην βασίζεστε μόνο στην κλωνοποίηση διαφανειών για την ανάπτυξη γραμματοσειρών. Εξετάστε τις ενσωματωμένες γραμματοσειρές του προορισμού και διαχειριστείτε ρητά την ενσωμάτωση ή τη διαθεσιμότητα εξωτερικών γραμματοσειρών όταν η τυπογραφία είναι σημαντική.
+
+**Πώς συγχωνεύω ένα αρχείο με κωδικό πρόσβασης;**
+
+Ανοίξτε το με το σωστό [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/), στη συνέχεια κλωνοποιήστε τις διαφάνειες κανονικά. Η προστασία εξόδου ρυθμίζεται ξεχωριστά.
+
+**Πώς πρέπει να χειριστώ πολύ μεγάλες παρουσιάσεις;**
+
+Χρησιμοποιήστε τη διαχείριση BLOB όταν μεγάλα δυαδικά αντικείμενα κυριαρχούν στη μνήμη, προτιμήστε τη φόρτωση από διαδρομή αρχείου για πολύ μεγάλα αρχεία, απελευθερώστε γρήγορα τις πηγές και αποθηκεύστε το τελικό αποτέλεσμα μόνο όταν είναι απαραίτητο.
+
+**Μπορώ να συγχωνεύσω διαφάνειες από πολλαπλά νήματα;**
+
+Μην χρησιμοποιείτε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) ταυτόχρονα από πολλά νήματα. Κρατήστε κάθε λειτουργία συγχώνευσης απομονωμένη σε δικά της αντικείμενα παρουσίασης.

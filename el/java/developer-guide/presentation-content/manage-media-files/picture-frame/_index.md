@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Πλαισίων Εικόνας σε Παρουσιάσεις με Java
-linktitle: Πλαίσιο Εικόνας
+title: Διαχείριση πλαισίων εικόνας σε παρουσιάσεις με Java
+linktitle: Πλαίσιο εικόνας
 type: docs
 weight: 10
 url: /el/java/picture-frame/
@@ -8,545 +8,421 @@ keywords:
 - πλαίσιο εικόνας
 - προσθήκη πλαισίου εικόνας
 - δημιουργία πλαισίου εικόνας
-- προσθήκη εικόνας
-- δημιουργία εικόνας
+- ενσωματωμένη εικόνα
+- συνδεδεμένη εικόνα
 - εξαγωγή εικόνας
-- ράστερ εικόνα
-- διανυσματική εικόνα
+- ραστερ εικόνα
+- SVG εικόνα
 - περικοπή εικόνας
-- περιοχή περικοπής
-- ιδιότητα StretchOff
+- διαγραφή περικομμένων περιοχών
+- συμπίεση εικόνας
+- StretchOffset
 - μορφοποίηση πλαισίου εικόνας
-- ιδιότητες πλαισίου εικόνας
-- σχετική κλίμακα
+- σχετικό κλιμάκωμα
 - εφέ εικόνας
 - αναλογία διαστάσεων
-- διαφάνεια εικόνας
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Προσθέστε πλαίσια εικόνας σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides for Java. Απλοποιήστε τη ροή εργασίας σας και βελτιώστε τον σχεδιασμό των διαφανειών."
+description: Δημιουργία, μορφοποίηση, σύνδεση, περικοπή, εξαγωγή και συμπίεση πλαισίων εικόνας σε παρουσιάσεις με Aspose.Slides για Java.
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένα πλαίσιο εικόνας είναι ένα σχήμα που περιέχει μια εικόνα—είναι όπως μια εικόνα σε κορνίζα.
+Ένα πλαίσιο εικόνας είναι ένα σχήμα διαφάνειας που εμφανίζει μια εικόνα. Στο Aspose.Slides, ο πόρος εικόνας και το σχήμα που την εμφανίζει είναι ξεχωριστά αντικείμενα: ένα [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) διαχειρίζεται ενσωματωμένους πόρους εικόνας μέσω της [IImageCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/iimagecollection/), ενώ ένα [IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/) ελέγχει τη θέση, το μέγεθος, τη μορφοποίηση γραμμής, την περιστροφή, την περικοπή, τα εφέ εικόνας και άλλες ρυθμίσεις επιπέδου πλαισίου.
 
-Μπορείτε να προσθέσετε μια εικόνα σε μια διαφάνεια μέσω ενός πλαισίου εικόνας. Με αυτόν τον τρόπο, μπορείτε να μορφοποιήσετε την εικόνα μορφοποιώντας το πλαίσιο εικόνας.
+Αυτή η διάκριση είναι χρήσιμη όταν η ίδια εικόνα εμφανίζεται περισσότερες από μία φορές. Προσθέστε την εικόνα στην παρουσίαση μία φορά, κρατήστε το επιστρεφόμενο [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ippimage/), και χρησιμοποιήστε αυτόν τον πόρο εικόνας κατά τη δημιουργία πλαισίων εικόνας.
 
-{{% alert  title="Tip" color="primary" %}} 
-Η Aspose παρέχει δωρεάν μετατροπείς—[JPEG σε PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG σε PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που επιτρέπουν στους χρήστες να δημιουργούν παρουσιάσεις γρήγορα από εικόνες. 
-{{% /alert %}} 
+Τα πλαίσια εικόνας μπορούν να περιέχουν ραστερ εικόνες όπως PNG ή JPEG και διάνυσμα SVG. Μπορούν επίσης να παραπέμπουν σε συνδεδεμένες εικόνες αντί να αποθηκεύουν τα bytes της εικόνας στην παρουσίαση. Η επιλογή επηρεάζει τη φορητότητα, το μέγεθος αρχείου, την εξαγωγή και τη συμπεριφορά εξαγωγής, γι' αυτό είναι χρήσιμο να αποφασίσετε πώς θα αποθηκευτεί η εικόνα πριν την εφαρμογή μορφοποίησης ή βελτιστοποίησης.
 
-## **Δημιουργία Πλαισίου Εικόνας**
+## **Προσθήκη και μορφοποίηση ενσωματωμένης εικόνας**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [IPPImage]() προσθέτοντας μια εικόνα στην [IImagescollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/IImageCollection) που είναι συνδεδεμένη με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για τη γέμισμα του σχήματος.
-4. Καθορίστε το πλάτος και το ύψος της εικόνας.
-5. Δημιουργήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/PictureFrame) βασισμένο στο πλάτος και το ύψος της εικόνας μέσω της μεθόδου `AddPictureFrame` που εκτίθεται από το αντικείμενο σχήματος που συνδέεται με τη διαφάνεια αναφοράς.
-6. Προσθέστε ένα πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Για μια ενσωματωμένη εικόνα, προσθέστε τα δεδομένα εικόνας στην παρουσίαση και δημιουργήστε ένα πλαίσιο εικόνας με [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Η εικόνα γίνεται μέρος του πακέτου παρουσίασης, ώστε η παρουσίαση να παραμένει αυτόνομα ενσωματωμένη όταν μεταφερθεί σε άλλο υπολογιστή.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας:
+Το παρακάτω παράδειγμα προσθέτει μια εικόνα JPEG, δημιουργεί ένα πλαίσιο στις φυσικές διαστάσεις της εικόνας και εφαρμόζει μορφοποίηση γραμμής και περιστροφή:
 
 ```java
-// Δημιουργεί μια παρουσίαση της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Παίρνει την πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Δημιουργεί μια παρουσία της κλάσης Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Προσθέτει ένα πλαίσιο εικόνας με το ισοδύναμο ύψος και πλάτος της εικόνας
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-Τα πλαίσια εικόνας επιτρέπουν τη γρήγορη δημιουργία διαφανειών παρουσίασης βάσει εικόνων. Συνδυάζοντας το πλαίσιο εικόνας με τις επιλογές αποθήκευσης του Aspose.Slides, μπορείτε να διαχειριστείτε τις εισόδους/εξόδους για μετατροπή εικόνων από μορφή σε μορφή. Μπορεί να θέλετε να δείτε αυτές τις σελίδες: μετατροπή [εικόνα σε JPG](https://products.aspose.com/slides/el/java/conversion/image-to-jpg/); μετατροπή [JPG σε εικόνα](https://products.aspose.com/slides/el/java/conversion/jpg-to-image/); μετατροπή [JPG σε PNG](https://products.aspose.com/slides/el/java/conversion/jpg-to-png/), μετατροπή [PNG σε JPG](https://products.aspose.com/slides/el/java/conversion/png-to-jpg/); μετατροπή [PNG σε SVG](https://products.aspose.com/slides/el/java/conversion/png-to-svg/), μετατροπή [SVG σε PNG](https://products.aspose.com/slides/el/java/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Δημιουργία Πλαισίου Εικόνας με Σχετική Κλίμακα**
-
-Αλλάζοντας τη σχετική κλιμάκωση μιας εικόνας, μπορείτε να δημιουργήσετε ένα πιο πολύπλοκο πλαίσιο εικόνας. 
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε μια εικόνα στη συλλογή εικόνων της παρουσίασης.
-4. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPPImage) προσθέτοντας μια εικόνα στην [IImagescollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/IImageCollection) που είναι συνδεδεμένη με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για τη γέμισμα του σχήματος.
-5. Καθορίστε το σχετικό πλάτος και ύψος της εικόνας στο πλαίσιο εικόνας.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας με σχετική κλίμακα:
-
-```java
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει το PPTX
-Presentation pres = new Presentation();
-try {
-    // Παίρνει την πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Δημιουργεί την κλάση Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // Προσθέτει Πλαίσιο Εικόνας με ύψος και πλάτος ισοδύναμα της Εικόνας
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Ορίζει σχετική κλίμακα ύψους και πλάτους
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Εξαγωγή Ράστερ Εικόνων από Πλαίσια Εικόνας**
-
-Μπορείτε να εξάγετε ράστερ εικόνες από αντικείμενα [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/PictureFrame) και να τις αποθηκεύσετε σε PNG, JPG και άλλες μορφές. Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε μια εικόνα από το έγγραφο «sample.pptx» και να την αποθηκεύσετε σε μορφή PNG.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Εξαγωγή SVG Εικόνων από Πλαίσια Εικόνας**
-
-Όταν μια παρουσίαση περιέχει γραφικά SVG τοποθετημένα μέσα σε σχήματα [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/), το Aspose.Slides for Java σας επιτρέπει να ανακτήσετε τις αρχικές διανυσματικές εικόνες με πλήρη πιστότητα. Διασχίζοντας τη συλλογή σχημάτων της διαφάνειας, μπορείτε να εντοπίσετε κάθε [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/), να ελέγξετε αν το υποκείμενο [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ippimage/) περιέχει περιεχόμενο SVG και, στη συνέχεια, να αποθηκεύσετε αυτήν την εικόνα στον δίσκο ή σε ροή στη φυσική της μορφή SVG.
-
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε μια SVG εικόνα από ένα πλαίσιο εικόνας:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Απόκτηση Διαφάνειας Εικόνας**
+Το πλαίσιο εικόνας ελέγχει τη γεωμετρία που εμφανίζεται· η αλλαγή του μεγέθους του πλαισίου δεν αλλάζει τις αρχικές διαστάσεις pixel που αποθηκεύονται στον ενσωματωμένο πόρο εικόνας. Αυτή η διάκριση γίνεται σημαντική όταν περικόπτετε ή συμπιέζετε μια εικόνα αργότερα.
 
-Το Aspose.Slides σας επιτρέπει να λάβετε το εφέ διαφάνειας που εφαρμόζεται σε μια εικόνα. Αυτός ο κώδικας Java επιδεικνύει τη λειτουργία:
+## **Χρήση σχετικού κλιμακώματος**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Απόκτηση Λαμπρότητας και Αντίθεσης Εικόνας**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε το εφέ λαμπρότητας και αντίθεσης που εφαρμόζεται σε μια εικόνα. Η διεπαφή [ILuminance](https://reference.aspose.com/slides/el/java/com.aspose.slides/iluminance/) αντιπροσωπεύει αυτή τη μετατροπή εικόνας.
-
-Αυτός ο κώδικας Java δείχνει πώς να λάβετε τις ρυθμίσεις λαμπρότητας και αντίθεσης από ένα πλαίσιο εικόνας:
+[IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/) εκθέτει σχετικό κλιμάκωμα πλάτους και ύψους για το πλαίσιο μέσω των [setRelativeScaleWidth](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) και [setRelativeScaleHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Μια τιμή `1.0` αντιστοιχεί στο 100 % του αρχικού μεγέθους εικόνας. Το σχετικό κλιμάκωμα είναι χρήσιμο όταν μια ροή εργασίας χρειάζεται να διατηρήσει μια σχέση με το μέγεθος της πηγαίας εικόνας αντί να υπολογίζει τελικά διαστάσεις χειροκίνητα.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Μορφοποίηση Πλαισίου Εικόνας**
+Το σχετικό κλιμάκωμα αλλάζει τις ρυθμίσεις κλιμάκωσης του πλαισίου· δεν επαναδειγματοληπτεί ούτε συμπιέζει την ενσωματωμένη εικόνα.
 
-Το Aspose.Slides προσφέρει πολλές επιλογές μορφοποίησης που μπορούν να εφαρμοστούν σε ένα πλαίσιο εικόνας. Χρησιμοποιώντας αυτές τις επιλογές, μπορείτε να τροποποιήσετε ένα πλαίσιο εικόνας ώστε να ταιριάζει σε συγκεκριμένες απαιτήσεις.
+## **Ενσωματωμένες και συνδεδεμένες εικόνες**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPPImage) προσθέτοντας μια εικόνα στην [IImagescollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/IImageCollection) που είναι συνδεδεμένη με το αντικείμενο παρουσίασης και θα χρησιμοποιηθεί για τη γέμισμα του σχήματος.
-4. Καθορίστε το πλάτος και το ύψος της εικόνας.
-5. Δημιουργήστε ένα `PictureFrame` βασισμένο στο πλάτος και το ύψος της εικόνας μέσω της μεθόδου [AddPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) που εκτίθεται από το αντικείμενο [IShapes](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShapeCollection) που συνδέεται με τη διαφάνεια αναφοράς.
-6. Προσθέστε το πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-7. Ορίστε το χρώμα γραμμής του πλαισίου εικόνας.
-8. Ορίστε το πλάτος γραμμής του πλαισίου εικόνας.
-9. Περιστρέψτε το πλαίσιο εικόνας δίνοντάς του θετική ή αρνητική τιμή.
-   * Μια θετική τιμή περιστρέφει την εικόνα δεξιόστροφα. 
-   * Μια αρνητική τιμή περιστρέφει την εικόνα αριστερόστροφα.
-10. Προσθέστε το πλαίσιο εικόνας (που περιέχει την εικόνα) στη διαφάνεια.
-11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Μια ενσωματωμένη εικόνα αποθηκεύει τα δεδομένα εικόνας μέσα στην παρουσίαση και επομένως είναι η ασφαλέστερη επιλογή για φορητότητα και προβλέψιμη απόδοση. Μια συνδεδεμένη εικόνα αποθηκεύει μια εξωτερική θέση μέσω της μεθόδου [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/el/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) αντί να ενσωματώνει τα δεδομένα εικόνας με τον ίδιο τρόπο.
 
-Αυτός ο κώδικας Java δείχνει τη διαδικασία μορφοποίησης του πλαισίου εικόνας:
+Οι συνδεδεμένες εικόνες μπορούν να μειώσουν τον όγκο των δεδομένων εικόνας που αποθηκεύεται στο PPTX, αλλά εισάγουν εξωτερική εξάρτηση. Το συνδεδεμένο αρχείο πρέπει να παραμένει προσβάσιμο στην εφαρμογή που ανοίγει ή αποδίδει την παρουσίαση. Αν η διαδρομή αλλάξει, το αρχείο μετακινηθεί ή ο πόρος γίνει μη διαθέσιμος, η συνδεδεμένη εικόνα ενδέχεται να μην εμφανιστεί όπως αναμένεται. Για παρουσιάσεις που πρέπει να αποσταλούν με email, να αρχειοθετηθούν ή να αποδοθούν σε απομονωμένα περιβάλλοντα, οι ενσωματωμένες εικόνες είναι συνήθως πιο αξιόπιστες.
+
+### **Προσθήκη συνδεδεμένης εικόνας**
+
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο εικόνας και το συνδέει με ένα τοπικό αρχείο εικόνας. Ασχολείται μόνο με τη σύνδεση εικόνας· η σύνδεση βίντεο είναι ξεχωριστή ροή πολυμέσων και σκόπιμα δεν αναμιγνύεται σε αυτό το παράδειγμα.
 
 ```java
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει το αρχείο PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // Παίρνει την πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Δημιουργεί αντικείμενο της κλάσης Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Προσθέτει Πλαίσιο Εικόνας με ύψος και πλάτος ίσα με αυτά της Εικόνας
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Εφαρμόζει κάποιες μορφοποιήσεις στο PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Η Aspose δημιούργησε πρόσφατα ένα [δωρεάν Collage Maker](https://products.aspose.app/slides/el/collage). Εάν χρειαστείτε ποτέ να [συγχωνεύσετε εικόνες JPG/JPEG](https://products.aspose.app/slides/el/collage/jpg) ή PNG, [δημιουργήσετε πλέγματα από φωτογραφίες](https://products.aspose.app/slides/el/collage/photo-grid), μπορείτε να χρησιμοποιήσετε αυτήν την υπηρεσία. 
-{{% /alert %}}
+Χρησιμοποιήστε συνδέσμους όταν η εξωτερική διαχείριση αρχείων είναι σκόπιμη. Μην τους χρησιμοποιείτε μόνο ως υποκατάστατο συμπίεσης: ένα μικρό PPTX με σπασμένες εξαρτήσεις εικόνας είναι συνήθως λιγότερο χρήσιμο από μια μεγαλύτερη, αυτόνομα ενσωματωμένη παρουσίαση.
 
-## **Προσθήκη Εικόνας ως Σύνδεσμο**
+## **Εξαγωγή εικόνων από πλαίσια εικόνας**
 
-Για να αποφύγετε μεγάλες διαστάσεις παρουσίασης, μπορείτε να προσθέτετε εικόνες (ή βίντεο) μέσω συνδέσμων αντί να ενσωματώνετε τα αρχεία απευθείας στις παρουσιάσεις. Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε μια εικόνα και ένα βίντεο σε έναν placeholder:
+Πριν εξαγάγετε μια εικόνα από υπάρχουσα παρουσίαση, ελέγξτε ότι ένα σχήμα είναι πραγματικά ένα [IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/) και ότι περιέχει ενσωματωμένη εικόνα. Τα συνδεδεμένα πλαίσια εικόνας ενδέχεται να μην περιέχουν bytes εικόνας που μπορούν να εξαχθούν με τον ίδιο τρόπο.
+
+### **Εξαγωγή ραστερ εικόνας**
+
+Το σύγχρονο API εικόνας χρησιμοποιεί άμεσα το [IImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/iimage/) και δεν απαιτεί το παλιότερο Java image wrapper. Το παρακάτω παράδειγμα εντοπίζει την πρώτη ενσωματωμένη ραστερ εικόνα σε μια διαφάνεια και την αποθηκεύει ως PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+Η αποθήκευση μέσω του [IImage.save](https://reference.aspose.com/slides/el/java/com.aspose.slides/iimage/#save-java.lang.String-int-) μετατρέπει την εξαγόμενη εικόνα στην ζητούμενη μορφή εξόδου. Αν χρειάζεστε τα κωδικοποιημένα bytes που αποθηκεύονται στην παρουσίαση αντί για ένα μετατρεπόμενο ραστερ αρχείο, χρησιμοποιήστε τα δυαδικά δεδομένα του πόρου εικόνας.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **Εξαγωγή εικόνας SVG**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+Για μια εικόνα SVG, το [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ippimage/) εκθέτει ένα αντικείμενο [ISvgImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/isvgimage/). Αυτό σας επιτρέπει να ανακτήσετε τα δεδομένα SVG άμεσα αντί να ραστεροποιήσετε την εικόνα πρώτα.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η διατήρηση του περιεχομένου SVG ως SVG διατηρεί την διανυσματική πηγή μέσα στην παρουσίαση. Οι εξαγωγές ραστερ όπως PNG ή JPEG υποχρεωτικά αποδίδουν αυτό το διανυσματικό περιεχόμενο σε pixels. Η εξαγωγή διαφάνειας σε PDF ή SVG είναι επίσης μια διαδικασία απόδοσης, επομένως τα εξαγόμενα γραφικά δεν πρέπει να θεωρούνται ακριβές byte‑for‑byte αντίγραφο του αρχικού ενσωματωμένου SVG· χρησιμοποιήστε τη μέθοδο [ISvgImage.getSvgData](https://reference.aspose.com/slides/el/java/com.aspose.slides/isvgimage/#getSvgData--) όταν απαιτείται ο ίδιος ο διανυσματικός πόρος.
+
+## **Περικοπή εικόνας**
+
+Η περικοπή αλλάζει ποιο τμήμα της εικόνας είναι ορατό εντός του πλαισίου. Οι τιμές περικοπής στο [IPictureFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/) είναι ποσοστά των διαστάσεων της πηγαίας εικόνας. Η περικοπή αρχικά δεν διαγράφει τα κρυφά pixels από την ενσωματωμένη εικόνα· αλλάζει μόνο την ορατή περιοχή.
+
+Το παρακάτω παράδειγμα εντοπίζει με ασφάλεια ένα πλαίσιο εικόνας και εφαρμόζει τις τιμές περικοπής:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Περικοπή Εικόνων**
-
-Αυτός ο κώδικας Java δείχνει πώς να περικόψετε μια υπάρχουσα εικόνα σε μια διαφάνεια:
-
-```java
-Presentation pres = new Presentation();
-// Δημιουργεί νέο αντικείμενο εικόνας
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Προσθέτει Πλαίσιο Εικόνας σε μια Διαφάνεια
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // Κόβει την εικόνα (τιμές ποσοστών)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // Αποθηκεύει το αποτέλεσμα
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Διαγραφή Περιοχών Περικοπής Εικόνας**
-
-Εάν θέλετε να διαγράψετε τις περιοχές περικοπής μιας εικόνας που βρίσκεται σε πλαίσιο, μπορείτε να χρησιμοποιήσετε τη μέθοδο [deletePictureCroppedAreas()](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Αυτή η μέθοδος επιστρέφει την περικομμένη εικόνα ή την αρχική εικόνα εάν η περικοπή είναι περιττή.
-
-Αυτός ο κώδικας Java δείχνει τη λειτουργία:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Λαμβάνει το PictureFrame από την πρώτη διαφάνεια
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Διαγράφει τις περικομμένες περιοχές της εικόνας του PictureFrame και επιστρέφει την περικομμένη εικόνα
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // Αποθηκεύει το αποτέλεσμα
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-Η μέθοδος [deletePictureCroppedAreas()](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) προσθέτει την περικομμένη εικόνα στη συλλογή εικόνων της παρουσίασης. Εάν η εικόνα χρησιμοποιείται μόνο στο επεξεργασμένο [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/), αυτή η ρύθμιση μπορεί να μειώσει το μέγεθος της παρουσίασης. Διαφορετικά, ο αριθμός των εικόνων στην τελική παρουσίαση θα αυξηθεί.
-
-Η μέθοδος αυτός μετατρέπει τα μετααρχεία WMF/EMF σε ράστερ PNG εικόνα κατά την πράξη της περικοπής. 
-{{% /alert %}}
-
-## **Συμπίεση Εικών**
-
-Μπορείτε να συμπιέσετε μια εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . Αυτή η μέθοδος καταργεί την εικόνα μειώνοντας το μέγεθός της βάσει του μεγέθους του σχήματος και της καθορισμένης ανάλυσης, με την επιλογή διαγραφής περιοχών περικοπής.
-
-Προσαρμόζει το μέγεθος και την ανάλυση της εικόνας παρόμοια με τη λειτουργία **Picture Format -> Compress Pictures -> Resolution** του PowerPoint.
-
-Τα παρακάτω παραδείγματα Java δείχνουν πώς να συμπιέσετε μια εικόνα σε μια παρουσίαση καθορίζοντας μια στοχευμένη ανάλυση και προαιρετικά αφαιρώντας περιοχές περικοπής:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Συμπιέζει την εικόνα με στόχο ανάλυση 150 DPI (ανάλυση Web) και αφαιρεί τις περικομμένες περιοχές.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // Ελέγχει το αποτέλεσμα της συμπίεσης.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Ή χρησιμοποιώντας μια προσαρμοσμένη τιμή DPI απευθείας:
+Επειδή τα κρυφά δεδομένα εικόνας παραμένουν, η περικοπή μπορεί να αλλάξει αργότερα χωρίς να χαθούν τα αρχικά pixels. Αν το μέγεθος αρχείου έχει μεγαλύτερη σημασία από την αντιστροφικότητα, οι περικομμένες περιοχές μπορούν να αφαιρεθούν φυσικά όπως περιγράφεται στην επόμενη ενότητα.
+
+## **Κατάργηση δεδομένων περικομμένης εικόνας**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) αφαιρεί τα δεδομένα εικόνας εκτός του τρέχοντος ορθογωνίου περικοπής και επιστρέφει τον προκύπτοντα πόρο εικόνας. Αυτό μπορεί να μειώσει το μέγεθος αρχείου, αλλά αποτελεί καταστροφική βελτιστοποίηση: αφού η παρουσίαση αποθηκευτεί, τα αφαιρεθέντα pixels δεν είναι πλέον διαθέσιμα για μετέπειτα ενέργειες «από-περίκοψη».
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // Συμπιέζει την εικόνα σε 150 DPI (ανάλυση web), αφαιρώντας τις περικομμένες περιοχές.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Η μέθοδος μετατρέπει την εικόνα σε χαμηλότερη ανάλυση βάσει του μεγέθους του σχήματος και του παρεχόμενου DPI. Οι περιοχές περικοπής μπορούν επίσης να διαγραφούν για βέλτιστη βαρύτητα αρχείου.  
-Εάν η εικόνα είναι μετααρχείο (WMF/EMF) ή SVG, η συμπίεση δεν θα εφαρμοστεί. Επιπλέον, η ποιότητα JPEG διατηρείται ή ελαφρώς μειώνεται ανάλογα με την ανάλυση, όπως το PowerPoint διαχειρίζεται τα JPEG υψηλής ανάλυσης.
-{{% /alert %}}
+Η μέθοδος μπορεί να προσθέσει νέο πόρο εικόνας στην παρουσίαση. Αν η αρχική εικόνα χρησιμοποιείται και από άλλα πλαίσια εικόνας, αυτά τα πλαίσια εξακολουθούν να χρειάζονται τον υπάρχοντα πόρο, έτσι η διαγραφή περιοχών περικοπής δεν μειώνει απαραίτητα τον συνολικό αριθμό εικόνων. Η περικοπή περιεχομένου WMF ή EMF με αυτή τη μέθοδο ραστεροποιεί το περικομμένο αποτέλεσμα σε PNG.
 
-## **Κλείδωμα Αναλογίας Διαστάσεων**
+## **Συμπίεση ραστερ εικόνων**
 
-Εάν θέλετε ένα σχήμα που περιέχει μια εικόνα να διατηρεί την αναλογία του ακόμη και μετά την αλλαγή των διαστάσεων της εικόνας, μπορείτε να χρησιμοποιήσετε τη μέθοδο [setAspectRatioLocked](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) για να ορίσετε την ρύθμιση *Lock Aspect Ratio*. 
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) μειώνει την ανάλυση ραστερ εικόνας σε σχέση με το μέγεθος με το οποίο η εικόνα εμφανίζεται. Μπορεί επίσης να αφαιρέσει περιοχές περικοπής στην ίδια λειτουργία. Η μέθοδος επιστρέφει `true` όταν η εικόνα μεταβλήθηκε σε μέγεθος ή περικόπη και `false` όταν δεν απαιτήθηκε αλλαγή.
 
-Αυτός ο κώδικας Java δείχνει πώς να κλειδώσετε την αναλογία διαστάσεων ενός σχήματος:
+Χρησιμοποιήστε μια προκαθορισμένη τιμή [PicturesCompression](https://reference.aspose.com/slides/el/java/com.aspose.slides/picturescompression/) όταν μια τυπική στόχευμένη ανάλυση αρκεί:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // ρυθμίζει το σχήμα ώστε να διατηρεί την αναλογία διαστάσεων κατά την αλλαγή μεγέθους
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Μπορείτε επίσης να περάσετε μια προσαρμοσμένη θετική τιμή DPI αντί για προκαθορισμένη τιμή όταν απαιτείται συγκεκριμένος στόχος.
+
+Η συμπίεση προορίζεται για ραστερ εικόνες. Το περιεχόμενο SVG και μεταφίλων δεν μειώνεται από αυτή τη ρευστική συμπίεση. Επίσης, θυμηθείτε ότι η χαμηλότερη ανάλυση και οι διαγραμμένες περιοχές περικοπής δεν μπορούν να ανακτηθούν από την βελτιστοποιημένη παρουσίαση. Επιλέξτε στόχο ανάλυσης βάσει του μεγαλύτερου μεγέθους στο οποίο η εικόνα θα προβληθεί ή θα εξαχθεί, αντί να εφαρμόζετε το χαμηλότερο DPI παγκοσμίως.
+
+## **Διαχείριση εφέ μετασχηματισμού εικόνας**
+
+Για έναν πλήρη οδηγό που καλύπτει φωτεινότητα, αντίθεση, μετασχηματισμούς χρώματος, θόλωση, εφέ άλφα, αλυσίδες εντολών, έλεγχο, αφαίρεση και επαλήθευση «round‑trip», δείτε [Image Transform Effects](/slides/el/java/image-transform-effects/).
+
+## **Κλείδωμα γεωμετρίας πλαισίου εικόνας**
+
+Οι ρυθμίσεις του [IPictureFrameLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframelock/) ελέγχουν ποιες ενέργειες επεξεργασίας είναι απενεργοποιημένες για ένα πλαίσιο εικόνας. Για παράδειγμα, το [setAspectRatioLocked](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) διατηρεί τις αναλογίες του σχήματος ενώ το μέγεθός του αλλάζει.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Αυτή η ρύθμιση *Lock Aspect Ratio* διατηρεί μόνο την αναλογία του σχήματος και όχι της εικόνας που περιέχει.
-{{% /alert %}}
+Το κλείδωμα εφαρμόζεται στο σχήμα του πλαισίου εικόνας. Δεν επιβάλλει την επαναδειγματοληψία ή μόνιμη αλλαγή της πηγαίας εικόνας ώστε να ταιριάζει στο ίδιο λόγο διαστάσεων.
 
-## **Χρήση της Ιδιότητας StretchOff**
+## **Ρύθμιση τιμών StretchOffset**
 
-Χρησιμοποιώντας τις ιδιότητες [StretchOffsetLeft](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) και [StretchOffsetBottom](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) από τη διεπαφή [IPictureFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPictureFillFormat) και την κλάση [PictureFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPictureFillFormat), μπορείτε να καθορίσετε ένα ορθογώνιο γεμίσματος. 
+Όταν η λειτουργία γεμίσματος εικόνας είναι «stretch», οι τιμές stretch‑offset στο [IPictureFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/) ορίζουν το ορθογώνιο γεμίσματος σε σχέση με το πλαίσιο του πλαισίου εικόνας. Τα θετικά ποσοστά δημιουργούν εσωτερικό περιθώριο από την άκρη, ενώ τα αρνητικά ποσοστά δημιουργούν εξωτερικό περιθώριο.
 
-Όταν ορίζεται τέντωμα για μια εικόνα, ένα πηγαίο ορθογώνιο κλιμακώνεται ώστε να ταιριάζει στο καθορισμένο ορθογώνιο γεμίσματος. Κάθε άκρο του ορθογωνίου ορίζεται από ποσοστιαία μετατόπιση από το αντίστοιχο άκρο του περιοριστικού πλαισίου του σχήματος. ένα θετικό ποσοστό δηλώνει εσωτερική μετατόπιση ενώ ένα αρνητικό ποσοστό δηλώνει εξωτερική μετατόπιση.
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο `AutoShape`. 
-4. Δημιουργήστε μια εικόνα.
-5. Ορίστε τον τύπο γεμίσματος του σχήματος.
-6. Ορίστε τη λειτουργία γεμίσματος εικόνας του σχήματος.
-7. Προσθέστε μια εικόνα γεμίσματος για να γεμίσετε το σχήμα.
-8. Καθορίστε τις μετατοπίσεις της εικόνας από την αντίστοιχη άκρη του περιοριστικού πλαισίου του σχήματος
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας Java δείχνει μια διαδικασία όπου χρησιμοποιείται η ιδιότητα StretchOff:
+Αυτό διαφέρει από την περικοπή. Οι τιμές περικοπής επιλέγουν ποιο τμήμα της πηγαίας εικόνας είναι ορατό· οι offset διαστέλλουν το ορθογώνιο στο οποίο τεντώνεται το ορατό γέμισμα εικόνας.
 
 ```java
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Παίρνει την πρώτη διαφάνεια
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Δημιουργεί ένα στιγμιότυπο της κλάσης ImageEx
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // Προσθέτει ένα AutoShape που είναι Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // Ορίζει τον τύπο γέμισματος του σχήματος
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // Ορίζει τη λειτουργία γέμισματος εικόνας του σχήματος
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // Ορίζει την εικόνα για γέμισμα του σχήματος
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // Καθορίζει τις μετατοπίσεις της εικόνας από το αντίστοιχο άκρο του περιοριστικού πλαισίου του σχήματος
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Χρησιμοποιήστε stretch offsets για τοποθέτηση γεμίσματος. Χρησιμοποιήστε ιδιότητες περικοπής όταν ο στόχος είναι η απόκρυψη άκρων της πηγαίας εικόνας.
 
-**Πώς μπορώ να μάθω ποιες μορφές εικόνας υποστηρίζονται για το PictureFrame;**
+## **Αποθήκευση, μέγεθος αρχείου και σκέψεις εξαγωγής**
 
-Το Aspose.Slides υποστηρίζει τόσο ράστερ εικόνες (PNG, JPEG, BMP, GIF κ.λπ.) όσο και διανυσματικές εικόνες (π.χ., SVG) μέσω του αντικειμένου εικόνας που ανατίθεται σε ένα [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/). Η λίστα των υποστηριζόμενων μορφών συνήθως επικαλύπτεται με τις δυνατότητες του μηχανισμού διαφανειών και μετατροπής εικόνων.
+Οι κύριες ανταλλαγές είναι πιο εύκολο να διαχειριστούν όταν η αποθήκευση εικόνας και η μορφοποίηση πλαισίου αντιμετωπίζονται χωριστά:
 
-**Πώς η προσθήκη δεκάδων μεγάλων εικόνων επηρεάζει το μέγεθος και την απόδοση του PPTX;**
+- **Ενσωματωμένες εικόνες** κάνουν την παρουσίαση αυτόνομα ενσωματωμένη και είναι οι πιο αξιόπιστες για κοινή χρήση και απόδοση στην πλευρά του διακομιστή, αλλά μεγάλες ραστερ εικόνες αυξάνουν το μέγεθος PPTX και τη χρήση μνήμης.
+- **Συνδεδεμένες εικόνες** μπορούν να διατηρήσουν το πακέτο μικρότερο, αλλά η παρουσίαση εξαρτάται από εξωτερικά αρχεία που πρέπει να παραμένουν διαθέσιμα στις αποθηκευμένες διαδρομές ή τοποθεσίες.
+- **Περικοπή** είναι αρχικά μη καταστροφική. Τα κρυφά pixels παραμένουν ενσωματωμένα μέχρι οι περικομμένες περιοχές να διαγραφούν ρητά ή να αφαιρεθούν κατά τη συμπίεση.
+- **Συμπίεση** μπορεί να μειώσει σημαντικά το μέγεθος αρχείου για υπερμεγέθη ραστερ εικόνες, αλλά θυσιάζει την αρχική ανάλυση. Θα πρέπει να εφαρμοστεί αφού το επιδιωκόμενο μέγεθος στην διαφάνεια είναι γνωστό.
+- **Εικόνες SVG** θα πρέπει να παραμείνουν ως SVG όταν η διατήρηση του διανύσματος είναι σημαντική. Εξάγετε το ενσωματωμένο SVG άμεσα όταν χρειάζεστε τον ίδιο τον διανυσματικό πόρο. Οι εξαγωγές διαφανειών σε ραστερ πάντα μετατρέπουν τη διαφάνεια σε pixels.
+- **Επαναλαμβανόμενες εικόνες** πρέπει να επαναχρησιμοποιούν έναν υπάρχοντα πόρο [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ippimage/) όποτε είναι δυνατόν αντί να φορτώνουν ξανά το ίδιο αρχείο στη ροή εργασίας της παρουσίασης.
 
-Η ενσωμάτωση μεγάλων εικόνων αυξάνει το μέγεθος του αρχείου και τη χρήση μνήμης· η σύνδεση εικόνων βοηθά να μειωθεί το μέγεθος της παρουσίασης, αλλά απαιτεί τα εξωτερικά αρχεία να είναι προσβάσιμα. Το Aspose.Slides παρέχει τη δυνατότητα προσθήκης εικόνων μέσω συνδέσμου για μείωση του μεγέθους του αρχείου.
+Για μεγάλες παρουσιάσεις, η βελτιστοποίηση εικόνας είναι συνήθως πιο αποτελεσματική όταν γίνεται επιλεκτικά: κρατήστε λογότυπα και διαγράμματα ως διανυσματικό περιεχόμενο, συμπιέστε φωτογραφίες σύμφωνα με το πραγματικό μέγεθος εμφάνισής τους, αφαιρέστε περικομμένα pixels μόνο όταν δεν απαιτείται μετέπειτα επεξεργασία, και αποφύγετε εξωτερικούς συνδέσμους εκτός αν η διαχείριση εξαρτήσεων αποτελεί μέρος του σχεδίου ανάπτυξης.
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο εικόνας ώστε να μην μετακινείται/αλλάζει μέγεθος κατά λάθος;**
+## **Συχνές ερωτήσεις**
 
-Χρησιμοποιήστε τα [shape locks](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) για ένα [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/) (π.χ., απενεργοποιήστε τη μετακίνηση ή την αλλαγή μεγέθους). Ο μηχανισμός κλειδώματος περιγράφεται για σχήματα σε ξεχωριστό [article προστασίας](/slides/el/java/applying-protection-to-presentation/) και υποστηρίζεται για διάφορους τύπους σχημάτων, συμπεριλαμβανομένου του [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/).
+**Ποια είναι η διαφορά μεταξύ πλαισίου εικόνας και πόρου εικόνας;**
 
-**Διατηρείται η πιστότητα του διανύσματος SVG κατά την εξαγωγή μιας παρουσίασης σε PDF/εικόνες;**
+Ένα [IPPImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/ippimage/) αντιπροσωπεύει έναν πόρο εικόνας που συνδέεται με την παρουσίαση. Ένα [IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/) είναι ένα σχήμα σε διαφάνεια που εμφανίζει μια εικόνα και αποθηκεύει γεωμετρία και μορφοποίηση επιπέδου πλαισίου όπως μέγεθος, περιστροφή, τιμές περικοπής, εφέ και κλειδώματα.
 
-Το Aspose.Slides επιτρέπει την εξαγωγή ενός SVG από ένα [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/) ως το αρχικό διάνυσμα. Κατά την [εξαγωγή σε PDF](/slides/el/java/convert-powerpoint-to-pdf/) ή σε [μορφές ράστερ](/slides/el/java/convert-powerpoint-to-png/), το αποτέλεσμα μπορεί να μετατραπεί σε ράστερ ανάλογα με τις ρυθμίσεις εξαγωγής· το γεγονός ότι το αρχικό SVG αποθηκεύεται ως διάνυσμα επιβεβαιώνεται από τη συμπεριφορά εξαγωγής.
+**Πρέπει να ενσωματώνω ή να συνδέω τις εικόνες;**
+
+Ενσωματώστε εικόνες όταν η παρουσίαση πρέπει να είναι φορητή, αρχειοθετημένη ή αποδοθεί χωρίς πρόσβαση σε εξωτερικούς πόρους. Συνδέστε εικόνες μόνο όταν η αποθήκευση των αρχείων εικόνας εκτός του PPTX είναι σκόπιμη και οι εξωτερικές τοποθεσίες μπορούν να διατηρηθούν αξιόπιστα.
+
+**Μειώνει η περικοπή το μέγεθος αρχείου PPTX;**
+
+Όχι από μόνη της. Οι κανονικές ρυθμίσεις περικοπής κρύβουν μέρη της πηγαίας εικόνας αλλά διατηρούν τα υποκείμενα pixels. Χρησιμοποιήστε το [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) ή τη συμπίεση εικόνας με αφαίρεση περιοχών περικοπής όταν αυτά τα pixels μπορούν να διαγραφούν μόνιμα.
+
+**Μπορώ να αποκαταστήσω την ποιότητα εικόνας μετά τη συμπίεση;**
+
+Όχι. Η συμπίεση μπορεί να μειώσει την αποθηκευμένη ραστερ ανάλυση, και η αφαίρεση περικομμένων περιοχών διαγράφει δεδομένα εικόνας. Διατηρήστε την αρχική πηγή εικόνας έξω από την παρουσίαση αν μπορεί να χρειαστεί επεξεργασία υψηλής ανάλυσης αργότερα.
+
+**Πώς πρέπει να διαχειρίζομαι τις εικόνες SVG;**
+
+Διατηρήστε το περιεχόμενο SVG ως SVG όταν η διανυσματική πιστότητα μετράει. Το ενσωματωμένο [ISvgImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/isvgimage/) μπορεί να εξαχθεί άμεσα. Η απόδοση μιας διαφάνειας σε ραστερ μορφή όπως PNG ή JPEG ραστεροποιεί το SVG ως μέρος της εικόνας της διαφάνειας.
+
+**Πώς μπορώ να αποφύγω μη ασφαλείς μετατροπές τύπων όταν διαβάζω υπάρχουσες διαφάνειες;**
+
+Ελέγξτε τον τύπο σχήματος πριν χρησιμοποιήσετε μέλη ειδικά για πλαίσια εικόνας. Μια δοκιμή `instanceof` κατά του [IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/) αποτρέπει μη έγκυρες μετατροπές και επιτρέπει στον κώδικα να διαχειρίζεται διαφάνειες που δεν περιέχουν πλαίσια εικόνας.

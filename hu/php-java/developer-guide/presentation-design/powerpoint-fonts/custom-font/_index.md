@@ -1,58 +1,60 @@
 ---
-title: PowerPoint betűk testreszabása PHP-ben
-linktitle: Egyedi betű
+title: A PowerPoint betűtípusok testreszabása PHP-ben
+linktitle: Egyéni betűtípus
 type: docs
 weight: 20
 url: /hu/php-java/custom-font/
 keywords:
-- betű
-- egyedi betű
-- külső betű
-- betű betöltése
-- betűk kezelése
-- betűmappa
+- betűtípus
+- egyéni betűtípus
+- külső betűtípus
+- betűtípus betöltése
+- betűtípusok kezelése
+- betűtípus mappa
 - PowerPoint
 - OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Testreszabja a betűket a PowerPoint diákon az Aspose.Slides for PHP via Java segítségével, hogy prezentációi minden eszközön élesek és következetesek legyenek."
+description: "Testreszabhatja a PowerPoint diák betűtípusait az Aspose.Slides for PHP via Java segítségével, hogy prezentációi minden eszközön élesek és konzisztens megjelenést biztosítsanak."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi egyedi betűkészletek használatát a prezentációkban anélkül, hogy azokat az operációs rendszerre telepítené. Betűkészleteket tölthet be egyedi mappákból, dokumentumszintű betűforrásokkal adhatja meg a prezentációhoz, vagy külső betűket tölthet be közvetlenül bináris adatokból.
+Az Aspose.Slides lehetővé teszi egyéni betűtípusok használatát a prezentációkban a betűtípusok operációs rendszerre történő telepítése nélkül. Betűtípusokat tölthet be egyéni mappákból, megadhat betűtípusokat egy adott prezentációhoz a dokumentumszintű betűtípusforrásokon keresztül, vagy külső betűtípusokat tölthet be közvetlenül bináris adatokból.
 
-A betöltött betűkészletek a prezentáció megjelenítésekor vagy exportálásakor kerülnek felhasználásra, például PDF, képek és egyéb támogatott formátumok esetén. Ez segít az egységes kimenet biztosításában a különböző környezetekben. A cikk azt is bemutatja, hogyan ellenőrizheti az Aspose.Slides által használt betűmappákat, és hogyan törölheti a betűkészlet-gyorsítót külső betűk használata után.
+A betöltött betűtípusok akkor kerülnek felhasználásra, amikor a prezentációt renderelik vagy exportálják, például PDF-be, képekbe és más támogatott formátumokba. Ez segít a prezentációk kimenetét konzisztensen tartani különböző környezetekben. A cikk azt is bemutatja, hogyan ellenőrizhetők az Aspose.Slides által használt betűtípus mappák, és hogyan törölhető a betűtípus gyorsítótár a külső betűtípusok használata után.
 
-Az egyedi betűkészletek regisztrálása a megjelenítéshez különálló a betűkészletek PPTX fájlba ágyazásától. Ha a betűtípust magában a prezentációban kell tárolni, használja kifejezetten a betűkészlet‑ágyazási funkciókat.
+Az egyéni betűtípusok regisztrálása a rendereléshez különálló a betűtípusok PPTX fájlba ágyazásától. Ha egy betűtípust a prezentáción belül kell tárolni, használja kifejezetten az ágyazási funkciókat.
 
-{{% alert color="primary" %}} 
+Egy prezentáció témája különböző betűcsaládokra hivatkozhat az egyes írásrendszerekhez. Ezek a leképezések betűtípus neveket tárolnak, de nem telepítik vagy töltik be a betűtípus fájlokat. Lásd a [Script-Specific Theme Fonts](/slides/hu/php-java/script-specific-font-mappings/) oldalt a leképezések kezeléséhez, és használd az alábbi betöltési beállításokat, hogy a hivatkozott betűtípusok elérhetők legyenek a konzisztens rendereléshez.
 
-Az Aspose Slides lehetővé teszi ezen betűkészletek betöltését a [loadExternalFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódussal:
+{{% alert color="info" title="Note" %}}
 
-* TrueType (.ttf) és TrueType Collection (.ttc) betűkészletek. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType) oldalt.
-* OpenType (.otf) betűkészletek. Lásd az [OpenType](https://en.wikipedia.org/wiki/OpenType) oldalt.
+Az Aspose Slides lehetővé teszi ezen betűtípusok betöltését a [loadExternalFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódus használatával:
+
+* TrueType (.ttf) és TrueType Collection (.ttc) betűtípusok. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType) oldalt.
+* OpenType (.otf) betűtípusok. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType) oldalt.
 
 {{% /alert %}}
 
-## **Egyedi betűkészletek betöltése**
+## **Betűtípusok egyéni betöltése**
 
-Az Aspose.Slides lehetővé teszi a prezentációban használt betűkészletek betöltését anélkül, hogy azokat a rendszerre telepítené. Ez az exportálási kimenetet érinti – például PDF, képek és egyéb támogatott formátumok – így a létrehozott dokumentumok környezetfüggetlenül egységesek maradnak. A betűkészletek egyedi könyvtárakból töltődnek be.
+Az Aspose.Slides lehetővé teszi, hogy betöltse a prezentációban használt betűtípusokat a rendszerre történő telepítés nélkül. Ez befolyásolja az export kimenetet – például PDF, képek és más támogatott formátumok – így a keletkező dokumentumok környezetek között konzisztensnek tűnnek. A betűtípusok egyéni könyvtárakból töltődnek be.
 
-1. Adja meg a betűfájlokat tartalmazó egy vagy több mappát.
-2. Hívja meg a statikus [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódust a mappákból való betöltéshez.
-3. Töltse be és jelenítse meg/exportálja a prezentációt.
-4. Hívja meg a [FontsLoader::clearCache](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#clearCache--) metódust a betűkészlet-gyorsító törléséhez.
+1. Adjon meg egy vagy több mappát, amely a betűtípus fájlokat tartalmazza.
+2. Hívja meg a statikus [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódust a betűtípusok betöltéséhez az adott mappákból.
+3. Töltse be és renderelje/exportálja a prezentációt.
+4. Hívja meg a [FontsLoader::clearCache](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#clearCache--) metódust a betűtípus gyorsítótár törléséhez.
 
-Az alábbi kódrészlet bemutatja a betűkészlet betöltési folyamatát:
+Az alábbi kódrészlet bemutatja a betűtípus betöltési folyamatát:
 
 ```php
-// Definiálja az egyedi betűfájlokat tartalmazó mappákat.
+// Határozza meg az egyéni betűtípus fájlokat tartalmazó mappákat.
 $externalFontFolder1 = __DIR__ . "/external-fonts-1";
 $externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
-// Töltsön be egyedi betűkészleteket a megadott mappákból.
+// Load custom fonts from the specified folders.
 FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
@@ -60,42 +62,44 @@ try {
     $presentationPath = __DIR__ . "/sample.pptx";
     $presentation = new Presentation($presentationPath);
     
-    // Renderelje/exportálja a prezentációt (pl. PDF, képek vagy más formátumok) a betöltött betűkészletekkel.
+    // Renderelje/exportálja a prezentációt (pl. PDF-be, képekbe vagy más formátumokra) a betöltött betűtípusokkal.
     $outputPath = __DIR__ . "/output.pdf";
     $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
     if ($presentation != null) $presentation->dispose();
 
-    // Törölje a betűkészlet gyorsítótárát a munka befejezése után.
+    // Törölje a betűtípus gyorsítótárát a munka befejezése után.
     FontsLoader::clearCache();
 }
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
+{{% alert color="info" title="Note" %}}
 
-A [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) további mappákat ad a betűk keresési útvonalaihoz, de nem módosítja a betűk inicializálási sorrendjét.
-A betűk a következő sorrendben inicializálódnak:
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) további mappákat ad a betűtípus-keresési útvonalakhoz, de nem módosítja a betűtípus inicializálási sorrendet.  
+A betűtípusok a következő sorrendben inicializálódnak:
 
-1. Az alapértelmezett operációs rendszer betűútvonala.
-1. A [FontsLoader](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/) által betöltött útvonalak.
+1. Az alapértelmezett operációs rendszer betűtípus útvonal.
+2. A [FontsLoader](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/) által betöltött útvonalak.
 
 {{%/alert %}}
 
-## **Egyedi betűmappák lekérdezése**
-Az Aspose.Slides a [getFontFolders](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#getFontFolders--) metódust kínálja, amely lehetővé teszi a betűmappák megtalálását. Ez a metódus a `LoadExternalFonts` metódussal hozzáadott mappákat és a rendszer betűmappákat adja vissza.
+## **Egyéni betűtípus mappák lekérése**
 
-Ez a PHP‑kód bemutatja, hogyan használja a [getFontFolders](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#getFontFolders--) metódust:
+Az Aspose.Slides biztosítja a [getFontFolders](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#getFontFolders--) metódust, amely lehetővé teszi a betűtípus mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metódussal hozzáadott mappákat és a rendszer betűtípus mappákat.
+
+Ez a PHP kód bemutatja, hogyan kell használni a [getFontFolders](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#getFontFolders--) metódust:
 
 ```php
-# Ez a sor kiírja azokat a mappákat, ahol a betűfájlok keresése történik.
-# Ezek a LoadExternalFonts metódussal és a rendszer betűmappáival hozzáadott mappák.
+# Ez a sor kiírja azokat a mappákat, ahol a betűtípus fájlok keresésre kerülnek.
+# Ezek azok a mappák, amelyeket a LoadExternalFonts metódus és a rendszer betűtípus mappái adtak hozzá.
 $fontFolders = FontsLoader::getFontFolders();
 ```
 
-## **Egyedi betűkészletek megadása egy prezentációhoz**
-Az Aspose.Slides a [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) metódust biztosítja, amely lehetővé teszi külső betűkészletek megadását a prezentációhoz.
+## **Egyéni betűtípusok megadása a prezentációhoz**
 
-Ez a PHP‑kód mutatja, hogyan használja a [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) metódust:
+Az Aspose.Slides biztosítja a [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) metódust, amely lehetővé teszi, hogy megadja a prezentációval együtt használandó külső betűtípusokat.
+
+Ez a PHP kód bemutatja, hogyan kell használni a [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) metódust:
 
 ```php
 $javaArray = new JavaClass("java.lang.reflect.Array");
@@ -137,8 +141,8 @@ $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, 
 $presentationPath = __DIR__ . "/MyPresentation.pptx";
 $presentation = new Presentation($presentationPath, $loadOptions);
 try {
-    # Munkavégzés a prezentációval
-    # A CustomFont1, a CustomFont2, valamint az assets\fonts és a global\fonts mappákból és azok alkönyvtáraiból származó betűkészletek elérhetők a prezentáció számára
+    # Dolgozzon a prezentációval
+    # A CustomFont1, CustomFont2, valamint az assets\fonts és a global\fonts mappákból (és alkönyvtáraikból) származó betűtípusok elérhetők a prezentáció számára
 } finally {
     if (!java_is_null($presentation)) {
         $presentation->dispose();
@@ -146,11 +150,11 @@ try {
 }
 ```
 
-## **Betűkészletek külső kezelése**
+## **Betűtípusok külső kezelése**
 
-Az Aspose.Slides a [loadExternalFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metódust kínálja, amely lehetővé teszi külső betűkészletek betöltését bináris adatból.
+Az Aspose.Slides biztosítja a [loadExternalFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metódust, amely lehetővé teszi külső betűtípusok betöltését bináris adatokból.
 
-Ez a PHP‑kód demonstrálja a bájt‑tömb alapú betűkészlet betöltési folyamatot:
+Ez a PHP kód bemutatja a bájt tömböt használó betűtípus betöltési folyamatot:
 
 ```php
 $javaArray = new JavaClass("java.lang.reflect.Array");
@@ -196,7 +200,7 @@ FontsLoader::loadExternalFont($fontBytes);
 try {
     $presentation = new Presentation();
     try {
-        # külső betű betöltve a prezentáció élettartama alatt
+        #       külső betűtípus betöltve a prezentáció működése során
     } finally {
         if (!java_is_null($presentation)) {
             $presentation->dispose();
@@ -209,22 +213,22 @@ try {
 
 ## **GYIK**
 
-**Hatással vannak az egyedi betűk a teljes exportálásra (PDF, PNG, SVG, HTML)?**
+### A egyéni betűtípusok befolyásolják-e az exportot minden formátumban (PDF, PNG, SVG, HTML)?
 
-Igen. A kapcsolt betűkészleteket a renderelő minden exportformátumban használja.
+Igen. A kapcsolt betűtípusok a renderelő által minden export formátumban használatban vannak.
 
-**Ágyazódnak-e automatikusan az egyedi betűk a létrehozott PPTX‑be?**
+### A egyéni betűtípusok automatikusan beágyazódnak a létrejövő PPTX fájlba?
 
-Nem. A betűk regisztrálása a megjelenítéshez nem ugyanaz, mint a betűk PPTX‑be ágyazása. Ha a betűtípust a prezentáció fájljában kell tárolni, használja a kifejezett [ágyazási funkciókat](/slides/hu/php-java/embedded-font/).
+Nem. Egy betűtípus regisztrálása a rendereléshez nem ugyanaz, mint a PPTX-be való beágyazása. Ha a betűtípust a prezentáció fájljában szeretné megtartani, akkor a kifejezett [embedding features](/slides/hu/php-java/embedded-font/) funkciót kell használni.
 
-**Ellenőrizhetem-e a visszaesés (fallback) viselkedését, ha egy egyedi betű hiányos karakterekkel rendelkezik?**
+### Ellenőrizhetem-e a fallback viselkedést, ha egy egyéni betűtípus bizonyos glifeket hiányol?
 
-Igen. Konfigurálja a [betűcserét](/slides/hu/php-java/font-substitution/), a [helyettesítési szabályokat](/slides/hu/php-java/font-replacement/) és a [fallback készleteket](/slides/hu/php-java/fallback-font/), hogy pontosan meghatározza, melyik betűt használja, ha a kért karakter hiányzik.
+Igen. Állítsa be a [font substitution](/slides/hu/php-java/font-substitution/), [replacement rules](/slides/hu/php-java/font-replacement/) és [fallback sets](/slides/hu/php-java/fallback-font/) lehetőségeket, hogy pontosan meghatározza, melyik betűtípust használja, ha a kért glif hiányzik.
 
-**Használhatok‑e betűket Linux/Docker konténerekben anélkül, hogy rendszerszinten telepíteném őket?**
+### Használhatok-e betűtípusokat Linux/Docker konténerekben a rendszerre való telepítés nélkül?
 
-Igen. Hivatkozhat saját betűmappáira, vagy betöltheti a betűket bájt‑tömbökből. Ez eltávolítja a rendszer betűkönyvtárakra való függőséget a konténer‑képből.
+Igen. Hivatkozhat a saját betűtípus mappáira vagy betöltheti a betűtípusokat bájt tömbökből. Ez megszünteti a függőséget a rendszer betűtípus könyvtáraktól a konténer képen belül.
 
-**Mi a helyzet a licenceléssel – beágyazhatok‑e bármilyen egyedi betűt korlátozások nélkül?**
+### Mi a helyzet a licenceléssel—beágyazhatok-e bármilyen egyéni betűtípust korlátozások nélkül?
 
-Ön felelős a betűk licencelési megfelelőségéért. A feltételek változóak; egyes licencek tiltják az ágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betű EULA‑ját, mielőtt a kimeneteket terjesztené.
+Ön felelős a betűtípus licencelésének betartásáért. A feltételek változóak; egyes licencek tiltják a beágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűtípus EULA‑ját, mielőtt a kimenetet terjesztené.

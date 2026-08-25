@@ -1,6 +1,6 @@
 ---
-title: Hiệu quả hợp nhất các bản trình bày bằng Python
-linktitle: Hợp nhất bản trình bày
+title: Hiệu quả hợp nhất các bản trình bày với Python
+linktitle: Hợp nhất các bản trình bày
 type: docs
 weight: 40
 url: /vi/python-net/merge-presentation/
@@ -19,201 +19,287 @@ keywords:
 - kết hợp ODP
 - Python
 - Aspose.Slides
-description: "Dễ dàng hợp nhất các bản trình bày PowerPoint (PPT, PPTX) và OpenDocument (ODP) với Aspose.Slides cho Python thông qua .NET, giúp tối ưu hoá quy trình làm việc của bạn."
+description: "Tìm hiểu cách hợp nhất các bản trình bày PowerPoint và OpenDocument trong Python bằng cách sao chép slide, kiểm soát master và layout, thay đổi kích thước nội dung slide, bảo tồn các section, và xử lý các tệp được bảo vệ hoặc có kích thước lớn."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn hợp nhất các bản trình bày bằng cách sao chép các slide từ một bản trình bày sang bản trình bày khác. Bài viết này giải thích cách hợp nhất toàn bộ bản trình bày hoặc các slide được chọn, sử dụng slide master hoặc bố cục cụ thể trong quá trình hợp nhất, xử lý các bản trình bày có kích thước slide khác nhau, và thêm các slide đã hợp nhất vào một phần của bản trình bày. Nó cũng đề cập đến các lưu ý thực tiễn liên quan tới nội dung đã hợp nhất, bao gồm ghi chú diễn giả, bình luận, tệp nguồn được bảo vệ bằng mật khẩu và việc sử dụng thread.
+Aspose.Slides cho Python thông qua .NET hợp nhất các bản trình bày bằng cách sao chép các slide từ một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) sang bản trình bày khác. Hoạt động chính là [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/), có thể giữ nguyên định dạng của slide nguồn hoặc gắn slide đã sao chép vào một master hoặc layout trong bản trình bày đích.
 
-## **Tối ưu hoá việc hợp nhất bản trình bày**
+Bài viết này bao gồm các quy trình hợp nhất phổ biến nhất:
 
-Với [Aspose.Slides for Python](https://products.aspose.com/slides/vi/python-net/), bạn có thể kết hợp các bản PowerPoint một cách liền mạch đồng thời giữ nguyên kiểu dáng, bố cục và mọi thành phần. Không giống như các công cụ khác, Aspose.Slides hợp nhất bản trình bày mà không làm mất chất lượng hay dữ liệu. Hợp nhất toàn bộ bộ slide, các slide riêng lẻ, hoặc thậm chí các định dạng tệp khác nhau (ví dụ: PPT sang PPTX).
+- hợp nhất tất cả các slide đồng thời giữ nguyên định dạng nguồn;
+- hợp nhất các slide được chọn;
+- áp dụng một master từ bản trình bày đích;
+- áp dụng một layout cụ thể từ bản trình bày đích;
+- chuẩn hoá kích thước slide khác nhau trước khi hợp nhất;
+- thêm các slide đã sao chép vào một section;
+- hợp nhất nhiều bản trình bày trong một quy trình đầu‑cuối;
+- xử lý masters, resources, notes, comments, media, fonts, passwords, tệp lớn và các vấn đề đa luồng.
 
-### **Các tính năng hợp nhất**
+## **Cách sao chép Slide ảnh hưởng đến Masters và Layouts**
 
-- **Full Presentation Merge:** Tập hợp tất cả các slide thành một tệp duy nhất.  
-- **Specific Slide Merge:** Chọn và kết hợp các slide đã chọn.  
-- **Cross-Format Merge:** Tích hợp các bản trình bày có định dạng khác nhau, duy trì tính toàn vẹn.
+Một slide kế thừa phần lớn giao diện từ layout và master của nó. Vì lý do này, overload sao chép mà bạn chọn quyết định cách slide được tích hợp vào bản trình bày đích.
 
-## **Hợp nhất bản trình bày**
+Sử dụng [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) theo một trong các cách sau:
 
-Khi bạn hợp nhất một bản trình bày vào bản khác, bạn thực tế đang gộp các slide của chúng thành một bản duy nhất để tạo ra một tệp. Hầu hết các chương trình trình bày—như PowerPoint hoặc OpenOffice—không cung cấp tính năng cho phép bạn hợp nhất bản trình bày theo cách này.
+- `add_clone(source_slide)` — giữ nguyên layout và định dạng của slide nguồn. Khi cần, master nguồn có thể được sao chép tự động vào bản trình bày đích. Aspose.Slides tự động theo dõi các master được sao chép để các slide lặp lại sử dụng cùng một master không gây sao chép master nhiều lần.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — gắn slide đã sao chép vào một [IMasterSlide](https://reference.aspose.com/slides/vi/python-net/aspose.slides/imasterslide/) đích cụ thể. Aspose.Slides tìm layout phù hợp dưới master đó dựa trên kiểu layout hoặc tên.
+- `add_clone(source_slide, destination_layout)` — gắn slide đã sao chép trực tiếp vào một [ILayoutSlide](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ilayoutslide/) đích cụ thể.
 
-Tuy nhiên, [Aspose.Slides for Python](https://products.aspose.com/slides/vi/python-net/) cho phép bạn hợp nhất bản trình bày theo nhiều cách. Bạn có thể hợp nhất các bản trình bày với mọi hình dạng, kiểu dáng, văn bản, định dạng, bình luận và hoạt ảnh, mà không mất chất lượng hay dữ liệu.
+Master hoặc layout được truyền vào overload `add_clone` phải thuộc về **bản trình bày đích**, không phải bản trình bày nguồn.
 
-**Xem thêm**
+## **Hợp nhất Toàn bộ Bản trình bày và Giữ Định dạng Nguồn**
 
-[Clone PowerPoint Slides in Python](/slides/vi/python-net/clone-slides/)
+Cách hợp nhất đơn giản nhất là sao chép mọi slide từ bản trình bày nguồn sang bản trình bày đích. Đây là lựa chọn phù hợp khi các slide nhập vào cần giữ nguyên theme, master và cấu trúc layout gốc.
 
-### **Những gì có thể hợp nhất**
-
-Với Aspose.Slides, bạn có thể hợp nhất:
-
-- Toàn bộ bản trình bày: tất cả các slide từ các bộ nguồn được kết hợp thành một bản trình bày duy nhất.  
-- Các slide cụ thể: chỉ những slide đã chọn được kết hợp thành một bản trình bày duy nhất.  
-- Các bản trình bày cùng định dạng (ví dụ: PPT→PPT, PPTX→PPTX) hoặc giữa các định dạng khác nhau (ví dụ: PPT→PPTX, PPTX→ODP).
-
-### **Tùy chọn hợp nhất**
-
-Bạn có thể kiểm soát:
-
-- Mỗi slide trong bản trình bày đầu ra giữ nguyên kiểu dáng gốc, hoặc  
-- Áp dụng một kiểu dáng duy nhất cho tất cả các slide trong bản trình bày đầu ra.
-
-Để hợp nhất các bản trình bày, Aspose.Slides cung cấp các phương thức [add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) trên lớp [SlideCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/). Các overload của phương thức này xác định cách thực hiện việc hợp nhất. Mỗi đối tượng [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) đều có một bộ sưu tập [slides](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/slides/vi/), vì vậy bạn gọi `add_clone` trên bộ sưu tập slide của bản trình bày đích.
-
-Phương thức `add_clone` trả về một `Slide`—bản sao của slide nguồn. Các slide trong bản trình bày đầu ra là bản sao của các slide gốc, vì vậy bạn có thể chỉnh sửa các slide kết quả (ví dụ: áp dụng kiểu dáng, định dạng hoặc bố cục) mà không ảnh hưởng đến các bản trình bày nguồn.
-
-## **Hợp nhất bản trình bày** 
-
-Aspose.Slides cung cấp phương thức [add_clone(ISlide)](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) cho phép bạn kết hợp các slide trong khi giữ nguyên bố cục và kiểu dáng (sử dụng các tham số mặc định).
-
-Ví dụ Python sau cho thấy cách hợp nhất các bản trình bày:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Hợp nhất bản trình bày với Slide Master**
+Bản trình bày kết quả có thể chứa nhiều master khi nguồn và đích sử dụng các thiết kế khác nhau. Điều này là bình thường khi định dạng nguồn được cố ý giữ nguyên.
 
-Aspose.Slides cung cấp phương thức [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) cho phép bạn hợp nhất các slide đồng thời áp dụng slide master từ một mẫu. Theo cách này, khi cần, bạn có thể thay đổi kiểu dáng của các slide trong bản trình bày đầu ra.
+## **Hợp nhất Các Slide Được Chọn**
 
-Ví dụ Python sau minh họa thao tác này:
+Bạn không cần sao chép mọi slide. Ví dụ dưới đây chỉ nhập các chỉ mục slide được chọn từ bản trình bày nguồn.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Note" color="warning" %}}
-Bố cục phù hợp dưới slide master được chỉ định sẽ được xác định tự động. Nếu không tìm thấy bố cục thích hợp và tham số boolean `allow_clone_missing_layout` của phương thức `add_clone` được đặt thành `True`, bố cục của slide nguồn sẽ được sử dụng thay thế. Ngược lại, một [PptxEditException](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pptxeditexception/) sẽ được ném ra.
-{{% /alert %}}
+Hãy xác thực chỉ mục slide trước khi sao chép khi chúng đến từ đầu vào của người dùng hoặc cấu hình bên ngoài.
 
-Để áp dụng một bố cục slide khác cho các slide trong bản trình bày đầu ra, hãy sử dụng phương thức [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) khi hợp nhất.
+## **Hợp nhất Slides bằng Master Đích**
 
-## **Hợp nhất các slide cụ thể từ các bản trình bày**
+Sử dụng overload [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) khi các slide nhập vào cần tuân theo một master đã tồn tại trong bản trình bày đích.
 
-Hợp nhất các slide cụ thể từ nhiều bản trình bày hữu ích khi tạo các bộ slide tùy chỉnh. Aspose.Slides cho phép bạn chọn và nhập chỉ những slide bạn cần, đồng thời giữ nguyên định dạng, bố cục và thiết kế của slide gốc.
-
-Ví dụ Python sau tạo một bản trình bày mới, thêm các slide tiêu đề từ hai bản trình bày khác và lưu kết quả vào một tệp:
-
-```py
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
-
-
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Hợp nhất bản trình bày với một Slide Layout**
-
-Ví dụ Python sau cho thấy cách hợp nhất các slide từ nhiều bản trình bày đồng thời áp dụng một bố cục slide cụ thể để tạo ra một bản trình bày đầu ra duy nhất:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
+
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Hợp nhất bản trình bày với các kích thước slide khác nhau**
+Aspose.Slides chọn một layout phù hợp dưới master được chỉ định bằng cách khớp kiểu hoặc tên layout nguồn. Nếu không có layout thích hợp và `allow_clone_missing_layout` được đặt là `True`, layout nguồn sẽ được sao chép để slide có thể được thêm. Nếu nó là `False`, một [PptxEditException](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pptxeditexception/) sẽ được ném ra.
 
-{{% alert title="Note" color="warning" %}}
-Bạn không thể hợp nhất trực tiếp các bản trình bày có kích thước slide khác nhau.
-{{% /alert %}}
+Sử dụng `False` khi bạn muốn quá trình hợp nhất thất bại thay vì tạo thêm một layout vào master đích.
 
-Để hợp nhất hai bản trình bày có kích thước slide khác nhau, trước tiên hãy thay đổi kích thước một bản trình bày sao cho kích thước slide của nó khớp với bản còn lại.
+## **Hợp nhất Slides bằng Layout Đích Cụ Thể**
 
-Mã mẫu sau minh họa quy trình này:
+Sử dụng overload [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) khi bạn biết chính xác layout đích mà các slide nhập vào nên sử dụng.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Hợp nhất các slide vào một phần của bản trình bày**
+Áp dụng một layout đích thay đổi quan hệ layout kế thừa; nó không thay đổi nội dung slide nguồn. Nếu layout nguồn và đích có cấu trúc placeholder khác nhau, hãy kiểm tra kết quả để xác nhận định dạng kế thừa và hành vi placeholder là phù hợp.
 
-Ví dụ Python sau cho thấy cách hợp nhất một slide cụ thể vào một phần của bản trình bày:
+## **Hợp nhất Bản trình bày có Kích thước Slide Khác nhau**
 
-```py
+Các bản trình bày có kích thước slide khác nhau có thể được hợp nhất, nhưng sao chép một slide vào bản trình bày có kích thước slide khác không tự động thiết kế lại nội dung cho canvas mới. Do đó hình dạng có thể bị dịch chuyển, co giãn không mong muốn hoặc nằm ngoài vùng hiển thị.
+
+Một cách tiếp cận thực tế là thay đổi kích thước bản trình bày nguồn trước khi sao chép. Phương thức [SlideSize.set_size](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidesize/set_size/) có thể thu phóng nội dung hiện có đồng thời thay đổi kích thước slide. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidesizescaletype/) thu phóng nội dung để vừa với kích thước yêu cầu.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Slide sẽ được thêm vào cuối phần.
+Thay đổi kích thước sẽ sửa đổi đối tượng bản trình bày nguồn trong bộ nhớ. Nếu bạn cần giữ nguyên bản trình bày nguồn cho các thao tác khác, hãy mở một thể hiện riêng cho quá trình hợp nhất.
 
-{{% alert title="Tip" color="primary" %}}
-Bạn đang tìm một **công cụ trực tuyến miễn phí** để **hợp nhất các bản PowerPoint**? Hãy thử [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/vi/merger).
+## **Hợp nhất Slides vào Section của Bản trình bày**
 
-- **Hợp nhất các tệp PowerPoint dễ dàng**: Kết hợp nhiều bản trình bày **PPT, PPTX, ODP** thành một tệp duy nhất.  
-- **Hỗ trợ nhiều định dạng**: Hợp nhất **PPT sang PPTX**, **PPTX sang ODP**, và nhiều hơn nữa.  
-- **Không cần cài đặt**: Hoạt động trực tiếp trong trình duyệt của bạn, nhanh chóng và an toàn.  
+Vòng lặp sao chép slide cơ bản không tái tạo cấu trúc section của bản trình bày nguồn. Nếu section quan trọng trong kết quả, hãy tạo hoặc chọn các section trong bản trình bày đích và sao chép slide vào chúng một cách rõ ràng bằng [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/).
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/vi/merger)  
+```python
+import aspose.slides as slides
 
-Bắt đầu hợp nhất các tệp PowerPoint của bạn với **công cụ trực tuyến miễn phí của Aspose** ngay hôm nay!  
-{{% /alert %}}
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
 
-{{% alert title="Tip" color="primary" %}}
-Aspose cung cấp một [ỨNG DỤNG COLLAGE MIỄN PHÍ](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể hợp nhất [JPG thành JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG thành PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), v.v. 
-{{% /alert %}}
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Các slide đã sao chép sẽ được nối vào section đích đã chỉ định. Để giữ lại nhiều section nguồn, hãy duyệt [Presentation.sections](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/sections/), lấy danh sách slide hiện tại của mỗi section nguồn bằng [Section.get_slides_list_of_section](https://reference.aspose.com/slides/vi/python-net/aspose.slides/section/get_slides_list_of_section/), tạo lại các section trong đích, và sao chép từng slide trở lại section tương ứng. Xem [Manage Slide Sections](/slides/vi/python-net/slide-section/) để có ví dụ đầy đủ về việc duyệt section, bao gồm cả các section rỗng và thay đổi cấu trúc.
+
+## **Hợp nhất Nhiều Bản trình bày Một cách An toàn**
+
+Ví dụ end‑to‑end dưới đây sử dụng bản trình bày đầu tiên làm đích, chuẩn hoá kích thước slide của mỗi nguồn bổ sung, chỉ mở mỗi nguồn trong thời gian nó được sao chép, và lưu tệp cuối cùng một lần.
+
+```python
+import aspose.slides as slides
+
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
+
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
+
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
+
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Đây là một nền tảng hữu ích để giữ định dạng nguồn của các slide nhập vào. Nếu đầu ra của bạn phải sử dụng một theme duy nhất, hãy thay thế lời gọi đơn giản `add_clone(slide)` bằng overload master hoặc layout đích thích hợp đã trình bày ở trên.
+
+## **Xem xét Thực tiễn**
+
+### **Masters, Layouts và Độ chính xác Định dạng**
+
+Sao chép slide mặc định có thể tự động đưa master nguồn cần thiết vào bản trình bày đích. Aspose.Slides giữ một registry nội bộ cho các master được sao chép tự động nhằm tránh sao chép lại cùng một master nhiều lần. Các master được sao chép thủ công không được theo dõi bởi registry này, vì vậy tránh sao chép trước các master trừ khi bạn cần kiểm soát cấu trúc master một cách rõ ràng.
+
+Đừng cho rằng hai master hoặc layout có cùng tên sẽ hiển thị giống nhau. Nếu một mẫu công ty phải kiểm soát giao diện cuối cùng, hãy chọn một master hoặc layout đích một cách rõ ràng và xác minh kết quả sau khi hợp nhất.
+
+### **Notes và Comments**
+
+Speaker notes và slide comments gắn liền với nội dung slide và được sao chép khi slide được sao chép. Aspose.Slides cũng cung cấp các API riêng cho [presentation notes](/slides/vi/python-net/presentation-notes/) và [presentation comments](/slides/vi/python-net/presentation-comments/).
+
+Nếu định dạng trang notes quan trọng, hãy kiểm tra bản trình bày đã hợp nhất vì notes master là đối tượng ở mức độ presentation và có thể khác nhau giữa các tệp nguồn. Đối với quy trình xét duyệt, cũng hãy xác minh tác giả comment và comment có luồng sau khi kết hợp các tệp từ các tác giả hoặc mẫu khác nhau.
+
+### **Hình ảnh, Audio, Video, OLE Objects và Liên kết Ngoài**
+
+Slides có thể tham chiếu đến các resources ở mức presentation như hình ảnh, audio nhúng, video nhúng và dữ liệu OLE. Hãy sao chép toàn bộ slide thay vì chỉ sao chép các shape hiển thị để Aspose.Slides có thể duy trì các quan hệ của slide tới các resources.
+
+Resources được nhúng và được liên kết nên được xử lý khác nhau. Một audio, video, OLE object hoặc hyperlink được liên kết vẫn phụ thuộc vào mục tiêu bên ngoài; sao chép slide không biến một liên kết ngoài thành nội dung nhúng. Hãy kiểm tra đường dẫn và URL của các resources liên kết trong môi trường nơi bản trình bày hợp nhất sẽ được mở.
+
+Aspose.Slides theo dõi các master được sao chép tự động, nhưng điều này không nên được hiểu là bảo đảm chung rằng các binary resources giống nhau từ các bản trình bày không liên quan sẽ luôn được deduplicate. Nếu kích thước tệp đầu ra quan trọng, hãy kiểm tra gói sau khi hợp nhất và đo kích thước thay vì dựa vào deduplication ngầm.
+
+### **Font Nhúng và Khả dụng Font**
+
+Font được quản lý ở mức presentation. Nếu typography phải đồng nhất trên các máy, đừng cho rằng chỉ sao chép slide sẽ đảm bảo mọi font cần thiết đã có trong môi trường đích. Bạn có thể kiểm tra các font đã nhúng bằng [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/vi/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) và quản lý việc nhúng một cách rõ ràng như mô tả trong [Embed Fonts in Presentations](/slides/vi/python-net/embedded-font/).
+
+Cũng hãy xác minh rằng bạn được phép nhúng các font được sử dụng trong các tệp nguồn. Giấy phép font có thể hạn chế việc nhúng.
+
+### **Bản trình bày Bảo vệ Bằng Mật khẩu**
+
+Một nguồn được bảo vệ bằng mật khẩu phải được mở thành công trước khi các slide của nó có thể được sao chép. Cung cấp mật khẩu qua [LoadOptions.password](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/password/).
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Mở một nguồn đã mã hoá không tự động áp dụng cùng một bảo vệ cho bản trình bày đích. Hãy cấu hình bảo vệ đầu ra riêng khi cần.
+
+### **Bản trình bày Lớn và Sử dụng Bộ nhớ**
+
+Các bản trình bày lớn chứa hình ảnh độ phân giải cao, audio, video hoặc các binary objects lớn có thể tiêu tốn đáng kể bộ nhớ. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/blob_management_options/) cung cấp các tùy chọn kiểm soát việc quản lý BLOB và sử dụng tệp tạm thời. Xem [Manage Presentation BLOBs](/slides/vi/python-net/manage-blob/) để có các chiến lược cho tệp lớn.
+
+Đối với tệp lớn, ưu tiên tải từ đường dẫn tệp khi có thể, đóng mỗi bản trình bày nguồn ngay sau khi đã hợp nhất, và tránh lưu kết quả trung gian lặp đi lặp lại trừ khi quy trình yêu cầu checkpoint. Sử dụng `with slides.Presentation(...)` sẽ đảm bảo các tài nguyên của bản trình bày được giải phóng khi ngữ cảnh kết thúc.
+
+### **An toàn Đa luồng**
+
+Không tải, lưu hoặc sao chép một [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) đồng thời từ nhiều luồng. Giữ mỗi thao tác hợp nhất ở chế độ đơn luồng. Nếu bạn muốn thực hiện các công việc hợp nhất độc lập song song, hãy sử dụng các tiến trình đơn luồng riêng biệt và các thể hiện presentation độc lập như mô tả trong [hướng dẫn đa luồng của Aspose.Slides](/slides/vi/python-net/multithreading/).
 
 ## **FAQ**
 
-**Ghi chú diễn giả có được giữ lại khi hợp nhất không?**
+**Làm sao để giữ nguyên thiết kế gốc của mỗi bản trình bày nguồn?**
 
-Có. Khi sao chép các slide, Aspose.Slides chuyển giao tất cả các thành phần slide, bao gồm ghi chú, định dạng và hoạt ảnh.
+Sử dụng [add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) mà không cung cấp master hoặc layout đích. Aspose.Slides có thể tự động sao chép master nguồn khi slide nhập vào yêu cầu.
 
-**Bình luận và tác giả của chúng có được chuyển không?**
+**Làm sao để các slide nhập vào sử dụng theme của đích?**
 
-Bình luận, như là một phần của nội dung slide, được sao chép cùng slide. Nhãn tác giả bình luận được giữ lại dưới dạng đối tượng bình luận trong bản trình bày kết quả.
+Sử dụng overload chấp nhận một master đích. Đưa vào một master từ bản trình bày đích, không phải từ nguồn. Aspose.Slides sẽ cố gắng ánh xạ mỗi slide nguồn tới một layout phù hợp dưới master đó.
 
-**Nếu bản trình bày nguồn được bảo vệ bằng mật khẩu thì sao?**
+**Khi nào nên dùng layout đích cụ thể thay vì master đích?**
 
-Cần [mở bằng mật khẩu](/slides/vi/python-net/password-protected-presentation/) thông qua [LoadOptions.password](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/password/); sau khi tải, các slide đó có thể được sao chép an toàn vào tệp đích không bảo vệ (hoặc cũng có thể bảo vệ).
+Dùng một layout cụ thể khi mọi slide nhập vào đều cần sử dụng một layout đã biết. Dùng master khi bạn muốn Aspose.Slides tự chọn trong các layout của master dựa trên kiểu hoặc tên layout nguồn.
 
-**Hoạt động hợp nhất có an toàn với thread không?**
+**Có thể hợp nhất các bản trình bày có kích thước slide khác nhau không?**
 
-Không sử dụng cùng một đối tượng [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) từ [nhiều thread](/slides/vi/python-net/multithreading/). Quy tắc được khuyến nghị là "một tài liệu — một thread"; các tệp khác nhau có thể được xử lý song song trong các thread riêng biệt.
+Có, nhưng nội dung slide sẽ không được tự động thiết kế lại cho kích thước đích. Hãy thay đổi kích thước bản trình bày nguồn trước khi sao chép, ví dụ bằng [SlideSize.set_size](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidesize/set_size/) và [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidesizescaletype/).
+
+**Có thể hợp nhất các tệp PPT, PPTX và ODP thành một tệp duy nhất không?**
+
+Có. Tải mỗi bản trình bày nguồn, sao chép các slide cần thiết vào một bản trình bày đích, và lưu bản đích ở định dạng đầu ra hỗ trợ. Vì các định dạng presentation không hỗ trợ cùng một tập hợp tính năng, hãy kiểm tra nội dung phức tạp sau khi hợp nhất đa định dạng. Xem [Supported File Formats](/slides/vi/python-net/supported-file-formats/).
+
+**Các section nguồn có được giữ tự động không?**
+
+Không, nếu chỉ sử dụng vòng lặp cơ bản chỉ sao chép slide. Hãy tạo lại các section cần thiết trong bản trình bày đích và sử dụng overload section của [add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) khi cấu trúc section phải được bảo tồn.
+
+**Speaker notes và comments có được giữ không?**
+
+Chúng được sao chép cùng với slide đã sao chép. Đối với các quy trình phụ thuộc vào style của notes‑master, tác giả comment hoặc dữ liệu review dạng luồng, hãy xác minh kết quả hợp nhất vì những tình huống này liên quan đến cấu trúc ở mức presentation cũng như nội dung slide.
+
+**Audio, video, OLE objects và hyperlink sẽ xảy ra như thế nào?**
+
+Nội dung nhúng sẽ được mang theo như một phần của quan hệ resources của slide đã sao chép. Các liên kết ngoài vẫn ở ngoài, vì vậy các tệp hoặc URL mục tiêu phải vẫn tồn tại sau khi hợp nhất.
+
+**Các font nhúng từ mọi nguồn có được đảm bảo có sẵn trong bản trình bày hợp nhất không?**
+
+Không nên dựa chỉ vào sao chép slide để triển khai font. Kiểm tra các font nhúng trong bản đích và quản lý việc nhúng hoặc khả năng truy cập font bên ngoài một cách rõ ràng khi typography quan trọng.
+
+**Làm sao để hợp nhất một tệp được bảo vệ bằng mật khẩu?**
+
+Mở tệp bằng [LoadOptions.password](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/password/) thích hợp, sau đó sao chép các slide như bình thường. Bảo vệ đầu ra được cấu hình riêng.
+
+**Làm sao để xử lý các bản trình bày rất lớn?**
+
+Sử dụng quản lý BLOB khi các binary objects chiếm ưu thế bộ nhớ, ưu tiên tải từ đường dẫn tệp cho các tệp rất lớn, đóng nhanh các bản trình bày nguồn sau khi đã hợp nhất, và chỉ lưu kết quả cuối cùng khi cần.  
+
+**Có thể hợp nhất slide từ nhiều luồng không?**
+
+Không tải, lưu hoặc sao chép các thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) trong nhiều luồng đồng thời. Giữ mỗi thao tác hợp nhất ở chế độ đơn luồng; sử dụng các tiến trình đơn luồng độc lập nếu cần thực hiện các công việc hợp nhất riêng biệt song song.

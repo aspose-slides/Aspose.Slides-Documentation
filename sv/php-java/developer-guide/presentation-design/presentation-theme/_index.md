@@ -5,15 +5,15 @@ type: docs
 weight: 10
 url: /sv/php-java/presentation-theme/
 keywords:
-- PowerPoint tema
+- PowerPoint-tema
 - presentationstema
 - bildtema
-- ställ in tema
+- sätt tema
 - ändra tema
 - hantera tema
 - temafärg
 - extra palett
-- temateckensnitt
+- tematypsnitt
 - temastil
 - temaeffekt
 - PowerPoint
@@ -21,241 +21,402 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Hantera presentationsteman i Aspose.Slides för PHP via Java för att skapa, anpassa och konvertera PowerPoint-filer med konsekvent varumärkesprofil."
+description: "Behärska presentationsteman i Aspose.Slides för PHP via Java för att skapa, anpassa och konvertera PowerPoint-filer med enhetlig varumärkesprofil."
 ---
 ## **Introduktion**
 
-Ett presentationstema definierar egenskaperna för designelement. När du väljer ett presentationstema väljer du i praktiken en specifik uppsättning visuella element och deras egenskaper.
+Ett presentationstema definierar en koordinerad samling färger, typsnitt, bakgrundsstilar, fyllningar, linjer och effekter. Tema medvetna objekt refererar till dessa delade definitioner istället för att lagra varje visuellt egenskap som ett fast värde, så en temaförändring kan uppdatera många objekt på en gång.
 
-I PowerPoint består ett tema av färger, [teckensnitt](/slides/sv/php-java/powerpoint-fonts/), [bakgrundsstilar](/slides/sv/php-java/presentation-background/), och effekter.
+I Aspose.Slides är temat på presentationsnivå tillgängligt via [Presentation.getMasterTheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/). En presentation kan också innehålla temauttryck på lägre nivåer. En master kan skriva över presentations‑temat via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterthememanager/), medan en layout eller en enskild bild kan skriva över sitt ärvda tema via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseoverridethememanager/). I praktiken löses det effektiva temat för en bild genom denna arvskedja: presentationstema, master‑överskrivning, layout‑överskrivning och bild‑överskrivning.
 
-![theme-constituents](theme-constituents.png)
+![Temakomponenter: färger, typsnitt, bakgrundsstilar och effekter](theme-constituents.png)
 
-## **Ändra temafärg**
+Avsnitten nedan visar de vanligaste temaarbetsflödena: inspektera ett tema, ändra färger och typsnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effekstilar samt läsa effektiva värden efter att arv och överskrivningar har lösts.
 
-Ett PowerPoint‑tema använder en specifik uppsättning färger för olika element på en bild. Om du inte gillar färgerna kan du ändra dem genom att tillämpa nya färger för temat. För att du ska kunna välja en ny temafärg tillhandahåller Aspose.Slides värden i [SchemeColor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/SchemeColor)‑enumerationen.
+## **Inspektera ett tema**
 
-Den här PHP‑koden visar hur du ändrar accentfärgen för ett tema:
+[MasterTheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mastertheme/)-objektet exponerar temats färgschema, typsnittsschema och format‑schema via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mastertheme/) och [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mastertheme/). Att inspektera dessa samlingar innan de ändras är särskilt användbart när en presentation kommer från en extern källa eftersom antalet och innehållet i stilposterna kan variera.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-    $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $theme = $presentation->getMasterTheme();
+    echo "Theme name: " . $theme->getName() . PHP_EOL;
+    echo "Accent 1: " . $theme->getColorScheme()->getAccent1()->getColor() . PHP_EOL;
+    echo "Major Latin font: " . $theme->getFontScheme()->getMajor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Minor Latin font: " . $theme->getFontScheme()->getMinor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Background fill styles: " . java_values($theme->getFormatScheme()->getBackgroundFillStyles()->size()) . PHP_EOL;
+    echo "Fill styles: " . java_values($theme->getFormatScheme()->getFillStyles()->size()) . PHP_EOL;
+    echo "Line styles: " . java_values($theme->getFormatScheme()->getLineStyles()->size()) . PHP_EOL;
+    echo "Effect styles: " . java_values($theme->getFormatScheme()->getEffectStyles()->size()) . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Du kan på detta sätt bestämma den resulterande färgens effektiva värde:
+Om en fil använder flera masters, anta inte att varje bild har samma effektiva tema. Inspektera den master som är kopplad till bilden, och använd arbetsflödet för effektiva teman som visas senare i artikeln när layout‑ eller bild‑överskrivningar kan finnas.
+
+## **Ändra temafärger**
+
+Tema medvetna fyllningar, linjer och text kan referera till en logisk färg från uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/schemecolor/). När du ändrar motsvarande post i [ColorScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/colorscheme/), löses alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg förändras inte av en temafärgsuppdatering.
 
 ```php
-  $fillEffective = $shape->getFillFormat()->getEffective();
-  $effectiveColor = $fillEffective->getSolidFillColor();
-  echo(sprintf("Color [A=%d, R=%d, G=%d, B=%d]", $effectiveColor->getAlpha(), $effectiveColor->getRed(), $effectiveColor->getGreen(), $effectiveColor->getBlue()));
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
 
-```
-
-För att ytterligare demonstrera färgändringsoperationen skapar vi ett annat element och tilldelar accentfärgen (från den första operationen) till det. Sedan ändrar vi färgen i temat:
-
-```php
-  $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
-  $otherShape->getFillFormat()->setFillType(FillType::Solid);
-  $otherShape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-  $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
-```
-
-Den nya färgen tillämpas automatiskt på båda elementen.
-
-### **Ställ in temafärg från ett extra färgpalett**
-
-När du tillämpar luminans‑transformationer på huvudtemafärgen(1) bildas färger från den extra paletten(2). Du kan sedan ställa in och hämta dessa temafärger. 
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - Huvudtemafärger
-
-**2** - Färger från den extra paletten.
-
-Den här PHP‑koden demonstrerar en operation där extra palettfärger hämtas från huvudtemafärgen och sedan används i former:
-
-```php
-  $presentation = new Presentation();
-  try {
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Accent 4
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
+    $presentation->save("theme-color.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$savedPresentation = new Presentation("theme-color.pptx");
+try {
+    $savedSlide = $savedPresentation->getSlides()->get_Item(0);
+    $savedShape = $savedSlide->getShapes()->get_Item(0);
+    $effectiveColor = $savedShape->getFillFormat()->getEffective()->getSolidFillColor();
+    echo sprintf("Effective fill color: A=%d, R=%d, G=%d, B=%d", java_values($effectiveColor->getAlpha()), java_values($effectiveColor->getRed()), java_values($effectiveColor->getGreen()), java_values($effectiveColor->getBlue())) . PHP_EOL;
+} finally {
+    $savedPresentation->dispose();
+}
+```
+
+Eftersom rektangeln förblir länkad till `Accent4` blir dess synliga färg röd efter att temat har ändrats. Om du ersätter schema‑färgen med en direkt färg på formen, kommer senare förändringar av `Accent4` inte längre att påverka den fyllningen.
+
+### **Använd färger från den extra paletten**
+
+PowerPoint härleder ljusare och mörkare varianter från en temafärg genom att applicera färgtransformeringar. Aspose.Slides exponerar dessa transformationer via uppräkningen [ColorTransformOperation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/colortransformoperation/).
+
+![Huvudtemafärger och ljusare och mörkare färger genererade från den extra paletten](additional-palette-colors.png)
+
+**1** - Huvudtemafärger.
+
+**2** - Ljusa och mörka varianter som produceras från huvudtemafärgerna.
+
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
-    $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    # Accent 4, Ljusare 80%
+    $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
-    $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
-    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    # Accent 4, Ljusare 60%
+    $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.2);
+    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.8);
+
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
-    $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
-    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    # Accent 4, Ljusare 40%
+    $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.4);
+    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.6);
+
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
-    $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
-    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
-    # Accent 4, Mörkare 25%
+    $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.6);
+    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.4);
+
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
-    $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    # Accent 4, Mörkare 50%
+    $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.75);
+
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
-    $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    $shape6->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.5);
-    $presentation->save($path . "example_accent4.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape6->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.5);
+
+    $presentation->save("theme-color-palette.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Mappa `SchemeColor` till `ColorScheme`‑färger**
+Dessa varianter förblir baserade på temafärgen. Om `Accent4` ändras senare, beräknas de omvandlade färgerna om från det nya `Accent4`‑värdet.
 
-När du arbetar med [SchemeColor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/schemecolor/), kan du märka att den innehåller följande temafärgvärden:
+### **Mappa `SchemeColor`-värden till `ColorScheme`-platser**
 
-`Background1`, `Background2`, `Text1` och `Text2`.
-
-Dock returnerar `Presentation::getMasterTheme()::getColorScheme()` [ColorScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/colorscheme/), som visar motsvarande färger som:
-
-`Dark1`, `Dark2`, `Light1` och `Light2`.
-
-Denna skillnad är bara i namngivning. Dessa värden hänvisar till samma temafärgsplatser och mappningen är fast:
+Uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/schemecolor/) använder `Text1`, `Background1`, `Text2` och `Background2`, medan [ColorScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/colorscheme/) exponerar samma temaplatser som `Dark1`, `Light1`, `Dark2` och `Light2`. Mappningen är fast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Det finns ingen dynamisk konvertering mellan `Text`/`Background` och `Dark`/`Light`. De är helt enkelt alternativa namn för samma temafärger.
+Detta är alternativa namn för samma temaplatser; de är inte värden som konverteras dynamiskt från en form till en annan.
 
-Denna namnskillnad kommer från Microsoft Office‑terminologi. Äldre Office‑versioner använde `Dark 1`, `Light 1`, `Dark 2` och `Light 2`, medan nyare UI‑versioner visar samma fack som `Text 1`, `Background 1`, `Text 2` och `Background 2`.
+## **Ändra tematypsnitt**
 
-## **Ändra temateckensnitt**
+Ett tematypsnittsschema innehåller en huvudtypsnittssamling för rubriker och en mindre typsnittssamling för brödtext. Metoderna [FontScheme.getMajor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontscheme/) och [FontScheme.getMinor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontscheme/) exponerar dessa uppsättningar.
 
-För att du ska kunna välja teckensnitt för teman och andra ändamål använder Aspose.Slides dessa speciella identifierare (liknande de som används i PowerPoint):
+PowerPoint‑kompatibla tematypsnittsidenterare kan användas i textformatering:
 
-* **+mn-lt** – Kroppstext‑teckensnitt Latin (Minor Latin Font)
-* **+mj-lt** – Rubrik‑teckensnitt Latin (Major Latin Font)
-* **+mn-ea** – Kroppstext‑teckensnitt Östasiatiskt (Minor East Asian Font)
-* **+mj-ea** – Rubrik‑teckensnitt Östasiatiskt (Major East Asian Font)
-
-Den här PHP‑koden visar hur du tilldelar det latinska teckensnittet till ett temaelement:
+* `+mn-lt` – Kroppstyp Latin (Minor Latin Font)
+* `+mj-lt` – Rubrikstyp Latin (Major Latin Font)
+* `+mn-ea` – Kroppstyp Östasiatiskt (Minor East Asian Font)
+* `+mj-ea` – Rubrikstyp Östasiatiskt (Major East Asian Font)
 
 ```php
-  $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-  $paragraph = new Paragraph();
-  $portion = new Portion("Theme text format");
-  $paragraph->getPortions()->add($portion);
-  $shape->getTextFrame()->getParagraphs()->add($paragraph);
-  $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $heading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 500, 60);
+    $heading->getTextFrame()->setText("Theme heading");
+    $heading->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setLatinFont(new FontData("+mj-lt"));
+
+    $body = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 120, 500, 60);
+    $body->getTextFrame()->setText("Theme body text");
+    $body->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
+
+    $presentation->getMasterTheme()->getFontScheme()->getMajor()->setLatinFont(new FontData("Aptos Display"));
+    $presentation->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+    $presentation->save("theme-fonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Den här PHP‑koden visar hur du ändrar presentationens temateckensnitt:
+Rubriken följer huvudtypsnittet och brödtexten följer det mindre typsnittet. Text som har ett explicit typsnittsnamn istället för en temaidentifierare byter inte automatiskt när tematypsnittsschemat ändras.
 
-```php
-  $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+De stora och små typsnittssamlingarna kan även innehålla typsnittsmappningar för enskilda skriftsystem, såsom kyrilliska, arabiska, japanska, georgiska och thaana. För att inspektera, lägga till, ersätta eller ta bort dessa mappningar, se [Script-Specific Theme Fonts](/slides/sv/php-java/script-specific-font-mappings/).
 
-```
-
-Teckensnittet i alla textrutor kommer att uppdateras.
-
-{{% alert color="primary" title="TIP" %}} 
-Du kan vilja se [PowerPoint‑teckensnitt](/slides/sv/php-java/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+För mer information om presentations‑typsnitt, se [PowerPoint Fonts](/slides/sv/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Ändra temats bakgrundsstil**
+## **Kopiera eller tillämpa ett tema**
 
-Som standard erbjuder PowerPoint‑appen 12 fördefinierade bakgrunder men bara 3 av dessa 12 bakgrunder sparas i en typisk presentation. 
+Det finns två vanliga arbetsflöden, och de löser olika problem.
 
-![todo:image_alt_text](presentation-design_8.png)
+### **Bevara ett källtema när du flyttar bilder**
 
-Till exempel, efter att du sparat en presentation i PowerPoint‑appen kan du köra den här PHP‑koden för att ta reda på antalet fördefinierade bakgrunder i presentationen:
+Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑mastern till mål‑presentationen med [MasterSlideCollection.addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterslidecollection/), klona sedan bilden med [SlideCollection.addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slidecollection/) och den klonade mastern. Detta för med sig mastern, dess layouter och det associerade temat tillsammans.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $numberOfBackgroundFills = $pres->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size();
-    echo("Number of background fill styles for theme is " . $numberOfBackgroundFills);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$source = new Presentation("source-theme.pptx");
+try {
+    $target = new Presentation("target.pptx");
+    try {
+        $sourceSlide = $source->getSlides()->get_Item(0);
+        $sourceMaster = $sourceSlide->getLayoutSlide()->getMasterSlide();
+        $clonedMaster = $target->getMasters()->addClone($sourceMaster);
+        $target->getSlides()->addClone($sourceSlide, $clonedMaster, true);
+        $target->save("theme-preserved.pptx", SaveFormat::Pptx);
+    } finally {
+        $target->dispose();
     }
-  }
+} finally {
+    $source->dispose();
+}
 ```
 
-{{% alert color="warning" %}} 
-Genom att använda [BackgroundFillStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) egenskapen från [FormatScheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/FormatScheme)‑klassen kan du lägga till eller komma åt bakgrundsstilen i ett PowerPoint‑tema.
-{{% /alert %}} 
+Detta är det föredragna arbetsflödet när käll‑bilden måste se likadan ut i destinationen. Att bara klona innehåll till en orelaterad destinations‑master kan ändra färger, typsnitt, bakgrunder och effekter som styrs av temat.
 
-Den här PHP‑koden visar hur du anger bakgrunden för en presentation:
+### **Tillämpa temavärden på en befintlig bild**
+
+Om mål‑bilden måste stanna på sin nuvarande master och layout, initiera ett bild‑nivå‑överskrivning från käll‑temat. Metoderna [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/sv/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/sv/php-java/aspose.slides/overridetheme/) och [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/sv/php-java/aspose.slides/overridetheme/) kopierar de tre huvudtema‑komponenterna till överskrivningen.
 
 ```php
-  $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$source = new Presentation("source-theme.pptx");
+try {
+    $target = new Presentation("target.pptx");
+    try {
+        $targetSlide = $target->getSlides()->get_Item(0);
+        $overrideTheme = $targetSlide->getThemeManager()->getOverrideTheme();
+        $overrideTheme->initColorSchemeFrom($source->getMasterTheme()->getColorScheme());
+        $overrideTheme->initFontSchemeFrom($source->getMasterTheme()->getFontScheme());
+        $overrideTheme->initFormatSchemeFrom($source->getMasterTheme()->getFormatScheme());
+        $target->save("theme-applied-to-slide.pptx", SaveFormat::Pptx);
+    } finally {
+        $target->dispose();
+    }
+} finally {
+    $source->dispose();
+}
 ```
 
-**Indexguide**: 0 används för ingen fyllning. Indexet startar från 1.
+Detta ändrar temat som används av den bilden utan att ändra temat som ärvts av andra bilder. För att ta bort den lokala överskrivningen och återgå till ärvda värden, anropa [OverrideTheme.clear](https://reference.aspose.com/slides/sv/php-java/aspose.slides/overridetheme/).
 
-{{% alert color="primary" title="TIP" %}} 
-Du kan vilja se [PowerPoint‑bakgrund](/slides/sv/php-java/presentation-background/).
+### **Tillämpa ett temauttryck på en layout**
+
+Ett layout‑nivå‑uttryck gäller för bilder som använder den layouten, såvida en specifik bild inte har eget uttryck. Samma initieringsmetoder kan användas via [LayoutSlideThemeManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslidethememanager/):
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$source = new Presentation("source-theme.pptx");
+try {
+    $target = new Presentation("target.pptx");
+    try {
+        $targetSlide = $target->getSlides()->get_Item(0);
+        $overrideTheme = $targetSlide->getLayoutSlide()->getThemeManager()->getOverrideTheme();
+        $overrideTheme->initColorSchemeFrom($source->getMasterTheme()->getColorScheme());
+        $overrideTheme->initFontSchemeFrom($source->getMasterTheme()->getFontScheme());
+        $overrideTheme->initFormatSchemeFrom($source->getMasterTheme()->getFormatScheme());
+        $target->save("theme-applied-to-layout.pptx", SaveFormat::Pptx);
+    } finally {
+        $target->dispose();
+    }
+} finally {
+    $source->dispose();
+}
+```
+
+Använd ett master‑ eller presentations‑tema när många layouter och bilder ska dela samma grunddesign, ett layout‑uttryck när en layoutfamilj behöver annan styling, och ett bild‑uttryck bara för egentliga undantag. Överdrivna bild‑nivå‑uttryck gör senare globala temaförändringar svårare att förutsäga.
+
+## **Uppdatera temats bakgrundsstilar**
+
+Temats bakgrundsfyllningar lagras i [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/formatscheme/). PowerPoint kan visa fler bakgrundsalternativ i UI än antalet fyllningsdefinitioner som fysiskt lagras i denna samling eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
+
+![PowerPoint‑bakgrundsgalleri för ett presentationstema](presentation-design_8.png)
+
+Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och den aktuella [Background.getStyleIndex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/background/). Ett stilindex på `0` betyder ingen temafylldning; positiva värden är temabakgrundsstilsreferenser. Detta skiljer sig från att indexera PHP‑samlingen direkt, där `get_Item(0)` betyder det första lagrade objektet. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $backgroundStyleCount = java_values($presentation->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size());
+    echo "Background fill styles: " . $backgroundStyleCount . PHP_EOL;
+    if ($backgroundStyleCount === 0) {
+        throw new RuntimeException("The presentation theme does not contain background fill styles.");
+    }
+
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $masterSlide->getBackground()->setType(BackgroundType::Themed);
+    $masterSlide->getBackground()->setStyleIndex(1);
+    $presentation->save("theme-background.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Det synliga resultatet beror på temaposten som refereras av mastern och på eventuella bakgrunds‑överskrivningar på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund, kan en ändring av endast master‑bakgrunden lämna den bilden oförändrad. Använd [Background.getEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/background/) när du behöver veta den slutgiltiga bakgrunden efter att arv har tillämpats.
+
+{{% alert color="warning" title="Warning" %}}
+Behandla inte stilindex som ett nollbaserat samlingsindex. Undvik också att hårdkoda ett stilnummer från en fil och anta att det har samma utseende i en annan fil; temastildefinitioner är presentationsspecifika.
 {{% /alert %}}
 
-## **Ändra temaeffekt**
+{{% alert color="info" title="Tip" %}}
+För direkt bakgrundsformatering och bakgrundsarv, se [Presentation Background](/slides/sv/php-java/presentation-background/).
+{{% /alert %}}
 
-Ett PowerPoint‑tema innehåller vanligtvis 3 värden för varje stilarray. Dessa arrayer kombineras till de 3 effekterna: subtil, måttlig och intensiv. Till exempel så ser resultatet ut när effekterna tillämpas på en specifik form:
+## **Uppdatera temaeffekter**
 
-![todo:image_alt_text](presentation-design_10.png)
+Ett tema‑formatschema innehåller separata samlingar för fyllnings‑, linje‑ och effektstilar som exponeras via [FormatScheme.getFillStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/formatscheme/) och [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/formatscheme/). Vanliga Office‑teman innehåller ofta tre huvudstilposter som visuellt motsvarar subtil, måttlig och intensiv formatering, men koden bör inspektera varje samling istället för att anta ett fast antal.
 
-Genom att använda 3 egenskaper ([FillStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/sv/php-java/aspose.slides/FormatScheme#getEffectStyles--)) från klassen [FormatScheme] kan du ändra element i ett tema (ännu mer flexibelt än alternativen i PowerPoint).
+![Subtila, måttliga och intensiva temaeffekter som appliceras på samma form](presentation-design_10.png)
 
-Den här PHP‑koden visar hur du ändrar en temaeffekt genom att modifiera delar av element:
+När du kommer åt dessa samlingar i PHP är samlingsindexet nollbaserat: `get_Item(0)` är den första lagrade stilen och `get_Item(2)` är den tredje. En forms stilreferens‑index är ett separat koncept, exponerat via [ShapeStyle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapestyle/). Att modifiera en temastil påverkar former som refererar till den temastilen; former med direkt formatering kan förbli oförändrade.
 
 ```php
-  $pres = new Presentation("Subtle_Moderate_Intense.pptx");
-  try {
-    $pres->getMasterTheme()->getFormatScheme()->getLineStyles()->get_Item(0)->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->setFillType(FillType::Solid);
-    $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->getMasterTheme()->getFormatScheme()->getEffectStyles()->get_Item(2)->getEffectFormat()->getOuterShadowEffect()->setDistance(10.0);
-    $pres->save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    $formatScheme = $presentation->getMasterTheme()->getFormatScheme();
+    if (java_values($formatScheme->getLineStyles()->size()) < 1 || java_values($formatScheme->getFillStyles()->size()) < 3 || java_values($formatScheme->getEffectStyles()->size()) < 3) {
+        throw new RuntimeException("The theme does not contain the style entries required by this example.");
     }
-  }
+
+    $formatScheme->getLineStyles()->get_Item(0)->getFillFormat()->setFillType(FillType::Solid);
+    $formatScheme->getLineStyles()->get_Item(0)->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $formatScheme->getFillStyles()->get_Item(2)->setFillType(FillType::Solid);
+    $formatScheme->getFillStyles()->get_Item(2)->getSolidFillColor()->setColor(new Java("java.awt.Color", 34, 139, 34));
+    $effectFormat = $formatScheme->getEffectStyles()->get_Item(2)->getEffectFormat();
+    $effectFormat->enableOuterShadowEffect();
+    $effectFormat->getOuterShadowEffect()->setDistance(10.0);
+    $presentation->save("theme-effects.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-De resulterande förändringarna i fyllningsfärg, fyllningstyp, skuggeffekt osv:
+För former som refererar till dessa platser blir den första tema‑linjestilen röd, den tredje tema‑fyllningsstilen solid skoggrön, och den tredje effektstilen får en yttre skugga med ett avstånd på 10 punkter. Det exakta visuella resultatet beror fortfarande på vilka stilplatser varje form refererar till och om direkt formatering överskrider temat.
 
-![todo:image_alt_text](presentation-design_11.png)
+![Temaeffektstilar efter att linje, fyllning och skugga har ändrats](presentation-design_11.png)
+
+## **Läs effektiva temavärden**
+
+Råa temaobjekt visar vad som är definierat på en viss nivå. Effektiva värden visar vad en bild eller form faktiskt använder efter att arv och lokala överskrivningar har lösts. För en bild, anropa [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseoverridethememanager/). För en bakgrund, använd [Background.getEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/background/), och för en fyllning, använd [FillFormat.getEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fillformat/).
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $effectiveTheme = $slide->getThemeManager()->createThemeEffective();
+    $effectiveBackground = $slide->getBackground()->getEffective();
+    echo "Effective major Latin font: " . $effectiveTheme->getFontScheme()->getMajor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Effective minor Latin font: " . $effectiveTheme->getFontScheme()->getMinor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Effective background fill type: " . java_values($effectiveBackground->getFillFormat()->getFillType()) . PHP_EOL;
+    if (java_values($slide->getShapes()->size()) > 0) {
+        $effectiveFill = $slide->getShapes()->get_Item(0)->getFillFormat()->getEffective();
+        echo "First shape effective fill type: " . java_values($effectiveFill->getFillType()) . PHP_EOL;
+        if (java_values($effectiveFill->getFillType()) == FillType::Solid) {
+            $effectiveColor = $effectiveFill->getSolidFillColor();
+            echo sprintf("First shape effective fill color: A=%d, R=%d, G=%d, B=%d", java_values($effectiveColor->getAlpha()), java_values($effectiveColor->getRed()), java_values($effectiveColor->getGreen()), java_values($effectiveColor->getBlue())) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Använd effektiva data för renderingsdiagnostik, validering och jämförelser. Om du bara inspekterar [Presentation.getMasterTheme](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/), kan du missa en master-, layout‑, bild‑ eller form‑överskrivning som ändrar det slutgiltiga utseendet.
 
 ## **FAQ**
 
-**Kan jag tillämpa ett tema på en enskild bild utan att ändra mastern?**
+**Kan jag tillämpa ett tema på en enda bild utan att ändra mastern?**
 
-Ja. Aspose.Slides stöder tema‑överskrivningar på bildnivå, så du kan tillämpa ett lokalt tema på just den bilden samtidigt som du behåller mastern temat intakt (via [SlideThemeManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slidethememanager/)).
+Ja. Använd bildens [SlideThemeManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slidethememanager/) och initiera dess överskrivningstema. Ändringen förblir lokal för den bilden; andra bilder fortsätter att ärva sina befintliga teman.
 
-**Vad är det säkraste sättet att överföra ett tema från en presentation till en annan?**
+**Vad är det säkraste sättet att föra ett tema från en presentation till en annan?**
 
-Klona bilder tillsammans med deras master till mål­presentationen. Detta bevarar den ursprungliga master‑layouten och det tillhörande temat så att utseendet förblir konsekvent.
+När du flyttar en bild och bevarar dess ursprungliga utseende, klona käll‑mastern till destinationen och klona bilden med den mastern med [MasterSlideCollection.addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterslidecollection/) och [SlideCollection.addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slidecollection/). Detta håller mastern, layouterna och temat tillsammans.
 
-**Hur kan jag se de ”effektiva” värdena efter all arv och överskrivningar?**
+**Hur kan jag se de effektiva värdena efter arv och överskrivningar?**
 
-Använd API‑ets ["effective"](/slides/sv/php-java/shape-effective-properties/)‑vyer för tema/färg/teckensnitt/effekt. Dessa returnerar de lösta, slutliga egenskaperna efter att mastern och eventuella lokala överskrivningar har tillämpats.
+Använd [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseoverridethememanager/) för en bild‑ eller layout‑tema och de motsvarande effektiva‑datametoderna för formatobjekt såsom [Background.getEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/background/) och [FillFormat.getEffective](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fillformat/). Dessa API‑er returnerar de lösta värdena efter att arv och överskrivningar har tillämpats.

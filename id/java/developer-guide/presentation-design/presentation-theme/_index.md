@@ -6,275 +6,412 @@ weight: 10
 url: /id/java/presentation-theme/
 keywords:
 - Tema PowerPoint
-- Tema presentasi
-- Tema slide
-- Mengatur tema
-- Mengubah tema
-- Mengelola tema
-- Warna tema
-- Palet tambahan
-- Font tema
-- Gaya tema
-- Efek tema
+- tema presentasi
+- tema slide
+- atur tema
+- ubah tema
+- kelola tema
+- warna tema
+- palet tambahan
+- font tema
+- gaya tema
+- efek tema
 - PowerPoint
 - OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-description: "Kuasai tema presentasi di Aspose.Slides untuk Java untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan penjenamaan yang konsisten."
+description: "Kuasai tema presentasi di Aspose.Slides untuk Java untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan merek yang konsisten."
 ---
 ## **Pendahuluan**
 
-Tema presentasi mendefinisikan properti elemen desain. Saat Anda memilih tema presentasi, Anda pada dasarnya memilih satu set elemen visual tertentu beserta propertinya.
+Tema presentasi mendefinisikan satu set terkoordinasi warna, font, gaya latar belakang, isian, garis, dan efek. Objek yang sadar tema mengacu pada definisi berbagi ini alih-alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
 
-Dalam PowerPoint, sebuah tema terdiri dari warna, [font](/slides/id/java/powerpoint-fonts/), [gaya latar belakang](/slides/id/java/presentation-background/), dan efek.
+Di Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Sebuah presentasi juga dapat berisi penimpaan tema pada level yang lebih rendah. Sebuah master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/masterthememanager/), sementara tata letak atau slide individu dapat menimpa tema warisannya melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/baseoverridethememanager/). Dalam praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai warisan ini: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
 
-![theme-constituents](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-## **Ubah Warna Tema**
+Bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah warisan dan penimpaan diselesaikan.
 
-Tema PowerPoint menggunakan satu set warna tertentu untuk elemen berbeda pada sebuah slide. Jika Anda tidak suka warna-warna tersebut, Anda dapat mengubahnya dengan menerapkan warna baru untuk tema. Untuk memungkinkan Anda memilih warna tema baru, Aspose.Slides menyediakan nilai-nilai di bawah enumerasi [SchemeColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/SchemeColor).
+## **Memeriksa Tema**
 
-Kode Java berikut menunjukkan cara mengubah warna aksen untuk sebuah tema:
+Objek [MasterTheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/mastertheme/) mengekspos skema warna tema, skema font, dan skema format melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/mastertheme/), dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/mastertheme/). Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika sebuah presentasi berasal dari sumber eksternal karena jumlah dan konten entri gaya dapat bervariasi.
+
+Contoh berikut membaca properti tema utama dan melaporkan berapa banyak gaya latar belakang, isian, garis, dan efek yang disimpan dalam tema:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-    shape.getFillFormat().setFillType(FillType.Solid);
-
-    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    IMasterTheme theme = presentation.getMasterTheme();
+    System.out.println("Theme name: " + theme.getName());
+    System.out.println("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
+    System.out.println("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Minor Latin font: " + theme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Background fill styles: " + theme.getFormatScheme().getBackgroundFillStyles().size());
+    System.out.println("Fill styles: " + theme.getFormatScheme().getFillStyles().size());
+    System.out.println("Line styles: " + theme.getFormatScheme().getLineStyles().size());
+    System.out.println("Effect styles: " + theme.getFormatScheme().getEffectStyles().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Anda dapat menentukan nilai efektif warna yang dihasilkan dengan cara ini:
+Jika sebuah file menggunakan beberapa master, jangan mengasumsikan bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema-efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan tata letak atau slide mungkin ada.
+
+## **Mengubah Warna Tema**
+
+Isian, garis, dan teks yang sadar tema dapat merujuk ke warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/schemecolor/). Saat Anda mengubah entri yang bersangkutan dalam [IColorScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/icolorscheme/), semua objek yang masih merujuk ke warna tema tersebut diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak diubah oleh pembaruan warna tema.
+
+Contoh end-to-end berikut membuat sebuah bentuk yang menggunakan `Accent4`, mengubah warna tema `Accent4` menjadi merah, menyimpan presentasi, membukanya kembali, dan mencetak warna isian efektif:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    presentation.save("theme-color.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+Presentation savedPresentation = new Presentation("theme-color.pptx");
+try {
+    ISlide savedSlide = savedPresentation.getSlides().get_Item(0);
+    IShape savedShape = savedSlide.getShapes().get_Item(0);
+    IFillFormatEffectiveData effectiveFill = savedShape.getFillFormat().getEffective();
+    System.out.println("Effective fill color: " + effectiveFill.getSolidFillColor());
+} finally {
+    savedPresentation.dispose();
+}
 ```
 
-Untuk lebih menunjukkan operasi perubahan warna, kami membuat elemen lain dan menetapkan warna aksen (dari operasi awal) padanya. Kemudian kami mengubah warna dalam tema:
+Karena persegi panjang tetap terhubung ke `Accent4`, warnanya menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `Accent4` tidak akan memengaruhi isian tersebut lagi.
+
+### **Gunakan Warna dari Palet Tambahan**
+
+PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides mengekspos transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/java/com.aspose.slides/colortransformoperation/).
+
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+
+**1** - Warna tema utama.
+
+**2** - Varian lebih terang dan lebih gelap yang dihasilkan dari warna tema utama.
+
+Contoh berikut membuat enam persegi panjang berdasarkan `Accent4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
-
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
-
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
-```
-
-Warna baru secara otomatis diterapkan pada kedua elemen.
-
-### **Atur Warna Tema dari Palet Tambahan**
-
-Ketika Anda menerapkan transformasi luminansi ke warna tema utama(1), warna-warna dari palet tambahan(2) terbentuk. Anda kemudian dapat mengatur dan mengambil warna tema tersebut.
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - Warna tema utama  
-**2** - Warna dari palet tambahan.
-
-Kode Java berikut mendemonstrasikan operasi di mana warna palet tambahan diperoleh dari warna tema utama dan kemudian digunakan dalam bentuk:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Aksen 4
     IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // Aksen 4, Lebih Terang 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
     shape2.getFillFormat().setFillType(FillType.Solid);
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Aksen 4, Lebih Terang 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Aksen 4, Lebih Terang 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
     shape4.getFillFormat().setFillType(FillType.Solid);
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Aksen 4, Lebih Gelap 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Aksen 4, Lebih Gelap 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("theme-color-palette.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Pemetaan `SchemeColor` ke Warna `IColorScheme`**
+Varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah nanti, warna yang ditransformasi dihitung ulang dari nilai `Accent4` yang baru.
 
-Ketika Anda bekerja dengan [SchemeColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/schemecolor/), Anda mungkin memperhatikan bahwa ia berisi nilai-nilai warna tema berikut:
+### **Petakan Nilai `SchemeColor` ke Slot `IColorScheme`**
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
-
-Namun, `Presentation.getMasterTheme().getColorScheme()` mengembalikan [IColorScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/icolorscheme/), yang menampilkan warna yang bersesuaian sebagai:
-
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
-
-Perbedaan ini hanya pada penamaan. Nilai-nilai ini merujuk pada slot warna tema yang sama dan pemetaan bersifat tetap:
+Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [IColorScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/icolorscheme/) mengekspos slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan ini tetap:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Tidak ada konversi dinamis antara `Text`/`Background` dan `Dark`/`Light`. Mereka hanyalah nama alternatif untuk warna tema yang sama.
+Ini adalah nama alternatif untuk slot tema yang sama; mereka bukan nilai yang dikonversi secara dinamis dari satu bentuk ke bentuk lain.
 
-Perbedaan penamaan ini berasal dari istilah Microsoft Office. Versi Office lama menggunakan `Dark 1`, `Light 1`, `Dark 2`, dan `Light 2`, sementara versi UI terbaru menampilkan slot yang sama sebagai `Text 1`, `Background 1`, `Text 2`, dan `Background 2`.
+## **Mengubah Font Tema**
 
-## **Ubah Font Tema**
+Skema font tema berisi satu set font utama untuk judul dan satu set font minor untuk teks badan. Metode [IFontScheme.getMajor](https://reference.aspose.com/slides/id/java/com.aspose.slides/ifontscheme/) dan [IFontScheme.getMinor](https://reference.aspose.com/slides/id/java/com.aspose.slides/ifontscheme/) mengekspos set tersebut.
 
-Untuk memungkinkan Anda memilih font untuk tema dan keperluan lain, Aspose.Slides menggunakan pengidentifikasi khusus berikut (mirip dengan yang digunakan di PowerPoint):
+Pengidentifikasi font tema yang kompatibel dengan PowerPoint dapat digunakan dalam pemformatan teks:
 
-* **+mn-lt** - Font Tubuh Latin (Minor Latin Font)
-* **+mj-lt** - Font Judul Latin (Major Latin Font)
-* **+mn-ea** - Font Tubuh Asia Timur (Minor East Asian Font)
-* **+mj-ea** - Font Tubuh Asia Timur (Major East Asian Font)
+* `+mn-lt` - Font Badan Latin (Minor Latin Font)
+* `+mj-lt` - Font Judul Latin (Major Latin Font)
+* `+mn-ea` - Font Badan Asia Timur (Minor East Asian Font)
+* `+mj-ea` - Font Judul Asia Timur (Major East Asian Font)
 
-Kode Java berikut menunjukkan cara menetapkan font Latin ke elemen tema:
-
-```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.getPortions().add(portion);
-
-shape.getTextFrame().getParagraphs().add(paragraph);
-
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
-```
-
-Kode Java berikut menunjukkan cara mengubah font tema presentasi:
+Contoh berikut membuat satu judul yang menggunakan font tema Latin mayor dan satu baris badan yang menggunakan font tema Latin minor. Kemudian mengubah font tema dan menyimpan hasilnya:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
-```
+import com.aspose.slides.*;
 
-Font di semua kotak teks akan diperbarui.
-
-{{% alert color="primary" title="TIP" %}} 
-Anda mungkin ingin melihat [font PowerPoint](/slides/id/java/powerpoint-fonts/).
-{{% /alert %}}
-
-## **Ubah Gaya Latar Belakang Tema**
-
-Secara default, aplikasi PowerPoint menyediakan 12 latar belakang bawaan tetapi hanya 3 dari 12 latar belakang tersebut yang disimpan dalam presentasi tipikal.
-
-![todo:image_alt_text](presentation-design_8.png)
-
-Sebagai contoh, setelah Anda menyimpan presentasi di aplikasi PowerPoint, Anda dapat menjalankan kode Java ini untuk mengetahui jumlah latar belakang bawaan dalam presentasi:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation();
 try {
-    int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
+    IAutoShape heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+    heading.getTextFrame().setText("Theme heading");
+    heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mj-lt"));
+
+    IAutoShape body = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+    body.getTextFrame().setText("Theme body text");
+    body.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+
+    presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new FontData("Aptos Display"));
+    presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+    presentation.save("theme-fonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-Dengan menggunakan properti [BackgroundFillStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) dari kelas [FormatScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/FormatScheme), Anda dapat menambahkan atau mengakses gaya latar belakang dalam tema PowerPoint. 
-{{% /alert %}} 
+Judul mengikuti font mayor dan teks badan mengikuti font minor. Teks yang memiliki nama font eksplisit alih-alih pengidentifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
 
-Kode Java berikut menunjukkan cara mengatur latar belakang untuk sebuah presentasi:
+Koleksi font mayor dan minor juga dapat berisi pemetaan font untuk sistem penulisan individu, seperti Cyrillic, Arab, Jepang, Georgia, dan Thaana. Untuk memeriksa, menambahkan, mengganti, atau menghapus pemetaan ini, lihat [Script-Specific Theme Fonts](/slides/id/java/script-specific-font-mappings/).
 
-```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
-```
-
-**Panduan indeks**: 0 digunakan untuk tanpa isian. Indeks dimulai dari 1.
-
-{{% alert color="primary" title="TIP" %}} 
-Anda mungkin ingin melihat [Latar Belakang PowerPoint](/slides/id/java/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/slides/id/java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Ubah Efek Tema**
+## **Menyalin atau Menerapkan Tema**
 
-Tema PowerPoint biasanya berisi 3 nilai untuk setiap larik gaya. Larik-larik tersebut digabungkan menjadi 3 efek ini: halus, sedang, dan intens. Misalnya, inilah hasil ketika efek diterapkan pada bentuk tertentu:
+Ada dua alur kerja umum, dan keduanya menyelesaikan masalah yang berbeda.
 
-![todo:image_alt_text](presentation-design_10.png)
+### **Mempertahankan Tema Sumber Saat Memindahkan Slide**
 
-Dengan menggunakan 3 properti ([FillStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/FormatScheme#getEffectStyles--)) dari kelas [FormatScheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/FormatScheme), Anda dapat mengubah elemen dalam tema (lebih fleksibel daripada opsi di PowerPoint).
-
-Kode Java berikut menunjukkan cara mengubah efek tema dengan memodifikasi bagian-bagian elemen:
+Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, kloning master sumber ke presentasi target dengan [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/imasterslidecollection/), lalu kloning slide dengan [ISlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/) dan master yang dikloning. Ini membawa master, tata letaknya, dan tema terkait bersamaan.
 
 ```java
-Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
 try {
-    pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(FillType.Solid);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(Color.GREEN);
-
-    pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10f);
-
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide sourceSlide = source.getSlides().get_Item(0);
+        IMasterSlide sourceMaster = sourceSlide.getLayoutSlide().getMasterSlide();
+        IMasterSlide clonedMaster = target.getMasters().addClone(sourceMaster);
+        target.getSlides().addClone(sourceSlide, clonedMaster, true);
+        target.save("theme-preserved.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    source.dispose();
 }
 ```
 
-Perubahan yang dihasilkan pada warna isian, jenis isian, efek bayangan, dll:
+Ini adalah alur kerja yang disarankan ketika slide sumber harus terlihat sama di tujuan. Hanya mengkloning konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang digerakkan oleh tema.
 
-![todo:image_alt_text](presentation-design_11.png)
+### **Menerapkan Nilai Tema ke Slide yang Ada**
+
+Jika slide target harus tetap berada pada master dan tata letak saat ini, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/java/com.aspose.slides/overridetheme/), dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/java/com.aspose.slides/overridetheme/) menyalin tiga komponen tema utama ke dalam penimpaan.
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = presentation.getSlides().get_Item(0);
+        IOverrideTheme overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai warisan, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/java/com.aspose.slides/overridetheme/).
+
+### **Menerapkan Penimpaan Tema ke Tata Letak**
+
+Penimpaan tingkat tata letak berlaku untuk slide yang menggunakan tata letak tersebut, kecuali slide tertentu memiliki penimpaan sendiri. Metode inisialisasi yang sama dapat digunakan melalui [LayoutSlideThemeManager](https://reference.aspose.com/slides/id/java/com.aspose.slides/layoutslidethememanager/):
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = presentation.getSlides().get_Item(0);
+        ILayoutSlide targetLayout = targetSlide.getLayoutSlide();
+        IOverrideTheme overrideTheme = targetLayout.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+Gunakan tema master atau tingkat presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak memerlukan gaya berbeda, dan penimpaan slide hanya untuk pengecualian sejati. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi lebih sulit diprediksi.
+
+## **Memperbarui Gaya Latar Belakang Tema**
+
+Isian latar belakang tema disimpan dalam [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/iformatscheme/). PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI-nya daripada jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lainnya.
+
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+
+Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/java/com.aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian bertema; nilai positif adalah referensi gaya latar belakang tema. Ini berbeda dari pengindeksan koleksi Java secara langsung, di mana `get_Item(0)` berarti item pertama yang disimpan. Jangan mengasumsikan bahwa setiap presentasi berisi jumlah gaya isian latar belakang yang sama.
+
+Contoh berikut melaporkan jumlah isian latar belakang yang tersedia, menetapkan referensi latar belakang bertema ke master pertama, dan menyimpan presentasi:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IFillFormatCollection backgroundStyles = presentation.getMasterTheme().getFormatScheme().getBackgroundFillStyles();
+    System.out.println("Background fill styles: " + backgroundStyles.size());
+    if (backgroundStyles.size() == 0) {
+        throw new IllegalStateException("The presentation theme does not contain background fill styles.");
+    }
+
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    masterSlide.getBackground().setType(BackgroundType.Themed);
+    masterSlide.getBackground().setStyleIndex(1);
+    presentation.save("theme-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Hasil yang terlihat tergantung pada entri tema yang direferensikan oleh master dan pada penimpaan latar belakang apa pun di tingkat tata letak atau slide. Jika sebuah slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/background/) ketika Anda perlu mengetahui latar belakang akhir setelah warisan diterapkan.
+
+{{% alert color="warning" title="Warning" %}}
+Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Hindari juga mengkodekan nomor gaya dari satu file dan mengasumsikan tampilannya sama di file lain; definisi gaya tema bersifat spesifik presentasi.
+{{% /alert %}}
+
+{{% alert color="info" title="Tip" %}}
+Untuk pemformatan latar belakang langsung dan warisan latar belakang, lihat [Presentation Background](/slides/id/java/presentation-background/).
+{{% /alert %}}
+
+## **Memperbarui Efek Tema**
+
+Skema format tema berisi koleksi terpisah isian, garis, dan gaya efek yang diekspos melalui [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/iformatscheme/), dan [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/java/com.aspose.slides/iformatscheme/). Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual sesuai dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih-alih mengasumsikan jumlah tetap.
+
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+
+Saat Anda mengakses koleksi ini di Java, indeks koleksi berbasis nol: `get_Item(0)` adalah gaya pertama yang disimpan dan `get_Item(2)` adalah gaya ketiga. Indeks referensi gaya sebuah bentuk adalah konsep terpisah, diekspos melalui [IShapeStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapestyle/). Memodifikasi gaya tema memengaruhi bentuk yang merujuk ke gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
+
+Contoh berikut memeriksa bahwa entri gaya yang diperlukan ada, mengubah gaya garis pertama, mengubah gaya isian ketiga, mengaktifkan bayangan luar pada gaya efek ketiga, dan menyimpan hasilnya:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    IFormatScheme formatScheme = presentation.getMasterTheme().getFormatScheme();
+    if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
+        throw new IllegalStateException("The theme does not contain the style entries required by this example.");
+    }
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(FillType.Solid);
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
+    formatScheme.getFillStyles().get_Item(2).setFillType(FillType.Solid);
+    formatScheme.getFillStyles().get_Item(2).getSolidFillColor().setColor(new Color(34, 139, 34));
+    IEffectFormat effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
+    effectFormat.enableOuterShadowEffect();
+    effectFormat.getOuterShadowEffect().setDistance(10f);
+    presentation.save("theme-effects.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Untuk bentuk yang merujuk ke slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan solid, dan gaya efek ketiga mendapatkan bayangan luar dengan jarak 10 poin. Hasil visual tepat masih tergantung pada slot gaya mana yang dirujuk tiap bentuk dan apakah pemformatan langsung menimpa tema.
+
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+
+## **Membaca Nilai Tema Efektif**
+
+Objek tema mentah memberi tahu Anda apa yang didefinisikan pada level tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau bentuk setelah warisan dan penimpaan lokal diselesaikan. Untuk sebuah slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/fillformat/).
+
+Contoh berikut membaca tema efektif, latar belakang, dan isian bentuk pertama dari sebuah slide:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IThemeEffectiveData effectiveTheme = slide.getThemeManager().createThemeEffective();
+    IBackgroundEffectiveData effectiveBackground = slide.getBackground().getEffective();
+    System.out.println("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+    if (slide.getShapes().size() > 0) {
+        IFillFormatEffectiveData effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
+        System.out.println("First shape effective fill type: " + effectiveFill.getFillType());
+        if (effectiveFill.getFillType() == FillType.Solid) {
+            System.out.println("First shape effective fill color: " + effectiveFill.getSolidFillColor());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/), Anda dapat melewatkan master, tata letak, slide, atau penimpaan bentuk yang mengubah tampilan akhir.
 
 ## **FAQ**
 
-**Bisakah saya menerapkan tema ke satu slide tanpa mengubah master?**
+**Apakah saya dapat menerapkan tema ke satu slide tanpa mengubah master?**
 
-Ya. Aspose.Slides mendukung penimpaan tema pada tingkat slide, sehingga Anda dapat menerapkan tema lokal hanya pada slide tersebut sambil menjaga tema master tetap utuh (melalui [SlideThemeManager](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidethememanager/)).
+Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidethememanager/) slide tersebut dan inisialisasi tema penimpaanannya. Perubahan tetap lokal untuk slide itu; slide lain tetap mewarisi tema yang ada.
 
-**Apa cara paling aman untuk memindahkan tema dari satu presentasi ke presentasi lain?**
+**Apa cara paling aman untuk membawa tema dari satu presentasi ke presentasi lain?**
 
-[Clone slides](/slides/id/java/clone-slides/) bersama dengan master-nya ke dalam presentasi target. Ini mempertahankan master asli, tata letak, dan tema yang terkait sehingga tampilan tetap konsisten.
+Saat memindahkan slide dan mempertahankan tampilan sumbernya, kloning master sumber ke tujuan dan kloning slide dengan master tersebut menggunakan [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/imasterslidecollection/) dan [ISlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/). Ini menjaga master, tata letak, dan tema bersama.
 
-**Bagaimana saya dapat melihat nilai "effective" setelah semua pewarisan dan penimpaan?**
+**Bagaimana saya dapat melihat nilai efektif setelah warisan dan penimpaan?**
 
-Gunakan ["effective" views](/slides/id/java/shape-effective-properties/) API untuk tema/warna/font/efek. Ini mengembalikan properti akhir yang telah diselesaikan setelah menerapkan master ditambah penimpaan lokal apa pun.
+Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/baseoverridethememanager/) untuk tema slide atau tata letak dan metode data-efektif yang bersangkutan untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/java/com.aspose.slides/fillformat/). API ini mengembalikan nilai yang sudah diselesaikan setelah warisan dan penimpaan diterapkan.

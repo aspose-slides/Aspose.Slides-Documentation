@@ -9,91 +9,169 @@ keywords:
 - ψηφιακό πιστοποιητικό
 - αρχή πιστοποίησης
 - πιστοποιητικό PFX
+- PKCS#12
+- επικύρωση υπογραφής
 - PowerPoint
-- OpenDocument
-- παρουσίαση
+- PPTX
+- ασφάλεια παρουσίασης
 - C++
 - Aspose.Slides
-description: "Μάθετε πώς να υπογράφετε ψηφιακά αρχεία PowerPoint & OpenDocument με το Aspose.Slides για C++. Εξασφαλίστε τις διαφάνειές σας σε δευτερόλεπτα με σαφή παραδείγματα κώδικα."
+description: "Μάθετε πώς να υπογράφετε υπάρχουσες παρουσιάσεις PPTX με πιστοποιητικά PFX και να χρησιμοποιείτε το Aspose.Slides για C++ για την επαλήθευση ή την αφαίρεση ψηφιακών υπογραφών."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-**Ψηφιακό πιστοποιητικό** χρησιμοποιείται για τη δημιουργία μιας παρουσίασης PowerPoint προσεκτικά κωδικοποιημένης, σημειωμένης ως δημιουργημένη από συγκεκριμένο οργανισμό ή άτομο. Το ψηφιακό πιστοποιητικό μπορεί να ληφθεί επικοινωνώντας με έναν εξουσιοδοτημένο οργανισμό - μια αρχή πιστοποίησης. Αφού εγκατασταθεί το ψηφιακό πιστοποιητικό στο σύστημα, μπορεί να χρησιμοποιηθεί για την προσθήκη ψηφιακής υπογραφής στην παρουσίαση μέσω Αρχείο -> Πληροφορίες -> Προστασία Παρουσίασης:
+Μια ψηφιακή υπογραφή βοηθά τον παραλήπτη να καθορίσει ποιος υπέγραψε μια παρουσίαση και εάν το υπογεγραμμένο περιεχόμενο έχει αλλάξει. Τρία συναφή έννοιες ασφάλειας είναι σημαντικά εδώ:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Ένα **digital certificate** είναι ένα ηλεκτρονικό διαπιστευτήριο που συσχετίζει μια ταυτότητα με ένα δημόσιο κλειδί. Μια αξιόπιστη αρχή πιστοποίησης (CA) μπορεί να εκδώσει ένα πιστοποιητικό, ή ένας οργανισμός μπορεί να χρησιμοποιήσει ένα αυτο-υπογεγραμμένο πιστοποιητικό για εσωτερικές ροές εργασίας.
+- Μια **digital signature** δημιουργείται από το περιεχόμενο της παρουσίασης και το ιδιωτικό κλειδί του κατόχου του πιστοποιητικού. Το δημόσιο κλειδί του πιστοποιητικού μπορεί στη συνέχεια να χρησιμοποιηθεί για την επαλήθευση της υπογραφής. Μια υπογραφή παρέχει απόδειξη προέλευσης και ακεραιότητας· δεν κρυπτογραφεί την παρουσίαση.
+- Η **Password protection** ελέγχει εάν ένας χρήστης μπορεί να ανοίξει ή να τροποποιήσει μια παρουσίαση. Είναι ξεχωριστή από την ψηφιακή υπογραφή και περιγράφεται στο [Password-Protected Presentations](/slides/el/cpp/password-protected-presentation/).
 
-Η παρουσίαση μπορεί να περιέχει περισσότερες από μία ψηφιακές υπογραφές. Αφού προστεθεί η ψηφιακή υπογραφή στην παρουσίαση, θα εμφανιστεί ένα ειδικό μήνυμα στο PowerPoint:
+Το PowerPoint παρέχει την εντολή **Add a Digital Signature** στο μενού **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Μενού Protect Presentation του PowerPoint με την επιλογή Add a Digital Signature επισημασμένη](add-digital-signature-in-powerpoint.png)
 
-Για να υπογράψετε την παρουσίαση ή να ελέγξετε την αυθεντικότητα των υπογραφών της παρουσίασης, το **Aspose.Slides API** παρέχει το interface [**IDigitalSignature**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_digital_signature), το interface [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_digital_signature_collection) και τη μέθοδο [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1). Επί του παρόντος, οι ψηφιακές υπογραφές υποστηρίζονται μόνο για τη μορφή PPTX.
+Αφού ανοίξει μια υπογεγραμμένη παρουσίαση, το PowerPoint μπορεί να εμφανίσει μια ειδοποίηση κατάστασης υπογραφής.
 
-## **Προσθήκη ψηφιακής υπογραφής από πιστοποιητικό PFX**
-Το παρακάτω δείγμα κώδικα δείχνει πώς να προσθέσετε ψηφιακή υπογραφή από ένα πιστοποιητικό PFX:
+![Ειδοποίηση του PowerPoint που δηλώνει ότι η παρουσίαση περιέχει έγκυρες υπογραφές](digital-signature-status-in-powerpoint.png)
 
-1. Ανοίξτε το αρχείο PFX και περάστε τον κωδικό PFX στο αντικείμενο [**DigitalSignature**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.digital_signature).
-1. Προσθέστε τη δημιουργημένη υπογραφή στο αντικείμενο παρουσίασης.
+Το Aspose.Slides εκθέτει τις υπογραφές μέσω του [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/get_digitalsignatures/), το οποίο επιστρέφει ένα [IDigitalSignatureCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignaturecollection/) των οποίων τα στοιχεία υλοποιούν το [IDigitalSignature](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignature/). Μια παρουσίαση μπορεί να περιέχει πολλαπλές υπογραφές.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+## **Κατανόηση Πιστοποιητικών PFX και Κωδικών Πρόσβασης**
 
-// Δημιουργία αντικειμένου DigitalSignature με αρχείο PFX και κωδικό PFX 
-auto signature = System::MakeObject<DigitalSignature>(u"testsignature1.pfx", u"testpass1");
+Ένα αρχείο PFX, επίσης γνωστό ως αρχείο PKCS#12 και συνήθως με κατάληξη `.pfx` ή `.p12`, μπορεί να περιέχει ένα πιστοποιητικό X.509, το ιδιωτικό του κλειδί και την αλυσίδα πιστοποιητικών. Το ιδιωτικό κλειδί είναι αυτό που επιτρέπει στον κάτοχο να δημιουργήσει μια υπογραφή. Ένα πιστοποιητικό χωρίς προσβάσιμο ιδιωτικό κλειδί δεν μπορεί να χρησιμοποιηθεί για την υπογραφή μιας παρουσίασης.
 
-// Σχόλιο νέας ψηφιακής υπογραφής
-signature->set_Comments(u"Aspose.Slides digital signing test.");
+Ο κωδικός PFX προστατεύει το πακέτο του πιστοποιητικού και το ιδιωτικό κλειδί. **Δεν** είναι κωδικός για το άνοιγμα ή την επεξεργασία της παρουσίασης. Μην καταθέτετε αρχεία PFX ή τους κωδικούς τους σε σύστημα ελέγχου εκδόσεων. Σε παραγωγικό περιβάλλον, περιορίστε την πρόσβαση στο αρχείο πιστοποιητικού και αποκτήστε τον κωδικό του από ένα μυστικό κατάστημα ή άλλη προστατευμένη πηγή διαμόρφωσης. Τα παραδείγματα παρακάτω χρησιμοποιούν μια μεταβλητή περιβάλλοντος μόνο για να αποφύγουν την ενσωμάτωση του κωδικού στον κώδικα.
 
-// Προσθήκη ψηφιακής υπογραφής στην παρουσίαση
-pres->get_DigitalSignatures()->Add(signature);
+## **Προσθήκη Ψηφιακής Υπογραφής σε Παρουσίαση**
 
-// Αποθήκευση παρουσίασης
-pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
+Για να υπογράψετε μια πραγματική ροή εργασίας παρουσίασης, φορτώστε ένα υπάρχον αρχείο PPTX, δημιουργήστε ένα [DigitalSignature](https://reference.aspose.com/slides/el/cpp/aspose.slides/digitalsignature/) από ένα πιστοποιητικό PFX και τον κωδικό του, προσθέστε την υπογραφή στη συλλογή της παρουσίασης και αποθηκεύστε το σε αρχείο PPTX.
+
+```cpp
+auto certificatePassword = Environment::GetEnvironmentVariable(u"PFX_PASSWORD");
+if (certificatePassword.IsNullOrEmpty())
+{
+    throw InvalidOperationException(u"Set the PFX_PASSWORD environment variable.");
+}
+
+auto presentation = MakeObject<Presentation>(u"InputPresentation.pptx");
+
+auto signature = MakeObject<DigitalSignature>(u"signing-certificate.pfx", certificatePassword);
+signature->set_Comments(u"Approved for release.");
+
+presentation->get_DigitalSignatures()->Add(signature);
+presentation->Save(u"InputPresentation-signed.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-Τώρα είναι δυνατόν να ελέγξετε εάν η παρουσίαση υπογράφηκε ψηφιακά και δεν έχει τροποποιηθεί:
+Αποθηκεύοντας το αποτέλεσμα με νέο όνομα διατηρεί το μη υπογεγραμμένο αρχικό αρχείο. Η τιμή [IDigitalSignature::set_Comments](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignature/set_comments/) περιγράφει το σκοπό της υπογραφής· δεν αποτελεί μέτρο ασφαλείας.
 
-``` cpp
-// Άνοιγμα παρουσίασης
-auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
+## **Επαλήθευση Ψηφιακών Υπογραφών**
 
-if (pres->get_DigitalSignatures()->get_Count() > 0)
+Όταν φορτώνετε ένα υπογεγραμμένο αρχείο PPTX, ελέγξτε κάθε στοιχείο που επιστρέφεται από το [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/get_digitalsignatures/). Η μέθοδος [IDigitalSignature::get_IsValid](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignature/get_isvalid/) υποδεικνύει εάν η ενσωματωμένη υπογραφή είναι έγκυρη για το τρέχον περιεχόμενο της παρουσίασης.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+auto signatureCount = presentation->get_DigitalSignatures()->get_Count();
+
+if (signatureCount == 0)
+{
+    Console::WriteLine(u"The presentation does not contain digital signatures.");
+}
+else
 {
     bool allSignaturesAreValid = true;
 
-    Console::WriteLine(u"Signatures used to sign the presentation: ");
-
-    // Έλεγχος εάν όλες οι ψηφιακές υπογραφές είναι έγκυρες
-    for (auto signature : pres->get_DigitalSignatures())
+    for (int signatureIndex = 0; signatureIndex < signatureCount; ++signatureIndex)
     {
-        Console::WriteLine(signature->get_Certificate()->get_SubjectName()->get_Name() 
-            + u", " 
-            + signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm") 
-            + u" -- " 
-            + (signature->get_IsValid() ? System::String(u"VALID") : System::String(u"INVALID")));
-        allSignaturesAreValid &= signature->get_IsValid();
+        auto signature = presentation->get_DigitalSignature(signatureIndex);
+        auto signatureIsValid = signature->get_IsValid();
+        auto signatureStatus = signatureIsValid ? u"VALID" : u"INVALID";
+        auto signerName = signature->get_Certificate()->get_SubjectName()->get_Name();
+        auto signingTime = signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm:ss");
+
+        Console::WriteLine(u"{0}, {1} -- {2}", signerName, signingTime, signatureStatus);
+
+        allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
     }
 
     if (allSignaturesAreValid)
     {
-        Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
+        Console::WriteLine(u"All embedded signatures are valid for the current presentation.");
     }
     else
     {
-        Console::WriteLine(u"Presentation has been modified since signing.");
+        Console::WriteLine(u"At least one embedded signature is invalid.");
     }
 }
+
+presentation->Dispose();
 ```
 
-## **Συχνές ερωτήσεις**
+Ένα άκυρο αποτέλεσμα συνήθως σημαίνει ότι το υπογεγραμμένο περιεχόμενο της παρουσίασης ή τα δεδομένα της υπογραφής άλλαξαν μετά την υπογραφή, ή ότι το αρχείο είναι κατεστραμμένο. Η αφαίρεση κάθε υπογραφής παράγει μια μη υπογεγραμμένη παρουσίαση, οπότε ο έλεγχος μόνο της εγκυρότητας των στοιχείων δεν είναι επαρκής: μια ροή εργασίας ευαίσθητη στην ασφάλεια πρέπει επίσης να επαληθεύει ότι υπάρχει ο αναμενόμενος αριθμός υπογραφών και οι αναμενόμενες ταυτότητες υπογράφοντων.
 
-**Μπορώ να αφαιρέσω υπάρχουσες υπογραφές από ένα αρχείο;**
+Αυτό το αποτέλεσμα εγκυρότητας δεν πρέπει να θεωρείται πλήρης απόφαση εμπιστοσύνης του πιστοποιητικού. Ανάλογα με την πολιτική ασφαλείας σας, η εφαρμογή σας μπορεί επίσης να χρειάζεται να δημιουργήσει και να επαληθεύσει την αλυσίδα πιστοποιητικών X.509, να ελέγξει τις ημερομηνίες ισχύος του πιστοποιητικού και την κατάσταση ανάκλησης, να επιβεβαιώσει το αναμενόμενο αντικείμενο ή αποτύπωμα, να επαληθεύσει τη χρήση κλειδιού και να αξιολογήσει ένα αξιόπιστο χρονικό σήμα. Η τιμή [IDigitalSignature::get_SignTime](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignature/get_signtime/) από μόνη της δεν αποτελεί απόδειξη από αξιόπιστη αρχή χρονικού σήματος.
 
-Ναι. Η συλλογή ψηφιακών υπογραφών υποστηρίζει [αφαίρεση μεμονωμένων στοιχείων](https://reference.aspose.com/slides/el/cpp/aspose.slides/digitalsignaturecollection/removeat/) και [εκαθάριση ολόκληρης της συλλογής](https://reference.aspose.com/slides/el/cpp/aspose.slides/digitalsignaturecollection/clear/); μετά την αποθήκευση του αρχείου, η παρουσίαση δεν θα έχει υπογραφές.
+## **Αφαίρεση Ψηφιακών Υπογραφών**
 
-**Γίνεται το αρχείο "μόνο για ανάγνωση" μετά την υπογραφή;**
+Η αφαίρεση υπογραφών αλλάζει την κατάσταση ασφαλείας της παρουσίασης. Το παρακάτω παράδειγμα φορτώνει ένα υπογεγραμμένο αρχείο PPTX, αφαιρεί όλες τις υπογραφές με το [IDigitalSignatureCollection::Clear](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignaturecollection/clear/), και αποθηκεύει ένα μη υπογεγραμμένο αντίγραφο.
 
-Όχι. Μια υπογραφή διατηρεί την ακεραιότητα και τη συγγραφικότητα αλλά δεν εμποδίζει τις επεξεργασίες. Για να περιορίσετε την επεξεργασία, συνδυάστε τη με την επιλογή [\"Μόνο για ανάγνωση\" ή κωδικός πρόσβασης](/slides/el/cpp/password-protected-presentation/).
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
 
-**Θα εμφανίζεται σωστά η υπογραφή σε διαφορετικές εκδόσεις του PowerPoint;**
+presentation->get_DigitalSignatures()->Clear();
+presentation->Save(u"InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-Η υπογραφή δημιουργείται για το δοχείο OOXML (PPTX). Οι σύγχρονες εκδόσεις του PowerPoint που υποστηρίζουν υπογραφές OOXML εμφανίζουν σωστά την κατάσταση τέτοιων υπογραφών.
+Για να αφαιρέσετε μόνο μία υπογραφή, καλέστε το [IDigitalSignatureCollection::RemoveAt](https://reference.aspose.com/slides/el/cpp/aspose.slides/idigitalsignaturecollection/removeat/) με τον μηδενικό του δείκτη. Αποθηκεύστε σε νέο αρχείο εκτός εάν η αντικατάσταση του υπογεγραμμένου αρχικού είναι ρητό μέρος της ροής εργασίας σας.
+
+## **Σκέψεις Επεξεργασίας και Μορφής**
+
+- Μία υπογραφή δεν κάνει την παρουσίαση μόνο για ανάγνωση. Οι χρήστες και οι εφαρμογές μπορούν ακόμη να επεξεργαστούν το αρχείο, αλλά οι αλλαγές στο υπογεγραμμένο περιεχόμενο συνήθως ακυρώνουν την υπάρχουσα υπογραφή.
+- Ολοκληρώστε όλες τις προγραμματισμένες επεξεργασίες πριν υπογράψετε. Εάν πρέπει να αλλάξει μια παρουσίαση, αποθηκεύστε την αναθεωρημένη παρουσίαση και ξαναυπογράψτε αυτήν την έκδοση.
+- Διατηρήστε το τελικό αποτέλεσμα σε μορφή PPTX. Η μετατροπή μιας υπογεγραμμένης παρουσίασης σε άλλη μορφή δεν μεταφέρει την αρχική υπογραφή PPTX ως έγκυρη υπογραφή για το μετατρεπόμενο αρχείο.
+- Θεωρήστε το ιδιωτικό κλειδί του πιστοποιητικού ως ευαίσθητο. Οποιοσδήποτε αποκτήσει το ιδιωτικό κλειδί και τον κωδικό του μπορεί να δημιουργήσει υπογραφές που φαίνονται να προέρχονται από αυτόν τον κάτοχο του πιστοποιητικού.
+- Διατηρήστε το μη υπογεγραμμένο πηγαίο αρχείο ή άλλο ελεγχόμενο αντίγραφο όταν η πολιτική διατήρησης εγγράφων το απαιτεί.
+
+## **FAQ**
+
+**Κρυπτογραφεί η ψηφιακή υπογραφή την παρουσίαση;**
+
+Όχι. Η ψηφιακή υπογραφή παρέχει αποδείξεις για την προέλευση και την ακεραιότητα, αλλά το περιεχόμενο της παρουσίασης παραμένει αναγνώσιμο εκτός αν εφαρμοστεί ξεχωριστή κρυπτογράφηση. Χρησιμοποιήστε την [password protection](/slides/el/cpp/password-protected-presentation/) όταν πρέπει να περιοριστεί η πρόσβαση στο περιεχόμενο.
+
+**Είναι ο κωδικός PFX το ίδιο με τον κωδικό της παρουσίασης;**
+
+Όχι. Ο κωδικός PFX ξεκλειδώνει το ιδιωτικό κλειδί που είναι αποθηκευμένο στο πακέτο του πιστοποιητικού. Δεν ελέγχει ποιος μπορεί να ανοίξει ή να επεξεργαστεί το αρχείο PPTX.
+
+**Μπορώ να χρησιμοποιήσω ένα αυτο-υπογεγραμμένο πιστοποιητικό;**
+
+Τεχνικά, ένα αυτο-υπογεγραμμένο πιστοποιητικό μπορεί να χρησιμοποιηθεί όταν περιέχει πρόσβαση στο ιδιωτικό κλειδί. Οι παραλήπτες δεν θα το εμπιστευτούν αυτόματα, εκτός εάν το πιστοποιητικό προστεθεί ρητά στο αξιόπιστο περιβάλλον τους. Δημόσιες ή δια-οργανωτικές ροές εργασίας συνήθως χρησιμοποιούν ένα πιστοποιητικό που εκδόθηκε από αξιόπιστη CA.
+
+**Τι κάνει μια υπογραφή άκυρη;**
+
+Η αλλαγή του υπογεγραμμένου περιεχομένου της παρουσίασης ή των δεδομένων της υπογραφής μετά την υπογραφή μπορεί να ακυρώσει την υπογραφή. Η αλλοίωση του αρχείου μπορεί επίσης να προκαλέσει αποτυχία επαλήθευσης. Εάν αφαιρεθούν όλες οι υπογραφές, η παρουσίαση γίνεται μη υπογεγραμμένη αντί για αρχείο που περιέχει άκυρη υπογραφή.
+
+**Σημαίνει μια έγκυρη υπογραφή ότι πρέπει να εμπιστευτώ τον υπογράφοντα;**
+
+Δεν σημαίνει από μόνο του. Η ακεραιότητα της υπογραφής και η εμπιστοσύνη στον υπογράφοντα είναι ξεχωριστές αποφάσεις. Μια πολιτική επαλήθευσης σε παραγωγικό περιβάλλον πρέπει επίσης να ελέγχει την αλυσίδα πιστοποιητικών, την περίοδο ισχύος, την κατάσταση ανάκλησης, την αναμενόμενη ταυτότητα, τη χρήση κλειδιού και τυχόν απαιτήσεις αξιόπιστου χρονικού σήματος.
+
+**Τι συμβαίνει όταν λήξει το πιστοποιητικό;**
+
+Η λήξη του πιστοποιητικού δεν αλλάζει τα bytes της παρουσίασης, αλλά επηρεάζει την αξιολόγηση εμπιστοσύνης του πιστοποιητικού. Το αν μια υπογραφή παραμένει αποδεκτή εξαρτάται από την πολιτική σας και από το εάν ένα έγκυρο αξιόπιστο χρονικό σήμα αποδεικνύει ότι η υπογραφή έγινε ενώ το πιστοποιητικό ήταν έγκυρο. Μην βασίζεστε μόνο στην εμφανιζόμενη ώρα υπογραφής ως αξιόπιστο χρονικό σήμα.
+
+**Μπορεί μια υπογεγραμμένη παρουσίαση να επεξεργαστεί ακόμα;**
+
+Ναι. Η υπογραφή δεν κλειδώνει το αρχείο. Η επεξεργασία του υπογεγραμμένου περιεχομένου γενικά ακυρώνει την υπάρχουσα υπογραφή, επομένως ολοκληρώστε πρώτα την παρουσίαση και υπογράψτε την τελική έκδοση.
+
+**Μπορεί μια παρουσίαση να περιέχει περισσότερες από μία υπογραφές;**
+
+Ναι. Προσθέστε κάθε υπογραφή στη συλλογή που επιστρέφεται από το [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/get_digitalsignatures/) πριν από την αποθήκευση. Κατά την επαλήθευση, ελέγξτε κάθε υπογραφή και βεβαιωθείτε ότι όλοι οι απαιζόμενοι υπογράφοντες είναι παρόντες.
+
+**Ποιες μορφές παρουσίασης υποστηρίζουν αυτές τις λειτουργίες;**
+
+Το Aspose.Slides υποστηρίζει τις λειτουργίες ψηφιακής υπογραφής που περιγράφονται εδώ μόνο για PPTX. Οι μορφές παρουσίασης PPT και OpenDocument δεν υποστηρίζονται από αυτήν τη ροή εργασίας API.
+
+**Μπορώ να αφαιρέσω μια υπογραφή χωρίς να επηρεάσω τις διαφάνειες;**
+
+Ναι. Μπορείτε να αφαιρέσετε μία υπογραφή ή να εκκαθαρίσετε ολόκληρη τη συλλογή και στη συνέχεια να αποθηκεύσετε την παρουσίαση. Το περιεχόμενο των διαφανειών παραμένει διαθέσιμο, αλλά το αποθηκευμένο αρχείο δεν περιέχει πλέον την απόδειξη της αφαιρεθείσας υπογραφής.

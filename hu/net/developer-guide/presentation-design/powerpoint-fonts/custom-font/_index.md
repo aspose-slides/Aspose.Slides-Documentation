@@ -1,6 +1,6 @@
 ---
 title: PowerPoint betűkészletek testreszabása .NET-ben
-linktitle: Egyedi betűkészlet
+linktitle: Egyéni betűkészlet
 type: docs
 weight: 20
 url: /hu/net/custom-font/
@@ -17,44 +17,50 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Testreszabhatja a PowerPoint diák betűkészleteit az Aspose.Slides for .NET segítségével, hogy bemutatói minden eszközön élesek és következetesek legyenek."
+description: "Testreszabhatja a betűkészleteket a PowerPoint diákon az Aspose.Slides for .NET segítségével, hogy prezentációi minden eszközön élesek és konzisztens megjelenést biztosítsanak."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy egyedi betűkészleteket használjon a bemutatókban anélkül, hogy telepítené őket a operációs rendszerre. Betűkészleteket tölthet be egyedi mappákból, megadhat betűkészleteket egy adott bemutatóhoz dokumentumszintű betűkészletforrásokkal, vagy külső betűkészleteket tölthet be közvetlenül bináris adatból.
+Az Aspose.Slides lehetővé teszi egyéni betűkészletek használatát a prezentációkban anélkül, hogy telepítené őket az operációs rendszerre. Betűkészleteket tölthet be egyéni mappákból, megadhat betűkészleteket egy adott prezentációhoz dokumentumszintű betűkészlet‑forrásokkal, vagy betöltheti a külső betűkészleteket közvetlenül bináris adatokból.
 
-A betöltött betűkészletek használatban vannak, amikor egy bemutatót renderelnek vagy exportálnak, például PDF‑be, képekbe és más támogatott formátumokba. Ez segít a bemutató kimenetét konzisztensnek tartani a különböző környezetekben. A cikk azt is bemutatja, hogyan ellenőrizheti az Aspose.Slides által használt betűkészlet-mappákat, és hogyan törölheti a betűkészlet-gyorsítót a külső betűkészletekkel való munka után.
+A betöltött betűkészleteket a prezentáció renderelésekor vagy exportálásakor használja, például PDF‑hez, képekhez és más támogatott formátumokhoz. Ez segít az eredmény konzisztens megjelenésének fenntartásában különböző környezetekben. A cikk bemutatja, hogyan ellenőrizheti az Aspose.Slides által használt betűkészlet‑mappákat, és hogyan törölheti a betűkészlet‑gyorsítót a külső betűkészletekkel dolgozás után.
 
-Az egyedi betűkészletek regisztrálása a rendereléshez különálló a betűkészletek PPTX fájlba ágyazásától. Ha egy betűkészletet a bemutatóban kell tárolni, használja kifejezetten a betűkészlet-embedelés funkcióit.
+A betűkészletek rendereléshez történő regisztrálása különbözik a betűkészletek PPTX‑fájlba ágyazásától. Ha a betűkészletet magában a prezentációban kell tárolni, használja a betűkészlet‑ágyazási funkciókat kifejezetten.
 
-{{% alert color="primary" %}} 
-Az Aspose Slides lehetővé teszi ezen betűkészletek betöltését a [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) metódus használatával:
+Egy prezentáció témája különböző írásrendszerek számára hivatkozhat külön betűcsaládokra. Ezek a leképezések csak betűneveket tárolnak, de nem telepítik vagy töltik be a betűkészlet‑fájlokat. Tekintse meg a [Script‑Specific Theme Fonts](/slides/hu/net/script-specific-font-mappings/) oldalt a leképezések kezeléséhez, és használja az alábbi betöltési beállításokat, hogy a hivatkozott betűkészletek elérhetők legyenek a konzisztens rendereléshez.
 
-* TrueType (.ttf) és TrueType Collection (.ttc) betűkészletek. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType).
-* OpenType (.otf) betűkészletek. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType).
+{{% alert color="info" title="Note" %}}
+Az Aspose Slides a [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) metódussal teszi lehetővé ezen betűkészletek betöltését:
+
+* TrueType (.ttf) és TrueType Collection (.ttc) betűkészletek. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType) szócikket.
+
+* OpenType (.otf) betűkészletek. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType) szócikket.
 {{% /alert %}}
 
-## **Egyedi betűkészletek betöltése**
+## **Egyéni betűkészletek betöltése**
 
-Az Aspose.Slides lehetővé teszi, hogy betűkészleteket töltsön be egy bemutatóhoz anélkül, hogy azokat a rendszerre telepítené. Ez befolyásolja az export kimenetet – például PDF, képek és egyéb támogatott formátumok – így a kapott dokumentumok minden környezetben egységesek maradnak. A betűkészletek egyedi könyvtárakból töltődnek be.
+Az Aspose.Slides lehetővé teszi, hogy a prezentációban használt betűkészleteket betöltse a rendszerre való telepítés nélkül. Ez befolyásolja az exportkimenetet – például PDF, képek és egyéb támogatott formátumok – így a létrejött dokumentumok minden környezetben egységesen jelennek meg. A betűkészleteket egyéni könyvtárakból tölti be.
 
-1. Adjon meg egy vagy több mappát, amely a betűkészlet-fájlokat tartalmazza.
-2. Hívja meg a statikus [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) metódust a betűkészletek betöltéséhez ezekből a mappákból.
-3. Töltse be és renderelje/exportálja a bemutatót.
-4. Hívja meg a [FontsLoader.ClearCache](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/clearcache/) metódust a betűkészlet-gyorsító törléséhez.
+1. Adjon meg egy vagy több mappát, amely a betűkészlet‑fájlokat tartalmazza.
+2. Hívja meg a statikus [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) metódust a megadott mappák betöltéséhez.
+3. Töltse be és renderelje/exportálja a prezentációt.
+4. Hívja meg a [FontsLoader.ClearCache](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/clearcache/) metódust a betűkészlet‑gyorsítótörléshez.
 
-A következő kódrészlet bemutatja a betűkészlet betöltésének folyamatát:
+Az alábbi kódrészlet bemutatja a betűkészlet‑betöltési folyamatot:
 
 ```cs
-// Határozza meg az egyedi betűkészlet fájlokat tartalmazó mappákat.
-string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Töltse be az egyedi betűkészleteket a megadott mappákból.
+// Határozza meg az egyéni betűkészlet fájlokat tartalmazó mappákat.
+string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
+
+// Töltse be az egyéni betűkészleteket a megadott mappákból.
 FontsLoader.LoadExternalFonts(fontFolders);
 
 using Presentation presentation = new Presentation("sample.pptx");
 
-// Renderelje/exportálja a bemutatót (például PDF-be, képekbe vagy más formátumokba) a betöltött betűkészletekkel.
+// Renderelje/exportálja a prezentációt (például PDF-be, képekbe vagy más formátumokba) a betöltött betűkészletek használatával.
 presentation.Save("output.pdf", SaveFormat.Pdf);
 
 // Törölje a betűkészlet gyorsítótárát a munka befejezése után.
@@ -62,30 +68,34 @@ FontsLoader.ClearCache();
 ```
 
 {{% alert color="info" title="Note" %}}
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) további mappákat ad a betűkészlet-keresési útvonalakhoz, de nem változtatja meg a betűkészlet inicializálási sorrendjét.
-A betűkészletek ebben a sorrendben inicializálódnak:
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfonts/) további mappákat ad a betűkészlet‑keresési útvonalakhoz, de nem változtatja meg a betűkészlet‑inicializálási sorrendet.
+A betűkészletek ezen a sorrenden inicializálódnak:
 
-1. Az alapértelmezett operációs rendszer betűkészlet útvonala.
+1. Az operációs rendszer alapértelmezett betűkészlet‑útvonala.  
 1. A [FontsLoader](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/) által betöltött útvonalak.
 {{%/alert %}}
 
-## **Egyedi betűkészlet-mappák lekérdezése**
-Az Aspose.Slides a [GetFontFolders](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/getfontfolders/) metódust biztosítja, amely lehetővé teszi a betűkészlet-mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metódussal hozzáadott mappákat és a rendszer betűkészlet-mappákat.
+## **Egyéni betűkészlet‑mappák lekérése**
+Az Aspose.Slides a [GetFontFolders](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/getfontfolders/) metódust biztosítja, amely lehetővé teszi a betűkészlet‑mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metódussal hozzáadott mappákat és a rendszer betűkészlet‑mappákat.
 
-Ez a C# kód megmutatja, hogyan használja a [GetFontFolders](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/getfontfolders/) metódust:
+Ez a C# kód bemutatja a [GetFontFolders](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/getfontfolders/) használatát:
 
 ```c#
-// Ez a sor kiírja azokat a mappákat, amelyekben betűkészlet fájlokat keres.
+using Aspose.Slides;
+
+// Ez a sor kiírja azokat a mappákat, amelyekben a betűkészlet fájlok keresése történik.
 // Ezek a LoadExternalFonts metódussal hozzáadott mappák és a rendszer betűkészlet mappái.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-## **A bemutatóval használt egyedi betűkészletek megadása**
-Az Aspose.Slides a [DocumentLevelFontSources](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/documentlevelfontsources/) tulajdonságot biztosítja, amely lehetővé teszi, hogy külső betűkészleteket adjon meg, amelyeket a bemutatóval együtt használunk.
+## **Egyéni betűkészletek megadása egy prezentációhoz**
+Az Aspose.Slides a [DocumentLevelFontSources](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/documentlevelfontsources/) tulajdonságot biztosítja, amely lehetővé teszi külső betűkészletek megadását a prezentációhoz.
 
-Ez a C# kód megmutatja, hogyan használja a [DocumentLevelFontSources](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/documentlevelfontsources/) tulajdonságot:
+Ez a C# kód bemutatja a [DocumentLevelFontSources](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/documentlevelfontsources/) használatát:
 
 ```c#
+using Aspose.Slides;
+
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
@@ -94,18 +104,20 @@ loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
-    // Dolgozzon a bemutatóval
-    // A CustomFont1, a CustomFont2, valamint az assets\fonts és a global\fonts mappákból és azok almappáiból származó betűkészletek elérhetők a bemutatóban
+    // A prezentációval dolgozz
+    // A CustomFont1, CustomFont2, valamint az assets\fonts és global\fonts mappák és azok alkönyvtáraiban található betűkészletek elérhetők a prezentáció számára
 }
 ```
 
 ## **Betűkészletek külső kezelése**
 
-Az Aspose.Slides a [LoadExternalFont](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) metódust biztosítja, amely lehetővé teszi, hogy külső betűkészleteket töltsön be bináris adatokból.
+Az Aspose.Slides a [LoadExternalFont](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) metódust biztosítja, amely lehetővé teszi a külső betűkészletek betöltését bináris adatokból.
 
-Ez a C# kód demonstrálja a bájt-tömbös betűkészlet betöltésének folyamatát:
+Ez a C# kód bemutatja a bájt‑tömb‑alapú betűkészlet‑betöltési folyamatot:
 
 ```c#
+using Aspose.Slides;
+
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));
@@ -114,7 +126,7 @@ try
 {
     using (Presentation pres = new Presentation(""))
     {
-        // a bemutató életciklusa során betöltött külső betűkészlet
+        // külső betűkészlet betöltve a prezentáció életciklusa alatt
     }
 }
 finally
@@ -123,24 +135,26 @@ finally
 }
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Az egyedi betűkészletek befolyásolják az exportot minden formátumba (PDF, PNG, SVG, HTML)?**
+**A egyéni betűkészletek befolyásolják az összes formátumú exportot (PDF, PNG, SVG, HTML)?**
 
-Igen. A kapcsolt betűkészleteket a renderelő használja az összes export formátumban.
+Igen. A csatlakoztatott betűkészleteket a renderelő minden exportformátumban használja.
 
-**Az egyedi betűkészletek automatikusan beágyazódnak a létrehozott PPTX‑be?**
+**A egyéni betűkészletek automatikusan beágyazódnak a létrejövő PPTX‑be?**
 
-Nem. A betűkészlet regisztrálása a rendereléshez nem ugyanaz, mint a PPTX‑be való beágyazása. Ha a betűkészletet a bemutató fájlban kell tárolni, expliciten használni kell a [beágyazási funkciókat](/slides/hu/net/embedded-font/).
+Nem. A betűkészlet regisztrálása a rendereléshez nem ugyanaz, mint a PPTX‑be ágyazása. Ha a betűkészletet a prezentációs fájlban kell tárolni, használja a kifejezett [embedding features](/slides/hu/net/embedded-font/) lehetőséget.
 
-**Szabályozhatom a fallback viselkedést, ha egy egyedi betűkészlet bizonyos glypheket hiányol?**
+**Szabályozhatom a helyettesítési viselkedést, ha egy egyéni betűkészlet nem tartalmaz bizonyos glifeket?**
 
-Igen. Konfigurálja a [betűkészlet helyettesítést](/slides/hu/net/font-substitution/), a [helyettesítési szabályokat](/slides/hu/net/font-replacement/) és a [fallback készleteket](/slides/hu/net/fallback-font/) hogy pontosan meghatározza, melyik betűkészletet használja, ha a kért glif hiányzik.
+Igen. Állítsa be a [font substitution](/slides/hu/net/font-substitution/), [replacement rules](/slides/hu/net/font-replacement/) és [fallback sets](/slides/hu/net/fallback-font/) beállításokat, hogy pontosan meghatározza, mely betűkészletet használja a hiányzó glif esetén.
 
-**Használhatok betűkészleteket Linux/Docker konténerekben a rendszer szintű telepítés nélkül?**
+**Használhatok betűkészleteket Linux/Docker konténerekben anélkül, hogy rendszerszinten telepíteném őket?**
 
-Igen. Mutasson a saját betűkészlet-mappáira vagy töltsön be betűkészleteket bájt tömbökből. Ez megszünteti a rendszer betűkészlet könyvtáraira való függőséget a konténer képen.
+Igen. Hivatkozhat a saját betűkészlet‑mappáira, vagy betöltheti a betűkészleteket bájt‑tömbökből. Ez eltávolítja a rendszer betűkészlet‑könyvtárakra való függőséget a konténer‑képből.
 
-**Mi van a licenceléssel—beágyazhatok bármilyen egyedi betűkészletet korlátozás nélkül?**
+> **Megjegyzés Linux/Docker esetén**: A `FontsLoader.LoadExternalFonts` hívásakor győződjön meg róla, hogy a `directories` tömb minden eleme nem üres útvonalat tartalmaz egy létező könyvtárhoz. Ha a betűkészlet‑útvonalat összeállító környezeti változó nincs definiálva vagy üres, az Aspose.Slides megpróbálhatja az üres értéket teljes útvonalként feloldani, ami `System.ArgumentException`‑t eredményez.
 
-Ön felel a betűkészlet licencelt megfeleléséért. A feltételek változóak; egyes licencek tiltják a beágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűkészlet EULA‑ját, mielőtt kimeneteket terjesztene.
+**Mi a helyzet a licenceléssel – beágyazhatok bármilyen egyéni betűkészletet korlátozások nélkül?**
+
+Ön felelős a betűkészlet‑licencének betartásáért. A feltételek változóak; egyes licencelések tiltják a beágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűkészlet EULA‑ját, mielőtt terjesztené a kimeneteket.

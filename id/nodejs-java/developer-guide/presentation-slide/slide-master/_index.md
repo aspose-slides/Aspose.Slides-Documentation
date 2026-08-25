@@ -1,60 +1,61 @@
 ---
 title: Kelola Slide Master Presentasi di JavaScript
-linktitle: Master Slide
+linktitle: Slide Master
 type: docs
 weight: 70
 url: /id/nodejs-java/slide-master/
 keywords:
 - slide master
 - master slide
-- slide master PPT
+- PPT master slide
 - banyak master slide
 - bandingkan master slide
 - latar belakang
 - placeholder
-- kloning master slide
-- menyalin master slide
-- duplikat master slide
-- master slide yang tidak terpakai
+- gandakan master slide
+- salin master slide
+- duplikasi master slide
+- master slide tidak terpakai
 - PowerPoint
 - OpenDocument
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kelola master slide di Aspose.Slides untuk Node.js via Java: mengakses, mengedit, mengkloning, membandingkan, dan menghapus master slide dalam presentasi PowerPoint dan OpenDocument."
+description: "Kelola slide master di Aspose.Slides untuk Node.js via Java: akses, edit, menggandakan, membandingkan, dan menghapus master slide dalam presentasi PowerPowerPoint dan OpenDocument."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Sebuah **slide master** mendefinisikan pengaturan desain bersama untuk sekumpulan slide. Ini dapat berisi bentuk umum, logo, latar belakang, gaya teks, pengaturan tema, dan pengaturan footer. Di PowerPoint, mengedit slide master adalah cara biasanya untuk menjaga konsistensi presentasi tanpa mengulangi pemformatan yang sama pada setiap slide.
+Sebuah **slide master** menentukan pengaturan desain bersama untuk sekelompok slide. Itu dapat berisi bentuk umum, logo, latar belakang, gaya teks, pengaturan tema, dan pengaturan footer. Di PowerPoint, mengedit slide master adalah cara umum untuk menjaga konsistensi presentasi tanpa mengulang format yang sama pada setiap slide.
 
-Aspose.Slides untuk Node.js via Java mendukung model yang sama. Sebuah presentasi dapat berisi satu atau lebih master slide, dan setiap master slide dapat berisi beberapa layout slide. Slide biasa biasanya tidak merujuk langsung ke master slide. Sebaliknya, slide biasa menggunakan layout slide, dan layout slide itu dimiliki oleh master slide.
+Aspose.Slides for Node.js via Java mendukung model yang sama. Sebuah presentasi dapat berisi satu atau lebih master slide, dan setiap master slide dapat berisi beberapa layout slide. Slide normal biasanya tidak merujuk langsung ke master slide. Sebaliknya, slide normal menggunakan layout slide, dan layout slide tersebut merupakan bagian dari master slide.
 
-Hierarki nya adalah:
+Hierarki adalah:
 
-1. **Slide master** – mendefinisikan desain dan tema bersama.
-1. **Layout slide** – mendefinisikan susunan placeholder dan pemformatan tingkat layout tertentu.
-1. **Slide normal** – berisi konten presentasi aktual dan menggunakan satu layout slide.
+1. **Slide master** - menentukan desain dan tema bersama.
+2. **Layout slide** - menentukan susunan spesifik placeholder dan pemformatan tingkat tata letak.
+3. **Normal slide** - berisi konten presentasi yang sebenarnya dan menggunakan satu layout slide.
 
 ![Hierarki master slide, layout slide, dan slide normal](slide-master_2.jpg)
 
-Di Aspose.Slides, slide master direpresentasikan oleh kelas [MasterSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/). Semua master slide dalam sebuah presentasi dapat diakses melalui koleksi `Presentation.getMasters()`.
+Di Aspose.Slides, sebuah slide master direpresentasikan oleh kelas [MasterSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/). Semua master slide dalam sebuah presentasi dapat diakses melalui koleksi `Presentation.getMasters()`.
 
 {{% alert color="info" title="Inheritance" %}}
-
-Ketika properti yang sama didefinisikan pada lebih dari satu tingkat, tingkat yang lebih spesifik yang menang. Misalnya, jika sebuah master slide dan sebuah layout slide keduanya mendefinisikan latar belakang, slide yang berbasis pada layout tersebut menggunakan latar belakang layout. Untuk informasi lebih lanjut tentang layout slide, lihat [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
-
+Ketika properti yang sama didefinisikan pada lebih dari satu tingkat, tingkat yang lebih spesifik yang dipilih. Misalnya, jika sebuah master slide dan sebuah layout slide keduanya mendefinisikan latar belakang, slide yang berbasis pada layout tersebut akan menggunakan latar belakang layout. Untuk informasi lebih lanjut tentang layout slide, lihat [Terapkan atau Ubah Tata Letak Slide](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
-## **Mengakses Slide Master**
+## **Mengakses Slide Masters**
 
-Di PowerPoint, Anda dapat membuka tampilan Slide Master melalui **View** > **Slide Master**.
+Di PowerPoint, Anda dapat membuka tampilan Slide Master dari **View** > **Slide Master**.
 
 ![Perintah Slide Master pada tab View di PowerPoint](slide-master_3.jpg)
 
 Di Aspose.Slides, gunakan koleksi `getMasters()` untuk mengakses master slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -71,6 +72,9 @@ try {
 Anda juga dapat mendapatkan master slide yang digunakan oleh slide normal melalui layoutnya:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -86,26 +90,29 @@ try {
 
 ## **Apa yang Dimiliki Slide Master**
 
-Sebuah master slide adalah objek yang mirip slide. Ia mewarisi perilaku slide umum dari [BaseSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/), sehingga mengekspos banyak properti slide yang sama yang digunakan oleh slide normal dan layout. Anggota khusus master terdaftar pada halaman API [MasterSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/).
+Sebuah master slide adalah objek mirip slide. Ia mewarisi perilaku slide umum dari [BaseSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/), sehingga menampilkan banyak properti slide yang sama yang digunakan oleh slide normal dan layout. Anggota khusus master dicantumkan pada halaman API [MasterSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/).
 
-Anggota master slide yang sering digunakan meliputi:
+Anggota master slide yang umum digunakan meliputi:
 
 | Anggota | Tujuan |
 | --- | --- |
-| `getBackground()` | Menetapkan latar belakang slide tingkat master. |
+| `getBackground()` | Mengatur latar belakang slide pada tingkat master. |
 | `getShapes()` | Menyimpan bentuk yang ditempatkan pada master, seperti logo, bingkai gambar, dan teks bersama. |
-| `getLayoutSlides()` | Menyimpan layout slide yang dimiliki master. |
-| `getThemeManager()` | Menyediakan akses ke API tema master. |
-| `getHeaderFooterManager()` | Mengontrol header, footer, tanggal, dan nomor slide untuk master serta layout anaknya. |
-| `getDependingSlides()` | Mengembalikan slide normal yang bergantung pada master melalui layout mereka. |
+| `getLayoutSlides()` | Menyimpan layout slide yang termasuk dalam master. |
+| `getThemeManager()` | Memberikan akses ke API tema master. |
+| `getHeaderFooterManager()` | Mengontrol header, footer, tanggal, dan nomor slide untuk master dan tata letak turunannya. |
+| `getDependingSlides()` | Mengembalikan slide normal yang bergantung pada master melalui tata letaknya. |
 
 ## **Menambahkan Gambar ke Slide Master**
 
-Saat Anda menambahkan gambar ke master slide, gambar tersebut muncul pada slide yang menggunakan layout dari master itu. Ini berguna untuk logo, watermark, pita dekoratif, dan elemen visual berulang lainnya.
+Ketika Anda menambahkan gambar ke master slide, gambar tersebut muncul pada slide yang menggunakan layout dari master itu. Ini berguna untuk logo, watermark, pita dekoratif, dan elemen visual berulang lainnya.
 
 Contoh berikut menambahkan logo ke master slide pertama:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +138,23 @@ try {
 }
 ```
 
-Untuk informasi lebih lanjut tentang bingkai gambar, lihat [Picture Frame](/nodejs-java/picture-frame/).
+Untuk informasi lebih lanjut tentang bingkai gambar, lihat [Bingkai Gambar](/nodejs-java/picture-frame/).
 
 ## **Bekerja dengan Placeholder**
 
-Placeholder biasanya didefinisikan pada layout slide. Master slide menyediakan gaya dan tema bersama yang diwarisi oleh layout tersebut, sementara setiap layout memutuskan placeholder mana yang tersedia dan di mana penempatannya.
+Placeholder biasanya didefinisikan pada layout slide. Master slide menyediakan gaya dan tema bersama yang diwarisi oleh layout tersebut, sementara setiap layout menentukan placeholder mana yang tersedia dan di mana penempatannya.
 
 Di PowerPoint, perintah placeholder tersedia dalam tampilan Slide Master.
 
-![Perintah Insert Placeholder pada tampilan Slide Master di PowerPoint](slide-master_5.png)
+![Perintah Insert Placeholder di tampilan Slide Master PowerPoint](slide-master_5.png)
 
-Untuk menambahkan placeholder baru dengan Aspose.Slides, kerjakan layout slide yang dimiliki master:
+Untuk menambahkan placeholder baru dengan Aspose.Slides, kerjakan layout slide yang merupakan bagian dari master:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -163,9 +174,13 @@ try {
 }
 ```
 
-Anda juga dapat memformat bentuk placeholder yang sudah ada pada master slide. Contoh berikut menemukan placeholder judul dan menerapkan isian gradien linear:
+Anda juga dapat memformat bentuk placeholder yang sudah ada pada master slide. Contoh berikut menemukan placeholder judul dan menerapkan isian gradien linier:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -195,7 +210,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -206,13 +221,17 @@ try {
 
 ![Placeholder judul yang diformat diwarisi oleh slide normal](slide-master_8.png)
 
-Untuk opsi format placeholder dan teks lainnya, lihat [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) dan [Text Formatting](/nodejs-java/text-formatting/).
+Untuk opsi pemformatan placeholder dan teks lebih lanjut, lihat [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) dan [Text Formatting](/nodejs-java/text-formatting/).
 
-## **Mengubah Latar Belakang Slide Master**
+## **Ubah Latar Belakang Slide Master**
 
-Latar belakang master diwarisi oleh layout dan slide yang tidak menimpanya. Contoh berikut menetapkan warna latar belakang padat untuk master slide pertama:
+Latar belakang master diwarisi oleh layout dan slide yang tidak menggantinya. Contoh berikut menetapkan warna latar belakang padat untuk master slide pertama:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -232,11 +251,14 @@ try {
 
 Untuk topik terkait, lihat [Presentation Background](/nodejs-java/presentation-background/) dan [Presentation Theme](/nodejs-java/presentation-theme/).
 
-## **Mengkloning Slide Master ke Presentasi Lain**
+## **Menggandakan Slide Master ke Presentasi Lain**
 
-Gunakan `MasterSlideCollection.addClone` untuk menyalin master slide ke presentasi lain. Master yang disalin kemudian dapat digunakan oleh layout dan slide dalam presentasi tujuan.
+Gunakan `MasterSlideCollection.addClone` untuk menyalin master slide ke presentasi lain. Master yang disalin kemudian dapat digunakan oleh layout dan slide di presentasi tujuan.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -250,7 +272,7 @@ try {
 }
 ```
 
-Jika Anda perlu mengkloning slide normal bersama masternya, lihat [Clone Slides](/nodejs-java/clone-slides/).
+Jika Anda perlu menggandakan slide normal bersama master-nya, lihat [Clone Slides](/nodejs-java/clone-slides/).
 
 ## **Menambahkan Beberapa Slide Master**
 
@@ -258,9 +280,13 @@ Sebuah presentasi dapat berisi beberapa master slide. Ini berguna ketika bagian 
 
 ![Perintah PowerPoint untuk menyisipkan dan mengelola master slide](slide-master_9.jpg)
 
-Contoh berikut mengkloning master default, memberi klon latar belakang yang berbeda, membuat layout di bawah master yang diklon, dan menambahkan slide baru berdasarkan layout tersebut:
+Contoh berikut menggandakan master default, memberi clone latar belakang yang berbeda, membuat layout di bawah master yang digandakan, dan menambahkan slide baru berdasarkan layout tersebut:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -288,11 +314,14 @@ try {
 }
 ```
 
-## **Membandingkan Slide Master**
+## **Bandingkan Slide Master**
 
-Slide master dapat dibandingkan dengan metode `equals` yang diwarisi dari [BaseSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/). Perbandingan memeriksa struktur dan konten statis, seperti bentuk, teks, pemformatan, animasi, dan pengaturan slide lainnya. Ia tidak membandingkan pengidentifikasi unik, seperti ID slide, atau nilai placeholder dinamis, seperti tanggal saat ini.
+Master slide dapat dibandingkan dengan metode `equals` yang diwarisi dari [BaseSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/). Perbandingan memeriksa struktur dan konten statis, seperti bentuk, teks, pemformatan, animasi, dan pengaturan slide lainnya. Tidak membandingkan pengenal unik, seperti ID slide, atau nilai placeholder dinamis, seperti tanggal saat ini.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -318,13 +347,17 @@ try {
 }
 ```
 
-Untuk informasi lebih lanjut, lihat [Compare Presentation Slides](/nodejs-java/compare-slides/).
+Untuk informasi lebih lanjut, lihat [Compare Presentation Slides](/slides/id/nodejs-java/compare-slides/).
 
-## **Menetapkan Tampilan Slide Master sebagai Tampilan Default**
+## **Atur Tampilan Slide Master sebagai Tampilan Default**
 
 Gunakan metode `setLastView` pada [ViewProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/viewproperties/) untuk mengontrol tampilan yang pertama kali dibuka PowerPoint. Contoh berikut membuka presentasi dalam tampilan Slide Master:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -336,15 +369,18 @@ try {
 }
 ```
 
-Untuk pengaturan tampilan lainnya, lihat [Save Presentation](/nodejs-java/save-presentation/).
+Untuk pengaturan tampilan lebih lanjut, lihat [Save Presentation](/slides/id/nodejs-java/save-presentation/).
 
-## **Menghapus Slide Master yang Tidak Digunakan**
+## **Hapus Slide Master yang Tidak Digunakan**
 
-Presentasi kadang berisi slide master yang tidak lagi dipakai oleh slide normal manapun. Menghapus master yang tidak digunakan dapat mengurangi ukuran file dan menyederhanakan pemeliharaan template.
+Presentasi kadang-kadang berisi master slide yang tidak lagi digunakan oleh slide normal mana pun. Menghapus master yang tidak digunakan dapat mengurangi ukuran file dan menyederhanakan pemeliharaan templat.
 
-Gunakan `removeUnused` untuk menghapus master yang tidak dipakai dari koleksi `getMasters()`:
+Gunakan `removeUnused` untuk menghapus master yang tidak digunakan dari koleksi `getMasters()`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -357,6 +393,9 @@ try {
 Anda juga dapat menggunakan metode low-code `Compress.removeUnusedMasterSlides`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -368,18 +407,18 @@ try {
 
 ## **FAQ**
 
-**Apa perbedaan antara slide master dan layout slide?**
+### Apa perbedaan antara slide master dan layout slide?
 
-Slide master mendefinisikan pengaturan desain bersama seperti tema, latar belakang, bentuk umum, dan gaya teks. Layout slide berada di bawah slide master dan mendefinisikan susunan placeholder tertentu. Slide normal memakai layout slide, sehingga ia mewarisi baik dari layout maupun master.
+Slide master mendefinisikan pengaturan desain bersama seperti tema, latar belakang, bentuk umum, dan gaya teks. Layout slide merupakan bagian dari master slide dan mendefinisikan susunan spesifik placeholder. Slide normal menggunakan layout slide, sehingga mewarisi dari layout serta master.
 
-**Apakah satu presentasi dapat berisi beberapa slide master?**
+### Bisakah satu presentasi berisi beberapa slide master?
 
-Ya. Sebuah presentasi dapat berisi beberapa slide master. Gunakan beberapa master ketika bagian yang berbeda memerlukan sistem visual atau branding yang berbeda.
+Ya. Sebuah presentasi dapat berisi beberapa slide master. Gunakan banyak master ketika bagian yang berbeda memerlukan sistem visual atau branding yang berbeda.
 
-**Haruskah saya menambahkan placeholder ke slide master atau ke layout slide?**
+### Haruskah saya menambahkan placeholder ke master slide atau layout slide?
 
-Sebagian besar kasus, tambahkan placeholder ke layout slide. Letakkan elemen visual bersama dan pemformatan bersama pada slide master, lalu tempatkan placeholder konten pada layout yang akan dipakai slide normal.
+Dalam kebanyakan kasus, tambahkan placeholder ke layout slide. Letakkan elemen visual dan pemformatan bersama pada master slide, kemudian letakkan placeholder konten pada layout yang akan digunakan slide normal.
 
-**Bisakah saya menghapus slide master yang masih dipakai?**
+### Bisakah saya menghapus master slide yang masih digunakan?
 
-Tidak. Slide master yang memiliki slide tergantung tidak dapat dihapus secara langsung dengan aman. Pertama, pindahkan slide‑slide tersebut ke layout di bawah master lain, atau gunakan metode pembersihan master tidak terpakai yang hanya menghapus master yang tidak dipakai.
+Tidak. Master slide yang memiliki slide tergantung tidak dapat dihapus secara langsung. Pindahkan slide tersebut ke layout di bawah master lain, atau gunakan metode pembersihan master yang tidak terpakai yang hanya menghapus master yang tidak digunakan.

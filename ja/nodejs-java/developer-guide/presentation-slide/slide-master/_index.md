@@ -1,11 +1,11 @@
 ---
-title: JavaScript でプレゼンテーションのスライドマスタを管理する
-linktitle: スライドマスタ
+title: JavaScript でプレゼンテーション スライドマスターを管理する
+linktitle: スライドマスター
 type: docs
 weight: 70
 url: /ja/nodejs-java/slide-master/
 keywords:
-- スライドマスタ
+- スライドマスター
 - マスタースライド
 - PPT マスタースライド
 - 複数のマスタースライド
@@ -22,37 +22,42 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java でスライドマスタを管理します：PowerPoint および OpenDocument プレゼンテーションにおけるマスタースライドの取得、編集、クローン、比較、削除を行います。"
+description: "Aspose.Slides for Node.js via Java におけるスライドマスターの管理: PowerPoint および OpenDocument プレゼンテーションでマスタースライドにアクセス、編集、クローン、比較、削除を行う。"
 ---
 ## **概要**
 
-**スライドマスタ** は、スライド グループの共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキスト スタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスタを編集することで、各スライドで同じ書式設定を繰り返すことなく、プレゼンテーションの一貫性を保つのが一般的な方法です。
+**スライドマスター**は、スライド グループの共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキスト スタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することで、すべてのスライドで同じ書式設定を繰り返すことなく、プレゼンテーションの一貫性を保つのが通常の方法です。
 
-Aspose.Slides for Node.js via Java も同じモデルをサポートしています。プレゼンテーションには 1 つ以上のマスタースライドを含めることができ、各マスタースライドには複数のレイアウトスライドが属します。通常のスライドはマスタースライドを直接参照することはなく、レイアウトスライドを使用し、レイアウトスライドがマスタースライドに所属します。
+Aspose.Slides for Node.js via Java でも同じモデルがサポートされています。プレゼンテーションには 1 つ以上のマスタースライドを含めることができ、各マスタースライドは複数のレイアウトスライドを含めることができます。通常のスライドは直接マスタースライドを参照しません。代わりに、通常のスライドはレイアウトスライドを使用し、そのレイアウトスライドがマスタースライドに属しています。
 
-階層は次のとおりです。
+階層構造は次のとおりです。
 
-1. **スライドマスタ** – 共有デザインとテーマを定義します。  
+1. **スライドマスター** – 共有デザインとテーマを定義します。  
 1. **レイアウトスライド** – プレースホルダーとレイアウトレベルの書式設定の具体的な配置を定義します。  
-1. **通常スライド** – 実際のプレゼンテーション コンテンツを保持し、1 つのレイアウトスライドを使用します。
+1. **通常スライド** – 実際のコンテンツを含み、1 つのレイアウトスライドを使用します。
 
 ![マスタースライド、レイアウトスライド、通常スライドの階層構造](slide-master_2.jpg)
 
-Aspose.Slides では、スライドマスタは [MasterSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/masterslide/) クラスで表されます。プレゼンテーション内のすべてのマスタースライドは `Presentation.getMasters()` コレクションから取得できます。
+Aspose.Slides では、スライドマスターは [MasterSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/masterslide/) クラスで表されます。プレゼンテーション内のすべてのマスタースライドは `Presentation.getMasters()` コレクションから取得できます。
 
 {{% alert color="info" title="Inheritance" %}}
-複数のレベルで同じプロパティが定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[Apply or Change Slide Layouts](/nodejs-java/slide-layout/) を参照してください。
+
+同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[スライドレイアウトの適用または変更](/nodejs-java/slide-layout/) を参照してください。
+
 {{% /alert %}}
 
-## **スライドマスタへのアクセス**
+## **スライドマスターへのアクセス**
 
-PowerPoint では、**表示** > **スライドマスタ** からスライドマスタ ビューを開くことができます。
+PowerPoint では、**表示** > **スライドマスター** からスライドマスタービューを開くことができます。
 
-![PowerPoint の表示タブにあるスライドマスタ コマンド](slide-master_3.jpg)
+![PowerPoint の表示タブにあるスライドマスター コマンド](slide-master_3.jpg)
 
 Aspose.Slides では、`getMasters()` コレクションを使用してマスタースライドにアクセスします：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +71,12 @@ try {
 }
 ```
 
-通常スライドが使用しているマスタースライドは、そのレイアウトから取得できます：
+通常スライドが使用しているレイアウトを介して、そのマスタースライドを取得することもできます：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -82,28 +90,31 @@ try {
 }
 ```
 
-## **スライドマスタに含まれるもの**
+## **スライドマスターに含まれるもの**
 
-マスタースライドはスライドに似たオブジェクトです。[BaseSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/baseslide/) から共通のスライド動作を継承しているため、通常スライドやレイアウトスライドと同様の多数のスライドプロパティを公開します。マスタ固有のメンバーは [MasterSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/masterslide/) API ページに一覧されています。
+マスタースライドはスライドに似たオブジェクトです。[BaseSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/baseslide/) から共通のスライド動作を継承するため、通常スライドやレイアウトスライドと同様の多数のスライド プロパティを提供します。マスタ固有のメンバーは [MasterSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/masterslide/) API ページに一覧があります。
 
-主に使用されるマスタースライド メンバーは次のとおりです。
+主に使用されるマスタースライドのメンバーは次のとおりです。
 
-| メンバー | 用途 |
+| メンバー | 目的 |
 | --- | --- |
-| `getBackground()` | マスターレベルのスライド背景を設定します。 |
-| `getShapes()` | ロゴ、画像フレーム、共有テキストなど、マスター上に配置された図形を格納します。 |
+| `getBackground()` | マスター レベルのスライド背景を設定します。 |
+| `getShapes()` | ロゴ、画像枠、共有テキストなど、マスター上に配置された図形を格納します。 |
 | `getLayoutSlides()` | マスターに属するレイアウトスライドを格納します。 |
-| `getThemeManager()` | マスターテーマ API へのアクセスを提供します。 |
+| `getThemeManager()` | マスター テーマ API へのアクセスを提供します。 |
 | `getHeaderFooterManager()` | マスターとその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
 | `getDependingSlides()` | レイアウトを介してマスターに依存している通常スライドを返します。 |
 
-## **スライドマスタに画像を追加する**
+## **スライドマスターに画像を追加する**
 
-マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するスライドすべてに画像が表示されます。ロゴ、透かし、装飾帯、その他繰り返し使用する視覚要素に便利です。
+マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するすべてのスライドに画像が表示されます。ロゴ、透かし、装飾バンドなど、繰り返し使用する視覚要素に便利です。
 
 次の例は、最初のマスタースライドにロゴを追加します：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +140,23 @@ try {
 }
 ```
 
-画像フレームの詳細については、[Picture Frame](/nodejs-java/picture-frame/) を参照してください。
+画像枠の詳細については、[Picture Frame](/nodejs-java/picture-frame/) を参照してください。
 
 ## **プレースホルダーの操作**
 
-プレースホルダーは通常、レイアウトスライド上に定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーと配置場所を決定します。
+プレースホルダーは通常レイアウトスライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーと配置位置を決定します。
 
-PowerPoint では、スライドマスタ ビューでプレースホルダー コマンドが利用できます。
+PowerPoint では、スライドマスタービューでプレースホルダー コマンドが利用できます。
 
-![PowerPoint スライドマスタ ビューのプレースホルダー挿入コマンド](slide-master_5.png)
+![PowerPoint スライドマスタービューのプレースホルダー挿入コマンド](slide-master_5.png)
 
-Aspose.Slides で新しいプレースホルダーを追加する場合、マスターに属するレイアウトスライドを操作します：
+Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウトスライドを操作します：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -161,9 +176,13 @@ try {
 }
 ```
 
-既存のプレースホルダー形状を書式設定することも可能です。以下の例はタイトル プレースホルダーを検索し、線形グラデーション塗りつぶしを適用します：
+既存のプレースホルダー形状をフォーマットすることもできます。次の例はタイトル プレースホルダーを検索し、線形グラデーション塗りを適用します：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -193,7 +212,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -202,15 +221,19 @@ try {
 }
 ```
 
-![通常スライドが継承する書式設定済みタイトルプレースホルダー](slide-master_8.png)
+![通常スライドが継承するフォーマット済みタイトル プレースホルダー](slide-master_8.png)
 
-その他のプレースホルダーおよびテキスト書式設定オプションについては、[Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) と [Text Formatting](/nodejs-java/text-formatting/) を参照してください。
+プレースホルダーやテキストのフォーマットオプションの詳細については、[Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) および [Text Formatting](/nodejs-java/text-formatting/) を参照してください。
 
-## **スライドマスタの背景を変更する**
+## **スライドマスターの背景を変更する**
 
-マスターベースの背景は、レイアウトやスライドが上書きしない限り継承されます。次の例は、最初のマスタースライドに単色の背景色を設定します：
+マスター背景は、上書きされないレイアウトやスライドに継承されます。次の例は、最初のマスタースライドに単色の背景色を設定します：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -230,11 +253,14 @@ try {
 
 関連トピックは、[Presentation Background](/nodejs-java/presentation-background/) と [Presentation Theme](/nodejs-java/presentation-theme/) を参照してください。
 
-## **スライドマスタを別のプレゼンテーションへクローンする**
+## **スライドマスターを別のプレゼンテーションにクローンする**
 
-`MasterSlideCollection.addClone` を使用してマスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
+`MasterSlideCollection.addClone` を使用して、マスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -250,15 +276,19 @@ try {
 
 マスターとともに通常スライドもクローンする必要がある場合は、[Clone Slides](/nodejs-java/clone-slides/) を参照してください。
 
-## **複数のスライドマスタを追加する**
+## **複数のスライドマスターを追加する**
 
-プレゼンテーションには複数のマスタースライドを含められます。セクションごとに異なるブランディングやページ構成、テーマ設定が必要な場合に便利です。
+プレゼンテーションは複数のマスタースライドを含めることができます。セクションごとに異なるブランディング、ページ構成、テーマ設定が必要な場合に便利です。
 
-![マスタースライドの挿入と管理に関する PowerPoint コマンド](slide-master_9.jpg)
+![PowerPoint のマスタースライド挿入・管理コマンド](slide-master_9.jpg)
 
-次の例は、デフォルトマスターをクローンし、クローンに別の背景を設定し、そのクローンマスター配下にレイアウトを作成し、最後にそのレイアウトに基づく新しいスライドを追加します：
+次の例は、デフォルトマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下にレイアウトを作成し、そのレイアウトに基づく新しいスライドを追加します：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -286,11 +316,14 @@ try {
 }
 ```
 
-## **スライドマスタを比較する**
+## **スライドマスターを比較する**
 
-マスタースライドは、[BaseSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/baseslide/) から継承した `equals` メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他スライド設定）を対象とし、スライド ID のような固有識別子や現在の日付などの動的プレースホルダー値は比較対象外です。
+マスタースライドは、[BaseSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/baseslide/) から継承した `equals` メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他のスライド設定）をチェックします。スライド ID などの一意識別子や、現在の日付などの動的プレースホルダー値は比較対象に含まれません。
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -316,13 +349,17 @@ try {
 }
 ```
 
-詳細は、[Compare Presentation Slides](/nodejs-java/compare-slides/) をご覧ください。
+詳細は、[Compare Presentation Slides](/slides/ja/nodejs-java/compare-slides/) を参照してください。
 
-## **スライドマスタ ビューをデフォルト ビューに設定する**
+## **スライドマスタービューをデフォルトビューに設定する**
 
-[ViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/) の `setLastView` メソッドを使用して、PowerPoint が最初に開くビューを制御できます。次の例は、プレゼンテーションをスライドマスタ ビューで開きます：
+[ViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/) の `setLastView` メソッドを使用して、PowerPoint が最初に開くビューを制御できます。次の例は、プレゼンテーションをスライドマスタービューで開きます：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -334,15 +371,18 @@ try {
 }
 ```
 
-他のビュー設定については、[Save Presentation](/nodejs-java/save-presentation/) を参照してください。
+その他のビュー設定については、[Save Presentation](/slides/ja/nodejs-java/save-presentation/) を参照してください。
 
 ## **未使用のマスタースライドを削除する**
 
-プレゼンテーションには、もはや通常スライドで使用されていないマスタースライドが含まれることがあります。未使用のマスターを削除すると、ファイルサイズの削減とテンプレート保守の簡素化につながります。
+プレゼンテーションには、もはや通常スライドで使用されていないマスタースライドが含まれることがあります。未使用のマスターを削除すると、ファイル サイズが削減され、テンプレートの保守が簡素化されます。
 
-`removeUnused` を使用して `getMasters()` コレクションから未使用マスターを削除します：
+`removeUnused` を使用して、`getMasters()` コレクションから未使用のマスターを削除します：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -352,9 +392,12 @@ try {
 }
 ```
 
-低コードの `Compress.removeUnusedMasterSlides` メソッドも利用可能です：
+低コードの `Compress.removeUnusedMasterSlides` メソッドを使用することもできます：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -366,18 +409,18 @@ try {
 
 ## **FAQ**
 
-**スライドマスタとレイアウトスライドの違いは何ですか？**
+### スライドマスターとレイアウトスライドの違いは何ですか？
 
-スライドマスタはテーマ、背景、共通図形、テキスト スタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。通常スライドはレイアウトスライドを使用し、レイアウトとマスターの両方から継承します。
+スライドマスターはテーマ、背景、共通図形、テキスト スタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。通常スライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から継承します。
 
-**1 つのプレゼンテーションに複数のスライドマスタを含められますか？**
+### 1 つのプレゼンテーションに複数のスライドマスターを含められますか？
 
-はい。プレゼンテーションは複数のスライドマスタを含められます。セクションごとに異なるビジュアル体系やブランディングが必要な場合は、マスターを複数使用してください。
+はい。プレゼンテーションは複数のスライドマスターを含めることができます。セクションごとに異なるビジュアル システムやブランディングが必要な場合に、複数のマスターを使用してください。
 
-**プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？**
+### プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？
 
-ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共有の視覚要素や書式設定はマスタースライドに置き、コンテンツ用のプレースホルダーは通常スライドが使用するレイアウトに配置します。
+ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共有の視覚要素や共有書式はマスタースライドに置き、コンテンツ用プレースホルダーは通常スライドが使用するレイアウトに配置します。
 
-**使用中のマスタースライドを削除できますか？**
+### 使用中のマスタースライドを削除できますか？
 
-できません。依存スライドがあるマスタースライドは直接安全に削除できません。まずそれらのスライドを別のマスター配下のレイアウトに移動するか、使用されていないマスターのみを削除するクリーンアップ手法を使用してください。
+できません。依存スライドがあるマスタースライドは直接削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、未使用のマスターだけを削除するクリーンアップ手法を使用してください。

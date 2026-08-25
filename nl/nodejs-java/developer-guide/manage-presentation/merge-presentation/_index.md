@@ -1,6 +1,6 @@
 ---
-title: Efficiënt presentaties samenvoegen in JavaScript
-linktitle: Presentaties samenvoegen
+title: Efficiënt Presentaties Samenvoegen in JavaScript
+linktitle: Presentaties Samenvoegen
 type: docs
 weight: 40
 url: /nl/nodejs-java/merge-presentation/
@@ -20,258 +20,344 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Moeiteloos PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties samenvoegen in JavaScript met Aspose.Slides for Node.js, waardoor uw workflow wordt gestroomlijnd."
+description: "Leer hoe u PowerPoint en OpenDocument presentaties in JavaScript kunt samenvoegen door dia's te klonen, masters en layouts te beheren, dia-inhoud te schalen, secties te behouden en beveiligde of grote bestanden af te handelen."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt je in staat om presentaties te combineren door dia’s van de ene presentatie te klonen naar een andere. Dit artikel legt uit hoe je volledige presentaties of geselecteerde dia’s kunt samenvoegen, een slide‑master of een specifiek layout tijdens het samenvoegen kunt gebruiken, presentaties met verschillende dia‑groottes kunt afhandelen en samengevoegde dia’s aan een presentatiesectie kunt toevoegen. Het behandelt ook praktische notities over samengevoegde inhoud, waaronder notities van de spreker, opmerkingen, met een wachtwoord beveiligde bronbestanden en thread‑gebruik.
+Aspose.Slides voor Node.js via Java voegt presentaties samen door dia's te klonen van één [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) naar een andere. De hoofdoperatie is [SlideCollection.addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), die de opmaak van de bron‑dia kan behouden of de gekloonde dia kan koppelen aan een master of layout in de doelpresentatie.
 
-## **Presentatie samenvoegen**
+Dit artikel behandelt de meest voorkomende samenvoeg‑workflows:
 
-Wanneer je de ene presentatie met de andere samenvoegt, combineer je in feite hun dia’s in één presentatie om één bestand te verkrijgen. 
+- alle dia's samenvoegen terwijl hun bron‑opmaak behouden blijft;
+- geselecteerde dia's samenvoegen;
+- een master uit de doelpresentatie toepassen;
+- een specifieke layout uit de doelpresentatie toepassen;
+- verschillende dia‑groottes normaliseren vóór het samenvoegen;
+- gekloonde dia's aan een sectie toevoegen;
+- meerdere presentaties in één end‑to‑end workflow samenvoegen;
+- masters, resources, notities, commentaren, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑aspecten afhandelen.
 
-{{% alert title="Info" color="info" %}}
-De meeste presentatiesoftware (PowerPoint of OpenOffice) mist functies waarmee gebruikers presentaties op deze manier kunnen combineren. 
-{{% /alert %}}
+## **Hoe dia‑klonen masters en layouts beïnvloedt**
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nl/nodejs-java/), maakt echter op verschillende manieren het samenvoegen van presentaties mogelijk. Je kunt presentaties samenvoegen met al hun vormen, stijlen, teksten, opmaak, opmerkingen, animaties, enz., zonder je zorgen te maken over kwaliteits- of gegevensverlies.
+Een dia erft een groot deel van zijn uiterlijk van zijn layout en master. Om die reden bepaalt de door jou gekozen overload voor het klonen hoe de samengevoegde dia wordt geïntegreerd in de doelpresentatie.
 
-**Zie ook**
+Gebruik [SlideCollection.addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/) op één van de volgende manieren:
 
-[Dia’s klonen](https://docs.aspose.com/slides/nl/nodejs-java/clone-slides/).
+- `addClone(sourceSlide)` — behoudt de layout en opmaak van de bron‑dia. Indien nodig kan de bron‑master automatisch in de doelpresentatie worden gekloond. Aspose.Slides houdt automatisch gekloonde masters bij zodat herhaalde dia’s die dezelfde bron‑master gebruiken die master niet steeds opnieuw klonen.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — koppelt de gekloonde dia aan een specifieke doel‑[MasterSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/). Aspose.Slides zoekt onder die master naar een overeenkomende layout op basis van layouttype of naam.
+- `addClone(sourceSlide, destinationLayout)` — koppelt de gekloonde dia direct aan een specifieke doel‑[LayoutSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/).
 
-### **Wat kan worden samengevoegd**
+De master of layout die aan een `addClone`‑overload wordt doorgegeven, moet tot de **doel**‑presentatie behoren, niet tot de bron‑presentatie.
 
-Met Aspose.Slides kun je
+## **Gehele presentaties samenvoegen en bron‑opmaak behouden**
 
-* volledige presentaties. Alle dia’s uit de presentaties eindigen in één presentatie
-* specifieke dia’s. Geselecteerde dia’s eindigen in één presentatie
-* presentaties in één formaat (PPT naar PPT, PPTX naar PPTX, enz.) en in verschillende formaten (PPT naar PPTX, PPTX naar ODP, enz.) naar elkaar.
-
-### **Samenvoeg‑opties**
-
-Je kunt opties toepassen die bepalen of
-
-* elke dia in de doelpresentatie een unieke stijl behoudt
-* een specifieke stijl wordt gebruikt voor alle dia’s in de doelpresentatie.
-
-Om presentaties samen te voegen, biedt Aspose.Slides de [addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) methoden (van de [SlideCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideCollection)‑klasse). Er zijn verschillende implementaties van de `addClone`‑methoden die de parameters van het samenvoeg‑proces definiëren. Elk Presentation‑object heeft een [Slides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation#getSlides--) collectie, zodat je een `addClone`‑methode kunt aanroepen vanaf de presentatie waarin je dia’s wilt samenvoegen.
-
-De `addClone`‑methode retourneert een `Slide`‑object, dat een kloon is van de bron‑slide. De dia’s in de doelpresentatie zijn eenvoudigweg een kopie van de dia’s uit de bron. Daarom kun je de resulterende dia’s aanpassen (bijvoorbeeld stijlen of opmaak‑opties of layouts toepassen) zonder dat de bron‑presentaties worden beïnvloed. 
-
-## **Presentaties samenvoegen**
-
-Aspose.Slides biedt de [**AddClone(ISlide)**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) methode die je in staat stelt dia’s te combineren terwijl de dia’s hun layouts en stijlen behouden (standaard‑parameters).
-
-Deze JavaScript‑code laat zien hoe je presentaties samenvoegt:
+De eenvoudigste manier om te combineren kopieert elke dia van de bron‑presentatie naar de doelpresentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en layout‑relaties moeten behouden.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Presentaties samenvoegen met Slide Master**
+De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en doelpresentatie verschillende ontwerpen gebruiken. Dit is te verwachten wanneer bron‑opmaak bewust wordt behouden.
 
-Aspose.Slides biedt de [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) methode die je in staat stelt dia’s te combineren terwijl een slide‑master‑presentatiesjabloon wordt toegepast. Op deze manier kun je, indien nodig, de stijl van de dia’s in de doelpresentatie wijzigen.
+## **Geselecteerde dia's samenvoegen**
 
-Deze JavaScript‑code demonstreert de beschreven bewerking:
+Je hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen geselecteerde dia‑indexen uit de bron‑presentatie.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-De slide‑layout voor de slide‑master wordt automatisch bepaald. Wanneer een geschikte layout niet kan worden bepaald, wordt – als de `allowCloneMissingLayout`‑boolean‑parameter van de `addClone`‑methode op true staat – de layout van de bron‑slide gebruikt. Anders wordt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PptxEditException) gegooid. 
-{{% /alert %}}
+Valideer dia‑indexen vóór het klonen wanneer ze afkomstig zijn van gebruikersinvoer of externe configuratie.
 
-Wil je dat de dia’s in de doelpresentatie een andere slide‑layout hebben, gebruik dan de [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) methode in plaats van bij het samenvoegen.
+## **Dia's samenvoegen met een doel‑master**
 
-## **Specifieke dia’s uit presentaties samenvoegen**
-
-Het samenvoegen van specifieke dia’s uit meerdere presentaties is handig voor het maken van aangepaste diavoorstellingen. Aspose.Slides for Node.js via Java laat je alleen de dia’s selecteren en importeren die je nodig hebt. De API behoudt opmaak, layout en ontwerp van de oorspronkelijke dia’s.
-
-De volgende JavaScript‑code maakt een nieuwe presentatie, voegt titel‑dia’s toe uit twee andere presentaties en slaat het resultaat op in een bestand:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **Presentaties samenvoegen met dia‑layout**
-
-Deze JavaScript‑code laat zien hoe je dia’s uit presentaties combineert terwijl je de gewenste dia‑layout toepast om één uitvoer­presentatie te krijgen:
+Gebruik de overload [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) wanneer geïmporteerde dia's een master moeten volgen die al tot de doelpresentatie behoort.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Presentaties samenvoegen met verschillende dia‑groottes**
+Aspose.Slides selecteert een passende layout onder de opgegeven master door te zoeken naar een layout met hetzelfde type of dezelfde naam als de bron‑layout. Als er geen geschikte layout bestaat en `allowCloneMissingLayout` is `true`, wordt de bron‑layout gekloond zodat de dia kan worden toegevoegd. Als het `false` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/) gegooid.
 
-{{% alert title="Note" color="warning" %}} 
-Je kunt geen presentaties met verschillende dia‑groottes samenvoegen. 
-{{% /alert %}}
+Gebruik `false` wanneer je wilt dat de samenvoeg‑operatie faalt in plaats van een extra layout aan de doel‑master toe te voegen.
 
-Om 2 presentaties met verschillende dia‑groottes te combineren, moet je één van de presentaties aanpassen zodat de grootte overeenkomt met die van de andere presentatie. 
+## **Dia's samenvoegen met een specifieke doel‑layout**
 
-Deze voorbeeldcode demonstreert de beschreven bewerking:
+Gebruik de overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) wanneer je precies weet welke doel‑layout de geïmporteerde dia's moeten gebruiken.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Dia’s samenvoegen met presentatiesectie**
+Het toepassen van een doel‑layout verandert de geërfde layout‑relatie; het rediseigne de inhoud van de bron‑dia niet. Als de bron‑ en doel‑layouts verschillende placeholder‑structuren hebben, inspecteer dan het resultaat om te bevestigen dat de geërfde opmaak en placeholder‑gedrag passend zijn.
 
-Deze JavaScript‑code laat zien hoe je een specifieke dia naar een sectie in een presentatie kunt samenvoegen:
+## **Presentaties met verschillende dia‑groottes samenvoegen**
+
+Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar het klonen van een dia in een presentatie met een andere dia‑grootte rediseint de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied terechtkomen.
+
+Een praktische aanpak is om de bron‑presentatie vóór het klonen te schalen. De methode [SlideSize.setSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) kan bestaande inhoud schalen terwijl de dia‑afmetingen worden aangepast. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidesizescaletype/) schaalt de inhoud zodat deze binnen de opgegeven grootte past.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-De dia wordt aan het einde van de sectie toegevoegd. 
+Het schalen wijzigt het bron‑presentatie‑object in het geheugen. Als je de oorspronkelijke bron‑presentatie ongewijzigd wilt houden voor andere bewerkingen, open dan een aparte instantie voor de samenvoeg‑operatie.
+
+## **Dia's in een presentatie‑sectie samenvoegen**
+
+De basis‑dia‑klonlus legt de sectie‑hiërarchie van de bron‑presentatie niet opnieuw aan. Als secties belangrijk zijn in de uitvoer, maak of selecteer dan secties in de doelpresentatie en kloon dia's expliciet in die secties met [addClone(Slide, Section)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
+
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+De gekloonde dia's worden toegevoegd aan de opgegeven doel‑sectie. Om meerdere bron‑secties te behouden, doorloop je [Presentation.getSections](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#getSections), haal je de huidige dia's van elke bron‑sectie op met [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/section/#getSlidesListOfSection), maak je de secties opnieuw aan in de doel‑presentatie en kloon je elke opgehaalde dia naar de overeenkomstige doel‑sectie. Zie [Manage Slide Sections](/slides/nl/nodejs-java/slide-section/) voor een volledig voorbeeld van sectie‑enumeratie, inclusief lege secties en structurele wijzigingen.
+
+## **Meerdere presentaties veilig samenvoegen**
+
+Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als doel, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen geopend zolang deze wordt gekopieerd, en slaat het uiteindelijke bestand één keer op.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
+
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Dit is een handig startpunt om de bron‑opmaak van geïmporteerde dia's te behouden. Als je uitvoer een enkel doel‑thema moet gebruiken, vervang dan de eenvoudige `addClone(sourceSlide)`‑aanroep door de eerder getoonde overload met doel‑master of doel‑layout.
+
+## **Praktische overwegingen**
+
+### **Masters, layouts en nauwkeurigheid van opmaak**
+
+Standaard dia‑klonen kan automatisch een vereiste bron‑master in de doelpresentatie brengen. Aspose.Slides houdt een intern register bij van automatisch gekloonde masters om te voorkomen dat dezelfde master meerdere keren wordt gekloond. Handmatig gekloonde masters worden niet in dat register bijgehouden, dus vermijd het vooraf klonen van masters tenzij je expliciete controle over de master‑structuur nodig hebt.
+
+Ga er niet van uit dat twee masters of layouts met dezelfde naam visueel gelijk zijn. Als een bedrijfs‑template de uiteindelijke uitstraling moet bepalen, kies dan expliciet een doel‑master of layout en verifieer het resultaat na het samenvoegen.
+
+### **Notities en commentaren**
+
+Sprekersnotities en dia‑commentaren zijn gekoppeld aan de inhoud van de dia en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt tevens specifieke API’s voor [presentation notes](/slides/nl/nodejs-java/presentation-notes/) en [presentation comments](/slides/nl/nodejs-java/presentation-comments/).
+
+Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat notitie‑masters op presentatieniveau objecten zijn en tussen bron‑bestanden kunnen verschillen. Voor review‑workflows controleer ook de auteurs van commentaren en eventuele thread‑commentaren na het combineren van bestanden van verschillende auteurs of templates.
+
+### **Afbeeldingen, audio, video, OLE‑objecten en externe koppelingen**
+
+Dia's kunnen refereren naar resources op presentatieniveau, zoals afbeeldingen, ingebedde audio, ingebedde video en OLE‑data. Kloon de volledige dia in plaats van alleen de zichtbare vormen zodat Aspose.Slides de relaties van de dia met haar resources kan behouden.
+
+Ingebedde en gekoppelde resources moeten verschillend worden behandeld. Een gekoppelde audio, video, OLE‑object of hyperlink blijft afhankelijk van het externe doel; het klonen van een dia maakt van een externe link geen ingebedde inhoud. Test paden en URL’s van gekoppelde resources in de omgeving waarin de samengevoegde presentatie geopend wordt.
+
+Aspose.Slides houdt automatisch gekloonde masters bij, maar dit vormt geen algemene garantie dat identieke binaire resources uit verschillende bron‑presentaties altijd worden gede‑dubleerd. Als de omvang van het output‑bestand belangrijk is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
+
+### **Ingebedde lettertypen en beschikbaarheid**
+
+Lettertypen worden op presentatieniveau beheerd. Als typografie consistent moet blijven over verschillende machines, ga er niet van uit dat het klonen van dia's alleen garandeert dat elk vereist lettertype beschikbaar is in de doelomgeving. Je kunt ingebedde lettertypen inspecteren met [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) en het inbedden expliciet beheren zoals beschreven in [Embed Fonts in Presentations](/slides/nl/nodejs-java/embedded-font/).
+
+Controleer ook of je toestemming hebt om de lettertypen die in de bron‑bestanden worden gebruikt, in te bedden. Licenties kunnen het inbedden beperken.
+
+### **Wachtwoord‑beveiligde presentaties**
+
+Een bron die met een wachtwoord beveiligd is, moet succesvol worden geopend voordat de dia's kunnen worden gekloond. Geef het wachtwoord door via [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Werk met de ontcijferde presentatie.
+} finally {
+    source.dispose();
+}
+```
+
+Het openen van een versleutelde bron past de bescherming niet automatisch toe op de doelpresentatie. Configureer de output‑beveiliging apart wanneer dat nodig is.
+
+### **Grote presentaties en geheugengebruik**
+
+Grote presentaties met hoge‑resolutie‑afbeeldingen, audio, video of andere omvangrijke binaire objecten kunnen aanzienlijk veel geheugen verbruiken. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) biedt instellingen voor BLOB‑afhandeling en tijdelijk‑bestand gebruik. Zie [Manage Presentation BLOBs](/slides/nl/nodejs-java/manage-blob/) voor strategieën met grote bestanden.
+
+Voor grote bestanden kun je het liefst laden vanaf bestandspaden, elke bron‑presentatie zo snel mogelijk vrijgeven nadat deze is samengevoegd, en vermijden dat tussenresultaten herhaaldelijk worden opgeslagen tenzij de workflow checkpoints vereist.
+
+### **Thread‑veiligheid**
+
+Laad, sla op of kloon een [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑instantie niet in meerdere threads. Deze bewerkingen worden niet ondersteund voor multithreaded gebruik. Als je onafhankelijk samenvoeg‑taken wilt paralleliseren, gebruik dan meerdere single‑threaded processen, elk met hun eigen presentaties, en volg de [Aspose.Slides multithreading‑richtlijnen](/slides/nl/nodejs-java/multithreading/).
 
 ## **FAQ**
 
-**Worden spreker‑notities behouden tijdens het samenvoegen?**
+**Hoe behoud ik het oorspronkelijke ontwerp van elke bron‑presentatie?**
 
-Ja. Bij het klonen van dia’s neemt Aspose.Slides alle dia‑elementen over, inclusief notities, opmaak en animaties.
+Gebruik [addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) zonder een doel‑master of layout op te geven. Aspose.Slides kan de bron‑master automatisch klonen wanneer deze nodig is voor de geïmporteerde dia.
 
-**Worden opmerkingen en hun auteurs overgebracht?**
+**Hoe laat ik geïmporteerde dia's het doel‑thema gebruiken?**
 
-Opmerkingen, als onderdeel van de dia‑inhoud, worden met de dia gekopieerd. Auteur‑labels van opmerkingen blijven behouden als opmerkingobjecten in de resulterende presentatie.
+Gebruik de overload die een doel‑master accepteert. Geef een master uit de doelpresentatie op, niet uit de bron. Aspose.Slides probeert elke bron‑dia te koppelen aan een passende layout onder die master.
 
-**Wat als de bronpresentatie met een wachtwoord is beveiligd?**
+**Wanneer moet ik een specifieke doel‑layout gebruiken in plaats van een doel‑master?**
 
-Deze moet worden [geopend met het wachtwoord](/slides/nl/nodejs-java/password-protected-presentation/) via [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/setpassword/); na het laden kunnen die dia’s veilig worden gekloond naar een onbeveiligd doelbestand (of ook een beveiligd bestand).
+Gebruik een specifieke layout wanneer iedere geïmporteerde dia één bekende layout moet gebruiken. Gebruik een master wanneer je wilt dat Aspose.Slides een passende layout onder die master selecteert op basis van het type of de naam van de bron‑layout.
 
-**Hoe thread‑veilig is de samenvoeg‑operatie?**
+**Kunnen presentaties met verschillende dia‑groottes worden samengevoegd?**
 
-Gebruik niet dezelfde [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑instantie vanuit [meerdere threads](/slides/nl/nodejs-java/multithreading/). De aanbevolen regel is “één document — één thread”; verschillende bestanden kunnen parallel in afzonderlijke threads worden verwerkt.
+Ja, maar de inhoud van de dia wordt niet automatisch herontworpen voor de nieuwe afmetingen. Schaal de bron‑presentatie eerst wanneer je voorspelbare plaatsing nodig hebt, bijvoorbeeld met [SlideSize.setSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) en [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidesizescaletype/).
 
-## **Zie ook**
+**Kan ik PPT, PPTX en ODP presentaties in één bestand samenvoegen?**
 
-Aspose biedt een [GRATIS Online Collage Maker](https://products.aspose.app/slides/nl/collage). Met deze online dienst kun je [JPG naar JPG](https://products.aspose.app/slides/nl/collage/jpg) of PNG naar PNG afbeeldingen samenvoegen, [fotogriezen](https://products.aspose.app/slides/nl/collage/photo-grid) maken en meer.
+Ja. Laad elke bron‑presentatie, kloon de benodigde dia's in één doel‑presentatie en sla de doel‑presentatie op in een ondersteund uitvoerformaat. Omdat presentaties verschillende functieverzamelingen hebben, controleer je complexe inhoud na een cross‑format samenvoeging. Zie [Supported File Formats](/slides/nl/nodejs-java/supported-file-formats/).
 
-Bekijk de [Aspose GRATIS Online Merger](https://products.aspose.app/slides/nl/merger). Hiermee kun je PowerPoint‑presentaties in hetzelfde formaat (bijv. PPT naar PPT, PPTX naar PPTX) of tussen verschillende formaten (bijv. PPT naar PPTX, PPTX naar ODP) samenvoegen.
+**Worden bron‑secties automatisch behouden?**
 
-[![Aspose GRATIS Online Merger](slides-merger.png)](https://products.aspose.app/slides/nl/merger)
+Niet door een eenvoudige lus die alleen dia's kloont. Maak de vereiste secties opnieuw aan in de doel‑presentatie en gebruik de sectie‑overload van [addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) wanneer de sectiestructuur behouden moet blijven.
+
+**Worden sprekersnotities en commentaren behouden?**
+
+Ze worden meegekopieerd met de gekloonde dia. Voor workflows die afhankelijk zijn van notitie‑master‑styling, commentaarauteurs of thread‑review‑data, controleer je het samengevoegde resultaat omdat die scenario's zowel presentatieniveau‑structuren als dia‑inhoud betreffen.
+
+**Wat gebeurt er met audio, video, OLE‑objecten en hyperlinks?**
+
+Ingebedde inhoud wordt meegenomen als onderdeel van de resource‑relaties van de gekloonde dia. Externe links blijven extern, dus hun doel‑bestanden of URL’s moeten nog steeds beschikbaar zijn na het samenvoegen.
+
+**Zijn ingebedde lettertypen van elke bron gegarandeerd beschikbaar in de samengevoegde presentatie?**
+
+Vertrouw niet alleen op dia‑klonen voor lettertype‑distributie. Inspecteer de ingebedde lettertypen van de doel‑presentatie en beheer het inbedden of de beschikbaarheid van externe lettertypen expliciet wanneer typografie belangrijk is.
+
+**Hoe merge ik een wachtwoord‑beveiligd bestand?**
+
+Open het met de juiste [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), kloon vervolgens de dia's normaal. De bescherming van de output wordt apart geconfigureerd.
+
+**Hoe ga ik om met zeer grote presentaties?**
+
+Gebruik BLOB‑beheer wanneer grote binaire objecten veel geheugen verbruiken, laad bij zeer grote bestanden bij voorkeur via bestandspaden, maak bron‑presentaties direct vrij na het samenvoegen, en sla het eindresultaat alleen op wanneer nodig.
+
+**Kan ik dia's vanuit meerdere threads samenvoegen?**
+
+Laad, sla op of kloon geen presentatie‑instanties in meerdere threads. Voor parallelle merge‑taken gebruik je aparte single‑threaded processen met onafhankelijke presentatie‑instanties.

@@ -1,5 +1,5 @@
 ---
-title: إدارة أقسام الشرائح في العروض باستخدام C++
+title: إدارة أقسام الشرائح في العروض التقديمية باستخدام C++
 linktitle: قسم الشريحة
 type: docs
 weight: 100
@@ -10,76 +10,222 @@ keywords:
 - تحرير قسم
 - تغيير قسم
 - اسم القسم
+- استرجاع شرائح القسم
+- معالجة شرائح القسم
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تحسين أقسام الشرائح في PowerPoint و OpenDocument باستخدام Aspose.Slides لـ C++ — تقسيم، إعادة تسمية، وإعادة ترتيب لتحسين سير عمل ملفات PPTX و ODP."
+description: "إدارة أقسام الشرائح باستخدام Aspose.Slides لـ C++: إنشاء، إعادة تسمية، إعادة ترتيب، استرجاع، ومعالجة شرائح الأقسام في عروض PPTX التقديمية."
 ---
+## **مقدمة**
 
-مع Aspose.Slides for C++، يمكنك تنظيم عرض PowerPoint إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح محددة. 
+تنظم الأقسام الشرائح المتتالية في مجموعات مسماة دون تغيير محتوى الشريحة. باستخدام Aspose.Slides لـ C++، يمكنك إنشاء، وإعادة ترتيب، وإعادة تسمية، وفحص، وإزالة الأقسام من خلال طريقة [Presentation::get_Sections](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_sections/) .
 
-قد ترغب في إنشاء أقسام واستخدامها لتنظيم أو تقسيم الشرائح في عرض تقديمي إلى أجزاء منطقية في الحالات التالية:
+تكون الأقسام مفيدة بشكل خاص عندما:
 
-- عندما تعمل على عرض تقديمي كبير مع أشخاص آخرين أو فريق — وتحتاج إلى إسناد شرائح معينة إلى زميل أو بعض أعضاء الفريق. 
-- عندما تواجه عرضًا تقديميًا يحتوي على عدد كبير من الشرائح — وتكافح لإدارة أو تعديل محتوياته دفعة واحدة.
+- يحتاج عرض تقديمي كبير إلى تقسيمه إلى مواضيع أو فصول منطقية؛
+- تُخصص مجموعات مختلفة من الشرائح لمتعاونين مختلفين؛
+- تحتاج الشرائح إلى المعالجة أو النقل أو الدمج كمجموعات.
 
-من الناحية المثالية، ينبغي إنشاء قسم يحتوي على شرائح متشابهة — حيث تشترك الشرائح في شيء ما أو يمكن جمعها في مجموعة بناءً على قاعدة — ومنح هذا القسم اسمًا يصف الشرائح التي يحتويها. 
+اختر أسماء أقسام مختصرة تصف هدف الشرائح المجمعّة. لأن الأقسام جزء من بنية العرض التقديمي، استخدم واجهات برمجة التطبيقات الخاصة بالأقسام لتحديد العضوية بدلاً من استخراجها من مواضع الشرائح.
 
-## **إنشاء أقسام في العروض التقديمية**
+## **إنشاء وإدارة الأقسام**
 
-لإضافة قسم سيحتوي على الشرائح في عرض تقديمي، توفر Aspose.Slides for C++ طريقة AddSection التي تسمح لك بتحديد اسم القسم الذي ترغب في إنشائه والشرائح التي يبدأ منها القسم. 
+استخدم [ISectionCollection::AddSection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/addsection/) لإنشاء قسم عن طريق تحديد اسمه والشريحة البداية. يحدد Aspose.Slides أي الشرائح تنتمي إلى القسم بناءً على بنية الأقسام الحالية للعرض التقديمي.
 
-يعرض لك هذا الكود مثالًا على إنشاء قسم في عرض تقديمي باستخدام C++:
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+نفس [ISectionCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/) يتيح لك أيضًا:
 
-auto defaultSlide = pres->get_Slides()->idx_get(0);
-auto newSlide1 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide2 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide3 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide4 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
+- نقل قسم مع شرائحه باستخدام [ISectionCollection::ReorderSectionWithSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/reordersectionwithslides/)؛
+- إزالة تعريف القسم فقط باستخدام [ISectionCollection::RemoveSection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/removesection/)، مع الاحتفاظ بشرائحه؛
+- إزالة قسم وشرائحه باستخدام [ISectionCollection::RemoveSectionWithSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/removesectionwithslides/)؛
+- إضافة قسم فارغ في النهاية باستخدام [ISectionCollection::AppendEmptySection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/appendemptysection/) .
 
-auto section1 = pres->get_Sections()->AddSection(u"Section 1", newSlide1);
-auto section2 = pres->get_Sections()->AddSection(u"Section 2", newSlide3);
-// section1 ستنتهي عند newSlide2 وبعدها سيبدأ section2   
+المثال التالي ينشئ قسمين، ينقل أحدهما، يزيله مع شرائحه، ويضيف قسمًا فارغًا:
 
-pres->Save(u"pres-sections.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 
-pres->get_Sections()->ReorderSectionWithSlides(section2, 0);
-pres->Save(u"pres-sections-moved.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
 
-pres->get_Sections()->RemoveSectionWithSlides(section2);
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto titleSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto resultsSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
 
-pres->get_Sections()->AppendEmptySection(u"Last empty section");
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", titleSlide);
+auto resultsSection = sections->AddSection(u"Results", resultsSlide);
 
-pres->Save(u"pres-section-with-empty.pptx", SaveFormat::Pptx);
+sections->ReorderSectionWithSlides(resultsSection, 0);
+sections->RemoveSectionWithSlides(resultsSection);
+sections->AppendEmptySection(u"Appendix");
 ```
 
+بعد هذه العمليات، يحتوي العرض التقديمي على قسم `Introduction` مع شرائحه وقسم فارغ `Appendix`. تم إزالة قسم `Results` وشرائحه.
 
-## **تغيير أسماء الأقسام**
+## **إعادة تسمية الأقسام**
 
-بعد إنشاء قسم في عرض PowerPoint، قد تقرر تغيير اسمه. 
+لإعادة تسمية قسم، استدعِ [ISection::set_Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/set_name/). تظل شرائح القسم وموقعه دون تغيير.
 
-يُظهر لك هذا الكود مثالًا على كيفية تغيير اسم القسم في عرض تقديمي باستخدام C++ وAspose.Slides:
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto section = pres->get_Sections()->idx_get(0);
-section->set_Name(u"My section");
+المثال التالي ينشئ قسمًا ويغيّر اسمه:
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto section = presentation->get_Sections()->AddSection(u"Overview", slide);
+section->set_Name(u"Introduction");
 ```
 
+## **استرجاع الشرائح من الأقسام**
 
-## **الأسئلة المتكررة**
+طريقة [Presentation::get_Sections](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_sections/) تُرجع مجموعة [ISectionCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectioncollection/) يمكنك تعدادها. لكل [ISection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/)، استدعِ [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/getslideslistofsection/) للحصول على الشرائح التي تنتمي إليه حاليًا. تُرجع الطريقة مجموعة [ISectionSlideCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isectionslidecollection/)، التي توفر عددًا، وصولًا بالفهرس، وتعدادًا.
+
+المثال التالي ينشئ قسمين ممتلئين وقسمًا فارغًا، ثم يطبع لكل قسم [الاسم](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/get_name/)، [المعرّف](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/get_sectionid/)، [الشريحة البداية](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/get_startedfromslide/)، عدد الشرائح، وأرقام الشرائح. يستخدم وصولًا بالفهرس لقراءة الشريحة الأولى وحلقة `for` مبنية على النطاق لمعالجة كل شريحة. بالنسبة للقسم الفارغ، تكون المجموعة المُرجعة عددها صفر، ولا يُستخدم الوصول بالفهرس، ولا تُجرى أي تكرارات في التعداد.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", firstSlide);
+sections->AddSection(u"Details", thirdSlide);
+sections->AppendEmptySection(u"Appendix");
+
+for (const auto& section : sections)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    auto startingSlide = section->get_StartedFromSlide();
+
+    System::Console::WriteLine(u"Section: {0}", section->get_Name());
+    System::Console::WriteLine(u"ID: {0}", section->get_SectionId().ToString());
+    if (startingSlide == nullptr)
+    {
+        System::Console::WriteLine(u"Starting slide: none");
+    }
+    else
+    {
+        System::Console::WriteLine(u"Starting slide: {0}", startingSlide->get_SlideNumber());
+    }
+    System::Console::WriteLine(u"Slide count: {0}", sectionSlides->get_Count());
+
+    if (sectionSlides->get_Count() > 0)
+    {
+        System::Console::WriteLine(u"First slide via index: {0}", sectionSlides->idx_get(0)->get_SlideNumber());
+    }
+
+    System::Console::Write(u"Slide numbers:");
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+}
+```
+
+تُحدد عضوية القسم بواسطة بنية الأقسام في العرض التقديمي. لا تحسب نطاق القسم يدويًا استنادًا إلى [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/get_startedfromslide/)، فهارس الشرائح، وشريحة البداية للقسم التالي.
+
+يمكن للتعديلات الهيكلية أن تغير كلًا من الشرائح المُرجعة لقسم معين وأرقامها. يشمل ذلك إعادة ترتيب الشرائح، استنساخ شريحة إلى قسم، نقل قسم مع شرائحه، إزالة شرائح، وإزالة أقسام. المثال التالي يستدعي [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/getslideslistofsection/) بعد كل تغيير من هذا النوع بدلاً من الاعتماد على افتراضات حول حدود القسم السابقة.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+auto firstSection = sections->AddSection(u"First", firstSlide);
+auto secondSection = sections->AddSection(u"Second", thirdSlide);
+
+auto printSectionSlides = [](const System::String& label, const System::SharedPtr<ISection>& section)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    System::Console::Write(u"{0} ({1} slides):", label, sectionSlides->get_Count());
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+};
+
+printSectionSlides(u"Initially", firstSection);
+
+auto slidesBeforeClone = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->AddClone(slidesBeforeClone->idx_get(0), firstSection);
+printSectionSlides(u"After cloning into the section", firstSection);
+
+auto slidesBeforeReorder = firstSection->GetSlidesListOfSection();
+auto firstSlideInSection = slidesBeforeReorder->idx_get(0);
+auto lastSlideInSection = slidesBeforeReorder->idx_get(slidesBeforeReorder->get_Count() - 1);
+auto firstSectionPosition = firstSlideInSection->get_SlideNumber() - 1;
+presentation->get_Slides()->Reorder(firstSectionPosition, lastSlideInSection);
+printSectionSlides(u"After reordering slides", firstSection);
+
+sections->ReorderSectionWithSlides(firstSection, 1);
+printSectionSlides(u"After moving the section", firstSection);
+
+auto slidesBeforeRemoval = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->Remove(slidesBeforeRemoval->idx_get(0));
+printSectionSlides(u"After removing a slide", firstSection);
+
+sections->RemoveSectionWithSlides(secondSection);
+for (const auto& section : sections)
+{
+    printSectionSlides(u"Remaining section", section);
+}
+```
+
+استدعِ [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/getslideslistofsection/) مرة أخرى كلما أعيد ترتيب الشرائح أو الأقسام، أو تم استنساخها، أو نقلها، أو إزالتها. هذا يحافظ على توافق المعالجة اللاحقة مع بنية العرض التقديمي الحالية.
+
+تنسيق PPT (PowerPoint 97–2003) لا يحفظ بيانات تعريف الأقسام. استخدم سير العمل هذا مع تنسيق يدعم الأقسام، مثل PPTX؛ التحويل إلى PPT يزيل بنية الأقسام المطلوبة للتعداد لاحقًا.
+
+## **الأسئلة المتداولة**
 
 **هل يتم حفظ الأقسام عند الحفظ بتنسيق PPT (PowerPoint 97–2003)؟**
 
 لا. لا يدعم تنسيق PPT بيانات تعريف الأقسام، لذا يتم فقدان تجميع الأقسام عند الحفظ إلى .ppt.
 
-**هل يمكن إخفاء القسم بالكامل؟**
+**هل يمكن إخفاء قسم بالكامل؟**
 
-لا. يمكن إخفاء الشرائح الفردية فقط. لا يمتلك القسم ككيان حالة "مخفي".
+لا. لا يمتلك القسم حالة رؤية. لإخفاء محتوياته، استدعِ [ISlide::set_Hidden](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/set_hidden/) لكل شريحة في القسم.
 
-**هل يمكنني العثور بسرعة على القسم عبر شريحة معينة، وعلى العكس، العثور على أول شريحة في قسم؟**
+**كيف يمكنني العثور على القسم الذي يحتوي على شريحة معينة؟**
 
-نعم. يُعرّف القسم بشكل فريد بواسطة شريحته البداية؛ بتحديد شريحة يمكنك معرفة القسم الذي تنتمي إليه، وبالنسبة للقسم يمكنك الوصول إلى أول شريحة فيه.
+قم بتعداد [Presentation::get_Sections](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_sections/)، استدعِ [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/getslideslistofsection/) لكل قسم، وقارن الشرائح المُرجعة مع الشريحة المستهدفة. بالنسبة لقسم غير فارغ، تُرجع [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isection/get_startedfromslide/) شريحته الأولى؛ أما القسم الفارغ، فتُرجع قيمة `nullptr`.

@@ -1,6 +1,6 @@
 ---
-title: Fusionar presentaciones de forma eficiente en .NET
-linktitle: Fusionar presentaciones
+title: Combinar presentaciones de forma eficiente en .NET
+linktitle: Combinar presentaciones
 type: docs
 weight: 40
 url: /es/net/merge-presentation/
@@ -20,249 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fusiona sin esfuerzo presentaciones de PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para .NET, optimizando tu flujo de trabajo."
+description: "Aprenda cómo fusionar presentaciones PowerPoint y OpenDocument en .NET clonando diapositivas, controlando maestras y diseños, redimensionando el contenido de la diapositiva, conservando secciones y gestionando archivos protegidos o de gran tamaño."
 ---
+## **Descripción general**
 
-## **Optimice la combinación de sus presentaciones**
+Aspose.Slides for .NET combina presentaciones clonando diapositivas de una [Presentación](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/) a otra. La operación principal es [ISlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/), que puede preservar el formato de la diapositiva origen o adjuntar la diapositiva clonada a una diapositiva maestra o diseño en la presentación de destino.
 
-Con [Aspose.Slides for .NET](https://products.aspose.com/slides/net/), combine sin problemas presentaciones de PowerPoint mientras preservas estilos, diseños y todos los elementos. A diferencia de otras herramientas, Aspose.Slides combina presentaciones sin comprometer la calidad ni perder datos. Fusiona presentaciones completas, diapositivas específicas e incluso diferentes formatos de archivo (PPT a PPTX, etc.).
+Este artículo cubre los flujos de trabajo de combinación más habituales:
 
-### **Características de la combinación**
+- combinar todas las diapositivas conservando su formato origen;
+- combinar diapositivas seleccionadas;
+- aplicar una maestra de la presentación de destino;
+- aplicar un diseño específico de la presentación de destino;
+- normalizar diferentes tamaños de diapositiva antes de combinar;
+- añadir diapositivas clonadas a una sección;
+- combinar varias presentaciones en un flujo de trabajo de extremo a extremo;
+- gestionar maestras, recursos, notas, comentarios, medios, fuentes, contraseñas, archivos grandes y consideraciones de multihilo.
 
-- **Fusión completa de presentación:** Reúne todas las diapositivas en un solo archivo.  
-- **Fusión de diapositivas específicas:** Selecciona y combina diapositivas seleccionadas.  
-- **Fusión entre formatos:** Integra presentaciones de diferentes formatos, manteniendo la integridad.  
+## **Cómo afecta la clonación de diapositivas a maestras y diseños**
 
-{{% alert title="Tip" color="primary" %}}  
+Una diapositiva hereda gran parte de su apariencia de su diseño y maestra. Por esa razón, la sobrecarga de clonación que elija determina cómo se integra la diapositiva combinada en la presentación de destino.
 
-¿Busca una herramienta rápida y **gratuita en línea** para **fusionar presentaciones de PowerPoint**? Pruebe el [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+Utilice [ISlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) de una de estas maneras:
 
-- **Fusión de archivos PowerPoint fácilmente**: Combine múltiples presentaciones **PPT, PPTX, ODP** en un solo archivo.  
-- **Soporta diferentes formatos**: Fusiona **PPT a PPTX**, **PPTX a ODP**, y más.  
-- **Sin necesidad de instalación**: Funciona directamente en su navegador, rápida y segura.  
+- `AddClone(sourceSlide)` — conserva el diseño y formato de la diapositiva origen. Cuando sea necesario, la maestra origen puede clonarse automáticamente en la presentación de destino. Aspose.Slides rastrea las maestras clonadas automáticamente para que las diapositivas repetidas que usan la misma maestra origen no provoquen una clonación repetida de esa maestra.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — adjunta la diapositiva clonada a una [IMasterSlide](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslide/) de destino específica. Aspose.Slides busca un diseño coincidente bajo esa maestra por tipo o nombre de diseño.
+- `AddClone(sourceSlide, destinationLayout)` — adjunta la diapositiva clonada directamente a una [ILayoutSlide](https://reference.aspose.com/slides/es/net/aspose.slides/ilayoutslide/) de destino específica.
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+La maestra o el diseño pasado a una sobrecarga `AddClone` debe pertenecer a la **presentación de destino**, no a la presentación de origen.
 
-¡Comience a fusionar sus archivos PowerPoint con la **herramienta gratuita en línea de Aspose** hoy!  
+## **Combinar presentaciones completas y conservar el formato origen**
 
-{{% /alert %}}
+La combinación más simple copia cada diapositiva de la presentación origen a la presentación de destino. Esta es la opción adecuada cuando las diapositivas importadas deben mantener su tema, maestra y relaciones de diseño originales.
 
-## **Fusión de presentaciones**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Cuando [fusiona una presentación con otra](https://products.aspose.com/slides/net/merger/ppt/), está combinando efectivamente sus diapositivas en una sola presentación para obtener un archivo. 
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-{{% alert title="Info" color="info" %}}
-
-La mayoría de los programas de presentación (PowerPoint u OpenOffice) carecen de funciones que permitan combinar presentaciones de esta manera.  
-
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) , sin embargo, le permite fusionar presentaciones de diferentes maneras. Puede fusionar presentaciones con todas sus formas, estilos, textos, formato, comentarios, animaciones, etc., sin preocuparse por la pérdida de calidad o datos.  
-
-**Ver también**  
-
-[Clonar diapositivas](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
-
-{{% /alert %}}
-
-### **Qué se puede fusionar**
-
-Con Aspose.Slides, puede fusionar  
-
-* presentaciones completas. Todas las diapositivas de las presentaciones terminan en una sola presentación  
-* diapositivas específicas. Las diapositivas seleccionadas terminan en una sola presentación  
-* presentaciones en un mismo formato (PPT a PPT, PPTX a PPTX, etc.) y en diferentes formatos (PPT a PPTX, PPTX a ODP, etc.) entre sí.  
-
-{{% alert title="Note" color="warning" %}} 
-
-Además de presentaciones, Aspose.Slides le permite fusionar otros archivos:
-
-* [Imágenes](https://products.aspose.com/slides/net/merger/image-to-image/), como [JPG a JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) o [PNG a PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-* Documentos, como [PDF a PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) o [HTML a HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-* Y dos archivos diferentes como [imagen a PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) o [JPG a PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) o [TIFF a PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).  
-
-{{% /alert %}}
-
-### **Opciones de fusión**
-
-Puede aplicar opciones que determinen si  
-
-* cada diapositiva en la presentación de salida conserva un estilo único  
-* se utiliza un estilo específico para todas las diapositivas en la presentación de salida.  
-
-Para fusionar presentaciones, Aspose.Slides proporciona métodos [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) (de la interfaz [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)). Hay varias implementaciones de los métodos `AddClone` que definen los parámetros del proceso de fusión. Cada objeto Presentation tiene una colección [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), por lo que puede llamar a un método `AddClone` desde la presentación a la que desea fusionar diapositivas.  
-
-El método `AddClone` devuelve un objeto `ISlide`, que es una clonación de la diapositiva origen. Las diapositivas en una presentación de salida son simplemente una copia de las diapositivas de origen. Por lo tanto, puede modificar las diapositivas resultantes (por ejemplo, aplicar estilos, opciones de formato o diseños) sin preocuparse de que las presentaciones origen se vean afectadas.  
-
-## **Fusionar presentaciones** 
-
-Aspose.Slides proporciona el método [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) que permite combinar diapositivas mientras estas conservan sus diseños y estilos (parámetros predeterminados).  
-
-Este código C# le muestra cómo fusionar presentaciones:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+La presentación resultante puede contener varias maestras cuando el origen y el destino usan diseños diferentes. Esto es normal cuando se conserva deliberadamente el formato origen.
+
+## **Combinar diapositivas seleccionadas**
+
+No es necesario clonar todas las diapositivas. El siguiente ejemplo importa solo los índices de diapositiva seleccionados de la presentación origen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+Valide los índices de diapositiva antes de clonarlos cuando provengan de entrada de usuario o de una configuración externa.
+
+## **Combinar diapositivas usando una maestra de destino**
+
+Utilice la sobrecarga [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) cuando las diapositivas importadas deban seguir una maestra que ya pertenece a la presentación de destino.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides selecciona un diseño apropiado bajo la maestra especificada coincidiendo con el tipo o nombre del diseño origen. Si no existe un diseño adecuado y `allowCloneMissingLayout` es `true`, el diseño origen se clona para que la diapositiva pueda añadirse. Si es `false`, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/net/aspose.slides/pptxeditexception/).
+
+Use `false` cuando quiera que la combinación falle en lugar de introducir un diseño adicional en la maestra de destino.
+
+## **Combinar diapositivas usando un diseño de destino específico**
+
+Utilice la sobrecarga [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) cuando sepa exactamente qué diseño de destino deben usar las diapositivas importadas.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+Aplicar un diseño de destino cambia la relación de diseño heredada; no rediseña el contenido de la diapositiva origen. Si los diseños origen y destino tienen estructuras de marcadores de posición diferentes, inspeccione el resultado para confirmar que el formato heredado y el comportamiento de los marcadores son apropiados.
+
+## **Combinar presentaciones con tamaños de diapositiva diferentes**
+
+Las presentaciones con dimensiones de diapositiva distintas pueden combinarse, pero clonar una diapositiva en una presentación con otro tamaño de diapositiva no rediseña automáticamente su contenido para el nuevo lienzo. Las formas pueden aparecer desplazadas, escaladas inesperadamente o fuera del área visible de la diapositiva.
+
+Un enfoque práctico es cambiar el tamaño de la presentación origen antes de clonar. El método [SlideSize.SetSize](https://reference.aspose.com/slides/es/net/aspose.slides/slidesize/setsize/) puede escalar el contenido existente mientras cambia las dimensiones de la diapositiva. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/es/net/aspose.slides/slidesizescaletype/) escala el contenido para que se ajuste al tamaño solicitado.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+Cambiar el tamaño modifica el objeto de presentación origen en memoria. Si necesita que la presentación origen permanezca sin cambios para otras operaciones, abra una instancia separada para la combinación.
+
+## **Combinar diapositivas en una sección de presentación**
+
+El bucle básico de clonación de diapositivas no recrea la jerarquía de secciones de la presentación origen. Si las secciones son importantes en la salida, cree o seleccione secciones en la presentación de destino y clone diapositivas en ellas explícitamente con [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+Las diapositivas clonadas se añaden al final de la sección de destino especificada. Para preservar varias secciones de origen, recorra [Presentation.Sections](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/sections/), obtenga las diapositivas actuales de cada sección de origen con [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/es/net/aspose.slides/isection/getslideslistofsection/), recree las secciones en el destino y clone cada diapositiva devuelta en su sección de destino correspondiente. Consulte [Manage Slide Sections](/slides/es/net/slide-section/) para un ejemplo completo de enumeración de secciones, incluidas secciones vacías y cambios estructurales.
+
+## **Combinar varias presentaciones de forma segura**
+
+El siguiente ejemplo de extremo a extremo utiliza la primera presentación como destino, normaliza el tamaño de diapositiva de cada origen adicional, mantiene cada origen abierto solo mientras se copia y guarda el archivo final una sola vez.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Fusionar presentaciones con una diapositiva maestra** 
-
-Aspose.Slides proporciona el método [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) que permite combinar diapositivas aplicando una plantilla de diapositiva maestra. De este modo, si es necesario, puede cambiar el estilo de las diapositivas en la presentación de salida.  
-
-Este código en C# demuestra la operación descrita:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
+Este es un punto de partida útil para preservar el formato origen de las diapositivas importadas. Si su salida debe usar un único tema de destino, reemplace la llamada simple `AddClone(slide)` por la sobrecarga de maestra o diseño de destino apropiada mostrada anteriormente.
 
-{{% alert title="Note" color="warning" %}} 
+## **Consideraciones prácticas**
 
-El diseño de diapositiva para la diapositiva maestra se determina automáticamente. Cuando no se puede determinar un diseño adecuado, si el parámetro booleano `allowCloneMissingLayout` del método `AddClone` está establecido en true, se usa el diseño de la diapositiva origen. De lo contrario, se lanzará una [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).  
+### **Maestras, diseños y fidelidad del formato**
 
-{{% /alert %}}
+La clonación predeterminada de diapositivas puede introducir automáticamente una maestra origen requerida en la presentación de destino. Aspose.Slides mantiene un registro interno de las maestras clonadas automáticamente para evitar clonar la misma maestra repetidamente. Las maestras clonadas manualmente no son rastreadas por ese registro, así que evite preclonar maestras a menos que necesite un control explícito sobre la estructura de la maestra.
 
-Si desea que las diapositivas en la presentación de salida tengan un diseño de diapositiva diferente, utilice el método [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) al fusionar.  
+No asuma que dos maestras o diseños con el mismo nombre son visualmente equivalentes. Si una plantilla corporativa debe controlar la apariencia final, elija una maestra o diseño de destino de forma explícita y verifique el resultado después de combinar.
 
-## **Fusionar diapositivas específicas de presentaciones** 
+### **Notas y comentarios**
 
-Fusionar diapositivas específicas de varias presentaciones es útil para crear paquetes de diapositivas personalizados. Aspose.Slides for .NET le permite seleccionar e importar solo las diapositivas que necesita. La API conserva el formato, el diseño y el estilo de las diapositivas originales.  
+Las notas del presentador y los comentarios de diapositiva están asociados al contenido de la diapositiva y se copian cuando se clona una diapositiva. Aspose.Slides también expone API dedicadas para [presentation notes](/slides/es/net/presentation-notes/) y [presentation comments](/slides/es/net/presentation-comments/).
 
-El siguiente código C# crea una nueva presentación, agrega diapositivas de título de dos presentaciones distintas y guarda el resultado en un archivo:  
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+Si el formato de la página de notas es importante, verifique la presentación combinada porque las maestras de notas son objetos a nivel de presentación y pueden diferir entre los archivos origen. Para flujos de revisión, también verifique los autores de los comentarios y los comentarios en hilo después de combinar archivos de diferentes autores o plantillas.
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+### **Imágenes, audio, vídeo, objetos OLE y enlaces externos**
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+Las diapositivas pueden hacer referencia a recursos a nivel de presentación, como imágenes, audio incrustado, vídeo incrustado y datos OLE. Clone la diapositiva completa en lugar de copiar solo sus formas visibles para que Aspose.Slides pueda mantener las relaciones de la diapositiva con sus recursos.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+Los recursos incrustados y los vinculados deben tratarse de forma diferente. Un audio, vídeo, objeto OLE o hipervínculo vinculado sigue dependiendo de su destino externo; clonar una diapositiva no convierte un enlace externo en contenido incrustado. Pruebe las rutas y URL de los recursos vinculados en el entorno donde se abrirá la presentación combinada.
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Aspose.Slides rastrea explícitamente las maestras clonadas automáticamente, pero esto no debe interpretarse como una garantía general de que los recursos binarios idénticos de presentaciones origen no relacionadas se deduplicarán siempre. Si el tamaño del archivo de salida es importante, inspeccione el paquete combinado y mida el resultado en lugar de confiar en la deduplicación implícita.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
+### **Fuentes incrustadas y disponibilidad de fuentes**
+
+Las fuentes se gestionan a nivel de presentación. Si la tipografía debe permanecer coherente entre equipos, no asuma que clonar diapositivas garantiza que todas las fuentes requeridas estén disponibles en el entorno de destino. Puede inspeccionar las fuentes incrustadas con [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/getembeddedfonts/) y gestionar la incrustación explícitamente como se describe en [Embed Fonts in Presentations](/slides/es/net/embedded-font/).
+
+ también verifique que tenga permiso para incrustar las fuentes usadas por los archivos origen. Las licencias de fuentes pueden restringir la incrustación.
+
+### **Presentaciones protegidas con contraseña**
+
+Una fuente protegida con contraseña debe abrirse correctamente antes de que sus diapositivas puedan clonarse. Proporcione la contraseña a través de [LoadOptions.Password](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
-```
+Abrir una fuente cifrada no aplica automáticamente la misma protección a la presentación de destino. Configure la protección de salida por separado cuando sea necesario.
 
+### **Presentaciones grandes y uso de memoria**
 
-## **Fusionar presentaciones con un diseño de diapositiva** 
+Las presentaciones grandes que contienen imágenes de alta resolución, audio, vídeo u otros objetos binarios voluminosos pueden consumir mucha memoria. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/blobmanagementoptions/) ofrece controles para la gestión de BLOB y el uso de archivos temporales. Consulte [Manage Presentation BLOBs](/slides/es/net/manage-blob/) para estrategias con archivos grandes.
 
-Este código C# le muestra cómo combinar diapositivas de presentaciones aplicando su diseño de diapositiva preferido para obtener una única presentación de salida:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+Para archivos grandes, prefiera cargar desde rutas de archivo cuando sea posible, libere cada presentación origen tan pronto como haya sido combinada y evite guardar resultados intermedios repetidamente a menos que el flujo de trabajo requiera puntos de control.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+### **Seguridad en subprocesos**
 
+No cargue, modifique, guarde ni clone la misma instancia de [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/) simultáneamente desde varios subprocesos. Mantenga cada instancia de presentación confinada a una operación de combinación. Si paraleliza trabajos independientes, utilice instancias de presentación independientes y siga la [guía de multihilo de Aspose.Slides](/slides/es/net/multithreading/).
 
-## **Fusionar presentaciones con diferentes tamaños de diapositiva** 
+## **Preguntas frecuentes**
 
-{{% alert title="Note" color="warning" %}} 
+**¿Cómo conservo el diseño original de cada presentación origen?**
 
-No se pueden fusionar presentaciones con diferentes tamaños de diapositiva.  
+Utilice [AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) sin proporcionar una maestra ni un diseño de destino. Aspose.Slides puede clonar automáticamente la maestra origen cuando la necesite la diapositiva importada.
 
-{{% /alert %}}
+**¿Cómo hago que las diapositivas importadas usen el tema de destino?**
 
-Para fusionar 2 presentaciones con diferentes tamaños de diapositiva, debe cambiar el tamaño de una de las presentaciones para que coincida con el de la otra.  
+Use la sobrecarga que acepta una maestra de destino. Pase una maestra de la presentación de destino, no de la origen. Aspose.Slides intentará asignar cada diapositiva origen a un diseño apropiado bajo esa maestra.
 
-Este código de ejemplo demuestra la operación descrita:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**¿Cuándo debo usar un diseño de destino específico en lugar de una maestra de destino?**
 
+Use un diseño específico cuando cada diapositiva importada deba usar un diseño conocido. Use una maestra cuando quiera que Aspose.Slides seleccione entre los diseños de esa maestra según el tipo o nombre del diseño origen.
 
-## **Fusionar diapositivas a una sección de presentación** 
+**¿Se pueden combinar presentaciones con tamaños de diapositiva diferentes?**
 
-Este código C# le muestra cómo fusionar una diapositiva específica a una sección en una presentación:  
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+Sí, pero el contenido de la diapositiva no se rediseña automáticamente para las dimensiones de destino. Redimensione la presentación origen primero cuando necesite una colocación predecible, por ejemplo con [SlideSize.SetSize](https://reference.aspose.com/slides/es/net/aspose.slides/slidesize/setsize/) y [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/es/net/aspose.slides/slidesizescaletype/).
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**¿Puedo combinar presentaciones PPT, PPTX y ODP en un solo archivo?**
 
+Sí. Cargue cada presentación origen, clone las diapositivas necesarias en una única presentación de destino y guarde el destino en un formato de salida compatible. Como los formatos de presentación no soportan exactamente el mismo conjunto de funciones, verifique el contenido complejo después de combinaciones entre formatos. Consulte [Supported File Formats](/slides/es/net/supported-file-formats/).
 
-La diapositiva se agrega al final de la sección.  
+**¿Se conservan automáticamente las secciones de origen?**
 
-{{% alert title="Tip" color="primary" %}}
+No, no lo hacen los bucles básicos que solo clonan diapositivas. Recree las secciones necesarias en el destino y utilice la sobrecarga de sección de [AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) cuando la estructura de secciones deba preservarse.
 
-Aspose proporciona una [FREE Collage web app](https://products.aspose.app/slides/collage). Usando este servicio en línea, puede fusionar [JPG a JPG](https://products.aspose.app/slides/collage/jpg) o PNG a PNG, crear [rejillas de fotos](https://products.aspose.app/slides/collage/photo-grid), y mucho más.  
+**¿Se conservan las notas del orador y los comentarios?**
 
-{{% /alert %}}
+Se copian con la diapositiva clonada. Para flujos de trabajo que dependan del estilo de la maestra de notas, de los autores de los comentarios o de datos de revisión en hilo, verifique el resultado combinado porque esos escenarios incluyen estructuras a nivel de presentación además del contenido de la diapositiva.
 
-## **Preguntas frecuentes** 
+**¿Qué ocurre con audio, vídeo, objetos OLE y hipervínculos?**
 
-**¿Se conservan las notas del presentador durante la fusión?**  
+El contenido incrustado se lleva como parte de las relaciones de recursos de la diapositiva clonada. Los enlaces externos siguen siendo externos, por lo que sus archivos o URL de destino deben seguir disponibles después de la combinación.
 
-Sí. Al clonar diapositivas, Aspose.Slides conserva todos los elementos de la diapositiva, incluidas notas, formato y animaciones.  
+**¿Se garantiza que las fuentes incrustadas de cada origen estén disponibles en la presentación combinada?**
 
-**¿Se transfieren los comentarios y sus autores?**  
+No confíe solo en la clonación de diapositivas para la distribución de fuentes. Inspeccione las fuentes incrustadas del destino y gestione la incrustación de fuentes o la disponibilidad de fuentes externas de forma explícita cuando la tipografía sea importante.
 
-Los comentarios, como parte del contenido de la diapositiva, se copian con ella. Las etiquetas de autor de los comentarios se conservan como objetos de comentario en la presentación resultante.  
+**¿Cómo combino un archivo protegido con contraseña?**
 
-**¿Qué ocurre si la presentación de origen está protegida con contraseña?**  
+Ábralo con la [LoadOptions.Password](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/password/) correcta y luego clone sus diapositivas de forma habitual. La protección de salida se configura por separado.
 
-Debe [abrirse con la contraseña](/slides/es/net/password-protected-presentation/) mediante [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); después de cargarla, esas diapositivas pueden clonarse de forma segura en un archivo de destino no protegido (o también protegido).  
+**¿Cómo debo manejar presentaciones muy grandes?**
 
-**¿Qué tan segura en cuanto a subprocesos es la operación de fusión?**  
+Utilice la gestión de BLOB cuando los objetos binarios grandes dominen el uso de memoria, prefiera la carga mediante rutas de archivo para archivos muy grandes, libere rápidamente las presentaciones origen y guarde el resultado final solo cuando sea necesario.
 
-No use la misma instancia de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) desde [múltiples subprocesos](/slides/es/net/multithreading/). La regla recomendada es "un documento — un subproceso"; diferentes archivos pueden procesarse en paralelo en subprocesos separados.
+**¿Puedo combinar diapositivas desde varios subprocesos?**
+
+No use una única instancia de [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/) simultáneamente desde varios subprocesos. Mantenga cada operación de combinación aislada en sus propias instancias de presentación.

@@ -8,80 +8,172 @@ keywords:
 - créer une section
 - ajouter une section
 - modifier une section
-- changer de section
+- changer une section
 - nom de la section
+- récupérer les diapositives de section
+- traiter les diapositives de section
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Simplifiez la gestion des sections de diapositives dans PowerPoint et OpenDocument avec Aspose.Slides pour Python — divisez, renommez et réorganisez pour optimiser les flux de travail PPTX et ODP."
+description: "Gérez les sections de diapositives avec Aspose.Slides pour Python via .NET : créez, renommez, réorganisez, récupérez et traitez les diapositives de section dans les présentations PPTX."
 ---
+## **Introduction**
 
-## **Vue d'ensemble**
+Les sections organisent des diapositives consécutives en groupes nommés sans modifier le contenu des diapositives. Avec Aspose.Slides for Python via .NET, vous pouvez créer, réorganiser, renommer, inspecter et supprimer des sections via la propriété Presentation.sections.
 
-Avec Aspose.Slides for Python, vous pouvez organiser une présentation PowerPoint en sections qui regroupent des diapositives spécifiques.
+Les sections sont particulièrement utiles lorsque :
 
-Vous pouvez souhaiter créer des sections pour organiser ou diviser une présentation en parties logiques dans les situations suivantes :
-- Lorsque vous travaillez sur une grande présentation avec une équipe et devez attribuer certaines diapositives à des collègues spécifiques.
-- Lorsque vous avez une présentation contenant de nombreuses diapositives et que vous avez du mal à tout gérer ou modifier en même temps.
+- une grande présentation doit être divisée en sujets ou chapitres logiques ;
+- différents groupes de diapositives sont attribués à différents collaborateurs ;
+- les diapositives doivent être traitées, déplacées ou fusionnées par groupes.
 
-Idéalement, créez des sections qui regroupent des diapositives associées - celles qui partagent un thème, un sujet ou un objectif - et donnez à chaque section un nom qui reflète clairement son contenu. 
+Choisissez des noms de sections concis qui décrivent le but des diapositives groupées. Parce que les sections font partie de la structure de la présentation, utilisez les API de sections pour déterminer l’appartenance au lieu de la déduire à partir des positions des diapositives.
 
-## **Créer des sections dans les présentations**
+## **Créer et gérer des sections**
 
-Pour ajouter une [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) qui regroupe des diapositives dans une présentation, Aspose.Slides fournit la méthode [add_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/add_section/). Elle vous permet de spécifier le nom de la section et la diapositive où la section commence.
+Utilisez [SectionCollection.add_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/add_section/) pour créer une section en spécifiant son nom et la diapositive de départ. Aspose.Slides détermine quelles diapositives appartiennent à la section à partir de la structure actuelle des sections de la présentation.
 
-L'exemple Python suivant montre comment créer une section dans une présentation:
+Le même [SectionCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/) vous permet également de :
+
+- déplacer une section avec ses diapositives en utilisant [SectionCollection.reorder_section_with_slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/reorder_section_with_slides/) ;
+- supprimer uniquement la définition de la section avec [SectionCollection.remove_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/remove_section/), ce qui conserve ses diapositives ;
+- supprimer une section et ses diapositives avec [SectionCollection.remove_section_with_slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/remove_section_with_slides/) ;
+- ajouter une section vide à la fin avec [SectionCollection.append_empty_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/append_empty_section/) .
+
+L’exemple suivant crée deux sections, déplace l’une d’elles, la supprime ainsi que ses diapositives, puis ajoute une section vide :
+
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    layout_slide = presentation.layout_slides[0]
+    title_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    results_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
 
-    slide1 = presentation.slides.add_empty_slide(layout_slide)
-    slide2 = presentation.slides.add_empty_slide(layout_slide)
-    slide3 = presentation.slides.add_empty_slide(layout_slide)
-    slide4 = presentation.slides.add_empty_slide(layout_slide)
+    presentation.sections.add_section("Introduction", title_slide)
+    results_section = presentation.sections.add_section("Results", results_slide)
 
-    section1 = presentation.sections.add_section("Section 1", slide1)
-    # La section 1 se termine à la diapositive 2 ; la section 2 commence à la diapositive 3.
-    section2 = presentation.sections.add_section("Section 2", slide3) 
-      
-    presentation.save("presentation_sections.pptx", slides.export.SaveFormat.PPTX)
-    
-    presentation.sections.reorder_section_with_slides(section2, 0)
-    presentation.save("reordered_sections.pptx", slides.export.SaveFormat.PPTX)
-    
-    presentation.sections.remove_section_with_slides(section2)
-    presentation.sections.append_empty_section("Last empty section")
-    presentation.save("presentation_with_empty_section.pptx",slides.export.SaveFormat.PPTX)
+    presentation.sections.reorder_section_with_slides(results_section, 0)
+    presentation.sections.remove_section_with_slides(results_section)
+    presentation.sections.append_empty_section("Appendix")
 ```
 
+Après ces opérations, la présentation contient la section `Introduction` avec ses diapositives et une section vide `Appendix`. La section `Results` et ses diapositives ont été supprimées.
 
-## **Modifier les noms des sections**
+## **Renommer les sections**
 
-Après avoir créé une [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) dans une présentation PowerPoint, vous pouvez décider de changer son nom.
+Pour renommer une section, définissez sa propriété [Section.name](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/name/). Les diapositives et la position de la section restent inchangées.
 
-L'exemple Python suivant montre comment renommer une section dans une présentation:
+L’exemple suivant crée une section et modifie son nom :
+
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-   section = presentation.sections[0]
-   section.name = "My section"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    section = presentation.sections.add_section("Overview", slide)
+    section.name = "Introduction"
 ```
 
+## **Récupérer les diapositives d’une section**
+
+La propriété [Presentation.sections](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/sections/) renvoie un [SectionCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectioncollection/) que vous pouvez parcourir. Pour chaque [Section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/), appelez [Section.get_slides_list_of_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/get_slides_list_of_section/) afin d’obtenir les diapositives qui lui appartiennent actuellement. La méthode renvoie un [SectionSlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/sectionslidecollection/), qui fournit un compteur, un accès indexé et l’itération.
+
+L’exemple suivant crée deux sections remplies et une section vide, puis affiche le [name](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/name/), l’[identifier](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/section_id/), la [starting slide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/started_from_slide/), le nombre de diapositives et les numéros de diapositives de chaque section. Il utilise l’accès indexé pour lire la première diapositive et une boucle `for` pour traiter chaque diapositive. Pour la section vide, la collection renvoyée a un compteur de zéro, l’indice n’est pas accédé et l’itération ne produit aucune étape.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    first_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    third_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+
+    presentation.sections.add_section("Introduction", first_slide)
+    presentation.sections.add_section("Details", third_slide)
+    presentation.sections.append_empty_section("Appendix")
+
+    for section in presentation.sections:
+        section_slides = section.get_slides_list_of_section()
+        starting_slide = "none" if section.started_from_slide is None else str(section.started_from_slide.slide_number)
+
+        print(f"Section: {section.name}")
+        print(f"ID: {section.section_id}")
+        print(f"Starting slide: {starting_slide}")
+        print(f"Slide count: {section_slides.count}")
+
+        if section_slides.count > 0:
+            print(f"First slide via index: {section_slides[0].slide_number}")
+
+        print("Slide numbers:", end="")
+        for slide in section_slides:
+            print(f" {slide.slide_number}", end="")
+        print()
+```
+
+L’appartenance à une section est déterminée par la structure des sections de la présentation. Ne calculez pas manuellement l’étendue d’une section à partir de [Section.started_from_slide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/started_from_slide/), des index de diapositives et de la diapositive de départ de la section suivante.
+
+Les modifications structurelles peuvent changer à la fois les diapositives renvoyées pour une section et leurs numéros de diapositive. Cela inclut le réordonnancement des diapositives, le clonage d’une diapositive dans une section, le déplacement d’une section avec ses diapositives, la suppression de diapositives et la suppression de sections. L’exemple suivant appelle [Section.get_slides_list_of_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/get_slides_list_of_section/) après chaque modification au lieu de conserver des hypothèses sur les limites précédentes de la section.
+
+```py
+import aspose.slides as slides
+
+
+def print_section_slides(label, section):
+    section_slides = section.get_slides_list_of_section()
+    print(f"{label} ({section_slides.count} slides):", end="")
+    for slide in section_slides:
+        print(f" {slide.slide_number}", end="")
+    print()
+
+
+with slides.Presentation() as presentation:
+    first_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    third_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    first_section = presentation.sections.add_section("First", first_slide)
+    second_section = presentation.sections.add_section("Second", third_slide)
+
+    print_section_slides("Initially", first_section)
+
+    slides_before_clone = first_section.get_slides_list_of_section()
+    presentation.slides.add_clone(slides_before_clone[0], first_section)
+    print_section_slides("After cloning into the section", first_section)
+
+    slides_before_reorder = first_section.get_slides_list_of_section()
+    first_section_position = slides_before_reorder[0].slide_number - 1
+    presentation.slides.reorder(first_section_position, slides_before_reorder[slides_before_reorder.count - 1])
+    print_section_slides("After reordering slides", first_section)
+
+    presentation.sections.reorder_section_with_slides(first_section, 1)
+    print_section_slides("After moving the section", first_section)
+
+    slides_before_removal = first_section.get_slides_list_of_section()
+    presentation.slides.remove(slides_before_removal[0])
+    print_section_slides("After removing a slide", first_section)
+
+    presentation.sections.remove_section_with_slides(second_section)
+    for section in presentation.sections:
+        print_section_slides("Remaining section", section)
+```
+
+Appelez [Section.get_slides_list_of_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/get_slides_list_of_section/) à nouveau chaque fois que des diapositives ou des sections sont réordonnées, clonées, déplacées ou supprimées. Cela maintient le traitement ultérieur aligné sur la structure actuelle de la présentation.
+
+Le format PPT (PowerPoint 97–2003) ne conserve pas les métadonnées de section. Utilisez ce flux de travail avec un format qui prend en charge les sections, comme le PPTX ; la conversion en PPT supprime la structure de sections nécessaire à une itération ultérieure.
 
 ## **FAQ**
 
-**Les sections sont‑elles conservées lors de l'enregistrement au format PPT (PowerPoint 97-2003) ?**
+**Les sections sont‑elles conservées lors de l’enregistrement au format PPT (PowerPoint 97–2003) ?**
 
-Non. Le format PPT ne prend pas en charge les métadonnées de section, ainsi le regroupement des sections est perdu lors de l'enregistrement au format .ppt.
+Non. Le format PPT ne prend pas en charge les métadonnées de section, ainsi le regroupement par sections est perdu lors de l’enregistrement au format .ppt.
 
-**Une section entière peut‑elle être "masquée"?**
+**Une section entière peut‑elle être « masquée » ?**
 
-Non. Seules les diapositives individuelles peuvent être masquées. Une section en tant qu'entité n'a aucun état "hidden".
+Non. Une section n’a aucun état de visibilité. Pour masquer son contenu, définissez la propriété [Slide.hidden](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slide/hidden/) pour chaque diapositive de la section.
 
-**Puis‑je rapidement trouver une section à partir d'une diapositive et, inversement, la première diapositive d'une section ?**
+**Comment trouver la section qui contient une diapositive ?**
 
-Oui. Une section est définie de manière unique par sa diapositive de départ ; étant donné une diapositive, vous pouvez déterminer à quelle section elle appartient, et pour une section vous pouvez accéder à sa première diapositive.
+Parcourez [Presentation.sections](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/sections/), appelez [Section.get_slides_list_of_section](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/get_slides_list_of_section/) pour chaque section, et comparez les diapositives renvoyées avec la diapositive cible. Pour une section non vide, [Section.started_from_slide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/section/started_from_slide/) renvoie sa première diapositive ; pour une section vide, elle renvoie `None`.

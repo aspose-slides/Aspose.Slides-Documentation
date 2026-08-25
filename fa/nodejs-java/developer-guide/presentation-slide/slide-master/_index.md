@@ -1,5 +1,5 @@
 ---
-title: مدیریت اسلاید مسترهای ارائه در JavaScript
+title: مدیریت اسلاید مسترهای ارائه در جاوااسکریپت
 linktitle: اسلاید مستر
 type: docs
 weight: 70
@@ -8,14 +8,14 @@ keywords:
 - اسلاید مستر
 - اسلاید مستر
 - اسلاید مستر PPT
-- اسلایدهای مستر چندگانه
+- چندین اسلاید مستر
 - مقایسه اسلایدهای مستر
 - پس‌زمینه
-- محل‌نگهدار
+- فیلد نگهدارنده
+- کلون اسلاید مستر
 - کپی اسلاید مستر
-- رونوشت اسلاید مستر
 - تکثیر اسلاید مستر
-- اسلاید مستر غیرقابل استفاده
+- اسلاید مستر استفاده‌نشده
 - PowerPoint
 - OpenDocument
 - ارائه
@@ -24,37 +24,40 @@ keywords:
 - Aspose.Slides
 description: "مدیریت اسلاید مسترها در Aspose.Slides برای Node.js از طریق Java: دسترسی، ویرایش، کلون، مقایسه و حذف اسلایدهای مستر در ارائه‌های PowerPoint و OpenDocument."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-یک **slide master** تنظیمات طراحی مشترک برای گروهی از اسلایدها را تعریف می‌کند. می‌تواند شامل اشکال عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات فوتر باشد. در PowerPoint، ویرایش یک slide master روش معمول برای حفظ سازگاری ارائه بدون تکرار قالب‌بندی مشابه در هر اسلاید است.
+یک **اسلاید مستر** تنظیمات طراحی مشترک برای یک گروه از اسلایدها را تعریف می‌کند. می‌تواند شامل اشکال عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات پاورقی باشد. در PowerPoint، ویرایش اسلاید مستر روش معمول برای حفظ یکپارچگی ارائه بدون تکرار قالب‌بندی یکسان در هر اسلاید است.
 
-Aspose.Slides برای Node.js از طریق Java از همان مدل پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند slide master داشته باشد و هر slide master می‌تواند شامل چندین layout slide باشد. اسلایدهای عادی معمولاً مستقیماً به یک slide master ارجاع نمی‌دهند. در عوض، یک اسلاید عادی از یک layout slide استفاده می‌کند و آن layout slide متعلق به یک slide master است.
+Aspose.Slides for Node.js via Java مدل مشابهی را پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند اسلاید مستر داشته باشد و هر اسلاید مستر می‌تواند چندین اسلاید چینش را شامل شود. اسلایدهای عادی معمولاً به‌صورت مستقیم به اسلاید مستر ارجاع نمی‌دهند. در عوض، یک اسلاید عادی از یک اسلاید چینش استفاده می‌کند و آن اسلاید چینش متعلق به یک اسلاید مستر است.
 
-ساختار به صورت زیر است:
+سطح‌گذاری به شکل زیر است:
 
-1. **Slide master** – طرح و تم مشترک را تعریف می‌کند.  
-1. **Layout slide** – ترکیب خاصی از placeholders و قالب‌بندی سطح layout را تعریف می‌کند.  
-1. **Normal slide** – محتوای واقعی ارائه را شامل می‌شود و از یک layout slide استفاده می‌کند.
+1. **اسلاید مستر** – تنظیمات طراحی و تم مشترک را تعریف می‌کند.  
+1. **اسلاید چینش** – چیدمان خاصی از فضاهای نگهدارنده و قالب‌بندی‌های سطحی را تعریف می‌کند.  
+1. **اسلاید عادی** – محتوای واقعی ارائه را دارد و از یک اسلاید چینش استفاده می‌کند.  
 
-![سلسله مراتب slide master‌ها، layout slide‌ها و اسلایدهای عادی](slide-master_2.jpg)
+![سلسله مراتب اسلایدهای مستر، اسلایدهای چینش و اسلایدهای عادی](slide-master_2.jpg)
 
-در Aspose.Slides، یک slide master توسط کلاس [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) نمایندگی می‌شود. تمام slide master‌های موجود در یک ارائه از طریق مجموعه `Presentation.getMasters()` در دسترس هستند.
+در Aspose.Slides، یک اسلاید مستر توسط کلاس [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) نمایش داده می‌شود. تمام اسلایدهای مستر در یک ارائه از طریق مجموعه `Presentation.getMasters()` در دسترس هستند.
 
-{{% alert color="info" title="ارث‌بری" %}}
+{{% alert color="info" title="ارث‑بری" %}}
 
-زمانی که یک ویژگی در بیش از یک سطح تعریف شده باشد، سطح خاص‌تر برتری دارد. برای مثال، اگر یک slide master و یک layout slide هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن layout از پس‌زمینه layout استفاده می‌کنند. برای اطلاعات بیشتر درباره layout slide‌ها، به [اعمال یا تغییر طرح‌های اسلاید](/nodejs-java/slide-layout/) مراجعه کنید.
+هنگامی که یک ویژگی در بیش از یک سطح تعریف شود، سطح خاص‌تر پیروز می‌شود. به عنوان مثال، اگر یک اسلاید مستر و یک اسلاید چینش هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن چینش از پس‌زمینه چینش استفاده می‌کنند. برای اطلاعات بیشتر درباره اسلایدهای چینش، به [Apply or Change Slide Layouts](/nodejs-java/slide-layout/) مراجعه کنید.
 
 {{% /alert %}}
 
-## **دسترسی به Slide Masters**
+## **دسترسی به اسلایدهای مستر**
 
-در PowerPoint می‌توانید نمای Slide Master را از **View** > **Slide Master** باز کنید.
+در PowerPoint، می‌توانید نمای اسلاید مستر را از **View** > **Slide Master** باز کنید.
 
-![دستورات Slide Master در برگه View برنامه PowerPoint](slide-master_3.jpg)
+![دستور اسلاید مستر در زبانه View برنامه PowerPoint](slide-master_3.jpg)
 
-در Aspose.Slides، برای دسترسی به slide master‌ها از مجموعه `getMasters()` استفاده کنید:
+در Aspose.Slides، از مجموعه `getMasters()` برای دسترسی به اسلایدهای مستر استفاده کنید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +71,12 @@ try {
 }
 ```
 
-همچنین می‌توانید slide master مورد استفاده توسط یک اسلاید عادی را از طریق layout آن به‌دست آورید:
+همچنین می‌توانید اسلاید مستری که یک اسلاید عادی استفاده می‌کند را از طریق چینش آن به‌دست آورید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -84,28 +90,31 @@ try {
 }
 ```
 
-## **محتویات یک Slide Master**
+## **محتویات یک اسلاید مستر**
 
-یک slide master یک شیء شبیه اسلاید است. این شیء رفتار عمومی اسلایدها را از [BaseSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/) به ارث می‌برد، بنابراین بسیاری از ویژگی‌های اسلاید که در اسلایدهای عادی و layout استفاده می‌شوند، در دسترس است. اعضای خاص master در صفحه API [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) فهرست شده‌اند.
+یک اسلاید مستر شیئی شبیه اسلاید است. it از رفتار مشترک اسلاید از [BaseSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/) ارث می‌برد، بنابراین بسیاری از خواص اسلاید مشابه که توسط اسلایدهای عادی و چینش استفاده می‌شود را در اختیار دارد. اعضای خاص مستر در صفحه API [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) فهرست شده‌اند.
 
-عضوهای معمولاً استفاده‌شده‌ی slide master شامل:
+اعضای معمولاً استفاده‌شده اسلاید مستر عبارتند از:
 
-| Member | Purpose |
+| عضو | هدف |
 | --- | --- |
-| `getBackground()` | پس‌زمینه سطح master را تنظیم می‌کند. |
-| `getShapes()` | اشکالی که بر روی master قرار گرفته‌اند (مانند لوگوها، فریم‌های تصویر و متن مشترک) را ذخیره می‌کند. |
-| `getLayoutSlides()` | layout slide‌های متعلق به master را ذخیره می‌کند. |
-| `getThemeManager()` | دسترسی به API‌های تم master را فراهم می‌کند. |
-| `getHeaderFooterManager()` | سرصفحه‌ها، پانویس‌ها، تاریخ‌ها و شماره‌های اسلاید برای master و layoutهای فرزندی آن را کنترل می‌کند. |
-| `getDependingSlides()` | اسلایدهای عادی که از طریق layout به master وابسته‌اند را برمی‌گرداند. |
+| `getBackground()` | پس‌زمینه اسلاید در سطح مستر را تنظیم می‌کند. |
+| `getShapes()` | اشکال قرار گرفته بر روی مستر را ذخیره می‌کند؛ مانند لوگوها، قاب‌های تصویر و متن‌های مشترک. |
+| `getLayoutSlides()` | اسلایدهای چینش متعلق به مستر را نگهداری می‌کند. |
+| `getThemeManager()` | دسترسی به APIهای تم مستر را فراهم می‌کند. |
+| `getHeaderFooterManager()` | سرصفحه‌ها، پاورقی‌ها، تاریخ‌ها و شماره‌ اسلایدها را برای مستر و چینش‌های فرزند کنترل می‌کند. |
+| `getDependingSlides()` | اسلایدهای عادی که از طریق چینش‌های خود به این مستر وابسته هستند را برمی‌گرداند. |
 
-## **افزودن تصویر به Slide Master**
+## **افزودن تصویر به اسلاید مستر**
 
-وقتی یک تصویر را به یک slide master اضافه می‌کنید، در اسلایدهایی که از layout‌های آن master استفاده می‌کنند، نمایش داده می‌شود. این قابلیت برای لوگوها، واترمارک‌ها، نوارهای تزئینی و سایر عناصر بصری تکراری مفید است.
+زمانی که تصویری به یک اسلاید مستر اضافه می‌کنید، در اسلایدهایی که از چینش‌های آن مستر استفاده می‌کنند ظاهر می‌شود. این برای لوگوها، واترقاب‌ها، نواره‌های تزئینی و سایر عناصر بصری تکراری مفید است.
 
-مثال زیر یک لوگو را به اولین slide master اضافه می‌کند:
+مثال زیر لوگویی را به اولین اسلاید مستر اضافه می‌کند:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +140,23 @@ try {
 }
 ```
 
-برای اطلاعات بیشتر درباره فریم‌های تصویر، به [Picture Frame](/nodejs-java/picture-frame/) مراجعه کنید.
+برای اطلاعات بیشتر درباره قاب‌های تصویر، به [Picture Frame](/nodejs-java/picture-frame/) مراجعه کنید.
 
-## **کار با Placeholders**
+## **کار با فضاهای نگهدارنده**
 
-Placeholders معمولاً در layout slide‌ها تعریف می‌شوند. slide master سبک و تم مشترکی را فراهم می‌کند که layoutها از آن ارث می‌برند، در حالی که هر layout تصمیم می‌گیرد کدام placeholders در دسترس هستند و در کجا قرار می‌گیرند.
+فضاهای نگهدارنده معمولاً در اسلایدهای چینش تعریف می‌شوند. اسلاید مستر سبک و تم مشترکی را فراهم می‌کند که آن چینش‌ها به ارث می‌برند، در حالی که هر چینش تصمیم می‌گیرد کدام فضاهای نگهدارنده در دسترس هستند و در کجا قرار می‌گیرند.
 
-در PowerPoint، دستورات placeholders در نمای Slide Master موجود است.
+در PowerPoint، دستورات فضاهای نگهدارنده در نمای اسلاید مستر موجود است.
 
-![دستور Insert Placeholder در نمای Slide Master برنامه PowerPoint](slide-master_5.png)
+![دستور Insert Placeholder در نمای اسلاید مستر PowerPoint](slide-master_5.png)
 
-برای افزودن placeholders جدید با Aspose.Slides، با layout slideی که به master تعلق دارد کار کنید:
+برای افزودن فضاهای نگهدارنده جدید با Aspose.Slides، با اسلاید چینشی که به مستر تعلق دارد کار کنید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -163,9 +176,13 @@ try {
 }
 ```
 
-همچنین می‌توانید اشکال placeholderهایی که از پیش بر روی یک slide master وجود دارند را قالب‌بندی کنید. مثال زیر placeholder عنوان را پیدا کرده و یک پرکن خطی گرادیان اعمال می‌کند:
+همچنین می‌توانید اشکال فضاهای نگهدارنده‌ای که قبلاً در اسلاید مستر موجود هستند را قالب‌بندی کنید. مثال زیر فضا نگهدارنده عنوان را پیدا کرده و یک پر کردن خطی گرادیان اعمال می‌کند:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -195,7 +212,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -204,15 +221,19 @@ try {
 }
 ```
 
-![placeholder عنوان قالب‌بندی‌شده که توسط اسلایدهای عادی به ارث می‌رسد](slide-master_8.png)
+![فضای نگهدارنده عنوان قالب‌بندی‌شده که توسط اسلایدهای عادی ارث‌بری می‌شود](slide-master_8.png)
 
-برای گزینه‌های بیشتر مربوط به placeholders و قالب‌بندی متن، به [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) و [Text Formatting](/nodejs-java/text-formatting/) نگاه کنید.
+برای گزینه‌های بیشتر قالب‌بندی فضاهای نگهدارنده و متن، به [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) و [Text Formatting](/nodejs-java/text-formatting/) مراجعه کنید.
 
-## **تغییر پس‌زمینه Slide Master**
+## **تغییر پس‌زمینه اسلاید مستر**
 
-پس‌زمینه master توسط layoutها و اسلایدهایی که آن را بازنویسی نمی‌کنند، به ارث می‌رسد. مثال زیر یک رنگ پس‌زمینه ثابت برای اولین slide master تنظیم می‌کند:
+پس‌زمینه مستر توسط چینش‌ها و اسلایدهایی که آن را بازنویسی نمی‌کنند، ارث‌بری می‌شود. مثال زیر رنگ پس‌زمینه‌ی ثابت را برای اولین اسلاید مستر تنظیم می‌کند:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -232,11 +253,14 @@ try {
 
 برای موضوعات مرتبط، به [Presentation Background](/nodejs-java/presentation-background/) و [Presentation Theme](/nodejs-java/presentation-theme/) مراجعه کنید.
 
-## **کپی کردن Slide Master به ارائه‌ای دیگر**
+## **کپی کردن اسلاید مستر به ارائه دیگر**
 
-از `MasterSlideCollection.addClone` برای کپی کردن یک slide master به ارائه‌ای دیگر استفاده کنید. master کپی‌شده سپس می‌تواند توسط layoutها و اسلایدهای مقصد استفاده شود.
+از `MasterSlideCollection.addClone` برای کپی یک اسلاید مستر به ارائه‌ای دیگر استفاده کنید. مستر کپی‌شده می‌تواند توسط چینش‌ها و اسلایدهای مقصد استفاده شود.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -250,17 +274,21 @@ try {
 }
 ```
 
-اگر نیاز دارید اسلایدهای عادی را به همراه masterشان کپی کنید، به [Clone Slides](/nodejs-java/clone-slides/) مراجعه کنید.
+اگر نیاز دارید اسلایدهای عادی را به‌همراه مسترشان کپی کنید، به [Clone Slides](/nodejs-java/clone-slides/) نگاه کنید.
 
-## **افزودن چندین Slide Master**
+## **افزودن چندین اسلاید مستر**
 
-یک ارائه می‌تواند شامل چندین slide master باشد. این ویژگی برای بخش‌های مختلف که نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوتی دارند، مفید است.
+یک ارائه می‌تواند شامل چندین اسلاید مستر باشد. این برای بخش‌هایی که نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوت دارند مفید است.
 
-![دستورات PowerPoint برای وارد کردن و مدیریت slide master‌ها](slide-master_9.jpg)
+![دستورات PowerPoint برای وارد کردن و مدیریت اسلایدهای مستر](slide-master_9.jpg)
 
-مثال زیر master پیش‌فرض را کپی می‌کند، به کپی پس‌زمینه‌ای متفاوت می‌دهد، یک layout تحت آن master کپی‌شده ایجاد می‌کند و یک اسلاید جدید بر پایه آن layout اضافه می‌کند:
+مثال زیر مستر پیش‌فرض را کلون می‌کند، به کلون پس‌زمینه‌ای متفاوت می‌دهد، زیر آن یک چینش ایجاد می‌کند و اسلاید جدیدی بر پایه آن چینش اضافه می‌کند:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -288,11 +316,14 @@ try {
 }
 ```
 
-## **مقایسه Slide Masters**
+## **مقایسه اسلایدهای مستر**
 
-slide master‌ها می‌توانند با متد `equals` که از [BaseSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/) به ارث برده شده است مقایسه شوند. مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به‌فرد مانند slide IDها یا مقادیر پویا مانند تاریخ جاری را مقایسه نمی‌کند.
+اسلایدهای مستر می‌توانند با متد `equals` که از [BaseSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/) به ارث برده شده، مقایسه شوند. مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های یکتا مانند شناسه اسلاید یا مقادیر پویا مانند تاریخ جاری را مقایسه نمی‌کند.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -318,13 +349,17 @@ try {
 }
 ```
 
-برای اطلاعات بیشتر، به [Compare Presentation Slides](/nodejs-java/compare-slides/) نگاه کنید.
+برای اطلاعات بیشتر، به [Compare Presentation Slides](/slides/fa/nodejs-java/compare-slides/) مراجعه کنید.
 
-## **تنظیم Slide Master View به‌عنوان نمای پیش‌فرض**
+## **تنظیم نمای اسلاید مستر به عنوان نمای پیش‌فرض**
 
-از متد `setLastView` روی [ViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند، استفاده کنید. مثال زیر ارائه را در نمای Slide Master باز می‌کند:
+از متد `setLastView` در [ViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند استفاده کنید. مثال زیر ارائه را در نمای اسلاید مستر باز می‌کند:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -336,15 +371,18 @@ try {
 }
 ```
 
-برای تنظیمات بیشتر نمایی، به [Save Presentation](/nodejs-java/save-presentation/) مراجعه کنید.
+برای تنظیمات بیشتر نمای، به [Save Presentation](/slides/fa/nodejs-java/save-presentation/) نگاه کنید.
 
-## **حذف Slide Masterهای غیرقابل استفاده**
+## **حذف اسلایدهای مستر استفاده‌نشده**
 
-گاهی اوقات ارائه‌ها شامل slide masterهایی هستند که دیگر توسط هیچ اسلاید عادی استفاده نمی‌شوند. حذف masterهای غیرقابل استفاده می‌تواند اندازه فایل را کاهش داده و نگهداری قالب را ساده‌تر کند.
+گاهی ارائه‌ها شامل اسلایدهای مستری می‌شوند که دیگر توسط هیچ اسلاید عادی استفاده نمی‌شوند. حذف مسترهای استفاده‌نشده می‌تواند حجم فایل را کاهش دهد و نگهداری الگو را ساده‌تر کند.
 
-از `removeUnused` برای حذف masterهای غیرقابل استفاده از مجموعه `getMasters()` استفاده کنید:
+از `removeUnused` برای حذف مسترهای استفاده‌نشده از مجموعه `getMasters()` استفاده کنید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -357,6 +395,9 @@ try {
 همچنین می‌توانید از متد کم‌کد `Compress.removeUnusedMasterSlides` استفاده کنید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -366,20 +407,20 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **سؤال‌های متداول**
 
-**تفاوت slide master و layout slide چیست؟**
+### تفاوت اسلاید مستر و اسلاید چینش چیست؟
 
-یک slide master تنظیمات طراحی مشترک مانند تم، پس‌زمینه، اشکال عمومی و سبک‌های متن را تعریف می‌کند. یک layout slide متعلق به یک slide master است و ترکیب خاصی از placeholders را تعریف می‌کند. یک اسلاید عادی از یک layout slide استفاده می‌کند، بنابراین هم از layout و هم از master ارث می‌برد.
+یک اسلاید مستر تنظیمات طراحی مشترک مانند تم، پس‌زمینه، اشکال عمومی و سبک‌های متن را تعریف می‌کند. یک اسلاید چینش متعلق به یک اسلاید مستر است و چیدمان خاصی از فضاهای نگهدارنده را تعیین می‌کند. یک اسلاید عادی از یک اسلاید چینش استفاده می‌کند، بنابراین از هر دو چینش و مستر ارث می‌برد.
 
-**آیا یک ارائه می‌تواند چندین slide master داشته باشد؟**
+### آیا یک ارائه می‌تواند چندین اسلاید مستر داشته باشد؟
 
-بله. یک ارائه می‌تواند شامل چندین slide master باشد. هنگام نیاز به سیستم‌های بصری یا برندینگ متفاوت برای بخش‌های مختلف، از چندین master استفاده کنید.
+بله. یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. هنگام نیاز به سیستم‌های بصری یا برندینگ متفاوت در بخش‌های مختلف، از مسترهای متعدد استفاده کنید.
 
-**آیا باید placeholders را به slide master اضافه کنم یا به layout slide؟**
+### آیا فضاهای نگهدارنده را باید به اسلاید مستر اضافه کنم یا به اسلاید چینش؟
 
-در اکثر موارد placeholders را به layout slide‌ها اضافه کنید. عناصر بصری مشترک و قالب‌بندی مشترک را بر روی slide master بگذارید و placeholders محتوا را بر روی layoutهایی که اسلایدهای عادی استفاده می‌کنند، قرار دهید.
+در اکثر موارد، فضاهای نگهدارنده را به اسلایدهای چینش اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های عمومی را در اسلاید مستر بگذارید و سپس فضاهای محتوا را در چینش‌هایی که اسلایدهای عادی استفاده می‌کنند، قرار دهید.
 
-**آیا می‌توانم یک slide master که هنوز استفاده می‌شود را حذف کنم؟**
+### آیا می‌توانم اسلاید مستری را که هنوز استفاده می‌شود حذف کنم؟
 
-نه. یک slide master که اسلایدهای وابسته دارد، نمی‌تواند به‌صورت مستقیم حذف شود. ابتدا آن اسلایدها را به layoutهای زیر master دیگری منتقل کنید یا از روش پاک‌سازی masterهای غیرقابل استفاده استفاده کنید که فقط masterهایی را حذف می‌کند که در استفاده نیستند.
+نه. اسلاید مستری که اسلایدهای وابسته دارد نمی‌تواند به‌صورت مستقیم حذف شود. ابتدا آن اسلایدها را به چینش‌های زیر مستر دیگری منتقل کنید یا از روش پاکسازی مسترهای استفاده‑نشده استفاده کنید که فقط مسترهای غیر‌قابل استفاده را حذف می‌کند.

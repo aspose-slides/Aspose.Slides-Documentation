@@ -1,551 +1,429 @@
 ---
-title: Képkeretek kezelése prezentációkban Androidon
-linktitle: Képkeret
+title: Képkockák kezelése prezentációkban Androidon
+linktitle: Képkocka
 type: docs
 weight: 10
 url: /hu/androidjava/picture-frame/
 keywords:
-- képkeret
-- képkeret hozzáadása
-- képkeret létrehozása
-- kép hozzáadása
-- kép létrehozása
+- képkocka
+- képkocka hozzáadása
+- képkocka létrehozása
+- beágyazott kép
+- csatolt kép
 - kép kinyerése
-- raszter kép
-- vektor kép
+- raster kép
+- SVG kép
 - kép vágása
-- vágott terület
-- StretchOff tulajdonság
-- képkeret formázása
-- képkeret tulajdonságai
+- vágott területek törlése
+- kép tömörítése
+- StretchOffset
+- képkocka formázása
 - relatív méretezés
 - kép hatás
 - oldalarány
-- kép átlátszóság
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Képkeretek hozzáadása PowerPoint és OpenDocument prezentációkhoz az Aspose.Slides for Android via Java segítségével. Egyszerűsítse a munkafolyamatot és javítsa a diák tervezését."
+description: "Képkockák létrehozása, formázása, csatolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Android segítségével Java nyelven."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A képkeret egy alakzat, amely képet tartalmaz—úgy, mint egy kép a keretben.
+A képkocka egy diára helyezett alakzat, amely képet jelenít meg. Az Aspose.Slides-ban a képernyő erőforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) beágyazott kép erőforrásokat birtokol a [IImageCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iimagecollection/) segítségével, míg egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgatását, vágását, képhatásait és egyéb keretszintű beállításokat.
 
-Képet adhat hozzá egy diára egy képkereten keresztül. Így a kép formázását a képkeret formázásával végezheti.
+Ez a felosztás akkor hasznos, ha ugyanaz a kép több alkalommal jelenik meg. Add a képet egyszer a prezentációhoz, tartsd meg a visszaadott [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/), és használd azt a kép erőforrásként képkockák létrehozásakor.
 
-{{% alert title="Tipp" color="primary" %}} 
-Az Aspose ingyenes konvertereket biztosít—[JPEG PowerPoint-hoz](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG PowerPoint-hoz](https://products.aspose.app/slides/hu/import/png-to-ppt)—amelyek lehetővé teszik, hogy a felhasználók gyorsan prezentációkat hozzanak létre képekből. 
-{{% /alert %}} 
+A képkockák raster (PNG vagy JPEG) és vektor (SVG) képeket is tartalmazhatnak. Hivatkozhatnak csatolt képekre is ahelyett, hogy a képadatokat a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért célszerű eldönteni, hogyan legyen a kép tárolva, mielőtt formázást vagy optimalizálást alkalmaznánk.
 
-## **Képkeret létrehozása**
+## **Beágyazott kép hozzáadása és formázása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze be egy dia referenciaját az indexe alapján.  
-3. Hozzon létre egy [IPPImage]() objektumot a képet a [IImagescollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IImageCollection) gyűjteményhez adva, amely a prezentációobjektumhoz kapcsolódik, és a forma kitöltéséhez lesz használva.  
-4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/PictureFrame) objektumot a kép szélessége és magassága alapján az `AddPictureFrame` metóduson keresztül, amely a hivatkozott dia alakzatobjektuma által érhető el.  
-6. Adjon hozzá egy képkeretet (amely a képet tartalmazza) a diához.  
-7. Írja ki a módosított prezentációt PPTX fájlként.  
+Beágyazott kép esetén add hozzá a képadatokat a prezentációhoz, és hozz létre egy képkockát a [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) segítségével. A kép a prezentáció csomag részévé válik, így a prezentáció önálló marad, amikor egy másik számítógépre kerül.
 
-Ez a Java kód bemutatja, hogyan hozhat létre egy képkeretet:
+Az alábbi példa JPEG képet ad hozzá, egy keretet hoz létre a kép natív méreteiben, és vonalformázást valamint forgatást alkalmaz:
 
 ```java
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
-try {
-    // Lekéri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Létrehozza az Image osztályt
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Hozzáad egy képkeretet a kép megfelelő magasságával és szélességével
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // A PPTX fájlt a lemezre írja
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-## **Képkeret létrehozása relatív méretezéssel**
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze be egy dia referenciaját az indexe alapján.  
-3. Adjon hozzá egy képet a prezentáció képgyűjteményéhez.  
-4. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPPImage) objektumot a képet a [IImagescollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IImageCollection) gyűjteményhez adva, amely a prezentációobjektumhoz kapcsolódik, és a forma kitöltéséhez lesz használva.  
-5. Adja meg a kép relatív szélességét és magasságát a képkeretben.  
-6. Írja ki a módosított prezentációt PPTX fájlként.  
-
-Ez a Java kód bemutatja, hogyan hozhat létre egy képkeretet relatív méretezéssel:
-
-```java
-// Létrehozza a Presentation osztályt, amely a PPTX-et képviseli
-Presentation pres = new Presentation();
-try {
-    // Lekéri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Létrehozza az Image osztályt
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // Hozzáad egy képkeretet a kép magasságával és szélességével megegyezően
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // A relatív méretezés szélességének és magasságának beállítása
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // A PPTX fájlt a lemezre írja
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Raster képek kinyerése képkeretekből**
-
-Raster képeket nyerhet ki [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/PictureFrame) objektumokból, és mentheti őket PNG, JPG és egyéb formátumokba. Az alábbi kódrészlet bemutatja, hogyan nyerhet ki egy képet a "sample.pptx" dokumentumból, és mentheti PNG formátumban.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **SVG képek kinyerése képkeretekből**
-
-Amikor egy prezentáció SVG grafikákat tartalmaz, amelyeket [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/) alakzatokba helyeztek, az Aspose.Slides for Android Java segítségével visszanyerheti az eredeti vektorképeket teljes pontossággal. A dia alakzatgyűjteményének bejárásával azonosíthatja az egyes [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/) objektumokat, ellenőrizheti, hogy az alatta lévő [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) SVG tartalmat tartalmaz‑e, majd elmentheti azt a lemezen vagy egy streamben natív SVG formátumban.
-
-Az alábbi kódrészlet bemutatja, hogyan nyerhet ki egy SVG képet egy képkeretből:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Kép átlátszóságának lekérése**
+A képkocka szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti, a beágyazott kép erőforrásban tárolt pixelméreteket. Ez a különbség később fontos lesz vágás vagy tömörítés esetén.
 
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott átlátszósági hatást. Ez a Java kód bemutatja a műveletet:
+## **Relatív méretezés használata**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Kép fényerő és kontraszt beállításainak lekérése**
-
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy képre alkalmazott fényerő‑ és kontraszt‑hatást. A [ILuminance](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iluminance/) interfész ezt a képet átalakító hatást képviseli.
-
-Ez a Java kód bemutatja, hogyan kérheti le a fényerő és kontraszt beállításait egy képkeretből:
+[IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) a keret relatív szélesség- és magasságméretezését teszi lehetővé a [setRelativeScaleWidth](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) és a [setRelativeScaleHeight](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) metódusokkal. Az `1.0` érték az eredeti kép 100%-ának felel meg. A relatív méretezés akkor hasznos, ha egy munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével, a végső méretek kézi kiszámítása helyett.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Képkeret formázása**
+A relatív méretezés a keret méretezési beállításait módosítja; nem próbálja újramintavételezni vagy tömöríteni a beágyazott képet.
 
-Az Aspose.Slides számos formázási lehetőséget kínál, amelyeket egy képkeretre lehet alkalmazni. Ezekkel a lehetőségekkel módosíthatja a képkeretet, hogy megfeleljen a konkrét követelményeknek.
+## **Beágyazott és csatolt képek**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze be egy dia referenciaját az indexe alapján.  
-3. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPPImage) objektumot a képet a [IImagescollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IImageCollection) gyűjteményhez adva, amely a prezentációobjektumhoz kapcsolódik, és a forma kitöltéséhez lesz használva.  
-4. Adja meg a kép szélességét és magasságát.  
-5. Hozzon létre egy `PictureFrame` objektumot a kép szélessége és magassága alapján a [AddPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metóduson keresztül, amely a [IShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShapeCollection) objektumhoz kapcsolódik a hivatkozott dián.  
-6. Adja hozzá a képkeretet (amely a képet tartalmazza) a diához.  
-7. Állítsa be a képkeret vonalszínét.  
-8. Állítsa be a képkeret vonalvastagságát.  
-9. Forgassa el a képkeretet pozitív vagy negatív érték megadásával.  
-   * A pozitív érték az ábrát az óramutató járása szerint forgatja.  
-   * A negatív érték az ábrát az óramutató járásával ellentétes irányban forgatja.  
-10. Adja hozzá a képkeretet (amely a képet tartalmazza) a diához.  
-11. Írja ki a módosított prezentációt PPTX fájlként.  
+A beágyazott kép a képadatokat a prezentáción belül tárolja, így a hordozhatóság és az előre kiszámítható megjelenítés szempontjából a legbiztonságosabb választás. A csatolt kép egy külső helyet tárol a [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) metódus segítségével, ahelyett, hogy beágyazná a képadatokat ugyanúgy.
 
-Ez a Java kód bemutatja a képkeret formázási folyamatát:
+A csatolt képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A csatolt fájlnak elérhetőnek kell maradnia az alkalmazás számára, amely megnyitja vagy megjeleníti a prezentációt. Ha az elérési út megváltozik, a fájl áthelyeződik, vagy az erőforrás nem érhető el, a csatolt kép nem jelenik meg a várttal megegyezően. Azokban a prezentációkban, amelyeket e‑mailben, archiválásban vagy izolált környezetben kell megjeleníteni, a beágyazott képek általában megbízhatóbbak.
+
+### **Csatolt kép hozzáadása**
+
+Az alábbi példa egy képkockát hoz létre, és helyi képfájlra mutat. Csak a kép csatolásával foglalkozik; a videó csatolás egy külön média munkafolyamat, és szándékosan nincs keverve ebben a példában.
 
 ```java
-// Létrehozza a Presentation osztályt, amely a PPTX-et képviseli
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // Lekéri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Létrehozza az Image osztályt
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Hozzáad egy képkeretet a kép magasságával és szélességével megegyezően
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Alkalmaz némi formázást a PictureFrameEx-re
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // A PPTX fájlt a lemezre írja
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tipp" color="primary" %}}
+Használj hivatkozásokat, ha a külső fájlkezelés szándékos. Ne használd őket pusztán a tömörítés helyettesítésére: egy kis PPTX törött képfüggőségekkel általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
 
-Az Aspose nemrég fejlesztett egy [ingyenes Collage Maker](https://products.aspose.app/slides/hu/collage) alkalmazást. Ha valaha is össze kell [összeillesztenie JPG/JPEG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG képeket, vagy [rácsokat kell létrehoznia fotókból](https://products.aspose.app/slides/hu/collage/photo-grid), használhatja ezt a szolgáltatást. 
-{{% /alert %}}
+## **Képek kinyerése képkockákból**
 
-## **Kép hozzáadása linkként**
+Mielőtt képet nyernél ki egy meglévő prezentációból, ellenőrizd, hogy az alakzat valóban egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/), és tartalmaz-e beágyazott képet. A csatolt képkockák nem biztos, hogy képadatokat tartalmaznak, amelyeket ugyanúgy ki lehet nyerni.
 
-A nagy prezentációs méretek elkerülése érdekében képeket (vagy videókat) is hozzáadhat linkeken keresztül, ahelyett, hogy közvetlenül beágyazná a fájlokat a prezentációkba. Ez a Java kód bemutatja, hogyan adhat hozzá képet és videót egy helykitöltőbe:
+### **Raster kép kinyerése**
+
+A modern kép API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iimage/) használatát javasolja, és nem igényli a régi Java képburkolót. Az alábbi példa megtalálja a dián az első beágyazott raster képet, és PNG‑ként menti el:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+Az [IImage.save](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) metódussal a kinyert képet a kért kimeneti formátumba konvertálod. Ha a prezentációban tárolt kódolt bájtokra van szükséged, a konvertált raster fájl helyett a kép erőforrás bináris adatait használd.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **SVG kép kinyerése**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+SVG képnél a [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) egy [ISvgImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isvgimage/) objektumot tesz elérhetővé. Ez lehetővé teszi a SVG adat közvetlen visszakeresését a rasterizálás előtt.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az SVG tartalom SVG‑ként való megtartása megőrzi a vektor forrást a prezentációban. A PNG vagy JPEG‑hez hasonló raster exportok szükségszerűen a vektort pixelre renderelik. A PDF vagy SVG diák exportja szintén egy renderelési művelet, ezért az exportált grafika nem tekinthető az eredeti beágyazott SVG pontos másolatának; amikor a tényleges vektor erőforrásra van szükség, használd a beágyazott [ISvgImage.getSvgData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isvgimage/#getSvgData--) adatot.
+
+## **Kép vágása**
+
+A vágás meghatározza, a kép mely része látható a kereten belül. Az [IPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/) vágási értékei a forráskép méretének százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható régiót változtatja meg.
+
+Az alábbi példa biztonságosan megtalál egy képkockát, és alkalmazza a vágási értékeket:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Képek vágása**
-
-Ez a Java kód bemutatja, hogyan vághat le egy már létező képet egy dián:
-
-```java
-Presentation pres = new Presentation();
-// Új képobjektumot hoz létre
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Képkeretet ad hozzá egy diához
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // Levágja a képet (százalékos értékek)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // Elmenti az eredményt
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Vágott területek törlése egy képből**
-
-Ha törölni szeretné egy képkeretben lévő kép vágott részeit, használhatja a [deletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) metódust. Ez a metódus a vágott képet, vagy a forrásképet adja vissza, ha a vágás nem szükséges.
-
-Ez a Java kód bemutatja a műveletet:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Lekéri a PictureFrame-et az első diáról
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Törli a PictureFrame kép vágott területeit és visszaadja a vágott képet
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // Elmenti az eredményt
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
-
-A [deletePictureCroppedAreas()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) metódus a vágott képet a prezentáció képgyűjteményéhez adja. Ha a kép csak a feldolgozott [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/)‑ben van használva, ez a beállítás csökkentheti a prezentáció méretét. Ellenkező esetben a végső prezentációban a képek száma növekedni fog.
-
-A metódus a vágási művelet során a WMF/EMF meta‑fájlokat raszter PNG képpé konvertálja. 
-{{% /alert %}}
-
-## **Képek tömörítése**
-
-A [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) metódus segítségével tömöríthet egy képet a prezentációban. Ez a metódus a képet a forma mérete és a megadott felbontás alapján csökkenti, a vágott területek törlésének lehetőségével.
-
-A kép méretét és felbontását úgy állítja be, ahogy a PowerPoint **Picture Format > Compress Pictures > Resolution** funkciója.
-
-Az alábbi Java példák azt mutatják be, hogyan tömöríthet egy képet a prezentációban egy célfelbontás megadásával, és opcionálisan a vágott területek eltávolításával:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Tömöríti a képet 150 DPI (web felbontás) célfelbontással, és eltávolítja a vágott területeket.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // Ellenőrzi a tömörítés eredményét.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Vagy közvetlenül egy egyéni DPI érték használatával:
+Mivel a rejtett képadatok továbbra is jelen vannak, a vágás később módosítható anélkül, hogy az eredeti pixelek elvesznének. Ha a fájlméret fontosabb, mint a visszavonhatóság, a vágott területeket fizikailag eltávolíthatod a következő szakaszban leírt módon.
+
+## **Vágott képadatok eltávolítása**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) eltávolítja a képadatokat a jelenlegi vágás téglalapján kívül, és visszaadja a kapott kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a törölt pixelek már nem állnak rendelkezésre egy későbbi „vágás visszavonása” művelethez.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // Tömöríti a képet 150 DPI (web felbontás) értékre, eltávolítva a vágott területeket.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
+A metódus új kép erőforrást adhat hozzá a prezentációhoz. Ha az eredeti képet más képkockák is használják, ezeknek továbbra is a meglévő erőforrásra van szükségük, így a vágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel a vágott eredményt PNG‑re rasterizálja.
 
-A metódus a képet alacsonyabb felbontásra konvertálja a forma mérete és a megadott DPI alapján. A vágott területek is törölhetők a fájlméret optimalizálása érdekében.  
-Ha a kép meta‑fájl (WMF/EMF) vagy SVG, a tömörítés nem lesz alkalmazva. Emellett a JPEG minősége a felbontás függvényében marad vagy csak enyhén csökken, ahogy a PowerPoint kezeli a magas felbontású JPEG‑eket.
-{{% /alert %}}
+## **Raster képek tömörítése**
 
-## **Arányok rögzítése**
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) csökkenti a raster kép felbontását a kép megjelenítési méretéhez viszonyítva. Ugyanabban a műveletben eltávolíthatja a vágott régiókat is. A metódus `true` értékkel tér vissza, ha a képet átméretezték vagy levágták, és `false` értékkel, ha nincs szükség változtatásra.
 
-Ha azt szeretné, hogy egy képet tartalmazó forma megőrizze az arányait akkor is, ha a kép méreteit megváltoztatja, a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) metódust használhatja az *Arányok rögzítése* beállítás beállításához.
-
-Ez a Java kód bemutatja, hogyan rögzítheti egy forma arányait:
+Használj előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // állítsa be a formát, hogy átméretezéskor megőrizze az oldalarányt
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Egy egyedi, pozitív DPI érték is megadható, ha specifikus célra van szükség.
+
+A tömörítés raster képekre vonatkozik. SVG és metafájl tartalom nem csökken ezzel a raster tömörítési munkafolyamattal. Ne feledd, hogy az alacsonyabb felbontású és a törölt vágott területek nem állíthatók vissza a optimalizált prezentációból. Válassz célfelbontást a legnagyobb, ténylegesen megtekintett vagy exportált méret alapján, ne pedig a legalacsonyabb DPI-t globálisan alkalmazd.
+
+## **Képtranszformációs hatások kezelése**
+
+A teljes munkafolyamat – fényerő, kontraszt, színátalakítás, elmosás, alfa hatások, rendezett láncok, ellenőrzés, eltávolítás és körkörös ellenőrzés – megtalálható a [Image Transform Effects](/slides/hu/androidjava/image-transform-effects/) oldalon.
+
+## **Képkocka geometria zárolása**
+
+Az [IPictureFrameLock](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframelock/) beállítások szabályozzák, mely szerkesztési műveletek legyenek letiltva egy képkockán. Például a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) megőrzi az alakzat arányait átméretezés közben.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="MEGJEGYZÉS" color="warning" %}} 
+A zár az egész képkocka alakzatra vonatkozik. Nem kényszeríti a forrásképet újramintavételezésre vagy állandóan ugyanarra az arányra módosításra.
 
-Ez az *Arányok rögzítése* beállítás csak a forma arányait őrzi meg, nem a benne lévő képet. 
-{{% /alert %}}
+## **StretchOffset értékek módosítása**
 
-## **A StretchOff tulajdonság használata**
+Ha a képkitöltés módja a nyújtás, a [IPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/) stretch‑offset értékei határozzák meg a kitöltő téglalapot a képkocka keretéhez képest. A pozitív százalékok belülre húznak egy széltől, a negatív százalékok pedig kifelé tolnak.
 
-A [StretchOffsetLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) és [StretchOffsetBottom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) tulajdonságok a [IPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPictureFillFormat) interfészből és a [PictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPictureFillFormat) osztályból lehetővé teszik egy kitöltő téglalap meghatározását.
-
-Ha egy képet nyújtunk, akkor egy forrástéglalap kerül átméretezésre, hogy illeszkedjen a megadott kitöltő téglalaphoz. A kitöltő téglalap minden éle egy százalékos eltolással van meghatározva, amely a forma korlátos dobozának megfelelő élétől számít. A pozitív százalékos érték egy belső eltolást jelent, a negatív pedig egy külső eltolást.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze be egy dia referenciaját az indexe alapján.  
-3. Adjon hozzá egy `AutoShape` téglalapot.  
-4. Hozzon létre egy képet.  
-5. Állítsa be a forma kitöltési típusát.  
-6. Állítsa be a forma képkitöltési módját.  
-7. Adjon hozzá egy képet a forma kitöltéséhez.  
-8. Adja meg a kép eltolásait a forma korlátos dobozának megfelelő élhez képest.  
-9. Írja ki a módosított prezentációt PPTX fájlként.  
-
-Ez a Java kód mutat egy folyamatot, amelyben a StretchOff tulajdonságot használja:
+Ez különbözik a vágástól. A vágási értékek meghatározzák, a forráskép mely része látható; a stretch‑offsetok a látható kép kitöltésének téglalapját módosítják.
 
 ```java
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
-try {
-    // Lekéri az első diát
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Példányosítja az ImageEx osztályt
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // AutoShape hozzáadása Rectangle típusra
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // Beállítja a forma kitöltési típusát
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // Beállítja a forma képkitöltési módját
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // Beállítja a képet a forma kitöltésére
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // Megadja a kép eltolásait a forma körülhatároló dobozának megfelelő élétől
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    //Writes the PPTX file to disk
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Használd a stretch‑offsetokat a kitöltés elhelyezéséhez. A vágási tulajdonságokat akkor alkalmazd, ha a forráskép széleit szeretnéd elrejteni.
+
+## **Tárolás, fájlméret és export szempontok**
+
+A fő kompromisszumok könnyebben kezelhetők, ha a kép tárolását és a képkocka formázását külön kezeljük:
+
+- **Beágyazott képek** önállóvá teszik a prezentációt, és a legmegbízhatóbbak a megosztás és a szerveroldali megjelenítés szempontjából, de a nagy raster képek megnövelik a PPTX méretét és a memóriahasználatot.
+- **Csatolt képek** kisebb csomagot eredményezhetnek, de a prezentáció függ a külső fájlok elérhetőségétől a megadott útvonalakon vagy helyeken.
+- **Vágás** eleve nem destruktív. A rejtett pixelek addig beágyazva maradnak, amíg a vágott területeket kifejezetten nem törlik vagy a tömörítés során nem távolítják el.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raster képeknél, de feláldozza a forrásfelbontást. Akkor alkalmazd, amikor a dia mérete ismert.
+- **SVG képek** esetén maradjunk SVG‑ként, ha a vektor megőrzése fontos. A beágyazott SVG közvetlen kinyerése akkor szükséges, amikor magát a vektor erőforrást akarjuk.
+- **Ismétlődő képek** esetén használjuk újra a meglévő [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) erőforrást ahelyett, hogy ugyanazt a fájlt többször betöltenénk a prezentáció munkafolyamatába.
+
+Nagy prezentációk esetén a képoptimalizálás leginkább szelektíven hatékony: tartsuk logókat és diagramokat vektor tartalomként, tömörítsük a fényképeket a valódi megjelenítési méretük szerint, csak akkor távolítsuk el a vágott pixeleket, ha a későbbi szerkesztés nem szükséges, és kerüljük a külső hivatkozásokat, hacsak a függőségkezelés nem része a telepítési tervnek.
 
 ## **GYIK**
 
-**Hogyan tudom megtudni, hogy mely képformátumok támogatottak a PictureFrame‑hez?**
+**Mi a különbség a képkocka és a kép erőforrás között?**
 
-Az Aspose.Slides mind raszter képeket (PNG, JPEG, BMP, GIF stb.), mind vektor képeket (például SVG) támogat a [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/)‑hez rendelt képobjektumon keresztül. A támogatott formátumok listája általában átfedi a dia‑ és képkonverziós motor képességeit.
+Egy [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) kép erőforrást képvisel, amely a prezentációhoz van társítva. Egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) egy dián elhelyezett alakzat, amely képet jelenít meg, és keretszintű geometriát és formázást tárol, például méretet, forgatást, vágási értékeket, hatásokat és zárolásokat.
 
-**Hogyan befolyásolja a több tucat nagy kép hozzáadása a PPTX méretét és teljesítményét?**
+**Érdemes beágyazni vagy csatolni a képeket?**
 
-A nagy képek beágyazása növeli a fájlméretet és a memóriahasználatot; a képek linkként való hivatkozása segít csökkenteni a prezentáció méretét, de megköveteli, hogy a külső fájlok elérhetők maradjanak. Az Aspose.Slides lehetőséget biztosít a képek linkként történő hozzáadására a fájlméret csökkentése érdekében.
+Beágyazz képeket, ha a prezentációnak hordozhatónak, archiválhatónak vagy külső erőforrások nélkül renderelendőnek kell lennie. Csak akkor csatolj képeket, ha szándékosan kívánod a képfájlokat a PPTX‑en kívül tartani, és a külső helyek megbízhatóan karbantarthatók.
 
-**Hogyan rögzíthetem egy képobjektust a véletlen áthelyezés/túlméretezés ellen?**
+**Csökkenti-e a vágás a PPTX fájlméretét?**
 
-Használja a [shape locks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) funkciót egy [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/) esetén (például a mozgatás vagy átméretezés letiltása). A zárolási mechanizmus több alakzattípusra is érvényes, beleértve a [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/)‑t is.
+Nem magától. A normál vágási beállítások elrejtik a forráskép részeit, de megtartják az alatta lévő pixeleket. A [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) vagy a vágott területek eltávolításával végzett képkompresszió használható, ha ezeket a pixeleket véglegesen el akarod dobni.
 
-**Megmarad-e az SVG vektor pontossága, ha a prezentációt PDF‑be vagy képfájlokba exportáljuk?**
+**Visszaállítható-e a képminőség a tömörítés után?**
 
-Az Aspose.Slides lehetővé teszi egy SVG kinyerését egy [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe/)‑ből eredeti vektorként. PDF‑re vagy raszter formátumokra ([PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) vagy [PNG](/slides/hu/androidjava/convert-powerpoint-to-png/)) történő exportálás esetén az eredmény a beállításoktól függően raszterizálódhat; a kinyerés viselkedése megerősíti, hogy az eredeti SVG vektor marad.
+Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a vágott területek eltávolítása elpusztítja a képadatokat. Ha később nagy felbontású szerkesztésre van szükség, tartsd meg a forrásképet a prezentáción kívül.
+
+**Hogyan kezeljem az SVG képeket?**
+
+Tartsd meg az SVG tartalmat SVG‑ként, ha a vektor pontosság számít. A beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isvgimage/) közvetlenül kinyerhető. Egy dia raster formátumba (PNG vagy JPEG) történő exportálása rasterizálja az SVG‑t a dia képének részeként.
+
+**Hogyan kerülhetem el a nem biztonságos cast műveleteket létező diák olvasásakor?**
+
+Ellenőrizd az alakzat típusát, mielőtt a képkocka‑specifikus tagokat használnád. Egy `instanceof` ellenőrzés a [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) ellen biztosítja, hogy elkerüld a hibás cast-et, és lehetővé teszi a kód számára, hogy kezelje azokat a diákot, amelyek nem tartalmaznak képkockákat.

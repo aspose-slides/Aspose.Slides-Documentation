@@ -19,200 +19,271 @@ keywords:
 - ODP birleştir
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumlarını zahmetsizce birleştirerek iş akışınızı hızlandırın."
+description: "Python'da slaytları klonlayarak, master ve layout'ları kontrol ederek, slayt içeriğini yeniden boyutlandırarak, bölümleri koruyarak ve korumalı ya da büyük dosyaları yöneterek PowerPoint ve OpenDocument sunumlarını nasıl birleştirileceğini öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumdan diğerine slaytları klonlayarak sunumları birleştirmenizi sağlar. Bu makale, tüm sunumları veya seçili slaytları nasıl birleştireceğinizi, birleştirme sırasında slayt ana şablonu veya belirli bir düzenin nasıl kullanılacağını, farklı slayt boyutlarına sahip sunumların nasıl ele alınacağını ve birleştirilen slaytların bir sunum bölümüne nasıl ekleneceğini açıklar. Ayrıca birleştirilmiş içeriğe ilişkin pratik notları, konuşmacı notlarını, yorumları, şifre korumalı kaynak dosyaları ve iş parçacığı kullanımını kapsar.
+Aspose.Slides for Python via .NET, bir sunumu başka birine kopyalanan slaytları klonlayarak birleştirir. Ana işlem, [SlideCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) olup, kaynak slaytın biçimlendirmesini koruyabilir veya klonlanan slaytı hedef sunumdaki bir mastera ya da düzene (layout) ekleyebilir.
 
-## **Sunum Birleştirmenizi Optimize Edin**
+Bu makale en yaygın birleştirme iş akışlarını kapsar:
 
-[Aspose.Slides for Python](https://products.aspose.com/slides/tr/python-net/) ile stilleri, düzenleri ve tüm öğeleri koruyarak PowerPoint sunumlarını sorunsuz bir şekilde birleştirebilirsiniz. Diğer araçların aksine, Aspose.Slides kaliteyi veya veriyi kaybetmeden sunumları birleştirir. Tüm desteleri, belirli slaytları veya hatta farklı dosya biçimlerini (ör. PPT'den PPTX'e) birleştirin.
+- tüm slaytları, kaynak biçimlendirmesini koruyarak birleştir;
+- seçili slaytları birleştir;
+- hedef sunumdan bir master uygula;
+- hedef sunumdan belirli bir layout uygula;
+- birleştirmeden önce farklı slayt boyutlarını normalleştir;
+- klonlanan slaytları bir bölümde ekle;
+- birden fazla sunumu tek uçtan‑ucu iş akışında birleştir;
+- masterlar, kaynaklar, notlar, yorumlar, medya, yazı tipleri, şifreler, büyük dosyalar ve çoklu iş parçacığı konularını yönet.
 
-### **Birleştirme Özellikleri**
-
-- **Tam Sunum Birleştirme:** Tüm slaytları tek bir dosyada birleştir.
-- **Belirli Slayt Birleştirme:** Seçilen slaytları seçin ve birleştirin.
-- **Çapraz Format Birleştirme:** Farklı formatlardaki sunumları bütünlüğünü koruyarak entegre edin.
-
-## **Sunum Birleştirme**
-
-Bir sunumu diğerine birleştirdiğinizde, slaytlarını tek bir sunumda birleştirerek tek bir dosya üretmiş olursunuz. PowerPoint veya OpenOffice gibi çoğu sunum programı, bu şekilde sunumları birleştirmenize izin veren özellikler sunmaz.
-
-Ancak, [Aspose.Slides for Python](https://products.aspose.com/slides/tr/python-net/) birden fazla şekilde sunumları birleştirmenizi sağlar. Tüm şekiller, stiller, metin, biçimlendirme, yorumlar ve animasyonlar kayıpsız bir şekilde birleştirilebilir.
-
-**Ayrıca bakınız**
-
-[Python'da PowerPoint Slaytlarını Klonla](/slides/tr/python-net/clone-slides/)
-
-### **Ne Birleştirilebilir**
-
-Aspose.Slides ile şunları birleştirebilirsiniz:
-
-- Tam sunumlar: Kaynak desteden tüm slaytlar tek bir sunumda birleştirilir.
-- Belirli slaytlar: Yalnızca seçilen slaytlar tek bir sunumda birleştirilir.
-- Aynı formatta sunumlar (ör. PPT→PPT, PPTX→PPTX) veya farklı formatlarda (ör. PPT→PPTX, PPTX→ODP).
-
-### **Birleştirme Seçenekleri**
-
-Şunları kontrol edebilirsiniz:
-- Çıktı sunumundaki her slayt orijinal stilini korusun, ya da
-- Çıktı sunumundaki tüm slaytlara tek bir stil uygulansın.
-
-Sunumları birleştirmek için Aspose.Slides, [SlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/) sınıfındaki [add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) yöntemlerini sağlar. Bu yöntem aşırı yüklemeleri birleştirmenin nasıl gerçekleştirileceğini tanımlar. Her [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) nesnesi bir [slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/slides/tr/) koleksiyonu sunar, bu nedenle hedef sunumun slide koleksiyonunda `add_clone` çağrılır.
-
-`add_clone` yöntemi bir `Slide` döndürür—kaynak slayın bir klonu. Çıktı sunumundaki slaytlar orijinalin kopyalarıdır, bu nedenle stil, biçimlendirme veya düzen uygulayarak sonuç slaytlarını kaynak sunumları etkilemeden değiştirebilirsiniz.
-
-## **Sunumları Birleştirme**
-
-Aspose.Slides, slaytların düzenlerini ve stillerini koruyarak (varsayılan parametreler kullanılarak) birleştirmenizi sağlayan [add_clone(ISlide)](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) yöntemini sunar.
-
-Aşağıdaki Python örneği, sunumları nasıl birleştireceğinizi gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slayt Ana Şablonu ile Sunumları Birleştirme**
+Sonuç sunumu, kaynak ve hedef farklı tasarımlara sahipse birden çok master içerebilir. Bu, kaynak biçimin kasıtlı olarak korunduğu durumlarda beklenen bir durumdur.
 
-Aspose.Slides, bir şablondan slayt ana şablonu uygulayarak slaytları birleştirmenizi sağlayan [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) yöntemini sunar. Bu sayede gerektiğinde çıktıda slaytların stilini yeniden uygulayabilirsiniz.
+## **Seçili Slaytları Birleştir**
 
-Aşağıdaki Python örneği bu işlemi gösterir:
+Her slaytı klonlamak zorunda değilsiniz. Aşağıdaki örnek, kaynak sunumdan yalnızca seçili slayt indekslerini içe aktarır.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Note" color="warning" %}}
-Belirtilen slayt ana şablonu altındaki uygun düzen otomatik olarak belirlenir. Uygun bir düzen bulunamazsa ve `add_clone` yönteminin `allow_clone_missing_layout` boolean parametresi `True` olarak ayarlanmışsa, kaynak slaydın düzeni kullanılır. Aksi takdirde bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) fırlatılır.
-{{% /alert %}}
+Kullanıcı girdisinden veya harici yapılandırmadan gelen indeksleri klonlamadan önce doğrulayın.
 
-Çıktı sunumundaki slaytlara farklı bir slayt düzeni uygulamak için birleştirirken [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) yöntemini kullanın.
+## **Hedef Master Kullanarak Slaytları Birleştir**
 
-## **Sunumlardan Belirli Slaytları Birleştirme**
+İçe aktarılan slaytların zaten hedef sunuma ait bir mastera uyması gerektiğinde, [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) aşırı yüklemesini kullanın.
 
-Birden çok sunumdan belirli slaytları birleştirmek, özel slayt desteleri oluştururken yararlıdır. Aspose.Slides, yalnızca ihtiyacınız olan slaytları seçip içe aktarmanıza izin verirken, orijinal slaytların biçimlendirmesini, düzenini ve tasarımını korur.
-
-Aşağıdaki Python örneği, iki diğer sunumdan başlık slaytları ekleyerek yeni bir sunum oluşturur ve sonucu bir dosyaya kaydeder:
-
-```py
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
-
-
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Slayt Düzeni ile Sunumları Birleştirme**
-
-Aşağıdaki Python örneği, tek bir çıktıda birleştirilmiş bir sunum oluşturmak için belirli bir slayt düzeni uygulayarak birden çok sunumdan slaytları nasıl birleştireceğinizi gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
+
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Farklı Slayt Boyutlarına Sahip Sunumları Birleştirme**
+Aspose.Slides, belirtilen master altında kaynak layoutun türü veya adı ile eşleşen uygun bir layout seçer. Uygun bir layout bulunmazsa ve `allow_clone_missing_layout` **True** ise, kaynak layout klonlanır ve slayt eklenebilir. **False** olduğunda ise bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) fırlatılır.
 
-{{% alert title="Note" color="warning" %}}
-Farklı slayt boyutlarına sahip sunumları doğrudan birleştiremezsiniz.
-{{% /alert %}}
+Ek bir layout eklemek istemiyorsanız **False** kullanın; böylece birleştirme başarısız olur.
 
-İki farklı slayt boyutuna sahip sunumu birleştirmek için, önce bir sunumun slayt boyutunu diğerine eşit olacak şekilde yeniden boyutlandırın.
+## **Belirli Bir Hedef Layout Kullanarak Slaytları Birleştir**
 
-Aşağıdaki örnek kod bu süreci gösterir:
+İçe aktarılan slaytların kesin olarak hangi hedef layoutu kullanması gerektiğini biliyorsanız, [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) aşırı yüklemesini kullanın.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slaytları Bir Sunum Bölümüne Birleştirme**
+Bir hedef layout uygulamak, kalıtılmış layout ilişkisinde değişiklik yapar; kaynak slayt içeriğini yeniden tasarlamaz. Kaynak ve hedef layoutların yer tutucu yapıları farklıysa, kalıtılmış biçimlemenin ve yer tutucu davranışının uygun olduğunu doğrulamak için sonucu inceleyin.
 
-Aşağıdaki Python örneği, belirli bir slaytı bir sunum bölümüne nasıl birleştireceğinizi gösterir:
+## **Farklı Slayt Boyutlarına Sahip Sunumları Birleştir**
 
-```py
+Farklı slayt boyutlarına sahip sunumlar birleştirilebilir, ancak bir slaytı başka bir slayt boyutuna sahip bir sunuma klonlamak, içeriği yeni tuval için otomatik olarak yeniden tasarlamaz. Şekiller bu nedenle kaymış, beklenmedik şekilde ölçeklenmiş ya da görünür slayt alanının dışına çıkmış görünebilir.
+
+Pratik bir yaklaşım, klonlamadan önce kaynak sunumu yeniden boyutmaktır. [SlideSize.set_size](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidesize/set_size/) yöntemi, slayt boyutlarını değiştirirken mevcut içeriği ölçeklendirebilir. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidesizescaletype/) ise içeriği istenen boyuta sığdırmak için ölçeklendirir.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Slayt, bölümün sonuna eklenir. 
+Yeniden boyutlandırma, kaynak sunum nesnesini bellekte değiştirir. Orijinal kaynak sunumun diğer işlemler için değişmeden kalması gerekiyorsa, birleştirme için ayrı bir örnek açın.
 
-{{% alert title="Tip" color="primary" %}}
-PowerPoint sunumlarını **ücretsiz çevrimiçi araç** ile birleştirmek mi istiyorsunuz? **Aspose PowerPoint Merger**'ı deneyin.
+## **Slaytları Bir Sunum Bölümüne Birleştir**
 
-- **PowerPoint dosyalarını kolayca birleştirin**: Birden fazla **PPT, PPTX, ODP** sunumunu tek bir dosyada birleştirin.  
-- **Farklı formatları destekler**: **PPT'den PPTX'e**, **PPTX'den ODP'ye** ve daha fazlasını birleştirin.  
-- **Kurulum gerekmez**: Doğrudan tarayıcınızda çalışır, hızlı ve güvenlidir.  
+Temel slayt‑klonlama döngüsü, kaynak sunumun bölüm hiyerarşisini yeniden oluşturmaz. Çıktıda bölümler önemliyse, hedef sunumda bölümler oluşturun veya seçin ve slaytları açıkça [SlideCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) ile bu bölümlere klonlayın.
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/tr/merger)  
+```python
+import aspose.slides as slides
 
-PowerPoint dosyalarınızı **Aspose ücretsiz çevrimiçi aracı** ile bugün birleştirmeye başlayın!  
-{{% /alert %}}
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
 
-{{% alert title="Tip" color="primary" %}}
-Aspose, bir [ÜCRETSİZ Collage web uygulaması](https://products.aspose.app/slides/tr/collage) sunar. Bu çevrimiçi hizmet sayesinde [JPG'den JPG'ye](https://products.aspose.app/slides/tr/collage/jpg) veya PNG'den PNG'ye görüntüleri birleştirebilir, [fotoğraf ızgaraları](https://products.aspose.app/slides/tr/collage/photo-grid) oluşturabilir ve daha fazlasını yapabilirsiniz. 
-{{% /alert %}}
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Klonlanan slaytlar belirtilen hedef bölüme eklenir. Birden fazla kaynak bölümü korumak için, [Presentation.sections](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/sections/) üzerinden yineleme yapın, her kaynak bölümün mevcut slaytlarını [Section.get_slides_list_of_section](https://reference.aspose.com/slides/tr/python-net/aspose.slides/section/get_slides_list_of_section/) ile alın, bölümleri hedefte yeniden oluşturun ve her dönen slaytı ilgili hedef bölümüne klonlayın. Boş bölümler ve yapısal değişiklikler dahil tam bir bölüm‑yineleme örneği için [Slayt Bölümlerini Yönet](/slides/tr/python-net/slide-section/) sayfasına bakın.
+
+## **Birden Çok Sunumu Güvenli Bir Şekilde Birleştir**
+
+Aşağıdaki uçtan‑uca örnek, ilk sunumu hedef olarak kullanır, ek her kaynak sunumun slayt boyutunu normalleştirir, her kaynağı yalnızca kopyalanırken açık tutar ve sonunda tek bir dosyayı kaydeder.
+
+```python
+import aspose.slides as slides
+
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
+
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
+
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
+
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Bu, içe aktarılan slaytların kaynak biçimlendirmesini korumak için yararlı bir temel oluşturur. Çıktınızın tek bir hedef teması olması gerekiyorsa, basit `add_clone(slide)` çağrısını daha önce gösterilen uygun hedef‑master veya hedef‑layout aşırı yüklemesiyle değiştirin.
+
+## **Pratik Hususlar**
+
+### **Masterlar, Layoutlar ve Biçimlendirme Doğruluğu**
+
+Varsayılan slayt klonlaması, gerekli bir kaynak masterı otomatik olarak hedef sunuma getirebilir. Aspose.Slides, aynı masterın tekrar tekrar klonlanmasını önlemek için otomatik klonlanan masterları içeren bir iç kayıt tutar. Manuel klonlanan masterlar bu kayıt tarafından izlenmez; bu yüzden master yapısını açıkça kontrol etmeniz gerekiyorsa önceden klonlamaktan kaçının.
+
+Aynı ada sahip iki master veya layoutun görsel olarak eşdeğer olduğunu varsaymayın. Kurumsal bir şablon nihai görünümü yönetiyorsa, hedef masterı veya layoutu açıkça seçin ve birleştirme sonrası sonucu doğrulayın.
+
+### **Notlar ve Yorumlar**
+
+Sunucu notları ve slayt yorumları slayt içeriğiyle ilişkilidir ve bir slayt klonlandığında kopyalanır. Aspose.Slides ayrıca [sunum notları](/slides/tr/python-net/presentation-notes/) ve [sunum yorumları](/slides/tr/python-net/presentation-comments/) için özel API’ler sunar.
+
+Not sayfası biçimlendirmesi önemliyse, not masterlarının sunum‑seviyesinde nesneler olduğunu ve kaynak dosyalar arasında farklılık gösterebileceğini unutmayın; birleştirilmiş sunumu bu yüzden doğrulayın. Gözden geçirme iş akışlarında, farklı yazarların ya da şablonların birleştirildiği dosyalarda yorum yazarlarını ve dizili yorumları da kontrol edin.
+
+### **Resimler, Ses, Video, OLE Nesneleri ve Harici Bağlantılar**
+
+Slaytlar, resimler, gömülü ses, gömülü video ve OLE verileri gibi sunum‑seviyesi kaynaklara başvurabilir. Sadece görünür şekilleri kopyalamak yerine slaytı bütün olarak klonlayın; böylece Aspose.Slides, slaytın kaynaklarla olan ilişkilerini korur.
+
+Gömülü ve bağlantılı kaynaklar farklı şekilde ele alınmalıdır. Bağlantılı bir ses, video, OLE nesnesi ya da köprü, harici hedefine bağımlı kalır; slaytı klonlamak harici bir bağlantıyı gömülü içeriğe dönüştürmez. Bağlantılı kaynak yollarını ve URL’leri, birleştirilmiş sunumun açılacağı ortamda test edin.
+
+Aspose.Slides otomatik klonlanan masterları izlese de, ilişkili olmayan kaynak sunumlardan gelen aynı ikili kaynakların her zaman otomatik olarak tekilleştirileceği garantisi yoktur. Çıktı dosya boyutu önemliyse, birleştirilmiş paketi inceleyin ve sonucu ölçün; örtük tekilleştirmeye güvenmeyin.
+
+### **Gömülü Yazı Tipleri ve Yazı Tipi Kullanılabilirliği**
+
+Yazı tipleri sunum seviyesinde yönetilir. Tipografi farklı makinelerde tutarlı kalmalıysa, yalnızca slayt klonlamanın gerekli tüm yazı tiplerinin hedef ortamda bulunacağını varsamayın. Gömülü yazı tiplerini [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) ile inceleyebilir ve [Sunumlarda Yazı Tipi Gömme](/slides/tr/python-net/embedded-font/) bölümünde açıklandığı gibi gömme işlemini açıkça yönetebilirsiniz.
+
+Ayrıca, kaynak dosyalarda kullanılan yazı tiplerini gömmeye izin verilip verilmediğini doğrulayın. Yazı tipi lisansları gömme hakkını kısıtlayabilir.
+
+### **Şifre Koruması Altındaki Sunumlar**
+
+Şifre korumalı bir kaynağın slaytları klonlanmadan önce başarıyla açılmalıdır. Şifreyi [LoadOptions.password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) aracılığıyla sağlayın.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Şifreli bir kaynağı açmak, aynı korumanın hedef sunuma otomatik olarak uygulanmasını sağlamaz. Gerekirse çıktı korumasını ayrı olarak yapılandırın.
+
+### **Büyük Sunumlar ve Bellek Kullanımı**
+
+Yüksek çözünürlüklü resimler, ses, video veya diğer büyük ikili nesneler içeren büyük sunumlar önemli miktarda bellek tüketebilir. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/blob_management_options/) BLOB yönetimi ve geçici dosya kullanımını kontrol eder. Büyük‑dosya stratejileri için [Sunum BLOB’larını Yönet](/slides/tr/python-net/manage-blob/) sayfasına bakın.
+
+Büyük dosyalar için mümkün olduğunca dosya yollarından yükleme tercih edin, her kaynak sunumu birleştirme tamamlandığında hemen kapatın ve iş akışı kontrol noktaları gerektirmiyorsa ara sonuçları tekrar tekrar kaydetmekten kaçının. `with slides.Presentation(...)` kullanmak, bağlam sona erdiğinde sunum kaynaklarının serbest bırakılmasını sağlar.
+
+### **İş Parçacığı Güvenliği**
+
+Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneğini aynı anda birden çok iş parçacığından yüklemeyin, kaydetmeyin veya klonlamayın. Her bir birleştirme işlemini tek iş parçacığında tutun. Bağımsız birleştirme görevlerini paralelleştiriyorsanız, ayrı tek‑iş parçacıklı süreçler ve bağımsız sunum örnekleri kullanın; bunun için [Aspose.Slides çoklu iş parçacığı yönergeleri](/slides/tr/python-net/multithreading/) sayfasına bakın.
 
 ## **SSS**
 
-**Birleştirme sırasında konuşmacı notları korunur mu?**
+**Kaynak her bir sunumun orijinal tasarımını nasıl korurum?**
 
-Evet. Slaytları klonladığınızda Aspose.Slides, notlar, biçimlendirme ve animasyonlar dahil tüm slayt öğelerini aktarır.
+Hedef master veya layout sağlamadan [add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) kullanın. Aspose.Slides, içe aktarılan slayt tarafından ihtiyaç duyulduğunda kaynak masterı otomatik olarak klonlayabilir.
 
-**Yorumlar ve yazarları aktarılıyor mu?**
+**İçe aktarılan slaytların hedef temayı kullanmasını nasıl sağlarım?**
 
-Yorumlar, slayt içeriğinin bir parçası olarak slaytla birlikte kopyalanır. Yorum yazar etiketleri, ortaya çıkan sunumda yorum nesneleri olarak korunur.
+Hedef masterı kabul eden aşırı yüklemeyi kullanın. Masterı kaynak sunucudan değil, hedef sunucudan alın. Aspose.Slides, her kaynak slaytı o masterın uygun bir layoutu ile eşleştirmeye çalışır.
 
-**Kaynak sunum şifre korumalıysa ne olur?**
+**Bir hedef master yerine belirli bir hedef layout ne zaman kullanılmalı?**
 
-[Şifreyle açılmalı](/slides/tr/python-net/password-protected-presentation/) ve [LoadOptions.password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) kullanılarak yüklenmelidir; yüklendikten sonra bu slaytlar korumasız bir hedef dosyaya (veya korumalı bir dosyaya da) güvenle klonlanabilir.
+Her içe aktarılan slaytın aynı bilinen layoutu kullanması gerektiğinde belirli bir layout kullanın. Bir master kullanıldığında, Aspose.Slides kaynak layoutun türü veya adına göre o masterın layoutları arasından seçim yapar.
 
-**Birleştirme işlemi ne kadar iş parçacığı güvenlidir?**
+**Farklı slayt boyutlarına sahip sunumlar birleştirilebilir mi?**
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneğini [birden fazla iş parçacığından](/slides/tr/python-net/multithreading/) kullanmayın. Önerilen kural “bir belge — bir iş parçacığı”dır; farklı dosyalar ayrı iş parçacıklarında paralel olarak işlenebilir.
+Evet, ancak slayt içeriği hedef boyutlar için otomatik olarak yeniden tasarlanmamıştır. Öngörülebilir yerleşim gerekiyorsa, önce [SlideSize.set_size](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidesize/set_size/) ve [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidesizescaletype/) ile kaynak sunumu yeniden boyutlandırın.
+
+**PPT, PPTX ve ODP sunumlarını tek bir dosyada birleştirebilir miyim?**
+
+Evet. Her kaynak sunumu yükleyin, gerekli slaytları tek bir hedefe klonlayın ve hedefi desteklenen bir çıktı formatında kaydedin. Sunum formatları aynı özellik setini tam olarak desteklemediğinden, farklı formatlar arasında birleştirme yaptıktan sonra karmaşık içeriği doğrulayın. [Desteklenen Dosya Biçimleri](/slides/tr/python-net/supported-file-formats/) sayfasına bakın.
+
+**Kaynak bölümler otomatik olarak korunur mu?**
+
+Sadece slaytları klonlayan temel bir döngü bunun için yeterli değildir. Bölüm yapısını hedefte yeniden oluşturun ve bölüm yapısının korunması gerektiğinde [add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) aşırı yüklemesini kullanın.
+
+**Sunucu notları ve yorumlar korunur mu?**
+
+Klonlanan slaytla birlikte kopyalanır. Not‑master stilizasyonu, yorum yazarları veya dizili inceleme verileri gibi yapılar sunum‑seviyesinde bulunduğundan, birleştirilmiş sonucu bu senaryolar için doğrulayın.
+
+**Ses, video, OLE nesneleri ve köprüler ne olur?**
+
+Gömülü içerik, klonlanan slaytın kaynak ilişkileriyle birlikte taşınır. Harici köprüler harici kalır; hedef dosyalar veya URL’ler birleştirme sonrasında hâlâ erişilebilir olmalıdır.
+
+**Her kaynaktan gelen gömülü yazı tipleri birleşik sunumda bulunur mu?**
+
+Sadece slayt klonlamasıyla yazı tipi dağıtımına güvenmeyin. Hedefteki gömülü yazı tiplerini inceleyin ve tipografi önemliyse yazı tipi gömmeyi veya harici yazı tipi kullanılabilirliğini açıkça yönetin.
+
+**Şifre korumalı bir dosyayı nasıl birleştiririm?**
+
+Doğru [LoadOptions.password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) ile açın, ardından slaytlarını normal şekilde klonlayın. Çıktı koruması ayrı olarak yapılandırılır.
+
+**Çok büyük sunumları nasıl yönetirim?**
+
+Büyük ikili nesneler bellek kullanımını domine ettiğinde BLOB yönetimini kullanın, çok büyük dosyalar için dosya‑yolu yüklemeyi tercih edin, kaynak sunumları birleştirme tamamlandığında hemen kapatın ve yalnızca gerektiğinde nihai sonucu kaydedin.
+
+**Slaytları birden çok iş parçacığından birleştirebilir miyim?**
+
+[Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneklerini aynı anda birden çok iş parçacığından yüklemeyin, kaydetmeyin veya klonlamayın. Her bir birleştirme işleminde tek iş parçacığı tutun; ayrı birleştirme görevlerini paralel bir şekilde çalıştırmanız gerekiyorsa, bağımsız tek‑iş parçacıklı süreçler ve bağımsız sunum örnekleri kullanın.

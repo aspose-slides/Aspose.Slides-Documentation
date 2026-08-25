@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση ενοτήτων διαφάνειας σε παρουσιάσεις με JavaScript
-linktitle: Ενότητα διαφάνειας
+title: Διαχειριστείτε τις Ενότητες Διαφανειών σε Παρουσιάσεις με JavaScript
+linktitle: Ενότητα Διαφάνειας
 type: docs
 weight: 90
 url: /el/nodejs-java/slide-section/
@@ -10,73 +10,190 @@ keywords:
 - επεξεργασία ενότητας
 - αλλαγή ενότητας
 - όνομα ενότητας
+- ανάκτηση διαφανειών ενότητας
+- επεξεργασία διαφανειών ενότητας
 - PowerPoint
-- OpenDocument
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Βελτιστοποιήστε τις ενοότητες διαφάνειας σε PowerPoint και OpenDocument με Aspose.Slides για Node.js — διαχωρίστε, μετονομάστε και αναδιατάξτε για να βελτιώσετε τις ροές εργασίας PPTX και ODP."
+description: "Διαχειριστείτε τις ενότητες διαφανειών με το Aspose.Slides για Node.js μέσω Java: δημιουργία, μετονομασία, επαναδιάταξη, ανάκτηση και επεξεργασία διαφανειών ενότητας σε παρουσιάσεις PPTX."
 ---
 ## **Εισαγωγή**
 
-Με το Aspose.Slides για Node.js μέσω Java, μπορείτε να οργανώσετε μια παρουσίαση PowerPoint σε ενότητες. Μπορείτε να δημιουργήσετε ενότητες που περιέχουν συγκεκριμένες διαφάνειες.
+Οι ενότητες οργανώνουν διαδοχικές διαφάνειες σε ονομασμένες ομάδες χωρίς να αλλάζουν το περιεχόμενο της διαφάνειας. Με το Aspose.Slides για Node.js μέσω Java, μπορείτε να δημιουργείτε, να επαναδιατάξετε, να μετονομάζετε, να επιθεωρείτε και να αφαιρείτε ενότητες μέσω της μεθόδου [Presentation.getSections](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getSections) .
 
-Μπορεί να θέλετε να δημιουργήσετε ενότητες και να τις χρησιμοποιήσετε για να οργανώσετε ή να χωρίσετε τις διαφάνειες μιας παρουσίασης σε λογικά μέρη σε αυτές τις περιπτώσεις:
+Οι ενότητες είναι ιδιαίτερα χρήσιμες όταν:
 
-- Όταν εργάζεστε σε μια μεγάλη παρουσίαση με άλλους ανθρώπους ή μια ομάδα—και χρειάζεται να αναθέσετε ορισμένες διαφάνειες σε έναν συνάδελφο ή σε μέλη της ομάδας. 
-- Όταν αντιμετωπίζετε μια παρουσίαση που περιέχει πολλές διαφάνειες—και δυσκολεύεστε να διαχειριστείτε ή να επεξεργαστείτε το περιεχόμενό της μονομιάς.
+- μια μεγάλη παρουσίαση χρειάζεται να διαιρεθεί σε λογικά θέματα ή κεφάλαια·
+- διαφορετικές ομάδες διαφανειών ανατίθενται σε διαφορετικούς συνεργάτες·
+- οι διαφάνειες χρειάζεται να υποβληθούν σε επεξεργασία, να μετακινηθούν ή να συγχωνευτούν ως ομάδες.
 
-Ιδανικά, θα πρέπει να δημιουργήσετε μια ενότητα που να φιλοξενεί παρόμοιες διαφάνειες—οι διαφάνειες έχουν κάτι κοινό ή μπορούν να υπάρξουν σε μια ομάδα βάσει ενός κανόνα—και να δώσετε στην ενότητα ένα όνομα που περιγράφει τις διαφάνειες μέσα σε αυτήν. 
+Επιλέξτε σύντομα ονόματα ενοτήτων που περιγράφουν το σκοπό των ομαδοποιημένων διαφανειών. Επειδή οι ενότητες αποτελούν μέρος της δομής της παρουσίασης, χρησιμοποιήστε τα API ενοτήτων για να καθορίσετε τη συμμετοχή αντί να την προκύψετε από τις θέσεις των διαφανειών.
 
-## **Δημιουργία Ενοτήτων σε Παρουσιάσεις**
+## **Δημιουργία και Διαχείριση Ενοτήτων**
 
-Για να προσθέσετε μια ενότητα που θα φιλοξενήσει διαφάνειες σε μια παρουσίαση, το Aspose.Slides για Node.js μέσω Java παρέχει τη μέθοδο [addSection()](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) που σας επιτρέπει να καθορίσετε το όνομα της ενότητας που προτίθεστε να δημιουργήσετε και τη διαφάνεια από την οποία ξεκινά η ενότητα.
+Χρησιμοποιήστε το [SectionCollection.addSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/#addSection) για να δημιουργήσετε μια ενότητα, καθορίζοντας το όνομά της και τη διαφάνεια εκκίνησης. Το Aspose.Slides καθορίζει ποιες διαφάνειες ανήκουν στην ενότητα από την τρέχουσα δομή ενοτήτων της παρουσίασης.
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να δημιουργήσετε μια ενότητα σε μια παρουσίαση σε JavaScript:
+Το ίδιο [SectionCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/) σας επιτρέπει επίσης:
+
+- να μετακινήσετε μια ενότητα μαζί με τις διαφάνειές της χρησιμοποιώντας το [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides)·
+- να αφαιρέσετε μόνο τον ορισμό της ενότητας με το [SectionCollection.removeSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/#removeSection), που διατηρεί τις διαφάνειές της·
+- να αφαιρέσετε μια ενότητα και τις διαφάνειές της με το [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides)·
+- να προσθέσετε μια κενή ενότητα στο τέλος με το [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection).
+
+Το παρακάτω παράδειγμα δημιουργεί δύο ενότητες, μετακινεί τη μία, τη αφαιρεί μαζί με τις διαφάνειές της και προσθέτει μια κενή ενότητα:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3);// η ενότητα 1 θα λήξει στο newSlide2 και μετά από αυτήν η ενότητα 2 θα ξεκινήσει
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αλλαγή Ονομάτων Ενοτήτων**
+Μετά από αυτές τις ενέργειες, η παρουσίαση περιέχει την ενότητα `Introduction` με τις διαφάνειές της και μια κενή ενότητα `Appendix`. Η ενότητα `Results` και οι διαφάνειές της έχουν αφαιρεθεί.
 
-Αφού δημιουργήσετε μια ενότητα σε μια παρουσίαση PowerPoint, ενδέχεται να αποφασίσετε να αλλάξετε το όνομά της. 
+## **Μετονομασία Ενοτήτων**
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να αλλάξετε το όνομα μιας ενότητας σε μια παρουσίαση σε JavaScript χρησιμοποιώντας το Aspose.Slides:
+Για να μετονομάσετε μια ενότητα, καλέστε τη μέθοδο [Section.setName](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#setName). Οι διαφάνειες της ενότητας και η θέση της παραμένουν αμετάβλητες.
+
+Το παρακάτω παράδειγμα δημιουργεί μια ενότητα και αλλάζει το όνομά της:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Συχνές ερωτήσεις**
+## **Ανάκτηση Διαφανειών από Ενότητες**
+
+Η μέθοδος [Presentation.getSections](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getSections) επιστρέφει ένα [SectionCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectioncollection/) που μπορείτε να προσπελάσετε με δείκτη. Για κάθε [Section](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/), καλέστε το [Section.getSlidesListOfSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getSlidesListOfSection) για να λάβετε τις διαφάνειες που ανήκουν προς το παρόν σε αυτήν. Η μέθοδος επιστρέφει ένα [SectionSlideCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectionslidecollection/), που παρέχει αριθμό και προσπέλαση με δείκτη.
+
+Το παρακάτω παράδειγμα δημιουργεί δύο γεμάτες ενότητες και μια κενή ενότητα, στη συνέχεια εκτυπώνει το [name](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getName), το [identifier](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getSectionId), τη [starting slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getStartedFromSlide), τον αριθμό διαφανειών και τους αριθμούς διαφανειών της κάθε ενότητας. Χρησιμοποιεί το [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) για να διαβάσει τόσο την πρώτη διαφάνεια όσο και κάθε διαφάνεια στη συλλογή. Για την κενή ενότητα, η επιστραφμένη συλλογή έχει μέγεθος μηδέν, η προσπέλαση με δείκτη παραλείπεται και ο βρόχος δεν εκτελεί καμία λειτουργία.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η συμμετοχή σε ενότητες καθορίζεται από τη δομή ενοτήτων της παρουσίασης. Μην υπολογίζετε χειροκίνητα την περιοχή μιας ενότητας από το [Section.getStartedFromSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getStartedFromSlide), τους δείκτες διαφανειών και τη διαφάνεια εκκίνησης της επόμενης ενότητας.
+
+Οι διαρθρωτικές επεμβάσεις μπορούν να αλλάξουν τόσο τις διαφάνειες που επιστρέφονται για μια ενότητα όσο και τους αριθμούς τους. Αυτό περιλαμβάνει την επαναδιάταξη διαφανειών, την κλωνοποίηση μιας διαφάνειας σε μια ενότητα, τη μετακίνηση μιας ενότητας μαζί με τις διαφάνειές της, την αφαίρεση διαφανειών και την αφαίρεση ενοτήτων. Το επόμενο παράδειγμα καλεί το [Section.getSlidesListOfSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getSlidesListOfSection) μετά από κάθε τέτοια αλλαγή αντί να διατηρεί υποθέσεις σχετικά με τα προηγούμενα όρια της ενότητας.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Καλέστε το [Section.getSlidesListOfSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getSlidesListOfSection) ξανά όποτε οι διαφάνειες ή οι ενότητες επαναδιατάσσονται, κλωνοποιούνται, μετακινούνται ή αφαιρούνται. Αυτό διατηρεί την επόμενη επεξεργασία σε ευθυγράμμιση με τη τρέχουσα δομή της παρουσίασης.
+
+Η μορφή PPT (PowerPoint 97–2003) δεν διατηρεί τα μεταδεδομένα των ενοτήτων. Χρησιμοποιήστε αυτή τη ροή εργασίας με μια μορφή που υποστηρίζει ενότητες, όπως το PPTX· η μετατροπή σε PPT αφαιρεί τη δομή ενοτήτων που χρειάζεται για μεταγενέστερη επανάληψη.
+
+## **Συχνές Ερωτήσεις**
 
 **Διατηρούνται οι ενότητες κατά την αποθήκευση σε μορφή PPT (PowerPoint 97–2003);**
 
@@ -84,8 +201,8 @@ try {
 
 **Μπορεί μια ολόκληρη ενότητα να είναι "κρυφή";**
 
-Όχι. Μόνο μεμονωμένες διαφάνειες μπορούν να κρύβονται. Μια ενότητα ως οντότητα δεν έχει κατάσταση "κρυφή".
+Όχι. Μια ενότητα δεν έχει κατάσταση ορατότητας. Για να κρύψετε τα περιεχόμενά της, καλέστε το [Slide.setHidden](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#setHidden) για κάθε διαφάνεια στην ενότητα.
 
-**Μπορώ γρήγορα να βρω μια ενότητα μέσω μιας διαφάνειας και, αντίστροφα, την πρώτη διαφάνεια μιας ενότητας;**
+**Πώς μπορώ να βρω την ενότητα που περιέχει μια διαφάνεια;**
 
-Ναι. Μια ενότητα ορίζεται μοναδικά από τη διαφάνεια έναρξής της· δεδομένης μιας διαφάνειας μπορείτε να προσδιορίσετε σε ποια ενότητα ανήκει, και για μια ενότητα μπορείτε να έχετε πρόσβαση στην πρώτη της διαφάνεια.
+Προσπελάστε κάθε ενότητα στη συλλογή που επιστρέφεται από το [Presentation.getSections](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getSections), καλέστε το [Section.getSlidesListOfSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getSlidesListOfSection) για κάθε ενότητα και συγκρίνετε τις επιστρεφόμενες διαφάνειες με τη διαφάνεια‑στόχο. Για μια μη κενή ενότητα, το [Section.getStartedFromSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getStartedFromSlide) επιστρέφει την πρώτη της διαφάνεια· για μια κενή ενότητα, επιστρέφει `null`.

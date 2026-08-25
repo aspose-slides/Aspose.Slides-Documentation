@@ -1,283 +1,363 @@
 ---
-title: Hiệu quả hợp nhất các bản trình chiếu trong JavaScript
-linktitle: Hợp nhất các bản trình chiếu
+title: Hiệu quả hợp nhất các bản trình bày trong JavaScript
+linktitle: Hợp nhất các bản trình bày
 type: docs
 weight: 40
 url: /vi/nodejs-java/merge-presentation/
 keywords:
-  - hợp nhất PowerPoint
-  - hợp nhất bản trình chiếu
-  - hợp nhất slide
-  - hợp nhất PPT
-  - hợp nhất PPTX
-  - hợp nhất ODP
-  - kết hợp PowerPoint
-  - kết hợp bản trình chiếu
-  - kết hợp slide
-  - kết hợp PPT
-  - kết hợp PPTX
-  - kết hợp ODP
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Dễ dàng hợp nhất các bản trình chiếu PowerPoint (PPT, PPTX) và OpenDocument (ODP) trong JavaScript bằng Aspose.Slides cho Node.js, giúp tối ưu hoá quy trình làm việc của bạn."
+- hợp nhất PowerPoint
+- hợp nhất các bản trình bày
+- hợp nhất slide
+- hợp nhất PPT
+- hợp nhất PPTX
+- hợp nhất ODP
+- kết hợp PowerPoint
+- kết hợp các bản trình bày
+- kết hợp slide
+- kết hợp PPT
+- kết hợp PPTX
+- kết hợp ODP
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Tìm hiểu cách hợp nhất các bản trình bày PowerPoint và OpenDocument trong JavaScript bằng cách sao chép slide, điều khiển master và layout, thay đổi kích thước nội dung slide, bảo tồn các section, và xử lý các tệp được bảo vệ hoặc lớn."
 ---
-## **Tổng quan**
+## **Overview**
 
-Aspose.Slides cho phép bạn hợp nhất các bản trình chiếu bằng cách sao chép các slide từ một bản trình chiếu sang bản khác. Bài viết này giải thích cách hợp nhất toàn bộ bản trình chiếu hoặc các slide đã chọn, sử dụng slide master hoặc bố cục cụ thể trong quá trình hợp nhất, xử lý các bản trình chiếu có kích thước slide khác nhau, và thêm các slide đã hợp nhất vào một phần của bản trình chiếu. Nó cũng đề cập đến các lưu ý thực tế liên quan đến nội dung đã hợp nhất, bao gồm ghi chú người thuyết trình, bình luận, tệp nguồn được bảo mật bằng mật khẩu, và việc sử dụng đa luồng.
+Aspose.Slides for Node.js via Java hợp nhất các bản trình bày bằng cách sao chép các slide từ một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) sang bản khác. Hoạt động chính là [SlideCollection.addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), có thể giữ nguyên định dạng của slide nguồn hoặc gắn slide đã sao chép vào một master hoặc layout trong bản trình bày đích.
 
-## **Hợp nhất bản trình chiếu**
+Bài viết này bao gồm các quy trình hợp nhất phổ biến nhất:
 
-Khi bạn hợp nhất một bản trình chiếu vào bản khác, bạn thực chất đang kết hợp các slide của chúng trong một bản trình chiếu duy nhất để có được một tệp.
+- hợp nhất tất cả các slide đồng thời giữ nguyên định dạng nguồn;
+- hợp nhất các slide đã chọn;
+- áp dụng một master từ bản trình bày đích;
+- áp dụng một layout cụ thể từ bản trình bày đích;
+- chuẩn hoá các kích thước slide khác nhau trước khi hợp nhất;
+- thêm các slide đã sao chép vào một section;
+- hợp nhất nhiều bản trình bày trong một quy trình đầu‑cuối;
+- xử lý master, tài nguyên, ghi chú, bình luận, media, phông chữ, mật khẩu, tệp lớn và các vấn đề đa luồng.
 
-{{% alert title="Info" color="info" %}}
+## **How Slide Cloning Affects Masters and Layouts**
 
-Hầu hết các chương trình trình chiếu (PowerPoint hoặc OpenOffice) thiếu chức năng cho phép người dùng kết hợp các bản trình chiếu theo cách này.
+Một slide kế thừa rất nhiều về giao diện từ layout và master của nó. Vì lý do đó, phương thức sao chép (overload) bạn chọn sẽ quyết định cách slide đã hợp nhất được tích hợp vào bản trình bày đích.
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/vi/nodejs-java/), tuy nhiên, cho phép bạn hợp nhất các bản trình chiếu theo nhiều cách khác nhau. Bạn có thể hợp nhất các bản trình chiếu với tất cả các hình dạng, kiểu dáng, văn bản, định dạng, bình luận, hoạt ảnh, v.v. mà không phải lo lắng về mất chất lượng hoặc dữ liệu.
+Sử dụng [SlideCollection.addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/) theo một trong các cách sau:
 
-**Xem thêm**
+- `addClone(sourceSlide)` — giữ nguyên layout và định dạng của slide nguồn. Khi cần, master nguồn có thể được sao chép tự động vào bản trình bày đích. Aspose.Slides tự động theo dõi các master đã sao chép để các slide lặp lại sử dụng cùng một master không gây sao chép lại master đó.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — gán slide đã sao chép vào một [MasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) đích cụ thể. Aspose.Slides sẽ tìm layout phù hợp dưới master đó theo kiểu hoặc tên layout.
+- `addClone(sourceSlide, destinationLayout)` — gán slide đã sao chép trực tiếp vào một [LayoutSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/) đích cụ thể.
 
-[Clone Slides](https://docs.aspose.com/slides/vi/nodejs-java/clone-slides/).
+Master hoặc layout được truyền vào overload `addClone` phải thuộc **bản trình bày đích**, không phải bản trình bày nguồn.
 
-{{% /alert %}}
+## **Merge Entire Presentations and Preserve Source Formatting**
 
-### **Những gì có thể được hợp nhất**
-
-Với Aspose.Slides, bạn có thể hợp nhất
-
-* toàn bộ bản trình chiếu. Tất cả các slide từ các bản trình chiếu sẽ nằm trong một bản trình chiếu
-* các slide cụ thể. Các slide đã chọn sẽ nằm trong một bản trình chiếu
-* các bản trình chiếu ở cùng một định dạng (PPT sang PPT, PPTX sang PPTX, v.v.) và ở các định dạng khác nhau (PPT sang PPTX, PPTX sang ODP, v.v.) với nhau.
-
-### **Các tùy chọn hợp nhất**
-
-Bạn có thể áp dụng các tùy chọn xác định liệu
-
-* mỗi slide trong bản trình chiếu đầu ra có giữ lại kiểu riêng biệt
-* một kiểu cụ thể được sử dụng cho tất cả các slide trong bản trình chiếu đầu ra.
-
-Để hợp nhất các bản trình chiếu, Aspose.Slides cung cấp các phương thức [addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (từ lớp [SlideCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideCollection)). Có một số triển khai của các phương thức `addClone` xác định các tham số quá trình hợp nhất bản trình chiếu. Mỗi đối tượng Presentation có một bộ sưu tập [Slides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation#getSlides--) nên bạn có thể gọi phương thức `addClone` từ bản trình chiếu mà bạn muốn hợp nhất các slide vào.
-
-Phương thức `addClone` trả về một đối tượng `Slide`, là bản sao của slide nguồn. Các slide trong bản trình chiếu đầu ra chỉ là bản sao của các slide từ nguồn. Do đó, bạn có thể thay đổi các slide kết quả (ví dụ: áp dụng kiểu hoặc tùy chọn định dạng hoặc bố cục) mà không lo ảnh hưởng đến các bản trình chiếu nguồn.
-
-## **Hợp nhất các bản trình chiếu**
-
-Aspose.Slides cung cấp phương thức [**AddClone(ISlide)**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) cho phép bạn kết hợp các slide trong khi các slide giữ nguyên bố cục và kiểu dáng (tham số mặc định).
-
-Đoạn mã JavaScript sau cho thấy cách hợp nhất các bản trình chiếu:
+Cách hợp nhất đơn giản nhất là sao chép mỗi slide từ bản trình bày nguồn sang bản trình bày đích. Đây là lựa chọn phù hợp khi các slide được nhập khẩu cần giữ nguyên theme, master và quan hệ layout gốc.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Hợp nhất các bản trình chiếu với Slide Master**
+Kết quả có thể chứa nhiều master khi nguồn và đích sử dụng các thiết kế khác nhau. Điều này là mong đợi khi định dạng nguồn được cố ý giữ lại.
 
-Aspose.Slides cung cấp phương thức [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) cho phép bạn kết hợp các slide đồng thời áp dụng mẫu slide master. Nhờ đó, nếu cần, bạn có thể thay đổi kiểu cho các slide trong bản trình chiếu đầu ra.
+## **Merge Selected Slides**
 
-Đoạn mã JavaScript dưới đây minh họa hoạt động đã mô tả:
+Bạn không cần sao chép mọi slide. Ví dụ dưới đây chỉ nhập các chỉ mục slide đã chọn từ bản trình bày nguồn.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Hãy kiểm tra chỉ mục slide trước khi sao chép khi chúng đến từ đầu vào người dùng hoặc cấu hình bên ngoài.
 
-Bố cục slide cho slide master được xác định tự động. Khi không thể xác định được bố cục phù hợp, nếu tham số boolean `allowCloneMissingLayout` của phương thức `addClone` được đặt thành true, bố cục của slide nguồn sẽ được sử dụng. Ngược lại, sẽ ném ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PptxEditException).
+## **Merge Slides Using a Destination Master**
 
-{{% /alert %}}
-
-Nếu bạn muốn các slide trong bản trình chiếu đầu ra có một bố cục slide khác, hãy sử dụng phương thức [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) thay thế khi hợp nhất.
-
-## **Hợp nhất các slide cụ thể từ các bản trình chiếu**
-
-Hợp nhất các slide cụ thể từ nhiều bản trình chiếu rất hữu ích để tạo ra các bộ slide tùy chỉnh. Aspose.Slides for Node.js via Java cho phép bạn chọn và nhập chỉ những slide bạn cần. API giữ nguyên định dạng, bố cục và thiết kế của các slide gốc.
-
-Đoạn mã JavaScript sau tạo một bản trình chiếu mới, thêm các slide tiêu đề từ hai bản trình chiếu khác, và lưu kết quả vào một tệp:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **Hợp nhất các bản trình chiếu với Slide Layout**
-
-Đoạn mã JavaScript này cho thấy cách kết hợp các slide từ các bản trình chiếu trong khi áp dụng bố cục slide ưa thích của bạn để tạo ra một bản trình chiếu đầu ra:
+Sử dụng overload [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) khi các slide được nhập khẩu cần tuân theo một master đã thuộc về bản trình bày đích.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Hợp nhất các bản trình chiếu với kích thước slide khác nhau**
+Aspose.Slides sẽ chọn một layout phù hợp dưới master chỉ định bằng cách khớp kiểu hoặc tên layout nguồn. Nếu không tồn tại layout thích hợp và `allowCloneMissingLayout` là `true`, layout nguồn sẽ được sao chép để slide có thể được thêm. Nếu `false`, một [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/) sẽ được ném ra.
 
-{{% alert title="Note" color="warning" %}} 
+Sử dụng `false` khi bạn muốn quá trình hợp nhất thất bại thay vì đưa một layout bổ sung vào master đích.
 
-Bạn không thể hợp nhất các bản trình chiếu có kích thước slide khác nhau.
+## **Merge Slides Using a Specific Destination Layout**
 
-{{% /alert %}}
-
-Để hợp nhất 2 bản trình chiếu có kích thước slide khác nhau, bạn phải thay đổi kích thước của một bản trình chiếu sao cho khớp với kích thước của bản trình chiếu còn lại.
-
-Đoạn mã mẫu dưới đây minh họa thao tác đã mô tả:
+Sử dụng overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) khi bạn biết chính xác layout đích nào mà các slide nhập khẩu nên sử dụng.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Hợp nhất các slide vào phần của bản trình chiếu**
+Áp dụng một layout đích thay đổi mối quan hệ layout kế thừa; nó không làm lại thiết kế nội dung slide nguồn. Nếu layout nguồn và đích có cấu trúc placeholder khác nhau, hãy kiểm tra kết quả để xác nhận định dạng và hành vi placeholder được duy trì hợp lý.
 
-Đoạn mã JavaScript này cho thấy cách hợp nhất một slide cụ thể vào một phần trong bản trình chiếu:
+## **Merge Presentations with Different Slide Sizes**
+
+Các bản trình bày có kích thước slide khác nhau có thể được hợp nhất, nhưng sao chép một slide vào bản trình bày có kích thước slide khác không tự động thiết kế lại nội dung cho canvas mới. Do đó các shape có thể bị dịch chuyển, thu phóng bất ngờ hoặc nằm ngoài vùng hiển thị.
+
+Một cách thực tiễn là thay đổi kích thước bản trình bày nguồn trước khi sao chép. Phương thức [SlideSize.setSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) có thể thu phóng nội dung hiện có đồng thời thay đổi kích thước slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesizescaletype/) thu phóng nội dung để vừa với kích thước yêu cầu.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-Slide được thêm vào cuối phần.
+Việc thay đổi kích thước thay đổi đối tượng bản trình bày nguồn trong bộ nhớ. Nếu bạn cần giữ bản trình bày nguồn nguyên trạng cho các thao tác khác, hãy mở một thể hiện riêng cho quá trình hợp nhất.
 
-## **Câu hỏi thường gặp**
+## **Merge Slides into a Presentation Section**
 
-**Ghi chú người thuyết trình có được giữ lại khi hợp nhất không?**
+Vòng lặp sao chép slide cơ bản không tái tạo cấu trúc section của bản trình bày nguồn. Nếu section quan trọng trong kết quả, hãy tạo hoặc chọn các section trong bản trình bày đích và sao chép slide vào chúng một cách rõ ràng bằng [addClone(Slide, Section)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
 
-Có. Khi sao chép slide, Aspose.Slides chuyển sang tất cả các yếu tố của slide, bao gồm ghi chú, định dạng và hoạt ảnh.
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-**Bình luận và tác giả của chúng có được chuyển không?**
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
 
-Bình luận, như một phần nội dung slide, được sao chép cùng slide. Nhãn tác giả bình luận được giữ lại dưới dạng đối tượng bình luận trong bản trình chiếu kết quả.
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
 
-**Nếu bản trình chiếu nguồn được bảo mật bằng mật khẩu thì sao?**
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
 
-Phải [mở bằng mật khẩu](/slides/vi/nodejs-java/password-protected-presentation/) thông qua [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/setpassword/); sau khi tải, các slide đó có thể được sao chép an toàn vào tệp đích không bảo mật (hoặc cũng có thể bảo mật).
+Các slide đã sao chép sẽ được nối vào section đích đã chỉ định. Để bảo tồn nhiều section nguồn, hãy duyệt [Presentation.getSections](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getSections), lấy danh sách slide hiện tại của mỗi section nguồn bằng [Section.getSlidesListOfSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getSlidesListOfSection), tạo lại các section trong bản đích và sao chép từng slide vào section đích tương ứng. Xem [Manage Slide Sections](/slides/vi/nodejs-java/slide-section/) để biết ví dụ đầy đủ về việc liệt kê section, bao gồm các section trống và thay đổi cấu trúc.
 
-**Hoạt động hợp nhất có an toàn đa luồng không?**
+## **Merge Multiple Presentations Safely**
 
-Không sử dụng cùng một đối tượng [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/nodejs-java/multithreading/). Quy tắc được khuyến nghị là "một tài liệu — một luồng"; các tệp khác nhau có thể được xử lý đồng thời trong các luồng riêng biệt.
+Ví dụ cuối‑cùng dưới đây sử dụng bản trình bày đầu tiên làm đích, chuẩn hoá kích thước slide của mỗi nguồn bổ sung, chỉ mở mỗi nguồn khi đang sao chép và lưu tệp cuối cùng một lần.
 
-## **Xem thêm**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-Aspose cung cấp một [FREE Online Collage Maker](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể hợp nhất [JPG sang JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG sang PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), và nhiều hơn nữa.
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-Hãy thử [Aspose FREE Online Merger](https://products.aspose.app/slides/vi/merger). Nó cho phép bạn hợp nhất các bản trình chiếu PowerPoint ở cùng định dạng (ví dụ: PPT sang PPT, PPTX sang PPTX) hoặc giữa các định dạng khác nhau (ví dụ: PPT sang PPTX, PPTX sang ODP).
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/vi/merger)
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Đây là nền tảng hữu ích để giữ nguyên định dạng nguồn của các slide được nhập. Nếu đầu ra của bạn phải dùng một theme duy nhất, hãy thay thế lời gọi `addClone(sourceSlide)` đơn giản bằng overload master hoặc layout đích đã trình bày ở trên.
+
+## **Practical Considerations**
+
+### **Masters, Layouts, and Formatting Fidelity**
+
+Sao chép slide mặc định có thể tự động mang một master nguồn cần thiết vào bản trình bày đích. Aspose.Slides duy trì một bảng đăng ký nội bộ cho các master được sao chép tự động để tránh sao chép cùng một master nhiều lần. Các master được sao chép thủ công không được theo dõi bởi bảng đăng ký này, do đó hãy tránh sao chép trước các master trừ khi bạn cần kiểm soát rõ ràng cấu trúc master.
+
+Đừng cho rằng hai master hoặc layout có cùng tên sẽ hiển thị giống nhau. Nếu mẫu công ty phải kiểm soát giao diện cuối cùng, hãy chọn một master hoặc layout đích một cách rõ ràng và xác minh kết quả sau khi hợp nhất.
+
+### **Notes and Comments**
+
+Ghi chú trình bày và bình luận slide được gắn với nội dung slide và sẽ được sao chép khi một slide được sao chép. Aspose.Slides cũng cung cấp các API chuyên dụng cho [presentation notes](/slides/vi/nodejs-java/presentation-notes/) và [presentation comments](/slides/vi/nodejs-java/presentation-comments/).
+
+Nếu định dạng trang ghi chú quan trọng, hãy kiểm tra bản trình bày đã hợp nhất vì notes master là đối tượng cấp bản trình bày và có thể khác nhau giữa các tệp nguồn. Đối với quy trình duyệt, cũng hãy kiểm tra tác giả bình luận và các chuỗi bình luận sau khi ghép các tệp từ các tác giả hoặc mẫu khác nhau.
+
+### **Images, Audio, Video, OLE Objects, and External Links**
+
+Slide có thể tham chiếu tới các tài nguyên cấp bản trình bày như hình ảnh, âm thanh nhúng, video nhúng và dữ liệu OLE. Hãy sao chép toàn bộ slide thay vì chỉ sao chép các shape hiển thị để Aspose.Slides có thể duy trì các quan hệ của slide tới tài nguyên.
+
+Tài nguyên nhúng và tài nguyên liên kết cần được xử lý khác nhau. Một audio, video, OLE object hoặc hyperlink liên kết sẽ vẫn phụ thuộc vào mục tiêu bên ngoài; sao chép slide không biến một liên kết bên ngoài thành nội dung nhúng. Kiểm tra đường dẫn và URL của tài nguyên liên kết trong môi trường mà bản trình bày hợp nhất sẽ được mở.
+
+Aspose.Slides theo dõi các master được sao chép tự động, nhưng điều này không đồng nghĩa với việc mọi tài nguyên nhị phân giống nhau từ các nguồn không liên quan sẽ luôn được gộp lại. Nếu kích thước tệp đầu ra quan trọng, hãy kiểm tra gói đã hợp nhất và đo kết quả thay vì dựa vào việc gộp ngầm.
+
+### **Embedded Fonts and Font Availability**
+
+Phông chữ được quản lý ở cấp bản trình bày. Nếu kiểu chữ phải nhất quán trên các máy, đừng cho rằng chỉ sao chép slide sẽ đảm bảo mọi phông cần thiết đã có trong môi trường đích. Bạn có thể kiểm tra phông nhúng bằng [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) và quản lý việc nhúng một cách rõ ràng như mô tả trong [Embed Fonts in Presentations](/slides/vi/nodejs-java/embedded-font/).
+
+Cũng hãy xác minh rằng bạn được phép nhúng các phông chữ được sử dụng bởi các tệp nguồn. Giấy phép phông chữ có thể hạn chế việc nhúng.
+
+### **Password-Protected Presentations**
+
+Một nguồn được bảo mật bằng mật khẩu phải được mở thành công trước khi các slide của nó có thể được sao chép. Cung cấp mật khẩu qua [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Làm việc với bản trình bày đã giải mã.
+} finally {
+    source.dispose();
+}
+```
+
+Mở một nguồn đã mã hoá không tự động áp dụng cùng một bảo mật cho bản trình bày đích. Hãy cấu hình bảo mật đầu ra riêng khi cần.
+
+### **Large Presentations and Memory Use**
+
+Các bản trình bày lớn chứa hình ảnh độ phân giải cao, âm thanh, video hoặc các đối tượng nhị phân lớn khác có thể tiêu tốn đáng kể bộ nhớ. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) cung cấp các tùy chọn kiểm soát BLOB và việc sử dụng tệp tạm. Xem [Manage Presentation BLOBs](/slides/vi/nodejs-java/manage-blob/) để biết chiến lược cho tệp lớn.
+
+Đối với tệp lớn, ưu tiên tải từ đường dẫn tệp khi có thể, giải phóng mỗi bản trình bày nguồn ngay sau khi đã hợp nhất và tránh lưu kết quả trung gian lặp lại trừ khi quy trình yêu cầu checkpoint.
+
+### **Thread Safety**
+
+Không tải, lưu hoặc sao chép một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) trong nhiều luồng đồng thời. Các thao tác này không được hỗ trợ cho môi trường đa luồng. Nếu bạn cần thực hiện các công việc hợp nhất độc lập song song, hãy sử dụng nhiều tiến trình đơn luồng, mỗi tiến trình có các thể hiện Presentation riêng, và tuân thủ [hướng dẫn đa luồng của Aspose.Slides](/slides/vi/nodejs-java/multithreading/).
+
+## **FAQ**
+
+**How do I keep each source presentation's original design?**
+
+Sử dụng [addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) mà không cung cấp master hoặc layout đích. Aspose.Slides có thể tự động sao chép master nguồn khi slide nhập khẩu cần nó.
+
+**How do I make imported slides use the destination theme?**
+
+Sử dụng overload chấp nhận master đích. Cung cấp một master từ bản trình bày đích, không phải từ nguồn. Aspose.Slides sẽ cố gắng ánh xạ mỗi slide nguồn tới một layout phù hợp dưới master này.
+
+**When should I use a specific destination layout instead of a destination master?**
+
+Sử dụng layout cụ thể khi mọi slide nhập khẩu phải dùng một layout đã biết. Sử dụng master khi bạn muốn Aspose.Slides tự chọn layout trong master đó dựa trên kiểu hoặc tên layout nguồn.
+
+**Can presentations with different slide sizes be merged?**
+
+Có, nhưng nội dung slide không được thiết kế lại tự động cho kích thước đích. Hãy thay đổi kích thước bản trình bày nguồn trước khi sao chép, ví dụ bằng [SlideSize.setSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) và [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesizescaletype/).
+
+**Can I merge PPT, PPTX, and ODP presentations into one file?**
+
+Có. Tải mỗi bản trình bày nguồn, sao chép các slide cần thiết vào một bản đích và lưu bản đích ở định dạng đầu ra được hỗ trợ. Vì các định dạng bản trình bày không hỗ trợ đầy đủ các tính năng giống nhau, hãy kiểm tra nội dung phức tạp sau khi hợp nhất đa định dạng. Xem [Supported File Formats](/slides/vi/nodejs-java/supported-file-formats/).
+
+**Are source sections preserved automatically?**
+
+Không, khi chỉ dùng vòng lặp cơ bản sao chép slide. Hãy tạo lại các section cần thiết trong bản đích và sử dụng overload section của [addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) khi cấu trúc section phải được bảo tồn.
+
+**Are speaker notes and comments preserved?**
+
+Chúng được sao chép cùng với slide đã sao chép. Đối với quy trình phụ thuộc vào styling của notes‑master, tác giả bình luận hoặc dữ liệu duyệt có chuỗi, hãy xác minh kết quả vì các trường hợp này liên quan đến cấu trúc cấp bản trình bày cũng như nội dung cấp slide.
+
+**What happens to audio, video, OLE objects, and hyperlinks?**
+
+Nội dung nhúng sẽ được mang theo như một phần của các quan hệ tài nguyên của slide đã sao chép. Các liên kết bên ngoài vẫn sẽ là liên kết bên ngoài, vì vậy tệp hoặc URL mục tiêu phải còn khả dụng sau khi hợp nhất.
+
+**Are embedded fonts from every source guaranteed to be available in the merged presentation?**
+
+Đừng dựa vào việc sao chép slide đơn thuần để triển khai phông chữ. Hãy kiểm tra phông nhúng của bản đích và quản lý việc nhúng phông hoặc khả năng truy cập phông bên ngoài một cách rõ ràng khi kiểu chữ quan trọng.
+
+**How do I merge a password-protected file?**
+
+Mở nó bằng [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), sau đó sao chép các slide như bình thường. Bảo mật đầu ra được cấu hình riêng.
+
+**How should I handle very large presentations?**
+
+Sử dụng quản lý BLOB khi các đối tượng nhị phân lớn chiếm phần lớn bộ nhớ, ưu tiên tải từ đường dẫn tệp cho các tệp rất lớn, giải phóng bản trình bày nguồn kịp thời và lưu kết quả cuối cùng chỉ khi cần.
+
+**Can I merge slides from multiple threads?**
+
+Không tải, lưu hoặc sao chép các thể hiện Presentation trong nhiều luồng đồng thời. Đối với các công việc hợp nhất song song, hãy dùng các tiến trình đơn luồng riêng biệt và các thể hiện Presentation độc lập.

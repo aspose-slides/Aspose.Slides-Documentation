@@ -1,6 +1,6 @@
 ---
-title: "Combinar presentaciones de forma eficiente en Java"
-linktitle: "Combinar presentaciones"
+title: Combinar presentaciones de forma eficiente en Java
+linktitle: Combinar presentaciones
 type: docs
 weight: 40
 url: /es/java/merge-presentation/
@@ -19,227 +19,344 @@ keywords:
 - combinar ODP
 - Java
 - Aspose.Slides
-description: "Combine sin esfuerzo presentaciones PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para Java, simplificando su flujo de trabajo."
+description: "Aprenda cómo combinar presentaciones PowerPoint y OpenDocument en Java clonando diapositivas, controlando maestros y diseños, redimensionando el contenido de las diapositivas, preservando secciones y gestionando archivos protegidos o de gran tamaño."
 ---
-
 ## **Visión general**
 
-Combinar presentaciones PowerPoint y OpenDocument es una tarea común en muchas aplicaciones Java, especialmente al generar informes, compilar diapositivas de diferentes fuentes o automatizar flujos de trabajo de presentaciones. Aspose.Slides for Java ofrece una API potente y fácil de usar para combinar varios archivos PPT, PPTX o ODP en una sola presentación sin necesidad de instalar Microsoft PowerPoint, LibreOffice u OpenOffice.
+Aspose.Slides for Java combina presentaciones clonando diapositivas de una [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) a otra. La operación principal es [ISlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), que puede preservar el formato de la diapositiva origen o adjuntar la diapositiva clonada a un maestro o diseño en la presentación de destino.
 
-En esta guía aprenderá a combinar presentaciones PowerPoint y OpenDocument utilizando solo unas pocas líneas de código Java. Proporcionaremos ejemplos listos para usar y mostraremos cómo conservar el formato de las diapositivas, los diseños y otros elementos de la presentación durante el proceso de combinación.
+Este artículo cubre los flujos de combinación más habituales:
 
-Ya sea que esté creando una aplicación empresarial o una herramienta de automatización simple, Aspose.Slides hace que combinar presentaciones en Java sea rápido, confiable y escalable. Aspose.Slides for Java permite combinar presentaciones de diferentes maneras. Puede combinar presentaciones con todas sus formas, estilos, texto, formato, comentarios, animaciones y más, sin preocuparse por la pérdida de calidad o datos.
+- combinar todas las diapositivas conservando su formato de origen;
+- combinar diapositivas seleccionadas;
+- aplicar un maestro de la presentación de destino;
+- aplicar un diseño específico de la presentación de destino;
+- normalizar diferentes tamaños de diapositiva antes de combinar;
+- añadir diapositivas clonadas a una sección;
+- combinar varias presentaciones en un flujo de trabajo de extremo a extremo;
+- gestionar maestros, recursos, notas, comentarios, medios, fuentes, contraseñas, archivos grandes y consideraciones de multihilo.
 
-{{% alert color="primary" %}}
-Vea también: [Clonar diapositivas](https://docs.aspose.com/slides/java/clone-slides/)
-{{% /alert %}}
+## **Cómo el Clonado de Diapositivas Afecta a los Maestros y Diseños**
 
-### **¿Qué se puede combinar?**
+Una diapositiva hereda gran parte de su apariencia de su diseño y su maestro. Por esa razón, la sobrecarga de clonación que elija determina cómo se integra la diapositiva combinada en la presentación de destino.
 
-Con Aspose.Slides, puede combinar:
+Utilice [ISlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/) de una de estas maneras:
 
-**Presentaciones completas** – todas las diapositivas de varias presentaciones se combinan en una sola.
+- `addClone(sourceSlide)` — preserva el diseño y formato de la diapositiva origen. Cuando sea necesario, el maestro origen puede clonarse automáticamente en la presentación de destino. Aspose.Slides rastrea los maestros clonados automáticamente para que diapositivas repetidas que usan el mismo maestro origen no provoquen que ese maestro se clone repetidamente.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — adjunta la diapositiva clonada a un [IMasterSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/) de destino específico. Aspose.Slides busca un diseño coincidente bajo ese maestro por tipo o nombre de diseño.
+- `addClone(sourceSlide, destinationLayout)` — adjunta la diapositiva clonada directamente a un [ILayoutSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/) de destino específico.
 
-**Diapositivas específicas** – solo las diapositivas seleccionadas se combinan en una única presentación.
+El maestro o diseño pasado a una sobrecarga `addClone` debe pertenecer a la presentación **destino**, no a la presentación origen.
 
-**Presentaciones en el mismo formato** (p. ej., PPT a PPT, PPTX a PPTX) y **en formatos diferentes** (p. ej., PPT a PPTX, PPTX a ODP).
+## **Combinar Presentaciones Enteras y Preservar el Formato de Origen**
 
-### **Opciones de combinación**
+La combinación más simple copia cada diapositiva de la presentación origen a la presentación destino. Esta es la opción adecuada cuando las diapositivas importadas deben conservar su tema, maestro y relaciones de diseño originales.
 
-Puede aplicar opciones que determinan si:
-
-- Cada diapositiva en la presentación de salida conserva su estilo original
-- Se aplica un estilo específico a todas las diapositivas en la presentación de salida
-
-Para combinar presentaciones, Aspose.Slides proporciona los métodos `AddClone` de la interfaz [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/). Hay varias sobrecargas del método `AddClone` que definen cómo se comporta el proceso de combinación. Cada objeto [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) tiene una colección Slides. Por lo tanto, puede llamar a un método `AddClone` en la presentación de destino en la que desea combinar diapositivas.
-
-El método `AddClone` devuelve un objeto [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/), que es una clonación de la diapositiva origen. Las diapositivas resultantes en la presentación de salida son simplemente copias de las diapositivas originales. Esto significa que puede modificar de forma segura las diapositivas clonadas—por ejemplo, aplicar estilos, opciones de formato o diseños—sin afectar la presentación origen.
-
-## **Combinar presentaciones**
-
-Aspose.Slides proporciona el método [AddClone(ISlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) que permite combinar diapositivas conservando sus diseños y estilos originales (comportamiento predeterminado).
-
-El siguiente código Java muestra cómo combinar presentaciones:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+La presentación resultante puede contener varios maestros cuando el origen y el destino utilizan diseños diferentes. Esto es esperado cuando se preserva intencionalmente el formato del origen.
 
-## **Combinar presentaciones con una diapositiva maestra**
+## **Combinar Diapositivas Seleccionadas**
 
-Aspose.Slides proporciona el método [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) que permite combinar diapositivas aplicando una diapositiva maestra de una plantilla de presentación. De este modo, si es necesario, puede cambiar el estilo de las diapositivas en la presentación de salida.
+No es necesario clonar todas las diapositivas. El siguiente ejemplo importa solo los índices de diapositivas seleccionados de la presentación origen.
 
-El siguiente código Java demuestra esta operación:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
-        presentation1.getSlides().addClone(slide, masterSlide, true);
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Valide los índices de las diapositivas antes de clonar cuando provengan de entrada del usuario o de configuración externa.
 
-{{% alert title="Nota" color="warning" %}}
-El diseño de diapositiva para la diapositiva se determina automáticamente. Cuando no se puede encontrar un diseño apropiado y el parámetro booleano `allowCloneMissingLayout` del método `AddClone` se establece en `true`, se utiliza el diseño de la diapositiva origen. De lo contrario, se lanza una [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/).
-{{% /alert %}}
+## **Combinar Diapositivas Usando un Maestro de Destino**
 
-## **Combinar diapositivas específicas de presentaciones**
+Utilice la sobrecarga [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) cuando las diapositivas importadas deben seguir un maestro que ya pertenece a la presentación de destino.
 
-Combinar diapositivas específicas de varias presentaciones es útil para crear conjuntos de diapositivas personalizados. Aspose.Slides for Java le permite seleccionar e importar solo las diapositivas que necesita. La API conserva el formato, el diseño y el estilo de las diapositivas originales.
-
-El siguiente código Java crea una nueva presentación, añade diapositivas de título de dos presentaciones diferentes y guarda el resultado en un archivo:
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
+    }
 
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Aspose.Slides selecciona un diseño apropiado bajo el maestro especificado coincidiendo con el tipo o nombre del diseño origen. Si no existe un diseño adecuado y `allowCloneMissingLayout` es `true`, el diseño origen se clona para que la diapositiva pueda añadirse. Si es `false`, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/java/com.aspose.slides/pptxeditexception/).
+
+Use `false` cuando desee que la combinación falle en lugar de introducir un diseño adicional en el maestro de destino.
+
+## **Combinar Diapositivas Usando un Diseño de Destino Específico**
+
+Utilice la sobrecarga [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) cuando sepa exactamente qué diseño de destino deben usar las diapositivas importadas.
+
 ```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Aplicar un diseño de destino cambia la relación de diseño heredada; no rediseña el contenido de la diapositiva origen. Si los diseños origen y destino tienen estructuras de marcadores de posición diferentes, inspeccione el resultado para confirmar que el formato heredado y el comportamiento de los marcadores son apropiados.
+
+## **Combinar Presentaciones con Diferentes Tamaños de Diapositiva**
+
+Las presentaciones con diferentes dimensiones de diapositiva pueden combinarse, pero clonar una diapositiva en una presentación con otro tamaño de diapositiva no rediseña automáticamente su contenido para el nuevo lienzo. Por ello, las formas pueden aparecer desplazadas, escaladas inesperadamente o fuera del área visible de la diapositiva.
+
+Un enfoque práctico es redimensionar la presentación origen antes de clonar. El método [SlideSize.setSize](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidesize/#setSize-float-float-int-) puede escalar el contenido existente mientras se cambian las dimensiones de la diapositiva. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidesizescaletype/) escala el contenido para ajustarse al tamaño solicitado.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    Dimension2D sourceSize = source.getSlideSize().getSize();
+    Dimension2D destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            (float) destinationSize.getWidth(), 
+            (float) destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
+    }
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Redimensionar modifica el objeto de la presentación origen en memoria. Si necesita mantener sin cambios la presentación origen original para otras operaciones, abra una instancia separada para la combinación.
+
+## **Combinar Diapositivas en una Sección de la Presentación**
+
+El bucle básico de clonación de diapositivas no recrea la jerarquía de secciones de la presentación origen. Si las secciones son relevantes en la salida, cree o seleccione secciones en la presentación destino y clone diapositivas en ellas explícitamente con [addClone(ISlide, ISection)](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
+    }
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Las diapositivas clonadas se añaden al final de la sección de destino especificada. Para preservar varias secciones origen, enumere [Presentation.getSections](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getSections--), recupere las diapositivas actuales de cada sección origen con [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getSlidesListOfSection--), recree las secciones en el destino y clone cada diapositiva devuelta en su sección de destino correspondiente. Consulte [Manage Slide Sections](/slides/es/java/slide-section/) para un ejemplo completo de enumeración de secciones, incluidas secciones vacías y cambios estructurales.
+
+## **Combinar Múltiples Presentaciones de Forma Segura**
+
+El siguiente ejemplo de extremo a extremo usa la primera presentación como destino, normaliza el tamaño de diapositiva de cada origen adicional, mantiene cada origen abierto solo mientras se copia y guarda el archivo final una sola vez.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    Dimension2D mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            Dimension2D sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    (float) mergedSize.getWidth(), 
+                    (float) mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
         }
     }
-    return null;
-}
-```
 
-
-## **Combinar presentaciones con un diseño de diapositiva**
-
-Para aplicar un diseño de diapositiva diferente a las diapositivas de salida durante la combinación, use el método [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) en su lugar.
-
-El siguiente código Java muestra cómo combinar diapositivas de varias presentaciones aplicando su diseño de diapositiva preferido, lo que produce una única presentación de salida:
-```java
-int layoutIndex = 0;
-
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
-        presentation1.getSlides().addClone(slide, layoutSlide);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+    merged.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    merged.dispose();
 }
 ```
 
+Esto constituye una base útil para preservar el formato de origen de las diapositivas importadas. Si su salida debe usar un único tema de destino, reemplace la simple llamada `addClone(slide)` por la sobrecarga de maestro de destino o diseño de destino correspondiente mostrada anteriormente.
 
-## **Combinar presentaciones con diferentes tamaños de diapositiva**
+## **Consideraciones Prácticas**
 
-Para combinar dos presentaciones con tamaños de diapositiva diferentes, debe redimensionar una de ellas para que coincida con el tamaño de diapositiva de la otra presentación.
+### **Maestros, Diseños y Fidelidad del Formato**
 
-El siguiente código Java demuestra esta operación:
+El clonado predeterminado de diapositivas puede introducir automáticamente un maestro origen necesario en la presentación de destino. Aspose.Slides mantiene un registro interno de maestros clonados automáticamente para evitar clonar el mismo maestro repetidamente. Los maestros clonados manualmente no se rastrean en ese registro, por lo que evite preclonar maestros a menos que necesite control explícito sobre la estructura del maestro.
+
+No asuma que dos maestros o diseños con el mismo nombre son visualmente equivalentes. Si una plantilla corporativa debe controlar la apariencia final, elija explícitamente un maestro o diseño de destino y verifique el resultado después de la combinación.
+
+### **Notas y Comentarios**
+
+Las notas del ponente y los comentarios de la diapositiva están asociados al contenido de la diapositiva y se copian cuando una diapositiva se clona. Aspose.Slides también expone APIs dedicadas para [presentation notes](/slides/es/java/presentation-notes/) y [presentation comments](/slides/es/java/presentation-comments/).
+
+Si el formato de la página de notas es importante, verifique la presentación combinada porque los maestros de notas son objetos a nivel de presentación y pueden diferir entre los archivos origen. Para flujos de revisión, también verifique los autores de los comentarios y los comentarios en hilo después de combinar archivos de diferentes autores o plantillas.
+
+### **Imágenes, Audio, Video, Objetos OLE y Enlaces Externos**
+
+Las diapositivas pueden referenciar recursos a nivel de presentación como imágenes, audio incrustado, video incrustado y datos OLE. Clone la propia diapositiva en lugar de copiar solo sus formas visibles para que Aspose.Slides mantenga las relaciones de la diapositiva con sus recursos.
+
+Los recursos incrustados y vinculados deben tratarse de manera diferente. Un audio, video, objeto OLE o hipervínculo vinculado sigue dependiendo de su destino externo; clonar una diapositiva no convierte un enlace externo en contenido incrustado. Pruebe las rutas y URL de recursos vinculados en el entorno donde se abrirá la presentación combinada.
+
+Aspose.Slides rastrea explícitamente los maestros clonados automáticamente, pero eso no debe considerarse una garantía general de que los recursos binarios idénticos de presentaciones origen no relacionadas siempre se deduplicarán. Si el tamaño del archivo de salida es importante, inspeccione el paquete combinado y mida el resultado en lugar de confiar en la deduplicación implícita.
+
+### **Fuentes Incrustadas y Disponibilidad de Fuentes**
+
+Las fuentes se gestionan a nivel de presentación. Si la tipografía debe mantenerse coherente entre máquinas, no asuma que clonar diapositivas por sí solo garantiza que todas las fuentes necesarias estén disponibles en el entorno de destino. Puede inspeccionar las fuentes incrustadas con [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/es/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) y gestionar la incrustación explícitamente como se describe en [Embed Fonts in Presentations](/slides/es/java/embedded-font/).
+
+También verifique que tenga permiso para incrustar las fuentes utilizadas por los archivos origen. Las licencias de fuentes pueden restringir la incrustación.
+
+### **Presentaciones Protegidas con Contraseña**
+
+Un origen protegido con contraseña debe abrirse correctamente antes de que sus diapositivas puedan clonarse. Proporcione la contraseña mediante [LoadOptions.setPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    Dimension2D slideSize = presentation1.getSlideSize().getSize();
-    float slideWidth = (float) slideSize.getWidth();
-    float slideHeight = (float) slideSize.getHeight();
-    
-    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
 
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // Trabajar con la presentación descifrada.
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
 }
 ```
 
+Abrir un origen cifrado no aplica automáticamente la misma protección a la presentación de destino. Configure la protección de salida por separado cuando sea necesario.
 
-## **Combinar diapositivas en una sección de presentación**
+### **Presentaciones Grandes y Uso de Memoria**
 
-Combinar diapositivas en una sección específica de la presentación ayuda a organizar el contenido y mejorar la navegación de diapositivas. Aspose.Slides permite combinar diapositivas en secciones existentes. Esto garantiza una estructura clara mientras conserva el formato original de cada diapositiva.
+Las presentaciones grandes que contienen imágenes de alta resolución, audio, video u otros objetos binarios grandes pueden consumir mucha memoria. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/es/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) proporciona controles para la gestión de BLOBs y el uso de archivos temporales. Consulte [Manage Presentation BLOBs](/slides/es/java/manage-blob/) para estrategias con archivos grandes.
 
-El siguiente código Java muestra cómo combinar una diapositiva específica en una sección de una presentación:
-```java
-int sectionIndex = 0;
+Para archivos grandes, prefiera cargar desde rutas de archivo cuando sea posible, deseche cada presentación origen tan pronto como se haya combinado, y evite guardar repetidamente resultados intermedios a menos que el flujo de trabajo requiera puntos de control.
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ISection section = presentation1.getSections().get_Item(sectionIndex);
-        presentation1.getSlides().addClone(slide, section);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-}
-```
+### **Seguridad en Hilos**
 
+No cargue, modifique, guarde o clone la misma instancia de [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) simultáneamente desde varios hilos. Mantenga cada instancia de presentación confinada a una sola operación de combinación. Si paraleliza trabajos independientes, use instancias de presentación independientes y siga la [Aspose.Slides multithreading guidance](/slides/es/java/multithreading/).
 
-La diapositiva se añade al final de la sección.
+## **FAQ**
 
-## **Véase también**
+**¿Cómo mantengo el diseño original de cada presentación origen?**
 
-Aspose ofrece un [Creador de collages GRATUITO en línea](https://products.aspose.app/slides/collage). Con este servicio en línea, puede combinar [JPG a JPG](https://products.aspose.app/slides/collage/jpg) o PNG a PNG, crear [cuadrículas de fotos](https://products.aspose.app/slides/collage/photo-grid) y más.
+Utilice [addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) sin proporcionar un maestro o diseño de destino. Aspose.Slides puede clonar automáticamente el maestro origen cuando la diapositiva importada lo necesita.
 
-Consulte el [Fusionador GRATUITO en línea de Aspose](https://products.aspose.app/slides/merger). Permite combinar presentaciones PowerPoint en el mismo formato (p. ej., PPT a PPT, PPTX a PPTX) o entre formatos diferentes (p. ej., PPT a PPTX, PPTX a ODP).
+**¿Cómo hago que las diapositivas importadas usen el tema de destino?**
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+Utilice la sobrecarga que acepta un maestro de destino. Pase un maestro de la presentación de destino, no del origen. Aspose.Slides intentará mapear cada diapositiva origen a un diseño apropiado bajo ese maestro.
 
-Además de presentaciones, Aspose.Slides permite combinar otros tipos de archivos:
+**¿Cuándo debo usar un diseño de destino específico en lugar de un maestro de destino?**
 
-- [**Imágenes**](https://products.aspose.com/slides/java/merger/image-to-image/), como [JPG a JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) o [PNG a PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-- **Documentos**, como [PDF a PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) o [HTML a HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-- **Tipos de archivo mixtos**, como [imagen a PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/), [JPG a PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/) o [TIFF a PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/)
+Use un diseño específico cuando cada diapositiva importada deba usar un diseño conocido. Use un maestro cuando desee que Aspose.Slides seleccione entre los diseños de ese maestro según el tipo o nombre del diseño origen.
 
-## **Preguntas frecuentes**
+**¿Se pueden combinar presentaciones con diferentes tamaños de diapositiva?**
 
-**¿Existen limitaciones en la cantidad de diapositivas al combinar presentaciones?**
+Sí, pero el contenido de la diapositiva no se rediseña automáticamente para las dimensiones de destino. Redimensione la presentación origen primero cuando necesite una colocación predecible, por ejemplo con [SlideSize.setSize](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidesize/#setSize-float-float-int-) y [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidesizescaletype/).
 
-No hay limitaciones estrictas. Aspose.Slides puede manejar archivos grandes, pero el rendimiento depende del tamaño y los recursos del sistema. Para presentaciones muy extensas, se recomienda usar una JVM de 64 bits y asignar suficiente memoria heap.
+**¿Puedo combinar presentaciones PPT, PPTX y ODP en un solo archivo?**
 
-**¿Puedo combinar presentaciones con video o audio incrustados?**
+Sí. Cargue cada presentación origen, clone las diapositivas necesarias en un destino y guarde el destino en un formato de salida compatible. Dado que los formatos de presentación no soportan exactamente el mismo conjunto de funcionalidades, verifique el contenido complejo después de combinaciones entre formatos. Consulte [Supported File Formats](/slides/es/java/supported-file-formats/).
 
-Sí, Aspose.Slides conserva el contenido multimedia incrustado en las diapositivas, aunque la presentación final puede volverse significativamente más grande.
+**¿Se conservan automáticamente las secciones del origen?**
 
-**¿Se conservarán las fuentes al combinar presentaciones?**
+No, con un bucle básico que solo clona diapositivas. Recree las secciones necesarias en el destino y use la sobrecarga de sección de [addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) cuando la estructura de secciones debe preservarse.
 
-Sí. Las fuentes utilizadas en las presentaciones origen se conservan en el archivo de salida, siempre que estén instaladas en el sistema o [incrustadas](/slides/es/java/embedded-font/).
+**¿Se conservan las notas del ponente y los comentarios?**
+
+Se copian con la diapositiva clonada. Para flujos de trabajo que dependen del estilo del maestro de notas, los autores de comentarios o datos de revisión en hilo, verifique el resultado combinado porque esos escenarios involucran estructuras a nivel de presentación así como contenido a nivel de diapositiva.
+
+**¿Qué ocurre con el audio, video, objetos OLE y hipervínculos?**
+
+El contenido incrustado se transporta como parte de las relaciones de recursos de la diapositiva clonada. Los enlaces externos permanecen externos, por lo que sus archivos o URL de destino deben seguir estando disponibles tras la combinación.
+
+**¿Se garantiza que las fuentes incrustadas de cada origen estén disponibles en la presentación combinada?**
+
+No confíe solo en el clonado de diapositivas para la distribución de fuentes. Inspeccione las fuentes incrustadas del destino y gestione explícitamente la incrustación de fuentes o la disponibilidad de fuentes externas cuando la tipografía sea importante.
+
+**¿Cómo combino un archivo protegido con contraseña?**
+
+Ábralo con la [LoadOptions.setPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) correcta, luego clone sus diapositivas normalmente. La protección de salida se configura por separado.
+
+**¿Cómo debo manejar presentaciones muy grandes?**
+
+Utilice la gestión de BLOBs cuando los objetos binarios grandes dominan el uso de memoria, prefiera la carga desde rutas de archivo para archivos muy grandes, deseche rápidamente las presentaciones origen y guarde el resultado final solo cuando sea necesario.
+
+**¿Puedo combinar diapositivas desde varios hilos?**
+
+No use una sola instancia de [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) simultáneamente desde varios hilos. Mantenga cada operación de combinación aislada en sus propias instancias de presentación.

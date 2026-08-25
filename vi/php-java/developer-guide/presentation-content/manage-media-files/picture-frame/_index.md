@@ -1,160 +1,295 @@
 ---
-title: Quản lý Khung Ảnh trong Bản Trình Chiếu bằng PHP
-linktitle: Khung Ảnh
+title: Quản lý Khung Hình trong Bản Trình Chiếu bằng PHP
+linktitle: Khung Hình
 type: docs
 weight: 10
 url: /vi/php-java/picture-frame/
 keywords:
-- khung ảnh
-- thêm khung ảnh
-- tạo khung ảnh
-- thêm hình ảnh
-- tạo hình ảnh
-- trích xuất hình ảnh
-- hình ảnh raster
-- hình ảnh vector
-- cắt hình ảnh
-- vùng đã cắt
-- thuộc tính StretchOff
-- định dạng khung ảnh
-- thuộc tính khung ảnh
+- khung hình
+- thêm khung hình
+- tạo khung hình
+- ảnh nhúng
+- ảnh liên kết
+- trích xuất ảnh
+- ảnh raster
+- ảnh SVG
+- cắt ảnh
+- xóa các vùng đã cắt
+- nén ảnh
+- StretchOffset
+- định dạng khung hình
 - tỷ lệ tương đối
-- hiệu ứng hình ảnh
-- tỷ lệ khung hình
-- độ trong suốt của hình ảnh
+- hiệu ứng ảnh
+- tỷ lệ khung
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Thêm khung ảnh vào các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho PHP qua Java. Tối ưu quy trình làm việc và nâng cao thiết kế slide."
+description: "Tạo, định dạng, liên kết, cắt, trích xuất và nén khung ảnh trong bản trình chiếu với Aspose.Slides cho PHP qua Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khung ảnh là một hình dạng chứa một hình ảnh—giống như một bức tranh trong khung. 
+Khung ảnh là một hình dạng trên slide hiển thị hình ảnh. Trong Aspose.Slides, tài nguyên hình ảnh và hình dạng hiển thị nó là các đối tượng riêng biệt: một [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) sở hữu các tài nguyên hình ảnh được nhúng thông qua [ImageCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagecollection/), trong khi một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) điều khiển vị trí, kích thước, định dạng đường viền, xoay, cắt, hiệu ứng ảnh và các cài đặt cấp khung khác.
 
-Bạn có thể thêm hình ảnh vào một slide thông qua khung ảnh. Bằng cách này, bạn có thể định dạng hình ảnh bằng cách định dạng khung ảnh.
+Sự tách biệt này hữu ích khi cùng một hình ảnh được hiển thị nhiều lần. Thêm hình ảnh vào bản trình chiếu một lần, giữ lại [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/), và sử dụng tài nguyên hình ảnh đó khi tạo khung ảnh.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose cung cấp các công cụ chuyển đổi miễn phí—[JPEG sang PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG sang PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—cho phép người dùng tạo bản trình chiếu nhanh chóng từ hình ảnh. 
-{{% /alert %}} 
+Khung ảnh có thể chứa các hình ảnh raster như PNG hoặc JPEG và các hình ảnh vector SVG. Chúng cũng có thể tham chiếu tới ảnh liên kết thay vì lưu trữ byte ảnh trong bản trình chiếu. Lựa chọn này ảnh hưởng đến tính di động, kích thước tệp, việc trích xuất và hành vi xuất, vì vậy nên quyết định cách lưu trữ ảnh trước khi áp dụng định dạng hoặc tối ưu hóa.
 
-## **Tạo khung ảnh**
+## **Thêm và Định dạng Ảnh Nhúng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Tạo một đối tượng [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) bằng cách thêm một hình ảnh vào [ImageCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagecollection/) liên kết với đối tượng presentation sẽ được dùng để làm nền cho hình dạng.
-4. Xác định chiều rộng và chiều cao của hình ảnh.
-5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) dựa trên chiều rộng và chiều cao của hình ảnh thông qua phương thức `addPictureFrame` được cung cấp bởi đối tượng shape liên kết với slide đã tham chiếu.
-6. Thêm một khung ảnh (chứa hình ảnh) vào slide.
-7. Ghi bản trình chiếu đã chỉnh sửa thành tệp PPTX.
+Đối với một ảnh nhúng, thêm dữ liệu ảnh vào bản trình chiếu và tạo khung ảnh bằng [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addpictureframe/). Ảnh trở thành một phần của gói bản trình chiếu, vì vậy bản trình chiếu vẫn tự chứa khi được chuyển sang máy tính khác.
 
-Đoạn mã PHP này cho thấy cách tạo khung ảnh:
+Ví dụ sau thêm một ảnh JPEG, tạo khung với kích thước gốc của ảnh, và áp dụng định dạng đường viền cũng như xoay:
 
 ```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Khởi tạo lớp Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Thêm khung ảnh với chiều cao và chiều rộng bằng với ảnh
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
-Khung ảnh cho phép bạn nhanh chóng tạo các slide trình chiếu dựa trên hình ảnh. Khi bạn kết hợp khung ảnh với các tùy chọn lưu của Aspose.Slides, bạn có thể thao tác các thao tác nhập/xuất để chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Bạn có thể muốn xem các trang này: chuyển đổi [hình ảnh sang JPG](https://products.aspose.com/slides/vi/php-java/conversion/image-to-jpg/); chuyển đổi [JPG sang hình ảnh](https://products.aspose.com/slides/vi/php-java/conversion/jpg-to-image/); chuyển đổi [JPG sang PNG](https://products.aspose.com/slides/vi/php-java/conversion/jpg-to-png/), chuyển đổi [PNG sang JPG](https://products.aspose.com/slides/vi/php-java/conversion/png-to-jpg/); chuyển đổi [PNG sang SVG](https://products.aspose.com/slides/vi/php-java/conversion/png-to-svg/), chuyển đổi [SVG sang PNG](https://products.aspose.com/slides/vi/php-java/conversion/svg-to-png/).
-{{% /alert %}} 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-## **Tạo khung ảnh với tỷ lệ tương đối**
-
-Bằng cách thay đổi tỷ lệ thu phóng tương đối của hình ảnh, bạn có thể tạo một khung ảnh phức tạp hơn. 
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-4. Tạo một đối tượng [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) bằng cách thêm một hình ảnh vào [ImageCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagecollection/) liên kết với đối tượng presentation sẽ được dùng để làm nền cho hình dạng.
-5. Xác định chiều rộng và chiều cao tương đối của hình ảnh trong khung ảnh.
-6. Ghi bản trình chiếu đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã PHP này cho thấy cách tạo khung ảnh với tỷ lệ tương đối:
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Khởi tạo lớp Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Thêm Khung Ảnh với chiều cao và chiều rộng tương đương với Hình ảnh
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Đặt tỷ lệ thu phóng tương đối cho chiều rộng và chiều cao
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Trích xuất hình ảnh raster từ khung ảnh**
-
-Bạn có thể trích xuất hình ảnh raster từ các đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) và lưu chúng ở định dạng PNG, JPG và các định dạng khác. Ví dụ mã bên dưới minh họa cách trích xuất một hình ảnh từ tài liệu “sample.pptx” và lưu nó ở định dạng PNG.
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Trích xuất hình ảnh SVG từ khung ảnh**
+Khung ảnh điều khiển hình học hiển thị; việc thay đổi kích thước khung không làm thay đổi kích thước pixel gốc được lưu trong tài nguyên ảnh nhúng. Sự khác biệt này trở nên quan trọng khi cắt hoặc nén ảnh sau này.
 
-Khi một bản trình chiếu chứa đồ họa SVG đặt bên trong các hình dạng [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/), Aspose.Slides cho PHP qua Java cho phép bạn lấy lại các hình ảnh vector gốc với độ chính xác đầy đủ. Bằng cách duyệt qua bộ sưu tập hình dạng của slide, bạn có thể xác định từng [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/), kiểm tra xem [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) bên dưới có chứa nội dung SVG không, và sau đó lưu hình ảnh đó vào đĩa hoặc luồng ở định dạng SVG gốc.
+## **Sử dụng Tỷ lệ Tương đối**
 
-Đoạn mã sau minh họa cách trích xuất một hình ảnh SVG từ khung ảnh:
+[PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) cung cấp khả năng điều chỉnh tỷ lệ rộng và cao tương đối cho khung thông qua [setRelativeScaleWidth](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/setrelativescalewidth/) và [setRelativeScaleHeight](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Giá trị `1.0` tương đương với 100 % kích thước ảnh gốc. Tỷ lệ tương đối hữu ích khi quy trình cần giữ mối quan hệ với kích thước ảnh nguồn thay vì tính toán kích thước cuối cùng một cách thủ công.
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Tỷ lệ tương đối thay đổi các thiết lập tỷ lệ của khung; nó không tái mẫu hoặc nén ảnh nhúng.
+
+## **Ảnh Nhúng và Ảnh Liên kết**
+
+Một ảnh nhúng lưu dữ liệu ảnh bên trong bản trình chiếu và do đó là lựa chọn an toàn nhất cho tính di động và việc hiển thị dự đoán được. Một ảnh liên kết lưu vị trí bên ngoài thông qua phương thức [Picture::setLinkPathLong](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picture/setlinkpathlong/) thay vì nhúng dữ liệu ảnh theo cùng cách.
+
+Ảnh liên kết có thể giảm lượng dữ liệu ảnh lưu trong PPTX, nhưng chúng tạo ra một phụ thuộc bên ngoài. Tệp liên kết phải vẫn có thể truy cập được bởi ứng dụng mở hoặc hiển thị bản trình chiếu. Nếu đường dẫn thay đổi, tệp bị di chuyển, hoặc tài nguyên không khả dụng, ảnh liên kết có thể không hiển thị như mong đợi. Đối với các bản trình chiếu cần được gửi email, lưu trữ, hoặc hiển thị trong môi trường cô lập, ảnh nhúng thường đáng tin cậy hơn.
+
+### **Thêm Ảnh Liên kết**
+
+Ví dụ sau tạo một khung ảnh và trỏ tới một tệp ảnh cục bộ. Nó chỉ xử lý việc liên kết ảnh; liên kết video là một quy trình đa phương tiện riêng và không được trộn vào ví dụ này.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sử dụng liên kết khi việc quản lý tệp bên ngoài là có chủ đích. Đừng dùng chúng chỉ để thay thế nén: một PPTX nhỏ với các phụ thuộc ảnh bị hỏng thường kém hữu ích hơn so với một bản trình chiếu tự chứa lớn hơn.
+
+## **Trích xuất Ảnh từ Khung Ảnh**
+
+Trước khi trích xuất ảnh từ một bản trình chiếu hiện có, hãy kiểm tra xem hình dạng thực sự là một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) và nó có chứa ảnh nhúng không. Các khung ảnh liên kết có thể không chứa byte ảnh có thể trích xuất theo cùng cách.
+
+### **Trích xuất Ảnh Raster**
+
+API ảnh hiện đại sử dụng [IImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/iimage/) trực tiếp. Ví dụ sau tìm ảnh raster nhúng đầu tiên trên một slide và lưu nó dưới dạng PNG:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Lưu qua [IImage::save](https://reference.aspose.com/slides/vi/php-java/aspose.slides/iimage/#save) sẽ chuyển đổi ảnh đã trích xuất sang định dạng đầu ra được yêu cầu. Nếu bạn cần byte đã mã hoá lưu trong bản trình chiếu thay vì tệp raster đã chuyển đổi, hãy sử dụng dữ liệu nhị phân của tài nguyên ảnh.
+
+### **Trích xuất Ảnh SVG**
+
+Đối với ảnh SVG, [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) cung cấp một đối tượng [SvgImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/svgimage/). Điều này cho phép bạn lấy dữ liệu SVG trực tiếp thay vì raster hoá ảnh trước.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Giữ nội dung SVG dưới dạng SVG bảo tồn nguồn vector bên trong bản trình chiếu. Các xuất raster như PNG hoặc JPEG buộc phải render nội dung vector thành pixel. Xuất slide dưới dạng PDF hoặc SVG cũng là một thao tác render, vì vậy đồ họa xuất không nên được coi là bản sao byte‑for‑byte của SVG nhúng gốc; sử dụng dữ liệu [SvgImage::getSvgData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/svgimage/getsvgdata/) khi cần tài nguyên vector gốc.
+
+## **Cắt Ảnh**
+
+Cắt thay đổi phần nào của ảnh hiển thị bên trong khung. Các giá trị cắt trên [PictureFillFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/) là phần trăm của kích thước ảnh nguồn. Cắt không xóa ngay các pixel ẩn khỏi ảnh nhúng; nó chỉ thay đổi vùng hiển thị.
+
+Ví dụ sau tìm một khung ảnh một cách an toàn và áp dụng các giá trị cắt:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Vì dữ liệu ảnh ẩn vẫn còn tồn tại, việc cắt có thể được thay đổi sau mà không mất pixel gốc. Nếu kích thước tệp quan trọng hơn tính có thể khôi phục, các vùng đã cắt có thể được loại bỏ thực tế như mô tả trong phần tiếp theo.
+
+## **Xóa Dữ liệu Ảnh Đã Cắt**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) loại bỏ dữ liệu ảnh nằm ngoài vùng cắt hiện tại và trả về tài nguyên ảnh kết quả. Điều này có thể giảm kích thước tệp, nhưng là một tối ưu hóa phá hủy: sau khi bản trình chiếu được lưu, các pixel đã bị xóa không còn khả dụng cho thao tác mở rộng lại.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -162,358 +297,161 @@ try {
 }
 ```
 
-## **Lấy độ trong suốt của hình ảnh**
+Phương pháp có thể thêm một tài nguyên ảnh mới vào bản trình chiếu. Nếu ảnh gốc cũng được dùng bởi các khung ảnh khác, những khung đó vẫn cần tài nguyên hiện có, vì vậy việc xóa các vùng đã cắt không nhất thiết giảm tổng số ảnh. Cắt nội dung WMF hoặc EMF bằng phương pháp này sẽ raster hoá kết quả đã cắt thành PNG.
 
-Aspose.Slides cho phép bạn lấy hiệu ứng trong suốt được áp dụng cho một hình ảnh. Đoạn mã PHP này minh họa thao tác:
+## **Nén Ảnh Raster**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) giảm độ phân giải ảnh raster so với kích thước mà ảnh được hiển thị. Nó cũng có thể loại bỏ các vùng đã cắt trong cùng một thao tác. Phương pháp trả về `true` khi ảnh đã được thay đổi kích thước hoặc cắt và `false` khi không cần thay đổi nào.
 
-## **Lấy độ sáng và độ tương phản của hình ảnh**
-
-Aspose.Slides cho phép bạn lấy độ sáng và độ tương phản được áp dụng cho một hình ảnh. Lớp [Luminance](https://reference.aspose.com/slides/vi/php-java/aspose.slides/luminance/) đại diện cho hiệu ứng biến đổi này.
-
-Đoạn mã PHP này minh họa cách lấy cài đặt độ sáng và độ tương phản từ một khung ảnh:
+Sử dụng một giá trị [PicturesCompression](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturescompression/) đã định nghĩa trước khi độ phân giải mục tiêu tiêu chuẩn là đủ:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **Định dạng khung ảnh**
-
-Aspose.Slides cung cấp nhiều tùy chọn định dạng có thể áp dụng cho một khung ảnh. Sử dụng những tùy chọn này, bạn có thể chỉnh sửa khung ảnh để phù hợp với yêu cầu cụ thể.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Tạo một đối tượng [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) bằng cách thêm một hình ảnh vào [ImageCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagecollection/) liên kết với đối tượng presentation sẽ được dùng để làm nền cho hình dạng.
-4. Xác định chiều rộng và chiều cao của hình ảnh.
-5. Tạo một `PictureFrame` dựa trên chiều rộng và chiều cao của hình ảnh thông qua phương thức [addPictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addpictureframe/) được cung cấp bởi đối tượng [ShapeCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/) liên kết với slide đã tham chiếu.
-6. Thêm khung ảnh (chứa hình ảnh) vào slide.
-7. Đặt màu đường viền cho khung ảnh.
-8. Đặt độ rộng đường viền cho khung ảnh.
-9. Xoay khung ảnh bằng cách cung cấp giá trị dương hoặc âm.  
-   * Giá trị dương sẽ xoay hình ảnh theo chiều kim đồng hồ.  
-   * Giá trị âm sẽ xoay hình ảnh ngược chiều kim đồng hồ.
-10. Thêm khung ảnh (chứa hình ảnh) vào slide.
-11. Ghi bản trình chiếu đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã PHP này minh họa quy trình định dạng khung ảnh:
-
-```php
-  # Khởi tạo lớp Presentation đại diện cho file PPTX
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Khởi tạo lớp Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Thêm Khung Ảnh với chiều cao và chiều rộng tương đương với Hình ảnh
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Áp dụng một số định dạng cho PictureFrameEx
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # Ghi file PPTX ra đĩa
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-Aspose gần đây đã phát triển một [trình tạo Collage miễn phí](https://products.aspose.app/slides/vi/collage). Nếu bạn cần [gộp ảnh JPG/JPEG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG, [tạo lưới từ ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), bạn có thể sử dụng dịch vụ này. 
-{{% /alert %}}
-
-## **Thêm hình ảnh dưới dạng liên kết**
-
-Để tránh kích thước bản trình chiếu lớn, bạn có thể thêm hình ảnh (hoặc video) thông qua liên kết thay vì nhúng tệp trực tiếp vào bản trình chiếu. Đoạn mã PHP này cho thấy cách thêm hình ảnh và video vào một placeholder:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Cắt ảnh**
-
-Đoạn mã PHP này cho thấy cách cắt một hình ảnh hiện có trên slide:
-
-```php
-  $pres = new Presentation();
-  # Tạo đối tượng hình ảnh mới
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Thêm một PictureFrame vào Slide
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # Cắt hình ảnh (giá trị phần trăm)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # Lưu kết quả
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Xóa vùng đã cắt của hình ảnh**
-
-Nếu bạn muốn xóa các vùng đã cắt của một hình ảnh chứa trong khung, bạn có thể sử dụng phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas). Phương thức này trả về hình ảnh đã cắt hoặc hình ảnh gốc nếu không cần cắt.
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # Lấy PictureFrame từ slide đầu tiên
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # Xóa các vùng đã cắt của hình ảnh PictureFrame và trả về hình ảnh đã cắt
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # Lưu kết quả
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-Phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) sẽ thêm hình ảnh đã cắt vào bộ sưu tập hình ảnh của bản trình chiếu. Nếu hình ảnh chỉ được sử dụng trong [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) đã xử lý, cấu hình này có thể giảm kích thước bản trình chiếu. Ngược lại, số lượng hình ảnh trong bản trình chiếu kết quả sẽ tăng.
-
-Phương thức này chuyển đổi các tệp metafile WMF/EMF thành hình ảnh PNG raster trong quá trình cắt. 
-{{% /alert %}}
-
-## **Nén ảnh**
-
-Bạn có thể nén một hình ảnh trong bản trình chiếu bằng cách sử dụng phương thức [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_). Phương thức này nén hình ảnh bằng cách giảm kích thước dựa trên kích thước hình dạng và độ phân giải được chỉ định, với tùy chọn xóa các vùng đã cắt.
-
-Nó điều chỉnh kích thước và độ phân giải của hình ảnh tương tự như tính năng **Picture Format -> Compress Pictures -> Resolution** của PowerPoint.
-
-Các ví dụ PHP sau đây minh họa cách nén một hình ảnh trong bản trình chiếu bằng cách chỉ định độ phân giải mục tiêu và tùy chọn xóa các vùng đã cắt:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Nén hình ảnh với độ phân giải mục tiêu 150 DPI (độ phân giải web) và xóa các vùng đã cắt.
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # Kiểm tra kết quả của quá trình nén.
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Hoặc sử dụng giá trị DPI tùy chỉnh trực tiếp:
+Một giá trị DPI dương tùy chỉnh có thể được truyền thay cho giá trị đã định nghĩa trước khi cần một mục tiêu cụ thể.
+
+Nén được thiết kế cho ảnh raster. Nội dung SVG và metafile không bị giảm bởi quy trình nén raster này. Hãy nhớ rằng độ phân giải thấp hơn và các vùng đã cắt bị xóa không thể khôi phục từ bản trình chiếu đã tối ưu. Chọn độ phân giải mục tiêu dựa trên kích thước lớn nhất mà ảnh sẽ thực sự được xem hoặc xuất, thay vì áp dụng DPI thấp nhất trên toàn bộ.
+
+## **Quản lý Hiệu ứng Biến đổi Ảnh**
+
+Đối với một quy trình hoàn chỉnh bao gồm độ sáng, độ tương phản, chuyển đổi màu, làm mờ, hiệu ứng alpha, chuỗi có thứ tự, kiểm tra, loại bỏ và xác minh vòng quay, xem [Image Transform Effects](/slides/vi/php-java/image-transform-effects/).
+
+## **Khóa Hình học Khung Ảnh**
+
+Cài đặt [PictureFrameLock](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframelock/) kiểm soát các thao tác chỉnh sửa nào bị vô hiệu hoá cho một khung ảnh. Ví dụ, [setAspectRatioLocked](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) giữ tỉ lệ hình học của hình dạng khi nó được thay đổi kích thước.
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
 
-    # Nén hình ảnh tới 150 DPI (độ phân giải web), xóa các vùng đã cắt.
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
-
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-Phương thức chuyển đổi hình ảnh sang độ phân giải thấp hơn dựa trên kích thước hình dạng và DPI được cung cấp. Các vùng đã cắt cũng có thể bị xóa để tối ưu kích thước tệp.  
-Nếu hình ảnh là một metafile (WMF/EMF) hoặc SVG, việc nén sẽ không được áp dụng. Ngoài ra, chất lượng JPEG được giữ nguyên hoặc giảm nhẹ dựa trên độ phân giải, tương tự như cách PowerPoint xử lý JPEG độ phân giải cao.
-{{% /alert %}}
-
-## **Khóa tỷ lệ khung hình**
-
-Nếu bạn muốn một hình dạng chứa hình ảnh duy trì tỷ lệ khung hình ngay cả khi thay đổi kích thước hình ảnh, bạn có thể sử dụng phương thức [setAspectRatioLocked](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) để đặt cài đặt *Lock Aspect Ratio*.
-
-Đoạn mã PHP này cho thấy cách khóa tỷ lệ khung hình của một shape:
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # đặt shape để duy trì tỷ lệ khung khi thay đổi kích thước
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Cài đặt *Lock Aspect Ratio* này chỉ bảo tồn tỷ lệ của shape chứ không phải của hình ảnh bên trong. 
-{{% /alert %}}
+Khóa áp dụng cho hình dạng khung ảnh. Nó không buộc ảnh nguồn phải được tái mẫu hoặc thay đổi vĩnh viễn theo cùng tỉ lệ.
 
-## **Sử dụng thuộc tính StretchOff**
+## **Điều chỉnh Giá trị StretchOffset**
 
-Bằng cách sử dụng các phương thức [setStretchOffsetLeft](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/), [setStretchOffsetTop](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/setstretchoffsettop/), [setStretchOffsetRight](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) và [setStretchOffsetBottom](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) từ lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/), bạn có thể chỉ định một hình chữ nhật đổ đầy.
+Khi chế độ lấp đầy ảnh là stretch, các giá trị stretch‑offset trên [PictureFillFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/) xác định hình chữ nhật lấp đầy tương đối với hộp bao của khung ảnh. Phần trăm dương tạo một inset từ cạnh, trong khi phần trăm âm tạo một outset.
 
-Khi kéo dãn được chỉ định cho một hình ảnh, một hình chữ nhật nguồn sẽ được tỷ lệ để vừa với hình chữ nhật đổ đầy đã chỉ định. Mỗi cạnh của hình chữ nhật đổ đầy được xác định bằng một phần trăm độ lệch so với cạnh tương ứng của hộp bao của shape. Phần trăm dương chỉ ra độ lệch vào trong, phần trăm âm chỉ ra độ lệch ra ngoài.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
-3. Thêm một hình chữ nhật `AutoShape`. 
-4. Tạo một hình ảnh.
-5. Đặt kiểu đổ đầy cho shape.
-6. Đặt chế độ đổ đầy hình ảnh cho shape.
-7. Thêm hình ảnh đã đặt để đổ đầy shape.
-8. Xác định độ lệch của hình ảnh từ cạnh tương ứng của hộp bao của shape.
-9. Ghi bản trình chiếu đã chỉnh sửa thành tệp PPTX.
-
-Đoạn mã PHP này minh họa quy trình sử dụng thuộc tính StretchOff:
+Điều này khác với cắt. Giá trị cắt chọn phần nào của ảnh nguồn hiển thị; stretch offset thay đổi hình chữ nhật mà ảnh lấp đầy được kéo dài vào.
 
 ```php
-  # Khởi tạo lớp Presentation đại diện cho tệp PPTX
-  $pres = new Presentation();
-  try {
-    # Lấy slide đầu tiên
-    $slide = $pres->getSlides()->get_Item(0);
-    # Khởi tạo lớp ImageEx
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # Thêm một AutoShape dạng Hình chữ nhật
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Đặt loại đổ đầy cho shape
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # Đặt chế độ đổ đầy ảnh cho shape
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Đặt hình ảnh để đổ đầy shape
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Xác định độ lệch của hình ảnh từ cạnh tương ứng của hộp bao của shape
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Sử dụng stretch offset để định vị lấp đầy. Sử dụng thuộc tính cắt khi mục tiêu là ẩn các cạnh ảnh nguồn.
+
+## **Lưu trữ, Kích thước Tệp và Các Xem xét Khi Xuất**
+
+Các cân bằng chính dễ quản lý hơn khi lưu trữ ảnh và định dạng khung ảnh được tách riêng:
+
+- **Ảnh nhúng** làm cho bản trình chiếu tự chứa và là lựa chọn đáng tin cậy nhất cho việc chia sẻ và render phía máy chủ, nhưng ảnh raster lớn làm tăng kích thước PPTX và sử dụng bộ nhớ.
+- **Ảnh liên kết** có thể giữ gói nhỏ hơn, nhưng bản trình chiếu phụ thuộc vào các tệp bên ngoài vẫn còn tồn tại tại các đường dẫn hoặc vị trí đã lưu.
+- **Cắt** ban đầu là không phá hủy. Các pixel ẩn vẫn được nhúng cho đến khi các vùng đã cắt được xóa rõ ràng hoặc loại bỏ trong quá trình nén.
+- **Nén** có thể giảm đáng kể kích thước tệp cho các ảnh raster quá lớn, nhưng nó đánh đổi độ phân giải nguồn. Nên áp dụng sau khi biết kích thước hiển thị trên slide.
+- **Ảnh SVG** nên giữ dưới dạng SVG khi việc bảo tồn vector quan trọng. Trích xuất SVG nhúng trực tiếp khi cần tài nguyên vector. Các xuất slide raster luôn chuyển đổi slide đã render thành pixel.
+- **Ảnh lặp lại** nên tái sử dụng tài nguyên [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) hiện có khi có thể thay vì liên tục tải cùng một tệp vào quy trình làm việc.
+
+Đối với các bản trình chiếu lớn, tối ưu hóa ảnh thường hiệu quả nhất khi thực hiện có chọn lọc: giữ logo và sơ đồ dưới dạng nội dung vector, nén ảnh chụp theo kích thước hiển thị thực tế, loại bỏ pixel đã cắt chỉ khi không cần chỉnh sửa sau này, và tránh liên kết bên ngoài trừ khi quản lý phụ thuộc là một phần của thiết kế triển khai.
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để tôi biết định dạng hình ảnh nào được hỗ trợ cho PictureFrame?**  
-Aspose.Slides hỗ trợ cả hình ảnh raster (PNG, JPEG, BMP, GIF, v.v.) và hình ảnh vector (ví dụ, SVG) thông qua đối tượng hình ảnh được gán cho một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/). Danh sách các định dạng hỗ trợ thường trùng khớp với khả năng của động cơ chuyển đổi slide và hình ảnh.
+**Khác biệt giữa khung ảnh và tài nguyên ảnh là gì?**
 
-**Việc thêm hàng chục hình ảnh lớn sẽ ảnh hưởng như thế nào đến kích thước và hiệu năng của PPTX?**  
-Nhúng hình ảnh lớn làm tăng kích thước tệp và mức sử dụng bộ nhớ; liên kết hình ảnh giúp giảm kích thước bản trình chiếu nhưng yêu cầu các tệp bên ngoài vẫn phải khả dụng. Aspose.Slides cung cấp khả năng thêm hình ảnh bằng liên kết để giảm kích thước tệp.
+[PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) đại diện cho một tài nguyên ảnh liên kết với bản trình chiếu. [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) là một hình dạng trên slide hiển thị ảnh và lưu trữ các cài đặt cấp khung như kích thước, xoay, giá trị cắt, hiệu ứng và khóa.
 
-**Làm sao tôi có thể khóa một đối tượng hình ảnh tránh việc di chuyển/đổi kích thước nhầm?**  
-Sử dụng [shape locks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/getpictureframelock/) cho một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) (ví dụ, vô hiệu hoá di chuyển hoặc đổi kích thước). Cơ chế khóa được hỗ trợ cho nhiều loại shape, bao gồm [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/).
+**Nên nhúng hay liên kết ảnh?**
 
-**Độ chính xác vector SVG có được bảo toàn khi xuất bản trình chiếu ra PDF/hình ảnh không?**  
-Aspose.Slides cho phép trích xuất một SVG từ một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) dưới dạng vector gốc. Khi [xuất ra PDF](/slides/vi/php-java/convert-powerpoint-to-pdf/) hoặc [định dạng raster](/slides/vi/php-java/convert-powerpoint-to-png/), kết quả có thể được raster hoá tùy thuộc vào cài đặt xuất; thực tế rằng SVG gốc được lưu dưới dạng vector được xác nhận bằng hành vi trích xuất.
+Nhúng ảnh khi bản trình chiếu phải di động, lưu trữ hoặc render mà không cần truy cập vào tài nguyên bên ngoài. Liên kết ảnh chỉ khi việc giữ các tệp ảnh ngoài PPTX là có chủ đích và các vị trí bên ngoài có thể được duy trì một cách đáng tin cậy.
+
+**Cắt ảnh có giảm kích thước PPTX không?**
+
+Không tự động. Cài đặt cắt bình thường ẩn các phần của ảnh nguồn nhưng vẫn giữ pixel nền. Sử dụng [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) hoặc nén ảnh với việc loại bỏ vùng đã cắt khi các pixel đó có thể bị loại bỏ vĩnh viễn.
+
+**Có thể khôi phục chất lượng ảnh sau khi nén không?**
+
+Không. Nén có thể giảm độ phân giải raster lưu trữ, và việc loại bỏ các vùng đã cắt sẽ xóa dữ liệu ảnh. Giữ ảnh nguồn gốc bên ngoài bản trình chiếu nếu có thể sẽ cần chỉnh sửa với độ phân giải cao sau này.
+
+**Nên xử lý ảnh SVG như thế nào?**
+
+Giữ nội dung SVG dưới dạng SVG khi độ chính xác vector quan trọng. [SvgImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/svgimage/) nhúng có thể được trích xuất trực tiếp. Render slide thành định dạng raster như PNG hoặc JPEG sẽ raster hoá SVG thành phần của ảnh slide.
+
+**Làm sao tránh lỗi ép kiểu không an toàn khi đọc slide hiện có?**
+
+Kiểm tra kiểu hình dạng trước khi sử dụng các thành viên đặc thù của khung ảnh. Kiểm tra `java_instanceof` với [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) tránh các ép kiểu không hợp lệ và cho phép mã xử lý các slide không chứa khung ảnh.

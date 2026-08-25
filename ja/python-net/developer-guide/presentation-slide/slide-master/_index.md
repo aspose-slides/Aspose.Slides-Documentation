@@ -1,11 +1,11 @@
 ---
-title: Python でプレゼンテーション スライドマスターを管理する
-linktitle: スライドマスター
+title: Python でプレゼンテーション スライド マスターを管理する
+linktitle: スライド マスター
 type: docs
 weight: 80
 url: /ja/python-net/slide-master/
 keywords:
-- スライドマスター
+- スライド マスター
 - マスタースライド
 - PPT マスタースライド
 - 複数のマスタースライド
@@ -21,37 +21,35 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET におけるスライドマスターの管理：PowerPoint および OpenDocument プレゼンテーションでスライドマスターをアクセス、編集、クローン、比較、削除する"
+description: "Aspose.Slides for Python via .NET でスライド マスターを管理します。PowerPoint および OpenDocument プレゼンテーションでマスタースライドにアクセス、編集、クローン、比較、削除が可能です。"
 ---
 ## **概要**
 
-**スライドマスター**は、一連のスライドに対して共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキストスタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することで、各スライドで同じ書式設定を繰り返すことなくプレゼンテーションを一貫させるのが一般的な方法です。
+**スライド マスター**は、スライド群に対する共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキスト スタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライド マスターを編集することで、各スライドで同じ書式設定を繰り返すことなくプレゼンテーションの一貫性を保つのが一般的です。
 
-Aspose.Slides for Python via .NET でも同じモデルがサポートされています。プレゼンテーションは 1 つ以上のマスタースライドを含むことができ、各マスタースライドは複数のレイアウトスライドを保持できます。通常のスライドは直接マスタースライドを参照しません。代わりに、通常のスライドはレイアウトスライドを使用し、そのレイアウトスライドがマスタースライドに属します。
+Aspose.Slides for Python via .NET は同じモデルをサポートしています。プレゼンテーションは 1 つまたは複数のマスタースライドを含めることができ、各マスタースライドは複数のレイアウトスライドを保持できます。通常のスライドは直接マスタースライドを参照しません。代わりに、通常のスライドはレイアウトスライドを使用し、そのレイアウトスライドがマスタースライドに属します。
 
 階層構造は次のとおりです。
 
-1. **スライドマスター** - 共有デザインとテーマを定義します。  
-1. **レイアウトスライド** - プレースホルダーの配置やレイアウトレベルの書式設定を定義します。  
-1. **通常スライド** - 実際のプレゼンテーションコンテンツを保持し、1 つのレイアウトスライドを使用します。
+1. **スライド マスター** – 共有デザインとテーマを定義します。  
+1. **レイアウト スライド** – プレースホルダーの配置とレイアウトレベルの書式設定を定義します。  
+1. **通常スライド** – 実際のプレゼンテーション コンテンツを保持し、1 つのレイアウト スライドを使用します。
 
-![マスタースライド、レイアウトスライド、通常スライドの階層構造](slide-master_2.jpg)
+![スライド マスター、レイアウト スライド、通常スライドの階層構造](slide-master_2.jpg)
 
-Aspose.Slides では、スライドマスターは [MasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslide/) クラスで表されます。プレゼンテーション内のすべてのマスタースライドは `Presentation.masters` コレクションから取得できます。
+Aspose.Slides では、スライド マスターは [MasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslide/) クラスで表されます。プレゼンテーション内のすべてのマスタースライドは `Presentation.masters` コレクションから取得できます。
 
 {{% alert color="info" title="Inheritance" %}}
-
-同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方で背景が定義されていると、当該レイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[スライド レイアウトの適用または変更](/python-net/slide-layout/) を参照してください。
-
+複数のレベルで同じプロパティが定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウト スライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウト スライドの詳細については、[スライド レイアウトの適用または変更](/slides/ja/python-net/slide-layout/) を参照してください。
 {{% /alert %}}
 
-## **スライドマスターへのアクセス**
+## **スライド マスターへのアクセス**
 
-PowerPoint では **表示** > **スライドマスター** からスライドマスタービューを開くことができます。
+PowerPoint では、**表示** > **スライド マスター** からスライド マスター ビューを開くことができます。
 
-![PowerPoint の表示タブにあるスライドマスター コマンド](slide-master_3.jpg)
+![PowerPoint の表示タブにあるスライド マスター コマンド](slide-master_3.jpg)
 
-Aspose.Slides では、`masters` コレクションを使用してマスタースライドにアクセスします：
+Aspose.Slides では、`masters` コレクションを使用してマスタースライドにアクセスします。
 
 ```python
 import aspose.slides as slides
@@ -65,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-通常スライドが使用しているレイアウトを介して、対応するマスタースライドを取得することもできます：
+通常スライドのレイアウトを介して、そのスライドが使用しているマスタースライドを取得することもできます。
 
 ```python
 import aspose.slides as slides
@@ -79,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **スライドマスターに含まれるもの**
+## **スライド マスターに含まれるもの**
 
-マスタースライドはスライドに似たオブジェクトです。[BaseSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/baseslide/) クラスから共通のスライド動作を継承するため、通常スライドやレイアウトスライドと同様の多数のスライドプロパティを公開しています。マスタ固有のメンバーは [MasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslide/) API ページに記載されています。
+マスタースライドはスライドに類似したオブジェクトです。[BaseSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/baseslide/) クラスから共通のスライド 動作を継承しているため、通常スライドやレイアウト スライドと同様の多数のスライド プロパティを利用できます。マスター固有のメンバーは [MasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslide/) API ページに一覧があります。
 
-一般的に使用されるマスタースライドのメンバーは次のとおりです。
+一般的に使用されるマスタースライド メンバーは次のとおりです。
 
-| メンバー | 目的 |
+| メンバー | 用途 |
 | --- | --- |
-| `background` | マスターレベルのスライド背景を設定します。 |
-| `shapes` | ロゴや画像フレーム、共有テキストなど、マスター上に配置された図形を保持します。 |
-| `layout_slides` | マスターに属するレイアウトスライドを保持します。 |
-| `theme_manager` | マスターのテーマ API へのアクセスを提供します。 |
-| `header_footer_manager` | マスターおよびその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
-| `get_depending_slides` | レイアウトを通じてマスターに依存している通常スライドを返します。 |
+| `background` | マスター レベルのスライド背景を設定します。 |
+| `shapes` | ロゴ、画像フレーム、共有テキストなど、マスター上に配置された図形を格納します。 |
+| `layout_slides` | マスターに属するレイアウト スライドを格納します。 |
+| `theme_manager` | マスター テーマ API へのアクセスを提供します。 |
+| `header_footer_manager` | マスターとその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
+| `get_depending_slides` | レイアウトを介してマスターに依存している通常スライドを返します。 |
 
-## **スライドマスターに画像を追加する**
+## **スライド マスターに画像を追加する**
 
-マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するすべてのスライドに画像が表示されます。ロゴ、透かし、装飾バンド、その他繰り返し使用する視覚要素に便利です。
+マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するすべてのスライドに画像が表示されます。ロゴや透かし、装飾帯など、繰り返し使用する視覚要素に便利です。
 
-次の例は、最初のマスタースライドにロゴを追加します：
+次の例は、最初のマスタースライドにロゴを追加します。
 
 ```python
 import aspose.slides as slides
@@ -122,17 +120,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-画像フレームの詳細については、[Picture Frame](/python-net/picture-frame/) を参照してください。
+画像フレームの詳細については、[画像フレーム](/slides/ja/python-net/picture-frame/) を参照してください。
 
 ## **プレースホルダーの操作**
 
-プレースホルダーは通常、レイアウトスライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーと配置場所を決定します。
+プレースホルダーは通常、レイアウト スライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトが利用可能なプレースホルダーとその配置を決定します。
 
-PowerPoint では、スライドマスタービューでプレースホルダーコマンドを利用できます。
+PowerPoint では、プレースホルダー コマンドはスライド マスター ビューで利用できます。
 
-![PowerPoint のスライドマスタービューにある「プレースホルダーの挿入」コマンド](slide-master_5.png)
+![PowerPoint のスライド マスター ビューにあるプレースホルダー挿入コマンド](slide-master_5.png)
 
-Aspose.Slides で新しいプレースホルダーを追加する場合、マスターに属するレイアウトスライドを操作します：
+Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウト スライドを操作します。
 
 ```python
 import aspose.slides as slides
@@ -153,7 +151,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-既存のプレースホルダー形状の書式設定も可能です。次の例はタイトルプレースホルダーを検索し、線形グラデーション塗りつぶしを適用します：
+既存のプレースホルダー形状の書式設定も可能です。次の例はタイトル プレースホルダーを検索し、線形グラデーション塗りを適用します。
 
 ```python
 import aspose.pydrawing as draw
@@ -180,18 +178,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![通常スライドに継承される書式設定済みタイトルプレースホルダー](slide-master_8.png)
+![通常スライドが継承した書式設定済みタイトル プレースホルダー](slide-master_8.png)
 
-プレースホルダーやテキストの書式設定オプションの詳細は、[Set Prompt Text in Placeholder](/python-net/manage-placeholder/) および [Text Formatting](/python-net/text-formatting/) を参照してください。
+プレースホルダーおよびテキストの書式設定オプションの詳細は、[プレースホルダー内のプロンプト テキストの設定](/slides/ja/python-net/manage-placeholder/) と [テキストの書式設定](/slides/ja/python-net/text-formatting/) を参照してください。
 
-## **スライドマスターの背景を変更する**
+## **スライド マスターの背景を変更する**
 
-マスターバックグラウンドは、上書きされない限りレイアウトやスライドに継承されます。次の例は、最初のマスタースライドに単色背景色を設定します：
+マスターの背景は、レイアウトやスライドが上書きしない限り継承されます。次の例は、最初のマスタースライドに単色の背景色を設定します。
 
 ```python
 import aspose.pydrawing as draw
@@ -207,11 +205,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-関連トピックは、[Presentation Background](/python-net/presentation-background/) と [Presentation Theme](/python-net/presentation-theme/) を参照してください。
+関連トピックは、[プレゼンテーション 背景](/slides/ja/python-net/presentation-background/) と [プレゼンテーション テーマ](/slides/ja/python-net/presentation-theme/) を参照してください。
 
-## **スライドマスターを別のプレゼンテーションにクローンする**
+## **スライド マスターを別のプレゼンテーションにクローンする**
 
-[MasterSlideCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/) クラスの `add_clone` メソッドを使用して、マスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
+[MasterSlideCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/) の `add_clone` メソッドを使用して、マスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
 
 ```python
 import aspose.slides as slides
@@ -224,15 +222,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-マスターとともに通常スライドもクローンしたい場合は、[Clone Slides](/python-net/clone-slides/) を参照してください。
+マスターとともに通常スライドもクローンする必要がある場合は、[スライドのクローン](/slides/ja/python-net/clone-slides/) を参照してください。
 
-## **複数のスライドマスターを追加する**
+## **複数のスライド マスターを追加する**
 
-プレゼンテーションは複数のマスタースライドを含めることができ、セクションごとに異なるブランディング、ページ構成、テーマ設定が必要な場合に便利です。
+プレゼンテーションは複数のマスタースライドを含めることができます。セクションごとに異なるブランディング、ページ構成、テーマ設定が必要な場合に便利です。
 
 ![マスタースライドの挿入と管理のための PowerPoint コマンド](slide-master_9.jpg)
 
-次の例は、デフォルトマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下に空白レイアウトを取得し、レイアウトに基づく新しいスライドを追加します：
+次の例は、デフォルトマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下に空のレイアウトを取得し、最後にそのレイアウトに基づく新しいスライドを追加します。
 
 ```python
 import aspose.pydrawing as draw
@@ -258,9 +256,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **スライドマスターを比較する**
+## **スライド マスターの比較**
 
-マスタースライドは、[BaseSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/baseslide/) クラスから継承した `equals` メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他スライド設定）を対象とし、スライド ID などの固有識別子や現在の日付といった動的プレースホルダー値は比較対象外です。
+マスタースライドは、[BaseSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/baseslide/) クラスから継承した `equals` メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他のスライド設定）を対象とし、スライド ID などの一意識別子や現在の日付といった動的プレースホルダー値は比較しません。
 
 ```python
 import aspose.slides as slides
@@ -283,11 +281,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-詳細は、[Compare Presentation Slides](/python-net/compare-slides/) を参照してください。
+詳細は、[プレゼンテーション スライドの比較](/slides/ja/python-net/compare-slides/) を参照してください。
 
-## **スライドマスタービューをデフォルトビューに設定する**
+## **スライド マスター ビューをデフォルトビューに設定する**
 
-プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/ja/python-net/aspose.slides/viewproperties/) にある `last_view` プロパティを使用して、PowerPoint が最初に開くビューを制御できます。次の例は、プレゼンテーションをスライドマスタービューで開きます：
+プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/ja/python-net/aspose.slides/viewproperties/) の `last_view` プロパティを使用して、PowerPoint が最初に開くビューを制御できます。次の例は、プレゼンテーションをスライド マスター ビューで開きます。
 
 ```python
 import aspose.slides as slides
@@ -297,13 +295,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-他のビュー設定については、[Save Presentation](/python-net/save-presentation/) を参照してください。
+その他のビュー設定については、[プレゼンテーションの保存](/slides/ja/python-net/save-presentation/) を参照してください。
 
-## **未使用のマスタースライドを削除する**
+## **未使用のスライド マスターを削除する**
 
 プレゼンテーションには、もはや通常スライドで使用されていないマスタースライドが含まれることがあります。未使用のマスターを削除すると、ファイルサイズの削減やテンプレート保守の簡素化につながります。
 
-`remove_unused` を使用して、`masters` コレクションから未使用のマスターを削除します：
+`masters` コレクションの `remove_unused` を使用して未使用マスターを削除します。
 
 ```python
 import aspose.slides as slides
@@ -313,7 +311,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-低コードの `remove_unused_master_slides` メソッドは、[Compress](https://reference.aspose.com/slides/ja/python-net/aspose.slides.lowcode/compress/) クラスからも利用できます：
+また、[Compress](https://reference.aspose.com/slides/ja/python-net/aspose.slides.lowcode/compress/) クラスの低コードメソッド `remove_unused_master_slides` も利用できます。
 
 ```python
 import aspose.slides as slides
@@ -325,18 +323,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-**スライドマスターとレイアウトスライドの違いは何ですか？**
+### スライド マスターとレイアウト スライドの違いは何ですか？
 
-スライドマスターはテーマ、背景、共通図形、テキストスタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。通常スライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から継承します。
+スライド マスターはテーマ、背景、共通図形、テキスト スタイルなどの共有デザイン設定を定義します。レイアウト スライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。通常スライドはレイアウト スライドを使用するため、レイアウトとマスターの両方から継承します。
 
-**1 つのプレゼンテーションに複数のスライドマスターを含められますか？**
+### 1 つのプレゼンテーションに複数のスライド マスターを含めることはできますか？
 
-はい。プレゼンテーションは複数のスライドマスターを含めることができます。セクションごとに異なるビジュアルシステムやブランディングが必要な場合に、複数のマスターを使用してください。
+はい。プレゼンテーションは複数のスライド マスターを含めることができます。セクションごとに異なるビジュアル システムやブランディングが必要な場合に、複数のマスターを使用してください。
 
-**プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？**
+### プレースホルダーはマスタースライドに追加すべきですか、レイアウト スライドに追加すべきですか？
 
-ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共有の視覚要素や書式設定はマスタースライドに配置し、コンテンツ用のプレースホルダーは通常スライドが使用するレイアウトに配置します。
+ほとんどの場合、レイアウト スライドにプレースホルダーを追加します。共有のビジュアル要素や共通書式はマスタースライドに配置し、コンテンツ用のプレースホルダーは通常スライドが使用するレイアウトに配置します。
 
-**使用中のマスタースライドを削除できますか？**
+### まだ使用されているマスタースライドを削除できますか？
 
-できません。依存スライドがあるマスタースライドは直接削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、未使用のマスターだけを削除するクリーンアップ機能を使用してください。
+いいえ。依存スライドがあるマスタースライドは直接削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、未使用マスターのみを削除するクリーンアップ手順を使用してください。

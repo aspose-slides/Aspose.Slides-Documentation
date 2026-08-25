@@ -1,58 +1,59 @@
 ---
 title: ปรับแต่งแบบอักษร PowerPoint ใน PHP
-linktitle: ฟอนต์กำหนดเอง
+linktitle: แบบอักษรแบบกำหนดเอง
 type: docs
 weight: 20
 url: /th/php-java/custom-font/
 keywords:
-- ฟอนต์
-- ฟอนต์กำหนดเอง
-- ฟอนต์ภายนอก
-- โหลดฟอนต์
-- จัดการฟอนต์
-- โฟลเดอร์ฟอนต์
+- แบบอักษร
+- แบบอักษรกำหนดเอง
+- แบบอักษรภายนอก
+- โหลดแบบอักษร
+- จัดการแบบอักษร
+- โฟลเดอร์แบบอักษร
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "กำหนดแบบอักษรในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อให้การนำเสนอของคุณคมชัดและสอดคล้องกันบนทุกอุปกรณ์."
+description: "ปรับแต่งแบบอักษรในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อให้การนำเสนอของคุณคมชัดและสอดคล้องกันในทุกอุปกรณ์."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ให้คุณใช้แบบอักษรที่กำหนดเองในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบปฏิบัติการ คุณสามารถโหลดแบบอักษรจากโฟลเดอร์ที่กำหนดเอง, จัดหาฟอนต์สำหรับงานนำเสนอเฉพาะผ่านแหล่งฟอนต์ระดับเอกสาร, หรือโหลดฟอนต์ภายนอกจากข้อมูลไบต์โดยตรง
+Aspose.Slides ทำให้คุณสามารถใช้แบบอักษรที่กำหนดเองในงานนำเสนอได้โดยไม่ต้องติดตั้งบนระบบปฏิบัติการ คุณสามารถโหลดแบบอักษรจากโฟลเดอร์ที่กำหนดเอง, ให้แบบอักษรสำหรับงานนำเสนอเฉพาะผ่านแหล่งแบบอักษรระดับเอกสาร, หรือโหลดแบบอักษรภายนอกโดยตรงจากข้อมูลไบนารี
 
-ฟอนต์ที่โหลดแล้วจะถูกใช้เมื่อเรนเดอร์หรือส่งออกงานนำเสนอ เช่น เป็น PDF, รูปภาพ, และรูปแบบที่สนับสนุนอื่น ๆ ซึ่งช่วยให้ผลลัพธ์ของงานนำเสมอไปในสภาพแวดล้อมที่ต่างกัน บทความนี้ยังอธิบายวิธีตรวจสอบโฟลเดอร์ฟอนต์ที่ Aspose.Slides ใช้และวิธีล้างแคชฟอนต์หลังจากทำงานกับฟอนต์ภายนอก
+แบบอักษรที่โหลดจะถูกใช้เมื่อทำการแสดงผลหรือส่งออกงานนำเสนอ, เช่น เป็น PDF, ภาพ, หรือรูปแบบอื่นที่รองรับ ซึ่งช่วยให้ผลลัพธ์ของงานนำเสมอมากขึ้นในสภาพแวดล้อมต่าง ๆ บทความนี้ยังอธิบายวิธีตรวจสอบโฟลเดอร์แบบอักษรที่ Aspose.Slides ใช้และวิธีล้างแคชแบบอักษรหลังจากทำงานกับแบบอักษรภายนอก
 
-การลงทะเบียนฟอนต์ที่กำหนดเองสำหรับการเรนเดอร์แตกต่างจากการฝังฟอนต์ลงในไฟล์ PPTX หากต้องการเก็บฟอนต์ไว้ภายในงานนำเสนอเอง ให้ใช้คุณลักษณะการฝังฟอนต์โดยตรง
+การลงทะเบียนแบบอักษรที่กำหนดเองสำหรับการแสดงผลเป็นเรื่องแยกจากการฝังแบบอักษรลงในไฟล์ PPTX หากต้องการเก็บแบบอักษรไว้ในงานนำเสนอเอง, ให้ใช้ฟีเจอร์การฝังแบบอักษรโดยเจาะจง
 
-{{% alert color="primary"%}} 
-Aspose Slides ให้คุณโหลดฟอนต์เหล่านี้โดยใช้วิธี [loadExternalFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+ธีมของงานนำเสนอสามารถอ้างอิงฟอนต์ฟา́มิลีต่าง ๆ สำหรับระบบการเขียนแต่ละระบบ การแมปเหล่านี้เก็บชื่อแบบอักษรแต่ไม่ได้ติดตั้งหรือโหลดไฟล์แบบอักษร ดู [แบบอักษรธีมตามสคริปต์](/slides/th/php-java/script-specific-font-mappings/) เพื่อจัดการการแมป, และใช้ตัวเลือกการโหลดด้านล่างเพื่อให้แบบอักษรที่อ้างอิงพร้อมใช้สำหรับการแสดงผลที่สอดคล้องกัน
 
-* TrueType (.ttf) และ TrueType Collection (.ttc) ฟอนต์ ดูที่ [TrueType](https://en.wikipedia.org/wiki/TrueType)。
+{{% alert color="info" title="Note" %}}
+Aspose Slides ให้คุณโหลดแบบอักษรเหล่านี้โดยใช้เมธอด [loadExternalFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
-* OpenType (.otf) ฟอนต์ ดูที่ [OpenType](https://en.wikipedia.org/wiki/OpenType)。
+* TrueType (.ttf) และ TrueType Collection (.ttc) ดู [TrueType](https://en.wikipedia.org/wiki/TrueType)
 
+* OpenType (.otf) ดู [OpenType](https://en.wikipedia.org/wiki/OpenType)
 {{% /alert %}}
 
 ## **โหลดแบบอักษรที่กำหนดเอง**
 
-Aspose.Slides ให้คุณโหลดฟอนต์ที่ใช้ในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบ ซึ่งส่งผลต่อผลลัพธ์การส่งออก เช่น PDF, รูปภาพ, และรูปแบบที่สนับสนุนอื่น ๆ ทำให้เอกสารที่สร้างออกมามีลักษณะสม่ำเสมอระหว่างสภาพแวดล้อม ฟอนต์จะถูกโหลดจากไดเรกทอรีที่กำหนดเอง
+Aspose.Slides ทำให้คุณสามารถโหลดแบบอักษรที่ใช้ในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบ ซึ่งส่งผลต่อผลลัพธ์การส่งออก เช่น PDF, ภาพ, หรือรูปแบบอื่นที่รองรับ ทำให้เอกสารที่สร้างขึ้นดูสอดคล้องกันในทุกสภาพแวดล้อม แบบอักษรถูกโหลดจากไดเรกทอรีที่กำหนดเอง
 
-1. ระบุหนึ่งหรือหลายโฟลเดอร์ที่บรรจุไฟล์ฟอนต์  
-2. เรียกเมธอดสแตติก [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพื่อโหลดฟอนต์จากโฟลเดอร์เหล่านั้น  
-3. โหลดและเรนเดอร์/ส่งออกงานนำเสนอ  
-4. เรียกเมธอด [FontsLoader::clearCache](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#clearCache--) เพื่อล้างแคชฟอนต์
+1. ระบุหนึ่งหรือหลายโฟลเดอร์ที่มีไฟล์แบบอักษร
+2. เรียกเมธอดสแตติก [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพื่อโหลดแบบอักษรจากโฟลเดอร์เหล่านั้น
+3. โหลดและแสดงผล/ส่งออกงานนำเสนอ
+4. เรียก [FontsLoader::clearCache](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#clearCache--) เพื่อทำความสะอาดแคชแบบอักษร
 
-ตัวอย่างโค้ดต่อไปนี้แสดงกระบวนการโหลดฟอนต์:
+ตัวอย่างโค้ดต่อไปนี้แสดงกระบวนการโหลดแบบอักษร:
 
 ```php
-// กำหนดโฟลเดอร์ที่มีไฟล์ฟอนต์กำหนดเอง.
+// กำหนดโฟลเดอร์ที่มีไฟล์แบบอักษรกำหนดเอง.
 $externalFontFolder1 = __DIR__ . "/external-fonts-1";
 $externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
-// โหลดฟอนต์กำหนดเองจากโฟลเดอร์ที่ระบุ.
+// โหลดแบบอักษรกำหนดเองจากโฟลเดอร์ที่ระบุ.
 FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
@@ -60,41 +61,37 @@ try {
     $presentationPath = __DIR__ . "/sample.pptx";
     $presentation = new Presentation($presentationPath);
     
-    // เรนเดอร์/ส่งออกงานนำเสนอ (เช่น PDF, รูปภาพ หรือรูปแบบอื่น) โดยใช้ฟอนต์ที่โหลดไว้.
+    // แสดงผล/ส่งออกงานนำเสนอ (เช่นเป็น PDF, รูปภาพ, หรือรูปแบบอื่น) โดยใช้แบบอักษรที่โหลดแล้ว.
     $outputPath = __DIR__ . "/output.pdf";
     $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
     if ($presentation != null) $presentation->dispose();
 
-    // ล้างแคชฟอนต์หลังจากงานเสร็จสิ้น.
+    // ล้างแคชแบบอักษรหลังจากทำงานเสร็จ.
     FontsLoader::clearCache();
 }
 ```
 
-{{% alert color="info" title="หมายเหตุ"%}}
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพิ่มโฟลเดอร์เพิ่มเติมในเส้นทางค้นหาฟอนต์ แต่ไม่เปลี่ยนลำดับการเริ่มต้นฟอนต์  
-ฟอนต์จะถูกเริ่มต้นตามลำดับนี้:
+{{% alert color="info" title="Note" %}}
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพิ่มโฟลเดอร์เพิ่มเติมในเส้นทางการค้นหาแบบอักษร, แต่ไม่ได้เปลี่ยนลำดับการเริ่มต้นแบบอักษร แบบอักษรจะถูกเริ่มต้นตามลำดับนี้:
 
-1. เส้นทางฟอนต์เริ่มต้นของระบบปฏิบัติการ  
-1. เส้นทางที่โหลดผ่าน [FontsLoader](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/)  
-
-{{%/alert%}}
+1. เส้นทางแบบอักษรเริ่มต้นของระบบปฏิบัติการ
+1. เส้นทางที่โหลดผ่าน [FontsLoader](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/)
+{{%/alert %}}
 
 ## **รับโฟลเดอร์แบบอักษรที่กำหนดเอง**
-
-Aspose.Slides มีเมธอด [getFontFolders](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#getFontFolders--) เพื่อให้คุณค้นหาโฟลเดอร์ฟอนต์ เมธอดนี้จะคืนค่าโฟลเดอร์ที่เพิ่มผ่านเมธอด `LoadExternalFonts` และโฟลเดอร์ฟอนต์ของระบบ
+Aspose.Slides มีเมธอด [getFontFolders](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#getFontFolders--) เพื่อช่วยคุณค้นหาโฟลเดอร์แบบอักษร เมธอดนี้คืนค่าโฟลเดอร์ที่เพิ่มผ่านเมธอด `LoadExternalFonts` และโฟลเดอร์แบบอักษรของระบบ
 
 โค้ด PHP นี้แสดงวิธีใช้ [getFontFolders](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```php
-# บรรทัดนี้แสดงโฟลเดอร์ที่ค้นหาไฟล์ฟอนต์.
-# โฟลเดอร์เหล่านั้นถูกเพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์ฟอนต์ของระบบ.
+# บรรทัดนี้แสดงโฟลเดอร์ที่ค้นหาไฟล์แบบอักษร.
+# คือโฟลเดอร์ที่เพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์แบบอักษรของระบบ.
 $fontFolders = FontsLoader::getFontFolders();
 ```
 
-## **ระบุแบบอักษรที่กำหนดเองที่ใช้กับงานนำเสนอ**
-
-Aspose.Slides มีเมธอด [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) เพื่อให้คุณระบุฟอนต์ภายนณะที่จะใช้กับงานนำเสนอ
+## **ระบุแบบอักษรที่กำหนดเองที่ใช้ร่วมกับงานนำเสนอ**
+Aspose.Slides มีเมธอด [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) เพื่อให้คุณระบุแบบอักษรภายนอกที่จะใช้กับงานนำเสนอ
 
 โค้ด PHP นี้แสดงวิธีใช้เมธอด [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 
@@ -138,8 +135,8 @@ $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, 
 $presentationPath = __DIR__ . "/MyPresentation.pptx";
 $presentation = new Presentation($presentationPath, $loadOptions);
 try {
-    # ทำงานกับการนำเสนอ
-    # CustomFont1, CustomFont2, และฟอนต์จากโฟลเดอร์ assets\fonts & global\fonts รวมถึงโฟลเดอร์ย่อยของพวกมัน สามารถใช้ได้ในงานนำเสนอ
+    # ทำงานกับงานนำเสนอ
+    # CustomFont1, CustomFont2, และแบบอักษรจากโฟลเดอร์ assets\fonts และ global\fonts รวมถึงโฟลเดอร์ย่อยของมันสามารถใช้ได้ในงานนำเสนอ
 } finally {
     if (!java_is_null($presentation)) {
         $presentation->dispose();
@@ -149,9 +146,9 @@ try {
 
 ## **จัดการแบบอักษรจากภายนอก**
 
-Aspose.Slides มีเมธอด [loadExternalFont](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) เพื่อให้คุณโหลดฟอนต์ภายนอกจากข้อมูลไบต์
+Aspose.Slides มีเมธอด [loadExternalFont](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) เพื่อให้คุณโหลดแบบอักษรภายนอกจากข้อมูลไบนารี
 
-โค้ด PHP นี้แสดงกระบวนการโหลดฟอนต์จากอาร์เรย์ไบต์:
+โค้ด PHP นี้แสดงกระบวนการโหลดแบบอักษรจากอาเรย์ไบต์:
 
 ```php
 $javaArray = new JavaClass("java.lang.reflect.Array");
@@ -197,7 +194,7 @@ FontsLoader::loadExternalFont($fontBytes);
 try {
     $presentation = new Presentation();
     try {
-        # ฟอนต์ภายนอกที่โหลดในช่วงอายุของการนำเสนอ
+        # แบบอักษรภายนอกโหลดในช่วงชีวิตของงานนำเสนอ
     } finally {
         if (!java_is_null($presentation)) {
             $presentation->dispose();
@@ -210,17 +207,22 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฟอนต์ที่กำหนดเองส่งผลต่อการส่งออกเป็นทุกรูปแบบ (PDF, PNG, SVG, HTML) หรือไม่?**  
-ใช่ ฟอนต์ที่เชื่อมต่อจะถูกใช้โดยตัวเรนเดอร์ในทุกรูปแบบการส่งออก
+### แบบอักษรที่กำหนดเองส่งผลต่อการส่งออกทุกรูปแบบ (PDF, PNG, SVG, HTML) หรือไม่?
 
-**ฟอนต์ที่กำหนดเองจะถูกฝังอัตโนมัติใน PPTX ที่ได้หรือไม่?**  
-ไม่ การลงทะเบียนฟอนต์สำหรับการเรนเดอร์ไม่ได้หมายถึงการฝังลงใน PPTX หากต้องการให้ฟอนต์อยู่ภายในไฟล์งานนำเสนอ ต้องใช้คุณลักษณะการฝังฟอนต์โดยชัดเจน ([embedding features](/slides/th/php-java/embedded-font/))
+ใช่ แบบอักษรที่เชื่อมต่อจะถูกใช้โดยเรนเดอร์ในทุกรูปแบบการส่งออก
 
-**สามารถควบคุมพฤติกรรม fallback เมื่อฟอนต์ที่กำหนดไม่มี glyph บางตัวได้หรือไม่?**  
-ใช่ สามารถกำหนด [font substitution](/slides/th/php-java/font-substitution/), [replacement rules](/slides/th/php-java/font-replacement/), และ [fallback sets](/slides/th/php-java/fallback-font/) เพื่อระบุฟอนต์ที่จะใช้เมื่อ glyph ที่ต้องการไม่มีอยู่
+### แบบอักษรที่กำหนดเองจะถูกฝังอัตโนมัติในไฟล์ PPTX ที่ได้หรือไม่?
 
-**สามารถใช้ฟอนต์ใน Linux/Docker container ได้โดยไม่ต้องติดตั้งบนระบบหรือไม่?**  
-ใช่ เพียงชี้ไปที่โฟลเดอร์ฟอนต์ของคุณเองหรือโหลดฟอนต์จากอาร์เรย์ไบต์ จะทำให้ไม่พึ่งพาโฟลเดอร์ฟอนต์ของระบบในภาพคอนเทนเนอร์
+ไม่ การลงทะเบียนแบบอักษรเพื่อการแสดงผลไม่เท่ากับการฝังแบบอักษรลงใน PPTX หากต้องการให้แบบอักษรถูกเก็บในไฟล์งานนำเสนอ, คุณต้องใช้ [ฟีเจอร์การฝัง](/slides/th/php-java/embedded-font/)
 
-**เรื่องลิขสิทธิ์—สามารถฝังฟอนต์ที่กำหนดเองใดก็ได้โดยไม่มีข้อจำกัดหรือไม่?**  
-คุณต้องรับผิดชอบต่อการปฏิบัติตามลิขสิทธิ์ของฟอนต์ เงื่อนไขอาจแตกต่างกัน; บางลิขสิทธิ์ห้ามฝังหรือห้ามใช้เชิงพาณิชย์ ควรตรวจสอบ EULA ของฟอนต์ก่อนนำผลลัพธ์ไปเผยแพร่
+### สามารถควบคุมพฤติกรรมสำรองเมื่อแบบอักษรที่กำหนดไม่มี glyph บางตัวได้หรือไม่?
+
+ได้ กำหนดค่า [การแทนที่แบบอักษร](/slides/th/php-java/font-substitution/), [กฎการแทนที่](/slides/th/php-java/font-replacement/), และ [ชุดสำรอง](/slides/th/php-java/fallback-font/) เพื่อระบุอย่างชัดเจนว่าแบบอักษรใดจะถูกใช้เมื่อ glyph ที่ร้องขอหายไป
+
+### สามารถใช้แบบอักษรในคอนเทนเนอร์ Linux/Docker โดยไม่ต้องติดตั้งระบบได้หรือไม่?
+
+ได้ ชี้ไปยังโฟลเดอร์แบบอักษรของคุณเองหรือโหลดแบบอักษรจากอาเรย์ไบต์ ซึ่งจะลดการพึ่งพาโฟลเดอร์แบบอักษรของระบบในอิมเมจคอนเทนเนอร์
+
+### เรื่องลิขสิทธิ์ – สามารถฝังแบบอักษรที่กำหนดเองได้โดยไม่มีข้อจำกัดหรือไม่?
+
+คุณต้องรับผิดชอบต่อการปฏิบัติตามลิขสิทธิ์ของแบบอักษร เงื่อนไขอาจแตกต่างกัน; บางลิขสิทธิ์ห้ามการฝังหรือการใช้งานเชิงพาณิชย์ ตรวจสอบ EULA ของแบบอักษรก่อนจัดจำหน่ายผลลัพธ์

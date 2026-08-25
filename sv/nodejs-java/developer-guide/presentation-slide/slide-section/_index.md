@@ -1,91 +1,208 @@
 ---
-title: Hantera bildsektioner i presentationer med JavaScript
-linktitle: Bildsektion
+title: Hantera bildavsnitt i presentationer med JavaScript
+linktitle: Bildavsnitt
 type: docs
 weight: 90
 url: /sv/nodejs-java/slide-section/
 keywords:
-- skapa sektion
-- lägga till sektion
-- redigera sektion
-- ändra sektion
-- sektionens namn
+- skapa avsnitt
+- lägga till avsnitt
+- redigera avsnitt
+- ändra avsnitt
+- avsnittsnamn
+- hämta avsnittsbilder
+- bearbeta avsnittsbilder
 - PowerPoint
-- OpenDocument
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Effektivisera bildsektioner i PowerPoint och OpenDocument med Aspose.Slides för Node.js — dela, byt namn och omordna för att optimera PPTX- och ODP-arbetsflöden."
+description: "Hantera bildavsnitt med Aspose.Slides för Node.js via Java: skapa, byta namn på, omordna, hämta och bearbeta avsnittsbilder i PPTX-presentationer."
 ---
 ## **Introduktion**
 
-Med Aspose.Slides för Node.js via Java kan du organisera en PowerPoint-presentation i sektioner. Du kan skapa sektioner som innehåller specifika bilder.
+Avsnitt organiserar på varandra följande bilder i namngivna grupper utan att ändra bildinnehållet. Med Aspose.Slides för Node.js via Java kan du skapa, omordna, byta namn, inspektera och ta bort avsnitt via metoden [Presentation.getSections](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getSections) metod.
 
-Du kan vilja skapa sektioner och använda dem för att organisera eller dela upp bilder i en presentation i logiska delar i följande situationer:
+Avsnitt är särskilt användbara när:
 
-- När du arbetar med en stor presentation tillsammans med andra eller ett team — och du behöver tilldela vissa bilder till en kollega eller några teammedlemmar. 
-- När du har en presentation som innehåller många bilder — och du har svårt att hantera eller redigera dess innehåll på en gång.
+- en stor presentation behöver delas upp i logiska ämnen eller kapitel;
+- olika grupper av bilder tilldelas olika medarbetare;
+- bilder behöver bearbetas, flyttas eller slås ihop som grupper.
 
-Idealiskt bör du skapa en sektion som samlar liknande bilder — bilderna har något gemensamt eller de kan existera i en grupp baserat på en regel — och ge sektionen ett namn som beskriver bilderna i den. 
+Välj koncisa avsnittsnamn som beskriver syftet med de grupperade bilderna. Eftersom avsnitt är en del av presentationens struktur, använd avsnitt‑API:erna för att avgöra medlemskap istället för att härleda det från bildpositioner.
 
-## **Skapa sektioner i presentationer**
+## **Skapa och hantera avsnitt**
 
-För att lägga till en sektion som samlar bilder i en presentation tillhandahåller Aspose.Slides för Node.js via Java metoden [addSection()](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) som låter dig ange namnet på sektionen du vill skapa och bilden där sektionen börjar.
+Använd [SectionCollection.addSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/#addSection) för att skapa ett avsnitt genom att ange dess namn och startbild. Aspose.Slides bestämmer vilka bilder som tillhör avsnittet från presentationens nuvarande avsnittstruktur.
 
-Denna exempelcode visar hur du skapar en sektion i en presentation i JavaScript:
+Samma [SectionCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/) låter dig också:
+
+- flytta ett avsnitt tillsammans med dess bilder genom att använda [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides);
+- ta bara bort avsnittdefinitionen med [SectionCollection.removeSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/#removeSection), vilket behåller dess bilder;
+- ta bort ett avsnitt och dess bilder med [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides);
+- lägga till ett tomt avsnitt i slutet med [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection).
+
+Följande exempel skapar två avsnitt, flyttar ett av dem, tar bort det tillsammans med dess bilder och lägger till ett tomt avsnitt:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 kommer att avslutas vid newSlide2 och därefter kommer section2 att börja
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ändra namn på sektioner**
+Efter dessa operationer innehåller presentationen `Introduction`‑avsnittet med dess bilder samt ett tomt `Appendix`‑avsnitt. `Results`‑avsnittet och dess bilder har tagits bort.
 
-Efter att du har skapat en sektion i en PowerPoint-presentation kan du bestämma dig för att ändra dess namn.
+## **Byt namn på avsnitt**
 
-Denna exempelcode visar hur du ändrar namnet på en sektion i en presentation i JavaScript med Aspose.Slides:
+För att byta namn på ett avsnitt, anropa dess [Section.setName](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#setName) metod. Avsnittets bilder och position förblir oförändrade.
+
+Följande exempel skapar ett avsnitt och ändrar dess namn:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Hämta bilder från avsnitt**
 
-**Behålls sektioner när man sparar till PPT (PowerPoint 97–2003)-formatet?**
+[Presentation.getSections](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getSections) metoden returnerar en [SectionCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectioncollection/) som du kan komma åt via index. För varje [Section](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/), anropa [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getSlidesListOfSection) för att hämta de bilder som för närvarande tillhör den. Metoden returnerar en [SectionSlideCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectionslidecollection/), som ger ett räkneantal och indexerad åtkomst.
 
-Nej. PPT-formatet stöder inte sektionmetadata, så sektiongruppering går förlorad när man sparar till .ppt.
+Följande exempel skapar två fyllda avsnitt och ett tomt avsnitt, och skriver sedan ut varje avsnitts [name](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getName), [identifier](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getSectionId), [starting slide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getStartedFromSlide), bildantal och bildnummer. Det använder [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) för att läsa både den första bilden och varje bild i samlingen. För det tomma avsnittet har den returnerade samlingen size noll, indexerad åtkomst hoppas över och loopen utför inga operationer.
 
-**Kan en hel sektion "döljas"?**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-Nej. Endast enskilda bilder kan döljas. En sektion som enhet har inget "dolt" tillstånd.
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
 
-**Kan jag snabbt hitta en sektion via en bild och, omvänt, den första bilden i en sektion?**
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
 
-Ja. En sektion definieras unikt av sin startbild; given en bild kan du avgöra vilken sektion den tillhör, och för en sektion kan du komma åt dess första bild.
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Avsnittstillhörighet bestäms av presentationens avsnittstruktur. Beräkna inte ett avsnitts intervall manuellt från [Section.getStartedFromSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getStartedFromSlide), bildindex och nästa avsnitts startbild.
+
+Strukturella redigeringar kan förändra både de bilder som returneras för ett avsnitt och deras bildnummer. Detta inkluderar omordning av bilder, kloning av en bild till ett avsnitt, flytt av ett avsnitt tillsammans med dess bilder, borttagning av bilder och borttagning av avsnitt. Nästa exempel anropar [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getSlidesListOfSection) efter varje sådan förändring istället för att behålla antaganden om avsnittets tidigare gränser.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Anropa [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getSlidesListOfSection) igen när bilder eller avsnitt omordnas, klonas, flyttas eller tas bort. Detta håller efterföljande bearbetning i linje med den aktuella presentationsstrukturen.
+
+PPT‑formatet (PowerPoint 97–2003) bevarar inte avsnittsmetadata. Använd detta arbetsflöde med ett format som stöder avsnitt, som PPTX; konvertering till PPT tar bort avsnittsstrukturen som behövs för senare iteration.
+
+## **Vanliga frågor**
+
+**Behålls avsnitt när man sparar till PPT (PowerPoint 97–2003)-formatet?**
+
+Nej. PPT-formatet stöder inte avsnittsmetadata, så avsnittsgruppering går förlorad när man sparar till .ppt.
+
+**Kan ett helt avsnitt vara "dolt"?**
+
+Nej. Ett avsnitt har inget synlighetstillstånd. För att dölja dess innehåll, anropa [Slide.setHidden](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#setHidden) för varje bild i avsnittet.
+
+**Hur kan jag hitta avsnittet som innehåller en bild?**
+
+Åtkomst varje avsnitt i samlingen som returneras av [Presentation.getSections](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getSections), anropa [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getSlidesListOfSection) för varje avsnitt, och jämför de returnerade bilderna med mål‑bilden. För ett icke‑tomt avsnitt returnerar [Section.getStartedFromSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getStartedFromSlide) dess första bild; för ett tomt avsnitt returnerar det `null`.

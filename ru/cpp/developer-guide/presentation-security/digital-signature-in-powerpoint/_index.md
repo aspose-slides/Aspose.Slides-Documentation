@@ -9,93 +9,169 @@ keywords:
 - цифровой сертификат
 - центр сертификации
 - сертификат PFX
+- PKCS#12
+- проверка подписи
 - PowerPoint
-- OpenDocument
-- презентация
+- PPTX
+- безопасность презентаций
 - C++
 - Aspose.Slides
-description: "Узнайте, как цифрово подписывать файлы PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Защитите свои слайды за секунды с помощью наглядных примеров кода."
+description: "Узнайте, как подписывать существующие презентации PPTX с помощью сертификатов PFX и использовать Aspose.Slides для C++ для проверки или удаления цифровых подписей."
 ---
+## **Обзор**
 
-**Цифровой сертификат** используется для создания презентации PowerPoint, защищённой паролем, помеченной как созданная определённой организацией или лицом. Цифровой сертификат можно получить, обратившись к уполномоченной организации — центру сертификации. После установки цифрового сертификата в систему им можно добавить цифровую подпись к презентации через Файл → Сведения → Защитить презентацию:
+Цифровая подпись помогает получателю определить, кто подписал презентацию и изменилось ли подписанное содержимое. Здесь важны три связанных понятия безопасности:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **Цифровой сертификат** — это электронное удостоверение, которое связывает личность с открытым ключом. Доверенный центр сертификации (CA) может выдать сертификат, либо организация может использовать самоподписанный сертификат для внутренних рабочих процессов.
+- **Цифровая подпись** создаётся из содержимого презентации и закрытого ключа владельца сертификата. Затем открытый ключ сертификата может быть использован для проверки подписи. Подпись предоставляет доказательства происхождения и целостности; она не шифрует презентацию.
+- **Защита паролем** контролирует, может ли пользователь открыть или изменить презентацию. Это отдельный механизм от цифровой подписи и описан в [Password-Protected Presentations](/slides/ru/cpp/password-protected-presentation/).
 
+PowerPoint предоставляет команду **Add a Digital Signature** в меню **File > Info > Protect Presentation**.
 
+![PowerPoint Protect Presentation menu with Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
-В презентации может быть более одной цифровой подписи. После того как цифровая подпись добавлена к презентации, в PowerPoint появляется специальное сообщение:
+После открытия подписанной презентации PowerPoint может отобразить уведомление о состоянии подписи.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint notification stating that the presentation contains valid signatures](digital-signature-status-in-powerpoint.png)
 
+Aspose.Slides раскрывает подписи через [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentation/get_digitalsignatures/), который возвращает [IDigitalSignatureCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignaturecollection/), элементы которой реализуют [IDigitalSignature](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignature/). Презентация может содержать несколько подписей.
 
+## **Понимание сертификатов PFX и паролей**
 
-Для подписи презентации или проверки подлинности подписей презентации **Aspose.Slides API** предоставляет интерфейс [**IDigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature), интерфейс [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) и метод [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1). В настоящее время цифровые подписи поддерживаются только для формата PPTX.
-## **Добавить цифровую подпись из сертификата PFX**
-Ниже приведён пример кода, демонстрирующий, как добавить цифровую подпись из сертификата PFX:
+Файл PFX, также известный как файл PKCS#12 и обычно имеющий расширение `.pfx` или `.p12`, может содержать сертификат X.509, его закрытый ключ и цепочку сертификатов. Закрытый ключ позволяет владельцу создать подпись. Сертификат без доступного закрытого ключа нельзя использовать для подписи презентации.
 
-1. Откройте файл PFX и передайте пароль PFX объекту [**DigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature).
-1. Добавьте созданную подпись к объекту презентации.
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+Пароль PFX защищает пакет сертификата и закрытый ключ. Это **не** пароль для открытия или редактирования презентации. Не сохраняйте файлы PFX и их пароли в системе контроля версий. В продакшене ограничьте доступ к файлу сертификата и получайте его пароль из хранилища секретов или другого защищённого конфигурационного источника. Ниже приведённые примеры используют переменную окружения только для того, чтобы не встраивать пароль в код.
 
-// Создать объект DigitalSignature с файлом PFX и паролем PFX 
-auto signature = System::MakeObject<DigitalSignature>(u"testsignature1.pfx", u"testpass1");
+## **Добавление цифровой подписи к презентации**
 
-// Комментарий к новой цифровой подписи
-signature->set_Comments(u"Aspose.Slides digital signing test.");
+Для подписи реального рабочего процесса загрузите существующий файл PPTX, создайте [DigitalSignature](https://reference.aspose.com/slides/ru/cpp/aspose.slides/digitalsignature/) из сертификата PFX и его пароля, добавьте подпись в коллекцию презентации и сохраните в файл PPTX.
 
-// Добавить цифровую подпись к презентации
-pres->get_DigitalSignatures()->Add(signature);
+```cpp
+auto certificatePassword = Environment::GetEnvironmentVariable(u"PFX_PASSWORD");
+if (certificatePassword.IsNullOrEmpty())
+{
+    throw InvalidOperationException(u"Set the PFX_PASSWORD environment variable.");
+}
 
-// Сохранить презентацию
-pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"InputPresentation.pptx");
+
+auto signature = MakeObject<DigitalSignature>(u"signing-certificate.pfx", certificatePassword);
+signature->set_Comments(u"Approved for release.");
+
+presentation->get_DigitalSignatures()->Add(signature);
+presentation->Save(u"InputPresentation-signed.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Сохранение результата под новым именем сохраняет неподписанный исходный файл. Значение [IDigitalSignature::set_Comments](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignature/set_comments/) описывает цель подписи; это не средство контроля безопасности.
 
-Теперь можно проверить, была ли презентация подписана цифровой подписью и не была ли изменена:
-``` cpp
-// Открыть презентацию
-auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
+## **Проверка цифровых подписей**
 
-if (pres->get_DigitalSignatures()->get_Count() > 0)
+При загрузке подписанного файла PPTX проверьте каждый элемент, возвращённый [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentation/get_digitalsignatures/). Метод [IDigitalSignature::get_IsValid](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignature/get_isvalid/) указывает, является ли встроенная подпись действительной для текущего содержимого презентации.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+auto signatureCount = presentation->get_DigitalSignatures()->get_Count();
+
+if (signatureCount == 0)
+{
+    Console::WriteLine(u"The presentation does not contain digital signatures.");
+}
+else
 {
     bool allSignaturesAreValid = true;
 
-    Console::WriteLine(u"Signatures used to sign the presentation: ");
-
-    // Проверить, являются ли все цифровые подписи действительными
-    for (auto signature : pres->get_DigitalSignatures())
+    for (int signatureIndex = 0; signatureIndex < signatureCount; ++signatureIndex)
     {
-        Console::WriteLine(signature->get_Certificate()->get_SubjectName()->get_Name() 
-            + u", " 
-            + signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm") 
-            + u" -- " 
-            + (signature->get_IsValid() ? System::String(u"VALID") : System::String(u"INVALID")));
-        allSignaturesAreValid &= signature->get_IsValid();
+        auto signature = presentation->get_DigitalSignature(signatureIndex);
+        auto signatureIsValid = signature->get_IsValid();
+        auto signatureStatus = signatureIsValid ? u"VALID" : u"INVALID";
+        auto signerName = signature->get_Certificate()->get_SubjectName()->get_Name();
+        auto signingTime = signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm:ss");
+
+        Console::WriteLine(u"{0}, {1} -- {2}", signerName, signingTime, signatureStatus);
+
+        allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
     }
 
     if (allSignaturesAreValid)
     {
-        Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
+        Console::WriteLine(u"All embedded signatures are valid for the current presentation.");
     }
     else
     {
-        Console::WriteLine(u"Presentation has been modified since signing.");
+        Console::WriteLine(u"At least one embedded signature is invalid.");
     }
 }
+
+presentation->Dispose();
 ```
 
+Недействительный результат обычно означает, что содержимое подписанной презентации или данные подписи изменились после подписи, либо файл повреждён. Удаление всех подписей приводит к неподписанной презентации, поэтому проверка только валидности элементов недостаточна: в чувствительном к безопасности процессе также необходимо убедиться, что присутствует ожидаемое количество подписей и ожидаемые идентификаторы подписантов.
+
+Этот результат валидации не следует рассматривать как окончательное решение о доверии к сертификату. В зависимости от вашей политики безопасности приложению может потребоваться построить и проверить цепочку сертификатов X.509, проверить даты действия сертификата и статус отзыва, подтвердить ожидаемый субъект или отпечаток, проверить назначение ключа и оценить надёжный временной штамп. Значение [IDigitalSignature::get_SignTime](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignature/get_signtime/) само по себе не является доказательством от надёжного органа штампов времени.
+
+## **Удаление цифровых подписей**
+
+Удаление подписей меняет состояние безопасности презентации. В следующем примере загружается подписанный файл PPTX, все подписи удаляются с помощью [IDigitalSignatureCollection::Clear](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignaturecollection/clear/), и сохраняется неподписанная копия.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+presentation->get_DigitalSignatures()->Clear();
+presentation->Save(u"InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Чтобы удалить только одну подпись, вызовите [IDigitalSignatureCollection::RemoveAt](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idigitalsignaturecollection/removeat/) с её нулевым индексом. Сохраните в новый файл, если только перезапись оригинала не является явной частью вашего рабочего процесса.
+
+## **Редактирование и форматные соображения**
+
+- Подпись не делает презентацию только для чтения. Пользователи и приложения всё ещё могут редактировать файл, но изменения подписанного содержимого обычно делают существующую подпись недействительной.
+- Выполните все необходимые правки до подписи. Если презентацию нужно изменить, сохраните исправленную версию и подпишите её заново.
+- Оставляйте конечный результат в формате PPTX. Конвертация подписанной презентации в другой формат не переносит оригинальную подпись PPTX как действительную подпись в преобразованном файле.
+- Относитесь к закрытому ключу сертификата как к конфиденциальному. Любой, кто получит закрытый ключ и его пароль, может создавать подписи, выглядящие так, будто они созданы владельцем сертификата.
+- Сохраняйте неподписанный исходный файл или другую контролируемую копию, если это требуется вашей политикой хранения документов.
 
 ## **FAQ**
 
-**Можно ли удалить существующие подписи из файла?**
+**Шифрует ли цифровая подпись презентацию?**
 
-Да. Коллекция цифровых подписей поддерживает [удаление отдельных элементов](https://reference.aspose.com/slides/cpp/aspose.slides/digitalsignaturecollection/removeat/) и [полную очистку](https://reference.aspose.com/slides/cpp/aspose.slides/digitalsignaturecollection/clear/); после сохранения файла в презентации не будет подписей.
+Нет. Цифровая подпись предоставляет доказательства происхождения и целостности, но содержимое презентации остаётся читаемым, если не применено отдельное шифрование. Используйте [password protection](/slides/ru/cpp/password-protected-presentation/), когда необходимо ограничить доступ к содержимому.
 
-**Станет ли файл «только для чтения» после подписи?**
+**Является ли пароль PFX тем же самым, что пароль презентации?**
 
-Нет. Подпись сохраняет целостность и авторство, но не блокирует редактирование. Чтобы ограничить редактирование, сочетайте её с [«Только для чтения» или паролем](/slides/ru/cpp/password-protected-presentation/).
+Нет. Пароль PFX разблокирует закрытый ключ, хранящийся в пакете сертификата. Он не контролирует, кто может открыть или редактировать файл PPTX.
 
-**Будет ли подпись отображаться корректно в разных версиях PowerPoint?**
+**Можно ли использовать самоподписанный сертификат?**
 
-Подпись создана для контейнера OOXML (PPTX). Современные версии PowerPoint, поддерживающие подписи OOXML, корректно отображают статус таких подписей.
+Технически самоподписанный сертификат может быть использован, если в нём есть доступный закрытый ключ. Получатели автоматически не будут ему доверять, если только сертификат явно не добавлен в их доверенную среду. В публичных или межорганизационных процессах обычно используют сертификат, выданный доверенным CA.
+
+**Что делает подпись недействительной?**
+
+Изменение подписанного содержимого презентации или данных подписи после подписи делает подпись недействительной. Повреждение файла также может привести к ошибке валидации. Если все подписи удалены, презентация считается неподписанной, а не содержащей недействительную подпись.
+
+**Означает ли действительная подпись, что её следует доверять?**
+
+Не обязательно. Целостность подписи и доверие к подписанту — это отдельные решения. Политика проверки в продакшене должна также проверять цепочку сертификатов, срок действия, статус отзыва, ожидаемую личность, назначение ключа и любые требования к надёжному временнóму штампу.
+
+**Что происходит, когда срок действия сертификата истекает?**
+
+Истечение срока действия сертификата не изменяет байты презентации, но влияет на оценку доверия к сертификату. Приёмлемость подписи зависит от вашей политики и от того, подтверждает ли надёжный временной штамп, что подпись была выполнена, пока сертификат был действителен. Не полагайтесь только на отображаемое время подписи как на надёжный штамп времени.
+
+**Можно ли продолжать редактировать подписанную презентацию?**
+
+Да. Подпись не блокирует файл. Редактирование подписанного содержимого обычно делает существующую подпись недействительной, поэтому завершите работу над презентацией и подпишите окончательную версию.
+
+**Может ли презентация содержать более одной подписи?**
+
+Да. Добавьте каждую подпись в коллекцию, возвращаемую [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentation/get_digitalsignatures/), перед сохранением. При проверке просмотрите каждую подпись и убедитесь, что все требуемые подписанты присутствуют.
+
+**Какие форматы презентаций поддерживают эти операции?**
+
+Aspose.Slides поддерживает описанные здесь операции с цифровой подписью только для PPTX. Форматы PPT и OpenDocument не поддерживаются этим API.
+
+**Можно ли удалить подпись, не затронув слайды?**
+
+Да. Вы можете удалить одну подпись или очистить всю коллекцию, а затем сохранить презентацию. Содержание слайдов останется доступным, но сохранённый файл больше не будет содержать доказательства подписи.

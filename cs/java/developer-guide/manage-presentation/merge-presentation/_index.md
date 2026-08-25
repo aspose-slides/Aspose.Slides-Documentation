@@ -1,6 +1,6 @@
 ---
 title: Efektivně sloučit prezentace v Javě
-linktitle: Slučování prezentací
+linktitle: Sloučit prezentace
 type: docs
 weight: 40
 url: /cs/java/merge-presentation/
@@ -19,225 +19,332 @@ keywords:
 - kombinovat ODP
 - Java
 - Aspose.Slides
-description: "Jednoduše sloučte prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) pomocí Aspose.Slides pro Java, což zjednoduší váš pracovní postup."
+description: "Naučte se, jak v Javě sloučit prezentace PowerPoint a OpenDocument klonováním snímků, řízením hlavních a rozvržení, změnou velikosti obsahu snímků, zachováním sekcí a zpracováním chráněných nebo velkých souborů."
 ---
 ## **Přehled**
 
-Sloučení prezentací PowerPoint a OpenDocument je běžný úkol v mnoha Java aplikacích, zejména při generování reportů, sestavování snímků z různých zdrojů nebo automatizaci pracovních toků prezentací. Aspose.Slides pro Java poskytuje výkonné a snadno použitelné API pro kombinování více souborů PPT, PPTX nebo ODP do jedné prezentace bez instalace Microsoft PowerPoint, LibreOffice nebo OpenOffice.
+Aspose.Slides for Java spojuje prezentace klonováním snímků z jedné [Prezentace](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) do druhé. Hlavní operací je [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), která může zachovat formátování zdrojového snímku nebo připojit klonovaný snímek k hlavě nebo rozvržení v cílové prezentaci.
 
-V tomto průvodci se naučíte, jak sloučit prezentace PowerPoint a OpenDocument pomocí několika řádků Java kódu. Poskytneme připravené ukázky a ukážeme, jak během procesu slučování zachovat formátování snímků, rozvržení a další prvky prezentace.
+Tento článek popisuje nejčastější postupy sloučení:
 
-Ať už vytváříte podnikovou aplikaci nebo jednoduchý automatizační nástroj, Aspose.Slides umožňuje sloučení prezentací v Javě rychle, spolehlivě a škálovatelně. Aspose.Slides pro Java vám umožňuje slučovat prezentace různými způsoby. Můžete kombinovat prezentace se všemi jejich tvary, styly, textem, formátováním, komentáři, animacemi a dalšími prvky — aniž byste se museli obávat ztráty kvality nebo dat.
+- sloučit všechny snímky při zachování jejich zdrojového formátování;
+- sloučit vybrané snímky;
+- použít hlavičku (master) z cílové prezentace;
+- použít konkrétní rozvržení z cílové prezentace;
+- normalizovat různé velikosti snímků před sloučením;
+- přidat klonované snímky do sekce;
+- sloučit několik prezentací v jednom end-to-end pracovním postupu;
+- zpracovat hlavní (masters), zdroje, poznámky, komentáře, média, písma, hesla, velké soubory a problémy s vícenásobným vláknením.
 
-{{% alert color="primary" %}}
-Viz také: [Clone Slides](https://docs.aspose.com/slides/cs/java/clone-slides/)
-{{% /alert %}}
+## **Jak klonování snímků ovlivňuje hlavní (masters) a rozvržení**
 
-### **Co lze sloučit?**
+Snímek dědí velkou část svého vzhledu z rozvržení a hlavní (master). Z tohoto důvodu volba přetížení klonování určuje, jak bude sloučený snímek integrován do cílové prezentace.
 
-S Aspose.Slides můžete sloučit:
+Použijte [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/) jedním z následujících způsobů:
 
-**Celé prezentace** – všechny snímky z více prezentací jsou sloučeny do jedné.
+- `addClone(sourceSlide)` — zachová rozvržení a formátování zdrojového snímku. V případě potřeby může být zdrojový master automaticky klonován do cílové prezentace. Aspose.Slides sleduje automaticky klonované mastery, takže opakované snímky používající stejný zdrojový master nevedou k opakovanému klonování tohoto masteru.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — připojí klonovaný snímek k určitému cílovému [IMasterSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslide/). Aspose.Slides hledá odpovídající rozvržení pod tímto masterem podle typu rozvržení nebo názvu.
+- `addClone(sourceSlide, destinationLayout)` — připojí klonovaný snímek přímo k určitému cílovému [ILayoutSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ilayoutslide/).
 
-**Vybrané snímky** – pouze vybrané snímky jsou sloučeny do jedné prezentace.
+Master nebo rozvržení předané přetížení `addClone` musí patřit **cílové** prezentaci, nikoli zdrojové prezentaci.
 
-**Prezentace ve stejném formátu** (např. PPT na PPT, PPTX na PPTX) a **v různých formátech** (např. PPT na PPTX, PPTX na ODP).
+## **Sloučit celé prezentace a zachovat zdrojové formátování**
 
-### **Možnosti sloučení**
-
-Můžete nastavit možnosti, které určují, zda:
-
-- Každý snímek ve výstupní prezentaci si zachová svůj původní styl
-- Na všechny snímky ve výstupní prezentaci se aplikuje konkrétní styl
-
-Aby bylo možné sloučit prezentace, Aspose.Slides poskytuje metody `AddClone` z rozhraní [ISlideCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/) . Existuje několik přetížení metody `AddClone`, která určují chování procesu slučování. Každý objekt [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) má kolekci Slides. Proto můžete zavolat metodu `AddClone` na cílové prezentaci, do které chcete sloučit snímky.
-
-Metoda `AddClone` vrací objekt [ISlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islide/), který je klonem zdrojového snímku. Výsledné snímky ve výstupní prezentaci jsou prostě kopiemi původních snímků. To znamená, že můžete bezpečně upravovat klonované snímky — například aplikovat styly, možnosti formátování nebo rozvržení — aniž byste ovlivnili zdrojovou prezentaci.
-
-## **Sloučení prezentací**
-
-Aspose.Slides poskytuje metodu [AddClone(ISlide)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) , která umožňuje kombinovat snímky při zachování jejich původních rozvržení a stylů (výchozí chování).
-
-Následující Java kód ukazuje, jak sloučit prezentace:
+Nejjednodušší sloučení zkopíruje každý snímek ze zdrojové prezentace do cílové prezentace. Toto je vhodná volba, když importované snímky mají zachovat své původní téma, master a vztahy rozvržení.
 
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Sloučení prezentací s hlavním snímkem (Slide Master)**
+Výsledná prezentace může obsahovat více masterů, pokud zdroj a cíl používají různé návrhy. To je očekávané, když je zdrojové formátování úmyslně zachováno.
 
-Aspose.Slides poskytuje metodu [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) , která umožňuje kombinovat snímky při aplikaci hlavního snímku (slide master) z šablony prezentace. Tímto způsobem můžete v případě potřeby změnit styl snímků ve výstupní prezentaci.
+## **Sloučit vybrané snímky**
 
-Následující Java kód demonstruje tuto operaci:
+Nemusíte klonovat každý snímek. Následující příklad importuje pouze vybrané indexy snímků ze zdrojové prezentace.
 
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
-        presentation1.getSlides().addClone(slide, masterSlide, true);
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}}
-Rozvržení snímku se určuje automaticky. Pokud není nalezeno vhodné rozvržení a boolean parametr `allowCloneMissingLayout` metody `AddClone` je nastaven na `true`, použije se rozvržení ze zdrojového snímku. V opačném případě je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pptxeditexception/).
-{{% /alert %}}
+Ověřte indexy snímků před klonováním, pokud pocházejí od uživatele nebo z externí konfigurace.
 
-## **Sloučení konkrétních snímků z prezentací**
+## **Sloučit snímky pomocí cílového masteru**
 
-Sloučení konkrétních snímků z více prezentací je užitečné při tvorbě vlastních sad snímků. Aspose.Slides pro Java vám umožňuje vybrat a importovat pouze potřebné snímky. API zachovává formátování, rozvržení a design původních snímků.
-
-Následující Java kód vytvoří novou prezentaci, přidá titulní snímky ze dvou dalších prezentací a uloží výsledek do souboru:
+Použijte [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) přetížení, když mají importované snímky následovat master, který již patří do cílové prezentace.
 
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
+    }
 
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
+
+Aspose.Slides vybírá vhodné rozvržení pod zadaným masterem porovnáním typu nebo názvu rozvržení zdrojového snímku. Pokud neexistuje vhodné rozvržení a `allowCloneMissingLayout` je `true`, zdrojové rozvržení se klonuje, aby mohl být snímek přidán. Pokud je `false`, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pptxeditexception/).
+
+Použijte `false`, když chcete, aby sloučení selhalo místo toho, aby se do cílového masteru přidalo další rozvržení.
+
+## **Sloučit snímky pomocí konkrétního cílového rozvržení**
+
+Použijte [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) přetížení, když přesně víte, které cílové rozvržení mají importované snímky použít.
+
 ```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Použití cílového rozvržení mění děděnou vazbu rozvržení; nepřetváří obsah zdrojového snímku. Pokud mají zdrojové a cílové rozvržení odlišné struktury zástupných objektů, prohlédněte výsledek a ověřte, že děděné formátování a chování zástupných objektů jsou vhodné.
+
+## **Sloučit prezentace s různými velikostmi snímků**
+
+Prezentace s různými rozměry snímků lze sloučit, ale klonování snímku do prezentace s jinou velikostí neprovedete automaticky redesign obsahu pro novou plochu. Tvary se tak mohou jevit posunuté, neočekávaně měřené nebo mimo viditelnou oblast snímku.
+
+Praktickým přístupem je před klonováním změnit velikost zdrojové prezentace. Metoda [SlideSize.setSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidesize/#setSize-float-float-int-) může škálovat existující obsah při změně rozměrů snímku. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidesizescaletype/) škáluje obsah tak, aby se vešel do požadované velikosti.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    Dimension2D sourceSize = source.getSlideSize().getSize();
+    Dimension2D destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            (float) destinationSize.getWidth(), 
+            (float) destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
+    }
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Změna velikosti mění objekt zdrojové prezentace v paměti. Pokud potřebujete původní zdrojovou prezentaci zachovat nezměněnou pro další operace, otevřete samostatnou instanci pro sloučení.
+
+## **Sloučit snímky do sekce prezentace**
+
+Základní smyčka klonování snímků neobnoví hierarchii sekcí ve zdrojové prezentaci. Pokud jsou sekce důležité ve výstupu, vytvořte nebo vyberte sekce v cílové prezentaci a klonujte snímky do nich explicitně pomocí [addClone(ISlide, ISection)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
+    }
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Klonované snímky jsou připojeny ke specifikované cílové sekci. Pro zachování několika zdrojových sekcí enumerujte [Presentation.getSections](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getSections--), získejte aktuální snímky každé zdrojové sekce pomocí [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isection/#getSlidesListOfSection--), znovu vytvořte sekce v cíli a klonujte každý vrácený snímek do odpovídající cílové sekce. Viz [Manage Slide Sections](/slides/cs/java/slide-section/) pro kompletní příklad enumerace sekcí, včetně prázdných sekcí a strukturálních změn.
+
+## **Bezpečné sloučení více prezentací**
+
+Následující end-to-end příklad používá první prezentaci jako cíl, normalizuje velikost snímku každého dalšího zdroje, drží každý zdroj otevřený pouze během kopírování a uloží finální soubor jednou.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    Dimension2D mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            Dimension2D sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    (float) mergedSize.getWidth(), 
+                    (float) mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
         }
     }
-    return null;
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
 }
 ```
 
-## **Sloučení prezentací s rozvržením snímku**
+Jedná se o užitečný výchozí základ pro zachování formátování importovaných snímků. Pokud váš výstup musí používat jediné cílové téma, nahraďte jednoduché volání `addClone(slide)` odpovídajícím přetížením pro cílový master nebo cílové rozvržení, jak bylo uvedeno dříve.
 
-Pro aplikaci jiného rozvržení snímku na výstupní snímky během slučování použijte místo toho metodu [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) .
+## **Praktické úvahy**
 
-Následující Java kód ukazuje, jak kombinovat snímky z více prezentací při aplikaci preferovaného rozvržení snímku, což vede k jediné výstupní prezentaci:
+### **Mastery, rozvržení a věrnost formátování**
+
+Výchozí klonování snímků může automaticky přenést požadovaný zdrojový master do cílové prezentace. Aspose.Slides udržuje interní registr automaticky klonovaných masterů, aby se zabránilo opakovanému klonování stejného masteru. Ručně klonované mastery nejsou tímto registrem sledovány, proto se vyhněte předklonování masterů, pokud nepotřebujete explicitní kontrolu nad strukturou masterů.
+
+Neočekávejte, že dva mastery nebo rozvržení se stejným názvem jsou vizuálně ekvivalentní. Pokud firemní šablona musí řídit finální vzhled, zvolte explicitně cílový master nebo rozvržení a po sloučení výsledek ověřte.
+
+### **Poznámky a komentáře**
+
+Poznámky přednášejícího a komentáře k snímkům jsou svázány s obsahem snímku a jsou kopírovány při klonování snímku. Aspose.Slides také poskytuje dedikované API pro [presentation notes](/slides/cs/java/presentation-notes/) a [presentation comments](/slides/cs/java/presentation-comments/).
+
+Pokud je formátování stránky poznámek důležité, ověřte sloučenou prezentaci, protože mastery poznámek jsou objekty úrovně prezentace a mohou se mezi zdrojovými soubory lišit. Pro recenzní workflow také ověřte autory komentářů a vlákna komentářů po spojení souborů od různých autorů nebo šablon.
+
+### **Obrázky, audio, video, OLE objekty a externí odkazy**
+
+Snímky mohou odkazovat na zdroje na úrovni prezentace, jako jsou obrázky, vložené audio, vložené video a OLE data. Klonujte samotný snímek místo kopírování jen jeho viditelných tvarů, aby Aspose.Slides mohl udržet vztahy snímku k jeho zdrojům.
+
+Vložené a odkazované zdroje by měly být zpracovány odlišně. Odkazovaný audio, video, OLE objekt nebo hypertextový odkaz zůstává závislý na externím cíli; klonování snímku nepromění externí odkaz na vložený obsah. Otestujte cesty a URL odkazovaných zdrojů v prostředí, kde bude sloučená prezentace otevírána.
+
+Aspose.Slides explicitně sleduje automaticky klonované mastery, ale to by nemělo být považováno za obecnou záruku, že identické binární zdroje z nesouvisejících zdrojových prezentací budou vždy deduplikovány. Pokud je velikost výstupního souboru důležitá, prohlédněte sloučený balíček a změřte výsledek místo spolehnutí se na implicitní deduplikaci.
+
+### **Vložená písma a jejich dostupnost**
+
+Písma jsou spravována na úrovni prezentace. Pokud má typografie zůstat konzistentní napříč stroji, nepředpokládejte, že klonování snímků samo o sobě zaručuje, že všechna požadovaná písma budou dostupná v cílovém prostředí. Vložená písma můžete prozkoumat pomocí [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/cs/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a spravovat jejich vložení explicitně, jak je popsáno v [Embed Fonts in Presentations](/slides/cs/java/embedded-font/).
+
+Také ověřte, že máte oprávnění vložit písma použité ve zdrojových souborech. Licenční podmínky fontů mohou omezení vložení ukládat.
+
+### **Prezentace chráněné heslem**
+
+Zdroj chráněný heslem musí být úspěšně otevřen, než lze jeho snímky klonovat. Heslo zadejte pomocí [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
 
 ```java
-int layoutIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
-        presentation1.getSlides().addClone(slide, layoutSlide);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+    // Pracujte s dešifrovanou prezentací.
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
 }
 ```
 
-## **Sloučení prezentací s různými velikostmi snímků**
+Otevření šifrovaného zdroje automaticky nepřenáší stejnou ochranu do cílové prezentace. Ochranu výstupu nastavte samostatně podle potřeby.
 
-Pro sloučení dvou prezentací s různými velikostmi snímků byste měli změnit velikost jedné z nich tak, aby odpovídala velikosti snímku druhé prezentace.
+### **Velké prezentace a využití paměti**
 
-Následující Java kód demonstruje tuto operaci:
+Velké prezentace obsahující vysoce rozlišené obrázky, audio, video nebo jiné velké binární objekty mohou spotřebovat značnou paměť. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) poskytuje ovládání pro správu BLOBů a dočasných souborů. Viz [Manage Presentation BLOBs](/slides/cs/java/manage-blob/) pro strategie práce s velkými soubory.
 
-```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    Dimension2D slideSize = presentation1.getSlideSize().getSize();
-    float slideWidth = (float) slideSize.getWidth();
-    float slideHeight = (float) slideSize.getHeight();
-    
-    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+U velkých souborů upřednostňujte načítání z cest souborů, pokud je to možné, uvolněte každou zdrojovou prezentaci, jakmile byla sloučena, a vyhněte se opakovanému ukládání mezivýsledků, pokud workflow nevyžaduje kontrolní body.
 
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-}
-```
+### **Bezpečnost vláken**
 
-## **Sloučení snímků do sekce prezentace**
-
-Sloučení snímků do konkrétní sekce prezentace pomáhá organizovat obsah a zlepšuje navigaci mezi snímky. Aspose.Slides umožňuje sloučit snímky do existujících sekcí. To zajišťuje přehlednou strukturu při zachování původního formátování každého snímku.
-
-Následující Java kód ukazuje, jak sloučit konkrétní snímek do sekce v prezentaci:
-
-```java
-int sectionIndex = 0;
-
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ISection section = presentation1.getSections().get_Item(sectionIndex);
-        presentation1.getSlides().addClone(slide, section);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-}
-```
-
-Snímek je přidán na konec sekce.
-
-## **Viz také**
-
-Aspose poskytuje [ZDARMA Online Collage Maker](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit obrázky [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a další.
-
-Vyzkoušejte [Aspose ZDARMA Online Merger](https://products.aspose.app/slides/cs/merger). Umožňuje sloučit PowerPoint prezentace ve stejném formátu (např. PPT na PPT, PPTX na PPTX) nebo v různých formátech (např. PPT na PPTX, PPTX na ODP).
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/cs/merger)
-
-Kromě prezentací umožňuje Aspose.Slides sloučit i jiné soubory:
-
-- [**Obrázky**](https://products.aspose.com/slides/cs/java/merger/image-to-image/), například [JPG to JPG](https://products.aspose.com/slides/cs/java/merger/jpg-to-jpg/) nebo [PNG to PNG](https://products.aspose.com/slides/cs/java/merger/png-to-png/)
-- **Dokumenty**, například [PDF to PDF](https://products.aspose.com/slides/cs/java/merger/pdf-to-pdf/) nebo [HTML to HTML](https://products.aspose.com/slides/cs/java/merger/html-to-html/)
-- **Smíšené typy souborů**, například [image to PDF](https://products.aspose.com/slides/cs/java/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/cs/java/merger/jpg-to-pdf/), nebo [TIFF to PDF](https://products.aspose.com/slides/cs/java/merger/tiff-to-pdf/)
+Nenačítejte, neupravujte, neukládejte ani neklonujte stejnou [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) instanci souběžně z více vláken. Každou instanci prezentace omezte na jednu operaci sloučení. Pokud paralelizujete nezávislé úlohy, používejte nezávislé instance prezentací a řiďte se [Aspose.Slides multithreading guidance](/slides/cs/java/multithreading/).
 
 ## **FAQ**
 
-**Existují nějaká omezení počtu snímků při slučování prezentací?**
+**Jak mohu zachovat původní návrh každé zdrojové prezentace?**  
+Použijte [addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) bez zadání cílového masteru nebo rozvržení. Aspose.Slides může automaticky klonovat zdrojový master, pokud ho importovaný snímek potřebuje.
 
-Žádná přísná omezení. Aspose.Slides dokáže zpracovat velké soubory, ale výkon závisí na velikosti a systémových zdrojích. Pro velmi velké prezentace se doporučuje použít 64bitovou JVM a přidělit dostatečnou paměť haldy.
+**Jak mohu přimět importované snímky používat téma cíle?**  
+Použijte přetížení, které přijímá cílový master. Předávejte master z cílové prezentace, ne ze zdrojové. Aspose.Slides se pokusí mapovat každý zdrojový snímek na vhodné rozvržení pod tímto masterem.
 
-**Mohu slučovat prezentace s vloženým videem nebo zvukem?**
+**Kdy použít konkrétní cílové rozvržení místo cílového masteru?**  
+Použijte konkrétní rozvržení, když mají všechny importované snímky používat jedno známé rozvržení. Použijte master, když chcete, aby Aspose.Slides vybral mezi rozvrženími toho masteru na základě typu nebo názvu zdrojového rozvržení.
 
-Ano, Aspose.Slides zachovává multimediální obsah vložený do snímků, ale výsledná prezentace může být výrazně větší.
+**Lze sloučit prezentace s různými velikostmi snímků?**  
+Ano, ale obsah snímků není automaticky přepracován pro rozměry cíle. Před sloučením změňte velikost zdrojové prezentace, například pomocí [SlideSize.setSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidesize/#setSize-float-float-int-) a [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidesizescaletype/).
 
-**Zůstanou při sloučení prezentací zachovány fonty?**
+**Mohu sloučit PPT, PPTX a ODP prezentace do jednoho souboru?**  
+Ano. Načtěte každou zdrojovou prezentaci, klonujte požadované snímky do jedné cílové a uložte cíl v podporovaném výstupním formátu. Protože formáty prezentací nepodporují přesně stejnou sadu funkcí, po cross‑format sloučení ověřte složitý obsah. Viz [Supported File Formats](/slides/cs/java/supported-file-formats/).
 
-Ano. Písma použitá v zdrojových prezentacích jsou v výstupním souboru zachována, pokud jsou nainstalována v systému nebo [embedded](/slides/cs/java/embedded-font/).
+**Jsou zdrojové sekce automaticky zachovány?**  
+Ne při základní smyčce, která pouze klonuje snímky. Vytvořte požadované sekce v cíli a použijte sekční přetížení [addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-), pokud musí být struktura sekcí zachována.
+
+**Jsou poznámky a komentáře zachovány?**  
+Ano, jsou zkopírovány s klonovaným snímkem. Pro workflow závislé na stylování masteru poznámek, autorech komentářů nebo vláknech recenzí ověřte sloučený výsledek, protože tyto scénáře zahrnují i struktury na úrovni prezentace.
+
+**Co se stane s audiem, videem, OLE objekty a hypertextovými odkazy?**  
+Vložený obsah je přenášen jako součást vztahů klonovaného snímku k jeho zdrojům. Externí odkazy zůstávají externí, takže jejich cílové soubory nebo URL musí být i po sloučení dostupné.
+
+**Jsou vložená písma ze všech zdrojů garantována v sloučené prezentaci?**  
+Nespoléhejte se pouze na klonování snímků pro nasazení písem. Prohlédněte vložená písma v cíli a explicitně spravujte jejich vložení nebo dostupnost externích písem, pokud je typografie důležitá.
+
+**Jak sloučím soubor chráněný heslem?**  
+Otevřete jej pomocí správného [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), pak klonujte jeho snímky běžně. Ochrana výstupu se nastavuje samostatně.
+
+**Jak mám nakládat s velmi velkými prezentacemi?**  
+Používejte správu BLOBů, pokud velké binární objekty dominují využití paměti, upřednostňujte načítání z cest souborů pro velmi velké soubory, promptně uvolňujte zdrojové prezentace a finální výsledek ukládejte jen když je to nutné.
+
+**Mohu sloučit snímky z více vláken?**  
+Není vhodné používat stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) souběžně z více vláken. Každou operaci sloučení izolujte do vlastních instancí prezentací.

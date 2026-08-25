@@ -9,91 +9,179 @@ keywords:
 - digitales Zertifikat
 - Zertifizierungsstelle
 - PFX-Zertifikat
+- PKCS#12
+- Signatur validieren
 - PowerPoint
-- OpenDocument
-- Präsentation
+- PPTX
+- Sicherheit von Präsentationen
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für Android digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Java-Code-Beispielen."
+description: "Erfahren Sie, wie Sie vorhandene PPTX‑Präsentationen mit PFX‑Zertifikaten signieren und Aspose.Slides für Android via Java verwenden, um digitale Signaturen zu validieren oder zu entfernen."
 ---
+## **Übersicht**
 
-**Digitales Zertifikat** wird verwendet, um eine passwortgeschützte PowerPoint‑Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Ein digitales Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation – einer Zertifizierungsstelle – erhalten werden. Nachdem das digitale Zertifikat im System installiert wurde, kann es verwendet werden, um der Präsentation über Datei → Info → Präsentation schützen eine digitale Signatur hinzuzufügen:
+Eine digitale Signatur hilft dem Empfänger zu bestimmen, wer eine Präsentation unterschrieben hat und ob sich der signierte Inhalt geändert hat. Drei damit zusammenhängende Sicherheitskonzepte sind hier wichtig:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Ein **digitales Zertifikat** ist ein elektronisches Berechtigungsnachweis, das eine Identität mit einem öffentlichen Schlüssel verknüpft. Eine vertrauenswürdige Zertifizierungsstelle (CA) kann ein Zertifikat ausstellen, oder eine Organisation kann ein selbstsigniertes Zertifikat für interne Arbeitsabläufe verwenden.
+- Eine **digitale Signatur** wird aus dem Präsentationsinhalt und dem privaten Schlüssel des Zertifikatsinhabers erstellt. Der öffentliche Schlüssel des Zertifikats kann anschließend verwendet werden, um die Signatur zu prüfen. Eine Signatur liefert einen Nachweis über Ursprung und Integrität; sie verschlüsselt die Präsentation nicht.
+- **Passwortschutz** steuert, ob ein Benutzer eine Präsentation öffnen oder ändern kann. Er ist von der digitalen Signatur getrennt und wird in [Passwortgeschützte Präsentationen](/slides/de/androidjava/password-protected-presentation/) beschrieben.
 
-Eine Präsentation kann mehr als eine digitale Signatur enthalten. Nachdem die digitale Signatur zur Präsentation hinzugefügt wurde, erscheint in PowerPoint eine spezielle Meldung:
+PowerPoint bietet den Befehl **Digitale Signatur hinzufügen** unter **Datei > Info > Präsentation schützen** an.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint-Menü „Präsentation schützen“ mit hervorgehobener Option „Digitale Signatur hinzufügen“](add-digital-signature-in-powerpoint.png)
 
-Um eine Präsentation zu signieren oder die Echtheit von Präsentationssignaturen zu prüfen, bietet die **Aspose.Slides API** die Schnittstelle [**IDigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature), die Schnittstelle [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) und die Methode [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--) . Derzeit werden digitale Signaturen nur für das PPTX‑Format unterstützt.
+Nachdem eine signierte Präsentation geöffnet wurde, kann PowerPoint eine Benachrichtigung zum Signaturstatus anzeigen.
 
-## **Digitale Signatur aus einem PFX‑Zertifikat hinzufügen**
-Das nachstehende Code‑Beispiel zeigt, wie eine digitale Signatur aus einem PFX‑Zertifikat hinzugefügt wird:
+![PowerPoint-Benachrichtigung, die angibt, dass die Präsentation gültige Signaturen enthält](digital-signature-status-in-powerpoint.png)
 
-1. Öffnen Sie die PFX‑Datei und übergeben Sie das PFX‑Passwort an das Objekt [**DigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature).
-2. Fügen Sie die erstellte Signatur dem Präsentationsobjekt hinzu.
+Aspose.Slides stellt Signaturen über [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) bereit, das eine [IDigitalSignatureCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignaturecollection/) zurückgibt, deren Elemente [IDigitalSignature](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignature/) implementieren. Eine Präsentation kann mehrere Signaturen enthalten.
+
+## **PFX-Zertifikate und Passwörter verstehen**
+
+Eine PFX-Datei, auch als PKCS#12-Datei bekannt und häufig mit der Erweiterung `.pfx` oder `.p12` versehen, kann ein X.509-Zertifikat, dessen privaten Schlüssel und die Zertifikatskette enthalten. Der private Schlüssel ermöglicht es dem Inhaber, eine Signatur zu erstellen. Ein Zertifikat ohne zugänglichen privaten Schlüssel kann nicht zum Signieren einer Präsentation verwendet werden.
+
+Das PFX-Passwort schützt das Zertifikatspaket und den privaten Schlüssel. Es ist **kein** Passwort zum Öffnen oder Bearbeiten der Präsentation. PFX-Dateien oder deren Passwörter sollten nicht in die Quellcodeverwaltung eingecheckt werden. In der Produktion sollte der Zugriff auf die Zertifikatsdatei eingeschränkt und das Passwort aus einem geheimen Speicher oder einer anderen geschützten Konfigurationsquelle bezogen werden. Die nachstehenden Beispiele verwenden eine Umgebungsvariable, nur um zu vermeiden, dass das Passwort im Code eingebettet wird.
+
+## **Digitale Signatur zu einer Präsentation hinzufügen**
+
+Um einen realen Präsentations‑Workflow zu signieren, laden Sie eine vorhandene PPTX‑Datei, erstellen Sie eine [DigitalSignature](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/digitalsignature/) aus einem PFX‑Zertifikat und dessen Passwort, fügen Sie die Signatur zur Signatursammlung der Präsentation hinzu und speichern Sie sie als PPTX‑Datei.
+
 ```java
-// Öffnen der Präsentationsdatei
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+String certificatePassword = System.getenv("PFX_PASSWORD");
+if (certificatePassword == null || certificatePassword.isEmpty()) {
+    throw new IllegalStateException("Set the PFX_PASSWORD environment variable.");
+}
+
+Presentation presentation = new Presentation("InputPresentation.pptx");
 try {
-    // Erstelle DigitalSignature-Objekt mit PFX-Datei und PFX-Passwort
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", "testpass1");
+    DigitalSignature signature = new DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
 
-    // Kommentar zur neuen digitalen Signatur
-    signature.setComments("Aspose.Slides digital signing test.");
-
-    // Füge digitale Signatur zur Präsentation hinzu
-    pres.getDigitalSignatures().add(signature);
-
-    // Präsentation speichern
-    pres.save("SomePresentationSigned.pptx", SaveFormat.Pptx);
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Das Speichern des Ergebnisses unter einem neuen Namen bewahrt die unsignierte Quelldatei. Der durch [IDigitalSignature.setComments](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) festgelegte Wert beschreibt den Zweck der Signatur; er ist keine Sicherheitsmaßnahme.
 
-Jetzt ist es möglich zu prüfen, ob die Präsentation digital signiert wurde und nicht verändert wurde:
+## **Digitale Signaturen validieren**
+
+Wenn Sie eine signierte PPTX‑Datei laden, prüfen Sie jedes vom [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) zurückgegebene Element. Die Methode [IDigitalSignature.isValid](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignature/#isValid--) gibt an, ob die eingebettete Signatur für den aktuellen Präsentationsinhalt gültig ist.
+
 ```java
-// Präsentation öffnen
-Presentation pres = new Presentation("SomePresentationSigned.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0)
-    {
+    IDigitalSignatureCollection signatures = presentation.getDigitalSignatures();
+    int signatureCount = signatures.size();
+
+    if (signatureCount == 0) {
+        System.out.println("The presentation does not contain digital signatures.");
+    } else {
         boolean allSignaturesAreValid = true;
+        java.text.SimpleDateFormat signTimeFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.security.cert.CertificateFactory certificateFactory = java.security.cert.CertificateFactory.getInstance("X.509");
 
-        System.out.println("Signatures used to sign the presentation: ");
+        for (IDigitalSignature signature : signatures) {
+            boolean signatureIsValid = signature.isValid();
+            String signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            java.util.Date signTime = signature.getSignTime();
+            String formattedSignTime = signTimeFormat.format(signTime);
 
-        // Überprüfen, ob alle digitalen Signaturen gültig sind
-        for (IDigitalSignature signature : pres.getDigitalSignatures())
-        {
-            System.out.println(signature.getComments() + ", "
-                    + signature.getSignTime().toString() + " -- " + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+            byte[] certificateData = signature.getCertificate();
+            java.io.ByteArrayInputStream certificateStream = new java.io.ByteArrayInputStream(certificateData);
+            java.security.cert.X509Certificate certificate = (java.security.cert.X509Certificate) certificateFactory.generateCertificate(certificateStream);
+            javax.security.auth.x500.X500Principal signerPrincipal = certificate.getSubjectX500Principal();
+            String signerName = signerPrincipal.getName();
+
+            System.out.println(signerName + ", " + formattedSignTime + " -- " + signatureStatus);
+
+            allSignaturesAreValid &= signatureIsValid;
         }
 
-        if (allSignaturesAreValid)
-            System.out.println("Presentation is genuine, all signatures are valid.");
-        else
-            System.out.println("Presentation has been modified since signing.");
+        if (allSignaturesAreValid) {
+            System.out.println("All embedded signatures are valid for the current presentation.");
+        } else {
+            System.out.println("At least one embedded signature is invalid.");
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Ein ungültiges Ergebnis bedeutet in der Regel, dass der signierte Präsentationsinhalt oder die Signaturdaten nach dem Signieren geändert wurden oder dass die Datei beschädigt ist. Das Entfernen aller Signaturen erzeugt eine unsignierte Präsentation, sodass das reine Prüfen der Gültigkeit der Elemente nicht ausreicht: Ein sicherheitskritischer Workflow muss zudem überprüfen, dass die erwartete Anzahl an Signaturen und die erwarteten Unterzeichneridentitäten vorhanden sind.
+
+Dieses Gültigkeitsergebnis sollte nicht als vollständige Entscheidung über das Vertrauen in das Zertifikat betrachtet werden. Abhängig von Ihrer Sicherheitsrichtlinie muss Ihre Anwendung möglicherweise auch die X.509‑Zertifikatskette aufbauen und validieren, Gültigkeitsdaten und den Widerrufsstatus des Zertifikats prüfen, den erwarteten Betreff oder Fingerabdruck bestätigen, die Schlüsselverwendung überprüfen und einen vertrauenswürdigen Zeitstempel auswerten. Der Wert von [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) allein ist kein Nachweis einer vertrauenswürdigen Zeitstempeldienststelle.
+
+## **Digitale Signaturen entfernen**
+
+Das Entfernen von Signaturen ändert den Sicherheitsstatus der Präsentation. Das nachfolgende Beispiel lädt eine signierte PPTX‑Datei, entfernt alle Signaturen mit [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--), und speichert eine unsignierte Kopie.
+
+```java
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Um nur eine Signatur zu entfernen, rufen Sie [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) mit dessen nullbasiertem Index auf. Speichern Sie in eine neue Datei, es sei denn, das Überschreiben des signierten Originals ist ein expliziter Teil Ihres Workflows.
+
+## **Bearbeitungs- und Formatüberlegungen**
+
+- Eine Signatur macht eine Präsentation nicht schreibgeschützt. Benutzer und Anwendungen können die Datei weiterhin bearbeiten, aber Änderungen am signierten Inhalt machen in der Regel die vorhandene Signatur ungültig.
+- Führen Sie alle beabsichtigten Änderungen vor dem Signieren durch. Wenn eine Präsentation geändert werden muss, speichern Sie die überarbeitete Präsentation und signieren Sie diese Revision erneut.
+- Behalten Sie die endgültige Ausgabe im PPTX‑Format bei. Das Konvertieren einer signierten Präsentation in ein anderes Format überträgt die ursprüngliche PPTX‑Signatur nicht als gültige Signatur für die konvertierte Datei.
+- Betrachten Sie den privaten Schlüssel des Zertifikats als sensibel. Jeder, der den privaten Schlüssel und dessen Passwort erhält, kann möglicherweise Signaturen erstellen, die so aussehen, als kämen sie vom Zertifikatsinhaber.
+- Bewahren Sie die unsignierte Quelle oder eine weitere kontrollierte Kopie auf, wenn Ihre Dokumentenaufbewahrungsrichtlinie dies erfordert.
 
 ## **FAQ**
 
-**Kann ich vorhandene Signaturen aus einer Datei entfernen?**
+**Verschlüsselt eine digitale Signatur die Präsentation?**
 
-Ja. Die Sammlung digitaler Signaturen unterstützt das [Entfernen einzelner Elemente](https://reference.aspose.com/slides/androidjava/com.aspose.slides/digitalsignaturecollection/#removeAt-int-) und das [Komplett‑Leeren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/digitalsignaturecollection/#clear--) ; nachdem Sie die Datei gespeichert haben, enthält die Präsentation keine Signaturen mehr.
+Nein. Eine digitale Signatur liefert einen Nachweis über Ursprung und Integrität, aber der Präsentationsinhalt bleibt lesbar, sofern nicht eine separate Verschlüsselung angewendet wird. Verwenden Sie [Passwortschutz](/slides/de/androidjava/password-protected-presentation/), wenn der Zugriff auf den Inhalt eingeschränkt werden muss.
 
-**Wird die Datei nach dem Signieren „schreibgeschützt“?**
+**Entspricht das PFX-Passwort dem Präsentationspasswort?**
 
-Nein. Eine Signatur bewahrt Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten zu beschränken, kombinieren Sie sie mit ["Schreibgeschützt" oder ein Passwort](/slides/de/androidjava/password-protected-presentation/).
+Nein. Das PFX‑Passwort entsperrt den im Zertifikatspaket gespeicherten privaten Schlüssel. Es steuert nicht, wer die PPTX‑Datei öffnen oder bearbeiten kann.
 
-**Wird die Signatur in verschiedenen PowerPoint‑Versionen korrekt angezeigt?**
+**Kann ich ein selbstsigniertes Zertifikat verwenden?**
 
-Die Signatur wird für den OOXML‑(PPTX‑)Container erstellt. Moderne PowerPoint‑Versionen, die OOXML‑Signaturen unterstützen, zeigen den Status solcher Signaturen korrekt an.
+Technisch kann ein selbstsigniertes Zertifikat verwendet werden, sofern es einen zugänglichen privaten Schlüssel enthält. Empfänger werden es jedoch nicht automatisch vertrauen, es sei denn, das Zertifikat wurde ausdrücklich zu ihrer vertrauenswürdigen Umgebung hinzugefügt. Öffentliche oder organisationsübergreifende Workflows verwenden in der Regel ein von einer vertrauenswürdigen CA ausgestelltes Zertifikat.
+
+**Was macht eine Signatur ungültig?**
+
+Eine Änderung des signierten Präsentationsinhalts oder der Signaturdaten nach dem Signieren kann die Signatur ungültig machen. Dateibeschädigungen können ebenfalls zum Fehlschlagen der Validierung führen. Wenn alle Signaturen entfernt werden, ist die Präsentation unsigniert und nicht eine Datei mit einer ungültigen Signatur.
+
+**Bedeutet eine gültige Signatur, dass ich dem Unterzeichner vertrauen sollte?**
+
+Nicht allein. Die Integrität der Signatur und das Vertrauen in den Unterzeichner sind separate Entscheidungen. Eine Validierungsrichtlinie in der Produktion sollte zudem die Zertifikatskette, den Gültigkeitszeitraum, den Widerrufsstatus, die erwartete Identität, die Schlüsselverwendung und etwaige Anforderungen an einen vertrauenswürdigen Zeitstempel prüfen.
+
+**Was passiert, wenn das Zertifikat abläuft?**
+
+Das Ablaufdatum des Zertifikats ändert die Bytes der Präsentation nicht, beeinflusst jedoch die Bewertung des Zertifikatsvertrauens. Ob eine Signatur weiterhin akzeptabel ist, hängt von Ihrer Richtlinie und davon ab, ob ein gültiger vertrauenswürdiger Zeitstempel nachweist, dass die Signatur erfolgt ist, während das Zertifikat gültig war. Verlassen Sie sich nicht ausschließlich auf die angezeigte Signaturzeit als vertrauenswürdigen Zeitstempel.
+
+**Kann eine signierte Präsentation weiterhin bearbeitet werden?**
+
+Ja. Das Signieren sperrt die Datei nicht. Das Bearbeiten von signiertem Inhalt macht in der Regel die vorhandene Signatur ungültig, daher sollten Sie die Präsentation zuerst fertigstellen und die endgültige Revision signieren.
+
+**Kann eine Präsentation mehr als eine Signatur enthalten?**
+
+Ja. Fügen Sie jede Signatur der von [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) zurückgegebenen Sammlung hinzu, bevor Sie speichern. Während der Validierung prüfen Sie jede Signatur und bestätigen, dass alle erforderlichen Unterzeichner vorhanden sind.
+
+**Welche Präsentationsformate unterstützen diese Vorgänge?**
+
+Aspose.Slides unterstützt die hier beschriebenen Digital‑Signatur‑Operationen ausschließlich für PPTX. PPT‑ und OpenDocument‑Präsentationsformate werden von diesem API‑Workflow nicht unterstützt.
+
+**Kann ich eine Signatur entfernen, ohne die Folien zu beeinträchtigen?**
+
+Ja. Sie können eine Signatur entfernen oder die gesamte Sammlung leeren und anschließend die Präsentation speichern. Der Folieninhalt bleibt erhalten, aber die gespeicherte Datei enthält keine Nachweise mehr über die entfernte Signatur.

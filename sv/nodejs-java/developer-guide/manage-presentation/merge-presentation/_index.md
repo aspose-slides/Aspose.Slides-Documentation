@@ -1,5 +1,5 @@
 ---
-title: Effektiv sammanslagning av presentationer i JavaScript
+title: Effektivt slå samman presentationer i JavaScript
 linktitle: Slå samman presentationer
 type: docs
 weight: 40
@@ -20,264 +20,344 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Slå enkelt samman PowerPoint (PPT, PPTX) och OpenDocument (ODP) presentationer i JavaScript med Aspose.Slides för Node.js, och förenkla ditt arbetsflöde."
+description: "Lär dig hur du slår samman PowerPoint- och OpenDocument-presentationer i JavaScript genom att klona bilder, styra master och layouter, ändra storlek på bildinnehållet, bevara sektioner samt hantera skyddade eller stora filer."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig slå samman presentationer genom att klona bilder från en presentation till en annan. Denna artikel förklarar hur du slår samman hela presentationer eller utvalda bilder, använder en bildmaster eller en specifik layout under sammanslagningen, hanterar presentationer med olika bildstorlekar och lägger till sammanslagna bilder i ett presentationsavsnitt. Den täcker också praktiska anteckningar relaterade till sammanslaget innehåll, inklusive talarnoter, kommentarer, lösenordsskyddade källfiler och trådanvändning.
+Aspose.Slides för Node.js via Java sammanslår presentationer genom att klona bilder från en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) till en annan. Huvudoperationen är [SlideCollection.addClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), som kan bevara källbildens formatering eller fästa den klonade bilden till en master eller layout i målpresentationen.
 
-## **Sammanslagning av presentationer**
+Den här artikeln täcker de vanligaste sammanslagningsarbetsflödena:
 
-När du slår samman en presentation med en annan kombinerar du i praktiken deras bilder i en enda presentation för att få en fil.
+- sammanfoga alla bilder samtidigt som deras källformatering bevaras;
+- sammanfoga valda bilder;
+- tillämpa en master från målpresentationen;
+- tillämpa en specifik layout från målpresentationen;
+- normalisera olika bildstorlekar innan sammanslagning;
+- lägga till klonade bilder i en sektion;
+- sammanfoga flera presentationer i ett komplett arbetsflöde;
+- hantera master, resurser, anteckningar, kommentarer, media, typsnitt, lösenord, stora filer och multitrådningsfrågor.
 
-{{% alert title="Info" color="info" %}}
+## **Hur bildkloning påverkar master och layouter**
 
-De flesta presentationsprogram (PowerPoint eller OpenOffice) saknar funktioner som låter användare kombinera presentationer på detta sätt. 
+En bild ärver mycket av sitt utseende från sin layout och master. Av den anledningen avgör det klonings‑overload du väljer hur den sammanslagna bilden integreras i målpresentationen.
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/sv/nodejs-java/), tillåter dig dock att slå samman presentationer på olika sätt. Du kan slå samman presentationer med alla deras former, stilar, texter, formatering, kommentarer, animationer etc. utan att behöva oroa dig för kvalitets- eller dataförlust.
+Använd [SlideCollection.addClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/) på ett av följande sätt:
 
-**Se även**
+- `addClone(sourceSlide)` — bevara källbildens layout och formatering. Vid behov kan källmastern klonas automatiskt in i målpresentationen. Aspose.Slides spårar automatiskt klonade master så att upprepade bilder som använder samma källmaster inte får masterkloning flera gånger.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — fästa den klonade bilden till en specifik mål‑[MasterSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/). Aspose.Slides letar efter en matchande layout under den mastern efter layouttyp eller namn.
+- `addClone(sourceSlide, destinationLayout)` — fästa den klonade bilden direkt till en specifik mål‑[LayoutSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/layoutslide/).
 
-[Klona bilder](https://docs.aspose.com/slides/sv/nodejs-java/clone-slides/).
+Den master eller layout som skickas till ett `addClone`‑overload måste tillhöra **mål**‑presentationen, inte källpresentationen.
 
-{{% /alert %}}
+## **Sammanfoga hela presentationer och bevara källformatering**
 
-### **Vad kan slås samman**
-
-Med Aspose.Slides kan du slå samman 
-
-* hela presentationer. Alla bildrutor från presentationerna hamnar i en enda presentation
-* specifika bilder. Utvalda bildrutor hamnar i en enda presentation
-* presentationer i samma format (PPT till PPT, PPTX till PPTX, etc) och i olika format (PPT till PPTX, PPTX till ODP, etc) till varandra. 
-
-### **Sammanslagningsalternativ**
-
-Du kan tillämpa alternativ som bestämmer om
-
-* varje bild i resultspresentationen behåller en unik stil
-* en specifik stil används för alla bilder i resultspresentationen. 
-
-För att slå samman presentationer tillhandahåller Aspose.Slides [addClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) metoder (från klassen [SlideCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideCollection)). Det finns flera implementationer av `addClone`‑metoderna som definierar parametrarna för presentationssammanfogningsprocessen. Varje Presentation‑objekt har en [Slides](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation#getSlides--) samling, så du kan anropa en `addClone`‑metod från den presentation du vill slå samman bilder i.
-
-`addClone`‑metoden returnerar ett `Slide`‑objekt, som är en klon av källbilden. Bilderna i en resultspresentation är helt enkelt en kopia av bilderna från källan. Därför kan du göra ändringar i de resulterande bilderna (t.ex. applicera stilar, formateringsalternativ eller layouter) utan att oroa dig för att källpresentationerna påverkas.
-
-## **Slå samman presentationer** 
-
-Aspose.Slides tillhandahåller metoden [**AddClone(ISlide)**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) som låter dig kombinera bilder medan bilderna behåller sina layouter och stilar (standardparametrar).
-
-Denna JavaScript‑kod visar hur du slår samman presentationer:
+Den enklaste sammanslagningen kopierar varje bild från källpresentationen till målpresentationen. Detta är det lämpliga valet när de importerade bilderna ska behålla sitt ursprungliga tema, master och layout‑relationer.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Slå samman presentationer med bildmaster** 
+Den resulterande presentationen kan innehålla flera master när käll‑ och målpresentationen använder olika designer. Detta är förväntat när källformatering medvetet bevaras.
 
-Aspose.Slides tillhandahåller metoden [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) som låter dig kombinera bilder samtidigt som du tillämpar en bildmaster‑presentationstemplate. På så sätt kan du, om nödvändigt, ändra stilen för bilderna i resultspresentationen.
+## **Sammanfoga valda bilder**
 
-Denna kod i JavaScript demonstrerar den beskrivna operationen:
+Du behöver inte klona varje bild. Följande exempel importerar endast utvalda bildindex från källpresentationen.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Validera bildindex innan kloning när de kommer från användarinmatning eller extern konfiguration.
 
-Layouten för bildmastern bestäms automatiskt. När en lämplig layout inte kan bestämmas, och om den booleska parametern `allowCloneMissingLayout` för `addClone`‑metoden är satt till true, används layouten för källbilden. Annars kommer ett [PptxEditException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PptxEditException) att kastas.
+## **Sammanfoga bilder med en mål‑master**
 
-{{% /alert %}}
-
-Om du vill att bilderna i resultspresentationen ska ha en annan layout, använd metoden [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) istället vid sammanslagning.
-
-## **Slå samman specifika bilder från presentationer** 
-
-Att slå samman specifika bilder från flera presentationer är användbart för att skapa anpassade bilddeckar. Aspose.Slides för Node.js via Java låter dig välja och importera endast de bilder du behöver. API:et bevarar formatering, layout och design på de ursprungliga bilderna.
-
-Följande JavaScript‑kod skapar en ny presentation, lägger till titelslides från två andra presentationer och sparar resultatet till en fil:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **Slå samman presentationer med bildlayout** 
-
-Denna JavaScript‑kod visar hur du kombinerar bilder från presentationer samtidigt som du tillämpar din föredragna bildlayout på dem för att få en enda resultspresentation:
+Använd overloaden [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) när importerade bilder ska följa en master som redan finns i målpresentationen.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Slå samman presentationer med olika bildstorlekar** 
+Aspose.Slides väljer en lämplig layout under den angivna mastern genom att matcha källlayoutens typ eller namn. Om ingen passande layout finns och `allowCloneMissingLayout` är `true` klonas källayouten så att bilden kan läggas till. Om den är `false` kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pptxeditexception/).
 
-{{% alert title="Note" color="warning" %}} 
+Använd `false` när du vill att sammanslagningen ska misslyckas i stället för att införa en extra layout i mål‑mastern.
 
-Du kan inte slå samman presentationer med olika bildstorlekar. 
+## **Sammanfoga bilder med en specifik mål‑layout**
 
-{{% /alert %}}
-
-För att slå samman två presentationer med olika bildstorlekar måste du ändra storleken på en av presentationerna så att den matchar den andra presentationens storlek. 
-
-Denna exempel‑kod demonstrerar den beskrivna operationen:
+Använd overloaden [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) när du exakt vet vilken mål‑layout de importerade bilderna ska använda.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Slå samman bilder till presentationsavsnitt** 
+Att tillämpa en mål‑layout förändrar den ärvda layout‑relationen; den omdesignar inte bildens innehåll. Om käll‑ och mål‑layouter har olika platshållarstrukturer, inspektera resultatet för att bekräfta att den ärvda formateringen och platshållarbeteendet är lämpliga.
 
-Denna JavaScript‑kod visar hur du slår samman en specifik bild till ett avsnitt i en presentation:
+## **Sammanfoga presentationer med olika bildstorlekar**
+
+Presentationer med olika bilddimensioner kan sammanslås, men att klona en bild till en presentation med annan bildstorlek redesignar inte automatiskt innehållet för den nya duken. Former kan därför hamna förskjutna, skalade oväntat eller utanför den synliga bildytan.
+
+Ett praktiskt tillvägagångssätt är att ändra storlek på källpresentationen innan kloning. Metoden [SlideSize.setSize](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) kan skala befintligt innehåll samtidigt som bilddimensionerna ändras. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidesizescaletype/) skalar innehållet så att det får plats inom den begärda storleken.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-Bilden läggs till i slutet av avsnittet. 
+Att ändra storlek förändrar källpresentationens objekt i minnet. Om du behöver den ursprungliga källpresentationen oförändrad för andra operationer, öppna en separat instans för sammanslagningen.
 
-## **Vanliga frågor** 
+## **Sammanfoga bilder i en presentationssektion**
 
-**Bevaras talarnoter vid sammanslagning?**
+Den grundläggande bild‑kloningsloopen återskapar inte källpresentationens sektionshierarki. Om sektioner är viktiga i utdata, skapa eller välj sektioner i målpresentationen och klona bilder explicit till dem med [addClone(Slide, Section)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
 
-Ja. När bilder klonas överför Aspose.Slides alla bildelement, inklusive anteckningar, formatering och animationer.
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-**Överförs kommentarer och deras författare?**
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
 
-Kommentarer, som en del av bildinnehållet, kopieras med bilden. Kommentarförfattar‑etiketter bevaras som kommentarsobjekt i den resulterande presentationen.
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
 
-**Vad händer om källpresentationen är lösenordsskyddad?**
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
 
-Den måste [öppnas med lösenordet](/slides/sv/nodejs-java/password-protected-presentation/) via [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/setpassword/); efter inläsning kan dessa bilder säkert klonas till en ohärdad målfil (eller även en skyddad).
+De klonade bilderna läggs till i den angivna målsektionen. För att bevara flera källsektioner, lista [Presentation.getSections](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getSections), hämta varje källsektionens aktuella bilder med [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/section/#getSlidesListOfSection), återskapa sektionerna i målpresentationen och klona varje bild till motsvarande målsektion. Se [Hantera bildsektioner](/slides/sv/nodejs-java/slide-section/) för ett komplett exempel på sektion‑enumeration, inklusive tomma sektioner och strukturella ändringar.
 
-**Hur trådsäker är sammanslagningsoperationen?**
+## **Sammanfoga flera presentationer på ett säkert sätt**
 
-Använd inte samma [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/nodejs-java/multithreading/). Den rekommenderade regeln är "ett dokument — en tråd"; olika filer kan behandlas parallellt i separata trådar.
+Det följande end‑to‑end‑exemplet använder den första presentationen som mål, normaliserar bildstorleken för varje ytterligare källa, håller varje källa öppen endast under kopieringen och sparar den slutgiltiga filen en gång.
 
-## **Se även** 
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-Aspose tillhandahåller en [GRATIS online Collage‑skapare](https://products.aspose.app/slides/sv/collage). Med denna onlinetjänst kan du slå samman [JPG till JPG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG till PNG‑bilder, skapa [foto‑rutnät](https://products.aspose.app/slides/sv/collage/photo-grid) och mer.
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-Kolla in [Aspose GRATIS online‑sammanfogare](https://products.aspose.app/slides/sv/merger). Den låter dig slå samman PowerPoint‑presentationer i samma format (t.ex. PPT till PPT, PPTX till PPTX) eller i olika format (t.ex. PPT till PPTX, PPTX till ODP).
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/sv/merger)
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Detta är ett användbart grundläggande exempel för att bevara källformateringen på importerade bilder. Om ditt resultat måste använda ett enda måltema, ersätt det enkla `addClone(sourceSlide)`‑anropet med den lämpliga mål‑master‑ eller mål‑layout‑overloaden som visas tidigare.
+
+## **Praktiska överväganden**
+
+### **Master, layouter och formateringsnoggrannhet**
+
+Standardkloning av bilder kan automatiskt föra in en nödvändig källmaster i målpresentationen. Aspose.Slides håller ett internt register för automatiskt klonade master för att undvika att samma master klonas flera gånger. Manuellt klonade master spåras inte av registret, så undvik förkloning av master om du inte behöver explicit kontroll över masterstrukturen.
+
+Anta inte att två master eller layouter med samma namn är visuellt identiska. Om ett företagsmall måste styra det slutliga utseendet, välj en mål‑master eller layout explicit och verifiera resultatet efter sammanslagning.
+
+### **Anteckningar och kommentarer**
+
+Talarnoteringar och bildkommentarer är knutna till bildens innehåll och kopieras när en bild klonas. Aspose.Slides erbjuder även dedikerade API:er för [presentationsanteckningar](/slides/sv/nodejs-java/presentation-notes/) och [presentationskommentarer](/slides/sv/nodejs-java/presentation-comments/).
+
+Om formatering på notes‑sidan är viktig, verifiera den sammanslagna presentationen eftersom notes‑master är objekt på presentationsnivå och kan skilja sig mellan källfiler. För granskningsarbetsflöden, verifiera även kommentar‑författare och trådade kommentarer efter sammanslagning av filer från olika författare eller mallar.
+
+### **Bilder, ljud, video, OLE‑objekt och externa länkar**
+
+Bilder kan referera till resurser på presentationsnivå såsom bilder, inbäddat ljud, inbäddad video och OLE‑data. Klona själva bilden istället för att bara kopiera dess synliga former så att Aspose.Slides kan behålla bildens relationer till resurserna.
+
+Inbäddade och länkade resurser bör behandlas olika. En länkad ljud‑, video‑, OLE‑objekt‑ eller hyperlänk‑fil förblir beroende av sin externa mål; kloning av en bild gör inte en extern länk till inbäddat innehåll. Testa länkreferenser och URL:er i den miljö där den sammanslagna presentationen kommer att öppnas.
+
+Aspose.Slides spårar automatiskt klonade master, men detta bör inte ses som en generell garanti för att identiska binära resurser från orelaterade källpresentationer alltid dedupliceras. Om filstorlek är viktig, inspektera det sammanslagna paketet och mät resultatet i stället för att förlita dig på implicit deduplicering.
+
+### **Inbäddade typsnitt och typsnittstillgänglighet**
+
+Typsnitt hanteras på presentationsnivå. Om typografi måste vara konsekvent på olika maskiner, anta inte att kloning av bilder ensam garanterar att varje nödvändigt typsnitt finns tillgängligt i målmiljön. Du kan inspektera inbäddade typsnitt med [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) och hantera inbäddning explicit enligt [Inbädda typsnitt i presentationer](/slides/sv/nodejs-java/embedded-font/).
+
+Verifiera även att du har rätt att inbädda de typsnitt som används i källfilerna. Typsnittslicenser kan begränsa inbäddning.
+
+### **Lösenordsskyddade presentationer**
+
+En lösenordsskyddad källa måste öppnas framgångsrikt innan dess bilder kan klonas. Ange lösenordet via [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Arbeta med den dekrypterade presentationen.
+} finally {
+    source.dispose();
+}
+```
+
+Att öppna en krypterad källa applicerar inte automatiskt samma skydd på målpresentationen. Konfigurera skydd för utdata separat när så krävs.
+
+### **Stora presentationer och minnesanvändning**
+
+Stora presentationer som innehåller högupplösta bilder, ljud, video eller andra stora binära objekt kan förbruka betydande minne. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) ger kontroller för BLOB‑hantering och temporära filer. Se [Hantera presentations‑BLOB‑ar](/slides/sv/nodejs-java/manage-blob/) för strategier för stora filer.
+
+För stora filer, föredra inläsning från filvägar när det är möjligt, avlasta varje källpresentation så snart den har sammanslagits och undvik att spara mellanresultat upprepade gånger om arbetsflödet inte kräver checkpoints.
+
+### **Trådsäkerhet**
+
+Ladda, spara eller klona inte en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑instans i flera trådar. Dessa operationer stöds inte för multitrådad användning. Om du behöver parallellisera oberoende sammanslagningsjobb, använd flera enkla‑trådade processer, var och en med egna presentationsinstanser, och följ [Aspose.Slides multitrådnings‑riktlinjer](/slides/sv/nodejs-java/multithreading/).
+
+## **FAQ**
+
+**Hur behåller jag varje källpresentationers ursprungliga design?**
+
+Använd [addClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) utan att ange en mål‑master eller layout. Aspose.Slides kan automatiskt klona källmastern när den behövs av den importerade bilden.
+
+**Hur får jag att importerade bilder använder måltemat?**
+
+Använd overloaden som accepterar en mål‑master. Skicka en master från målpresentationen, inte från källan. Aspose.Slides kommer att försöka mappa varje källbild till en lämplig layout under den mastern.
+
+**När ska jag använda en specifik mål‑layout i stället för en mål‑master?**
+
+Använd en specifik layout när varje importerad bild ska använda en känd layout. Använd en master när du vill att Aspose.Slides ska välja bland masterns layouter baserat på källlayoutens typ eller namn.
+
+**Kan presentationer med olika bildstorlekar sammanslås?**
+
+Ja, men bildinnehållet redesignas inte automatiskt för mål‑dimensionerna. Ändra storlek på källpresentationen först när du behöver förutsägbara placeringar, exempelvis med [SlideSize.setSize](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) och [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidesizescaletype/).
+
+**Kan jag sammanslå PPT, PPTX och ODP‑presentationer till en fil?**
+
+Ja. Läs in varje källpresentation, klona de önskade bilderna till en mål‑presentation och spara mål‑presentationen i ett stödformat. Eftersom formatens funktionsuppsättningar kan skilja sig, verifiera komplext innehåll efter kors‑format‑sammanslagning. Se [Stödda filformat](/slides/sv/nodejs-java/supported-file-formats/).
+
+**Behålls källsektioner automatiskt?**
+
+Inte av en grundläggande loop som bara klonar bilder. Återskapa de behövda sektionerna i målpresentationen och använd sektion‑overloaden för [addClone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) när sektionstrukturen måste bevaras.
+
+**Behålls talarnoteringar och kommentarer?**
+
+De kopieras med den klonade bilden. För arbetsflöden som är beroende av notes‑master‑stil, kommentar‑författare eller trådad granskningsdata, verifiera det sammanslagna resultatet eftersom dessa scenarier involverar både presentations‑ och bild‑nivå‑strukturer.
+
+**Vad händer med ljud, video, OLE‑objekt och hyperlänkar?**
+
+Inbäddat innehåll följer med som en del av den klonade bildens resursrelationer. Externa länkar förblir externa, så deras mål‑filer eller URL:er måste fortfarande vara tillgängliga efter sammanslagning.
+
+**Garanti för att inbäddade typsnitt från alla källor finns i den sammanslagna presentationen?**
+
+Lita inte enbart på bildkloning för typsnittsutplacering. Inspektera mål‑presentationens inbäddade typsnitt och hantera typsnittsinbäddning eller extern typsnittstillgänglighet explicit när typografi är viktig.
+
+**Hur sammanslår jag en lösenordsskyddad fil?**
+
+Öppna den med rätt [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), klona sedan dess bilder som vanligt. Utdata‑skydd konfigureras separat.
+
+**Hur hanterar jag mycket stora presentationer?**
+
+Använd BLOB‑hantering när stora binära objekt dominerar minnesanvändning, föredra inläsning från filvägar för mycket stora filer, avlasta källpresentationer omedelbart efter sammanslagning och spara slutresultatet endast när det behövs.
+
+**Kan jag klona bilder från flera trådar?**
+
+Ladda, spara eller klona inte presentations‑instanser i flera trådar. För parallella sammanslagningsjobb, använd separata enkla‑trådade processer med egna presentations‑instanser.

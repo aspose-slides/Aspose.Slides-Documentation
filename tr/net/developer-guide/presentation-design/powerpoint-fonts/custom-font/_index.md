@@ -21,76 +21,79 @@ description: "PowerPoint slaytlarındaki yazı tiplerini Aspose.Slides for .NET 
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, işletim sistemine kurulum yapmadan sunularda özel yazı tiplerini kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge‑seviyesindeki font kaynakları aracılığıyla belirli bir sunum için font sağlayabilir veya dış yazı tiplerini doğrudan ikili veri üzerinden yükleyebilirsiniz.
+Aspose.Slides, özel yazı tiplerini işletim sistemine kurmadan sunumlarda kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge‑seviyesi yazı tipi kaynakları aracılığıyla belirli bir sunum için yazı tipleri sağlayabilir veya dış yazı tiplerini doğrudan ikili veriden yükleyebilirsiniz.
 
-Yüklenen yazı tipleri, bir sunum render edildiğinde veya PDF, görsel ve diğer desteklenen biçimlere aktarıldığında kullanılır. Bu, sunum çıktısının farklı ortamlarda tutarlı kalmasını sağlar. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
+Yüklenen yazı tipleri, bir sunum render edildiğinde veya PDF, görüntüler ve diğer desteklenen formatlara dışa aktarıldığında kullanılır. Bu, sunum çıktısının farklı ortamlar arasında tutarlı kalmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
 
-Render için özel yazı tiplerini kaydetmek, bir PPTX dosyasına gömmekten ayrı bir işlemdir. Eğer bir yazı tipinin sunum içinde saklanması gerekiyorsa, gömme özelliklerini açıkça kullanın.
+Render için özel yazı tiplerini kaydetmek, bir PPTX dosyasına gömmekten ayrı bir işlemdir. Bir yazı tipinin sunum içinde depolanması gerekiyorsa, gömme özelliklerini açıkça kullanın.
 
-{{% alert color="primary" %}} 
+Bir sunum teması, farklı yazı sistemleri için farklı yazı tipi ailelerine başvurabilir. Bu eşlemeler sadece yazı tipi adlarını saklar, ancak dosyaları kurmaz veya yüklemez. Eşlemeleri yönetmek için [Script-Specific Theme Fonts](/slides/tr/net/script-specific-font-mappings/) sayfasına bakın ve aşağıdaki yükleme seçeneklerini kullanarak başvurulan yazı tiplerinin tutarlı render için kullanılabilir olmasını sağlayın.
 
-Aspose Slides, bu yazı tiplerini [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) yöntemiyle yüklemenize izin verir:
+{{% alert color="info" title="Note" %}}
+Aspose Slides, bu yazı tiplerini [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) yöntemiyle yüklemenize olanak tanır:
 
 * TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Bkz. [TrueType](https://en.wikipedia.org/wiki/TrueType).
-
 * OpenType (.otf) yazı tipleri. Bkz. [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
 {{% /alert %}}
 
-## **Özel Yazı Tiplerini Yükle**
+## **Özel Yazı Tiplerini Yükleme**
 
-Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurulum yapmadan yüklemenizi sağlar. Bu, PDF, görseller ve diğer desteklenen biçimler gibi dışa aktarım çıktısını etkileyerek belgelerin farklı ortamlarda tutarlı görünmesini sağlar. Yazı tipleri özel dizinlerden yüklenir.
+Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize izin verir. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
 
-1. Yazı dosyalarını içeren bir veya birden fazla klasör belirleyin.  
-2. Bu klasörlerden yazı tiplerini yüklemek için statik [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) metodunu çağırın.  
-3. Sunumu yükleyin ve render/aktarım işlemini gerçekleştirin.  
-4. Yazı tipi önbelleğini temizlemek için [FontsLoader.ClearCache](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/clearcache/) metodunu çağırın.
+1. Yazı tipi dosyalarını içeren bir veya daha fazla klasör belirtin.  
+2. Statik [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) yöntemini çağırarak bu klasörlerden yazı tiplerini yükleyin.  
+3. Sunumu yükleyin ve render/ dışa aktarın.  
+4. Yazı tipi önbelleğini temizlemek için [FontsLoader.ClearCache](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/clearcache/) yöntemini çağırın.
 
-Aşağıdaki kod örneği yazı tipi yükleme sürecini gösterir:
+Aşağıdaki kod örneği yazı tipi yükleme sürecini göstermektedir:
 
 ```cs
-// Özel yazı tipi dosyalarını içeren klasörleri tanımlayın.
-string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Belirtilen klasörlerden özel yazı tiplerini yükleyin.
+// Özel yazı tipi dosyalarını içeren klasörleri tanımla.
+string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
+
+// Belirtilen klasörlerden özel yazı tiplerini yükle.
 FontsLoader.LoadExternalFonts(fontFolders);
 
 using Presentation presentation = new Presentation("sample.pptx");
 
-// Yüklenen yazı tiplerini kullanarak sunumu render/aktar (ör. PDF, görseller veya diğer formatlar).
+// Yüklenen yazı tiplerini kullanarak sunumu render/ dışa aktar (ör. PDF, görüntüler veya diğer formatlar).
 presentation.Save("output.pdf", SaveFormat.Pdf);
 
-// İş tamamlandıktan sonra yazı tipi önbelleğini temizleyin.
+// İş tamamlandıktan sonra yazı tipi önbelleğini temizle.
 FontsLoader.ClearCache();
 ```
 
 {{% alert color="info" title="Note" %}}
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) ek klasörleri yazı tipi arama yollarına ekler, ancak yazı tipi başlatma sırasını değiştirmez. Yazı tipleri şu sırayla başlatılır:
 
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) ek klasörleri font arama yollarına ekler, ancak font başlatma sırasını değiştirmez.  
-Fontlar şu sırayla başlatılır:
-
-1. Varsayılan işletim sistemi font yolu.  
+1. Varsayılan işletim sistemi yazı tipi yolu.  
 1. [FontsLoader](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/) aracılığıyla yüklenen yollar.
-
 {{%/alert %}}
 
 ## **Özel Yazı Tipi Klasörlerini Al**
-Aspose.Slides, font klasörlerini bulmanızı sağlayan [GetFontFolders](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/getfontfolders/) metodunu sunar. Bu metod, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem font klasörlerini döndürür.
+Aspose.Slides, [GetFontFolders](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/getfontfolders/) yöntemini sağlayarak yazı tipi klasörlerini bulmanıza olanak tanır. Bu yöntem, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem yazı tipi klasörlerini döndürür.
 
-Aşağıdaki C# kodu, [GetFontFolders](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/getfontfolders/) kullanımını gösterir:
+Bu C# kodu, [GetFontFolders](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/getfontfolders/) yönteminin nasıl kullanılacağını gösterir:
 
 ```c#
-// Bu satır, yazı tipi dosyaları için kontrol edilen klasörleri çıktılar.
-// Bunlar LoadExternalFonts yöntemiyle eklenen klasörler ve sistem yazı tipi klasörleridir.
+using Aspose.Slides;
+
+// Bu satır, yazı tipi dosyalarının denetlendiği klasörleri çıktılar.
+// Bunlar LoadExternalFonts yöntemiyle eklenen ve sistem yazı tipi klasörleridir.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-## **Sunumda Kullanılan Özel Yazı Tiplerini Belirle**
-Aspose.Slides, sunumla birlikte kullanılacak dış fontları belirlemenizi sağlayan [DocumentLevelFontSources](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/documentlevelfontsources/) özelliğini sunar.
+## **Sunumla Kullanılacak Özel Yazı Tiplerini Belirtme**
+Aspose.Slides, sunumla kullanılacak dış yazı tiplerini belirtmek için [DocumentLevelFontSources](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/documentlevelfontsources/) özelliğini sunar.
 
-Aşağıdaki C# kodu, [DocumentLevelFontSources](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/documentlevelfontsources/) özelliğinin nasıl kullanılacağını gösterir:
+Bu C# kodu, [DocumentLevelFontSources](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/documentlevelfontsources/) özelliğinin nasıl kullanılacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
@@ -99,18 +102,20 @@ loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
-    // Sunumla çalışın
-    // CustomFont1, CustomFont2 ve assets\fonts ve global\fonts klasörlerinden ve alt klasörlerinden gelen yazı tipleri sunumda kullanılabilir
+    // Sunumla çalış
+    // CustomFont1, CustomFont2 ve assets\fonts ile global\fonts klasörleri ve alt klasörlerindeki yazı tipleri sunuma kullanılabilir
 }
 ```
 
-## **Yazı Tiplerini Harici Olarak Yönet**
+## **Yazı Tiplerini Dışarıdan Yönetme**
 
-Aspose.Slides, dış fontları ikili veri üzerinden yüklemenizi sağlayan [LoadExternalFont](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) metodunu sunar.
+Aspose.Slides, dış yazı tiplerini ikili veriden yüklemek için [LoadExternalFont](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) yöntemini sunar.
 
-Aşağıdaki C# kodu, bayt dizisi ile font yükleme sürecini göstermektedir: 
+Bu C# kodu, bayt dizisi üzerinden yazı tipi yükleme sürecini gösterir:
 
 ```c#
+using Aspose.Slides;
+
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));
@@ -119,7 +124,7 @@ try
 {
     using (Presentation pres = new Presentation(""))
     {
-        // sunum ömrü süresince yüklenen harici yazı tipi
+        // dış yazı tipi sunum süresi boyunca yüklendi
     }
 }
 finally
@@ -130,22 +135,19 @@ finally
 
 ## **SSS**
 
-**Özel yazı tipleri tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarımı etkiler mi?**
+**Özel yazı tipleri tüm formatlarda (PDF, PNG, SVG, HTML) dışa aktarmayı etkiler mi?**  
+Evet. Bağlantılı yazı tipleri, render tarafından tüm dışa aktarma formatlarında kullanılır.
 
-Evet. Bağlı yazı tipleri render motoru tarafından tüm dışa aktarım formatlarında kullanılır.
+**Özel yazı tipleri sonuç PPTX dosyasına otomatik olarak gömülür mü?**  
+Hayır. Bir yazı tipini render için kaydetmek, PPTX dosyasına gömmekle aynı şey değildir. Yazı tipinin sunum dosyasının içinde bulunmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/net/embedded-font/) kullanmalısınız.
 
-**Özel yazı tipleri otomatik olarak oluşturulan PPTX dosyasına gömülür mü?**
+**Bir özel yazı tipi belirli glifleri içermediğinde geri dönüş davranışını kontrol edebilir miyim?**  
+Evet. İstenen glif eksik olduğunda hangi yazı tipinin kullanılacağını tam olarak tanımlamak için [font substitution](/slides/tr/net/font-substitution/), [replacement rules](/slides/tr/net/font-replacement/) ve [fallback sets](/slides/tr/net/fallback-font/) yapılandırabilirsiniz.
 
-Hayır. Render için bir fontun kaydedilmesi, PPTX dosyasına gömülmesiyle aynı şey değildir. Fontun sunum dosyasının içinde taşınması gerekiyorsa, açıkça [gömme özelliklerini](/slides/tr/net/embedded-font/) kullanmanız gerekir.
+**Linux/Docker konteynerlerinde yazı tiplerini sistem genelinde kurmadan kullanabilir miyim?**  
+Evet. Kendi yazı tipi klasörlerinize işaret edebilir veya yazı tiplerini bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajındaki sistem yazı tipi dizinlerine bağımlılığı ortadan kaldırır.
 
-**Bir özel font belirli glifleri içermediğinde geri dönüş davranışını kontrol edebilir miyim?**
+> **Note for Linux/Docker**: When calling `FontsLoader.LoadExternalFonts`, ensure that every entry in the `directories` array contains a non-empty path to an existing directory. If an environment variable used to construct a font path is undefined or empty, Aspose.Slides may attempt to resolve the empty value as a full path, resulting in `System.ArgumentException`.
 
-Evet. [Font ikamesi](/slides/tr/net/font-substitution/), [değiştirme kuralları](/slides/tr/net/font-replacement/) ve [geri dönüş setleri](/slides/tr/net/fallback-font/) yapılandırarak istenen glif eksik olduğunda hangi fontun kullanılacağını tam olarak tanımlayabilirsiniz.
-
-**Linux/Docker konteynerlerinde fontları sistem genelinde kurulum yapmadan kullanabilir miyim?**
-
-Evet. Kendi font klasörlerinizi gösterebilir veya fontları bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajındaki sistem font dizinlerine bağımlılığı ortadan kaldırır.
-
-**Lisanslama açısından özelleştirilmiş bir fontu sınırlama olmadan gömebilir miyim?**
-
-Font lisans uyumluluğu sizin sorumluluğunuzdadır. Şartlar değişiklik gösterir; bazı lisanslar gömme veya ticari kullanımını yasaklar. Çıktıları dağıtmadan önce fontun EULA'sını mutlaka inceleyin.
+**Lisanslama hakkında ne söyleyebilirsiniz—herhangi bir özel yazı tipini kısıtlama olmadan gömebilir miyim?**  
+Yazı tipi lisans uyumluluğundan siz sorumlusunuz. Şartlar değişiklik gösterebilir; bazı lisanslar gömülmesini veya ticari kullanımını yasaklayabilir. Çıktıları dağıtmadan önce her zaman yazı tipinin EULA sını inceleyin.

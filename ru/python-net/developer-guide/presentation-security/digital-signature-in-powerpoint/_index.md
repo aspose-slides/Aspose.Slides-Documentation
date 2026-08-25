@@ -1,5 +1,5 @@
 ---
-title: Добавить цифровые подписи к презентациям с помощью Python
+title: Добавление цифровых подписей к презентациям в Python
 linktitle: Цифровая подпись
 type: docs
 weight: 10
@@ -8,82 +8,162 @@ keywords:
 - цифровая подпись
 - цифровой сертификат
 - центр сертификации
-- сертификат PFX
+- Сертификат PFX
+- PKCS#12
+- проверка подписи
 - PowerPoint
-- OpenDocument
-- презентация
+- PPTX
+- безопасность презентаций
 - Python
 - Aspose.Slides
-description: "Узнайте, как цифрово подписывать файлы PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET. Защитите свои слайды за секунды с понятными примерами кода."
+description: "Узнайте, как подписывать существующие презентации PPTX с помощью сертификатов PFX и использовать Aspose.Slides для Python через .NET для проверки или удаления цифровых подписей."
 ---
-## **Введение**
+## **Обзор**
 
-**Цифровой сертификат** используется для создания презентации PowerPoint, защищённой паролем, помеченной как созданная определённой организацией или лицом. Цифровой сертификат можно получить, обратившись в уполномоченную организацию – центр сертификации. После установки цифрового сертификата в систему его можно использовать для добавления цифровой подписи к презентации через File -> Info -> Protect Presentation:
+Электронная подпись помогает получателю определить, кто подписал презентацию и изменилось ли подписанное содержимое. Здесь важны три связанных понятия безопасности:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **Цифровой сертификат** — это электронные учетные данные, связывающие идентичность с открытым ключом. Доверенный центр сертификации (CA) может выдать сертификат, или организация может использовать самоподписанный сертификат для внутренних рабочих процессов.
+- **Цифровая подпись** создаётся из содержимого презентации и закрытого ключа владельца сертификата. Открытый ключ сертификата затем используется для проверки подписи. Подпись предоставляет доказательство происхождения и целостности; она не шифрует презентацию.
+- **Защита паролем** контролирует, может ли пользователь открыть или изменить презентацию. Это отдельный механизм от цифровой подписи и описан в статье [Password-Protected Presentations](/slides/ru/python-net/password-protected-presentation/).
 
-Презентация может содержать более одной цифровой подписи. После добавления цифровой подписи в презентацию в PowerPoint появляется специальное сообщение:
+PowerPoint предоставляет команду **Добавить цифровую подпись** в разделе **Файл > Сведения > Защита презентации**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Меню PowerPoint Защита презентации с выделенной опцией Добавить цифровую подпись](add-digital-signature-in-powerpoint.png)
 
-Для подписи презентации или проверки подлинности подписей презентации **Aspose.Slides API** предоставляет класс [**DigitalSignature**](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/), класс [**DigitalSignatureCollection**](https://reference.aspose.com/slides/ru/python-net/aspose.slides/DigitalSignatureCollection/) и свойство [**Presentation.digital_signatures**](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/digital_signatures/). В настоящее время цифровые подписи поддерживаются только для формата PPTX.
+После открытия подписанной презентации PowerPoint может отображать уведомление о статусе подписи.
 
-## **Добавление цифровой подписи из сертификата PFX**
+![Уведомление PowerPoint, указывающее, что презентация содержит действительные подписи](digital-signature-status-in-powerpoint.png)
 
-Ниже приведён пример кода, показывающий, как добавить цифровую подпись из сертификата PFX:
+Aspose.Slides предоставляет подписи через [Presentation.digital_signatures](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/digital_signatures/), [DigitalSignatureCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignaturecollection/) со элементами типа [DigitalSignature](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/). Презентация может содержать несколько подписей.
 
-1. Откройте файл PFX и передайте пароль PFX объекту [**DigitalSignature**](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/).
-1. Добавьте созданную подпись к объекту презентации.
+## **Понимание сертификатов PFX и паролей**
 
-```py
+Файл PFX, также известный как файл PKCS#12 и обычно имеющий расширение `.pfx` или `.p12`, может содержать сертификат X.509, его закрытый ключ и цепочку сертификатов. Закрытый ключ позволяет владельцу создавать подпись. Сертификат без доступного закрытого ключа нельзя использовать для подписи презентации.
+
+Пароль PFX защищает пакет сертификата и закрытый ключ. Это **не** пароль для открытия или редактирования презентации. Не помещайте файлы PFX и их пароли в систему контроля версий. В производстве ограничьте доступ к файлу сертификата и получайте его пароль из хранилища секретов или другого защищённого конфигурационного источника. Примеры ниже используют переменную окружения только для того, чтобы не встраивать пароль в код.
+
+## **Добавление цифровой подписи к презентации**
+
+Чтобы подписать презентацию в реальном рабочем процессе, загрузите существующий файл PPTX, создайте [DigitalSignature](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/) из сертификата PFX и его пароля, добавьте подпись в коллекцию презентации и сохраните в файл PPTX.
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Создать объект DigitalSignature с файлом PFX и паролем PFX
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # Комментарий новой цифровой подписи
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # Добавить цифровую подпись к презентации
-    pres.digital_signatures.add(signature)
-
-    # сохранить презентацию
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Теперь можно проверить, была ли презентация подписана цифровой подписью и не была ли изменена:
+Сохранение результата под новым именем сохраняет исходный файл без подписи. Значение [DigitalSignature.comments](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/comments/) описывает цель подписи; это не средство защиты.
 
-```py
-# Открыть презентацию
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+## **Проверка цифровых подписей**
 
-        print("Signatures used to sign the presentation: ")
-        # Проверить, все ли цифровые подписи действительны
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+При загрузке подписанного файла PPTX просмотрите каждый элемент в [Presentation.digital_signatures](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/digital_signatures/). Свойство [DigitalSignature.is_valid](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/is_valid/) указывает, является ли встроенная подпись действительной для текущего содержимого презентации.
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+```python
+import hashlib
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
+
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
+
+Невалидный результат обычно означает, что содержимое подписанной презентации или данные подписи изменились после подписания, либо файл повреждён. Удаление всех подписей приводит к презентации без подписей, поэтому проверка только валидности элементов недостаточна: в рабочем процессе, чувствительном к безопасности, также необходимо убедиться, что присутствует ожидаемое количество подписей и ожидаемые идентификаторы подписантов.
+
+Свойство [DigitalSignature.certificate](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/certificate/) предоставляет данные сертификата в виде массива байтов. В примере вычисляется его отпечаток SHA‑256, чтобы приложение могло сравнить его с отпечатком ожидаемого сертификата подписанта.
+
+Этот результат проверки не следует рассматривать как окончательное решение о доверии к сертификату. В зависимости от вашей политики безопасности приложение также может потребовать построения и проверки цепочки сертификатов X.509, проверки дат действия и статуса отзыва, подтверждения ожидаемого субъекта или отпечатка, проверки назначения ключа и оценки доверенного временного штампа. Значение [DigitalSignature.sign_time](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignature/sign_time/) само по себе не является доказательством от доверенного сервиса временных меток.
+
+## **Удаление цифровых подписей**
+
+Удаление подписей изменяет состояние безопасности презентации. В следующем примере загружается подписанный файл PPTX, удаляются все подписи с помощью [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignaturecollection/clear/), и сохраняется копия без подписи.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Чтобы удалить только одну подпись, вызовите [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignaturecollection/remove_at/) с её нулевым индексом. Сохраните в новый файл, если перезапись оригинального подписанного файла не является явной частью вашего процесса.
+
+## **Редактирование и вопросы формата**
+
+- Подпись не делает презентацию только для чтения. Пользователи и приложения могут продолжать редактировать файл, но изменения подписанного содержимого обычно делают существующую подпись недействительной.
+- Выполните все запланированные правки до подписания. Если необходимо изменить презентацию, сохраните её обновлённую версию и подпишите её снова.
+- Сохраняйте окончательный результат в формате PPTX. Преобразование подписанной презентации в другой формат не переносит оригинальную подпись PPTX как действительную подпись для преобразованного файла.
+- Рассматривайте закрытый ключ сертификата как конфиденциальный. Любой, кто получит закрытый ключ и его пароль, сможет создавать подписи, которые будут выглядеть как подписи владельца сертификата.
+- Сохраняйте исходный файл без подписи или другую контролируемую копию, если это требует ваша политика хранения документов.
 
 ## **FAQ**
 
-**Можно ли удалить существующие подписи из файла?**
+**Шифрует ли цифровая подпись презентацию?**
 
-Да. Коллекция цифровых подписей поддерживает [удаление отдельных элементов](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignaturecollection/remove_at/) и [полную очистку](https://reference.aspose.com/slides/ru/python-net/aspose.slides/digitalsignaturecollection/clear/); после сохранения файла в презентации не будет подписей.
+Нет. Цифровая подпись предоставляет доказательства происхождения и целостности, но содержимое презентации остаётся доступным для чтения, если не применяется отдельное шифрование. Используйте [защиту паролем](/slides/ru/python-net/password-protected-presentation/), когда необходимо ограничить доступ к содержимому.
 
-**Превращается ли файл в «только для чтения» после подписи?**
+**Совпадает ли пароль PFX с паролем презентации?**
 
-Нет. Подпись сохраняет целостность и авторство, но не блокирует редактирование. Чтобы ограничить редактирование, сочетайте её с ["Read-only" or a password](/slides/ru/python-net/password-protected-presentation/).
+Нет. Пароль PFX разблокирует закрытый ключ, хранящийся в пакете сертификата. Он не управляет тем, кто может открыть или отредактировать файл PPTX.
 
-**Будет ли подпись корректно отображаться в разных версиях PowerPoint?**
+**Можно ли использовать самоподписанный сертификат?**
 
-Подпись создаётся для контейнера OOXML (PPTX). Современные версии PowerPoint, поддерживающие подписи OOXML, правильно отображают их статус.
+Технически самоподписанный сертификат можно использовать, если в нём доступен закрытый ключ. Получатели автоматически не будут ему доверять, если только сертификат явно не добавлен в их доверенную среду. Во внешних или кросс‑организационных рабочих процессах обычно используют сертификат, выданный доверенным CA.
+
+**Что делает подпись недействительной?**
+
+Изменение подписанного содержимого презентации или данных подписи после подписания делает подпись недействительной. Повреждение файла также может привести к ошибке проверки. Если все подписи удалены, презентация просто остаётся без подписи, а не содержит недействительную подпись.
+
+**Означает ли действительная подпись, что ей можно доверять?**
+
+Не сама по себе. Целостность подписи и доверие к подписанту — это отдельные решения. Политика проверки в продакшене должна также проверять цепочку сертификатов, сроки действия, статус отзыва, ожидаемую личность, назначение ключа и любые требования к доверенному временному штампу.
+
+**Что происходит, когда сертификат истекает?**
+
+Истечение срока действия сертификата не меняет байты презентации, но влияет на оценку доверия к сертификату. Приёмлемость подписи зависит от вашей политики и от того, есть ли действительный доверенный временной штамп, подтверждающий, что подпись была сделана, пока сертификат был действителен. Не полагайтесь только на отображаемое время подписи как на доверенный временной штамп.
+
+**Можно ли редактировать подписанную презентацию?**
+
+Да. Подпись не блокирует файл. Редактирование подписанного содержимого, как правило, делает существующую подпись недействительной, поэтому завершайте презентацию и подпишите окончательную версию.
+
+**Может ли презентация содержать более одной подписи?**
+
+Да. Добавляйте каждую подпись в [Presentation.digital_signatures](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/digital_signatures/) перед сохранением. При проверке просматривайте каждую подпись и убеждайтесь, что присутствуют все необходимые подписанты.
+
+**Какие форматы презентаций поддерживают эти операции?**
+
+Aspose.Slides поддерживает описанные операции с цифровой подписью только для формата PPTX. Форматы PPT и OpenDocument не поддерживаются этим API‑рабочим процессом.
+
+**Можно ли удалить подпись, не затронув слайды?**
+
+Да. Вы можете удалить одну подпись или очистить всю коллекцию, а затем сохранить презентацию. Содержание слайдов остаётся доступным, но сохранённый файл уже не содержит доказательств удалённой подписи.

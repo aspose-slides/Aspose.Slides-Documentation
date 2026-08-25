@@ -8,44 +8,48 @@ keywords:
 - czcionka
 - niestandardowa czcionka
 - zewnętrzna czcionka
-- ładowanie czcionki
-- zarządzanie czcionkami
+- wczytaj czcionkę
+- zarządzaj czcionkami
 - folder czcionek
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Osadź niestandardowe czcionki w slajdach PowerPoint za pomocą Aspose.Slides dla Pythona poprzez .NET, aby Twoje prezentacje były wyraźne i spójne na każdym urządzeniu."
+description: "Osadź niestandardowe czcionki w slajdach PowerPoint przy użyciu Aspose.Slides dla Pythona przez .NET, aby Twoje prezentacje były wyraźne i spójne na każdym urządzeniu."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python umożliwia podawanie własnych czcionek w trakcie działania, dzięki czemu prezentacje są renderowane prawidłowo, nawet gdy wymagane czcionki nie są zainstalowane w systemie docelowym. Podczas eksportu do PDF lub obrazów można podać foldery czcionek lub dane czcionek w pamięci, aby zachować układ tekstu, metryki glifów i typografię. Zapewnia to przewidywalne renderowanie po stronie serwera w różnych środowiskach, eliminuje zależności od czcionek systemowych i zapobiega niepożądanym zastąpieniom lub zmianom układu. W artykule przedstawiono, jak zarejestrować źródła czcionek.
+Aspose.Slides dla Pythona umożliwia podawanie własnych czcionek w czasie wykonywania, dzięki czemu prezentacje są renderowane prawidłowo, nawet jeśli wymagane czcionki nie są zainstalowane w systemie hosta. Podczas eksportu do PDF lub obrazów można dostarczyć foldery z czcionkami lub czcionki w pamięci, aby zachować układ tekstu, metryki glifów i typografię. Dzięki temu renderowanie po stronie serwera jest przewidywalne w różnych środowiskach, usuwa zależności od czcionek systemowych i zapobiega niepożądanym zastąpieniom lub przetwarzaniu tekstu. W artykule pokazano, jak zarejestrować źródła czcionek.
+
+Motyw prezentacji może odnosić się do różnych rodzin czcionek dla poszczególnych systemów pisma. Te mapowania przechowują nazwy czcionek, ale nie instalują ani nie ładują plików czcionek. Zobacz [Script-Specific Theme Fonts](/slides/pl/python-net/script-specific-font-mappings/), aby zarządzać mapowaniami, oraz użyj opcji ładowania poniżej, aby udostępnić odwoływane czcionki do spójnego renderowania.
 
 Aspose.Slides pozwala ładować następujące czcionki przy użyciu metod `load_external_font` i `load_external_fonts` klasy [FontsLoader](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/):
 
-- Czcionki TrueType (.ttf) i TrueType Collection (.ttc). Zobacz [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- Czcionki TrueType (.ttf) i kolekcje TrueType (.ttc). Zobacz [TrueType](https://en.wikipedia.org/wiki/TrueType).
 - Czcionki OpenType (.otf). Zobacz [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-## **Ładowanie niestandardowych czcionek**
+## **Wczytywanie niestandardowych czcionek**
 
-Aspose.Slides umożliwia ładowanie czcionek używanych w prezentacji bez ich instalacji w systemie. Ma to wpływ na eksport – np. do PDF, obrazów i innych obsługiwanych formatów – dzięki czemu powstałe dokumenty wyglądają spójnie w różnych środowiskach. Czcionki są ładowane z własnych katalogów.
+Aspose.Slides umożliwia wczytanie czcionek używanych w prezentacji bez ich instalowania w systemie. Ma to wpływ na wynik eksportu — takiego jak PDF, obrazy i inne obsługiwane formaty — dzięki czemu powstałe dokumenty wyglądają spójnie w różnych środowiskach. Czcionki są wczytywane z własnych katalogów.
 
-1. Określ jeden lub więcej folderów zawierających pliki czcionek.  
-2. Wywołaj statyczną metodę [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/load_external_fonts/) aby załadować czcionki z tych folderów.  
-3. Załaduj i renderuj/wyeksportuj prezentację.  
-4. Wywołaj [FontsLoader.clear_cache](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/clear_cache/) aby wyczyścić pamięć podręczną czcionek.
+1. Określ jeden lub więcej folderów zawierających pliki czcionek.
+2. Wywołaj statyczną metodę [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/load_external_fonts/), aby wczytać czcionki z tych folderów.
+3. Wczytaj i renderuj/wyeksportuj prezentację.
+4. Wywołaj [FontsLoader.clear_cache](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/clear_cache/), aby wyczyścić pamięć podręczną czcionek.
+
+Poniższy przykład kodu demonstruje proces wczytywania czcionek:
 
 ```py
 import aspose.slides as slides
 
-# Określ foldery zawierające niestandardowe pliki czcionek.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# Zdefiniuj foldery zawierające niestandardowe pliki czcionek.
+font_folders = ["fonts", "external_fonts"]
 
-# Załaduj niestandardowe czcionki z określonych folderów.
+# Wczytaj niestandardowe czcionki z określonych folderów.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
-    # Renderuj/eksportuj prezentację (np. do PDF, obrazów lub innych formatów) używając załadowanych czcionek.
+    # Renderuj/eksportuj prezentację (np. do PDF, obrazów lub innych formatów) używając wczytanych czcionek.
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
 # Wyczyść pamięć podręczną czcionek po zakończeniu pracy.
@@ -53,28 +57,28 @@ slides.FontsLoader.clear_cache()
 ```
 
 {{% alert color="info" title="Uwaga" %}}
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/load_external_fonts/) dodaje dodatkowe foldery do ścieżek wyszukiwania czcionek, ale nie zmienia kolejności inicjalizacji czcionek.  
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/load_external_fonts/) dodaje dodatkowe foldery do ścieżek wyszukiwania czcionek, ale nie zmienia kolejności inicjalizacji czcionek.
 Czcionki są inicjalizowane w następującej kolejności:
 
-1. Domyślna ścieżka czcionek systemu operacyjnego.  
-1. Ścieżki załadowane za pośrednictwem [FontsLoader](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/).  
+1. Domyślna ścieżka czcionek systemu operacyjnego.
+1. Ścieżki wczytane za pomocą [FontsLoader](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsloader/).
 {{%/alert %}}
 
-## **Uzyskaj folder niestandardowych czcionek**
+## **Uzyskanie folderu niestandardowych czcionek**
 
-Aspose.Slides udostępnia metodę `get_font_folders`, aby pobrać foldery czcionek. Zwraca ona zarówno foldery dodane przez `load_external_fonts`, jak i foldery czcionek systemowych.
+Aspose.Slides udostępnia metodę `get_font_folders`, aby pobrać foldery czcionek. Zwraca ona zarówno foldery dodane za pomocą `load_external_fonts`, jak i foldery czcionek systemowych.
 
-Poniższy kod w języku Python pokazuje, jak używać `get_font_folders`:
+Ten kod w Pythonie pokazuje, jak używać `get_font_folders`:
 
 ```python
 import aspose.slides as slides
 
 # To wywołanie zwraca foldery sprawdzane pod kątem plików czcionek.
-# Obejmuje to foldery dodane metodą load_external_fonts oraz systemowe foldery czcionek.
+# Obejmuje to foldery dodane metodą load_external_fonts oraz foldery czcionek systemowych.
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Określ niestandardowe czcionki dla prezentacji**
+## **Określanie niestandardowych czcionek dla prezentacji**
 
 Aspose.Slides udostępnia właściwość `document_level_font_sources`, która pozwala określić zewnętrzne czcionki używane w prezentacji.
 
@@ -96,16 +100,16 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
     # Pracuj z prezentacją.
-    # CustomFont1, CustomFont2 i czcionki z folderów assets\fonts i global\fonts (oraz ich podfolderów) są dostępne w prezentacji.
+    # CustomFont1, CustomFont2 oraz czcionki z folderów assets\fonts i global\fonts (oraz ich podfolderów) są dostępne dla prezentacji.
     # ...
     print(len(presentation.slides))
 ```
 
-## **Ładowanie zewnętrznych czcionek z danych binarnych**
+## **Wczytywanie zewnętrznych czcionek z danych binarnych**
 
-Aspose.Slides udostępnia metodę `load_external_font`, aby ładować zewnętrzne czcionki z danych binarnych.
+Aspose.Slides udostępnia metodę `load_external_font` do wczytywania zewnętrznych czcionek z danych binarnych.
 
-Poniższy przykład w Pythonie demonstruje ładowanie czcionki z tablicy bajtów:
+Poniższy przykład w Pythonie demonstruje wczytywanie czcionki z tablicy bajtów:
 
 ```python
 import aspose.slides as slides
@@ -115,7 +119,7 @@ def read_all_bytes(file_path):
         file_data = file_stream.read()
     return file_data
 
-# Załaduj zewnętrzne czcionki z tablic bajtów.
+# Wczytaj zewnętrzne czcionki z tablic bajtów.
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
@@ -130,17 +134,22 @@ finally:
 
 ## **FAQ**
 
-**Czy niestandardowe czcionki wpływają na eksport do wszystkich formatów (PDF, PNG, SVG, HTML)?**  
+### Czy niestandardowe czcionki wpływają na eksport do wszystkich formatów (PDF, PNG, SVG, HTML)?
+
 Tak. Połączone czcionki są używane przez renderer we wszystkich formatach eksportu.
 
-**Czy niestandardowe czcionki są automatycznie osadzane w wynikowym pliku PPTX?**  
-Nie. Zarejestrowanie czcionki do renderowania nie jest równoznaczne z osadzeniem jej w pliku PPTX. Jeśli potrzebujesz, aby czcionka była zawarta w pliku prezentacji, musisz użyć wyraźnych [funkcje osadzania](/slides/pl/python-net/embedded-font/).
+### Czy niestandardowe czcionki są automatycznie osadzane w powstałym pliku PPTX?
 
-**Czy mogę kontrolować zachowanie zastępowania, gdy niestandardowa czcionka nie zawiera niektórych glifów?**  
-Tak. Skonfiguruj [substitucję czcionek](/slides/pl/python-net/font-substitution/), [reguły zastępowania](/slides/pl/python-net/font-replacement/) oraz [zestawy zastępcze](/slides/pl/python-net/fallback-font/), aby dokładnie określić, która czcionka zostanie użyta, gdy żądany glif jest nieobecny.
+Nie. Zarejestrowanie czcionki do renderowania nie jest tym samym co osadzenie jej w pliku PPTX. Jeśli potrzebujesz, aby czcionka była zawarta w pliku prezentacji, musisz użyć wyraźnych [funkcji osadzania](/slides/pl/python-net/embedded-font/).
 
-**Czy mogę używać czcionek w kontenerach Linux/Docker bez instalacji ich systemowo?**  
-Tak. Wskaż własne foldery czcionek lub ładuj czcionki z tablic bajtów. Usuwa to zależność od katalogów czcionek systemowych w obrazie kontenera.
+### Czy mogę kontrolować zachowanie w razie braku niektórych glifów w niestandardowej czcionce?
 
-**A co z licencjami — czy mogę osadzać dowolną czcionkę bez ograniczeń?**  
-Odpowiedzialność za zgodność z licencjami czcionek spoczywa na Tobie. Warunki różnią się; niektóre licencje zakazują osadzania lub komercyjnego użycia. Zawsze przeglądaj umowę licencyjną czcionki (EULA) przed rozpowszechnianiem wyników.
+Tak. Skonfiguruj [zastępowanie czcionek](/slides/pl/python-net/font-substitution/), [reguły zamiany](/slides/pl/python-net/font-replacement/), oraz [zestawy zapasowe](/slides/pl/python-net/fallback-font/), aby dokładnie określić, jaka czcionka ma być użyta, gdy żądany glif jest nieobecny.
+
+### Czy mogę używać czcionek w kontenerach Linux/Docker bez instalacji ich w całym systemie?
+
+Tak. Wskaż własne foldery z czcionkami lub wczytuj czcionki z tablic bajtów. Usuwa to wszelkie zależności od katalogów czcionek systemowych w obrazie kontenera.
+
+### Jak wygląda kwestia licencjonowania — czy mogę osadzać dowolną niestandardową czcionkę bez ograniczeń?
+
+Jesteś odpowiedzialny za zgodność z licencją czcionki. Warunki różnią się; niektóre licencje zakazują osadzania lub komercyjnego użycia. Zawsze sprawdzaj umowę EULA czcionki przed dystrybucją wyników.

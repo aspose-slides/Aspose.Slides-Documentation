@@ -1,284 +1,408 @@
 ---
-title: PHP'de Sunumları Verimli Şekilde Birleştirin
+title: PHP'de Sunumları Verimli Bir Şekilde Birleştirin
 linktitle: Sunumları Birleştir
 type: docs
 weight: 40
 url: /tr/php-java/merge-presentation/
 keywords:
-- PowerPoint birleştir
+- PowerPoint'ı birleştir
 - sunumları birleştir
 - slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
-- PowerPoint birleştir
-- sunumları birleştir
-- slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
+- PPT'yi birleştir
+- PPTX'i birleştir
+- ODP'yi birleştir
+- PowerPoint'ı bir araya getir
+- sunumları bir araya getir
+- slaytları bir araya getir
+- PPT'yi bir araya getir
+- PPTX'i bir araya getir
+- ODP'yi bir araya getir
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumlarını sorunsuz bir şekilde birleştirerek iş akışınızı hızlandırın."
+description: "PHP'de slaytları kopyalayarak, master ve düzenleri kontrol ederek, slayt içeriğini yeniden boyutlandırarak, bölümleri koruyarak ve korumalı veya büyük dosyaları işleyerek PowerPoint ve OpenDocument sunumlarını nasıl birleştireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumdan diğerine slaytları klonlayarak sunumları birleştirmenizi sağlar. Bu makale, tüm sunumları veya seçili slaytları nasıl birleştireceğinizi, birleştirme sırasında bir slayt master'ı veya belirli bir düzeni nasıl kullanacağınızı, farklı slayt boyutlarına sahip sunumları nasıl ele alacağınızı ve birleştirilen slaytları bir sunum bölümüne nasıl ekleyeceğinizi açıklar. Ayrıca birleştirilen içeriğe ilişkin pratik notları kapsar; konuşmacı notları, yorumlar, şifre korumalı kaynak dosyalar ve iş parçacığı kullanımı gibi.
+Aspose.Slides for PHP via Java, bir [Sunum](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) içindeki slaytları başka birine kopyalayarak sunumları birleştirir. Ana işlem, [SlideCollection::addClone()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) metodudur; bu metod kaynak slaytın biçimlendirmesini koruyabilir veya kopyalanan slaytı hedef sunumdaki bir master ya da düzene ekleyebilir.
 
-## **Sunum Birleştirme**
+Bu makale en yaygın birleştirme senaryolarını kapsar:
 
-Bir sunumu diğerine birleştirdiğinizde, aslında slaytlarını tek bir sunumda birleştirerek tek bir dosya elde etmiş olursunuz.
+- kaynak biçimlendirmesi korunarak tüm slaytların birleştirilmesi;
+- seçili slaytların birleştirilmesi;
+- hedef sunumdan bir master uygulanması;
+- hedef sunumdan belirli bir düzen uygulanması;
+- birleştirme öncesi farklı slayt boyutlarının normalleştirilmesi;
+- kopyalanan slaytların bir bölüme eklenmesi;
+- birden çok sunumun uçtan uca bir iş akışında birleştirilmesi;
+- master’lar, kaynaklar, notlar, yorumlar, medya, yazı tipleri, parolalar, büyük dosyalar ve çoklu iş parçacığı konularının ele alınması.
 
-{{% alert title="Info" color="info" %}}
+## **Kaydırak Kopyalamanın Master ve Düzen Üzerindeki Etkileri**
 
-Çoğu sunum programı (PowerPoint veya OpenOffice), kullanıcıların sunumları bu şekilde birleştirmesine izin veren işlevlere sahip değildir. 
+Bir slayt görünümünün büyük bir kısmını düzeni ve master’ı belirler. Bu nedenle, seçtiğiniz kopyalama aşırı yüklemesi, birleştirilen slaytın hedef sunumda nasıl bütünleştirileceğini belirler.
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/tr/php-java/), ancak, farklı şekillerde sunumları birleştirmenize izin verir. Sunumları, tüm şekilleri, stilleri, metinleri, biçimlendirmeleri, yorumları, animasyonları vb. ile birlikte, kalite ya da veri kaybı konusunda endişelenmeden birleştirebilirsiniz.
+[SlideCollection::addClone()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) metodunu şu şekillerde kullanın:
 
-**Ayrıca bakınız**
+- `addClone(sourceSlide)` — kaynak slaytın düzenini ve biçimlendirmesini korur. Gerekirse, kaynak master otomatik olarak hedef sunuma kopyalanabilir. Aspose.Slides, otomatik olarak kopyalanan master’ları izler; aynı kaynak master’ı kullanan tekrarlı slaytlar bu master’ın tekrar kopyalanmasına neden olmaz.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — kopyalanan slaytı belirli bir hedef [MasterSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) üzerine ekler. Aspose.Slides, bu master altında düzen tipine veya adına göre eşleşen bir düzen arar.
+- `addClone(sourceSlide, destinationLayout)` — kopyalanan slaytı doğrudan belirli bir hedef [LayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) üzerine ekler.
 
-[Slaytları Klonla](/slides/tr/php-java/clone-slides/).
+`addClone` aşırı yüklemesine verilen master veya düzen, **hedef** sunuma ait olmalıdır; kaynak sunuma ait olmamalıdır.
 
-{{% /alert %}}
+## **Tüm Sunumları Birleştir ve Kaynak Biçimlendirmesini Koru**
 
-### **Ne Birleştirilebilir**
-
-Aspose.Slides ile şunları birleştirebilirsiniz  
-
-* **tüm sunumlar**. Sunumlardan tüm slaytlar tek bir sunumda birleştirilir  
-* **belirli slaytlar**. Seçili slaytlar tek bir sunumda birleştirilir  
-* **bir formatta (PPT'den PPT'ye, PPTX'den PPTX'e vb.) ve farklı formatlarda (PPT'den PPTX'e, PPTX'den ODP'ye vb.)** sunumları birbirine.
-
-{{% alert title="Note" color="warning" %}} 
-
-Sunumların yanı sıra, Aspose.Slides diğer dosyaları da birleştirmenize olanak tanır:
-
-* [Görseller](https://products.aspose.com/slides/tr/php-java/merger/image-to-image/), örneğin [JPG to JPG](https://products.aspose.com/slides/tr/php-java/merger/jpg-to-jpg/) veya [PNG to PNG](https://products.aspose.com/slides/tr/php-java/merger/png-to-png/)
-* **Belgeler**, örneğin [PDF to PDF](https://products.aspose.com/slides/tr/php-java/merger/pdf-to-pdf/) veya [HTML to HTML](https://products.aspose.com/slides/tr/php-java/merger/html-to-html/)
-* Ve iki farklı dosyayı, örneğin [image to PDF](https://products.aspose.com/slides/tr/php-java/merger/image-to-pdf/) veya [JPG to PDF](https://products.aspose.com/slides/tr/php-java/merger/jpg-to-pdf/) veya [TIFF to PDF](https://products.aspose.com/slides/tr/php-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Birleştirme Seçenekleri**
-
-Aşağıdakileri belirleyen seçenekler uygulayabilirsiniz:
-
-* çıktı sunumundaki her slayt benzersiz bir stil korur
-* çıktı sunumundaki tüm slaytlar için belirli bir stil kullanılır.  
-
-Sunumları birleştirmek için Aspose.Slides, [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/) sınıfından gelen [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) yöntemlerini sağlar. `addClone` yöntemlerinin çeşitli uygulamaları, sunum birleştirme işlemi parametrelerini tanımlar. Her Presentation nesnesinin bir [slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/getslides/) koleksiyonu vardır; böylece slaytları birleştirmek istediğiniz sunumdan bir `addClone` yöntemi çağırabilirsiniz.
-
-`addClone` yöntemi, kaynak slaytın bir klonu olan bir `Slide` nesnesi döndürür. Çıktı sunumundaki slaytlar, kaynak slaytlardan alınan bir kopyadır. Bu nedenle, sonuç slaytları (örneğin stiller, biçimlendirme seçenekleri veya düzenler uygulamak) üzerinde değişiklik yapabilir, kaynak sunumların etkilenmesi konusunda endişelenmenize gerek kalmaz. 
-
-## **Sunumları Birleştir** 
-
-Aspose.Slides, slaytların düzenlerini ve stillerini koruyarak (varsayılan parametreler) slaytları birleştirmenizi sağlayan [addClone(Slide)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) metodunu sunar.
-
-Bu PHP kodu, sunumları nasıl birleştireceğinizi gösterir:
+En basit birleştirme, kaynak sunumdaki her slaytı hedef sunuma kopyalar. Bu, içe aktarılan slaytların özgün tema, master ve düzen ilişkilerini koruması gerektiğinde uygundur.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-## **Sunumları Slayt Master'ı ile Birleştir** 
+Kaynak ve hedef farklı tasarımlar kullandığında ortaya çıkan sunum birden çok master içerebilir. Bu, kaynak biçimlendirmesinin kasıtlı olarak korunduğu durumlarda beklenen bir davranıştır.
 
-Aspose.Slides, slayt master sunum şablonu uygularken slaytları birleştirmenizi sağlayan [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) metodunu sunar. Bu sayede, gerektiğinde çıktı sunumundaki slaytların stilini değiştirebilirsiniz.
+## **Seçili Slaytları Birleştir**
 
-Bu kod, açıklanan işlemi göstermektedir:
+Her slaytı kopyalamanız gerekmez. Aşağıdaki örnek, kaynak sunumdan yalnızca seçili slayt indekslerini içe aktarır.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Kullanıcı girişi veya dış yapılandırmadan gelen indeksleri kopyalamadan önce doğrulayın.
 
-Slayt master için slayt düzeni otomatik olarak belirlenir. Uygun bir düzen belirlenemediğinde, `addClone` yönteminin `allowCloneMissingLayout` boolean parametresi true olarak ayarlanmışsa, kaynak slaytın düzeni kullanılır. Aksi takdirde, [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PptxEditException) istisnası fırlatılır.
+## **Hedef Master Kullanarak Slaytları Birleştir**
 
-{{% /alert %}}
-
-Çıktı sunumundaki slaytların farklı bir slayt düzenine sahip olmasını istiyorsanız, birleştirirken [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) yöntemini kullanın.
-
-## **Sunumlardan Belirli Slaytları Birleştir** 
-
-Birden çok sunumdan belirli slaytları birleştirmek, özelleştirilmiş slayt desteleri oluşturmak için kullanışlıdır. Aspose.Slides for PHP via Java, yalnızca ihtiyacınız olan slaytları seçip içe aktarmanıza izin verir. API, orijinal slaytların biçimlendirmesini, düzenini ve tasarımını korur.
-
-Aşağıdaki PHP kodu yeni bir sunum oluşturur, iki diğer sunumdan başlık slaytları ekler ve sonucu bir dosyaya kaydeder:
+İçe aktarılan slaytların zaten hedef sunuma ait bir master’ı takip etmesi gerektiğinde, [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) aşırı yüklemesini kullanın.
 
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides, belirtilen master altında kaynak düzenin tipine veya adına göre uygun bir düzen seçer. Uygun bir düzen bulunmazsa ve `allowCloneMissingLayout` **true** ise, kaynak düzen kopyalanır ve slayt eklenebilir. **false** ise bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) fırlatılır.
+
+Ek bir düzenin hedef master’a eklenmesini istemiyorsanız, birleştirmenin başarısız olmasını sağlamak için **false** değerini kullanın.
+
+## **Belirli Bir Hedef Düzen Kullanarak Slaytları Birleştir**
+
+İçe aktarılan slaytların kesinlikle belirli bir hedef düzeni kullanması gerektiğinde, [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) aşırı yüklemesini kullanın.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Hedef düzenin uygulanması, kalıtılan düzen ilişkisini değiştirir; kaynak slayt içeriğini yeniden tasarlamaz. Kaynak ve hedef düzenlerin yer tutucu yapıları farklıysa, kalıtılan biçimlendirme ve yer tutucu davranışının uygun olduğunu doğrulamak için sonucu inceleyin.
+
+## **Farklı Slayt Boyutlarına Sahip Sunumları Birleştir**
+
+Farklı slayt boyutlarına sahip sunumlar birleştirilebilir, ancak bir slaytı farklı bir boyuta sahip bir sunuma kopyalamak, içeriği yeni tuval için otomatik olarak yeniden tasarlamaz. Şekiller bu nedenle kaydırılmış, beklenmedik şekilde ölçeklenmiş veya görünür slayt alanının dışına çıkmış görünebilir.
+
+Pratik bir yaklaşım, kopyalamadan önce kaynak sunumun boyutunu yeniden ayarlamaktır. [SlideSize::setSize()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesize/setsize/) yöntemi, slayt boyutlarını değiştirirken mevcut içeriği ölçeklendirebilir. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesizescaletype/) ise içeriği istenen boyuta sığdıracak şekilde ölçeklendirir.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Yeniden boyutlandırma, bellek içindeki kaynak sunum nesnesini değiştirir. Orijinal kaynak sunumu başka işlemler için değiştirilmemiş olarak tutmanız gerekiyorsa, birleştirme için ayrı bir örnek açın.
+
+## **Slaytları Bir Sunum Bölümüne Birleştir**
+
+Temel slayt kopyalama döngüsü, kaynak sunumun bölüm hiyerarşisini yeniden oluşturmaz. Çıktıda bölümler önemliyse, hedef sunumda bölümler oluşturun veya seçin ve slaytları açıkça [addClone(Slide, Section)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) ile bu bölümlere kopyalayın.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Kopyalanan slaytlar belirtilen hedef bölüme eklenir. Birkaç kaynak bölümünü korumak için, [Presentation::getSections](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSections) metoduyla bölümleri dolaşın, her kaynak bölümün mevcut slaytlarını [Section::getSlidesListOfSection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Section/#getSlidesListOfSection) ile alın, bölümleri hedefte yeniden oluşturun ve her dönen slaytı karşılık gelen hedef bölümüne kopyalayın. Boş bölümler ve yapısal değişiklikleri içeren tam bölüm‑enumerasyon örneği için [Slide Sections’ı Yönet](/slides/tr/php-java/slide-section/) sayfasına bakın.
+
+## **Birden Çok Sunumu Güvenli Bir Şekilde Birleştir**
+
+Aşağıdaki uçtan uca örnek, ilk sunumu hedef olarak kullanır, ek her bir kaynağın slayt boyutunu normalleştirir, her kaynağı yalnızca kopyalanırken açık tutar ve sonunda dosyayı bir kez kaydeder.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
 
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
-## **Sunumları Slayt Düzeni ile Birleştir** 
+Bu, içe aktarılan slaytların kaynak biçimlendirmesini korumak için faydalı bir temel oluşturur. Çıktınız tek bir hedef tema kullanmalıysa, basit `addClone($slide)` çağrısını daha önce gösterilen uygun hedef‑master veya hedef‑düzen aşırı yüklemesiyle değiştirin.
 
-Bu PHP kodu, slaytları birleştirirken tercih ettiğiniz slayt düzenini uygulayarak tek bir çıktı sunumu elde etmenizi gösterir:
+## **Pratik Hususlar**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+### **Master’lar, Düzenler ve Biçimlendirme Sadakati**
 
-## **Farklı Slayt Boyutlu Sunumları Birleştir** 
+Varsayılan slayt kopyalama, gerekli bir kaynak master’ı otomatik olarak hedef sunuma getirebilir. Aspose.Slides, aynı master’ın tekrar tekrar kopyalanmasını önlemek için otomatik kopyalanan master’ları izleyen iç bir kayıt tutar. Manuel olarak kopyalanan master’lar bu kayıt tarafından izlenmez; bu nedenle master yapısı üzerinde kesin kontrol ihtiyacınız yoksa ön‑kopyalamaktan kaçının.
 
-{{% alert title="Note" color="warning" %}} 
+Aynı ada sahip iki master veya düzenin görsel olarak aynı olduğunu varsamamalısınız. Kurumsal bir şablon nihai görünümü kontrol ediyorsa, hedef master veya düzeni açıkça seçin ve birleştirmeden sonra sonucu doğrulayın.
 
-Farklı slayt boyutlarına sahip sunumları birleştiremezsiniz. 
+### **Notlar ve Yorumlar**
 
-{{% /alert %}}
+Sunucu notları ve slayt yorumları slayt içeriğiyle ilişkilidir ve bir slayt kopyalandığında kopyalanır. Aspose.Slides ayrıca [sunum notları](/slides/tr/php-java/presentation-notes/) ve [sunum yorumları](/slides/tr/php-java/presentation-comments/) için özel API’ler sunar.
 
-Farklı slayt boyutlarına sahip 2 sunumu birleştirmek için, sunumlardan birinin boyutunu diğerine eşit olacak şekilde yeniden boyutlandırmanız gerekir.
+Not sayfası biçimlendirmesi önemliyse, birleştirilmiş sunumu doğrulayın; çünkü not master’ları sunum‑düzeyinde nesnelerdir ve kaynak dosyalar arasında farklılık gösterebilir. İnceleme iş akışları için, farklı yazarların veya şablonların dosyalarını birleştirdikten sonra yorum yazarlarını ve işlenmiş yorumları da kontrol edin.
 
-Bu örnek kod, açıklanan işlemi göstermektedir:
+### **Görüntüler, Ses, Video, OLE Nesneleri ve Dış Bağlantılar**
+
+Slaytlar, görüntüler, gömülü ses, gömülü video ve OLE verileri gibi sunum‑düzeyinde kaynaklara referans verebilir. Sadece görünen şekilleri kopyalamak yerine slaytı tamamen kopyalayın; böylece Aspose.Slides, slaytın bu kaynaklarla ilişkisini korur.
+
+Gömülü ve bağlanmış kaynakları farklı şekilde ele alın. Bağlanmış bir ses, video, OLE nesnesi veya köprü, dış hedefe bağımlı kalır; bir slaytı kopyalamak, dış bağlantıyı gömülü içeriğe dönüştürmez. Bağlantılı kaynak yollarını ve URL’leri, birleştirilen sunumun açılacağı ortamda test edin.
+
+Aspose.Slides otomatik kopyalanan master’ları izlese de, bu farklı kaynak sunumlardan gelen aynı ikili kaynakların her zaman ayrıştırılacağı anlamına gelmez. Çıktı dosya boyutu önemliyse, birleştirilmiş paketi inceleyin ve sonucu ölçün; örtük ayrıştırmaya güvenmeyin.
+
+### **Gömülü Yazı Tipleri ve Yazı Tipi Kullanılabilirliği**
+
+Yazı tipleri sunum‑düzeyinde yönetilir. Tipografi farklı makinelerde tutarlı kalmalıysa, sadece slaytları kopyalamanın her gerekli yazı tipinin hedef ortamda mevcut olmasını garanti etmediğini varsamayın. Gömülü yazı tiplerini [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getembeddedfonts/) ile inceleyebilir ve [Sunumlarda Yazı Tipi Gömme](/slides/tr/php-java/embedded-font/) bölümünde açıklandığı gibi gömme işlemini açıkça yönetebilirsiniz.
+
+Ayrıca, kaynak dosyalarda kullanılan yazı tiplerini gömmek için izin verilip verilmediğini kontrol edin. Yazı tipi lisansları gömme hakkını kısıtlayabilir.
+
+### **Parola Korumalı Sunumlar**
+
+Parola korumalı bir kaynağın slaytları kopyalanmadan önce başarıyla açılması gerekir. Parolayı [LoadOptions::setPassword()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/setpassword/) ile sağlayın.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Şifrelenmiş sunum üzerinde çalış.
+} finally {
+    $source->dispose();
+}
 ```
 
-## **Slaytları Sunum Bölümüne Birleştir** 
+Şifreli bir kaynağı açmak, aynı korumanın otomatik olarak hedef sunuma uygulanacağı anlamına gelmez. Gerekirse çıktının korumasını ayrı olarak yapılandırın.
 
-Bu PHP kodu, belirli bir slaytı bir sunum bölümüne nasıl birleştireceğinizi gösterir:
+### **Büyük Sunumlar ve Bellek Kullanımı**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+Yüksek çözünürlüklü görüntüler, ses, video veya diğer büyük ikili nesneler içeren büyük sunumlar önemli miktarda bellek tüketebilir. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) BLOB yönetimi ve geçici dosya kullanımını kontrol eder. PHP via Java’da büyük‑dosya örneği için [Sunumları Aç](/slides/tr/php-java/open-presentation/#open-large-presentations) sayfasına bakın.
 
-Slayt, bölümün sonuna eklenir. 
+Büyük dosyalar için mümkün olduğunca dosya yolu üzerinden yükleme tercih edin, her kaynak sunumu birleştirilince hemen serbest bırakın ve iş akışı kontrol noktaları gerektirmiyorsa ara sonuçları tekrar tekrar kaydetmekten kaçının.
 
-## **Ayrıca Bakınız**
+### **İş Parçacığı Güvenliği**
 
-
-Aspose, bir [ÜCRETSİZ Online Kolaj Oluşturucu](https://products.aspose.app/slides/tr/collage) sunar. Bu çevrimiçi hizmeti kullanarak [JPG to JPG](https://products.aspose.app/slides/tr/collage/jpg) veya PNG to PNG görüntülerini birleştirebilir, [fotoğraf ızgaraları](https://products.aspose.app/slides/tr/collage/photo-grid) oluşturabilir ve daha fazlasını yapabilirsiniz.
-
-[Aspose ÜCRETSİZ Online Birleştirici](https://products.aspose.app/slides/tr/merger)'yi inceleyin. Aynı formatta (ör. PPT'den PPT'ye, PPTX'ten PPTX'e) veya farklı formatlarda (ör. PPT'den PPTX'e, PPTX'ten ODP'ye) PowerPoint sunumlarını birleştirmenize olanak tanır.
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/tr/merger)
+[Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneklerini birden çok iş parçacığında aynı anda yüklemeyin, değiştirmeyin, kaydetmeyin veya kopyalamayın. Bu işlemler PHP via Java’da çok iş parçacıklı kullanım için desteklenmez. Paralel birleştirme işleri gerekiyorsa, her birini ayrı tek‑iş‑parçacıklı süreçlerde çalıştırın; her süreç kendi sunum örneklerini kullansın ve [Aspose.Slides çok‑iş‑parçacıklı rehberi](/slides/tr/php-java/multithreading/) izlesin.
 
 ## **SSS**
 
-**Sunumları birleştirirken slayt sayısı konusunda herhangi bir sınırlama var mı?**
+**Kaynak sunumların orijinal tasarımını nasıl korurum?**
 
-Sıkı sınırlamalar yoktur. Aspose.Slides büyük dosyaları işleyebilir, ancak performans dosya boyutuna ve sistem kaynaklarına bağlıdır. Çok büyük sunumlar için 64‑bit JVM kullanmanız ve yeterli heap belleği ayırmanız önerilir.
+[SlideCollection::addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) metodunu, hedef master veya düzen belirtmeden kullanın. Aspose.Slides, içe aktarılan slayt için gerekirse kaynak master’ı otomatik olarak kopyalayabilir.
 
-**Gömülü video veya ses içeren sunumları birleştirebilir miyim?**
+**İçe aktarılan slaytların hedef temayı kullanmasını nasıl sağlarım?**
 
-Evet, Aspose.Slides slaytlara gömülü multimedya içeriğini korur, ancak sonuç sunum önemli ölçüde daha büyük olabilir.
+Hedef master kabul eden aşırı yüklemeyi kullanın. Master’ı kaynak değil, hedef sunumdan seçin. Aspose.Slides, her kaynak slaytı o master’ın uygun bir düzeniyle eşleştirmeye çalışır.
 
-**Sunumları birleştirirken yazı tipleri korunacak mı?**
+**Belirli bir hedef düzeni, bir hedef master yerine ne zaman kullanmalıyım?**
 
-Evet. Kaynak sunumlardaki yazı tipleri, sistemde yüklü olduğu sürece veya [gömülü](/slides/tr/php-java/embedded-font/) olduğu sürece çıktı dosyasında korunur.
+Her içe aktarılan slaytın bilinen tek bir düzen kullanması gerektiğinde belirli bir düzen kullanın. Master kullanıldığında, Aspose.Slides kaynak düzen tipine veya adına göre master‑daki düzenler arasından seçim yapar.
+
+**Farklı slayt boyutlarına sahip sunumlar birleştirilebilir mi?**
+
+Evet, ancak slayt içeriği hedef boyutlara otomatik olarak yeniden tasarlanmaz. Öngörülebilir yerleşim gerekiyorsa, önce [SlideSize::setSize()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesize/setsize/) ve [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesizescaletype/) ile kaynağı yeniden boyutlandırın.
+
+**PPT, PPTX ve ODP sunumlarını tek bir dosyada birleştirebilir miyim?**
+
+Evet. Her kaynak sunumu yükleyin, gerekli slaytları tek bir hedefe kopyalayın ve hedefi desteklenen bir çıktı formatında kaydedin. Sunum formatları aynı özellik kümesini tam olarak desteklemediğinden, çapraz‑format birleştirmelerden sonra karmaşık içeriği doğrulayın. Desteklenen dosya formatları için [Desteklenen Dosya Formatları](/slides/tr/php-java/supported-file-formats/) sayfasına bakın.
+
+**Kaynak bölümler otomatik olarak korunur mu?**
+
+Sadece slaytları kopyalayan temel bir döngü bölümleri korumaz. Bölüm yapısını korumanız gerekiyorsa, hedefte bölümleri yeniden oluşturun ve [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/)’ın bölüm aşırı yüklemesini kullanın.
+
+**Sunucu notları ve yorumlar korunur mu?**
+
+Evet, kopyalanan slaytla birlikte kopyalanır. Not‑master stilizasyonu, yorum yazarları veya işlenmiş yorum verileri gibi yapıların doğrulanması gereken iş akışları için birleştirilmiş sonucu kontrol edin; çünkü bu senaryolar slayt‑düzeyinin yanı sıra sunum‑düzeyinde de yapılar içerir.
+
+**Ses, video, OLE nesneleri ve köprülerle ne olur?**
+
+Gömülü içerik, kopyalanan slaytın kaynak ilişkileriyle birlikte taşınır. Dış bağlantılar dış bağlantı olarak kalır; hedef dosyalar veya URL’ler birleştirmeden sonra hâlâ erişilebilir olmalıdır.
+
+**Her kaynaktan gelen gömülü yazı tipleri birleştirilmiş sunumda bulunur mu?**
+
+Yalnızca slayt kopyalama, yazı tipi dağıtımı için yeterli değildir. Hedefte gömülü yazı tiplerini inceleyin ve tipografi önemliyse yazı tiplerini açıkça yönetin veya dış yazı tipi kullanılabilirliğini sağlayın.
+
+**Parola korumalı bir dosyayı nasıl birleştiririm?**
+
+Doğru [LoadOptions::setPassword()](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/setpassword/) ile açın, ardından slaytlarını normal şekilde kopyalayın. Çıktı koruması ayrı olarak yapılandırılır.
+
+**Çok büyük sunumları nasıl yönetmeliyim?**
+
+Büyük ikili nesneler belleği hâkim olduğunda BLOB yönetimini kullanın, çok büyük dosyalar için dosya yolu üzerinden yüklemeyi tercih edin, kaynak sunumları birleştirildikçe hemen serbest bırakın ve final sonucu yalnızca gerektiğinde kaydedin.
+
+**Slaytları birden çok iş parçacığından birleştirebilir miyim?**
+
+PHP via Java’da sunumları yüklemek, kaydetmek, değiştirmek veya kopyalamak çok iş parçacıklı olarak desteklenmez. Paralel birleştirme işleri gerekiyorsa, her işi ayrı tek‑iş‑parçacıklı süreçlerde yürütün ve her sürecin kendi sunum örneklerini kullanmasını sağlayın.

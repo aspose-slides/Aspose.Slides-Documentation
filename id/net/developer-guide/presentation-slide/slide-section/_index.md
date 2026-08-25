@@ -7,83 +7,186 @@ url: /id/net/slide-section/
 keywords:
 - buat bagian
 - tambahkan bagian
-- sunting bagian
+- edit bagian
 - ubah bagian
 - nama bagian
+- ambil slide bagian
+- proses slide bagian
 - PowerPoint
-- OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Menyederhanakan pengelolaan bagian slide di PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET — memisah, mengganti nama, dan mengatur ulang untuk mengoptimalkan alur kerja PPTX dan ODP."
+description: "Kelola bagian slide dengan Aspose.Slides untuk .NET: buat, ganti nama, susun ulang, ambil, dan proses slide bagian dalam presentasi PPTX."
 ---
 ## **Pendahuluan**
 
-Dengan Aspose.Slides for .NET, Anda dapat mengatur Presentasi PowerPoint menjadi bagian-bagian. Anda dapat membuat bagian yang berisi slide tertentu. 
+Bagian mengatur slide berurutan menjadi grup yang dinamai tanpa mengubah konten slide. Dengan Aspose.Slides untuk .NET, Anda dapat membuat, menyusun ulang, mengganti nama, memeriksa, dan menghapus bagian melalui properti [Presentation.Sections](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/sections/).
 
-Anda mungkin ingin membuat bagian dan menggunakannya untuk mengatur atau membagi slide dalam sebuah presentasi menjadi bagian logis dalam situasi berikut:
+Bagian sangat berguna ketika:
 
-- Ketika Anda bekerja pada presentasi yang besar dengan orang lain atau tim—dan Anda perlu menugaskan slide tertentu kepada rekan atau anggota tim. 
-- Ketika Anda menangani presentasi yang berisi banyak slide—dan Anda kesulitan mengelola atau menyunting isinya sekaligus.
+- presentasi besar perlu dibagi menjadi topik atau bab logis;
+- grup slide yang berbeda ditugaskan ke kolaborator yang berbeda;
+- slide perlu diproses, dipindahkan, atau digabungkan sebagai grup.
 
-Idealnya, Anda harus membuat sebuah bagian yang menampung slide yang serupa—slide tersebut memiliki kesamaan atau dapat dikelompokkan berdasarkan aturan—dan memberikan nama pada bagian tersebut yang menggambarkan slide di dalamnya. 
+Pilih nama bagian yang singkat dan menggambarkan tujuan slide yang dikelompokkan. Karena bagian merupakan bagian dari struktur presentasi, gunakan API bagian untuk menentukan keanggotaan alih-alih menurunkannya dari posisi slide.
 
-## **Buat Bagian dalam Presentasi**
+## **Buat dan Kelola Bagian**
 
-Untuk menambahkan bagian yang akan menampung slide dalam sebuah presentasi, Aspose.Slides for .NET menyediakan metode AddSection yang memungkinkan Anda menentukan nama bagian yang ingin dibuat dan slide tempat bagian tersebut dimulai. 
+Gunakan [ISectionCollection.AddSection](https://reference.aspose.com/slides/id/net/aspose.slides/sectioncollection/addsection/) untuk membuat bagian dengan menentukan namanya dan slide awal. Aspose.Slides menentukan slide mana yang termasuk dalam bagian dari struktur bagian presentasi saat ini.
 
-Kode contoh berikut menunjukkan cara membuat bagian dalam sebuah presentasi menggunakan C#:
+[ISectionCollection](https://reference.aspose.com/slides/id/net/aspose.slides/isectioncollection/) yang sama juga memungkinkan Anda untuk:
 
-```c#
-using (Presentation pres = new Presentation())
+- memindahkan sebuah bagian bersama slide-nya dengan menggunakan [ISectionCollection.ReorderSectionWithSlides](https://reference.aspose.com/slides/id/net/aspose.slides/sectioncollection/reordersectionwithslides/);
+- menghapus hanya definisi bagian dengan [ISectionCollection.RemoveSection](https://reference.aspose.com/slides/id/net/aspose.slides/sectioncollection/removesection/), yang mempertahankan slide-nya;
+- menghapus sebuah bagian beserta slide-nya dengan [ISectionCollection.RemoveSectionWithSlides](https://reference.aspose.com/slides/id/net/aspose.slides/sectioncollection/removesectionwithslides/);
+- menambahkan bagian kosong di akhir dengan [ISectionCollection.AppendEmptySection](https://reference.aspose.com/slides/id/net/aspose.slides/sectioncollection/appendemptysection/).
+
+Contoh berikut membuat dua bagian, memindahkan salah satunya, menghapusnya bersama slide-nya, dan menambahkan bagian kosong di akhir:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var titleSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var resultsSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", titleSlide);
+var resultsSection = presentation.Sections.AddSection("Results", resultsSlide);
+
+presentation.Sections.ReorderSectionWithSlides(resultsSection, 0);
+presentation.Sections.RemoveSectionWithSlides(resultsSection);
+presentation.Sections.AppendEmptySection("Appendix");
+```
+
+Setelah operasi tersebut, presentasi berisi bagian `Introduction` dengan slide-nya serta bagian kosong `Appendix`. Bagian `Results` dan slide-nya telah dihapus.
+
+## **Ganti Nama Bagian**
+
+Untuk mengganti nama sebuah bagian, atur properti [ISection.Name](https://reference.aspose.com/slides/id/net/aspose.slides/isection/name/). Slide dan posisi bagian tetap tidak berubah.
+
+Contoh berikut membuat sebuah bagian dan mengubah namanya:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var section = presentation.Sections.AddSection("Overview", slide);
+section.Name = "Introduction";
+```
+
+## **Dapatkan Slide dari Bagian**
+
+Properti [Presentation.Sections](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/sections/) mengembalikan sebuah [ISectionCollection](https://reference.aspose.com/slides/id/net/aspose.slides/isectioncollection/) yang dapat Anda iterasi. Untuk setiap [ISection](https://reference.aspose.com/slides/id/net/aspose.slides/isection/), panggil [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/id/net/aspose.slides/isection/getslideslistofsection/) untuk memperoleh slide yang saat ini termasuk di dalamnya. Metode tersebut mengembalikan sebuah [ISectionSlideCollection](https://reference.aspose.com/slides/id/net/aspose.slides/isectionslidecollection/), yang menyediakan jumlah, akses indeks, dan iterasi.
+
+Contoh berikut membuat dua bagian terisi dan satu bagian kosong, kemudian mencetak setiap [nama](https://reference.aspose.com/slides/id/net/aspose.slides/isection/name/), [identifier](https://reference.aspose.com/slides/id/net/aspose.slides/isection/sectionid/), [slide awal](https://reference.aspose.com/slides/id/net/aspose.slides/isection/startedfromslide/), jumlah slide, dan nomor slide masing‑masing. Ia menggunakan indeks koleksi untuk membaca slide pertama dan `foreach` untuk memproses setiap slide. Untuk bagian kosong, koleksi yang dikembalikan memiliki hitungan nol, indeks tidak diakses, dan iterasi tidak melakukan iterasi apa pun.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", firstSlide);
+presentation.Sections.AddSection("Details", thirdSlide);
+presentation.Sections.AppendEmptySection("Appendix");
+
+foreach (var section in presentation.Sections)
 {
-    ISlide defaultSlide = pres.Slides[0];
-    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    var sectionSlides = section.GetSlidesListOfSection();
+    var startingSlide = section.StartedFromSlide == null ? "none" : section.StartedFromSlide.SlideNumber.ToString();
 
-    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 akan berakhir pada newSlide2 dan setelahnya section2 akan dimulai   
-    
-    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.ReorderSectionWithSlides(section2, 0);
-    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.RemoveSectionWithSlides(section2);
-    
-    pres.Sections.AppendEmptySection("Last empty section");
-    
-    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    Console.WriteLine($"Section: {section.Name}");
+    Console.WriteLine($"ID: {section.SectionId}");
+    Console.WriteLine($"Starting slide: {startingSlide}");
+    Console.WriteLine($"Slide count: {sectionSlides.Count}");
+
+    if (sectionSlides.Count > 0)
+    {
+        Console.WriteLine($"First slide via indexer: {sectionSlides[0].SlideNumber}");
+    }
+
+    Console.Write("Slide numbers:");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
 }
 ```
 
-## **Ubah Nama Bagian**
+Keanggotaan bagian ditentukan oleh struktur bagian presentasi. Jangan menghitung rentang bagian secara manual dari [ISection.StartedFromSlide](https://reference.aspose.com/slides/id/net/aspose.slides/isection/startedfromslide/), indeks slide, dan slide awal bagian berikutnya.
 
-Setelah Anda membuat sebuah bagian dalam presentasi PowerPoint, Anda dapat memutuskan untuk mengubah namanya. 
+Pengeditan struktural dapat mengubah baik slide yang dikembalikan untuk sebuah bagian maupun nomor slide mereka. Ini termasuk menyusun ulang slide, mengkloning slide ke dalam sebuah bagian, memindahkan bagian bersama slide-nya, menghapus slide, dan menghapus bagian. Contoh berikut memanggil [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/id/net/aspose.slides/isection/getslideslistofsection/) setelah setiap perubahan tersebut alih‑alih mempertahankan asumsi tentang batas sebelumnya.
 
-Kode contoh berikut menunjukkan cara mengubah nama sebuah bagian dalam presentasi menggunakan C# dengan Aspose.Slides:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var firstSection = presentation.Sections.AddSection("First", firstSlide);
+var secondSection = presentation.Sections.AddSection("Second", thirdSlide);
+
+static void PrintSectionSlides(string label, ISection section)
 {
-   ISection section = pres.Sections[0];
-   section.Name = "My section";
+    var sectionSlides = section.GetSlidesListOfSection();
+    Console.Write($"{label} ({sectionSlides.Count} slides):");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
+}
+
+PrintSectionSlides("Initially", firstSection);
+
+var slidesBeforeClone = firstSection.GetSlidesListOfSection();
+presentation.Slides.AddClone(slidesBeforeClone[0], firstSection);
+PrintSectionSlides("After cloning into the section", firstSection);
+
+var slidesBeforeReorder = firstSection.GetSlidesListOfSection();
+var firstSectionPosition = slidesBeforeReorder[0].SlideNumber - 1;
+presentation.Slides.Reorder(firstSectionPosition, slidesBeforeReorder[slidesBeforeReorder.Count - 1]);
+PrintSectionSlides("After reordering slides", firstSection);
+
+presentation.Sections.ReorderSectionWithSlides(firstSection, 1);
+PrintSectionSlides("After moving the section", firstSection);
+
+var slidesBeforeRemoval = firstSection.GetSlidesListOfSection();
+presentation.Slides.Remove(slidesBeforeRemoval[0]);
+PrintSectionSlides("After removing a slide", firstSection);
+
+presentation.Sections.RemoveSectionWithSlides(secondSection);
+foreach (var section in presentation.Sections)
+{
+    PrintSectionSlides("Remaining section", section);
 }
 ```
+
+Panggil [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/id/net/aspose.slides/isection/getslideslistofsection/) lagi setiap kali slide atau bagian disusun ulang, dikloning, dipindahkan, atau dihapus. Ini menjaga pemrosesan selanjutnya selaras dengan struktur presentasi saat ini.
+
+Format PPT (PowerPoint 97–2003) tidak mempertahankan metadata bagian. Gunakan alur kerja ini dengan format yang mendukung bagian, seperti PPTX; mengonversi ke PPT menghapus struktur bagian yang diperlukan untuk enumerasi selanjutnya.
 
 ## **FAQ**
 
-**Apakah bagian tetap dipertahankan saat menyimpan ke format PPT (PowerPoint 97–2003)?**
+**Apakah bagian dipertahankan saat menyimpan ke format PPT (PowerPoint 97–2003)?**
 
-Tidak. Format PPT tidak mendukung metadata bagian, sehingga pengelompokan bagian hilang saat disimpan ke .ppt.
+Tidak. Format PPT tidak mendukung metadata bagian, jadi pengelompokan bagian hilang saat disimpan ke .ppt.
 
-**Apakah seluruh bagian dapat "disembunyikan"?**
+**Apakah seluruh bagian dapat “disembunyikan”?**
 
-Tidak. Hanya slide individu yang dapat disembunyikan. Sebuah bagian sebagai entitas tidak memiliki status "disembunyikan".
+Tidak. Sebuah bagian tidak memiliki status visibilitas. Untuk menyembunyikan isinya, atur properti [ISlide.Hidden](https://reference.aspose.com/slides/id/net/aspose.slides/islide/hidden/) untuk setiap slide dalam bagian tersebut.
 
-**Bisakah saya dengan cepat menemukan sebuah bagian berdasarkan slide, dan sebaliknya, slide pertama dari sebuah bagian?**
+**Bagaimana saya dapat menemukan bagian yang berisi sebuah slide?**
 
-Ya. Sebuah bagian didefinisikan secara unik oleh slide awalnya; dengan memberikan sebuah slide Anda dapat menentukan bagian mana yang menjadi miliknya, dan untuk sebuah bagian Anda dapat mengakses slide pertamanya.
+Iterasi [Presentation.Sections](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/sections/), panggil [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/id/net/aspose.slides/isection/getslideslistofsection/) untuk setiap bagian, dan bandingkan slide yang dikembalikan dengan slide target. Untuk bagian yang tidak kosong, [ISection.StartedFromSlide](https://reference.aspose.com/slides/id/net/aspose.slides/isection/startedfromslide/) mengembalikan slide pertamanya; untuk bagian kosong, ia mengembalikan `null`.

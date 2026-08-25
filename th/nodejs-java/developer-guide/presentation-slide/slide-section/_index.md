@@ -1,6 +1,6 @@
 ---
-title: "จัดการส่วนสไลด์ในงานนำเสนอด้วย JavaScript"
-linktitle: "ส่วนสไลด์"
+title: จัดการส่วนสไลด์ในงานนำเสนอด้วย JavaScript
+linktitle: ส่วนสไลด์
 type: docs
 weight: 90
 url: /th/nodejs-java/slide-section/
@@ -10,88 +10,199 @@ keywords:
 - แก้ไขส่วน
 - เปลี่ยนส่วน
 - ชื่อส่วน
+- ดึงสไลด์ส่วน
+- ประมวลผลสไลด์ส่วน
 - PowerPoint
-- OpenDocument
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ปรับปรุงการจัดการส่วนสไลด์ใน PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Node.js — แยก, เปลี่ยนชื่อ และจัดลำดับใหม่เพื่อเพิ่มประสิทธิภาพการทำงานของไฟล์ PPTX และ ODP"
+description: "จัดการส่วนสไลด์ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java: สร้าง, เปลี่ยนชื่อ, จัดลำดับใหม่, ดึง, และประมวลผลสไลด์ส่วนในงานนำเสนอ PPTX."
 ---
-## **Introduction**
+## **บทนำ**
 
-ด้วย Aspose.Slides for Node.js via Java คุณสามารถจัดระเบียบการนำเสนอ PowerPoint เป็นส่วนต่าง ๆ ได้ คุณสามารถสร้างส่วนที่ประกอบด้วยสไลด์ที่เจาะจงได้
+Sections จัดสไลด์ต่อเนื่องเป็นกลุ่มที่มีชื่อโดยไม่เปลี่ยนเนื้อหาของสไลด์. ด้วย Aspose.Slides for Node.js via Java, คุณสามารถสร้าง, จัดลำดับใหม่, เปลี่ยนชื่อ, ตรวจสอบ, และลบ sections ผ่านเมธอด [Presentation.getSections](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getSections).
 
-คุณอาจต้องการสร้างส่วนและใช้เพื่อจัดระเบียบหรือแบ่งสไลด์ในงานนำเสนอเป็นส่วนที่มีเหตุผลในสถานการณ์ต่อไปนี้:
+Sections มีประโยชน์เป็นพิเศษเมื่อ:
 
-- เมื่อคุณทำงานบนการนำเสนอขนาดใหญ่ร่วมกับคนอื่นหรือทีม—และคุณต้องมอบหมายสไลด์บางส่วนให้กับเพื่อนร่วมงานหรือสมาชิกในทีม  
-- เมื่อคุณกำลังจัดการกับการนำเสนอที่มีสไลด์จำนวนมาก—และคุณประสบปัญหาในการจัดการหรือแก้ไขเนื้อหาในครั้งเดียว  
+- การนำเสนอขนาดใหญ่ต้องแบ่งออกเป็นหัวข้อหรือบทที่มีตรรกะ;
+- กลุ่มสไลด์ต่างๆ ถูกมอบหมายให้กับผู้ร่วมงานคนต่างๆ;
+- สไลด์ต้องได้รับการประมวลผล, ย้าย, หรือรวมเข้าด้วยกันเป็นกลุ่ม.
 
-โดยทั่ว ๆ ไป คุณควรสร้างส่วนที่บรรจุสไลด์ที่คล้ายคลึงกัน—สไลด์เหล่านั้นมีความเชื่อมโยงหรือสามารถจัดกลุ่มตามกฎได้—และตั้งชื่อส่วนที่อธิบายสไลด์ภายใน
+เลือกชื่อ section ที่กระชับและอธิบายวัตถุประสงค์ของสไลด์ที่จัดกลุ่มไว้. เนื่องจาก sections เป็นส่วนหนึ่งของโครงสร้างการนำเสนอ, ควรใช้ API ของ section เพื่อกำหนดสมาชิกแทนการคำนวณจากตำแหน่งของสไลด์.
 
-## **Creating Sections in Presentations**
+## **สร้างและจัดการ Sections**
 
-เพื่อเพิ่มส่วนที่บรรจุสไลด์ในงานนำเสนอ Aspose.Slides for Node.js via Java มีเมธอด [addSection()](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) ที่ให้คุณระบุชื่อส่วนที่ต้องการสร้างและสไลด์ที่ส่วนเริ่มต้นจาก
+ใช้ [SectionCollection.addSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/#addSection) เพื่อสร้าง section โดยระบุชื่อและสไลด์เริ่มต้น. Aspose.Slides กำหนดสไลด์ใดบ้างที่เป็นของ section จากโครงสร้าง section ปัจจุบันของการนำเสนอ.
 
-โค้ดตัวอย่างนี้จะแสดงวิธีสร้างส่วนในงานนำเสนอด้วย JavaScript:
+ส่วนของ [SectionCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/) เดียวกันยังให้คุณทำสิ่งต่อไปนี้:
+
+- ย้าย section ไปพร้อมกับสไลด์โดยใช้ [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides);
+- ลบเฉพาะการกำหนดของ section ด้วย [SectionCollection.removeSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/#removeSection), ซึ่งจะคงสไลด์ไว้;
+- ลบ section พร้อมสไลด์ด้วย [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides);
+- เพิ่ม section ว่างที่ท้ายด้วย [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection).
+
+ตัวอย่างต่อไปนี้สร้างสอง section, ย้ายหนึ่งในนั้น, ลบมันพร้อมสไลด์, และเพิ่ม section ว่าง:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 จะสิ้นสุดที่ newSlide2 และหลังจากนั้น section2 จะเริ่มต้น
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Changing the Names of Sections**
+หลังจากการดำเนินการเหล่านี้, การนำเสนอจะมี section `Introduction` พร้อมสไลด์และ section ว่าง `Appendix`. section `Results` และสไลด์ของมันถูกลบออกแล้ว.
 
-หลังจากที่คุณสร้างส่วนในงานนำเสนอ PowerPoint แล้ว คุณอาจต้องการเปลี่ยนชื่อของมัน  
+## **เปลี่ยนชื่อ Sections**
 
-โค้ดตัวอย่างนี้จะแสดงวิธีเปลี่ยนชื่อของส่วนในงานนำเสนอด้วย JavaScript โดยใช้ Aspose.Slides:
+เพื่อเปลี่ยนชื่อ section, เรียกเมธอด [Section.setName](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#setName). สไลด์และตำแหน่งของ section จะคงเดิม.
+
+ตัวอย่างต่อไปนี้สร้าง section และเปลี่ยนชื่อของมัน:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **ดึงสไลด์จาก Sections**
 
-**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**  
-**ส่วนจะคงไว้เมื่อบันทึกเป็นรูปแบบ PPT (PowerPoint 97–2003) หรือไม่?**
+เมธอด [Presentation.getSections](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getSections) คืนค่า [SectionCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectioncollection/) ที่คุณสามารถเข้าถึงโดยดัชนี. สำหรับแต่ละ [Section](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/), เรียก [Section.getSlidesListOfSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getSlidesListOfSection) เพื่อรับสไลด์ที่ปัจจุบันเป็นของมัน. เมธอดนี้คืนค่า [SectionSlideCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectionslidecollection/), ซึ่งให้จำนวนและการเข้าถึงตามดัชนี.
 
-No. The PPT format does not support section metadata, so section grouping is lost when saving to .ppt.  
-ไม่ รูปแบบ PPT ไม่รองรับเมตาดาทาของส่วน ดังนั้นการจัดกลุ่มส่วนจะหายไปเมื่อตัวไฟล์บันทึกเป็น .ppt.
+ตัวอย่างต่อไปนี้สร้างสอง section ที่มีเนื้อหาและหนึ่ง section ว่าง, แล้วพิมพ์ [name](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getName), [identifier](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getSectionId), [starting slide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getStartedFromSlide), จำนวนสไลด์, และหมายเลขสไลด์ของแต่ละ section. มันใช้ [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) เพื่ออ่านสไลด์แรกและทุกสไลด์ในคอลเลกชัน. สำหรับ section ว่าง, คอลเลกชันที่คืนค่ามีขนาดเป็นศูนย์, การเข้าถึงตามดัชนีจะถูกข้าม, และลูปจะไม่ทำการใดๆ.
 
-**Can an entire section be "hidden"?**  
-**สามารถซ่อนส่วนทั้งหมดได้หรือไม่?**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-No. Only individual slides can be hidden. A section as an entity has no "hidden" state.  
-ไม่ สามารถซ่อนได้เฉพาะสไลด์แต่ละอันเท่านั้น ส่วนในฐานะเอนทิตี้ไม่มีสถานะ "ซ่อน".
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
 
-**Can I quickly find a section by a slide and, conversely, the first slide of a section?**  
-**ฉันสามารถค้นหาส่วนโดยอิงจากสไลด์ได้อย่างรวดเร็วหรือไม่ และในทางกลับกันค้นหาสไลด์แรกของส่วนได้หรือไม่?**
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
 
-Yes. A section is uniquely defined by its starting slide; given a slide you can determine which section it belongs to, and for a section you can access its first slide.  
-ได้ ส่วนจะถูกกำหนดโดยสไลด์เริ่มต้นของมันเป็นเอกลักษณ์; เมื่อทราบสไลด์แล้วคุณสามารถระบุได้ว่ามันอยู่ในส่วนใด และสำหรับส่วนหนึ่งคุณสามารถเข้าถึงสไลด์แรกของมันได้.
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Section membership ถูกกำหนดโดยโครงสร้าง section ของการนำเสนอ. อย่าคำนวนช่วงของ section ด้วยตนเองจาก [Section.getStartedFromSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getStartedFromSlide), ดัชนีสไลด์, และสไลด์เริ่มต้นของ section ถัดไป.
+
+การแก้ไขเชิงโครงสร้างสามารถเปลี่ยนทั้งสไลด์ที่คืนค่ามาสำหรับ section และหมายเลขสไลด์ของพวกมัน. นี้รวมถึงการจัดลำดับสไลด์ใหม่, การโคลนสไลด์เข้าไปใน section, การย้าย section พร้อมสไลด์, การลบสไลด์, และการลบ sections. ตัวอย่างต่อไปนี้เรียก [Section.getSlidesListOfSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getSlidesListOfSection) หลังจากการเปลี่ยนแปลงแต่ละครั้งแทนการเก็บสมมติฐานเกี่ยวกับขอบเขตเดิมของ section.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+เรียก [Section.getSlidesListOfSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getSlidesListOfSection) อีกครั้ง whenever slides or sections are reordered, cloned, moved, or removed. This keeps subsequent processing aligned with the current presentation structure.
+
+รูปแบบ PPT (PowerPoint 97–2003) ไม่เก็บเมตาดาทา section. ใช้กระบวนการทำงานนี้กับรูปแบบที่รองรับ sections, เช่น PPTX; การแปลงเป็น PPT จะลบโครงสร้าง section ที่จำเป็นสำหรับการวนซ้ำต่อไป.
+
+## **คำถามที่พบบ่อย**
+
+**Section จะถูกเก็บไว้เมื่อตัวบันทึกเป็นรูปแบบ PPT (PowerPoint 97–2003) หรือไม่?**
+
+ไม่. รูปแบบ PPT ไม่รองรับเมตาดาทา section, ดังนั้นการจัดกลุ่ม section จะสูญหายเมื่อบันทึกเป็น .ppt.
+
+**สามารถซ่อน section ทั้งหมดได้หรือไม่?**
+
+ไม่. Section ไม่มีสถานะการมองเห็น. เพื่อซ่อนเนื้อหาให้เรียก [Slide.setHidden](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#setHidden) สำหรับสไลด์แต่ละสไลด์ใน section.
+
+**จะหาว่า slide อยู่ใน section ใดได้อย่างไร?**
+
+เข้าถึงแต่ละ section ในคอลเลกชันที่คืนค่ามาจาก [Presentation.getSections](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getSections), เรียก [Section.getSlidesListOfSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getSlidesListOfSection) สำหรับแต่ละ section, แล้วเปรียบเทียบสไลด์ที่คืนค่ากับสไลด์เป้าหมาย. สำหรับ section ที่ไม่ว่าง, [Section.getStartedFromSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/section/#getStartedFromSlide) จะคืนสไลด์แรก; ส่วน section ว่างจะคืนค่า `null`.

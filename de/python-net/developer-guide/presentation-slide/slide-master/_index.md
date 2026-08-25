@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationsfolienmaster in Python
+title: Verwalten von Folienmastern in Präsentationen mit Python
 linktitle: Folienmaster
 type: docs
 weight: 80
@@ -15,7 +15,7 @@ keywords:
 - Masterfolie klonen
 - Masterfolie kopieren
 - Masterfolie duplizieren
-- ungenutzte Masterfolie
+- unbenutzte Masterfolie
 - PowerPoint
 - OpenDocument
 - Präsentation
@@ -25,31 +25,31 @@ description: "Verwalten Sie Folienmaster in Aspose.Slides für Python via .NET: 
 ---
 ## **Übersicht**
 
-Ein **Folienmaster** definiert gemeinsam genutzte Design‑Einstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Designthemen und Fußzeileneinstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters der übliche Weg, eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
+Ein **Folienmaster** definiert gemeinsam genutzte Designeinstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Theme‑Einstellungen und Fußzeileneinstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters der übliche Weg, um eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
 
-Aspose.Slides für Python via .NET unterstützt dasselbe Modell. Eine Präsentation kann einen oder mehrere Folienmaster enthalten, und jeder Folienmaster kann mehrere Layout‑Folien enthalten. Normale Folien verweisen in der Regel nicht direkt auf einen Folienmaster. Stattdessen verwendet eine normale Folie eine Layout‑Folie, und diese Layout‑Folie gehört zu einem Folienmaster.
+Aspose.Slides for Python via .NET unterstützt dasselbe Modell. Eine Präsentation kann einen oder mehrere Master‑Folien enthalten, und jede Master‑Folie kann mehrere Layout‑Folien enthalten. Normale Folien verweisen normalerweise nicht direkt auf eine Master‑Folie. Stattdessen verwendet eine normale Folie eine Layout‑Folie, und diese Layout‑Folie gehört zu einer Master‑Folie.
 
 Die Hierarchie ist:
 
-1. **Folienmaster** – definiert das gemeinsame Design und Theme.
-1. **Layout‑Folie** – definiert eine spezifische Anordnung von Platzhaltern und Layout‑Formatierungen.
-1. **Normale Folie** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layout‑Folie.
+1. **Folienmaster** – definiert das gemeinsame Design und Theme.  
+1. **Layout‑Folie** – definiert eine spezifische Anordnung von Platzhaltern und Layout‑Formatierungen.  
+1. **Normale Folie** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layout‑Folie.  
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![Die Hierarchie von Master‑Folien, Layout‑Folien und normalen Folien](slide-master_2.jpg)
 
-In Aspose.Slides wird ein Folienmaster durch die [MasterSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/)‑Klasse repräsentiert. Alle Folienmaster in einer Präsentation sind über die `Presentation.masters`‑Sammlung verfügbar.
+In Aspose.Slides wird ein Folienmaster durch die Klasse [MasterSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/) repräsentiert. Alle Master‑Folien einer Präsentation sind über die Sammlung `Presentation.masters` verfügbar.
 
-{{% alert color="info" title="Vererbung" %}}
-Wenn dieselbe Eigenschaft auf mehreren Ebenen definiert ist, gewinnt die spezifischere Ebene. Beispiel: Wenn ein Folienmaster und eine Layout‑Folie beide einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Layout‑Hintergrund. Weitere Informationen zu Layout‑Folien finden Sie unter [Apply or Change Slide Layouts](/python-net/slide-layout/).
+{{% alert color="info" title="Inheritance" %}}
+Wenn dieselbe Eigenschaft auf mehr als einer Ebene definiert ist, gewinnt die spezifischere Ebene. Zum Beispiel, wenn sowohl ein Folienmaster als auch eine Layout‑Folie einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Layout‑Hintergrund. Weitere Informationen zu Layout‑Folien finden Sie unter [Anwenden oder Ändern von Folienlayouts](/slides/de/python-net/slide-layout/).
 {{% /alert %}}
 
 ## **Zugriff auf Folienmaster**
 
 In PowerPoint können Sie die Folienmaster‑Ansicht über **Ansicht** > **Folienmaster** öffnen.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![Der Folienmaster‑Befehl auf der Registerkarte Ansicht in PowerPoint](slide-master_3.jpg)
 
-In Aspose.Slides verwenden Sie die `masters`‑Sammlung, um auf Folienmaster zuzugreifen:
+In Aspose.Slides verwenden Sie die Sammlung `masters`, um auf Master‑Folien zuzugreifen:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Sie können den von einer normalen Folie verwendeten Folienmaster auch über ihr Layout erhalten:
+Sie können die von einer normalen Folie verwendete Master‑Folie auch über ihr Layout abrufen:
 
 ```python
 import aspose.slides as slides
@@ -77,16 +77,16 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Inhalt eines Folienmasters**
+## **Was ein Folienmaster enthält**
 
-Ein Folienmaster ist ein folienähnliches Objekt. Er erbt das allgemeine Folienverhalten von der [BaseSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslide/)‑Klasse und stellt daher viele der gleichen Folieneigenschaften bereit, die von normalen und Layout‑Folien verwendet werden. Master‑spezifische Mitglieder sind auf der API‑Seite [MasterSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/) aufgelistet.
+Eine Master‑Folie ist ein folienähnliches Objekt. Sie erbt das allgemeine Folienverhalten von der Klasse [BaseSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslide/) und stellt daher viele der gleichen Folieneigenschaften zur Verfügung, die von normalen und Layout‑Folien verwendet werden. Master‑spezifische Member sind auf der API‑Seite [MasterSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/) aufgelistet.
 
-Häufig verwendete Master‑Mitglieder umfassen:
+Häufig verwendete Master‑Folie‑Member umfassen:
 
-| Mitglied | Zweck |
+| Member | Zweck |
 | --- | --- |
-| `background` | Legt den master‑ Ebene Folienhintergrund fest. |
-| `shapes` | Speichert Formen, die auf dem Master platziert sind, wie Logos, Bildrahmen und gemeinsam genutzten Text. |
+| `background` | Legt den Master‑Folienhintergrund fest. |
+| `shapes` | Speichert Formen, die auf dem Master platziert sind, wie Logos, Bildrahmen und gemeinsamen Text. |
 | `layout_slides` | Speichert die Layout‑Folien, die zum Master gehören. |
 | `theme_manager` | Bietet Zugriff auf die Master‑Theme‑APIs. |
 | `header_footer_manager` | Steuert Kopf‑ und Fußzeilen, Datumsangaben und Foliennummern für den Master und seine untergeordneten Layouts. |
@@ -94,9 +94,9 @@ Häufig verwendete Master‑Mitglieder umfassen:
 
 ## **Ein Bild zu einem Folienmaster hinzufügen**
 
-Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederkehrende visuelle Elemente.
+Wenn Sie ein Bild zu einer Master‑Folie hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederkehrende visuelle Elemente.
 
-Das folgende Beispiel fügt einem ersten Folienmaster ein Logo hinzu:
+Das folgende Beispiel fügt dem ersten Master‑Folie ein Logo hinzu:
 
 ```python
 import aspose.slides as slides
@@ -120,15 +120,15 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Weitere Informationen zu Bildrahmen finden Sie unter [Picture Frame](/python-net/picture-frame/).
+Weitere Informationen zu Bildrahmen finden Sie unter [Bildrahmen](/slides/de/python-net/picture-frame/).
 
 ## **Arbeiten mit Platzhaltern**
 
-Platzhalter werden normalerweise auf Layout‑Folien definiert. Der Folienmaster stellt den gemeinsamen Stil und das Theme bereit, das diese Layouts erben, während jedes Layout bestimmt, welche Platzhalter verfügbar sind und wo sie platziert werden.
+Platzhalter werden normalerweise auf Layout‑Folien definiert. Der Master‑Folie liefert den gemeinsamen Stil und das Theme, das diese Layouts erben, während jedes Layout bestimmt, welche Platzhalter verfügbar sind und wo sie platziert werden.
 
-In PowerPoint sind Platzhalter‑Befehle in der Folienmaster‑Ansicht verfügbar.
+In PowerPoint stehen Platzhalterbefehle in der Folienmaster‑Ansicht zur Verfügung.
 
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+![Der Befehl Platzhalter einfügen in der Folienmaster‑Ansicht von PowerPoint](slide-master_5.png)
 
 Um neue Platzhalter mit Aspose.Slides hinzuzufügen, arbeiten Sie mit der Layout‑Folie, die zum Master gehört:
 
@@ -151,7 +151,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sie können auch Platzhalterformen formatieren, die bereits auf einem Folienmaster vorhanden sind. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
+Sie können auch Platzhalterformen, die bereits auf einer Master‑Folie existieren, formatieren. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
 
 ```python
 import aspose.pydrawing as draw
@@ -178,18 +178,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![Formatierter Titel‑Platzhalter, vererbt von normalen Folien](slide-master_8.png)
 
-Weitere Optionen für Platzhalter‑ und Textformatierung finden Sie unter [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) und [Text Formatting](/python-net/text-formatting/).
+Weitere Optionen für Platzhalter und Textformatierung finden Sie unter [Eingabetext im Platzhalter festlegen](/slides/de/python-net/manage-placeholder/) und [Textformatierung](/slides/de/python-net/text-formatting/).
 
 ## **Hintergrund eines Folienmasters ändern**
 
-Ein Master‑Hintergrund wird von Layouts und Folien, die ihn nicht überschreiben, geerbt. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für den ersten Folienmaster:
+Ein Master‑Hintergrund wird von Layouts und Folien übernommen, die ihn nicht überschreiben. Das folgende Beispiel setzt eine einheitliche Hintergrundfarbe für die erste Master‑Folie:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +205,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Verwandte Themen finden Sie unter [Presentation Background](/python-net/presentation-background/) und [Presentation Theme](/python-net/presentation-theme/).
+Verwandte Themen finden Sie unter [Präsentationshintergrund](/slides/de/python-net/presentation-background/) und [Präsentationstheme](/slides/de/python-net/presentation-theme/).
 
 ## **Einen Folienmaster in eine andere Präsentation klonen**
 
-Verwenden Sie die `add_clone`‑Methode der [MasterSlideCollection](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslidecollection/)‑Klasse, um einen Folienmaster in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
+Verwenden Sie die Methode `add_clone` der Klasse [MasterSlideCollection](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslidecollection/), um eine Master‑Folie in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +222,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wenn Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Clone Slides](/python-net/clone-slides/).
+Wenn Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Folien klonen](/slides/de/python-net/clone-slides/).
 
 ## **Mehrere Folienmaster hinzufügen**
 
-Eine Präsentation kann mehrere Folienmaster enthalten. Das ist nützlich, wenn verschiedene Abschnitte unterschiedliche Marken, Seitenstrukturen oder Theme‑Einstellungen benötigen.
+Eine Präsentation kann mehrere Master‑Folien enthalten. Das ist nützlich, wenn verschiedene Abschnitte unterschiedliche Markenauftritte, Seitenstrukturen oder Theme‑Einstellungen benötigen.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![PowerPoint‑Befehle zum Einfügen und Verwalten von Master‑Folien](slide-master_9.jpg)
 
-Das folgende Beispiel klont den Standardsmaster, gibt dem Klon einen anderen Hintergrund, holt ein leeres Layout unter diesem geklonten Master und fügt eine neue Folie basierend auf diesem Layout hinzu:
+Das folgende Beispiel klont den Standard‑Master, gibt dem Klon einen anderen Hintergrund, ruft ein leeres Layout unter diesem geklonten Master ab und fügt eine neue Folie basierend auf diesem Layout hinzu:
 
 ```python
 import aspose.pydrawing as draw
@@ -258,7 +258,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Folienmaster vergleichen**
 
-Folienmaster können mit der aus der [BaseSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslide/)‑Klasse geerbten `equals`‑Methode verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht nicht eindeutige Kennungen wie Folien‑IDs oder dynamische Platzhalterwerte wie das aktuelle Datum.
+Master‑Folien können mit der Methode `equals`, die von der Klasse [BaseSlide](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslide/) geerbt wird, verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt, wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht nicht eindeutige Bezeichner wie Folien‑IDs oder dynamische Platzhalterwerte wie das aktuelle Datum.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +281,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-Weitere Informationen finden Sie unter [Compare Presentation Slides](/python-net/compare-slides/).
+Weitere Informationen finden Sie unter [Präsentationsfolien vergleichen](/slides/de/python-net/compare-slides/).
 
 ## **Folienmaster‑Ansicht als Standardansicht festlegen**
 
-Verwenden Sie die `last_view`‑Eigenschaft der Präsentations‑[ViewProperties](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/), um die Ansicht zu steuern, die PowerPoint zuerst öffnet. Das folgende Beispiel öffnet die Präsentation in der Folienmaster‑Ansicht:
+Verwenden Sie die Eigenschaft `last_view` der Präsentations‑[ViewProperties](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/), um die Ansicht zu steuern, die PowerPoint zuerst öffnet. Das folgende Beispiel öffnet die Präsentation in der Folienmaster‑Ansicht:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +295,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Weitere Ansichtseinstellungen finden Sie unter [Save Presentation](/python-net/save-presentation/).
+Weitere Ansichtseinstellungen finden Sie unter [Präsentation speichern](/slides/de/python-net/save-presentation/).
 
-## **Unbenutzte Folienmaster entfernen**
+## **Unbenutzte Master‑Folien entfernen**
 
-Präsentationen enthalten manchmal Folienmaster, die von keiner normalen Folie mehr verwendet werden. Das Entfernen ungenutzter Master kann die Dateigröße reduzieren und die Vorlagenwartung vereinfachen.
+Präsentationen enthalten manchmal Master‑Folien, die von keiner normalen Folie mehr verwendet werden. Das Entfernen ungenutzter Master‑Folien kann die Dateigröße reduzieren und die Wartung von Vorlagen vereinfachen.
 
-Verwenden Sie `remove_unused`, um unbenutzte Master aus der `masters`‑Sammlung zu entfernen:
+Verwenden Sie `remove_unused`, um ungenutzte Master‑Folien aus der Sammlung `masters` zu entfernen:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +311,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sie können auch die Low‑Code‑Methode `remove_unused_master_slides` der [Compress](https://reference.aspose.com/slides/de/python-net/aspose.slides.lowcode/compress/)‑Klasse verwenden:
+Sie können auch die Low‑Code‑Methode `remove_unused_master_slides` der Klasse [Compress](https://reference.aspose.com/slides/de/python-net/aspose.slides.lowcode/compress/) verwenden:
 
 ```python
 import aspose.slides as slides
@@ -323,18 +323,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einem Folienmaster und einer Layout‑Folie?**
+### Was ist der Unterschied zwischen einem Folienmaster und einer Layout‑Folie?
 
-Ein Folienmaster definiert gemeinsam genutzte Design‑Einstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layout‑Folie gehört zu einem Folienmaster und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layout‑Folie und erbt somit sowohl vom Layout als auch vom Master.
+Ein Folienmaster definiert gemeinsam genutzte Designeinstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layout‑Folie gehört zu einem Folienmaster und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layout‑Folie und erbt somit sowohl vom Layout als auch vom Master.
 
-**Kann eine Präsentation mehrere Folienmaster enthalten?**
+### Kann eine Präsentation mehrere Folienmaster enthalten?
 
-Ja. Eine Präsentation kann mehrere Folienmaster enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Marken benötigen.
+Ja. Eine Präsentation kann mehrere Folienmaster enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Markenauftritte benötigen.
 
-**Sollte ich Platzhalter zu einem Folienmaster oder zu einer Layout‑Folie hinzufügen?**
+### Sollte ich Platzhalter zu einem Folienmaster oder zu einer Layout‑Folie hinzufügen?
 
-In den meisten Fällen fügen Sie Platzhalter zu Layout‑Folien hinzu. Gemeinsame visuelle Elemente und Formatierungen kommen auf den Folienmaster, während Inhalts‑Platzhalter auf den Layouts platziert werden, die von normalen Folien verwendet werden.
+In den meisten Fällen sollten Sie Platzhalter zu Layout‑Folien hinzufügen. Platzieren Sie gemeinsam genutzte visuelle Elemente und Formatierungen auf dem Folienmaster und fügen Sie Inhalts‑Platzhalter zu den Layouts hinzu, die von normalen Folien verwendet werden.
 
-**Kann ich einen Folienmaster löschen, der noch verwendet wird?**
+### Kann ich einen Folienmaster löschen, der noch verwendet wird?
 
-Nein. Ein Folienmaster, der abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie diese Folien zunächst zu Layouts unter einem anderen Master oder verwenden Sie eine Aufräummethode für unbenutzte Master, die nur Master entfernt, die nicht verwendet werden.
+Nein. Ein Folienmaster, der abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zunächst diese Folien zu Layouts unter einem anderen Master, oder verwenden Sie eine Aufräummethode für ungenutzte Master, die nur nicht verwendete Master entfernt.

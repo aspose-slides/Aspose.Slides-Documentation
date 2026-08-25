@@ -1,16 +1,16 @@
 ---
-title: Effektiv sammanslagning av presentationer på Android
-linktitle: Sammanslå presentationer
+title: Effektivt slå ihop presentationer på Android
+linktitle: Slå ihop presentationer
 type: docs
 weight: 40
 url: /sv/androidjava/merge-presentation/
 keywords:
-- sammanfoga PowerPoint
-- sammanfoga presentationer
-- sammanfoga bilder
-- sammanfoga PPT
-- sammanfoga PPTX
-- sammanfoga ODP
+- slå ihop PowerPoint
+- slå ihop presentationer
+- slå ihop bilder
+- slå ihop PPT
+- slå ihop PPTX
+- slå ihop ODP
 - kombinera PowerPoint
 - kombinera presentationer
 - kombinera bilder
@@ -20,217 +20,344 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Sammanfoga enkelt PowerPoint (PPT, PPTX) och OpenDocument (ODP) presentationer med Aspose.Slides för Android via Java, vilket förenklar ditt arbetsflöde."
+description: "Lär dig hur du slår ihop PowerPoint- och OpenDocument-presentationer på Android genom att klona bilder, styra master och layouter, ändra storlek på bildinnehåll, bevara sektioner samt hantera skyddade eller stora filer."
 ---
 ## **Översikt**
 
-Att slå samman PowerPoint- och OpenDocument-presentationer är en vanlig uppgift i många Android-applikationer, särskilt när man genererar rapporter, sammanställer bilder från olika källor eller automatiserar presentationsarbetsflöden. Aspose.Slides tillhandahåller ett kraftfullt och lättanvänt API för att kombinera flera PPT-, PPTX- eller ODP‑filer till en enda presentation utan att behöva installera Microsoft PowerPoint, LibreOffice eller OpenOffice.
+Aspose.Slides för Android via Java sammanslår presentationer genom att klona bilder från en [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) till en annan. Huvudoperationen är [ISlideCollection.addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), som kan bevara källbildens formatering eller fästa den klonade bilden till ett master- eller layout i målpresentationen.
 
-I den här guiden lär du dig hur du slår samman PowerPoint- och OpenDocument-presentationer med bara några kodrader. Vi tillhandahåller färdiga exempel och visar hur du bevarar bildformatering, layouter och andra presentationselement under sammanslagningsprocessen.
+Denna artikel täcker de vanligaste sammanslagningsarbetsflödena:
 
-Oavsett om du bygger en företagsapplikation eller ett enkelt automatiseringsverktyg gör Aspose.Slides sammanslagning av presentationer snabbt, pålitligt och skalbart. Aspose.Slides låter dig slå samman presentationer på olika sätt. Du kan kombinera presentationer med alla deras former, stilar, text, formatering, kommentarer, animationer och mer – utan att oroa dig för kvalitet- eller dataförlust.
+- sammanfoga alla bilder samtidigt som deras källformat bevaras;
+- sammanfoga valda bilder;
+- tillämpa ett master från målpresentationen;
+- tillämpa ett specifikt layout från målpresentationen;
+- normalisera olika bildstorlekar innan sammanslagning;
+- lägga till klonade bilder i ett avsnitt;
+- sammanfoga flera presentationer i ett end‑to‑end‑arbetsflöde;
+- hantera master, resurser, anteckningar, kommentarer, media, typsnitt, lösenord, stora filer och trådsäkerhetsaspekter.
 
-{{% alert color="primary" %}}
-Se även: [Clone Slides](https://docs.aspose.com/slides/sv/androidjava/clone-slides/)
-{{% /alert %}}
+## **Hur bildkloning påverkar master och layouter**
 
-### **Vad kan slås samman**
+En bild ärver mycket av sitt utseende från sitt layout och master. Av den anledningen bestämmer vilken överlagring av kloning du väljer hur den sammanslagna bilden integreras i målpresentationen.
 
-* hela presentationer. Alla bilderna från presentationerna hamnar i en enda presentation
-* specifika bilder. Valda bilder hamnar i en enda presentation
-* presentationer i ett format (PPT till PPT, PPTX till PPTX, osv) och i olika format (PPT till PPTX, PPTX till ODP, osv) till varandra.
+Använd [ISlideCollection.addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/) på ett av följande sätt:
 
-### **Sammanslagningsalternativ**
+- `addClone(sourceSlide)` — bevara källbildens layout och formatering. Vid behov kan källmastern klonas automatiskt in i målpresentationen. Aspose.Slides spårar automatiskt klonade master så att upprepade bilder som använder samma källmaster inte får den master klonad flera gånger.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — fäst den klonade bilden till ett specifikt mål-[IMasterSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterslide/). Aspose.Slides söker efter ett matchande layout under den mastern efter layout‑typ eller namn.
+- `addClone(sourceSlide, destinationLayout)` — fäst den klonade bilden direkt till ett specifikt mål-[ILayoutSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/).
 
-Du kan tillämpa alternativ som avgör om
+Den master eller layout som skickas till en `addClone`‑överlagring måste tillhöra **mål**‑presentationen, inte källpresentationen.
 
-* varje bild i resultatpresentationen behåller en unik stil
-* en specifik stil används för alla bilder i resultatpresentationen.
+## **Sammanfoga hela presentationer och bevara källformat**
 
-För att slå samman presentationer tillhandahåller Aspose.Slides [AddClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) metoder (från [ISlideCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlideCollection)‑gränssnittet). Det finns flera implementationer av `AddClone`‑metoderna som definierar parametrarna för presentationssammanfogningsprocessen. Varje Presentation‑objekt har en [Slides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation#getSlides--) samling, så du kan anropa en `AddClone`‑metod från den presentation du vill slå samman bilder i.
+Den enklaste sammanslagningen kopierar varje bild från källpresentationen till målpresentationen. Detta är det lämpliga valet när de importerade bilderna ska behålla sitt ursprungliga tema, master och layout‑relationer.
 
-`AddClone`‑metoden returnerar ett `ISlide`‑objekt, som är en klon av källbilden. Bilderna i en resultatpresentation är helt enkelt en kopia av bilderna från källan. Därför kan du göra ändringar i de resulterande bilderna (till exempel tillämpa stilar, formateringsalternativ eller layouter) utan att oroa dig för att källpresentationerna påverkas.
-
-## **Slå ihop presentationer**
-
-Aspose.Slides tillhandahåller metoden [**AddClone(ISlide)**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) som låter dig kombinera bilder samtidigt som bilderna behåller sina layouter och stilar (standardparametrar).
-
-Denna Java‑kod visar hur du slår samman presentationer:
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Slå ihop presentationer med en bildmaster**
+Den resulterande presentationen kan innehålla flera master när käll‑ och målpresentationen använder olika designer. Detta är förväntat när källformat avsiktligt bevaras.
 
-Aspose.Slides tillhandahåller metoden [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) som låter dig kombinera bilder samtidigt som du tillämpar en bildmaster‑presentationsmall. På så sätt kan du, om det behövs, ändra stilen för bilderna i resultatpresentationen.
+## **Sammanfoga valda bilder**
 
-Denna kod i Java demonstrerar den beskrivna operationen:
+Du behöver inte klona varje bild. Följande exempel importerar endast utvalda bildindex från källpresentationen.
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}}
-Slide‑layouten för bildmastern bestäms automatiskt. När en lämplig layout inte kan bestämmas, om den booleska parametern `allowCloneMissingLayout` för `AddClone`‑metoden är satt till true, används layouten för källbilden. Annars kommer ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/PptxEditException) att kastas.
-{{% /alert %}}
+Validera bildindex innan kloning när de kommer från användarinmatning eller extern konfiguration.
 
-Om du vill att bilderna i resultatpresentationen ska ha en annan bildlayout, använd metoden [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) istället när du slår ihop.
+## **Sammanfoga bilder med ett mål‑master**
 
-## **Slå ihop specifika bilder från presentationer**
+Använd överlagringen [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) när importerade bilder ska följa ett master som redan finns i målpresentationen.
 
-Att slå ihop specifika bilder från flera presentationer är användbart för att skapa anpassade bildspel. Aspose.Slides för Android via Java låter dig välja och importera endast de bilder du behöver. API:et bevarar formatering, layout och design på de ursprungliga bilderna.
-
-Följande Java‑kod skapar en ny presentation, lägger till titelbilder från två andra presentationer och sparar resultatet till en fil:
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Slå ihop presentationer med en bildlayout**
+Aspose.Slides väljer ett lämpligt layout under den angivna mastern genom att matcha källlayoutens typ eller namn. Om inget passande layout finns och `allowCloneMissingLayout` är `true` klonas källlayouten så att bilden kan läggas till. Om det är `false` kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/).
 
-Denna Java‑kod visar hur du kombinerar bilder från presentationer samtidigt som du tillämpar den önskade bildlayouten för att få en sammanhållen resultatpresentation:
+Använd `false` när du vill att sammanslagningen ska misslyckas istället för att introducera ett ytterligare layout i mål‑mastern.
+
+## **Sammanfoga bilder med ett specifikt mål‑layout**
+
+Använd överlagringen [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) när du exakt vet vilket mål‑layout de importerade bilderna ska använda.
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
-}
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
 
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
 ```
 
-## **Slå ihop presentationer med olika bildstorlekar**
+Att tillämpa ett mål‑layout ändrar den ärvda layout‑relationen; det omdesignar inte innehållet i källbilden. Om käll‑ och mål‑layouter har olika platshållarstrukturer, inspektera resultatet för att bekräfta att den ärvda formateringen och platshållarbeteendet är lämpligt.
 
-{{% alert title="Note" color="warning" %}}
-Du kan inte slå ihop presentationer med olika bildstorlekar.
-{{% /alert %}}
+## **Sammanfoga presentationer med olika bildstorlekar**
 
-För att slå ihop två presentationer med olika bildstorlekar måste du ändra storleken på en av presentationerna så att den matchar den andra presentationens storlek.
+Presentationer med olika bilddimensioner kan slås ihop, men att klona en bild till en presentation med en annan bildstorlek omformar inte automatiskt dess innehåll för den nya duken. Former kan därför visas förskjutna, skalade oväntat eller utanför den synliga bildytan.
 
-Denna exempel­kod demonstrerar den beskrivna operationen:
+En praktisk metod är att ändra storlek på källpresentationen innan kloning. Metoden [SlideSize.setSize](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) kan skala befintligt innehåll medan bilddimensionerna ändras. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slidesizescaletype/) skalar innehåll för att passa inom den begärda storleken.
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    SizeF sourceSize = source.getSlideSize().getSize();
+    SizeF destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Slå ihop bilder till ett presentationsavsnitt**
+Att ändra storlek ändrar källpresentationens objekt i minnet. Om du behöver den ursprungliga källpresentationen oförändrad för andra operationer, öppna en separat instans för sammanslagningen.
 
-Denna Java‑kod visar hur du slår ihop en specifik bild till ett avsnitt i en presentation:
+## **Sammanfoga bilder i ett presentationsavsnitt**
+
+Den grundläggande bildkloningsloopen återställer inte källpresentationens avsnittshierarki. Om avsnitt är viktiga i resultatet, skapa eller välj avsnitt i målpresentationen och klona bilder in i dem explicit med [addClone(ISlide, ISection)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-Bilden läggs till i slutet av avsnittet.
+De klonade bilderna läggs till i det angivna mål‑avsnittet. För att bevara flera käll‑avsnitt, enumerera [Presentation.getSections](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSections--), hämta varje käll‑avsnitts aktuella bilder med [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--), återskapa avsnitten i målpresentationen och klona varje returnerad bild till motsvarande mål‑avsnitt. Se [Manage Slide Sections](/slides/sv/androidjava/slide-section/) för ett komplett exempel på avsnittsenumerering, inklusive tomma avsnitt och strukturella förändringar.
 
-{{% alert title="Tip" color="primary" %}}
-Aspose erbjuder en [GRATIS Collage‑webapp](https://products.aspose.app/slides/sv/collage). Med den här onlinetjänsten kan du slå ihop [JPG till JPG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG till PNG‑bilder, skapa [fotogrid‑layouter](https://products.aspose.app/slides/sv/collage/photo-grid) och så vidare.
-{{% /alert %}}
+## **Sammanslå flera presentationer på ett säkert sätt**
+
+Det följande end‑to‑end‑exemplet använder den första presentationen som mål, normaliserar bildstorleken för varje ytterligare källa, håller varje källa öppen endast medan den kopieras, och sparar den slutgiltiga filen en gång.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    SizeF mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            SizeF sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Detta är en användbar grundmodell för att bevara källformatet på importerade bilder. Om ditt resultat måste använda ett enda måltema, ersätt det enkla anropet `addClone(slide)` med den lämpliga mål‑master‑ eller mål‑layout‑överlagringen som visas tidigare.
+
+## **Praktiska överväganden**
+
+### **Master, layouter och formateringsfidelity**
+
+Standardbildkloning kan automatiskt föra in en nödvändig käll‑master i målpresentationen. Aspose.Slides håller ett internt register för automatiskt klonade master för att undvika att samma master klonas upprepade gånger. Manuellt klonade master spåras inte av det registret, så undvik förkloning av master om du inte behöver explicit kontroll över master‑strukturen.
+
+Anta inte att två master eller layouter med samma namn är visuellt ekvivalenta. Om en företagsmall måste styra det slutliga utseendet, välj ett mål‑master eller layout explicit och verifiera resultatet efter sammanslagning.
+
+### **Anteckningar och kommentarer**
+
+Talarnoteringar och bildkommentarer är knutna till bildinnehållet och kopieras när en bild klonas. Aspose.Slides erbjuder även dedikerade API:er för [presentation notes](/slides/sv/androidjava/presentation-notes/) och [presentation comments](/slides/sv/androidjava/presentation-comments/).
+
+Om formatering av anteckningssidan är viktig, verifiera den sammanslagna presentationen eftersom antecknings‑master är objekt på presentationsnivå och kan skilja sig mellan källfiler. För granskningsarbetsflöden, verifiera även kommentar­författare och trådade kommentarer efter att filer från olika författare eller mallar kombinerats.
+
+### **Bilder, ljud, video, OLE‑objekt och externa länkar**
+
+Bilder kan referera resurser på presentationsnivå såsom bilder, inbäddat ljud, inbäddad video och OLE‑data. Klona själva bilden snarare än att bara kopiera dess synliga former så att Aspose.Slides kan behålla bildens relationer till sina resurser.
+
+Inbäddade och länkade resurser bör behandlas olika. En länkad ljud‑, video‑, OLE‑objekt‑ eller hyperlänk förblir beroende av sitt externa mål; att klona en bild omvandlar inte en extern länk till inbäddat innehåll. Testa länkrevas‑vägar och URL:er i den miljö där den sammanslagna presentationen kommer att öppnas.
+
+Aspose.Slides spårar automatiskt klonade master, men detta bör inte ses som en generell garanti för att identiska binära resurser från orelaterade källpresentationer alltid dedupliceras. Om filstorlek är viktig, inspektera det sammanslagna paketet och mät resultatet i stället för att förlita dig på implicit deduplicering.
+
+### **Inbäddade typsnitt och typsnittstillgänglighet**
+
+Typsnitt hanteras på presentationsnivå. Om typografi måste förbli konsekvent över maskiner, anta inte att enbart kloning av bilder garanterar att varje nödvändigt typsnitt är tillgängligt i målmiljön. Du kan inspektera inbäddade typsnitt med [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) och hantera inbäddning explicit enligt [Embed Fonts in Presentations](/slides/sv/androidjava/embedded-font/).
+
+Verifiera också att du har rätt att bädda in de typsnitt som används i källfilerna. Typsnittslicenser kan begränsa inbäddning.
+
+### **Lösenordsskyddade presentationer**
+
+En lösenordsskyddad källa måste öppnas framgångsrikt innan dess bilder kan klonas. Ange lösenordet via [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // Arbeta med den dekrypterade presentationen.
+} finally {
+    source.dispose();
+}
+```
+
+Att öppna en krypterad källa applicerar inte automatiskt samma skydd på målpresentationen. Konfigurera utdata‑skydd separat när det krävs.
+
+### **Stora presentationer och minnesanvändning**
+
+Stora presentationer som innehåller högupplösta bilder, ljud, video eller andra stora binära objekt kan förbruka betydande minne. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) ger kontroll över BLOB‑hantering och temporära filer. Se [Manage Presentation BLOBs](/slides/sv/androidjava/manage-blob/) för strategier med stora filer.
+
+För stora filer, föredra inläsning från filsökvägar när möjligt, avlossa varje källpresentation så snart den har slagits samman, och undvik att upprepade gånger spara mellansteg om inte arbetsflödet kräver kontrollpunkter.
+
+### **Trådsäkerhet**
+
+Läs inte, ändra, spara eller klona samma [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje presentationsinstans begränsad till en sammanslagningsoperation. Om du parallellt kör oberoende jobb, använd oberoende presentationsinstanser och följ [Aspose.Slides multithreading guidance](/slides/sv/androidjava/multithreading/).
 
 ## **FAQ**
 
-**Finns det några begränsningar för antalet bilder när man slår ihop presentationer?**
+**Hur behåller jag varje källpresentations ursprungliga design?**
 
-Inga strikta begränsningar. Aspose.Slides kan hantera stora filer, men prestandan beror på filens storlek och systemresurser. För mycket stora presentationer rekommenderas att använda en 64‑bitars JVM och allokera tillräckligt med heap‑minne.
+Använd [addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) utan att ange ett mål‑master eller layout. Aspose.Slides kan automatiskt klona käll‑mastern när den behövs av den importerade bilden.
 
-**Kan jag slå ihop presentationer med inbäddad video eller ljud?**
+**Hur får jag importerade bilder att använda måltemat?**
 
-Ja, Aspose.Slides bevarar multimediainnehåll som är inbäddat i bilder, men den slutliga presentationen kan bli avsevärt större.
+Använd överlagringen som accepterar ett mål‑master. Skicka ett master från målpresentationen, inte från källan. Aspose.Slides försöker mappa varje källbild till ett lämpligt layout under den mastern.
 
-**Kommer typsnitt att bevaras när man slår ihop presentationer?**
+**När bör jag använda ett specifikt mål‑layout istället för ett mål‑master?**
 
-Ja. Typsnitt som används i källpresentationerna bevaras i resultatfilen, förutsatt att de är installerade på systemet eller [inbäddade](/slides/sv/androidjava/embedded-font/).
+Använd ett specifikt layout när varje importerad bild ska använda ett känt layout. Använd ett master när du vill att Aspose.Slides ska välja bland masterns layouter baserat på källbildens layout‑typ eller namn.
+
+**Kan presentationer med olika bildstorlekar slås ihop?**
+
+Ja, men bildinnehållet omdesignas inte automatiskt för mål‑dimensionerna. Ändra storlek på källpresentationen först när du behöver förutsägbar placering, exempelvis med [SlideSize.setSize](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) och [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slidesizescaletype/).
+
+**Kan jag slå ihop PPT, PPTX och ODP‑presentationer i en fil?**
+
+Ja. Läs in varje källpresentation, klona de nödvändiga bilderna till en destination och spara destinationen i ett stödformat. Eftersom presentationsformaten inte stödjer exakt samma funktionsuppsättning, verifiera komplext innehåll efter kors‑format‑sammanslagningar. Se [Supported File Formats](/slides/sv/androidjava/supported-file-formats/).
+
+**Behålls källavsnitt automatiskt?**
+
+Inte med en grundloop som bara klonar bilder. Återskapa de nödvändiga avsnitten i målet och använd avsnitts‑överlagringen av [addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) när avsnittsstrukturen måste bevaras.
+
+**Behålls talarnoteringar och kommentarer?**
+
+De kopieras med den klonade bilden. För arbetsflöden som beror på antecknings‑master‑stil, kommentar‑författare eller trådad granskningsdata, verifiera det sammanslagna resultatet eftersom dessa scenarier involverar både presentations‑ och bildnivå‑strukturer.
+
+**Vad händer med ljud, video, OLE‑objekt och hyperlänkar?**
+
+Inbäddat innehåll bärs som en del av den klonade bildens resursrelationer. Externa länkar förblir externa, så deras mål‑filer eller URL:er måste fortfarande vara tillgängliga efter sammanslagningen.
+
+**Garanti för att inbäddade typsnitt från varje källa finns i den sammanslagna presentationen?**
+
+Lita inte på att bara bildkloning hanterar typsnittsdistribution. Inspektera destinationens inbäddade typsnitt och hantera typsnittsinbäddning eller extern typsnittstillgänglighet explicit när typografi är viktig.
+
+**Hur slår jag ihop en lösenordsskyddad fil?**
+
+Öppna den med rätt [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), klona sedan dess bilder som vanligt. Utdata‑skydd konfigureras separat.
+
+**Hur hanterar jag mycket stora presentationer?**
+
+Använd BLOB‑hantering när stora binära objekt dominerar minnesanvändning, föredra fil‑sökvägs‑inläsning för mycket stora filer, avlossa källpresentationer snabbt, och spara det slutliga resultatet endast när det behövs.
+
+**Kan jag slå ihop bilder från flera trådar?**
+
+Använd inte en och samma [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje sammanslagningsoperation isolerad till sina egna presentationsinstanser.

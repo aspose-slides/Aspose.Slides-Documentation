@@ -16,94 +16,107 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Konwertuj starsze prezentacje PPT do nowoczesnego PPTX szybko w Javie przy użyciu Aspose.Slides — przejrzysty samouczek, darmowe przykłady kodu, bez zależności od Microsoft Office."
+description: "Konwertuj starsze pliki PPT do PPTX w Javie za pomocą Aspose.Slides. Zawiera przykłady w Javie dla konwersji pojedynczych plików i wsadowej, obsługę błędów oraz uwagi dotyczące wierności."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak skonwertować prezentację PowerPoint w formacie PPT do formatu PPTX przy użyciu Javy oraz internetowej aplikacji do konwersji PPT na PPTX. Omówione są następujące tematy.
+PPT jest starszym binarnym formatem PowerPoint, podczas gdy PPTX jest nowszym formatem Open XML. Aspose.Slides for Java może wczytać plik PPT i zapisać go jako PPTX bez Microsoft PowerPoint. Ten artykuł pokazuje, jak przekonwertować pojedynczy plik lub katalog plików oraz wyjaśnia, co należy sprawdzić po konwersji.
 
-- Konwertuj PPT do PPTX w Javie
+## **Konwertuj plik PPT do PPTX**
 
-## **Konwertuj PPT do PPTX w Javie**
-
-Przykładowy kod Javy do konwersji PPT na PPTX znajduje się w sekcji poniżej, czyli [Convert PPT to PPTX](#convert-ppt-to-pptx). Ładuje on plik PPT i zapisuje go w formacie PPTX. Poprzez określenie różnych formatów zapisu możesz także zapisać plik PPT w wielu innych formatach, takich jak PDF, XPS, ODP, HTML itp., jak opisano w poniższych artykułach.
-
-- [Konwertuj PPT do PDF w Javie](/slides/pl/java/convert-powerpoint-to-pdf/)
-- [Konwertuj PPT do XPS w Javie](/slides/pl/java/convert-powerpoint-to-xps/)
-- [Konwertuj PPT do HTML w Javie](/slides/pl/java/convert-powerpoint-to-html/)
-- [Konwertuj PPT do ODP w Javie](/slides/pl/java/save-presentation/)
-- [Konwertuj PPT do PNG w Javie](/slides/pl/java/convert-powerpoint-to-png/)
-
-## **O konwersji PPT do PPTX**
-Konwertuj starszy format PPT na PPTX przy użyciu Aspose.Slides API. Jeśli potrzebujesz przekonwertować tysiące prezentacji PPT do formatu PPTX, najlepszym rozwiązaniem jest wykonanie tego programowo. Dzięki Aspose.Slides API jest to możliwe w kilku linijkach kodu. API zapewnia pełną kompatybilność przy konwersji prezentacji PPT do PPTX i umożliwia:
-
-- Konwersję skomplikowanych struktur wzorców, układów i slajdów.
-- Konwersję prezentacji zawierających wykresy.
-- Konwersję prezentacji z grupowanymi kształtami, auto‑kształtami (takimi jak prostokąty i elipsy), kształtami o niestandardowej geometrii.
-- Konwersję prezentacji posiadających tekstury i obrazy jako wypełnienie auto‑kształtów.
-- Konwersję prezentacji z elementami zastępczymi, ramkami tekstowymi i pola tekstowe.
-
-{{% alert color="primary" %}} 
-
-Sprawdź aplikację **Aspose.Slides PPT to PPTX Conversion**:
-
-[](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx)
-
-Ta aplikacja została zbudowana w oparciu o **Aspose.Slides API**, więc możesz zobaczyć działający przykład podstawowych możliwości konwersji PPT do PPTX. Aspose.Slides Conversion to aplikacja internetowa, która umożliwia przeciągnięcie pliku prezentacji w formacie PPT i pobranie go po konwersji do PPTX.
-
-Znajdź inne działające przykłady **Aspose.Slides Conversion**.
-{{% /alert %}} 
-
-## **Konwertuj PPT do PPTX**
-Aspose.Slides for Java umożliwia programistom dostęp do PPT przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation) i konwersję do odpowiedniego formatu [PPTX](https://docs.fileformat.com/presentation/pptx/). Obecnie obsługuje częściową konwersję [PPT](https://docs.fileformat.com/presentation/ppt/) do PPTX. Aby uzyskać więcej informacji o obsługiwanych i nieobsługiwanych funkcjach w konwersji PPT do PPTX, przejdź do tej dokumentacji [link](/slides/pl/java/ppt-to-pptx-conversion/).
-
-Aspose.Slides for Java oferuje klasę [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation), która reprezentuje plik prezentacji **PPTX**. Klasa Presentation może teraz także uzyskać dostęp do **PPT** poprzez instancję Presentation. Poniższy przykład pokazuje, jak skonwertować prezentację PPT na prezentację PPTX.
+Załaduj plik źródłowy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), następnie wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) z argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/#Pptx). Blok `finally` zwalnia prezentację i zwalnia jej zasoby.
 
 ```java
-// Utwórz obiekt Presentation, który reprezentuje plik PPTX
-Presentation pres = new Presentation("Aspose.ppt");
+// Wczytaj starszą prezentację PPT.
+com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-// Zapisywanie prezentacji PPTX w formacie PPTX
-    pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
+    // Zapisz prezentację w formacie PPTX.
+    presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Rysunek : Źródłowa prezentacja PPT**|
+Rozszerzenie pliku nie wybiera formatu wyjściowego samo w sobie; robi to argument [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/#Pptx). Zachowaj różne ścieżki wejściowe i wyjściowe, jeśli musisz zachować pierwotny plik PPT.
 
-Powyższy fragment kodu wygenerował następującą prezentację PPTX po konwersji
+## **Konwertuj wiele plików PPT**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Rysunek: Wygenerowana prezentacja PPTX po konwersji**|
+```java
+java.io.File inputDirectory = new java.io.File("input");
+java.io.File outputDirectory = new java.io.File("output");
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    throw new IllegalStateException("Cannot create the output directory: " + outputDirectory);
+}
+
+java.io.File[] inputFiles = inputDirectory.listFiles((directory, name) -> name.toLowerCase(java.util.Locale.ROOT).endsWith(".ppt"));
+if (inputFiles == null) {
+    throw new IllegalStateException("Cannot read the input directory: " + inputDirectory);
+}
+
+for (java.io.File inputFile : inputFiles) {
+    String inputPath = inputFile.getPath();
+    String fileName = inputFile.getName();
+    String outputFileName = fileName.substring(0, fileName.length() - 4) + ".pptx";
+    String outputPath = new java.io.File(outputDirectory, outputFileName).getPath();
+    com.aspose.slides.Presentation presentation = null;
+
+    try {
+        presentation = new com.aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, com.aspose.slides.SaveFormat.Pptx);
+        System.out.println("Converted: " + inputPath);
+    } catch (Exception exception) {
+        System.err.println("Failed: " + inputPath + " (" + exception.getMessage() + ")");
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Poniższy przykład konwertuje każdy plik `.ppt` w jednym katalogu. Każdy plik jest przetwarzany niezależnie, więc jedna nieudana konwersja nie zatrzymuje pozostałej partii.
+
+W środowiskach produkcyjnych zaloguj pełny wyjątek, zdecyduj, czy istniejący plik wyjściowy może zostać nadpisany, oraz zapisz nazwy nieudanych plików do kolejki ponownych prób lub przeglądu. Uszkodzone pliki, pliki zabezpieczone hasłem otwierane bez wymaganego hasła, niedostępne ścieżki oraz nieobsługiwana zawartość mogą spowodować niepowodzenie konwersji. Zobacz [Password-Protected Presentations](/slides/pl/java/password-protected-presentation/) aby wczytać zaszyfrowane pliki.
+
+## **Wierność i funkcje starsze**
+
+Konwersja zazwyczaj zachowuje slajdy, mastery, układy, tekst, kształty, obrazy, tabele i wykresy. Jednak PPT i PPTX nie odzwierciedlają każdej funkcji w identyczny sposób. Funkcja starsza, która nie ma odpowiednika w PPTX lub nie jest obsługiwana przez bibliotekę, może zostać znormalizowana, pominięta lub wyświetlona inaczej.
+
+Sprawdź przekonwertowany plik, gdy zawiera animacje, przejścia, osadzone lub powiązane obiekty OLE, kontrolki ActiveX, osadzone multimedia, rzadkie czcionki lub makra VBA. Zwykły plik PPTX nie jest formatem obsługującym makra, więc użyj odpowiedniego przepływu pracy z obsługą makr, gdy VBA musi pozostać dostępne. Również zweryfikuj, że wymagane czcionki i zasoby zewnętrzne są dostępne w środowisku, w którym otwarty lub renderowany będzie przekonwertowany prezentacja.
+
+W przypadku ważnych dokumentów, otwórz ponownie wygenerowany plik PPTX programowo i sprawdź liczbę kluczowych slajdów oraz ich zawartość, a następnie porównaj wygląd i zachowanie pokazu slajdów w docelowym odtwarzaczu. Nie traktuj udanego wywołania [Presentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) jako dowodu, że każda starsza funkcja ma dokładny odpowiednik w PPTX.
+
+## **Kiedy używać PPTX**
+
+Używaj PPTX, gdy prezentacja będzie edytowana w aktualnych wersjach PowerPoint, wymieniana z systemami obsługującymi pakiety Open XML lub przechowywana w formacie łatwiejszym do inspekcji i odzyskiwania niż starszy binarny PPT. Zachowaj oryginalny PPT jako kopię archiwalną lub kopię awaryjną, aż przekonwertowana prezentacja przejdzie Twoje kontrole wierności.
+
+Jeśli potrzebujesz zamiast tego PDF, HTML, obrazów, XPS lub innego typu wyjścia, skorzystaj z instrukcji specyficznych dla formatu w [Convert Presentations to Multiple Formats](/slides/pl/java/convert-presentation/), zamiast zakładać, że wszystkie cele zachowują edytowalne funkcje PowerPoint.
+
+## **Konwerter online**
+
+W przypadku okazjonalnego pliku lub szybkiego porównania możesz użyć [online PPT to PPTX converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx). Do powtarzalnych konwersji, przetwarzania wsadowego lub obsługi błędów na poziomie aplikacji, użyj API Java.
+
+## **Powiązane artykuły**
+
+- [PPT vs PPTX](/slides/pl/java/ppt-vs-pptx/)
+- [Zapisz prezentacje w Javie](/slides/pl/java/save-presentation/)
+- [Obsługiwane formaty plików](/slides/pl/java/supported-file-formats/)
+- [Otwórz prezentacje w Javie](/slides/pl/java/open-presentation/)
 
 ## **FAQ**
 
-**Jaka jest różnica między formatami PPT i PPTX?**
+**Czy mogę konwertować PPT do PPTX bez zainstalowanego Microsoft PowerPoint?**
 
-PPT to starszy binarny format pliku używany przez Microsoft PowerPoint, natomiast PPTX to nowszy format oparty na XML, wprowadzony wraz z Microsoft Office 2007. Pliki PPTX oferują lepszą wydajność, mniejszy rozmiar oraz ulepszoną odzyskiwalność danych.
+Tak. Aspose.Slides for Java wczytuje i zapisuje pliki prezentacji bez wymogu posiadania Microsoft PowerPoint.
 
-**Czy Aspose.Slides obsługuje konwersję wsadową wielu plików PPT do PPTX?**
+**Czy konwersja PPT do PPTX zachowa całą zawartość dokładnie?**
 
-Tak, możesz używać Aspose.Slides w pętli, aby programowo konwertować wiele plików PPT do PPTX, co sprawia, że ​​rozwiązanie jest odpowiednie do scenariuszy konwersji wsadowej.
+Zachowuje ona typową zawartość prezentacji, ale dokładna wierność nie jest gwarantowana dla każdej funkcji starszej lub nieobsługiwanej. Przejrzyj wygenerowany plik, gdy zawiera makra, obiekty OLE lub ActiveX, multimedia, specjalistyczne animacje lub rzadkie czcionki.
 
-**Czy zawartość i formatowanie zostaną zachowane po konwersji?**
+**Czy mogę konwertować zabezpieczony hasłem plik PPT?**
 
-Aspose.Slides zachowuje wysoką wierność przy konwersji prezentacji. Układy slajdów, animacje, kształty, wykresy i inne elementy projektowe są zachowywane podczas konwersji PPT do PPTX.
+Tak, jeśli podasz prawidłowe hasło podczas wczytywania pliku. Brak lub nieprawidłowe hasło powoduje niepowodzenie operacji wczytywania.
 
-**Czy mogę konwertować inne formaty, takie jak PDF lub HTML, z plików PPT?**
+**Czy powinienem usunąć plik PPT po konwersji?**
 
-Tak, Aspose.Slides obsługuje konwersję plików PPT do [wielu formatów](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/), w tym PDF, XPS, HTML, ODP oraz formatów obrazów, takich jak PNG i JPEG.
-
-**Czy możliwe jest konwertowanie PPT do PPTX bez zainstalowanego Microsoft PowerPoint?**
-
-Tak, Aspose.Slides jest samodzielnym API i nie wymaga Microsoft PowerPoint ani żadnego oprogramowania firm trzecich do wykonania konwersji.
-
-**Czy istnieje dostępne narzędzie online do konwersji PPT na PPTX?**
-
-Tak, możesz skorzystać z bezpłatnej aplikacji internetowej [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx), aby wykonać konwersję bezpośrednio w przeglądarce, bez pisania kodu.
+Zachowaj oryginał, dopóki nie zweryfikujesz pliku PPTX w odtwarzaczach i procesach, które są dla Ciebie istotne. To zapewnia kopię awaryjną, jeśli funkcja starsza zostanie skonwertowana inaczej.

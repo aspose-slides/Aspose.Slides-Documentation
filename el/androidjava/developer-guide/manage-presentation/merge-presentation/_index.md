@@ -1,5 +1,5 @@
 ---
-title: Αποτελεσματική Συγχώνευση Παρουσιάσεων σε Android
+title: Αποδοτική Συγχώνευση Παρουσιάσεων στο Android
 linktitle: Συγχώνευση Παρουσιάσεων
 type: docs
 weight: 40
@@ -11,233 +11,353 @@ keywords:
 - συγχώνευση PPT
 - συγχώνευση PPTX
 - συγχώνευση ODP
-- συνδυασμός PowerPoint
-- συνδυασμός παρουσιάσεων
-- συνδυασμός διαφανειών
-- συνδυασμός PPT
-- συνδυασμός PPTX
-- συνδυασμός ODP
+- συνένωση PowerPoint
+- συνένωση παρουσιάσεων
+- συνένωση διαφανειών
+- συνένωση PPT
+- συνένωση PPTX
+- συνένωση ODP
 - Android
 - Java
 - Aspose.Slides
-description: "Απρόσκοπτη συγχώνευση PowerPoint (PPT, PPTX) και OpenDocument (ODP) παρουσιάσεων με το Aspose.Slides για Android μέσω Java, βελτιώνοντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να συγχωνεύετε παρουσιάσεις PowerPoint και OpenDocument στο Android κλωνοποιώντας διαφάνειες, ελέγχοντας τα master και τα layouts, αλλάζοντας το μέγεθος του περιεχομένου των διαφανειών, διατηρώντας τις ενότητες και διαχειριζόμενοι προστατευμένα ή μεγάλα αρχεία."
 ---
 ## **Επισκόπηση**
 
-Η συγχώνευση παρουσιάσεων PowerPoint και OpenDocument είναι μια συνηθισμένη εργασία σε πολλές εφαρμογές Android, ιδίως κατά τη δημιουργία αναφορών, τη συναρμολόγηση διαφανειών από διαφορετικές πηγές ή την αυτοματοποίηση ροών εργασίας παρουσιάσεων. Το Aspose.Slides παρέχει μια ισχυρή και εύχρηστη API για συνδυασμό πολλαπλών αρχείων PPT, PPTX ή ODP σε μία ενιαία παρουσίαση χωρίς εγκατάσταση του Microsoft PowerPoint, LibreOffice ή OpenOffice.
+Το Aspose.Slides for Android μέσω Java συγχωνεύει παρουσιάσεις κλωνοποιώντας διαφάνειες από ένα [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) σε άλλο. Η κύρια λειτουργία είναι το [ISlideCollection.addClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), το οποίο μπορεί να διατηρήσει τη μορφοποίηση της πηγής ή να συνδέσει την κλωνοποιημένη διαφάνεια με ένα master ή layout στην προορισμένη παρουσίαση.
 
-Σε αυτόν τον οδηγό, θα μάθετε πώς να συγχωνεύετε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας μόνο λίγες γραμμές κώδικα. Θα παρέχουμε έτοιμα παραδείγματα και θα δείξουμε πώς να διατηρείτε τη μορφοποίηση των διαφανειών, τις διατάξεις και άλλα στοιχεία παρουσίασης κατά τη διαδικασία συγχώνευσης.
+Αυτό το άρθρο καλύπτει τις πιο κοινές ροές εργασίας συγχώνευσης:
 
-Είτε δημιουργείτε μια επιχειρηματική εφαρμογή είτε ένα απλό εργαλείο αυτοματοποίησης, το Aspose.Slides κάνει τη συγχώνευση παρουσιάσεων γρήγορη, αξιόπιστη και κλιμακώσιμη. Το Aspose.Slides σας επιτρέπει να συγχωνεύετε παρουσιάσεις με διαφορετικούς τρόπους. Μπορείτε να συνδυάσετε παρουσιάσεις με όλα τα σχήματα, στυλ, κείμενα, μορφοποιήσεις, σχόλια, animation και άλλα—χωρίς να ανησυχείτε για απώλεια ποιότητας ή δεδομένων.
+- συγχώνευση όλων των διαφανειών διατηρώντας τη μορφοποίηση της πηγής·
+- συγχώνευση επιλεγμένων διαφανειών·
+- εφαρμογή master από την προορισμένη παρουσίαση·
+- εφαρμογή συγκεκριμένου layout από την προορισμένη παρουσίαση·
+- ομαλοποίηση διαφορετικών μεγεθών διαφανειών πριν από τη συγχώνευση·
+- προσθήκη κλωνοποιημένων διαφανειών σε ενότητα·
+- συγχώνευση πολλαπλών παρουσιάσεων σε μία ολοκληρωμένη ροή εργασίας·
+- αντιμετώπιση master, πόρων, σημειώσεων, σχολίων, πολυμέσων, γραμματοσειρών, κωδικών πρόσβασης, μεγάλων αρχείων και θεμάτων πολυνηματικότητας.
 
-{{% alert color="primary" %}}
-Δείτε επίσης: [Αντιγραφή διαφανειών](https://docs.aspose.com/slides/el/androidjava/clone-slides/)
-{{% /alert %}}
+## **Πώς η Κλωνοποίηση Διαφάνειας Επηρεάζει τα Masters και τα Layouts**
 
-### **Τι μπορεί να συγχωνευτεί**
+Μια διαφάνεια κληρονομεί μεγάλο μέρος της εμφάνισης της από το layout και το master της. Για αυτόν τον λόγο, η υπερφόρτωση κλωνοποίησης που επιλέγετε καθορίζει πώς η συγχωνευμένη διαφάνεια ενσωματώνεται στην προορισμένη παρουσίαση.
 
-Με το Aspose.Slides, μπορείτε να συγχωνεύσετε 
+Χρησιμοποιήστε το [ISlideCollection.addClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/) με έναν από τους ακόλουθους τρόπους:
 
-* ολόκληρες παρουσιάσεις. Όλες οι διαφάνειες από τις παρουσιάσεις καταλήγουν σε μία παρουσίαση
-* συγκεκριμένες διαφάνειες. Οι επιλεγμένες διαφάνειες καταλήγουν σε μία παρουσίαση
-* παρουσιάσεις σε μία μορφή (PPT σε PPT, PPTX σε PPTX κ.λπ.) και σε διαφορετικές μορφές (PPT σε PPTX, PPTX σε ODP κ.λπ.) μεταξύ τους. 
+- `addClone(sourceSlide)` — διατηρεί το layout και τη μορφοποίηση της πηγής. Όταν απαιτείται, το master της πηγής μπορεί να κλωνοποιηθεί αυτόματα στην προορισμένη παρουσίαση. Το Aspose.Slides παρακολουθεί αυτόματα κλωνοποιημένα master ώστε επαναλαμβανόμενες διαφάνειες που χρησιμοποιούν το ίδιο master πηγής να μην προκαλούν επαναλαμβανόμενη κλωνοποίηση του master.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — συνδέει την κλωνοποιημένη διαφάνεια με ένα συγκεκριμένο προορισμένο [IMasterSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslide/). Το Aspose.Slides ψάχνει για ένα αντιστοιχικό layout κάτω από αυτό το master με βάση τον τύπο ή το όνομα του layout.
+- `addClone(sourceSlide, destinationLayout)` — συνδέει την κλωνοποιημένη διαφάνεια απευθείας με ένα συγκεκριμένο προορισμένο [ILayoutSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ilayoutslide/).
 
-### **Επιλογές Συγχώνευσης**
+Το master ή το layout που περνιέται σε μια υπερφόρτωση `addClone` πρέπει να ανήκει στην **προορισμένη** παρουσίαση, όχι στην πηγή.
 
-Μπορείτε να εφαρμόσετε επιλογές που καθορίζουν εάν
+## **Συγχώνευση Ολόκληρων Παρουσιάσεων και Διατήρηση Μορφοποίησης Πηγής**
 
-* κάθε διαφάνεια στην τελική παρουσίαση διατηρεί ένα μοναδικό στυλ
-* ένα συγκεκριμένο στυλ χρησιμοποιείται για όλες τις διαφάνειες στην τελική παρουσίαση. 
-
-Για τη συγχώνευση παρουσιάσεων, το Aspose.Slides παρέχει μεθόδους [AddClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (από τη διεπαφή [ISlideCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ISlideCollection)). Υπάρχουν πολλές υλοποιήσεις των μεθόδων `AddClone` που ορίζουν τις παραμέτρους της διαδικασίας συγχώνευσης παρουσίασης. Κάθε αντικείμενο Presentation έχει μια συλλογή [Slides](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation#getSlides--), ώστε να μπορείτε να καλέσετε τη μέθοδο `AddClone` από την παρουσίαση στην οποία θέλετε να συγχωνεύσετε διαφάνειες.
-
-Η μέθοδος `AddClone` επιστρέφει ένα αντικείμενο `ISlide`, το οποίο είναι κλώνος της πηγής διαφάνειας. Οι διαφάνειες σε μια τελική παρουσίαση είναι απλώς αντίγραφα των διαφανειών από την πηγή. Συνεπώς, μπορείτε να κάνετε αλλαγές στις παραγόμενες διαφάνειες (π.χ., να εφαρμόσετε στυλ, επιλογές μορφοποίησης ή διατάξεις) χωρίς να ανησυχείτε για το αν οι πηγές παρουσιάσεις θα επηρεαστούν.
-
-## **Συγχώνευση Παρουσιάσεων** 
-
-Το Aspose.Slides παρέχει τη μέθοδο [**AddClone(ISlide)**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) που σας επιτρέπει να συνδυάσετε διαφάνειες ενώ αυτές διατηρούν τις διατάξεις και τα στυλ τους (προεπιλεγμένες παράμετροι).
-
-Αυτός ο κώδικας Java δείχνει πώς να συγχωνεύσετε παρουσιάσεις:
+Η πιο απλή συγχώνευση αντιγράφει κάθε διαφάνεια από την παρουσίαση πηγής στην προορισμένη παρουσίαση. Αυτή είναι η κατάλληλη επιλογή όταν οι εισαγόμενες διαφάνειες πρέπει να διατηρήσουν το αρχικό θέμα, master και σχέσεις layout.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Μάστερ Διαφάνειας** 
+Η προκύπτουσα παρουσίαση μπορεί να περιλαμβάνει πολλαπλά master όταν η πηγή και ο προορισμός χρησιμοποιούν διαφορετικά σχέδια. Αυτό είναι αναμενόμενο όταν η μορφοποίηση της πηγής διατηρείται σκόπιμα.
 
-Το Aspose.Slides παρέχει τη μέθοδο [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) που σας επιτρέπει να συνδυάσετε διαφάνειες εφαρμόζοντας ένα πρότυπο παρουσίασης μάστερ διαφάνειας. Με αυτόν τον τρόπο, αν χρειάζεται, μπορείτε να αλλάξετε το στυλ για τις διαφάνειες στην τελική παρουσίαση.
+## **Συγχώνευση Επιλεγμένων Διαφανειών**
 
-Αυτός ο κώδικας σε Java παρουσιάζει τη περιγραφείσα λειτουργία:
+Δεν χρειάζεται να κλωνοποιήσετε κάθε διαφάνεια. Το παρακάτω παράδειγμα εισάγει μόνο επιλεγμένους δείκτες διαφανειών από την παρουσίαση πηγής.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Η διάταξη διαφάνειας για το μάστερ διαφάνειας καθορίζεται αυτόματα. Όταν δεν μπορεί να προσδιοριστεί κατάλληλη διάταξη, εάν η λογική παράμετρος `allowCloneMissingLayout` της μεθόδου `AddClone` οριστεί σε true, χρησιμοποιείται η διάταξη της πηγαίας διαφάνειας. Διαφορετικά, θα εξαπολυθεί η [PptxEditException](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/PptxEditException).
-{{% /alert %}}
+Επικυρώστε τους δείκτες διαφανειών πριν από την κλωνοποίηση όταν προέρχονται από είσοδο χρήστη ή εξωτερική διαμόρφωση.
 
-Αν θέλετε οι διαφάνειες στην τελική παρουσίαση να έχουν διαφορετική διάταξη, χρησιμοποιήστε τη μέθοδο [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) αντί για τη συγχώνευση.
+## **Συγχώνευση Διαφανειών Χρησιμοποιώντας Master Προορισμού**
 
-## **Συγχώνευση Συγκεκριμένων Διαφανειών από Παρουσιάσεις** 
-
-Η συγχώνευση συγκεκριμένων διαφανειών από πολλαπλές παρουσιάσεις είναι χρήσιμη για τη δημιουργία προσαρμοσμένων σετ διαφανειών. Το Aspose.Slides για Android μέσω Java σας επιτρέπει να επιλέξετε και να εισάγετε μόνο τις διαφάνειες που χρειάζεστε. Το API διατηρεί τη μορφοποίηση, τη διάταξη και το σχεδιασμό των αρχικών διαφανειών.
-
-Ο παρακάτω κώδικας Java δημιουργεί μια νέα παρουσίαση, προσθέτει διαφάνειες τίτλου από δύο άλλες παρουσιάσεις και αποθηκεύει το αποτέλεσμα σε αρχείο:
+Χρησιμοποιήστε την υπερφόρτωση [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) όταν οι εισαγόμενες διαφάνειες πρέπει να ακολουθούν ένα master που ήδη ανήκει στην προορισμένη παρουσίαση.
 
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διάταξη Διαφάνειας** 
+Το Aspose.Slides επιλέγει ένα κατάλληλο layout κάτω από το καθορισμένο master ταιριάζοντας με τον τύπο ή το όνομα του layout πηγής. Αν δεν υπάρχει κατάλληλο layout και το `allowCloneMissingLayout` είναι `true`, το layout της πηγής κλωνοποιείται ώστε η διαφάνεια να προστεθεί. Αν είναι `false`, ρίχνεται μια [PptxEditException](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pptxeditexception/).
 
-Αυτός ο κώδικας Java δείχνει πώς να συνδυάσετε διαφάνειες από παρουσιάσεις εφαρμόζοντας τη δική σας προτιμώμενη διάταξη διαφάνειας για να λάβετε μία τελική παρουσίαση:
+Χρησιμοποιήστε `false` όταν θέλετε η συγχώνευση να αποτύχει αντί να εισάγει ένα επιπλέον layout στο master προορισμού.
+
+## **Συγχώνευση Διαφανειών Χρησιμοποιώντας Συγκεκριμένο Layout Προορισμού**
+
+Χρησιμοποιήστε την υπερφόρτωση [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) όταν γνωρίζετε ακριβώς ποιο layout προορισμού πρέπει να χρησιμοποιήσουν οι εισαγόμενες διαφάνειες.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφανειών** 
+Η εφαρμογή ενός layout προορισμού τροποποιεί τη κληρονεμένη σχέση layout· δεν αλλάζει το περιεχόμενο της διαφάνειας πηγής. Εάν τα layout πηγής και προορισμού έχουν διαφορετικές δομές placeholder, εξετάστε το αποτέλεσμα για να επιβεβαιώσετε ότι η κληρονομημένη μορφοποίηση και η συμπεριφορά placeholder είναι κατάλληλες.
 
-{{% alert title="Note" color="warning" %}} 
-Δεν μπορείτε να συγχωνεύσετε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών. 
-{{% /alert %}}
+## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφανειών**
 
-Για να συγχωνεύσετε 2 παρουσιάσεις με διαφορετικά μεγέθη διαφανειών, πρέπει να αλλάξετε το μέγεθος μίας από τις παρουσιάσεις ώστε το μέγεθός της να ταιριάζει με αυτό της άλλης παρουσίασης. 
+Παρουσιάσεις με διαφορετικές διαστάσεις διαφάνειας μπορούν να συγχωνευτούν, αλλά η κλωνοποίηση μιας διαφάνειας σε παρουσίαση με διαφορετικό μέγεθος δεν επανασχεδιάζει αυτόματα το περιεχόμενό της για το νέο καμβά. Τα σχήματα μπορεί έτσι να εμφανιστούν μετατοπισμένα, κλιμακωμένα απρόσμενα ή εκτός του ορατού χώρου της διαφάνειας.
 
-Αυτός ο δείγμα κώδικας παρουσιάζει τη περιγραφείσα λειτουργία:
+Μία πρακτική προσέγγιση είναι να αλλάξετε το μέγεθος της παρουσίασης πηγής πριν από την κλωνοποίηση. Η μέθοδος [SlideSize.setSize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) μπορεί να κλιμακώσει το υπάρχον περιεχόμενο ενώ αλλάζει τις διαστάσεις της διαφάνειας. Η [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidesizescaletype/) κλιμακώνει το περιεχόμενο ώστε να ταιριάζει στο ζητούμενο μέγεθος.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    SizeF sourceSize = source.getSlideSize().getSize();
+    SizeF destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης** 
+Η αλλαγή μεγέθους τροποποιεί το αντικείμενο παρουσίασης πηγής στη μνήμη. Εάν χρειάζεστε την αρχική παρουσίαση πηγής αμετάβλητη για άλλες λειτουργίες, ανοίξτε ένα ξεχωριστό αντίγραφο για τη συγχώνευση.
 
-Αυτός ο κώδικας Java δείχνει πώς να συγχωνεύσετε μια συγκεκριμένη διαφάνεια σε μια ενότητα σε μια παρουσίαση:
+## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης**
+
+Ο βασικός βρόχος κλωνοποίησης διαφανειών δεν αναδημιουργεί την ιεραρχία ενοτήτων της παρουσίασης πηγής. Εάν οι ενότητες έχουν σημασία στο τελικό αποτέλεσμα, δημιουργήστε ή επιλέξτε ενότητες στην προορισμένη παρουσίαση και κλωνοποιήστε τις διαφάνειες σε αυτές ρητά με το [addClone(ISlide, ISection)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-Η διαφάνεια προστίθεται στο τέλος της ενότητας. 
+Οι κλωνοποιημένες διαφάνειες προσαρτώνται στην καθορισμένη ενότητα προορισμού. Για να διατηρήσετε πολλές ενότητες πηγής, κάντε επαναληπτική κλήση στο [Presentation.getSections](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getSections--), ανακτήστε τις τρέχουσες διαφάνειες κάθε ενότητας πηγής με το [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--), δημιουργήστε ξανά τις ενότητες στον προορισμό και κλωνοποιήστε κάθε διαφάνεια στην αντίστοιχη ενότητα προορισμού. Δείτε το [Manage Slide Sections](/slides/el/androidjava/slide-section/) για ολοκληρωμένο παράδειγμα με κενές ενότητες και δομικές αλλαγές.
 
-{{% alert title="Tip" color="primary" %}} 
-Το Aspose παρέχει μια [ΔΩΡΕΑΣ web εφαρμογή Collage](https://products.aspose.app/slides/el/collage). Χρησιμοποιώντας αυτήν την online υπηρεσία, μπορείτε να συγχωνεύσετε [JPG σε JPG](https://products.aspose.app/slides/el/collage/jpg) ή [PNG σε PNG](https://products.aspose.app/slides/el/collage/png) εικόνες, να δημιουργήσετε [πλέγματα φωτογραφιών](https://products.aspose.app/slides/el/collage/photo-grid), κ.ά. 
-{{% /alert %}}
+## **Ασφαλής Συγχώνευση Πολλαπλών Παρουσιάσεων**
 
-## **Συχνές Ερωτήσεις** 
+Το παρακάτω παράδειγμα ολοκληρωμένης ροής χρησιμοποιεί την πρώτη παρουσίαση ως προορισμό, ομαλοποιεί το μέγεθος διαφάνειας κάθε επιπλέον πηγής, διατηρεί κάθε πηγή ανοιχτή μόνο ενώ αντιγράφεται, και αποθηκεύει το τελικό αρχείο μόλις ολοκληρωθεί.
 
-**Υπάρχουν περιορισμοί στον αριθμό των διαφανειών κατά τη συγχώνευση παρουσιάσεων;**
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-Δεν υπάρχουν αυστηροί περιορισμοί. Το Aspose.Slides μπορεί να διαχειριστεί μεγάλα αρχεία, αλλά η απόδοση εξαρτάται από το μέγεθος και τους πόρους του συστήματος. Για πολύ μεγάλες παρουσιάσεις, συνιστάται η χρήση 64-bit JVM και η εκχώρηση επαρκούς μνήμης heap.
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
 
-**Μπορώ να συγχωνεύσω παρουσιάσεις με ενσωματωμένα βίντεο ή ήχους;**
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    SizeF mergedSize = merged.getSlideSize().getSize();
 
-Ναι, το Aspose.Slides διατηρεί το πολυμέσο που είναι ενσωματωμένο στις διαφάνειες, αλλά η τελική παρουσίαση μπορεί να γίνει σημαντικά μεγαλύτερη.
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            SizeF sourceSize = source.getSlideSize().getSize();
 
-**Θα διατηρηθούν οι γραμματοσειρές κατά τη συγχώνευση παρουσιάσεων;**
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
 
-Ναι. Οι γραμματοσειρές που χρησιμοποιούνται στις πηγές παρουσιάσεων διατηρούνται στο αρχείο εξόδου, εφόσον είναι εγκατεστημένες στο σύστημα ή [ενσωματωμένες](/slides/el/androidjava/embedded-font/).
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Αυτή είναι μια χρήσιμη βάση για τη διατήρηση της μορφοποίησης πηγής των εισαγόμενων διαφανειών. Εάν το αποτέλεσμα σας πρέπει να χρησιμοποιεί ένα ενιαίο θέμα προορισμού, αντικαταστήστε την απλή κλήση `addClone(slide)` με την κατάλληλη υπερφόρτωση master‑προορισμού ή layout‑προορισμού που παρουσιάστηκε νωρίτερα.
+
+## **Πρακτικές Σκέψεις**
+
+### **Masters, Layouts και Ακρίβεια Μορφοποίησης**
+
+Η προεπιλεγμένη κλωνοποίηση διαφάνειας μπορεί αυτόματα να φέρει ένα απαιτούμενο master πηγής στην προορισμένη παρουσίαση. Το Aspose.Slides διατηρεί εσωτερικό μητρώο για αυτόματα κλωνοποιημένα master ώστε να αποφεύγεται η επαναλαμβανόμενη κλωνοποίηση του ίδιου master. Τα χειροκίνητα κλωνοποιημένα master δεν παρακολουθούνται από αυτό το μητρώο, οπότε αποφύγετε την προ‑κλωνοποίηση master εκτός εάν χρειάζεστε σαφή έλεγχο της δομής του master.
+
+Μην θεωρείτε ότι δύο master ή layout με το ίδιο όνομα είναι οπτικά ισοδύναμα. Εάν ένα εταιρικό πρότυπο πρέπει να ελέγχει την τελική εμφάνιση, επιλέξτε ρητά ένα master ή layout προορισμού και επαληθεύστε το αποτέλεσμα μετά τη συγχώνευση.
+
+### **Σημειώσεις και Σχόλια**
+
+Οι σημειώσεις ομιλητή και τα σχόλια σε διαφάνειες συνδέονται με το περιεχόμενο της διαφάνειας και αντιγράφονται όταν μια διαφάνεια κλωνοποιείται. Το Aspose.Slides προσφέρει επίσης εξειδικευμένα API για [presentation notes](/slides/el/androidjava/presentation-notes/) και [presentation comments](/slides/el/androidjava/presentation-comments/).
+
+Εάν η μορφοποίηση της σελίδας σημειώσεων είναι σημαντική, επαληθεύστε την συγχωνευμένη παρουσίαση επειδή τα notes masters είναι αντικείμενα επιπέδου παρουσίασης και μπορεί να διαφέρουν μεταξύ των αρχείων πηγής. Για ροές ελέγχου, επαληθεύστε επίσης τους συγγραφείς σχολίων και τις αλληλουχικές συνομιλίες μετά τη συγχώνευση αρχείων από διαφορετικούς συγγραφείς ή πρότυπα.
+
+### **Εικόνες, Ήχος, Βίντεο, Αντικείμενα OLE και Εξωτερικοί Σύνδεσμοι**
+
+Οι διαφάνειες μπορούν να αναφέρονται σε πόρους επιπέδου παρουσίασης όπως εικόνες, ενσωματωμένο ήχο, ενσωματωμένο βίντεο και δεδομένα OLE. Κλωνοποιήστε τη διαφάνεια αυτή καθεαυτή αντί να αντιγράφετε μόνο τα ορατά σχήματα, ώστε το Aspose.Slides να διατηρήσει τις σχέσεις της διαφάνειας με τους πόρους της.
+
+Οι ενσωματωμένοι και συνδεδεμένοι πόροι πρέπει να αντιμετωπίζονται διαφορετικά. Ένας συνδεδεμένος ήχος, βίντεο, αντικείμενο OLE ή υπερσύνδεσμος παραμένει εξαρτημένος από τον εξωτερικό του προορισμό· η κλωνοποίηση μιας διαφάνειας δεν μετατρέπει έναν εξωτερικό σύνδεσμο σε ενσωματωμένο περιεχόμενο. Δοκιμάστε τις διαδρομές και τα URL των συνδεδεμένων πόρων στο περιβάλλον όπου θα ανοιχτεί η συγχωνευμένη παρουσίαση.
+
+Το Aspose.Slides παρακολουθεί ρητά αυτόματα κλωνοποιημένα master, αλλά αυτό δεν πρέπει να θεωρείται γενική εγγύηση ότι τα ίδια δυαδικά αρχεία από ανεξάρτητες παρουσιάσεις θα αφαιρεθούν αυτόματα. Εάν το μέγεθος του εξαγόμενου αρχείου είναι σημαντικό, ελέγξτε το πακέτο που προκύπτει και μετρήστε το αποτέλεσμα αντί να βασίζεστε σε έμμεση αφαιρετική διαδικασία.
+
+### **Ενσωματωμένες Γραμματοσειρές και Διαθεσιμότητα Γραμματοσειρών**
+
+Οι γραμματοσειρές διαχειρίζονται σε επίπεδο παρουσίασης. Εάν η τυπογραφία πρέπει να παραμείνει συνεπής μεταξύ μηχανών, μην υποθέτετε ότι η κλωνοποίηση μόνο των διαφανειών εγγυάται ότι κάθε απαιτούμενη γραμματοσειρά είναι διαθέσιμη στο περιβάλλον προορισμού. Μπορείτε να εξετάσετε τις ενσωματωμένες γραμματοσειρές με το [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) και να διαχειριστείτε την ενσωμάτωση ρητά, όπως περιγράφεται στην ενότητα [Embed Fonts in Presentations](/slides/el/androidjava/embedded-font/).
+
+Επιβεβαιώστε επίσης ότι έχετε δικαίωμα να ενσωματώσετε τις γραμματοσειρές που χρησιμοποιούν τα αρχεία πηγής. Οι άδειες γραμματοσειρών ενδέχεται να περιορίζουν την ενσωμάτωση.
+
+### **Παραγωγές με Κωδικό Πρόσβασης**
+
+Μια πηγή με κωδικό πρόσβασης πρέπει να ανοίξει επιτυχώς πριν κλωνοποιηθεί η διαφάνειά της. Παρέχετε τον κωδικό μέσω του [LoadOptions.setPassword](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
+} finally {
+    source.dispose();
+}
+```
+
+Το άνοιγμα μιας κρυπτογραφημένης πηγής δεν εφαρμόζει αυτόματα την ίδια προστασία στην προορισμένη παρουσίαση. Ρυθμίστε την προστασία εξόδου ξεχωριστά όταν απαιτείται.
+
+### **Μεγάλες Παρουσιάσεις και Χρήση Μνήμης**
+
+Μεγάλες παρουσιάσεις που περιέχουν εικόνες υψηλής ανάλυσης, ήχους, βίντεο ή άλλα μεγάλα δυαδικά αντικείμενα μπορούν να καταναλώσουν σημαντική μνήμη. Το [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) προσφέρει επιλογές ελέγχου για τη διαχείριση BLOB και τη χρήση προσωρινών αρχείων. Δείτε την ενότητα [Manage Presentation BLOBs](/slides/el/androidjava/manage-blob/) για στρατηγικές μεγάλων αρχείων.
+
+Για μεγάλα αρχεία, προτιμήστε τη φόρτωση από διαδρομές αρχείων όταν είναι δυνατόν, απελευθερώστε κάθε παρουσίαση πηγής μόλις ολοκληρωθεί η συγχώνευση και αποφύγετε την επαναλαμβανόμενη αποθήκευση ενδιάμεσων αποτελεσμάτων εκτός εάν η ροή εργασίας απαιτεί σημεία ελέγχου.
+
+### **Ασφάλεια Πολυνηματικότητας**
+
+Μην φορτώνετε, τροποποιείτε, αποθηκεύετε ή κλωνοποιείτε την ίδια [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) ταυτόχρονα από πολλαπλά νήματα. Κρατήστε κάθε παρουσίαση περιορισμένη σε μία λειτουργία συγχώνευσης. Εάν παράγετε ανεξάρτητες εργασίες παράλληλα, χρησιμοποιήστε ξεχωριστές παρουσιές και ακολουθήστε τις οδηγίες [Aspose.Slides multithreading guidance](/slides/el/androidjava/multithreading/).
+
+## **FAQ**
+
+**Πώς διατηρώ το αρχικό σχέδιο κάθε παρουσίασης πηγής;**
+
+Χρησιμοποιήστε το [addClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) χωρίς να παρέχετε master ή layout προορισμού. Το Aspose.Slides μπορεί αυτόματα να κλωνοποιήσει το master πηγής όταν απαιτείται από τη διαφάνεια που εισάγεται.
+
+**Πώς κάνω ώστε οι εισαγόμενες διαφάνειες να χρησιμοποιούν το θέμα προορισμού;**
+
+Χρησιμοποιήστε την υπερφόρτωση που δέχεται ένα master προορισμού. Περάστε ένα master από την προορισμένη παρουσίαση, όχι από την πηγή. Το Aspose.Slides θα προσπαθήσει να αντιστοιχίσει κάθε διαφάνεια πηγής σε ένα κατάλληλο layout κάτω από αυτό το master.
+
+**Πότε πρέπει να χρησιμοποιήσω συγκεκριμένο layout προορισμού αντί για master προορισμού;**
+
+Χρησιμοποιήστε συγκεκριμένο layout όταν κάθε εισαγόμενη διαφάνεια πρέπει να χρησιμοποιεί ένα γνωστό layout. Χρησιμοποιήστε master όταν θέλετε το Aspose.Slides να επιλέξει ανάμεσα στα layout του master βάσει του τύπου ή του ονόματος του layout πηγής.
+
+**Μπορούν να συγχωνευτούν παρουσιάσεις με διαφορετικά μεγέθη διαφανειών;**
+
+Ναι, αλλά το περιεχόμενο της διαφάνειας δεν επανασχεδιάζεται αυτόματα για τις διαστάσεις προορισμού. Αλλάξτε το μέγεθος της παρουσίασης πηγής πρώτα όταν χρειάζεται προβλεπόμενη διάταξη, π.χ. με το [SlideSize.setSize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) και το [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidesizescaletype/).
+
+**Μπορώ να συγχωνεύσω PPT, PPTX και ODP παρουσιάσεις σε ένα αρχείο;**
+
+Ναι. Φορτώστε κάθε παρουσίαση πηγής, κλωνοποιήστε τις απαιτούμενες διαφάνειες σε μία προορισμένη παρουσίαση και αποθηκεύστε το αποτέλεσμα σε υποστηριζόμενη μορφή εξόδου. Επειδή οι μορφές παρουσίασης δεν υποστηρίζουν ακριβώς το ίδιο σύνολο λειτουργιών, ελέγξτε το πολύπλοκο περιεχόμενο μετά τη διαφορομορφική συγχώνευση. Δείτε τη σελίδα [Supported File Formats](/slides/el/androidjava/supported-file-formats/).
+
+**Διατηρούνται αυτόματα οι ενότητες πηγής;**
+
+Όχι, από έναν βασικό βρόχο που κλωνοποιεί μόνο διαφάνειες. Αναδημιουργήστε τις απαιτούμενες ενότητες στην προορισμένη παρουσίαση και χρησιμοποιήστε την υπερφόρτωση ενότητας του [addClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) όταν η δομή ενότητας πρέπει να διατηρηθεί.
+
+**Διατηρούνται οι σημειώσεις ομιλητή και τα σχόλια;**
+
+Αντιγράφονται μαζί με την κλωνοποιημένη διαφάνεια. Για ροές που εξαρτώνται από το στυλ του notes‑master, τους συγγραφείς σχολίων ή τις αλληλουχικές συνομιλίες, επαληθεύστε το τελικό αποτέλεσμα, καθώς αυτά τα σενάρια περιλαμβάνουν δομές επιπέδου παρουσίασης καθώς και περιεχόμενο διαφάνειας.
+
+**Τι γίνεται με ήχο, βίντεο, αντικείμενα OLE και υπερσυνδέσμους;**
+
+Το ενσωματωμένο περιεχόμενο μεταφέρεται ως μέρος των σχέσεων πόρων της κλωνοποιημένης διαφάνειας. Οι εξωτερικοί σύνδεσμοι παραμένουν εξωτερικοί, επομένως τα αρχεία‑στόχοι ή οι URL τους πρέπει να είναι διαθέσιμα μετά τη συγχώνευση.
+
+**Εγγυώνται οι ενσωματωμένες γραμματοσειρές από κάθε πηγή στην τελική παρουσίαση;**
+
+Μην βασίζεστε μόνο στην κλωνοποίηση διαφάνειας για την ανάπτυξη γραμματοσειρών. Εξετάστε τις ενσωματωμένες γραμματοσειρές του προορισμού και διαχειριστείτε ρητά την ενσωμάτωση ή τη διαθεσιμότητα εξωτερικών γραμματοσειρών όταν η τυπογραφία είναι σημαντική.
+
+**Πώς συγχωνεύω ένα αρχείο με κωδικό πρόσβασης;**
+
+Ανοίξτε το με το σωστό [LoadOptions.setPassword](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), στη συνέχεια κλωνοποιήστε τις διαφάνειές του κανονικά. Η προστασία εξόδου ρυθμίζεται ξεχωριστά.
+
+**Πώς να διαχειριστώ πολύ μεγάλες παρουσιάσεις;**
+
+Χρησιμοποιήστε τη διαχείριση BLOB όταν κυριαρχούν μεγάλα δυαδικά αντικείμενα, προτιμήστε τη φόρτωση από διαδρομές αρχείων για πολύ μεγάλα αρχεία, απελευθερώστε τις παρουσιάσεις πηγής άμεσα και αποθηκεύστε το τελικό αποτέλεσμα μόνο όταν είναι απαραίτητο.
+
+**Μπορώ να συγχωνεύσω διαφάνειες από πολλαπλά νήματα;**
+
+Μην χρησιμοποιείτε μία [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) ταυτόχρονα από πολλαπλά νήματα. Κρατήστε κάθε λειτουργία συγχώνευσης απομονωμένη στις δικές της παρουσιές.

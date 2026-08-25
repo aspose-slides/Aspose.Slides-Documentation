@@ -1,5 +1,5 @@
 ---
-title: Quản lý các phần slide trong bản trình chiếu bằng PHP
+title: Quản lý các phần slide trong bản trình bày bằng PHP
 linktitle: Phần Slide
 type: docs
 weight: 90
@@ -10,82 +10,203 @@ keywords:
 - chỉnh sửa phần
 - thay đổi phần
 - tên phần
+- lấy slide của phần
+- xử lý slide của phần
 - PowerPoint
-- OpenDocument
-- bản trình chiếu
+- bản trình bày
 - PHP
 - Aspose.Slides
-description: "Tối ưu hoá các phần slide trong PowerPoint và OpenDocument với Aspose.Slides cho PHP thông qua Java — tách, đổi tên và sắp xếp lại để cải thiện quy trình làm việc PPTX và ODP."
+description: "Quản lý các phần slide với Aspose.Slides cho PHP qua Java: tạo, đổi tên, sắp xếp lại, lấy và xử lý các slide của phần trong bản trình bày PPTX."
 ---
 ## **Giới thiệu**
 
-Với Aspose.Slides cho PHP thông qua Java, bạn có thể sắp xếp một Bản trình chiếu PowerPoint thành các phần. Bạn có thể tạo các phần chứa các slide cụ thể.
+Các phần tổ chức các slide liên tiếp thành các nhóm có tên mà không thay đổi nội dung slide. Với Aspose.Slides cho PHP thông qua Java, bạn có thể tạo, sắp xếp lại, đổi tên, kiểm tra và xóa các phần thông qua phương thức [Presentation::getSections](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation/#getSections).
 
-Bạn có thể muốn tạo các phần và sử dụng chúng để tổ chức hoặc chia các slide trong một bản trình chiếu thành các phần logic trong các tình huống sau:
+Các phần đặc biệt hữu ích khi:
 
-- Khi bạn đang làm việc trên một bản trình chiếu lớn cùng với những người khác hoặc một nhóm — và bạn cần giao một số slide cho đồng nghiệp hoặc một số thành viên trong nhóm. 
-- Khi bạn đang xử lý một bản trình chiếu chứa nhiều slide — và bạn gặp khó khăn trong việc quản lý hoặc chỉnh sửa toàn bộ nội dung cùng một lúc.
+- một bản trình bày lớn cần được chia thành các chủ đề hoặc chương logic;
+- các nhóm slide khác nhau được giao cho các cộng tác viên khác nhau;
+- các slide cần được xử lý, di chuyển hoặc hợp nhất theo nhóm.
 
-Lý tưởng nhất, bạn nên tạo một phần chứa các slide tương tự — các slide có điểm chung hoặc có thể tồn tại trong một nhóm dựa trên một quy tắc — và đặt tên cho phần mô tả các slide bên trong.
+Chọn các tên phần ngắn gọn mô tả mục đích của các slide đã nhóm. Vì các phần là một phần của cấu trúc bản trình bày, hãy sử dụng API phần để xác định thành viên thay vì suy ra từ vị trí slide.
 
-## **Tạo Phần trong Bản Trình Chiếu**
+## **Tạo và quản lý các phần**
 
-Để thêm một phần chứa các slide trong bản trình chiếu, Aspose.Slides cho PHP thông qua Java cung cấp phương thức [addSection()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sectioncollection/#addSection) cho phép bạn chỉ định tên của phần mà bạn muốn tạo và slide mà phần đó bắt đầu.
+Sử dụng [SectionCollection::addSection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/#addSection) để tạo một phần bằng cách chỉ định tên và slide bắt đầu. Aspose.Slides xác định các slide thuộc phần từ cấu trúc phần hiện tại của bản trình bày.
 
-Mã mẫu này cho bạn thấy cách tạo một phần trong bản trình chiếu :
+Cùng với [SectionCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/) bạn cũng có thể:
+- di chuyển một phần cùng với các slide của nó bằng cách sử dụng [SectionCollection::reorderSectionWithSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/#reorderSectionWithSlides);
+- xóa chỉ định nghĩa phần bằng [SectionCollection::removeSection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/#removeSection), mà vẫn giữ các slide của nó;
+- xóa một phần và các slide của nó bằng [SectionCollection::removeSectionWithSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/#removeSectionWithSlides);
+- thêm một phần trống ở cuối bằng [SectionCollection::appendEmptySection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/#appendEmptySection).
 
-```php
-  $pres = new Presentation();
-  try {
-    $defaultSlide = $pres->getSlides()->get_Item(0);
-    $newSlide1 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide2 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide3 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide4 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
-    $section2 = $pres->getSections()->addSection("Section 2", $newSlide3);// section1 sẽ kết thúc tại newSlide2 và sau đó section2 sẽ bắt đầu
-
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
-    $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
-    $pres->getSections()->removeSectionWithSlides($section2);
-    $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Thay Đổi Tên Các Phần**
-
-Sau khi bạn tạo một phần trong bản trình chiếu PowerPoint, bạn có thể quyết định thay đổi tên của nó. 
-
-Mã mẫu này cho bạn thấy cách thay đổi tên của một phần trong bản trình chiếu bằng cách sử dụng Aspose.Slides:
+Ví dụ sau tạo hai phần, di chuyển một trong số chúng, xóa nó cùng với các slide, và thêm một phần trống:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $section = $pres->getSections()->get_Item(0);
-    $section->setName("My section");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $titleSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $resultsSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $titleSlide);
+    $resultsSection = $presentation->getSections()->addSection("Results", $resultsSlide);
+
+    $presentation->getSections()->reorderSectionWithSlides($resultsSection, 0);
+    $presentation->getSections()->removeSectionWithSlides($resultsSection);
+    $presentation->getSections()->appendEmptySection("Appendix");
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Sau các thao tác này, bản trình bày chứa phần `Introduction` cùng các slide và một phần `Appendix` trống. Phần `Results` và các slide của nó đã bị xóa.
+
+## **Đổi tên các phần**
+
+Để đổi tên một phần, gọi phương thức [Section::setName](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#setName). Các slide và vị trí của phần không thay đổi.
+
+Ví dụ sau tạo một phần và thay đổi tên của nó:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $section = $presentation->getSections()->addSection("Overview", $slide);
+    $section->setName("Introduction");
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Lấy slide từ các phần**
+
+Phương thức [Presentation::getSections](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation/#getSections) trả về một [SectionCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/) mà bạn có thể xử lý theo chỉ mục. Đối với mỗi [Section](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/), gọi [Section::getSlidesListOfSection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getSlidesListOfSection) để lấy các slide hiện đang thuộc về nó. Phương thức này trả về một [SectionSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionSlideCollection/), cung cấp số lượng và truy cập theo chỉ mục.
+
+Ví dụ sau tạo hai phần đã được điền nội dung và một phần trống, sau đó in ra [name](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getName), [identifier](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getSectionId), [starting slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getStartedFromSlide), số lượng slide và số thứ tự slide của mỗi phần. Nó sử dụng [SectionCollection::get_Item](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionCollection/#get_Item) và [SectionSlideCollection::get_Item](https://reference.aspose.com/slides/vi/php-java/aspose.slides/SectionSlideCollection/#get_Item) để truy cập theo chỉ mục. Đối với phần trống, bộ sưu tập trả về có kích thước bằng không và không gọi `get_Item`.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $firstSlide);
+    $presentation->getSections()->addSection("Details", $thirdSlide);
+    $presentation->getSections()->appendEmptySection("Appendix");
+
+    $sections = $presentation->getSections();
+    $sectionCount = java_values($sections->size());
+    for ($sectionIndex = 0; $sectionIndex < $sectionCount; $sectionIndex++) {
+        $section = $sections->get_Item($sectionIndex);
+        $sectionSlides = $section->getSlidesListOfSection();
+        $startingSlide = java_is_null($section->getStartedFromSlide()) ? "none" : java_values($section->getStartedFromSlide()->getSlideNumber());
+        $slideCount = java_values($sectionSlides->size());
+
+        echo "Section: " . java_values($section->getName()) . PHP_EOL;
+        echo "ID: " . java_values($section->getSectionId()) . PHP_EOL;
+        echo "Starting slide: " . $startingSlide . PHP_EOL;
+        echo "Slide count: " . $slideCount . PHP_EOL;
+
+        if ($slideCount > 0) {
+            echo "First slide via get_Item: " . java_values($sectionSlides->get_Item(0)->getSlideNumber()) . PHP_EOL;
+        }
+
+        echo "Slide numbers:";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Thành viên của phần được xác định bởi cấu trúc phần của bản trình bày. Không tự tính phạm vi của một phần bằng cách lấy [Section::getStartedFromSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getStartedFromSlide), chỉ mục slide và slide bắt đầu của phần tiếp theo.
+
+Các chỉnh sửa cấu trúc có thể thay đổi cả các slide trả về cho một phần và số thứ tự slide của chúng. Điều này bao gồm sắp xếp lại slide, sao chép một slide vào một phần, di chuyển một phần cùng với các slide của nó, xóa slide và xóa phần. Ví dụ tiếp theo gọi [Section::getSlidesListOfSection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getSlidesListOfSection) sau mỗi thay đổi như vậy thay vì giữ các giả định về ranh giới trước đây của phần.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $firstSection = $presentation->getSections()->addSection("First", $firstSlide);
+    $secondSection = $presentation->getSections()->addSection("Second", $thirdSlide);
+
+    $printSectionSlides = function ($label, $section) {
+        $sectionSlides = $section->getSlidesListOfSection();
+        $slideCount = java_values($sectionSlides->size());
+        echo $label . " (" . $slideCount . " slides):";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    };
+
+    $printSectionSlides("Initially", $firstSection);
+
+    $slidesBeforeClone = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->addClone($slidesBeforeClone->get_Item(0), $firstSection);
+    $printSectionSlides("After cloning into the section", $firstSection);
+
+    $slidesBeforeReorder = $firstSection->getSlidesListOfSection();
+    $firstSectionPosition = java_values($slidesBeforeReorder->get_Item(0)->getSlideNumber()) - 1;
+    $lastSlideIndex = java_values($slidesBeforeReorder->size()) - 1;
+    $presentation->getSlides()->reorder($firstSectionPosition, $slidesBeforeReorder->get_Item($lastSlideIndex));
+    $printSectionSlides("After reordering slides", $firstSection);
+
+    $presentation->getSections()->reorderSectionWithSlides($firstSection, 1);
+    $printSectionSlides("After moving the section", $firstSection);
+
+    $slidesBeforeRemoval = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->remove($slidesBeforeRemoval->get_Item(0));
+    $printSectionSlides("After removing a slide", $firstSection);
+
+    $presentation->getSections()->removeSectionWithSlides($secondSection);
+    $remainingSections = $presentation->getSections();
+    $remainingSectionCount = java_values($remainingSections->size());
+    for ($sectionIndex = 0; $sectionIndex < $remainingSectionCount; $sectionIndex++) {
+        $section = $remainingSections->get_Item($sectionIndex);
+        $printSectionSlides("Remaining section", $section);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Gọi [Section::getSlidesListOfSection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getSlidesListOfSection) lại bất cứ khi nào slide hoặc phần được sắp xếp lại, sao chép, di chuyển hoặc xóa. Điều này giúp quá trình xử lý tiếp theo phù hợp với cấu trúc bản trình bày hiện tại.
+
+Định dạng PPT (PowerPoint 97–2003) không lưu siêu dữ liệu phần. Hãy sử dụng quy trình này với định dạng hỗ trợ phần, chẳng hạn PPTX; việc chuyển đổi sang PPT sẽ loại bỏ cấu trúc phần cần thiết cho các vòng lặp sau.
 
 ## **Câu hỏi thường gặp**
 
 **Các phần có được giữ lại khi lưu dưới định dạng PPT (PowerPoint 97–2003) không?**
 
-Không. Định dạng PPT không hỗ trợ siêu dữ liệu của phần, vì vậy việc nhóm phần sẽ bị mất khi lưu dưới dạng .ppt.
+Không. Định dạng PPT không hỗ trợ siêu dữ liệu phần, do đó việc nhóm phần sẽ bị mất khi lưu dưới dạng .ppt.
 
 **Có thể ẩn toàn bộ một phần không?**
 
-Không. Chỉ các slide riêng lẻ có thể bị ẩn. Một phần dưới dạng một thực thể không có trạng thái "ẩn".
+Không. Một phần không có trạng thái hiển thị. Để ẩn nội dung của nó, hãy gọi [Slide::setHidden](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Slide/#setHidden) cho mỗi slide trong phần.
 
-**Tôi có thể nhanh chóng tìm một phần bằng một slide và ngược lại, tìm slide đầu tiên của một phần không?**
+**Làm thế nào để tìm phần chứa một slide?**
 
-Có. Một phần được định nghĩa duy nhất bởi slide bắt đầu; dựa trên một slide bạn có thể xác định phần nào nó thuộc về, và đối với một phần bạn có thể truy cập slide đầu tiên của nó.
+Duyệt qua bộ sưu tập trả về bởi [Presentation::getSections](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation/#getSections), gọi [Section::getSlidesListOfSection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getSlidesListOfSection) cho mỗi phần, và so sánh các slide trả về với slide mục tiêu. Đối với một phần không rỗng, [Section::getStartedFromSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Section/#getStartedFromSlide) trả về slide đầu tiên; đối với một phần rỗng, nó trả về `null`.

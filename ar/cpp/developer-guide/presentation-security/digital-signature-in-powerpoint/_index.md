@@ -1,97 +1,177 @@
 ---
 title: إضافة توقيعات رقمية إلى العروض التقديمية في C++
-linktitle: الت توقيع الرقمي
+linktitle: التوقيع الرقمي
 type: docs
 weight: 10
 url: /ar/cpp/digital-signature-in-powerpoint/
 keywords:
-- التوقيع الرقمي
-- الشهادة الرقمية
-- جهة إصدار الشهادات
+- توقيع رقمي
+- شهادة رقمية
+- سلطة شهادات
 - شهادة PFX
+- PKCS#12
+- التحقق من التوقيع
 - PowerPoint
-- OpenDocument
-- عرض تقديمي
+- PPTX
+- أمان العرض التقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية توقيع ملفات PowerPoint وOpenDocument رقمياً باستخدام Aspose.Slides لـ C++. احمِ شرائحك في ثوانٍ مع أمثلة شفرة واضحة."
+description: "تعرّف على كيفية توقيع عروض PPTX موجودة باستخدام شهادات PFX واستخدام Aspose.Slides للغة C++ للتحقق من التوقيعات الرقمية أو إزالتها."
 ---
+## **نظرة عامة**
 
-**الشهادة الرقمية** تُستخدم لإنشاء عرض تقديمي PowerPoint محمي بكلمة مرور، يتم وضع علامة بأنه تم إنشاؤه بواسطة مؤسسة أو شخص معين. يمكن الحصول على الشهادة الرقمية عن طريق التواصل مع منظمة معتمدة - هيئة إصدار الشهادات. بعد تثبيت الشهادة الرقمية في النظام، يمكن استخدامها لإضافة توقيع رقمي إلى العرض التقديمي عبر ملف -> معلومات -> حماية العرض التقديمي:
+تساعد التوقيع الرقمي المتلقي على تحديد من قام بالتوقيع على العرض وما إذا كان المحتوى الموقّع قد تغير. هناك ثلاثة مفاهيم أمنية ذات صلة مهمة هنا:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **شهادة رقمية** هي اعتماد إلكتروني يربط هوية بمفتاح عام. يمكن لسلطة شهادات موثوقة (CA) إصدار شهادة، أو يمكن لمنظمة استخدام شهادة موقعة ذاتيًا لتدفقات العمل الداخلية.
+- **توقيع رقمي** يُنشأ من محتوى العرض ومفتاح المتحفظ بالشهادة الخاص. يمكن بعد ذلك استخدام المفتاح العام للشهادة للتحقق من التوقيع. يوفر التوقيع دليلًا على الأصل والنزاهة؛ لكنه لا يشفر العرض.
+- **حماية بكلمة مرور** تتحكم في إمكانية فتح أو تعديل العرض من قبل المستخدم. وهي منفصلة عن التوقيع الرقمي وتُوصف في [العروض المحمية بكلمة مرور](/slides/ar/cpp/password-protected-presentation/).
 
-العرض التقديمي قد يحتوي على أكثر من توقيع رقمي. بعد إضافة التوقيع الرقمي إلى العرض، ستظهر رسالة خاصة في PowerPoint:
+يوفر PowerPoint الأمر **Add a Digital Signature** ضمن **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![قائمة Protect Presentation في PowerPoint مع تمييز Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-لتوقيع العرض التقديمي أو التحقق من صحة توقيعاته، توفر **Aspose.Slides API** واجهة [**IDigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature) وواجهة [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) و[**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) كطريقة. حاليًا، تُدعم التوقيعات الرقمية لتنسيق PPTX فقط.
-## **إضافة توقيع رقمي من شهادة PFX**
-العينة البرمجية أدناه توضح كيفية إضافة توقيع رقمي من شهادة PFX:
+بعد فتح عرض موقّع، يمكن لـ PowerPoint عرض إشعار بحالة التوقيع.
 
-1. افتح ملف PFX ومرّر كلمة مرور PFX إلى كائن [**DigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature).
-2. أضف التوقيع المُنشأ إلى كائن العرض التقديمي.
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+![إشعار PowerPoint يوضح أن العرض يحتوي على توقيعات صالحة](digital-signature-status-in-powerpoint.png)
 
-// إنشاء كائن DigitalSignature بملف PFX وكلمة مرور PFX 
-auto signature = System::MakeObject<DigitalSignature>(u"testsignature1.pfx", u"testpass1");
+تُتيح Aspose.Slides التوقيعات عبر [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_digitalsignatures/)، التي تُعيد [IDigitalSignatureCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignaturecollection/)، حيث تنفّذ عناصرها [IDigitalSignature](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignature/). يمكن للعرض أن يحتوي على توقيعات متعددة.
 
-// إضافة تعليق إلى توقيع رقمي جديد
-signature->set_Comments(u"Aspose.Slides digital signing test.");
+## **فهم شهادات PFX وكلمات المرور**
 
-// إضافة توقيع رقمي إلى العرض التقديمي
-pres->get_DigitalSignatures()->Add(signature);
+ملف PFX، المعروف أيضًا بملف PKCS#12 وغالبًا ما يُعطى امتدادًا `.pfx` أو `.p12`، يمكن أن يحتوي على شهادة X.509، مفتاحها الخاص، وسلسلة الشهادات. المفتاح الخاص هو ما يسمح للمالك بإنشاء توقيع. لا يمكن استخدام شهادة بدون مفتاح خاص يمكن الوصول إليه لتوقيع عرض تقديمي.
 
-// Save presentation
-pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
+كلمة مرور PFX تحمي حزمة الشهادة والمفتاح الخاص. هي **ليس** كلمة مرور لفتح أو تعديل العرض. لا تقم بحفظ ملفات PFX أو كلمات مرورها في نظام التحكم في المصدر. في بيئة الإنتاج، حدّ من الوصول إلى ملف الشهادة واحصل على كلمة المرور من مخزن أسرار أو مصدر تكوين محمي آخر. الأمثلة أدناه تستخدم متغيّر بيئة فقط لتجنب تضمين كلمة المرور في الشيفرة.
+
+## **إضافة توقيع رقمي إلى عرض تقديمي**
+
+لتوقيع سير عمل عرض تقديمي حقيقي، احمّل ملف PPTX موجود، أنشئ [DigitalSignature](https://reference.aspose.com/slides/ar/cpp/aspose.slides/digitalsignature/) من شهادة PFX وكلمة مرورها، أضف التوقيع إلى مجموعة التوقيعات في العرض، ثم احفظه كملف PPTX.
+
+```cpp
+auto certificatePassword = Environment::GetEnvironmentVariable(u"PFX_PASSWORD");
+if (certificatePassword.IsNullOrEmpty())
+{
+    throw InvalidOperationException(u"Set the PFX_PASSWORD environment variable.");
+}
+
+auto presentation = MakeObject<Presentation>(u"InputPresentation.pptx");
+
+auto signature = MakeObject<DigitalSignature>(u"signing-certificate.pfx", certificatePassword);
+signature->set_Comments(u"Approved for release.");
+
+presentation->get_DigitalSignatures()->Add(signature);
+presentation->Save(u"InputPresentation-signed.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+حفظ النتيجة باسم جديد يحافظ على الملف المصدر غير الموقع. قيمة [IDigitalSignature::set_Comments](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignature/set_comments/) تصف غرض التوقيع؛ فهي ليست تحكمًا أمنيًا.
 
-الآن يمكن التحقق مما إذا كان العرض التقديمي مُوقعًا رقميًا ولم يتم تعديله:
-``` cpp
-// فتح العرض التقديمي
-auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
+## **التحقق من صحة التوقيعات الرقمية**
 
-if (pres->get_DigitalSignatures()->get_Count() > 0)
+عند تحميل ملف PPTX موقع، افحص كل عنصر تُعيده [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_digitalsignatures/). طريقة [IDigitalSignature::get_IsValid](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignature/get_isvalid/) تشير إلى ما إذا كان التوقيع المضمّن صالحًا لمحتوى العرض الحالي.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+auto signatureCount = presentation->get_DigitalSignatures()->get_Count();
+
+if (signatureCount == 0)
+{
+    Console::WriteLine(u"The presentation does not contain digital signatures.");
+}
+else
 {
     bool allSignaturesAreValid = true;
 
-    Console::WriteLine(u"Signatures used to sign the presentation: ");
-
-    // تحقق مما إذا كانت جميع التواقيع الرقمية صالحة
-    for (auto signature : pres->get_DigitalSignatures())
+    for (int signatureIndex = 0; signatureIndex < signatureCount; ++signatureIndex)
     {
-        Console::WriteLine(signature->get_Certificate()->get_SubjectName()->get_Name() 
-            + u", " 
-            + signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm") 
-            + u" -- " 
-            + (signature->get_IsValid() ? System::String(u"VALID") : System::String(u"INVALID")));
-        allSignaturesAreValid &= signature->get_IsValid();
+        auto signature = presentation->get_DigitalSignature(signatureIndex);
+        auto signatureIsValid = signature->get_IsValid();
+        auto signatureStatus = signatureIsValid ? u"VALID" : u"INVALID";
+        auto signerName = signature->get_Certificate()->get_SubjectName()->get_Name();
+        auto signingTime = signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm:ss");
+
+        Console::WriteLine(u"{0}, {1} -- {2}", signerName, signingTime, signatureStatus);
+
+        allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
     }
 
     if (allSignaturesAreValid)
     {
-        Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
+        Console::WriteLine(u"All embedded signatures are valid for the current presentation.");
     }
     else
     {
-        Console::WriteLine(u"Presentation has been modified since signing.");
+        Console::WriteLine(u"At least one embedded signature is invalid.");
     }
 }
+
+presentation->Dispose();
 ```
 
+عادةً ما يعني النتيجة غير الصالحة أن محتوى العرض الموقع أو بيانات التوقيع تغيرت بعد التوقيع، أو أن الملف تضرّ. إزالة كل توقيع ينتج عرضًا غير موقع، لذا فحص صلاحية العناصر وحده غير كافٍ: يجب على سير عمل حساس أمنيًا أيضًا التحقق من وجود العدد المتوقع من التوقيعات وهويات الموقعين المتوقّعة.
+
+يجب ألا تُعامل نتيجة الصلاحية كقرار نهائي بموثوقية الشهادة. بناءً على سياسة الأمان الخاصة بك، قد يحتاج تطبيقك أيضًا إلى بناء والتحقق من سلسلة شهادة X.509، فحص تواريخ صلاحية الشهادة وحالة الإلغاء، تأكيد الموضوع أو بصمة الشهادة المتوقعة، التحقق من استخدام المفتاح، وتقييم طابع زمني موثوق. قيمة [IDigitalSignature::get_SignTime](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignature/get_signtime/) بمفردها ليست دليلًا من سلطة طابع زمني موثوقة.
+
+## **إزالة التوقيعات الرقمية**
+
+إزالة التوقيعات تغير حالة أمان العرض. المثال التالي يحمل ملف PPTX موقع، يزيل كل التوقيعات باستخدام [IDigitalSignatureCollection::Clear](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignaturecollection/clear/)، ثم يحفظ نسخة غير موقعّة.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+presentation->get_DigitalSignatures()->Clear();
+presentation->Save(u"InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+لإزالة توقيع واحد فقط، استدعِ [IDigitalSignatureCollection::RemoveAt](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idigitalsignaturecollection/removeat/) مع الفهرس الصفري الخاص به. احفظ إلى ملف جديد ما لم يكن الكتابة فوق الأصلي الموقع جزءًا صريحًا من سير عملك.
+
+## **اعتبارات التحرير والتنسيق**
+
+- التوقيع لا يجعل العرض للقراءة فقط. لا يزال بإمكان المستخدمين والتطبيقات تعديل الملف، لكن تغيّر المحتوى الموقع عادةً ما يبطل التوقيع الموجود.
+- أكمل كل التعديلات المقصودة قبل التوقيع. إذا كان يجب تعديل العرض، احفظ النسخة المعدلة ووقّع تلك المراجعة مرة أخرى.
+- احفظ المخرجات النهائية بصيغة PPTX. تحويل عرض موقع إلى صيغة أخرى لا ينقل توقيع PPTX الأصلي كتوقيع صالح للملف المحوّل.
+- عامل المفتاح الخاص بالشهادة بحساسية. أي شخص يحصل على المفتاح الخاص وكلمة مروره قد يتمكن من إنشاء توقيعات تبدو كأنها صادرة عن صاحب الشهادة.
+- احتفظ بالمصدر غير الموقع أو نسخة خاضعة للسيطرة عندما تتطلب سياسة الاحتفاظ بالمستندات ذلك.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني إزالة التواقيع الموجودة من ملف؟**
+**هل التوقيع الرقمي يشفر العرض؟**
 
-نعم. تدعم مجموعة التواقيع الرقمية [إزالة العناصر الفردية](https://reference.aspose.com/slides/cpp/aspose.slides/digitalsignaturecollection/removeat/) و[مسحها بالكامل](https://reference.aspose.com/slides/cpp/aspose.slides/digitalsignaturecollection/clear/); بعد حفظ الملف، لن يحتوي العرض التقديمي على أي تواقيع.
+لا. التوقيع الرقمي يوفر دليلًا على الأصل والنزاهة، لكن محتوى العرض يظل قابلًا للقراءة ما لم يُطبق تشفير منفصل. استخدم [حماية بكلمة مرور](/slides/ar/cpp/password-protected-presentation/) عندما يجب تقييد الوصول إلى المحتوى.
 
-**هل يصبح الملف "للقراءة فقط" بعد التوقيع؟**
+**هل كلمة مرور PFX هي نفسها كلمة مرور العرض؟**
 
-لا. يحفظ التوقيع التكامل والملكية لكنه لا يمنع التعديلات. لتقييد التحرير، اجمعه مع ["Read-only" أو كلمة مرور](/slides/ar/cpp/password-protected-presentation/).
+لا. كلمة مرور PFX تفتح المفتاح الخاص المخزن في حزمة الشهادة. هي لا تتحكم في من يمكنه فتح أو تعديل ملف PPTX.
 
-**هل سيظهر التوقيع بشكل صحيح في إصدارات PowerPoint المختلفة؟**
+**هل يمكنني استخدام شهادة موقعة ذاتيًا؟**
 
-تم إنشاء التوقيع لحاوية OOXML (PPTX). تعرض إصدارات PowerPoint الحديثة التي تدعم توقيعات OOXML حالة هذه التواقيع بشكل صحيح.
+تقنيًا، يمكن استخدام شهادة موقعة ذاتيًا عندما تتضمن مفتاحًا خاصًا يمكن الوصول إليه. إلا أن المستقبلين لن يثقوا بها تلقائيًا ما لم تُضاف تلك الشهادة صراحةً إلى بيئتهم الموثوقة. عادةً ما تستخدم سير عمل عام أو عبر مؤسسات شهادة صادرة عن سلطة شهادات موثوقة.
+
+**ما الذي يجعل التوقيع غير صالح؟**
+
+تغيّر محتوى العرض الموقع أو بيانات التوقيع بعد التوقيع يمكن أن يبطل التوقيع. قد يتسبب تلف الملف أيضًا في فشل التحقق. إذا أزيلت كل التوقيعات، يصبح العرض غير موقع بدلاً من أن يحتوي على توقيع غير صالح.
+
+**هل يعني التوقيع الصالح أنني يجب أن أثق بالموقع؟**
+
+ليس بمفرده. سلامة التوقيع وثقة الموقع قراران منفصلان. يجب على سياسة التحقق في الإنتاج أيضًا فحص سلسلة الشهادة، فترة الصلاحية، حالة الإلغاء، الهوية المتوقعة، استخدام المفتاح، وأي متطلبات طابع زمني موثوق.
+
+**ماذا يحدث عندما تنتهي صلاحية الشهادة؟**
+
+انتهاء صلاحية الشهادة لا يغيّر بايتات العرض، لكنه يؤثر على تقييم الثقة بالشهادة. ما إذا كان التوقيع يظل مقبولًا يعتمد على سياستك وما إذا كان هناك طابع زمني موثوق يثبت أن التوقيع تم أثناء صلاحية الشهادة. لا تعتمد على وقت التوقيع المعروض وحده كطابع زمني موثوق.
+
+**هل يمكن تحرير عرض موقع؟**
+
+نعم. التوقيع لا يقفل الملف. عادةً ما يؤدي تحرير المحتوى الموقع إلى إبطال التوقيع الموجود، لذا أكمل العرض أولاً ووقّع المراجعة النهائية.
+
+**هل يمكن للعرض أن يحتوي على أكثر من توقيع؟**
+
+نعم. أضف كل توقيع إلى المجموعة التي تُعيدها [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_digitalsignatures/) قبل الحفظ. أثناء التحقق، افحص كل توقيع وتأكد من أن جميع الموقعين المطلوبين موجودين.
+
+**أي صيغ عرض تدعم هذه العمليات؟**
+
+تدعم Aspose.Slides عمليات التوقيع الرقمي الموضحة هنا فقط لصيغة PPTX. صيغ PPT وOpenDocument لا يدعمها هذا العمل البرمجي.
+
+**هل يمكنني إزالة توقيع دون التأثير على الشرائح؟**
+
+نعم. يمكنك إزالة توقيع واحد أو مسح المجموعة بالكامل ثم حفظ العرض. يظل محتوى الشرائح متاحًا، لكن الملف المحفوظ لن يحمل دليل التوقيع المُزال.

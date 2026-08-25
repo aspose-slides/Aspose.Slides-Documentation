@@ -1,5 +1,5 @@
 ---
-title: 프레젠테이션에서 Java를 사용하여 그림 프레임 관리
+title: Java를 사용한 프레젠테이션에서 그림 프레임 관리
 linktitle: 그림 프레임
 type: docs
 weight: 10
@@ -8,541 +8,421 @@ keywords:
 - 그림 프레임
 - 그림 프레임 추가
 - 그림 프레임 만들기
-- 이미지 추가
-- 이미지 만들기
+- 삽입된 이미지
+- 연결된 이미지
 - 이미지 추출
 - 래스터 이미지
-- 벡터 이미지
+- SVG 이미지
 - 이미지 자르기
-- 잘린 영역
-- StretchOff 속성
-- 그림 프레임 포맷팅
-- 그림 프레임 속성
+- 잘라낸 영역 삭제
+- 이미지 압축
+- StretchOffset
+- 그림 프레임 서식
 - 상대 스케일
 - 이미지 효과
 - 종횡비
-- 이미지 투명도
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에 그림 프레임을 추가합니다. 작업 흐름을 간소화하고 슬라이드 디자인을 향상시킵니다."
+description: "Aspose.Slides for Java를 사용하여 프레젠테이션에서 그림 프레임을 만들고, 서식 지정하고, 연결하고, 자르고, 추출하고, 압축합니다."
 ---
-## **소개**
+## **개요**
 
-그림 프레임은 이미지를 포함하는 도형으로, 프레임 안의 사진과 같습니다.  
+그림 프레임은 이미지를 표시하는 슬라이드 도형입니다. Aspose.Slides에서는 이미지 리소스와 이를 표시하는 도형이 별개의 객체입니다: [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/)은 [IImageCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimagecollection/)을 통해 삽입된 이미지 리소스를 소유하고, [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)은 이미지의 위치, 크기, 선 서식, 회전, 자르기, 그림 효과 및 기타 프레임 수준 설정을 제어합니다.
 
-그림 프레임을 통해 슬라이드에 이미지를 추가할 수 있습니다. 이렇게 하면 그림 프레임을 포맷함으로써 이미지를 포맷할 수 있습니다.
+같은 이미지를 여러 번 표시할 때 이 분리가 유용합니다. 이미지를 프레젠테이션에 한 번 추가하고 반환된 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/)를 보관한 뒤, 그림 프레임을 만들 때 해당 이미지 리소스를 사용합니다.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose는 무료 변환기인 [JPEG to PowerPoint](https://products.aspose.app/slides/ko/import/jpg-to-ppt)와 [PNG to PowerPoint](https://products.aspose.app/slides/ko/import/png-to-ppt)를 제공하여 사용자가 이미지를 통해 프레젠테이션을 빠르게 만들 수 있도록 합니다. 
-{{% /alert %}} 
+그림 프레임은 PNG 또는 JPEG와 같은 래스터 이미지와 SVG와 같은 벡터 이미지를 포함할 수 있습니다. 또한 프레젠테이션에 이미지 바이트를 저장하는 대신 링크된 이미지를 참조할 수도 있습니다. 선택은 휴대성, 파일 크기, 추출 및 내보내기 동작에 영향을 미치므로 서식 지정이나 최적화를 적용하기 전에 이미지 저장 방식을 결정하는 것이 좋습니다.
 
-## **그림 프레임 만들기**
+## **삽입된 이미지 추가 및 서식 지정**
 
-1. Presentation 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 사용하여 슬라이드의 참조를 가져옵니다.  
-3. Presentation 객체와 연결된 [IImagescollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IImageCollection) 에 이미지를 추가하여 [IPPImage]() 객체를 생성합니다.  
-4. 이미지의 너비와 높이를 지정합니다.  
-5. 참조된 슬라이드와 연결된 shape 객체가 제공하는 `AddPictureFrame` 메서드를 사용하여 이미지의 너비와 높이를 기반으로 [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/PictureFrame) 을 생성합니다.  
-6. 그림을 포함하는 그림 프레임을 슬라이드에 추가합니다.  
-7. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.  
+삽입된 이미지의 경우 이미지 데이터를 프레젠테이션에 추가하고 [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-)을 사용하여 그림 프레임을 생성합니다. 이미지는 프레젠테이션 패키지의 일부가 되므로 프레젠테이션을 다른 컴퓨터로 이동해도 자체 포함된 상태를 유지합니다.
 
-다음 Java 코드는 그림 프레임을 만드는 방법을 보여줍니다:
+다음 예제는 JPEG 이미지를 추가하고, 이미지의 기본 크기로 프레임을 만든 뒤, 선 서식과 회전을 적용합니다:
 
 ```java
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
-try {
-    // 첫 번째 슬라이드를 가져옵니다
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Image 클래스를 인스턴스화합니다
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // 사진과 동일한 높이와 너비를 가진 그림 프레임을 추가합니다
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // PPTX 파일을 디스크에 기록합니다
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-그림 프레임을 사용하면 이미지를 기반으로 프레젠테이션 슬라이드를 빠르게 만들 수 있습니다. 그림 프레임과 Aspose.Slides의 저장 옵션을 결합하면 이미지 형식 간 변환을 위해 입력/출력 작업을 조작할 수 있습니다. 다음 페이지를 참조하십시오: 이미지 변환 [image to JPG](https://products.aspose.com/slides/ko/java/conversion/image-to-jpg/); [JPG to image](https://products.aspose.com/slides/ko/java/conversion/jpg-to-image/); [JPG to PNG](https://products.aspose.com/slides/ko/java/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/ko/java/conversion/png-to-jpg/); [PNG to SVG](https://products.aspose.com/slides/ko/java/conversion/png-to-svg/), [SVG to PNG](https://products.aspose.com/slides/ko/java/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **상대 스케일이 있는 그림 프레임 만들기**
-
-이미지의 상대 스케일을 조정하면 보다 복잡한 그림 프레임을 만들 수 있습니다.  
-
-1. Presentation 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 사용하여 슬라이드의 참조를 가져옵니다.  
-3. 프레젠테이션 이미지 컬렉션에 이미지를 추가합니다.  
-4. Presentation 객체와 연결된 [IImagescollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IImageCollection) 에 이미지를 추가하여 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPPImage) 객체를 생성합니다.  
-5. 그림 프레임 내에서 이미지의 상대적인 너비와 높이를 지정합니다.  
-6. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.  
-
-다음 Java 코드는 상대 스케일이 적용된 그림 프레임을 만드는 방법을 보여줍니다:
-
-```java
-// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
-try {
-    // 첫 번째 슬라이드를 가져옵니다
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Image 클래스를 인스턴스화합니다
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // 그림과 동일한 높이와 너비를 가진 Picture Frame을 추가합니다
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // 상대 스케일 너비와 높이를 설정합니다
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // PPTX 파일을 디스크에 저장합니다
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **그림 프레임에서 래스터 이미지 추출**
-
-[PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/PictureFrame) 객체에서 래스터 이미지를 추출하고 PNG, JPG 등 다양한 형식으로 저장할 수 있습니다. 아래 코드 예제는 "sample.pptx" 문서에서 이미지를 추출하여 PNG 형식으로 저장하는 방법을 보여줍니다.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **그림 프레임에서 SVG 이미지 추출**
-
-프레젠테이션에 [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/) 도형 안에 SVG 그래픽이 포함된 경우, Aspose.Slides for Java를 사용하면 원본 벡터 이미지를 완전한 정확도로 가져올 수 있습니다. 슬라이드의 shape 컬렉션을 순회하면서 각 [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/) 을 확인하고, 해당 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 가 SVG 내용을 보유하고 있는지 체크한 뒤, 이를 디스크나 스트림에 SVG 형식으로 저장할 수 있습니다.
-
-다음 코드 예제는 그림 프레임에서 SVG 이미지를 추출하는 방법을 보여줍니다:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **이미지 투명도 가져오기**
+그림 프레임은 표시된 기하학을 제어합니다; 프레임 크기를 변경해도 삽입된 이미지 리소스에 저장된 원본 픽셀 크기는 변하지 않습니다. 이 구분은 나중에 이미지를 자르거나 압축할 때 중요해집니다.
 
-Aspose.Slides를 사용하면 이미지에 적용된 투명도 효과를 가져올 수 있습니다. 다음 Java 코드는 해당 작업을 시연합니다:
+## **상대 스케일 사용**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **이미지 밝기 및 대비 가져오기**
-
-Aspose.Slides를 사용하면 이미지에 적용된 밝기와 대비 효과를 가져올 수 있습니다. [ILuminance](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iluminance/) 인터페이스가 이 이미지 변환 효과를 나타냅니다.  
-
-다음 Java 코드는 그림 프레임에서 밝기와 대비 설정을 가져오는 방법을 보여줍니다:
+[IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)은 [setRelativeScaleWidth](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) 및 [setRelativeScaleHeight](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-)을 통해 프레임에 대한 상대 너비와 높이 스케일을 제공한다. 값 `1.0`은 원본 그림 크기의 100%에 해당합니다. 상대 스케일은 워크플로에서 최종 크기를 직접 계산하지 않고 원본 이미지 크기와의 비율을 유지해야 할 때 유용합니다.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **그림 프레임 포맷팅**
+상대 스케일은 프레임의 스케일 설정을 변경하지만, 삽입된 이미지를 재샘플링하거나 압축하지는 않습니다.
 
-Aspose.Slides는 그림 프레임에 적용할 수 있는 다양한 포맷 옵션을 제공합니다. 이러한 옵션을 사용하면 특정 요구 사항에 맞게 그림 프레임을 조정할 수 있습니다.  
+## **삽입 이미지와 연결 이미지**
 
-1. Presentation 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 사용하여 슬라이드의 참조를 가져옵니다.  
-3. Presentation 객체와 연결된 [IImagescollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IImageCollection) 에 이미지를 추가하여 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPPImage) 객체를 생성합니다.  
-4. 이미지의 너비와 높이를 지정합니다.  
-5. [AddPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) 메서드를 통해 이미지의 너비와 높이를 기반으로 `PictureFrame` 을 생성합니다.  
-6. 그림을 포함하는 그림 프레임을 슬라이드에 추가합니다.  
-7. 그림 프레임의 선 색을 설정합니다.  
-8. 그림 프레임의 선 두께를 설정합니다.  
-9. 양수 또는 음수 값을 지정하여 그림 프레임을 회전시킵니다.  
-   * 양수 값은 이미지를 시계 방향으로 회전합니다.  
-   * 음수 값은 이미지를 반시계 방향으로 회전합니다.  
-10. 그림 프레임을 슬라이드에 다시 추가합니다.  
-11. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.  
+삽입된 그림은 이미지 데이터를 프레젠테이션 내부에 저장하므로 휴대성과 예측 가능한 렌더링 측면에서 가장 안전한 선택입니다. 연결된 그림은 [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/ko/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) 메서드를 사용해 외부 위치를 저장하므로 이미지 데이터를 동일한 방식으로 삽입하지 않습니다.
 
-다음 Java 코드는 그림 프레임 포맷팅 과정을 보여줍니다:
+연결된 이미지는 PPTX에 저장되는 이미지 데이터 양을 줄일 수 있지만 외부 종속성을 도입합니다. 연결 파일은 프레젠테이션을 열거나 렌더링하는 애플리케이션에서 계속 접근 가능해야 합니다. 경로가 변경되거나 파일이 이동되거나 리소스를 사용할 수 없게 되면 연결된 그림이 예상대로 표시되지 않을 수 있습니다. 이메일로 전송하거나 보관하거나 격리된 환경에서 렌더링해야 하는 프레젠테이션의 경우, 삽입된 이미지가 보통 더 신뢰됩니다.
+
+### **연결 이미지 추가**
+
+다음 예제는 그림 프레임을 만들고 로컬 이미지 파일을 가리키도록 설정합니다. 이 예제는 이미지 연결만 다루며, 비디오 연결은 별도의 미디어 워크플로이며 의도적으로 혼합되지 않았습니다.
 
 ```java
-// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // 첫 번째 슬라이드를 가져옵니다
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Image 클래스를 인스턴스화합니다
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // 그림과 동일한 높이와 너비를 가진 Picture Frame을 추가합니다
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // PictureFrameEx에 일부 포맷을 적용합니다
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // PPTX 파일을 디스크에 기록합니다
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose는 최근에 [무료 Collage Maker](https://products.aspose.app/slides/ko/collage)를 출시했습니다. JPG/JPEG 또는 PNG 이미지를 병합하거나([merge JPG/JPEG](https://products.aspose.app/slides/ko/collage/jpg)), 사진으로 그리드 만들기([create grids from photos](https://products.aspose.app/slides/ko/collage/photo-grid))가 필요할 때 이 서비스를 이용할 수 있습니다. 
-{{% /alert %}}
+외부 파일 관리를 의도적으로 할 경우에만 링크를 사용하십시오. 압축을 대신하는 용도로 사용하면 안 됩니다: 깨진 이미지 종속성을 가진 작은 PPTX는 일반적으로 자체 포함된 큰 프레젠테이션보다 덜 유용합니다.
 
-## **이미지를 링크로 추가**
+## **그림 프레임에서 이미지 추출**
 
-프레젠테이션 파일 크기를 크게 만들지 않으려면 파일을 직접 삽입하는 대신 링크를 통해 이미지(또는 비디오)를 추가할 수 있습니다. 다음 Java 코드는 플레이스홀더에 이미지와 비디오를 추가하는 방법을 보여줍니다:
+기존 프레젠테이션에서 이미지를 추출하기 전에 해당 도형이 실제로 [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)인지, 삽입된 이미지를 포함하고 있는지 확인하십시오. 연결된 그림 프레임은 같은 방식으로 추출할 수 있는 이미지 바이트를 포함하지 않을 수 있습니다.
+
+### **래스터 이미지 추출**
+
+최신 이미지 API는 [IImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/)을 직접 사용하며 이전 Java 이미지 래퍼가 필요하지 않습니다. 다음 예제는 슬라이드에서 첫 번째 삽입된 래스터 그림을 찾아 PNG로 저장합니다:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-
-                shapesToRemove.add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-
-                shapesToRemove.add(autoShape);
-                break;
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
         }
-    }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
+
+[IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)을 통해 저장하면 추출된 이미지를 원하는 출력 형식으로 변환합니다. 프레젠테이션에 저장된 인코딩된 바이트가 필요하면 이미지 리소스의 바이너리 데이터를 사용하십시오.
+
+### **SVG 이미지 추출**
+
+SVG 그림의 경우 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/)이 [ISvgImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/isvgimage/) 객체를 노출합니다. 이를 통해 SVG 데이터를 직접 가져올 수 있어 먼저 그림을 래스터화할 필요가 없습니다.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SVG 내용을 SVG 그대로 유지하면 프레젠테이션 내에 벡터 소스를 보존할 수 있습니다. PNG 또는 JPEG와 같은 래스터 내보내기는 해당 벡터 내용을 픽셀로 렌더링합니다. PDF 또는 SVG 슬라이드 내보내기도 렌더링 작업이므로, 내보낸 그래픽을 원본 삽입된 SVG의 바이트 단위 복사본으로 취급해서는 안 됩니다; 원본 벡터 리소스가 필요할 때는 삽입된 [ISvgImage.getSvgData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/isvgimage/#getSvgData--) 데이터를 사용하십시오.
 
 ## **이미지 자르기**
 
-다음 Java 코드는 슬라이드에 있는 기존 이미지를 자르는 방법을 보여줍니다:
+자르기는 프레임 내부에서 이미지의 어느 부분이 보일지를 변경합니다. [IPictureFillFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/)의 자르기 값은 원본 이미지 차원의 백분율입니다. 자르기는 처음에 숨겨진 픽셀을 삽입된 이미지에서 삭제하지 않고, 보이는 영역만 변경합니다.
+
+다음 예제는 그림 프레임을 안전하게 찾고 자르기 값을 적용합니다:
 
 ```java
-Presentation pres = new Presentation();
-// 새로운 이미지 객체를 생성합니다
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
+import com.aspose.slides.*;
 
-    // 슬라이드에 PictureFrame을 추가합니다
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // 이미지 잘라내기 (백분율 값)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // 결과를 저장합니다
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **그림의 잘린 영역 삭제**
-
-프레임에 포함된 이미지의 잘린 영역을 삭제하려면 [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) 메서드를 사용할 수 있습니다. 이 메서드는 잘린 이미지 또는 잘라낼 필요가 없는 경우 원본 이미지를 반환합니다.  
-
-다음 Java 코드는 해당 작업을 시연합니다:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // 첫 번째 슬라이드에서 PictureFrame을 가져옵니다
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // PictureFrame 이미지의 잘린 영역을 삭제하고 잘린 이미지를 반환합니다
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // 결과를 저장합니다
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-[deletePictureCroppedAreas()](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) 메서드는 잘린 이미지를 프레젠테이션 이미지 컬렉션에 추가합니다. 이미지가 처리된 [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/) 에서만 사용되는 경우 이 설정으로 프레젠테이션 크기를 줄일 수 있습니다. 그렇지 않으면 결과 프레젠테이션에 포함된 이미지 수가 증가합니다.  
-
-이 메서드는 잘라내기 작업 중 WMF/EMF 메타파일을 래스터 PNG 이미지로 변환합니다. 
-{{% /alert %}}
-
-## **이미지 압축**
-
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) 메서드를 사용하여 프레젠테이션 내 사진을 압축할 수 있습니다. 이 메서드는 도형 크기와 지정된 해상도를 기반으로 이미지 크기를 줄이며, 필요에 따라 잘린 영역을 삭제할 수 있는 옵션을 제공합니다.  
-
-이 메서드는 PowerPoint의 **Picture Format → Compress Pictures → Resolution** 기능과 유사하게 사진의 크기와 해상도를 조정합니다.  
-
-다음 Java 예제는 목표 해상도를 지정하고 선택적으로 잘린 영역을 제거하여 프레젠테이션의 이미지를 압축하는 방법을 보여줍니다:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // 목표 해상도 150 DPI(웹 해상도)로 이미지를 압축하고 잘린 영역을 제거합니다.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // 압축 결과를 확인합니다.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
     }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-또는 직접 사용자 정의 DPI 값을 사용:
+숨겨진 이미지 데이터가 여전히 존재하므로, 원본 픽셀을 손실하지 않고 나중에 자르기 값을 변경할 수 있습니다. 파일 크기가 더 중요하고 되돌릴 필요가 없을 경우, 다음 섹션에서 설명하는 대로 자른 영역을 물리적으로 제거할 수 있습니다.
+
+## **잘라낸 이미지 데이터 삭제**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--)는 현재 자르기 사각형 외부의 이미지 데이터를 제거하고 결과 이미지 리소스를 반환합니다. 이는 파일 크기를 줄일 수 있지만 파괴적인 최적화이며, 프레젠테이션을 저장한 후에는 삭제된 픽셀을 다시 복원할 수 없습니다.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // 이미지를 150 DPI(웹 해상도)로 압축하고 잘린 영역을 제거합니다.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-이 메서드는 도형 크기와 제공된 DPI를 기준으로 이미지를 낮은 해상도로 변환합니다. 파일 크기 최적화를 위해 잘린 영역도 삭제할 수 있습니다.  
-이미지가 메타파일(WMF/EMF) 또는 SVG인 경우 압축이 적용되지 않습니다. 또한 JPEG 품질은 해상도에 따라 유지되거나 약간 낮아지며, 이는 PowerPoint가 고해상도 JPEG를 처리하는 방식과 유사합니다. 
-{{% /alert %}}
+이 메서드는 프레젠테이션에 새로운 이미지 리소스를 추가할 수 있습니다. 원본 이미지가 다른 그림 프레임에서도 사용 중이라면 해당 프레임은 기존 리소스를 계속 필요로 하므로, 잘라낸 영역을 삭제해도 전체 이미지 수가 반드시 감소하는 것은 아닙니다. WMF 또는 EMF 콘텐츠를 이 메서드로 자르면 결과가 PNG로 래스터화됩니다.
 
-## **비율 잠금**
+## **래스터 이미지 압축**
 
-이미지 차원 변경 후에도 이미지가 포함된 도형이 종횡비를 유지하도록 하려면 [setAspectRatioLocked](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) 메서드를 사용하여 *Lock Aspect Ratio* 설정을 적용할 수 있습니다.  
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-)은 그림이 표시되는 크기에 비례하여 래스터 이미지 해상도를 낮춥니다. 같은 작업에서 잘라낸 영역을 제거할 수도 있습니다. 메서드는 이미지가 크기 조정 또는 잘라내기된 경우 `true`를, 변경이 필요하지 않은 경우 `false`를 반환합니다.
 
-다음 Java 코드는 도형의 종횡비를 잠그는 방법을 보여줍니다:
+표준 목표 해상도가 충분할 때는 미리 정의된 [PicturesCompression](https://reference.aspose.com/slides/ko/java/com.aspose.slides/picturescompression/) 값을 사용하십시오:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // 크기 조정 시 종횡비를 유지하도록 도형을 설정합니다
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+특정 목표가 필요할 경우 미리 정의된 값 대신 양의 DPI 값을 직접 전달할 수 있습니다.
+
+압축은 래스터 이미지에만 적용됩니다. SVG 및 메타파일 내용은 이 래스터 압축 워크플로로 줄어들지 않습니다. 또한 낮은 해상도와 삭제된 잘라낸 영역은 최적화된 프레젠테이션에서 복구할 수 없음을 기억하십시오. 전체적으로 가장 낮은 DPI를 적용하기보다는 이미지가 실제로 표시되거나 내보내질 가장 큰 크기를 기준으로 목표 해상도를 선택하십시오.
+
+## **이미지 변형 효과 관리**
+
+밝기, 대비, 색상 변환, 블러, 알파 효과, 순서 체인, 검사, 제거 및 라운드 트립 검증을 포괄하는 전체 워크플로는 [Image Transform Effects](/slides/ko/java/image-transform-effects/)를 참조하십시오.
+
+## **그림 프레임 기하학 잠금**
+
+[IPictureFrameLock](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframelock/) 설정은 그림 프레임에 대해 어떤 편집 작업이 비활성화되는지를 제어합니다. 예를 들어, [setAspectRatioLocked](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-)은 크기를 조정할 때 도형 비율을 유지합니다.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-이 *Lock Aspect Ratio* 설정은 도형 자체의 종횡비만 유지하고, 도형이 포함하고 있는 이미지의 비율은 유지하지 않습니다. 
-{{% /alert %}}
+잠금은 그림 프레임 도형에만 적용되며, 원본 이미지를 재샘플링하거나 영구적으로 같은 비율로 변경하도록 강제하지는 않습니다.
 
-## **StretchOff 속성 사용**
+## **StretchOffset 값 조정**
 
-[IPictureFillFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPictureFillFormat) 인터페이스와 [PictureFillFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPictureFillFormat) 클래스에서 제공하는 [StretchOffsetLeft](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) 및 [StretchOffsetBottom](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) 속성을 사용하면 채우기 사각형을 지정할 수 있습니다.  
+그림 채우기 모드가 stretch인 경우, [IPictureFillFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/)의 stretch‑offset 값은 그림 프레임 경계 상자에 대한 채우기 사각형을 정의합니다. 양의 백분율은 가장자리에서 내부로 inset을 만들고, 음의 백분율은 외부로 outset을 만듭니다.
 
-이미지에 대해 스트레칭이 지정되면 원본 사각형이 지정된 채우기 사각형에 맞게 확대/축소됩니다. 채우기 사각형의 각 가장자리는 도형 경계 상자의 해당 가장자리로부터 백분율 오프셋으로 정의됩니다. 양수 백분율은 삽입을 의미하고, 음수 백분율은 외삽을 의미합니다.  
-
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 사용하여 슬라이드의 참조를 가져옵니다.  
-3. 사각형 `AutoShape` 을 추가합니다.  
-4. 이미지를 생성합니다.  
-5. 도형의 채우기 유형을 설정합니다.  
-6. 도형의 그림 채우기 모드를 설정합니다.  
-7. 채우기를 위해 이미지를 설정합니다.  
-8. 도형 경계 상자의 해당 가장자리로부터 이미지 오프셋을 지정합니다.  
-9. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.  
-
-다음 Java 코드는 StretchOff 속성을 사용하는 과정을 보여줍니다:
+이는 자르기와 다릅니다. 자르기 값은 원본 이미지 중 어느 부분이 보이는지를 선택하고, stretch offset은 보이는 그림 채우기가 늘어나는 사각형을 변경합니다.
 
 ```java
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
-try {
-    // 첫 번째 슬라이드를 가져옵니다
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // ImageEx 클래스를 인스턴스화합니다
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // 사각형으로 설정된 AutoShape을 추가합니다
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // 도형의 채우기 유형을 설정합니다
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // 도형의 그림 채우기 모드를 설정합니다
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // 도형을 채우기 위해 이미지를 설정합니다
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // 도형 경계 상자의 해당 가장자리로부터 이미지 오프셋을 지정합니다
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    //PPTX 파일을 디스크에 기록합니다
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+채우기 위치를 지정할 때 stretch offset을 사용하십시오. 이미지 가장자리 숨기기가 목표라면 자르기 속성을 사용하십시오.
+
+## **스토리지, 파일 크기 및 내보내기 고려 사항**
+
+이미지 스토리지와 그림 프레임 서식을 별도로 처리하면 주요 트레이드오프를 더 쉽게 관리할 수 있습니다:
+
+- **삽입된 이미지**는 프레젠테이션을 자체 포함하게 만들며, 공유 및 서버‑사이드 렌더링에 가장 신뢰할 수 있습니다. 하지만 큰 래스터 이미지는 PPTX 크기와 메모리 사용량을 증가시킵니다.
+- **연결된 이미지**는 패키지를 작게 유지할 수 있지만, 프레젠테이션은 지정된 경로나 위치에 외부 파일이 계속 존재해야 합니다.
+- **자르기**는 처음에 비파괴적입니다. 숨겨진 픽셀은 잘라낸 영역을 명시적으로 삭제하거나 압축 중에 제거하기 전까지는 삽입된 상태로 남아 있습니다.
+- **압축**은 과도한 래스터 이미지의 파일 크기를 크게 줄일 수 있지만, 원본 해상도를 포기하게 됩니다. 슬라이드에서 실제 표시될 크기를 파악한 후 적용해야 합니다.
+- **SVG 이미지**는 벡터 보존이 중요할 때 SVG 형태로 유지해야 합니다. 벡터 리소스 자체가 필요할 경우 삽입된 SVG를 직접 추출하십시오. 래스터 슬라이드 내보내기는 항상 렌더링된 슬라이드를 픽셀로 변환합니다.
+- **반복 이미지**는 가능한 경우 기존 [IPPImage] 리소스를 재사용하고, 동일한 파일을 프레젠테이션 워크플로에 반복 로드하지 않도록 하십시오.
+
+대규모 프레젠테이션에서는 이미지 최적화를 선택적으로 수행하는 것이 일반적으로 가장 효과적입니다: 로고와 다이어그램은 벡터 콘텐츠로 유지하고, 사진은 실제 표시 크기에 따라 압축하고, 나중에 편집이 필요하지 않을 경우에만 잘라낸 픽셀을 제거하며, 의존성 관리가 배포 설계에 포함되지 않는 한 외부 링크는 피하십시오.
 
 ## **FAQ**
 
-**How can I find out which image formats are supported for PictureFrame?**  
-Aspose.Slides는 래스터 이미지(PNG, JPEG, BMP, GIF 등)와 벡터 이미지(SVG 등)를 [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/) 에 할당된 이미지 객체를 통해 지원합니다. 지원되는 형식 목록은 슬라이드 및 이미지 변환 엔진의 기능과 대부분 겹칩니다.
+**그림 프레임과 이미지 리소스의 차이점은 무엇인가요?**
 
-**How will adding dozens of large images affect PPTX size and performance?**  
-대용량 이미지를 삽입하면 파일 크기와 메모리 사용량이 증가합니다. 이미지를 링크 형태로 추가하면 프레젠테이션 크기를 줄일 수 있지만 외부 파일이 계속 접근 가능해야 합니다. Aspose.Slides는 파일 크기를 줄이기 위해 링크 방식으로 이미지를 추가하는 기능을 제공합니다.
+[IPPImage]는 프레젠테이션과 연결된 이미지 리소스를 나타냅니다. [IPictureFrame]은 슬라이드에 삽입된 이미지와 프레임 수준의 기하학 및 서식(크기, 회전, 자르기 값, 효과, 잠금 등)을 저장하는 도형입니다.
 
-**How can I lock an image object from accidental moving/resizing?**  
-[PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/) 에 대해 [shape locks](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) 를 사용하면 이동이나 크기 조정을 비활성화하는 등 잠금 설정을 할 수 있습니다. 잠금 메커니즘은 별도의 [보호 기사](/slides/ko/java/applying-protection-to-presentation/)에 설명되어 있으며, 다양한 도형 유형(예: [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/))에 적용됩니다.
+**이미지를 삽입할까요, 링크할까요?**
 
-**Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**  
-Aspose.Slides는 [PictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pictureframe/) 에서 SVG를 원본 벡터 형태로 추출할 수 있게 합니다. PDF(/slides/ko/java/convert-powerpoint-to-pdf/) 또는 래스터 형식(/slides/ko/java/convert-powerpoint-to-png/) 으로 내보낼 때는 내보내기 설정에 따라 래스터화될 수 있지만, 원본 SVG가 벡터로 저장된다는 사실은 추출 동작을 통해 확인할 수 있습니다.
+프레젠테이션을 휴대 가능하게 하거나 보관·외부 리소스 없이 렌더링해야 하는 경우 이미지를 삽입하십시오. 이미지 파일을 PPTX 외부에 두는 것이 의도적이며 외부 위치를 안정적으로 유지할 수 있는 경우에만 이미지를 링크하십시오.
+
+**자르기가 PPTX 파일 크기를 감소시키나요?**
+
+그 자체로는 감소시키지 않습니다. 일반적인 자르기 설정은 원본 이미지의 일부를 숨기지만 기본 픽셀은 유지합니다. 픽셀을 영구적으로 삭제하려면 [IPictureFillFormat.deletePictureCroppedAreas] 또는 잘라낸 영역을 제거하는 이미지 압축을 사용하십시오.
+
+**압축 후 이미지 품질을 복구할 수 있나요?**
+
+아니요. 압축은 저장된 래스터 해상도를 낮추고, 잘라낸 영역을 제거하면 이미지 데이터가 사라집니다. 나중에 고해상도 편집이 필요할 경우 원본 이미지를 프레젠테이션 외부에 보관하십시오.
+
+**SVG 이미지는 어떻게 다루어야 하나요?**
+
+벡터 정확도가 중요할 때 SVG 콘텐츠를 SVG 그대로 유지하십시오. 삽입된 [ISvgImage]를 직접 추출할 수 있습니다. PNG 또는 JPEG와 같은 래스터 형식으로 슬라이드를 렌더링하면 SVG가 해당 슬라이드 이미지의 픽셀로 변환됩니다.
+
+**기존 슬라이드를 읽을 때 안전하지 않은 캐스트를 피하려면 어떻게 해야 하나요?**
+
+도형 유형을 확인한 후 그림 프레임 전용 멤버를 사용하십시오. [IPictureFrame]에 대한 `instanceof` 검사는 잘못된 캐스트를 방지하고 그림 프레임이 없는 슬라이드를 올바르게 처리할 수 있게 해줍니다.

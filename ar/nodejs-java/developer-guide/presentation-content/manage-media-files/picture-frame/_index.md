@@ -1,6 +1,6 @@
 ---
 title: إدارة إطارات الصور في العروض التقديمية باستخدام JavaScript
-linktitle: إطار صورة
+linktitle: إطار الصورة
 type: docs
 weight: 10
 url: /ar/nodejs-java/picture-frame/
@@ -8,522 +8,434 @@ keywords:
 - إطار صورة
 - إضافة إطار صورة
 - إنشاء إطار صورة
-- إضافة صورة
-- إنشاء صورة
+- صورة مدمجة
+- صورة مرتبطة
 - استخراج صورة
 - صورة نقطية
-- صورة متجهة
-- قص صورة
-- منطقة مقصوصة
-- خاصية StretchOff
+- صورة SVG
+- اقتصاص صورة
+- حذف المناطق المُقتَصَة
+- ضغط صورة
+- إزاحة التمدد
 - تنسيق إطار الصورة
-- خصائص إطار الصورة
 - مقياس نسبي
-- تأثير الصورة
-- نسبة أبعاد
-- شفافية الصورة
+- تأثير صورة
+- نسبة عرض إلى ارتفاع
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "أضف إطارات صور إلى عروض PowerPoint و OpenDocument باستخدام Aspose.Slides for Node.js عبر Java. سهل سير عملك وحسّن تصميم الشرائح."
+description: "إنشاء، تنسيق، ربط، اقتصاص، استخراج، وضغط إطارات الصور في العروض التقديمية باستخدام Aspose.Slides لـ Node.js عبر Java."
 ---
-## **مقدمة**
+## **نظرة عامة**
 
-إطار الصورة هو شكل يحتوي على صورة—إنه مثل صورة داخل إطار.
+إطار الصورة هو شكل شريحة يعرض صورة. في Aspose.Slides ، مورد الصورة والشكل الذي يعرضها كائنات منفصلة: يمتلك كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) موارد الصور المضمنة عبر [ImageCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/imagecollection/)، بينما يتحكم كائن [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) في موضع الصورة وحجمها وتنسيق الخط والدوران والاقتصاص وتأثيرات الصورة وغيرها من إعدادات الإطار.
 
-يمكنك إضافة صورة إلى شريحة عبر إطار صورة. بهذه الطريقة، يمكنك تنسيق الصورة عن طريق تنسيق إطار الصورة.
+هذا الفصل مفيد عندما يتم عرض نفس الصورة أكثر من مرة. أضف الصورة إلى العرض مرة واحدة، احتفظ بكائن [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) الذي تم إرجاعه، واستخدم مورد الصورة هذا عند إنشاء إطارات الصور.
 
-{{% alert  title="نصيحة" color="primary" %}} 
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/ar/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/ar/import/png-to-ppt)—تسمح للناس بإنشاء عروض تقديمية بسرعة من الصور. 
-{{% /alert %}} 
+يمكن لإطارات الصور احتواء صور نقطية مثل PNG أو JPEG وصور SVG المتجهة. يمكنها أيضًا الإشارة إلى صور مرتبطة بدلاً من تخزين بايتات الصورة داخل العرض. يؤثر الاختيار على القابلية للنقل، حجم الملف، الاستخراج، وسلوك التصدير، لذا من المفيد تحديد كيفية تخزين الصورة قبل تطبيق التنسيق أو التحسين.
 
-## **إنشاء إطار صورة**
+## **إضافة وتنسيق صورة مدمجة**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إنشاء كائن `PPImage` بإضافة صورة إلى [ImagesCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ImageCollection) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
-4. تحديد عرض الصورة وارتفاعها.
-5. إنشاء [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFrame) بناءً على عرض الصورة وارتفاعها عبر طريقة `addPictureFrame` المكشوفة من كائن الشكل المرتبط بالشريحة المرجعية.
-6. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة.
-7. كتابة العرض المعدل كملف PPTX.
+لصورة مدمجة، أضف بيانات الصورة إلى العرض وأنشئ إطار صورة باستخدام [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). تصبح الصورة جزءًا من حزمة العرض، وبالتالي يبقى العرض مستقلًا عند نقله إلى كمبيوتر آخر.
 
-يعرض لك هذا الشيفرة JavaScript كيفية إنشاء إطار صورة:
+المثال التالي يضيف صورة PNG، وينشئ إطارًا بأبعاد الصورة الأصلية، ويطبق تنسيق الخط والدوران:
 
 ```javascript
-// يقوم بإنشاء كلاس Presentation الذي يمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // يحصل على الشريحة الأولى
-    var sld = pres.getSlides().get_Item(0);
-    // يقوم بإنشاء كلاس Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // يضيف إطار صورة بالارتفاع والعرض المكافئين للصورة
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // يكتب ملف PPTX إلى القرص
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-تسمح إطارات الصورة بإنشاء شرائح عرض بسرعة استنادًا إلى الصور. عند دمج إطار الصورة مع خيارات حفظ Aspose.Slides، يمكنك التحكم في عمليات الإدخال/الإخراج لتحويل الصور من تنسيق إلى آخر.
-
-## **إنشاء إطار صورة بمقياس نسبي**
-
-عن طريق تعديل مقياس الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا. 
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إضافة صورة إلى مجموعة صور العرض.
-4. إنشاء كائن [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PPImage) بإضافة صورة إلى [ImagesCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ImageCollection) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
-5. تحديد العرض والارتفاع النسبيين للصورة في إطار الصورة.
-6. كتابة العرض المعدل كملف PPTX.
-
-يعرض لك هذا الشيفرة JavaScript كيفية إنشاء إطار صورة بمقياس نسبي:
-
-```javascript
-// إنشاء كلاس Presentation الذي يمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // الحصول على الشريحة الأولى
-    var sld = pres.getSlides().get_Item(0);
-    // إنشاء كلاس Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // إضافة إطار صورة بارتفاع وعرض مكافئ للصورة
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // تعيين مقياس نسبي للعرض والارتفاع
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // كتابة ملف PPTX إلى القرص
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **استخراج صور نقطية من إطارات الصور**
-
-يمكنك استخراج صور نقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFrame) وحفظها بصيغ PNG أو JPG وغيرها. يوضح مثال الشيفرة أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بصيغة PNG.
-
-```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
-        try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **استخراج صور SVG من إطارات الصور**
-
-عند احتواء العرض على رسومات SVG موضوعة داخل أشكال [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/)، يتيح لك Aspose.Slides for Node.js via Java استرجاع الصور المتجهة الأصلية بجودة كاملة. من خلال استعراض مجموعة أشكال الشريحة، يمكنك تحديد كل [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/)، والتحقق مما إذا كان [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) الأساسي يحتوي على محتوى SVG، ثم حفظ تلك الصورة إلى القرص أو تدفق بصيغتها الأصلية SVG.
-
-يوضح مثال الشيفرة التالي كيفية استخراج صورة SVG من إطار صورة:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **الحصول على شفافية الصورة**
-
-يوفر Aspose.Slides إمكانية الحصول على تأثير الشفافية المطبق على صورة. يوضح لك هذا الشيفرة JavaScript العملية:
-
-```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **الحصول على السطوع والتباين للصورة**
-
-يتيح Aspose.Slides الحصول على تأثير السطوع والتباين المطبق على صورة. تمثل فئة [Luminance](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/luminance/) هذا التأثير التحويلي للصورة.
-
-يُظهر لك هذا الشيفرة JavaScript كيفية الحصول على إعدادات السطوع والتباين من إطار صورة:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
-
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
-        }
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تنسيق إطار الصورة**
+يتحكم إطار الصورة في الهندسة المعروضة؛ تغيير حجم الإطار لا يغيّر الأبعاد البكسلية الأصلية المخزنة في مورد الصورة المدمجة. يصبح هذا التمييز مهمًا عند اقتصاص الصورة أو ضغطها لاحقًا.
 
-يوفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار صورة. باستخدام هذه الخيارات، يمكنك تعديل إطار الصورة ليتوافق مع المتطلبات المحددة.
+## **استخدام المقياس النسبي**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إنشاء كائن [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PPImage) بإضافة صورة إلى [ImagesCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ImageCollection) المرتبطة بكائن العرض الذي سيُستخدم لملء الشكل.
-4. تحديد عرض الصورة وارتفاعها.
-5. إنشاء `PictureFrame` بناءً على عرض الصورة وارتفاعها عبر طريقة [addPictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) المكشوفة من كائن [Shapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ShapeCollection) المرتبط بالشريحة المرجعية.
-6. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
-7. تعيين لون خط إطار الصورة.
-8. تعيين عرض خط إطار الصورة.
-9. تدوير إطار الصورة بإعطائه قيمة موجبة أو سالبة.
-   * القيمة الموجبة تدور الصورة باتجاه عقارب الساعة. 
-   * القيمة السالبة تدور الصورة عكس اتجاه عقارب الساعة.
-10. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
-11. كتابة العرض المعدل كملف PPTX.
-
-يظهر لك هذا الشيفرة JavaScript عملية تنسيق إطار الصورة:
+يقدم كائن [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) مقياس العرض والارتفاع النسبي للإطار من خلال [setRelativeScaleWidth](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) و[setRelativeScaleHeight](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). القيمة `1.0` تمثل 100٪ من حجم الصورة الأصلي. المقياس النسبي مفيد عندما يحتاج سير العمل إلى الحفاظ على علاقة بحجم الصورة المصدر بدلاً من حساب الأبعاد النهائية يدويًا.
 
 ```javascript
-// إنشاء كلاس Presentation الذي يمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // يحصل على الشريحة الأولى
-    var sld = pres.getSlides().get_Item(0);
-    // إنشاء كلاس Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // يضيف إطار صورة بارتفاع وعرض مكافئ للصورة
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // تطبيق بعض التنسيقات على PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // يكتب ملف PPTX إلى القرص
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert title="نصيحة" color="primary" %}}
+تغيّر المقياس النسبي إعدادات مقياس الإطار؛ لا يعيد أخذ عينات أو ضغط الصورة المدمجة.
 
-طوّرت Aspose مؤخرًا [صانع كولاج مجاني](https://products.aspose.app/slides/ar/collage). إذا احتجت إلى دمج صور JPG/JPEG أو PNG، أو إنشاء شبكات من الصور، يمكنك استخدام هذه الخدمة. 
-{{% /alert %}}
+## **الصور المدمجة والمرتبطة**
 
-## **إضافة صورة كرابط**
+الصورة المدمجة تخزن بيانات الصورة داخل العرض وبالتالي تُعتبر الخيار الأكثر أمانًا للنقل وعرض ثابت. الصورة المرتبطة تخزن موقعًا خارجيًا عبر طريقة [Picture.setLinkPathLong](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) بدلاً من تضمين بيانات الصورة بنفس الطريقة.
 
-لتقليل حجم العرض، يمكنك إضافة صور (أو فيديوهات) عبر روابط بدلاً من تضمين الملفات مباشرةً في العروض. يوضح لك هذا الشيفرة JavaScript كيفية إضافة صورة وفيديو إلى عنصر نائب:
+يمكن للصور المرتبطة تقليل كمية بيانات الصورة المخزنة في PPTX، لكنها تُدخل اعتمادًا خارجيًا. يجب أن يبقى الملف المرتبط متاحًا للتطبيق الذي يفتح أو يعرض العرض. إذا تغير المسار، أو تم نقل الملف، أو أصبح المورد غير متاح، قد لا يتم عرض الصورة المرتبطة كما هو متوقع. بالنسبة للعروض التي يجب إرسالها بالبريد الإلكتروني أو أرشفتها أو عرضها في بيئات معزولة، تكون الصور المدمجة عادةً أكثر موثوقية.
+
+### **إضافة صورة مرتبطة**
+
+المثال التالي ينشئ إطار صورة ويشير إليه إلى ملف صورة محلي. يتعامل فقط مع ربط الصورة؛ ربط الفيديو هو سير عمل وسائط منفصل ولا يتم خلطه عمدًا في هذا المثال.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+استخدم الروابط عندما يكون إدارة الملف الخارجي مقصودة. لا تستخدمها كبديل عن الضغط فقط: PPTX صغير يحتوي على تبعيات صور مكسورة عادةً ما يكون أقل فائدة من عرض أكبر مستقل.
+
+## **استخراج الصور من إطارات الصور**
+
+قبل استخراج صورة من عرض موجود، تحقق من أن الشكل هو فعليًا [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) وأنه يحتوي على صورة مدمجة. قد لا تحتوي إطارات الصور المرتبطة على بايتات صورة يمكن استخراجها بنفس الطريقة.
+
+### **استخراج صورة نقطية**
+
+يستخدم API الصورة الحديث كائن [IImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/iimage/) مباشرة. المثال التالي يجد أول صورة نقطية مدمجة على شريحة ويحفظها كـ PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
             continue;
         }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
         }
-    }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
 
-## **قص الصورة**
-
-يُظهر لك هذا الشيفرة JavaScript كيفية قص صورة موجودة على شريحة:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-// إنشاء كائن صورة جديد
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+        const rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
         }
+        break;
     }
-    // إضافة إطار صورة إلى شريحة
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // قص الصورة (قيم النسبة المئوية)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // حفظ النتيجة
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **حذف المناطق المقصوصة من الإطار**
-
-إذا أردت حذف المناطق المقصوصة من صورة موجودة داخل إطار، يمكنك استخدام طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) . تُعيد هذه الطريقة الصورة المقصوصة أو الصورة الأصلية إذا لم يكن هناك حاجة للقص.
-
-يُظهر لك هذا الشيفرة JavaScript العملية:
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // يحصل على إطار الصورة من الشريحة الأولى
-    var picFrame = slide.getShapes().get_Item(0);
-    // يحذف المناطق المقصوصة من صورة إطار الصورة ويرجع الصورة المقصوصة
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // يحفظ النتيجة
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="ملاحظة" color="warning" %}} 
-
-تضيف طريقة [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) الصورة المقصوصة إلى مجموعة صور العرض. إذا كانت الصورة مستخدمة فقط في [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) المعالجة، يمكن لهذا الإعداد تقليل حجم العرض. وإلا، سيزداد عدد الصور في العرض الناتج.
-
-تحول هذه الطريقة ملفات WMF/EMF إلى صورة نقطية PNG أثناء عملية القص. 
-{{% /alert %}}
-
-## **ضغط الصور**
-
-يمكنك ضغط صورة في عرض باستخدام طريقة [PictureFillFormat.compressImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) . تقوم هذه الطريقة بضغط الصورة عبر تقليل حجمها بناءً على حجم الشكل والدقة المحددة، مع خيار حذف المناطق المقصوصة.
-
-إنها تضبط حجم الصورة ودقتها مشابهًا لخاصية **Picture Format → Compress Pictures → Resolution** في PowerPoint.
-
-توضح الأمثلة JavaScript التالية كيفية ضغط صورة في عرض عبر تحديد دقة هدف وإزالة المناطق المقصوصة اختياريًا:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
-
-    // ضغط الصورة بدقة مستهدفة 150 DPI (دقة الويب) وإزالة المناطق المقصوصة.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // تحقق من نتيجة الضغط.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-أو باستخدام قيمة DPI محددة مسبقًا أخرى:
+الحفظ عبر [IImage.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/iimage/#save) يحول الصورة المستخرجة إلى تنسيق الإخراج المطلوب. إذا كنت تحتاج إلى البايتات المشفرة المخزنة في العرض بدلاً من ملف نقطي محول، استخدم البيانات الثنائية لمورد الصورة بدلاً من ذلك.
+
+### **استخراج صورة SVG**
+
+لصورة SVG، يوفر كائن [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) كائن [SvgImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/svgimage/). يتيح لك ذلك استرجاع بيانات SVG مباشرةً بدلاً من تحويل الصورة إلى نقطية أولاً.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
 
-    // ضغط الصورة إلى 96 DPI (دقة البريد الإلكتروني)، وإزالة المناطق المقصوصة.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
+        }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
+الحفاظ على محتوى SVG كـ SVG يحفظ المصدر المتجهي داخل العرض. تصدير النقطية مثل PNG أو JPEG يُجبر على تحويل ذلك المحتوى المتجهي إلى بكسلات. تصدير الشريحة كـ PDF أو SVG هو أيضًا عملية عرض، لذا لا يجب اعتبار الرسومات المصدرة نسخة بايت-ل-بايت من SVG المدمج الأصلي؛ استخدم بيانات [SvgImage.getSvgData](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/svgimage/#getSvgData--) عندما تكون الحاجة إلى المورد المتجهي الأصلي.
 
-تحول الطريقة الصورة إلى دقة أقل بناءً على حجم الشكل وDPI المقدم. يمكن أيضًا حذف المناطق المقصوصة لتحسين حجم الملف. إذا كانت الصورة ملف ميتا (WMF/EMF) أو SVG، فلن يُطبق الضغط. كما تُحافظ جودة JPEG أو تُخفض قليلًا حسب الدقة، مشابهًا لكيفية معالجة PowerPoint لملفات JPEG عالية الدقة. 
-{{% /alert %}}
+## **اقتصاص صورة**
 
-## **قفل نسبة الأبعاد**
+يغيّر الاقتصاص الجزء الظاهر من الصورة داخل الإطار. قيم الاقتصاص على [PictureFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/) هي نسب مئوية لأبعاد الصورة المصدر. لا يحذف الاقتصاص البكسلات المخفية من الصورة المدمجة في البداية؛ بل يغيّر المنطقة الظاهرة فقط.
 
-إذا رغبت في أن يحتفظ الشكل المحتوي على صورة بنسبة أبعادها حتى بعد تعديل أبعاد الصورة، يمكنك استخدام طريقة [setAspectRatioLocked](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) لتفعيل إعداد *قفل نسبة الأبعاد*.
-
-يُظهر لك هذا الشيفرة JavaScript كيفية قفل نسبة أبعاد الشكل:
+المثال التالي يجد إطار صورة بأمان ويطبق قيم الاقتصاص:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // ضبط الشكل للحفاظ على نسبة الأبعاد عند إعادة التحجيم
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
+نظرًا لأن بيانات الصورة المخفية لا تزال موجودة، يمكن تغيير الاقتصاص لاحقًا دون فقدان البكسلات الأصلية. إذا كان حجم الملف أكثر أهمية من القابلية للعودة، يمكن إزالة المناطق المُقتَصَة فعليًا كما هو موضح في القسم التالي.
 
-إعداد *قفل نسبة الأبعاد* يحافظ فقط على نسبة أبعاد الشكل وليس الصورة التي يحتويها. 
-{{% /alert %}}
+## **إزالة بيانات الصورة المُقتَصَة**
 
-## **استخدام خاصية StretchOff**
-
-باستخدام الطرق [setStretchOffsetLeft](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) و[setStretchOffsetBottom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) من فئة [PictureFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PictureFillFormat)، يمكنك تحديد مستطيل ملء.
-
-عند تحديد تمدد لصورة، يُصبح المستطيل المصدر مُقاسًا ليتناسب مع مستطيل الملء المحدد. كل حافة من حواف مستطيل الملء تُعرف بنسبة إزاحة من الحافة المقابلة لمربع حدود الشكل. النسبة الموجبة تُحدد إدخالًا بينما النسبة السالبة تُحدد خروجًا.
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مستطيل `AutoShape`. 
-4. إنشاء صورة.
-5. تحديد نوع ملء الشكل.
-6. تحديد وضع ملء صورة الشكل.
-7. إضافة صورة لتملأ الشكل.
-8. تحديد إزاحات الصورة من الحافة المقابلة لمربع حدود الشكل.
-9. كتابة العرض المعدل كملف PPTX.
-
-يُظهر لك هذا الشيفرة JavaScript عملية استخدام خاصية StretchOff:
+يُزيل [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) بيانات الصورة خارج مستطيل الاقتصاص الحالي ويُعيد مورد الصورة الناتج. يمكن أن يقلل هذا من حجم الملف، لكنه تحسين مدمر: بعد حفظ العرض، لا تعود البكسلات التي تم إزالتها متاحة لعملية إلغاء الاقتصاص لاحقًا.
 
 ```javascript
-// ينشئ كلاس Prseetation الذي يمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // يحصل على الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // ينشئ كلاس ImageEx
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    // يضيف AutoShape محدد كـ Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // يحدد نوع ملء الشكل
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // يحدد وضع ملء الصورة للشكل
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // يحدد الصورة لملء الشكل
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // يحدد إزاحات الصورة من الحافة المقابلة لمربع حدود الشكل
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // يكتب ملف PPTX إلى القرص
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **الأسئلة المتكررة**
+قد تضيف الطريقة مورد صورة جديد إلى العرض. إذا كانت الصورة الأصلية تُستخدم أيضًا من قبل إطارات صور أخرى، فإن تلك الإطارات لا تزال تحتاج إلى موردها الحالي، لذا لا يؤدي حذف المناطق المُقتَصَة بالضرورة إلى تقليل إجمالي عدد الصور. اقتصاص محتوى WMF أو EMF بهذه الطريقة يحول النتيجة المقتَصَة إلى PNG.
 
-**كيف يمكنني معرفة صيغ الصور التي يدعمها إطار الصورة؟**
+## **ضغط الصور النقطية**
 
-يدعم Aspose.Slides كلًا من الصور النقطية (PNG، JPEG، BMP، GIF، إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المرفق بـ [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/). تتقاطع قائمة الصيغ المدعومة عمومًا مع قدرات محرك تحويل الشرائح والصورة.
+يقلل [PictureFillFormat.compressImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) دقة الصورة النقطية بالنسبة إلى الحجم الذي تُعرض عليه الصورة. يمكنه أيضًا إزالة المناطق المُقتَصَة في نفس العملية. تُرجع الطريقة `true` عندما يتم تغيير حجم الصورة أو اقتصاصها و`false` عندما لا يكون هناك تغيير ضروري.
 
-**كيف سيؤثر إضافة عشرات الصور الكبيرة على حجم وأداء ملف PPTX؟**
+استخدم قيمة [PicturesCompression](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturescompression/) معرفة مسبقًا عندما يكون دقة هدف قياسية كافية:
 
-تزيد إضافة الصور الكبيرة مباشرةً من حجم الملف واستهلاك الذاكرة؛ الربط بالصور يساعد على تقليل حجم العرض لكنه يتطلب بقاء الملفات الخارجية متاحة. يوفر Aspose.Slides إمكانية إضافة الصور عبر روابط لتقليل حجم الملف.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-**كيف يمكنني قفل كائن الصورة من التحرك أو التحجيم غير المقصود؟**
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
 
-استخدم [قواعد القفل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) لـ [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) (على سبيل المثال، تعطيل التحريك أو التحجيم). يدعم آلية القفل أنواعًا مختلفة من الأشكال بما فيها [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/).
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
 
-**هل يتم الحفاظ على جودة المتجهات SVG عند تصدير العرض إلى PDF/صور؟**
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-يسمح Aspose.Slides باستخراج SVG من [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) كمتجه أصلي. عند [التصدير إلى PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/) أو [الصيغ النقطية](/slides/ar/nodejs-java/convert-powerpoint-to-png/)، قد يتم تحويله إلى نقطية اعتمادًا على إعدادات التصدير؛ ومع ذلك يبقى SVG الأصلي محفوظًا كمتجه وفق سلوك الاستخراج.
+يمكن تمرير قيمة DPI موجبة مخصصة بدلاً من قيمة معرفة مسبقًا عندما يكون هدف محدد مطلوبًا.
+
+الضغط مخصص للصور النقطية. لا يتم تقليل محتوى SVG أو ملفات الميتافايل بهذه العملية. تذكر أيضًا أن الدقة المنخفضة والمناطق المُقتَصَة المحذوفة لا يمكن استعادتها من العرض المُحسّن. اختر دقة الهدف بناءً على أكبر حجم ستُعرض فيه الصورة فعليًا أو تُصدر بدلاً من تطبيق أقل DPI على المستوى العام.
+
+## **إدارة تأثيرات تحويل الصورة**
+
+للحصول على سير عمل كامل يغطي السطوع، التباين، تحويلات اللون، التشويش، تأثيرات ألفا، السلاسل المرتبة، الفحص، الإزالة، والتحقق من دورة الحياة، راجع [Image Transform Effects](/slides/ar/nodejs-java/image-transform-effects/).
+
+## **قفل هندسة إطار الصورة**
+
+تتحكم إعدادات [PictureFrameLock](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframelock/) في أي عمليات تحرير تُعطَّل لإطار الصورة. على سبيل المثال، يحافظ [setAspectRatioLocked](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) على نسب الشكل أثناء تغيير حجمه.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+القفل يُطبق على شكل إطار الصورة. لا يجبر الصورة المصدر على إعادة أخذ عينات أو تغيير دائم إلى نفس نسبة العرض إلى الارتفاع.
+
+## **ضبط قيم StretchOffset**
+
+عند وضع ملء الصورة على وضع التمدد، تحدد قيم الـ stretch‑offset على [PictureFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/) مستطيل الملء بالنسبة إلى صندوق الإطار. النسب المئوية الموجبة تُنشئ إزاحة داخلية من الحافة، بينما النسب السالبة تُنشئ إزاحة خارجية.
+
+هذا مختلف عن الاقتصاص. قيم الاقتصاص تحدد أي جزء من الصورة المصدر يُظهر، بينما تغير إزاحات التمدد المستطيل الذي يُتمدد فيه ملء الصورة الظاهر.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+استخدم إزاحات التمدد لتحديد موضع الملء. استخدم خصائص الاقتصاص عندما يكون الهدف إخفاء حدود الصورة المصدر.
+
+## **الاعتبارات المتعلقة بالتخزين، حجم الملف، والتصدير**
+
+تكون المقايضات الرئيسية أسهل في الإدارة عند التعامل مع تخزين الصور وتنسيق إطارات الصور بشكل منفصل:
+
+- **الصور المدمجة** تجعل العرض مستقلًا وتُعد الأكثر موثوقية للمشاركة وعرض الخادم، لكن الصور النقطية الكبيرة تزيد من حجم PPTX واستهلاك الذاكرة.
+- **الصور المرتبطة** يمكن أن تجعل الحزمة أصغر، لكن العرض يعتمد على الملفات الخارجية المتاحة في المسارات المخزنة.
+- **الاقتصاص** في البداية غير مدمر. تظل البكسلات المخفية مدمجة حتى يتم حذف المناطق المُقتَصَة صراحةً أو إزالتها أثناء الضغط.
+- **الضغط** يمكن أن يقلل حجم الملف بشكل كبير للصور النقطية الضخمة، لكنه يفضح دقة المصدر. يجب تطبيقه بعد معرفة الحجم النهائي على الشريحة.
+- **صور SVG** يجب أن تظل كـ SVG عندما تكون المحافظة على المتجه مهمة. استخرج SVG المدمج مباشرةً عندما تحتاج إلى المورد المتجهي ذاته. تصدير الشرائح كصور نقطية دائمًا يحول الشريحة إلى بكسلات.
+- **الصور المتكررة** يجب إعادة استخدام مورد [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) موجود عندما يكون ذلك ممكنًا بدلاً من تحميل الملف نفسه مرارًا وتكرارًا في سير عمل العرض.
+
+في العروض الكبيرة، يكون تحسين الصور عادةً أكثر فاعلية عندما يُجرى بشكل انتقائي: حافظ على الشعارات والمخططات كمحتوى متجه، اضغط الصور الفوتوغرافية وفقًا لحجم العرض الفعلي، احذف البكسلات المُقتَصَة فقط عندما لا تكون هناك حاجة لتحرير لاحق، وتجنب الروابط الخارجية إلا إذا كان إدارة التبعيات جزءًا من تصميم النشر.
+
+## **الأسئلة الشائعة**
+
+**ما الفرق بين إطار الصورة ومورد الصورة؟**
+
+يمثل كائن [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) مورد صورة مرتبط بالعرض. بينما يعد كائن [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) شكلاً على شريحة يعرض صورة ويخزن هندسة الإطار وتنسيقه مثل الحجم، الدوران، قيم الاقتصاص، التأثيرات، والقفلات.
+
+**هل يجب أن أدمج الصور أم أربطها؟**
+
+ادمج الصور عندما يجب أن يكون العرض قابلًا للنقل أو مؤرشفًا أو مُعرضًا دون الحاجة إلى موارد خارجية. اربط الصور فقط عندما يكون الحفاظ على الملفات خارج PPTX مقصودًا ويمكن الحفاظ على المواقع الخارجية بشكل موثوق.
+
+**هل يقلل الاقتصاص من حجم ملف PPTX؟**
+
+ليس بمفرده. إعدادات الاقتصاص العادية تخفي أجزاء من الصورة المصدر لكن تحتفظ بالبكسلات الأساسية. استخدم [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) أو ضغط الصورة مع إزالة المناطق المُقتَصَة عندما يمكن حذف هذه البكسلات نهائيًا.
+
+**هل يمكن استعادة جودة الصورة بعد الضغط؟**
+
+لا. الضغط قد يقلل من دقة الصورة النقطية المخزنة، وإزالة المناطق المُقتَصَة تحذف بيانات الصورة. احتفظ بالصورة الأصلية خارج العرض إذا كان قد يُطلب تحرير عالي الدقة لاحقًا.
+
+**كيف يجب التعامل مع صور SVG؟**
+
+حافظ على محتوى SVG كـ SVG عندما تكون الدقة المتجهية مهمة. يمكن استخراج كائن [SvgImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/svgimage/) المدمج مباشرةً. عرض شريحة إلى تنسيق نقطي مثل PNG أو JPEG يُحول SVG إلى بكسلات كجزء من صورة الشريحة.
+
+**كيف يمكن تجنب التحويلات غير الآمنة عند قراءة الشرائح الموجودة؟**
+
+تحقق من نوع الشكل قبل استخدام الأعضاء الخاصة بإطار الصورة. فحص `java.instanceOf` ضد [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/) يجنب التحويلات غير الصحيحة ويسمح للكود بمعالجة الشرائح التي لا تحتوي على إطارات صور.

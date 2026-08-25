@@ -1,58 +1,61 @@
 ---
-title: JavaScript'te Sunum Slayt Ana Sayfalarını Yönetme
-linktitle: Slayt Ana Sayfası
+title: Sunum Slide Master'larını JavaScript ile Yönet
+linktitle: Slayt Master
 type: docs
 weight: 70
 url: /tr/nodejs-java/slide-master/
 keywords:
-- slayt ana sayfası
-- ana slayt
-- PPT ana slaytı
-- birden çok ana slayt
-- ana slaytları karşılaştır
+- slayt master
+- master slayt
+- PPT master slaytı
+- çoklu master slaytlar
+- master slaytları karşılaştır
 - arka plan
 - yer tutucu
-- ana slaytı klonla
-- ana slaytı kopyala
-- ana slaytı çoğalt
-- kullanılmayan ana slayt
+- master slaytı klonla
+- master slaytı kopyala
+- master slaytı çoğalt
+- kullanılmayan master slayt
 - PowerPoint
 - OpenDocument
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java'da slayt ana sayfalarını yönetin: PowerPoint ve OpenDocument sunumlarında ana slaytları erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
+description: "Aspose.Slides for Node.js via Java ile slayt master'larını yönetin: PowerPoint ve OpenDocument sunumlarında master slaytlarını erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-Bir **slayt ana sayfası**, bir grup slayt için ortak tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve altbilgi ayarları içerebilir. PowerPoint’te, slayt ana sayfasını düzenlemek, aynı biçimlendirmeyi her slaytta tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
+Bir **slide master**, bir grup slayt için ortak tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve alt bilgi ayarları içerebilir. PowerPoint'te, bir slide master'ı düzenlemek, her slaytta aynı biçimlendirmeyi tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
 
-Aspose.Slides for Node.js via Java aynı modeli destekler. Bir sunum bir veya daha fazla ana slayt içerebilir ve her ana slayt birkaç düzen slaytı içerebilir. Normal slaytlar doğrudan bir ana slayta başvurmaz. Bunun yerine, normal bir slayt bir düzen slaytı kullanır ve bu düzen slaytı bir ana slayta aittir.
+Aspose.Slides for Node.js via Java aynı modeli destekler. Bir sunum bir veya daha fazla master slide içerebilir ve her master slide birkaç layout slide içerebilir. Normal slaytlar genellikle doğrudan bir master slide'a başvurmaz. Bunun yerine, normal bir slayt bir layout slide kullanır ve o layout slide bir master slide'a aittir.
 
-Hiyerarşi şöyledir:
+The hierarchy is:
 
-1. **Slayt ana sayfası** – ortak tasarımı ve temayı tanımlar.  
-1. **Düzen slaytı** – yer tutucuların belirli bir düzenini ve düzen‑seviyesi biçimlendirmeyi tanımlar.  
-1. **Normal slayt** – gerçek sunum içeriğini içerir ve bir düzen slaytı kullanır.
+1. **Slide master** - ortak tasarımı ve temayı tanımlar.
+1. **Layout slide** - yer tutucuların ve düzen seviyesi biçimlendirmesinin belirli bir düzenini tanımlar.
+1. **Normal slide** - gerçek sunum içeriğini içerir ve bir layout slide kullanır.
 
-![Ana slaytların, düzen slaytların ve normal slaytların hiyerarşisi](slide-master_2.jpg)
+![master slide'ların, layout slide'ların ve normal slide'ların hiyerarşisi](slide-master_2.jpg)
 
-Aspose.Slides’ta bir slayt ana sayfası, [MasterSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) sınıfı tarafından temsil edilir. Bir sunumdaki tüm ana slaytlar `Presentation.getMasters()` koleksiyonu üzerinden erişilebilir.
+Aspose.Slides'de bir slide master, [MasterSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) sınıfı tarafından temsil edilir. Bir sunumdaki tüm master slide'lar `Presentation.getMasters()` koleksiyonu aracılığıyla erişilebilir.
 
 {{% alert color="info" title="Inheritance" %}}
-Aynı özellik birden fazla seviyede tanımlandığında, daha spesifik seviye kazanır. Örneğin, bir ana slayt ve bir düzen slaytı her ikisi de bir arka plan tanımlarsa, o düzene dayalı slaytlar düzen arka planını kullanır. Düzen slaytları hakkında daha fazla bilgi için [Uygula veya Slayt Düzenlerini Değiştir](/nodejs-java/slide-layout/) bölümüne bakın.
+Bir özellik birden fazla seviyede tanımlandığında, daha spesifik seviye geçerli olur. Örneğin, bir master slide ve bir layout slide aynı arka planı tanımlarsa, o layout'a dayalı slaytlar layout arka planını kullanır. Layout slide'lar hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/nodejs-java/slide-layout/) bölümüne bakın.
 {{% /alert %}}
 
-## **Slayt Ana Sayfalarına Erişim**
+## **Slide Master'lara Erişim**
 
-PowerPoint’te **Görünüm** > **Slayt Ana Sayfası** menüsünden Slayt Ana Sayfası görünümünü açabilirsiniz.
+PowerPoint'te, **View** > **Slide Master** menüsünden Slide Master görünümünü açabilirsiniz.
 
-![PowerPoint Görünüm sekmesindeki Slayt Ana Sayfası komutu](slide-master_3.jpg)
+![PowerPoint Görünüm sekmesindeki Slide Master komutu](slide-master_3.jpg)
 
-Aspose.Slides’ta ana slaytlara erişmek için `getMasters()` koleksiyonunu kullanın:
+Aspose.Slides'de, master slide'lara erişmek için `getMasters()` koleksiyonunu kullanın:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +69,12 @@ try {
 }
 ```
 
-Ayrıca bir normal slaytın kullandığı ana slaytı, onun düzeni aracılığıyla alabilirsiniz:
+Normal bir slaytın kullandığı master slide'ı, slaytın layout'u aracılığıyla da alabilirsiniz:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -82,28 +88,31 @@ try {
 }
 ```
 
-## **Bir Slayt Ana Sayfasının İçeriği**
+## **Bir Slide Master'ın İçeriği**
 
-Bir ana slayt, slayt benzeri bir nesnedir. Ortak slayt davranışını [BaseSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseslide/) sınıfından devralır; bu nedenle normal ve düzen slaytlarıyla aynı slayt özelliklerinin çoğunu sunar. Ana slayta özgü üyeler [MasterSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) API sayfasında listelenmiştir.
+Bir master slide, slayt benzeri bir nesnedir. Ortak slayt davranışını [BaseSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseslide/) sınıfından devralır, bu sayede normal ve layout slaytlarda kullanılan birçok slayt özelliğini sunar. Master'a özgü üyeler [MasterSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) API sayfasında listelenmiştir.
 
-Sık kullanılan ana slayt üyeleri şunlardır:
+Yaygın olarak kullanılan master slide üyeleri şunlardır:
 
 | Üye | Amaç |
 | --- | --- |
-| `getBackground()` | Ana sayfa düzeyinde slayt arka planını ayarlar. |
-| `getShapes()` | Logolar, resim çerçeveleri ve paylaşılan metin gibi ana sayfaya yerleştirilen şekilleri depolar. |
-| `getLayoutSlides()` | Ana sayfaya ait düzen slaytlarını depolar. |
-| `getThemeManager()` | Ana sayfa tema API’lerine erişim sağlar. |
-| `getHeaderFooterManager()` | Ana sayfa ve ona bağlı düzenler için üst bilgi, alt bilgi, tarih ve slayt numaralarını kontrol eder. |
-| `getDependingSlides()` | Düzenleri aracılığıyla ana sayfaya bağlı olan normal slaytları döndürür. |
+| `getBackground()` | Master seviyesindeki slayt arka planını ayarlar. |
+| `getShapes()` | Master üzerinde bulunan şekilleri, örneğin logolar, resim çerçeveleri ve ortak metinleri depolar. |
+| `getLayoutSlides()` | Master'a ait layout slide'ları depolar. |
+| `getThemeManager()` | Master tema API'lerine erişim sağlar. |
+| `getHeaderFooterManager()` | Master ve onun alt layoutları için üst bilgi, alt bilgi, tarih ve slayt numaralarını kontrol eder. |
+| `getDependingSlides()` | Layout'ları aracılığıyla master'a bağımlı olan normal slaytları döndürür. |
 
-## **Bir Slayt Ana Sayfaya Görsel Ekleme**
+## **Slide Master'a Görüntü Ekleme**
 
-Bir ana slayta görsel eklediğinizde, o ana slayttan gelen düzenleri kullanan slaytlarda görünür. Logo, filigran, süs bandı ve diğer tekrarlanan görsel öğeler için kullanışlıdır.
+Bir master slide'a bir görüntü eklendiğinde, o master'dan layout kullanan slaytlarda görünür. Bu, logolar, filigranlar, dekoratif bantlar ve diğer tekrarlanan görsel öğeler için yararlıdır.
 
-Aşağıdaki örnek, ilk ana slayta bir logo ekler:
+Aşağıdaki örnek, ilk master slide'a bir logo ekler:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +138,23 @@ try {
 }
 ```
 
-Resim çerçeveleri hakkında daha fazla bilgi için [Resim Çerçevesi](/nodejs-java/picture-frame/) bölümüne bakın.
+Resim çerçeveleri hakkında daha fazla bilgi için [Picture Frame](/nodejs-java/picture-frame/) sayfasına bakın.
 
 ## **Yer Tutucularla Çalışma**
 
-Yer tutucular genellikle düzen slaytlarında tanımlanır. Ana slayt, bu düzenlerin devraldığı ortak stil ve temayı sağlar; her düzen ise hangi yer tutucuların mevcut olduğunu ve nerede konumlandırılacağını belirler.
+Yer tutucular genellikle layout slide'larda tanımlanır. Master slide, bu layout'ların devraldığı ortak stil ve temayı sağlar, her layout ise hangi yer tutucuların mevcut olduğunu ve nerede konumlandırılacağını belirler.
 
-PowerPoint’te yer tutucu komutları Slayt Ana Sayfası görünümünde bulunur.
+PowerPoint'te, yer tutucu komutları Slide Master görünümünde mevcuttur.
 
-![PowerPoint Slayt Ana Sayfası görünümünde Yer Tutucu Ekle komutu](slide-master_5.png)
+![PowerPoint Slide Master görünümünde Yer Tutucu Ekle komutu](slide-master_5.png)
 
-Aspose.Slides ile yeni yer tutucular eklemek için, ana slayta ait düzen slaytıyla çalışın:
+Aspose.Slides ile yeni yer tutucular eklemek için master'a ait layout slide ile çalışın:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -161,9 +174,13 @@ try {
 }
 ```
 
-Ayrıca bir ana slayt üzerindeki mevcut yer tutucu şekillerini biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve lineer bir degrade dolgu uygular:
+Master slide'da zaten bulunan yer tutucu şekillerini de biçimlendirebilirsiniz. Aşağıdaki örnek başlık yer tutucusunu bulur ve lineer gradient doldurma uygular:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -193,7 +210,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -204,13 +221,17 @@ try {
 
 ![Normal slaytlar tarafından devralınan biçimlendirilmiş başlık yer tutucusu](slide-master_8.png)
 
-Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Yer Tutucuda İpucu Metni Ayarlama](/nodejs-java/manage-placeholder/) ve [Metin Biçimlendirme](/nodejs-java/text-formatting/) bölümlerine bakın.
+Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) ve [Text Formatting](/nodejs-java/text-formatting/) bölümlerine bakın.
 
-## **Slayt Ana Sayfa Arka Planını Değiştirme**
+## **Slide Master Arka Planını Değiştirme**
 
-Ana sayfa arka planı, üzerine yazılmadığı sürece düzenler ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk ana slayt için katı bir arka plan rengi ayarlar:
+Bir master arka planı, üzerine yazılmayan layout'lar ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk master slide için katı bir arka plan rengi ayarlar:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -228,13 +249,16 @@ try {
 }
 ```
 
-İlgili konular için [Sunum Arka Planı](/nodejs-java/presentation-background/) ve [Sunum Teması](/nodejs-java/presentation-theme/) bölümlerine bakın.
+İlgili konular için [Presentation Background](/nodejs-java/presentation-background/) ve [Presentation Theme](/nodejs-java/presentation-theme/) bölümlerine bakın.
 
-## **Bir Slayt Ana Sayfayı Başka Bir Sunuma Klonlama**
+## **Slide Master'ı Başka Bir Sunuma Kopyalama**
 
-`MasterSlideCollection.addClone` yöntemini kullanarak bir ana slaytı başka bir sunuma kopyalayabilirsiniz. Kopyalanan ana slayt, hedef sunumdaki düzenler ve slaytlar tarafından kullanılabilir.
+`MasterSlideCollection.addClone` kullanarak bir master slide'ı başka bir sunuma kopyalayabilirsiniz. Kopyalanan master, hedef sunumdaki layout'lar ve slaytlar tarafından kullanılabilir.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -248,17 +272,21 @@ try {
 }
 ```
 
-Ana slaytlarıyla birlikte normal slaytları da klonlamanız gerekiyorsa, [Slaytları Klonla](/nodejs-java/clone-slides/) bölümüne bakın.
+Master'larıyla birlikte normal slaytları da kopyalamanız gerekiyorsa, [Clone Slides](/nodejs-java/clone-slides/) bölümüne bakın.
 
-## **Birden Çok Slayt Ana Sayfa Ekleme**
+## **Birden Fazla Slide Master Ekleme**
 
-Bir sunum birden çok ana slayt içerebilir. Bu, farklı bölümlerin farklı marka, sayfa yapısı veya tema ayarları gerektirdiği durumlarda kullanışlıdır.
+Bir sunum birden fazla master slide içerebilir. Bu, farklı bölümlerin farklı marka, sayfa yapısı veya tema ayarları gerektirdiğinde yararlıdır.
 
-![Ana slayt ekleme ve yönetme için PowerPoint komutları](slide-master_9.jpg)
+![Slide master ekleme ve yönetme için PowerPoint komutları](slide-master_9.jpg)
 
-Aşağıdaki örnek, varsayılan ana slaytı klonlar, klona farklı bir arka plan verir, o klonlanmış ana slayt altında bir düzen oluşturur ve bu düzen temel alınarak yeni bir slayt ekler:
+Aşağıdaki örnek, varsayılan master'ı klonlar, klona farklı bir arka plan verir, o klonlanmış master altında bir layout oluşturur ve bu layout'a dayalı yeni bir slayt ekler:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -286,11 +314,14 @@ try {
 }
 ```
 
-## **Slayt Ana Sayfaları Karşılaştırma**
+## **Slide Master'ları Karşılaştırma**
 
-Ana slaytlar, [BaseSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseslide/) sınıfından devralınan `equals` yöntemi ile karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği kontrol eder. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya mevcut tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
+Master slide'lar, [BaseSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseslide/) üzerinden devralınan `equals` yöntemi ile karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği kontrol eder. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya geçerli tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -316,13 +347,17 @@ try {
 }
 ```
 
-Daha fazla bilgi için [Sunum Slaytlarını Karşılaştırma](/nodejs-java/compare-slides/) bölümüne bakın.
+Daha fazla bilgi için [Compare Presentation Slides](/slides/tr/nodejs-java/compare-slides/) bölümüne bakın.
 
-## **Slayt Ana Sayfa Görünümünü Varsayılan Görünüm Olarak Ayarlama**
+## **Slide Master Görünümünü Varsayılan Görünüm Olarak Ayarlama**
 
-[ViewProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewproperties/) üzerinde `setLastView` metodunu kullanarak PowerPoint’in ilk açtığı görünümü kontrol edebilirsiniz. Aşağıdaki örnek, sunumu Slayt Ana Sayfa görünümünde açar:
+[ViewProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewproperties/) üzerindeki `setLastView` metodunu kullanarak PowerPoint'in ilk açtığı görünümü kontrol edebilirsiniz. Aşağıdaki örnek, sunumu Slide Master görünümünde açar:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -334,15 +369,18 @@ try {
 }
 ```
 
-Daha fazla görünüm ayarı için [Sunumu Kaydet](/nodejs-java/save-presentation/) bölümüne bakın.
+Daha fazla görünüm ayarı için [Save Presentation](/slides/tr/nodejs-java/save-presentation/) bölümüne bakın.
 
-## **Kullanılmayan Ana Sayfaları Kaldırma**
+## **Kullanılmayan Master Slide'ları Kaldırma**
 
-Bazen bir sunum, herhangi bir normal slayt tarafından artık kullanılmayan ana slaytlar içerebilir. Kullanılmayan ana sayfaları kaldırmak dosya boyutunu azaltır ve şablon bakımını basitleştirir.
+Sunumlar bazen, hiçbir normal slayt tarafından kullanılmayan master slide'lar içerir. Kullanılmayan master'ları kaldırmak dosya boyutunu azaltabilir ve şablon bakımıyla ilgilenmeyi basitleştirir.
 
-`removeUnused` metodunu kullanarak `getMasters()` koleksiyonundaki kullanılmayan ana slaytları kaldırın:
+`removeUnused` kullanarak `getMasters()` koleksiyonundaki kullanılmayan master'ları kaldırabilirsiniz:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -352,9 +390,12 @@ try {
 }
 ```
 
-Ayrıca düşük‑kodlu `Compress.removeUnusedMasterSlides` metodunu da kullanabilirsiniz:
+Ayrıca düşük kodlu `Compress.removeUnusedMasterSlides` metodunu da kullanabilirsiniz:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -364,16 +405,20 @@ try {
 }
 ```
 
-## **SSS**
+## **FAQ**
 
-**Bir slayt ana sayfası ile bir düzen slaytı arasındaki fark nedir?**  
-Bir slayt ana sayfası tema, arka plan, ortak şekiller ve metin stilleri gibi ortak tasarım ayarlarını tanımlar. Bir düzen slaytı bir ana slayta aittir ve yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir düzen slaytı kullanır, bu yüzden hem düzen hem de ana slayttan devralır.
+### Slide master ile layout slide arasındaki fark nedir?
 
-**Bir sunum birden fazla slayt ana sayfası içerebilir mi?**  
-Evet. Bir sunum birden fazla slayt ana sayfası içerebilir. Farklı bölümlerin farklı görsel sistemler veya marka kimliği gerektirdiği durumlarda birden fazla ana sayfa kullanın.
+Bir slide master, tema, arka plan, ortak şekiller ve metin stilleri gibi ortak tasarım ayarlarını tanımlar. Bir layout slide, bir master slide'a aittir ve yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir layout slide kullanır, böylece hem layout hem de master'dan miras alır.
 
-**Yer tutucuları bir ana slayta mı yoksa bir düzen slayta mı eklemeliyim?**  
-Çoğu durumda yer tutucuları düzen slaytlara ekleyin. Paylaşılan görsel öğeleri ve ortak biçimlendirmeyi ana slayta, içerik yer tutucularını ise normal slaytların kullanacağı düzen slaytlara koyun.
+### Bir sunum birden fazla slide master içerebilir mi?
 
-**Kullanımda olan bir ana slaytı silebilir miyim?**  
-Hayır. Bağımlı slaytları olan bir ana slayt doğrudan güvenli bir şekilde kaldırılamaz. Önce bu slaytları başka bir ana slayt altındaki düzenlere taşıyın veya yalnızca kullanılmayan ana slaytları temizleyen bir yöntem kullanın.
+Evet. Bir sunum birden fazla slide master içerebilir. Farklı bölümlerin farklı görsel sistemler veya marka kimliği gerektirdiği durumlarda birden çok master kullanın.
+
+### Yer tutucuları bir master slide'a mı yoksa bir layout slide'a mı eklemeliyim?
+
+Çoğu durumda, yer tutucuları layout slide'lara ekleyin. Ortak görsel öğeleri ve ortak biçimlendirmeleri master slide'a koyun, ardından içerik yer tutucularını normal slaytların kullanacağı layout'lara yerleştirin.
+
+### Kullanımda olan bir master slide'ı silebilir miyim?
+
+Hayır. Bağımlı slaytları olan bir master slide, doğrudan güvenli bir şekilde kaldırılamaz. Önce bu slaytları başka bir master altındaki layout'lara taşıyın veya yalnızca kullanılmayan master'ları kaldıran bir temizlik yöntemi kullanın.

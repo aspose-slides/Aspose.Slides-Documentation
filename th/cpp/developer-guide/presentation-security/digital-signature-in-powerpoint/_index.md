@@ -1,5 +1,5 @@
 ---
-title: เพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอใน C++
+title: เพิ่มลายเซ็นดิจิทัลในพรีเซนเทชันด้วย C++
 linktitle: ลายเซ็นดิจิทัล
 type: docs
 weight: 10
@@ -7,92 +7,171 @@ url: /th/cpp/digital-signature-in-powerpoint/
 keywords:
 - ลายเซ็นดิจิทัล
 - ใบรับรองดิจิทัล
-- หน่วยงานออกใบรับรอง
+- หน่วยรับรองใบรับรอง
 - ใบรับรอง PFX
+- PKCS#12
+- ตรวจสอบลายเซ็น
 - PowerPoint
-- OpenDocument
-- การนำเสนอ
+- PPTX
+- ความปลอดภัยของพรีเซนเทชัน
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีการเซ็นดิจิทัลไฟล์ PowerPoint & OpenDocument ด้วย Aspose.Slides สำหรับ C++ ปกป้องสไลด์ของคุณในไม่กี่วินาทีด้วยตัวอย่างโค้ดที่ชัดเจน"
+description: "เรียนรู้วิธีเซ็นพรีเซนเทชัน PPTX ที่มีอยู่ด้วยใบรับรอง PFX และใช้ Aspose.Slides สำหรับ C++ เพื่อตรวจสอบหรือกำจัดลายเซ็นดิจิทัล"
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-**Digital certificate** ใช้เพื่อสร้างการนำเสนอ PowerPoint ที่มีการป้องกันด้วยรหัสผ่าน, ระบุว่าถูกสร้างโดยองค์กรหรือบุคคลเฉพาะ. สามารถขอรับ Digital certificate ได้โดยติดต่อกับองค์กรที่ได้รับอนุญาต – ผู้ให้บริการใบรับรอง. หลังจากติดตั้ง Digital certificate ลงในระบบแล้ว สามารถใช้เพิ่มลายเซ็นดิจิทัลลงในการนำเสนอผ่านเมนู File -> Info -> Protect Presentation:
+ลายเซ็นดิจิทัลช่วยผู้รับระบุว่าใครเป็นผู้เซ็นพรีเซนเทชันและเนื้อหาที่เซ็นมีการเปลี่ยนแปลงหรือไม่ มีแนวคิดด้านความปลอดภัยที่เกี่ยวข้องสามประการที่สำคัญดังนี้
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **ใบรับรองดิจิทัล** คือข้อมูลประจำตัวอิเล็กทรอนิกส์ที่เชื่อมโยงอัตลักษณ์กับคีย์สาธารณะ หน่วยรับรองใบรับรองที่น่าเชื่อถือ (CA) สามารถออกใบรับรองได้ หรือองค์กรอาจใช้ใบรับรองที่เซ็นด้วยตนเองสำหรับการทำงานภายใน
+- **ลายเซ็นดิจิทัล** สร้างจากเนื้อหาในพรีเซนเทชันและคีย์ส่วนตัวของผู้ถือใบรับรอง คีย์สาธารณะของใบรับรองจะถูกใช้เพื่อตรวจสอบลายเซ็น ลายเซ็นเป็นหลักฐานของต้นทางและความสมบูรณ์ ไม่ได้เข้ารหัสพรีเซนเทชัน
+- **การป้องกันด้วยรหัสผ่าน** ควบคุมว่าผู้ใช้สามารถเปิดหรือแก้ไขพรีเซนเทชันได้หรือไม่ ซึ่งแยกจากการลงลายเซ็นดิจิทัล และอธิบายเพิ่มเติมใน [Password-Protected Presentations](/slides/th/cpp/password-protected-presentation/)
 
-การนำเสนออาจมีลายเซ็นดิจิทัลมากกว่าหนึ่งรายการ. หลังจากเพิ่มลายเซ็นดิจิทัลลงในการนำเสนอ ข้อความพิเศษจะปรากฏใน PowerPoint:
+PowerPoint มีคำสั่ง **Add a Digital Signature** ภายใต้ **File > Info > Protect Presentation**
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation menu with Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
-เพื่อทำการเซ็นการนำเสนอหรือเพื่อตรวจสอบความถูกต้องของลายเซ็นการนำเสนอ, **Aspose.Slides API** ให้บริการ [**IDigitalSignature**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_digital_signature) interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_digital_signature_collection) interface และ [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method. ปัจจุบันลายเซ็นดิจิทัลรองรับเฉพาะรูปแบบ PPTX เท่านั้น.
-## **เพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX**
-ตัวอย่างโค้ดด้านล่างแสดงวิธีเพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX:
+หลังจากเปิดพรีเซนเทชันที่มีลายเซ็น PowerPoint จะสามารถแสดงการแจ้งเตือนสถานะลายเซ็น
 
-1. เปิดไฟล์ PFX และส่งรหัสผ่านของ PFX ไปยังอ็อบเจกต์ [**DigitalSignature**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.digital_signature).
-1. เพิ่มลายเซ็นที่สร้างขึ้นไปยังอ็อบเจกต์การนำเสนอ.
+![PowerPoint notification stating that the presentation contains valid signatures](digital-signature-status-in-powerpoint.png)
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+Aspose.Slides เปิดเผยลายเซ็นผ่าน [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipresentation/get_digitalsignatures/), ซึ่งคืนค่าเป็น [IDigitalSignatureCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignaturecollection/) ที่รายการของมันทำตาม [IDigitalSignature](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignature/). พรีเซนเทชันสามารถมีลายเซ็นหลายรายการได้
 
-// สร้างอ็อบเจกต์ DigitalSignature ด้วยไฟล์ PFX และรหัสผ่าน PFX 
-auto signature = System::MakeObject<DigitalSignature>(u"testsignature1.pfx", u"testpass1");
+## **ทำความเข้าใจใบรับรอง PFX และรหัสผ่าน**
 
-// คอมเมนต์ลายเซ็นดิจิทัลใหม่
-signature->set_Comments(u"Aspose.Slides digital signing test.");
+ไฟล์ PFX (หรือที่รู้จักในชื่อไฟล์ PKCS#12) ซึ่งมักมีนามสกุล `.pfx` หรือ `.p12` สามารถบรรจุใบรับรอง X.509, คีย์ส่วนตัวของมัน, และห่วงโซ่ใบรับรอง คีย์ส่วนตัวเป็นสิ่งที่ทำให้ผู้ถือสามารถสร้างลายเซ็นได้ ใบรับรองที่ไม่มีคีย์ส่วนตัวที่เข้าถึงได้จะไม่สามารถใช้เซ็นพรีเซนเทชันได้
 
-// เพิ่มลายเซ็นดิจิทัลลงในการนำเสนอ
-pres->get_DigitalSignatures()->Add(signature);
+รหัสผ่าน PFX ปกป้องแพคเกจใบรับรองและคีย์ส่วนตัว **ไม่ได้** เป็นรหัสผ่านสำหรับเปิดหรือแก้ไขพรีเซนเทชัน อย่า commit ไฟล์ PFX หรือรหัสผ่านของมันลงใน source control ในการใช้งานจริง ควรจำกัดการเข้าถึงไฟล์ใบรับรองและดึงรหัสผ่านจากที่เก็บความลับหรือแหล่งกำหนดค่าที่ได้รับการปกป้อง ตัวอย่างต่อไปนี้ใช้ตัวแปรสภาพแวดล้อมเพียงอย่างเดียวเพื่อหลีกเลี่ยงการฝังรหัสผ่านในโค้ด
 
-// บันทึกการนำเสนอ
-pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
+## **เพิ่มลายเซ็นดิจิทัลลงในพรีเซนเทชัน**
+
+เพื่อทำงานเซ็นพรีเซนเทชันจริง โหลดไฟล์ PPTX ที่มีอยู่แล้ว, สร้าง [DigitalSignature](https://reference.aspose.com/slides/th/cpp/aspose.slides/digitalsignature/) จากใบรับรอง PFX และรหัสผ่านของมัน, เพิ่มลายเซ็นลงในคอลเลกชันของพรีเซนเทชัน, แล้วบันทึกเป็นไฟล์ PPTX
+
+```cpp
+auto certificatePassword = Environment::GetEnvironmentVariable(u"PFX_PASSWORD");
+if (certificatePassword.IsNullOrEmpty())
+{
+    throw InvalidOperationException(u"Set the PFX_PASSWORD environment variable.");
+}
+
+auto presentation = MakeObject<Presentation>(u"InputPresentation.pptx");
+
+auto signature = MakeObject<DigitalSignature>(u"signing-certificate.pfx", certificatePassword);
+signature->set_Comments(u"Approved for release.");
+
+presentation->get_DigitalSignatures()->Add(signature);
+presentation->Save(u"InputPresentation-signed.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-ตอนนี้สามารถตรวจสอบได้ว่าการนำเสนอได้รับการเซ็นดิจิทัลและไม่ได้ถูกแก้ไขหรือไม่:
+การบันทึกผลลัพธ์ด้วยชื่อใหม่จะรักษาไฟล์ต้นฉบับที่ยังไม่ได้เซ็นไว้ ค่าของ [IDigitalSignature::set_Comments](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignature/set_comments/) อธิบายวัตถุประสงค์ของลายเซ็น; ไม่ได้เป็นการควบคุมด้านความปลอดภัย
 
-``` cpp
-// เปิดการนำเสนอ
-auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
+## **ตรวจสอบลายเซ็นดิจิทัล**
 
-if (pres->get_DigitalSignatures()->get_Count() > 0)
+เมื่อนำเข้าไฟล์ PPTX ที่มีลายเซ็น, ตรวจสอบแต่ละรายการที่คืนค่าจาก [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipresentation/get_digitalsignatures/). วิธี [IDigitalSignature::get_IsValid](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignature/get_isvalid/) จะบอกว่าลายเซ็นที่ฝังอยู่เป็นลายเซ็นที่ถูกต้องสำหรับเนื้อหาพรีเซนเทชันปัจจุบันหรือไม่
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+auto signatureCount = presentation->get_DigitalSignatures()->get_Count();
+
+if (signatureCount == 0)
+{
+    Console::WriteLine(u"The presentation does not contain digital signatures.");
+}
+else
 {
     bool allSignaturesAreValid = true;
 
-    Console::WriteLine(u"Signatures used to sign the presentation: ");
-
-    // ตรวจสอบว่าลายเซ็นดิจิทัลทั้งหมดมีความถูกต้องหรือไม่
-    for (auto signature : pres->get_DigitalSignatures())
+    for (int signatureIndex = 0; signatureIndex < signatureCount; ++signatureIndex)
     {
-        Console::WriteLine(signature->get_Certificate()->get_SubjectName()->get_Name() 
-            + u", " 
-            + signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm") 
-            + u" -- " 
-            + (signature->get_IsValid() ? System::String(u"VALID") : System::String(u"INVALID")));
-        allSignaturesAreValid &= signature->get_IsValid();
+        auto signature = presentation->get_DigitalSignature(signatureIndex);
+        auto signatureIsValid = signature->get_IsValid();
+        auto signatureStatus = signatureIsValid ? u"VALID" : u"INVALID";
+        auto signerName = signature->get_Certificate()->get_SubjectName()->get_Name();
+        auto signingTime = signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm:ss");
+
+        Console::WriteLine(u"{0}, {1} -- {2}", signerName, signingTime, signatureStatus);
+
+        allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
     }
 
     if (allSignaturesAreValid)
     {
-        Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
+        Console::WriteLine(u"All embedded signatures are valid for the current presentation.");
     }
     else
     {
-        Console::WriteLine(u"Presentation has been modified since signing.");
+        Console::WriteLine(u"At least one embedded signature is invalid.");
     }
 }
+
+presentation->Dispose();
 ```
+
+ผลลัพธ์ที่ไม่ถูกต้องมักหมายถึงว่าเนื้อหาในพรีเซนเทชันที่เซ็นหรือข้อมูลลายเซ็นมีการเปลี่ยนแปลงหลังจากเซ็น, หรือไฟล์เสีย การลบลายเซ็นทั้งหมดจะทำให้พรีเซนเทชันเป็นเวอร์ชันที่ไม่ได้เซ็น ดังนั้นการตรวจสอบเพียงความถูกต้องของรายการไม่เพียงพอ: กระบวนการที่เกี่ยวกับความปลอดภัยต้องตรวจสอบว่าจำนวนลายเซ็นที่คาดหวังและอัตลักษณ์ของผู้เซ็นที่คาดไว้มีอยู่ครบหรือไม่
+
+ผลลัพธ์ความถูกต้องนี้ไม่ควรใช้เป็นการตัดสินใจเชื่อมั่นใบรับรองอย่างสมบูรณ์ ตามนโยบายความปลอดภัยของคุณ แอปพลิเคชันอาจต้องสร้างและตรวจสอบห่วงโซ่ใบรับรอง X.509, ตรวจสอบวันหมดอายุและสถานะการเพิกถอนของใบรับรอง, ยืนยันหัวข้อหรือรหัสประจำตัวที่คาดหวัง, ตรวจสอบการใช้คีย์, และประเมิน timestamp ที่เชื่อถือได้ ค่า [IDigitalSignature::get_SignTime](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignature/get_signtime/) เพียงอย่างเดียวไม่ถือเป็นหลักฐานจากผู้ให้บริการ timestamp ที่เชื่อถือได้
+
+## **ลบลายเซ็นดิจิทัล**
+
+การลบลายเซ็นจะเปลี่ยนสภาวะความปลอดภัยของพรีเซนเทชัน ตัวอย่างต่อไปนี้โหลดไฟล์ PPTX ที่เซ็นแล้ว, ลบลายเซ็นทั้งหมดด้วย [IDigitalSignatureCollection::Clear](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignaturecollection/clear/), แล้วบันทึกเป็นสำเนาที่ไม่ได้เซ็น
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+presentation->get_DigitalSignatures()->Clear();
+presentation->Save(u"InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+หากต้องการลบลายเซ็นเพียงหนึ่งรายการ ให้เรียก [IDigitalSignatureCollection::RemoveAt](https://reference.aspose.com/slides/th/cpp/aspose.slides/idigitalsignaturecollection/removeat/) ด้วยตำแหน่งดัชนีที่เริ่มจากศูนย์ บันทึกเป็นไฟล์ใหม่หากไม่ต้องการเขียนทับไฟล์ต้นฉบับที่เซ็นไว้โดยตรง
+
+## **การแก้ไขและข้อพิจารณาเรื่องรูปแบบ**
+
+- ลายเซ็นไม่ได้ทำให้พรีเซนเทชันเป็นไฟล์อ่านอย่างเดียว ผู้ใช้และแอปพลิเคชันยังคงแก้ไขไฟล์ได้ แต่การเปลี่ยนแปลงเนื้อหาที่เซ็นจะทำให้ลายเซ็นเดิมหมดความถูกต้อง
+- ควรทำการแก้ไขทั้งหมดก่อนเซ็น หากต้องการแก้ไขพรีเซนเทชันอีกครั้ง ให้บันทึกรุ่นที่แก้ไขแล้วและเซ็นรุ่นนั้นใหม่อีกครั้ง
+- เก็บผลลัพธ์สุดท้ายเป็นรูปแบบ PPTX การแปลงพรีเซนเทชันที่เซ็นแล้วเป็นรูปแบบอื่นจะไม่ได้ย้ายลายเซ็น PPTX ดั้งเดิมไปเป็นลายเซ็นที่ถูกต้องสำหรับไฟล์ที่แปลง
+- ปฏิบัติตามคีย์ส่วนตัวของใบรับรองเป็นข้อมูลที่อ่อนไหว ผู้ที่ได้คีย์ส่วนตัวและรหัสผ่านอาจสร้างลายเซ็นที่ดูเหมือนมาจากผู้ถือใบรับรองนั้นได้
+- เก็บไฟล์ต้นฉบับที่ไม่ได้เซ็นหรือสำเนาที่ควบคุมไว้ เมื่อนโยบายการเก็บรักษาเอกสารของคุณกำหนดให้ต้องทำเช่นนั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถลบลายเซ็นที่มีอยู่จากไฟล์ได้หรือไม่?**
+**ลายเซ็นดิจิทัลทำให้พรีเซนเทชันถูกเข้ารหัสหรือไม่?**
 
-ใช่. คอลเล็กชันของลายเซ็นดิจิทัลรองรับการ [removing individual items](https://reference.aspose.com/slides/th/cpp/aspose.slides/digitalsignaturecollection/removeat/) และการ [clearing it entirely](https://reference.aspose.com/slides/th/cpp/aspose.slides/digitalsignaturecollection/clear/); หลังจากบันทึกไฟล์ การนำเสนอจะไม่มีลายเซ็นใดๆ
+ไม่ ลายเซ็นดิจิทัลเป็นหลักฐานของต้นทางและความสมบูรณ์เท่านั้น เนื้อหาพรีเซนเทชันยังคงอ่านได้ถ้าไม่ได้ทำการเข้ารหัสแยกกัน ใช้ [password protection](/slides/th/cpp/password-protected-presentation/) เมื่อจำเป็นต้องจำกัดการเข้าถึงเนื้อหา
 
-**ไฟล์จะกลายเป็น “อ่านอย่างเดียว” หลังจากการเซ็นหรือไม่?**
+**รหัสผ่าน PFX เป็นรหัสผ่านของพรีเซนเทชันหรือไม่?**
 
-ไม่. ลายเซ็นคงความสมบูรณ์และผู้เขียนไว้แต่ไม่ได้บล็อกการแก้ไข. หากต้องการจำกัดการแก้ไข ให้ผสานกับ ["Read-only" or a password](/slides/th/cpp/password-protected-presentation/).
+ไม่ รหัสผ่าน PFX ใช้เพื่อปลดล็อกคีย์ส่วนตัวที่เก็บอยู่ในแพคเกจใบรับรอง ไม่ได้ควบคุมว่าผู้ใดสามารถเปิดหรือแก้ไขไฟล์ PPTX ได้
 
-**ลายเซ็นจะแสดงอย่างถูกต้องในเวอร์ชันต่าง ๆ ของ PowerPoint หรือไม่?**
+**สามารถใช้ใบรับรองแบบเซ็นด้วยตนเองได้หรือไม่?**
 
-ลายเซ็นถูกสร้างสำหรับคอนเทนเนอร์ OOXML (PPTX). เวอร์ชันสมัยใหม่ของ PowerPoint ที่รองรับลายเซ็น OOXML จะแสดงสถานะของลายเซ็นเหล่านั้นอย่างถูกต้อง.
+ในเชิงเทคนิคสามารถใช้ใบรับรองที่เซ็นด้วยตนเองได้หากมีคีย์ส่วนตัวที่เข้าถึงได้ ผู้รับจะไม่เชื่อมั่นโดยอัตโนมัติ เว้นแต่ใบรับรองนั้นจะถูกเพิ่มอย่างชัดเจนในสภาพแวดล้อมที่เชื่อถือได้ งานที่เกี่ยวข้องกับหลายองค์กรมักใช้ใบรับรองจาก CA ที่เชื่อถือได้
+
+**อะไรทำให้ลายเซ็นเป็นโมฆะ?**
+
+การเปลี่ยนแปลงเนื้อหาที่เซ็นหรือข้อมูลลายเซ็นหลังจากเซ็นจะทำให้ลายเซ็นโมฆะ ไฟล์เสียก็อาจทำให้การตรวจสอบล้มเหลว หากลบลายเซ็นทั้งหมด พรีเซนเทชันจะกลายเป็นเวอร์ชันที่ไม่ได้เซ็น ไม่ใช่ไฟล์ที่มีลายเซ็นโมฆะ
+
+**ลายเซ็นที่ถูกต้องหมายความว่าต้องเชื่อถือผู้เซ็นหรือไม่?**
+
+ไม่โดยตรง ความสมบูรณ์ของลายเซ็นและความเชื่อมั่นต่อผู้เซ็นเป็นการตัดสินใจแยกกัน นโยบายการตรวจสอบในสภาพแวดล้อมการผลิตควรตรวจสอบห่วงโซ่ใบรับรอง, ระยะเวลาที่มีผล, สถานะการเพิกถอน, อัตลักษณ์ที่คาดหวัง, การใช้คีย์ และข้อกำหนดของ timestamp ที่เชื่อถือได้ด้วย
+
+**หากใบรับรองหมดอายุจะเกิดอะไรขึ้น?**
+
+การหมดอายุของใบรับรองไม่เปลี่ยนแปลงไบต์ของพรีเซนเทชัน แต่ส่งผลต่อการประเมินความเชื่อถือของใบรับรอง การที่ลายเซ็นยังคงยอมรับได้หรือไม่ขึ้นอยู่กับนโยบายของคุณและว่ามี timestamp ที่เชื่อถือได้แสดงว่าการเซ็นเกิดขึ้นในช่วงที่ใบรับรองยังมีอายุหรือไม่ อย่าพึ่งพาเวลาเซ็นที่แสดงบนหน้าจอเป็น timestamp ที่เชื่อถือได้อย่างเดียว
+
+**พรีเซนเทชันที่เซ็นแล้วยังสามารถแก้ไขได้หรือไม่?**
+
+ได้ การเซ็นไม่ได้ล็อคไฟล์ การแก้ไขเนื้อหาที่เซ็นมักทำให้ลายเซ็นเดิมไม่ถูกต้อง ดังนั้นให้ทำการแก้ไขให้เสร็จก่อนแล้วจึงเซ็นเวอร์ชันสุดท้าย
+
+**พรีเซนเทชันสามารถมีลายเซ็นได้มากกว่าหนึ่งรายการหรือไม่?**
+
+ได้ ให้เพิ่มแต่ละลายเซ็นลงในคอลเลกชันที่คืนค่าจาก [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipresentation/get_digitalsignatures/) ก่อนบันทึก ในระหว่างการตรวจสอบ ตรวจสอบทุกลายเซ็นและยืนยันว่าผู้เซ็นที่ต้องการทั้งหมดมีอยู่
+
+**ฟอร์แมตพรีเซนเทชันใดบ้างที่รองรับการดำเนินการเหล่านี้?**
+
+Aspose.Slides รองรับการดำเนินการลายเซ็นดิจิทัลที่อธิบายไว้ที่นี่เฉพาะสำหรับ PPTX ฟอร์แมต PPT และ OpenDocument ไม่รองรับโดย API นี้
+
+**สามารถลบลายเซ็นโดยไม่กระทบต่อสไลด์ได้หรือไม่?**
+
+ได้ สามารถลบลายเซ็นหนึ่งรายการหรือเคลียร์คอลเลกชันทั้งหมดแล้วบันทึกพรีเซนเทชัน เนื้อหาสไลด์ยังคงอยู่ แต่ไฟล์ที่บันทึกแล้วจะไม่มีหลักฐานลายเซ็นที่ถูกลบแล้ว

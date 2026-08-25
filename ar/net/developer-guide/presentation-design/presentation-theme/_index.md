@@ -1,264 +1,391 @@
 ---
-title: إدارة أنماط العرض التقديمي في .NET
-linktitle: نمط العرض التقديمي
+title: إدارة سمات العرض التقديمي في .NET
+linktitle: سمة العرض
 type: docs
 weight: 10
 url: /ar/net/presentation-theme/
 keywords:
-- نمط PowerPoint
-- نمط العرض التقديمي
-- نمط الشريحة
-- تعيين النمط
-- تغيير النمط
-- إدارة النمط
-- لون النمط
+- سمة PowerPoint
+- سمة العرض التقديمي
+- سمة الشريحة
+- تعيين سمة
+- تغيير سمة
+- إدارة سمة
+- لون السمة
 - لوحة ألوان إضافية
-- خط النمط
-- نمط النمط
-- تأثير النمط
+- خط السمة
+- نمط السمة
+- تأثير السمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في أنماط العرض التقديمي في Aspose.Slides لـ .NET لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على العلامة التجارية المتسقة."
+description: "إدارة سمات العرض التقديمي في Aspose.Slides لـ .NET لإنشاء وتخصيص وتحويل ملفات PowerPoint مع علامة تجارية متسقة."
 ---
-يحدد نمط العرض خصائص عناصر التصميم. عند اختيارك لنمط عرض، فإنك في الأساس تختار مجموعة محددة من العناصر البصرية وخصائصها.
+## **المقدمة**
 
-في PowerPoint، يتألف النمط من ألوان، [الخطوط](/slides/ar/net/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/net/presentation-background/)، وتأثيرات.
+موضوع العرض التقديمي يعرّف مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. الكائنات التي تدعم الموضوع تشير إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيير الموضوع تحديث العديد من الكائنات مرة واحدة.
 
-![theme-constituents](theme-constituents.png)
+في Aspose.Slides، يتوفر موضوع العرض على مستوى العرض من خلال خاصية [Presentation.MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/mastertheme/). يمكن للعرض أيضاً أن يحتوي على تجاوزات للموضوع في مستويات أدنى. يمكن للماستر تجاوز موضوع العرض عبر [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/masterthememanager/overridetheme/)، ويمكن للتخطيط تجاوز موضوعه الموروث عبر [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/overridetheme/)، ويمكن للشفرة الفردية القيام بالمثل. عملياً، يتم حل الموضوع الفعّال للشفرة عبر سلسلة الوراثة هذه: موضوع العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
 
-## **تغيير لون النمط**
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-يستخدم نمط PowerPoint مجموعة محددة من الألوان لعناصر مختلفة في الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها بتطبيق ألوان جديدة على النمط. لتتمكن من اختيار لون نمط جديد، يوفر Aspose.Slides قيمًا ضمن تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/).
+الأقسام أدناه تُظهر أكثر سير عمل شائع للموضوع: فحص موضوع، تغيير الألوان والخطوط، نسخ أو تطبيق موضوع، تحديث أنماط الخلفية والتأثير، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
 
-يعرض هذا الكود C# طريقة تغيير لون التمييز (accent) للنمط:
+## **فحص موضوع**
 
-```c#
-using (Presentation pres = new Presentation())
-    
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+الكائن [MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/) يُظهر [ColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/colorscheme/)، [FontScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/fontscheme/)، و[FormatScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/formatscheme/). فحص هذه المجموعات قبل تعديلها مفيد خصوصاً عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مدخلات الأنماط قد يختلف.
 
-    shape.FillFormat.FillType = FillType.Solid;
+المثال التالي يقرأ الخصائص الرئيسية للموضوع ويُبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزّنة في الموضوع:
 
-    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-}
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var theme = presentation.MasterTheme;
+
+Console.WriteLine($"Theme name: {theme.Name}");
+Console.WriteLine($"Accent 1: {theme.ColorScheme.Accent1.Color}");
+Console.WriteLine($"Major Latin font: {theme.FontScheme.Major.LatinFont.FontName}");
+Console.WriteLine($"Minor Latin font: {theme.FontScheme.Minor.LatinFont.FontName}");
+Console.WriteLine($"Background fill styles: {theme.FormatScheme.BackgroundFillStyles.Count}");
+Console.WriteLine($"Fill styles: {theme.FormatScheme.FillStyles.Count}");
+Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
+Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-يمكنك تحديد القيمة الفعلية للون الناتج بهذه الطريقة:
+إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لها نفس الموضوع الفعّال. افحص الماستر المرتبط بالشفرة، واستخدم سير عمل الموضوع الفعّال الموضح لاحقاً في هذه المقالة عندما قد تكون هناك تجاوزات على مستوى التخطيط أو الشريحة.
 
-```c#
-var fillEffective = shape.FillFormat.GetEffective();
+## **تغيير ألوان الموضوع**
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (لون [A=255, R=128, G=100, B=162])
+التعبئات، الخطوط، والنصوص التي تدعم الموضوع يمكن أن تشير إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/). عندما تغير المدخل المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/)، يتم حل جميع الكائنات التي لا تزال تشير إلى ذلك اللون حسب القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير بتحديث لون الموضوع.
+
+المثال التالي من البداية إلى النهاية ينشئ شكلاً يستخدم `Accent4`، يغيّر لون الموضوع `Accent4` إلى الأحمر، يحفظ العرض، يعيده للفتح، ويطبع لون التعبئة الفعّال:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+presentation.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+presentation.Save("theme-color.pptx", SaveFormat.Pptx);
+
+using var savedPresentation = new Presentation("theme-color.pptx");
+var savedSlide = savedPresentation.Slides[0];
+var savedShape = savedSlide.Shapes[0];
+var effectiveFill = savedShape.FillFormat.GetEffective();
+Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-لتوضيح عملية تغيير اللون أكثر، ننشئ عنصرًا آخر ونعيّن له لون التمييز (من العملية الأولية). ثم نغيّر اللون في النمط:
+لأن المستطيل لا يزال مرتبطاً بـ `Accent4`، يصبح لونه المرئي أحمر بعد تغيير الموضوع. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر بعد ذلك على تلك التعبئة.
 
-```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+### **استخدام الألوان من اللوحة الإضافية**
 
-otherShape.FillFormat.FillType = FillType.Solid;
+PowerPoint يولّد متباينات أفتح وأتمنى من لون الموضوع عبر تطبيق تحولات لونية. Aspose.Slides يكشف هذه التحولات عبر [ColorTransformOperation](https://reference.aspose.com/slides/ar/net/aspose.slides/colortransformoperation/).
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+**1** - ألوان الموضوع الرئيسية.
+
+**2** - المتباينات الأفتح والأتمنى المُنتجة من ألوان الموضوع الرئيسية.
+
+المثال التالي ينشئ ستة مستطيلات تستند إلى `Accent4`، يطبّق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
+shape1.FillFormat.FillType = FillType.Solid;
+shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
+shape2.FillFormat.FillType = FillType.Solid;
+shape2.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
+shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
+
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
+shape3.FillFormat.FillType = FillType.Solid;
+shape3.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
+shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
+
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
+shape4.FillFormat.FillType = FillType.Solid;
+shape4.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
+shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
+
+var shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
+shape5.FillFormat.FillType = FillType.Solid;
+shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
+
+var shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
+shape6.FillFormat.FillType = FillType.Solid;
+shape6.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.5f);
+
+presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-يتم تطبيق اللون الجديد تلقائيًا على العنصرين.
+هذه المتباينات لا تزال تستند إلى لون الموضوع. إذا تغير `Accent4` لاحقاً، تُعاد حساب الألوان المتحوّلة من القيمة الجديدة لـ `Accent4`.
 
-### **تعيين لون النمط من لوحة ألوان إضافية**
+### **تعيين قيم `SchemeColor` إلى فتحات `IColorScheme`**
 
-عند تطبيق تحولات الإضاءة على اللون الرئيسي للنمط (1)، تتشكل ألوان من لوحة الألوان الإضافية (2). يمكنك بعد ذلك تعيين تلك الألوان النمطية والحصول عليها.
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - ألوان النمط الرئيسة  
-**2** - ألوان من لوحة الألوان الإضافية.
-
-يعرض هذا الكود C# عملية الحصول على ألوان لوحة الألوان الإضافية من اللون الرئيسي للنمط ثم استخدامها في الأشكال:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    // التمييز 4
-    IShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
-    shape1.FillFormat.FillType = FillType.Solid;
-    shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-    // التمييز 4، أخف 80%
-    IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
-    shape2.FillFormat.FillType = FillType.Solid;
-    shape2.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
-    shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
-
-    // التمييز 4، أخف 60%
-    IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
-    shape3.FillFormat.FillType = FillType.Solid;
-    shape3.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
-    shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
-
-    // التمييز 4، أخف 40%
-    IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
-    shape4.FillFormat.FillType = FillType.Solid;
-    shape4.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
-    shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
-
-    // التمييز 4، أغمق 25%
-    IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
-    shape5.FillFormat.FillType = FillType.Solid;
-    shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
-
-    // التمييز 4، أغمق 50%
-    IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
-    shape6.FillFormat.FillType = FillType.Solid;
-    shape6.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.5f);
-
-    presentation.Save("example.pptx", SaveFormat.Pptx);
-}
-```
-
-### **ربط `SchemeColor` بألوان `IColorScheme`**
-
-عند العمل مع [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/)، قد تلاحظ أنه يحتوي على قيم ألوان النمط التالية: `Background1`, `Background2`, `Text1`, و `Text2`.
-
-مع ذلك، تُعيد `Presentation.MasterTheme.ColorScheme` كائنًا من نوع [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/)، الذي يعرض الألوان المقابلة كالتالي: `Dark1`, `Dark2`, `Light1`, و `Light2`.
-
-الفرق هنا فقط في التسمية. هذه القيم تشير إلى نفس مواضع ألوان النمط والتطابق ثابت:
+تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/) يستخدم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يوضح [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/) نفس فتحات الموضوع كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الت mapping ثابت:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-لا يوجد تحويل ديناميكي بين `Text`/`Background` و `Dark`/`Light`. إنها مجرد أسماء بديلة لنفس ألوان النمط.
+هذه أسماء بديلة لنفس فتحات الموضوع؛ ليست قيماً تُحوَّل ديناميكياً من شكل إلى آخر.
 
-يأتي هذا الاختلاف في التسمية من مصطلحات Microsoft Office. استخدمت إصدارات Office القديمة `Dark 1`، `Light 1`، `Dark 2`، و `Light 2`، بينما تعرض إصدارات الواجهة الحديثة نفس المواضع كـ `Text 1`، `Background 1`، `Text 2`، و `Background 2`.
+## **تغيير خطوط الموضوع**
 
-## **تغيير خط النمط**
+مخطط خطوط الموضوع يحتوي على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص الأساسي. خصائص [FontScheme.Major](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/fontscheme/major/) و[FontScheme.Minor](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/fontscheme/minor/) تُظهر تلك المجموعات.
 
-لتمكينك من اختيار الخطوط للنمط وغيرها من الأغراض، يستخدم Aspose.Slides هذه المعرفات الخاصة (المشابهة لتلك المستخدمة في PowerPoint):
+معرفات خطوط الموضوع المتوافقة مع PowerPoint يمكن استخدامها في تنسيق النص:
 
-* **+mn-lt** - الخط الأساسي اللاتيني (Minor Latin Font)
-* **+mj-lt** - الخط الرئيسي للعنوان اللاتيني (Major Latin Font)
-* **+mn-ea** - الخط الأساسي للآسيوي الشرقي (Minor East Asian Font)
-* **+mj-ea** - الخط الرئيسي للآسيوي الشرقي (Major East Asian Font)
+* `+mn‑lt` - خط النص الأساسي Latin (Minor Latin Font)
+* `+mj‑lt` - خط العنوان Latin (Major Latin Font)
+* `+mn‑ea` - خط النص الأساسي East Asian (Minor East Asian Font)
+* `+mj‑ea` - خط العنوان East Asian (Major East Asian Font)
 
-يعرض هذا الكود C# طريقة تعيين الخط اللاتيني لعنصر النمط:
+المثال التالي ينشئ عنواناً يستخدم خط الموضوع Latin الرئيسي، وسطر نص أساسي يستخدم خط الموضوع Latin الفرعي. ثم يغيّر خطوط الموضوع ويحفظ النتيجة:
 
-```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Paragraph paragraph = new Paragraph();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Portion portion = new Portion("Theme text format");
+var heading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+heading.TextFrame.Text = "Theme heading";
+heading.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("+mj-lt");
 
-paragraph.Portions.Add(portion);
+var body = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+body.TextFrame.Text = "Theme body text";
+body.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("+mn-lt");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+presentation.MasterTheme.FontScheme.Major.LatinFont = new FontData("Aptos Display");
+presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-يعرض هذا الكود C# طريقة تغيير خط نمط العرض:
+العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الفرعي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف موضوع لن يتبدّل تلقائياً عندما يتغيّر مخطط خطوط الموضوع.
 
-```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
-```
+مجموعات الخطوط الرئيسية والفرعية يمكن أن تحتوي أيضاً على تعيينات خطوط لأنظمة كتابة فردية، مثل السيريالية، العربية، اليابانية، الجورجية، والثعنا. لفحص، إضافة، استبدال أو إزالة هذه التعيينات، راجع [Script-Specific Theme Fonts](/slides/ar/net/script-specific-font-mappings/).
 
-سيتم تحديث الخط في جميع مربعات النص.
-
-{{% alert color="primary" title="TIP" %}} 
-قد ترغب في مشاهدة [خطوط PowerPoint](/slides/ar/net/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+لمزيد من المعلومات حول خطوط العرض التقديمي، راجع [PowerPoint Fonts](/slides/ar/net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **تغيير نمط خلفية النمط**
+## **نسخ أو تطبيق موضوع**
 
-بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفية محددة مسبقًا، ولكن يتم حفظ 3 فقط من تلك الخلفيات الـ12 في عرض تقديمي نموذجي.
+هناك سيران شائعان، وكل منهما يحلّ مشكلة مختلفة.
 
-![todo:image_alt_text](presentation-design_8.png)
+### **الحفاظ على موضوع المصدر عند نقل الشرائح**
 
-على سبيل المثال، بعد حفظك لعرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الكود C# لمعرفة عدد الخلفيات المحددة مسبقًا في العرض:
+إذا أردت نقل شريحة إلى عرض آخر والحفاظ على التصميم الأصلي، استنسخ الماستر المصدر إلى العرض الهدف عبر [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/)، ثم استنسخ الشريحة عبر [ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) والماستر المستنسخ. هذا يُحمل الماستر، تخطيطاته، والموضوع المرتبط معاً.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var sourceSlide = source.Slides[0];
+var sourceMaster = sourceSlide.LayoutSlide.MasterSlide;
+var clonedMaster = target.Masters.AddClone(sourceMaster);
+target.Slides.AddClone(sourceSlide, clonedMaster, true);
+
+target.Save("theme-preserved.pptx", SaveFormat.Pptx);
+```
+
+هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى على ماستر وجهة غير مرتبط قد يغيّر الألوان، الخطوط، الخلفيات، والتأثيرات المدفوعة بالموضوع.
+
+### **تطبيق قيم الموضوع على شريحة موجودة**
+
+إذا كان يجب أن تبقى الشريحة الهدف على الماستر والتخطيط الحاليين، ابتدئ تجاوزاً على مستوى الشريحة من موضوع المصدر. طرق [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initfontschemefrom/)، و[OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initformatschemefrom/) تنسخ المكوّنات الثلاثة الرئيسية للموضوع إلى التجاوز.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var targetSlide = target.Slides[0];
+var overrideTheme = targetSlide.ThemeManager.OverrideTheme;
+overrideTheme.InitColorSchemeFrom(source.MasterTheme.ColorScheme);
+overrideTheme.InitFontSchemeFrom(source.MasterTheme.FontScheme);
+overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
+
+target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+```
+
+هذا يغيّر الموضوع المستخدم لتلك الشريحة دون تغيير الموضوع الموروث للشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.Clear](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/clear/).
+
+### **تطبيق تجاوز موضوع على تخطيط**
+
+تجاوز على مستوى التخطيط يطبق على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لها تجاوزها الخاص. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/layoutslidethememanager/):
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var targetLayout = target.Slides[0].LayoutSlide;
+var overrideTheme = targetLayout.ThemeManager.OverrideTheme;
+overrideTheme.InitColorSchemeFrom(source.MasterTheme.ColorScheme);
+overrideTheme.InitFontSchemeFrom(source.MasterTheme.FontScheme);
+overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
+
+target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+```
+
+استخدم موضوع على مستوى الماستر أو العرض التقديمي عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدام تجاوز تخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدام تجاوز شريحة فقط للاستثناءات الحقيقية. التجاوزات الزائدة على مستوى الشريحة تجعل تغييرات الموضوع العامة لاحقاً أصعب في التنبؤ.
+
+## **تحديث أنماط خلفية الموضوع**
+
+تُخزن تعبئات خلفية الموضوع في [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). يمكن لـ PowerPoint عرض خيارات خلفية أكثر في واجهته مقارنةً بعدد تعريفات التعبئة المادية المخزّنة في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات الموضوع مع ألوان الموضوع ومراجع أنماط أخرى.
+
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+
+قبل استخدام نمط خلفية، افحص المجموعة المخزّنة و[Background.StyleIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/background/styleindex/) الحالي. `StyleIndex` يستخدم `0` لعدم وجود تعبئة موضوع؛ القيم الموجبة هي مراجع لأنماط خلفية الموضوع. هذا مختلف عن فهرسة مجموعة .NET مباشرةً، حيث يعني `[0]` العنصر الأول المخزّن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
+
+المثال التالي يبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية موضوع إلى أول ماستر، ويحفظ العرض:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var backgroundStyles = presentation.MasterTheme.FormatScheme.BackgroundFillStyles;
+Console.WriteLine($"Background fill styles: {backgroundStyles.Count}");
+
+if (backgroundStyles.Count == 0)
 {
-    int numberOfBackgroundFills = pres.MasterTheme.FormatScheme.BackgroundFillStyles.Count;
+    throw new InvalidOperationException("The presentation theme does not contain background fill styles.");
+}
 
-    Console.WriteLine($"Number of background fill styles for theme is {numberOfBackgroundFills}");
+presentation.Masters[0].Background.Type = BackgroundType.Themed;
+presentation.Masters[0].Background.StyleIndex = 1;
+
+presentation.Save("theme-background.pptx", SaveFormat.Pptx);
+```
+
+النتيجة المرئية تعتمد على مدخل الموضوع الذي يشيره الماستر وعلى أي تجاوزات خلفية في التخطيط أو مستوى الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر فقط تلك الشريحة. استخدم [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
+
+{{% alert color="warning" title="Warning" %}}
+لا تعتَبِر `StyleIndex` كفهرس مجموعة يبدأ من صفر. كما تجنّب ترميز رقم نمط من ملف واحد وافتراض أن له نفس المظهر في ملف آخر؛ تعريفات أنماط الموضوع خاصة بالعرض.
+{{% /alert %}}
+
+{{% alert color="info" title="Tip" %}}
+للتنسيق المباشر للخلفية ووراثتها، راجع [Presentation Background](/slides/ar/net/presentation-background/).
+{{% /alert %}}
+
+## **تحديث تأثيرات الموضوع**
+
+مخطط تنسيق الموضوع يحتوي على مجموعات منفصلة لـ [FillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/fillstyles/)، [LineStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/linestyles/)، و[EffectStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/effectstyles/). غالباً ما تحتوي موضوعات Office على ثلاث مدخلات أساسية تمثّل بصرياً التنسيقات الخفيفة، المتوسطة، والقوية، لكن يجب على الكود فحص كل مجموعة بدلاً من افتراض عدد ثابت.
+
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+
+عند الوصول إلى هذه المجموعات في C#، يكون فهرس المجموعة يبدأ من صفر: `[0]` هو أول نمط مخزّن و`[2]` هو الثالث. فهارس مراجع النمط في الشكل مفهوم منفصل، يُعرض عبر [IShapeStyle](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapestyle/). تعديل نمط موضوع يؤثر على الأشكال التي تشير إلى ذلك النمط؛ الأشكال ذات التنسيق المباشر قد تظل غير متغيّرة.
+
+المثال التالي يتحقّق من وجود مدخلات النمط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط تأثير، ويحفظ النتيجة:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+var formatScheme = presentation.MasterTheme.FormatScheme;
+
+if (formatScheme.LineStyles.Count < 1 || formatScheme.FillStyles.Count < 3 || formatScheme.EffectStyles.Count < 3)
+{
+    throw new InvalidOperationException("The theme does not contain the style entries required by this example.");
+}
+
+formatScheme.LineStyles[0].FillFormat.FillType = FillType.Solid;
+formatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
+formatScheme.FillStyles[2].FillType = FillType.Solid;
+formatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
+formatScheme.EffectStyles[2].EffectFormat.EnableOuterShadowEffect();
+formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
+
+presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
+```
+
+للأشكال التي تشير إلى هذه الفتحات، يصبح أول خط موضوع أحمر، وثالث تعبئة موضوع يصبح أخضر غابة صلب، وثالث نمط تأثير يكتسب ظلًا خارجيًا بمسافة 10 نقاط. النتيجة البصرية النهائية ما زالت تعتمد على الفتحات التي يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز الموضوع.
+
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+
+## **قراءة قيم الموضوع الفعّالة**
+
+كائنات الموضوع الخام تُظهر ما هو معرف على مستوى معين. القيم الفعّالة تُظهر ما يستخدمه الشريحة أو الشكل فعلياً بعد حل الوراثة والتجاوزات المحلية. للشريحة، استدعِ [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). للخلفية، استخدم [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/)، وللتعبئة استخدم [FillFormat.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/geteffective/).
+
+المثال التالي يقرأ الموضوع الفعّال، الخلفية، وتعبئة الشكل الأول من شريحة:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+var effectiveTheme = slide.ThemeManager.CreateThemeEffective();
+var effectiveBackground = slide.Background.GetEffective();
+
+Console.WriteLine($"Effective major Latin font: {effectiveTheme.FontScheme.Major.LatinFont.FontName}");
+Console.WriteLine($"Effective minor Latin font: {effectiveTheme.FontScheme.Minor.LatinFont.FontName}");
+Console.WriteLine($"Effective background fill type: {effectiveBackground.FillFormat.FillType}");
+
+if (slide.Shapes.Count > 0)
+{
+    var effectiveFill = slide.Shapes[0].FillFormat.GetEffective();
+    Console.WriteLine($"First shape effective fill type: {effectiveFill.FillType}");
+    if (effectiveFill.FillType == FillType.Solid)
+    {
+        Console.WriteLine($"First shape effective fill color: {effectiveFill.SolidFillColor}");
+    }
 }
 ```
 
-{{% alert color="warning" %}} 
-باستخدام الخاصية [BackgroundFillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) من الفئة [FormatScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/) يمكنك إضافة أو الوصول إلى نمط الخلفية في نمط PowerPoint. 
-{{% /alert %}}
-
-يعرض هذا الكود C# طريقة ضبط الخلفية للعرض التقديمي:
-
-```c#
-pres.Masters[0].Background.StyleIndex = 2;
-```
-
-**دليل الفهرس**: 0 يُستخدم لعدم التعبئة. يبدأ الفهرس من 1.
-
-{{% alert color="primary" title="TIP" %}} 
-قد ترغب في مشاهدة [خلفية PowerPoint](/slides/ar/net/presentation-background/).
-{{% /alert %}}
-
-## **تغيير تأثير النمط**
-
-عادةً ما يحتوي نمط PowerPoint على 3 قيم لكل مجموعة أنماط. تُدمج تلك المجموعات في هذه التأثيرات الثلاثة: خفيف، متوسط، وشديد. على سبيل المثال، هذه هي النتيجة عند تطبيق التأثيرات على شكل محدد:
-
-![todo:image_alt_text](presentation-design_10.png)
-
-باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/effectstyles)) من الفئة [FormatScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme) يمكنك تغيير عناصر النمط (بمرونة أكبر من الخيارات المتاحة في PowerPoint).
-
-```c#
-using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
-{
-    pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
-
-    pres.MasterTheme.FormatScheme.FillStyles[2].FillType = FillType.Solid;
-
-    pres.MasterTheme.FormatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
-
-    pres.MasterTheme.FormatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
-
-    pres.Save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
-}
-```
-
-التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، إلخ:
-
-![todo:image_alt_text](presentation-design_11.png)
+استخدم البيانات الفعّالة للتشخيص، التحقق، والمقارنات. إذا فحصت فقط [Presentation.MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/mastertheme/)، قد تفوتك أي تجاوز ماستر أو تخطيط أو شريحة أو شكل يُغيّر المظهر النهائي.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق نمط على شريحة واحدة دون تغيير القالب الرئيسي؟**
+**هل يمكنني تطبيق موضوع على شريحة واحدة دون تغيير الماستر؟**
 
-نعم. يدعم Aspose.Slides تجاوزات النمط على مستوى الشريحة، بحيث يمكنك تطبيق نمط محلي على تلك الشريحة فقط مع الحفاظ على النمط الرئيسي دون تغيير (عبر [SlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/slidethememanager/)).
+نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/slidethememanager/) للشفرة وابدأ تجاوزه للموضوع. التغيير يبقى محلياً لتلك الشريحة؛ الشرائح الأخرى تستمر في وراثة الموضوعات الحالية لها.
 
-**ما هي الطريقة الأكثر أمانًا لنقل نمط من عرض تقديمي إلى آخر؟**
+**ما هي الطريقة الأكثر أماناً لنقل موضوع من عرض إلى آخر؟**
 
-قم بـ[استنساخ الشرائح](/slides/ar/net/clone-slides/) مع القالب الخاص بها إلى العرض الهدف. هذا يحافظ على القالب الأصلي، التخطيطات، والنمط المرتبط بحيث يبقى المظهر متسقًا.
+عند نقل شريحة والحفاظ على مظهر المصدر، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/) و[ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/). هذا يُبقي الماستر، التخطيطات، والموضوع معاً.
 
-**كيف يمكنني رؤية القيم "الفعّالة" بعد كل الوراثة والتجاوزات؟**
+**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
 
-استخدم "العروض الفعّالة" في واجهة برمجة التطبيقات ["effective" views](/slides/ar/net/shape-effective-properties/) للنمط/اللون/الخط/التأثير. تُعيد هذه القيم الخصائص النهائية المحلولة بعد تطبيق القالب الرئيسي وأي تجاوزات محلية.
+استخدم [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) للموضوع على شريحة أو تخطيط، واستخدم طرق البيانات الفعّالة المقابلة لكائنات التنسيق مثل [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/) و[FillFormat.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/geteffective/). تُعيد هذه الواجهات القيم التي تم حلها بعد تطبيق الوراثة والتجاوزات.

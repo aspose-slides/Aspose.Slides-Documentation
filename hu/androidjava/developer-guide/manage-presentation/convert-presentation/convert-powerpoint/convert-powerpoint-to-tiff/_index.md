@@ -1,16 +1,16 @@
 ---
-title: "PowerPoint prezentációk konvertálása TIFF formátumba Androidon"
-titlelink: "PowerPoint TIFF-re"
+title: PowerPoint prezentációk konvertálása TIFF-re Androidon
+titlelink: PowerPoint TIFF-re
 type: docs
 weight: 90
 url: /hu/androidjava/convert-powerpoint-to-tiff/
 keywords:
-- PowerPoint átalakítása
-- OpenDocument átalakítása
-- prezentáció átalakítása
-- dia átalakítása
-- PPT átalakítása
-- PPTX átalakítása
+- PowerPoint konvertálása
+- OpenDocument konvertálása
+- prezentáció konvertálása
+- dia konvertálása
+- PPT konvertálása
+- PPTX konvertálása
 - PowerPoint TIFF-re
 - prezentáció TIFF-re
 - dia TIFF-re
@@ -18,43 +18,52 @@ keywords:
 - PPTX TIFF-re
 - PPT mentése TIFF-ként
 - PPTX mentése TIFF-ként
-- PPT exportálása TIFF-be
-- PPTX exportálása TIFF-be
+- PPT exportálása TIFF-re
+- PPTX exportálása TIFF-re
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan konvertálhat egyszerűen PowerPoint (PPT, PPTX) prezentációkat magas minőségű TIFF képekké az Aspose.Slides for Android segítségével, Java kódrészletekkel."
+description: "Ismerje meg, hogyan konvertálhat könnyedén PowerPoint (PPT, PPTX) prezentációkat magas minőségű TIFF képekké az Androidra készült Aspose.Slides segítségével, Java kódpéldákkal."
 ---
 ## **Bevezetés**
 
-TIFF (**Tagged Image File Format**) egy széles körben használt, veszteségmentes raszteres képformátum, amely kivételes minőségéről és a grafika részletes megőrzéséről ismert. Tervezők, fotósok és asztali kiadók gyakran választják a TIFF-et, hogy megőrizzék a rétegeket, a színpontosságot és az eredeti beállításokat a képeiken.
+A TIFF (**Tagged Image File Format**) egy széles körben használt, veszteségmentes raszteres képfájl-formátum, amely kivételes minőségéről és a grafika részletes megőrzéséről ismert. A tervezők, fotósok és asztali kiadók gyakran választják a TIFF-et a rétegek, a színpontosság és az eredeti beállítások megőrzése érdekében a képeikben.
 
-Az Aspose.Slides segítségével könnyedén konvertálhatja a PowerPoint-diákat (PPT, PPTX) és az OpenDocument-diákat (ODP) közvetlenül magas minőségű TIFF képekké, biztosítva, hogy a bemutatók a legnagyobb vizuális hűséget megtartsák. 
+Az Aspose.Slides használatával egyszerűen konvertálhatja PowerPoint diáit (PPT, PPTX) és OpenDocument diák (ODP) közvetlenül magas minőségű TIFF képekké, biztosítva, hogy bemutatói a maximális vizuális pontosságot megőrizzék.
 
-## **Prezentáció konvertálása TIFF‑be**
+## **Prezentáció konvertálása TIFF formátumba**
 
-A [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztály által biztosított [save](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) metódus használatával gyorsan átalakíthat egy teljes PowerPoint‑prezentációt TIFF formátumba. A keletkezett TIFF képek az alapértelmezett diamérethez igazodnak.
+A [mentés](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) módszerrel, amelyet a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztály biztosít, gyorsan konvertálhatja az egész PowerPoint prezentációt TIFF-be. A kapott TIFF képek az alapértelmezett dia méretének megfelelőek.
 
+Ez a kód bemutatja, hogyan lehet egy PowerPoint prezentációt TIFF-be konvertálni:
 ```java
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP, stb.) képvisel.
+import com.aspose.slides.*;
+
+// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP stb.) képvisel.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // A prezentáció mentése TIFF formátumba.
+    // Mentse a prezentációt TIFF formátumban.
     presentation.save("output.tiff", SaveFormat.Tiff);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Prezentáció konvertálása fekete-fehér TIFF‑be**
+## **Prezentáció konvertálása fekete-fehér TIFF formátumba**
 
-A [TiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/) osztályban található [setBwConversionMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) metódus lehetővé teszi a színes dia vagy kép fekete-fehér TIFF‑be történő átalakításakor használt algoritmus megadását. Vegye figyelembe, hogy ez a beállítás csak akkor alkalmazható, ha a [setCompressionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) metódus `CCITT4` vagy `CCITT3` értékre van állítva.
+A [setBwConversionMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) metódus a [TiffOptions] osztályban lehetővé teszi, hogy megadja a színes dia vagy kép fekete-fehér TIFF-re konvertálásához használt algoritmust. Vegye figyelembe, hogy ez a beállítás csak akkor érvényes, ha a [setCompressionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) metódus értéke `CCITT4` vagy `CCITT3`.
+
+{{% alert color="info" title="Megjegyzés" %}}
+A [TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) egy export‑szintű beállítás, amely a teljes TIFF kép pixelkonverziós algoritmusát választja. Annak meghatározásához, hogy egy egyéni alakzat hogyan jelenjen meg fekete‑fehér megjelenítési módban, használja az [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-). Lásd a [Control Black-and-White Rendering for Shapes](/slides/hu/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) példákat.
+{{% /alert %}}
 
 Tegyük fel, hogy van egy "sample.pptx" fájlunk a következő diával:
+![Prezentációs dia](slide_black_and_white.png)
 
-![Egy prezentációs dia](slide_black_and_white.png)
-
+Ez a kód bemutatja, hogyan lehet a színes diát fekete‑fehér TIFF-re konvertálni:
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -68,94 +77,98 @@ try {
 ```
 
 Az eredmény:
-
 ![Fekete-fehér TIFF](TIFF_black_and_white.png)
 
-## **Prezentáció konvertálása TIFF‑be egyedi mérettel**
+## **Prezentáció konvertálása TIFF formátumba egyedi mérettel**
 
-Ha egy adott méretű TIFF képre van szüksége, a [TiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/) osztályban elérhető metódusok segítségével beállíthatja a kívánt értékeket. Például a [setImageSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-) metódus lehetővé teszi a keletkezett kép méretének meghatározását.
+Ha egyedi méretű TIFF képre van szüksége, a [TiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/) osztályban elérhető módszerekkel állíthatja be a kívánt értékeket. Például a [setImageSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-) metódus lehetővé teszi a kész kép méretének meghatározását.
 
+Ez a kód bemutatja, hogyan lehet egy PowerPoint prezentációt egyedi méretű TIFF képekké konvertálni:
 ```java
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP, stb.) képvisel.
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
+// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP stb.) képvisel.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
 
-    // A tömörítési típus beállítása.
+    // Állítsa be a tömörítési típust.
     tiffOptions.setCompressionType(TiffCompressionTypes.Default);
     /*
     Tömörítési típusok:
-        Default - A alapértelmezett tömörítési sémát (LZW) adja meg.
-        None - Nem alkalmaz tömörítést.
+        Default - Az alapértelmezett tömörítési sémát (LZW) jelöli.
+        None - Nem használ tömörítést.
         CCITT3
         CCITT4
         LZW
         RLE
     */
 
-    // A mélység a tömörítési típustól függ, és nem állítható be manuálisan.
+    // A mélység a tömörítési típustól függ, és nem állítható manuálisan.
 
-    // A kép DPI beállítása.
+    // Állítsa be a kép DPI értékét.
     tiffOptions.setDpiX(200);
     tiffOptions.setDpiY(200);
 
-    // A kép méretének beállítása.
+    // Állítsa be a kép méretét.
     tiffOptions.setImageSize(new Size(1728, 1078));
 
-    INotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // A prezentáció mentése TIFF formátumba a megadott mérettel.
+    // Mentse a prezentációt TIFF formátumban a megadott mérettel.
     presentation.save("tiff-ImageSize.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }   
 ```
 
-## **Prezentáció konvertálása TIFF‑be egyedi képpontformátummal**
+## **Prezentáció konvertálása TIFF formátumba egyedi képpont formátummal**
 
-A [TiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/) osztályból származó [setPixelFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) metódus használatával megadhatja a kívánt képpontformátumot a létrejövő TIFF képhez.
+Az [setPixelFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) metódus használatával a [TiffOptions] osztályból megadhatja a kívánt képpont formátumot a létrehozott TIFF képhez.
 
-Ez a kód bemutatja, hogyan konvertálhatunk egy PowerPoint‑prezentációt egy egyedi képpontformátumú TIFF képre:
-
+Ez a kód bemutatja, hogyan lehet egy PowerPoint prezentációt egyedi képpont formátummal rendelkező TIFF képpé konvertálni:
 ```java
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP, stb.) képvisel.
+import com.aspose.slides.*;
+
+// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt (PPT, PPTX, ODP stb.) képvisel.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
 
     tiffOptions.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat a következő értékeket tartalmazza (ahogy a dokumentációban szerepel):
-        Format1bppIndexed - 1 bit képpontonként, indexelt.
-        Format4bppIndexed - 4 bit képpontonként, indexelt.
-        Format8bppIndexed - 8 bit képpontonként, indexelt.
-        Format24bppRgb    - 24 bit képpontonként, RGB.
-        Format32bppArgb   - 32 bit képpontonként, ARGB.
+    Az ImagePixelFormat a következő értékeket tartalmazza (a dokumentáció szerint):
+        Format1bppIndexed - 1 bit per pixel, indexelt.
+        Format4bppIndexed - 4 bit per pixel, indexelt.
+        Format8bppIndexed - 8 bit per pixel, indexelt.
+        Format24bppRgb    - 24 bit per pixel, RGB.
+        Format32bppArgb   - 32 bit per pixel, ARGB.
     */
     
-    // A prezentáció mentése TIFF formátumba a megadott képmérettel.
+    // Mentse a prezentációt TIFF formátumban a megadott képpontformátummal.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Tekintse meg az Aspose [INGYENES PowerPoint to Poster konvertert](https://products.aspose.app/slides/hu/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tipp" color="info" %}}
+Nézze meg az Aspose ingyenes [PowerPoint poszter konverterét](https://products.aspose.app/slides/hu/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **GYIK**
 
-**Átkonvertálhatok egyetlen diát a teljes PowerPoint‑prezentáció helyett TIFF‑be?**
+**Átkonvertálhatok egyetlen diát a teljes PowerPoint prezentáció helyett TIFF‑be?**
 
-Igen. Az Aspose.Slides lehetővé teszi, hogy a PowerPoint és OpenDocument prezentációkból származó egyedi diákat külön-külön TIFF képekké konvertálja.
+Igen. Az Aspose.Slides lehetővé teszi, hogy egyes diákot a PowerPoint és OpenDocument prezentációkból külön‑külön TIFF képekké konvertáljon.
 
-**Van korlátozás a diák számát illetően a prezentáció TIFF‑be konvertálásakor?**
+**Van valamilyen korlátozás a diák számát illetően a prezentáció TIFF‑be konvertálásakor?**
 
-Nem, az Aspose.Slides nem szab korlátozást a diák számára. Bármilyen méretű prezentációt konvertálhat TIFF formátumba.
+Nem, az Aspose.Slides nem korlátozza a diák számát. Bármilyen méretű prezentációt konvertálhat TIFF formátumba.
 
-**Megmaradnak a PowerPoint animációk és áttűnési hatások a diák TIFF‑be konvertálása során?**
+**Megmaradnak a PowerPoint animációk és áttűnési hatások a diák TIFF‑re konvertálásakor?**
 
-Nem, a TIFF egy statikus képformátum. Ezért az animációk és áttűnési hatások nem maradnak meg; csak a diák statikus pillanatképei kerülnek exportálásra.
+Nem, a TIFF egy statikus képfájl‑formátum. Ezért az animációk és áttűnési hatások nem kerülnek megőrzésre; csak a diák statikus pillanatképei kerülnek exportálásra.

@@ -22,252 +22,369 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Mester prezentációs témák az Aspose.Slides .NET számára, amelyek segítségével PowerPoint fájlokat hozhat létre, testreszabhat és konvertálhat konzisztens márkázással."
+description: "Mestertémák kezelése az Aspose.Slides for .NET-ben a PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához egységes márkázással."
 ---
 ## **Bevezetés**
 
-Egy bemutató téma meghatározza a tervezési elemek tulajdonságait. Amikor egy bemutató témát választ, lényegében egy adott vizuális elemeket és azok tulajdonságait tartalmazó készletet választ.
+A prezentációs téma egy koordinált szín-, betűtípus-, háttérstílus-, kitöltési-, vonal- és effektuskészletet definiál. A téma‑tudatos objektumok ezekre a közös definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma‑csere egyszerre több objektumot is frissíthet.
 
-A PowerPointban egy téma színeket, [fonts](/slides/hu/net/powerpoint-fonts/), [background styles](/slides/hu/net/presentation-background/), és effektusokat tartalmaz.
+Az Aspose.Slides‑ben a prezentáció‑szintű téma a [Presentation.MasterTheme](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/mastertheme/) tulajdonságon keresztül érhető el. A prezentáció alacsonyabb szinteken is felülbírálhatja a témát. Egy mester felülbírálhatja a prezentáció témáját a [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/masterthememanager/overridetheme/) segítségével, egy elrendezés felülbírálhatja a neki örökölt témát a [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) segítségével, és egy adott dia is megteheti ugyanezt. Gyakorlatilag egy dia hatékony témája ezen öröklődési lánc mentén kerül feloldásra: prezentációtéma, mester‑felülbírálás, elrendezés‑felülbírálás és dia‑felülbírálás.
 
-![theme-constituents](theme-constituents.png)
+![A téma összetevői: színek, betűtípusok, háttérstílusok és effektusok](theme-constituents.png)
 
-## **Téma színének módosítása**
+Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: téma ellenőrzése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektus‑stílusok frissítése, valamint a hatékony értékek kiolvasása az öröklődés és felülbírálások után.
 
-Egy PowerPoint téma egy adott színszettet használ a dia különböző elemeihez. Ha nem tetszenek a színek, új színeket alkalmazva módosíthatja a témát. Ahhoz, hogy kiválaszthass egy új téma színt, az Aspose.Slides a [SchemeColor](https://reference.aspose.com/slides/hu/net/aspose.slides/schemecolor/) felsorolásban értékeket biztosít.
+## **Téma ellenőrzése**
 
-Ez a C# kód bemutatja, hogyan változtatható meg egy téma kiemelés színe:
+A [MasterTheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/mastertheme/) objektum a téma [ColorScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/mastertheme/fontscheme/) és [FormatScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/mastertheme/formatscheme/) elemeit teszi elérhetővé. Ezeknek a gyűjteményeknek az ellenőrzése a módosítás előtt különösen hasznos, ha a prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
 
-```c#
-using (Presentation pres = new Presentation())
-    
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+Az alábbi példa elolvassa a fő téma‑tulajdonságokat, és jelentést készít arról, hogy hány háttér‑, kitöltési‑, vonal‑ és effektus‑stílus van tárolva a témában:
 
-    shape.FillFormat.FillType = FillType.Solid;
+```csharp
+using System;
+using Aspose.Slides;
 
-    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-}
+using var presentation = new Presentation("input.pptx");
+var theme = presentation.MasterTheme;
+
+Console.WriteLine($"Theme name: {theme.Name}");
+Console.WriteLine($"Accent 1: {theme.ColorScheme.Accent1.Color}");
+Console.WriteLine($"Major Latin font: {theme.FontScheme.Major.LatinFont.FontName}");
+Console.WriteLine($"Minor Latin font: {theme.FontScheme.Minor.LatinFont.FontName}");
+Console.WriteLine($"Background fill styles: {theme.FormatScheme.BackgroundFillStyles.Count}");
+Console.WriteLine($"Fill styles: {theme.FormatScheme.FillStyles.Count}");
+Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
+Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-Így határozhatod meg a kapott szín tényleges értékét:
+Ha egy fájl több mestert használ, ne feltételezzük, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Ellenőrizzük a diával társított mestert, és használjuk a később ebben a cikkben bemutatott hatékony‑téma munkafolyamatot, ha elrendezés‑ vagy dia‑felülbírálások is előfordulhatnak.
 
-```c#
-var fillEffective = shape.FillFormat.GetEffective();
+## **Téma színeinek módosítása**
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Szín [A=255, R=128, G=100, B=162])
+A téma‑tudatos kitöltések, vonalak és szöveg logikai színre hivatkozhat a [SchemeColor](https://reference.aspose.com/slides/hu/net/aspose.slides/schemecolor/) felsorolásból. Ha megváltoztatjuk a megfelelő bejegyzést a téma [IColorScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/icolorscheme/) gyűjteményében, akkor minden objektum, amely még mindig arra a téma‑színre hivatkozik, az új érték szerint kerül feloldásra. Azok az objektumok, amelyek közvetlen RGB‑színt használnak, nem változnak meg egy téma‑szín frissítésekor.
+
+Az alábbi vég‑végére példakód egy olyan alakzatot hoz létre, amely az `Accent4`-et használja, megváltoztatja a téma `Accent4` színét pirosra, elmenti a prezentációt, újra megnyitja, és kiírja a hatékony kitöltőszínt:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+presentation.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+presentation.Save("theme-color.pptx", SaveFormat.Pptx);
+
+using var savedPresentation = new Presentation("theme-color.pptx");
+var savedSlide = savedPresentation.Slides[0];
+var savedShape = savedSlide.Shapes[0];
+var effectiveFill = savedShape.FillFormat.GetEffective();
+Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-A színváltoztatás további bemutatásához létrehozunk egy másik elemet, és rákapcsoljuk a kiemelés színét (az első műveletből). Ezután megváltoztatjuk a színt a témában:
+Mivel a téglalap továbbra is az `Accent4`-hez van kapcsolva, látható színe piros lesz a téma módosítása után. Ha a sémaszínt közvetlen színre cseréljük az alakzaton, a későbbi `Accent4` változások már nem befolyásolják azt a kitöltést.
 
-```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+### **A kiegészítő palettáról származó színek használata**
 
-otherShape.FillFormat.FillType = FillType.Solid;
+A PowerPoint a téma színéből világosabb és sötétebb változatokat származtat a színátalakítások alkalmazásával. Az Aspose.Slides ezeket az átalakításokat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/net/aspose.slides/colortransformoperation/) segítségével teszi elérhetővé.
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+![A fő téma színei és a kiegészítő palettából előállított világosabb‑sötétebb színek](additional-palette-colors.png)
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+**1** – A fő téma színei.  
+**2** – A fő téma színei alapján előállított világosabb és sötétebb változatok.
+
+Az alábbi példa hat téglalapot hoz létre az `Accent4` alapján, ötön alkalmaz szín‑fényerősség‑átalakítást, majd elmenti az eredményt:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
+shape1.FillFormat.FillType = FillType.Solid;
+shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
+shape2.FillFormat.FillType = FillType.Solid;
+shape2.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
+shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
+
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
+shape3.FillFormat.FillType = FillType.Solid;
+shape3.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
+shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
+
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
+shape4.FillFormat.FillType = FillType.Solid;
+shape4.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
+shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
+
+var shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
+shape5.FillFormat.FillType = FillType.Solid;
+shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
+
+var shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
+shape6.FillFormat.FillType = FillType.Solid;
+shape6.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.5f);
+
+presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-Az új szín automatikusan alkalmazásra kerül mindkét elemre.
+Ezek a variánsok továbbra is a téma színére épülnek. Ha később megváltozik az `Accent4`, a transzformált színek az új `Accent4` értékből lesznek újraszámolva.
 
-### **Téma színének beállítása egy kiegészítő palettáról**
+### **A `SchemeColor` értékek leképezése az `IColorScheme` helyekre**
 
-Amikor a fő téma színre (1) luminancia transzformációkat alkalmazol, a kiegészítő palettáról (2) színek keletkeznek. Ezután beállíthatod és lekérheted ezeket a téma színeket. 
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - Fő téma színek  
-
-**2** - A kiegészítő paletta színei.
-
-Ez a C# kód bemutatja, hogyan nyerhetők ki a kiegészítő paletta színek a fő téma színből, majd használhatók alakzatokban:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Akcentus 4
-    IShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
-    shape1.FillFormat.FillType = FillType.Solid;
-    shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-    // Akcentus 4, Világosabb 80%
-    IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
-    shape2.FillFormat.FillType = FillType.Solid;
-    shape2.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
-    shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
-
-    // Akcentus 4, Világosabb 60%
-    IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
-    shape3.FillFormat.FillType = FillType.Solid;
-    shape3.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
-    shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
-
-    // Akcentus 4, Világosabb 40%
-    IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
-    shape4.FillFormat.FillType = FillType.Solid;
-    shape4.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
-    shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
-
-    // Akcentus 4, Sötétebb 25%
-    IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
-    shape5.FillFormat.FillType = FillType.Solid;
-    shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
-
-    // Akcentus 4, Sötétebb 50%
-    IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
-    shape6.FillFormat.FillType = FillType.Solid;
-    shape6.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.5f);
-
-    presentation.Save("example.pptx", SaveFormat.Pptx);
-}
-```
-
-### **SchemeColor leképezése IColorScheme színekre**
-
-Amikor a [SchemeColor](https://reference.aspose.com/slides/hu/net/aspose.slides/schemecolor/) elemmel dolgozol, észreveheted, hogy a következő téma színértékeket tartalmazza:
-
-`Background1`, `Background2`, `Text1`, és `Text2`.
-
-Azonban a `Presentation.MasterTheme.ColorScheme` a [IColorScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/icolorscheme/) típusát adja vissza, amely a megfelelő színeket a következőképpen jeleníti meg:
-
-`Dark1`, `Dark2`, `Light1`, és `Light2`.
-
-Ez a különbség csak a nevekben van. Ezek az értékek ugyanazokra a téma színbetűkre vonatkoznak, és a leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/hu/net/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg az [IColorScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/icolorscheme/) ugyanazokat a témahelyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi elérhetővé. A leképezés rögzített:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Nincs dinamikus átalakítás a `Text`/`Background` és a `Dark`/`Light` között. Egyszerűen csak alternatív nevek azonos téma színekhez.
+Ezek ugyanazon témahelyek alternatív nevei; nem olyan értékek, amelyeket dinamikusan konvertálnak egyik formából a másikba.
 
-Ez a néveltérés a Microsoft Office terminológiájából származik. A régebbi Office verziók a `Dark 1`, `Light 1`, `Dark 2`, és `Light 2` neveket használták, míg az újabb felhasználói felületek ugyanezeket a csatlakozókat jelenítik meg `Text 1`, `Background 1`, `Text 2`, és `Background 2` formában.
+## **Téma betűtípusainak módosítása**
 
-## **Téma betűtípusának módosítása**
+Egy téma‑betűtípus‑készlet fő betűtípust tartalmaz a címsorokhoz, és kisebb betűtípust a törzsszöveghez. A [FontScheme.Major](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/fontscheme/major/) és a [FontScheme.Minor](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/fontscheme/minor/) tulajdonságok ezeket a készleteket teszik elérhetővé.
 
-Ahhoz, hogy a témákhoz és egyéb célokra betűtípusokat válassz, az Aspose.Slides ezeket a speciális azonosítókat használja (hasonlóan a PowerPointban használtakhoz):
+A PowerPoint‑kompatibilis téma‑betűtípus azonosítók a szövegformázásban használhatók:
 
-* **+mn-lt** - Test betűtípusa latin (Kisebb latin betűtípus)
-* **+mj-lt** - Fejléc betűtípusa latin (Nagy latin betűtípus)
-* **+mn-ea** - Test betűtípusa kelet-ázsiai (Kisebb kelet-ázsiai betűtípus)
-* **+mj-ea** - Fejléc betűtípusa kelet-ázsiai (Nagy kelet-ázsiai betűtípus)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading Font Latin (Major Latin Font)
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
 
-Ez a C# kód megmutatja, hogyan rendelhető a latin betűtípus egy téma elemhez:
+Az alábbi példa egy címsort hoz létre, amely a fő latin téma‑betűtípust használja, valamint egy törzssort, amely a kisebb latin téma‑betűtípust használja. Ezután megváltoztatja a téma betűtípusait, és elmenti az eredményt:
 
-```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Paragraph paragraph = new Paragraph();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Portion portion = new Portion("Theme text format");
+var heading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+heading.TextFrame.Text = "Theme heading";
+heading.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("+mj-lt");
 
-paragraph.Portions.Add(portion);
+var body = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+body.TextFrame.Text = "Theme body text";
+body.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("+mn-lt");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+presentation.MasterTheme.FontScheme.Major.LatinFont = new FontData("Aptos Display");
+presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-Ez a C# kód megmutatja, hogyan változtatható meg a bemutató téma betűtípusa:
+A cím a fő betűtípust követi, a törzsszöveg a kisebb betűtípust. Az olyan szöveg, amely kifejezett betűtárgy nevet tartalmaz a téma‑azonosító helyett, nem vált automatikusan át a téma‑betűtípus‑készlet változása esetén.
 
-```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
-```
+A fő és kisebb betűtípus‑gyűjtemények tartalmazhatnak betűtípus‑leképezéseket egyedi írásrendszerekhez is, például cirill, arab, japán, grúz és thaana. Ezeknek a leképezéseknek az ellenőrzéséhez, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/net/script-specific-font-mappings/) oldalt.
 
-Az összes szövegdoboz betűtípusa frissülni fog.
-
-{{% alert color="primary" title="TIP" %}} 
-Érdemes megnézni a [PowerPoint fonts](/slides/hu/net/powerpoint-fonts/). 
+{{% alert color="info" title="Tipp" %}}
+További információk a prezentáció betűtípusaival kapcsolatban: [PowerPoint Fonts](/slides/hu/net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Téma háttérstílusának módosítása**
+## **Téma másolása vagy alkalmazása**
 
-Alapértelmezésben a PowerPoint alkalmazás 12 előre definiált hátteret biztosít, de egy tipikus prezentációban csak 3 van elmentve ezekből a 12-ből. 
+Két gyakori munkafolyamat létezik, amelyek különböző problémákat oldanak meg.
 
-![todo:image_alt_text](presentation-design_8.png)
+### **Forrástéma megőrzése diák áthelyezésekor**
 
-Például, ha elment egy bemutatót a PowerPointban, futtathatja ezt a C# kódot, hogy megtudja a prezentációban lévő előre definiált háttér számát:
+Ha egy dia áthelyezésekor meg akarjuk őrizni az eredeti megjelenést, klónozzuk a forrás‑mestert a célprezentációba a [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection/addclone/) segítségével, majd a diát a [ISlideCollection.AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/addclone/) és a klónozott mester használatával klónozzuk. Így a mester, az elrendezései és a kapcsolódó téma is együttesen kerül át.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var sourceSlide = source.Slides[0];
+var sourceMaster = sourceSlide.LayoutSlide.MasterSlide;
+var clonedMaster = target.Masters.AddClone(sourceMaster);
+target.Slides.AddClone(sourceSlide, clonedMaster, true);
+
+target.Save("theme-preserved.pptx", SaveFormat.Pptx);
+```
+
+Ez a preferált munkafolyamat, ha a forrásdia megjelenésének egyeznie kell a célban is. Egy nem kapcsolódó célmesterre történő egyszerű tartalomklónozás megváltoztathatja a téma‑alapú színeket, betűtípusokat, háttereket és effektusokat.
+
+### **Témaértékek alkalmazása meglévő diára**
+
+Ha a céldia a jelenlegi mesterén és elrendezésén kell maradjon, inicializáljunk egy dia‑szintű felülbírálást a forrástémából. A [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/overridetheme/initfontschemefrom/) és [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/overridetheme/initformatschemefrom/) metódusok a három fő téma‑komponenst másolják a felülbírálásba.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var targetSlide = target.Slides[0];
+var overrideTheme = targetSlide.ThemeManager.OverrideTheme;
+overrideTheme.InitColorSchemeFrom(source.MasterTheme.ColorScheme);
+overrideTheme.InitFontSchemeFrom(source.MasterTheme.FontScheme);
+overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
+
+target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+```
+
+Ez megváltoztatja az adott dia által használt témát anélkül, hogy a többi dia örökölt témáját befolyásolná. A helyi felülbírálás eltávolításához és az örökölt értékek visszaállításához hívjuk meg az [OverrideTheme.Clear](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/overridetheme/clear/) metódust.
+
+### **Téma felülbírálás alkalmazása elrendezésre**
+
+Az elrendezés‑szintű felülbírálás az azt használó diákra vonatkozik, hacsak egy adott dia saját felülbírálást nem tartalmaz. Ugyanezeket az inicializáló metódusokat a layout [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/layoutslidethememanager/) használatával is alkalmazhatjuk:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var targetLayout = target.Slides[0].LayoutSlide;
+var overrideTheme = targetLayout.ThemeManager.OverrideTheme;
+overrideTheme.InitColorSchemeFrom(source.MasterTheme.ColorScheme);
+overrideTheme.InitFontSchemeFrom(source.MasterTheme.FontScheme);
+overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
+
+target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+```
+
+Használjunk mester‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak kell ugyanazt az alap‑designt megosztania; egy elrendezés‑felülbírálást, ha egy elrendezés‑családnak eltérő stilizálásra van szüksége; és egy dia‑felülbírálást csak valódi kivételek esetén. A túlzott dia‑szintű felülbírálások megnehezítik a későbbi globális téma‑változtatások előrejelzését.
+
+## **Téma háttérstílusok frissítése**
+
+A téma háttér‑kitöltései a [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) gyűjteményben tárolódnak. A PowerPoint felhasználói felülete több háttér‑választást kínálhat, mint amennyi kitöltésdefiníció fizikailag tárolva van ebben a kollekcióban, mivel a UI kombinálhat téma‑kitöltéseket téma‑színekkel és más stílus‑referenciákkal.
+
+![PowerPoint háttérstílus galéria egy prezentációs témához](presentation-design_8.png)
+
+Mielőtt egy háttér‑stílust használna, ellenőrizze a tárolt gyűjteményt és a jelenlegi [Background.StyleIndex](https://reference.aspose.com/slides/hu/net/aspose.slides/background/styleindex/) értéket. A `StyleIndex` a `0`‑t használja témamentes kitöltéshez; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér a .NET kollekció közvetlen indexelésétől, ahol a `[0]` az első tárolt elemet jelenti. Ne feltételezzük, hogy minden prezentáció ugyanannyi háttér‑kitöltés‑stílust tartalmaz.
+
+Az alábbi példa jelentést készít a rendelkezésre álló háttér‑kitöltések számáról, egy tematikus háttér‑referenciát rendeli az első mesterhez, majd elmenti a prezentációt:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var backgroundStyles = presentation.MasterTheme.FormatScheme.BackgroundFillStyles;
+Console.WriteLine($"Background fill styles: {backgroundStyles.Count}");
+
+if (backgroundStyles.Count == 0)
 {
-    int numberOfBackgroundFills = pres.MasterTheme.FormatScheme.BackgroundFillStyles.Count;
+    throw new InvalidOperationException("The presentation theme does not contain background fill styles.");
+}
 
-    Console.WriteLine($"Number of background fill styles for theme is {numberOfBackgroundFills}");
+presentation.Masters[0].Background.Type = BackgroundType.Themed;
+presentation.Masters[0].Background.StyleIndex = 1;
+
+presentation.Save("theme-background.pptx", SaveFormat.Pptx);
+```
+
+A látható eredmény a mestertől referenciált téma‑bejegyzéstől és a elrendezés‑ vagy diaszintű háttér‑felülbírálásoktól függ. Ha egy dia saját háttérrel rendelkezik, csak a mester háttér módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/background/geteffective/) metódust, ha a teljes háttérre van szüksége az öröklődés után.
+
+{{% alert color="warning" title="Figyelmeztetés" %}}
+Ne kezelje a `StyleIndex`‑et nulla‑alapú kollekció‑indexként. Kerülje el egy stílusszám kódba ültetését egy fájlból, és annak feltételezését, hogy egy másik fájlban ugyanúgy néz ki; a téma‑stílusdefiníciók prezentációnként eltérőek.
+{{% /alert %}}
+
+{{% alert color="info" title="Tipp" %}}
+Közvetlen háttér‑formázáshoz és háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/net/presentation-background/) oldalt.
+{{% /alert %}}
+
+## **Téma effektusok frissítése**
+
+Egy téma‑formátum‑készlet külön [FillStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/linestyles/) és [EffectStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/effectstyles/) gyűjteményt tartalmaz. A tipikus Office‑témák gyakran három fő stílusbejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell a fix szám feltételezése helyett.
+
+![Finom, közepes és intenzív téma‑effektusok egyforma alakzatra alkalmazva](presentation-design_10.png)
+
+C#‑ban ezekhez a gyűjteményekhez való hozzáféréskor a kollekcióindex nulla‑alapú: `[0]` az első tárolt stílus, `[2]` a harmadik. Az alakzat stílus‑referencia‑indexei egy külön fogalom, amely a [IShapeStyle](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapestyle/) révén érhető el. Egy téma‑stílus módosítása azokra az alakzatokra hat, amelyek arra a téma‑stílusra hivatkoznak; a közvetlen formázással rendelkező alakzatok változatlanok maradhatnak.
+
+Az alábbi példa ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, módosítja az első vonal‑stílust, a harmadik kitöltő‑stílust, egy külső árnyékot kapcsol be a harmadik effektus‑stílusban, majd elmenti az eredményt:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+var formatScheme = presentation.MasterTheme.FormatScheme;
+
+if (formatScheme.LineStyles.Count < 1 || formatScheme.FillStyles.Count < 3 || formatScheme.EffectStyles.Count < 3)
+{
+    throw new InvalidOperationException("The theme does not contain the style entries required by this example.");
+}
+
+formatScheme.LineStyles[0].FillFormat.FillType = FillType.Solid;
+formatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
+formatScheme.FillStyles[2].FillType = FillType.Solid;
+formatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
+formatScheme.EffectStyles[2].EffectFormat.EnableOuterShadowEffect();
+formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
+
+presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
+```
+
+Az ezekre a helyekre hivatkozó alakzatok esetén az első téma‑vonal‑stílus piros, a harmadik téma‑kitöltő‑stílus szilárd erdőzöld, a harmadik effektus‑stílus pedig külső árnyékot kap 10 pont távolsággal. A pontos vizuális eredmény továbbra is attól függ, hogy mely stílus‑helyeket hivatkozza az egyes alakzat, és hogy a közvetlen formázás felülbírálja-e a témát.
+
+![Téma‑effektus‑stílusok módosítása után: vonal, kitöltés és árnyék beállításai](presentation-design_11.png)
+
+## **Hatékony témaértékek kiolvasása**
+
+A nyers témaobjektumok azt mutatják, hogy mi van definiálva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülbírálások után. Diára vonatkozóan hívja meg a [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) metódust. Háttérre a [Background.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/background/geteffective/) használható, kitöltésre pedig a [FillFormat.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/geteffective/) metódus.
+
+Az alábbi példa kiolvassa a hatékony témát, a háttér‑stílust és az első alakzat kitöltését egy diáról:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+var effectiveTheme = slide.ThemeManager.CreateThemeEffective();
+var effectiveBackground = slide.Background.GetEffective();
+
+Console.WriteLine($"Effective major Latin font: {effectiveTheme.FontScheme.Major.LatinFont.FontName}");
+Console.WriteLine($"Effective minor Latin font: {effectiveTheme.FontScheme.Minor.LatinFont.FontName}");
+Console.WriteLine($"Effective background fill type: {effectiveBackground.FillFormat.FillType}");
+
+if (slide.Shapes.Count > 0)
+{
+    var effectiveFill = slide.Shapes[0].FillFormat.GetEffective();
+    Console.WriteLine($"First shape effective fill type: {effectiveFill.FillType}");
+    if (effectiveFill.FillType == FillType.Solid)
+    {
+        Console.WriteLine($"First shape effective fill color: {effectiveFill.SolidFillColor}");
+    }
 }
 ```
 
-{{% alert color="warning" %}} 
-A [BackgroundFillStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) tulajdonságot a [FormatScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/) osztályból használva hozzáadhat vagy elérhet háttérstílust egy PowerPoint témában. 
-{{% /alert %}}
-
-Ez a C# kód megmutatja, hogyan állíts be háttért egy prezentációhoz:
-
-```c#
-pres.Masters[0].Background.StyleIndex = 2;
-```
-
-**Index útmutató**: 0 az üres kitöltésre használatos. Az index 1-től kezdődik.
-
-{{% alert color="primary" title="TIP" %}} 
-Érdemes megnézni a [PowerPoint Background](/slides/hu/net/presentation-background/). 
-{{% /alert %}}
-
-## **Téma effektus változtatása**
-
-Egy PowerPoint téma általában 3 értéket tartalmaz minden stílus tömbhöz. Ezek a tömbök kombinálódnak a 3 effektusban: finom, mérsékelt és intenzív. Például, ez a kimenet, amikor a effektusok egy adott alakzatra kerülnek:
-
-![todo:image_alt_text](presentation-design_10.png)
-
-A [FillStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/linestyles), és [EffectStyles](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme/effectstyles) tulajdonságok a [FormatScheme](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/formatscheme) osztályból használva módosíthatod a téma elemeit (még rugalmasabban, mint a PowerPoint opciói).
-
-Ez a C# kód megmutatja, hogyan változtatható meg egy téma effektus az elemek részeinek módosításával:
-
-```c#
-using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
-{
-    pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
-
-    pres.MasterTheme.FormatScheme.FillStyles[2].FillType = FillType.Solid;
-
-    pres.MasterTheme.FormatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
-
-    pres.MasterTheme.FormatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
-
-    pres.Save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
-}
-```
-
-Az eredményül kapott változások a kitöltési színben, kitöltés típusban, árnyék hatásban stb.:
-
-![todo:image_alt_text](presentation-design_11.png)
+Használja a hatékony adatokat renderelési diagnosztikához, validáláshoz és összehasonlításokhoz. Ha csak a [Presentation.MasterTheme](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/mastertheme/) ellenőrzésével foglalkozik, lemaradhat egy mester, elrendezés, dia vagy alakzat felülbírálásáról, amely megváltoztatja a végső megjelenést.
 
 ## **GYIK**
 
-**Alkalmazhatok egy témát egyetlen diára a mester anélkül?**
+**Alkalmazhatok egy témát egyetlen diára anélkül, hogy a mestert módosítanám?**
 
-Igen. Az Aspose.Slides támogatja a dia-szintű téma felülírásokat, így alkalmazhatsz helyi témát csak arra a diára, miközben a mester téma érintetlen marad (a [SlideThemeManager](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/slidethememanager/) segítségével).
+Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/slidethememanager/) objektumát, és inicializálja annak felülbíráló témáját. A változás csak arra a diára marad lokálisan; a többi dia a meglévő témáját örökli.
 
-**Mi a legbiztonságosabb módja a téma átvitelének az egyik prezentációból a másikba?**
+**Mi a legbiztonságosabb módja egy téma átvitelének egyik prezentációból a másikba?**
 
-[Clone slides](/slides/hu/net/clone-slides/) a masterrel együtt a célelő prezentációba. Ez megőrzi az eredeti mastert, elrendezéseket és a kapcsolódó témát, így a megjelenés konzisztens marad.
+Diák áthelyezésekor és a forrás megjelenésének megőrzésekor klónozza a forrás‑mestert a célba, majd a diát a klónozott mesterrel a [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection/addclone/) és a [ISlideCollection.AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/addclone/) metódusokkal. Így a mester, az elrendezések és a téma együtt kerül át.
 
-**Hogyan láthatom a "hatékony" értékeket az összes öröklődés és felülírás után?**
+**Hogyan tekinthetem meg a hatékony értékeket az öröklődés és felülbírálások után?**
 
-Használd az API ["effective"](/slides/hu/net/shape-effective-properties/) nézeteit a téma/szín/betűtípus/effektus esetén. Ezek a feloldott, végleges tulajdonságokat adják vissza a master és a helyi felülírások alkalmazása után.
+Használja a [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/hu/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) metódust egy dia vagy elrendezés téma esetén, és a megfelelő hatékony‑adat metódusokat a formátumobjektumokhoz, mint például a [Background.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/background/geteffective/) és a [FillFormat.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/geteffective/). Ezek az API‑k a feloldott értékeket adják vissza az öröklődés és felülbírálások alkalmazása után.

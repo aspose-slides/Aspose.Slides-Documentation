@@ -9,90 +9,167 @@ keywords:
 - digitales Zertifikat
 - Zertifizierungsstelle
 - PFX-Zertifikat
+- PKCS#12
+- Signatur validieren
 - PowerPoint
-- OpenDocument
-- Präsentation
+- PPTX
+- Präsentationssicherheit
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für C++ digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Codebeispielen."
+description: "Erfahren Sie, wie Sie vorhandene PPTX-Präsentationen mit PFX-Zertifikaten signieren und Aspose.Slides für C++ verwenden, um digitale Signaturen zu validieren oder zu entfernen."
 ---
+## **Übersicht**
 
-**Digitales Zertifikat** wird verwendet, um eine passwortgeschützte PowerPoint‑Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Ein digitales Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation — einer Zertifizierungsstelle — erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um der Präsentation über Datei → Info → Präsentation schützen eine digitale Signatur hinzuzufügen:
+Eine digitale Signatur hilft dem Empfänger zu bestimmen, wer eine Präsentation unterschrieben hat und ob der signierte Inhalt geändert wurde. Drei verwandte Sicherheitskonzepte sind hier wichtig:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Ein **digitales Zertifikat** ist ein elektronisches Zeugnis, das eine Identität mit einem öffentlichen Schlüssel verknüpft. Eine vertrauenswürdige Zertifizierungsstelle (CA) kann ein Zertifikat ausstellen, oder eine Organisation kann ein selbstsigniertes Zertifikat für interne Arbeitsabläufe verwenden.
+- Eine **digitale Signatur** wird aus dem Präsentationsinhalt und dem privaten Schlüssel des Zertifikatsinhabers erstellt. Der öffentliche Schlüssel des Zertifikats kann dann zur Verifizierung der Signatur verwendet werden. Eine Signatur liefert Nachweis über Herkunft und Integrität; sie verschlüsselt die Präsentation nicht.
+- **Passwortschutz** steuert, ob ein Benutzer eine Präsentation öffnen oder ändern kann. Er ist von der digitalen Signatur getrennt und wird in [Passwortgeschützte Präsentationen](/slides/de/cpp/password-protected-presentation/) beschrieben.
 
-Eine Präsentation kann mehr als eine digitale Signatur enthalten. Nachdem die digitale Signatur zur Präsentation hinzugefügt wurde, erscheint in PowerPoint eine spezielle Meldung:
+PowerPoint stellt den Befehl **Digitale Signatur hinzufügen** unter **Datei > Info > Präsentation schützen** bereit.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint-Menü ‚Präsentation schützen‘ mit hervorgehobener Option ‚Digitale Signatur hinzufügen‘](add-digital-signature-in-powerpoint.png)
 
-Um eine Präsentation zu signieren oder die Echtheit von Präsentationssignaturen zu überprüfen, bietet die **Aspose.Slides API** die Schnittstelle [**IDigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature), die Schnittstelle [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) und die Methode [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1). Derzeit werden digitale Signaturen nur für das PPTX‑Format unterstützt.
+![PowerPoint-Benachrichtigung, die anzeigt, dass die Präsentation gültige Signaturen enthält](digital-signature-status-in-powerpoint.png)
 
-## **Digitale Signatur aus einem PFX‑Zertifikat hinzufügen**
-Das folgende Codebeispiel zeigt, wie man eine digitale Signatur aus einem PFX‑Zertifikat hinzufügt:
+Aspose.Slides stellt Signaturen über [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/get_digitalsignatures/) bereit, das eine [IDigitalSignatureCollection](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignaturecollection/) zurückgibt, deren Elemente [IDigitalSignature](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignature/) implementieren. Eine Präsentation kann mehrere Signaturen enthalten.
 
-1. Öffnen Sie die PFX‑Datei und übergeben Sie das PFX‑Passwort an das Objekt [**DigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature).
-2. Fügen Sie die erstellte Signatur dem Präsentationsobjekt hinzu.
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+## **Verstehen von PFX-Zertifikaten und Passwörtern**
 
-// Erstelle DigitalSignature-Objekt mit PFX-Datei und PFX-Passwort 
-auto signature = System::MakeObject<DigitalSignature>(u"testsignature1.pfx", u"testpass1");
+Eine PFX-Datei, auch bekannt als PKCS#12-Datei und üblicherweise mit der Endung `.pfx` oder `.p12` versehen, kann ein X.509-Zertifikat, dessen privaten Schlüssel und die Zertifikatskette enthalten. Der private Schlüssel ermöglicht es dem Inhaber, eine Signatur zu erstellen. Ein Zertifikat ohne zugänglichen privaten Schlüssel kann nicht zum Signieren einer Präsentation verwendet werden.
 
-// Kommentiere neue digitale Signatur
-signature->set_Comments(u"Aspose.Slides digital signing test.");
+Das PFX-Passwort schützt das Zertifikatspaket und den privaten Schlüssel. Es ist **kein** Passwort zum Öffnen oder Bearbeiten der Präsentation. Committen Sie keine PFX-Dateien oder deren Passwörter in die Versionskontrolle. In der Produktion beschränken Sie den Zugriff auf die Zertifikatsdatei und holen das Passwort aus einem geheimen Speicher oder einer anderen geschützten Konfigurationsquelle. Die nachstehenden Beispiele verwenden lediglich eine Umgebungsvariable, um das Festschreiben des Passworts im Code zu vermeiden.
 
-// Füge digitale Signatur zur Präsentation hinzu
-pres->get_DigitalSignatures()->Add(signature);
+## **Eine digitale Signatur zu einer Präsentation hinzufügen**
 
-// Speichere Präsentation
-pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
+Um einen echten Präsentations-Workflow zu signieren, laden Sie eine bestehende PPTX-Datei, erstellen Sie eine [DigitalSignature](https://reference.aspose.com/slides/de/cpp/aspose.slides/digitalsignature/) aus einem PFX-Zertifikat und dessen Passwort, fügen Sie die Signatur zur Signatursammlung der Präsentation hinzu und speichern Sie sie als PPTX-Datei.
+
+```cpp
+auto certificatePassword = Environment::GetEnvironmentVariable(u"PFX_PASSWORD");
+if (certificatePassword.IsNullOrEmpty())
+{
+    throw InvalidOperationException(u"Set the PFX_PASSWORD environment variable.");
+}
+
+auto presentation = MakeObject<Presentation>(u"InputPresentation.pptx");
+
+auto signature = MakeObject<DigitalSignature>(u"signing-certificate.pfx", certificatePassword);
+signature->set_Comments(u"Approved for release.");
+
+presentation->get_DigitalSignatures()->Add(signature);
+presentation->Save(u"InputPresentation-signed.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Das Speichern des Ergebnisses unter einem neuen Namen bewahrt die unsignierte Quelldatei. Der Wert von [IDigitalSignature::set_Comments](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignature/set_comments/) beschreibt den Zweck der Signatur; er stellt keine Sicherheitskontrolle dar.
 
-Jetzt ist es möglich zu prüfen, ob die Präsentation digital signiert wurde und nicht verändert wurde:
-``` cpp
-// Präsentation öffnen
-auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
+## **Digitale Signaturen validieren**
 
-if (pres->get_DigitalSignatures()->get_Count() > 0)
+Wenn Sie eine signierte PPTX-Datei laden, prüfen Sie jedes von [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/get_digitalsignatures/) zurückgegebene Element. Die Methode [IDigitalSignature::get_IsValid](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignature/get_isvalid/) gibt an, ob die eingebettete Signatur für den aktuellen Präsentationsinhalt gültig ist.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+auto signatureCount = presentation->get_DigitalSignatures()->get_Count();
+
+if (signatureCount == 0)
+{
+    Console::WriteLine(u"The presentation does not contain digital signatures.");
+}
+else
 {
     bool allSignaturesAreValid = true;
 
-    Console::WriteLine(u"Signatures used to sign the presentation: ");
-
-    // Überprüfen, ob alle digitalen Signaturen gültig sind
-    for (auto signature : pres->get_DigitalSignatures())
+    for (int signatureIndex = 0; signatureIndex < signatureCount; ++signatureIndex)
     {
-        Console::WriteLine(signature->get_Certificate()->get_SubjectName()->get_Name() 
-            + u", " 
-            + signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm") 
-            + u" -- " 
-            + (signature->get_IsValid() ? System::String(u"VALID") : System::String(u"INVALID")));
-        allSignaturesAreValid &= signature->get_IsValid();
+        auto signature = presentation->get_DigitalSignature(signatureIndex);
+        auto signatureIsValid = signature->get_IsValid();
+        auto signatureStatus = signatureIsValid ? u"VALID" : u"INVALID";
+        auto signerName = signature->get_Certificate()->get_SubjectName()->get_Name();
+        auto signingTime = signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm:ss");
+
+        Console::WriteLine(u"{0}, {1} -- {2}", signerName, signingTime, signatureStatus);
+
+        allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
     }
 
     if (allSignaturesAreValid)
     {
-        Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
+        Console::WriteLine(u"All embedded signatures are valid for the current presentation.");
     }
     else
     {
-        Console::WriteLine(u"Presentation has been modified since signing.");
+        Console::WriteLine(u"At least one embedded signature is invalid.");
     }
 }
+
+presentation->Dispose();
 ```
 
+Ein ungültiges Ergebnis bedeutet in der Regel, dass der signierte Präsentationsinhalt oder die Signaturdaten nach dem Signieren geändert wurden oder dass die Datei beschädigt ist. Das Entfernen aller Signaturen erzeugt eine unsignierte Präsentation, daher reicht das bloße Prüfen der Gültigkeit der Elemente nicht aus: Ein sicherheitssensitiver Workflow muss außerdem verifizieren, dass die erwartete Anzahl von Signaturen und die erwarteten Signaturidentitäten vorhanden sind.
+
+Dieses Gültigkeitsergebnis sollte nicht als vollständige Zertifikatsvertrauensentscheidung betrachtet werden. Je nach Sicherheitsrichtlinie muss Ihre Anwendung möglicherweise die X.509-Zertifikatskette erstellen und validieren, Gültigkeitsdaten und Widerrufsstatus des Zertifikats prüfen, den erwarteten Betreff oder Fingerabdruck bestätigen, die Schlüsselnutzung verifizieren und einen vertrauenswürdigen Zeitstempel auswerten. Der Wert von [IDigitalSignature::get_SignTime](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignature/get_signtime/) allein ist kein Nachweis einer vertrauenswürdigen Zeitstempelbehörde.
+
+## **Digitale Signaturen entfernen**
+
+Das Entfernen von Signaturen ändert den Sicherheitszustand der Präsentation. Das folgende Beispiel lädt eine signierte PPTX-Datei, entfernt alle Signaturen mit [IDigitalSignatureCollection::Clear](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignaturecollection/clear/) und speichert eine unsignierte Kopie.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+presentation->get_DigitalSignatures()->Clear();
+presentation->Save(u"InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Um nur eine Signatur zu entfernen, rufen Sie [IDigitalSignatureCollection::RemoveAt](https://reference.aspose.com/slides/de/cpp/aspose.slides/idigitalsignaturecollection/removeat/) mit dem nullbasierten Index auf. Speichern Sie in eine neue Datei, es sei denn, das Überschreiben des signierten Originals ist ein expliziter Teil Ihres Workflows.
+
+## **Bearbeitungs- und Formatüberlegungen**
+
+- Eine Signatur macht eine Präsentation nicht schreibgeschützt. Benutzer und Anwendungen können die Datei weiterhin bearbeiten, aber Änderungen am signierten Inhalt machen die vorhandene Signatur in der Regel ungültig.
+- Führen Sie alle geplanten Änderungen vor dem Signieren durch. Muss eine Präsentation geändert werden, speichern Sie die überarbeitete Präsentation und signieren Sie diese Revision erneut.
+- Behalten Sie das Endergebnis im PPTX-Format. Das Konvertieren einer signierten Präsentation in ein anderes Format überträgt die ursprüngliche PPTX-Signatur nicht als gültige Signatur für die konvertierte Datei.
+- Behandeln Sie den privaten Schlüssel des Zertifikats als sensibel. Jeder, der den privaten Schlüssel und dessen Passwort erhält, kann Signaturen erstellen, die scheinbar vom Zertifikatsinhaber stammen.
+- Bewahren Sie die unsignierte Quelle oder eine andere kontrollierte Kopie auf, wenn Ihre Aufbewahrungsrichtlinie dies erfordert.
 
 ## **FAQ**
 
-**Kann ich vorhandene Signaturen aus einer Datei entfernen?**
+**Verschlüsselt eine digitale Signatur die Präsentation?**
 
-Ja. Die Sammlung digitaler Signaturen unterstützt das [Entfernen einzelner Elemente](https://reference.aspose.com/slides/cpp/aspose.slides/digitalsignaturecollection/removeat/) und das [komplette Leeren](https://reference.aspose.com/slides/cpp/aspose.slides/digitalsignaturecollection/clear/); nachdem Sie die Datei gespeichert haben, enthält die Präsentation keine Signaturen mehr.
+Nein. Eine digitale Signatur liefert Nachweis über Herkunft und Integrität, aber der Präsentationsinhalt bleibt lesbar, sofern nicht eine separate Verschlüsselung angewendet wird. Verwenden Sie [Passwortschutz](/slides/de/cpp/password-protected-presentation/), wenn der Zugriff auf den Inhalt eingeschränkt werden muss.
 
-**Wird die Datei nach dem Signieren "schreibgeschützt"?**
+**Ist das PFX-Passwort dasselbe wie ein Präsentationspasswort?**
 
-Nein. Eine Signatur bewahrt Integrität und Urheberschaft, blockiert jedoch keine Änderungen. Um das Bearbeiten zu beschränken, kombinieren Sie sie mit ["Read-only" oder einem Passwort](/slides/de/cpp/password-protected-presentation/).
+Nein. Das PFX-Passwort entsperrt den privaten Schlüssel, der im Zertifikatspaket gespeichert ist. Es steuert nicht, wer die PPTX-Datei öffnen oder bearbeiten kann.
 
-**Wird die Signatur in verschiedenen PowerPoint-Versionen korrekt angezeigt?**
+**Kann ich ein selbstsigniertes Zertifikat verwenden?**
 
-Die Signatur wird für den OOXML‑(PPTX‑)Container erstellt. Moderne PowerPoint‑Versionen, die OOXML‑Signaturen unterstützen, zeigen den Status solcher Signaturen korrekt an.
+Technisch kann ein selbstsigniertes Zertifikat verwendet werden, wenn es einen zugänglichen privaten Schlüssel enthält. Empfänger werden ihm jedoch nicht automatisch vertrauen, es sei denn, das Zertifikat wurde ausdrücklich in ihre Vertrauensumgebung aufgenommen. Öffentliche oder bereichsübergreifende Workflows verwenden in der Regel ein von einer vertrauenswürdigen CA ausgestelltes Zertifikat.
+
+**Was macht eine Signatur ungültig?**
+
+Das Ändern des signierten Präsentationsinhalts oder der Signaturdaten nach dem Signieren kann die Signatur ungültig machen. Dateibeschädigung kann ebenfalls zum Scheitern der Validierung führen. Wenn alle Signaturen entfernt werden, ist die Präsentation unsigniert und nicht eine Datei, die eine ungültige Signatur enthält.
+
+**Bedeutet eine gültige Signatur, dass ich dem Unterzeichner vertrauen sollte?**
+
+Nicht allein. Die Integrität der Signatur und das Vertrauen in den Unterzeichner sind separate Entscheidungen. Eine Produktions‑Validierungspolicy sollte zudem die Zertifikatskette, den Gültigkeitszeitraum, den Widerrufsstatus, die erwartete Identität, die Schlüsselnutzung und etwaige Anforderungen an einen vertrauenswürdigen Zeitstempel prüfen.
+
+**Was passiert, wenn das Zertifikat abläuft?**
+
+Das Ablaufdatum des Zertifikats ändert die Bytes der Präsentation nicht, beeinflusst jedoch die Bewertung des Zertifikatvertrauens. Ob eine Signatur weiterhin akzeptabel ist, hängt von Ihrer Richtlinie und davon ab, ob ein gültiger vertrauenswürdiger Zeitstempel nachweist, dass die Signatur erfolgt ist, während das Zertifikat noch gültig war. Verlassen Sie sich nicht ausschließlich auf die angezeigte Signaturzeit als vertrauenswürdigen Zeitstempel.
+
+**Kann eine signierte Präsentation noch bearbeitet werden?**
+
+Ja. Das Signieren sperrt die Datei nicht. Das Bearbeiten signierter Inhalte macht in der Regel die vorhandene Signatur ungültig, daher sollten Sie die Präsentation zuerst fertigstellen und die endgültige Revision signieren.
+
+**Kann eine Präsentation mehr als eine Signatur enthalten?**
+
+Ja. Fügen Sie jede Signatur der von [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/get_digitalsignatures/) zurückgegebenen Sammlung hinzu, bevor Sie speichern. Während der Validierung prüfen Sie jede Signatur und bestätigen, dass alle erforderlichen Unterzeichner vorhanden sind.
+
+**Welche Präsentationsformate unterstützen diese Vorgänge?**
+
+Aspose.Slides unterstützt die hier beschriebenen Digital‑Signatur‑Operationen ausschließlich für PPTX. Die Formate PPT und OpenDocument‑Präsentation werden von diesem API‑Workflow nicht unterstützt.
+
+**Kann ich eine Signatur entfernen, ohne die Folien zu beeinträchtigen?**
+
+Ja. Sie können eine Signatur entfernen oder die gesamte Sammlung leeren und anschließend die Präsentation speichern. Der Folieninhalt bleibt erhalten, aber die gespeicherte Datei enthält die entfernten Signaturnachweise nicht mehr.

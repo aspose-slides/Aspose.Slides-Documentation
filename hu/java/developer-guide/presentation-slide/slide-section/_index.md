@@ -1,92 +1,216 @@
 ---
-title: Diák szakaszok kezelése a prezentációkban Java használatával
-linktitle: Diák szakasz
+title: Diákszakciók kezelése prezentációkban Java-val
+linktitle: Diákszakció
 type: docs
 weight: 90
 url: /hu/java/slide-section/
 keywords:
-- szakasz létrehozása
-- szakasz hozzáadása
-- szakasz szerkesztése
-- szakasz módosítása
-- szakasz neve
+- szekció létrehozása
+- szekció hozzáadása
+- szekció szerkesztése
+- szekció módosítása
+- szekció neve
+- szekció diák lekérése
+- szekció diák feldolgozása
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Az Aspose.Slides for Java segítségével egyszerűsítse a diák szakaszok kezelését PowerPoint és OpenDocument formátumokban — ossza fel, nevezze át és rendezze újra a PPTX és ODP munkafolyamatok optimalizálása érdekében."
+description: "Diákszakciók kezelése az Aspose.Slides for Java-val: szekciók létrehozása, átnevezése, átrendezése, lekérése és szekciódiák feldolgozása PPTX prezentációkban."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Java-val PowerPoint-prezentációkat szervezhet szakaszokba. Létrehozhat szakaszokat, amelyek meghatározott diát tartalmaznak.  
+A szekciók a egymást követő diákot elnevezett csoportokba szervezik anélkül, hogy megváltoztatnák a diák tartalmát. Az Aspose.Slides for Java-val szekciókat hozhat létre, átrendezhet, átnevezhet, ellenőrizhet és eltávolíthat a [Presentation.getSections](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getSections--) metódus segítségével.
 
-Bizonyos helyzetekben érdemes szakaszokat létrehozni és azokat a diákat logikai részekre rendezve vagy felosztva használni:
+A szekciók különösen hasznosak, ha:
 
-- Amikor nagy prezentáción dolgozik másokkal vagy egy csapattal, és bizonyos diákhoz kell egy kollégát vagy csapattagokat hozzárendelni.  
-- Amikor egy sok diát tartalmazó prezentációval kell foglalkozni, és nehézséget okoz a tartalom egyszerre történő kezelése vagy szerkesztése.  
+- egy nagy prezentációt logikai témákra vagy fejezetekre kell felosztani;
+- a különböző diákköröket különböző együttműködőkre kell kiosztani;
+- a diákat csoportként kell feldolgozni, áthelyezni vagy egyesíteni.
 
-Ideálisan olyan szakaszt kell létrehozni, amely hasonló diát tartalmaz – a diák közös jellemzőkkel rendelkeznek vagy egy szabály alapján csoportosíthatók –, és a szakasznak olyan nevet adni, amely leírja az abban lévő diát.  
+Válasszon tömör szekciónévket, amelyek leírják a csoportosított diák célját. Mivel a szekciók a bemutató szerkezetének részei, használja a szekció API‑kat a tagság meghatározásához, ahelyett, hogy a diákkövetésből következtetne.
 
-## **Szakaszok létrehozása a prezentációkban**
+## **Szekciók létrehozása és kezelése**
 
-Egy prezentációban a diákhoz tartozó szakasz hozzáadásához az Aspose.Slides for Java a [addSection()](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) metódust biztosítja, amely lehetővé teszi a létrehozni kívánt szakasz nevének és a szakasz kezdődiájának megadását.  
+Használja a [ISectionCollection.addSection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) metódust szekció létrehozásához a neve és a kezdő dia megadásával. Az Aspose.Slides a prezentáció jelenlegi szekciószerkezetéből határozza meg, mely diák tartoznak a szekcióhoz.
 
-Ez a példa kód bemutatja, hogyan lehet szakaszt létrehozni egy prezentációban Java nyelven:
+Az ugyanaz a [ISectionCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/) is lehetővé teszi, hogy:
+
+- a szekciót a diáival együtt áthelyezze a [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-) használatával;
+- csak a szekciódefiníciót távolítsa el a [ISectionCollection.removeSection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-) segítségével, ami megtartja a diákot;
+- a szekciót és annak diákját távolítsa el a [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-) segítségével;
+- üres szekciót adjon hozzá a végén a [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-) segítségével.
+
+A következő példa két szekciót hoz létre, az egyiket áthelyezi, azt a diáiival együtt eltávolítja, majd egy üres szekciót fűz hozzá:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 befejeződik a newSlide2-nél, és utána a section2 kezdődik   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Szakaszok nevének módosítása**
+Ezek után a bemutató tartalmazza a `Introduction` szekciót a diáinak együtt és egy üres `Appendix` szekciót. A `Results` szekció és annak diái eltávolításra kerültek.
 
-Miután szakaszt hozott létre egy PowerPoint-prezentációban, előfordulhat, hogy meg akarja változtatni a nevét.  
+## **Szekciók átnevezése**
 
-Ez a példa kód megmutatja, hogyan lehet megváltoztatni egy szakasz nevét egy prezentációban Java használatával az Aspose.Slides segítségével:
+Egy szekció átnevezéséhez hívja meg annak [ISection.setName](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#setName-java.lang.String-) metódusát. A szekció diái és pozíciója változatlan marad.
+
+A következő példa egy szekciót hoz létre és megváltoztatja a nevét:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Diák lekérése szekciókból**
+
+A [Presentation.getSections](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getSections--) metódus egy [ISectionCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectioncollection/) objektumot ad vissza, amelyet végigiterálhat. Minden [ISection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/) esetén hívja meg a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getSlidesListOfSection--) metódust a jelenleg hozzá tartozó diák lekéréséhez. A metódus egy [ISectionSlideCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectionslidecollection/) objektumot ad vissza, amely számlálót, indexelt hozzáférést és iterálást biztosít.
+
+A következő példa két feltöltött szekciót és egy üres szekciót hoz létre, majd kiírja minden szekció [name](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getName--), [identifier](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getSectionId--), [starting slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getStartedFromSlide--), diák számát és diaszámokat. A [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isectionslidecollection/#get_Item-int-) használatával olvassa az első diát, és egy kibővített `for` utasítással dolgozza fel az összes diát. Az üres szekció esetén a visszaadott gyűjtemény mérete nulla, a metódust nem hívják, és az iteráció nem hajt végre műveletet.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A szekció tagsága a prezentáció szekciószerkezetéből származik. Ne számítsa ki kézzel egy szekció tartományát a [ISection.getStartedFromSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getStartedFromSlide--), diaindexek és a következő szekció kezdődiai alapján.
+
+A szerkezeti módosítások megváltoztathatják a szekcióhoz tartozó visszaadott diák számát és azok diaszámát is. Ide tartozik a diák átrendezése, egy dia klónozása egy szekcióba, egy szekció áthelyezése a diáival együtt, diák eltávolítása és szekciók törlése. A következő példa minden ilyen változás után meghívja a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getSlidesListOfSection--) metódust, ahelyett, hogy a szekció korábbi határairól feltételezéseket tárolna.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Hívja meg a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getSlidesListOfSection--) metódust újra, amikor csak diák vagy szekciók átrendezésre, klónozásra, áthelyezésre vagy eltávolításra kerülnek. Ez a későbbi feldolgozást a jelenlegi prezentációs szerkezettel összehangolja.
+
+A PPT (PowerPoint 97–2003) formátum nem őrzi meg a szekció metaadatait. Használja ezt a munkafolyamatot olyan formátummal, amely támogatja a szekciókat, például PPTX‑szel; PPT‑re konvertáláskor a szekciószerkezet, amely a későbbi iterációhoz szükséges, eltűnik.
 
 ## **GYIK**
 
-**Megmaradnak a szakaszok, ha PPT (PowerPoint 97–2003) formátumba mentjük?**
+**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**
 
-Nem. A PPT formátum nem támogatja a szakasz metaadatait, ezért a szakaszok csoportosítása elveszik a .ppt formátumba mentéskor.  
+Nem. A PPT formátum nem támogatja a szekció metaadatait, ezért a szekciócsoportosítás elveszik .ppt‑ként mentéskor.
 
-**Lehet egy egész szakaszt „elrejteni”?**
+**Can an entire section be "hidden"?**
 
-Nem. Csak egyedi diákat lehet elrejteni. Egy szakasz önmagában nem rendelkezik „rejtett” állapottal.  
+Nem. A szekciónak nincs láthatósági állapota. A tartalma elrejtéséhez hívja meg a [ISlide.setHidden](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#setHidden-boolean-) metódust minden diához a szekcióban.
 
-**Gyorsan meg tudok találni egy szakaszt egy dia alapján, és fordítva, a szakasz első diát?**
+**How can I find the section that contains a slide?**
 
-Igen. Egy szakasz egyértelműen a kezdődiájával van meghatározva; egy dia alapján megállapítható, melyik szakaszhoz tartozik, és egy szakasz esetén elérhető az első diája.
+Iteráljon a [Presentation.getSections](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getSections--) által visszaadott gyűjteményen, hívja meg minden szekciónál a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getSlidesListOfSection--) metódust, és hasonlítsa össze a visszakapott diákot a keresett diával. Egy nem üres szekciónál a [ISection.getStartedFromSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isection/#getStartedFromSlide--) visszaadja az első diát; egy üres szekciónál `null`‑t ad vissza.

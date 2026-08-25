@@ -1,5 +1,5 @@
 ---
-title: Convertir PPT en PPTX en JavaScript
+title: Convertir PPT en PPTX avec Node.js
 linktitle: PPT en PPTX
 type: docs
 weight: 20
@@ -11,104 +11,117 @@ keywords:
 - convertir PPT
 - PPT en PPTX
 - enregistrer PPT en PPTX
-- exporter PPT en PPTX
+- exporter PPT vers PPTX
 - PowerPoint
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Convertissez rapidement les présentations PPT héritées en PPTX moderne avec Aspose.Slides pour Node.js — tutoriel clair, exemples de code gratuits, sans dépendance à Microsoft Office."
+description: "Convertir les fichiers PPT hérités en PPTX avec Node.js et Aspose.Slides. Inclut des exemples JavaScript pour la conversion d'un seul fichier et par lot, la gestion des erreurs et des notes de fidélité."
 ---
+## **Vue d'ensemble**
 
-## **Vue d’ensemble**
+PPT est le format binaire hérité de PowerPoint, tandis que PPTX est le format Open XML plus récent. Aspose.Slides for Node.js via Java peut charger un fichier PPT et l'enregistrer en PPTX sans Microsoft PowerPoint. Cet article montre comment convertir un fichier ou un répertoire de fichiers et explique ce qu'il faut vérifier après la conversion.
 
-Cet article explique comment convertir une présentation PowerPoint au format PPT en format PPTX à l'aide de JavaScript et d'une application de conversion en ligne PPT vers PPTX. Le sujet suivant est couvert.
+## **Convertir un fichier PPT en PPTX**
 
-- Convertir PPT en PPTX avec JavaScript
+Chargez le fichier source avec la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) , puis appelez [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save) avec [SaveFormat.Pptx](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveformat/). Le bloc `finally` libère la présentation et ses ressources.
 
-## **Java Convertir PPT en PPTX**
-
-Pour le code d'exemple JavaScript permettant de convertir PPT en PPTX, veuillez consulter la section ci‑dessous, à savoir [Convertir PPT en PPTX](#convert-ppt-to-pptx). Il charge simplement le fichier PPT et l'enregistre au format PPTX. En spécifiant différents formats d'enregistrement, vous pouvez également enregistrer le fichier PPT dans de nombreux autres formats tels que PDF, XPS, ODP, HTML, etc., comme expliqué dans ces articles.
-
-- [Convertir PPT en PDF avec JavaScript](/slides/fr/nodejs-java/convert-powerpoint-to-pdf/)
-- [Convertir PPT en XPS avec JavaScript](/slides/fr/nodejs-java/convert-powerpoint-to-xps/)
-- [Convertir PPT en HTML avec JavaScript](/slides/fr/nodejs-java/convert-powerpoint-to-html/)
-- [Convertir PPT en ODP avec JavaScript](/slides/fr/nodejs-java/save-presentation/)
-- [Convertir PPT en PNG avec JavaScript](/slides/fr/nodejs-java/convert-powerpoint-to-png/)
-
-## **À propos de la conversion PPT en PPTX**
-Convertissez l'ancien format PPT en PPTX avec l'API Aspose.Slides. Si vous devez convertir des milliers de présentations PPT en format PPTX, la meilleure solution est de le faire de manière programmatique. Avec l'API Aspose.Slides, il est possible de le faire en quelques lignes de code seulement. L'API offre une compatibilité totale pour convertir une présentation PPT en PPTX et il est possible de :
-
-- Convertir des structures complexes de masques, mises en page et diapositives.
-- Convertir une présentation contenant des graphiques.
-- Convertir une présentation avec des formes groupées, des formes automatiques (comme des rectangles et des ellipses), des formes à géométrie personnalisée.
-- Convertir une présentation contenant des textures et des styles de remplissage d'images pour les formes automatiques.
-- Convertir une présentation avec des espaces réservés, des cadres de texte et des blocs de texte.
-
-{{% alert color="primary" %}} 
-
-Jetez un œil à l'application [**Conversion Aspose.Slides PPT en PPTX**](https://products.aspose.app/slides/conversion/ppt-to-pptx) :
-
-[](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-Cette application est construite sur l'[**API Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/), vous pouvez donc voir un exemple fonctionnel des capacités de conversion de base de PPT en PPTX. Aspose.Slides Conversion est une application web qui permet de déposer un fichier de présentation au format PPT et de le télécharger converti en PPTX.
-
-Découvrez d'autres exemples en direct de [**Conversion Aspose.Slides**](https://products.aspose.app/slides/conversion/) .
-
-{{% /alert %}} 
-
-## **Convertir PPT en PPTX**
-Aspose.Slides pour Node.js via Java facilite désormais les développeurs à accéder au PPT à l'aide de l'instance de classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) et à le convertir au format [PPTX](https://docs.fileformat.com/presentation/pptx/) correspondant. Actuellement, il prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX.
-
-Aspose.Slides pour Node.js via Java propose la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) qui représente un fichier de présentation **PPTX**. La classe Presentation peut désormais également accéder à **PPT** via Presentation lorsque l'objet est instancié. L'exemple suivant montre comment convertir une présentation PPT en présentation PPTX.
 ```javascript
-// Instancier un objet Presentation qui représente un fichier PPTX
-var pres = new aspose.slides.Presentation("Aspose.ppt");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Charger la présentation PPT héritée.
+let presentation = new aspose.slides.Presentation("presentation.ppt");
 try {
-    // Enregistrement de la présentation PPTX au format PPTX
-    pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);
+    // Enregistrer la présentation au format PPTX.
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    presentation.dispose();
+}
+```
+
+L'extension du fichier ne sélectionne pas le format de sortie à elle seule ; c'est l'argument [SaveFormat.Pptx](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveformat/) qui le fait. Gardez des chemins d'entrée et de sortie différents si vous devez conserver le fichier PPT original.
+
+## **Convertir plusieurs fichiers PPT**
+
+L'exemple suivant convertit chaque fichier `.ppt` d'un répertoire. Chaque fichier est traité de manière indépendante, de sorte qu'une conversion échouée n'arrête pas le reste du lot.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "input";
+const outputDirectory = "output";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+    .filter(entry => entry.isFile() && path.extname(entry.name).toLowerCase() === ".ppt")
+    .map(entry => entry.name);
+
+for (const fileName of inputFiles) {
+    const inputPath = path.join(inputDirectory, fileName);
+    const outputFileName = path.basename(fileName, path.extname(fileName)) + ".pptx";
+    const outputPath = path.join(outputDirectory, outputFileName);
+    let presentation = null;
+
+    try {
+        presentation = new aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, aspose.slides.SaveFormat.Pptx);
+        console.log("Converted: " + inputPath);
+    } catch (error) {
+        console.error("Failed: " + inputPath + " (" + error.message + ")");
+    } finally {
+        if (presentation !== null) {
+            presentation.dispose();
+        }
     }
 }
 ```
 
+Pour les charges de travail en production, consignez l'erreur complète, décidez si un fichier de sortie existant peut être écrasé, et écrivez les noms des fichiers ayant échoué dans une file d'attente de réessai ou de révision. Les fichiers corrompus, les fichiers protégés par mot de passe ouverts sans le mot de passe requis, les chemins inaccessibles et le contenu non pris en charge peuvent tous entraîner un échec de conversion. Consultez [Password-Protected Presentations](/slides/fr/nodejs-java/password-protected-presentation/) pour charger des fichiers chiffrés.
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**Figure : Présentation PPT source**|
+## **Fidélité et fonctionnalités héritées**
 
-Le fragment de code ci‑dessus a généré la présentation PPTX suivante après conversion
+La conversion conserve normalement les diapositives, les maîtres, les dispositions, le texte, les formes, les images, les tableaux et les graphiques. Cependant, PPT et PPTX ne représentent pas chaque fonctionnalité de la même manière exacte. Une fonctionnalité héritée qui n'a pas d'équivalent PPTX, ou qui n'est pas prise en charge par la bibliothèque, peut être normalisée, omise ou affichée différemment.
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**Figure : Présentation PPTX générée après conversion**|
+Vérifiez le fichier converti lorsqu'il contient des animations, des transitions, des objets OLE incorporés ou liés, des contrôles ActiveX, des médias incorporés, des polices rares ou des macros VBA. Un fichier PPTX ordinaire n'est pas un format habilité aux macros, utilisez donc un flux de travail approprié compatible avec les macros lorsque VBA doit rester disponible. Vérifiez également que les polices requises et les ressources externes sont présentes dans l'environnement où la présentation convertie sera ouverte ou rendue.
+
+Pour les documents importants, rouvrez le PPTX généré de façon programmatique et inspectez le nombre de diapositives clés ainsi que le contenu, puis comparez son apparence et son comportement en mode diaporama dans le visualiseur prévu. Ne considérez pas un appel réussi à [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save) comme une preuve que chaque fonctionnalité héritée possède une représentation PPTX exacte.
+
+## **Quand utiliser PPTX**
+
+Utilisez PPTX lorsque la présentation sera éditée dans les versions actuelles de PowerPoint, échangée avec des systèmes qui travaillent avec des packages Open XML, ou stockée dans un format plus facile à inspecter et à récupérer que le PPT binaire hérité. Conservez le PPT original comme copie d'archivage ou de restauration jusqu'à ce que la présentation convertie ait passé vos contrôles de fidélité.
+
+Si vous avez besoin de PDF, HTML, d'images, XPS ou d'un autre type de sortie, utilisez les recommandations spécifiques au format dans [Convert Presentations to Multiple Formats](/slides/fr/nodejs-java/convert-presentation/) plutôt que de supposer que toutes les cibles conservent les fonctionnalités éditables de PowerPoint.
+
+## **Convertisseur en ligne**
+
+Pour un fichier ponctuel ou une comparaison rapide, vous pouvez utiliser le [convertisseur PPT en PPTX en ligne](https://products.aspose.app/slides/fr/conversion/ppt-to-pptx). Pour des conversions récurrentes, un traitement par lots ou la gestion d'erreurs au niveau de l'application, utilisez l'API Node.js via Java.
+
+## **Articles associés**
+
+- [PPT vs PPTX](/slides/fr/nodejs-java/ppt-vs-pptx/)
+- [Save Presentations in Node.js](/slides/fr/nodejs-java/save-presentation/)
+- [Supported File Formats](/slides/fr/nodejs-java/supported-file-formats/)
+- [Open Presentations in Node.js](/slides/fr/nodejs-java/open-presentation/)
 
 ## **FAQ**
 
-**Quelle est la différence entre les formats PPT et PPTX ?**
+**Puis-je convertir PPT en PPTX sans Microsoft PowerPoint installé ?**
 
-PPT est le format de fichier binaire plus ancien utilisé par Microsoft PowerPoint, tandis que PPTX est le format XML plus récent introduit avec Microsoft Office 2007. Les fichiers PPTX offrent de meilleures performances, une taille de fichier réduite et une récupération de données améliorée.
+Oui. Aspose.Slides for Node.js via Java charge et enregistre les fichiers de présentation sans nécessiter Microsoft PowerPoint.
 
-**Aspose.Slides prend‑il en charge la conversion par lot de plusieurs fichiers PPT en PPTX ?**
+**La conversion PPT en PPTX préservera-t-elle tout le contenu exactement ?**
 
-Oui, vous pouvez utiliser Aspose.Slides dans une boucle pour convertir plusieurs fichiers PPT en PPTX de manière programmatique, ce qui le rend adapté aux scénarios de conversion par lot.
+Elle préserve le contenu de présentation courant, mais la fidélité exacte n'est pas garantie pour chaque fonctionnalité héritée ou non prise en charge. Examinez le fichier généré lorsqu'il contient des macros, des objets OLE ou ActiveX, des médias, des animations spécialisées ou des polices rares.
 
-**Le contenu et la mise en forme seront‑ils conservés après la conversion ?**
+**Puis-je convertir un fichier PPT protégé par mot de passe ?**
 
-Aspose.Slides maintient une grande fidélité lors de la conversion des présentations. Les mises en page des diapositives, les animations, les formes, les graphiques et d'autres éléments de conception sont préservés pendant la conversion PPT en PPTX.
+Oui, si vous fournissez le mot de passe correct lors du chargement du fichier. Un mot de passe manquant ou incorrect entraîne l'échec de l'opération de chargement.
 
-**Puis‑je convertir d’autres formats comme PDF ou HTML à partir de fichiers PPT ?**
+**Dois-je supprimer le fichier PPT après la conversion ?**
 
-Oui, Aspose.Slides prend en charge la conversion de fichiers PPT vers plusieurs formats, y compris PDF, XPS, HTML, ODP et les formats d’image tels que PNG et JPEG.
-
-**Est‑il possible de convertir PPT en PPTX sans Microsoft PowerPoint installé ?**
-
-Oui, Aspose.Slides est une API autonome et ne nécessite ni Microsoft PowerPoint ni aucun logiciel tiers pour effectuer la conversion.
-
-**Existe‑t‑il un outil en ligne disponible pour la conversion PPT en PPTX ?**
-
-Oui, vous pouvez utiliser l'application web gratuite [Convertisseur Aspose.Slides PPT en PPTX](https://products.aspose.app/slides/conversion/ppt-to-pptx) pour effectuer la conversion directement dans votre navigateur sans écrire de code.
+Conservez l'original jusqu'à ce que vous ayez vérifié le PPTX dans les visionneuses et les flux de travail qui vous importent. Cela fournit une copie de restauration si une fonctionnalité héritée se convertit différemment.

@@ -1,5 +1,5 @@
 ---
-title: PHP를 사용하여 프레젠테이션에서 슬라이드 섹션 관리
+title: PHP로 프레젠테이션 슬라이드 섹션 관리
 linktitle: 슬라이드 섹션
 type: docs
 weight: 90
@@ -10,82 +10,204 @@ keywords:
 - 섹션 편집
 - 섹션 변경
 - 섹션 이름
+- 섹션 슬라이드 가져오기
+- 섹션 슬라이드 처리
 - PowerPoint
-- OpenDocument
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint와 OpenDocument의 슬라이드 섹션을 간소화합니다 — 분할, 이름 변경 및 재정렬을 통해 PPTX 및 ODP 작업 흐름을 최적화합니다."
+description: "Aspose.Slides for PHP via Java를 사용하여 PPTX 프레젠테이션에서 슬라이드 섹션을 관리합니다: 섹션 생성, 이름 변경, 순서 변경, 가져오기 및 처리."
 ---
 ## **소개**
 
-Aspose.Slides for PHP via Java를 사용하면 PowerPoint 프레젠테이션을 섹션으로 구성할 수 있습니다. 특정 슬라이드를 포함하는 섹션을 만들 수 있습니다.
+섹션은 슬라이드 내용을 변경하지 않고 연속적인 슬라이드를 이름이 지정된 그룹으로 조직합니다. Aspose.Slides for PHP via Java를 사용하면 [Presentation::getSections](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation/#getSections) 메서드를 통해 섹션을 만들고, 순서를 변경하고, 이름을 바꾸고, 검사하고, 제거할 수 있습니다.
 
-다음과 같은 상황에서 프레젠테이션의 슬라이드를 논리적 부분으로 구성하거나 구분하기 위해 섹션을 만들고 사용할 수 있습니다:
+섹션은 특히 다음과 같은 경우에 유용합니다:
 
-- 다른 사람이나 팀과 함께 큰 프레젠테이션을 작업하고 있으며, 특정 슬라이드를 동료나 팀원에게 할당해야 할 때. 
-- 많은 슬라이드가 포함된 프레젠테이션을 다루고 있어 한 번에 내용을 관리하거나 편집하기 어려울 때.
+- 대규모 프레젠테이션을 논리적인 주제 또는 장으로 나누어야 할 때;
+- 다른 슬라이드 그룹을 서로 다른 공동 작업자에게 할당할 때;
+- 슬라이드를 그룹으로 처리, 이동 또는 병합해야 할 때.
 
-이상적으로는 유사한 슬라이드를 포함하는 섹션을 만들어야 합니다 — 슬라이드들이 공통점을 가지고 있거나 규칙에 따라 그룹화될 수 있으며 — 그리고 해당 섹션에 슬라이드 내용을 설명하는 이름을 부여합니다. 
+그룹화된 슬라이드의 목적을 설명하는 간결한 섹션 이름을 선택하십시오. 섹션은 프레젠테이션 구조의 일부이므로 슬라이드 위치에서 추론하는 대신 섹션 API를 사용하여 멤버십을 결정하십시오.
 
-## **프레젠테이션에서 섹션 만들기**
+## **섹션 만들기 및 관리**
 
-프레젠테이션에 슬라이드를 포함하는 섹션을 추가하려면 Aspose.Slides for PHP via Java가 제공하는 [addSection()](https://reference.aspose.com/slides/ko/php-java/aspose.slides/sectioncollection/#addSection) 메서드를 사용하면 생성하려는 섹션의 이름과 섹션이 시작되는 슬라이드를 지정할 수 있습니다.
+[SectionCollection::addSection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/#addSection)를 사용하여 이름과 시작 슬라이드를 지정함으로써 섹션을 생성합니다. Aspose.Slides는 현재 프레젠테이션의 섹션 구조를 기반으로 해당 섹션에 포함되는 슬라이드를 결정합니다.
 
-다음 예제 코드는 프레젠테이션에 섹션을 만드는 방법을 보여줍니다 :
+같은 [SectionCollection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/)을 사용하면 다음 작업도 수행할 수 있습니다:
 
-```php
-  $pres = new Presentation();
-  try {
-    $defaultSlide = $pres->getSlides()->get_Item(0);
-    $newSlide1 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide2 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide3 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide4 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
-    $section2 = $pres->getSections()->addSection("Section 2", $newSlide3);// section1은 newSlide2에서 끝나고 그 뒤에 section2가 시작됩니다.
+- [SectionCollection::reorderSectionWithSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/#reorderSectionWithSlides)를 사용하여 섹션과 해당 슬라이드를 함께 이동합니다;
+- [SectionCollection::removeSection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/#removeSection)으로 섹션 정의만 제거하고 슬라이드는 유지합니다;
+- [SectionCollection::removeSectionWithSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/#removeSectionWithSlides)을 사용하여 섹션과 해당 슬라이드를 모두 제거합니다;
+- [SectionCollection::appendEmptySection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/#appendEmptySection)을 사용하여 끝에 빈 섹션을 추가합니다.
 
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
-    $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
-    $pres->getSections()->removeSectionWithSlides($section2);
-    $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **섹션 이름 변경**
-
-PowerPoint 프레젠테이션에 섹션을 만든 후 해당 섹션의 이름을 변경하고 싶을 수 있습니다. 
-
-다음 예제 코드는 Aspose.Slides를 사용하여 프레젠테이션에서 섹션의 이름을 변경하는 방법을 보여줍니다 :
+다음 예제는 두 개의 섹션을 생성하고, 그 중 하나를 이동한 뒤 슬라이드와 함께 제거하고, 빈 섹션을 추가합니다:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $section = $pres->getSections()->get_Item(0);
-    $section->setName("My section");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $titleSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $resultsSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $titleSlide);
+    $resultsSection = $presentation->getSections()->addSection("Results", $resultsSlide);
+
+    $presentation->getSections()->reorderSectionWithSlides($resultsSection, 0);
+    $presentation->getSections()->removeSectionWithSlides($resultsSection);
+    $presentation->getSections()->appendEmptySection("Appendix");
+} finally {
+    $presentation->dispose();
+}
 ```
+
+이 작업 후 프레젠테이션에는 슬라이드가 포함된 `Introduction` 섹션과 빈 `Appendix` 섹션이 남습니다. `Results` 섹션과 해당 슬라이드는 제거되었습니다.
+
+## **섹션 이름 바꾸기**
+
+섹션의 이름을 바꾸려면 해당 [Section::setName](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#setName) 메서드를 호출합니다. 섹션의 슬라이드와 위치는 변경되지 않습니다.
+
+다음 예제는 섹션을 만들고 이름을 변경합니다:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $section = $presentation->getSections()->addSection("Overview", $slide);
+    $section->setName("Introduction");
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **섹션에서 슬라이드 가져오기**
+
+[Presentation::getSections](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation/#getSections) 메서드는 인덱스로 처리할 수 있는 [SectionCollection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/)을 반환합니다. 각 [Section](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/)에 대해 [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getSlidesListOfSection)을 호출하면 현재 해당 섹션에 속한 슬라이드를 얻을 수 있습니다. 이 메서드는 슬라이드 수와 인덱스 접근을 제공하는 [SectionSlideCollection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionSlideCollection/)을 반환합니다.
+
+다음 예제는 두 개의 내용이 있는 섹션과 하나의 빈 섹션을 만들고, 각 섹션의 [name](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getName), [identifier](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getSectionId), [starting slide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getStartedFromSlide), 슬라이드 수 및 슬라이드 번호를 출력합니다. 인덱스 접근을 위해 [SectionCollection::get_Item](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionCollection/#get_Item) 및 [SectionSlideCollection::get_Item](https://reference.aspose.com/slides/ko/php-java/aspose.slides/SectionSlideCollection/#get_Item)를 사용합니다. 빈 섹션의 경우 반환된 컬렉션의 크기가 0이며 `get_Item`은 호출되지 않습니다.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $firstSlide);
+    $presentation->getSections()->addSection("Details", $thirdSlide);
+    $presentation->getSections()->appendEmptySection("Appendix");
+
+    $sections = $presentation->getSections();
+    $sectionCount = java_values($sections->size());
+    for ($sectionIndex = 0; $sectionIndex < $sectionCount; $sectionIndex++) {
+        $section = $sections->get_Item($sectionIndex);
+        $sectionSlides = $section->getSlidesListOfSection();
+        $startingSlide = java_is_null($section->getStartedFromSlide()) ? "none" : java_values($section->getStartedFromSlide()->getSlideNumber());
+        $slideCount = java_values($sectionSlides->size());
+
+        echo "Section: " . java_values($section->getName()) . PHP_EOL;
+        echo "ID: " . java_values($section->getSectionId()) . PHP_EOL;
+        echo "Starting slide: " . $startingSlide . PHP_EOL;
+        echo "Slide count: " . $slideCount . PHP_EOL;
+
+        if ($slideCount > 0) {
+            echo "First slide via get_Item: " . java_values($sectionSlides->get_Item(0)->getSlideNumber()) . PHP_EOL;
+        }
+
+        echo "Slide numbers:";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+섹션 멤버십은 프레젠테이션의 섹션 구조에 의해 결정됩니다. [Section::getStartedFromSlide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getStartedFromSlide), 슬라이드 인덱스 및 다음 섹션의 시작 슬라이드로 섹션 범위를 수동으로 계산하지 마십시오.
+
+구조 편집은 섹션에 반환되는 슬라이드와 슬라이드 번호를 모두 변경할 수 있습니다. 여기에는 슬라이드 순서 변경, 슬라이드 복제하여 섹션에 추가, 섹션과 슬라이드 함께 이동, 슬라이드 제거 및 섹션 제거가 포함됩니다. 다음 예제는 섹션 경계에 대한 기존 가정을 유지하는 대신, 이러한 변경이 발생할 때마다 [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getSlidesListOfSection)을 호출합니다.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $firstSection = $presentation->getSections()->addSection("First", $firstSlide);
+    $secondSection = $presentation->getSections()->addSection("Second", $thirdSlide);
+
+    $printSectionSlides = function ($label, $section) {
+        $sectionSlides = $section->getSlidesListOfSection();
+        $slideCount = java_values($sectionSlides->size());
+        echo $label . " (" . $slideCount . " slides):";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    };
+
+    $printSectionSlides("Initially", $firstSection);
+
+    $slidesBeforeClone = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->addClone($slidesBeforeClone->get_Item(0), $firstSection);
+    $printSectionSlides("After cloning into the section", $firstSection);
+
+    $slidesBeforeReorder = $firstSection->getSlidesListOfSection();
+    $firstSectionPosition = java_values($slidesBeforeReorder->get_Item(0)->getSlideNumber()) - 1;
+    $lastSlideIndex = java_values($slidesBeforeReorder->size()) - 1;
+    $presentation->getSlides()->reorder($firstSectionPosition, $slidesBeforeReorder->get_Item($lastSlideIndex));
+    $printSectionSlides("After reordering slides", $firstSection);
+
+    $presentation->getSections()->reorderSectionWithSlides($firstSection, 1);
+    $printSectionSlides("After moving the section", $firstSection);
+
+    $slidesBeforeRemoval = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->remove($slidesBeforeRemoval->get_Item(0));
+    $printSectionSlides("After removing a slide", $firstSection);
+
+    $presentation->getSections()->removeSectionWithSlides($secondSection);
+    $remainingSections = $presentation->getSections();
+    $remainingSectionCount = java_values($remainingSections->size());
+    for ($sectionIndex = 0; $sectionIndex < $remainingSectionCount; $sectionIndex++) {
+        $section = $remainingSections->get_Item($sectionIndex);
+        $printSectionSlides("Remaining section", $section);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+슬라이드 또는 섹션이 순서가 바뀌거나 복제, 이동, 제거될 때마다 [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getSlidesListOfSection)를 다시 호출하십시오. 이렇게 하면 이후 처리가 현재 프레젠테이션 구조와 일치합니다.
+
+PPT(PowerPoint 97–2003) 형식은 섹션 메타데이터를 보존하지 않습니다. PPTX와 같이 섹션을 지원하는 형식에서 이 워크플로를 사용하십시오; PPT로 변환하면 이후 반복에 필요한 섹션 구조가 사라집니다.
 
 ## **FAQ**
 
-**PPT(PowerPoint 97–2003) 형식으로 저장할 때 섹션이 유지됩니까?**
+**PPT(PowerPoint 97–2003) 형식으로 저장할 때 섹션이 보존됩니까?**
 
-아니요. PPT 형식은 섹션 메타데이터를 지원하지 않으므로 .ppt로 저장하면 섹션 그룹이 손실됩니다.
+아니요. PPT 형식은 섹션 메타데이터를 지원하지 않으므로 .ppt로 저장하면 섹션 그룹화가 사라집니다.
 
-**전체 섹션을 "숨김" 처리할 수 있나요?**
+**전체 섹션을 "숨길" 수 있습니까?**
 
-아니요. 개별 슬라이드만 숨길 수 있습니다. 섹션 자체는 "숨김" 상태를 갖지 않습니다.
+아니요. 섹션에는 가시성 상태가 없습니다. 섹션의 내용을 숨기려면 해당 섹션의 각 슬라이드에 대해 [Slide::setHidden](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Slide/#setHidden)을 호출하십시오.
 
-**슬라이드로 섹션을 빠르게 찾거나, 반대로 섹션의 첫 번째 슬라이드를 찾을 수 있나요?**
+**슬라이드를 포함하는 섹션을 어떻게 찾을 수 있습니까?**
 
-예. 섹션은 시작 슬라이드로 고유하게 정의됩니다. 슬라이드가 주어지면 해당 슬라이드가 속한 섹션을 확인할 수 있으며, 섹션에 대해서는 첫 번째 슬라이드에 접근할 수 있습니다.
+먼저 [Presentation::getSections](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation/#getSections)가 반환하는 컬렉션을 반복하고, 각 섹션에 대해 [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getSlidesListOfSection)를 호출한 다음 반환된 슬라이드와 대상 슬라이드를 비교하십시오. 비어 있지 않은 섹션의 경우 [Section::getStartedFromSlide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Section/#getStartedFromSlide)은 첫 번째 슬라이드를 반환하고, 빈 섹션의 경우 `null`을 반환합니다.

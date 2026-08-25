@@ -1,6 +1,6 @@
 ---
-title: Efisien Menggabungkan Presentasi dengan Python
-linktitle: Gabungkan Presentasi
+title: Menggabungkan Presentasi Secara Efisien dengan Python
+linktitle: Menggabungkan Presentasi
 type: docs
 weight: 40
 url: /id/python-net/merge-presentation/
@@ -11,208 +11,295 @@ keywords:
 - gabungkan PPT
 - gabungkan PPTX
 - gabungkan ODP
-- kombinasikan PowerPoint
-- kombinasikan presentasi
-- kombinasikan slide
-- kombinasikan PPT
-- kombinasikan PPTX
-- kombinasikan ODP
+- gabungkan PowerPoint
+- gabungkan presentasi
+- gabungkan slide
+- gabungkan PPT
+- gabungkan PPTX
+- gabungkan ODP
 - Python
 - Aspose.Slides
-description: "Dengan mudah menggabungkan presentasi PowerPoint (PPT, PPTX) dan OpenDocument (ODP) menggunakan Aspose.Slides untuk Python via .NET, menyederhanakan alur kerja Anda."
+description: "Pelajari cara menggabungkan presentasi PowerPoint dan OpenDocument di Python dengan mengkloning slide, mengendalikan master dan layout, mengubah ukuran konten slide, mempertahankan section, serta menangani file yang dilindungi atau berukuran besar."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda menggabungkan presentasi dengan mengkloning slide dari satu presentasi ke presentasi lain. Artikel ini menjelaskan cara menggabungkan seluruh presentasi atau slide tertentu, menggunakan slide master atau tata letak spesifik selama penggabungan, menangani presentasi dengan ukuran slide berbeda, dan menambahkan slide yang digabung ke bagian presentasi. Artikel ini juga membahas catatan praktis terkait konten yang digabung, termasuk catatan pembicara, komentar, file sumber yang dilindungi sandi, dan penggunaan thread.
+Aspose.Slides for Python via .NET menggabungkan presentasi dengan mengkloning slide dari satu [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) ke presentasi lain. Operasi utama adalah [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/), yang dapat mempertahankan format slide sumber atau melampirkan slide yang diklon ke master atau layout dalam presentasi tujuan.
 
-## **Optimalkan Penggabungan Presentasi Anda**
+Artikel ini mencakup alur kerja penggabungan yang paling umum:
 
-Dengan [Aspose.Slides for Python](https://products.aspose.com/slides/id/python-net/), Anda dapat menggabungkan presentasi PowerPoint secara mulus sambil mempertahankan gaya, tata letak, dan semua elemen. Tidak seperti alat lain, Aspose.Slides menggabungkan presentasi tanpa mengorbankan kualitas atau kehilangan data. Gabungkan seluruh dek, slide tertentu, atau bahkan format file yang berbeda (mis., PPT ke PPTX).
+- menggabungkan semua slide sambil mempertahankan format sumber;
+- menggabungkan slide yang dipilih;
+- menerapkan master dari presentasi tujuan;
+- menerapkan layout tertentu dari presentasi tujuan;
+- menormalkan ukuran slide yang berbeda sebelum menggabungkan;
+- menambahkan slide yang diklon ke sebuah section;
+- menggabungkan beberapa presentasi dalam satu alur kerja end‑to‑end;
+- menangani master, sumber daya, catatan, komentar, media, font, kata sandi, file besar, dan pertimbangan multithreading.
 
-### **Fitur Penggabungan**
+## **Bagaimana Kloning Slide Mempengaruhi Master dan Layout**
 
-- **Penggabungan Seluruh Presentasi:** Kumpulkan semua slide menjadi satu file.  
-- **Penggabungan Slide Tertentu:** Pilih dan gabungkan slide terpilih.  
-- **Penggabungan Lintas Format:** Integrasikan presentasi dengan format berbeda, menjaga integritas.
+Sebuah slide mewarisi sebagian besar penampilannya dari layout dan master. Karena itu, overload kloning yang Anda pilih menentukan bagaimana slide yang digabungkan diintegrasikan ke dalam presentasi tujuan.
 
-## **Penggabungan Presentasi**
+Gunakan [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) dengan salah satu cara berikut:
 
-Ketika Anda menggabungkan satu presentasi ke presentasi lain, Anda pada dasarnya menggabungkan slide‑slide mereka menjadi satu presentasi untuk menghasilkan satu file. Sebagian besar program presentasi—seperti PowerPoint atau OpenOffice—tidak menyediakan fitur yang memungkinkan Anda menggabungkan presentasi dengan cara ini.
+- `add_clone(source_slide)` — mempertahankan layout dan format slide sumber. Jika diperlukan, master sumber dapat secara otomatis diklon ke dalam presentasi tujuan. Aspose.Slides secara otomatis melacak master yang diklon sehingga slide berulang yang menggunakan master sumber yang sama tidak menyebabkan master tersebut diklon berulang kali.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — melampirkan slide yang diklon ke [IMasterSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/imasterslide/) tujuan tertentu. Aspose.Slides mencari layout yang cocok di bawah master tersebut berdasarkan tipe atau nama layout.
+- `add_clone(source_slide, destination_layout)` — melampirkan slide yang diklon langsung ke [ILayoutSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/ilayoutslide/) tujuan tertentu.
 
-Namun, [Aspose.Slides for Python](https://products.aspose.com/slides/id/python-net/) memungkinkan Anda menggabungkan presentasi dengan beberapa cara. Anda dapat menggabungkan presentasi dengan semua bentuk, gaya, teks, pemformatan, komentar, dan animasi, tanpa kehilangan kualitas atau data.
+Master atau layout yang diberikan ke overload `add_clone` harus berasal dari **presentasi tujuan**, bukan presentasi sumber.
 
-**See also**
+## **Menggabungkan Seluruh Presentasi dan Mempertahankan Format Sumber**
 
-[Clone PowerPoint Slides in Python](/slides/id/python-net/clone-slides/)
+Penggabungan paling sederhana menyalin setiap slide dari presentasi sumber ke presentasi tujuan. Ini adalah pilihan yang tepat ketika slide yang diimpor harus mempertahankan tema, master, dan hubungan layout aslinya.
 
-### **Apa yang Dapat Digabung**
-
-Dengan Aspose.Slides, Anda dapat menggabungkan:
-
-- Seluruh presentasi: semua slide dari dek sumber digabung menjadi satu presentasi.  
-- Slide tertentu: hanya slide yang dipilih yang digabung menjadi satu presentasi.  
-- Presentasi dengan format yang sama (mis., PPT→PPT, PPTX→PPTX) atau lintas format yang berbeda (mis., PPT→PPTX, PPTX→ODP).
-
-### **Opsi Penggabungan**
-
-Anda dapat mengendalikan apakah:
-- Setiap slide dalam presentasi output mempertahankan gaya aslinya, atau
-- Satu gaya diterapkan ke semua slide dalam presentasi output.
-
-Untuk menggabungkan presentasi, Aspose.Slides menyediakan metode [add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) pada kelas [SlideCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/). Overload metode ini menentukan cara penggabungan dilakukan. Setiap objek [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) memiliki koleksi [slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/slides/id/), sehingga Anda memanggil `add_clone` pada koleksi slide presentasi tujuan.
-
-Metode `add_clone` mengembalikan sebuah `Slide`—klon dari slide sumber. Slide dalam presentasi output adalah salinan dari yang asli, sehingga Anda dapat memodifikasi slide yang dihasilkan (misalnya, menerapkan gaya, pemformatan, atau tata letak) tanpa memengaruhi presentasi sumber.
-
-## **Gabungkan Presentasi** 
-
-Aspose.Slides menyediakan metode [add_clone(ISlide)](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) yang memungkinkan Anda menggabungkan slide sambil mempertahankan tata letak dan gaya mereka (menggunakan parameter default).
-
-Contoh Python berikut menunjukkan cara menggabungkan presentasi:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gabungkan Presentasi dengan Slide Master**
+Presentasi yang dihasilkan mungkin berisi beberapa master ketika sumber dan tujuan menggunakan desain yang berbeda. Hal ini diharapkan ketika format sumber sengaja dipertahankan.
 
-Aspose.Slides menyediakan metode [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) yang memungkinkan Anda menggabungkan slide sambil menerapkan slide master dari sebuah templat. Dengan cara ini, bila diperlukan, Anda dapat mengubah gaya slide dalam presentasi output.
+## **Menggabungkan Slide yang Dipilih**
 
-Contoh Python berikut mendemonstrasikan operasi ini:
+Anda tidak harus mengklon setiap slide. Contoh berikut mengimpor hanya indeks slide yang dipilih dari presentasi sumber.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Note" color="warning" %}}
-Tata letak yang sesuai di bawah slide master yang ditentukan ditentukan secara otomatis. Jika tidak ada tata letak yang cocok dan parameter boolean `allow_clone_missing_layout` pada metode `add_clone` disetel ke `True`, tata letak slide sumber akan digunakan sebagai gantinya. Jika tidak, sebuah [PptxEditException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxeditexception/) akan dilempar.
-{{% /alert %}}
+Validasi indeks slide sebelum mengklon ketika indeks tersebut berasal dari input pengguna atau konfigurasi eksternal.
 
-Untuk menerapkan tata letak slide yang berbeda pada slide di presentasi output, gunakan metode [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) saat menggabungkan.
+## **Menggabungkan Slide Menggunakan Master Tujuan**
 
-## **Gabungkan Slide Tertentu Dari Presentasi**
+Gunakan overload [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) ketika slide yang diimpor harus mengikuti master yang sudah ada di presentasi tujuan.
 
-Menggabungkan slide tertentu dari beberapa presentasi berguna saat membuat dek slide khusus. Aspose.Slides memungkinkan Anda memilih dan mengimpor hanya slide yang Anda butuhkan, sambil mempertahankan pemformatan, tata letak, dan desain slide asli.
-
-Contoh Python berikut membuat presentasi baru, menambahkan slide judul dari dua presentasi lain, dan menyimpan hasilnya ke file:
-
-```py
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
-
-
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Gabungkan Presentasi dengan Tata Letak Slide**
-
-Contoh Python berikut menunjukkan cara menggabungkan slide dari beberapa presentasi sambil menerapkan tata letak slide spesifik untuk menghasilkan satu presentasi output:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
+
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gabungkan Presentasi dengan Ukuran Slide Berbeda**
+Aspose.Slides memilih layout yang sesuai di bawah master yang ditentukan dengan mencocokkan tipe atau nama layout sumber. Jika tidak ada layout yang cocok dan `allow_clone_missing_layout` bernilai `True`, layout sumber diklon sehingga slide dapat ditambahkan. Jika nilai `False`, sebuah [PptxEditException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxeditexception/) dilempar.
 
-{{% alert title="Note" color="warning" %}}
-Anda tidak dapat langsung menggabungkan presentasi yang memiliki ukuran slide berbeda.
-{{% /alert %}}
+Gunakan `False` ketika Anda ingin proses penggabungan gagal alih‑alih menambah layout tambahan ke master tujuan.
 
-Untuk menggabungkan dua presentasi dengan ukuran slide berbeda, pertama ubah ukuran salah satu presentasi sehingga ukuran slidennya cocok dengan yang lain.
+## **Menggabungkan Slide Menggunakan Layout Tujuan Tertentu**
 
-Kode contoh berikut mendemonstrasikan proses ini:
+Gunakan overload [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) ketika Anda sudah tahu layout tujuan mana yang harus digunakan oleh slide yang diimpor.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gabungkan Slide ke Seksi Presentasi**
+Menerapkan layout tujuan mengubah hubungan layout yang diwarisi; tidak mengubah desain konten slide sumber. Jika layout sumber dan tujuan memiliki struktur placeholder yang berbeda, periksa hasilnya untuk memastikan bahwa format yang diwarisi dan perilaku placeholder sudah tepat.
 
-Contoh Python berikut menunjukkan cara menggabungkan slide tertentu ke dalam seksi sebuah presentasi:
+## **Menggabungkan Presentasi dengan Ukuran Slide Berbeda**
 
-```py
+Presentasi dengan dimensi slide yang berbeda dapat digabungkan, tetapi mengklon slide ke dalam presentasi dengan ukuran slide lain tidak secara otomatis mendesain ulang kontennya untuk kanvas baru. Oleh karena itu bentuk dapat tampil bergeser, terukur tidak terduga, atau berada di luar area slide yang terlihat.
+
+Pendekatan praktis adalah mengubah ukuran presentasi sumber sebelum mengklon. Metode [SlideSize.set_size](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidesize/set_size/) dapat menskalakan konten yang ada sambil mengubah dimensi slide. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidesizescaletype/) menskalakan konten agar cocok dengan ukuran yang diminta.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Slide ditambahkan di akhir seksi.
+Mengubah ukuran mengubah objek presentasi sumber dalam memori. Jika Anda memerlukan presentasi sumber asli tetap tidak berubah untuk operasi lain, buka instance terpisah untuk proses penggabungan.
 
-{{% alert title="Tip" color="primary" %}}
-Mencari alat **online gratis** untuk **menggabungkan presentasi PowerPoint**? Coba [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/id/merger).
+## **Menggabungkan Slide ke Section Presentasi**
 
-- **Gabungkan file PowerPoint dengan mudah**: Kombinasikan banyak presentasi **PPT, PPTX, ODP** menjadi satu file.  
-- **Mendukung format berbeda**: Gabungkan **PPT ke PPTX**, **PPTX ke ODP**, dan lainnya.  
-- **Tanpa instalasi**: Berfungsi langsung di browser Anda, cepat dan aman.  
+Loop dasar kloning slide tidak membuat kembali hierarki section dari presentasi sumber. Jika section penting dalam output, buat atau pilih section di presentasi tujuan dan klon slide ke dalamnya secara eksplisit dengan [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/).
 
-[![Gabungkan File PowerPoint Secara Online](slides-merger.png)](https://products.aspose.app/slides/id/merger)  
+```python
+import aspose.slides as slides
 
-Mulailah menggabungkan file PowerPoint Anda dengan **alat online gratis Aspose** hari ini!  
-{{% /alert %}}
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
 
-{{% alert title="Tip" color="primary" %}}
-Aspose menyediakan sebuah [aplikasi web kolase GRATIS](https://products.aspose.app/slides/id/collage). Menggunakan layanan online ini, Anda dapat menggabungkan [JPG ke JPG](https://products.aspose.app/slides/id/collage/jpg) atau PNG ke PNG, membuat [grid foto](https://products.aspose.app/slides/id/collage/photo-grid), dan lain‑lain. 
-{{% /alert %}}
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Slide yang diklon ditambahkan ke section tujuan yang ditentukan. Untuk mempertahankan beberapa section sumber, lakukan enumerasi pada [Presentation.sections](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/sections/), ambil slide saat ini dari setiap section sumber dengan [Section.get_slides_list_of_section](https://reference.aspose.com/slides/id/python-net/aspose.slides/section/get_slides_list_of_section/), buat ulang section di tujuan, dan klon setiap slide yang dikembalikan ke section tujuan yang bersesuaian. Lihat [Manage Slide Sections](/slides/id/python-net/slide-section/) untuk contoh lengkap enumerasi section, termasuk section kosong dan perubahan struktural.
+
+## **Menggabungkan Beberapa Presentasi dengan Aman**
+
+Contoh end‑to‑end berikut menggunakan presentasi pertama sebagai tujuan, menormalkan ukuran slide setiap sumber tambahan, menjaga setiap sumber tetap terbuka hanya saat sedang disalin, dan menyimpan file akhir sekali saja.
+
+```python
+import aspose.slides as slides
+
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
+
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
+
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
+
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ini merupakan baseline yang berguna untuk mempertahankan format sumber slide yang diimpor. Jika output Anda harus menggunakan satu tema tujuan, ganti pemanggilan sederhana `add_clone(slide)` dengan overload master‑tujuan atau layout‑tujuan yang telah ditunjukkan sebelumnya.
+
+## **Pertimbangan Praktis**
+
+### **Master, Layout, dan Keakuratan Format**
+
+Klonnig slide default dapat secara otomatis membawa master sumber yang diperlukan ke dalam presentasi tujuan. Aspose.Slides menjaga registri internal untuk master yang diklon otomatis agar tidak mengklon master yang sama berulang kali. Master yang diklon secara manual tidak tercatat dalam registri tersebut, jadi hindari pra‑kloning master kecuali Anda memerlukan kontrol eksplisit atas struktur master.
+
+Jangan berasumsi bahwa dua master atau layout dengan nama yang sama memiliki tampilan visual yang setara. Jika template korporat harus mengontrol tampilan akhir, pilih master atau layout tujuan secara eksplisit dan verifikasi hasil setelah penggabungan.
+
+### **Catatan dan Komentar**
+
+Catatan pembicara dan komentar slide terkait dengan konten slide dan disalin ketika slide diklon. Aspose.Slides juga menyediakan API khusus untuk [presentation notes](/slides/id/python-net/presentation-notes/) dan [presentation comments](/slides/id/python-net/presentation-comments/).
+
+Jika format halaman catatan penting, verifikasi presentasi yang digabung karena master catatan berada pada level presentasi dan dapat berbeda antar file sumber. Untuk alur kerja review, verifikasi juga penulis komentar dan komentar berantai setelah menggabungkan file dari penulis atau template yang berbeda.
+
+### **Gambar, Audio, Video, OLE Objects, dan Tautan Eksternal**
+
+Slide dapat merujuk ke sumber daya tingkat presentasi seperti gambar, audio tersemat, video tersemat, dan data OLE. Klon slide itu sendiri alih‑alih menyalin hanya bentuk yang terlihat agar Aspose.Slides dapat mempertahankan hubungan slide dengan sumber dayanya.
+
+Sumber daya yang tersemat dan yang ditautkan harus diperlakukan berbeda. Audio, video, OLE object, atau hyperlink yang ditautkan tetap bergantung pada target eksternal; mengklon slide tidak mengubah tautan eksternal menjadi konten tersemat. Uji jalur dan URL sumber daya yang ditautkan di lingkungan tempat presentasi yang digabungkan akan dibuka.
+
+Aspose.Slides secara eksplisit melacak master yang diklon otomatis, namun hal ini tidak boleh dianggap sebagai jaminan umum bahwa sumber daya biner identik dari presentasi sumber yang tidak terkait akan selalu didedupplikasi. Jika ukuran file output penting, inspeksi paket yang digabung dan ukur hasilnya alih‑alih mengandalkan deduplikasi implisit.
+
+### **Font Tersemat dan Ketersediaan Font**
+
+Font dikelola pada level presentasi. Jika tipografi harus konsisten antar mesin, jangan berasumsi bahwa mengklon slide saja menjamin setiap font yang diperlukan tersedia di lingkungan tujuan. Anda dapat memeriksa font tersemat dengan [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) dan mengelola penyematan secara eksplisit seperti dijelaskan di [Embed Fonts in Presentations](/slides/id/python-net/embedded-font/).
+
+Juga pastikan Anda memiliki izin untuk menyematkan font yang digunakan oleh file sumber. Lisensi font dapat membatasi penyematan.
+
+### **Presentasi yang Dilindungi Kata Sandi**
+
+Sumber yang dilindungi kata sandi harus dibuka dengan sukses sebelum slidennya dapat diklon. Berikan kata sandi melalui [LoadOptions.password](https://reference.aspose.com/slides/id/python-net/aspose.slides/loadoptions/password/).
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Membuka sumber yang terenkripsi tidak secara otomatis menerapkan perlindungan yang sama pada presentasi tujuan. Konfigurasikan perlindungan output secara terpisah bila diperlukan.
+
+### **Presentasi Besar dan Penggunaan Memori**
+
+Presentasi besar yang berisi gambar resolusi tinggi, audio, video, atau objek biner besar lainnya dapat mengonsumsi memori signifikan. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/id/python-net/aspose.slides/loadoptions/blob_management_options/) menyediakan kontrol untuk penanganan BLOB dan penggunaan file sementara. Lihat [Manage Presentation BLOBs](/slides/id/python-net/manage-blob/) untuk strategi file besar.
+
+Untuk file besar, lebih disarankan memuat dari jalur file bila memungkinkan, menutup setiap presentasi sumber segera setelah selesai digabung, dan menghindari penyimpanan hasil menengah berulang kali kecuali alur kerja memang memerlukan checkpoint. Menggunakan `with slides.Presentation(...)` memastikan sumber daya presentasi dilepaskan saat konteks berakhir.
+
+### **Keamanan Thread**
+
+Jangan memuat, menyimpan, atau mengklon sebuah [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) secara bersamaan dari banyak thread. Pertahankan setiap operasi penggabungan satu‑thread. Jika Anda memparallelkan pekerjaan penggabungan yang independen, gunakan proses satu‑thread terpisah dan instance presentasi yang independen seperti dijelaskan dalam [Aspose.Slides multithreading guidance](/slides/id/python-net/multithreading/).
 
 ## **FAQ**
 
-**Apakah catatan pembicara dipertahankan selama penggabungan?**
+**Bagaimana cara menjaga desain asli setiap presentasi sumber?**
 
-Ya. Saat mengkloning slide, Aspose.Slides membawa semua elemen slide, termasuk catatan, pemformatan, dan animasi.
+Gunakan [add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) tanpa menyediakan master atau layout tujuan. Aspose.Slides dapat secara otomatis mengklon master sumber ketika diperlukan oleh slide yang diimpor.
 
-**Apakah komentar dan penulisnya dipindahkan?**
+**Bagaimana cara membuat slide yang diimpor menggunakan tema tujuan?**
 
-Komentar, sebagai bagian dari konten slide, disalin bersama slide. Label penulis komentar dipertahankan sebagai objek komentar dalam presentasi yang dihasilkan.
+Gunakan overload yang menerima master tujuan. Berikan master dari presentasi tujuan, bukan dari sumber. Aspose.Slides akan mencoba memetakan setiap slide sumber ke layout yang sesuai di bawah master tersebut.
 
-**Bagaimana jika presentasi sumber dilindungi sandi?**
+**Kapan harus menggunakan layout tujuan spesifik alih‑alih master tujuan?**
 
-Harus [dibuka dengan sandi](/slides/id/python-net/password-protected-presentation/) melalui [LoadOptions.password](https://reference.aspose.com/slides/id/python-net/aspose.slides/loadoptions/password/); setelah dimuat, slide tersebut dapat dengan aman diklon ke file target yang tidak dilindungi (atau yang dilindungi juga).
+Gunakan layout spesifik ketika setiap slide yang diimpor harus menggunakan satu layout yang sudah diketahui. Gunakan master ketika Anda ingin Aspose.Slides memilih di antara layout master tersebut berdasarkan tipe atau nama layout sumber.
 
-**Seberapa thread‑safe operasi penggabungan?**
+**Apakah presentasi dengan ukuran slide berbeda dapat digabungkan?**
 
-Jangan gunakan instance [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/python-net/multithreading/). Aturan yang disarankan adalah “satu dokumen — satu thread”; file yang berbeda dapat diproses secara paralel di thread terpisah.
+Ya, tetapi konten slide tidak secara otomatis didesain ulang untuk dimensi tujuan. Ubah ukuran presentasi sumber terlebih dahulu ketika Anda memerlukan penempatan yang dapat diprediksi, misalnya dengan [SlideSize.set_size](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidesize/set_size/) dan [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidesizescaletype/).
+
+**Bisakah saya menggabungkan file PPT, PPTX, dan ODP menjadi satu file?**
+
+Ya. Muat setiap presentasi sumber, klon slide yang diperlukan ke satu tujuan, dan simpan tujuan dalam format output yang didukung. Karena format presentasi tidak mendukung set fitur yang persis sama, verifikasi konten kompleks setelah penggabungan lintas format. Lihat [Supported File Formats](/slides/id/python-net/supported-file-formats/).
+
+**Apakah section sumber dipertahankan secara otomatis?**
+
+Tidak oleh loop dasar yang hanya mengklon slide. Buat ulang section yang diperlukan di tujuan dan gunakan overload section dari [add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) ketika struktur section harus dipertahankan.
+
+**Apakah catatan pembicara dan komentar dipertahankan?**
+
+Mereka disalin bersama slide yang diklon. Untuk alur kerja yang bergantung pada styling master catatan, penulis komentar, atau data review berantai, verifikasi hasil gabungan karena skenario tersebut melibatkan struktur tingkat presentasi serta konten tingkat slide.
+
+**Apa yang terjadi pada audio, video, OLE objects, dan hyperlink?**
+
+Konten tersemat dibawa sebagai bagian dari hubungan sumber daya slide yang diklon. Tautan eksternal tetap eksternal, sehingga file target atau URL harus tetap tersedia setelah penggabungan.
+
+**Apakah font tersemat dari setiap sumber dijamin tersedia di presentasi yang digabung?**
+
+Jangan mengandalkan hanya kloning slide untuk penyebaran font. Periksa font tersemat pada tujuan dan kelola penyematan font atau ketersediaan font eksternal secara eksplisit ketika tipografi penting.
+
+**Bagaimana cara menggabungkan file yang dilindungi kata sandi?**
+
+Buka dengan [LoadOptions.password](https://reference.aspose.com/slides/id/python-net/aspose.slides/loadoptions/password/) yang benar, kemudian klon slide-nya seperti biasa. Perlindungan output dikonfigurasi secara terpisah.
+
+**Bagaimana cara menangani presentasi yang sangat besar?**
+
+Gunakan manajemen BLOB ketika objek biner besar mendominasi penggunaan memori, pilih pemuatan dari jalur file untuk file yang sangat besar, tutup presentasi sumber segera setelah selesai, dan simpan hasil akhir hanya ketika diperlukan.
+
+**Bisakah saya menggabungkan slide dari beberapa thread?**
+
+Jangan memuat, menyimpan, atau mengklon [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) secara bersamaan dari banyak thread. Pertahankan setiap operasi penggabungan satu‑thread; gunakan proses satu‑thread independen jika Anda perlu memparallelkan pekerjaan penggabungan yang terpisah.

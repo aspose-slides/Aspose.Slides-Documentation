@@ -1,5 +1,5 @@
 ---
-title: Java’da Sunumlara Dijital İmzalar Ekleyin
+title: Java'da Sunumlara Dijital İmza Eklemek
 linktitle: Dijital İmza
 type: docs
 weight: 10
@@ -9,90 +9,174 @@ keywords:
 - dijital sertifika
 - sertifika otoritesi
 - PFX sertifikası
+- PKCS#12
+- imzayı doğrulama
 - PowerPoint
-- OpenDocument
-- sunum
+- PPTX
+- sunum güvenliği
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument dosyalarını dijital olarak imzalamayı öğrenin. Açık kod örnekleriyle slaytlarınızı saniyeler içinde güvenceye alın."
+description: "PFX sertifikalarıyla mevcut PPTX sunumlarını nasıl imzalayacağınızı ve Aspose.Slides for Java ile dijital imzaları doğrulama veya kaldırma işlemlerini öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-**Digital certificate** bir şifre korumalı PowerPoint sunumu oluşturmak için kullanılır ve belirli bir kuruluş veya kişi tarafından oluşturulmuş olarak işaretlenir. Digital certificate, yetkili bir kuruluş—bir sertifika otoritesi—ile iletişime geçilerek elde edilebilir. Digital certificate sisteminize kurulduktan sonra, Dosya -> Bilgi -> Sunumu Koru aracılığıyla sunuma dijital imza eklemek için kullanılabilir:
+Dijital imza, alıcının bir sunumu kimin imzaladığını ve imzalı içeriğin değişip değişmediğini belirlemesine yardımcı olur. Burada üç ilgili güvenlik kavramı önemlidir:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **Dijital sertifika**, bir kimliği bir açık anahtarla ilişkilendiren elektronik bir kimlik bilgisi olarak tanımlanır. Güvenilir bir sertifika otoritesi (CA) sertifika verebilir ya da bir kuruluş, dahili iş akışları için kendinden imzalı bir sertifika kullanabilir.
+- **Dijital imza**, sunum içeriği ve sertifika sahibinin özel anahtarıyla oluşturulur. Sertifikanın açık anahtarı daha sonra imzayı doğrulamak için kullanılabilir. İmza, kaynağın ve bütünlüğün kanıtını sağlar; sunumu şifrelemez.
+- **Parola koruması**, bir kullanıcının bir sunumu açıp açamayacağını veya değiştirebileceğini kontrol eder. Bu, dijital imzalamadan ayrı bir özelliktir ve [Parola Koruması ile Sunumlar](/slides/tr/java/password-protected-presentation/) bölümünde açıklanmıştır.
 
-Sunum birden fazla dijital imza içerebilir. Dijital imza sunuma eklendikten sonra PowerPoint’te özel bir mesaj görüntülenir:
+PowerPoint, **Dosya > Bilgi > Sunumu Koru** menüsü altında **Dijital İmza Ekle** komutunu sağlar.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Sunumu Koru menüsü, Dijital İmza Ekle vurgulanmış](add-digital-signature-in-powerpoint.png)
 
-Sunumu imzalamak veya sunum imzalarının özgünlüğünü kontrol etmek için **Aspose.Slides API**, [**IDigitalSignature**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IDigitalSignature) arayüzünü, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IDigitalSignatureCollection) arayüzünü ve [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IPresentation#getDigitalSignatures--) yöntemini sağlar. Şu anda dijital imzalar yalnızca PPTX formatı için desteklenmektedir.
-## **PFX Sertifikasından Dijital İmza Ekleme**
-Aşağıdaki kod örneği, bir PFX sertifikasından dijital imza eklemeyi gösterir:
+İmzalı bir sunum açıldıktan sonra, PowerPoint bir imza‑durumu bildirimi gösterebilir.
 
-1. PFX dosyasını açın ve PFX parolasını [**DigitalSignature**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/DigitalSignature) nesnesine iletin.
-1. Oluşturulan imzayı sunum nesnesine ekleyin.
+![PowerPoint bildirimi, sunumun geçerli imzalar içerdiğini belirtiyor](digital-signature-status-in-powerpoint.png)
+
+Aspose.Slides, imzaları [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentation/#getDigitalSignatures--) aracılığıyla sunar; bu yöntem bir [IDigitalSignatureCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignaturecollection/) döndürür ve öğeleri [IDigitalSignature](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignature/) arayüzünü uygular. Bir sunum birden çok imza içerebilir.
+
+## **PFX Sertifikaları ve Parolaları Anlamak**
+
+`.pfx` veya `.p12` uzantılı bir PFX dosyası (PKCS#12 dosyası olarak da bilinir), bir X.509 sertifikası, bunun özel anahtarı ve sertifika zincirini içerebilir. Özel anahtar, imzayı oluşturmayı sağlayan bileşendir. Erişilebilir bir özel anahtarı olmayan bir sertifika, bir sunumu imzalamak için kullanılamaz.
+
+PFX parolası, sertifika paketini ve özel anahtarı korur. Bu, sunumu açmak veya düzenlemek için kullanılan bir parola **değildir**. PFX dosyalarını veya parolalarını kaynak kontrolüne göndermeyin. Üretim ortamında, sertifika dosyasına erişimi kısıtlayın ve parolasını gizli bir depodan veya başka bir korumalı yapılandırma kaynağından alın. Aşağıdaki örneklerde parola yalnızca kod içinde gömmekten kaçınmak için bir ortam değişkeni olarak kullanılmıştır.
+
+## **Sunuma Dijital İmza Ekleme**
+
+Gerçek bir sunum iş akışını imzalamak için mevcut bir PPTX dosyasını yükleyin, bir PFX sertifikası ve parolasından bir [DigitalSignature](https://reference.aspose.com/slides/tr/java/com.aspose.slides/digitalsignature/) oluşturun, imzayı sunumun koleksiyonuna ekleyin ve bir PPTX dosyasına kaydedin.
 
 ```java
-// Sunum dosyasını açma
-Presentation pres = new Presentation();
+String certificatePassword = System.getenv("PFX_PASSWORD");
+if (certificatePassword == null || certificatePassword.isEmpty()) {
+    throw new IllegalStateException("Set the PFX_PASSWORD environment variable.");
+}
+
+Presentation presentation = new Presentation("InputPresentation.pptx");
 try {
-    // PFX dosyası ve PFX parolasıyla DigitalSignature nesnesi oluştur
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", "testpass1");
+    DigitalSignature signature = new DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
 
-    // Yeni dijital imzaya yorum ekle
-    signature.setComments("Aspose.Slides digital signing test.");
-
-    // Dijital imzayı sunuma ekle
-    pres.getDigitalSignatures().add(signature);
-
-    // Sunumu kaydet
-    pres.save("SomePresentationSigned.pptx", SaveFormat.Pptx);
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Artık sunumun dijital olarak imzalı olup olmadığını ve değiştirilip değiştirilmediğini kontrol etmek mümkündür:
+Sonucu yeni bir adla kaydetmek, imzasız kaynak dosyasını korur. [IDigitalSignature.setComments](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) yöntemiyle ayarlanan değer, imzanın amacını açıklar; güvenlik kontrolü değildir.
+
+## **Dijital İmzaları Doğrulama**
+
+İmzalı bir PPTX dosyasını yüklediğinizde, [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentation/#getDigitalSignatures--) tarafından döndürülen her öğeyi inceleyin. [IDigitalSignature.isValid](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignature/#isValid--) yöntemi, gömülü imzanın mevcut sunum içeriği için geçerli olup olmadığını gösterir.
 
 ```java
-// Sunumu aç
-Presentation pres = new Presentation("SomePresentationSigned.pptx");
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0)
-    {
+    IDigitalSignatureCollection signatures = presentation.getDigitalSignatures();
+    int signatureCount = signatures.size();
+
+    if (signatureCount == 0) {
+        System.out.println("The presentation does not contain digital signatures.");
+    } else {
         boolean allSignaturesAreValid = true;
+        java.text.SimpleDateFormat signTimeFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.security.cert.CertificateFactory certificateFactory = java.security.cert.CertificateFactory.getInstance("X.509");
 
-        System.out.println("Signatures used to sign the presentation: ");
+        for (IDigitalSignature signature : signatures) {
+            boolean signatureIsValid = signature.isValid();
+            String signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            java.util.Date signTime = signature.getSignTime();
+            String formattedSignTime = signTimeFormat.format(signTime);
 
-        // Tüm dijital imzaların geçerli olup olmadığını kontrol et
-        for (IDigitalSignature signature : pres.getDigitalSignatures())
-        {
-            System.out.println(signature.getComments() + ", "
-                    + signature.getSignTime().toString() + " -- " + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+            byte[] certificateData = signature.getCertificate();
+            java.io.ByteArrayInputStream certificateStream = new java.io.ByteArrayInputStream(certificateData);
+            java.security.cert.X509Certificate certificate = (java.security.cert.X509Certificate) certificateFactory.generateCertificate(certificateStream);
+            javax.security.auth.x500.X500Principal signerPrincipal = certificate.getSubjectX500Principal();
+            String signerName = signerPrincipal.getName();
+
+            System.out.println(signerName + ", " + formattedSignTime + " -- " + signatureStatus);
+
+            allSignaturesAreValid &= signatureIsValid;
         }
 
-        if (allSignaturesAreValid)
-            System.out.println("Presentation is genuine, all signatures are valid.");
-        else
-            System.out.println("Presentation has been modified since signing.");
+        if (allSignaturesAreValid) {
+            System.out.println("All embedded signatures are valid for the current presentation.");
+        } else {
+            System.out.println("At least one embedded signature is invalid.");
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Geçersiz bir sonuç, genellikle imzalı içerik veya imza verilerinin imzalama sonrası değiştiği ya da dosyanın hasar gördüğü anlamına gelir. Tüm imzaları kaldırmak imzasız bir sunum üretir; bu nedenle yalnızca öğelerin geçerliliğini kontrol etmek yeterli değildir: güvenlik açısından hassas bir iş akışı, beklenen imza sayısının ve beklenen imzalayan kimliklerin mevcut olduğunu da doğrulamalıdır.
+
+Bu geçerlilik sonucu, tam bir sertifika‑güven kararı olarak değerlendirilmemelidir. Güvenlik politikanıza bağlı olarak uygulamanız, X.509 sertifika zincirini oluşturup doğrulamalı, sertifikanın geçerlilik tarihlerini ve iptal durumunu kontrol etmeli, beklenen konu adını veya parmak izini teyit etmeli, anahtar kullanımını doğrulamalı ve güvenilir bir zaman damgasını değerlendirmelidir. [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignature/#getSignTime--) değeri tek başına güvenilir bir zaman damgası otoritesinden kanıt teşkil etmez.
+
+## **Dijital İmzaları Kaldırma**
+
+İmzaları kaldırmak, sunumun güvenlik durumunu değiştirir. Aşağıdaki örnek, imzalı bir PPTX dosyasını yükler, tüm imzaları [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignaturecollection/#clear--) ile temizler ve imzasız bir kopya kaydeder.
+
+```java
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sadece bir imzayı kaldırmak için, sıfır‑tabanlı indeksiyle [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) yöntemini kullanın. İmzalı orijinali üzerine yazmak iş akışınızın açık bir parçası değilse, yeni bir dosyaya kaydedin.
+
+## **Düzenleme ve Biçim Düşünceleri**
+
+- Bir imza, bir sunumu yalnızca okuma‑yalnızına dönüştürmez. Kullanıcılar ve uygulamalar dosyayı hâlâ düzenleyebilir, ancak imzalı içeriğe yapılan değişiklikler genellikle mevcut imzayı geçersiz kılar.
+- İmzalamadan önce tüm istenen düzenlemeleri tamamlayın. Sunumun değiştirilmesi gerekiyorsa, revize edilmiş sunumu kaydedin ve bu revizyonu yeniden imzalayın.
+- Çıktıyı PPTX biçiminde tutun. İmzalı bir sunumu başka bir biçime dönüştürmek, orijinal PPTX imzasını dönüştürülmüş dosya için geçerli bir imza olarak taşımaz.
+- Sertifikanın özel anahtarını hassas bir veri olarak tutun. Özel anahtarı ve parolasını elde eden herkes, bu sertifika sahibinden gelmiş gibi görünecek imzalar oluşturabilir.
+- Doküman saklama politikanız gerektiriyorsa, imzasız kaynağı veya başka bir kontrol edilen kopyayı koruyun.
 
 ## **SSS**
 
-**Bir dosyadaki mevcut imzaları kaldırabilir miyim?**
+**Bir dijital imza sunumu şifreler mi?**
 
-Evet. Dijital imza koleksiyonu, [bireysel öğeleri kaldırmayı](https://reference.aspose.com/slides/tr/java/com.aspose.slides/digitalsignaturecollection/#removeAt-int-) ve [tamamen temizlemeyi](https://reference.aspose.com/slides/tr/java/com.aspose.slides/digitalsignaturecollection/#clear--) destekler; dosyayı kaydettikten sonra sunumda imza bulunmayacaktır.
+Hayır. Dijital imza, kaynağın ve bütünlüğün kanıtını sağlar, ancak sunum içeriği ayrı bir şifreleme uygulanmadıkça okunabilir kalır. İçeriğe erişimin kısıtlanması gerektiğinde [parola koruması](/slides/tr/java/password-protected-presentation/) kullanın.
 
-**Dosya imzalandıktan sonra “yalnızca okunur” olur mu?**
+**PFX parolası sunum parolasıyla aynı mı?**
 
-Hayır. Bir imza bütünlüğü ve yazarlığı korur ancak düzenlemeyi engellemez. Düzenlemeyi kısıtlamak için bunu ["Yalnızca okunur" veya bir şifre](/slides/tr/java/password-protected-presentation/) ile birleştirin.
+Hayır. PFX parolası, sertifika paketindeki özel anahtarı açar. PPTX dosyasını kimlerin açıp düzenleyebileceğini kontrol etmez.
 
-**İmza farklı PowerPoint sürümlerinde doğru şekilde görüntülenir mi?**
+**Kendinden imzalı bir sertifika kullanabilir miyim?**
 
-İmza OOXML (PPTX) kapsayıcısı için oluşturulmuştur. OOXML imzalarını destekleyen modern PowerPoint sürümleri, bu imzaların durumunu doğru bir şekilde gösterir.
+Teknik olarak, erişilebilir bir özel anahtar içeriyorsa kendinden imzalı bir sertifika kullanılabilir. Alıcılar otomatik olarak güvenmez; ancak sertifika açıkça güvenilir ortama eklenmişse güvenilir olur. Genel veya çapraz‑kurum iş akışları genellikle güvenilir bir CA tarafından verilen bir sertifika kullanır.
+
+**Bir imzayı geçersiz kılan nedir?**
+
+İmzalı sunum içeriğini veya imza verilerini imzalama sonrası değiştirmek imzayı geçersiz kılar. Dosya bozulması da doğrulamanın başarısız olmasına yol açabilir. Tüm imzalar kaldırılırsa, sunum imzasız olur; geçersiz bir imza içermez.
+
+**Geçerli bir imza, imzalayanı güvenmem gerektiği anlamına mı gelir?**
+
+Tek başına hayır. İmza bütünlüğü ve imzalayan güveni ayrı kararlardır. Üretim doğrulama politikanız ayrıca sertifika zincirini, geçerlilik süresini, iptal durumunu, beklenen kimliği, anahtar kullanımını ve güvenilir zaman damgası gereksinimlerini kontrol etmelidir.
+
+**Sertifika süresi dolduğunda ne olur?**
+
+Sertifikanın süresi dolması, sunum baytlarını değiştirmez, ancak sertifika‑güven değerlendirmesini etkiler. Bir imzanın hâlâ kabul edilebilir olup olmadığı, politikanıza ve geçerli bir güvenilir zaman damgasının imzalamanın sertifika geçerli olduğu sırada gerçekleştiğini kanıtlayıp kanıtlamadığına bağlıdır. Gösterilen imzalama zamanına tek başına güvenmeyin.
+
+**İmzalı bir sunum hâlâ düzenlenebilir mi?**
+
+Evet. İmzalama dosyayı kilitlemez. İmzalı içeriği düzenlemek genellikle mevcut imzayı geçersiz kılar; bu yüzden önce sunumu tamamlayın ve son revizyonu imzalayın.
+
+**Bir sunum birden fazla imza içerebilir mi?**
+
+Evet. Kaydetmeden önce **IPresentation.getDigitalSignatures** tarafından döndürülen koleksiyona her bir imzayı ekleyin. Doğrulama sırasında her imzayı inceleyin ve tüm gerekli imzalayanların mevcut olduğunu teyit edin.
+
+**Hangi sunum biçimleri bu işlemleri destekler?**
+
+Aspose.Slides, burada açıklanan dijital‑imza işlemlerini yalnızca PPTX için destekler. PPT ve OpenDocument sunum biçimleri bu API iş akışıyla desteklenmez.
+
+**Bir imzayı slaytları etkilemeden kaldırabilir miyim?**
+
+Evet. Tek bir imzayı kaldırabilir veya tüm koleksiyonu temizleyebilir ve ardından sunumu kaydedebilirsiniz. Slayt içeriği mevcut kalır, ancak kaydedilen dosyada kaldırılan imza kanıtı bulunmaz.

@@ -1,59 +1,59 @@
----
-title: Dostosuj czcionki PowerPoint w PHP
-linktitle: Czcionka niestandardowa
-type: docs
-weight: 20
-url: /pl/php-java/custom-font/
-keywords:
-- czcionka
-- czcionka niestandardowa
-- czcionka zewnętrzna
-- wczytaj czcionkę
-- zarządzaj czcionkami
-- folder czcionek
-- PowerPoint
-- OpenDocument
-- prezentacja
-- PHP
-- Aspose.Slides
-description: "Dostosuj czcionki w slajdach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Java, aby Twoje prezentacje były wyraziste i spójne na każdym urządzeniu."
+---  
+title: Dostosuj czcionki PowerPoint w PHP  
+linktitle: Niestandardowa czcionka  
+type: docs  
+weight: 20  
+url: /pl/php-java/custom-font/  
+keywords:  
+- czcionka  
+- niestandardowa czcionka  
+- zewnętrzna czcionka  
+- załaduj czcionkę  
+- zarządzaj czcionkami  
+- folder czcionek  
+- PowerPoint  
+- OpenDocument  
+- prezentacja  
+- PHP  
+- Aspose.Slides  
+description: "Dostosuj czcionki w slajdach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Java, aby Twoje prezentacje były wyraźne i spójne na każdym urządzeniu."  
 ---
 ## **Przegląd**
 
-Aspose.Slides pozwala używać niestandardowych czcionek w prezentacjach bez ich instalowania w systemie operacyjnym. Możesz wczytać czcionki z własnych folderów, udostępnić czcionki dla konkretnej prezentacji poprzez źródła czcionek na poziomie dokumentu lub wczytać czcionki zewnętrzne bezpośrednio z danych binarnych.
+Aspose.Slides umożliwia używanie niestandardowych czcionek w prezentacjach bez konieczności instalowania ich w systemie operacyjnym. Możesz ładować czcionki z własnych folderów, udostępniać czcionki dla konkretnej prezentacji za pośrednictwem źródeł czcionek na poziomie dokumentu lub ładować czcionki zewnętrzne bezpośrednio z danych binarnych.
 
-Wczytane czcionki są używane podczas renderowania lub eksportu prezentacji, np. do PDF, obrazów i innych obsługiwanych formatów. Pomaga to utrzymać spójność wyników prezentacji w różnych środowiskach. Artykuł wyjaśnia również, jak sprawdzić foldery czcionek używane przez Aspose.Slides oraz jak wyczyścić pamięć podręczną czcionek po pracy z czcionkami zewnętrznymi.
+Załadowane czcionki są używane podczas renderowania lub eksportu prezentacji, np. do PDF, obrazów i innych obsługiwanych formatów. Pomaga to zachować spójność wyjścia prezentacji w różnych środowiskach. Artykuł wyjaśnia także, jak sprawdzić foldery czcionek używane przez Aspose.Slides oraz jak wyczyścić pamięć podręczną czcionek po pracy z czcionkami zewnętrznymi.
 
-Rejestrowanie niestandardowych czcionek do renderowania jest oddzielne od osadzania czcionek w pliku PPTX. Jeśli czcionka musi być przechowywana wewnątrz prezentacji, użyj wyraźnie funkcji osadzania czcionek.
+Rejestrowanie niestandardowych czcionek do renderowania jest oddzielne od osadzania czcionek w pliku PPTX. Jeśli czcionka ma być przechowywana wewnątrz samej prezentacji, użyj wyraźnie funkcji osadzania czcionek.
 
-{{% alert color="primary" %}} 
+Motyw prezentacji może odwoływać się do różnych rodzin czcionek dla poszczególnych systemów pisma. Te mapowania przechowują nazwy czcionek, ale nie instalują ani nie ładują plików czcionek. Zobacz [Czcionki tematyczne specyficzne dla skryptu](/slides/pl/php-java/script-specific-font-mappings/), aby zarządzać mapowaniami, i użyj opcji ładowania poniżej, aby udostępnić odwoływane czcionki dla spójnego renderowania.
 
-Aspose Slides pozwala wczytać te czcionki przy użyciu metody [loadExternalFonts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+{{% alert color="info" title="Uwaga" %}}
 
-* Czcionki TrueType (.ttf) i kolekcje TrueType (.ttc). Zobacz [TrueType](https://en.wikipedia.org/wiki/TrueType).
+Aspose Slides pozwala ładować te czcionki za pomocą metody [loadExternalFonts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+
+* Czcionki TrueType (.ttf) i TrueType Collection (.ttc). Zobacz [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
 * Czcionki OpenType (.otf). Zobacz [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **Ładowanie niestandardowych czcionek**
+## **Załaduj niestandardowe czcionki**
 
-Aspose.Slides pozwala wczytać czcionki używane w prezentacji bez ich instalowania w systemie. Ma to wpływ na wynik eksportu — takiego jak PDF, obrazy i inne obsługiwane formaty — dzięki czemu powstałe dokumenty wyglądają spójnie w różnych środowiskach. Czcionki są wczytywane z własnych katalogów.
+Aspose.Slides umożliwia ładowanie czcionek używanych w prezentacji bez instalacji ich w systemie. Ma to wpływ na wynik eksportu — takiego jak PDF, obrazy i inne obsługiwane formaty — dzięki czemu powstałe dokumenty wyglądają spójnie w różnych środowiskach. Czcionki są ładowane z własnych katalogów.
 
-1. Określ jeden lub więcej folderów zawierających pliki czcionek.
-2. Wywołaj statyczną metodę [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) aby wczytać czcionki z tych folderów.
-3. Wczytaj i renderuj/eksportuj prezentację.
-4. Wywołaj [FontsLoader::clearCache](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#clearCache--) aby wyczyścić pamięć podręczną czcionek.
-
-Poniższy przykład kodu demonstruje proces ładowania czcionek:
+1. Określ jeden lub więcej folderów zawierających pliki czcionek.  
+2. Wywołaj statyczną metodę [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---), aby załadować czcionki z tych folderów.  
+3. Załaduj i renderuj/wyeksportuj prezentację.  
+4. Wywołaj metodę [FontsLoader::clearCache](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#clearCache--) w celu wyczyszczenia pamięci podręcznej czcionek.
 
 ```php
-// Zdefiniuj foldery zawierające własne pliki czcionek.
+// Zdefiniuj foldery zawierające niestandardowe pliki czcionek.
 $externalFontFolder1 = __DIR__ . "/external-fonts-1";
 $externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
-// Wczytaj własne czcionki z określonych folderów.
+// Załaduj niestandardowe czcionki z określonych folderów.
 FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
@@ -61,7 +61,7 @@ try {
     $presentationPath = __DIR__ . "/sample.pptx";
     $presentation = new Presentation($presentationPath);
     
-    // Renderuj/wyeksportuj prezentację (np. do PDF, obrazów lub innych formatów) używając wczytanych czcionek.
+    // Renderuj/eksportuj prezentację (np. do PDF, obrazów lub innych formatów) używając załadowanych czcionek.
     $outputPath = __DIR__ . "/output.pdf";
     $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
@@ -72,33 +72,33 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Uwaga" %}}
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) dodaje dodatkowe foldery do ścieżek wyszukiwania czcionek, ale nie zmienia kolejności inicjalizacji czcionek.
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) dodaje dodatkowe foldery do ścieżek wyszukiwania czcionek, ale nie zmienia kolejności inicjalizacji czcionek.  
 Czcionki są inicjalizowane w następującej kolejności:
 
-1. Domyślna ścieżka czcionek systemu operacyjnego.
-1. Ścieżki wczytane za pomocą [FontsLoader](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/).
+1. Domyślna ścieżka czcionek systemu operacyjnego.  
+1. Ścieżki wczytane za pośrednictwem [FontsLoader](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/).
 
 {{%/alert %}}
 
-## **Pobieranie niestandardowych folderów czcionek**
+## **Uzyskaj foldery czcionek niestandardowych**
 
-Aspose.Slides udostępnia metodę [getFontFolders](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#getFontFolders--) , która pozwala znaleźć foldery czcionek. Metoda ta zwraca foldery dodane poprzez metodę `LoadExternalFonts` oraz foldery czcionek systemowych.
+Aspose.Slides udostępnia metodę [getFontFolders](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#getFontFolders--) umożliwiającą odnalezienie folderów czcionek. Metoda ta zwraca foldery dodane poprzez metodę `LoadExternalFonts` oraz systemowe foldery czcionek.
 
-Ten kod PHP pokazuje, jak używać [getFontFolders](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#getFontFolders--):
+Poniższy kod PHP pokazuje, jak używać [getFontFolders](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```php
 # Ten wiersz wyświetla foldery, w których wyszukiwane są pliki czcionek.
-# Są to foldery dodane metodą LoadExternalFonts oraz foldery czcionek systemowych.
+# Są to foldery dodane za pośrednictwem metody LoadExternalFonts oraz systemowe foldery czcionek.
 $fontFolders = FontsLoader::getFontFolders();
 ```
 
-## **Określanie niestandardowych czcionek używanych w prezentacji**
+## **Określ niestandardowe czcionki używane w prezentacji**
 
-Aspose.Slides udostępnia metodę [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) , która pozwala określić zewnętrzne czcionki, które będą używane w prezentacji.
+Aspose.Slides udostępnia metodę [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) umożliwiającą określenie zewnętrznych czcionek, które będą używane w prezentacji.
 
-Ten kod PHP pokazuje, jak używać metody [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) :
+Poniższy kod PHP pokazuje, jak używać metody [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 
 ```php
 $javaArray = new JavaClass("java.lang.reflect.Array");
@@ -149,11 +149,11 @@ try {
 }
 ```
 
-## **Zarządzanie czcionkami zewnętrznie**
+## **Zarządzaj czcionkami zewnętrznie**
 
-Aspose.Slides udostępnia metodę [loadExternalFont](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data), która pozwala wczytać czcionki zewnętrzne z danych binarnych.
+Aspose.Slides udostępnia metodę [loadExternalFont](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) umożliwiającą ładowanie zewnętrznych czcionek z danych binarnych.
 
-Ten kod PHP demonstruje proces ładowania czcionek z tablicy bajtów:
+Poniższy kod PHP demonstruje proces ładowania czcionki z tablicy bajtów:
 
 ```php
 $javaArray = new JavaClass("java.lang.reflect.Array");
@@ -199,7 +199,7 @@ FontsLoader::loadExternalFont($fontBytes);
 try {
     $presentation = new Presentation();
     try {
-        # czcionka zewnętrzna załadowana w czasie trwania prezentacji
+        # zewnętrzna czcionka załadowana w czasie życia prezentacji
     } finally {
         if (!java_is_null($presentation)) {
             $presentation->dispose();
@@ -212,22 +212,22 @@ try {
 
 ## **FAQ**
 
-**Czy niestandardowe czcionki wpływają na eksport do wszystkich formatów (PDF, PNG, SVG, HTML)?**
+### Czy niestandardowe czcionki wpływają na eksport do wszystkich formatów (PDF, PNG, SVG, HTML)?
 
-Tak. Powiązane czcionki są używane przez renderownik we wszystkich formatach eksportu.
+Tak. Powiązane czcionki są używane przez proces renderowania we wszystkich formatach eksportu.
 
-**Czy niestandardowe czcionki są automatycznie osadzane w powstałym pliku PPTX?**
+### Czy niestandardowe czcionki są automatycznie osadzane w powstałym pliku PPTX?
 
-Nie. Zarejestrowanie czcionki do renderowania nie jest tym samym co osadzenie jej w pliku PPTX. Jeśli potrzebujesz, aby czcionka była zawarta w pliku prezentacji, musisz użyć wyraźnych [funkcji osadzania](/slides/pl/php-java/embedded-font/).
+Nie. Zarejestrowanie czcionki do renderowania nie jest tym samym co jej osadzenie w pliku PPTX. Jeśli potrzebujesz, aby czcionka była zawarta w pliku prezentacji, musisz użyć wyraźnie [funkcje osadzania](/slides/pl/php-java/embedded-font/).
 
-**Czy mogę kontrolować zachowanie awaryjne, gdy niestandardowa czcionka nie zawiera niektórych glifów?**
+### Czy mogę kontrolować zachowanie awaryjne, gdy niestandardowa czcionka nie zawiera niektórych glifów?
 
-Tak. Skonfiguruj [zastępowanie czcionek](/slides/pl/php-java/font-substitution/), [zasady zamiany](/slides/pl/php-java/font-replacement/) i [zestawy awaryjne](/slides/pl/php-java/fallback-font/), aby dokładnie określić, która czcionka ma być użyta, gdy żądany glif jest nieobecny.
+Tak. Skonfiguruj [font substitution](/slides/pl/php-java/font-substitution/), [replacement rules](/slides/pl/php-java/font-replacement/) oraz [fallback sets](/slides/pl/php-java/fallback-font/), aby dokładnie określić, która czcionka ma być użyta, gdy żądany glif jest nieobecny.
 
-**Czy mogę używać czcionek w kontenerach Linux/Docker bez instalacji systemowej?**
+### Czy mogę używać czcionek w kontenerach Linux/Docker bez instalowania ich systemowo?
 
-Tak. Wskaż własne foldery czcionek lub wczytaj czcionki z tablic bajtów. Eliminuję to zależność od katalogów czcionek systemowych w obrazie kontenera.
+Tak. Wskaż własne foldery czcionek lub ładuj czcionki z tablic bajtów. Dzięki temu usuwasz zależność od systemowych katalogów czcionek w obrazie kontenera.
 
-**Co z licencjonowaniem — czy mogę osadzić dowolną niestandardową czcionkę bez ograniczeń?**
+### Co z licencjonowaniem — czy mogę osadzać dowolną niestandardową czcionkę bez ograniczeń?
 
-Odpowiedzialność za zgodność z licencją czcionki spoczywa na Tobie. Warunki różnią się; niektóre licencje zabraniają osadzania lub użycia komercyjnego. Zawsze sprawdzaj EULA czcionki przed rozpowszechnianiem wyników.
+Odpowiadasz za zgodność z licencją czcionki. Warunki różnią się; niektóre licencje zakazują osadzania lub komercyjnego użycia. Zawsze sprawdzaj EULA czcionki przed rozpowszechnianiem wyników.

@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunumlara Dijital İmza Ekleme
+title: PHP'de Sunumlara Dijital İmzalar Ekleyin
 linktitle: Dijital İmza
 type: docs
 weight: 10
@@ -9,86 +9,178 @@ keywords:
 - dijital sertifika
 - sertifika otoritesi
 - PFX sertifikası
+- PKCS#12
+- imza doğrulama
 - PowerPoint
-- OpenDocument
-- sunum
+- PPTX
+- sunum güvenliği
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument dosyalarını dijital olarak nasıl imzalayacağınızı öğrenin. Açık kod örnekleriyle slaytlarınızı saniyeler içinde güvence altına alın."
+description: "PFX sertifikalarıyla mevcut PPTX sunumlarını nasıl imzalayacağınızı ve Aspose.Slides for PHP via Java'ı kullanarak dijital imzaları doğrulama veya kaldırma işlemlerini öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-**Dijital sertifika** bir şifreyle korunan PowerPoint sunumu oluşturmak için kullanılır, belirli bir kuruluş veya kişi tarafından oluşturulmuş olarak işaretlenir. Dijital sertifika, yetkili bir kuruluş - bir sertifika otoritesi ile iletişime geçilerek temin edilebilir. Dijital sertifika sisteme kurulduktan sonra, Dosya -> Bilgi -> Sunumu Koru aracılığıyla sunuma dijital imza eklemek için kullanılabilir:
+Bir dijital imza, alıcının bir sunumu kimin imzaladığını ve imzalı içeriğin değişip değişmediğini belirlemesine yardımcı olur. Burada üç ilgili güvenlik kavramı önemlidir:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Bir **dijital sertifika**, bir kimliği bir açık anahtarla ilişkilendiren elektronik kimlik belgesidir. Güvenilir bir sertifika otoritesi (CA) bir sertifika düzenleyebilir veya bir organizasyon dahili iş akışları için kendinden imzalı bir sertifika kullanabilir.
+- Bir **dijital imza**, sunum içeriği ve sertifika sahibinin özel anahtarından oluşturulur. Sertifikanın açık anahtarı daha sonra imzayı doğrulamak için kullanılabilir. Bir imza, kaynak ve bütünlük kanıtı sağlar; sunumu şifrelemez.
+- **Parola koruması**, bir kullanıcının bir sunumu açıp açamayacağını veya değiştirebileceğini kontrol eder. Bu, dijital imzalamadan ayrı bir konudur ve [Parola Koruması ile Sunumlar](/slides/tr/php-java/password-protected-presentation/) içinde açıklanmıştır.
 
-Sunum birden fazla dijital imza içerebilir. Dijital imza sunuma eklendikten sonra, PowerPoint'te özel bir mesaj görüntülenir:
+PowerPoint, **Dosya > Bilgi > Sunumu Koru** altında **Dijital İmza Ekle** komutunu sağlar.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation menu with Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
-Sunumu imzalamak veya sunum imzalarının özgünlüğünü kontrol etmek için **Aspose.Slides API** [**DigitalSignature**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/DigitalSignature) sınıfını, [**DigitalSignatureCollection**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/DigitalSignatureCollection) sınıfını ve [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getDigitalSignatures) methodunu sağlar. Şu anda dijital imzalar yalnızca PPTX formatı için desteklenmektedir.
+İmzalı bir sunum açıldıktan sonra, PowerPoint bir imza durumu bildirimi gösterebilir.
 
-## **PFX Sertifikasından Dijital İmza Ekleme**
+![PowerPoint notification stating that the presentation contains valid signatures](digital-signature-status-in-powerpoint.png)
 
-Aşağıdaki kod örneği, bir PFX sertifikasından dijital imza nasıl eklenir gösterir:
+Aspose.Slides, imzaları [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getDigitalSignatures) aracılığıyla sunar; bu yöntem bir [DigitalSignatureCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignaturecollection/) döndürür ve öğeleri [DigitalSignature](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignature/) nesneleriyle temsil eder. Bir sunum birden çok imza içerebilir.
 
-1. PFX dosyasını açın ve PFX şifresini [**DigitalSignature**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/DigitalSignature) nesnesine iletin.
-2. Oluşturulan imzayı sunum nesnesine ekleyin.
+## **PFX Sertifikaları ve Parolaları Anlama**
 
-```php
-  # Sunum dosyasını açma
-  $pres = new Presentation();
-  try {
-    # PFX dosyası ve PFX şifresi ile DigitalSignature nesnesi oluştur
-    $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    # Yeni dijital imzaya yorum ekle
-    $signature->setComments("Aspose.Slides digital signing test.");
-    # Dijital imzayı sunuma ekle
-    $pres->getDigitalSignatures()->add($signature);
-    # Sunumu kaydet
-    $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+PFX dosyası, PKCS#12 dosyası olarak da bilinir ve genellikle `.pfx` veya `.p12` uzantısına sahiptir; bir X.509 sertifikası, onun özel anahtarı ve sertifika zincirini içerebilir. Özel anahtar, sahibinin bir imza oluşturmasını sağlar. Erişilebilir bir özel anahtarı olmayan bir sertifika, bir sunumu imzalamak için kullanılamaz.
 
-Artık sunumun dijital olarak imzalanıp imzalanmadığını ve değiştirilip değiştirilmediğini kontrol edebilirsiniz:
+PFX parolası, sertifika paketini ve özel anahtarı korur. Bu, sunumu açmak veya düzenlemek için bir parola **değildir**. PFX dosyalarını veya parolalarını kaynak kontrolüne commit etmeyin. Üretim ortamında, sertifika dosyasına erişimi kısıtlayın ve parolasını bir gizli depo ya da başka bir korumalı yapılandırma kaynağından alın. Aşağıdaki örnekler, parolayı koda gömmekten kaçınmak için sadece bir ortam değişkeni kullanır.
+
+## **Bir Sunuma Dijital İmza Ekleme**
+
+Gerçek bir sunum iş akışını imzalamak için, mevcut bir PPTX dosyasını yükleyin, bir PFX sertifikası ve parolasıyla bir [DigitalSignature](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignature/) oluşturun, imzayı sunumun koleksiyonuna ekleyin ve bir PPTX dosyasına kaydedin.
 
 ```php
-  # Sunumu aç
-  $pres = new Presentation("SomePresentationSigned.pptx");
-  try {
-    if (java_values($pres->getDigitalSignatures()->size()) > 0) {
-      $allSignaturesAreValid = true;
-      echo("Signatures used to sign the presentation: ");
-      # Tüm dijital imzaların geçerli olup olmadığını kontrol et
-      foreach($pres->getDigitalSignatures() as $signature) {
-        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
-        $allSignaturesAreValid &= $signature->isValid();
-      }
-      if ($allSignaturesAreValid) {
-        echo("Presentation is genuine, all signatures are valid.");
-      } else {
-        echo("Presentation has been modified since signing.");
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$certificatePassword = getenv("PFX_PASSWORD");
+if ($certificatePassword === false || $certificatePassword === "") {
+    throw new RuntimeException("Set the PFX_PASSWORD environment variable.");
+}
+
+$presentation = new Presentation("InputPresentation.pptx");
+try {
+    $signature = new DigitalSignature("signing-certificate.pfx", $certificatePassword);
+    $signature->setComments("Approved for release.");
+
+    $presentation->getDigitalSignatures()->add($signature);
+    $presentation->save("InputPresentation-signed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Sonucu yeni bir adla kaydetmek, imzasız kaynak dosyasını korur. [DigitalSignature::setComments](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignature/setcomments/) ile ayarlanan değer, imzanın amacını açıklar; bu bir güvenlik kontrolü değildir.
+
+## **Dijital İmzaları Doğrulama**
+
+İmzalı bir PPTX dosyasını yüklediğinizde, [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getDigitalSignatures) tarafından döndürülen her öğeyi inceleyin. [DigitalSignature::isValid](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignature/isvalid/) yöntemi, gömülü imzanın mevcut sunum içeriği için geçerli olup olmadığını gösterir.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $signatures = $presentation->getDigitalSignatures();
+    $signatureCount = java_values($signatures->size());
+
+    if ($signatureCount === 0) {
+        echo "The presentation does not contain digital signatures." . PHP_EOL;
+    } else {
+        $allSignaturesAreValid = true;
+        $signTimeFormat = new Java("java.text.SimpleDateFormat", "yyyy-MM-dd HH:mm:ss");
+        $certificateFactoryClass = new JavaClass("java.security.cert.CertificateFactory");
+        $certificateFactory = $certificateFactoryClass->getInstance("X.509");
+
+        for ($index = 0; $index < $signatureCount; $index++) {
+            $signature = $signatures->get_Item($index);
+            $signatureIsValid = java_values($signature->isValid());
+            $signatureStatus = $signatureIsValid ? "VALID" : "INVALID";
+            $formattedSignTime = java_values($signTimeFormat->format($signature->getSignTime()));
+
+            $certificateData = $signature->getCertificate();
+            $certificateStream = new Java("java.io.ByteArrayInputStream", $certificateData);
+            try {
+                $certificate = $certificateFactory->generateCertificate($certificateStream);
+                $signerName = java_values($certificate->getSubjectX500Principal()->getName());
+            } finally {
+                $certificateStream->close();
+            }
+
+            echo $signerName . ", " . $formattedSignTime . " -- " . $signatureStatus . PHP_EOL;
+
+            $allSignaturesAreValid = $allSignaturesAreValid && $signatureIsValid;
+        }
+
+        if ($allSignaturesAreValid) {
+            echo "All embedded signatures are valid for the current presentation." . PHP_EOL;
+        } else {
+            echo "At least one embedded signature is invalid." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Geçersiz bir sonuç genellikle imzalı sunum içeriği veya imza verisinin imzalama sonrası değiştiği ya da dosyanın bozulmuş olduğu anlamına gelir. Tüm imzaların kaldırılması imzasız bir sunum üretir, bu yüzden yalnızca öğelerin geçerliliğini kontrol etmek yeterli değildir: güvenlik açısından hassas bir iş akışı, beklenen imza sayısının ve beklenen imzalayan kimliklerinin mevcut olduğunu da doğrulamalıdır.
+
+Bu geçerlilik sonucu, tam bir sertifika-güven kararı olarak ele alınmamalıdır. Güvenlik politikanıza bağlı olarak, uygulamanız X.509 sertifika zincirini oluşturup doğrulamalı, sertifika geçerlilik tarihlerini ve iptal durumunu kontrol etmeli, beklenen konu ya da parmak izini teyit etmeli, anahtar kullanımını doğrulamalı ve güvenilir bir zaman damgasını değerlendirmelidir. [DigitalSignature::getSignTime](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignature/getsigntime/) değeri tek başına güvenilir bir zaman damgası otoritesinden bir kanıt değildir.
+
+## **Dijital İmzaları Kaldırma**
+
+İmzaları kaldırmak, sunumun güvenlik durumunu değiştirir. Aşağıdaki örnek, imzalı bir PPTX dosyasını yükler, tüm imzaları [DigitalSignatureCollection::clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignaturecollection/clear/) ile kaldırır ve imzasız bir kopya kaydeder.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $presentation->getDigitalSignatures()->clear();
+    $presentation->save("InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sadece bir imzayı kaldırmak için, sıfır tabanlı indeksini kullanarak [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignaturecollection/removeat/) çağırın. İmzalı orijinali üzerine yazmak iş akışınızın açık bir parçası değilse, yeni bir dosyaya kaydedin.
+
+## **Düzenleme ve Biçim Düşünceleri**
+
+- Bir imza, bir sunumu salt okunur yapmaz. Kullanıcılar ve uygulamalar dosyayı hâlâ düzenleyebilir, ancak imzalı içeriğe yapılan değişiklikler genellikle mevcut imzayı geçersiz kılar.
+- İmzalamadan önce tüm istenen düzenlemeleri tamamlayın. Eğer bir sunumu değiştirmeniz gerekiyorsa, revize edilmiş sunumu kaydedin ve o revizyonu tekrar imzalayın.
+- Son çıktıyı PPTX formatında tutun. İmzalı bir sunumu başka bir formata dönüştürmek, orijinal PPTX imzasını geçerli bir imza olarak dönüştürülmüş dosyaya taşımaz.
+- Sertifikanın özel anahtarını hassas bir bilgi olarak tutun. Özel anahtar ve parolasını elde eden herkes, bu sertifika sahibinden geliyormuş gibi imzalar oluşturabilir.
+- Belgelerin saklama politikanız gerektiriyorsa, imzasız kaynağı ya da başka bir kontrol edilen kopyayı koruyun.
 
 ## **SSS**
 
-**Bir dosyadan mevcut imzaları kaldırabilir miyim?**
+**Bir dijital imza sunumu şifreler mi?**
 
-Evet. Dijital imza koleksiyonu [tek tek öğeleri kaldırmayı](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignaturecollection/removeat/) ve [tamamen temizlemeyi](https://reference.aspose.com/slides/tr/php-java/aspose.slides/digitalsignaturecollection/clear/) destekler; dosyayı kaydettikten sonra sunumun hiç imzası olmaz.
+Hayır. Dijital imza, kaynak ve bütünlük hakkında kanıt sağlar, ancak sunum içeriği ayrı bir şifreleme uygulanmadıkça okunabilir kalır. İçeriğe erişimin kısıtlanması gerektiğinde [parola koruması](/slides/tr/php-java/password-protected-presentation/) kullanın.
 
-**İmzaladıktan sonra dosya "yalnızca okuma" olur mu?**
+**PFX parolası, sunum parolasıyla aynı mı?**
 
-Hayır. Bir imza bütünlüğü ve yazarlığı korur ancak düzenlemeleri engellemez. Düzenlemeyi kısıtlamak için bunu [\"Yalnızca okuma\" veya bir şifre](/slides/tr/php-java/password-protected-presentation/) ile birleştirin.
+Hayır. PFX parolası, sertifika paketindeki özel anahtarın kilidini açar. PPTX dosyasını kimlerin açıp düzenleyebileceğini kontrol etmez.
 
-**İmza farklı PowerPoint sürümlerinde doğru görüntülenecek mi?**
+**Kendinden imzalı bir sertifika kullanabilir miyim?**
 
-İmza OOXML (PPTX) konteyneri için oluşturulur. OOXML imzalarını destekleyen modern PowerPoint sürümleri, bu imzaların durumunu doğru bir şekilde gösterir.
+Teknik olarak, erişilebilir bir özel anahtar içeriyorsa kendinden imzalı bir sertifika kullanılabilir. Alıcılar bunu otomatik olarak güvenmez; ancak bu sertifika güvenilir ortamlarına açıkça eklenmişse güvenilir kabul edilir. Genel veya çapraz organizasyon iş akışları genellikle güvenilir bir CA tarafından verilen bir sertifika kullanır.
+
+**Bir imzayı geçersiz kılan nedir?**
+
+İmzalı sunum içeriğini veya imza verisini imzalama sonrası değiştirmek imzayı geçersiz kılar. Dosya bozulması da doğrulamanın başarısız olmasına neden olabilir. Tüm imzalar kaldırılırsa, sunum geçersiz bir imza taşıyan bir dosya değil, imzasız bir sunum olur.
+
+**Geçerli bir imza, imzalayanına güvenmem gerektiği anlamına mı gelir?**
+
+Tek başına hayır. İmza bütünlüğü ve imzalayan güveni ayrı kararlardır. Üretim doğrulama politikası, ayrıca sertifika zinciri, geçerlilik süresi, iptal durumu, beklenen kimlik, anahtar kullanımı ve güvenilir zaman damgası gereksinimlerini de kontrol etmelidir.
+
+**Sertifika süresi dolduğunda ne olur?**
+
+Sertifikanın süresi dolması, sunum baytlarını değiştirmez, ancak sertifika güveni değerlendirmesini etkiler. Bir imzanın kabul edilebilir olup olmadığı, politikanıza ve geçerli bir güvenilir zaman damgasının imzalanma sırasında sertifikanın geçerli olduğunu kanıtlayıp kanıtlamadığına bağlıdır. Görüntülenen imzalama zamanına yalnızca güvenilir bir zaman damgası olarak güvenmemek gerekir.
+
+**İmzalı bir sunum hâlâ düzenlenebilir mi?**
+
+Evet. İmzalama dosyayı kilitlemez. İmzalı içeriği düzenlemek genellikle mevcut imzayı geçersiz kılar, bu yüzden önce sunumu tamamlayıp son revizyonu imzalayın.
+
+**Bir sunum birden fazla imza içerebilir mi?**
+
+Evet. Kaydetmeden önce [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getDigitalSignatures) tarafından döndürülen koleksiyona her imzayı ekleyin. Doğrulama sırasında, her imzayı inceleyin ve gerekli tüm imzalayanların mevcut olduğunu doğrulayın.
+
+**Hangi sunum formatları bu işlemleri destekler?**
+
+Aspose.Slides, burada açıklanan dijital imza işlemlerini yalnızca PPTX için destekler. PPT ve OpenDocument sunum formatları bu API iş akışı tarafından desteklenmez.
+
+**İmzayı slaytları etkilemeden kaldırabilir miyim?**
+
+Evet. Tek bir imzayı kaldırabilir veya tüm koleksiyonu temizleyip ardından sunumu kaydedebilirsiniz. Slayt içeriği mevcut kalır, ancak kaydedilen dosya artık kaldırılan imza kanıtını taşımaz.

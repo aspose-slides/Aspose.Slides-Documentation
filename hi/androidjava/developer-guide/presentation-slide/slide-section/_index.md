@@ -10,84 +10,209 @@ keywords:
 - सेक्शन संपादित करें
 - सेक्शन बदलें
 - सेक्शन नाम
+- सेक्शन स्लाइड्स प्राप्त करें
+- सेक्शन स्लाइड्स प्रोसेस करें
 - PowerPoint
-- OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java के साथ PowerPoint और OpenDocument में स्लाइड सेक्शन को सरल बनाएँ—विभाजित करें, पुनःनामित करें, और पुन: क्रमबद्ध करें ताकि PPTX और ODP कार्यप्रवाह को अनुकूलित किया जा सके।"
+description: "Aspose.Slides for Android via Java के साथ स्लाइड सेक्शन प्रबंधित करें: PPTX प्रस्तुतियों में सेक्शन स्लाइड्स बनाएं, नाम बदलें, पुनः क्रमित करें, प्राप्त करें और प्रोसेस करें।"
 ---
 ## **परिचय**
 
-Aspose.Slides for Android via Java के साथ आप PowerPoint Presentation को सेक्शन में व्यवस्थित कर सकते हैं। आप विशिष्ट स्लाइड्स वाले सेक्शन बना सकते हैं।
+Sections organize consecutive slides into named groups without changing the slide content. With Aspose.Slides for Android via Java, you can create, reorder, rename, inspect, and remove sections through the [Presentation.getSections](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getSections--) method.
 
-आप इन स्थितियों में स्लाइड्स को व्यवस्थित या विभाजित करने के लिए सेक्शन बनाना और उनका उपयोग करना चाह सकते हैं:
+Sections are especially useful when:
 
-- जब आप बड़ी प्रस्तुति पर अन्य लोगों या टीम के साथ काम कर रहे हों—और आपको कुछ स्लाइड्स को सहयोगी या टीम के सदस्य को असाइन करना हो। 
-- जब आप ऐसी प्रस्तुति से निपट रहे हों जिसमें कई स्लाइड्स हों—और आप एक साथ उसकी सामग्री को प्रबंधित या संपादित करने में कठिनाई महसूस कर रहे हों।
+- एक बड़ी प्रस्तुति को तार्किक विषयों या अध्यायों में विभाजित करने की आवश्यकता हो;
+- विभिन्न स्लाइड समूह विभिन्न सहयोगियों को सौंपे जाएँ;
+- स्लाइड्स को समूह के रूप में प्रक्रिया, स्थानांतरित या मिलाने की आवश्यकता हो।
 
-आदर्श रूप से, आपको ऐसा सेक्शन बनाना चाहिए जो समान स्लाइड्स को रखे—स्लाइड्स में कोई सामान्य बात हो या वे किसी नियम के आधार पर समूह में रह सकें—और सेक्शन को ऐसा नाम दें जो उसके अंदर की स्लाइड्स का वर्णन करे। 
+Choose concise section names that describe the purpose of the grouped slides. Because sections are part of the presentation structure, use the section APIs to determine membership instead of deriving it from slide positions.
 
-## **प्रस्तुति में सेक्शन बनाना**
+## **सेक्शन बनाना और प्रबंधित करना**
 
-प्रस्तुति में स्लाइड्स को रखने के लिए एक सेक्शन जोड़ने हेतु, Aspose.Slides for Android via Java [addSection()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) मेथड प्रदान करता है जो आपको बनाने वाले सेक्शन का नाम और वह स्लाइड निर्दिष्ट करने देता है जिससे सेक्शन शुरू होता है।
+Use [ISectionCollection.addSection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) to create a section by specifying its name and starting slide. Aspose.Slides determines which slides belong to the section from the presentation's current section structure.
 
-यह नमूना कोड आपको Java में प्रस्तुति में एक सेक्शन बनाने का तरीका दिखाता है:
+The same [ISectionCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/) also lets you:
+
+- [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-) का उपयोग करके सेक्शन को उसकी स्लाइड्स के साथ स्थानांतरित करें;
+- केवल सेक्शन परिभाषा को [ISectionCollection.removeSection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-) से हटाएँ, जिससे उसकी स्लाइड्स बनी रहती हैं;
+- सेक्शन और उसकी स्लाइड्स को [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-) से हटाएँ;
+- अंत में एक खाली सेक्शन जोड़ने के लिए [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-) का उपयोग करें।
+
+The following example creates two sections, moves one of them, removes it together with its slides, and appends an empty section:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 को newSlide2 पर समाप्त किया जाएगा और उसके बाद section2 शुरू होगा   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **सेक्शन के नाम बदलना**
+After these operations, the presentation contains the `Introduction` section with its slides and an empty `Appendix` section. The `Results` section and its slides have been removed.
 
-PowerPoint प्रस्तुति में एक सेक्शन बनाने के बाद, आप उसका नाम बदलना चाह सकते हैं। 
+## **सेक्शन का नाम बदलना**
 
-यह नमूना कोड आपको Aspose.Slides का उपयोग करके Java में प्रस्तुति में एक सेक्शन के नाम को बदलने का तरीका दिखाता है:
+To rename a section, call its [ISection.setName](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#setName-java.lang.String-) method. The section's slides and position remain unchanged.
+
+The following example creates a section and changes its name:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **सेक्शन से स्लाइड्स प्राप्त करना**
+
+The [Presentation.getSections](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getSections--) method returns an [ISectionCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectioncollection/) that you can iterate over. For each [ISection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/), call [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) to obtain the slides that currently belong to it. The method returns an [ISectionSlideCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectionslidecollection/), which provides a count, indexed access, and iteration.
+
+The following example creates two populated sections and one empty section, then prints each section's [name](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getName--), [identifier](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getSectionId--), [starting slide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getStartedFromSlide--), slide count, and slide numbers. It uses [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectionslidecollection/#get_Item-int-) to read the first slide and an enhanced `for` statement to process every slide. For the empty section, the returned collection has a size of zero, the method is not called, and iteration performs no operations.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Section membership is determined by the presentation's section structure. Do not calculate a section's range manually from [ISection.getStartedFromSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getStartedFromSlide--), slide indexes, and the next section's starting slide.
+
+Structural edits can change both the slides returned for a section and their slide numbers. This includes reordering slides, cloning a slide into a section, moving a section together with its slides, removing slides, and removing sections. The next example calls [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) after every such change instead of retaining assumptions about the section's former boundaries.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Call [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) again whenever slides or sections are reordered, cloned, moved, or removed. This keeps subsequent processing aligned with the current presentation structure.
+
+The PPT (PowerPoint 97–2003) format does not preserve section metadata. Use this workflow with a format that supports sections, such as PPTX; converting to PPT removes the section structure needed for later iteration.
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या सेक्शन PPT (PowerPoint 97–2003) फ़ॉर्मेट में सहेजने पर संरक्षित रहते हैं?**
+**क्या PPT (PowerPoint 97–2003) फ़ॉर्मेट में सहेजते समय सेक्शन संरक्षित रहते हैं?**
 
-नहीं। PPT फ़ॉर्मेट सेक्शन मेटाडेटा को सपोर्ट नहीं करता, इसलिए .ppt में सहेजते समय सेक्शन ग्रुपिंग खो जाता है।
+नहीं। PPT फ़ॉर्मेट सेक्शन मेटाडेटा का समर्थन नहीं करता, इसलिए .ppt में सहेजने पर सेक्शन समूहण खो जाता है।
 
-**क्या पूरी सेक्शन को "छिपाया" जा सकता है?**
+**क्या पूरे सेक्शन को "छिपाया" जा सकता है?**
 
-नहीं। केवल व्यक्तिगत स्लाइड्स को ही छुपाया जा सकता है। एक सेक्शन एक इकाई के रूप में कोई "छिपा" अवस्था नहीं रखता।
+नहीं। एक सेक्शन में कोई दृश्यता स्थिति नहीं होती। इसके सामग्री को छिपाने के लिए, सेक्शन की प्रत्येक स्लाइड पर [ISlide.setHidden](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/#setHidden-boolean-) को कॉल करें।
 
-**क्या मैं स्लाइड द्वारा सेक्शन को जल्दी से खोज सकता हूँ और इसके विपरीत, सेक्शन की पहली स्लाइड खोज सकता हूँ?**
+**मैं किसी स्लाइड को शामिल करने वाले सेक्शन को कैसे खोजूँ?**
 
-हां। एक सेक्शन को उसकी शुरूआती स्लाइड द्वारा अनन्य रूप से परिभाषित किया जाता है; दी गई स्लाइड से आप यह पता लगा सकते हैं कि वह कौनसे सेक्शन में है, और किसी सेक्शन की पहली स्लाइड तक पहुंच सकते हैं।
+[Presentation.getSections](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getSections--) द्वारा लौटाई गई कलेक्शन पर इटरेट करें, प्रत्येक सेक्शन के लिए [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) को कॉल करें, और प्राप्त स्लाइड्स की तुलना लक्ष्य स्लाइड से करें। गैर-खाली सेक्शन के लिए, [ISection.getStartedFromSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isection/#getStartedFromSlide--) उसकी पहली स्लाइड लौटाता है; खाली सेक्शन के लिए, यह `null` लौटाता है।

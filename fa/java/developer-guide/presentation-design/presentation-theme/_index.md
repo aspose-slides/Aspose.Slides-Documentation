@@ -12,263 +12,412 @@ keywords:
 - تغییر تم
 - مدیریت تم
 - رنگ تم
-- پالت اضافه
-- فونت تم
+- پالت افزودنی
+- قلم تم
 - سبک تم
 - اثر تم
 - پاورپوینت
-- OpenDocument
+- سند باز
 - ارائه
 - جاوا
 - Aspose.Slides
-description: "تم‌های ارائه اصلی در Aspose.Slides برای جاوا برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های پاورپوینت با برندینگ یکسان."
+description: "تم‌های اصلی ارائه در Aspose.Slides برای جاوا برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های پاورپوینت با برندینگ ثابت."
 ---
 ## **مقدمه**
 
-یک تم ارائه خصوصیات عناصر طراحی را تعریف می‌کند. هنگامی که یک تم ارائه را انتخاب می‌کنید، در واقع یک مجموعه خاص از عناصر بصری و ویژگی‌های آن‌ها را برمی‌گزینید.
+یک تم ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکننده‌ها، خطوط و اثرات را تعریف می‌کند. اشیای آگاه از تم به‌جای ذخیره هر ویژگی بصری به‌عنوان مقدار ثابت، به این تعاریف مشترک ارجاع می‌دهند، بنابراین تغییر تم می‌تواند بسیاری از اشیا را به‌صورت همزمان به‌روزرسانی کند.
 
-در پاورپوینت، یک تم شامل رنگ‌ها، [فونت‌ها](/slides/fa/java/powerpoint-fonts/)، [سبک‌های پس‌زمینه](/slides/fa/java/presentation-background/)، و افکت‌ها است.
+در Aspose.Slides، تم سطح ارائه از طریق [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) در دسترس است. یک ارائه می‌تواند همچنین پوشش‌های تم در سطوح پایین‌تر داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/masterthememanager/) بازنویسی کند، در حالی که یک طرح‌بندی یا اسلاید منفرد می‌تواند تم وارث خود را از طریق [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseoverridethememanager/) بازنویسی کند. در عمل، تم مؤثر برای یک اسلاید از طریق این زنجیره وراثت حل می‌شود: تم ارائه، بازنویسی مستر، بازنویسی طرح‌بندی و بازنویسی اسلاید.
 
-![theme-constituents](theme-constituents.png)
+![اجزای تم: رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه و اثرات](theme-constituents.png)
 
-## **تغییر رنگ تم**
+بخش‌های زیر رایج‌ترین جریان‌های کاری تم را نشان می‌دهند: بررسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال تم، به‌روزرسانی سبک‌های پس‌زمینه و اثرات، و خواندن مقادیر مؤثر پس از حل وراثت و بازنویسی‌ها.
 
-یک تم پاورپوینت برای عناصر مختلف یک اسلاید یک مجموعه خاص از رنگ‌ها را استفاده می‌کند. اگر رنگ‌ها را دوست ندارید، می‌توانید با اعمال رنگ‌های جدید برای تم، رنگ‌ها را تغییر دهید. برای این که بتوانید یک رنگ تم جدید انتخاب کنید، Aspose.Slides مقادیر زیر مجموعه SchemeColor را فراهم می‌کند.
+## **بررسی یک تم**
 
-این کد Java نشان می‌دهد چگونه رنگ برجسته یک تم را تغییر دهید:
+شیء [MasterTheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mastertheme/) طرح رنگ تم، طرح قلم تم و طرح فرمت تم را از طریق [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mastertheme/) و [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mastertheme/) در اختیار می‌گذارد. بررسی این مجموعه‌ها پیش از تغییر آن‌ها به‌ویژه وقتی مفید است که ارائه‌ای از منبع خارجی دریافت شده باشد، زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
+
+مثال زیر ویژگی‌های اصلی تم را می‌خواند و گزارش می‌دهد که چه تعداد سبک پس‌زمینه، پرکننده، خط و اثر در تم ذخیره شده‌اند:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-    shape.getFillFormat().setFillType(FillType.Solid);
-
-    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    IMasterTheme theme = presentation.getMasterTheme();
+    System.out.println("Theme name: " + theme.getName());
+    System.out.println("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
+    System.out.println("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Minor Latin font: " + theme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Background fill styles: " + theme.getFormatScheme().getBackgroundFillStyles().size());
+    System.out.println("Fill styles: " + theme.getFormatScheme().getFillStyles().size());
+    System.out.println("Line styles: " + theme.getFormatScheme().getLineStyles().size());
+    System.out.println("Effect styles: " + theme.getFormatScheme().getEffectStyles().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-به این روش می‌توانید مقدار مؤثر رنگ حاصل را تعیین کنید:
+اگر فایلی از چند مستر استفاده کند، فرض نکنید هر اسلاید همان تم مؤثر را دارد. مستری که به اسلاید مرتبط است را بررسی کنید و از جریان کاری تم مؤثر که در ادامه این مقاله نشان داده شده است استفاده کنید وقتی ممکن است بازنویسی‌های طرح‌بندی یا اسلاید وجود داشته باشد.
+
+## **تغییر رنگ‌های تم**
+
+پرکننده‌ها، خطوط و متن‌های آگاه از تم می‌توانند به یک رنگ منطقی از شمارش [SchemeColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/schemecolor/) ارجاع دهند. وقتی ورودی متناظر در [IColorScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icolorscheme/) را تغییر می‌دهید، تمام اشیایی که هنوز به آن رنگ تم ارجاع می‌دهند نسبت به مقدار جدید حل می‌شوند. اشیایی که از یک رنگ مستقیم RGB استفاده می‌کنند توسط به‌روزرسانی رنگ تم تغییر نمی‌کنند.
+
+مثال انتها‑به‑انتها زیر یک شکل ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکننده مؤثر را چاپ می‌کند:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    presentation.save("theme-color.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+Presentation savedPresentation = new Presentation("theme-color.pptx");
+try {
+    ISlide savedSlide = savedPresentation.getSlides().get_Item(0);
+    IShape savedShape = savedSlide.getShapes().get_Item(0);
+    IFillFormatEffectiveData effectiveFill = savedShape.getFillFormat().getEffective();
+    System.out.println("Effective fill color: " + effectiveFill.getSolidFillColor());
+} finally {
+    savedPresentation.dispose();
+}
 ```
 
-برای نشان دادن بیشتر عملیات تغییر رنگ، یک عنصر دیگر ایجاد می‌کنیم و رنگ برجسته (از عملیات اولیه) را به آن اختصاص می‌دهیم. سپس رنگ را در تم تغییر می‌دهیم:
+چون مستطیل همچنان به `Accent4` متصل است، رنگ قابل مشاهده آن پس از تغییر تم به قرمز می‌شود. اگر رنگ شماره‌ای را مستقیماً بر روی شکل جایگزین کنید، تغییرات آینده `Accent4` دیگر آن پرکننده را تحت تأثیر قرار نمی‌دهد.
+
+### **استفاده از رنگ‌ها از پالت افزودنی**
+
+PowerPoint واریان‌های روشن‌تر و تیره‌تر را از یک رنگ تم با اعمال تبدیلات رنگی به‌دست می‌آورد. Aspose.Slides این تبدیلات را از طریق شمارش [ColorTransformOperation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/colortransformoperation/) در اختیار می‌گذارد.
+
+![رنگ‌های اصلی تم و رنگ‌های روشن‌تر و تیره‌تر تولید شده از پالت افزودنی](additional-palette-colors.png)
+
+**1** - رنگ‌های اصلی تم.  
+
+**2** - واریان‌های روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی تم.
+
+مثال زیر شش مستطیل مبتنی بر `Accent4` ایجاد می‌کند، برای پنج‌تای آن‌ها تبدیلات روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
-
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
-
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
-```
-
-رنگ جدید به‌صورت خودکار بر روی هر دو عنصر اعمال می‌شود.
-
-### **تنظیم رنگ تم از پالت اضافه**
-
-هنگامی که تبدیلات روشنایی را بر رنگ اصلی تم (1) اعمال می‌کنید، رنگ‌هایی از پالت اضافه (2) شکل می‌گیرند. سپس می‌توانید این رنگ‌های تم را تنظیم و دریافت کنید.
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - رنگ‌های اصلی تم  
-**2** - رنگ‌های پالت اضافه.
-
-این کد Java نشان می‌دهد چگونه رنگ‌های پالت اضافه از رنگ اصلی تم استخراج شده و سپس در شکل‌ها استفاده می‌شوند:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // برجسته 4
     IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // برجسته 4، روشن‌تر 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
     shape2.getFillFormat().setFillType(FillType.Solid);
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // برجسته 4، روشن‌تر 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // برجسته 4، روشن‌تر 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
     shape4.getFillFormat().setFillType(FillType.Solid);
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // برجسته 4، تاریک‌تر 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // برجسته 4، تاریک‌تر 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("theme-color-palette.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-### **نقشه‌برداری `SchemeColor` به رنگ‌های `IColorScheme`**
+این واریان‌ها همچنان مبتنی بر رنگ تم هستند. اگر later `Accent4` تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `Accent4` مجدداً محاسبه می‌شوند.
 
-هنگامی که با [SchemeColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/schemecolor/) کار می‌کنید، ممکن است متوجه شوید که شامل مقادیر رنگ تم زیر است: `Background1`, `Background2`, `Text1`, و `Text2`.
+### **نقشه‌برداری مقادیر `SchemeColor` به اسلات‌های `IColorScheme`**
 
-اما `Presentation.getMasterTheme().getColorScheme()` یک [IColorScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icolorscheme/) را برمی‌گرداند که رنگ‌های متناظر را به‌صورت زیر ارائه می‌دهد: `Dark1`, `Dark2`, `Light1`, و `Light2`.
-
-این تفاوت فقط در نام‌گذاری است. این مقادیر به همان شکاف‌های رنگ تم اشاره دارند و نگاشت ثابت است:
+شمارش [SchemeColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/schemecolor/) از `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [IColorScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icolorscheme/) همان اسلات‌های تم را به‌صورت `Dark1`، `Light1`، `Dark2` و `Light2` نمایش می‌دهد. نقشه ثابت است:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هیچ تبدیل پویا بین `Text`/`Background` و `Dark`/`Light` وجود ندارد. آن‌ها صرفاً نام‌های جایگزین برای همان رنگ‌های تم هستند.
+این‌ها نام‌های جایگزین برای همان اسلات‌های تم هستند؛ مقادیری نیستند که به‌صورت پویا از یک فرم به فرم دیگر تبدیل شوند.
 
-این اختلاف در نام‌گذاری ناشی از اصطلاحات Microsoft Office است. نسخه‌های قدیمی Office از `Dark 1`, `Light 1`, `Dark 2`, و `Light 2` استفاده می‌کردند، در حالی که نسخه‌های جدید UI همان شکاف‌ها را به عنوان `Text 1`, `Background 1`, `Text 2`, و `Background 2` نمایش می‌دهند.
+## **تغییر قلم‌های تم**
 
-## **تغییر فونت تم**
+یک طرح قلم تم شامل یک مجموعه قلم اصلی برای عناوین و یک مجموعه قلم فرعی برای متن اصلی است. متدهای [IFontScheme.getMajor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontscheme/) و [IFontScheme.getMinor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontscheme/) این مجموعه‌ها را در اختیار می‌گذارند.
 
-برای این که بتوانید فونت‌ها را برای تم‌ها و مقاصد دیگر انتخاب کنید، Aspose.Slides از این شناسه‌های خاص (مشابه آنچه در پاورپوینت استفاده می‌شود) بهره می‌گیرد:
+شناسه‌های قلم تم سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
 
-* **+mn-lt** - فونت بدنه لاتین (Minor Latin Font)
-* **+mj-lt** - فونت سرعنوان لاتین (Major Latin Font)
-* **+mn-ea** - فونت بدنه شرق آسیا (Minor East Asian Font)
-* **+mj-ea** - فونت سرعنوان شرق آسیا (Major East Asian Font)
+* `+mn-lt` - قلم بدنه لاتین (Minor Latin Font)
+* `+mj-lt` - قلم عنوان لاتین (Major Latin Font)
+* `+mn-ea` - قلم بدنه آسیای شرقی (Minor East Asian Font)
+* `+mj-ea` - قلم عنوان آسیای شرقی (Major East Asian Font)
 
-این کد Java نشان می‌دهد چگونه فونت لاتین را به یک عنصر تم اختصاص دهید:
-
-```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.getPortions().add(portion);
-
-shape.getTextFrame().getParagraphs().add(paragraph);
-
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
-```
-
-این کد Java نشان می‌دهد چگونه فونت تم ارائه را تغییر دهید:
+مثال زیر یک عنوان ایجاد می‌کند که از قلم لاتین اصلی تم استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی تم استفاده می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
-```
+import com.aspose.slides.*;
 
-فونت در تمام جعبه‌های متن به‌روز خواهد شد.
-
-{{% alert color="primary" title="نکته" %}} 
-ممکن است بخواهید [فونت‌های پاورپوینت](/slides/fa/java/powerpoint-fonts/) را ببینید.
-{{% /alert %}}
-
-## **تغییر سبک پس‌زمینه تم**
-
-به طور پیش‌فرض، برنامه پاورپوینت 12 پس‌زمینه پیش‌تعریف‌شده ارائه می‌دهد اما فقط 3 مورد از این 12 پس‌زمینه در یک ارائه معمولی ذخیره می‌شوند.
-
-![todo:image_alt_text](presentation-design_8.png)
-
-به عنوان مثال، پس از ذخیره یک ارائه در برنامه پاورپوینت، می‌توانید این کد Java را اجرا کنید تا تعداد پس‌زمینه‌های پیش‌تعریف‌شده در ارائه را بیابید:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation();
 try {
-    int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
+    IAutoShape heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+    heading.getTextFrame().setText("Theme heading");
+    heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mj-lt"));
+
+    IAutoShape body = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+    body.getTextFrame().setText("Theme body text");
+    body.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+
+    presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new FontData("Aptos Display"));
+    presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+    presentation.save("theme-fonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-با استفاده از ویژگی [BackgroundFillStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) از کلاس [FormatScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FormatScheme) می‌توانید سبک پس‌زمینه را در یک تم پاورپوینت اضافه یا دسترسی پیدا کنید.
-{{% /alert %}} 
+عنوان از قلم اصلی پیروی می‌کند و متن اصلی از قلم فرعی. متنی که نام قلم صریح داشته باشد به‌جای شناسه تم، هنگام تغییر طرح قلم تم به‌طور خودکار سوئیچ نمی‌شود.
 
-این کد Java نشان می‌دهد چگونه پس‌زمینه‌ای برای یک ارائه تنظیم کنید:
+مجموعه‌های قلم اصلی و فرعی می‌توانند شامل نگاشت‌های قلم برای سیستم‌های نوشتاری فردی نیز باشند، مانند سیریلیک، عربی، ژاپنی، گرجی و ثانا. برای بررسی، افزودن، جایگزینی یا حذف این نگاشت‌ها، به [فونت‌های تم مخصوص اسکریپت](/slides/fa/java/script-specific-font-mappings/) مراجعه کنید.
 
-```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
-```
+{{% alert color="info" title="نکته" %}}
 
-**راهنمای ایندکس**: 0 برای بدون پرکنش استفاده می‌شود. ایندکس از 1 شروع می‌شود.
+برای اطلاعات بیشتر درباره قلم‌های ارائه، به [قلم‌های PowerPoint](/slides/fa/java/powerpoint-fonts/) نگاه کنید.
 
-{{% alert color="primary" title="نکته" %}} 
-ممکن است بخواهید [پس‌زمینه پاورپوینت](/slides/fa/java/presentation-background/) را ببینید.
 {{% /alert %}}
 
-## **تغییر اثر تم**
+## **کپی یا اعمال تم**
 
-یک تم پاورپوینت معمولاً 3 مقدار برای هر آرایه سبک دارد. این آرایه‌ها به 3 اثر زیر ترکیب می‌شوند: ملایم، متوسط، و شدید. به عنوان مثال، این نتیجه است وقتی اثرها بر یک شکل خاص اعمال می‌شوند:
+دو جریان کاری رایج وجود دارد و هر کدام مشکل متفاوتی را حل می‌کنند.
 
-![todo:image_alt_text](presentation-design_10.png)
+### **حفظ تم منبع هنگام جابجایی اسلایدها**
 
-با استفاده از 3 ویژگی ([FillStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FormatScheme#getEffectStyles--)) از کلاس [FormatScheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FormatScheme) می‌توانید عناصر یک تم را (حتی انعطاف‌پذیرتر از گزینه‌های موجود در پاورپوینت) تغییر دهید.
+اگر می‌خواهید اسلایدی را به ارائه دیگری منتقل کنید و طراحی اصلی آن را حفظ نمایید، مستر منبع را با استفاده از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterslidecollection/) به ارائه هدف اضافه کنید، سپس اسلاید را با استفاده از [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidecollection/) و مستر کپی‌شده کلون کنید. این کار مستر، طرح‌بندی‌های آن و تم مرتبط را همراه می‌برد.
 
 ```java
-Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
 try {
-    pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(FillType.Solid);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(Color.GREEN);
-
-    pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10f);
-
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide sourceSlide = source.getSlides().get_Item(0);
+        IMasterSlide sourceMaster = sourceSlide.getLayoutSlide().getMasterSlide();
+        IMasterSlide clonedMaster = target.getMasters().addClone(sourceMaster);
+        target.getSlides().addClone(sourceSlide, clonedMaster, true);
+        target.save("theme-preserved.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    source.dispose();
 }
 ```
 
-تغییرات حاصل در رنگ پر، نوع پر، اثر سایه و غیره:
+این جریان کاری ترجیح داده می‌شود وقتی اسلاید منبع باید همان شکل را در مقصد داشته باشد. تنها کلون کردن محتوا روی مستری نامرتبط می‌تواند رنگ‌های مبتنی بر تم، قلم‌ها، پس‌زمینه‌ها و اثرات را تغییر دهد.
 
-![todo:image_alt_text](presentation-design_11.png)
+### **اعمال مقادیر تم به اسلاید موجود**
 
-## **FAQ**
+اگر اسلاید هدف باید روی مستر و طرح‌بندی جاری خود بماند، یک بازنویسی سطح اسلاید را از تم منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fa/java/com.aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fa/java/com.aspose.slides/overridetheme/) و [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fa/java/com.aspose.slides/overridetheme/) سه مؤلفه اصلی تم را در بازنویسی کپی می‌کنند.
 
-**آیا می‌توانم یک تم را فقط بر روی یک اسلاید اعمال کنم بدون اینکه مستر را تغییر دهم؟**
+```java
+import com.aspose.slides.*;
 
-بله. Aspose.Slides از اضافه‌کردن تم در سطح اسلاید پشتیبانی می‌کند، بنابراین می‌توانید یک تم محلی را فقط برای آن اسلاید اعمال کنید در حالی که تم مستر دست نخورده می‌ماند (از طریق [SlideThemeManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slidethememanager/)).
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = presentation.getSlides().get_Item(0);
+        IOverrideTheme overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+این کار تم استفاده‌شده توسط آن اسلاید را بدون تغییر تم وارث شده توسط اسلایدهای دیگر تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر وارث‌شده، متد [OverrideTheme.clear](https://reference.aspose.com/slides/fa/java/com.aspose.slides/overridetheme/) را صدا بزنید.
+
+### **اعمال بازنویسی تم به یک طرح‌بندی**
+
+یک بازنویسی سطح طرح‌بندی به اسلایدهایی که از همان طرح‌بندی استفاده می‌کنند اعمال می‌شود مگر اینکه اسلاید خاص خود بازنویسی داشته باشد. همان متدهای مقداردهی اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/layoutslidethememanager/) استفاده شوند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = presentation.getSlides().get_Item(0);
+        ILayoutSlide targetLayout = targetSlide.getLayoutSlide();
+        IOverrideTheme overrideTheme = targetLayout.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+هنگامی که بسیاری از طرح‌بندی‌ها و اسلایدها باید طراحی پایه مشترکی داشته باشند، از تم سطح مستر یا ارائه استفاده کنید؛ برای یک خانواده طرح‌بندی که به استایل متفاوتی نیاز دارد، از بازنویسی طرح‌بندی استفاده کنید؛ و برای موارد استثنایی واقعی فقط از بازنویسی اسلاید استفاده کنید. بازنویسی‌های افراطی در سطح اسلاید، تغییرات تم سراسری بعدی را پیش‌بینی‌ناپذیر می‌کند.
+
+## **به‌روزرسانی سبک‌های پس‌زمینه تم**
+
+پرکننده‌های پس‌زمینه تم در [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iformatscheme/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری در رابط کاربری خود نمایش دهد نسبت به تعداد تعریف‌های پرکننده فیزیکی ذخیره شده در این مجموعه، زیرا رابط کاربری می‌تواند پرکننده‌های تم را با رنگ‌های تم و سایر مراجع سبک ترکیب کند.
+
+![گالری سبک پس‌زمینه PowerPoint برای تم یک ارائه](presentation-design_8.png)
+
+قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و مقدار فعلی [Background.getStyleIndex](https://reference.aspose.com/slides/fa/java/com.aspose.slides/background/) را بررسی کنید. مقدار شاخص سبک `0` به این معنی است که پرکننده‌ای تم‌شده وجود ندارد؛ مقادیر مثبت به مراجع سبک پس‌زمینه تم اشاره دارند. این متفاوت از ایندکس‌گذاری مستقیم مجموعه جاوا است، جایی که `get_Item(0)` اولین مورد ذخیره‌شده را برمی‌گرداند. فرض نکنید هر ارائه همان تعداد سبک پرکننده پس‌زمینه را دارد.
+
+مثال زیر تعداد پرکننده‌های پس‌زمینه موجود را گزارش می‌کند، یک مرجع پس‌زمینه تم‌شده را به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IFillFormatCollection backgroundStyles = presentation.getMasterTheme().getFormatScheme().getBackgroundFillStyles();
+    System.out.println("Background fill styles: " + backgroundStyles.size());
+    if (backgroundStyles.size() == 0) {
+        throw new IllegalStateException("The presentation theme does not contain background fill styles.");
+    }
+
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    masterSlide.getBackground().setType(BackgroundType.Themed);
+    masterSlide.getBackground().setStyleIndex(1);
+    presentation.save("theme-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+نتیجه قابل مشاهده به ورودی تمی که توسط مستر ارجاع شده و به هر بازنویسی پس‌زمینه در سطح طرح‌بندی یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینه خود را داشته باشد، تغییر فقط پس‌زمینه مستر ممکن است آن اسلاید را تغییر ندهد. زمانی که نیاز به دانستن پس‌زمینه نهایی پس از اعمال وراثت دارید، از [Background.getEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/background/) استفاده کنید.
+
+{{% alert color="warning" title="هشدار" %}}
+
+شاخص سبک را به‌عنوان ایندکس صفر‑پایه مجموعه در نظر نگیرید. همچنین از کدنویسی ثابت یک شماره سبک از یک فایل و فرض اینکه در فایل دیگر همان ظاهر را دارد، خودداری کنید؛ تعاریف سبک تم به‌صورت خاص برای هر ارائه هستند.
+
+{{% /alert %}}
+
+{{% alert color="info" title="نکته" %}}
+
+برای قالب‌بندی مستقیم پس‌زمینه و وراثت پس‌زمینه، به [پس‌زمینه ارائه](/slides/fa/java/presentation-background/) نگاه کنید.
+
+{{% /alert %}}
+
+## **به‌روزرسانی اثرات تم**
+
+یک طرح فرمت تم شامل مجموعه‌های جداگانه پرکننده، خط و اثر است که از طریق [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iformatscheme/)، [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iformatscheme/) و [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iformatscheme/) در دسترس هستند. تم‌های اداری معمولاً سه ورودی سبک اصلی دارند که به‌صورت بصری متناظر با قالب‌بندی ظریف، متوسط و پرقدرت هستند، اما کد باید هر مجموعه را بررسی کند نه اینکه تعداد ثابت را فرض کند.
+
+![اثرات تم ظریف، متوسط و پرقدرت اعمال‌شده بر یک شکل یکسان](presentation-design_10.png)
+
+زمانی که این مجموعه‌ها را در Java دسترسی می‌یابید، ایندکس مجموعه صفر‑پایه است: `get_Item(0)` اولین سبک ذخیره‌شده و `get_Item(2)` سومین سبک است. ایندکس‌های مرجع سبک یک شکل مفهوم جداگانه‌ای است که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapestyle/) در دسترس است. اصلاح یک سبک تم بر اشکالی که به آن سبک ارجاع می‌دهند تأثیر می‌گذارد؛ اشکالی که به‌صورت مستقیم قالب‌بندی شده‌اند ممکن است بدون تغییر بمانند.
+
+مثال زیر بررسی می‌کند که ورودی‌های سبک مورد نیاز وجود دارند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکننده را تغییر می‌دهد، یک سایه خارجی را در سومین سبک اثر فعال می‌کند و نتیجه را ذخیره می‌کند:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    IFormatScheme formatScheme = presentation.getMasterTheme().getFormatScheme();
+    if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
+        throw new IllegalStateException("The theme does not contain the style entries required by this example.");
+    }
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(FillType.Solid);
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
+    formatScheme.getFillStyles().get_Item(2).setFillType(FillType.Solid);
+    formatScheme.getFillStyles().get_Item(2).getSolidFillColor().setColor(new Color(34, 139, 34));
+    IEffectFormat effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
+    effectFormat.enableOuterShadowEffect();
+    effectFormat.getOuterShadowEffect().setDistance(10f);
+    presentation.save("theme-effects.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+برای اشکالی که به این اسلات‌ها ارجاع می‌دهند، اولین سبک خط تم به قرمز تبدیل می‌شود، سومین سبک پرکننده تم به سبز جنگلی ثابت تغییر می‌یابد و سومین سبک اثر یک سایه خارجی با فاصله 10 پوینت به دست می‌آورد. نتیجه بصری دقیق همچنان به این بستگی دارد که هر شکل به کدام اسلات‌های سبک ارجاع می‌دهد و آیا قالب‌بندی مستقیم بر تم اولویت دارد یا نه.
+
+![سبک‌های اثر تم پس از تغییر تنظیمات خط، پرکننده و سایه](presentation-design_11.png)
+
+## **خواندن مقادیر مؤثر تم**
+
+اشیای خام تم به شما می‌گویند که در یک سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر به شما می‌گویند که یک اسلاید یا شکل پس از حل وراثت و بازنویسی‌های محلی واقعاً چه چیزی استفاده می‌کند. برای یک اسلاید، متد [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseoverridethememanager/) را فراخوانی کنید. برای پس‌زمینه، از [Background.getEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/background/) استفاده کنید و برای پرکننده، از [FillFormat.getEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fillformat/) استفاده نمایید.
+
+مثال زیر تم مؤثر، پس‌زمینه و اولین پرکننده شکل را از یک اسلاید می‌خواند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IThemeEffectiveData effectiveTheme = slide.getThemeManager().createThemeEffective();
+    IBackgroundEffectiveData effectiveBackground = slide.getBackground().getEffective();
+    System.out.println("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+    if (slide.getShapes().size() > 0) {
+        IFillFormatEffectiveData effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
+        System.out.println("First shape effective fill type: " + effectiveFill.getFillType());
+        if (effectiveFill.getFillType() == FillType.Solid) {
+            System.out.println("First shape effective fill color: " + effectiveFill.getSolidFillColor());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+از داده‌های مؤثر برای تشخیص رندر، اعتبارسنجی و مقایسه‌ها استفاده کنید. اگر فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) را بررسی کنید، ممکن است یک بازنویسی مستر، طرح‌بندی، اسلاید یا شکل را که ظاهر نهایی را تغییر می‌دهد از دست بدهید.
+
+## **سؤالات متداول**
+
+**آیا می‌توانم تم را فقط بر یک اسلاید اعمال کنم بدون تغییر مستر؟**
+
+بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slidethememanager/) اسلاید استفاده کنید و تم بازنویسی‌شده آن را مقداردهی اولیه کنید. تغییر فقط برای آن اسلاید محلی می‌ماند؛ اسلایدهای دیگر تم‌های موجود خود را وارث می‌کنند.
 
 **ایمن‌ترین روش برای انتقال یک تم از یک ارائه به ارائه دیگر چیست؟**
 
-[کپی اسلایدها](/slides/fa/java/clone-slides/) همراه با مسترشان را به ارائه هدف منتقل کنید. این کار مستر، طرح‌بندی‌ها و تم مرتبط را حفظ می‌کند تا ظاهر یکسان بماند.
+هنگام جابجایی اسلاید و حفظ ظاهر منبع، مستر منبع را به مقصد کلون کنید و اسلاید را با استفاده از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterslidecollection/) و [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidecollection/) کلون کنید. این کار مستر، طرح‌بندی‌ها و تم را همراه‌ هم نگه می‌دارد.
 
-**چگونه می‌توانم مقادیر "موثر" را پس از تمام ارث‌بری و بازنویسی‌ها مشاهده کنم؟**
+**چگونه می‌توانم مقادیر مؤثر را پس از وراثت و بازنویسی‌ها ببینم؟**
 
-از نمای ["موثر"](/slides/fa/java/shape-effective-properties/) برای تم/رنگ/فونت/اثر استفاده کنید. این نماها ویژگی‌های نهایی حل‌شده پس از اعمال مستر و هر گونه بازنویسی محلی را برمی‌گردانند.
+از [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseoverridethememanager/) برای یک تم اسلاید یا طرح‌بندی و متدهای داده‑مؤثر مربوط به اشیای فرمت مانند [Background.getEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/background/) و [FillFormat.getEffective](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fillformat/) استفاده کنید. این APIها مقادیر حل‑شده پس از اعمال وراثت و بازنویسی‌ها را برمی‌گردانند.

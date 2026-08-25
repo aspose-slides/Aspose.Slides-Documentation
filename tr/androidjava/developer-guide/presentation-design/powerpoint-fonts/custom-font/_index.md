@@ -1,102 +1,118 @@
 ---
-title: Android'de PowerPoint Yazı Tiplerini Özelleştirin
-linktitle: Özel Yazı Tipi
+title: "Android'de PowerPoint Yazı Tiplerini Özelleştirme"
+linktitle: "Özel Yazı Tipi"
 type: docs
 weight: 20
 url: /tr/androidjava/custom-font/
 keywords:
-- yazı tipi
-- özel yazı tipi
-- harici yazı tipi
-- yazı tipi yükle
-- yazı tiplerini yönet
-- yazı tipi klasörü
-- PowerPoint
-- OpenDocument
-- sunum
-- Android
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Android'i Java aracılığıyla kullanarak PowerPoint slaytlarında yazı tiplerini özelleştirin; böylece sunumlarınız her cihazda keskin ve tutarlı olur."
+  - "yazı tipi"
+  - "özel yazı tipi"
+  - "harici yazı tipi"
+  - "yazı tipi yükle"
+  - "yazı tiplerini yönet"
+  - "yazı tipi klasörü"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "sunum"
+  - "Android"
+  - "Java"
+  - "Aspose.Slides"
+description: "Aspose.Slides for Android ile Java kullanarak PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızı her cihazda net ve tutarlı tutun."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, işletim sistemine kurulum yapmadan sunumlarda özel yazı tipleri kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge‑seviyesindeki yazı tipi kaynakları aracılığıyla belirli bir sunum için yazı tipleri sağlayabilir veya dış yazı tiplerini doğrudan ikili veri üzerinden yükleyebilirsiniz.
+Aspose.Slides, özel yazı tiplerini işletim sistemine kurmadan sunumlarda kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge‑seviyesindeki yazı tipi kaynakları aracılığıyla belirli bir sunum için yazı tipleri sağlayabilir veya harici yazı tiplerini doğrudan ikili veri üzerinden yükleyebilirsiniz.
 
-Yüklenen yazı tipleri, bir sunum PDF, resim ve diğer desteklenen formatlara render edildiğinde veya dışa aktarıldığında kullanılır. Bu sayede çıktı, farklı ortamlar arasında tutarlı kalır. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
+Yüklenen yazı tipleri, bir sunum renderlendiğinde veya dışa aktarıldığında, örneğin PDF, görüntüler ve diğer desteklenen formatlara, kullanılır. Bu, sunum çıktısının farklı ortamlar arasında tutarlı olmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve harici yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
 
-Render için özel yazı tiplerinin kaydedilmesi, bir PPTX dosyasına gömülmesinden ayrı bir işlemdir. Yazı tipinin sunumun içinde saklanması gerekiyorsa, gömme özelliklerini açıkça kullanın.
+Özel yazı tiplerini renderleme için kaydetmek, yazı tiplerini bir PPTX dosyasına gömmekten ayrı bir işlemdir. Bir yazı tipinin sunum içinde saklanması gerekiyorsa, yazı tipi gömme özelliklerini açıkça kullanın.
 
-{{% alert color="primary" %}} 
+Bir sunum teması, bireysel yazı sistemleri için farklı yazı tipi ailelerine başvurabilir. Bu eşlemeler yalnızca yazı tipi adlarını saklar, ancak yazı tipi dosyalarını kurmaz veya yüklemez. Eşlemeleri yönetmek için [Script-Specific Theme Fonts](/slides/tr/androidjava/script-specific-font-mappings/) adresine bakın ve aşağıdaki yükleme seçeneklerini kullanarak başvurulan yazı tiplerini tutarlı bir renderleme için kullanılabilir hâle getirin.
 
-Aspose Slides, bu yazı tiplerini [loadExternalFonts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemiyle yüklemenizi sağlar:
+{{% alert color="info" title="Not" %}}
 
-* TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Bkz. [TrueType](https://en.wikipedia.org/wiki/TrueType).
-* OpenType (.otf) yazı tipleri. Bkz. [OpenType](https://en.wikipedia.org/wiki/OpenType).
+Aspose Slides, bu yazı tiplerini [loadExternalFonts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemiyle yüklemenize olanak tanır:
+
+* TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Bakınız [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
+* OpenType (.otf) yazı tipleri. Bakınız [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Özel Yazı Tiplerini Yükleme**
 
-Aspose.Slides, sistemde kurulum yapmadan bir sunumda kullanılan yazı tiplerini yüklemenizi sağlar. Bu, PDF, resim ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
+Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize olanak tanır. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
 
-1. Yazı tipi dosyalarını içeren bir veya daha fazla klasörü belirtin.
-2. Bu klasörlerden yazı tiplerini yüklemek için statik [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metodunu çağırın.
-3. Sunumu yükleyin ve render/dışa aktarın.
-4. Yazı tipi önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FontsLoader#clearCache--) metodunu çağırın.
+1. Yazı tipi dosyalarını içeren bir veya daha fazla klasör belirtin.
+2. Bu klasörlerden yazı tiplerini yüklemek için statik [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemini çağırın.
+3. Sunumu yükleyin ve render/ dışa aktarın.
+4. Yazı tipi önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FontsLoader#clearCache--) yöntemini çağırın.
 
 Aşağıdaki kod örneği, yazı tipi yükleme sürecini göstermektedir:
 
 ```java
-// Özel yazı tipi dosyalarını içeren klasörleri tanımlayın.
+import com.aspose.slides.*;
+
+// Özel yazı tipi dosyalarını içeren klasörleri tanımla.
+String externalFontFolder1 = "assets/fonts";
+String externalFontFolder2 = "global/fonts";
+
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// Belirtilen klasörlerden özel yazı tiplerini yükleyin.
+// Yüklenen yazı tiplerini kullanarak sunumu render/dışa aktar (örn. PDF, görüntüler veya diğer formatlar) .
 FontsLoader.loadExternalFonts(fontFolders);
 
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
-    // Yüklenen yazı tiplerini kullanarak sunumu render/dışa aktar (örn. PDF, resimler veya diğer formatlar).
+
+    // Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // İş tamamlandıktan sonra yazı tipi önbelleğini temizleyin.
+    // İş tamamlandığında yazı tipi önbelleğini temizle.
     FontsLoader.clearCache();
 }
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Not" %}}
 
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) ek klasörleri yazı tipi arama yollarına ekler, ancak yazı tipi başlatma sırasını değiştirmez.  
-Yazı tipleri aşağıdaki sırayla başlatılır:
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) font arama yollarına ek klasörler ekler, ancak font başlatma sırasını değiştirmez.
+Fontlar aşağıdaki sırayla başlatılır:
 
-1. Varsayılan işletim sistemi yazı tipi yolu.  
-1. [FontsLoader](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/) aracılığıyla yüklenen yollar.
+1. Varsayılan işletim sistemi font yolu.
+1. [FontsLoader](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/) üzerinden yüklenen yollar.
 
 {{%/alert %}}
 
-## **Özel Yazı Tipi Klasörlerini Alma**
-Aspose.Slides, yazı tipi klasörlerini bulmanızı sağlayan [getFontFolders](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) metodunu sunar. Bu metod, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem yazı tipi klasörlerini döndürür.
+## **Özel Yazı Tipi Klasörlerini Al**
 
-Bu Java kodu, [getFontFolders](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) kullanımını gösterir:
+Aspose.Slides, font klasörlerini bulmanızı sağlayan [getFontFolders](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) metodunu sunar. Bu metot, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem font klasörlerini döndürür.
+
+Aşağıdaki Java kodu, [getFontFolders](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) yönteminin nasıl kullanılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 // Bu satır, yazı tipi dosyalarının arandığı klasörleri çıktılar.
-// Bunlar, LoadExternalFonts yöntemiyle eklenen ve sistem yazı tipi klasörleridir.
+// Bunlar LoadExternalFonts yöntemiyle eklenen klasörler ve sistem yazı tipi klasörleridir.
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **Bir Sunumla Kullanılan Özel Yazı Tiplerini Belirtme**
-Aspose.Slides, sunumla birlikte kullanılacak dış yazı tiplerini belirtmenizi sağlayan [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğini sunar.
+## **Sunumla Kullanılan Özel Yazı Tiplerini Belirtme**
 
-Bu Java kodu, [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğinin nasıl kullanılacağını gösterir:
+Aspose.Slides, sunumla birlikte kullanılacak harici yazı tiplerini belirtmenizi sağlayan [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğini sunar.
+
+Aşağıdaki Java kodu, [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğinin nasıl kullanılacağını gösterir:
 
 ```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
@@ -113,11 +129,15 @@ try {
 
 ## **Yazı Tiplerini Dışarıdan Yönetme**
 
-Aspose.Slides, dış yazı tiplerini ikili veriden yüklemenizi sağlayan [loadExternalFont](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metodunu sunar.
+Aspose.Slides, ikili veriden harici yazı tiplerini yüklemenizi sağlayan [loadExternalFont](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metodunu sunar.
 
-Bu Java kodu, bayt dizisiyle yazı tipi yükleme sürecini gösterir:
+Aşağıdaki Java kodu, bayt dizisiyle yazı tipi yükleme sürecini göstermektedir:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
@@ -126,7 +146,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        //        sunum ömrü süresince harici yazı tipi yüklendi
+        // sunum ömrü boyunca harici yazı tipi yüklendi
     } finally {
         
     }
@@ -139,22 +159,22 @@ finally
 
 ## **SSS**
 
-**Özel yazı tipleri tüm formatlarda (PDF, PNG, SVG, HTML) dışa aktarmayı etkiler mi?**  
+### Özel yazı tipleri tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarmayı etkiler mi?
 
-Evet. Bağlı yazı tipleri, renderlayıcı tarafından tüm dışa aktarma formatlarında kullanılır.
+Evet. Bağlı yazı tipleri, tüm dışa aktarma formatlarında renderlayıcı tarafından kullanılır.
 
-**Özel yazı tipleri sonuç PPTX dosyasına otomatik olarak gömülür mü?**  
+### Özel yazı tipleri otomatik olarak oluşan PPTX dosyasına gömülür mü?
 
-Hayır. Render için bir yazı tipini kaydetmek, onu PPTX içine gömmekle aynı şey değildir. Yazı tipinin sunum dosyasının içinde bulunmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/androidjava/embedded-font/) kullanmanız gerekir.
+Hayır. Bir yazı tipini renderleme için kaydetmek, onu bir PPTX dosyasına gömmekle aynı şey değildir. Yazı tipinin sunum dosyasında bulunmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/androidjava/embedded-font/) kullanmalısınız.
 
-**Özel bir yazı tipinde eksik glifler olduğunda yedekleme davranışını kontrol edebilir miyim?**  
+### Özel bir yazı tipinde belirli glifler eksik olduğunda geri dönüş davranışını kontrol edebilir miyim?
 
-Evet. [Yazı tipi ikamesi](/slides/tr/androidjava/font-substitution/), [değiştirme kuralları](/slides/tr/androidjava/font-replacement/) ve [yedekleme setleri](/slides/tr/androidjava/fallback-font/) yapılandırarak isteğe bağlı glif eksik olduğunda hangi yazı tipinin kullanılacağını kesin olarak tanımlayabilirsiniz.
+Evet. İstenen glif eksik olduğunda hangi yazı tipinin kullanılacağını tam olarak belirlemek için [font substitution](/slides/tr/androidjava/font-substitution/), [replacement rules](/slides/tr/androidjava/font-replacement/) ve [fallback sets](/slides/tr/androidjava/fallback-font/) yapılandırabilirsiniz.
 
-**Linux/Docker konteynerlerinde yazı tiplerini sistem genelinde kurmadan kullanabilir miyim?**  
+### Linux/Docker konteynerlerinde yazı tiplerini sistem genelinde kurmadan kullanabilir miyim?
 
-Evet. Kendi yazı tipi klasörlerinize işaret ederek veya bayt dizilerinden yazı tipleri yükleyerek konteyner görüntüsündeki sistem yazı tipi dizinlerine bağımlılığı ortadan kaldırabilirsiniz.
+Evet. Kendi yazı tipi klasörlerinize yönlendirin veya yazı tiplerini bayt dizilerinden yükleyin. Bu, konteyner görüntüsünde sistem font dizinlerine olan bağımlılığı ortadan kaldırır.
 
-**Lisanslama hakkında—herhangi bir özel yazı tipini kısıtlama olmadan gömebilir miyim?**  
+### Lisanslama konusunda ne? Herhangi bir özel yazı tipini sınırlama olmadan gömebilir miyim?
 
-Yazı tipi lisans uyumluluğundan siz sorumlusunuz. Şartlar farklılık gösterir; bazı lisanslar gömme ya da ticari kullanımını yasaklayabilir. Çıktıları dağıtmadan önce yazı tipinin EULA'sını her zaman inceleyin.
+Yazı tipi lisansına uyumdan siz sorumlusunuz. Şartlar değişiklik gösterebilir; bazı lisanslar gömme veya ticari kullanımı yasaklar. Çıktıları dağıtmadan önce her zaman yazı tipinin EULA'sını gözden geçirin.

@@ -9,92 +9,174 @@ keywords:
 - گواهی دیجیتال
 - مرجع صدور گواهی
 - گواهی PFX
+- PKCS#12
+- اعتبارسنجی امضا
 - PowerPoint
-- OpenDocument
-- ارائه
+- PPTX
+- امنیت ارائه
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه فایل‌های PowerPoint و OpenDocument را با Aspose.Slides برای Java به‌صورت دیجیتالی امضا کنید. اسلایدهای خود را در عرض چند ثانیه با مثال‌های کدی روشن ایمن کنید."
+description: "نحوه امضای ارائه‌های PPTX موجود با گواهی‌های PFX و استفاده از Aspose.Slides برای جاوا برای اعتبارسنجی یا حذف امضاهای دیجیتال را بیاموزید."
 ---
-## **مقدمه**
+## **نمای کلی**
 
-**گواهی دیجیتال** برای ایجاد یک ارائهٔ پاورپوینت محافظت‌شده با رمز عبور استفاده می‌شود که به عنوان ساخته‌شده توسط یک سازمان یا فرد خاص علامت‌گذاری شده است. گواهی دیجیتال می‌تواند با تماس با یک سازمان معتبر – مرجع صدور گواهی – دریافت شود. پس از نصب گواهی دیجیتال بر روی سیستم، می‌توان از آن برای افزودن یک امضای دیجیتال به ارائه از طریق File -> Info -> Protect Presentation استفاده کرد:
+امضای دیجیتال به گیرنده این امکان را می‌دهد که determines who signed a presentation و بررسی کند آیا محتوای امضا شده تغییر کرده است یا خیر. سه مفهوم امنیتی مرتبط در اینجا مهم هستند:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **گواهی دیجیتال** یک اعتبار الکترونیکی است که یک هویت را با یک کلید عمومی ارتباط می‌دهد. یک مرجع گواهی معتبر (CA) می‌تواند گواهی صادر کند، یا یک سازمان می‌تواند برای جریان‌های کاری داخلی از گواهی خودامضا استفاده کند.
+- **امضای دیجیتال** از محتوای ارائه و کلید خصوصی دارنده گواهی ساخته می‌شود. سپس می‌توان با استفاده از کلید عمومی گواهی، امضا را تأیید کرد. امضا شواهدی از منشاء و تمامیت فراهم می‌کند؛ اما ارائه را رمزنگاری نمی‌کند.
+- **حفاظت با رمز عبور** کنترل می‌کند که آیا کاربر می‌تواند ارائه را باز یا ویرایش کند. این مورد جدا از امضای دیجیتال است و در [Password‑Protected Presentations](/slides/fa/java/password-protected-presentation/) توضیح داده شده است.
 
-ارائه می‌تواند بیش از یک امضای دیجیتال داشته باشد. پس از افزودن امضای دیجیتال به ارائه، یک پیام خاص در PowerPoint نمایش داده می‌شود:
+PowerPoint فرمان **Add a Digital Signature** را تحت **File > Info > Protect Presentation** ارائه می‌دهد.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![منوی Protect Presentation در PowerPoint با گزینه Add a Digital Signature برجسته شده](add-digital-signature-in-powerpoint.png)
 
-برای امضای ارائه یا بررسی اصالت امضاهای ارائه، **Aspose.Slides API** رابط‌های [**IDigitalSignature**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IDigitalSignature) و [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IDigitalSignatureCollection) و متد [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IPresentation#getDigitalSignatures--) را فراهم می‌کند. در حال حاضر، امضای دیجیتال فقط برای فرمت PPTX پشتیبانی می‌شود.
+پس از باز شدن یک ارائه‌ی امضا شده، PowerPoint می‌تواند اعلان وضعیت امضا را نمایش دهد.
 
-## **افزودن امضای دیجیتال از گواهی PFX**
+![اعلان PowerPoint که می‌گوید ارائه شامل امضاهای معتبر است](digital-signature-status-in-powerpoint.png)
 
-نمونه کد زیر نحوه افزودن امضای دیجیتال از یک گواهی PFX را نشان می‌دهد:
+Aspose.Slides امضاها را از طریق [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getDigitalSignatures--) در دسترس قرار می‌دهد، که یک [IDigitalSignatureCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignaturecollection/) را برمی‌گرداند؛ آیتم‌های این مجموعه پیاده‌سازی [IDigitalSignature](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignature/) هستند. یک ارائه می‌تواند شامل چندین امضا باشد.
 
-1. فایل PFX را باز کنید و رمز عبور PFX را به شیء [**DigitalSignature**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/DigitalSignature) پاس دهید.
-2. امضای ایجاد شده را به شیء ارائه اضافه کنید.
+## **درک گواهی‌های PFX و رمزهای عبور**
+
+یک فایل PFX که به عنوان فایل PKCS#12 نیز شناخته می‌شود و معمولاً پسوند `.pfx` یا `.p12` دارد، می‌تواند شامل یک گواهی X.509، کلید خصوصی آن و زنجیره گواهی باشد. کلید خصوصی است که به دارنده امکان ایجاد امضا را می‌دهد. گواهی بدون کلید خصوصی قابل دسترس نمی‌تواند برای امضای یک ارائه استفاده شود.
+
+رمز عبور PFX بسته گواهی و کلید خصوصی را محافظت می‌کند. این **رمز عبور برای باز کردن یا ویرایش ارائه نیست**. فایل‌های PFX یا رمزهای عبور آن‌ها را به مخزن سورس کنترل کامیت نکنید. در محیط تولید، دسترسی به فایل گواهی را محدود کنید و رمز عبور آن را از یک مخزن محرمانه یا منبع پیکربندی محافظت‌شده دریافت کنید. مثال‌های زیر فقط برای جلوگیری از وارد کردن مستقیم رمز عبور در کد از یک متغیر محیطی استفاده می‌کنند.
+
+## **افزودن امضای دیجیتال به یک ارائه**
+
+برای امضای یک جریان کاری واقعی، یک فایل PPTX موجود را بارگذاری کنید، یک [DigitalSignature](https://reference.aspose.com/slides/fa/java/com.aspose.slides/digitalsignature/) از گواهی PFX و رمز عبور آن ایجاد کنید، امضا را به مجموعه ارائه اضافه کنید و در یک فایل PPTX ذخیره کنید.
 
 ```java
-// باز کردن فایل ارائه
-Presentation pres = new Presentation();
+String certificatePassword = System.getenv("PFX_PASSWORD");
+if (certificatePassword == null || certificatePassword.isEmpty()) {
+    throw new IllegalStateException("Set the PFX_PASSWORD environment variable.");
+}
+
+Presentation presentation = new Presentation("InputPresentation.pptx");
 try {
-    // ایجاد شی DigitalSignature با فایل PFX و رمز عبور PFX
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", "testpass1");
+    DigitalSignature signature = new DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
 
-    // توضیح امضای دیجیتال جدید
-    signature.setComments("Aspose.Slides digital signing test.");
-
-    // افزودن امضای دیجیتال به ارائه
-    pres.getDigitalSignatures().add(signature);
-
-    // ذخیره‌سازی ارائه
-    pres.save("SomePresentationSigned.pptx", SaveFormat.Pptx);
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-اکنون می‌توانید بررسی کنید که آیا ارائه دیجیتالی امضا شده است و تغییر نیافته است:
+ذخیره نتیجه با نام جدید، فایل منبع بدون امضا را حفظ می‌کند. مقدار تنظیم‌شده توسط [IDigitalSignature.setComments](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) هدف امضا را توصیف می‌کند؛ این مورد یک کنترل امنیتی نیست.
+
+## **اعتبارسنجی امضاهای دیجیتال**
+
+هنگامی که یک فایل PPTX امضا شده را بارگذاری می‌کنید، هر آیتم بازگردانده‌شده توسط [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getDigitalSignatures--) را بررسی کنید. متد [IDigitalSignature.isValid](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignature/#isValid--) نشان می‌دهد که آیا امضای جاسازی‌شده برای محتوای فعلی ارائه معتبر است یا نه.
 
 ```java
-// باز کردن ارائه
-Presentation pres = new Presentation("SomePresentationSigned.pptx");
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0)
-    {
+    IDigitalSignatureCollection signatures = presentation.getDigitalSignatures();
+    int signatureCount = signatures.size();
+
+    if (signatureCount == 0) {
+        System.out.println("The presentation does not contain digital signatures.");
+    } else {
         boolean allSignaturesAreValid = true;
+        java.text.SimpleDateFormat signTimeFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.security.cert.CertificateFactory certificateFactory = java.security.cert.CertificateFactory.getInstance("X.509");
 
-        System.out.println("Signatures used to sign the presentation: ");
+        for (IDigitalSignature signature : signatures) {
+            boolean signatureIsValid = signature.isValid();
+            String signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            java.util.Date signTime = signature.getSignTime();
+            String formattedSignTime = signTimeFormat.format(signTime);
 
-        // بررسی اینکه آیا همه امضای دیجیتال معتبر هستند
-        for (IDigitalSignature signature : pres.getDigitalSignatures())
-        {
-            System.out.println(signature.getComments() + ", "
-                    + signature.getSignTime().toString() + " -- " + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+            byte[] certificateData = signature.getCertificate();
+            java.io.ByteArrayInputStream certificateStream = new java.io.ByteArrayInputStream(certificateData);
+            java.security.cert.X509Certificate certificate = (java.security.cert.X509Certificate) certificateFactory.generateCertificate(certificateStream);
+            javax.security.auth.x500.X500Principal signerPrincipal = certificate.getSubjectX500Principal();
+            String signerName = signerPrincipal.getName();
+
+            System.out.println(signerName + ", " + formattedSignTime + " -- " + signatureStatus);
+
+            allSignaturesAreValid &= signatureIsValid;
         }
 
-        if (allSignaturesAreValid)
-            System.out.println("Presentation is genuine, all signatures are valid.");
-        else
-            System.out.println("Presentation has been modified since signing.");
+        if (allSignaturesAreValid) {
+            System.out.println("All embedded signatures are valid for the current presentation.");
+        } else {
+            System.out.println("At least one embedded signature is invalid.");
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **سؤالات متداول**
+نتیجه نامعتبر معمولاً به این معناست که محتوای ارائهٔ امضا شده یا دادهٔ امضا پس از امضاکننده تغییر کرده یا فایل خراب شده است. حذف تمام امضاها یک ارائه بدون امضا تولید می‌کند، بنابراین صرف بررسی اعتبار آیتم‌ها کافی نیست: یک جریان کاری حساس به امنیت باید همچنین عدد امضاهای مورد انتظار و هویت‌های امضاکنندهٔ مورد انتظار را نیز تأیید کند.
 
-**آیا می‌توانم امضاهای موجود را از یک فایل حذف کنم؟**
+این نتیجه اعتبارسنجی نباید به‌تنهایی به‌عنوان تصمیم کامل اعتماد به گواهی تلقی شود. بسته به سیاست امنیتی شما، برنامه ممکن است نیاز داشته باشد زنجیرهٔ گواهی X.509 را ساخت و اعتبارسنجی کند، تاریخ‌های اعتبار گواهی و وضعیت لغو را بررسی کند، موضوع یا اثر انگشت مورد انتظار را تأیید کند، استفاده از کلید را بررسی کرده و یک زمان‌مهر معتبر را ارزیابی نماید. مقدار [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignature/#getSignTime--) به‌تنهایی اثباتی از یک مرجع زمان‌مهر مورد اعتماد نیست.
 
-بله. مجموعهٔ امضاهای دیجیتال امکان [حذف موارد جداگانه](https://reference.aspose.com/slides/fa/java/com.aspose.slides/digitalsignaturecollection/#removeAt-int-) و [پاک‌سازی کامل آن](https://reference.aspose.com/slides/fa/java/com.aspose.slides/digitalsignaturecollection/#clear--) را فراهم می‌کند؛ پس از ذخیرهٔ فایل، ارائه هیچ امضایی نخواهد داشت.
+## **حذف امضاهای دیجیتال**
 
-**آیا فایل پس از امضا به حالت «فقط‑خواندنی» تبدیل می‌شود؟**
+حذف امضاها وضعیت امنیتی ارائه را تغییر می‌دهد. مثال زیر یک فایل PPTX امضا شده را بارگذاری می‌کند، تمام امضاها را با [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignaturecollection/#clear--) حذف می‌کند و یک نسخهٔ بدون امضا ذخیره می‌کند.
 
-خیر. یک امضا یکپارچگی و نویسنده‌گی را حفظ می‌کند اما ویرایش‌ها را مسدود نمی‌کند. برای محدود کردن ویرایش، آن را با ["Read-only" or a password](/slides/fa/java/password-protected-presentation/) ترکیب کنید.
+```java
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**آیا امضا در نسخه‌های مختلف PowerPoint به‌درستی نمایش داده می‌شود؟**
+برای حذف تنها یک امضا، متد [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) را با ایندکس صفرمحور آن صدا بزنید. مگر اینکه بازنویسی فایل امضا شدهٔ اصلی بخشی صریح از جریان کاری شما باشد، به‌جای آن در یک فایل جدید ذخیره کنید.
 
-امضا برای کانتینر OOXML (PPTX) ایجاد شده است. نسخه‌های مدرن PowerPoint که از امضاهای OOXML پشتیبانی می‌کنند، وضعیت این امضاها را به‌درستی نمایش می‌دهند.
+## **ملاحظات ویرایش و قالب‌بندی**
+
+- یک امضا باعث نمی‌شود ارائه به‌صورت فقط‑خواندنی شود. کاربران و برنامه‌ها همچنان می‌توانند فایل را ویرایش کنند، اما تغییرات در محتوای امضا شده معمولاً امضای موجود را نامعتبر می‌کند.
+- تمام ویرایش‌های مورد نظر را قبل از امضا انجام دهید. اگر لازم است ارائه تغییر کند، نسخهٔ اصلاح‌شده را ذخیره کنید و مجدداً آن را امضا کنید.
+- خروجی نهایی را در قالب PPTX نگه دارید. تبدیل یک ارائهٔ امضا شده به قالب دیگر امضای اصلی PPTX را به‌عنوان امضای معتبر برای فایل تبدیل‌شده منتقل نمی‌کند.
+- کلید خصوصی گواهی را به‌عنوان اطلاعات حساس در نظر بگیرید. هرکسی که به کلید خصوصی و رمز عبور آن دست پیدا کند، می‌تواند امضاهایی ایجاد کند که گویی از طرف دارندهٔ گواهی هستند.
+- هنگامیکه سیاست نگهداری اسناد شما آن را می‌طلبد، منبع بدون امضا یا یک کپی کنترل‌شده دیگر را حفظ کنید.
+
+## **سوالات متداول**
+
+**آیا امضای دیجیتال محتوای ارائه را رمزنگاری می‌کند؟**
+
+خیر. امضای دیجیتال شواهدی دربارهٔ منشاء و تمامیت فراهم می‌کند، اما محتوای ارائه همچنان قابل خواندن است مگر اینکه رمزنگاری جداگانه‌ای اعمال شده باشد. هنگام نیاز به محدود کردن دسترسی به محتوا، از [password protection](/slides/fa/java/password-protected-presentation/) استفاده کنید.
+
+**آیا رمز عبور PFX همان رمز عبور ارائه است؟**
+
+خیر. رمز عبور PFX کلید خصوصی ذخیره‌شده در بسته گواهی را آزاد می‌کند. این رمز عبور کنترل نمی‌کند که چه کسی می‌تواند فایل PPTX را باز یا ویرایش کند.
+
+**آیا می‌توانم از گواهی خودامضا استفاده کنم؟**
+
+فنیاً، گواهی خودامضا می‌تواند استفاده شود هنگامی که شامل کلید خصوصی قابل دسترسی باشد. با این حال، گیرندگان به‌صورت خودکار به آن اعتماد نخواهند کرد مگر اینکه این گواهی به‌صورت صریح به محیط مورد اعتماد آن‌ها اضافه شده باشد. جریان‌های کاری عمومی یا بین‌سازمانی معمولاً از گواهی صادرشده توسط یک CA معتبر استفاده می‌کنند.
+
+**چه عواملی باعث نامعتبر بودن امضا می‌شوند؟**
+
+تغییر محتوای ارائهٔ امضا شده یا دادهٔ امضا پس از امضاکننده می‌تواند امضا را نامعتبر کند. خراب شدن فایل نیز می‌تواند باعث عدم اعتبارسنجی شود. اگر تمام امضاها حذف شوند، ارائه بدون امضا است نه یک فایل حاوی امضای نامعتبر.
+
+**آیا امضای معتبر به این معناست که باید به امضاکننده اعتماد کرد؟**
+
+خود امضا و اعتماد به امضاکننده تصمیمات جداگانه‌ای هستند. یک سیاست اعتبارسنجی در محیط تولید باید علاوه بر اعتبار امضا، زنجیرهٔ گواهی، دورهٔ اعتبار، وضعیت لغو، هویت مورد انتظار، استفاده از کلید و هر نیاز به زمان‌مهر مورد اعتماد را نیز بررسی کند.
+
+**وقتی گواهی منقضی می‌شود چه می‌شود؟**
+
+منقضی شدن گواهی محتویات بایت‌های ارائه را تغییری نمی‌دهد، اما ارزیابی اعتماد به گواهی را تحت تأثیر قرار می‌دهد. این که آیا امضا همچنان قابل قبول است یا نه به سیاست شما و اینکه آیا زمان‌مهر معتبری وجود دارد که نشان دهد امضا در زمان معتبر بودن گواهی انجام شده است بستگی دارد. تنها به زمان امضا نشان داده‌شده به‌عنوان زمان‌مهر مورد اعتماد اکتفا نکنید.
+
+**آیا می‌توان یک ارائهٔ امضا شده را هنوز ویرایش کرد؟**
+
+بله. امضا کردن فایل را قفل نمی‌کند. ویرایش محتوای امضا شده معمولاً امضای موجود را نامعتبر می‌سازد، بنابراین ابتدا ارائه را نهایی کنید و سپس امضا کنید.
+
+**آیا یک ارائه می‌تواند بیش از یک امضا داشته باشد؟**
+
+بله. قبل از ذخیره، هر امضا را به مجموعه‌ای که [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getDigitalSignatures--) برمی‌گرداند، اضافه کنید. هنگام اعتبارسنجی، هر امضا را بررسی کنید و تأیید کنید که تمام امضاکنندگان مورد نیاز حضور دارند.
+
+**کدام فرمت‌های ارائه از این عملیات پشتیبانی می‌کنند؟**
+
+Aspose.Slides فقط برای PPTX عملیات امضای دیجیتال توصیف‌شده در اینجا را پشتیبانی می‌کند. فرمت‌های PPT و OpenDocument پشتیبانی نمی‌شوند.
+
+**آیا می‌توانم امضا را حذف کنم بدون اینکه اسلایدها تحت تأثیر قرار گیرند؟**
+
+بله. می‌توانید یک امضا یا تمام مجموعه را حذف کنید و سپس ارائه را ذخیره کنید. محتوای اسلایدها باقی می‌ماند، اما فایل ذخیره‌شده دیگر شواهد امضای حذف‌شده را شامل نمی‌شود.

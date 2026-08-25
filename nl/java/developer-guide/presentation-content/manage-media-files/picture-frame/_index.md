@@ -1,562 +1,426 @@
 ---
-title: Beheer foto-frames in presentaties met Java
-linktitle: Foto-frame
+title: Beheer fotoframes in presentaties met Java
+linktitle: Fotoframe
 type: docs
 weight: 10
 url: /nl/java/picture-frame/
 keywords:
-- foto-frame
-- foto-frame toevoegen
-- foto-frame maken
-- afbeelding toevoegen
-- afbeelding maken
+- fotoframe
+- fotoframe toevoegen
+- fotoframe maken
+- ingesloten afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
-- raster-afbeelding
-- vector-afbeelding
+- rasterafbeelding
+- SVG-afbeelding
 - afbeelding bijsnijden
-- bijgesneden gebied
-- StretchOff eigenschap
-- foto-frame opmaak
-- foto-frame eigenschappen
+- bijgesneden gebieden verwijderen
+- afbeelding comprimeren
+- StretchOffset
+- fotoframe opmaak
 - relatieve schaal
 - afbeeldingseffect
 - beeldverhouding
-- afbeeldingstransparantie
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Voeg foto-frames toe aan PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Java. Vereenvoudig je workflow en verbeter dia-ontwerpen."
+description: "Maak, formatteer, koppel, snijd bij, extraheer en comprimeer fotoframes in presentaties met Aspose.Slides voor Java."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een foto-frame is een vorm die een afbeelding bevat – het is als een foto in een frame. 
+Een fotoframe is een dia‑vorm die een afbeelding weergeeft. In Aspose.Slides zijn de afbeeldingsbron en de vorm die deze weergeeft afzonderlijke objecten: een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) bezit ingesloten afbeeldingsbronnen via zijn [IImageCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimagecollection/), terwijl een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, afbeeldingseffecten en andere frame‑niveau instellingen regelt.
 
-Je kunt een afbeelding aan een dia toevoegen via een foto-frame. Op deze manier kun je de afbeelding opmaken door het foto-frame op te maken.
+Deze scheiding is nuttig wanneer dezelfde afbeelding meer dan één keer wordt weergegeven. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/), en gebruik die afbeeldingsbron bij het maken van fotoframes.
 
-{{% alert  title="Tip" color="primary" %}} 
+Fotoframes kunnen rasterafbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook naar gekoppelde afbeeldingen verwijzen in plaats van de afbeeldingsbytes in de presentatie op te slaan. De keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is handig om vóór het toepassen van opmaak of optimalisatie te bepalen hoe de afbeelding moet worden opgeslagen.
 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die mensen in staat stellen snel presentaties te maken van afbeeldingen. 
+## **Een ingesloten afbeelding toevoegen en opmaken**
 
-{{% /alert %}} 
+Voor een ingesloten afbeelding voeg je de afbeeldingsgegevens toe aan de presentatie en maak je een fotoframe met [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). De afbeelding wordt onderdeel van het presentatiepakket, zodat de presentatie zelf‑containend blijft wanneer deze naar een andere computer wordt verplaatst.
 
-## **Maak een foto-frame**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Maak een [IPPImage]() object aan door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IImageCollection) die aan het presentatiewerkobject is gekoppeld en die wordt gebruikt om de vorm te vullen.  
-4. Geef de breedte en hoogte van de afbeelding op.  
-5. Maak een [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/PictureFrame) aan op basis van de breedte en hoogte van de afbeelding via de `AddPictureFrame`‑methode die beschikbaar is in het vormobject dat aan de referentie‑dia is gekoppeld.  
-6. Voeg een foto-frame (met de afbeelding) toe aan de dia.  
-7. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
-
-Deze Java‑code laat zien hoe je een foto-frame maakt:
+Het volgende voorbeeld voegt een JPEG‑afbeelding toe, creëert een frame met de oorspronkelijke afmetingen van de afbeelding en past lijnopmaak en rotatie toe:
 
 ```java
-// Instantieert de Presentation-klasse die een PPTX-bestand vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Haalt de eerste dia op
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Instantieert de Image-klasse
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Voegt een foto-frame toe met de overeenkomstige hoogte en breedte van de afbeelding
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Schrijft het PPTX-bestand naar schijf
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-
-Foto-frames stellen je in staat snel presentatiedia's te maken op basis van afbeeldingen. Wanneer je een foto-frame combineert met de opslaoptopties van Aspose.Slides, kun je in‑ en uitvoerbewerkingen manipuleren om afbeeldingen van het ene formaat naar het andere te converteren. Mogelijk wil je deze pagina's bekijken: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/java/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/java/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/java/conversion/jpg-to-png/), converteer [PNG naar JPG](https://products.aspose.com/slides/nl/java/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/java/conversion/png-to-svg/), converteer [SVG naar PNG](https://products.aspose.com/slides/nl/java/conversion/svg-to-png/). 
-
-{{% /alert %}}
-
-## **Maak een foto-frame met relatieve schaal**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Voeg een afbeelding toe aan de presentatie‑afbeeldingscollectie.  
-4. Maak een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPPImage) object aan door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IImageCollection) die aan het presentatiewerkobject is gekoppeld en die wordt gebruikt om de vorm te vullen.  
-5. Geef de relatieve breedte en hoogte van de afbeelding op in het foto‑frame.  
-6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
-
-Deze Java‑code laat zien hoe je een foto-frame maakt met relatieve schaal:
-
-```java
-// Instantieer de Presentation-klasse die de PPTX vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Haal de eerste dia op
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Instantieer de Image-klasse
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // Voeg een Picture Frame toe met dezelfde hoogte en breedte als de afbeelding
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Instelling van relatieve schaalbreedte en -hoogte
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // Schrijf het PPTX-bestand naar schijf
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Rasterafbeeldingen uit foto‑frames extraheren**
-
-Je kunt rasterafbeeldingen uit [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/PictureFrame) objecten extraheren en opslaan in PNG, JPG en andere formaten. Het onderstaande code‑voorbeeld laat zien hoe je een afbeelding uit het document “sample.pptx” haalt en opslaat in PNG‑formaat.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **SVG‑afbeeldingen uit foto‑frames extraheren**
-
-Wanneer een presentatie SVG‑grafieken bevat die in [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/) vormen staan, laat Aspose.Slides for Java je de oorspronkelijke vectorafbeeldingen met volledige nauwkeurigheid ophalen. Door de vormcollectie van de dia te doorlopen, kun je elk [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/) identificeren, controleren of de onderliggende [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) SVG‑inhoud bevat, en vervolgens die afbeelding op schijf of in een stream opslaan in het oorspronkelijke SVG‑formaat.
-
-Het volgende code‑voorbeeld laat zien hoe je een SVG‑afbeelding uit een foto‑frame haalt:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Transparantie van een afbeelding verkrijgen**
+Het fotoframe regelt de weergegeven geometrie; het wijzigen van de frame‑grootte verandert de oorspronkelijke pixelafmetingen die in de ingesloten afbeeldingsbron zijn opgeslagen. Dit onderscheid wordt belangrijk bij later bijsnijden of comprimeren van een afbeelding.
 
-Aspose.Slides stelt je in staat de transparanteffecten op een afbeelding op te vragen. Deze Java‑code demonstreert de bewerking:
+## **Relatieve schaal gebruiken**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Helderheid en contrast van een afbeelding verkrijgen**
-
-Aspose.Slides stelt je in staat de helderheids‑ en contrast‑effecten op een afbeelding op te vragen. De [ILuminance](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iluminance/) interface vertegenwoordigt dit transformatie‑effect.
-
-Deze Java‑code laat zien hoe je de helderheids‑ en contrastinstellingen van een foto‑frame ophaalt:
+[IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) biedt relatieve breedte‑ en hoogteschaling voor het frame via [setRelativeScaleWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) en [setRelativeScaleHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Een waarde van `1.0` komt overeen met 100 % van de oorspronkelijke afbeeldingsgrootte. Relatieve schaal is handig wanneer een workflow de verhouding tot de bronafbeeldingsgrootte moet behouden in plaats van de finale afmetingen handmatig te berekenen.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Opmaak van foto‑frames**
+Relatieve schaal wijzigt de schaalinstellingen van het frame; het her-sampled of comprimeert de ingesloten afbeelding niet.
 
-Aspose.Slides biedt veel opmaakopties die op een foto‑frame kunnen worden toegepast. Met die opties kun je een foto‑frame aanpassen zodat het aan specifieke eisen voldoet.
+## **Ingesloten en gekoppelde afbeeldingen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Maak een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPPImage) object aan door een afbeelding toe te voegen aan de [IImagescollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IImageCollection) die aan het presentatiewerkobject is gekoppeld en die wordt gebruikt om de vorm te vullen.  
-4. Geef de breedte en hoogte van de afbeelding op.  
-5. Maak een `PictureFrame` aan op basis van de breedte en hoogte van de afbeelding via de [AddPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-)‑methode die beschikbaar is in het [IShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeCollection) object dat aan de referentie‑dia is gekoppeld.  
-6. Voeg het foto‑frame (met de afbeelding) toe aan de dia.  
-7. Stel de lijnkleur van het foto‑frame in.  
-8. Stel de lijndikte van het foto‑frame in.  
-9. Draai het foto‑frame door een positieve of negatieve waarde op te geven.  
-   * Een positieve waarde draait de afbeelding met de klok mee.  
-   * Een negatieve waarde draait de afbeelding tegen de klok in.  
-10. Voeg het foto‑frame (met de afbeelding) toe aan de dia.  
-11. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
+Een ingesloten afbeelding slaat afbeeldingsgegevens op binnen de presentatie en is daardoor de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde afbeelding slaat een externe locatie op via de [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-)‑methode in plaats van de afbeeldingsgegevens op dezelfde manier in te sluiten.
 
-Deze Java‑code demonstreert het opmaakproces van een foto‑frame:
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeeldingsdata in de PPTX verminderen, maar ze introduceren een externe afhankelijkheid. Het gekoppelde bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of rendert. Als het pad wijzigt, het bestand wordt verplaatst of de bron niet beschikbaar is, wordt de gekoppelde afbeelding mogelijk niet weergegeven zoals verwacht. Voor presentaties die moeten worden gemaild, gearchiveerd of gerenderd in geïsoleerde omgevingen, zijn ingesloten afbeeldingen doorgaans betrouwbaarder.
+
+### **Een gekoppelde afbeelding toevoegen**
+
+Het volgende voorbeeld maakt een fotoframe aan en wijst het naar een lokaal afbeeldingsbestand. Het behandelt alleen afbeeldingskoppelingen; videokoppelingen behoren tot een aparte mediastream en worden expres niet in dit voorbeeld gemengd.
 
 ```java
-// Instantieert de Presentation-klasse die de PPTX vertegenwoordigt
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // Haalt de eerste dia op
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Instantieert de Image-klasse
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Voegt een foto-frame toe met dezelfde hoogte en breedte als de afbeelding
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Past enige opmaak toe op PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // Schrijft het PPTX-bestand naar schijf
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+Gebruik koppelingen wanneer extern bestandsbeheer opzettelijk is. Gebruik ze niet enkel als vervanging voor compressie: een kleine PPTX met defecte afbeeldingsafhankelijkheden is meestal minder bruikbaar dan een grotere zelf‑containende presentatie.
 
-Aspose heeft recent een [gratis Collage Maker](https://products.aspose.app/slides/nl/collage) ontwikkeld. Als je ooit [JPG/JPEG samenvoegt](https://products.aspose.app/slides/nl/collage/jpg) of PNG‑afbeeldingen wilt combineren, of [roosters maakt van foto’s](https://products.aspose.app/slides/nl/collage/photo-grid), kun je deze service gebruiken. 
+## **Afbeeldingen extraheren uit fotoframes**
 
-{{% /alert %}}
+Controleer vóór het extraheren van een afbeelding uit een bestaande presentatie of een vorm daadwerkelijk een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) is en of deze een ingesloten afbeelding bevat. Gekoppelde fotoframes bevatten mogelijk geen afbeeldingsbytes die op dezelfde manier kunnen worden geëxtraheerd.
 
-## **Een afbeelding als link toevoegen**
+### **Een rasterafbeelding extraheren**
 
-Om grote presentaties te voorkomen, kun je afbeeldingen (of video's) via links toevoegen in plaats van de bestanden direct in de presentatie in te sluiten. Deze Java‑code laat zien hoe je een afbeelding en een video in een placeholder kunt invoegen:
+De moderne afbeeldings‑API gebruikt [IImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimage/) rechtstreeks en vereist niet de oudere Java‑afbeeldingswrapper. Het volgende voorbeeld vindt de eerste ingesloten rasterafbeelding op een dia en slaat deze op als PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+Opslaan via [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimage/#save-java.lang.String-int-) converteert de geëxtraheerde afbeelding naar het gevraagde uitvoerformaat. Als je de gecodeerde bytes wilt die in de presentatie zijn opgeslagen in plaats van een geconverteerd rasterbestand, gebruik dan de binaire data van de afbeeldingsbron.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **Een SVG‑afbeelding extraheren**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+Voor een SVG‑afbeelding maakt de [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) een [ISvgImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/)‑object beschikbaar. Hiermee kun je de SVG‑data direct ophalen in plaats van de afbeelding eerst te rasteren.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SVG‑inhoud behouden als SVG behoudt de vectorbron binnen de presentatie. Raster‑exports zoals PNG of JPEG renderen die vectorinhoud onvermijdelijk naar pixels. PDF‑ of SVG‑dia‑export is eveneens een renderoperatie, dus de geëxporteerde grafieken moeten niet worden gezien als een bit‑voor‑bit kopie van de oorspronkelijke ingesloten SVG; gebruik de ingesloten [ISvgImage.getSvgData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/#getSvgData--)‑data wanneer de originele vectorresource zelf nodig is.
+
+## **Een afbeelding bijsnijden**
+
+Bijsnijden verandert welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijdwaarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/) zijn percentages van de bronafbeeldingsafmetingen. Bijsnijden verwijdert de verborgen pixels niet meteen uit de ingesloten afbeelding; het wijzigt alleen het zichtbare gebied.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Afbeeldingen bijsnijden**
-
-Deze Java‑code laat zien hoe je een bestaande afbeelding op een dia kunt bijsnijden:
-
-```java
-Presentation pres = new Presentation();
-// Maak een nieuw afbeeldingobject
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Voegt een foto-frame toe aan een dia
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // Bijsnijdt de afbeelding (percentage waarden)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // Slaat het resultaat op
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bijsneden gebieden van een foto verwijderen**
-
-Als je de bijgesneden gebieden van een afbeelding in een frame wilt verwijderen, kun je de [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) methode gebruiken. Deze methode retourneert de bijgesneden afbeelding of de oorspronkelijke afbeelding als bijsnijden niet nodig is.
-
-Deze Java‑code demonstreert de bewerking:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Haalt het PictureFrame op van de eerste dia
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Verwijdert bijgesneden gebieden van de PictureFrame-afbeelding en retourneert de bijgesneden afbeelding
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // Slaat het resultaat op
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-De [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) methode voegt de bijgesneden afbeelding toe aan de presentatie‑afbeeldingscollectie. Als de afbeelding alleen wordt gebruikt in het verwerkte [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/), kan deze instelling de presentatiegrootte verkleinen. Anders zal het aantal afbeeldingen in de uiteindelijke presentatie toenemen.
-
-Deze methode converteert WMF/EMF‑metabestanden naar raster‑PNG‑afbeeldingen tijdens de bijsnijdbewerking. 
-
-{{% /alert %}}
-
-## **Afbeeldingen comprimeren**
-
-Je kunt een foto in een presentatie comprimeren met de [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) methode. Deze methode comprimeert een afbeelding door de grootte te verkleinen op basis van de vormgrootte en de opgegeven resolutie, met de optie om bijgesneden gebieden te verwijderen.
-
-Het past de grootte en resolutie van de afbeelding aan, vergelijkbaar met de PowerPoint‑functie **Picture Format -> Compress Pictures -> Resolution**.
-
-De volgende Java‑voorbeelden laten zien hoe je een afbeelding in een presentatie comprimeert door een doelresolutie op te geven en eventueel bijgesneden gebieden te verwijderen:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Comprimeer de afbeelding met een targetresolutie van 150 DPI (webresolutie) en verwijder bijgesneden gebieden.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // Controleer het resultaat van de compressie.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Of door direct een aangepaste DPI‑waarde te gebruiken:
+Omdat de verborgen afbeeldingsdata nog aanwezig is, kan de bijsnijding later worden aangepast zonder de originele pixels te verliezen. Als bestandsgrootte belangrijker is dan omkeerbaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals in de volgende sectie wordt beschreven.
+
+## **Bijsneden afbeeldingsgegevens verwijderen**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) verwijdert afbeeldingsdata buiten het huidige bijsnijd‑rechthoek en retourneert de resulterende afbeeldingsbron. Dit kan de bestandsgrootte verkleinen, maar is een destructieve optimalisatie: nadat de presentatie is opgeslagen, zijn de verwijderde pixels niet meer beschikbaar voor een latere ontbijsnijd‑operatie.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // Comprimeer de afbeelding naar 150 DPI (webresolutie), verwijder bijgesneden gebieden.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+De methode kan een nieuwe afbeeldingsbron aan de presentatie toevoegen. Als de oorspronkelijke afbeelding ook door andere fotoframes wordt gebruikt, hebben die frames nog steeds hun bestaande bron nodig, dus het verwijderen van bijgesneden gebieden verkleint niet per se het totale aantal afbeeldingen. Het bijsnijden van WMF‑ of EMF‑inhoud met deze methode rastert het bijgesneden resultaat naar PNG.
 
-De methode converteert de afbeelding naar een lagere resolutie op basis van de vormgrootte en de opgegeven DPI. Bijgesneden gebieden kunnen ook worden verwijderd om de bestandsgrootte te optimaliseren.  
-Als de afbeelding een metabestand (WMF/EMF) of SVG is, wordt compressie niet toegepast. Ook wordt de JPEG‑kwaliteit behouden of licht verlaagd afhankelijk van de resolutie, net zoals PowerPoint omgaat met hoge‑resolutie JPEG‑bestanden.
+## **Rasterafbeeldingen comprimeren**
 
-{{% /alert %}}
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) vermindert de resolutie van rasterafbeeldingen ten opzichte van de grootte waarin de afbeelding wordt weergegeven. Het kan ook bijgesneden gebieden in dezelfde bewerking verwijderen. De methode retourneert `true` wanneer de afbeelding is vergroot of bijgesneden en `false` wanneer er geen wijziging nodig was.
 
-## **Verhouding vastzetten**
-
-Als je wilt dat een vorm met een afbeelding de verhouding behoudt, zelfs nadat je de afmetingen van de afbeelding verandert, kun je de [setAspectRatioLocked](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) methode gebruiken om de instelling *Lock Aspect Ratio* in te stellen. 
-
-Deze Java‑code laat zien hoe je de verhouding van een vorm vastzet:
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/java/com.aspose.slides/picturescompression/)‑waarde wanneer een standaarddoelresolutie voldoende is:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // stel de vorm in om de beeldverhouding te behouden bij het schalen
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Een aangepaste positieve DPI‑waarde kan in plaats van een vooraf gedefinieerde waarde worden opgegeven wanneer een specifieke doelresolutie vereist is.
+
+Compressie is bedoeld voor rasterafbeeldingen. SVG‑ en metafile‑inhoud wordt niet gereduceerd door deze raster‑compressieworkflow. Vergeet ook niet dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie op basis van de grootste weergave‑ of exportgrootte waarvoor de afbeelding daadwerkelijk zal worden bekeken, in plaats van wereldwijd de laagste DPI toe te passen.
+
+## **Afbeeldingstransformatie‑effecten beheren**
+
+Voor een volledige workflow die helderheid, contrast, kleursomzettingen, vervaging, alfa‑effecten, geordende ketens, inspectie, verwijdering en round‑trip‑verificatie omvat, zie [Image Transform Effects](/slides/nl/java/image-transform-effects/).
+
+## **Fotoframe‑geometrie vergrendelen**
+
+De [IPictureFrameLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/)‑instellingen bepalen welke bewerkingstoestanden voor een fotoframe zijn uitgeschakeld. Bijvoorbeeld, [setAspectRatioLocked](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) behoudt de proporties van de vorm terwijl deze wordt geschaald.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+De vergrendeling wordt toegepast op de fotoframe‑vorm. Het dwingt de bronafbeelding niet om opnieuw gesampled te worden of permanent dezelfde beeldverhouding aan te nemen.
 
-Deze *Lock Aspect Ratio* instelling behoudt alleen de verhouding van de vorm en niet van de afbeelding die erin zit.
+## **De StretchOffset‑waarden aanpassen**
 
-{{% /alert %}}
+Wanneer de vulmodus van de afbeelding op stretch staat, definiëren de stretch‑offset‑waarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/) het vulrechthoek ten opzichte van de omgrenzende doos van het fotoframe. Positieve percentages creëren een inspringing vanaf een rand, terwijl negatieve percentages een uitsprong veroorzaken.
 
-## **Gebruik de StretchOff‑eigenschap**
-
-Door de eigenschappen [StretchOffsetLeft](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) en [StretchOffsetBottom](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) van de [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPictureFillFormat) interface en de [PictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPictureFillFormat) klasse te gebruiken, kun je een opvulrechthoek definiëren. 
-
-Wanneer stretching wordt opgegeven voor een afbeelding, wordt een bronrechthoek geschaald om te passen binnen de opgegeven opvulrechthoek. Elke rand van de opvulrechthoek wordt gedefinieerd door een procentuele verschuiving ten opzichte van de overeenkomende rand van de omvattende doos van de vorm. Een positieve procentwaarde geeft een insprong aan, een negatieve waarde een uitsteeksel.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Voeg een rechthoek `AutoShape` toe.  
-4. Maak een afbeelding.  
-5. Stel het vultype van de vorm in.  
-6. Stel de vullingmodus van de afbeelding in.  
-7. Voeg de afbeelding toe om de vorm te vullen.  
-8. Specificeer afbeeldingsverschuivingen ten opzichte van de overeenkomstige rand van de omvattende doos van de vorm.  
-9. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
-
-Deze Java‑code demonstreert een proces waarin een StretchOff‑eigenschap wordt gebruikt:
+Dit verschilt van bijsnijden. Bijsnijdwaarden bepalen welk deel van de bronafbeelding zichtbaar is; stretch‑offsets wijzigen het rechthoek waarin de zichtbare afbeelding wordt uitgerekt.
 
 ```java
-// Instantieert de Presentation-klasse die een PPTX-bestand vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Haalt de eerste dia op
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Instantieert de ImageEx-klasse
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // Voegt een AutoShape toe van het type Rechthoek
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // Stelt het vultype van de vorm in
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // Stelt de afbeeldingsvullingsmodus van de vorm in
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // Stelt de afbeelding in om de vorm te vullen
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // Specificeert de afbeeldingsverschuivingen ten opzichte van de overeenkomstige rand van de omvattende doos van de vorm
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // Schrijft het PPTX-bestand naar schijf
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Gebruik stretch‑offsets voor vulplaatsing. Gebruik bijsnijd‑eigenschappen wanneer het doel is om de randen van de bronafbeelding te verbergen.
+
+## **Opslag, bestandsgrootte en export‑overwegingen**
+
+De belangrijkste afwegingen zijn makkelijker te beheren wanneer afbeeldingsopslag en fotoframe‑opmaak afzonderlijk worden behandeld:
+
+- **Ingesloten afbeeldingen** maken de presentatie zelf‑containend en zijn het meest betrouwbaar voor delen en server‑side rendering, maar grote rasterafbeeldingen vergroten de PPTX‑grootte en het geheugenverbruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingesloten totdat bijgesneden gebieden expliciet worden verwijderd of tijdens compressie worden weggehaald.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote rasterafbeeldingen, maar gaat ten koste van de bronresolutie. Het moet worden toegepast nadat de beoogde on‑slide grootte bekend is.
+- **SVG‑afbeeldingen** moeten behouden blijven als SVG wanneer vectorbehoud belangrijk is. Extraheer de ingesloten SVG direct wanneer je de vectorresource zelf nodig hebt. Raster‑dia‑exports converteren altijd de gerenderde dia naar pixels.
+- **Herhaalde afbeeldingen** moeten, waar mogelijk, een bestaande [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/)‑resource hergebruiken in plaats van herhaaldelijk hetzelfde bestand in de presentatieworkflow te laden.
+
+Voor grote presentaties is beeldoptimalisatie meestal het meest effectief wanneer ze selectief wordt uitgevoerd: houd logo’s en diagrammen als vectorinhoud, comprimeer foto’s volgens hun werkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer later bewerken niet meer nodig is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
 ## **FAQ**
 
-**Hoe kan ik achterhalen welke afbeeldingsformaten worden ondersteund voor PictureFrame?**
+**Wat is het verschil tussen een fotoframe en een afbeeldingsbron?**
 
-Aspose.Slides ondersteunt zowel raster‑afbeeldingen (PNG, JPEG, BMP, GIF, enz.) als vector‑afbeeldingen (bijvoorbeeld SVG) via het afbeeldingsobject dat aan een [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/) is toegewezen. De lijst met ondersteunde formaten overlapt doorgaans met de mogelijkheden van de dia‑ en afbeelding‑conversie‑engine.
+Een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) vertegenwoordigt een afbeeldingsbron die aan de presentatie is gekoppeld. Een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat, zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-**Hoe beïnvloedt het toevoegen van tientallen grote afbeeldingen de PPTX‑grootte en prestaties?**
+**Moet ik afbeeldingen insluiten of koppelen?**
 
-Grote afbeeldingen insluiten vergroot de bestandsgrootte en het geheugengebruik; afbeeldingen linken houdt de presentatiegrootte klein, maar vereist dat de externe bestanden toegankelijk blijven. Aspose.Slides biedt de mogelijkheid om afbeeldingen via link toe te voegen om de bestandsgrootte te reduceren.
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet kunnen worden zonder toegang tot externe bronnen. Koppel afbeeldingen alleen wanneer het opzettelijk is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar kunnen worden onderhouden.
 
-**Hoe kan ik een afbeeldingsobject vergrendelen tegen per ongeluk verplaatsen/vergroten?**
+**Vermindert bijsnijden de bestandsgrootte van de PPTX?**
 
-Gebruik [vorm‑vergrendelingen](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) voor een [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/) (bijvoorbeeld om verplaatsen of vergroten uit te schakelen). Het vergrendelingsmechanisme wordt beschreven voor vormen in een apart [beschermings‑artikel](/slides/nl/java/applying-protection-to-presentation/) en wordt ondersteund voor diverse vormtypes, inclusief [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/).
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) of beeldcompressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden verwijderd.
 
-**Wordt de vector‑fidelity van SVG behouden bij het exporteren van een presentatie naar PDF/afbeeldingen?**
+**Kan ik de beeldkwaliteit herstellen na compressie?**
 
-Aspose.Slides maakt het mogelijk een SVG uit een [PictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pictureframe/) te extraheren als de oorspronkelijke vector. Bij het [exporteren naar PDF](/slides/nl/java/convert-powerpoint-to-pdf/) of [rasterformaten](/slides/nl/java/convert-powerpoint-to-png/) kan het resultaat gerasterd worden afhankelijk van de exportinstellingen; het feit dat de oorspronkelijke SVG als vector is opgeslagen, wordt bevestigd door het extractie‑gedrag.
+Nee. Compressie kan de opgeslagen rasterresolutie verlagen en het verwijderen van bijgesneden gebieden verwijdert afbeeldingsdata. Bewaar de originele bronafbeelding buiten de presentatie als later bewerken met hoge resolutie vereist kan zijn.
+
+**Hoe moeten SVG‑afbeeldingen worden behandeld?**
+
+Behoud SVG‑inhoud als SVG wanneer vector‑fidelity belangrijk is. De ingesloten [ISvgImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/) kan direct geëxtraheerd worden. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
+
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+
+Controleer het vormtype voordat je foto‑frame‑specifieke leden gebruikt. Een `instanceof`‑controle tegen [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) voorkomt ongeldige casts en stelt de code in staat om dia’s die geen fotoframes bevatten correct af te handelen.

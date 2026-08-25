@@ -1,86 +1,179 @@
 ---
-title: 使用 Python 管理簡報中的投影片章節
-linktitle: 投影片章節
+title: 使用 Python 管理簡報中的投影片區段
+linktitle: 投影片區段
 type: docs
 weight: 100
 url: /zh-hant/python-net/slide-section/
 keywords:
-- 建立章節
-- 新增章節
-- 編輯章節
-- 變更章節
-- 章節名稱
+- 建立區段
+- 新增區段
+- 編輯區段
+- 更改區段
+- 區段名稱
+- 取得區段投影片
+- 處理區段投影片
 - PowerPoint
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python 簡化 PowerPoint 與 OpenDocument 的投影片章節管理 — 分割、重新命名與重新排序，以優化 PPTX 與 ODP 工作流程。"
+description: "使用 Aspose.Slides for Python via .NET 管理投影片區段：在 PPTX 簡報中建立、重新命名、重新排序、取得與處理區段投影片。"
 ---
-## **簡介**
+## **Introduction**
 
-使用 Aspose.Slides for Python，您可以將 PowerPoint 簡報組織成可將特定投影片分組的章節。
+Sections organize consecutive slides into named groups without changing the slide content. With Aspose.Slides for Python via .NET, you can create, reorder, rename, inspect, and remove sections through the [Presentation.sections](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/sections/) property.
 
-在以下情況下，您可能想建立章節來組織或將簡報劃分為邏輯部份：
-- 當您與團隊協作處理大型簡報，且需要將特定投影片指派給特定同事時。
-- 當您的簡報包含大量投影片，且難以一次管理或編輯全部時。
+Sections are especially useful when:
 
-理想情況是，建立將相關投影片（共享相同主題、議題或目的）的章節，並為每個章節命名，使其名稱能清楚反映內容。 
+- 大型簡報需要分成邏輯主題或章節；
+- 不同投影片群組指派給不同的協作者；
+- 投影片需要作為群組進行處理、移動或合併。
 
-## **在簡報中建立章節**
+請選擇簡潔的部分名稱，以描述該群組投影片的用途。由於部分是簡報結構的一部份，請使用部分 API 來判斷所屬關係，而不要根據投影片位置推算。
 
-若要在簡報中加入將投影片分組的[Section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/)，Aspose.Slides 提供了[add_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/add_section/) 方法。您可以指定章節名稱以及章節開始的投影片。
+## **Create and Manage Sections**
 
-以下 Python 範例示範如何在簡報中建立章節：
+Use [SectionCollection.add_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/add_section/) to create a section by specifying its name and starting slide. Aspose.Slides determines which slides belong to the section from the presentation's current section structure.
+
+The same [SectionCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/) also lets you:
+
+- 使用 [SectionCollection.reorder_section_with_slides](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/reorder_section_with_slides/) 搬移包含投影片的部分；
+- 僅使用 [SectionCollection.remove_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/remove_section/) 移除部分定義，保留其投影片；
+- 使用 [SectionCollection.remove_section_with_slides](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/remove_section_with_slides/) 移除部分及其投影片；
+- 使用 [SectionCollection.append_empty_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/append_empty_section/) 在末尾新增空白部分。
+
+The following example creates two sections, moves one of them, removes it together with its slides, and appends an empty section:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    layout_slide = presentation.layout_slides[0]
+    title_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    results_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
 
-    slide1 = presentation.slides.add_empty_slide(layout_slide)
-    slide2 = presentation.slides.add_empty_slide(layout_slide)
-    slide3 = presentation.slides.add_empty_slide(layout_slide)
-    slide4 = presentation.slides.add_empty_slide(layout_slide)
+    presentation.sections.add_section("Introduction", title_slide)
+    results_section = presentation.sections.add_section("Results", results_slide)
 
-    section1 = presentation.sections.add_section("Section 1", slide1)
-    # 第 1 節在 slide2 結束；第 2 節在 slide3 開始。
-    section2 = presentation.sections.add_section("Section 2", slide3) 
-      
-    presentation.save("presentation_sections.pptx", slides.export.SaveFormat.PPTX)
-    
-    presentation.sections.reorder_section_with_slides(section2, 0)
-    presentation.save("reordered_sections.pptx", slides.export.SaveFormat.PPTX)
-    
-    presentation.sections.remove_section_with_slides(section2)
-    presentation.sections.append_empty_section("Last empty section")
-    presentation.save("presentation_with_empty_section.pptx",slides.export.SaveFormat.PPTX)
+    presentation.sections.reorder_section_with_slides(results_section, 0)
+    presentation.sections.remove_section_with_slides(results_section)
+    presentation.sections.append_empty_section("Appendix")
 ```
 
-## **變更章節名稱**
+After these operations, the presentation contains the `Introduction` section with its slides and an empty `Appendix` section. The `Results` section and its slides have been removed.
 
-在 PowerPoint 簡報中建立[Section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/) 後，您可能會決定更改其名稱。
+## **Rename Sections**
 
-以下 Python 範例示範如何重新命名簡報中的章節：
+To rename a section, set its [Section.name](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/name/) property. The section's slides and position remain unchanged.
+
+The following example creates a section and changes its name:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-   section = presentation.sections[0]
-   section.name = "My section"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    section = presentation.sections.add_section("Overview", slide)
+    section.name = "Introduction"
 ```
 
-## **常見問題**
+## **Retrieve Slides from Sections**
 
-**將簡報另存為 PPT（PowerPoint 97–2003）格式時，章節會被保留嗎？**
+The [Presentation.sections](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/sections/) property returns a [SectionCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectioncollection/) that you can iterate over. For each [Section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/), call [Section.get_slides_list_of_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/get_slides_list_of_section/) to obtain the slides that currently belong to it. The method returns a [SectionSlideCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/sectionslidecollection/), which provides a count, indexed access, and iteration.
 
-不會。PPT 格式不支援章節的中繼資料，儲存為 .ppt 時會失去章節分組。
+The following example creates two populated sections and one empty section, then prints each section's [name](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/name/), [identifier](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/section_id/), [starting slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/started_from_slide/), slide count, and slide numbers. It uses indexed access to read the first slide and a `for` loop to process every slide. For the empty section, the returned collection has a count of zero, the index is not accessed, and iteration performs no steps.
 
-**整個章節可以被「隱藏」嗎？**
+```py
+import aspose.slides as slides
 
-不行。只能隱藏單一投影片。章節本身沒有「隱藏」狀態。
+with slides.Presentation() as presentation:
+    first_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    third_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
 
-**我能否透過投影片快速找到其所屬章節，或反過來找到章節的第一張投影片？**
+    presentation.sections.add_section("Introduction", first_slide)
+    presentation.sections.add_section("Details", third_slide)
+    presentation.sections.append_empty_section("Appendix")
 
-可以。章節是以其起始投影片唯一定義的；給定一張投影片即可判斷它屬於哪個章節，而對於章節則可取得其第一張投影片。
+    for section in presentation.sections:
+        section_slides = section.get_slides_list_of_section()
+        starting_slide = "none" if section.started_from_slide is None else str(section.started_from_slide.slide_number)
+
+        print(f"Section: {section.name}")
+        print(f"ID: {section.section_id}")
+        print(f"Starting slide: {starting_slide}")
+        print(f"Slide count: {section_slides.count}")
+
+        if section_slides.count > 0:
+            print(f"First slide via index: {section_slides[0].slide_number}")
+
+        print("Slide numbers:", end="")
+        for slide in section_slides:
+            print(f" {slide.slide_number}", end="")
+        print()
+```
+
+Section membership is determined by the presentation's section structure. Do not calculate a section's range manually from [Section.started_from_slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/started_from_slide/), slide indexes, and the next section's starting slide.
+
+Structural edits can change both the slides returned for a section and their slide numbers. This includes reordering slides, cloning a slide into a section, moving a section together with its slides, removing slides, and removing sections. The next example calls [Section.get_slides_list_of_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/get_slides_list_of_section/) after every such change instead of retaining assumptions about the section's former boundaries.
+
+```py
+import aspose.slides as slides
+
+
+def print_section_slides(label, section):
+    section_slides = section.get_slides_list_of_section()
+    print(f"{label} ({section_slides.count} slides):", end="")
+    for slide in section_slides:
+        print(f" {slide.slide_number}", end="")
+    print()
+
+
+with slides.Presentation() as presentation:
+    first_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    third_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    first_section = presentation.sections.add_section("First", first_slide)
+    second_section = presentation.sections.add_section("Second", third_slide)
+
+    print_section_slides("Initially", first_section)
+
+    slides_before_clone = first_section.get_slides_list_of_section()
+    presentation.slides.add_clone(slides_before_clone[0], first_section)
+    print_section_slides("After cloning into the section", first_section)
+
+    slides_before_reorder = first_section.get_slides_list_of_section()
+    first_section_position = slides_before_reorder[0].slide_number - 1
+    presentation.slides.reorder(first_section_position, slides_before_reorder[slides_before_reorder.count - 1])
+    print_section_slides("After reordering slides", first_section)
+
+    presentation.sections.reorder_section_with_slides(first_section, 1)
+    print_section_slides("After moving the section", first_section)
+
+    slides_before_removal = first_section.get_slides_list_of_section()
+    presentation.slides.remove(slides_before_removal[0])
+    print_section_slides("After removing a slide", first_section)
+
+    presentation.sections.remove_section_with_slides(second_section)
+    for section in presentation.sections:
+        print_section_slides("Remaining section", section)
+```
+
+Call [Section.get_slides_list_of_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/get_slides_list_of_section/) again whenever slides or sections are reordered, cloned, moved, or removed. This keeps subsequent processing aligned with the current presentation structure.
+
+The PPT (PowerPoint 97–2003) format does not preserve section metadata. Use this workflow with a format that supports sections, such as PPTX; converting to PPT removes the section structure needed for later iteration.
+
+## **FAQ**
+
+**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**
+
+No. The PPT format does not support section metadata, so section grouping is lost when saving to .ppt.
+
+**Can an entire section be "hidden"?**
+
+No. A section has no visibility state. To hide its contents, set the [Slide.hidden](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slide/hidden/) property for each slide in the section.
+
+**How can I find the section that contains a slide?**
+
+Iterate over [Presentation.sections](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/sections/), call [Section.get_slides_list_of_section](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/get_slides_list_of_section/) for each section, and compare the returned slides with the target slide. For a non-empty section, [Section.started_from_slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/section/started_from_slide/) returns its first slide; for an empty section, it returns `None`.

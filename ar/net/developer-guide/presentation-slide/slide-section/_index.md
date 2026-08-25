@@ -7,82 +7,182 @@ url: /ar/net/slide-section/
 keywords:
 - إنشاء قسم
 - إضافة قسم
-- تحرير القسم
-- تغيير القسم
+- تحرير قسم
+- تغيير قسم
 - اسم القسم
+- استرجاع شرائح القسم
+- معالجة شرائح القسم
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تبسيط أقسام الشرائح في PowerPoint و OpenDocument باستخدام Aspose.Slides for .NET — تقسيم، إعادة تسمية، وإعادة ترتيب لتحسين سير عمل ملفات PPTX و ODP."
+description: "إدارة أقسام الشرائح باستخدام Aspose.Slides for .NET: إنشاء، إعادة تسمية، إعادة ترتيب، استرجاع، ومعالجة شرائح الأقسام في عروض PPTX التقديمية."
 ---
+## **مقدمة**
 
-مع Aspose.Slides for .NET، يمكنك تنظيم عرض PowerPoint إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح معينة. 
+تنظم الأقسام الشرائح المتتالية في مجموعات مسماة دون تغيير محتوى الشريحة. باستخدام Aspose.Slides for .NET، يمكنك إنشاء الأقسام وإعادة ترتيبها وإعادة تسميتها وفحصها وإزالتها عبر الخاصية [Presentation.Sections](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/sections/) .
 
-قد ترغب في إنشاء أقسام واستخدامها لتنظيم أو تقسيم الشرائح في عرض تقديمي إلى أجزاء منطقية في الحالات التالية:
+تكون الأقسام مفيدة بشكل خاص عندما:
+- يحتاج عرض تقديمي كبير إلى تقسيمه إلى مواضيع أو فصول منطقية؛
+- يتم تعيين مجموعات مختلفة من الشرائح إلى متعاونين مختلفين؛
+- تحتاج الشرائح إلى المعالجة أو النقل أو الدمج كمجموعات.
 
-- عندما تعمل على عرض تقديمي كبير مع أشخاص آخرين أو فريق—وتحتاج إلى تعيين شرائح معينة لزميل أو بعض أعضاء الفريق. 
-- عندما تتعامل مع عرض تقديمي يحتوي على عدد كبير من الشرائح—وتجد صعوبة في إدارة محتوياته أو تعديلها دفعة واحدة.
+## **إنشاء وإدارة الأقسام**
 
-من المثالي أن تنشئ قسماً يضم شرائح متشابهة—الشرائح لها شيء مشترك أو يمكن أن توجد في مجموعة بناءً على قاعدة—وتعطي القسم اسماً يصف الشرائح الموجودة داخله. 
+استخدم [ISectionCollection.AddSection](https://reference.aspose.com/slides/ar/net/aspose.slides/sectioncollection/addsection/) لإنشاء قسم عن طريق تحديد اسمه والشريحة الابتدائية. تقوم Aspose.Slides بتحديد الشرائح التي تنتمي إلى القسم بناءً على هيكل القسم الحالي للعرض.
 
-## **إنشاء أقسام في العروض التقديمية**
+تتيح لك نفس [ISectionCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/isectioncollection/) أيضًا:
+- نقل قسم مع شرائحه باستخدام [ISectionCollection.ReorderSectionWithSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/sectioncollection/reordersectionwithslides/) ;
+- إزالة تعريف القسم فقط باستخدام [ISectionCollection.RemoveSection](https://reference.aspose.com/slides/ar/net/aspose.slides/sectioncollection/removesection/)، مع الحفاظ على شرائحه ;
+- إزالة قسم مع شرائحه باستخدام [ISectionCollection.RemoveSectionWithSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/sectioncollection/removesectionwithslides/) ;
+- إضافة قسم فارغ في النهاية باستخدام [ISectionCollection.AppendEmptySection](https://reference.aspose.com/slides/ar/net/aspose.slides/sectioncollection/appendemptysection/) .
 
-لإضافة قسم يضم شرائح في عرض تقديمي، توفر مكتبة Aspose.Slides for .NET الطريقة AddSection التي تسمح لك بتحديد اسم القسم الذي تريد إنشائه والشرائح التي يبدأ منها القسم. 
+المثال التالي ينشئ قسمين، ينقل أحدهما، يزيله مع شرائحه، ويضيف قسمًا فارغًا في النهاية:
 
-يعرض هذا المثال كيفية إنشاء قسم في عرض تقديمي باستخدام C#:
-```c#
-using (Presentation pres = new Presentation())
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var titleSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var resultsSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", titleSlide);
+var resultsSection = presentation.Sections.AddSection("Results", resultsSlide);
+
+presentation.Sections.ReorderSectionWithSlides(resultsSection, 0);
+presentation.Sections.RemoveSectionWithSlides(resultsSection);
+presentation.Sections.AppendEmptySection("Appendix");
+```
+
+بعد هذه العمليات، يحتوي العرض التقديمي على قسم `Introduction` مع شرائحه وقسم فارغ `Appendix`. تم إزالة قسم `Results` وشرائحه.
+
+## **إعادة تسمية الأقسام**
+
+لإعادة تسمية قسم، اضبط خاصية [ISection.Name](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/name/) الخاصة به. تبقى شرائح القسم وموقعه دون تغيير.
+
+المثال التالي ينشئ قسمًا ويغير اسمه:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var section = presentation.Sections.AddSection("Overview", slide);
+section.Name = "Introduction";
+```
+
+## **استخراج الشرائح من الأقسام**
+
+خاصية [Presentation.Sections](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/sections/) تعيد كائنًا من نوع [ISectionCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/isectioncollection/) يمكنك تعداده. لكل [ISection](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/)، استدعِ [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/getslideslistofsection/) للحصول على الشرائح التي تنتمي إليه حاليًا. تُعيد الطريقة كائنًا من نوع [ISectionSlideCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/isectionslidecollection/)، الذي يوفر عددًا، وصولًا بالفهرس، وتعدادًا.
+
+المثال التالي ينشئ قسمين مملئين وقسمًا فارغًا، ثم يطبع لكل قسم [name](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/name/)، [identifier](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/sectionid/)، [starting slide](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/startedfromslide/)، عدد الشرائح، وأرقام الشرائح. يستخدم فهرس المجموعة لقراءة الشريحة الأولى و`foreach` لمعالجة كل شريحة. بالنسبة للقسم الفارغ، تكون المجموعة المرتجعة عددها صفر، ولا يتم الوصول إلى الفهرس، ولا يجري أي تكرار خلال التعداد.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", firstSlide);
+presentation.Sections.AddSection("Details", thirdSlide);
+presentation.Sections.AppendEmptySection("Appendix");
+
+foreach (var section in presentation.Sections)
 {
-    ISlide defaultSlide = pres.Slides[0];
-    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    var sectionSlides = section.GetSlidesListOfSection();
+    var startingSlide = section.StartedFromSlide == null ? "none" : section.StartedFromSlide.SlideNumber.ToString();
 
-    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // سيتم إنهاء section1 عند newSlide2 وبعد ذلك سيبدأ section2
-    
-    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.ReorderSectionWithSlides(section2, 0);
-    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.RemoveSectionWithSlides(section2);
-    
-    pres.Sections.AppendEmptySection("Last empty section");
-    
-    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    Console.WriteLine($"Section: {section.Name}");
+    Console.WriteLine($"ID: {section.SectionId}");
+    Console.WriteLine($"Starting slide: {startingSlide}");
+    Console.WriteLine($"Slide count: {sectionSlides.Count}");
+
+    if (sectionSlides.Count > 0)
+    {
+        Console.WriteLine($"First slide via indexer: {sectionSlides[0].SlideNumber}");
+    }
+
+    Console.Write("Slide numbers:");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
 }
 ```
 
+يتم تحديد عضوية القسم بناءً على هيكل أقسام العرض التقديمي. لا تقم بحساب نطاق القسم يدويًا من خلال [ISection.StartedFromSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/startedfromslide/)، وفهارس الشرائح، والشريحة الابتدائية للقسم التالي.
 
-## **تغيير أسماء الأقسام**
+يمكن للتعديلات الهيكلية أن تغير كلًا من الشرائح المرتجعة لقسم معين وأرقام شرائحه. يتضمن ذلك إعادة ترتيب الشرائح، استنساخ شريحة داخل قسم، نقل قسم مع شرائحه، إزالة شرائح، وإزالة أقسام. المثال التالي يستدعي [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/getslideslistofsection/) بعد كل تغيير من هذه التغييرات بدلاً من الاعتماد على افتراضات حول حدود القسم السابقة.
 
-بعد إنشاء قسم في عرض PowerPoint، قد تقرر تغيير اسمه. 
+```csharp
+using System;
+using Aspose.Slides;
 
-يعرض هذا المثال كيفية تغيير اسم قسم في عرض تقديمي باستخدام C# و Aspose.Slides:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var firstSection = presentation.Sections.AddSection("First", firstSlide);
+var secondSection = presentation.Sections.AddSection("Second", thirdSlide);
+
+static void PrintSectionSlides(string label, ISection section)
 {
-   ISection section = pres.Sections[0];
-   section.Name = "My section";
+    var sectionSlides = section.GetSlidesListOfSection();
+    Console.Write($"{label} ({sectionSlides.Count} slides):");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
+}
+
+PrintSectionSlides("Initially", firstSection);
+
+var slidesBeforeClone = firstSection.GetSlidesListOfSection();
+presentation.Slides.AddClone(slidesBeforeClone[0], firstSection);
+PrintSectionSlides("After cloning into the section", firstSection);
+
+var slidesBeforeReorder = firstSection.GetSlidesListOfSection();
+var firstSectionPosition = slidesBeforeReorder[0].SlideNumber - 1;
+presentation.Slides.Reorder(firstSectionPosition, slidesBeforeReorder[slidesBeforeReorder.Count - 1]);
+PrintSectionSlides("After reordering slides", firstSection);
+
+presentation.Sections.ReorderSectionWithSlides(firstSection, 1);
+PrintSectionSlides("After moving the section", firstSection);
+
+var slidesBeforeRemoval = firstSection.GetSlidesListOfSection();
+presentation.Slides.Remove(slidesBeforeRemoval[0]);
+PrintSectionSlides("After removing a slide", firstSection);
+
+presentation.Sections.RemoveSectionWithSlides(secondSection);
+foreach (var section in presentation.Sections)
+{
+    PrintSectionSlides("Remaining section", section);
 }
 ```
 
+استدعِ [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/getslideslistofsection/) مرة أخرى كلما تم إعادة ترتيب الشرائح أو الأقسام أو استنساخها أو نقلها أو إزالتها. هذا يحافظ على توافق المعالجة اللاحقة مع هيكل العرض التقديمي الحالي.
 
-## **الأسئلة الشائعة**
+تنسيق PPT (PowerPoint 97–2003) لا يحافظ على بيانات تعريف الأقسام. استخدم سير العمل هذا مع تنسيق يدعم الأقسام، مثل PPTX؛ التحويل إلى PPT يزيل هيكل الأقسام المطلوب للتعداد لاحقًا.
 
-**هل يتم الحفاظ على الأقسام عند الحفظ بصيغة PPT (PowerPoint 97–2003)؟**
+## **الأسئلة المتكررة**
 
-لا. لا تدعم صيغة PPT بيانات تعريف الأقسام، لذا يتم فقدان تجميع الأقسام عند الحفظ بامتداد .ppt.
+**هل يتم الحفاظ على الأقسام عند الحفظ بتنسيق PPT (PowerPoint 97–2003)؟**
 
-**هل يمكن إخفاء قسم بالكامل؟**
+لا. تنسيق PPT لا يدعم بيانات تعريف الأقسام، لذا يتم فقدان تجميع الأقسام عند الحفظ بصيغة .ppt.
 
-لا. يمكن إخفاء الشرائح الفردية فقط. لا يمتلك القسم ككيان حالة “مخفي”.
+**هل يمكن إخفاء قسم كامل؟**
 
-**هل يمكنني العثور بسرعة على قسم باستخدام شريحة، والعكس، العثور على الشريحة الأولى للقسم؟**
+لا. لا يمتلك القسم حالة رؤية. لإخفاء محتوياته، اضبط خاصية [ISlide.Hidden](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/hidden/) لكل شريحة في القسم.
 
-نعم. يتم تعريف كل قسم بشكل فريد بواسطة شريحته البداية؛ بناءً على شريحة معينة يمكنك تحديد القسم الذي تنتمي إليه، وبالنسبة لأي قسم يمكنك الوصول إلى شريحته الأولى.
+**كيف يمكنني العثور على القسم الذي يحتوي على شريحة معينة؟**
+
+قم بتعداد [Presentation.Sections](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/sections/)، استدعِ [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/getslideslistofsection/) لكل قسم، وقارن الشرائح المرتجعة مع الشريحة المستهدفة. بالنسبة لقسم غير فارغ، تُعيد [ISection.StartedFromSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/isection/startedfromslide/) شريحته الأولى؛ بالنسبة لقسم فارغ، تُعيد `null`.

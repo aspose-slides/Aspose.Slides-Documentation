@@ -1,6 +1,6 @@
 ---
-title: Python'da PowerPoint Fontlarını Özelleştirme
-linktitle: Özel Font
+title: "Python'da PowerPoint Yazı Tiplerini Özelleştir"
+linktitle: "Özel Yazı Tipi"
 type: docs
 weight: 20
 url: /tr/python-net/custom-font/
@@ -15,71 +15,68 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: ".NET üzerinden Python için Aspose.Slides ile PowerPoint slaytlarına özel fontları gömerek sunumlarınızın her cihazda net ve tutarlı kalmasını sağlayın."
+description: ".NET üzerinden Python için Aspose.Slides ile PowerPoint slaytlarına özel yazı tipleri ekleyerek sunumlarınızın her cihazda net ve tutarlı kalmasını sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python, özel fontları çalışma zamanında sağlamanıza olanak tanır, böylece gereken fontlar ana sistemde yüklü olmasa bile sunumlar doğru şekilde görüntülenir. PDF veya görüntülere dışa aktarım sırasında, metin düzenini, glif ölçümlerini ve tipografiyi korumak için font klasörleri veya bellek içi font verileri sağlayabilirsiniz. Bu, sunucu tarafı renderlamayı farklı ortamlar arasında öngörülebilir hâle getirir, işletim sistemi düzeyindeki font bağımlılıklarını ortadan kaldırır ve istenmeyen geri dönüşler veya yeniden akışın önüne geçer. Makale, font kaynaklarının nasıl kaydedileceğini gösterir.
+Aspose.Slides for Python, gerektiğinde sistemde yüklü olmasa bile sunumların doğru şekilde görüntülenmesini sağlamak için çalışma zamanında özel yazı tipleri sağlamanıza izin verir. PDF veya görüntülere dışa aktarırken, metin düzenini, glif ölçümlerini ve tipografiyi korumak için yazı tipi klasörleri veya bellek içi yazı tipi verileri temin edebilirsiniz. Bu, sunucu tarafı renderlamayı farklı ortamlar arasında öngörülebilir hâle getirir, işletim sistemi düzeyindeki yazı tipi bağımlılıklarını ortadan kaldırır ve istenmeyen yedekleme veya yeniden akışları önler. Bu makale, yazı tipi kaynaklarını nasıl kaydedileceğini gösterir.
 
-Aspose.Slides, aşağıdaki fontları `load_external_font` ve `load_external_fonts` yöntemlerini kullanarak [FontsLoader](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/) sınıfı aracılığıyla yüklemenize olanak tanır:
+Bir sunum teması, bireysel yazı sistemleri için farklı yazı tipi ailelerine başvurabilir. Bu eşlemeler yalnızca yazı tipi adlarını saklar, ancak yazı tipi dosyalarını kurmaz veya yüklemez. Eşlemeleri yönetmek için [Script-Specific Theme Fonts](/slides/tr/python-net/script-specific-font-mappings/) sayfasına bakın ve aşağıdaki yükleme seçeneklerini kullanarak başvurulan yazı tiplerinin tutarlı renderlanması için erişilebilir olmasını sağlayın.
 
-- TrueType (.ttf) ve TrueType Collection (.ttc) fontları. Bkz. [TrueType](https://en.wikipedia.org/wiki/TrueType).
-- OpenType (.otf) fontları. Bkz. [OpenType](https://en.wikipedia.org/wiki/OpenType).
+Aspose.Slides, [FontsLoader](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/) sınıfının `load_external_font` ve `load_external_fonts` yöntemlerini kullanarak aşağıdaki yazı tiplerini yüklemenize olanak tanır:
 
-## **Özel Fontları Yükleme**
+- TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Bkz. [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- OpenType (.otf) yazı tipleri. Bkz. [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-Aspose.Slides, bir sunumda kullanılan fontları sistemi kurmadan yüklemenizi sağlar. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Fontlar özel dizinlerden yüklenir.
+## **Özel Yazı Tiplerini Yükle**
 
-1. Font dosyalarını içeren bir veya daha fazla klasör belirtin.
-2. Bu klasörlerden fontları yüklemek için statik [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/load_external_fonts/) yöntemini çağırın.
-3. Sunumu yükleyin ve render/ dışa aktarın.
-4. Font önbelleğini temizlemek için [FontsLoader.clear_cache](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/clear_cache/) yöntemini çağırın.
+Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize izin verir. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
 
-Aşağıdaki kod örneği font yükleme sürecini gösterir:
+1. Yazı tipi dosyalarını içeren bir veya daha fazla klasör belirtin.
+2. Bu klasörlerden yazı tiplerini yüklemek için statik [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/load_external_fonts/) yöntemini çağırın.
+3. Sunumu yükleyin ve render/dışa aktarın.
+4. Yazı tipi önbelleğini temizlemek için [FontsLoader.clear_cache](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/clear_cache/) yöntemini çağırın.
 
 ```py
 import aspose.slides as slides
 
-# Özel font dosyalarını içeren klasörleri tanımlayın.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# Özel yazı tipi dosyalarını içeren klasörleri tanımlayın.
+font_folders = ["fonts", "external_fonts"]
 
-# Belirtilen klasörlerden özel fontları yükleyin.
+# Belirtilen klasörlerden özel yazı tiplerini yükleyin.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
-    # Yüklenen fontları kullanarak sunumu render/ dışa aktarın (ör. PDF, görüntüler veya diğer formatlar).
+    # Yüklenen yazı tiplerini kullanarak sunumu render/dışa aktar (ör. PDF, görüntüler veya diğer formatlar).
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# İş tamamlandıktan sonra font önbelleğini temizleyin.
+# İş bittiğinde yazı tipi önbelleğini temizleyin.
 slides.FontsLoader.clear_cache()
 ```
 
 {{% alert color="info" title="Not" %}}
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/load_external_fonts/) ek klasörleri font arama yollarına ekler, ancak font başlatma sırasını değiştirmez. Fontlar şu sırayla başlatılır:
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/load_external_fonts/) ek klasörleri yazı tipi arama yollarına ekler, ancak yazı tipi başlatma sırasını değiştirmez.
+Yazı tipleri şu sırayla başlatılır:
 
-1. Varsayılan işletim sistemi font yolu.
+1. Varsayılan işletim sistemi yazı tipi yolu.
 1. [FontsLoader](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fontsloader/) aracılığıyla yüklenen yollar.
 {{%/alert %}}
 
-## **Özel Font Klasörünü Al**
+## **Özel Yazı Tipi Klasörünü Al**
 
-Aspose.Slides, font klasörlerini almak için `get_font_folders` metodunu sunar. Bu yöntem, `load_external_fonts` aracılığıyla eklenen klasörleri ve sistem font klasörlerini birlikte döndürür.
-
-Bu Python kodu `get_font_folders` kullanımını gösterir:
+Aspose.Slides, `get_font_folders` yöntemini sağlayarak eklenen ve sistemin yazı tipi klasörlerini döndürür. Bu, `load_external_fonts` aracılığıyla eklenen klasörleri ve sistem yazı tipi klasörlerini içerir.
 
 ```python
 import aspose.slides as slides
 
-# Bu çağrı, font dosyaları için kontrol edilen klasörleri döndürür.
-# Bunlar, load_external_fonts yöntemiyle eklenen klasörler ve sistem font klasörlerini içerir.
+# Bu çağrı, yazı tipi dosyaları için denetlenen klasörleri döndürür.
+# Bunlar, load_external_fonts yöntemiyle eklenen klasörleri ve sistem yazı tipi klasörlerini içerir.
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Bir Sunum İçin Özel Fontları Belirleme**
+## **Bir Sunum İçin Özel Yazı Tiplerini Belirle**
 
-Aspose.Slides, bir sunumda kullanılacak dış fontları belirlemenize olanak tanıyan `document_level_font_sources` özelliğini sağlar.
-
-Aşağıdaki Python örneği `document_level_font_sources` kullanımını gösterir:
+Aspose.Slides, `document_level_font_sources` özelliği aracılığıyla bir sunumla kullanılacak dış yazı tiplerini belirlemenize olanak tanır.
 
 ```python
 import aspose.slides as slides
@@ -96,17 +93,15 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
-    # Sunum ile çalış.
-    # CustomFont1, CustomFont2 ve assets\fonts ve global\fonts klasörlerindeki (ve alt klasörlerindeki) fontlar sunum için kullanılabilir.
+    # Sunumla çalış.
+    # CustomFont1, CustomFont2 ve assets\fonts ve global\fonts klasörlerinden (ve alt klasörlerinden) gelen yazı tipleri sunum için kullanılabilir.
     # ...
     print(len(presentation.slides))
 ```
 
-## **İkili Veriden Dış Fontları Yükleme**
+## **İkili Veriden Harici Yazı Tiplerini Yükle**
 
-Aspose.Slides, ikili veriden dış fontları yüklemek için `load_external_font` metodunu sağlar.
-
-Aşağıdaki Python örneği bir bayt dizisinden font yüklemeyi gösterir:
+Aspose.Slides, `load_external_font` yöntemini kullanarak harici yazı tiplerini ikili veriden yüklemenizi sağlar.
 
 ```python
 import aspose.slides as slides
@@ -116,32 +111,37 @@ def read_all_bytes(file_path):
         file_data = file_stream.read()
     return file_data
 
-# Dış fontları bayt dizilerinden yükle.
+# Harici yazı tiplerini bayt dizilerinden yükle.
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
     with slides.Presentation() as presentation:
-        # Dış fontlar bu sunum örneği ömrü boyunca kullanılabilir.
+        # Harici yazı tipleri bu sunum örneği ömrü boyunca kullanılabilir.
         print("processing")
 finally:
     slides.FontsLoader.clear_cache()
 ```
 
-## **Sık Sorulan Sorular**
+## **SSS**
 
-**Özel fontlar tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarımı etkiler mi?**  
-Evet. Bağlı fontlar, renderlayıcı tarafından tüm dışa aktarma formatlarında kullanılır.
+### Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?
 
-**Özel fontlar otomatik olarak sonuç PPTX dosyasına gömülür mü?**  
-Hayır. Bir fontu renderlama için kaydetmek, onu bir PPTX dosyasına gömmekle aynı şey değildir. Fontun sunum dosyasının içinde bulunmasını istiyorsanız, kesin [gömme özelliklerini](/slides/tr/python-net/embedded-font/) kullanmalısınız.
+Evet. Bağlı yazı tipleri, renderlayıcı tarafından tüm dışa aktarım formatlarında kullanılır.
 
-**Özel bir font belirli glifleri içermediğinde geri dönüş davranışını kontrol edebilir miyim?**  
-Evet. İstenen glif bulunmadığında hangi fontun kullanılacağını tam olarak tanımlamak için [font ikamesi](/slides/tr/python-net/font-substitution/), [yerine koyma kuralları](/slides/tr/python-net/font-replacement/) ve [geri dönüş setleri](/slides/tr/python-net/fallback-font/) yapılandırabilirsiniz.
+### Are custom fonts automatically embedded into the resulting PPTX?
 
-**Linux/Docker konteynerlerinde fontları sistem genelinde kurmadan kullanabilir miyim?**  
-Evet. Kendi font klasörlerinize işaret edebilir veya fontları bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajındaki sistem font dizinlerine olan tüm bağımlılığı ortadan kaldırır.
+Hayır. Bir yazı tipini renderlamak için kaydetmek, onu PPTX'e gömmekle aynı şey değildir. Yazı tipinin sunum dosyasının içinde taşınmasını istiyorsanız, açık [gömme özellikleri](/slides/tr/python-net/embedded-font/) kullanmalısınız.
 
-**Lisanslama konusu ne olacak—herhangi bir özel fontu kısıtlama olmadan gömebilir miyim?**  
-Font lisans uyumluluğu sizin sorumluluğunuzdadır. Şartlar değişebilir; bazı lisanslar gömme veya ticari kullanımını yasaklayabilir. Çıktıları dağıtmadan önce fontun EULA’sını her zaman gözden geçirin.
+### Can I control fallback behavior when a custom font lacks certain glyphs?
+
+Evet. [font substitution](/slides/tr/python-net/font-substitution/), [replacement rules](/slides/tr/python-net/font-replacement/) ve [fallback sets](/slides/tr/python-net/fallback-font/) yapılandırarak eksik glif olduğunda hangi yazı tipinin kullanılacağını tam olarak tanımlayabilirsiniz.
+
+### Can I use fonts in Linux/Docker containers without installing them system-wide?
+
+Evet. Kendi yazı tipi klasörlerinize işaret edebilir veya yazı tiplerini bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajındaki sistem yazı tipi dizinlerine herhangi bir bağımlılığı ortadan kaldırır.
+
+### What about licensing—can I embed any custom font without restrictions?
+
+Yazı tipi lisans uyumluluğu sizin sorumluluğunuzdadır. Şartlar değişebilir; bazı lisanslar gömme veya ticari kullanımını yasaklar. Çıktıları dağıtmadan önce her zaman yazı tipinin EULA’sını gözden geçirin.

@@ -1,18 +1,18 @@
 ---
-title: ผสานงานนำเสนออย่างมีประสิทธิภาพบน Android
-linktitle: ผสานงานนำเสนอ
+title: ผสานการนำเสนออย่างมีประสิทธิภาพบน Android
+linktitle: ผสานการนำเสนอ
 type: docs
 weight: 40
 url: /th/androidjava/merge-presentation/
 keywords:
+- ผสาน PowerPoint
+- ผสานการนำเสนอ
+- ผสานสไลด์
+- ผสาน PPT
+- ผสาน PPTX
+- ผสาน ODP
 - รวม PowerPoint
-- รวมงานนำเสนอ
-- รวมสไลด์
-- รวม PPT
-- รวม PPTX
-- รวม ODP
-- รวม PowerPoint
-- รวมงานนำเสนอ
+- รวมการนำเสนอ
 - รวมสไลด์
 - รวม PPT
 - รวม PPTX
@@ -20,219 +20,344 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "ผสานงานนำเสนอ PowerPoint (PPT, PPTX) และ OpenDocument (ODP) อย่างง่ายดายด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อทำให้กระบวนการทำงานของคุณเป็นระเบียบและเร็วขึ้น."
+description: "เรียนรู้วิธีผสานการนำเสนอ PowerPoint และ OpenDocument บน Android ด้วยการโคลนสไลด์, ควบคุมมาสเตอร์และเลเอาต์, ปรับขนาดเนื้อหาสไลด์, คงส่วน, และจัดการไฟล์ที่มีการป้องกันหรือขนาดใหญ่."
 ---
 ## **ภาพรวม**
 
-การผสานรวมงานนำเสนอ PowerPoint และ OpenDocument เป็นงานที่พบบ่อยในหลายแอปพลิเคชัน Android โดยเฉพาะเมื่อสร้างรายงาน การรวบรวมสไลด์จากแหล่งต่าง ๆ หรือการทำงานอัตโนมัติของงานนำเสนอ Aspose.Slides ให้ API ที่ทรงพลังและใช้งานง่ายสำหรับรวมไฟล์ PPT, PPTX หรือ ODP หลายไฟล์เป็นงานนำเสนอเดียวโดยไม่ต้องติดตั้ง Microsoft PowerPoint, LibreOffice หรือ OpenOffice.
+Aspose.Slides for Android via Java ผสานการนำเสนอโดยการโคลนสไลด์จากหนึ่ง [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ไปยังอีกอัน หน่วยงานหลักคือ [ISlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ซึ่งสามารถรักษาการจัดรูปแบบของสไลด์ต้นฉบับหรือแนบสไลด์ที่โคลนไปยังมาสเตอร์หรือเลเอาต์ในการนำเสนอปลายทางได้
 
-ในคู่มือนี้ คุณจะได้เรียนรู้วิธีผสานรวมงานนำเสนอ PowerPoint และ OpenDocument ด้วยเพียงไม่กี่บรรทัดของโค้ด เราจะให้ตัวอย่างที่พร้อมใช้งานและแสดงวิธีรักษาการจัดรูปแบบสไลด์, เค้าโครงและองค์ประกอบอื่น ๆ ของงานนำเสนอระหว่างกระบวนการผสาน.
+บทความนี้ครอบคลุมขั้นตอนการผสานที่ใช้บ่อยที่สุด:
 
-ไม่ว่าคุณจะสร้างแอปพลิเคชันระดับองค์กรหรือเครื่องมืออัตโนมัติแบบง่าย Aspose.Slides ทำให้การผสานรวมงานนำเสนอเป็นเรื่องเร็ว เชื่อถือได้และขยายได้ Aspose.Slides ให้คุณผสานงานนำเสนอได้หลากหลายวิธี คุณสามารถรวมงานนำเสนอพร้อมกับรูปร่าง, สไตล์, ข้อความ, การจัดรูปแบบ, คอมเมนต์, แอนิเมชัน และอื่น ๆ อีกมากมายโดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล.
+- ผสานสไลด์ทั้งหมดพร้อมคงการจัดรูปแบบของต้นฉบับ;
+- ผสานสไลด์ที่เลือก;
+- ใช้มาสเตอร์จากการนำเสนอปลายทาง;
+- ใช้เลเอาต์เฉพาะจากการนำเสนอปลายทาง;
+- ปรับขนาดสไลด์ที่แตกต่างกันก่อนการผสาน;
+- เพิ่มสไลด์ที่โคลนไปยังส่วน;
+- ผสานหลายการนำเสนอในกระบวนการต้นสุดถึงปลายสุดหนึ่งเดียว;
+- จัดการมาสเตอร์, แหล่งข้อมูล, โน้ต, ความคิดเห็น, สื่อ, ฟอนต์, รหัสผ่าน, ไฟล์ขนาดใหญ่, และข้อกังวลเกี่ยวกับการทำงานหลายเธรด
 
-{{% alert color="primary" %}}
-ดูเพิ่มเติม: [คัดลอกสไลด์](https://docs.aspose.com/slides/th/androidjava/clone-slides/)
-{{% /alert %}}
+## **การโคลนสไลด์มีผลต่อมาสเตอร์และเลเอาต์อย่างไร**
 
-### **สิ่งที่สามารถผสานได้**
+สไลด์สืบทอดลักษณะที่ปรากฏส่วนใหญ่จากเลเอาต์และมาสเตอร์ ด้วยเหตุนี้ การเลือก overload ของการโคลนที่คุณใช้จะกำหนดว่าการผสานสไลด์จะถูกผสานเข้ากับการนำเสนอปลายทางอย่างไร
 
-With Aspose.Slides, you can merge 
+ใช้ [ISlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/) ด้วยวิธีใดวิธีหนึ่งต่อไปนี้:
 
-* งานนำเสนอทั้งหมด. สไลด์ทั้งหมดจากงานนำเสนอจะถูกรวมไว้ในงานนำเสนอเดียว
-* สไลด์เฉพาะ. สไลด์ที่เลือกจะถูกรวมไว้ในงานนำเสนอเดียว
-* งานนำเสนอในรูปแบบเดียวกัน (PPT ไปเป็น PPT, PPTX ไปเป็น PPTX ฯลฯ) และในรูปแบบที่แตกต่างกัน (PPT ไปเป็น PPTX, PPTX ไปเป็น ODP ฯลฯ) ให้กันและกัน. 
+- `addClone(sourceSlide)` — คงเลเอาต์และการจัดรูปแบบของสไลด์ต้นฉบับ เมื่อจำเป็น มาสเตอร์ต้นฉบับจะถูกโคลนเข้าไปในการนำเสนอปลายทางโดยอัตโนมัติ Aspose.Slides จะติดตามมาสเตอร์ที่โคลนอัตโนมัติ เพื่อไม่ให้สไลด์ที่ใช้มาสเตอร์เดียวกันถูกโคลนซ้ำหลายครั้ง
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — แนบสไลด์ที่โคลนไปยัง [IMasterSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslide/) เฉพาะของปลายทาง Aspose.Slides จะค้นหาเลเอาต์ที่ตรงกับประเภทหรือชื่อภายใต้มาสเตอร์นั้น
+- `addClone(sourceSlide, destinationLayout)` — แนบสไลด์ที่โคลนตรงไปยัง [ILayoutSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutslide/) เฉพาะของปลายทาง
 
-### **ตัวเลือกการผสาน**
+มาสเตอร์หรือเลเอาต์ที่ส่งให้ overload `addClone` ต้องเป็นของ **การนำเสนอปลายทาง** ไม่ใช่ของการนำเสนอแหล่ง
 
-You can apply options that determine whether
+## **ผสานการนำเสนอทั้งหมดและคงการจัดรูปแบบของต้นฉบับ**
 
-* แต่ละสไลด์ในงานนำเสนอผลลัพธ์ยังคงสไตล์ที่เป็นเอกลักษณ์
-* สไตล์เฉพาะใช้กับสไลด์ทั้งหมดในงานนำเสนอผลลัพธ์. 
+การผสานที่ง่ายที่สุดคือคัดลอกสไลด์ทุกสไลด์จากการนำเสนอแหล่งไปยังการนำเสนอปลายทาง นี่เป็นตัวเลือกที่เหมาะสมเมื่อสไลด์ที่นำเข้าควรคงธีม, มาสเตอร์, และความสัมพันธ์ของเลเอาต์เดิม
 
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides.
-
-The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
-
-## **ผสานงานนำเสนอ** 
-
-Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters).
-
-This Java code shows you how to merge presentations:
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ผสานงานนำเสนอด้วย Slide Master** 
+การนำเสนอที่ได้อาจมีมาสเตอร์หลายตัวเมื่อแหล่งและปลายทางใช้ดีไซน์ที่แตกต่างกัน ซึ่งเป็นพฤติกรรมที่คาดหวังเมื่อต้องการคงการจัดรูปแบบของต้นฉบับ
 
-Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
+## **ผสานสไลด์ที่เลือก**
 
-This code in Java demonstrates the described operation:
+คุณไม่จำเป็นต้องโคลนสไลด์ทุกสไลด์ ตัวอย่างต่อไปนี้จะนำเข้าเฉพาะดัชนีสไลด์ที่เลือกจากการนำเสนอแหล่ง
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-เค้าโครงสไลด์สำหรับ slide master จะถูกกำหนดโดยอัตโนมัติ หากไม่สามารถกำหนดเค้าโครงที่เหมาะสมได้ หากพารามิเตอร์บูลีน `allowCloneMissingLayout` ของเมธอด `AddClone` ถูกตั้งค่าเป็น true จะใช้เค้าโครงของสไลด์ต้นฉบับ มิฉะนั้นจะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PptxEditException).
-{{% /alert %}}
+ตรวจสอบดัชนีสไลด์ก่อนโคลนเมื่อมาจากการป้อนข้อมูลของผู้ใช้หรือการตั้งค่าภายนอก
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead when merging.
+## **ผสานสไลด์โดยใช้มาสเตอร์ปลายทาง**
 
-## **ผสานสไลด์เฉพาะจากงานนำเสนอ** 
+ใช้ overload [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) เมื่อสไลด์ที่นำเข้าควรปฏิบัติตามมาสเตอร์ที่มีอยู่แล้วในการนำเสนอปลายทาง
 
-Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for Android via Java allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
-
-The following Java code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ผสานงานนำเสนอด้วยเค้าโครงสไลด์** 
+Aspose.Slides จะเลือกเลเอาต์ที่เหมาะสมภายใต้มาสเตอร์ที่ระบุโดยการจับคู่ประเภทหรือชื่อของเลเอาต์ต้นฉบับ หากไม่มีเลเอาต์ที่เหมาะสมและ `allowCloneMissingLayout` เป็น `true` เลเอาต์ต้นฉบับจะถูกโคลนเพื่อให้สไลด์สามารถเพิ่มได้ หากเป็น `false` จะเกิด [PptxEditException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pptxeditexception/) ขึ้น
 
-This Java code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
+ใช้ค่า `false` เมื่อคุณต้องการให้การผสานล้มเหลวแทนที่จะเพิ่มเลเอาต์ใหม่ในมาสเตอร์ปลายทาง
+
+## **ผสานสไลด์โดยใช้เลเอาต์ปลายทางเฉพาะ**
+
+ใช้ overload [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) เมื่อคุณทราบเลเอาต์ปลายทางที่สไลด์นำเข้าควรใช้อย่างชัดเจน
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
-}
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
 
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
 ```
 
-## **ผสานงานนำเสนอด้วยขนาดสไลด์ที่ต่างกัน** 
+การใช้เลเอาต์ปลายทางจะเปลี่ยนความสัมพันธ์เลเอาต์ที่สืบทอด แต่ไม่ได้ออกแบบเนื้อหาของสไลด์ต้นฉบับใหม่ หากเลเอาต์ของแหล่งและปลายทางมีโครงสร้าง placeholder ที่แตกต่างกัน ให้ตรวจสอบผลลัพธ์เพื่อยืนยันว่าการจัดรูปแบบและพฤติกรรม placeholder ที่สืบทอดนั้นเหมาะสม
 
-{{% alert title="Note" color="warning" %}} 
-คุณไม่สามารถผสานงานนำเสนอที่มีขนาดสไลด์ต่างกันได้. 
-{{% /alert %}}
+## **ผสานการนำเสนอที่มีขนาดสไลด์ต่างกัน**
 
-To merge 2 presentations with different slide sizes, you have to resize one of the presentations to make its size match that of the other presentation. 
+การนำเสนอที่มีขนาดสไลด์ต่างกันสามารถผสานได้ แต่การโคลนสไลด์ไปยังการนำเสนอที่มีขนาดสไลด์อื่น ๆ จะไม่ออกแบบเนื้อหาใหม่โดยอัตโนมัติสำหรับพื้นที่ผืนผ้าใบใหม่ รูปร่างอาจปรากฏถูกย้าย, ยืดหรือหายไปนอกพื้นที่ที่มองเห็นได้
 
-This sample code demonstrates the described operation:
+แนวทางที่เป็นประโยชน์คือปรับขนาดการนำเสนอแหล่งก่อนโคลน วิธีการ [SlideSize.setSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) สามารถขยายเนื้อหาเดิมพร้อมกับเปลี่ยนขนาดสไลด์ได้ [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidesizescaletype/) จะสเกลเนื้อหาให้พอดีกับขนาดที่ร้องขอ
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    SizeF sourceSize = source.getSlideSize().getSize();
+    SizeF destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ผสานสไลด์เข้าส่วนของงานนำเสนอ** 
+การปรับขนาดจะเปลี่ยนวัตถุการนำเสนอแหล่งในหน่วยความจำ หากคุณต้องการให้การนำเสนอแหล่งต้นฉบับคงอยู่สำหรับการดำเนินการอื่น ๆ ให้เปิดอินสแตนซ์แยกสำหรับการผสาน
 
-This Java code shows you how to merge a specific slide to a section in a presentation:
+## **ผสานสไลด์เข้าส่วนของการนำเสนอ**
+
+ลูปโคลนสไลด์พื้นฐานจะไม่สร้างลำดับชั้นส่วนของการนำเสนอแหล่ง หากส่วนสำคัญในผลลัพธ์ ให้สร้างหรือเลือกส่วนในการนำเสนอปลายทางและโคลนสไลด์เข้าไปโดยใช้ [addClone(ISlide, ISection)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-)
+
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-The slide is added at the end of the section. 
+สไลด์ที่โคลนจะถูกเพิ่มต่อท้ายส่วนปลายทางที่ระบุ เพื่อคงหลายส่วนแหล่ง ให้วนลูป [Presentation.getSections](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getSections--) ดึงสไลด์ของแต่ละส่วนแหล่งด้วย [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) สร้างส่วนในปลายทางใหม่ แล้วโคลนสไลด์ที่ได้เข้าไปยังส่วนที่สอดคล้องกัน ดูตัวอย่างการจัดการส่วนสไลด์เต็มรูปแบบที่ [Manage Slide Sections](/slides/th/androidjava/slide-section/) ซึ่งรวมถึงส่วนที่ว่างเปล่าและการเปลี่ยนแปลงโครงสร้าง
 
-{{% alert title="Tip" color="primary" %}} 
-Aspose มีแอปเว็บ [Collage ฟรี](https://products.aspose.app/slides/th/collage) ให้ใช้ บริการออนไลน์นี้คุณสามารถผสานภาพ [JPG เป็น JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG เป็น PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) และอื่น ๆ 
-{{% /alert %}}
+## **ผสานหลายการนำเสนออย่างปลอดภัย**
 
-## **คำถามที่พบบ่อย** 
+ตัวอย่าง end-to-end ด้านล่างใช้การนำเสนอแรกเป็นปลายทาง ปรับขนาดสไลด์ของแต่ละแหล่งเพิ่มเติม เปิดแต่ละแหล่งเฉพาะในช่วงที่กำลังคัดลอก และบันทึกไฟล์สุดท้ายเพียงครั้งเดียว
 
-**มีข้อจำกัดเรื่องจำนวนสไลด์เมื่อผสานงานนำเสนอหรือไม่?**  
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-ไม่มีข้อจำกัดอย่างเคร่งครัด Aspose.Slides สามารถจัดการไฟล์ขนาดใหญ่ได้ แต่ประสิทธิภาพขึ้นอยู่กับขนาดไฟล์และทรัพยากรของระบบ สำหรับงานนำเสนอที่ใหญ่มาก แนะนำให้ใช้ JVM แบบ 64-bit และจัดสรรหน่วยความจำ heap อย่างเพียงพอ.  
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
 
-**ฉันสามารถผสานงานนำเสนอที่ฝังวิดีโอหรือเสียงได้หรือไม่?**  
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    SizeF mergedSize = merged.getSlideSize().getSize();
 
-ได้ Aspose.Slides จะรักษาเนื้อหามัลติมีเดียที่ฝังอยู่ในสไลด์ แต่ไฟล์งานนำเสนอสุดท้ายอาจใหญ่ขึ้นอย่างมีนัยสำคัญ.  
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            SizeF sourceSize = source.getSlideSize().getSize();
 
-**ฟอนต์จะถูกเก็บรักษาไว้เมื่อตอนผสานงานนำเสนอหรือไม่?**  
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
 
-ใช่ ฟอนต์ที่ใช้ในงานนำเสนอเดิมจะถูกเก็บไว้ในไฟล์ผลลัพธ์ โดยสมมติว่าฟอนต์ถูกติดตั้งในระบบหรือ [ฝังไว้](/slides/th/androidjava/embedded-font/).
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+นี่เป็นฐานที่เป็นประโยชน์สำหรับการคงการจัดรูปแบบของสไลด์ที่นำเข้า หากผลลัพธ์ของคุณต้องใช้ธีมเดียวของปลายทาง ให้แทนที่การเรียก `addClone(slide)` อย่างง่ายด้วย overload มาสเตอร์หรือเลเอาต์ปลายทางที่แสดงไว้ก่อนหน้านี้
+
+## **ข้อพิจารณาเชิงปฏิบัติ**
+
+### **มาสเตอร์, เลเอาต์, และความแม่นยำของการจัดรูปแบบ**
+
+การโคลนสไลด์เริ่มต้นสามารถนำมาสเตอร์ที่จำเป็นจากแหล่งเข้าสู่การนำเสนอปลายทางโดยอัตโนมัติ Aspose.Slides จะเก็บ registry ภายในสำหรับมาสเตอร์ที่โคลนอัตโนมัติเพื่อหลีกเลี่ยงการโคลนมาสเตอร์เดียวกันซ้ำหลายครั้ง มาสเตอร์ที่โคลนด้วยมือจะไม่ได้รับการติดตามโดย registry นั้น ดังนั้นหลีกเลี่ยงการโคลนมาสเตอร์ล่วงหน้า เว้นแต่คุณต้องการควบคุมโครงสร้างมาสเตอร์อย่างชัดเจน
+
+อย่าสมมติว่ามาสเตอร์หรือเลเอาต์สองตัวที่มีชื่อเดียวกันจะมีลักษณะเหมือนกัน หากเทมเพลตองค์กรต้องควบคุมรูปลักษณ์สุดท้าย ให้เลือกมาสเตอร์หรือเลเอาต์ปลายทางอย่างชัดเจนและตรวจสอบผลลัพธ์หลังการผสาน
+
+### **โน้ตและความคิดเห็น**
+
+โน้ตของผู้พูดและความคิดเห็นของสไลด์เชื่อมโยงกับเนื้อหาสไลด์และจะถูกคัดลอกเมื่อสไลด์ถูกโคลน Aspose.Slides ยังมี API เฉพาะสำหรับ [presentation notes](/slides/th/androidjava/presentation-notes/) และ [presentation comments](/slides/th/androidjava/presentation-comments/)
+
+หากการจัดรูปแบบของหน้าโน้ตสำคัญ ให้ตรวจสอบการนำเสนอที่ผสานแล้ว เนื่องจากโน้ตมาสเตอร์เป็นออบเจ็กต์ระดับการนำเสนอและอาจแตกต่างกันระหว่างไฟล์แหล่ง สำหรับกระบวนการตรวจสอบ ให้ตรวจสอบผู้เขียนความคิดเห็นและชุดความคิดเห็นแบบเธรดหลังจากรวมไฟล์จากผู้เขียนหรือเทมเพลตที่ต่างกัน
+
+### **รูปภาพ, เสียง, วีดีโอ, วัตถุ OLE, และลิงก์ภายนอก**
+
+สไลด์อาจอ้างอิงทรัพยากรระดับการนำเสนอ เช่น รูปภาพ, เสียงฝัง, วีดีโอฝัง, และข้อมูล OLE ให้โคลนสไลด์ทั้งหมดแทนที่จะคัดลอกแค่รูปร่างที่มองเห็น เพื่อให้ Aspose.Slides รักษาความสัมพันธ์ของสไลด์กับทรัพยากรเหล่านั้น
+
+ทรัพยากรที่ฝังและที่ลิงก์ควรจัดการแยกกัน ลิงก์เสียง, วีดีโอ, วัตถุ OLE หรือไฮเปอร์ลิงก์ที่ลิงก์จะยังคงพึ่งพาเป้าหมายภายนอก; การโคลนสไลด์จะไม่เปลี่ยนลิงก์ภายนอกเป็นเนื้อหาที่ฝัง ทดสอบเส้นทางและ URL ของทรัพยากรลิงก์ในสภาพแวดล้อมที่การนำเสนอที่ผสานจะถูกเปิด
+
+แม้ Aspose.Slides จะติดตามมาสเตอร์ที่โคลนอัตโนมัติ แต่ไม่ควรถือว่าเป็นการรับประกันทั่วไปว่าทรัพยากรไบนารีที่เหมือนกันจากแหล่งที่ไม่เกี่ยวข้องจะถูกดึงซ้ำโดยอัตโนมัติ หากขนาดไฟล์ผลลัพธ์สำคัญ ให้ตรวจสอบแพ็กเกจที่ผสานและวัดผลลัพธ์แทนการพึ่งพาการดึงซ้ำโดยนัย
+
+### **ฟอนต์ที่ฝังและความพร้อมใช้งานของฟอนต์**
+
+ฟอนต์ถูกจัดการระดับการนำเสนอ หากต้องการให้การพิมพ์คงที่บนเครื่องต่าง ๆ อย่าสมมติว่าการโคลนสไลด์อย่างเดียวจะทำให้ฟอนต์ที่ต้องการทั้งหมดพร้อมใช้งานในสภาพแวดล้อมปลายทาง คุณสามารถตรวจสอบฟอนต์ที่ฝังด้วย [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) และจัดการการฝังอย่างชัดเจนตามที่อธิบายใน [Embed Fonts in Presentations](/slides/th/androidjava/embedded-font/)
+
+นอกจากนี้ ให้ตรวจสอบว่าคุณมีสิทธิ์ฝังฟอนต์ที่ใช้ในไฟล์แหล่งหรือไม่ เนื่องจากสัญญาอนุญาตฟอนต์อาจจำกัดการฝัง
+
+### **การนำเสนอที่มีรหัสผ่าน**
+
+แหล่งที่มีรหัสผ่านต้องเปิดสำเร็จก่อนที่สไลด์จะถูกโคลน ให้ส่งรหัสผ่านผ่าน [LoadOptions.setPassword](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // ทำงานกับการนำเสนอที่ถอดรหัสแล้ว.
+} finally {
+    source.dispose();
+}
+```
+
+การเปิดแหล่งที่เข้ารหัสจะไม่ได้ทำให้การนำเสนอปลายทางได้รับการป้องกันเดียวกัน ให้กำหนดการป้องกันผลลัพธ์แยกต่างหากเมื่อจำเป็น
+
+### **การนำเสนอขนาดใหญ่และการใช้หน่วยความจำ**
+
+การนำเสนอขนาดใหญ่ที่มีรูปภาพความละเอียดสูง, เสียง, วีดีโอ, หรือวัตถุไบนารีขนาดใหญ่สามารถใช้หน่วยความจำอย่างมากได้ [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) ให้การควบคุมการจัดการ BLOB และการใช้ไฟล์ชั่วคราว ดู [Manage Presentation BLOBs](/slides/th/androidjava/manage-blob/) สำหรับกลยุทธ์ไฟล์ขนาดใหญ่
+
+สำหรับไฟล์ขนาดใหญ่ ควรโหลดจากเส้นทางไฟล์เมื่อทำได้, ปล่อยการนำเสนอแหล่งแต่ละอันทันทีที่ผสานเสร็จ, และหลีกเลี่ยงการบันทึกผลลัพธ์กลางบ่อยเกินไปหากเวิร์กโฟลว์ไม่ต้องการจุดตรวจ
+
+### **ความปลอดภัยของเธรด**
+
+ห้ามโหลด, แก้ไข, บันทึก, หรือโคลนอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) เดียวกันพร้อมกันจากหลายเธรด ให้แต่ละอินสแตนซ์การนำเสนออยู่ในกระบวนการผสานเดียว หากคุณทำงานแบบขนานกับงานที่อิสระ ให้ใช้อินสแตนซ์การนำเสนอแยกกันและปฏิบัติตามคำแนะนำการทำงานหลายเธรดของ Aspose.Slides [/slides/th/androidjava/multithreading/]
+
+## **FAQ**
+
+**ฉันจะรักษาการออกแบบดั้งเดิมของแต่ละการนำเสนอแหล่งได้อย่างไร?**
+
+ใช้ [addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) โดยไม่ระบุมาสเตอร์หรือเลเอาต์ปลายทาง Aspose.Slides สามารถโคลนมาสเตอร์ต้นฉบับโดยอัตโนมัติเมื่อสไลด์ที่นำเข้าต้องการ
+
+**ฉันจะทำให้สไลด์ที่นำเข้าใช้ธีมของปลายทางได้อย่างไร?**
+
+ใช้ overload ที่รับมาสเตอร์ปลายทาง ส่งมาสเตอร์จากการนำเสนอปลายทาง ไม่ใช่จากแหล่ง Aspose.Slides จะพยายามแมปสไลด์ต้นฉบับแต่ละสไลด์ไปยังเลเอตต์ที่เหมาะสมภายใต้มาสเตอร์นั้น
+
+**ควรใช้เลเอาต์ปลายทางเฉพาะเมื่อใดแทนมาสเตอร์ปลายทาง?**
+
+ใช้เลเอาต์เฉพาะเมื่อสไลด์ที่นำเข้าทุกสไลด์ต้องใช้เลเอาต์ที่รู้จักอย่างชัดเจน ใช้มาสเตอร์เมื่อคุณต้องการให้ Aspose.Slides เลือกจากเลเอตต์ของมาสเตอร์นั้นตามประเภทหรือชื่อของเลเอตต์ต้นฉบับ
+
+**สามารถผสานการนำเสนอที่มีขนาดสไลด์ต่างกันได้หรือไม่?**
+
+ทำได้ แต่เนื้อหาสไลด์จะไม่ถูกออกแบบใหม่โดยอัตโนมัติสำหรับมิติปลายทาง ปรับขนาดการนำเสนอแหล่งก่อนเมื่อคุณต้องการตำแหน่งที่คาดการณ์ได้ เช่น ด้วย [SlideSize.setSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) และ [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidesizescaletype/)
+
+**ฉันสามารถผสานไฟล์ PPT, PPTX, และ ODP เข้าเป็นไฟล์เดียวได้หรือไม่?**
+
+ทำได้ โหลดแต่ละการนำเสนอแหล่ง โคลนสไลด์ที่ต้องการเข้าสู่ปลายทางหนึ่ง และบันทึกปลายทางในรูปแบบที่รองรับ เนื่องจากฟอร์แมตการนำเสนออาจไม่สนับสนุนคุณลักษณะเดียวกันทั้งหมด โปรดตรวจสอบเนื้อหาซับซ้อนหลังการผสานข้ามฟอร์แมต ดูที่ [Supported File Formats](/slides/th/androidjava/supported-file-formats/)
+
+**ส่วนของแหล่งถูกเก็บรักษาโดยอัตโนมัติหรือไม่?**
+
+ไม่ใช่ด้วยลูปพื้นฐานที่โคลนสไลด์เท่านั้น ต้องสร้างส่วนที่ต้องการในปลายทางและใช้ overload ส่วนของ [addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) เมื่อจำเป็นต้องคงโครงสร้างส่วน
+
+**โน้ตและความคิดเห็นถูกเก็บรักษาหรือไม่?**
+
+ถูกคัดลอกพร้อมกับสไลด์ที่โคลน สำหรับเวิร์กโฟลว์ที่ขึ้นกับการจัดรูปแบบของโน้ตมาสเตอร์, ผู้เขียนความคิดเห็น, หรือข้อมูลรีวิวแบบเธรด โปรดตรวจสอบผลลัพธ์การผสาน เพราะสถานการณ์เหล่านั้นเกี่ยวข้องกับโครงสร้างระดับการนำเสนอเช่นเดียวกับเนื้อหาระดับสไลด์
+
+**เสียง, วีดีโอ, วัตถุ OLE, และไฮเปอร์ลิงก์จะเกิดอะไรขึ้น?**
+
+เนื้อหาที่ฝังจะถูกพกพาเป็นส่วนหนึ่งของความสัมพันธ์ทรัพยากรของสไลด์ที่โคลน ลิงก์ภายนอกจะคงเป็นลิงก์ภายนอก ดังนั้นไฟล์หรือ URL เป้าหมายต้องยังคงพร้อมใช้งานหลังการผสาน
+
+**ฟอนต์ที่ฝังจากทุกแหล่งรับประกันว่าจะพร้อมใช้งานในการนำเสนอที่ผสานหรือไม่?**
+
+อย่าอ้างอิงการโคลนสไลด์อย่างเดียวสำหรับการจัดหาฟอนต์ ตรวจสอบฟอนต์ที่ฝังในปลายทางและจัดการการฝังฟอนต์หรือความพร้อมใช้งานฟอนต์ภายนอกอย่างชัดเจนเมื่อการพิมพ์เป็นสิ่งสำคัญ
+
+**ฉันจะผสานไฟล์ที่มีรหัสผ่านได้อย่างไร?**
+
+เปิดด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ที่ถูกต้องแล้วโคลนสไลด์ตามปกติ การปกป้องผลลัพธ์ต้องกำหนดแยกต่างหาก
+
+**ควรจัดการการนำเสนอขนาดใหญ่อย่างไร?**
+
+ใช้การจัดการ BLOB เมื่อวัตถุไบนารีใหญ่เป็นส่วนใหญ่ของหน่วยความจำ เลือกโหลดจากเส้นทางไฟล์สำหรับไฟล์ขนาดใหญ่ ปล่อยการนำเสนอแหล่งโดยเร็วหลังการผสาน และบันทึกผลลัพธ์สุดท้ายเฉพาะเมื่อจำเป็น
+
+**ฉันสามารถผสานสไลด์จากหลายเธรดได้หรือไม่?**
+
+ห้ามใช้อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) เดียวกันพร้อมกันจากหลายเธรด ให้แต่ละกระบวนการผสานแยกออกเป็นอินสแตนซ์การนำเสนอของตนเอง

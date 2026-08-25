@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie ramkami obrazu w prezentacjach na Androidzie
+title: Zarządzaj ramkami obrazu w prezentacjach na Androidzie
 linktitle: Ramka obrazu
 type: docs
 weight: 10
@@ -8,552 +8,422 @@ keywords:
 - ramka obrazu
 - dodaj ramkę obrazu
 - utwórz ramkę obrazu
-- dodaj obraz
-- utwórz obraz
+- osadzony obraz
+- połączony obraz
 - wyodrębnij obraz
 - obraz rastrowy
-- obraz wektorowy
+- obraz SVG
 - przytnij obraz
-- przycięty obszar
-- właściwość StretchOff
+- usuń przycięte obszary
+- skompresuj obraz
+- StretchOffset
 - formatowanie ramki obrazu
-- właściwości ramki obrazu
 - skala względna
 - efekt obrazu
-- proporcje obrazu
-- przezroczystość obrazu
+- proporcje
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Dodaj ramki obrazu do prezentacji PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w języku Java. Usprawnij proces pracy i ulepsz projekty slajdów."
+description: "Twórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach za pomocą Aspose.Slides dla Androida w języku Java."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Ramka obrazu to kształt, który zawiera obraz — jest jak zdjęcie w ramce. 
+Ramka obrazu jest kształtem slajdu, który wyświetla obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) posiada wbudowane zasoby obrazów poprzez swoje [IImageCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimagecollection/), natomiast [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu i inne ustawienia na poziomie ramki.
 
-Możesz dodać obraz do slajdu za pomocą ramki obrazu. W ten sposób możesz formatować obraz, formatując ramkę obrazu.
+To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/), i użyj tego zasobu obrazu przy tworzeniu ramek obrazu.
 
-{{% alert  title="Tip" color="primary" %}} 
+Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz obrazy wektorowe SVG. Mogą również odwoływać się do połączonych obrazów zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, wyodrębnianie i zachowanie przy eksporcie, więc warto zdecydować, jak obraz ma być przechowywany przed zastosowaniem formatowania lub optymalizacji.
 
-Aspose udostępnia bezpłatne konwertery — [JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt) — które umożliwiają szybkie tworzenie prezentacji z obrazów. 
+## **Dodaj i sformatuj osadzony obraz**
 
-{{% /alert %}} 
+W przypadku osadzonego obrazu dodaj dane obrazu do prezentacji i utwórz ramkę obrazu za pomocą [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obraz staje się częścią pakietu prezentacji, dlatego prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
 
-## **Utworzenie ramki obrazu**
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
-3. Utwórz obiekt [IPPImage]() poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IImageCollection) powiązanego z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
-4. Określ szerokość i wysokość obrazu.
-5. Utwórz [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/PictureFrame) na podstawie szerokości i wysokości obrazu za pomocą metody `AddPictureFrame` udostępnionej przez obiekt kształtu powiązany z odwołanym slajdem.
-6. Dodaj ramkę obrazu (zawierającą zdjęcie) do slajdu.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod Java pokazuje, jak utworzyć ramkę obrazu:
+Poniższy przykład dodaje obraz JPEG, tworzy ramkę o natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
 
 ```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Pobiera pierwszy slajd
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Tworzy instancję klasy Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Dodaje ramkę obrazu o wysokości i szerokości obrazu
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Zapisuje plik PPTX na dysku
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-## **Utworzenie ramki obrazu z skalą względną**
-
-Modyfikując skalowanie względne obrazu, możesz utworzyć bardziej zaawansowaną ramkę obrazu. 
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
-3. Dodaj obraz do kolekcji obrazów prezentacji.
-4. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPPImage) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IImageCollection) powiązanego z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
-5. Określ względną szerokość i wysokość obrazu w ramce obrazu.
-6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod Java pokazuje, jak utworzyć ramkę obrazu ze skalą względną:
-
-```java
-// Utwórz klasę Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Pobierz pierwszy slajd
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Utwórz instancję klasy Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // Dodaj ramkę obrazu o wysokości i szerokości równej obrazu
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Ustawianie względnej skali szerokości i wysokości
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // Zapisz plik PPTX na dysku
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Wyodrębnianie obrazów rastrowych z ramek obrazu**
-
-Możesz wyodrębniać obrazy rastrowe z obiektów [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/PictureFrame) i zapisywać je w formatach PNG, JPG i innych. Poniższy przykład kodu pokazuje, jak wyodrębnić obraz z dokumentu "sample.pptx" i zapisać go w formacie PNG.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Wyodrębnianie obrazów SVG z ramek obrazu**
-
-Kiedy prezentacja zawiera grafikę SVG umieszczoną wewnątrz kształtów [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/), Aspose.Slides dla Androida w wersji Java umożliwia pobranie oryginalnych obrazów wektorowych z pełną wiernością. Przeglądając kolekcję kształtów slajdu, możesz zidentyfikować każdy [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/), sprawdzić, czy leżący pod nim [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) zawiera treść SVG, a następnie zapisać ten obraz na dysku lub w strumieniu w jego natywnym formacie SVG.
-
-Poniższy przykład kodu demonstruje, jak wyodrębnić obraz SVG z ramki obrazu:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Pobieranie przezroczystości obrazu**
+Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów w pikselach przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to staje się istotne przy przycinaniu lub kompresji obrazu później.
 
-Aspose.Slides umożliwia pobranie efektu przezroczystości zastosowanego do obrazu. Ten kod Java demonstruje tę operację:
+## **Użyj skalowania względnego**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Pobieranie jasności i kontrastu obrazu**
-
-Aspose.Slides umożliwia pobranie efektu jasności i kontrastu zastosowanego do obrazu. Interfejs [ILuminance](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iluminance/) reprezentuje ten efekt transformacji obrazu.
-
-Ten kod Java demonstruje, jak pobrać ustawienia jasności i kontrastu z ramki obrazu:
+[IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) udostępnia względne skalowanie szerokości i wysokości ramki za pomocą [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Wartość `1.0` odpowiada 100 % oryginalnego rozmiaru obrazu. Skalowanie względne jest przydatne, gdy proces wymaga zachowania relacji do rozmiaru obrazu źródłowego zamiast ręcznego obliczania ostatecznych wymiarów.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Formatowanie ramki obrazu**
+Skalowanie względne zmienia ustawienia skali ramki; nie przetwarza ani nie kompresuje osadzonego obrazu.
 
-Aspose.Slides oferuje wiele opcji formatowania, które można zastosować do ramki obrazu. Korzystając z tych opcji, możesz zmodyfikować ramkę obrazu, aby spełniała określone wymagania.
+## **Obrazy osadzone i połączone**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
-3. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPPImage) poprzez dodanie obrazu do [IImagescollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IImageCollection) powiązanego z obiektem prezentacji, który będzie używany do wypełnienia kształtu.
-4. Określ szerokość i wysokość obrazu.
-5. Utwórz `PictureFrame` na podstawie szerokości i wysokości obrazu za pomocą metody [AddPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) udostępnionej przez obiekt [IShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShapeCollection) powiązany z odwołanym slajdem.
-6. Dodaj ramkę obrazu (zawierającą zdjęcie) do slajdu.
-7. Ustaw kolor linii ramki obrazu.
-8. Ustaw szerokość linii ramki obrazu.
-9. Obróć ramkę obrazu, podając jej wartość dodatnią lub ujemną.
-   * Wartość dodatnia obraca obraz zgodnie z ruchem wskazówek zegara. 
-   * Wartość ujemna obraca obraz przeciwnie do ruchu wskazówek zegara.
-10. Dodaj ramkę obrazu (zawierającą zdjęcie) do slajdu.
-11. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Obraz osadzony przechowuje dane obrazu wewnątrz prezentacji i jest więc najbezpieczniejszym wyborem pod kątem przenośności i przewidywalnego renderowania. Obraz połączony przechowuje zewnętrzną lokalizację przy użyciu metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) zamiast osadzania danych obrazu w ten sam sposób.
 
-Ten kod Java demonstruje proces formatowania ramki obrazu:
+Połączone obrazy mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zewnętrzną zależność. Połączony plik musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka ulegnie zmianie, plik zostanie przeniesiony lub zasób będzie niedostępny, połączony obraz może nie być wyświetlany zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
+
+### **Dodaj połączony obraz**
+
+Poniższy przykład tworzy ramkę obrazu i wskazuje ją na lokalny plik obrazu. Dotyczy tylko łączenia obrazów; łączenie wideo to osobny przepływ mediów i celowo nie jest mieszany w tym przykładzie.
 
 ```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // Pobiera pierwszy slajd
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Tworzy instancję klasy Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Dodaje ramkę obrazu o wysokości i szerokości równej obrazowi
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Zastosowuje formatowanie do PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // Zapisuje plik PPTX na dysku
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich jedynie jako zamiennika kompresji: mały PPTX z uszkodzonymi zależnościami obrazu jest zazwyczaj mniej przydatny niż większa, samodzielna prezentacja.
 
-Aspose niedawno opracował [bezpłatny kreator kolaży](https://products.aspose.app/slides/pl/collage). Jeśli kiedykolwiek potrzebujesz [scalić obrazy JPG/JPEG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG, [tworzyć siatki ze zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid), możesz skorzystać z tej usługi. 
+## **Wyodrębnij obrazy z ramek obrazu**
 
-{{% /alert %}}
+Przed wyodrębnieniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest faktycznie [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) i czy zawiera osadzony obraz. Połączone ramki obrazu mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
 
-## **Dodanie obrazu jako linku**
+### **Wyodrębnij obraz rastrowy**
 
-Aby uniknąć dużych rozmiarów prezentacji, możesz dodawać obrazy (lub filmy) za pomocą linków zamiast osadzać pliki bezpośrednio w prezentacjach. Ten kod Java pokazuje, jak dodać obraz i wideo do miejsca wstawienia:
+Nowoczesne API obrazów używa bezpośrednio [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/) i nie wymaga starszego wrappera obrazu Java. Poniższy przykład znajduje pierwszy osadzony obraz rastrowy na slajdzie i zapisuje go jako PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+Zapisywanie za pomocą [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) konwertuje wyodrębnięty obraz na żądany format wyjściowy. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie skonwertowanego pliku rastrowego, użyj danych binarnych zasobu obrazu.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **Wyodrębnij obraz SVG**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+Dla obrazu SVG, [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) udostępnia obiekt [ISvgImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/). Pozwala to pobrać dane SVG bezpośrednio, zamiast najpierw rasteryzować obraz.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Zachowanie treści SVG jako SVG zachowuje źródło wektorowe w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, muszą renderować tę zawartość wektorową do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowane grafiki nie powinny być traktowane jako dokładna kopia oryginalnego osadzonego SVG; użyj danych osadzonego [ISvgImage.getSvgData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/#getSvgData--) , gdy wymagany jest sam zasób wektorowy.
+
+## **Przytnij obraz**
+
+Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia w [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa początkowo ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
+
+Poniższy przykład bezpiecznie znajduje ramkę obrazu i stosuje wartości przycięcia:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Przycinanie obrazów**
-
-Ten kod Java pokazuje, jak przyciąć istniejący obraz na slajdzie:
-
-```java
-Presentation pres = new Presentation();
-// Tworzy nowy obiekt obrazu
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Dodaje ramkę obrazu do slajdu
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // Przycinanie obrazu (wartości procentowe)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // Zapisuje wynik
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Usuwanie przyciętych obszarów obrazu**
-
-Jeśli chcesz usunąć przycięte obszary obrazu zawartego w ramce, możesz użyć metody [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--). Metoda ta zwraca przycięty obraz lub obraz pierwotny, jeśli przycinanie nie jest potrzebne.
-
-Ten kod Java demonstruje tę operację:
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Pobiera ramkę obrazu z pierwszego slajdu
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Usuwa przycięte obszary obrazu ramki obrazu i zwraca przycięty obraz
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // Zapisuje wynik
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) dodaje przycięty obraz do kolekcji obrazów prezentacji. Jeśli obraz jest używany wyłącznie w przetworzonej [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/), taka konfiguracja może zmniejszyć rozmiar prezentacji. W przeciwnym razie liczba obrazów w wynikowej prezentacji wzrośnie.
-
-Metoda ta konwertuje pliki metafile WMF/EMF na rastrowy obraz PNG w trakcie operacji przycinania. 
-
-{{% /alert %}}
-
-## **Kompresja obrazów**
-
-Możesz skompresować obraz w prezentacji przy użyciu metody [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-). Metoda ta kompresuje obraz, zmniejszając jego rozmiar w oparciu o rozmiar kształtu i określoną rozdzielczość, z opcją usunięcia przyciętych obszarów.
-
-Dostosowuje rozmiar i rozdzielczość obrazu podobnie jak funkcja PowerPoint **Format obrazu > Kompresuj obrazy > Rozdzielczość**.
-
-Poniższe przykłady Java demonstrują, jak skompresować obraz w prezentacji, określając docelową rozdzielczość i opcjonalnie usuwając przycięte obszary:
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Kompresuj obraz z docelową rozdzielczością 150 DPI (rozdzielczość internetowa) i usuń przycięte obszary.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // Sprawdź wynik kompresji.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Lub używając bezpośrednio niestandardowej wartości DPI:
+Ponieważ ukryte dane obrazu nadal istnieją, przycięcie można zmienić później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku jest ważniejszy niż odwracalność, przycięte obszary można fizycznie usunąć, jak opisano w następnej sekcji.
+
+## **Usuń przycięte dane obrazu**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) usuwa dane obrazu znajdujące się poza bieżącym prostokątem przycięcia i zwraca powstały zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest to destrukcyjna optymalizacja: po zapisaniu prezentacji usunięte piksele nie są już dostępne do późniejszego odwrócenia przycięcia.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // Kompresuj obraz do 150 DPI (rozdzielczość internetowa), usuwając przycięte obszary.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest również używany przez inne ramki obrazu, te ramki nadal potrzebują swojego istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie treści WMF lub EMF tą metodą rasteryzuje przycięty wynik do PNG.
 
-Metoda konwertuje obraz do niższej rozdzielczości w oparciu o rozmiar kształtu i podane DPI. Przycięte regiony mogą również zostać usunięte w celu optymalizacji rozmiaru pliku.  
-Jeśli obraz jest metafilem (WMF/EMF) lub SVG, kompresja nie zostanie zastosowana. Ponadto jakość JPEG jest zachowywana lub nieco obniżana w zależności od rozdzielczości, podobnie jak PowerPoint radzi sobie z wysokiej rozdzielczości JPEG.
+## **Kompresuj obrazy rastrowe**
 
-{{% /alert %}}
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) zmniejsza rozdzielczość obrazu rastrowego w stosunku do rozmiaru, w jakim obraz jest wyświetlany. Może również usunąć przycięte obszary w tej samej operacji. Metoda zwraca `true`, gdy obraz został przeskalowany lub przycięty oraz `false`, gdy nie był potrzebny żaden zmian.
 
-## **Zablokowanie proporcji**
-
-Jeśli chcesz, aby kształt zawierający obraz zachował proporcje nawet po zmianie wymiarów obrazu, możesz użyć metody [setAspectRatioLocked](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) aby ustawić opcję *Lock Aspect Ratio*.
-
-Ten kod Java pokazuje, jak zablokować proporcje kształtu:
+Użyj predefiniowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/picturescompression/) , gdy wystarczająca jest standardowa docelowa rozdzielczość:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // ustaw kształt tak, aby zachował proporcje przy zmianie rozmiaru
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Można przekazać niestandardową dodatnią wartość DPI zamiast predefiniowanej wartości, gdy wymagany jest konkretny cel.
+
+Kompresja jest przeznaczona dla obrazów rastrowych. Zawartość SVG i metaplików nie jest zmniejszana w tym przepływie kompresji rastrowej. Pamiętaj również, że niższa rozdzielczość i usunięte przycięte obszary nie mogą być odzyskane z zoptymalizowanej prezentacji. Wybierz docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie faktycznie oglądany lub eksportowany, zamiast stosować najniższe DPI globalnie.
+
+## **Zarządzaj efektami transformacji obrazu**
+
+Aby uzyskać kompletny przepływ obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy, inspekcję, usuwanie i weryfikację w dwie strony, zobacz [Image Transform Effects](/slides/pl/androidjava/image-transform-effects/).
+
+## **Zablokuj geometrię ramki obrazu**
+
+Ustawienia [IPictureFrameLock](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachowuje proporcje kształtu podczas jego skalowania.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona przetworzenia ani trwałej zmiany obrazu źródłowego do tego samego współczynnika proporcji.
 
-To ustawienie *Lock Aspect Ratio* zachowuje jedynie proporcje kształtu, a nie obrazu, który zawiera.
+## **Dostosuj wartości StretchOffset**
 
-{{% /alert %}}
+Gdy tryb wypełnienia obrazu jest rozciągnięcie, wartości stretch‑offset w [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/) definiują prostokąt wypełnienia względem ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, podczas gdy ujemne procenty tworzą występ.
 
-## **Użycie właściwości StretchOff**
-
-Używając właściwości [StretchOffsetLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) i [StretchOffsetBottom](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) z interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPictureFillFormat) oraz klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPictureFillFormat), możesz określić prostokąt wypełnienia.
-
-Gdy dla obrazu określono rozciąganie, prostokąt źródłowy jest skalowany, aby pasował do określonego prostokąta wypełnienia. Każda krawędź prostokąta wypełnienia jest definiowana przez offset procentowy od odpowiadającej krawędzi ramki kształtu. Wartość dodatnia oznacza wcięcie, natomiast wartość ujemna – wystawienie.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj prostokąt `AutoShape`. 
-4. Utwórz obraz.
-5. Ustaw typ wypełnienia kształtu.
-6. Ustaw tryb wypełnienia obrazu kształtu.
-7. Dodaj ustawiony obraz, aby wypełnić kształt.
-8. Określ offsety obrazu względem odpowiedniej krawędzi ramki kształtu
-9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod Java demonstruje proces, w którym używana jest właściwość StretchOff:
+Jest to inne niż przycinanie. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągnięcia zmieniają prostokąt, w którym widoczne wypełnienie obrazu jest rozciągane.
 
 ```java
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
-try {
-    // Pobiera pierwszy slajd
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Tworzy instancję klasy ImageEx
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // Dodaje AutoShape ustawiony na prostokąt
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // Ustawia typ wypełnienia kształtu
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // Ustawia tryb wypełnienia obrazu kształtu
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // Ustawia obraz jako wypełnienie kształtu
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // Określa offsety obrazu względem odpowiedniej krawędzi ramki kształtu
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // Zapisuje plik PPTX na dysku
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Używaj offsetów rozciągnięcia do pozycjonowania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
+
+## **Przechowywanie, rozmiar pliku i kwestie eksportu**
+
+Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazów i formatowanie ramek obrazu są traktowane oddzielnie:
+
+- **Obrazy osadzone** sprawiają, że prezentacja jest samodzielna i są najbardziej niezawodne w udostępnianiu oraz renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
+- **Obrazy połączone** mogą utrzymać pakiet mniejszy, ale prezentacja zależy od dostępności plików zewnętrznych pod zapisanymi ścieżkami lub lokalizacjami.
+- **Przycinanie** jest początkowo niedestrukcyjne. Ukryte piksele pozostają osadzone, dopóki przycięte obszary nie zostaną wyraźnie usunięte lub usunięte podczas kompresji.
+- **Kompresja** może znacząco zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem rozdzielczości źródła. Powinna być zastosowana po określeniu zamierzonego rozmiaru obrazu na slajdzie.
+- **Obrazy SVG** powinny pozostawać jako SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksporty slajdów rastrowych zawsze konwertują renderowany slajd na piksele.
+- **Powtarzające się obrazy** powinny ponownie wykorzystywać istniejący zasób [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/), gdy to możliwe, zamiast wielokrotnego ładowania tego samego pliku w przepływie pracy prezentacji.
+
+W dużych prezentacjach optymalizacja obrazów jest zazwyczaj najskuteczniejsza, gdy jest przeprowadzana selektywnie: zachowaj logotypy i diagramy jako treść wektorową, kompresuj zdjęcia zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko gdy późniejsza edycja nie jest wymagana oraz unikaj linków zewnętrznych, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
 
 ## **FAQ**
 
-**Jak mogę dowiedzieć się, które formaty obrazów są obsługiwane dla PictureFrame?**
+**Jaka jest różnica między ramką obrazu a zasobem obrazu?**
 
-Aspose.Slides obsługuje zarówno obrazy rastrowe (PNG, JPEG, BMP, GIF itp.), jak i obrazy wektorowe (np. SVG) za pośrednictwem obiektu obrazu przypisanego do [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/). Lista obsługiwanych formatów zazwyczaj pokrywa się z możliwościami silnika konwersji slajdów i obrazów.
+[IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) reprezentuje zasób obrazu powiązany z prezentacją. [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) jest kształtem na slajdzie, który wyświetla obraz i przechowuje geometrię oraz formatowanie na poziomie ramki, takie jak rozmiar, obrót, wartości przycięcia, efekty i blokady.
 
-**Jak dodanie dziesiątek dużych obrazów wpłynie na rozmiar i wydajność pliku PPTX?**
+**Czy powinienem osadzać, czy łączyć obrazy?**
 
-Osadzanie dużych obrazów zwiększa rozmiar pliku i zużycie pamięci; łączenie obrazów pomaga utrzymać mały rozmiar prezentacji, ale wymaga, aby zewnętrzne pliki pozostawały dostępne. Aspose.Slides umożliwia dodawanie obrazów jako linki, aby zmniejszyć rozmiar pliku.
+Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Łącz obrazy tylko wtedy, gdy zamierzone jest przechowywanie plików obrazu poza PPTX i zewnętrzne lokalizacje mogą być utrzymywane wiarygodnie.
 
-**Jak mogę zablokować obiekt obrazu przed przypadkowym przemieszczaniem/skalowaniem?**
+**Czy przycinanie zmniejsza rozmiar pliku PPTX?**
 
-Użyj [blokad kształtu](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) dla [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/) (np. wyłącz przenoszenie lub skalowanie). Mechanizm blokady jest obsługiwany dla różnych typów kształtów, w tym [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/).
+Nie samo w sobie. Normalne ustawienia przycięcia ukrywają część obrazu źródłowego, ale zachowują ukryte piksele. Użyj [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) lub kompresji obrazu z usunięciem przyciętych obszarów, gdy te piksele można trwale odrzucić.
 
-**Czy wierność wektorowa SVG jest zachowana przy eksportowaniu prezentacji do PDF/obrazów?**
+**Czy mogę przywrócić jakość obrazu po kompresji?**
 
-Aspose.Slides umożliwia wyodrębnienie SVG z [PictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pictureframe/) jako oryginalnego wektora. Przy [eksportowaniu do PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/) lub [formatów rastrowych](/slides/pl/androidjava/convert-powerpoint-to-png/), wynik może być rastrowany w zależności od ustawień eksportu; fakt, że oryginalny SVG jest przechowywany jako wektor, jest potwierdzony zachowaniem wyodrębniania.
+Nie. Kompresja może obniżyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych obszarów odrzuca dane obrazu. Zachowaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być potrzebna edycja w wysokiej rozdzielczości.
+
+**Jak należy postępować z obrazami SVG?**
+
+Zachowuj zawartość SVG jako SVG, gdy ważna jest wierność wektora. Osadzony [ISvgImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/) może być wyodrębniony bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
+
+**Jak uniknąć niebezpiecznych rzutowań przy odczytywaniu istniejących slajdów?**
+
+Sprawdź typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Sprawdzenie `instanceof` względem [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) unika nieprawidłowych rzutowań i pozwala kodowi obsługiwać slajdy, które nie zawierają ramek obrazu.

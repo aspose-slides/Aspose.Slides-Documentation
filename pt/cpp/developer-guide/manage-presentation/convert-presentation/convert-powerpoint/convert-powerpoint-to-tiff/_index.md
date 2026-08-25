@@ -26,17 +26,24 @@ description: "Aprenda a converter facilmente apresentações PowerPoint (PPT, PP
 ---
 ## **Introdução**
 
-TIFF (**Tagged Image File Format**) é um formato de imagem raster sem perdas amplamente utilizado, conhecido por sua qualidade excepcional e preservação detalhada de gráficos. Designers, fotógrafos e editores de desktop costumam escolher o TIFF para manter camadas, precisão de cores e configurações originais em suas imagens.
+TIFF (**Tagged Image File Format**) é um formato de imagem raster sem perdas amplamente usado, conhecido por sua qualidade excepcional e preservação detalhada de gráficos. Designers, fotógrafos e editores de mesa frequentemente escolhem o TIFF para manter camadas, precisão de cores e configurações originais em suas imagens.
 
-Usando o Aspose.Slides, você pode converter facilmente seus slides do PowerPoint (PPT, PPTX) e slides OpenDocument (ODP) diretamente em imagens TIFF de alta qualidade, garantindo que suas apresentações preservem a máxima fidelidade visual.
+Usando o Aspose.Slides, você pode converter facilmente seus slides do PowerPoint (PPT, PPTX) e slides OpenDocument (ODP) diretamente em imagens TIFF de alta qualidade, garantindo que suas apresentações mantenham a máxima fidelidade visual.
 
 ## **Converter uma Apresentação para TIFF**
 
-Usando o método [Save](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/save/) fornecido pela classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/), você pode converter rapidamente uma apresentação do PowerPoint inteira para TIFF. As imagens TIFF resultantes correspondem ao tamanho padrão do slide.
+Usando o método [Save](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/save/) fornecido pela classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/), você pode converter rapidamente uma apresentação inteira do PowerPoint para TIFF. As imagens TIFF resultantes correspondem ao tamanho padrão do slide.
 
 Este código C++ demonstra como converter uma apresentação do PowerPoint para TIFF:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instanciar a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
 auto presentation = MakeObject<Presentation>(u"Demo_File.pptx");
 
@@ -50,13 +57,27 @@ presentation->Dispose();
 
 O método [set_BwConversionMode](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) na classe [TiffOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/) permite especificar o algoritmo usado ao converter um slide ou imagem colorida para um TIFF em preto e branco. Observe que essa configuração se aplica apenas quando o método [set_CompressionType](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) está definido como `CCITT4` ou `CCITT3`.
 
-Suponha que tenhamos um arquivo "sample.pptx" com o slide a seguir:
+{{% alert color="info" title="Nota" %}}
+[TiffOptions::set_BwConversionMode](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) é uma configuração de nível de exportação que seleciona um algoritmo de conversão de pixels para a imagem TIFF completa. Para definir como uma forma individual deve aparecer quando o modo de exibição em preto e branco está ativo, use [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/set_blackwhitemode/). Consulte [Control Black-and-White Rendering for Shapes](/slides/pt/cpp/shape-formatting/#control-black-and-white-rendering-for-shapes) para exemplos.
+{{% /alert %}}
 
-![Um slide de apresentação](slide_black_and_white.png)
+Suponha que temos um arquivo "sample.pptx" com o slide a seguir:
+
+![A presentation slide](slide_black_and_white.png)
 
 Este código C++ demonstra como converter o slide colorido para um TIFF em preto e branco:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/BlackWhiteConversionMode.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffCompressionTypes.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_CompressionType(TiffCompressionTypes::CCITT4);
 tiffOptions->set_BwConversionMode(BlackWhiteConversionMode::Dithering);
@@ -69,15 +90,26 @@ presentation->Dispose();
 
 O resultado:
 
-![TIFF em Preto e Branco](TIFF_black_and_white.png)
+![Black-and-White TIFF](TIFF_black_and_white.png)
 
 ## **Converter uma Apresentação para TIFF com Tamanho Personalizado**
 
-Se precisar de uma imagem TIFF com dimensões específicas, pode definir os valores desejados usando os métodos disponíveis em [TiffOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/). Por exemplo, o método [set_ImageSize](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_imagesize/) permite definir o tamanho da imagem resultante.
+Se você precisar de uma imagem TIFF com dimensões específicas, pode definir os valores desejados usando os métodos disponíveis em [TiffOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/). Por exemplo, o método [set_ImageSize](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_imagesize/) permite definir o tamanho da imagem resultante.
 
 Este código C++ demonstra como converter uma apresentação do PowerPoint para imagens TIFF com tamanho personalizado:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffCompressionTypes.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instanciar a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -116,11 +148,20 @@ presentation->Dispose();
 
 ## **Converter uma Apresentação para TIFF com Formato de Pixel de Imagem Personalizado**
 
-Usando o método [set_PixelFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) da classe [TiffOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/), você pode especificar o formato de pixel preferido para a imagem TIFF resultante.
+Usando o método [set_PixelFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) da classe [TiffOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/tiffoptions/), você pode especificar o formato de pixel desejado para a imagem TIFF resultante.
 
 Este código C++ demonstra como converter uma apresentação do PowerPoint para uma imagem TIFF com formato de pixel personalizado:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/ImagePixelFormat.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instanciar a classe Presentation que representa um arquivo de apresentação (PPT, PPTX, ODP, etc.).
 auto presentation = MakeObject<Presentation>(u"Demo_File.pptx");
 
@@ -142,13 +183,13 @@ presentation->Save(u"Custom_Image_Pixel_Format.tiff", SaveFormat::Tiff, tiffOpti
 presentation->Dispose();
 ```
 
-{{% alert title="Dica" color="primary" %}}
-Confira o [conversor GRATUITO de PowerPoint para Poster](https://products.aspose.app/slides/pt/conversion/convert-ppt-to-poster-online) da Aspose.
+{{% alert title="Dica" color="info" %}}
+Confira o [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/pt/conversion/convert-ppt-to-poster-online) da Aspose.
 {{% /alert %}}
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Posso converter um slide individual em vez de toda a apresentação do PowerPoint para TIFF?**
+**Posso converter um slide individual em vez de toda a apresentação PowerPoint para TIFF?**
 
 Sim. O Aspose.Slides permite converter slides individuais de apresentações PowerPoint e OpenDocument em imagens TIFF separadamente.
 
@@ -156,6 +197,6 @@ Sim. O Aspose.Slides permite converter slides individuais de apresentações Pow
 
 Não, o Aspose.Slides não impõe restrições ao número de slides. Você pode converter apresentações de qualquer tamanho para o formato TIFF.
 
-**As animações e transições do PowerPoint são preservadas ao converter slides para TIFF?**
+**As animações e efeitos de transição do PowerPoint são preservados ao converter slides para TIFF?**
 
-Não, o TIFF é um formato de imagem estática. Portanto, animações e efeitos de transição não são preservados; apenas snapshots estáticos dos slides são exportados.
+Não, o TIFF é um formato de imagem estático. Portanto, animações e efeitos de transição não são preservados; apenas capturas estáticas dos slides são exportadas.

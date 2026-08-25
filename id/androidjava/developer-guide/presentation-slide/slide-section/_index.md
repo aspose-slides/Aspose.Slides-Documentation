@@ -10,84 +10,209 @@ keywords:
 - edit bagian
 - ubah bagian
 - nama bagian
+- ambil slide bagian
+- proses slide bagian
 - PowerPoint
-- OpenDocument
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Permudah pengelolaan bagian slide di PowerPoint dan OpenDocument dengan Aspose.Slides untuk Android via Java—pisahkan, ganti nama, dan urutkan kembali untuk mengoptimalkan alur kerja PPTX dan ODP."
+description: "Kelola bagian slide dengan Aspose.Slides untuk Android via Java: buat, ganti nama, ubah urutan, ambil, dan proses slide bagian dalam presentasi PPTX."
 ---
 ## **Pendahuluan**
 
-Dengan Aspose.Slides for Android via Java, Anda dapat mengatur Presentasi PowerPoint menjadi bagian-bagian. Anda dapat membuat bagian yang berisi slide tertentu.
+Bagian mengatur slide berurutan menjadi grup bernama tanpa mengubah konten slide. Dengan Aspose.Slides untuk Android via Java, Anda dapat membuat, mengubah urutan, mengganti nama, memeriksa, dan menghapus bagian melalui metode [Presentation.getSections](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getSections--) .
 
-Anda mungkin ingin membuat bagian dan menggunakannya untuk mengatur atau membagi slide dalam sebuah presentasi menjadi bagian logis dalam situasi berikut:
+Bagian sangat berguna ketika:
 
-- Ketika Anda bekerja pada presentasi besar bersama orang lain atau tim—dan Anda perlu menugaskan slide tertentu kepada rekan atau anggota tim. 
-- Ketika Anda mengelola presentasi yang berisi banyak slide—dan Anda kesulitan mengelola atau mengedit isinya sekaligus.
+- sebuah presentasi besar perlu dibagi menjadi topik atau bab logis;
+- grup slide yang berbeda ditugaskan kepada kolaborator yang berbeda;
+- slide perlu diproses, dipindahkan, atau digabungkan sebagai grup.
 
-Idealnya, Anda harus membuat bagian yang berisi slide serupa—slide tersebut memiliki kesamaan atau dapat dikelompokkan berdasarkan suatu aturan—dan memberi nama bagian yang menggambarkan slide di dalamnya. 
+Pilih nama bagian yang singkat yang menggambarkan tujuan slide yang dikelompokkan. Karena bagian merupakan bagian dari struktur presentasi, gunakan API bagian untuk menentukan keanggotaan alih-alih menurunkannya dari posisi slide.
 
-## **Buat Bagian dalam Presentasi**
+## **Buat dan Kelola Bagian**
 
-Untuk menambahkan bagian yang akan berisi slide dalam sebuah presentasi, Aspose.Slides for Android via Java menyediakan metode [addSection()](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) yang memungkinkan Anda menentukan nama bagian yang ingin dibuat serta slide tempat bagian tersebut dimulai.
+Gunakan [ISectionCollection.addSection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) untuk membuat bagian dengan menentukan namanya dan slide awal. Aspose.Slides menentukan slide mana yang termasuk dalam bagian berdasarkan struktur bagian presentasi saat ini.
 
-Contoh kode berikut menunjukkan cara membuat bagian dalam sebuah presentasi menggunakan Java:
+[ISectionCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/) yang sama juga memungkinkan Anda:
+
+- memindahkan sebuah bagian beserta slide-nya dengan menggunakan [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-);
+- menghapus hanya definisi bagian dengan [ISectionCollection.removeSection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-), yang mempertahankan slide-nya;
+- menghapus sebuah bagian beserta slide-nya dengan [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-);
+- menambahkan bagian kosong di akhir dengan [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-).
+
+Contoh berikut membuat dua bagian, memindahkan salah satunya, menghapusnya bersama slide-nya, dan menambahkan sebuah bagian kosong:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 akan berakhir pada newSlide2 dan setelahnya section2 akan dimulai   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ubah Nama Bagian**
+Setelah operasi ini, presentasi berisi bagian `Introduction` dengan slide-nya dan bagian `Appendix` kosong. Bagian `Results` dan slide-nya telah dihapus.
 
-Setelah Anda membuat bagian dalam presentasi PowerPoint, Anda mungkin memutuskan untuk mengubah namanya. 
+## **Ganti Nama Bagian**
 
-Contoh kode berikut menunjukkan cara mengubah nama bagian dalam sebuah presentasi menggunakan Java dengan Aspose.Slides:
+Untuk mengganti nama sebuah bagian, panggil metode [ISection.setName](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#setName-java.lang.String-) . Slide dan posisi bagian tetap tidak berubah.
+
+Contoh berikut membuat sebuah bagian dan mengubah namanya:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Ambil Slide dari Bagian**
+
+Metode [Presentation.getSections](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getSections--) mengembalikan sebuah [ISectionCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectioncollection/) yang dapat Anda iterasi. Untuk setiap [ISection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/), panggil [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) untuk memperoleh slide yang saat ini termasuk di dalamnya. Metode ini mengembalikan sebuah [ISectionSlideCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectionslidecollection/), yang menyediakan jumlah, akses berindeks, dan iterasi.
+
+Contoh berikut membuat dua bagian yang berisi slide dan satu bagian kosong, kemudian mencetak setiap [nama](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getName--), [identifier](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getSectionId--), [slide awal](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getStartedFromSlide--), jumlah slide, dan nomor slide dari setiap bagian. Ia menggunakan [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectionslidecollection/#get_Item-int-) untuk membaca slide pertama dan pernyataan `for` yang ditingkatkan untuk memproses setiap slide. Untuk bagian kosong, koleksi yang dikembalikan berukuran nol, metode tidak dipanggil, dan iterasi tidak melakukan apa‑apa.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Keanggotaan bagian ditentukan oleh struktur bagian presentasi. Jangan menghitung rentang bagian secara manual dari [ISection.getStartedFromSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getStartedFromSlide--), indeks slide, dan slide awal bagian berikutnya.
+
+Suntingan struktural dapat mengubah baik slide yang dikembalikan untuk sebuah bagian maupun nomor slide mereka. Ini termasuk mengubah urutan slide, mengkloning slide ke dalam sebuah bagian, memindahkan bagian bersama slide-nya, menghapus slide, dan menghapus bagian. Contoh berikut memanggil [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) setelah setiap perubahan semacam itu alih-alih mempertahankan asumsi tentang batas sebelumnya.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Panggil [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) lagi setiap kali slide atau bagian diubah urutannya, dikloning, dipindahkan, atau dihapus. Ini menjaga pemrosesan selanjutnya tetap selaras dengan struktur presentasi saat ini.
+
+Format PPT (PowerPoint 97–2003) tidak menyimpan metadata bagian. Gunakan alur kerja ini dengan format yang mendukung bagian, seperti PPTX; mengonversi ke PPT menghapus struktur bagian yang diperlukan untuk iterasi selanjutnya.
 
 ## **FAQ**
 
 **Apakah bagian tetap dipertahankan saat menyimpan ke format PPT (PowerPoint 97–2003)?**
 
-Tidak. Format PPT tidak mendukung metadata bagian, sehingga pengelompokan bagian hilang saat disimpan ke .ppt.
+Tidak. Format PPT tidak mendukung metadata bagian, sehingga pengelompokan bagian hilang saat menyimpan ke .ppt.
 
 **Apakah seluruh bagian dapat "disembunyikan"?**
 
-Tidak. Hanya slide individual yang dapat disembunyikan. Sebuah bagian sebagai entitas tidak memiliki status "disembunyikan".
+Tidak. Sebuah bagian tidak memiliki status visibilitas. Untuk menyembunyikan isinya, panggil [ISlide.setHidden](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/#setHidden-boolean-) untuk setiap slide dalam bagian tersebut.
 
-**Bisakah saya dengan cepat menemukan bagian berdasarkan sebuah slide dan, sebaliknya, slide pertama dari sebuah bagian?**
+**Bagaimana saya dapat menemukan bagian yang berisi sebuah slide?**
 
-Ya. Sebuah bagian didefinisikan secara unik oleh slide awalnya; dengan sebuah slide Anda dapat menentukan bagian mana yang dimilikinya, dan untuk sebuah bagian Anda dapat mengakses slide pertamanya.
+Iterasi koleksi yang dikembalikan oleh [Presentation.getSections](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getSections--), panggil [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) untuk setiap bagian, dan bandingkan slide yang dikembalikan dengan slide target. Untuk bagian yang tidak kosong, [ISection.getStartedFromSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isection/#getStartedFromSlide--) mengembalikan slide pertamanya; untuk bagian kosong, ia mengembalikan `null`.

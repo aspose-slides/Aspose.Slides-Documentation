@@ -1,6 +1,6 @@
 ---
 title: Управление разделами слайдов в презентациях с помощью Python
-linktitle: Раздел слайда
+linktitle: Раздел слайдов
 type: docs
 weight: 100
 url: /ru/python-net/slide-section/
@@ -9,80 +9,171 @@ keywords:
 - добавить раздел
 - редактировать раздел
 - изменить раздел
-- название раздела
+- имя раздела
+- получить слайды раздела
+- обработать слайды раздела
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Упрощайте работу с разделами слайдов в PowerPoint и OpenDocument с помощью Aspose.Slides для Python — разделяйте, переименовывайте и переупорядочивайте для оптимизации процессов PPTX и ODP."
+description: "Управляйте разделами слайдов с помощью Aspose.Slides для Python via .NET: создавайте, переименовывайте, переупорядочивайте, получайте и обрабатывайте слайды разделов в презентациях PPTX."
 ---
+## **Введение**
 
-## **Обзор**
+Разделы организуют последовательные слайды в именованные группы, не изменяя содержимое слайдов. С помощью Aspose.Slides for Python via .NET вы можете создавать, переупорядочивать, переименовывать, просматривать и удалять разделы через свойство [Presentation.sections](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/sections/).
 
-С помощью Aspose.Slides for Python вы можете упорядочить презентацию PowerPoint в разделы, которые группируют определённые слайды.
+РазделыEspecially полезны, когда:
 
-Возможно, вам понадобится создавать разделы для организации или разделения презентации на логические части в следующих ситуациях:
+- большая презентация должна быть разделена на логические темы или главы;
+- разные группы слайдов назначаются разным сотрудникам;
+- слайды необходимо обрабатывать, перемещать или объединять группами.
 
-- Когда вы работаете над большой презентацией в команде и нужно назначить определённые слайды конкретным коллегам.
-- Когда презентация содержит много слайдов и вам трудно управлять ими или редактировать их все одновременно.
+Выбирайте краткие названия разделов, которые описывают назначение сгруппированных слайдов. Поскольку разделы являются частью структуры презентации, используйте API разделов для определения членства, а не выводите его из позиций слайдов.
 
-Оптимально создавать разделы, которые группируют связанные слайды — те, что имеют общую тему, предмет или цель, — и давать каждому разделу название, чётко отражающее его содержимое. 
+## **Создание и управление разделами**
 
-## **Создание разделов в презентациях**
+Используйте [SectionCollection.add_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/add_section/) для создания раздела, указывая его имя и стартовый слайд. Aspose.Slides определяет, какие слайды принадлежат разделу, исходя из текущей структуры разделов презентации.
 
-Чтобы добавить [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) , который группирует слайды в презентации, Aspose.Slides предоставляет метод [add_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/add_section/). Он позволяет указать имя раздела и слайд, с которого начинается раздел.
+Тот же [SectionCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/) также позволяет:
 
-Следующий пример на Python показывает, как создать раздел в презентации:
+- переместить раздел вместе с его слайдами, используя [SectionCollection.reorder_section_with_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/reorder_section_with_slides/);
+- удалить только определение раздела с помощью [SectionCollection.remove_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/remove_section/), при этом слайды сохраняются;
+- удалить раздел и его слайды с помощью [SectionCollection.remove_section_with_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/remove_section_with_slides/);
+- добавить пустой раздел в конце с помощью [SectionCollection.append_empty_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/append_empty_section/).
+
+Следующий пример создаёт два раздела, перемещает один из них, удаляет его вместе с слайдами и добавляет пустой раздел:
+
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    layout_slide = presentation.layout_slides[0]
+    title_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    results_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
 
-    slide1 = presentation.slides.add_empty_slide(layout_slide)
-    slide2 = presentation.slides.add_empty_slide(layout_slide)
-    slide3 = presentation.slides.add_empty_slide(layout_slide)
-    slide4 = presentation.slides.add_empty_slide(layout_slide)
+    presentation.sections.add_section("Introduction", title_slide)
+    results_section = presentation.sections.add_section("Results", results_slide)
 
-    section1 = presentation.sections.add_section("Section 1", slide1)
-    # Раздел 1 заканчивается на слайде 2; Раздел 2 начинается со слайда 3.
-    section2 = presentation.sections.add_section("Section 2", slide3) 
-      
-    presentation.save("presentation_sections.pptx", slides.export.SaveFormat.PPTX)
-    
-    presentation.sections.reorder_section_with_slides(section2, 0)
-    presentation.save("reordered_sections.pptx", slides.export.SaveFormat.PPTX)
-    
-    presentation.sections.remove_section_with_slides(section2)
-    presentation.sections.append_empty_section("Last empty section")
-    presentation.save("presentation_with_empty_section.pptx",slides.export.SaveFormat.PPTX)
+    presentation.sections.reorder_section_with_slides(results_section, 0)
+    presentation.sections.remove_section_with_slides(results_section)
+    presentation.sections.append_empty_section("Appendix")
 ```
 
+После этих операций презентация содержит раздел `Introduction` со своими слайдами и пустой раздел `Appendix`. Раздел `Results` и его слайды были удалены.
 
-## **Изменение названий разделов**
+## **Переименование разделов**
 
-После создания [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) в презентации PowerPoint вы можете решить переименовать его.
+Чтобы переименовать раздел, задайте его свойство [Section.name](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/name/). Слайды раздела и его позиция остаются без изменений.
 
-Следующий пример на Python показывает, как переименовать раздел в презентации:
+Следующий пример создаёт раздел и изменяет его имя:
+
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-   section = presentation.sections[0]
-   section.name = "My section"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    section = presentation.sections.add_section("Overview", slide)
+    section.name = "Introduction"
 ```
 
+## **Получение слайдов из разделов**
 
-## **FAQ**
+Свойство [Presentation.sections](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/sections/) возвращает [SectionCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectioncollection/), по которой можно итерироваться. Для каждого [Section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/) вызовите [Section.get_slides_list_of_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/get_slides_list_of_section/) чтобы получить слайды, которые в данный момент принадлежат этому разделу. Метод возвращает [SectionSlideCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/sectionslidecollection/), которая предоставляет количество, доступ по индексу и возможность итерации.
 
-**Сохраняются ли разделы при сохранении в формате PPT (PowerPoint 97–2003)?**
+Следующий пример создаёт два заполненных раздела и один пустой раздел, затем выводит для каждого раздела его [name](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/name/), [identifier](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/section_id/), [starting slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/started_from_slide/), количество слайдов и номера слайдов. Он использует доступ по индексу для чтения первого слайда и цикл `for` для обработки каждого слайда. Для пустого раздела возвращаемая коллекция имеет количество ноль, индекс не используется, и итерация не выполняет шагов.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    first_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    third_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+
+    presentation.sections.add_section("Introduction", first_slide)
+    presentation.sections.add_section("Details", third_slide)
+    presentation.sections.append_empty_section("Appendix")
+
+    for section in presentation.sections:
+        section_slides = section.get_slides_list_of_section()
+        starting_slide = "none" if section.started_from_slide is None else str(section.started_from_slide.slide_number)
+
+        print(f"Section: {section.name}")
+        print(f"ID: {section.section_id}")
+        print(f"Starting slide: {starting_slide}")
+        print(f"Slide count: {section_slides.count}")
+
+        if section_slides.count > 0:
+            print(f"First slide via index: {section_slides[0].slide_number}")
+
+        print("Slide numbers:", end="")
+        for slide in section_slides:
+            print(f" {slide.slide_number}", end="")
+        print()
+```
+
+Членство в разделе определяется структурой разделов презентации. Не рассчитывайте диапазон раздела вручную, используя [Section.started_from_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/started_from_slide/), индексы слайдов и стартовый слайд следующего раздела.
+
+Структурные изменения могут изменить как набор слайдов, возвращаемый для раздела, так и их номера. Это включает переупорядочивание слайдов, клонирование слайда в раздел, перемещение раздела вместе с его слайдами, удаление слайдов и удаление разделов. В следующем примере после каждого такого изменения вызывается [Section.get_slides_list_of_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/get_slides_list_of_section/) вместо сохранения предположений о прежних границах раздела.
+
+```py
+import aspose.slides as slides
+
+
+def print_section_slides(label, section):
+    section_slides = section.get_slides_list_of_section()
+    print(f"{label} ({section_slides.count} slides):", end="")
+    for slide in section_slides:
+        print(f" {slide.slide_number}", end="")
+    print()
+
+
+with slides.Presentation() as presentation:
+    first_slide = presentation.slides[0]
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    third_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
+    first_section = presentation.sections.add_section("First", first_slide)
+    second_section = presentation.sections.add_section("Second", third_slide)
+
+    print_section_slides("Initially", first_section)
+
+    slides_before_clone = first_section.get_slides_list_of_section()
+    presentation.slides.add_clone(slides_before_clone[0], first_section)
+    print_section_slides("After cloning into the section", first_section)
+
+    slides_before_reorder = first_section.get_slides_list_of_section()
+    first_section_position = slides_before_reorder[0].slide_number - 1
+    presentation.slides.reorder(first_section_position, slides_before_reorder[slides_before_reorder.count - 1])
+    print_section_slides("After reordering slides", first_section)
+
+    presentation.sections.reorder_section_with_slides(first_section, 1)
+    print_section_slides("After moving the section", first_section)
+
+    slides_before_removal = first_section.get_slides_list_of_section()
+    presentation.slides.remove(slides_before_removal[0])
+    print_section_slides("After removing a slide", first_section)
+
+    presentation.sections.remove_section_with_slides(second_section)
+    for section in presentation.sections:
+        print_section_slides("Remaining section", section)
+```
+
+Вызывайте [Section.get_slides_list_of_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/get_slides_list_of_section/) снова каждый раз, когда слайды или разделы переупорядочиваются, клонируются, перемещаются или удаляются. Это сохраняет согласованность дальнейшей обработки с текущей структурой презентации.
+
+Формат PPT (PowerPoint 97–2003) не сохраняет метаданные разделов. Используйте этот рабочий процесс с форматом, поддерживающим разделы, например PPTX; преобразование в PPT удаляет структуру разделов, необходимую для последующей итерации.
+
+## **Вопросы и ответы**
+
+**Сохраняются ли разделы при сохранении в формат PPT (PowerPoint 97–2003)?**
 
 Нет. Формат PPT не поддерживает метаданные разделов, поэтому группировка разделов теряется при сохранении в .ppt.
 
-**Можно ли скрыть весь раздел?**
+**Можно ли полностью «скрыть» раздел?**
 
-Нет. Скрывать можно только отдельные слайды. У раздела как сущности нет состояния «скрыт».
+Нет. У раздела нет состояния видимости. Чтобы скрыть его содержимое, установите свойство [Slide.hidden](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/hidden/) для каждого слайда в разделе.
 
-**Можно ли быстро найти раздел по слайду и, наоборот, первый слайд раздела?**
+**Как найти раздел, содержащий конкретный слайд?**
 
-Да. Раздел уникально определяется своим начальным слайдом; зная слайд, можно определить, к какому разделу он принадлежит, а для раздела можно получить его первый слайд.
+Итерируйтесь по [Presentation.sections](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/sections/), вызывайте [Section.get_slides_list_of_section](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/get_slides_list_of_section/) для каждого раздела и сравнивайте полученные слайды с целевым слайдом. Для непустого раздела [Section.started_from_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/section/started_from_slide/) возвращает его первый слайд; для пустого раздела он возвращает `None`.

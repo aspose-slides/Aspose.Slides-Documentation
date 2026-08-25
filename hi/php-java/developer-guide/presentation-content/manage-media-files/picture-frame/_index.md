@@ -1,5 +1,5 @@
 ---
-title: PHP का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम प्रबंधित करें
+title: PHP का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम को प्रबंधित करें
 linktitle: पिक्चर फ्रेम
 type: docs
 weight: 10
@@ -8,157 +8,288 @@ keywords:
 - पिक्चर फ्रेम
 - पिक्चर फ्रेम जोड़ें
 - पिक्चर फ्रेम बनाएं
-- छवि जोड़ें
-- छवि बनाएं
+- एम्बेडेड छवि
+- लिंक्ड छवि
 - छवि निकालें
 - रास्टर छवि
-- वेक्टर छवि
+- SVG छवि
 - छवि क्रॉप करें
-- क्रॉप किया हुआ क्षेत्र
-- StretchOff प्रॉपर्टी
-- पिक्चर फ्रेम फॉर्मेटिंग
-- पिक्चर फ्रेम प्रॉपर्टीज़
+- क्रॉप्ड क्षेत्रों को हटाएँ
+- छवि संकुचित करें
+- StretchOffset
+- पिक्चर फ्रेम फ़ॉर्मेटिंग
 - रिलेटिव स्केल
-- छवि प्रभाव
+- छवि इफ़ेक्ट
 - आस्पेक्ट अनुपात
-- छवि पारदर्शिता
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में पिक्चर फ्रेम जोड़ें। अपने कार्यप्रवाह को सुव्यवस्थित करें और स्लाइड डिज़ाइन को बेहतर बनायें।"
+description: "Aspose.Slides for PHP via Java के साथ प्रस्तुतियों में पिक्चर फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संकुचित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-एक पिक्चर फ्रेम वह आकार है जो छवि को समाहित करता है—यह फ्रेम में चित्र की तरह होता है।  
+एक पिक्चर फ्रेम स्लाइड का वह आकार है जो छवि प्रदर्शित करता है। Aspose.Slides में, छवि संसाधन और उसे प्रदर्शित करने वाला आकार अलग‑अलग वस्तु होते हैं: एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) अपने [ImageCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) के माध्यम से एम्बेडेड छवि संसाधनों का मालिक होता है, जबकि एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) छवि की स्थिति, आकार, लाइन फ़ॉर्मेटिंग, घुमा‌व, क्रॉपिंग, पिक्चर इफ़ेक्ट्स और अन्य फ्रेम‑स्तर सेटिंग्स को नियंत्रित करता है।
 
-आप पिक्चर फ्रेम के माध्यम से स्लाइड में छवि जोड़ सकते हैं। इस तरह, आप पिक्चर फ्रेम को फॉर्मेट करके छवि को फॉर्मेट कर सकते हैं।
+यह विभाजन तब उपयोगी होता है जब वही छवि एक से अधिक बार दिखानी हो। छवि को प्रस्तुति में एक बार जोड़ें, लौटाए गए [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) को रखें, और पिक्चर फ्रेम बनाते समय उसी छवि संसाधन का उपयोग करें।
 
-{{% alert  title="Tip" color="primary" %}} 
+पिक्चर फ्रेम रास्टर छवियों जैसे PNG या JPEG तथा वेक्टर SVG छवियों को सम्मिलित कर सकते हैं। वे लिंक्ड छवियों की ओर भी इशारा कर सकते हैं, जिससे छवि बाइट्स प्रस्तुति में संग्रहीत नहीं होते। यह चयन पोर्टेबिलिटी, फ़ाइल आकार, एक्सट्रैक्शन और एक्सपोर्ट व्यवहार को प्रभावित करता है, इसलिए फ़ॉर्मेटिंग या ऑप्टिमाइज़ेशन लागू करने से पहले यह तय करना उपयोगी है कि छवि कैसे संग्रहीत की जानी चाहिए।
 
-Aspose मुफ्त रूपांतरण उपकरण प्रदान करता है—[JPEG to PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG to PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो लोगों को छवियों से शीघ्रता से प्रस्तुतियाँ बनाने की अनुमति देते हैं। 
+## **एक एम्बेडेड छवि जोड़ें और फ़ॉर्मेट करें**
 
-{{% /alert %}} 
+एक एम्बेडेड छवि के लिए, छवि डेटा को प्रस्तुति में जोड़ें और [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addpictureframe/) के साथ पिक्चर फ्रेम बनाएं। छवि प्रस्तुति पैकेज का हिस्सा बन जाती है, इसलिए प्रस्तुति को किसी अन्य कंप्यूटर पर ले जाने पर भी वह स्वयं‑समाहित रहती है।
 
-## **पिक्चर फ्रेम बनाना**
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. स्लाइड की इंडेक्स के माध्यम से उसका रेफ़रेंस प्राप्त करें।  
-3. उस छवि को जोड़कर एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, जिसे प्रस्तुतिकरण ऑब्जेक्ट से जुड़े [ImageCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) में रखा जाएगा और आकार को भरने के लिए उपयोग किया जाएगा।  
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें।  
-5. स्लाइड से जुड़े shape ऑब्जेक्ट द्वारा प्रदान किए गए `addPictureFrame` मेथड के माध्यम से छवि की चौड़ाई और ऊँचाई के आधार पर एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) बनाएं।  
-6. स्लाइड में पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें।  
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।  
-
-यह PHP कोड आपको पिक्चर फ्रेम बनाने का तरीका दिखाता है:
+निम्न उदाहरण JPEG छवि जोड़ता है, छवि के मूल आकार पर एक फ्रेम बनाता है, और लाइन फ़ॉर्मेटिंग व घुमा‌व लागू करता है:
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # Image क्लास को इंस्टैंशिएट करता है
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # चित्र की समान ऊँचाई और चौड़ाई के साथ एक पिक्चर फ्रेम जोड़ता है
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # PPTX फ़ाइल को डिस्क में लिखता है
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-पिक्चर फ्रेम आपको छवियों के आधार पर शीघ्रता से प्रस्तुति स्लाइड बनाने की सुविधा देता है। जब आप पिक्चर फ्रेम को Aspose.Slides के सेव विकल्पों के साथ संयोजित करते हैं, तो आप इनपुट/आउटपुट संचालन को नियंत्रित करके छवियों को एक फ़ॉर्मेट से दूसरे में रूपांतरित कर सकते हैं। आप इन पृष्ठों को देखना चाहेंगे: [image to JPG](/slides/hi/php-java/conversion/image-to-jpg/); [JPG to image](/slides/hi/php-java/conversion/jpg-to-image/); [JPG to PNG](/slides/hi/php-java/conversion/jpg-to-png/), [PNG to JPG](/slides/hi/php-java/conversion/png-to-jpg/); [PNG to SVG](/slides/hi/php-java/conversion/png-to-svg/), [SVG to PNG](/slides/hi/php-java/conversion/svg-to-png/).  
-
-{{% /alert %}}
-
-## **रिलेटिव स्केल के साथ पिक्चर फ्रेम बनाना**
-
-छवि के रिलेटिव स्केल को बदलकर आप अधिक जटिल पिक्चर फ्रेम बना सकते हैं।  
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. स्लाइड की इंडेक्स के माध्यम से उसका रेफ़रेंस प्राप्त करें।  
-3. प्रस्तुति की इमेज कलेक्शन में एक छवि जोड़ें।  
-4. उस छवि को जोड़कर एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, जिसे प्रस्तुतिकरण ऑब्जेक्ट से जुड़े [ImageCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) में रखा जाएगा और आकार को भरने के लिए उपयोग किया जाएगा।  
-5. पिक्चर फ्रेम में छवि की रिलेटिव चौड़ाई और ऊँचाई निर्दिष्ट करें।  
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।  
-
-यह PHP कोड आपको रिलेटिव स्केल के साथ पिक्चर फ्रेम बनाने का तरीका दिखाता है:
-
-```php
-  # PPTX का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # Image क्लास को इंस्टैंशिएट करता है
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # चित्र की समान ऊँचाई और चौड़ाई के साथ पिक्चर फ्रेम जोड़ता है
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # रिलेटिव स्केल की चौड़ाई और ऊँचाई सेट करता है
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # PPTX फ़ाइल को डिस्क में लिखता है
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **पिक्चर फ्रेम से रास्टर छवियाँ निकालना**
-
-आप [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) ऑब्जेक्ट से रास्टर छवियों को निकालकर PNG, JPG और अन्य फ़ॉर्मेट में सहेज सकते हैं। नीचे दिया गया कोड उदाहरण दस्तावेज़ “sample.pptx” से छवि निकालकर PNG फ़ॉर्मेट में सहेजता है।
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **पिक्चर फ्रेम से SVG छवियाँ निकालना**
+पिक्चर फ्रेम प्रदर्शित ज्यामिति को नियंत्रित करता है; फ्रेम का आकार बदलने से एम्बेडेड छवि संसाधन में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर बाद में छवि को क्रॉप या संकुचित करने पर महत्वपूर्ण हो जाता है।
 
-जब प्रस्तुति में SVG ग्राफ़िक्स [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) आकारों में रखी होती हैं, तो Aspose.Slides for PHP via Java आपको मूल वेक्टर छवियों को पूर्ण फ़िडेलिटी के साथ पुनः प्राप्त करने देता है। स्लाइड की shape कलेक्शन को पार करके आप प्रत्येक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) की पहचान कर सकते हैं, यह जांच सकते हैं कि अंतर्निहित [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) में SVG सामग्री है या नहीं, और फिर उस छवि को उसकी मूल SVG फ़ॉर्मेट में डिस्क या स्ट्रीम पर सहेज सकते हैं।
+## **रिलेटिव स्केल का उपयोग करें**
 
-निम्नलिखित कोड उदाहरण दर्शाता है कि पिक्चर फ्रेम से SVG छवि कैसे निकाली जाए:
+[PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) फ्रेम के लिए रिलेटिव चौड़ाई और ऊँचाई स्केलिंग को [setRelativeScaleWidth](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/setrelativescalewidth/) और [setRelativeScaleHeight](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/setrelativescaleheight/) के द्वारा उजागर करता है। `1.0` का मान मूल छवि आकार के 100 % के बराबर है। जब वर्कफ़्लो को स्रोत छवि आकार के अनुपात को बनाए रखना हो, तो रिलेटिव स्केल उपयोगी होता है, बजाय इसके कि अंतिम आयाम मैन्युअल रूप से गणना किए जाएँ।
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+रिलेटिव स्केल फ्रेम की स्केल सेटिंग्स बदलता है; यह एम्बेडेड छवि को री‑सैंपल या संकुचित नहीं करता।
+
+## **एम्बेडेड और लिंक्ड छवियाँ**
+
+एक एम्बेडेड पिक्चर छवि डेटा को सीधे प्रस्तुति में संग्रहीत करता है और इसलिए पोर्टेबिलिटी तथा अनुमानयोग्य रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। एक लिंक्ड पिक्चर [Picture::setLinkPathLong](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picture/setlinkpathlong/) मेथड के माध्यम से बाह्य स्थान को संदर्भित करता है, बजाय इसके कि छवि डेटा को समान रूप से एम्बेड किया जाए।
+
+लिंक्ड छवियाँ PPTX में संग्रहीत छवि डेटा की मात्रा को घटा सकती हैं, लेकिन वे बाह्य निर्भरता लाती हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन के लिए सुलभ रहना चाहिए जो प्रस्तुति को खोलता या रेंडर करता है। यदि पाथ बदल जाता है, फ़ाइल स्थानांतरित हो गई है, या संसाधन उपलब्ध नहीं है, तो लिंक्ड पिक्चर अपेक्षित रूप से नहीं दिखेगा। उन प्रस्तुतियों के लिए जो ई‑मेल, अभिलेखीय या अलग‑थलग वातावरण में रेंडर की जानी हों, एम्बेडेड छवियाँ आमतौर पर अधिक भरोसेमंद होती हैं।
+
+### **एक लिंक्ड छवि जोड़ें**
+
+निम्न उदाहरण पिक्चर फ्रेम बनाता है और उसे स्थानीय छवि फ़ाइल की ओर इंगित करता है। यह केवल छवि लिंकिंग को दर्शाता है; वीडियो लिंकिंग एक अलग मीडिया वर्कफ़्लो है और इसे जानबूझकर इस उदाहरण में मिश्रित नहीं किया गया है।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+बाहरी फ़ाइल प्रबंधन को इरादा होने पर ही लिंक का उपयोग करें। उन्हें केवल संपीड़न के विकल्प के रूप में न उपयोग करें: टूटे हुए छवि निर्भरताओं के साथ छोटा PPTX अक्सर बड़े, स्वयं‑समाहित प्रस्तुति की तुलना में कम उपयोगी होता है।
+
+## **पिक्चर फ्रेम से छवियों को एक्सट्रैक्ट करें**
+
+किसी मौजूदा प्रस्तुति से छवि निकालने से पहले, सुनिश्चित करें कि आकार वास्तव में एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) है और उसमें एम्बेडेड छवि सम्मिलित है। लिंक्ड पिक्चर फ्रेम में वह छवि बाइट्स नहीं हो सकते जो समान तरीके से एक्सट्रैक्ट किए जा सकते हैं।
+
+### **रास्टर छवि निकालें**
+
+आधुनिक छवि API सीधे [IImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/iimage/) का उपयोग करता है। निम्न उदाहरण स्लाइड पर पहली एम्बेडेड रास्टर तस्वीर खोजता है और उसे PNG के रूप में सहेजता है:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+[IImage::save](https://reference.aspose.com/slides/hi/php-java/aspose.slides/iimage/#save) के माध्यम से सहेजने से एक्सट्रैक्टेड छवि को इच्छित आउटपुट फ़ॉर्मेट में बदला जाता है। यदि आपको प्रस्तुति में संग्रहीत एन्कोडेड बाइट्स चाहिए, तो परिवर्तित रास्टर फ़ाइल के बजाय छवि संसाधन के बाइनरी डेटा का उपयोग करें।
+
+### **SVG छवि निकालें**
+
+SVG पिक्चर के लिए, [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) एक [SvgImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/) ऑब्जेक्ट उजागर करता है। यह आपको SVG डेटा को सीधे प्राप्त करने की अनुमति देता है, बिना पहले तस्वीर को रास्टराइज़ किए।
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+SVG सामग्री को SVG के रूप में रखना प्रस्तुति के भीतर वेक्टर स्रोत को संरक्षित करता है। PNG या JPEG जैसी रास्टर एक्सपोर्ट्स उस वेक्टर सामग्री को पिक्सेल में रेंडर करती हैं। PDF या SVG स्लाइड एक्सपोर्ट भी एक रेंडरिंग ऑपरेशन है, इसलिए एक्सपोर्ट की गई ग्राफ़िक्स को मूल एम्बेडेड SVG की बाइट‑फ़ॉर‑बाइट कॉपी नहीं माना जाना चाहिए; मूल वेक्टर संसाधन स्वयं आवश्यक होने पर एम्बेडेड [SvgImage::getSvgData](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/getsvgdata/) डेटा का उपयोग करें।
+
+## **छवि को क्रॉप करें**
+
+क्रॉपिंग फ्रेम के भीतर दिखाई देने वाले हिस्से को बदलती है। [PictureFillFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/) पर क्रॉप मान स्रोत छवि आयामों के प्रतिशत होते हैं। क्रॉपिंग प्रारम्भिक रूप से एम्बेडेड छवि से छिपे पिक्सेल को हटाती नहीं है; यह केवल दृश्यमान क्षेत्र को बदलती है।
+
+निम्न उदाहरण सुरक्षित रूप से एक पिक्चर फ्रेम खोजता है और क्रॉप मान लागू करता है:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+क्योंकि छिपा हुआ छवि डेटा अभी भी मौजूद है, क्रॉप को बाद में मूल पिक्सेल खोए बिना बदला जा सकता है। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनर्स्थापन की आवश्यकता नहीं है, तो अगले भाग में बताया गया है कि कैसे क्रॉप किए गए क्षेत्रों को शारीरिक रूप से हटाया जाए।
+
+## **क्रॉप किए गए छवि डेटा को हटाएँ**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) वर्तमान क्रॉप आयत के बाहर की छवि डेटा को हटा देता है और परिणामी छवि संसाधन लौटाता है। यह फ़ाइल आकार घटा सकता है, लेकिन यह एक विनाशकारी ऑप्टिमाइज़ेशन है: प्रस्तुति सहेजने के बाद हटाए गए पिक्सेल बाद के अन‑क्रॉप ऑपरेशन के लिए उपलब्ध नहीं रहते।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -166,372 +297,161 @@ try {
 }
 ```
 
-## **छवि की ट्रांसपरेंसी प्राप्त करना**
+यह मेथड प्रस्तुति में नया छवि संसाधन जोड़ सकता है। यदि मूल छवि अन्य पिक्चर फ्रेमों द्वारा भी उपयोग की जा रही है, तो उन फ्रेमों को अभी भी अपना मौजूदा संसाधन चाहिए होता है, इसलिए क्रॉप किए गए क्षेत्रों को हटाना जरूरी नहीं कि कुल छवियों की संख्या घटाए। इस मेथड से WMF या EMF सामग्री को क्रॉप करने पर परिणाम PNG में रास्टराइज़ हो जाता है।
 
-Aspose.Slides आपको छवि पर लागू ट्रांसपरेंसी प्रभाव प्राप्त करने की सुविधा देता है। यह PHP कोड इस कार्य को दर्शाता है:
+## **रास्टर छवियों को संकुचित करें**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) रास्टर छवि रिजॉल्यूशन को उस आकार के सापेक्ष कम करता है जिस पर तस्वीर प्रदर्शित होती है। यह समान ऑपरेशन में क्रॉप किए गए क्षेत्रों को भी हटा सकता है। यदि छवि को रिसाइज़ या क्रॉप किया गया हो तो मेथड `true` लौटाता है, अन्यथा कोई परिवर्तन न होने पर `false`।
 
-## **छवि की ब्राइटनेस और कॉन्ट्रास्ट प्राप्त करना**
-
-Aspose.Slides आपको छवि पर लागू ब्राइटनेस और कॉन्ट्रास्ट प्रभाव प्राप्त करने की सुविधा देता है। यह इफ़ेक्ट [Luminance](https://reference.aspose.com/slides/hi/php-java/aspose.slides/luminance/) क्लास द्वारा दर्शाया जाता है।  
-
-यह PHP कोड पिक्चर फ्रेम से ब्राइटनेस और कॉन्ट्रास्ट सेटिंग्स को प्राप्त करने का तरीका दिखाता है:
+जब मानक लक्ष्य रिजॉल्यूशन पर्याप्त हो, तो पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturescompression/) मान का उपयोग करें:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **पिक्चर फ्रेम फॉर्मेटिंग**
-
-Aspose.Slides पिक्चर फ्रेम पर लागू किए जाने वाले कई फॉर्मेटिंग विकल्प प्रदान करता है। इन विकल्पों का उपयोग करके आप पिक्चर फ्रेम को विशिष्ट मानकों के अनुरूप बना सकते हैं।  
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. स्लाइड की इंडेक्स के माध्यम से उसका रेफ़रेंस प्राप्त करें।  
-3. उस छवि को जोड़कर एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, जिसे प्रस्तुतिकरण ऑब्जेक्ट से जुड़े [ImageCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/imagecollection/) में रखा जाएगा और आकार को भरने के लिए उपयोग किया जाएगा।  
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें।  
-5. स्लाइड से जुड़े [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) ऑब्जेक्ट द्वारा प्रदान किए गए [addPictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addpictureframe/) मेथड के माध्यम से छवि की चौड़ाई और ऊँचाई के आधार पर एक `PictureFrame` बनाएं।  
-6. स्लाइड में पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें।  
-7. पिक्चर फ्रेम की लाइन रंग सेट करें।  
-8. पिक्चर फ्रेम की लाइन चौड़ाई सेट करें।  
-9. पिक्चर फ्रेम को सकारात्मक या नकारात्मक मान देकर घुमाएँ।  
-   * सकारात्मक मान छवि को clockwise घुमाता है।  
-   * नकारात्मक मान छवि को anti‑clockwise घुमाता है।  
-10. पिक्चर फ्रेम (जिसमें चित्र है) को फिर से स्लाइड में जोड़ें।  
-11. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।  
-
-यह PHP कोड पिक्चर फ्रेम फॉर्मेटिंग प्रक्रिया को दर्शाता है:
-
-```php
-  # PPTX को दर्शाने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # Image क्लास को इंस्टैंशिएट करता है
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # चित्र की समान ऊँचाई और चौड़ाई के साथ पिक्चर फ्रेम जोड़ता है
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # PictureFrameEx पर कुछ फॉर्मेटिंग लागू करता है
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # PPTX फ़ाइल को डिस्क में लिखता है
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose ने हाल ही में एक [free Collage Maker](https://products.aspose.app/slides/hi/collage) विकसित किया है। यदि आपको कभी भी [JPG/JPEG](https://products.aspose.app/slides/hi/collage/jpg) या PNG छवियों को मिलाने, या फ़ोटो से ग्रिड बनाने की आवश्यकता हो, तो आप इस सेवा का उपयोग कर सकते हैं।  
-
-{{% /alert %}}
-
-## **एक छवि को लिंक के रूप में जोड़ना**
-
-बड़ी प्रस्तुति फ़ाइलों के आकार को कम करने के लिए आप फ़ाइलों को सीधे एम्बेड करने के बजाय लिंक के माध्यम से छवियाँ (या वीडियो) जोड़ सकते हैं। यह PHP कोड आपको एक प्लेसहोल्डर में छवि और वीडियो जोड़ने का तरीका दिखाता है:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **छवियों को क्रॉप करना**
-
-यह PHP कोड आपको स्लाइड पर मौजूद छवि को क्रॉप करने का तरीका दिखाता है:
-
-```php
-  $pres = new Presentation();
-  # नई इमेज ऑब्जेक्ट बनाता है
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # स्लाइड में पिक्चर फ्रेम जोड़ता है
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # छवि को क्रॉप करता है (प्रतिशत मान)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # परिणाम को सहेजता है
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **पिक्चर के क्रॉप किए गए क्षेत्रों को हटाना**
-
-यदि आप फ्रेम में स्थित छवि के क्रॉप किए गए क्षेत्रों को हटाना चाहते हैं, तो आप [deletePictureCroppedAreas()](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) मेथड का उपयोग कर सकते हैं। यह मेथड क्रॉप की गई छवि या मूल छवि लौटाता है यदि क्रॉपिंग आवश्यक नहीं है।  
-
-यह PHP कोड इस ऑपरेशन को दर्शाता है:
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # पहली स्लाइड से पिक्चर फ्रेम प्राप्त करता है
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # पिक्चर फ्रेम छवि के क्रॉप किए गए क्षेत्रों को हटाता है और क्रॉप की गई छवि लौटाता है
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # परिणाम को सहेजता है
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-[deletePictureCroppedAreas()](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) मेथड क्रॉप की गई छवि को प्रस्तुति इमेज कलेक्शन में जोड़ता है। यदि छवि केवल प्रोसेस किए गए [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) में उपयोग की गई है, तो यह सेटअप प्रस्तुति के आकार को कम कर सकता है। अन्यथा, परिणामस्वरूप प्रस्तुति में छवियों की संख्या बढ़ेगी।  
-
-यह मेथड क्रॉपिंग प्रक्रिया में WMF/EMF मेटाफाइल को रास्टर PNG छवि में बदलता है।  
-
-{{% /alert %}}
-
-## **छवियों को संपीड़ित करना**
-
-आप प्रस्तुति में चित्र को [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) मेथड का उपयोग करके संपीड़ित कर सकते हैं। यह मेथड आकार को शैप के आकार और निर्दिष्ट रिज़ॉल्यूशन के आधार पर घटाता है, साथ ही क्रॉप किए गए क्षेत्रों को हटाने का विकल्प देता है।  
-
-यह PowerPoint के **Picture Format -> Compress Pictures -> Resolution** फीचर के समान कार्य करता है।  
-
-निम्नलिखित PHP उदाहरण लक्ष्य रिज़ॉल्यूशन निर्दिष्ट करके और वैकल्पिक रूप से क्रॉप किए गए क्षेत्रों को हटाकर प्रस्तुति में छवि को संपीड़ित करने का तरीका दर्शाते हैं:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # 150 DPI (वेब रिज़ॉल्यूशन) के लक्ष्य रिज़ॉल्यूशन के साथ छवि को संपीड़ित करें और क्रॉप किए गए क्षेत्रों को हटाएं।
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # संपीड़न के परिणाम की जाँच करें।
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-या सीधे एक कस्टम DPI मान का उपयोग करके:
+यदि विशिष्ट लक्ष्य आवश्यक हो तो एक कस्टम सकारात्मक DPI मान भी पास किया जा सकता है।
+
+संकुचन केवल रास्टर छवियों के लिये अभिप्रेत है। SVG और मेटा‑फ़ाइल सामग्री इस रास्टर संकुचन वर्कफ़्लो द्वारा नहीं घटती। यह भी याद रखें कि कम रिजॉल्यूशन और हटाए गए क्रॉप्ड क्षेत्रों को ऑप्टिमाइज़्ड प्रस्तुति से पुनर्प्राप्त नहीं किया जा सकता। लक्ष्य रिजॉल्यूशन चुनें उस सबसे बड़े आकार के आधार पर जिस पर छवि वास्तव में देखी या निर्यात की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करके।
+
+## **छवि ट्रांसफ़ॉर्म इफ़ेक्ट्स का प्रबंधन करें**
+
+ब्राइटनेस, कॉन्ट्रास्ट, कलर ट्रांसफ़ॉर्मेशन, ब्लर, अल्फा इफ़ेक्ट्स, ऑर्डर्ड चेन, निरीक्षण, हटाना और राउंड‑ट्रिप वैरिफिकेशन को कवर करने वाले पूर्ण वर्कफ़्लो के लिये, देखें [Image Transform Effects](/slides/hi/php-java/image-transform-effects/)।
+
+## **पिक्चर फ्रेम ज्यामिति को लॉक करें**
+
+[PictureFrameLock](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframelock/) सेटिंग्स यह नियंत्रित करती हैं कि पिक्चर फ्रेम के लिये कौन‑सी संपादन कार्य अक्षम हों। उदाहरण के लिये, [setAspectRatioLocked](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) आकार बदलते समय आकार अनुपात को सुरक्षित रखती है।
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
 
-    # छवि को 150 DPI (वेब रिज़ॉल्यूशन) तक संपीड़ित करें, क्रॉप किए गए क्षेत्रों को हटाते हुए।
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
-
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-यह मेथड शैप के आकार और प्रदान किए गए DPI के आधार पर छवि को कम रिज़ॉल्यूशन में बदलता है। फ़ाइल आकार को अनुकूलित करने के लिए क्रॉप किए हुए क्षेत्रों को भी हटाया जा सकता है।  
-यदि छवि एक मेटाफाइल (WMF/EMF) या SVG है, तो संपीड़न लागू नहीं किया जाएगा। JPEG की गुणवत्ता रिज़ॉल्यूशन के अनुसार संरक्षित या थोड़ा कम की जाएगी, जैसे PowerPoint उच्च‑रिज़ॉल्यूशन JPEG को संभालता है।  
-
-{{% /alert %}}
-
-## **आस्पेक्ट रेशियो लॉक करना**
-
-यदि आप चाहते हैं कि छवि युक्त शैप नई छवि आयाम बदलने के बाद भी अपना आस्पेक्ट रेशियो बनाए रखे, तो आप [setAspectRatioLocked](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) मेथड का उपयोग करके *Lock Aspect Ratio* सेटिंग को सेट कर सकते हैं।  
-
-यह PHP कोड दिखाता है कि शैप के आस्पेक्ट रेशियो को कैसे लॉक किया जाए:
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # आकार को बदलते समय आस्पेक्ट रेशियो बरकरार रखने के लिए सेट करें
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+लॉक पिक्चर फ्रेम आकार पर लागू होता है। यह स्रोत छवि को री‑सैंपल या स्थायी रूप से समान अनुपात में बदलने को बाध्य नहीं करता।
 
-यह *Lock Aspect Ratio* सेटिंग केवल शैप के आस्पेक्ट रेशियो को संरक्षित करती है, न कि उसमें सम्मिलित छवि को।  
+## **StretchOffset मानों को समायोजित करें**
 
-{{% /alert %}}
+जब पिक्चर फ़िल मोड स्ट्रेच हो, तो [PictureFillFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/) पर स्ट्रेच‑ऑफ़सेट मान पिक्चर फ्रेम की बाउंडिंग बॉक्स के सापेक्ष फ़िल आयत को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से एक इन्सेट बनाते हैं, जबकि नकारात्मक प्रतिशत एक आउटसेट बनाते हैं।
 
-## **StretchOff प्रॉपर्टी का उपयोग करना**
-
-[PictureFillFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/) क्लास की [setStretchOffsetLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/), [setStretchOffsetTop](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/setstretchoffsettop/), [setStretchOffsetRight](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) और [setStretchOffsetBottom](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) मेथड्स का उपयोग करके आप एक फिल रेक्टैंगल निर्दिष्ट कर सकते हैं।  
-
-जब किसी छवि के लिए स्ट्रेचिंग निर्दिष्ट की जाती है, तो एक स्रोत रेक्टैंगल को निर्दिष्ट फिल रेक्टैंगल में फिट करने के लिए स्केल किया जाता है। फिल रेक्टैंगल के प्रत्येक किनारे को शैप की बाउंडिंग बॉक्स के संबंधित किनारे से प्रतिशत ऑफ़सेट द्वारा 정의 किया जाता है। सकारात्मक प्रतिशत एक इनसेट दर्शाता है जबकि नकारात्मक प्रतिशत एक आउटसेट दर्शाता है।  
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. स्लाइड की इंडेक्स के माध्यम से उसका रेफ़रेंस प्राप्त करें।  
-3. एक रेक्टैंगल `AutoShape` जोड़ें।  
-4. एक छवि बनाएं।  
-5. शैप का फिल टाइप सेट करें।  
-6. शैप का पिक्चर फिल मोड सेट करें।  
-7. शैप को भरने के लिए छवि सेट करें।  
-8. शैप की बाउंडिंग बॉक्स के संबंधित किनारे से छवि ऑफ़सेट निर्दिष्ट करें।  
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।  
-
-यह PHP कोड दिखाता है कि StretchOff प्रॉपर्टी का उपयोग कैसे किया जाता है:
+यह क्रॉपिंग से अलग है। क्रॉप मान स्रोत छवि के किस भाग को दिखाया जाए तय करता है; स्ट्रेच‑ऑफ़सेट दिखाए जाने वाले पिक्चर फ़िल को किन आयत में स्ट्रेच किया जाना है, उसे बदलते हैं।
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंशिएट करता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करता है
-    $slide = $pres->getSlides()->get_Item(0);
-    # ImageEx क्लास को इंस्टैंशिएट करता है
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # Rectangle सेट के साथ एक AutoShape जोड़ता है
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # shape की fill प्रकार सेट करता है
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # shape की picture fill मोड सेट करता है
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # shape को भरने के लिए इमेज सेट करता है
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # shape की बाउंडिंग बॉक्स के संबंधित किनारे से इमेज ऑफसेट निर्दिष्ट करता है
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # PPTX फ़ाइल को डिस्क में लिखता है
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+फ़िल प्लेसमेंट के लिये स्ट्रेच‑ऑफ़सेट का उपयोग करें। जब लक्ष्य स्रोत‑छवि के किनारे छुपाना हो तो क्रॉप प्रॉपर्टी प्रयोग करें।
 
-**PictureFrame के लिए कौन से इमेज फ़ॉर्मेट समर्थित हैं, यह मैं कैसे पता कर सकता हूँ?**
+## **स्टोरेज, फ़ाइल आकार और एक्सपोर्ट विचार**
 
-Aspose.Slides रास्टर इमेज (PNG, JPEG, BMP, GIF आदि) और वेक्टर इमेज (जैसे SVG) दोनों को उस इमेज ऑब्जेक्ट के माध्यम से समर्थन करता है जिसे एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) को असाइन किया गया है। समर्थित फ़ॉर्मेट की सूची सामान्यतः स्लाइड और इमेज रूपांतरण इंजन की क्षमताओं के साथ ओवरलैप करती है।  
+मुख्य ट्रेड‑ऑफ़ तब प्रबंधनीय होते हैं जब छवि स्टोरेज और पिक्चर‑फ़्रेम फ़ॉर्मेटिंग को अलग‑अलग माना जाए:
 
-**दसियों बड़ी छवियों को जोड़ने से PPTX का आकार और प्रदर्शन पर क्या प्रभाव पड़ेगा?**
+- **एम्बेडेड छवियाँ** प्रस्तुति को स्वयं‑समाहित बनाती हैं और साझा करने तथा सर्वर‑साइड रेंडरिंग के लिये सबसे भरोसेमंद होती हैं, लेकिन बड़े रास्टर छवियों से PPTX आकार और मेमोरी प्रयोग बढ़ता है।
+- **लिंक्ड छवियाँ** पैकेज को छोटा रख सकती हैं, लेकिन प्रस्तुति को बाह्य फ़ाइलों के निर्दिष्ट पाथ या स्थान पर उपलब्ध रहने पर निर्भर करती हैं।
+- **क्रॉपिंग** प्रारम्भिक रूप से नॉन‑डिस्ट्रक्टिव होती है। छिपे पिक्सेल तब तक एम्बेडेड रहते हैं जब तक क्रॉप्ड एरिया स्पष्ट रूप से हटाए न जाएँ या संकुचन के दौरान हटाए न जाएँ।
+- **संकुचन** अत्यधिक बड़े रास्टर छवियों के फ़ाइल आकार को काफी कम कर सकता है, लेकिन स्रोत रिजॉल्यूशन का त्याग होता है। इसे स्लाइड पर वास्तविक आकार ज्ञात होने के बाद लागू किया जाना चाहिए।
+- **SVG छवियाँ** वेक्टर संरक्षण महत्वपूर्ण होने पर SVG के रूप में ही रखी जानी चाहिए। जब आपको स्वयं वेक्टर संसाधन चाहिए, तो एम्बेडेड SVG को सीधे एक्सट्रैक्ट करें। रास्टर स्लाइड एक्सपोर्ट हमेशा रेंडर की गई स्लाइड को पिक्सेल में बदलते हैं।
+- **बार‑बार उपयोग होने वाली छवियाँ** संभव हो तो मौजूदा [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) संसाधन को पुनः उपयोग करें, बजाय बार‑बार समान फ़ाइल को प्रस्तुति वर्कफ़्लो में लोड करने के।
 
-बड़ी छवियों को एम्बेड करने से फ़ाइल आकार और मेमोरी उपयोग बढ़ता है; छवियों को लिंक करने से प्रस्तुति का आकार छोटा रहता है लेकिन बाहरी फ़ाइलों को सुलभ रखना आवश्यक है। Aspose.Slides फ़ाइल आकार घटाने के लिए लिंक द्वारा छवियों को जोड़ने की सुविधा प्रदान करता है।  
+बड़ी प्रस्तुतियों के लिये, छवि ऑप्टिमाइज़ेशन आमतौर पर तब सबसे प्रभावी होता है जब चयनात्मक रूप से किया जाए: लोगो और डायग्राम को वेक्टर सामग्री के रूप में रखें, फ़ोटोग्राफ़ को उनके वास्तविक डिस्प्ले आकार के अनुसार संकुचित करें, क्रॉप्ड पिक्सेल केवल तब हटाएँ जब बाद की संपादन आवश्यक न हो, और बाह्य लिंक तभी उपयोग करें जब निर्भरता प्रबंधन डिप्लॉयमेंट डिज़ाइन का हिस्सा हो।
 
-**मैं आकस्मिक मूव या रिसाइज़ से छवि ऑब्जेक्ट को कैसे लॉक कर सकता हूँ?**
+## **FAQs**
 
-एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) के लिए आप [shape locks](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/getpictureframelock/) का उपयोग कर सकते हैं (जैसे मूव या रिसाइज़ को अक्षम करना)। लॉकिंग मैकेनिज़्म विभिन्न शैप प्रकारों के लिए समर्थित है, जिसमें [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) भी शामिल है।  
+**एक पिक्चर फ्रेम और एक छवि संसाधन में क्या अंतर है?**
 
-**PDF/छवियों में निर्यात करते समय क्या SVG वेक्टर फ़िडेलिटी बनी रहती है?**
+एक [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) प्रस्तुति से जुड़ा छवि संसाधन दर्शाता है। एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) स्लाइड पर वह आकार है जो छवि प्रदर्शित करता है तथा फ्रेम‑स्तरीय ज्यामिति और फ़ॉर्मेटिंग जैसे आकार, घुमा‌व, क्रॉप मान, इफ़ेक्ट्स और लॉक संग्रहीत करता है।
 
-Aspose.Slides आपको एक [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) से मूल वेक्टर के रूप में SVG निकालने देता है। जब आप [PDF में निर्यात](/slides/hi/php-java/convert-powerpoint-to-pdf/) या [रास्टर फ़ॉर्मेट](/slides/hi/php-java/convert-powerpoint-to-png/) में निर्यात करते हैं, तो परिणाम निर्यात सेटिंग्स के आधार पर रास्टराइज़ हो सकता है; मूल SVG को वेक्टर के रूप में संग्रहित किया गया रहने की पुष्टि निकाली गई व्यवहार द्वारा होती है।  
+**मुझे छवियों को एम्बेड करना चाहिए या लिंक करना?**
+
+जब प्रस्तुति को पोर्टेबल, आर्काइव्ड या बाह्य संसाधनों तक पहुँच के बिना रेंडर करना हो, तब छवियों को एम्बेड करें। केवल तब लिंक करें जब छवि फ़ाइलों को PPTX के बाहर रखना इरादा हो और बाह्य स्थानों को विश्वसनीय रूप से बनाए रखा जा सके।
+
+**क्या क्रॉपिंग PPTX फ़ाइल आकार घटाती है?**
+
+केवल क्रॉप सेटिंग स्वयं फ़ाइल आकार नहीं घटाती। सामान्य क्रॉप सेटिंग स्रोत छवि के भाग को छिपाती है परन्तु अंतर्निहित पिक्सेल रखती है। जब उन पिक्सेल को स्थायी रूप से हटाया जा सके, तब [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) या क्रॉप्ड‑एरिया हटाने के साथ छवि संकुचन का उपयोग करें।
+
+**क्या मैं संकुचन के बाद छवि गुणवत्ता पुनर्स्थापित कर सकता हूँ?**
+
+नहीं। संकुचन संग्रहीत रास्टर रिजॉल्यूशन को कम कर देती है, और क्रॉप्ड क्षेत्रों को हटाने से छवि डेटा समाप्त हो जाता है। यदि बाद में हाई‑रिजॉल्यूशन संपादन की संभावना हो, तो मूल स्रोत छवि को प्रस्तुति के बाहर रखें।
+
+**SVG छवियों को कैसे संभालना चाहिए?**
+
+जब वेक्टर फ़िडेलिटी महत्वपूर्ण हो, तो SVG सामग्री को SVG के रूप में रखें। एम्बेडेड [SvgImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgimage/) को सीधे एक्सट्रैक्ट किया जा सकता है। स्लाइड को PNG या JPEG जैसी रास्टर फ़ॉर्मेट में निर्यात करने से SVG का रेंडरिंग पिक्सेल में बदल जाता है।
+
+**मौजूदा स्लाइड्स पढ़ते समय अन‑सेफ़ कास्ट से कैसे बचें?**
+
+आकार का प्रकार उपयोग करने से पहले जाँचें। एक `java_instanceof` जांच [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/) के विरुद्ध अन‑सेफ़ कास्ट को रोकती है और कोड को उन स्लाइड्स को हैंडल करने देती है जिनमें पिक्चर फ्रेम नहीं होते।

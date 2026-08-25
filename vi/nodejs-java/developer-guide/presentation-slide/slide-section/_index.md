@@ -1,5 +1,5 @@
 ---
-title: Quản lý các phần slide trong bản trình bày bằng JavaScript
+title: Quản lý các phần slide trong bản trình chiếu bằng JavaScript
 linktitle: Phần Slide
 type: docs
 weight: 90
@@ -8,84 +8,201 @@ keywords:
 - tạo phần
 - thêm phần
 - chỉnh sửa phần
-- thay đổi phần
+- đổi tên phần
 - tên phần
+- lấy slide của phần
+- xử lý slide của phần
 - PowerPoint
-- OpenDocument
 - bản trình bày
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tối ưu hoá các phần slide trong PowerPoint và OpenDocument với Aspose.Slides cho Node.js — tách, đổi tên và sắp xếp lại để cải thiện quy trình làm việc với PPTX và ODP."
+description: "Quản lý các phần slide với Aspose.Slides cho Node.js qua Java: tạo, đổi tên, sắp xếp lại, lấy và xử lý slide của phần trong các bản trình bày PPTX."
 ---
 ## **Giới thiệu**
 
-Với Aspose.Slides cho Node.js thông qua Java, bạn có thể sắp xếp một bản trình bày PowerPoint thành các phần. Bạn có thể tạo các phần chứa các slide cụ thể.
+Các phần tổ chức các slide liên tiếp thành các nhóm có tên mà không thay đổi nội dung slide. Với Aspose.Slides for Node.js via Java, bạn có thể tạo, sắp xếp lại, đổi tên, kiểm tra và xóa các phần thông qua phương thức [Presentation.getSections](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getSections).
 
-Bạn có thể muốn tạo các phần và sử dụng chúng để sắp xếp hoặc chia các slide trong bản trình bày thành các phần logic trong các tình huống sau:
+Các phần đặc biệt hữu ích khi:
 
-- Khi bạn đang làm việc trên một bản trình bày lớn với người khác hoặc một đội—và cần giao một số slide cho đồng nghiệp hoặc một số thành viên trong đội. 
-- Khi bạn đang xử lý một bản trình bày có nhiều slide—và gặp khó khăn trong việc quản lý hoặc chỉnh sửa toàn bộ nội dung cùng một lúc.
+- một bản trình bày lớn cần được chia thành các chủ đề hoặc chương logic;
+- các nhóm slide khác nhau được giao cho các cộng tác viên khác nhau;
+- các slide cần được xử lý, di chuyển hoặc gộp lại thành các nhóm.
 
-Lý tưởng nhất, bạn nên tạo một phần chứa các slide tương tự—các slide có điểm chung hoặc chúng có thể tồn tại trong một nhóm dựa trên một quy tắc—và đặt cho phần một tên mô tả các slide bên trong.
+Chọn tên phần ngắn gọn mô tả mục đích của các slide được nhóm lại. Vì các phần là một phần của cấu trúc bản trình bày, hãy sử dụng API phần để xác định thành viên thay vì suy ra từ vị trí slide.
 
-## **Tạo các Phần trong Bản Trình Bày**
+## **Tạo và Quản lý Các Phần**
 
-Để thêm một phần sẽ chứa các slide trong bản trình bày, Aspose.Slides cho Node.js thông qua Java cung cấp phương thức [addSection()](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) cho phép bạn chỉ định tên của phần bạn muốn tạo và slide mà phần bắt đầu.
+Sử dụng [SectionCollection.addSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/#addSection) để tạo một phần bằng cách chỉ định tên và slide bắt đầu. Aspose.Slides xác định slide nào thuộc về phần dựa trên cấu trúc phần hiện tại của bản trình bày.
 
-Mã mẫu này cho bạn cách tạo một phần trong bản trình bày bằng JavaScript:
+[SectionCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/) tương tự còn cho phép bạn:
+
+- di chuyển một phần cùng với các slide của nó bằng cách sử dụng [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides);
+- xóa chỉ định nghĩa phần bằng [SectionCollection.removeSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/#removeSection), vẫn giữ lại các slide của nó;
+- xóa một phần và các slide của nó bằng [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides);
+- thêm một phần rỗng vào cuối bằng [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection).
+
+Ví dụ sau tạo hai phần, di chuyển một trong số chúng, xóa nó cùng với các slide và thêm một phần rỗng:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 sẽ kết thúc tại newSlide2 và sau đó section2 sẽ bắt đầu
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Thay Đổi Tên Các Phần**
+Sau các thao tác này, bản trình bày chứa phần `Introduction` với các slide của nó và một phần `Appendix` rỗng. Phần `Results` và các slide của nó đã được xóa.
 
-Sau khi bạn tạo một phần trong bản trình bày PowerPoint, bạn có thể quyết định thay đổi tên của nó.
+## **Đổi tên các Phần**
 
-Mã mẫu này cho bạn cách thay đổi tên một phần trong bản trình bày bằng JavaScript sử dụng Aspose.Slides:
+Để đổi tên một phần, gọi phương thức [Section.setName](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#setName) của nó. Các slide và vị trí của phần không thay đổi.
+
+Ví dụ sau tạo một phần và thay đổi tên của nó:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Lấy các Slide từ Các Phần**
+
+Phương thức [Presentation.getSections](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getSections) trả về một [SectionCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectioncollection/) mà bạn có thể truy cập theo chỉ mục. Đối với mỗi [Section](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/), gọi [Section.getSlidesListOfSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getSlidesListOfSection) để lấy các slide hiện đang thuộc về nó. Phương thức này trả về một [SectionSlideCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectionslidecollection/), cung cấp số lượng và truy cập theo chỉ mục.
+
+Ví dụ sau tạo hai phần đã được điền nội dung và một phần rỗng, sau đó in ra mỗi phần [name](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getName), [identifier](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getSectionId), [starting slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getStartedFromSlide), số slide và số thứ tự slide. Nó sử dụng [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) để đọc cả slide đầu tiên và mọi slide trong bộ sưu tập. Đối với phần rỗng, bộ sưu tập trả về có kích thước bằng không, truy cập theo chỉ mục bị bỏ qua và vòng lặp không thực hiện thao tác nào.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Thành viên của phần được xác định bởi cấu trúc phần của bản trình bày. Đừng tính toán phạm vi của một phần một cách thủ công dựa trên [Section.getStartedFromSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getStartedFromSlide), chỉ mục slide và slide bắt đầu của phần tiếp theo.
+
+Các chỉnh sửa cấu trúc có thể thay đổi cả các slide được trả về cho một phần và số thứ tự slide của chúng. Điều này bao gồm việc sắp xếp lại slide, sao chép một slide vào một phần, di chuyển một phần cùng với các slide của nó, xóa slide và xóa phần. Ví dụ tiếp theo gọi [Section.getSlidesListOfSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getSlidesListOfSection) sau mỗi thay đổi như vậy thay vì giữ giả định về giới hạn cũ của phần.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Gọi lại [Section.getSlidesListOfSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getSlidesListOfSection) mỗi khi slide hoặc phần được sắp xếp lại, sao chép, di chuyển hoặc xóa. Điều này giúp việc xử lý tiếp theo đồng bộ với cấu trúc bản trình bày hiện tại.
+
+Định dạng PPT (PowerPoint 97–2003) không giữ lại siêu dữ liệu phần. Hãy sử dụng quy trình này với định dạng hỗ trợ phần, chẳng hạn như PPTX; việc chuyển đổi sang PPT sẽ xóa cấu trúc phần cần thiết cho các lần lặp sau.
+
+## **Câu hỏi thường gặp**
 
 **Các phần có được giữ lại khi lưu dưới định dạng PPT (PowerPoint 97–2003) không?**
 
-Không. Định dạng PPT không hỗ trợ siêu dữ liệu phần, vì vậy việc nhóm phần sẽ bị mất khi lưu dưới dạng .ppt.
+Không. Định dạng PPT không hỗ trợ siêu dữ liệu phần, do đó việc nhóm phần sẽ bị mất khi lưu dưới dạng .ppt.
 
 **Có thể ẩn toàn bộ một phần không?**
 
-Không. Chỉ các slide riêng lẻ có thể được ẩn. Một phần như một thực thể không có trạng thái "ẩn".
+Không. Một phần không có trạng thái hiển thị. Để ẩn nội dung của nó, hãy gọi [Slide.setHidden](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#setHidden) cho mỗi slide trong phần.
 
-**Tôi có thể nhanh chóng tìm một phần bằng một slide và ngược lại, slide đầu tiên của một phần không?**
+**Làm thế nào để tôi tìm phần chứa một slide?**
 
-Có. Một phần được xác định duy nhất bằng slide bắt đầu; với một slide bạn có thể xác định nó thuộc phần nào, và với một phần bạn có thể truy cập slide đầu tiên của nó.
+Truy cập từng phần trong bộ sưu tập trả về bởi [Presentation.getSections](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getSections), gọi [Section.getSlidesListOfSection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getSlidesListOfSection) cho mỗi phần, và so sánh các slide trả về với slide mục tiêu. Đối với phần không rỗng, [Section.getStartedFromSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/section/#getStartedFromSlide) trả về slide đầu tiên; đối với phần rỗng, nó trả về `null`.

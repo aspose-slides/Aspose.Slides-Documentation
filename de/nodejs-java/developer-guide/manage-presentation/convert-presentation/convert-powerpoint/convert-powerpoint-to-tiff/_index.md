@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Präsentationen in TIFF konvertieren mit JavaScript
+title: PowerPoint-Präsentationen in TIFF mit JavaScript konvertieren
 titlelink: PowerPoint zu TIFF
 type: docs
 weight: 90
@@ -8,33 +8,36 @@ keywords:
 - PowerPoint konvertieren
 - OpenDocument konvertieren
 - Präsentation konvertieren
-- Folie konvertieren
+- Folien konvertieren
+- PPT konvertieren
+- PPTX konvertieren
 - PowerPoint zu TIFF
-- OpenDocument zu TIFF
 - Präsentation zu TIFF
 - Folie zu TIFF
 - PPT zu TIFF
 - PPTX zu TIFF
-- ODP zu TIFF
+- PPT als TIFF speichern
+- PPTX als TIFF speichern
+- PPT nach TIFF exportieren
+- PPTX nach TIFF exportieren
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- (PPT, PPTX) und OpenDocument- (ODP) Präsentationen mit Aspose.Slides für Node.js über Java einfach in hochwertige TIFF-Bilder konvertieren können. Schritt-für-Schritt-Anleitung mit Code-Beispielen."
+description: "Erfahren Sie, wie Sie PowerPoint‑Präsentationen (PPT, PPTX) ganz einfach in hochwertige TIFF‑Bilder mit Aspose.Slides für Node.js konvertieren, anhand von JavaScript‑Beispielcode."
 ---
+## **Einführung**
 
-## **Übersicht**
-
-TIFF (**Tagged Image File Format**) ist ein weit verbreitetes, verlustfreies Rasterbildformat, das für seine außergewöhnliche Qualität und die detailgetreue Bewahrung von Grafiken bekannt ist. Designer, Fotografen und Desktop-Publisher wählen häufig TIFF, um Ebenen, Farbtreue und die ursprünglichen Einstellungen ihrer Bilder beizubehalten.
-
-Mit Aspose.Slides können Sie Ihre PowerPoint‑Folien (PPT, PPTX) und OpenDocument‑Folien (ODP) mühelos direkt in hochwertige TIFF‑Bilder konvertieren, wodurch Ihre Präsentationen maximale visuelle Treue bewahren.
+TIFF (**Tagged Image File Format**) ist ein weit verbreitetes, verlustfreies Rasterbildformat, das für seine außergewöhnliche Qualität und die detailgenaue Erhaltung von Grafiken bekannt ist. Designer, Fotografen und Desktop‑Publisher wählen TIFF häufig, um Ebenen, Farbgenauigkeit und Originaleinstellungen in ihren Bildern beizubehalten.
 
 ## **Präsentation in TIFF konvertieren**
 
-Durch die Verwendung der [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-)‑Methode der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)-Klasse können Sie schnell eine gesamte PowerPoint‑Präsentation in TIFF konvertieren. Die resultierenden TIFF‑Bilder entsprechen der Standard‑Foliengröße.
+Mit der [save](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-)‑Methode der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)-Klasse können Sie schnell eine gesamte PowerPoint‑Präsentation in TIFF konvertieren. Die resultierenden TIFF‑Bilder entsprechen der Standard‑Foliengröße.
 
-Dieser JavaScript‑Code zeigt, wie man eine PowerPoint‑Präsentation in TIFF konvertiert:
 ```js
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) repräsentiert.
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     // Speichern Sie die Präsentation als TIFF.
@@ -44,17 +47,24 @@ try {
 }
 ```
 
+## **Präsentation in Schwarzweiß‑TIFF konvertieren**
 
-## **Präsentation in Schwarz‑weiß‑TIFF konvertieren**
+Die Methode [setBwConversionMode](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) in der [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/)-Klasse ermöglicht es Ihnen, den Algorithmus anzugeben, der beim Konvertieren einer farbigen Folie oder eines Bildes in ein Schwarzweiß‑TIFF verwendet wird. Beachten Sie, dass diese Einstellung nur gilt, wenn die [setCompressionType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-)‑Methode auf `CCITT4` oder `CCITT3` gesetzt ist.
 
-Die Methode [setBwConversionMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) in der Klasse [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) ermöglicht es Ihnen, den Algorithmus festzulegen, der beim Konvertieren einer farbigen Folie oder eines Bildes in ein Schwarz‑weiß‑TIFF verwendet wird. Beachten Sie, dass diese Einstellung nur gilt, wenn die Methode [setCompressionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) auf `CCITT4` oder `CCITT3` gesetzt ist.
+{{% alert color="info" title="Hinweis" %}}
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) ist eine Export‑Ebene‑Einstellung, die einen Pixel‑Konvertierungsalgorithmus für das gesamte TIFF‑Bild auswählt. Um festzulegen, wie eine einzelne Form angezeigt wird, wenn der Schwarzweiß‑Anzeigemodus aktiv ist, verwenden Sie [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). Siehe [Control Black-and-White Rendering for Shapes](/slides/de/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) für Beispiele.
+{{% /alert %}}
 
 Angenommen, wir haben eine Datei "sample.pptx" mit der folgenden Folie:
 
 ![Eine Präsentationsfolie](slide_black_and_white.png)
 
-Dieser JavaScript‑Code zeigt, wie man die farbige Folie in ein Schwarz‑weiß‑TIFF konvertiert:
+Dieser JavaScript‑Code zeigt, wie Sie die farbige Folie in ein Schwarzweiß‑TIFF konvertieren:
+
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let tiffOptions = new aspose.slides.TiffOptions();
 tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
@@ -67,18 +77,20 @@ try {
 }
 ```
 
-
 Das Ergebnis:
 
-![Schwarz‑weiß‑TIFF](TIFF_black_and_white.png)
+![Schwarzweiß‑TIFF](TIFF_black_and_white.png)
 
 ## **Präsentation in TIFF mit benutzerdefinierter Größe konvertieren**
 
-Wenn Sie ein TIFF‑Bild mit bestimmten Abmessungen benötigen, können Sie Ihre gewünschten Werte mit den in [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) verfügbaren Methoden festlegen. Zum Beispiel ermöglicht die Methode [setImageSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setImageSize), die Größe des resultierenden Bildes zu definieren.
+Wenn Sie ein TIFF‑Bild mit bestimmten Abmessungen benötigen, können Sie Ihre gewünschten Werte über die in [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/) verfügbaren Methoden festlegen. Beispielsweise ermöglicht die [setImageSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/#setImageSize)-Methode, die Größe des resultierenden Bildes zu definieren.
 
-Dieser JavaScript‑Code zeigt, wie man eine PowerPoint‑Präsentation in TIFF‑Bilder mit benutzerdefinierter Größe konvertiert:
 ```js
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) repräsentiert.
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -87,7 +99,7 @@ try {
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
     /*
     Kompressionstypen:
-        Default - Gibt das Standard-Kompressionsschema (LZW) an.
+        Default - Gibt das Standardschema für die Kompression an (LZW).
         None - Gibt an, dass keine Kompression verwendet wird.
         CCITT3
         CCITT4
@@ -95,34 +107,35 @@ try {
         RLE
     */
 
-    // Die Farbtiefe hängt vom Kompressionstyp ab und kann nicht manuell festgelegt werden.
+    // Die Farbtiefe wird vom Pixelformat gesteuert (siehe das Beispiel unten); CCITT3 und CCITT4 erzeugen immer 1 Bit pro Pixel.
 
-    // Legen Sie die Bild-DPI fest.
+    // Bild‑DPI festlegen.
     tiffOptions.setDpiX(200);
     tiffOptions.setDpiY(200);
 
-    // Legen Sie die Bildgröße fest.
+    // Bildgröße festlegen.
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 1728, 1078));
 
     let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Speichern Sie die Präsentation als TIFF mit der angegebenen Größe.
+    // Präsentation mit der angegebenen Größe als TIFF speichern.
     presentation.save("tiff-ImageSize.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Präsentation in TIFF mit benutzerdefiniertem Pixel‑Format konvertieren**
 
-## **Präsentation in TIFF mit benutzerdefiniertem Bild‑Pixel‑Format konvertieren**
+Mit der [setPixelFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat)-Methode der [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/)-Klasse können Sie das gewünschte Pixel‑Format für das resultierende TIFF‑Bild festlegen.
 
-Durch die Verwendung der Methode [setPixelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) der Klasse [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) können Sie das gewünschte Pixel‑Format für das resultierende TIFF‑Bild festlegen.
-
-Dieser JavaScript‑Code zeigt, wie man eine PowerPoint‑Präsentation in ein TIFF‑Bild mit benutzerdefiniertem Pixel‑Format konvertiert:
 ```js
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) repräsentiert.
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -137,18 +150,15 @@ try {
         Format32bppArgb   - 32 Bit pro Pixel, ARGB.
     */
 
-    /// Speichern Sie die Präsentation als TIFF mit der angegebenen Bildgröße.
+    /// Präsentation mit der angegebenen Bildgröße als TIFF speichern.
     presentation.save("Tiff-PixelFormat.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-
-{{% alert title="Tip" color="primary" %}}
-
-Schauen Sie sich Aspose's [KOSTENLOSEN PowerPoint‑zu‑Poster‑Konverter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online) an.
-
+{{% alert title="Tipp" color="info" %}}
+Schauen Sie sich Asposes [KOSTENLOSEN PowerPoint‑zu‑Poster‑Konverter](https://products.aspose.app/slides/de/conversion/convert-ppt-to-poster-online) an.
 {{% /alert %}}
 
 ## **FAQ**
@@ -157,9 +167,9 @@ Schauen Sie sich Aspose's [KOSTENLOSEN PowerPoint‑zu‑Poster‑Konverter](htt
 
 Ja. Aspose.Slides ermöglicht es Ihnen, einzelne Folien aus PowerPoint‑ und OpenDocument‑Präsentationen separat in TIFF‑Bilder zu konvertieren.
 
-**Gibt es ein Limit für die Anzahl der Folien beim Konvertieren einer Präsentation in TIFF?**
+**Gibt es eine Begrenzung für die Anzahl der Folien beim Konvertieren einer Präsentation in TIFF?**
 
-Nein, Aspose.Slides legt keine Beschränkungen für die Anzahl der Folien fest. Sie können Präsentationen beliebiger Größe in das TIFF‑Format konvertieren.
+Nein, Aspose.Slides legt keine Beschränkungen für die Anzahl der Folien fest. Sie können Präsentationen jeder Größe in das TIFF‑Format konvertieren.
 
 **Werden PowerPoint‑Animationen und Übergangseffekte beim Konvertieren von Folien in TIFF beibehalten?**
 

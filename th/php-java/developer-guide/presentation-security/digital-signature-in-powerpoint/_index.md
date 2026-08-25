@@ -1,5 +1,5 @@
 ---
-title: เพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอใน PHP
+title: เพิ่มลายเซ็นดิจิทัลในงานนำเสนอด้วย PHP
 linktitle: ลายเซ็นดิจิทัล
 type: docs
 weight: 10
@@ -9,86 +9,178 @@ keywords:
 - ใบรับรองดิจิทัล
 - หน่วยงานออกใบรับรอง
 - ใบรับรอง PFX
+- PKCS#12
+- ตรวจสอบลายเซ็น
 - PowerPoint
-- OpenDocument
-- การนำเสนอ
+- PPTX
+- ความปลอดภัยของงานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีการลงลายเซ็นดิจิทัลบนไฟล์ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ปกป้องสไลด์ของคุณภายในไม่กี่วินาทีด้วยตัวอย่างโค้ดที่ชัดเจน"
+description: "เรียนรู้วิธีการลงลายเซ็นในงานนำเสนอ PPTX ที่มีอยู่ด้วยใบรับรอง PFX และใช้ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อตรวจสอบหรือลบลายเซ็นดิจิทัล."
 ---
-## **คำนำ**
+## **ภาพรวม**
 
-**ใบรับรองดิจิทัล** ถูกใช้เพื่อสร้างการนำเสนอ PowerPoint ที่ป้องกันด้วยรหัสผ่าน โดยระบุว่าถูกสร้างโดยองค์กรหรือบุคคลเฉพาะ ใบรับรองดิจิทัลสามารถรับได้โดยติดต่อองค์กรที่ได้รับอำนาจ – หน่วยงานออกใบรับรอง หลังจากติดตั้งใบรับรองดิจิทัลลงในระบบแล้ว สามารถใช้เพื่อเพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอได้ผ่าน File -> Info -> Protect Presentation:
+ลายเซ็นดิจิทัลช่วยให้ผู้รับสามารถกำหนดได้ว่าใครเป็นผู้ลงลายเซ็นในงานนำเสนอและเนื้อหาในงานนำเสนอที่ลงลายเซ็นนั้นมีการเปลี่ยนแปลงหรือไม่ มีแนวคิดด้านความปลอดภัยที่เกี่ยวข้องสามประการที่สำคัญดังนี้:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **ใบรับรองดิจิทัล** คือข้อมูลประจำตัวอิเล็กทรอนิกส์ที่เชื่อมโยงอัตลักษณ์กับคีย์สาธารณะ หน่วยงานออกใบรับรอง (CA) ที่เชื่อถือได้สามารถออกใบรับรอง หรือองค์กรสามารถใช้ใบรับรองที่สร้างด้วยตนเองสำหรับกระบวนการภายใน
+- **ลายเซ็นดิจิทัล** ถูกสร้างจากเนื้อหาของงานนำเสนอและคีย์ส่วนตัวของผู้ถือใบรับรอง หลังจากนั้นคีย์สาธารณะของใบรับรองสามารถใช้ในการตรวจสอบลายเซ็นได้ ลายเซ็นให้หลักฐานของที่มและความสมบูรณ์; ไม่ได้เข้ารหัสงานนำเสนอ
+- **การป้องกันด้วยรหัสผ่าน** ควบคุมว่าผู้ใช้สามารถเปิดหรือแก้ไขงานนำเสนอได้หรือไม่ ซึ่งแยกต่างหากจากการลงลายเซ็นดิจิทัลและอธิบายเพิ่มเติมใน [การนำเสนอที่ป้องกันด้วยรหัสผ่าน](/slides/th/php-java/password-protected-presentation/)
 
-การนำเสนออาจมีลายเซ็นดิจิทัลมากกว่าหนึ่งรายการ หลังจากลายเซ็นดิจิทัลถูกเพิ่มลงในการนำเสนอ จะมีข้อความพิเศษปรากฏใน PowerPoint:
+PowerPoint มีคำสั่ง **เพิ่มลายเซ็นดิจิทัล** อยู่ใน **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![เมนู Protect Presentation ของ PowerPoint ที่ไฮไลต์ Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-เพื่อทำการลงลายเซ็นบนการนำเสนอหรือเพื่อตรวจสอบความแท้ของลายเซ็นการนำเสนอ **Aspose.Slides API** มีคลาส [**DigitalSignature**](https://reference.aspose.com/slides/th/php-java/aspose.slides/DigitalSignature) , คลาส [**DigitalSignatureCollection**](https://reference.aspose.com/slides/th/php-java/aspose.slides/DigitalSignatureCollection) และเมธอด [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation/#getDigitalSignatures) ปัจจุบันลายเซ็นดิจิทัลรองรับเฉพาะรูปแบบ PPTX เท่านั้น
+เมื่อเปิดงานนำเสนอที่มีลายเซ็น PowerPoint สามารถแสดงการแจ้งเตือนสถานะลายเซ็นได้
 
-## **เพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX**
+![การแจ้งเตือนของ PowerPoint ที่บ่งชี้ว่ามีลายเซ็นที่ถูกต้องในงานนำเสนอ](digital-signature-status-in-powerpoint.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีเพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX:
+Aspose.Slides เปิดเผยลายเซ็นผ่าน [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDigitalSignatures) ซึ่งคืนค่า [DigitalSignatureCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignaturecollection/) ที่ประกอบด้วยอ็อบเจกต์ [DigitalSignature](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignature/) งานนำเสนอสามารถมีลายเซ็นหลายชุดได้
 
-1. เปิดไฟล์ PFX และส่งรหัสผ่าน PFX ไปยังอ็อบเจ็กต์ [**DigitalSignature**](https://reference.aspose.com/slides/th/php-java/aspose.slides/DigitalSignature) .
-1. เพิ่มลายเซ็นที่สร้างขึ้นไปยังอ็อบเจ็กต์การนำเสนอ
+## **ทำความเข้าใจใบรับรอง PFX และรหัสผ่าน**
 
-```php
-  # เปิดไฟล์การนำเสนอ
-  $pres = new Presentation();
-  try {
-    # สร้างอ็อบเจ็กต์ DigitalSignature ด้วยไฟล์ PFX และรหัสผ่าน PFX
-    $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    # คอมเมนต์ลายเซ็นดิจิทัลใหม่
-    $signature->setComments("Aspose.Slides digital signing test.");
-    # เพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอ
-    $pres->getDigitalSignatures()->add($signature);
-    # บันทึกการนำเสนอ
-    $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+ไฟล์ PFX หรือที่รู้จักในชื่อไฟล์ PKCS#12 มีสกุล `.pfx` หรือ `.p12` สามารถบรรจุใบรับรอง X.509, คีย์ส่วนตัวของใบรับรองและโซ่ใบรับรอง คีย์ส่วนตัวคือสิ่งที่ทำให้ผู้ถือสามารถสร้างลายเซ็นได้ ใบรับรองที่ไม่มีคีย์ส่วนตัวที่เข้าถึงได้ไม่สามารถใช้ในการลงลายเซ็นงานนำเสนอได้
 
-ตอนนี้สามารถตรวจสอบได้ว่าการนำเสนอได้รับการลงลายเซ็นดิจิทัลและไม่ถูกแก้ไขหรือไม่:
+รหัสผ่านของ PFX ปกป้องแพคเกจใบรับรองและคีย์ส่วนตัว **ไม่ใช่** รหัสผ่านสำหรับการเปิดหรือแก้ไขงานนำเสนอ อย่าเช็คอินไฟล์ PFX หรือรหัสผ่านของมันลงในระบบควบคุมเวอร์ชัน ในสภาพแวดล้อมการผลิต ให้จำกัดการเข้าถึงไฟล์ใบรับรองและดึงรหัสผ่านจากที่เก็บความลับหรือแหล่งกำหนดค่าที่ได้รับการปกป้อง ตัวอย่างด้านล่างใช้ตัวแปรสภาพแวดล้อมเพื่อหลีกเลี่ยงการฝังรหัสผ่านในโค้ด
+
+## **เพิ่มลายเซ็นดิจิทัลลงในการนำเสนอ**
+
+เพื่อทำขั้นตอนการลงลายเซ็นในงานนำเสนอจริง ให้โหลดไฟล์ PPTX ที่มีอยู่, สร้าง [DigitalSignature](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignature/) จากใบรับรอง PFX และรหัสผ่านของมัน, เพิ่มลายเซ็นลงในคอลเลกชันของงานนำเสนอ และบันทึกเป็นไฟล์ PPTX
 
 ```php
-  # เปิดการนำเสนอ
-  $pres = new Presentation("SomePresentationSigned.pptx");
-  try {
-    if (java_values($pres->getDigitalSignatures()->size()) > 0) {
-      $allSignaturesAreValid = true;
-      echo("Signatures used to sign the presentation: ");
-      # ตรวจสอบว่าลายเซ็นดิจิทัลทั้งหมดเป็นที่ถูกต้องหรือไม่
-      foreach($pres->getDigitalSignatures() as $signature) {
-        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
-        $allSignaturesAreValid &= $signature->isValid();
-      }
-      if ($allSignaturesAreValid) {
-        echo("Presentation is genuine, all signatures are valid.");
-      } else {
-        echo("Presentation has been modified since signing.");
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$certificatePassword = getenv("PFX_PASSWORD");
+if ($certificatePassword === false || $certificatePassword === "") {
+    throw new RuntimeException("Set the PFX_PASSWORD environment variable.");
+}
+
+$presentation = new Presentation("InputPresentation.pptx");
+try {
+    $signature = new DigitalSignature("signing-certificate.pfx", $certificatePassword);
+    $signature->setComments("Approved for release.");
+
+    $presentation->getDigitalSignatures()->add($signature);
+    $presentation->save("InputPresentation-signed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+การบันทึกผลลัพธ์เป็นชื่อไฟล์ใหม่ช่วยรักษาไฟล์ต้นฉบับที่ไม่มีลายเซ็นไว้ ค่าเดียวที่ตั้งโดย [DigitalSignature::setComments](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignature/setcomments/) อธิบายวัตถุประสงค์ของลายเซ็น; ไม่ได้เป็นการควบคุมด้านความปลอดภัย
+
+## **ตรวจสอบความถูกต้องของลายเซ็นดิจิทัล**
+
+เมื่อคุณโหลดไฟล์ PPTX ที่มีลายเซ็น ตรวจสอบรายการที่คืนจาก [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDigitalSignatures) ทุกรายการ วิธี [DigitalSignature::isValid](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignature/isvalid/) จะบ่งชี้ว่าลายเซ็นที่ฝังอยู่เป็นลายเซ็นที่ถูกต้องสำหรับเนื้อหาของงานนำเสนอในปัจจุบันหรือไม่
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $signatures = $presentation->getDigitalSignatures();
+    $signatureCount = java_values($signatures->size());
+
+    if ($signatureCount === 0) {
+        echo "The presentation does not contain digital signatures." . PHP_EOL;
+    } else {
+        $allSignaturesAreValid = true;
+        $signTimeFormat = new Java("java.text.SimpleDateFormat", "yyyy-MM-dd HH:mm:ss");
+        $certificateFactoryClass = new JavaClass("java.security.cert.CertificateFactory");
+        $certificateFactory = $certificateFactoryClass->getInstance("X.509");
+
+        for ($index = 0; $index < $signatureCount; $index++) {
+            $signature = $signatures->get_Item($index);
+            $signatureIsValid = java_values($signature->isValid());
+            $signatureStatus = $signatureIsValid ? "VALID" : "INVALID";
+            $formattedSignTime = java_values($signTimeFormat->format($signature->getSignTime()));
+
+            $certificateData = $signature->getCertificate();
+            $certificateStream = new Java("java.io.ByteArrayInputStream", $certificateData);
+            try {
+                $certificate = $certificateFactory->generateCertificate($certificateStream);
+                $signerName = java_values($certificate->getSubjectX500Principal()->getName());
+            } finally {
+                $certificateStream->close();
+            }
+
+            echo $signerName . ", " . $formattedSignTime . " -- " . $signatureStatus . PHP_EOL;
+
+            $allSignaturesAreValid = $allSignaturesAreValid && $signatureIsValid;
+        }
+
+        if ($allSignaturesAreValid) {
+            echo "All embedded signatures are valid for the current presentation." . PHP_EOL;
+        } else {
+            echo "At least one embedded signature is invalid." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+ผลลัพธ์ที่ไม่ถูกต้องมักหมายถึงเนื้อหาในงานนำเสนอหรือข้อมูลลายเซ็นถูกเปลี่ยนแปลงหลังจากลงลายเซ็น, หรือไฟล์นั้นเสียหาย การลบลายเซ็นทุกอันทำให้ได้งานนำเสนอที่ไม่มีลายเซ็น ดังนั้นการตรวจสอบความถูกต้องของรายการเพียงอย่างเดียวไม่พอ: กระบวนการที่ต้องคำนึงถึงความปลอดภัยควรตรวจสอบให้แน่ใจว่าจำนวนลายเซ็นที่คาดไว้และอัตลักษณ์ของผู้ลงลายเซ็นที่คาดหวังมีอยู่จริง
+
+ผลลัพธ์ความถูกต้องนี้ไม่ควรถือเป็นการตัดสินใจเรื่องความเชื่อมั่นของใบรับรองอย่างสมบูรณ์ ตามนโยบายความปลอดภัยของคุณ แอปพลิเคชันอาจต้องสร้างและตรวจสอบโซ่ใบรับรอง X.509, ตรวจสอบวันหมดอายุและสถานะการเพิกถอนของใบรับรอง, ยืนยันหัวข้อหรือThumbprint ที่คาดหวัง, ตรวจสอบการใช้คีย์, และประเมิน timestamp ที่เชื่อถือได้ ค่า [DigitalSignature::getSignTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignature/getsigntime/) เพียงอย่างเดียวไม่ได้เป็นหลักฐานจากผู้ให้บริการ timestamp ที่เชื่อถือได้
+
+## **ลบลายเซ็นดิจิทัล**
+
+การลบลายเซ็นจะเปลี่ยนสถานะความปลอดภัยของงานนำเสนอ ตัวอย่างต่อไปนี้โหลดไฟล์ PPTX ที่มีลายเซ็น, ลบลายเซ็นทั้งหมดด้วย [DigitalSignatureCollection::clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignaturecollection/clear/), แล้วบันทึกสำเนาที่ไม่มีลายเซ็น
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $presentation->getDigitalSignatures()->clear();
+    $presentation->save("InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+หากต้องการลบลายเซ็นเพียงอันเดียว ให้เรียก [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignaturecollection/removeat/) พร้อมดัชนีเริ่มจากศูนย์ บันทึกเป็นไฟล์ใหม่เว้นแต่คุณต้องการเขียนทับไฟล์ต้นฉบับที่มีลายเซ็นโดยเจตนา
+
+## **ข้อควรพิจารณาในการแก้ไขและรูปแบบ**
+
+- ลายเซ็นไม่ได้ทำให้ไฟล์งานนำเสนอเป็นแบบอ่านอย่างเดียว ผู้ใช้และแอปพลิเคชันยังคงสามารถแก้ไขไฟล์ได้ แต่การเปลี่ยนแปลงเนื้อหาที่ลงลายเซ็นจะทำให้ลายเซ็นที่มีอยู่เดิมไม่ถูกต้อง
+- ทำการแก้ไขทั้งหมดก่อนลงลายเซ็น หากต้องการเปลี่ยนแปลงงานนำเสนอ ให้บันทึกงานนำเสนอที่แก้ไขแล้วและลงลายเซ็นในฉบับนั้นอีกครั้ง
+- เก็บผลลัพธ์สุดท้ายในรูปแบบ PPTX การแปลงงานนำเสนอที่ลงลายเซ็นเป็นรูปแบบอื่นจะไม่ถ่ายทอดลายเซ็น PPTX ดั้งเดิมเป็นลายเซ็นที่ถูกต้องสำหรับไฟล์ที่แปลงแล้ว
+- ถือคีย์ส่วนตัวของใบรับรองเป็นข้อมูลที่ละเอียดอ่อน ผู้ที่ได้มาซึ่งคีย์ส่วนตัวและรหัสผ่านอาจสร้างลายเซ็นที่ดูเหมือนมาจากผู้ถือใบรับรองนั้นได้
+- รักษาไฟล์ต้นฉบับที่ไม่มีลายเซ็นหรือสำเนาที่ควบคุมไว้เมื่อแนวนโยบายการเก็บรักษาเอกสารของคุณกำหนดให้ต้องทำเช่นนั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถลบลายเซ็นที่มีอยู่ในไฟล์ได้หรือไม่?**
+**ลายเซ็นดิจิทัลเข้ารหัสงานนำเสนอหรือไม่?**
 
-ได้. คอลเล็กชันลายเซ็นดิจิทัลรองรับการ [removing individual items](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignaturecollection/removeat/) และการ [clearing it entirely](https://reference.aspose.com/slides/th/php-java/aspose.slides/digitalsignaturecollection/clear/); หลังจากที่คุณบันทึกไฟล์ การนำเสนอจะไม่มีลายเซ็นใด ๆ
+ไม่ ลายเซ็นดิจิทัลให้หลักฐานเกี่ยวกับที่มาและความสมบูรณ์ แต่เนื้อหางานนำเสนอยังคงสามารถอ่านได้ เว้นแต่จะมีการเข้ารหัสแยกต่างหาก ใช้ [การป้องกันด้วยรหัสผ่าน](/slides/th/php-java/password-protected-presentation/) เมื่อจำเป็นต้องจำกัดการเข้าถึงเนื้อหา
 
-**ไฟล์จะกลายเป็นแบบ "อ่านอย่างเดียว" หลังจากลงลายเซ็นหรือไม่?**
+**รหัสผ่าน PFX กับรหัสผ่านของงานนำเสนอเป็นอย่างเดียวกันหรือไม่?**
 
-ไม่. ลายเซ็นช่วยรักษาความสมบูรณ์และความเป็นผู้เขียนไว้ แต่ไม่ได้บล็อกการแก้ไข เพื่อจำกัดการแก้ไข ให้ใช้ร่วมกับ ["Read-only" หรือรหัสผ่าน](/slides/th/php-java/password-protected-presentation/).
+ไม่ รหัสผ่าน PFX ใช้เพื่อปลดล็อกคีย์ส่วนตัวที่เก็บอยู่ในแพคเกจใบรับรอง ไม่ได้ควบคุมว่าใครสามารถเปิดหรือแก้ไขไฟล์ PPTX ได้
 
-**ลายเซ็นจะแสดงอย่างถูกต้องในเวอร์ชันต่าง ๆ ของ PowerPoint หรือไม่?**
+**สามารถใช้ใบรับรองที่สร้างด้วยตนเองได้หรือไม่?**
 
-ลายเซ็นถูกสร้างสำหรับคอนเทนเนอร์ OOXML (PPTX) เวอร์ชันสมัยใหม่ของ PowerPoint ที่รองรับลายเซ็น OOXML จะแสดงสถานะของลายเซ็นเหล่านั้นอย่างถูกต้อง
+ทางเทคนิค สามารถใช้ใบรับรองที่สร้างด้วยตนเองได้เมื่อมีคีย์ส่วนตัวที่เข้าถึงได้ ผู้รับอาจไม่เชื่อถือโดยอัตโนมัติ เว้นแต่ใบรับรองนั้นจะถูกเพิ่มอย่างชัดเจนในสภาพแวดล้อมที่เชื่อถือได้ งานไหลที่เป็นสาธารณะหรือข้ามองค์กรมักใช้ใบรับรองที่ออกโดย CA ที่เชื่อถือได้
+
+**อะไรทำให้ลายเซ็นไม่ถูกต้อง?**
+
+การเปลี่ยนเนื้อหาที่ลงลายเซ็นหรือข้อมูลลายเซ็นหลังจากลงลายเซ็นจะทำให้ลายเซ็นไม่ถูกต้อง การเสียหายของไฟล์ก็อาจทำให้การตรวจสอบล้มเหลว หากลบลายเซ็นทั้งหมด งานนำเสนอจะกลายเป็นไม่มีลายเซ็น ไม่ใช่ไฟล์ที่มีลายเซ็นที่ไม่ถูกต้อง
+
+**ลายเซ็นที่ถูกต้องหมายความว่าควรเชื่อถือผู้ลงลายเซ็นหรือไม่?**
+
+ไม่โดยตัวมันเอง ความสมบูรณ์ของลายเซ็นและความเชื่อมั่นต่อผู้ลงลายเซ็นเป็นการตัดสินใจแยกกัน นโยบายการตรวจสอบการผลิตควรตรวจสอบโซ่ใบรับรอง, ระยะเวลาที่ใบรับรองใช้ได้, สถานะการเพิกถอน, อัตลักษณ์ที่คาดหวัง, การใช้คีย์, และข้อกำหนดของ timestamp ที่เชื่อถือได้
+
+**เมื่อใบรับรองหมดอายุ จะเกิดอะไรขึ้น?**
+
+การหมดอายุของใบรับรองไม่ทำให้ไบต์ของงานนำเปลี่ยนแปลง แต่มีผลต่อการประเมินความเชื่อมั่นของใบรับรองว่า ลายเซ็นยังคงยอมรับได้หรือไม่ ขึ้นอยู่กับนโยบายของคุณและว่ามี timestamp ที่เชื่อถือได้แสดงว่าการลงลายเซ็นทำในช่วงที่ใบรับรองยังใช้งานได้หรือไม่ อย่าพึ่งพาเวลาแสดงผลของลายเซ็นอย่างเดียวเป็น timestamp ที่เชื่อถือได้
+
+**งานนำเสนอที่ลงลายเซ็นยังสามารถแก้ไขได้หรือไม่?**
+
+ได้ การลงลายเซ็นไม่ได้ทำให้ไฟล์ล็อก การแก้ไขเนื้อหาที่ลงลายเซ็นมักทำให้ลายเซ็นเดิมไม่ถูกต้อง ดังนั้นควรเสร็จสิ้นการแก้ไขและลงลายเซ็นฉบับสุดท้ายก่อนบันทึก
+
+**งานนำเสนอสามารถมีลายเซ็นมากกว่าหนึ่งอันได้หรือไม่?**
+
+ได้ เพิ่มลายเซ็นแต่ละอันลงในคอลเลกชันที่คืนจาก [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDigitalSignatures) ก่อนบันทึก ระหว่างการตรวจสอบ ให้ตรวจสอบลายเซ็นทุกอันและยืนยันว่ามีผู้ลงลายเซ็นที่ต้องการครบถ้วน
+
+**รูปแบบงานนำเสนอใดบ้างที่รองรับการดำเนินการเหล่านี้?**
+
+Aspose.Slides รองรับการทำงานกับลายเซ็นดิจิทัลที่อธิบายไว้ที่นี่เฉพาะสำหรับ PPTX; ไม่รองรับรูปแบบ PPT หรือ OpenDocument ใน API นี้
+
+**สามารถลบลายเซ็นโดยไม่กระทบสไลด์ได้หรือไม่?**
+
+ได้ คุณสามารถลบลายเซ็นหนึ่งอันหรือเคลียร์คอลเลกชันทั้งหมดแล้วบันทึกงานนำเสนอ เนื้อหาสไลด์จะยังคงอยู่ แต่ไฟล์ที่บันทึกแล้วจะไม่มีหลักฐานลายเซ็นที่ถูกลบแล้ว

@@ -1,6 +1,6 @@
 ---
-title: Настройка шрифтов PowerPoint в JavaScript
-linktitle: Пользовательский шрифт
+title: "Настройка шрифтов PowerPoint в JavaScript"
+linktitle: "Пользовательский шрифт"
 type: docs
 weight: 20
 url: /ru/nodejs-java/custom-font/
@@ -17,31 +17,42 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Настройте шрифты в слайдах PowerPoint с помощью JavaScript и Aspose.Slides для Node.js через Java, чтобы ваши презентации оставались чёткими и согласованными на любом устройстве."
+description: "Настройте шрифты в слайдах PowerPoint с помощью JavaScript и Aspose.Slides для Node.js через Java, чтобы ваши презентации были четкими и согласованными на любом устройстве."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+Aspose.Slides позволяет использовать пользовательские шрифты в презентациях без их установки в операционную систему. Вы можете загружать шрифты из пользовательских папок, предоставлять шрифты для конкретной презентации через источники шрифтов уровня документа или загружать внешние шрифты напрямую из бинарных данных.
 
-Aspose Slides позволяет загружать эти шрифты с помощью метода [loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+Загруженные шрифты используются при рендеринге или экспорте презентации, например в PDF, изображения и другие поддерживаемые форматы. Это помогает сохранять вывод презентации одинаковым в разных средах. В статье также объясняется, как просматривать папки шрифтов, используемые Aspose.Slides, и как очистить кэш шрифтов после работы с внешними шрифтами.
 
-* Шрифты TrueType (.ttf) и коллекции TrueType (.ttc). См. [TrueType](https://en.wikipedia.org/wiki/TrueType).
+Регистрация пользовательских шрифтов для рендеринга отличается от внедрения шрифтов в файл PPTX. Если шрифт необходимо хранить внутри самой презентации, используйте функции встраивания шрифтов явно.
 
-* Шрифты OpenType (.otf). См. [OpenType](https://en.wikipedia.org/wiki/OpenType).
+Тема презентации может ссылаться на разные семейства шрифтов для отдельных систем письма. Эти сопоставления хранят имена шрифтов, но не устанавливают и не загружают файлы шрифтов. См. [Шрифты темы, специфичные для скрипта](/slides/ru/nodejs-java/script-specific-font-mappings/) для управления сопоставлениями и используйте параметры загрузки ниже, чтобы сделать указанные шрифты доступными для согласованного рендеринга.
 
+{{% alert color="info" title="Note" %}}
+Aspose Slides позволяет загружать эти шрифты с помощью метода [loadExternalFonts](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+
+* TrueType (.ttf) и TrueType Collection (.ttc) шрифты. Смотрите [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* OpenType (.otf) шрифты. Смотрите [OpenType](https://en.wikipedia.org/wiki/OpenType).
 {{% /alert %}}
 
-## **Load Custom Fonts**
+## **Загрузка пользовательских шрифтов**
 
-Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в системе. Это влияет на вывод при экспорте — например PDF, изображения и другие поддерживаемые форматы — так что получаемые документы выглядят одинаково в разных средах. Шрифты загружаются из пользовательских каталогов.
+Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в системе. Это влияет на вывод при экспорте — например, PDF, изображения и другие поддерживаемые форматы — чтобы полученные документы выглядели одинаково в разных средах. Шрифты загружаются из пользовательских каталогов.
 
-1. Укажите одну или несколько папок, содержащих файлы шрифтов.  
-2. Вызовите статический метод [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) для загрузки шрифтов из этих папок.  
-3. Загрузите и отрендерите/экспортируйте презентацию.  
-4. Вызовите [FontsLoader.clearCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/clearcache/) для очистки кэша шрифтов.
+1. Укажите одну или несколько папок, содержащих файлы шрифтов.
+2. Вызовите статический метод [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) для загрузки шрифтов из этих папок.
+3. Загрузите и отрендерьте/экспортируйте презентацию.
+4. Вызовите [FontsLoader.clearCache](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/clearcache/) для очистки кэша шрифтов.
 
-Ниже приведён пример кода, демонстрирующий процесс загрузки шрифтов:
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Определите папки, содержащие пользовательские файлы шрифтов.
+let externalFontFolder1 = "fonts";
+let externalFontFolder2 = "extra-fonts";
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
 // Загрузите пользовательские шрифты из указанных папок.
@@ -51,7 +62,7 @@ let presentation = null;
 try {
     presentation = new aspose.slides.Presentation("sample.pptx");
     
-    // Выполните рендеринг/экспорт презентации (например, в PDF, изображения или другие форматы), используя загруженные шрифты.
+    // Отрендерите/экспортируйте презентацию (например, в PDF, изображения или другие форматы), используя загруженные шрифты.
     presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
@@ -61,33 +72,40 @@ try {
 }
 ```
 
-
 {{% alert color="info" title="Note" %}}
-
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) добавляет дополнительные папки в пути поиска шрифтов, но не изменяет порядок инициализации шрифтов.  
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) добавляет дополнительные папки в пути поиска шрифтов, но не изменяет порядок инициализации шрифтов.  
 Шрифты инициализируются в следующем порядке:
 
-1. Путь к шрифтам по умолчанию операционной системы.  
-1. Путья, загруженные через [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/).
-
+1. Путь к шрифтам по умолчанию операционной системы.
+2. Путь, загруженный через [FontsLoader](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/).
 {{%/alert %}}
 
-## **Get Custom Fonts Folder**
-Aspose.Slides предоставляет метод [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) для поиска папок шрифтов. Этот метод возвращает папки, добавленные через метод `LoadExternalFonts`, а также системные папки шрифтов.
+## **Получить папку пользовательских шрифтов**
 
-Ниже JavaScript‑код, показывающий, как использовать [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
+Aspose.Slides предоставляет метод [getFontFolders](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) для поиска папок шрифтов. Этот метод возвращает папки, добавленные через метод `LoadExternalFonts`, а также системные папки шрифтов.
+
+Следующий код JavaScript показывает, как использовать [getFontFolders](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
+
 ```javascript
-// Эта строка выводит папки, где ищутся файлы шрифтов.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Эта строка выводит папки, в которых осуществляется поиск файлов шрифтов.
 // Это папки, добавленные через метод LoadExternalFonts, и системные папки шрифтов.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
 ```
 
+## **Указать пользовательские шрифты, используемые в презентации**
 
-## **Specify Custom Fonts Used With Presentation**
-Aspose.Slides предоставляет свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) для указания внешних шрифтов, которые будут использоваться в презентации.
+Aspose.Slides предоставляет свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) для указания внешних шрифтов, которые будут использоваться в презентации.
 
-Ниже JavaScript‑код, демонстрирующий использование свойства [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-):
+Следующий код JavaScript показывает, как использовать свойство [setDocumentLevelFontSources](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-):
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
 var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
 var loadOptions = new aspose.slides.LoadOptions();
@@ -96,7 +114,7 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [ja
 var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
 try {
     // Работа с презентацией
-    // CustomFont1, CustomFont2 и шрифты из папок assets\fonts и global\fonts и их подпапок доступны для презентации
+    // CustomFont1, CustomFont2 и шрифты из папок assets\fonts & global\fonts и их подпапок доступны для презентации
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -104,20 +122,24 @@ try {
 }
 ```
 
+## **Управление шрифтами внешне**
 
-## **Manage Fonts Externally**
+Aspose.Slides предоставляет метод [loadExternalFont](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) для загрузки внешних шрифтов из бинарных данных.
 
-Aspose.Slides предоставляет метод [loadExternalFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) для загрузки внешних шрифтов из бинарных данных.
+Следующий код JavaScript демонстрирует процесс загрузки шрифта из массива байтов:
 
-Ниже JavaScript‑код, показывающий процесс загрузки шрифта из массива байтов:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
 try {
     var pres = new aspose.slides.Presentation("");
     try {
-        // внешний шрифт, загруженный во время жизни презентации
+        // внешний шрифт загружен в течение срока жизни презентации
     } finally {
     }
 } finally {
@@ -125,25 +147,24 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Влияют ли пользовательские шрифты на экспорт во все форматы (PDF, PNG, SVG, HTML)?**
+### Пользовательские шрифты влияют на экспорт во все форматы (PDF, PNG, SVG, HTML)?
 
-Да. Подключённые шрифты используются рендерером во всех форматах экспорта.
+Да. Подключенные шрифты используются рендерером во всех форматах экспорта.
 
-**Автоматически ли пользовательские шрифты встраиваются в полученный PPTX?**
+### Автоматически ли пользовательские шрифты встраиваются в полученный PPTX?
 
-Нет. Регистрация шрифта для рендеринга не равна его встраиванию в PPTX. Если нужен шрифт внутри файла презентации, используйте явные [возможности встраивания](/slides/ru/nodejs-java/embedded-font/).
+Нет. Регистрация шрифта для рендеринга не равна его встраиванию в PPTX. Если нужен шрифт внутри файла презентации, используйте явные [функции встраивания](/slides/ru/nodejs-java/embedded-font/).
 
-**Можно ли управлять поведением fallback, когда у пользовательского шрифта отсутствуют некоторые глифы?**
+### Можно ли контролировать поведение fallback, когда у пользовательского шрифта отсутствуют некоторые глифы?
 
-Да. Настройте [замену шрифтов](/slides/ru/nodejs-java/font-substitution/), [правила замены](/slides/ru/nodejs-java/font-replacement/) и [наборы fallback](/slides/ru/nodejs-java/fallback-font/), чтобы точно определить, какой шрифт использовать при отсутствии требуемого глифа.
+Да. Настройте [замену шрифтов](/slides/ru/nodejs-java/font-substitution/), [правила замены](/slides/ru/nodejs-java/font-replacement/) и [наборы fallback](/slides/ru/nodejs-java/fallback-font/), чтобы точно определить, какой шрифт использовать при отсутствии запрашиваемого глифа.
 
-**Можно ли использовать шрифты в контейнерах Linux/Docker без их установки в системе?**
+### Можно ли использовать шрифты в контейнерах Linux/Docker без их установки в системе?
 
-Да. Указывайте собственные папки со шрифтами или загружайте шрифты из массивов байтов. Это устраняет зависимость от системных каталогов шрифтов в образе контейнера.
+Да. Указывайте свои папки шрифтов или загружайте шрифты из массивов байтов. Это устраняет зависимости от системных каталогов шрифтов в образе контейнера.
 
-**А что с лицензированием — можно ли встраивать любой пользовательский шрифт без ограничений?**
+### Что насчёт лицензий — могу ли я встраивать любой пользовательский шрифт без ограничений?
 
-Вы несёте ответственность за соблюдение лицензий шрифтов. Условия различаются; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте EULA шрифта перед распространением результатов.
+Вы несёте ответственность за соблюдение лицензий шрифтов. Условия могут различаться; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте EULA шрифта перед распространением результатов.

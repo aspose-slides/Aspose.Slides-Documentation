@@ -22,237 +22,410 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js 在 JavaScript 中管理簡報主題，以建立、客製化與轉換具有一致品牌識別的 PowerPoint 檔案。"
+description: "使用 Aspose.Slides for Node.js 在 JavaScript 中掌握簡報主題，以建立、客製化及轉換具一致品牌形象的 PowerPoint 檔案。"
 ---
-## **介紹**
+## **簡介**
 
-簡報主題定義了設計元素的屬性。當您選取簡報主題時，實際上是選擇了一組特定的視覺元素及其屬性。
+簡報主題定義了一組協調一致的顏色、字型、背景樣式、填色、線條與效果。具備主題感知的物件會參考這些共享定義，而不是將每個視覺屬性儲存為固定值，這樣變更主題即可一次更新許多物件。
 
-在 PowerPoint 中，主題包括顏色、[字型](/slides/zh-hant/nodejs-java/powerpoint-fonts/)、[背景樣式](/slides/zh-hant/nodejs-java/presentation-background/)以及效果。
+在 Aspose.Slides 中，可透過 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/getmastertheme/) 取得簡報層級的主題。簡報也可以在較低層級包含主題覆寫。母片可透過 [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/masterthememanager/) 覆寫簡報主題，而版面配置或單一投影片可透過 [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/baseoverridethememanager/) 覆寫其繼承的主題。實務上，投影片的最終主題會依照以下繼承鏈解析：簡報主題 → 母片覆寫 → 版面配置覆寫 → 投影片覆寫。
 
-![主題構成](theme-constituents.png)
+![主題組件：顏色、字型、背景樣式與效果](theme-constituents.png)
+
+以下章節說明最常見的主題工作流程：檢查主題、變更顏色與字型、複製或套用主題、更新背景與效果樣式，並在繼承與覆寫解析後讀取有效值。
+
+## **檢查主題**
+
+[MasterTheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/mastertheme/) 物件透過 [MasterTheme.getColorScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/mastertheme/) 與 [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/mastertheme/) 透露主題的顏色配置、字型配置與格式配置。變更前先檢查這些集合非常有用，特別是當簡報來自外部來源時，樣式項目的數量與內容可能會不同。
+
+以下範例讀取主要主題屬性，並回報主題中儲存了多少個背景、填色、線條與效果樣式：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const theme = presentation.getMasterTheme();
+    console.log("Theme name: " + theme.getName());
+    console.log("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
+    console.log("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
+    console.log("Minor Latin font: " + theme.getFontScheme().getMinor().getLatinFont().getFontName());
+    console.log("Background fill styles: " + theme.getFormatScheme().getBackgroundFillStyles().size());
+    console.log("Fill styles: " + theme.getFormatScheme().getFillStyles().size());
+    console.log("Line styles: " + theme.getFormatScheme().getLineStyles().size());
+    console.log("Effect styles: " + theme.getFormatScheme().getEffectStyles().size());
+} finally {
+    presentation.dispose();
+}
+```
+
+如果檔案使用多個母片，請不要假設每張投影片都有相同的有效主題。檢查與投影片相關的母片，並在版面或投影片可能有覆寫時使用本文稍後說明的有效主題工作流程。
 
 ## **變更主題顏色**
 
-PowerPoint 主題會為投影片上的不同元素使用特定的顏色組合。如果您不喜歡這些顏色，可以透過套用新顏色來變更主題顏色。為了讓您選取新的主題顏色，Aspose.Slides 在 [SchemeColor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/SchemeColor) 列舉中提供了相應的值。
+具備主題感知的填色、線條與文字可參考 [SchemeColor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/schemecolor/) 列舉中的邏輯顏色。當您變更 [ColorScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/colorscheme/) 中對應的條目時，仍參考該主題顏色的所有物件皆會以新值解析。直接使用 RGB 顏色的物件不會受到主題顏色更新的影響。
 
-這段 JavaScript 程式碼示範如何變更主題的強調色：
+以下端對端範例建立一個使用 `Accent4` 的形狀，將主題的 `Accent4` 顏色改為紅色，儲存簡報，重新開啟，並列印有效的填色：
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+    presentation.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    presentation.save("theme-color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
+}
+
+const savedPresentation = new aspose.slides.Presentation("theme-color.pptx");
+try {
+    const savedSlide = savedPresentation.getSlides().get_Item(0);
+    const savedShape = savedSlide.getShapes().get_Item(0);
+    const effectiveFill = savedShape.getFillFormat().getEffective();
+    console.log("Effective fill color: " + effectiveFill.getSolidFillColor());
+} finally {
+    savedPresentation.dispose();
 }
 ```
 
-您可以這樣取得結果顏色的實際值：
+因為矩形仍連結至 `Accent4`，主題變更後其可見顏色會變成紅色。如果您在形狀上以直接顏色取代方案顏色，之後對 `Accent4` 的變更將不再影響該填色。
+
+### **使用附加調色盤的顏色**
+
+PowerPoint 會透過套用顏色變換，從主題顏色衍生較亮與較暗的變體。Aspose.Slides 透過 [ColorTransformOperation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/colortransformoperation/) 列舉公開這些變換。
+
+![主要主題顏色與從附加調色盤產生的較亮與較暗顏色](additional-palette-colors.png)
+
+**1** - 主要主題顏色。
+
+**2** - 從主要主題顏色產生的較亮與較暗變體。
+
+以下範例建立六個基於 `Accent4` 的矩形，對其中五個套用亮度變換，並儲存結果：
 
 ```javascript
-var fillEffective = shape.getFillFormat().getEffective();
-var effectiveColor = fillEffective.getSolidFillColor();
-console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
-```
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-為了進一步示範顏色變更操作，我們建立另一個元素並將先前取得的強調色指派給它，然後在主題中變更顏色：
-
-```javascript
-var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
-otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-```
-
-新的顏色會自動套用到兩個元素上。
-
-### **從附加調色盤設定主題顏色**
-
-當您對主要主題顏色 (1) 套用亮度變換時，會產生來自附加調色盤 (2) 的顏色。之後您即可設定與取得這些主題顏色。
-
-![附加調色盤顏色](additional-palette-colors.png)
-
-**1** - 主要主題顏色  
-**2** - 附加調色盤的顏色。
-
-這段 JavaScript 程式碼示範一個操作，從主要主題顏色取得附加調色盤的顏色，然後在圖形中使用這些顏色：
-
-```javascript
-var presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    // 強調色 4
-    var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 50, 50);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 50, 50);
     shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    // 強調色 4, 較亮 80%
-    var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 50, 50);
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 50, 50);
     shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.2);
-    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.8);
-    // 強調色 4, 較亮 60%
-    var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 50, 50);
+    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.2));
+    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, java.newFloat(0.8));
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 50, 50);
     shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.4);
-    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.6);
-    // 強調色 4, 較亮 40%
-    var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 50, 50);
+    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.4));
+    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, java.newFloat(0.6));
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 50, 50);
     shape4.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.6);
-    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.4);
-    // 強調色 4, 較暗 25%
-    var shape5 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 250, 50, 50);
+    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.6));
+    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, java.newFloat(0.4));
+
+    const shape5 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 250, 50, 50);
     shape5.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape5.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.75);
-    // 強調色 4, 較暗 50%
-    var shape6 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 50, 50);
+    shape5.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.75));
+
+    const shape6 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 50, 50);
     shape6.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape6.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.5);
-    presentation.save(path + "example_accent4.pptx", aspose.slides.SaveFormat.Pptx);
+    shape6.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.5));
+
+    presentation.save("theme-color-palette.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **將 `SchemeColor` 對映至 `ColorScheme` 顏色**
+這些變體仍以主題顏色為基礎。如果之後 `Accent4` 變更，變換後的顏色會以新的 `Accent4` 值重新計算。
 
-當您使用 [SchemeColor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/schemecolor/) 時，可能會注意到它包含以下主題顏色值：
+### **將 `SchemeColor` 值對映至 `ColorScheme` 插槽**
 
-`Background1`、`Background2`、`Text1` 與 `Text2`。
-
-然而，`Presentation.getMasterTheme().getColorScheme()` 會傳回 [ColorScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/colorscheme/)，其顯示相對應的顏色為：
-
-`Dark1`、`Dark2`、`Light1` 與 `Light2`。
-
-這個差異僅在命名上。這些值指向相同的主題顏色插槽，映射關係是固定的：
+[SchemeColor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/schemecolor/) 列舉使用 `Text1`、`Background1`、`Text2`、`Background2`，而 [ColorScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/colorscheme/) 以 `Dark1`、`Light1`、`Dark2`、`Light2` 暴露相同的主題插槽。對映固定如下：
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-`Text`/`Background` 與 `Dark`/`Light` 之間沒有動態轉換，它們只是相同主題顏色的替代名稱。
-
-這種命名差異源自 Microsoft Office 的術語。舊版 Office 使用 `Dark 1`、`Light 1`、`Dark 2`、`Light 2`，而新版 UI 則以 `Text 1`、`Background 1`、`Text 2`、`Background 2` 顯示相同的插槽。
+這些是同一主題插槽的別名；並非會動態相互轉換的值。
 
 ## **變更主題字型**
 
-為了讓您選取字型用於主題及其他用途，Aspose.Slides 使用以下特殊識別碼（類似於 PowerPoint 中的使用方式）：
+主題字型配置包含標題的主要字型集合與內文的次要字型集合。[FontScheme.getMajor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontscheme/) 與 [FontScheme.getMinor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontscheme/) 方法公開這兩個集合。
 
-* **+mn-lt** - 本文字型 Latin（次要 Latin 字型）
-* **+mj-lt** - 標題字型 Latin（主要 Latin 字型）
-* **+mn-ea** - 本文字型 東亞（次要東亞字型）
-* **+mj-ea** - 本文字型 東亞（主要東亞字型）
+PowerPoint 相容的主題字型識別子可在文字格式設定中使用：
 
-這段 JavaScript 程式碼示範如何將 Latin 字型指定給主題元素：
+* `+mn-lt` - 內文拉丁字型（次要拉丁字型）
+* `+mj-lt` - 標題拉丁字型（主要拉丁字型）
+* `+mn-ea` - 內文東亞字型（次要東亞字型）
+* `+mj-ea` - 標題東亞字型（主要東亞字型）
 
-```javascript
-var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
-var paragraph = new aspose.slides.Paragraph();
-var portion = new aspose.slides.Portion("Theme text format");
-paragraph.getPortions().add(portion);
-shape.getTextFrame().getParagraphs().add(paragraph);
-portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
-```
-
-這段 JavaScript 程式碼示範如何變更簡報的主題字型：
+以下範例建立一個使用主要拉丁字型的標題與一個使用次要拉丁字型的內文行，然後變更主題字型並儲存結果：
 
 ```javascript
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
-```
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-所有文字方塊的字型都會被更新。
-
-{{% alert color="primary" title="TIP" %}} 
-您可能想查看 [PowerPoint 字型](/slides/zh-hant/nodejs-java/powerpoint-fonts/)。
-{{% /alert %}}
-
-## **變更主題背景樣式**
-
-預設情況下，PowerPoint 應用程式提供 12 種預設背景，但在一般簡報中僅會儲存其中的 3 種。
-
-![todo:image_alt_text](presentation-design_8.png)
-
-例如，當您在 PowerPoint 應用程式中儲存簡報後，可以執行以下 JavaScript 程式碼以查詢簡報中預設背景的數量：
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
-    console.log("Number of background fill styles for theme is " + numberOfBackgroundFills);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const heading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 40, 500, 60);
+    heading.getTextFrame().setText("Theme heading");
+    heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new aspose.slides.FontData("+mj-lt"));
+
+    const body = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 120, 500, 60);
+    body.getTextFrame().setText("Theme body text");
+    body.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+
+    presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Aptos Display"));
+    presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+    presentation.save("theme-fonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-使用來自 [FormatScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/FormatScheme) 類別的 [BackgroundFillStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) 屬性，您可以在 PowerPoint 主題中新增或存取背景樣式。
-{{% /alert %}} 
+標題遵循主要字型，內文字則遵循次要字型。若文字明確指定字型名稱而非主題識別子，則在主題字型配置變更時不會自動切換。
 
-這段 JavaScript 程式碼示範如何為簡報設定背景：
+主要與次要字型集合也可以包含針對個別書寫系統（如西里爾文、阿拉伯文、日文、喬治亞文與塔納文）的字型對映。若要檢查、加入、取代或移除這些對映，請參閱 [Script-Specific Theme Fonts](/slides/zh-hant/nodejs-java/script-specific-font-mappings/)。
 
-```javascript
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
-```
-
-**索引說明**：0 代表無填色。索引從 1 開始。
-
-{{% alert color="primary" title="TIP" %}} 
-您可能想查看 [PowerPoint 背景](/slides/zh-hant/nodejs-java/presentation-background/)。
+{{% alert color="info" title="Tip" %}}
+如需更多關於簡報字型的資訊，請參閱 [PowerPoint Fonts](/slides/zh-hant/nodejs-java/powerpoint-fonts/)。
 {{% /alert %}}
 
-## **變更主題效果**
+## **複製或套用主題**
 
-PowerPoint 主題通常在每個樣式陣列中包含 3 個值。這些陣列會結合成 3 種效果：細緻、適中與強烈。例如，當效果套用到特定圖形時的結果如下：
+有兩種常見工作流程，且解決不同的問題。
 
-![todo:image_alt_text](presentation-design_10.png)
+### **在移動投影片時保留來源主題**
 
-使用來自 [FormatScheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/FormatScheme) 類別的 3 個屬性（[FillStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/FormatScheme#getEffectStyles--)），您可以變更主題中的元素（比 PowerPoint 的選項更具彈性）。
-
-這段 JavaScript 程式碼示範如何透過變更元素部分來調整主題效果：
+如果您想將投影片移至另一個簡報且保留其原始設計，請使用 [MasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/masterslidecollection/) 將來源母片克隆到目標簡報，接著使用 [SlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/) 以及克隆的母片將投影片克隆過去。這樣會同時攜帶母片、其版面配置與相關主題。
 
 ```javascript
-var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const source = new aspose.slides.Presentation("source-theme.pptx");
 try {
-    pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10.0);
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const target = new aspose.slides.Presentation("target.pptx");
+    try {
+        const sourceSlide = source.getSlides().get_Item(0);
+        const clonedMaster = target.getMasters().addClone(sourceSlide.getLayoutSlide().getMasterSlide());
+        target.getSlides().addClone(sourceSlide, clonedMaster, true);
+        target.save("theme-preserved.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        target.dispose();
     }
+} finally {
+    source.dispose();
 }
 ```
 
-產生的變化包括填色、填充類型、陰影效果等：
+這是當來源投影片必須在目標檔案中保持相同外觀時的首選流程。僅在不相關的目標母片上克隆內容可能會改變受主題驅動的顏色、字型、背景與效果。
 
-![todo:image_alt_text](presentation-design_11.png)
+### **將主題值套用至現有投影片**
+
+如果目標投影片必須保留目前的母片與版面配置，請從來源主題為投影片層級建立覆寫。使用 [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/overridetheme/) 與 [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/overridetheme/) 方法將三個主要主題元件複製到覆寫中。
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const source = new aspose.slides.Presentation("source-theme.pptx");
+try {
+    const target = new aspose.slides.Presentation("target.pptx");
+    try {
+        const sourceTheme = source.getMasterTheme();
+        const targetSlide = target.getSlides().get_Item(0);
+        const overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
+        overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
+        overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+        target.save("theme-applied-to-slide.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+這會變更該投影片使用的主題，而不會影響其他投影片繼承的主題。若要移除本地覆寫並回復至繼承值，請呼叫 [OverrideTheme.clear](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/overridetheme/)。
+
+### **將主題覆寫套用至版面配置**
+
+版面層級的覆寫會套用到使用該版面的所有投影片，除非特定投影片有自己的覆寫。相同的初始化方法可透過 [LayoutSlideThemeManager](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/layoutslidethememanager/) 使用：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const source = new aspose.slides.Presentation("source-theme.pptx");
+try {
+    const target = new aspose.slides.Presentation("target.pptx");
+    try {
+        const sourceTheme = source.getMasterTheme();
+        const targetSlide = target.getSlides().get_Item(0);
+        const overrideTheme = targetSlide.getLayoutSlide().getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
+        overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
+        overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+        target.save("theme-applied-to-layout.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+當許多版面與投影片應共享相同的基礎設計時，使用母片或簡報層級的主題；當某一版面族群需要不同樣式時，使用版面覆寫；僅在真正的例外情況下才使用投影片覆寫。過度的投影片層級覆寫會使之後的全域主題變更難以預測。
+
+## **更新主題背景樣式**
+
+主題的背景填色儲存在 [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/formatscheme/) 中。PowerPoint 在 UI 中可以呈現比此集合實際儲存的填色定義更多的背景選項，因為 UI 能將主題填色與主題顏色及其他樣式參考結合。
+
+![PowerPoint 簡報主題的背景樣式圖庫](presentation-design_8.png)
+
+在使用背景樣式前，請檢查已儲存的集合與目前的 [Background.getStyleIndex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/background/)。`0` 代表沒有主題填色；正值代表主題背景樣式參考。這與直接索引 JavaScript 集合不同，後者的 `0` 代表第一個儲存項目。不要假設每個簡報都有相同數量的背景填色樣式。
+
+以下範例回報可用的背景填色數量，將主題背景參考指派給第一個母片，並儲存簡報：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const backgroundStyles = presentation.getMasterTheme().getFormatScheme().getBackgroundFillStyles();
+    console.log("Background fill styles: " + backgroundStyles.size());
+    if (backgroundStyles.size() === 0) {
+        throw new Error("The presentation theme does not contain background fill styles.");
+    }
+
+    const masterSlide = presentation.getMasters().get_Item(0);
+    masterSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.Themed));
+    masterSlide.getBackground().setStyleIndex(1);
+    presentation.save("theme-background.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+可見結果取決於母片參考的主題項目以及版面或投影片層級的任何背景覆寫。如果投影片使用自己的背景，只變更母片背景可能不會影響該投影片。當您需要了解繼承套用後的最終背景時，請使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/background/)。
+
+{{% alert color="warning" title="Warning" %}}
+請勿將樣式索引視為零基集合索引。也避免從一個檔案硬編碼樣式編號，並假設在另一個檔案中會有相同外觀；主題樣式定義是簡報特有的。
+{{% /alert %}}
+
+{{% alert color="info" title="Tip" %}}
+有關直接背景格式設定與背景繼承，請參閱 [Presentation Background](/slides/zh-hant/nodejs-java/presentation-background/)。
+{{% /alert %}}
+
+## **更新主題效果**
+
+主題格式配置包含透過 [FormatScheme.getFillStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/formatscheme/)、[FormatScheme.getLineStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/formatscheme/)、[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/formatscheme/) 公開的獨立填色、線條與效果樣式集合。典型的 Office 主題常包含三個主要樣式項目，對應視覺上為細緻、適中與強烈的格式，但程式碼應檢查每個集合，而非假設固定數量。
+
+![相同圖形上套用的細緻、適中與強烈主題效果](presentation-design_10.png)
+
+在 JavaScript 中存取這些集合時，集合索引為零基：`0` 為第一個儲存的樣式，`2` 為第三個。形狀的樣式參考索引是另一概念，透過 [ShapeStyle](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shapestyle/) 暴露。修改主題樣式會影響參考該主題樣式的形狀；直接格式設定的形狀可能保持不變。
+
+以下範例檢查必要的樣式項目是否存在，變更第一個線條樣式、變更第三個填色樣式、在第三個效果樣式中啟用外部陰影，並儲存結果：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    const formatScheme = presentation.getMasterTheme().getFormatScheme();
+    if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
+        throw new Error("The theme does not contain the style entries required by this example.");
+    }
+
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    formatScheme.getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
+    formatScheme.getFillStyles().get_Item(2).getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 34, 139, 34));
+    const effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
+    effectFormat.enableOuterShadowEffect();
+    effectFormat.getOuterShadowEffect().setDistance(10);
+    presentation.save("theme-effects.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+對於參考這些插槽的形狀而言，第一個主題線條樣式會變成紅色，第三個主題填色樣式會變成純森林綠，第三個效果樣式會獲得距離 10 點的外部陰影。最終的視覺結果仍取決於每個形狀參考的樣式插槽以及是否有直接格式覆寫主題。
+
+![變更線條、填色與陰影設定後的主題效果樣式](presentation-design_11.png)
+
+## **讀取有效的主題值**
+
+原始主題物件告訴您在特定層級定義了什麼。有效值則告訴您投影片或形狀在繼承與本地覆寫解析後實際使用的內容。對於投影片，呼叫 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/baseoverridethememanager/)。對於背景，使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/background/)，對於填色，使用 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fillformat/)。
+
+以下範例從投影片讀取有效的主題、背景與第一個形狀的填色：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const effectiveTheme = slide.getThemeManager().createThemeEffective();
+    const effectiveBackground = slide.getBackground().getEffective();
+    console.log("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
+    console.log("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
+    console.log("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+    if (slide.getShapes().size() > 0) {
+        const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
+        console.log("First shape effective fill type: " + effectiveFill.getFillType());
+        if (effectiveFill.getFillType() === aspose.slides.FillType.Solid) {
+            console.log("First shape effective fill color: " + effectiveFill.getSolidFillColor());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+使用有效資料進行渲染偵錯、驗證與比較。如果只檢查 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/getmastertheme/)，可能會錯過母片、版面、投影片或形狀的覆寫，從而改變最終外觀。
 
 ## **常見問題**
 
 **我可以在不更改母片的情況下，只對單一投影片套用主題嗎？**
 
-是的。Aspose.Slides 支援投影片層級的主題覆寫，您可以只在該投影片上套用本機主題，同時保持母片主題不變（透過 [SlideThemeManager](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidethememanager/)）。
+可以。使用投影片的 [SlideThemeManager](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidethememanager/) 並初始化其覆寫主題。變更僅保留於該投影片；其他投影片仍會繼承現有的主題。
 
-**將主題從一個簡報搬移到另一個簡報的最安全方法是什麼？**
+**將主題從一個簡報搬移到另一個簡報的最安全方式是什麼？**
 
-將 [Clone slides](/slides/zh-hant/nodejs-java/clone-slides/) 連同其母片一起複製到目標簡報。這樣可保留原始的母片、版面配置以及相關的主題，確保外觀一致。
+在搬移投影片且保留來源外觀時，請使用 [MasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/masterslidecollection/) 將來源母片克隆至目的地，然後使用 [SlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/) 搭配該母片克隆投影片。這樣可同時保留母片、版面與主題。
 
-**如何查看所有繼承與覆寫後的「實際」值？**
+**如何在繼承與覆寫後查看有效的值？**
 
-使用 API 的「[effective]」檢視（/slides/zh-hant/nodejs-java/shape-effective-properties/）以取得主題／顏色／字型／效果的實際值。這些會回傳套用母片與任何本機覆寫後的最終屬性。
+對於投影片或版面配置的主題，使用 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/baseoverridethememanager/)。對於格式物件（例如 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/background/) 與 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fillformat/)），使用對應的有效資料方法。這些 API 會在繼承與覆寫套用後返回解析後的值。

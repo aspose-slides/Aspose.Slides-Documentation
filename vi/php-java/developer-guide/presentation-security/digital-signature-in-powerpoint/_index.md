@@ -1,94 +1,186 @@
 ---
 title: Thêm Chữ ký Số vào Bản trình chiếu trong PHP
-linktitle: Chữ ký Số
+linktitle: Chữ ký số
 type: docs
 weight: 10
 url: /vi/php-java/digital-signature-in-powerpoint/
 keywords:
 - chữ ký số
 - chứng chỉ số
-- nhà cấp chứng chỉ
+- cơ quan cấp chứng chỉ
 - chứng chỉ PFX
+- PKCS#12
+- xác thực chữ ký
 - PowerPoint
-- OpenDocument
-- bản trình chiếu
+- PPTX
+- bảo mật bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách ký số các tệp PowerPoint và OpenDocument bằng Aspose.Slides cho PHP thông qua Java. Bảo vệ slide của bạn trong vài giây với các ví dụ mã rõ ràng."
+description: "Tìm hiểu cách ký các bản trình chiếu PPTX hiện có bằng chứng chỉ PFX và sử dụng Aspose.Slides cho PHP thông qua Java để xác thực hoặc xóa chữ ký số."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-**Digital certificate** được sử dụng để tạo một bản trình chiếu PowerPoint có bảo vệ bằng mật khẩu, được đánh dấu là được tạo bởi một tổ chức hoặc cá nhân cụ thể. Digital certificate có thể được lấy bằng cách liên hệ với một tổ chức được ủy quyền - một nhà cấp chứng chỉ. Sau khi cài đặt digital certificate vào hệ thống, nó có thể được dùng để thêm chữ ký số vào bản trình chiếu qua File -> Info -> Protect Presentation:
+Chữ ký số giúp người nhận xác định ai đã ký bản trình chiếu và nội dung đã ký có thay đổi hay không. Ba khái niệm bảo mật liên quan quan trọng ở đây:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Một **digital certificate** là chứng chỉ điện tử liên kết danh tính với khóa công khai. Một cơ quan chứng chỉ (CA) đáng tin cậy có thể phát hành chứng chỉ, hoặc tổ chức có thể sử dụng chứng chỉ tự ký cho các quy trình nội bộ.
+- Một **digital signature** được tạo từ nội dung bản trình chiếu và khóa riêng của chủ sở hữu chứng chỉ. Khóa công khai của chứng chỉ sau đó có thể được dùng để xác minh chữ ký. Chữ ký cung cấp bằng chứng về nguồn gốc và tính toàn vẹn; nó không mã hoá bản trình chiếu.
+- **Password protection** kiểm soát người dùng có thể mở hoặc chỉnh sửa bản trình chiếu hay không. Nó riêng biệt với việc ký số và được mô tả trong [Password-Protected Presentations](/slides/vi/php-java/password-protected-presentation/).
 
-Bản trình chiếu có thể chứa nhiều hơn một chữ ký số. Sau khi chữ ký số được thêm vào bản trình chiếu, một thông báo đặc biệt sẽ xuất hiện trong PowerPoint:
+PowerPoint cung cấp lệnh **Add a Digital Signature** trong **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Menu Protect Presentation của PowerPoint với mục Add a Digital Signature được tô sáng](add-digital-signature-in-powerpoint.png)
 
-Để ký bản trình chiếu hoặc kiểm tra tính xác thực của các chữ ký trong bản trình chiếu, **Aspose.Slides API** cung cấp lớp [**DigitalSignature**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/DigitalSignature) , lớp [**DigitalSignatureCollection**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/DigitalSignatureCollection) và phương thức [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation/#getDigitalSignatures) . Hiện tại, chữ ký số chỉ được hỗ trợ cho định dạng PPTX.
+Sau khi mở một bản trình chiếu đã ký, PowerPoint có thể hiển thị thông báo trạng thái chữ ký.
 
-## **Thêm Chữ ký Số từ Chứng chỉ PFX**
+![Thông báo PowerPoint cho biết bản trình chiếu chứa các chữ ký hợp lệ](digital-signature-status-in-powerpoint.png)
 
-Mẫu mã dưới đây minh họa cách thêm chữ ký số từ một chứng chỉ PFX:
+Aspose.Slides cung cấp các chữ ký thông qua [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getDigitalSignatures), trả về một [DigitalSignatureCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignaturecollection/) mà các mục được biểu diễn bằng các đối tượng [DigitalSignature](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignature/). Một bản trình chiếu có thể chứa nhiều chữ ký.
 
-1. Mở tệp PFX và truyền mật khẩu PFX cho đối tượng [**DigitalSignature**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/DigitalSignature) .
-1. Thêm chữ ký đã tạo vào đối tượng bản trình chiếu.
+## **Hiểu về Chứng chỉ PFX và Mật khẩu**
 
-```php
-  # Mở tệp bản trình chiếu
-  $pres = new Presentation();
-  try {
-    # Tạo đối tượng DigitalSignature với tệp PFX và mật khẩu PFX
-    $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    # Thêm chú thích cho chữ ký số mới
-    $signature->setComments("Aspose.Slides digital signing test.");
-    # Thêm chữ ký số vào bản trình chiếu
-    $pres->getDigitalSignatures()->add($signature);
-    # Lưu bản trình chiếu
-    $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+Một tệp PFX, còn được gọi là tệp PKCS#12 và thường có phần mở rộng `.pfx` hoặc `.p12`, có thể chứa chứng chỉ X.509, khóa riêng của nó và chuỗi chứng chỉ. Khóa riêng là yếu tố cho phép chủ sở hữu tạo chữ ký. Chứng chỉ không có khóa riêng có thể truy cập không thể dùng để ký bản trình chiếu.
 
-Bây giờ có thể kiểm tra xem bản trình chiếu đã được ký số và không bị chỉnh sửa hay chưa:
+Mật khẩu PFX bảo vệ gói chứng chỉ và khóa riêng. Nó **không** phải là mật khẩu để mở hoặc chỉnh sửa bản trình chiếu. Không đưa các tệp PFX hoặc mật khẩu của chúng lên hệ thống kiểm soát nguồn. Trong môi trường sản xuất, hạn chế quyền truy cập vào tệp chứng chỉ và lấy mật khẩu từ kho bí mật hoặc nguồn cấu hình được bảo vệ khác. Các ví dụ dưới đây chỉ dùng biến môi trường để tránh nhúng mật khẩu trong mã.
+
+## **Thêm Chữ ký Số vào Bản trình chiếu**
+
+Để ký một quy trình bản trình chiếu thực tế, tải một tệp PPTX hiện có, tạo một [DigitalSignature](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignature/) từ chứng chỉ PFX và mật khẩu của nó, thêm chữ ký vào bộ sưu tập của bản trình chiếu, và lưu dưới dạng tệp PPTX.
 
 ```php
-  # Mở bản trình chiếu
-  $pres = new Presentation("SomePresentationSigned.pptx");
-  try {
-    if (java_values($pres->getDigitalSignatures()->size()) > 0) {
-      $allSignaturesAreValid = true;
-      echo("Signatures used to sign the presentation: ");
-      # Kiểm tra xem tất cả chữ ký số có hợp lệ không
-      foreach($pres->getDigitalSignatures() as $signature) {
-        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
-        $allSignaturesAreValid &= $signature->isValid();
-      }
-      if ($allSignaturesAreValid) {
-        echo("Presentation is genuine, all signatures are valid.");
-      } else {
-        echo("Presentation has been modified since signing.");
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$certificatePassword = getenv("PFX_PASSWORD");
+if ($certificatePassword === false || $certificatePassword === "") {
+    throw new RuntimeException("Set the PFX_PASSWORD environment variable.");
+}
+
+$presentation = new Presentation("InputPresentation.pptx");
+try {
+    $signature = new DigitalSignature("signing-certificate.pfx", $certificatePassword);
+    $signature->setComments("Approved for release.");
+
+    $presentation->getDigitalSignatures()->add($signature);
+    $presentation->save("InputPresentation-signed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Câu hỏi thường gặp**
+Lưu kết quả dưới một tên mới giúp bảo toàn tệp nguồn chưa ký. Giá trị được đặt bằng [DigitalSignature::setComments](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignature/setcomments/) mô tả mục đích của chữ ký; nó không phải là một biện pháp kiểm soát bảo mật.
 
-**Tôi có thể xóa các chữ ký hiện có khỏi tệp không?**
+## **Xác thực Chữ ký Số**
 
-Đúng. Bộ sưu tập chữ ký số hỗ trợ [removing individual items](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignaturecollection/removeat/) và [clearing it entirely](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignaturecollection/clear/) ; sau khi bạn lưu tệp, bản trình chiếu sẽ không còn chữ ký nào.
+Khi bạn tải một tệp PPTX đã ký, kiểm tra mọi mục được trả về bởi [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getDigitalSignatures). Phương thức [DigitalSignature::isValid](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignature/isvalid/) cho biết chữ ký nhúng có hợp lệ cho nội dung bản trình chiếu hiện tại hay không.
 
-**Tệp có trở thành "read-only" sau khi ký không?**
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $signatures = $presentation->getDigitalSignatures();
+    $signatureCount = java_values($signatures->size());
 
-Không. Chữ ký bảo vệ tính toàn vẹn và quyền tác giả nhưng không ngăn chặn việc chỉnh sửa. Để hạn chế chỉnh sửa, kết hợp nó với ["Read-only" or a password](/slides/vi/php-java/password-protected-presentation/).
+    if ($signatureCount === 0) {
+        echo "The presentation does not contain digital signatures." . PHP_EOL;
+    } else {
+        $allSignaturesAreValid = true;
+        $signTimeFormat = new Java("java.text.SimpleDateFormat", "yyyy-MM-dd HH:mm:ss");
+        $certificateFactoryClass = new JavaClass("java.security.cert.CertificateFactory");
+        $certificateFactory = $certificateFactoryClass->getInstance("X.509");
 
-**Chữ ký sẽ hiển thị đúng trong các phiên bản PowerPoint khác nhau không?**
+        for ($index = 0; $index < $signatureCount; $index++) {
+            $signature = $signatures->get_Item($index);
+            $signatureIsValid = java_values($signature->isValid());
+            $signatureStatus = $signatureIsValid ? "VALID" : "INVALID";
+            $formattedSignTime = java_values($signTimeFormat->format($signature->getSignTime()));
 
-Chữ ký được tạo cho container OOXML (PPTX). Các phiên bản PowerPoint hiện đại hỗ trợ chữ ký OOXML sẽ hiển thị trạng thái của các chữ ký này một cách chính xác.
+            $certificateData = $signature->getCertificate();
+            $certificateStream = new Java("java.io.ByteArrayInputStream", $certificateData);
+            try {
+                $certificate = $certificateFactory->generateCertificate($certificateStream);
+                $signerName = java_values($certificate->getSubjectX500Principal()->getName());
+            } finally {
+                $certificateStream->close();
+            }
+
+            echo $signerName . ", " . $formattedSignTime . " -- " . $signatureStatus . PHP_EOL;
+
+            $allSignaturesAreValid = $allSignaturesAreValid && $signatureIsValid;
+        }
+
+        if ($allSignaturesAreValid) {
+            echo "All embedded signatures are valid for the current presentation." . PHP_EOL;
+        } else {
+            echo "At least one embedded signature is invalid." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kết quả không hợp lệ thường có nghĩa là nội dung bản trình chiếu đã ký hoặc dữ liệu chữ ký đã thay đổi sau khi ký, hoặc tệp bị hỏng. Việc loại bỏ mọi chữ ký tạo ra một bản trình chiếu chưa ký, vì vậy chỉ kiểm tra tính hợp lệ của các mục là không đủ: quy trình nhạy cảm với bảo mật còn cần xác minh rằng số lượng chữ ký và danh tính người ký dự kiến đều có mặt.
+
+Kết quả hợp lệ này không nên được coi là quyết định tin cậy hoàn toàn đối với chứng chỉ. Tùy theo chính sách bảo mật của bạn, ứng dụng có thể cần xây dựng và xác thực chuỗi chứng chỉ X.509, kiểm tra ngày hiệu lực và trạng thái thu hồi của chứng chỉ, xác nhận chủ đề hoặc dấu vân tay mong đợi, kiểm tra mục đích sử dụng khóa, và đánh giá dấu thời gian đáng tin cậy. Giá trị [DigitalSignature::getSignTime](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignature/getsigntime/) tự nó không phải là bằng chứng từ một cơ quan dấu thời gian đáng tin.
+
+## **Xóa Chữ ký Số**
+
+Việc xóa chữ ký thay đổi trạng thái bảo mật của bản trình chiếu. Ví dụ dưới đây tải một tệp PPTX đã ký, xóa mọi chữ ký bằng [DigitalSignatureCollection::clear](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignaturecollection/clear/), và lưu một bản sao chưa ký.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $presentation->getDigitalSignatures()->clear();
+    $presentation->save("InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Để xóa chỉ một chữ ký, gọi [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/vi/php-java/aspose.slides/digitalsignaturecollection/removeat/) với chỉ mục bắt đầu từ 0 của nó. Lưu vào tệp mới trừ khi việc ghi đè lên tệp gốc đã ký là một phần rõ ràng của quy trình của bạn.
+
+## **Xem xét về Chỉnh sửa và Định dạng**
+
+- Một chữ ký không làm cho bản trình chiếu chỉ đọc. Người dùng và ứng dụng vẫn có thể chỉnh sửa tệp, nhưng các thay đổi đối với nội dung đã ký thường làm cho chữ ký hiện tại mất hiệu lực.
+- Hoàn thành tất cả các chỉnh sửa dự định trước khi ký. Nếu cần thay đổi bản trình chiếu, lưu bản trình chiếu đã chỉnh sửa và ký lại phiên bản đó.
+- Giữ đầu ra cuối cùng ở định dạng PPTX. Chuyển đổi một bản trình chiếu đã ký sang định dạng khác không chuyển chữ ký PPTX gốc thành một chữ ký hợp lệ cho tệp đã chuyển đổi.
+- Coi khóa riêng của chứng chỉ là thông tin nhạy cảm. Ai có được khóa riêng và mật khẩu của nó có thể tạo chữ ký trông như đến từ chủ sở hữu chứng chỉ đó.
+- Lưu giữ nguồn chưa ký hoặc một bản sao được kiểm soát khác khi chính sách lưu trữ tài liệu của bạn yêu cầu.
+
+## **FAQ**
+
+**Chữ ký số có mã hoá bản trình chiếu không?**
+
+Không. Chữ ký số cung cấp bằng chứng về nguồn gốc và tính toàn vẹn, nhưng nội dung bản trình chiếu vẫn có thể đọc được trừ khi có áp dụng mã hoá riêng. Hãy sử dụng [password protection](/slides/vi/php-java/password-protected-presentation/) khi cần hạn chế quyền truy cập vào nội dung.
+
+**Mật khẩu PFX có giống mật khẩu bản trình chiếu không?**
+
+Không. Mật khẩu PFX mở khóa khóa riêng lưu trong gói chứng chỉ. Nó không kiểm soát ai có thể mở hoặc chỉnh sửa tệp PPTX.
+
+**Tôi có thể dùng chứng chỉ tự ký không?**
+
+Kỹ thuậtally, chứng chỉ tự ký có thể được dùng khi bao gồm một khóa riêng có thể truy cập. Tuy nhiên, người nhận sẽ không tự động tin cậy nó trừ khi chứng chỉ đã được thêm một cách rõ ràng vào môi trường đáng tin của họ. Các quy trình công cộng hoặc đa tổ chức thường dùng chứng chỉ được cấp bởi một CA đáng tin.
+
+**Điều gì khiến một chữ ký không hợp lệ?**
+
+Thay đổi nội dung bản trình chiếu đã ký hoặc dữ liệu chữ ký sau khi ký có thể làm cho chữ ký mất hiệu lực. Hỏng hóc tệp cũng có thể gây thất bại trong việc xác thực. Nếu tất cả chữ ký được xóa, bản trình chiếu trở thành chưa ký chứ không phải chứa một chữ ký không hợp lệ.
+
+**Một chữ ký hợp lệ có nghĩa là tôi nên tin cậy người ký không?**
+
+Không tự động. Tính toàn vẹn của chữ ký và mức độ tin cậy của người ký là hai quyết định riêng biệt. Chính sách xác thực trong môi trường sản xuất nên cũng kiểm tra chuỗi chứng chỉ, thời gian hiệu lực, trạng thái thu hồi, danh tính dự kiến, mục đích sử dụng khóa, và bất kỳ yêu cầu dấu thời gian đáng tin nào.
+
+**Điều gì xảy ra khi chứng chỉ hết hạn?**
+
+Hết hạn chứng chỉ không thay đổi byte của bản trình chiếu, nhưng ảnh hưởng đến việc đánh giá độ tin cậy của chứng chỉ. Việc chữ ký còn chấp nhận được hay không phụ thuộc vào chính sách của bạn và liệu có dấu thời gian đáng tin chứng minh rằng việc ký đã diễn ra khi chứng chỉ vẫn còn hiệu lực. Đừng chỉ dựa vào thời gian ký được hiển thị như một dấu thời gian đáng tin.
+
+**Bản trình chiếu đã ký vẫn có thể được chỉnh sửa không?**
+
+Có. Việc ký không khóa tệp. Chỉnh sửa nội dung đã ký thường làm cho chữ ký hiện tại mất hiệu lực, vì vậy hãy hoàn thiện bản trình chiếu trước và ký phiên bản cuối cùng.
+
+**Một bản trình chiếu có thể chứa hơn một chữ ký không?**
+
+Có. Thêm mỗi chữ ký vào bộ sưu tập trả về bởi [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getDigitalSignatures) trước khi lưu. Khi xác thực, kiểm tra mọi chữ ký và xác nhận rằng tất cả người ký yêu cầu đều có mặt.
+
+**Các định dạng bản trình chiếu nào hỗ trợ các thao tác này?**
+
+Aspose.Slides chỉ hỗ trợ các thao tác chữ ký số mô tả ở đây cho PPTX. Các định dạng PPT và OpenDocument không được API này hỗ trợ.
+
+**Tôi có thể xóa một chữ ký mà không ảnh hưởng tới các slide không?**
+
+Có. Bạn có thể xóa một chữ ký hoặc xóa toàn bộ bộ sưu tập, sau đó lưu bản trình chiếu. Nội dung slide vẫn còn, nhưng tệp đã lưu không còn mang bằng chứng chữ ký đã xóa.

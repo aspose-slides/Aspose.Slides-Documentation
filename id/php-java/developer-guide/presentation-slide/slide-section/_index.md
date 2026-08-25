@@ -10,82 +10,204 @@ keywords:
 - edit bagian
 - ubah bagian
 - nama bagian
+- ambil slide bagian
+- proses slide bagian
 - PowerPoint
-- OpenDocument
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Permudah pengelolaan bagian slide di PowerPoint dan OpenDocument dengan Aspose.Slides untuk PHP via Java — bagi, ganti nama, dan urutkan kembali untuk mengoptimalkan alur kerja PPTX dan ODP."
+description: "Kelola bagian slide dengan Aspose.Slides untuk PHP via Java: buat, ganti nama, ubah urutan, ambil, dan proses slide bagian dalam presentasi PPTX."
 ---
 ## **Pendahuluan**
 
-Dengan Aspose.Slides for PHP via Java, Anda dapat mengatur Presentasi PowerPoint menjadi beberapa bagian. Anda dapat membuat bagian yang berisi slide tertentu.
+Bagian mengatur slide berurutan menjadi grup bernama tanpa mengubah konten slide. Dengan Aspose.Slides untuk PHP via Java, Anda dapat membuat, mengubah urutan, mengganti nama, memeriksa, dan menghapus bagian melalui metode [Presentation::getSections](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation/#getSections).
 
-Anda mungkin ingin membuat bagian dan menggunakannya untuk mengatur atau membagi slide dalam sebuah presentasi menjadi bagian logis dalam situasi berikut:
+Bagian sangat berguna ketika:
 
-- Ketika Anda mengerjakan presentasi besar bersama orang lain atau tim—dan Anda perlu menugaskan slide tertentu kepada rekan atau anggota tim. 
-- Ketika Anda menangani presentasi yang berisi banyak slide—dan Anda kesulitan mengelola atau mengedit isinya sekaligus.
+- presentasi besar perlu dibagi menjadi topik atau bab logis;
+- kelompok slide yang berbeda ditugaskan ke kolaborator yang berbeda;
+- slide perlu diproses, dipindahkan, atau digabungkan sebagai grup.
 
-Idealnya, Anda harus membuat sebuah bagian yang berisi slide serupa—slide tersebut memiliki kesamaan atau dapat dikelompokkan berdasarkan suatu aturan—dan memberi nama bagian yang menggambarkan slide di dalamnya. 
+Pilih nama bagian yang singkat dan menggambarkan tujuan slide yang dikelompokkan. Karena bagian merupakan bagian dari struktur presentasi, gunakan API bagian untuk menentukan keanggotaan alih-alih menurunkannya dari posisi slide.
 
-## **Membuat Bagian dalam Presentasi**
+## **Buat dan Kelola Bagian**
 
-Untuk menambahkan bagian yang akan berisi slide dalam sebuah presentasi, Aspose.Slides for PHP via Java menyediakan metode [addSection()](https://reference.aspose.com/slides/id/php-java/aspose.slides/sectioncollection/#addSection) yang memungkinkan Anda menentukan nama bagian yang ingin dibuat serta slide tempat bagian tersebut dimulai.
+Gunakan [SectionCollection::addSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/#addSection) untuk membuat sebuah bagian dengan menentukan namanya dan slide awal. Aspose.Slides menentukan slide mana yang termasuk dalam bagian dari struktur bagian presentasi saat ini.
 
-Contoh kode berikut menunjukkan cara membuat bagian dalam sebuah presentasi :
+[SectionCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/) yang sama juga memungkinkan Anda:
 
-```php
-  $pres = new Presentation();
-  try {
-    $defaultSlide = $pres->getSlides()->get_Item(0);
-    $newSlide1 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide2 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide3 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide4 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
-    $section2 = $pres->getSections()->addSection("Section 2", $newSlide3);// section1 akan berakhir pada newSlide2 dan setelahnya section2 akan dimulai
+- memindahkan sebuah bagian bersama slide-nya dengan menggunakan [SectionCollection::reorderSectionWithSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/#reorderSectionWithSlides);
+- menghapus hanya definisi bagian dengan [SectionCollection::removeSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/#removeSection), yang mempertahankan slide-nya;
+- menghapus sebuah bagian beserta slide-nya dengan [SectionCollection::removeSectionWithSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/#removeSectionWithSlides);
+- menambahkan bagian kosong di akhir dengan [SectionCollection::appendEmptySection](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/#appendEmptySection).
 
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
-    $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
-    $pres->getSections()->removeSectionWithSlides($section2);
-    $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Mengubah Nama Bagian**
-
-Setelah Anda membuat bagian dalam presentasi PowerPoint, Anda mungkin memutuskan untuk mengubah namanya. 
-
-Contoh kode berikut menunjukkan cara mengubah nama bagian dalam sebuah presentasi menggunakan Aspose.Slides:
+Contoh berikut membuat dua bagian, memindahkan salah satunya, menghapusnya bersama slide-nya, dan menambahkan bagian kosong:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $section = $pres->getSections()->get_Item(0);
-    $section->setName("My section");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $titleSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $resultsSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $titleSlide);
+    $resultsSection = $presentation->getSections()->addSection("Results", $resultsSlide);
+
+    $presentation->getSections()->reorderSectionWithSlides($resultsSection, 0);
+    $presentation->getSections()->removeSectionWithSlides($resultsSection);
+    $presentation->getSections()->appendEmptySection("Appendix");
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Setelah operasi ini, presentasi berisi bagian `Introduction` dengan slide-nya dan bagian `Appendix` kosong. Bagian `Results` dan slide-nya telah dihapus.
+
+## **Ganti Nama Bagian**
+
+Untuk mengganti nama sebuah bagian, panggil metode [Section::setName](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#setName). Slide dan posisi bagian tetap tidak berubah.
+
+Contoh berikut membuat sebuah bagian dan mengubah namanya:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $section = $presentation->getSections()->addSection("Overview", $slide);
+    $section->setName("Introduction");
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Dapatkan Slide dari Bagian**
+
+Metode [Presentation::getSections](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation/#getSections) mengembalikan sebuah [SectionCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/) yang dapat Anda proses berdasarkan indeks. Untuk setiap [Section](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/), panggil [Section::getSlidesListOfSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getSlidesListOfSection) untuk memperoleh slide yang saat ini termasuk di dalamnya. Metode ini mengembalikan sebuah [SectionSlideCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionSlideCollection/), yang menyediakan jumlah dan akses berdasarkan indeks.
+
+Contoh berikut membuat dua bagian terisi dan satu bagian kosong, kemudian mencetak setiap [nama](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getName), [identifier](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getSectionId), [slide awal](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getStartedFromSlide), jumlah slide, dan nomor slide untuk setiap bagian. Ia menggunakan [SectionCollection::get_Item](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionCollection/#get_Item) dan [SectionSlideCollection::get_Item](https://reference.aspose.com/slides/id/php-java/aspose.slides/SectionSlideCollection/#get_Item) untuk akses berindeks. Untuk bagian kosong, koleksi yang dikembalikan berukuran nol dan `get_Item` tidak dipanggil.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $firstSlide);
+    $presentation->getSections()->addSection("Details", $thirdSlide);
+    $presentation->getSections()->appendEmptySection("Appendix");
+
+    $sections = $presentation->getSections();
+    $sectionCount = java_values($sections->size());
+    for ($sectionIndex = 0; $sectionIndex < $sectionCount; $sectionIndex++) {
+        $section = $sections->get_Item($sectionIndex);
+        $sectionSlides = $section->getSlidesListOfSection();
+        $startingSlide = java_is_null($section->getStartedFromSlide()) ? "none" : java_values($section->getStartedFromSlide()->getSlideNumber());
+        $slideCount = java_values($sectionSlides->size());
+
+        echo "Section: " . java_values($section->getName()) . PHP_EOL;
+        echo "ID: " . java_values($section->getSectionId()) . PHP_EOL;
+        echo "Starting slide: " . $startingSlide . PHP_EOL;
+        echo "Slide count: " . $slideCount . PHP_EOL;
+
+        if ($slideCount > 0) {
+            echo "First slide via get_Item: " . java_values($sectionSlides->get_Item(0)->getSlideNumber()) . PHP_EOL;
+        }
+
+        echo "Slide numbers:";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Keanggotaan bagian ditentukan oleh struktur bagian presentasi. Jangan menghitung rentang bagian secara manual dari [Section::getStartedFromSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getStartedFromSlide), indeks slide, dan slide awal bagian berikutnya.
+
+Suntingan struktural dapat mengubah baik slide yang dikembalikan untuk sebuah bagian maupun nomor slide mereka. Ini termasuk mengubah urutan slide, mengkloning slide ke dalam sebuah bagian, memindahkan sebuah bagian bersama slide-nya, menghapus slide, dan menghapus bagian. Contoh berikut memanggil [Section::getSlidesListOfSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getSlidesListOfSection) setelah setiap perubahan tersebut alih-alih mempertahankan asumsi tentang batas sebelumnya.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $firstSection = $presentation->getSections()->addSection("First", $firstSlide);
+    $secondSection = $presentation->getSections()->addSection("Second", $thirdSlide);
+
+    $printSectionSlides = function ($label, $section) {
+        $sectionSlides = $section->getSlidesListOfSection();
+        $slideCount = java_values($sectionSlides->size());
+        echo $label . " (" . $slideCount . " slides):";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    };
+
+    $printSectionSlides("Initially", $firstSection);
+
+    $slidesBeforeClone = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->addClone($slidesBeforeClone->get_Item(0), $firstSection);
+    $printSectionSlides("After cloning into the section", $firstSection);
+
+    $slidesBeforeReorder = $firstSection->getSlidesListOfSection();
+    $firstSectionPosition = java_values($slidesBeforeReorder->get_Item(0)->getSlideNumber()) - 1;
+    $lastSlideIndex = java_values($slidesBeforeReorder->size()) - 1;
+    $presentation->getSlides()->reorder($firstSectionPosition, $slidesBeforeReorder->get_Item($lastSlideIndex));
+    $printSectionSlides("After reordering slides", $firstSection);
+
+    $presentation->getSections()->reorderSectionWithSlides($firstSection, 1);
+    $printSectionSlides("After moving the section", $firstSection);
+
+    $slidesBeforeRemoval = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->remove($slidesBeforeRemoval->get_Item(0));
+    $printSectionSlides("After removing a slide", $firstSection);
+
+    $presentation->getSections()->removeSectionWithSlides($secondSection);
+    $remainingSections = $presentation->getSections();
+    $remainingSectionCount = java_values($remainingSections->size());
+    for ($sectionIndex = 0; $sectionIndex < $remainingSectionCount; $sectionIndex++) {
+        $section = $remainingSections->get_Item($sectionIndex);
+        $printSectionSlides("Remaining section", $section);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Panggil kembali [Section::getSlidesListOfSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getSlidesListOfSection) setiap kali slide atau bagian diubah urutannya, dikloning, dipindahkan, atau dihapus. Ini menjaga pemrosesan selanjutnya selaras dengan struktur presentasi saat ini.
+
+Format PPT (PowerPoint 97–2003) tidak mempertahankan metadata bagian. Gunakan alur kerja ini dengan format yang mendukung bagian, seperti PPTX; mengonversi ke PPT menghapus struktur bagian yang diperlukan untuk iterasi selanjutnya.
 
 ## **FAQ**
 
-**Apakah bagian tetap dipertahankan saat disimpan ke format PPT (PowerPoint 97–2003)?**
+**Apakah bagian dipertahankan saat menyimpan ke format PPT (PowerPoint 97–2003)?**
 
 Tidak. Format PPT tidak mendukung metadata bagian, sehingga pengelompokan bagian hilang saat disimpan ke .ppt.
 
-**Apakah seluruh bagian dapat disembunyikan?**
+**Apakah seluruh bagian dapat "disembunyikan"?**
 
-Tidak. Hanya slide individu yang dapat disembunyikan. Sebuah bagian sebagai entitas tidak memiliki status “tersembunyi”.
+Tidak. Sebuah bagian tidak memiliki status visibilitas. Untuk menyembunyikan isinya, panggil [Slide::setHidden](https://reference.aspose.com/slides/id/php-java/aspose.slides/Slide/#setHidden) untuk setiap slide dalam bagian tersebut.
 
-**Apakah saya dapat dengan cepat menemukan sebuah bagian berdasarkan slide, dan sebaliknya, menemukan slide pertama dari sebuah bagian?**
+**Bagaimana saya dapat menemukan bagian yang berisi sebuah slide?**
 
-Ya. Sebuah bagian didefinisikan secara unik oleh slide pembukanya; dengan sebuah slide Anda dapat menentukan bagian mana yang dimilikinya, dan untuk sebuah bagian Anda dapat mengakses slide pertamanya.
+Loop melalui koleksi yang dikembalikan oleh [Presentation::getSections](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation/#getSections), panggil [Section::getSlidesListOfSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getSlidesListOfSection) untuk setiap bagian, dan bandingkan slide yang dikembalikan dengan slide target. Untuk bagian yang tidak kosong, [Section::getStartedFromSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/Section/#getStartedFromSlide) mengembalikan slide pertamanya; untuk bagian kosong, ia mengembalikan `null`.

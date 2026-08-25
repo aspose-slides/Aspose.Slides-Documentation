@@ -1,5 +1,5 @@
 ---
-title: Python'da PowerPoint Sunum Temalarını Yönetin
+title: Python'da PowerPoint Sunum Temalarını Yönetme
 linktitle: Sunum Teması
 type: docs
 weight: 10
@@ -17,24 +17,50 @@ keywords:
 - tema stili
 - tema efekti
 - PowerPoint
+- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile tutarlı markalaşma sağlayarak PowerPoint dosyalarını oluşturmak, özelleştirmek ve dönüştürmek için ana sunum temalarını yönetin."
+description: "Aspose.Slides for Python via .NET ile tutarlı marka kimliğiyle PowerPoint dosyaları oluşturmak, özelleştirmek ve dönüştürmek için ana sunum temalarını yönetin."
 ---
 ## **Giriş**
 
-Bir sunum teması, tasarım öğelerinin özelliklerini tanımlar. Bir tema seçtiğinizde, görsel öğeler ve bunların özelliklerinden oluşan koordineli bir set seçmiş olursunuz.
+Bir sunum teması, renkler, yazı tipleri, arka plan stilleri, doldurmalar, çizgiler ve efektlerden oluşan koordineli bir set tanımlar. Tema farkındalığına sahip nesneler, her görsel özelliği sabit bir değer olarak depolamak yerine bu ortak tanımları referans alır, böylece bir tema değişikliği bir seferde birçok nesneyi güncelleyebilir.
 
-PowerPoint'te bir tema, renkler, [yazı tipleri](/slides/tr/python-net/powerpoint-fonts/), [arka plan stilleri](/slides/tr/python-net/presentation-background/), ve efektleri içerir.
+Aspose.Slides'te, sunum düzeyindeki tema, [Presentation.master_theme](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/master_theme/) özelliğiyle kullanılabilir. Bir sunum ayrıca alt seviyelerde tema geçersiz kılmaları içerebilir. Bir master, [MasterThemeManager.override_theme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/masterthememanager/override_theme/) aracılığıyla sunum temasını geçersiz kılabilir, bir düzen, [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/) aracılığıyla kalıtılan temasını geçersiz kılabilir ve bireysel bir slayt da aynı şeyi yapabilir. Pratikte, bir slayt için etkili tema, şu kalıtım zinciri üzerinden çözülür: sunum teması, master geçersiz kılma, düzen geçersiz kılma ve slayt geçersiz kılma.
 
-![tema-bileşenleri](theme-constituents.png)
+![Tema bileşenleri: renkler, yazı tipleri, arka plan stilleri ve efektler](theme-constituents.png)
 
-## **Temanın Rengini Değiştir**
+Aşağıdaki bölümler en yaygın tema iş akışlarını gösterir: bir temayı inceleme, renk ve yazı tiplerini değiştirme, bir temayı kopyalama veya uygulama, arka plan ve efekt stillerini güncelleme ve kalıtım ve geçersiz kılmalar çözüldükten sonra etkili değerleri okuma.
 
-PowerPoint teması, bir slayttaki farklı öğeler için belirli bir renk seti kullanır. Varsayılanları beğenmezseniz, yeni tema renkleri uygulayarak değiştirebilirsiniz. Yeni bir tema rengi seçmenize olanak tanımak için Aspose.Slides, [SchemeColor](https://reference.aspose.com/slides/tr/python-net/aspose.slides/schemecolor/) adlı dizideki değerleri sağlar.
+## **Temayı İnceleme**
 
-Bu Python kodu, bir temanın vurgu rengini nasıl değiştireceğinizi gösterir:
+[MasterTheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/mastertheme/) nesnesi, temanın [color_scheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/mastertheme/font_scheme/) ve [format_scheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/mastertheme/format_scheme/) özelliklerini ortaya çıkarır. Bu koleksiyonları değiştirmeden önce incelemek, sunum dış bir kaynaktan geldiğinde stil girişlerinin sayısı ve içeriği değişebileceği için özellikle faydalıdır.
+
+Aşağıdaki örnek, ana tema özelliklerini okur ve temada kaç adet arka plan, doldurma, çizgi ve efekt stilinin depolandığını raporlar:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    theme = presentation.master_theme
+    print(f"Theme name: {theme.name}")
+    print(f"Accent 1: {theme.color_scheme.accent1.color}")
+    print(f"Major Latin font: {theme.font_scheme.major.latin_font.font_name}")
+    print(f"Minor Latin font: {theme.font_scheme.minor.latin_font.font_name}")
+    print(f"Background fill styles: {len(theme.format_scheme.background_fill_styles)}")
+    print(f"Fill styles: {len(theme.format_scheme.fill_styles)}")
+    print(f"Line styles: {len(theme.format_scheme.line_styles)}")
+    print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
+```
+
+Bir dosya birden çok master kullanıyorsa, her slaytın aynı etkili temaya sahip olduğunu varsamamalısınız. Slaytla ilişkili masterı inceleyin ve düzen ya da slayt geçersiz kılmaları mevcut olduğunda bu makalenin ilerleyen kısmında gösterilen etkili tema iş akışını kullanın.
+
+## **Tema Renklerini Değiştirme**
+
+Tema farkındalığına sahip doldurmalar, çizgiler ve metin, [SchemeColor](https://reference.aspose.com/slides/tr/python-net/aspose.slides/schemecolor/) enum'undan mantıksal bir renge başvurabilir. Tema'nın [ColorScheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/colorscheme/) içindeki ilgili girdiyi değiştirdiğinizde, hâlâ o tema rengini referans eden tüm nesneler yeni değere göre çözümlenir. Doğrudan bir RGB rengi kullanan nesneler, tema rengi güncellemesinden etkilenmez.
+
+Aşağıdaki uçtan uca örnek, `ACCENT4` kullanan bir şekil oluşturur, temanın `accent4` rengini kırmızıya değiştirir, sunumu kaydeder, yeniden açar ve etkili doldurma rengini yazdırır:
 
 ```python
 import aspose.pydrawing as draw
@@ -42,217 +68,274 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    presentation.master_theme.color_scheme.accent4.color = draw.Color.red
+    presentation.save("theme-color.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("theme-color.pptx") as saved_presentation:
+    saved_slide = saved_presentation.slides[0]
+    saved_shape = saved_slide.shapes[0]
+    effective_fill = saved_shape.fill_format.get_effective()
+    print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Aşağıdaki gibi elde edilen rengin etkili değerini belirleyebilirsiniz:
+Dikdörtgen `ACCENT4` ile bağlı kaldığı için tema değiştirildiğinde görünen rengi kırmızı olur. Şekildeki şema rengini doğrudan bir renkle değiştirirseniz, sonraki `accent4` değişiklikleri artık o doldurmayı etkilemez.
 
-```python
-fill_effective = shape.fill_format.get_effective()
-print("{0} ({1})".format(fill_effective.solid_fill_color.name, fill_effective.solid_fill_color))
+### **Ek Paletten Renkleri Kullanma**
 
-# Örnek çıktı:
-#
-# ff8064a2 (Renk [A=255, R=128, G=100, B=162])
-```
+PowerPoint, bir tema renginden daha açık ve daha koyu varyantlar türetmek için renk dönüşümleri uygular. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/colortransformoperation/) enum'ı aracılığıyla sunar.
 
-Renk değişimini daha iyi göstermek için başka bir öğe oluşturup, başlangıç adımındaki vurgu rengini atıyoruz ve ardından tema rengini güncelliyoruz:
+![Ana tema renkleri ve ek paletten oluşturulan daha açık ve daha koyu renkler](additional-palette-colors.png)
 
-```python
-other_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
-other_shape.fill_format.fill_type = slides.FillType.SOLID
-other_shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+**1** - Ana tema renkleri.
 
-presentation.master_theme.color_scheme.accent4.color = draw.Color.red
-```
+**2** - Ana tema renklerinden üretilen daha açık ve daha koyu varyantlar.
 
-Yeni renk otomatik olarak her iki öğeye de uygulanır.
-
-### **Ek Paletten Bir Tema Rengi Ayarla**
-
-Ana tema rengine (1) parlaklık dönüşümleri uygulandığında, ek paletten (2) renkler üretilir. Bu tema renklerini daha sonra ayarlayıp alabilirsiniz.
-
-![ek-palet-renkleri](additional-palette-colors.png)
-
-**1** — Ana tema renkleri
-
-**2** — Ek paletten renkler
-
-Bu Python kodu, ek palet renklerinin ana tema renginden nasıl türetildiğini ve şekillerde nasıl kullanıldığını gösterir:
+Aşağıdaki örnek, `ACCENT4` temelinde altı dikdörtgen oluşturur, beşine parlaklık dönüşümleri uygular ve sonucu kaydeder:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-
-    # Vurgu 4
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 50, 50)
-
     shape1.fill_format.fill_type = slides.FillType.SOLID
     shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
-
-    # Vurgu 4, %80 Daha Açık
     shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
-
     shape2.fill_format.fill_type = slides.FillType.SOLID
     shape2.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
-
-    # Vurgu 4, %60 Daha Açık
     shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
-
     shape3.fill_format.fill_type = slides.FillType.SOLID
     shape3.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
-
-    # Vurgu 4, %40 Daha Açık
     shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
-
     shape4.fill_format.fill_type = slides.FillType.SOLID
     shape4.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.6)
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.4)
-
-    # Vurgu 4, %25 Daha Koyu
     shape5 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 250, 50, 50)
-
     shape5.fill_format.fill_type = slides.FillType.SOLID
     shape5.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape5.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.75)
-
-    # Vurgu 4, %50 Daha Koyu
     shape6 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 50, 50)
-
     shape6.fill_format.fill_type = slides.FillType.SOLID
     shape6.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape6.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.5)
-
-    presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **`SchemeColor`ı `ColorScheme` Renklerine Eşleştir**
+Bu varyantlar tema rengine dayanır. `accent4` daha sonra değişirse, dönüştürülmüş renkler yeni `accent4` değerinden yeniden hesaplanır.
 
-[SchemeColor](https://reference.aspose.com/slides/tr/python-net/aspose.slides/schemecolor/) ile çalışırken aşağıdaki tema rengi değerlerini içerdiğini görebilirsiniz:
+### **`SchemeColor` Değerlerini `ColorScheme` Yuvalarına Haritalama**
 
-`BACKGROUND1`, `BACKGROUND2`, `TEXT1` ve `TEXT2`.
-
-Ancak `Presentation.master_theme.color_scheme` [ColorScheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/colorscheme/) döndürür; bu da ilgili renkleri şu şekilde sunar:
-
-`dark1`, `dark2`, `light1` ve `light2`.
-
-Bu fark yalnızca isimlendirmededir. Bu değerler aynı tema rengi yuvalarına karşılık gelir ve eşleme sabittir:
+[SchemeColor](https://reference.aspose.com/slides/tr/python-net/aspose.slides/schemecolor/) enum'ı `TEXT1`, `BACKGROUND1`, `TEXT2` ve `BACKGROUND2` kullanırken, [ColorScheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/colorscheme/) aynı tema yuvalarını `dark1`, `light1`, `dark2` ve `light2` olarak ortaya koyar. Eşleme sabittir:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-`TEXT`/`BACKGROUND` ile `dark`/`light` arasında dinamik bir dönüşüm yoktur. Aynı tema renklerinin alternatif adlarıdır.
+Bunlar aynı tema yuvalarının alternatif adlarıdır; bir formdan diğerine dinamik olarak dönüştürülen değerler değildir.
 
-Bu isim farklılığı Microsoft Office terminolojisinden gelir. Eski Office sürümleri `Dark 1`, `Light 1`, `Dark 2` ve `Light 2` kullanırken, yeni UI sürümleri aynı yuvaları `Text 1`, `Background 1`, `Text 2` ve `Background 2` olarak gösterir.
+## **Tema Yazı Tiplerini Değiştirme**
 
-## **Temanın Yazı Tipini Değiştir**
+Bir tema yazı tipi şeması, başlıklar için ana bir yazı tipi seti ve gövde metni için ikincil bir yazı tipi seti içerir. [FontScheme.major](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/fontscheme/major/) ve [FontScheme.minor](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/fontscheme/minor/) özellikleri bu setleri ortaya çıkarır.
 
-Tema ve diğer amaçlar için yazı tipleri seçmenizi sağlamak amacıyla Aspose.Slides, PowerPoint'teki özel tanımlayıcılara benzer şu tanımlayıcıları kullanır:
+PowerPoint uyumlu tema yazı tipi tanımlayıcıları metin biçimlendirmesinde kullanılabilir:
 
-- **+mn-lt** — Gövde Yazı Tipi Latin (Minor Latin Font)
-- **+mj-lt** — Başlık Yazı Tipi Latin (Major Latin Font)
-- **+mn-ea** — Gövde Yazı Tipi Doğu Asya (Minor East Asian Font)
-- **+mj-ea** — Başlık Yazı Tipi Doğu Asya (Major East Asian Font)
+* `+mn-lt` - Gövde Yazı Tipi Latin (Küçük Latin Yazı Tipi)
+* `+mj-lt` - Başlık Yazı Tipi Latin (Büyük Latin Yazı Tipi)
+* `+mn-ea` - Gövde Yazı Tipi Doğu Asya (Küçük Doğu Asya Yazı Tipi)
+* `+mj-ea` - Başlık Yazı Tipi Doğu Asya (Büyük Doğu Asya Yazı Tipi)
 
-Bu Python kodu, Latin yazı tipini bir tema öğesine nasıl atayacağınızı gösterir:
-
-```python
-portion = slides.Portion("Theme text format")
-portion.portion_format.latin_font = slides.FontData("+mn-lt")
-
-paragraph = slides.Paragraph()
-paragraph.portions.add(portion)
-
-shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-shape.text_frame.paragraphs.add(paragraph)
-```
-
-Bu Python örneği, sunumun tema yazı tipini nasıl değiştireceğinizi gösterir:
+Aşağıdaki örnek, ana Latin tema yazı tipini kullanan bir başlık ve ikincil Latin tema yazı tipini kullanan bir gövde satırı oluşturur. Ardından tema yazı tiplerini değiştirir ve sonucu kaydeder:
 
 ```python
-presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
-```
+import aspose.slides as slides
 
-Tüm metin kutuları yeni yazı tipine güncellenir.
-
-{{% alert color="primary" title="TIP" %}}
-Daha fazla bilgi için [Master PowerPoint Fonts with Python](/slides/tr/python-net/powerpoint-fonts/) bölümüne bakın.
-{{% /alert %}}
-
-## **Temanın Arka Plan Stilini Değiştir**
-
-Varsayılan olarak PowerPoint 12 önceden tanımlı arka plan sunar, ancak tipik bir sunum yalnızca 3 tanesini depolar.
-
-![todo:image_alt_text](presentation-design_8.png)
-
-Örneğin, ardından bir sunumu PowerPoint’te kaydettikten sonra, içinde kaç önceden tanımlı arka plan bulunduğunu belirlemek için aşağıdaki Python kodunu çalıştırabilirsiniz:
-
-```python
 with slides.Presentation() as presentation:
-    number_of_background_fills = len(presentation.master_theme.format_scheme.background_fill_styles)
-    print(f"Number of theme background fill styles: {number_of_background_fills}")
+    slide = presentation.slides[0]
+    heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 500, 60)
+    heading.text_frame.text = "Theme heading"
+    heading.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mj-lt")
+    body = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 120, 500, 60)
+    body.text_frame.text = "Theme body text"
+    body.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mn-lt")
+    presentation.master_theme.font_scheme.major.latin_font = slides.FontData("Aptos Display")
+    presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
+    presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" %}}
-[FormatScheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/formatscheme/) sınıfının `background_fill_styles` özelliğini kullanarak bir PowerPoint temasına arka plan stilleri ekleyebilir veya erişebilirsiniz.
+Başlık ana yazı tipini, gövde metni ise ikincil yazı tipini izler. Tema kimliği yerine doğrudan bir yazı tipi adı kullanılmış bir metin, tema yazı tipi şeması değiştiğinde otomatik olarak değişmez.
+
+Ana ve ikincil yazı tipi koleksiyonları ayrıca Kiril, Arapça, Japonca, Gürcüce ve Thaana gibi bireysel yazı sistemleri için yazı tipi eşleştirmeleri içerebilir. Bu eşleştirmeleri incelemek, eklemek, değiştirmek veya kaldırmak için [Script-Specific Theme Fonts](/slides/tr/python-net/script-specific-font-mappings/) bölümüne bakın.
+
+{{% alert color="info" title="Tip" %}}
+Sunum yazı tipleri hakkında daha fazla bilgi için [PowerPoint Fonts](/slides/tr/python-net/powerpoint-fonts/) sayfasına bakabilirsiniz.
 {{% /alert %}}
 
-Bu Python örneği, sunum arka planını nasıl ayarlayacağınızı gösterir:
+## **Tema Kopyalama veya Uygulama**
+
+İki yaygın iş akışı vardır ve farklı sorunları çözerler.
+
+### **Kaynak Temayı Slaytları Taşırken Korumak**
+
+Bir slaytı başka bir sunuma taşımak ve orijinal tasarımını korumak istiyorsanız, kaynak masterı [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslidecollection/add_clone/) ile hedef sunuma klonlayın, ardından [SlideCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) ve klonlanmış master ile slaytı klonlayın. Bu, master, düzenleri ve ilişkili temayı birlikte taşır.
 
 ```python
-presentation.masters[0].background.style_index = 2  # 0, doldurma olmadığını gösterir; indeksleme 1'den başlar.
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        source_slide = source.slides[0]
+        source_master = source_slide.layout_slide.master_slide
+        cloned_master = target.masters.add_clone(source_master)
+        target.slides.add_clone(source_slide, cloned_master, True)
+        target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="TIP" %}}
-Daha fazla bilgi için [Manage Presentation Backgrounds in Python](/slides/tr/python-net/presentation-background/) bölümüne bakın.
+Bu, kaynak slaytın hedefte aynı şekilde görünmesi gerektiğinde tercih edilen iş akışıdır. İçeriği alakasız bir hedef master üzerine klonlamak, tema odaklı renkleri, yazı tiplerini, arka planları ve efektleri değiştirebilir.
+
+### **Mevcut Bir Slayta Tema Değerlerini Uygulama**
+
+Hedef slayt mevcut master ve düzeninde kalmalıysa, kaynak temadan bir slayt düzeyi geçersiz kılma başlatın. [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) ve [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) yöntemleri üç ana tema bileşenini geçersiz kılamaya kopyalar.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        target_slide = target.slides[0]
+        override_theme = target_slide.theme_manager.override_theme
+        override_theme.init_color_scheme_from(source.master_theme.color_scheme)
+        override_theme.init_font_scheme_from(source.master_theme.font_scheme)
+        override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+        target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Bu, diğer slaytların kalıtıldığı temayı değiştirmeden o slaytın kullandığı temayı değiştirir. Yerel geçersiz kılmayı kaldırmak ve kalıtılan değerlere dönmek için [OverrideTheme.clear](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/overridetheme/clear/) yöntemini çağırın.
+
+### **Bir Düzene Tema Geçersiz Kılmasını Uygulama**
+
+Düzen düzeyinde bir geçersiz kılma, o düzeni kullanan slaytlara uygulanır; yalnızca belirli bir slayt kendi geçersiz kılamasını yapmadıysa. Aynı başlatma yöntemleri, düzenin [LayoutSlideThemeManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/layoutslidethememanager/) aracılığıyla kullanılabilir:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        target_slide = target.slides[0]
+        override_theme = target_slide.layout_slide.theme_manager.override_theme
+        override_theme.init_color_scheme_from(source.master_theme.color_scheme)
+        override_theme.init_font_scheme_from(source.master_theme.font_scheme)
+        override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+        target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Birçok düzen ve slayt aynı temel tasarımı paylaşmalıysa master veya sunum düzeyinde tema kullanın, bir düzen ailesi farklı stil gerektiriyorsa düzen geçersiz kılması ve yalnızca gerçek istisnalar için slayt geçersiz kılması kullanın. Aşırı slayt düzeyi geçersiz kılmalar, daha sonraki global tema değişikliklerini tahmin etmeyi zorlaştırır.
+
+## **Tema Arka Plan Stillerini Güncelleme**
+
+Temanın arka plan doldurmaları, [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/formatscheme/background_fill_styles/) içinde depolanır. PowerPoint, UI'da temanın doldurmalarını tema renkleri ve diğer stil referanslarıyla birleştirerek, bu koleksiyonda fiziksel olarak depolanan doldurma tanımlarından daha fazla arka plan seçeneği sunabilir.
+
+![PowerPoint arka plan stil galerisinin bir sunum teması için gösterimi](presentation-design_8.png)
+
+Bir arka plan stili kullanmadan önce, depolanmış koleksiyonu ve mevcut [Background.style_index](https://reference.aspose.com/slides/tr/python-net/aspose.slides/background/style_index/) değerini inceleyin. `style_index` temalı doldurma yoksa `0` kullanır; pozitif değerler tema arka plan stil referanslarıdır. Bu, Python koleksiyonunu doğrudan indekslemede `[0]` ilk öğeyi gösterir anlamından farklıdır. Her sunumun aynı sayıda arka plan doldurma stiline sahip olduğunu varsamamalısınız.
+
+Aşağıdaki örnek, kullanılabilir arka plan doldurma sayısını raporlar, ilk mastera temalı bir arka plan referansı atar ve sunumu kaydeder:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    background_styles = presentation.master_theme.format_scheme.background_fill_styles
+    print(f"Background fill styles: {len(background_styles)}")
+    if len(background_styles) == 0:
+        raise RuntimeError("The presentation theme does not contain background fill styles.")
+    master_slide = presentation.masters[0]
+    master_slide.background.type = slides.BackgroundType.THEMED
+    master_slide.background.style_index = 1
+    presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Görünür sonuç, master tarafından referans edilen tema girdisine ve düzen ya da slayt düzeyindeki herhangi bir arka plan geçersiz kılmasına bağlıdır. Sadece master arka planını değiştirirseniz, kendi arka planını kullanan bir slayt etkilenmeyebilir. Kalıtım uygulandıktan sonra nihai arka planı öğrenmek için [Background.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/background/get_effective/) kullanın.
+
+{{% alert color="warning" title="Uyarı" %}}
+`style_index` değerini sıfır tabanlı bir koleksiyon indeksi olarak ele almayın. Ayrıca bir dosyadan sabit bir stil numarası kodlayıp başka bir dosyada aynı görünüme sahip olduğunu varsamaktan kaçının; tema stil tanımları sunuma özeldir.
 {{% /alert %}}
 
-## **Temanın Efektlerini Değiştir**
+{{% alert color="info" title="Tip" %}}
+Doğrudan arka plan biçimlendirme ve arka plan kalıtımı için [Presentation Background](/slides/tr/python-net/presentation-background/) sayfasına bakın.
+{{% /alert %}}
 
-PowerPoint teması genellikle her stil dizisinde üç değer içerir. Bu diziler, ince, orta ve yoğun olmak üzere üç efekt seviyesine birleşir. Örneğin, bu efektler belirli bir şekle uygulandığında ortaya çıkan sonuç şöyledir:
+## **Tema Efektlerini Güncelleme**
 
-![todo:image_alt_text](presentation-design_10.png)
+Bir tema format şeması, ayrı ayrı [FormatScheme.fill_styles](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/formatscheme/line_styles/) ve [FormatScheme.effect_styles](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/formatscheme/effect_styles/) koleksiyonları içerir. Tipik Office temaları, görsel olarak ince, orta ve yoğun biçimlendirmelere karşılık gelen üç temel stil girdisi içerir, ancak kod her koleksiyonu incelemeli, sabit bir sayı varsaymamalıdır.
 
-[FormatScheme](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/formatscheme/) sınıfının `FillStyles`, `LineStyles` ve `EffectStyles` adlı üç özelliğini kullanarak tema öğelerini (PowerPoint’teki kadar esnek olmayan) değiştirebilirsiniz.
+![Aynı şekle uygulanan ince, orta ve yoğun tema efektleri](presentation-design_10.png)
 
-Bu Python kodu, tema etkisini bu öğelerin bölümlerini değiştirerek nasıl değiştireceğinizi gösterir:
+Python'da bu koleksiyonlara eriştiğinizde, koleksiyon indeksi sıfır tabanlıdır: `[0]` ilk depolanmış stil, `[2]` üçüncü stildir. Bir şeklin stil referans indeksleri ayrı bir kavramdır ve [IShapeStyle](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ishapestyle/) aracılığıyla ortaya çıkar. Bir tema stilini değiştirmek, o tema stilini referans eden şekilleri etkiler; doğrudan biçimlendirilmiş şekiller değişmeden kalabilir.
+
+Aşağıdaki örnek, gerekli stil girişlerinin varlığını kontrol eder, ilk çizgi stilini değiştirir, üçüncü doldurma stilini değiştirir, üçüncü efekt stilinde dış gölgeyi etkinleştirir ve sonucu kaydeder:
 
 ```python
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
-    presentation.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
-    presentation.master_theme.format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
-    presentation.master_theme.format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
+    format_scheme = presentation.master_theme.format_scheme
+    if len(format_scheme.line_styles) < 1 or len(format_scheme.fill_styles) < 3 or len(format_scheme.effect_styles) < 3:
+        raise RuntimeError("The theme does not contain the style entries required by this example.")
+    format_scheme.line_styles[0].fill_format.fill_type = slides.FillType.SOLID
+    format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
+    format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
+    format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
+    format_scheme.effect_styles[2].effect_format.enable_outer_shadow_effect()
+    format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+    presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sonuçtaki değişiklikler, dolgu rengi, dolgu tipi, gölge efekti ve diğer özelliklerdeki güncellemeleri içerir:
+Bu yuvalara referans veren şekillerde, ilk tema çizgi stili kırmızı, üçüncü tema doldurma stili katı orman yeşili ve üçüncü efekt stili 10 puan uzaklıkta bir dış gölge kazanır. Kesin görsel sonuç, her şeklin hangi stil yuvasına referans verdiğine ve doğrudan biçimlendirmenin temayı geçersiz kılıp kılmadığına bağlıdır.
 
-![todo:image_alt_text](presentation-design_11.png)
+![Çizgi, doldurma ve gölge ayarları değiştirildikten sonra tema efekt stilleri](presentation-design_11.png)
+
+## **Etkili Tema Değerlerini Okuma**
+
+Ham tema nesneleri, belirli bir seviyede neyin tanımlandığını gösterir. Etkili değerler, kalıtım ve yerel geçersiz kılmalar çözüldükten sonra bir slayt veya şeklin gerçekte ne kullandığını söyler. Bir slayt için [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) çağırın. Bir arka plan için [Background.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/background/get_effective/) ve bir doldurma için [FillFormat.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fillformat/get_effective/) kullanın.
+
+Aşağıdaki örnek, bir slayttan etkili temayı, arka planı ve ilk şekil doldurmasını okur:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    effective_theme = slide.theme_manager.create_theme_effective()
+    effective_background = slide.background.get_effective()
+    print(f"Effective major Latin font: {effective_theme.font_scheme.major.latin_font.font_name}")
+    print(f"Effective minor Latin font: {effective_theme.font_scheme.minor.latin_font.font_name}")
+    print(f"Effective background fill type: {effective_background.fill_format.fill_type}")
+    if len(slide.shapes) > 0:
+        effective_fill = slide.shapes[0].fill_format.get_effective()
+        print(f"First shape effective fill type: {effective_fill.fill_type}")
+        if effective_fill.fill_type == slides.FillType.SOLID:
+            print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
+```
+
+Render tanılamaları, doğrulama ve karşılaştırmalar için etkili verileri kullanın. Yalnızca [Presentation.master_theme](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/master_theme/) incelerseniz, final görünümeyi değiştiren bir master, düzen, slayt veya şekil geçersiz kılmasını kaçırabilirsiniz.
 
 ## **SSS**
 
-**Bir temayı, master'ı değiştirmeden tek bir slayta uygulayabilir miyim?**
+**Bir temayı master'ı değiştirmeden tek bir slayta uygulayabilir miyim?**  
+Evet. Slaytın [SlideThemeManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/slidethememanager/) kullanın ve geçersiz tema başlatın. Değişiklik yalnızca o slayta uygulanır; diğer slaytlar mevcut temalarını kalıtım yoluyla almaya devam eder.
 
-Evet. Aspose.Slides, slayt düzeyinde tema geçersiz kılmalarını destekler; böylece sadece o slayta yerel bir tema uygulayabilir, master temayı bozmadan ( [SlideThemeManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/slidethememanager/) aracılığıyla) bırakabilirsiniz.
+**Bir temayı bir sunumdan diğerine taşımanın en güvenli yolu nedir?**  
+Slaytı taşırken ve kaynak görünümünü korurken, kaynak masterı hedefteki master koleksiyonuna [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslidecollection/add_clone/) ile klonlayın ve ardından slaytı aynı master ile [SlideCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/add_clone/) kullanarak klonlayın. Bu, master, düzenler ve temayı birlikte tutar.
 
-**Bir temayı bir sunumdan diğerine en güvenli şekilde nasıl taşıyabilirim?**
-
-[Slide'ları klonlayarak](/slides/tr/python-net/clone-slides/) master'larıyla birlikte hedef sunuma taşıyın. Bu, orijinal master, düzenler ve ilişkili temayı korur, böylece görünüm tutarlı kalır.
-
-**Tüm kalıtım ve geçersiz kılmalar sonrasında “etkili” değerleri nasıl görebilirim?**
-
-Tema/rengi/yazı tipi/efekti için API’nin ["etkili" görünümlerini](/slides/tr/python-net/shape-effective-properties/) kullanın. Bu, master ve yerel geçersiz kılmalar uygulandıktan sonra çözümlenmiş son özellikleri döndürür.
+**Kalıtım ve geçersiz kılmalardan sonra etkili değerleri nasıl görebilirim?**  
+Bir slayt veya düzen teması için [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) yöntemini, format nesneleri için (ör. [Background.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/background/get_effective/) ve [FillFormat.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/fillformat/get_effective/)) ilgili etkili‑veri yöntemlerini kullanın. Bu API'ler, kalıtım ve geçersiz kılmalar uygulandıktan sonra çözümlenmiş değerleri döndürür.

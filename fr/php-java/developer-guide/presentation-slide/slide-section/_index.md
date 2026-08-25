@@ -8,82 +8,206 @@ keywords:
 - créer une section
 - ajouter une section
 - modifier une section
-- changer une section
+- changer la section
 - nom de la section
+- récupérer les diapositives de la section
+- traiter les diapositives de la section
 - PowerPoint
-- OpenDocument
 - présentation
 - PHP
 - Aspose.Slides
-description: "Simplifiez la gestion des sections de diapositives dans PowerPoint et OpenDocument avec Aspose.Slides pour PHP via Java — divisez, renommez et réorganisez pour optimiser les flux de travail PPTX et ODP."
+description: "Gérer les sections de diapositives avec Aspose.Slides pour PHP via Java : créer, renommer, réorganiser, récupérer et traiter les diapositives de section dans les présentations PPTX."
 ---
+## **Introduction**
 
-Avec Aspose.Slides pour PHP via Java, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections qui contiennent des diapositives spécifiques.
+Les sections organisent des diapositives consécutives en groupes nommés sans modifier le contenu des diapositives. Avec Aspose.Slides for PHP via Java, vous pouvez créer, réorganiser, renommer, inspecter et supprimer des sections via la méthode [Presentation::getSections](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Presentation/#getSections).
 
-Vous pouvez souhaiter créer des sections et les utiliser pour organiser ou diviser les diapositives d’une présentation en parties logiques dans les situations suivantes :
-- Lorsque vous travaillez sur une grande présentation avec d’autres personnes ou une équipe — et que vous devez attribuer certaines diapositives à un collègue ou à des membres de l’équipe.
-- Lorsque vous avez une présentation contenant de nombreuses diapositives — et que vous avez du mal à gérer ou à modifier son contenu en une fois.
+Les sections sont particulièrement utiles lorsque :
 
-Idéalement, vous devez créer une section qui regroupe des diapositives similaires — les diapositives ont quelque chose en commun ou peuvent exister dans un groupe basé sur une règle — et donner à la section un nom qui décrit les diapositives qu’elle contient. 
+- une présentation volumineuse doit être divisée en sujets ou chapitres logiques ;
+- différents groupes de diapositives sont assignés à différents collaborateurs ;
+- les diapositives doivent être traitées, déplacées ou fusionnées par groupes.
 
-## **Créer des sections dans les présentations**
+Choisissez des noms de sections concis qui décrivent le but des diapositives groupées. Étant donné que les sections font partie de la structure de la présentation, utilisez les API de sections pour déterminer l'appartenance plutôt que de la déduire des positions des diapositives.
 
-Pour ajouter une section qui regroupera des diapositives dans une présentation, Aspose.Slides pour PHP via Java fournit la méthode [addSection()](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) qui vous permet de spécifier le nom de la section que vous souhaitez créer ainsi que la diapositive à partir de laquelle la section débute.
+## **Créer et gérer les sections**
 
-Ce code d’exemple vous montre comment créer une section dans une présentation :
+Utilisez [SectionCollection::addSection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/#addSection) pour créer une section en spécifiant son nom et la diapositive de départ. Aspose.Slides détermine quelles diapositives appartiennent à la section à partir de la structure de sections actuelle de la présentation.
+
+Le même [SectionCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/) vous permet également de :
+
+- déplacer une section avec ses diapositives en utilisant [SectionCollection::reorderSectionWithSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/#reorderSectionWithSlides) ;
+- supprimer uniquement la définition de la section avec [SectionCollection::removeSection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/#removeSection), en conservant ses diapositives ;
+- supprimer une section ainsi que ses diapositives avec [SectionCollection::removeSectionWithSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/#removeSectionWithSlides) ;
+- ajouter une section vide à la fin avec [SectionCollection::appendEmptySection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/#appendEmptySection).
+
+L’exemple suivant crée deux sections, déplace l’une d’elles, la supprime ainsi que ses diapositives, puis ajoute une section vide :
+
 ```php
-  $pres = new Presentation();
-  try {
-    $defaultSlide = $pres->getSlides()->get_Item(0);
-    $newSlide1 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide2 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide3 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide4 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
-    $section2 = $pres->getSections()->addSection("Section 2", $newSlide3); // section1 se terminera à newSlide2 et après cela, section2 commencera
+use aspose\slides\Presentation;
 
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
-    $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
-    $pres->getSections()->removeSectionWithSlides($section2);
-    $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $titleSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $resultsSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $titleSlide);
+    $resultsSection = $presentation->getSections()->addSection("Results", $resultsSlide);
+
+    $presentation->getSections()->reorderSectionWithSlides($resultsSection, 0);
+    $presentation->getSections()->removeSectionWithSlides($resultsSection);
+    $presentation->getSections()->appendEmptySection("Appendix");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Après ces opérations, la présentation contient la section `Introduction` avec ses diapositives et une section vide `Appendix`. La section `Results` et ses diapositives ont été supprimées.
 
-## **Modifier les noms des sections**
+## **Renommer les sections**
 
-Après avoir créé une section dans une présentation PowerPoint, vous pouvez décider de modifier son nom. 
+Pour renommer une section, appelez sa méthode [Section::setName](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#setName). Les diapositives et la position de la section restent inchangées.
 
-Ce code d’exemple vous montre comment changer le nom d’une section dans une présentation à l’aide d’Aspose.Slides :
+L’exemple suivant crée une section et change son nom :
+
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $section = $pres->getSections()->get_Item(0);
-    $section->setName("My section");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $section = $presentation->getSections()->addSection("Overview", $slide);
+    $section->setName("Introduction");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Récupérer les diapositives à partir des sections**
+
+La méthode [Presentation::getSections](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Presentation/#getSections) renvoie un [SectionCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/) que vous pouvez parcourir par indice. Pour chaque [Section](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/), appelez [Section::getSlidesListOfSection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getSlidesListOfSection) afin d’obtenir les diapositives qui lui appartiennent actuellement. La méthode renvoie un [SectionSlideCollection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionSlideCollection/), qui fournit un compte et un accès indexé.
+
+L’exemple suivant crée deux sections remplies et une section vide, puis affiche le [nom](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getName), l’[identifiant](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getSectionId), la [diapositive de départ](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getStartedFromSlide), le nombre de diapositives et les numéros de diapositives de chaque section. Il utilise [SectionCollection::get_Item](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionCollection/#get_Item) et [SectionSlideCollection::get_Item](https://reference.aspose.com/slides/fr/php-java/aspose.slides/SectionSlideCollection/#get_Item) pour l’accès indexé. Pour la section vide, la collection renvoyée a une taille de zéro et `get_Item` n’est pas appelée.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $firstSlide);
+    $presentation->getSections()->addSection("Details", $thirdSlide);
+    $presentation->getSections()->appendEmptySection("Appendix");
+
+    $sections = $presentation->getSections();
+    $sectionCount = java_values($sections->size());
+    for ($sectionIndex = 0; $sectionIndex < $sectionCount; $sectionIndex++) {
+        $section = $sections->get_Item($sectionIndex);
+        $sectionSlides = $section->getSlidesListOfSection();
+        $startingSlide = java_is_null($section->getStartedFromSlide()) ? "none" : java_values($section->getStartedFromSlide()->getSlideNumber());
+        $slideCount = java_values($sectionSlides->size());
+
+        echo "Section: " . java_values($section->getName()) . PHP_EOL;
+        echo "ID: " . java_values($section->getSectionId()) . PHP_EOL;
+        echo "Starting slide: " . $startingSlide . PHP_EOL;
+        echo "Slide count: " . $slideCount . PHP_EOL;
+
+        if ($slideCount > 0) {
+            echo "First slide via get_Item: " . java_values($sectionSlides->get_Item(0)->getSlideNumber()) . PHP_EOL;
+        }
+
+        echo "Slide numbers:";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+L’appartenance à une section est déterminée par la structure de sections de la présentation. Ne calculez pas manuellement la plage d’une section à partir de [Section::getStartedFromSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getStartedFromSlide), des indices de diapositives et de la diapositive de départ de la section suivante.
+
+Des modifications structurelles peuvent changer à la fois les diapositives renvoyées pour une section et leurs numéros de diapositives. Cela inclut le réordonnancement des diapositives, le clonage d’une diapositive dans une section, le déplacement d’une section avec ses diapositives, la suppression de diapositives et la suppression de sections. L’exemple suivant appelle [Section::getSlidesListOfSection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getSlidesListOfSection) après chaque modification au lieu de conserver des hypothèses sur les anciennes limites de la section.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $firstSection = $presentation->getSections()->addSection("First", $firstSlide);
+    $secondSection = $presentation->getSections()->addSection("Second", $thirdSlide);
+
+    $printSectionSlides = function ($label, $section) {
+        $sectionSlides = $section->getSlidesListOfSection();
+        $slideCount = java_values($sectionSlides->size());
+        echo $label . " (" . $slideCount . " slides):";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    };
+
+    $printSectionSlides("Initially", $firstSection);
+
+    $slidesBeforeClone = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->addClone($slidesBeforeClone->get_Item(0), $firstSection);
+    $printSectionSlides("After cloning into the section", $firstSection);
+
+    $slidesBeforeReorder = $firstSection->getSlidesListOfSection();
+    $firstSectionPosition = java_values($slidesBeforeReorder->get_Item(0)->getSlideNumber()) - 1;
+    $lastSlideIndex = java_values($slidesBeforeReorder->size()) - 1;
+    $presentation->getSlides()->reorder($firstSectionPosition, $slidesBeforeReorder->get_Item($lastSlideIndex));
+    $printSectionSlides("After reordering slides", $firstSection);
+
+    $presentation->getSections()->reorderSectionWithSlides($firstSection, 1);
+    $printSectionSlides("After moving the section", $firstSection);
+
+    $slidesBeforeRemoval = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->remove($slidesBeforeRemoval->get_Item(0));
+    $printSectionSlides("After removing a slide", $firstSection);
+
+    $presentation->getSections()->removeSectionWithSlides($secondSection);
+    $remainingSections = $presentation->getSections();
+    $remainingSectionCount = java_values($remainingSections->size());
+    for ($sectionIndex = 0; $sectionIndex < $remainingSectionCount; $sectionIndex++) {
+        $section = $remainingSections->get_Item($sectionIndex);
+        $printSectionSlides("Remaining section", $section);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Appelez à nouveau [Section::getSlidesListOfSection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getSlidesListOfSection) chaque fois que des diapositives ou des sections sont réordonnées, clonées, déplacées ou supprimées. Cela maintient le traitement ultérieur aligné avec la structure actuelle de la présentation.
+
+Le format PPT (PowerPoint 97–2003) ne conserve pas les métadonnées de sections. Utilisez ce flux de travail avec un format qui prend en charge les sections, tel que PPTX ; la conversion en PPT supprime la structure de sections nécessaire aux itérations ultérieures.
 
 ## **FAQ**
 
 **Les sections sont‑elles conservées lors de l’enregistrement au format PPT (PowerPoint 97–2003) ?**
 
-Non. Le format PPT ne prend pas en charge les métadonnées de sections, ainsi le regroupement des sections est perdu lors de l’enregistrement au format .ppt.
+Non. Le format PPT ne prend pas en charge les métadonnées de sections, ainsi le regroupement en sections est perdu lors de l’enregistrement au format *.ppt*.
 
 **Une section entière peut‑elle être « masquée » ?**
 
-Non. Seules les diapositives individuelles peuvent être masquées. Une section en tant qu’entité n’a aucun état « masqué ».
+Non. Une section n’a aucun état de visibilité. Pour masquer son contenu, appelez [Slide::setHidden](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Slide/#setHidden) pour chaque diapositive de la section.
 
-**Puis‑je rapidement trouver une section à partir d’une diapositive et, inversement, la première diapositive d’une section ?**
+**Comment trouver la section qui contient une diapositive ?**
 
-Oui. Une section est définie de façon unique par sa diapositive de départ ; à partir d’une diapositive, vous pouvez déterminer à quelle section elle appartient, et pour une section vous pouvez accéder à sa première diapositive.
+Parcourez la collection renvoyée par [Presentation::getSections](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Presentation/#getSections), appelez [Section::getSlidesListOfSection](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getSlidesListOfSection) pour chaque section, et comparez les diapositives renvoyées avec la diapositive cible. Pour une section non vide, [Section::getStartedFromSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/Section/#getStartedFromSlide) renvoie sa première diapositive ; pour une section vide, elle renvoie `null`.

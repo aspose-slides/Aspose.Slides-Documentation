@@ -20,254 +20,344 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Mescle apresentações PowerPoint (PPT, PPTX) e OpenDocument (ODP) em JavaScript com Aspose.Slides para Node.js, simplificando seu fluxo de trabalho."
+description: "Saiba como mesclar apresentações PowerPoint e OpenDocument em JavaScript clonando slides, controlando mestres e layouts, redimensionando o conteúdo dos slides, preservando seções e lidando com arquivos protegidos ou grandes."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite mesclar apresentações clonando slides de uma apresentação para outra. Este artigo explica como mesclar apresentações inteiras ou slides selecionados, usar um mestre de slides ou um layout específico durante a mesclagem, lidar com apresentações com diferentes tamanhos de slide e adicionar slides mesclados a uma seção de apresentação. Também aborda notas práticas relacionadas ao conteúdo mesclado, incluindo notas do apresentador, comentários, arquivos de origem protegidos por senha e uso de threads.
+Aspose.Slides for Node.js via Java mescla apresentações clonando slides de uma [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) em outra. A operação principal é [SlideCollection.addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um mestre ou layout na apresentação de destino.
 
-## **Mesclagem de Apresentações**
+Este artigo abrange os fluxos de mesclagem mais comuns:
 
-Ao mesclar uma apresentação com outra, você está efetivamente combinando seus slides em uma única apresentação para obter um único arquivo. 
+- mesclar todos os slides preservando a formatação da origem;
+- mesclar slides selecionados;
+- aplicar um mestre da apresentação de destino;
+- aplicar um layout específico da apresentação de destino;
+- normalizar diferentes tamanhos de slide antes da mesclagem;
+- adicionar slides clonados a uma seção;
+- mesclar várias apresentações em um fluxo de trabalho de ponta a ponta;
+- lidar com mestres, recursos, notas, comentários, mídia, fontes, senhas, arquivos grandes e questões de multithreading.
 
-{{% alert title="Info" color="info" %}}
-A maioria dos programas de apresentação (PowerPoint ou OpenOffice) não possui funções que permitam aos usuários combinar apresentações dessa maneira. 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/pt/nodejs-java/), no entanto, permite mesclar apresentações de diferentes maneiras. Você pode mesclar apresentações com todas as suas formas, estilos, textos, formatações, comentários, animações etc., sem se preocupar com perda de qualidade ou de dados.
+## **Como a clonagem de slides afeta mestres e layouts**
 
-**Veja também**  
-[Clonar Slides](https://docs.aspose.com/slides/pt/nodejs-java/clone-slides/).
-{{% /alert %}}
+Um slide herda grande parte de sua aparência do seu layout e mestre. Por esse motivo, a sobrecarga de clonagem escolhida determina como o slide mesclado é integrado à apresentação de destino.
 
-### **O que pode ser mesclado**
+Use [SlideCollection.addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/) de uma destas maneiras:
 
-* apresentações inteiras. Todos os slides das apresentações acabam em uma única apresentação
-* slides específicos. Slides selecionados acabam em uma única apresentação
-* apresentações em um formato (PPT para PPT, PPTX para PPTX, etc.) e em formatos diferentes (PPT para PPTX, PPTX para ODP, etc.) entre si. 
+- `addClone(sourceSlide)` — preserva o layout e a formatação do slide de origem. Quando necessário, o mestre de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia mestres clonados automaticamente para que slides repetidos que usam o mesmo mestre de origem não causem clonagem repetida desse mestre.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — anexa o slide clonado a um [MasterSlide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslide/) de destino específico. Aspose.Slides procura um layout correspondente sob esse mestre por tipo ou nome de layout.
+- `addClone(sourceSlide, destinationLayout)` — anexa o slide clonado diretamente a um [LayoutSlide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/) de destino específico.
 
-### **Opções de Mesclagem**
+O mestre ou layout passado para uma sobrecarga `addClone` deve pertencer à **apresentação de destino**, não à apresentação de origem.
 
-Você pode aplicar opções que determinam se
+## **Mesclar apresentações inteiras e preservar a formatação da origem**
 
-* cada slide na apresentação de saída mantém um estilo único
-* um estilo específico é usado para todos os slides na apresentação de saída. 
-
-Para mesclar apresentações, Aspose.Slides fornece os métodos [addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (da classe [SlideCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SlideCollection)). Existem várias implementações dos métodos `addClone` que definem os parâmetros do processo de mesclagem de apresentações. Cada objeto Presentation possui uma coleção [Slides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation#getSlides--), de modo que você pode chamar um método `addClone` a partir da apresentação na qual deseja mesclar slides.
-
-O método `addClone` retorna um objeto `Slide`, que é um clone do slide de origem. Os slides em uma apresentação de saída são simplesmente uma cópia dos slides da origem. Portanto, você pode fazer alterações nos slides resultantes (por exemplo, aplicar estilos, opções de formatação ou layouts) sem se preocupar em afetar as apresentações de origem. 
-
-## **Mesclar Apresentações** 
-
-Aspose.Slides fornece o método [**AddClone(ISlide)**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) que permite combinar slides enquanto eles mantêm seus layouts e estilos (parâmetros padrão).
-
-Este código JavaScript mostra como mesclar apresentações:
+A mesclagem mais simples copia cada slide da apresentação de origem para a apresentação de destino. Esta é a escolha adequada quando os slides importados devem manter seu tema, mestre e relacionamentos de layout originais.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Mesclar Apresentações com Mestre de Slides**
+A apresentação resultante pode conter vários mestres quando a origem e o destino usam designs diferentes. Isso é esperado quando a formatação da origem é intencionalmente preservada.
 
-Aspose.Slides fornece o método [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) que permite combinar slides aplicando um modelo de apresentação mestre de slides. Dessa forma, se necessário, você pode alterar o estilo dos slides na apresentação de saída.
+## **Mesclar slides selecionados**
 
-Este código em JavaScript demonstra a operação descrita:
+Você não precisa clonar todos os slides. O exemplo a seguir importa apenas os índices de slide selecionados da apresentação de origem.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-O layout do slide para o mestre de slides é determinado automaticamente. Quando um layout apropriado não pode ser determinado, se o parâmetro booleano `allowCloneMissingLayout` do método `addClone` estiver definido como true, o layout do slide de origem será usado. Caso contrário, será lançada uma [PptxEditException](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/PptxEditException).
-{{% /alert %}}
+Valide os índices de slide antes de clonar quando eles vierem de entrada do usuário ou de configuração externa.
 
-Se você desejar que os slides na apresentação de saída tenham um layout de slide diferente, use o método [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) ao mesclar.
+## **Mesclar slides usando um mestre de destino**
 
-## **Mesclar Slides Específicos de Apresentações**
-
-Mesclar slides específicos de várias apresentações é útil para criar decks de slides personalizados. Aspose.Slides for Node.js via Java permite selecionar e importar apenas os slides necessários. A API preserva a formatação, o layout e o design dos slides originais.
-
-O código JavaScript a seguir cria uma nova apresentação, adiciona slides de título de duas outras apresentações e salva o resultado em um arquivo:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **Mesclar Apresentações com Layout de Slide**
-
-Este código JavaScript mostra como combinar slides de apresentações aplicando o layout de slide de sua preferência a eles para obter uma única apresentação de saída:
+Use a sobrecarga [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) quando os slides importados devem seguir um mestre que já pertence à apresentação de destino.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Mesclar Apresentações com Tamanhos de Slide Diferentes**
+Aspose.Slides seleciona um layout apropriado sob o mestre especificado correspondendo ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allowCloneMissingLayout` for `true`, o layout de origem é clonado para que o slide possa ser adicionado. Se for `false`, uma [PptxEditException](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pptxeditexception/) é lançada.
 
-{{% alert title="Note" color="warning" %}} 
-Não é possível mesclar apresentações com tamanhos de slide diferentes. 
-{{% /alert %}}
+Use `false` quando quiser que a mesclagem falhe em vez de introduzir um layout adicional no mestre de destino.
 
-Para mesclar 2 apresentações com tamanhos de slide diferentes, é necessário redimensionar uma das apresentações para que seu tamanho corresponda ao da outra apresentação. 
+## **Mesclar slides usando um layout de destino específico**
 
-Este código de exemplo demonstra a operação descrita:
+Use a sobrecarga [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) quando você souber exatamente qual layout de destino os slides importados devem usar.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Mesclar Slides em Seção de Apresentação**
+Aplicar um layout de destino altera o relacionamento de layout herdado; não redesigna o conteúdo do slide de origem. Se os layouts de origem e destino tiverem estruturas de placeholders diferentes, verifique o resultado para confirmar que a formatação herdada e o comportamento dos placeholders são adequados.
 
-Este código JavaScript mostra como mesclar um slide específico a uma seção em uma apresentação:
+## **Mesclar apresentações com diferentes tamanhos de slide**
+
+Apresentações com dimensões de slide diferentes podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesigna automaticamente seu conteúdo para a nova área de desenho. Formas podem aparecer deslocadas, escaladas inesperadamente ou fora da área visível do slide.
+
+Uma abordagem prática é redimensionar a apresentação de origem antes de clonar. O método [SlideSize.setSize](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) pode escalar o conteúdo existente enquanto altera as dimensões do slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidesizescaletype/) escala o conteúdo para caber no tamanho solicitado.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-O slide é adicionado ao final da seção. 
+Redimensionar altera o objeto de apresentação de origem na memória. Se precisar da apresentação de origem original inalterada para outras operações, abra uma instância separada para a mesclagem.
+
+## **Mesclar slides em uma seção de apresentação**
+
+O loop básico de clonagem de slides não recria a hierarquia de seções da apresentação de origem. Se as seções importam na saída, crie ou selecione seções na apresentação de destino e clone os slides nelas explicitamente com [addClone(Slide, Section)](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
+
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Os slides clonados são anexados à seção de destino especificada. Para preservar várias seções de origem, enumere [Presentation.getSections](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/#getSections), recupere os slides atuais de cada seção de origem com [Section.getSlidesListOfSection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/section/#getSlidesListOfSection), recrie as seções no destino e clone cada slide retornado em sua respectiva seção de destino. Veja [Manage Slide Sections](/slides/pt/nodejs-java/slide-section/) para um exemplo completo de enumeração de seções, incluindo seções vazias e alterações estruturais.
+
+## **Mesclar múltiplas apresentações com segurança**
+
+O exemplo de ponta a ponta a seguir usa a primeira apresentação como destino, normaliza o tamanho do slide de cada origem adicional, mantém cada origem aberta somente enquanto está sendo copiada e salva o arquivo final uma única vez.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
+
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Esta é uma boa base para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `addClone(sourceSlide)` pela sobrecarga de mestre ou layout de destino apropriada mostrada anteriormente.
+
+## **Considerações práticas**
+
+### **Mestres, layouts e fidelidade de formatação**
+
+A clonagem padrão de slides pode trazer automaticamente um mestre de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno para mestres clonados automaticamente, a fim de evitar a clonagem repetida do mesmo mestre. Mestres clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar mestres a menos que precise de controle explícito sobre a estrutura do mestre.
+
+Não presuma que dois mestres ou layouts com o mesmo nome sejam visualmente equivalentes. Se um modelo corporativo deve controlar a aparência final, escolha explicitamente um mestre ou layout de destino e verifique o resultado após a mesclagem.
+
+### **Notas e comentários**
+
+Notas do apresentador e comentários de slide estão associados ao conteúdo do slide e são copiados quando um slide é clonado. Aspose.Slides também expõe APIs dedicadas para [presentation notes](/slides/pt/nodejs-java/presentation-notes/) e [presentation comments](/slides/pt/nodejs-java/presentation-comments/).
+
+Se a formatação da página de notas for importante, verifique a apresentação mesclada porque mestres de notas são objetos ao nível da apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, também verifique os autores dos comentários e comentários encadeados após combinar arquivos de diferentes autores ou modelos.
+
+### **Imagens, áudio, vídeo, objetos OLE e links externos**
+
+Slides podem referenciar recursos ao nível da apresentação, como imagens, áudio embutido, vídeo embutido e dados OLE. Clone o slide inteiro em vez de copiar apenas suas formas visíveis para que Aspose.Slides possa manter os relacionamentos do slide com seus recursos.
+
+Recursos incorporados e vinculados devem ser tratados de forma diferente. Um áudio, vídeo, objeto OLE ou hyperlink vinculado permanece dependente de seu alvo externo; clonar um slide não transforma um link externo em conteúdo incorporado. Teste os caminhos e URLs de recursos vinculados no ambiente onde a apresentação mesclada será aberta.
+
+Aspose.Slides rastreia explicitamente mestres clonados automaticamente, mas isso não deve ser interpretado como garantia geral de que recursos binários idênticos de apresentações de origem não relacionadas serão sempre deduplicados. Se o tamanho do arquivo de saída for importante, inspecione o pacote mesclado e meça o resultado em vez de contar com deduplicação implícita.
+
+### **Fontes incorporadas e disponibilidade de fontes**
+
+As fontes são gerenciadas ao nível da apresentação. Se a tipografia deve permanecer consistente entre máquinas, não presuma que clonar slides por si só garante que todas as fontes necessárias estejam disponíveis no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) e gerenciar a incorporação explicitamente conforme descrito em [Embed Fonts in Presentations](/slides/pt/nodejs-java/embedded-font/).
+
+Também verifique se você tem permissão para incorporar as fontes usadas pelos arquivos de origem. Licenças de fontes podem restringir a incorporação.
+
+### **Apresentações protegidas por senha**
+
+Uma origem protegida por senha deve ser aberta com sucesso antes que seus slides possam ser clonados. Forneça a senha através de [LoadOptions.setPassword](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Trabalhe com a apresentação descriptografada.
+} finally {
+    source.dispose();
+}
+```
+
+Abrir uma origem criptografada não aplica automaticamente a mesma proteção à apresentação de destino. Configure a proteção de saída separadamente quando necessário.
+
+### **Apresentações grandes e uso de memória**
+
+Apresentações grandes contendo imagens de alta resolução, áudio, vídeo ou outros objetos binários grandes podem consumir memória significativa. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) fornece controles para gerenciamento de BLOBs e uso de arquivos temporários. Consulte [Manage Presentation BLOBs](/slides/pt/nodejs-java/manage-blob/) para estratégias de arquivos grandes.
+
+Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, descarte cada apresentação de origem assim que ela for mesclada e evite salvar resultados intermediários repetidamente, a menos que o fluxo de trabalho exija pontos de verificação.
+
+### **Segurança de thread**
+
+Não carregue, salve ou clone uma instância de [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) em múltiplas threads. Essas operações não são suportadas para uso multithread. Se precisar paralelizar trabalhos de mesclagem independentes, use vários processos de thread única, cada um com suas próprias instâncias de apresentação, e siga as diretrizes de multithreading da [Aspose.Slides multithreading guidance](/slides/pt/nodejs-java/multithreading/).
 
 ## **FAQ**
 
-**As notas do apresentador são preservadas durante a mesclagem?**
+**Como mantenho o design original de cada apresentação de origem?**
 
-Sim. Ao clonar slides, Aspose.Slides transfere todos os elementos do slide, incluindo notas, formatação e animações.
+Use [addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) sem fornecer um mestre ou layout de destino. Aspose.Slides pode clonar automaticamente o mestre de origem quando ele é necessário para o slide importado.
 
-**Os comentários e seus autores são transferidos?**
+**Como faço os slides importados usarem o tema de destino?**
 
-Comentários, como parte do conteúdo do slide, são copiados junto com o slide. Rótulos de autores de comentários são preservados como objetos de comentário na apresentação resultante.
+Use a sobrecarga que aceita um mestre de destino. Passe um mestre da apresentação de destino, não da origem. Aspose.Slides tentará mapear cada slide de origem para um layout apropriado sob esse mestre.
 
-**E se a apresentação de origem estiver protegida por senha?**
+**Quando devo usar um layout de destino específico em vez de um mestre de destino?**
 
-Deve ser [aberta com a senha](/slides/pt/nodejs-java/password-protected-presentation/) via [LoadOptions.setPassword](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/loadoptions/setpassword/); após o carregamento, esses slides podem ser clonados com segurança em um arquivo de destino desprotegido (ou também protegido).
+Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um mestre quando quiser que Aspose.Slides selecione entre os layouts desse mestre com base no tipo ou nome do layout de origem.
 
-**Quão thread-safe é a operação de mesclagem?**
+**É possível mesclar apresentações com diferentes tamanhos de slide?**
 
-Não utilize a mesma instância [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) a partir de [múltiplas threads](/slides/pt/nodejs-java/multithreading/). A regra recomendada é "um documento — uma thread"; arquivos diferentes podem ser processados em paralelo em threads separadas.
+Sim, mas o conteúdo do slide não é redesignado automaticamente para as dimensões de destino. Redimensione a apresentação de origem primeiro quando precisar de posicionamento previsível, por exemplo com [SlideSize.setSize](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) e [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidesizescaletype/).
 
-## **Veja Também**
+**Posso mesclar apresentações PPT, PPTX e ODP em um único arquivo?**
 
-A Aspose oferece um [FALE Collage Maker GRATUITO](https://products.aspose.app/slides/pt/collage). Usando este serviço online, você pode mesclar imagens [JPG para JPG](https://products.aspose.app/slides/pt/collage/jpg) ou PNG para PNG, criar [grades de fotos](https://products.aspose.app/slides/pt/collage/photo-grid) e muito mais.
+Sim. Carregue cada apresentação de origem, clone os slides necessários em um destino e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique o conteúdo complexo após mesclagens entre formatos. Veja [Supported File Formats](/slides/pt/nodejs-java/supported-file-formats/).
 
-Confira o [Aspose MERGER ONLINE GRATUITO](https://products.aspose.app/slides/pt/merger). Ele permite mesclar apresentações PowerPoint no mesmo formato (por exemplo, PPT para PPT, PPTX para PPTX) ou em formatos diferentes (por exemplo, PPT para PPTX, PPTX para ODP).
+**As seções de origem são preservadas automaticamente?**
 
-[![Aspose MERGER ONLINE GRATUITO](slides-merger.png)](https://products.aspose.app/slides/pt/merger)
+Não por um loop básico que apenas clona slides. Recrie as seções necessárias no destino e use a sobrecarga de seção de [addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) quando a estrutura de seções precisar ser preservada.
+
+**As notas do apresentador e comentários são preservados?**
+
+Eles são copiados com o slide clonado. Para fluxos que dependem da estilização do notes-master, autores de comentários ou dados de revisão encadeados, verifique o resultado mesclado, pois esses cenários envolvem estruturas ao nível da apresentação além do conteúdo ao nível do slide.
+
+**O que acontece com áudio, vídeo, objetos OLE e hyperlinks?**
+
+Conteúdos incorporados são transportados como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, portanto seus arquivos ou URLs de destino ainda precisam estar disponíveis após a mesclagem.
+
+**As fontes incorporadas de todas as origens são garantidas na apresentação mesclada?**
+
+Não confie apenas na clonagem de slides para implantação de fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação de fontes ou a disponibilidade de fontes externas quando a tipografia for importante.
+
+**Como mesclo um arquivo protegido por senha?**
+
+Abra-o com o [LoadOptions.setPassword](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/loadoptions/#setPassword-String-) correto, depois clone seus slides normalmente. A proteção de saída é configurada separadamente.
+
+**Como devo lidar com apresentações muito grandes?**
+
+Use o gerenciamento de BLOB quando objetos binários grandes dominarem o uso de memória, prefira carregamento por caminho de arquivo para arquivos muito grandes, descarte apresentações de origem prontamente e salve o resultado final somente quando necessário.
+
+**Posso mesclar slides de múltiplas threads?**
+
+Não carregue, salve ou clone instâncias de apresentação em múltiplas threads. Para trabalhos de mesclagem paralelos, use processos de thread única separados e instâncias de apresentação independentes.

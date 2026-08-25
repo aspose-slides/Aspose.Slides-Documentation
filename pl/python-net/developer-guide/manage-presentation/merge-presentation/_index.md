@@ -5,214 +5,301 @@ type: docs
 weight: 40
 url: /pl/python-net/merge-presentation/
 keywords:
-- scalanie PowerPoint
-- scalanie prezentacji
-- scalanie slajdów
-- scalanie PPT
-- scalanie PPTX
-- scalanie ODP
-- łączenie PowerPoint
-- łączenie prezentacji
-- łączenie slajdów
-- łączenie PPT
-- łączenie PPTX
-- łączenie ODP
+- scal PowerPoint
+- scal prezentacje
+- scal slajdy
+- scal PPT
+- scal PPTX
+- scal ODP
+- połącz PowerPoint
+- połącz prezentacje
+- połącz slajdy
+- połącz PPT
+- połącz PPTX
+- połącz ODP
 - Python
 - Aspose.Slides
-description: "Bezproblemowo łącz prezentacje PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) przy użyciu Aspose.Slides dla Pythona w .NET, usprawniając Twój przepływ pracy."
+description: "Dowiedz się, jak scalać prezentacje PowerPoint i OpenDocument w Pythonie, klonując slajdy, kontrolując mastery i układy, zmieniając rozmiar treści slajdów, zachowując sekcje oraz obsługując pliki zabezpieczone lub duże."
 ---
 ## **Przegląd**
 
-Aspose.Slides pozwala łączyć prezentacje poprzez klonowanie slajdów z jednej prezentacji do drugiej. Ten artykuł wyjaśnia, jak scalać całe prezentacje lub wybrane slajdy, używać mastera slajdów lub określonego układu podczas scalania, obsługiwać prezentacje o różnych rozmiarach slajdów oraz dodawać scalone slajdy do sekcji prezentacji. Zawiera także praktyczne uwagi dotyczące scalonej treści, w tym notatki prelegenta, komentarze, pliki źródłowe chronione hasłem i użycie wątków.
+Aspose.Slides for Python via .NET scala prezentacje, kopiując slajdy z jednej [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) do drugiej. Główna operacja to [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/), która może zachować formatowanie źródłowego slajdu lub dołączyć sklonowany slajd do mastera lub układu w prezentacji docelowej.
 
-## **Optymalizacja scalania prezentacji**
+Ten artykuł opisuje najczęstsze scenariusze scalania:
 
-Z [Aspose.Slides for Python](https://products.aspose.com/slides/pl/python-net/) możesz płynnie łączyć prezentacje PowerPoint, zachowując style, układy i wszystkie elementy. W przeciwieństwie do innych narzędzi, Aspose.Slides scala prezentacje bez utraty jakości czy danych. Scalaj całe zestawy, wybrane slajdy lub nawet różne formaty plików (np. PPT do PPTX).
+- scalenie wszystkich slajdów przy zachowaniu ich formatowania źródłowego;
+- scalenie wybranych slajdów;
+- zastosowanie mastera z prezentacji docelowej;
+- zastosowanie konkretnego układu z prezentacji docelowej;
+- normalizacja różnych rozmiarów slajdów przed scalam;
+- dodanie sklonowanych slajdów do sekcji;
+- scalenie kilku prezentacji w jednym kompleksowym przepływie pracy;
+- obsługa masterów, zasobów, notatek, komentarzy, multimediów, czcionek, haseł, dużych plików i zagadnień związanych z wielowątkowością.
 
-### **Funkcje scalania**
+## **Jak Klonowanie Slajdów Wpływa na Mastery i Układy**
 
-- **Pełne scalanie prezentacji:** Zgromadź wszystkie slajdy w jednym pliku.  
-- **Scalanie wybranych slajdów:** Wybierz i połącz zaznaczone slajdy.  
-- **Scalanie międzyformatowe:** Łącz prezentacje w różnych formatach, zachowując integralność.  
+Slajd dziedziczy dużą część swojego wyglądu z układu i mastera. Z tego powodu wybrany przeciążony metodę klonowania określa, w jaki sposób scalony slajd zostanie wstawiony do prezentacji docelowej.
 
-## **Scalanie prezentacji**
+Użyj [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) w jednej z następujących postaci:
 
-Gdy scalasz jedną prezentację z drugą, skutecznie łączysz ich slajdy w jedną prezentację, tworząc jeden plik. Większość programów do prezentacji — takich jak PowerPoint czy OpenOffice — nie oferuje funkcji umożliwiających takie scalanie.
+- `add_clone(source_slide)` — zachowuje układ i formatowanie źródłowego slajdu. W razie potrzeby źródłowy master może zostać automatycznie sklonowany do prezentacji docelowej. Aspose.Slides automatycznie śledzi sklonowane mastery, więc powtarzające się slajdy korzystające z tego samego mastera źródłowego nie powodują wielokrotnego klonowania tego mastera.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — dołącza sklonowany slajd do konkretnego docelowego [IMasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/). Aspose.Slides szuka pasującego układu pod tym masterem według typu lub nazwy układu.
+- `add_clone(source_slide, destination_layout)` — dołącza sklonowany slajd bezpośrednio do konkretnego docelowego [ILayoutSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ilayoutslide/).
 
-Jednak [Aspose.Slides for Python](https://products.aspose.com/slides/pl/python-net/) umożliwia scalanie prezentacji na kilka sposobów. Możesz scalać prezentacje wraz ze wszystkimi ich kształtami, stylami, tekstem, formatowaniem, komentarzami i animacjami, bez utraty jakości czy danych.
+Master lub układ przekazany do przeciążenia `add_clone` musi należeć do **docelowej** prezentacji, a nie do prezentacji źródłowej.
 
-**Zobacz także**
+## **Scalanie Pełnych Prezentacji i Zachowanie Formatowania Źródłowego**
 
-[Clone PowerPoint Slides in Python](/slides/pl/python-net/clone-slides/)
+Najprostsze scalenie kopiuje każdy slajd z prezentacji źródłowej do prezentacji docelowej. Jest to właściwy wybór, gdy importowane slajdy mają zachować pierwotny motyw, master i zależności układów.
 
-### **Co można scalać**
-
-Z Aspose.Slides możesz scalać:
-
-- Całe prezentacje: wszystkie slajdy z zestawów źródłowych są łączone w jedną prezentację.  
-- Konkretne slajdy: tylko wybrane slajdy są łączone w jedną prezentację.  
-- Prezentacje tego samego formatu (np. PPT→PPT, PPTX→PPTX) lub o różnych formatach (np. PPT→PPTX, PPTX→ODP).  
-
-### **Opcje scalania**
-
-Możesz kontrolować, czy:
-- Każdy slajd w wynikowej prezentacji zachowuje swój oryginalny styl, lub
-- Jeden styl jest stosowany do wszystkich slajdów w wynikowej prezentacji.
-
-Aby scalać prezentacje, Aspose.Slides udostępnia metody [add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) w klasie [SlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/). Te przeciążenia metod określają, jak wykonywane jest scalanie. Każdy obiekt [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) udostępnia kolekcję [slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/slides/pl/), więc wywołujesz `add_clone` na kolekcji slajdów docelowej prezentacji.
-
-Metoda `add_clone` zwraca obiekt `Slide` — klon slajdu źródłowego. Slajdy w wynikowej prezentacji są kopiami oryginałów, więc możesz modyfikować powstałe slajdy (np. zastosować style, formatowanie lub układy) bez wpływu na prezentacje źródłowe.
-
-## **Scalanie prezentacji**
-
-Aspose.Slides udostępnia metodę [add_clone(ISlide)](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide), która umożliwia łączenie slajdów przy zachowaniu ich układów i stylów (przy użyciu domyślnych parametrów).
-
-Poniższy przykład w języku Python pokazuje, jak scalać prezentacje:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Scalanie prezentacji z masterem slajdów**
+Wynikowa prezentacja może zawierać wiele masterów, gdy źródło i cel używają różnych projektów. Jest to oczekiwane, gdy formatowanie źródłowe jest celowo zachowywane.
 
-Aspose.Slides udostępnia metodę [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool), która pozwala scalać slajdy, stosując master slajdu z szablonu. W ten sposób, w razie potrzeby, możesz przestylizować slajdy w wynikowej prezentacji.
+## **Scalanie Wybranych Slajdów**
 
-Poniższy przykład w języku Python demonstruje tę operację:
+Nie musisz klonować każdego slajdu. Poniższy przykład importuje tylko wybrane indeksy slajdów ze źródłowej prezentacji.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Note" color="warning" %}}
-Odpowiedni układ pod określonym masterem slajdu jest określany automatycznie. Jeśli nie można znaleźć odpowiedniego układu i parametr boolowski `allow_clone_missing_layout` metody `add_clone` jest ustawiony na `True`, używany jest układ slajdu źródłowego. W przeciwnym razie zostaje rzucony [PptxEditException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxeditexception/).
-{{% /alert %}}
+Sprawdzaj indeksy slajdów przed klonowaniem, gdy pochodzą one od użytkownika lub z zewnętrznej konfiguracji.
 
-Aby zastosować inny układ slajdu do slajdów w wynikowej prezentacji, użyj metody [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) podczas scalania.
+## **Scalanie Slajdów przy użyciu Mastera Docelowego**
 
-## **Scalanie konkretnych slajdów z prezentacji**
+Użyj przeciążenia [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) gdy importowane slajdy mają korzystać z mastera, który już należy do prezentacji docelowej.
 
-Scalanie konkretnych slajdów z kilku prezentacji jest przydatne przy tworzeniu niestandardowych zestawów slajdów. Aspose.Slides umożliwia wybór i import jedynie potrzebnych slajdów, zachowując formatowanie, układ i projekt oryginalnych slajdów.
-
-Poniższy przykład w języku Python tworzy nową prezentację, dodaje slajdy tytułowe z dwóch innych prezentacji i zapisuje wynik do pliku:
-
-```py
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
-
-
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Scalanie prezentacji z układem slajdu**
-
-Poniższy przykład w języku Python pokazuje, jak scalać slajdy z kilku prezentacji, stosując określony układ slajdu, aby otrzymać jedną wynikową prezentację:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
+
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Scalanie prezentacji o różnych rozmiarach slajdów**
+Aspose.Slides wybiera odpowiedni układ pod wskazanym masterem, dopasowując typ lub nazwę układu źródłowego. Jeśli nie istnieje pasujący układ i `allow_clone_missing_layout` jest `True`, układ źródłowy zostaje sklonowany, aby slajd mógł zostać dodany. Jeśli jest `False`, zostaje wyrzucony [PptxEditException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxeditexception/).
 
-{{% alert title="Note" color="warning" %}}
-Nie można bezpośrednio scalać prezentacji o różnych rozmiarach slajdów.
-{{% /alert %}}
+Użyj `False`, gdy chcesz, aby scalenie zakończyło się błędem zamiast wprowadzania dodatkowego układu do mastera docelowego.
 
-Aby scalać dwie prezentacje o różnych rozmiarach slajdów, najpierw zmień rozmiar jednej prezentacji, aby jej rozmiar slajdu odpowiadał drugiej.
+## **Scalanie Slajdów przy użyciu Konkretnego Układu Docelowego**
 
-Poniższy kod przykładowy demonstruje ten proces:
+Użyj przeciążenia [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) gdy dokładnie wiesz, którego układu docelowego mają używać importowane slajdy.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Scalanie slajdów w sekcji prezentacji**
+Zastosowanie układu docelowego zmienia odziedziczoną relację układu; nie przekształca zawartości slajdu źródłowego. Jeśli układy źródłowy i docelowy mają różne struktury placeholderów, sprawdź wynik, aby potwierdzić, że odziedziczone formatowanie i zachowanie placeholderów jest właściwe.
 
-Poniższy przykład w języku Python pokazuje, jak scalać konkretny slajd w sekcji prezentacji:
+## **Scalanie Prezentacji o Różnych Rozmiarach Slajdów**
 
-```py
+Prezentacje o różnych wymiarach slajdów mogą być scalane, ale klonowanie slajdu do prezentacji o innym rozmiarze nie przerysowuje automatycznie jego zawartości pod nowym płótnem. Kształty mogą więc wyglądać na przesunięte, przeskalowane nieoczekiwanie lub znajdować się poza widocznym obszarem slajdu.
+
+Praktycznym podejściem jest zmiana rozmiaru prezentacji źródłowej przed klonowaniem. Metoda [SlideSize.set_size](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidesize/set_size/) może skalować istniejącą zawartość przy zmianie wymiarów slajdu. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidesizescaletype/) skaluje zawartość, aby pasowała do żądanego rozmiaru.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Slajd jest dodawany na końcu sekcji. 
+Zmiana rozmiaru modyfikuje obiekt prezentacji źródłowej w pamięci. Jeśli potrzebujesz pozostawić oryginalną prezentację źródłową niezmienioną dla innych operacji, otwórz osobną instancję dla scalenia.
 
-{{% alert title="Tip" color="primary" %}}
-Szukasz szybkiego i **darmowego narzędzia online** do **scalania prezentacji PowerPoint**? Wypróbuj [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/pl/merger).
+## **Scalanie Slajdów do Sekcji Prezentacji**
 
-- **Łatwe scalanie plików PowerPoint**: Połącz wiele prezentacji **PPT, PPTX, ODP** w jeden plik.  
-- **Obsługa różnych formatów**: Scal **PPT do PPTX**, **PPTX do ODP** i inne.  
-- **Brak wymogu instalacji**: Działa bezpośrednio w przeglądarce, szybko i bezpiecznie.  
+Podstawowa pętla klonowania slajdów nie odtwarza hierarchii sekcji w prezentacji źródłowej. Jeśli sekcje mają znaczenie w wyniku, utwórz lub wybierz sekcje w prezentacji docelowej i jawnie klonuj slajdy do nich przy użyciu [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/).
 
-[![Scalanie plików PowerPoint online](slides-merger.png)](https://products.aspose.app/slides/pl/merger)  
+```python
+import aspose.slides as slides
 
-Rozpocznij scalanie swoich plików PowerPoint już dziś za pomocą **darmowego narzędzia online Aspose**!  
-{{% /alert %}}
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
 
-{{% alert title="Tip" color="primary" %}}
-Aspose udostępnia [DARMOWĄ aplikację internetową Collage](https://products.aspose.app/slides/pl/collage). Korzystając z tej usługi online, możesz scalać obrazy [JPG do JPG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG do PNG, tworzyć [siatki zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid) i inne. 
-{{% /alert %}}
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Sklonowane slajdy są dołączane do określonej sekcji docelowej. Aby zachować kilka sekcji źródłowych, przeiteruj [Presentation.sections](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/sections/), pobierz bieżące slajdy każdej sekcji źródłowej przy pomocy [Section.get_slides_list_of_section](https://reference.aspose.com/slides/pl/python-net/aspose.slides/section/get_slides_list_of_section/), odtwórz sekcje w docelowej prezentacji i sklonuj każdy zwrócony slajd do odpowiadającej sekcji docelowej. Zobacz [Manage Slide Sections](/slides/pl/python-net/slide-section/) po kompletny przykład enumeracji sekcji, w tym sekcje puste i zmiany strukturalne.
+
+## **Bezpieczne Scalanie Wielu Prezentacji**
+
+Poniższy przykład end‑to‑end używa pierwszej prezentacji jako docelowej, normalizuje rozmiar slajdu każdej dodatkowej prezentacji źródłowej, trzyma każdą prezentację otwartą tylko podczas kopiowania i zapisuje ostateczny plik jednorazowo.
+
+```python
+import aspose.slides as slides
+
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
+
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
+
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
+
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Jest to przydatna podstawa do zachowania formatowania źródłowego importowanych slajdów. Jeśli Twój wynik musi używać jednego motywu docelowego, zastąp proste wywołanie `add_clone(slide)` odpowiednim przeciążeniem mastera lub układu docelowego pokazanym wcześniej.
+
+## **Praktyczne Rozważania**
+
+### **Mastery, Układy i Wierność Formatowania**
+
+Domyślne klonowanie slajdów może automatycznie przenieść wymagany master źródłowy do prezentacji docelowej. Aspose.Slides utrzymuje wewnętrzny rejestr automatycznie sklonowanych masterów, aby uniknąć wielokrotnego klonowania tego samego mastera. Ręcznie sklonowane mastery nie są śledzone w tym rejestrze, więc unikaj wstępnego klonowania masterów, chyba że potrzebna jest explicite kontrola nad strukturą mastera.
+
+Nie zakładaj, że dwa mastery lub układy o tej samej nazwie są wizualnie równoważne. Jeśli szablon korporacyjny musi kontrolować ostateczny wygląd, wybierz explicitnie master lub układ docelowy i zweryfikuj wynik po scaleniu.
+
+### **Notatki i Komentarze**
+
+Notatki prelegenta i komentarze slajdów są powiązane z treścią slajdu i są kopiowane podczas klonowania slajdu. Aspose.Slides udostępnia również dedykowane API dla [presentation notes](/slides/pl/python-net/presentation-notes/) i [presentation comments](/slides/pl/python-net/presentation-comments/).
+
+Jeśli formatowanie strony notatek jest istotne, sprawdź scaloną prezentację, ponieważ mastery notatek są obiektami na poziomie prezentacji i mogą różnić się między plikami źródłowymi. W przepływach recenzji sprawdzaj także autorów komentarzy i wątki komentarzy po łączeniu plików od różnych autorów lub szablonów.
+
+### **Obrazy, Dźwięk, Wideo, Obiekty OLE i Linki Zewnętrzne**
+
+Slajdy mogą odwoływać się do zasobów na poziomie prezentacji, takich jak obrazy, osadzone audio, wideo oraz dane OLE. Klonuj cały slajd, a nie tylko widoczne kształty, aby Aspose.Slides mógł zachować zależności slajdu do jego zasobów.
+
+Zasoby osadzone i linkowane należy traktować inaczej. Linkowane audio, wideo, obiekt OLE lub hiperłącze pozostaje zależne od zewnętrznego docelowego zasobu; klonowanie slajdu nie przekształca linku zewnętrznego w treść osadzoną. Testuj ścieżki i adresy URL zasobów linkowanych w środowisku, w którym otwierana będzie scalona prezentacja.
+
+Aspose.Slides wyraźnie śledzi automatycznie sklonowane mastery, ale nie należy tego traktować jako ogólnej gwarancji, że identyczne pliki binarne z niepowiązanych prezentacji będą zawsze deduplikowane. Jeśli rozmiar pliku wyjściowego ma znaczenie, przeanalizuj scalony pakiet i zmierz wynik zamiast polegać na domyślnej deduplikacji.
+
+### **Osadzone Czcionki i Dostępność Czcionek**
+
+Czcionki są zarządzane na poziomie prezentacji. Jeśli typografia ma pozostać spójna na różnych maszynach, nie zakładaj, że samo klonowanie slajdów zapewnia dostępność wszystkich potrzebnych czcionek w środowisku docelowym. Możesz sprawdzić osadzone czcionki przy pomocy [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) i zarządzać osadzaniem explicite, jak opisano w [Embed Fonts in Presentations](/slides/pl/python-net/embedded-font/).
+
+Również sprawdź, czy masz prawo osadzać czcionki użyte w plikach źródłowych. Licencje czcionek mogą ograniczać osadzanie.
+
+### **Prezentacje Zabezpieczone Hasłem**
+
+Źródło zabezpieczone hasłem musi zostać pomyślnie otwarte, zanim jego slajdy będą mogły zostać sklonowane. Przekaż hasło przez [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/).
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Otworzenie zaszyfrowanego źródła nie nakłada automatycznie tego samego zabezpieczenia na prezentację docelową. Skonfiguruj ochronę wyjściową oddzielnie, gdy jest wymagana.
+
+### **Duże Prezentacje i Zużycie Pamięci**
+
+Duże prezentacje zawierające obrazy wysokiej rozdzielczości, audio, wideo lub inne duże obiekty binarne mogą pochłaniać znaczną ilość pamięci. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/blob_management_options/) zapewnia kontrolę nad obsługą BLOB‑ów i użyciem plików tymczasowych. Zobacz [Manage Presentation BLOBs](/slides/pl/python-net/manage-blob/) po strategie dla dużych plików.
+
+W przypadku dużych plików preferuj ładowanie z ścieżek plików, zamykaj każdą prezentację źródłową natychmiast po scaleniu i unikaj wielokrotnego zapisywania wyników pośrednich, chyba że przepływ wymaga punktów kontrolnych. Użycie `with slides.Presentation(...)` zapewnia zwolnienie zasobów prezentacji po wyjściu z kontekstu.
+
+### **Bezpieczeństwo Wątkowe**
+
+Nie ładuj, nie zapisuj ani nie klonuj instancji [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) jednocześnie w wielu wątkach. Trzymaj każdą operację scalenia w jednym wątku. Jeśli równolegle przetwarzasz niezależne zadania scalenia, użyj oddzielnych jednowątkowych procesów i niezależnych instancji prezentacji, jak opisano w [Aspose.Slides multithreading guidance](/slides/pl/python-net/multithreading/).
 
 ## **FAQ**
 
-**Czy notatki prelegenta są zachowywane podczas scalania?**
+**Jak zachować oryginalny projekt każdej prezentacji źródłowej?**
 
-Tak. Podczas klonowania slajdów Aspose.Slides przenosi wszystkie elementy slajdu, w tym notatki, formatowanie i animacje.
+Użyj [add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) bez podawania mastera lub układu docelowego. Aspose.Slides może automatycznie sklonować master źródłowy, gdy jest wymagany przez importowany slajd.
 
-**Czy komentarze i ich autorzy są przenoszeni?**
+**Jak sprawić, by importowane slajdy korzystały z motywu docelowego?**
 
-Komentarze, jako część treści slajdu, są kopiowane wraz ze slajdem. Etykiety autorów komentarzy są zachowywane jako obiekty komentarzy w wynikowej prezentacji.
+Użyj przeciążenia, które przyjmuje master docelowy. Przekaż master z prezentacji docelowej, a nie ze źródłowej. Aspose.Slides spróbuje dopasować każdy slajd źródłowy do odpowiedniego układu pod tym masterem.
 
-**Co jeśli źródłowa prezentacja jest chroniona hasłem?**
+**Kiedy używać konkretnego układu docelowego zamiast mastera docelowego?**
 
-Należy ją [otworzyć przy użyciu hasła](/slides/pl/python-net/password-protected-presentation/) poprzez [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/); po załadowaniu te slajdy można bezpiecznie sklonować do niechronionego pliku docelowego (lub również chronionego).
+Użyj konkretnego układu, gdy każdy importowany slajd ma korzystać z jednego znanego układu. Użyj mastera, gdy chcesz, aby Aspose.Slides wybierał spośród układów tego mastera na podstawie typu lub nazwy układu źródłowego.
 
-**Jak bezpieczne jest scalanie w kontekście wątków?**
+**Czy prezentacje o różnych rozmiarach slajdów mogą być scalane?**
 
-Nie używaj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) z [wielu wątków](/slides/pl/python-net/multithreading/). Zalecana zasada to „jeden dokument — jeden wątek”; różne pliki mogą być przetwarzane równolegle w oddzielnych wątkach.
+Tak, ale zawartość slajdu nie jest automatycznie przerysowywana do wymiarów docelowych. Zmierz najpierw rozmiar prezentacji źródłowej, na przykład przy pomocy [SlideSize.set_size](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidesize/set_size/) i [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidesizescaletype/).
+
+**Czy mogę scalić prezentacje PPT, PPTX i ODP w jeden plik?**
+
+Tak. Załaduj każdą prezentację źródłową, sklonuj wymagane slajdy do jednej prezentacji docelowej i zapisz docelowy plik w obsługiwanym formacie wyjściowym. Ponieważ formaty prezentacji nie wspierają dokładnie tego samego zestawu funkcji, zweryfikuj złożoną zawartość po scaleniach międzypformatowych. Zobacz [Supported File Formats](/slides/pl/python-net/supported-file-formats/).
+
+**Czy sekcje źródłowe są zachowywane automatycznie?**
+
+Nie, w podstawowej pętli, która tylko klonuje slajdy, nie są. Utwórz wymagane sekcje w docelowej prezentacji i użyj przeciążenia sekcji w [add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/), gdy struktura sekcji musi być zachowana.
+
+**Czy notatki prelegenta i komentarze są zachowywane?**
+
+Tak, są kopiowane wraz ze sklonowanym slajdem. W przepływach zależnych od stylu mastera notatek, autorów komentarzy lub danych recenzji wątkowych, zweryfikuj scalony wynik, ponieważ te scenariusze obejmują zarówno struktury na poziomie prezentacji, jak i treść slajdu.
+
+**Co się dzieje z dźwiękiem, wideo, obiektami OLE i hiperłączami?**
+
+Zawartość osadzona jest przenoszona jako część zależności zasobów sklonowanego slajdu. Linki zewnętrzne pozostają zewnętrzne, więc ich docelowe pliki lub adresy URL muszą być nadal dostępne po scaleniu.
+
+**Czy osadzone czcionki ze wszystkich źródeł są gwarantowane w scalonej prezentacji?**
+
+Nie polegaj wyłącznie na klonowaniu slajdów w celu wdrożenia czcionek. Sprawdź osadzone czcionki w dokumencie docelowym i explicite zarządzaj osadzaniem czcionek lub dostępnością czcionek zewnętrznych, gdy typografia jest istotna.
+
+**Jak scalić plik chroniony hasłem?**
+
+Otwórz go przy użyciu poprawnego [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/), a następnie normalnie sklonuj jego slajdy. Ochrona wyjściowa jest konfigurowana osobno.
+
+**Jak obsługiwać bardzo duże prezentacje?**
+
+Używaj zarządzania BLOB‑ami, gdy duże obiekty binarne dominują zużycie pamięci, preferuj ładowanie z ścieżek plików dla bardzo dużych plików, zamykaj prezentacje źródłowe niezwłocznie po ich scaleniu i zapisuj ostateczny wynik tylko wtedy, gdy jest to potrzebne.
+
+**Czy mogę scalić slajdy z wielu wątków?**
+
+Nie ładuj, nie zapisuj ani nie klonuj instancji [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) w wielu wątkach jednocześnie. Trzymaj każdą operację scalenia w jednym wątku; użyj oddzielnych jednowątkowych procesów, jeśli musisz równolegle przetwarzać osobne zadania scalenia.

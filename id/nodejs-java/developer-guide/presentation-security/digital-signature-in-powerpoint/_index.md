@@ -1,5 +1,5 @@
 ---
-title: Menambahkan Tanda Tangan Digital ke Presentasi dalam JavaScript
+title: Tambahkan Tanda Tangan Digital ke Presentasi dalam JavaScript
 linktitle: Tanda Tangan Digital
 type: docs
 weight: 10
@@ -9,87 +9,180 @@ keywords:
 - sertifikat digital
 - otoritas sertifikat
 - sertifikat PFX
+- PKCS#12
+- validasi tanda tangan
 - PowerPoint
-- OpenDocument
-- presentasi
+- PPTX
+- keamanan presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pelajari cara menandatangani secara digital file PowerPoint & OpenDocument dengan Aspose.Slides untuk Node.js melalui Java. Amankan slide Anda dalam hitungan detik dengan contoh kode yang jelas."
+description: "Pelajari cara menandatangani presentasi PPTX yang ada dengan sertifikat PFX dan menggunakan Aspose.Slides untuk Node.js via Java untuk memvalidasi atau menghapus tanda tangan digital."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-**Sertifikat digital** digunakan untuk membuat presentasi PowerPoint yang dilindungi kata sandi, ditandai sebagai dibuat oleh organisasi atau orang tertentu. Sertifikat digital dapat diperoleh dengan menghubungi organisasi yang berwenang – otoritas sertifikat. Setelah menginstal sertifikat digital ke dalam sistem, sertifikat dapat digunakan untuk menambahkan tanda tangan digital ke presentasi melalui File -> Info -> Protect Presentation:
+Tanda tangan digital membantu penerima menentukan siapa yang menandatangani sebuah presentasi dan apakah konten yang ditandatangani telah berubah. Tiga konsep keamanan terkait penting di sini:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Sebuah **digital certificate** adalah kredensial elektronik yang mengaitkan identitas dengan kunci publik. Otoritas sertifikat (CA) yang tepercaya dapat mengeluarkan sertifikat, atau organisasi dapat menggunakan sertifikat yang ditandatangani sendiri untuk alur kerja internal.
+- Sebuah **digital signature** dibuat dari konten presentasi dan kunci pribadi pemegang sertifikat. Kunci publik sertifikat kemudian dapat digunakan untuk memverifikasi tanda tangan. Tanda tangan memberikan bukti asal dan integritas; tidak mengenkripsi presentasi.
+- **Password protection** mengontrol apakah pengguna dapat membuka atau mengubah sebuah presentasi. Ini terpisah dari penandatanganan digital dan dijelaskan di [Presentasi yang Dilindungi Kata Sandi](/slides/id/nodejs-java/password-protected-presentation/).
 
-Presentasi dapat berisi lebih dari satu tanda tangan digital. Setelah tanda tangan digital ditambahkan ke presentasi, pesan khusus akan muncul di PowerPoint:
+PowerPoint menyediakan perintah **Add a Digital Signature** di bawah **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Menu Proteksi Presentasi PowerPoint dengan Add a Digital Signature disorot](add-digital-signature-in-powerpoint.png)
 
-Untuk menandatangani presentasi atau memeriksa keaslian tanda tangan presentasi, **Aspose.Slides API** menyediakan kelas [**DigitalSignature**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/DigitalSignature), kelas [**DigitalSignatureCollection**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/DigitalSignatureCollection) dan metode [**Presentation.getDigitalSignatures**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation#getDigitalSignatures--) . Saat ini, tanda tangan digital hanya didukung untuk format PPTX.
+Setelah presentasi yang ditandatangani dibuka, PowerPoint dapat menampilkan notifikasi status tanda tangan.
 
-## **Tambahkan Tanda Tangan Digital dari Sertifikat PFX**
-Contoh kode di bawah ini menunjukkan cara menambahkan tanda tangan digital dari sertifikat PFX:
+![Notifikasi PowerPoint yang menyatakan bahwa presentasi berisi tanda tangan yang valid](digital-signature-status-in-powerpoint.png)
 
-1. Buka file PFX dan berikan kata sandi PFX ke objek [**DigitalSignature**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/DigitalSignature).
-2. Tambahkan tanda tangan yang dibuat ke objek presentasi.
+Aspose.Slides mengekspos tanda tangan melalui [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), yang mengembalikan sebuah [DigitalSignatureCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignaturecollection/) yang berisi objek [DigitalSignature](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignature/). Sebuah presentasi dapat berisi banyak tanda tangan.
+
+## **Memahami Sertifikat PFX dan Kata Sandi**
+
+File PFX, juga dikenal sebagai file PKCS#12 dan biasanya memiliki ekstensi `.pfx` atau `.p12`, dapat berisi sertifikat X.509, kunci pribadi, dan rantai sertifikat. Kunci pribadi lah yang memungkinkan pemegangnya membuat tanda tangan. Sertifikat tanpa kunci pribadi yang dapat diakses tidak dapat digunakan untuk menandatangani sebuah presentasi.
+
+Kata sandi PFX melindungi paket sertifikat dan kunci pribadi. Itu **bukan** kata sandi untuk membuka atau mengedit presentasi. Jangan meng-commit file PFX atau kata sandinya ke kontrol sumber. Di produksi, batasi akses ke file sertifikat dan dapatkan kata sandinya dari penyimpanan rahasia atau sumber konfigurasi terlindungi lainnya. Contoh di bawah ini menggunakan variabel lingkungan hanya untuk menghindari menanamkan kata sandi di dalam kode.
+
+## **Menambahkan Tanda Tangan Digital ke Presentasi**
+
+Untuk menandatangani alur kerja presentasi yang sesungguhnya, muat file PPTX yang ada, buat sebuah [DigitalSignature](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignature/) dari sertifikat PFX dan kata sandinya, tambahkan tanda tangan ke koleksi presentasi, dan simpan ke file PPTX.
 
 ```javascript
-// Membuka file presentasi
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const certificatePassword = process.env.PFX_PASSWORD;
+if (!certificatePassword) {
+    throw new Error("Set the PFX_PASSWORD environment variable.");
+}
+
+const presentation = new slides.Presentation("InputPresentation.pptx");
 try {
-    // Membuat objek DigitalSignature dengan file PFX dan kata sandi PFX
-    var signature = new aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
-    // Komentar tanda tangan digital baru
-    signature.setComments("Aspose.Slides digital signing test.");
-    // Tambahkan tanda tangan digital ke presentasi
-    pres.getDigitalSignatures().add(signature);
-    // Simpan presentasi
-    pres.save("SomePresentationSigned.pptx", aspose.slides.SaveFormat.Pptx);
+    const signature = new slides.DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
+
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Sekarang dimungkinkan untuk memeriksa apakah presentasi telah ditandatangani secara digital dan belum dimodifikasi:
+Menyimpan hasil dengan nama baru mempertahankan file sumber yang tidak ditandatangani. Nilai yang diatur oleh [DigitalSignature.setComments](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignature/) menggambarkan tujuan tanda tangan; itu bukan kontrol keamanan.
+
+## **Validasi Tanda Tangan Digital**
+
+Saat Anda memuat file PPTX yang ditandatangani, periksa setiap item yang dikembalikan oleh [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). Metode [DigitalSignature.isValid](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignature/) menunjukkan apakah tanda tangan yang tersemat valid untuk konten presentasi saat ini.
+
+Contoh berikut juga menggunakan kelas Node.js `X509Certificate` untuk membaca nama subjek dari setiap sertifikat yang tersemat.
 
 ```javascript
-// Buka presentasi
-var pres = new aspose.slides.Presentation("SomePresentationSigned.pptx");
+const { X509Certificate } = require("node:crypto");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0) {
-        var allSignaturesAreValid = true;
-        console.log("Signatures used to sign the presentation: ");
-        // Periksa apakah semua tanda tangan digital valid
-        for (let i = 0; i < pres.getDigitalSignatures().size(); i++) {
-        let signature = pres.getDigitalSignatures().get_Item(i);
-            console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+    const signatures = presentation.getDigitalSignatures();
+    const signatureCount = signatures.size();
+
+    if (signatureCount === 0) {
+        console.log("The presentation does not contain digital signatures.");
+    } else {
+        let allSignaturesAreValid = true;
+
+        for (let index = 0; index < signatureCount; index++) {
+            const signature = signatures.get_Item(index);
+            const signatureIsValid = signature.isValid();
+            const signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            const signTime = signature.getSignTime().toString();
+
+            const certificateData = signature.getCertificate();
+            const certificate = new X509Certificate(Buffer.from(certificateData));
+            const signerName = certificate.subject;
+
+            console.log(`${signerName}, ${signTime} -- ${signatureStatus}`);
+
+            allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
         }
+
         if (allSignaturesAreValid) {
-            console.log("Presentation is genuine, all signatures are valid.");
+            console.log("All embedded signatures are valid for the current presentation.");
         } else {
-            console.log("Presentation has been modified since signing.");
+            console.log("At least one embedded signature is invalid.");
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Hasil tidak valid biasanya berarti bahwa konten presentasi yang ditandatangani atau data tanda tangan berubah setelah penandatanganan, atau file rusak. Menghapus semua tanda tangan menghasilkan presentasi yang tidak ditandatangani, sehingga memeriksa hanya validitas item tidak cukup: alur kerja yang sensitif terhadap keamanan harus juga memverifikasi bahwa jumlah tanda tangan yang diharapkan dan identitas penandatangan yang diharapkan ada.
+
+Hasil validitas ini tidak boleh diperlakukan sebagai keputusan kepercayaan sertifikat yang lengkap. Tergantung pada kebijakan keamanan Anda, aplikasi Anda mungkin juga perlu membangun dan memvalidasi rantai sertifikat X.509, memeriksa tanggal berlaku sertifikat dan status pencabutan, mengonfirmasi subjek atau sidik jari yang diharapkan, memverifikasi penggunaan kunci, dan mengevaluasi timestamp tepercaya. Nilai [DigitalSignature.getSignTime](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignature/) sendiri bukan bukti dari otoritas timestamp tepercaya.
+
+## **Menghapus Tanda Tangan Digital**
+
+Menghapus tanda tangan mengubah status keamanan presentasi. Contoh berikut memuat file PPTX yang ditandatangani, menghapus semua tanda tangan dengan [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), dan menyimpan salinan yang tidak ditandatangani.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Untuk menghapus hanya satu tanda tangan, panggil [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) dengan indeks berbasis nolnya. Simpan ke file baru kecuali menimpa yang asli yang ditandatangani adalah bagian eksplisit dari alur kerja Anda.
+
+## **Pertimbangan Pengeditan dan Format**
+
+- Tanda tangan tidak membuat presentasi menjadi hanya-baca. Pengguna dan aplikasi masih dapat mengedit file, tetapi perubahan pada konten yang ditandatangani biasanya membuat tanda tangan yang ada menjadi tidak valid.
+- Selesaikan semua edit yang dimaksudkan sebelum menandatangani. Jika presentasi harus diubah, simpan presentasi yang direvisi dan tanda tangani revisi tersebut lagi.
+- Simpan output akhir dalam format PPTX. Mengonversi presentasi yang ditandatangani ke format lain tidak mentransfer tanda tangan PPTX asli sebagai tanda tangan yang valid untuk file yang dikonversi.
+- Perlakukan kunci pribadi sertifikat sebagai data sensitif. Siapa pun yang mendapatkan kunci pribadi dan kata sandinya dapat membuat tanda tangan yang tampak berasal dari pemegang sertifikat tersebut.
+- Simpan sumber yang tidak ditandatangani atau salinan terkontrol lainnya ketika kebijakan retensi dokumen Anda memerlukannya.
 
 ## **FAQ**
 
-**Apakah saya dapat menghapus tanda tangan yang ada dari file?**
+**Apakah tanda tangan digital mengenkripsi presentasi?**
 
-Ya. Koleksi tanda tangan digital mendukung [removing individual items](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) dan [clearing it entirely](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/digitalsignaturecollection/clear/); setelah Anda menyimpan file, presentasi tidak akan memiliki tanda tangan.
+Tidak. Tanda tangan digital memberikan bukti tentang asal dan integritas, tetapi konten presentasi tetap dapat dibaca kecuali enkripsi terpisah diterapkan. Gunakan [Proteksi Kata Sandi](/slides/id/nodejs-java/password-protected-presentation/) ketika akses ke konten harus dibatasi.
 
-**Apakah file menjadi “read-only” setelah ditandatangani?**
+**Apakah kata sandi PFX sama dengan kata sandi presentasi?**
 
-Tidak. Tanda tangan mempertahankan integritas dan kepenulisan tetapi tidak menghalangi penyuntingan. Untuk membatasi penyuntingan, gabungkan dengan ["Read-only" or a password](/slides/id/nodejs-java/password-protected-presentation/).
+Tidak. Kata sandi PFX membuka kunci kunci pribadi yang disimpan dalam paket sertifikat. Itu tidak mengontrol siapa yang dapat membuka atau mengedit file PPTX.
 
-**Apakah tanda tangan akan ditampilkan dengan benar di versi PowerPoint yang berbeda?**
+**Apakah saya dapat menggunakan sertifikat yang ditandatangani sendiri?**
 
-Tanda tangan dibuat untuk kontainer OOXML (PPTX). Versi PowerPoint modern yang mendukung tanda tangan OOXML menampilkan status tanda tangan tersebut dengan benar.
+Secara teknis, sertifikat yang ditandatangani sendiri dapat digunakan jika menyertakan kunci pribadi yang dapat diakses. Penerima tidak akan mempercayainya secara otomatis, kecuali sertifikat tersebut secara eksplisit ditambahkan ke lingkungan tepercaya mereka. Alur kerja publik atau lintas organisasi biasanya menggunakan sertifikat yang diterbitkan oleh CA tepercaya.
+
+**Apa yang membuat sebuah tanda tangan tidak valid?**
+
+Mengubah konten presentasi yang ditandatangani atau data tanda tangan setelah penandatanganan dapat membuat tanda tangan tidak valid. Korupsi file juga dapat menyebabkan validasi gagal. Jika semua tanda tangan dihapus, presentasi menjadi tidak ditandatangani bukan file yang berisi tanda tangan tidak valid.
+
+**Apakah tanda tangan yang valid berarti saya harus mempercayai penandatangan?**
+
+Tidak dengan sendirinya. Integritas tanda tangan dan kepercayaan pada penandatangan adalah keputusan terpisah. Kebijakan validasi produksi sebaiknya juga memeriksa rantai sertifikat, periode berlaku, status pencabutan, identitas yang diharapkan, penggunaan kunci, dan persyaratan timestamp tepercaya.
+
+**Apa yang terjadi ketika sertifikat kedaluwarsa?**
+
+Kedaluwarsa sertifikat tidak mengubah byte presentasi, tetapi memengaruhi evaluasi kepercayaan sertifikat. Apakah tanda tangan tetap dapat diterima tergantung pada kebijakan Anda dan apakah ada timestamp tepercaya yang membuktikan bahwa penandatanganan terjadi saat sertifikat masih berlaku. Jangan bergantung pada waktu penandatangan yang ditampilkan saja sebagai timestamp tepercaya.
+
+**Apakah presentasi yang ditandatangani masih dapat diedit?**
+
+Ya. Penandatanganan tidak mengunci file. Mengedit konten yang ditandatangani umumnya membuat tanda tangan yang ada menjadi tidak valid, jadi selesaikan presentasi terlebih dahulu dan tandatangani revisi final.
+
+**Apakah sebuah presentasi dapat berisi lebih dari satu tanda tangan?**
+
+Ya. Tambahkan setiap tanda tangan ke koleksi yang dikembalikan oleh [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) sebelum menyimpan. Selama validasi, periksa setiap tanda tangan dan pastikan semua penandatangan yang diperlukan ada.
+
+**Format presentasi mana yang mendukung operasi ini?**
+
+Aspose.Slides mendukung operasi tanda tangan digital yang dijelaskan di sini hanya untuk PPTX. Format PPT dan OpenDocument tidak didukung oleh alur kerja API ini.
+
+**Apakah saya dapat menghapus tanda tangan tanpa memengaruhi slide?**
+
+Ya. Anda dapat menghapus satu tanda tangan atau mengosongkan seluruh koleksi dan kemudian menyimpan presentasi. Konten slide tetap tersedia, tetapi file yang disimpan tidak lagi membawa bukti tanda tangan yang dihapus.

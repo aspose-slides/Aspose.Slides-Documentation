@@ -1,103 +1,113 @@
 ---
-title: سفارشی‌سازی قلم‌های پاورپوینت در اندروید
-linktitle: قلم سفارشی
+title: سفارشی‌سازی فونت‌های PowerPoint در اندروید
+linktitle: فونت سفارشی
 type: docs
 weight: 20
 url: /fa/androidjava/custom-font/
 keywords:
-- قلم
-- قلم سفارشی
-- قلم خارجی
-- بارگذاری قلم
-- مدیریت قلم‌ها
-- پوشه قلم
-- پاورپوینت
+- فونت
+- فونت سفارشی
+- فونت خارجی
+- بارگذاری فونت
+- مدیریت فونت‌ها
+- پوشه فونت
+- PowerPoint
 - OpenDocument
 - ارائه
 - اندروید
 - جاوا
 - Aspose.Slides
-description: "قلم‌ها را در اسلایدهای پاورپوینت با Aspose.Slides برای اندروید از طریق جاوا سفارشی کنید تا ارائه‌های شما در هر دستگاهی واضح و سازگار باقی بمانند."
+description: "فونت‌ها را در اسلایدهای PowerPoint با Aspose.Slides برای Android از طریق Java سفارشی کنید تا ارائه‌های شما در هر دستگاهی واضح و یکپارچه باقی بمانند."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides به شما امکان می‌دهد تا از قلم‌های سفارشی در ارائه‌ها استفاده کنید بدون اینکه آن‌ها را بر روی سیستم‌عامل نصب کنید. می‌توانید قلم‌ها را از پوشه‌های سفارشی بارگذاری کنید، قلم‌ها را برای یک ارائه خاص از طریق منبع‌های قلم در سطح سند فراهم کنید، یا قلم‌های خارجی را مستقیماً از داده‌های باینری بارگذاری کنید.
+Aspose.Slides به شما امکان می‌دهد تا فونت‌های سفارشی را در ارائه‌ها بدون نصب بر روی سیستم‌عامل استفاده کنید. می‌توانید فونت‌ها را از پوشه‌های سفارشی بارگذاری کنید، فونت‌ها را برای یک ارائه خاص از طریق منابع فونت در سطح سند ارائه دهید، یا فونت‌های خارجی را مستقیماً از داده‌های باینری بارگذاری کنید.
 
-قلم‌های بارگذاری‌شده هنگام رندر یا خروجی گرفتن از ارائه، به‌عنوان مثال به PDF، تصاویر و سایر فرمت‌های پشتیبانی‌شده، استفاده می‌شوند. این کار به‌طور یکنواخت خروجی ارائه را در محیط‌های مختلف حفظ می‌کند. این مقاله همچنین نحوه بررسی پوشه‌های قلم مورد استفاده توسط Aspose.Slides و چگونگی پاک‌سازی کش قلم پس از کار با قلم‌های خارجی را شرح می‌دهد.
+فونت‌های بارگذاری‌شده هنگام رندر یا خروجی گرفتن از ارائه، برای مثال به PDF، تصویرها و سایر قالب‌های پشتیبانی‌شده، استفاده می‌شوند. این کار به حفظ سازگاری خروجی ارائه در محیط‌های مختلف کمک می‌کند. مقاله همچنین نحوه بازرسی پوشه‌های فونت مورد استفاده توسط Aspose.Slides و چگونگی پاک‌سازی کش فونت پس از کار با فونت‌های خارجی را توضیح می‌دهد.
 
-ثبت قلم‌های سفارشی برای رندر شدن مستقل از جاسازی قلم‌ها در فایل PPTX است. اگر نیازی به ذخیره‌سازی قلم داخل خود ارائه باشد، باید از ویژگی‌های جاسازی قلم به‌صورت صریح استفاده کنید.
+ثبت فونت‌های سفارشی برای رندرینگ جدا از جاسازی فونت‌ها در فایل PPTX است. اگر لازم باشد فونت داخل خود ارائه ذخیره شود، باید از ویژگی‌های جاسازی فونت به‌صورت صریح استفاده کنید.
 
-{{% alert color="primary" %}} 
+یک تم ارائه می‌تواند خانواده‌های فونت متفاوتی را برای سیستم‌های نوشتاری مختلف ارجاع دهد. این نگاشت‌ها نام فونت‌ها را ذخیره می‌کنند ولی فایل‌های فونت را نصب یا بارگذاری نمی‌کنند. برای مدیریت این نگاشت‌ها به [Script-Specific Theme Fonts](/slides/fa/androidjava/script-specific-font-mappings/) مراجعه کنید و از گزینه‌های بارگذاری زیر برای در دسترس قرار دادن فونت‌های ارجاع‌شده جهت رندرینگ سازگار استفاده کنید.
 
-Aspose Slides به شما امکان می‌دهد این قلم‌ها را با استفاده از متد [loadExternalFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) بارگذاری کنید:
+{{% alert color="info" title="Note" %}}
+Aspose Slides به شما امکان می‌دهد این فونت‌ها را با استفاده از متد [loadExternalFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) بارگذاری کنید:
 
-* قلم‌های TrueType (.ttf) و مجموعه‌های TrueType (.ttc). ببینید [TrueType](https://en.wikipedia.org/wiki/TrueType).
-
-* قلم‌های OpenType (.otf). ببینید [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
+* فونت‌های TrueType (.ttf) و TrueType Collection (.ttc). برای جزئیات به [TrueType](https://en.wikipedia.org/wiki/TrueType) مراجعه کنید.
+* فونت‌های OpenType (.otf). برای جزئیات به [OpenType](https://en.wikipedia.org/wiki/OpenType) مراجعه کنید.
 {{% /alert %}}
 
-## **بارگذاری قلم‌های سفارشی**
+## **بارگذاری فونت‌های سفارشی**
 
-Aspose.Slides به شما اجازه می‌دهد قلم‌های مورد استفاده در یک ارائه را بدون نصب بر روی سیستم بارگذاری کنید. این موضوع بر خروجی‌های صادراتی — مانند PDF، تصاویر و سایر فرمت‌های پشتیبانی‌شده — تأثیر می‌گذارد تا اسناد نهایی در محیط‌های مختلف یک‌دست به‌نظر برسند. قلم‌ها از دایرکتوری‌های سفارشی بارگذاری می‌شوند.
+Aspose.Slides به شما امکان می‌دهد فونت‌های استفاده‌شده در یک ارائه را بدون نصب بر روی سیستم بارگذاری کنید. این موضوع بر خروجی‌های صادراتی مانند PDF، تصویرها و سایر قالب‌های پشتیبانی‌شده تاثیر دارد تا اسناد نهایی در محیط‌های مختلف یکدست به‌نظر برسند. فونت‌ها از دایرکتوری‌های سفارشی بارگذاری می‌شوند.
 
-1. یک یا چند پوشه حاوی فایل‌های قلم را مشخص کنید.  
-2. متد ایستا [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) را فراخوانی کنید تا قلم‌ها از آن پوشه‌ها بارگذاری شوند.  
-3. ارائه را بارگذاری و رندر/صادر کنید.  
-4. برای پاک‌سازی کش قلم، متد [FontsLoader.clearCache](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontsLoader#clearCache--) را فراخوانی کنید.
+1. یک یا چند پوشه حاوی فایل‌های فونت را مشخص کنید.
+2. متد استاتیک [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) را فراخوانی کنید تا فونت‌ها از آن پوشه‌ها بارگذاری شوند.
+3. ارائه را بارگذاری و رندر/صادرات کنید.
+4. برای پاک‌سازی کش فونت‌ها، متد [FontsLoader.clearCache](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontsLoader#clearCache--) را فراخوانی کنید.
 
-مثال کد زیر فرآیند بارگذاری قلم را نشان می‌دهد:
+نمونه کد زیر فرآیند بارگذاری فونت را نشان می‌دهد:
 
 ```java
-// پوشه‌هایی که حاوی فایل‌های قلم سفارشی هستند را تعریف کنید.
+import com.aspose.slides.*;
+
+// پوشه‌هایی که حاوی فایل‌های فونت سفارشی هستند را تعریف کنید.
+String externalFontFolder1 = "assets/fonts";
+String externalFontFolder2 = "global/fonts";
+
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// قلم‌های سفارشی را از پوشه‌های مشخص شده بارگذاری کنید.
+// فونت‌های سفارشی را از پوشه‌های مشخص‌شده بارگذاری کنید.
 FontsLoader.loadExternalFonts(fontFolders);
 
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
-    // ارائه را با استفاده از قلم‌های بارگذاری‌شده رندر/صادر کنید (به‌عنوان مثال به PDF، تصاویر یا سایر فرمت‌ها).
+
+    // ارائه را رندر/صادرات کنید (مثلاً به PDF، تصویرها یا قالب‌های دیگر) با استفاده از فونت‌های بارگذاری‌شده.
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // پس از پایان کار کش قلم را پاک کنید.
+    // پس از پایان کار کش فونت را پاک کنید.
     FontsLoader.clearCache();
 }
 ```
 
 {{% alert color="info" title="Note" %}}
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) پوشه‌های اضافی را به مسیرهای جستجوی فونت اضافه می‌کند، اما ترتیب اولیه‌سازی فونت را تغییر نمی‌دهد.
+فونت‌ها به ترتیب زیر مقداردهی اولیه می‌شوند:
 
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) پوشه‌های اضافی را به مسیرهای جستجوی قلم اضافه می‌کند، اما ترتیب اولیه‌سازی قلم را تغییر نمی‌دهد.  
-قلم‌ها به ترتیب زیر مقداردهی می‌شوند:
-
-1. مسیر قلم پیش‌فرض سیستم‌عامل.  
+1. مسیر پیش‌فرض فونت‌های سیستم‌عامل.
 1. مسیرهایی که از طریق [FontsLoader](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/) بارگذاری شده‌اند.
-
 {{%/alert %}}
 
-## **دریافت پوشه‌های قلم سفارشی**
-Aspose.Slides متد [getFontFolders](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) را برای یافتن پوشه‌های قلم ارائه می‌دهد. این متد پوشه‌های اضافه‌شده توسط متد `LoadExternalFonts` و پوشه‌های قلم سیستم را برمی‌گرداند.
+## **دریافت پوشه‌های فونت سفارشی**
 
-کد Java زیر نشان می‌دهد چگونه از [getFontFolders](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) استفاده کنید:
+Aspose.Slides متد [getFontFolders](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) را فراهم می‌کند تا بتوانید پوشه‌های فونت را پیدا کنید. این متد پوشه‌های اضافه‌شده از طریق متد `LoadExternalFonts` و پوشه‌های فونت سیستم را برمی‌گرداند.
+
+این کد Java نشان می‌دهد چگونه از [getFontFolders](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) استفاده کنید:
 
 ```java
-// این خط پوشه‌هایی را که فایل‌های قلم جستجو می‌شوند نمایش می‌دهد.
-// اینها پوشه‌هایی هستند که از طریق متد LoadExternalFonts و پوشه‌های قلم سیستم اضافه شده‌اند.
+import com.aspose.slides.*;
+
+// این خط پوشه‌هایی را که فایل‌های فونت جستجو می‌شوند، خروجی می‌دهد.
+// این‌ها پوشه‌هایی هستند که از طریق متد LoadExternalFonts اضافه شده‌اند و پوشه‌های فونت سیستم.
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **مشخص کردن قلم‌های سفارشی مورد استفاده با یک ارائه**
-Aspose.Slides ویژگی [setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) را برای تعیین قلم‌های خارجی که با ارائه استفاده خواهند شد، فراهم می‌کند.
+## **مشخص کردن فونت‌های سفارشی مورد استفاده در یک ارائه**
 
-کد Java زیر نشان می‌دهد چگونه از ویژگی [setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) استفاده کنید:
+Aspose.Slides ویژگی [setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) را فراهم می‌کند تا بتوانید فونت‌های خارجی را که با ارائه استفاده می‌شوند، مشخص کنید.
+
+این کد Java نشان می‌دهد چگونه از ویژگی [setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) استفاده کنید:
 
 ```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
@@ -106,19 +116,23 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
     // کار با ارائه
-    // CustomFont1، CustomFont2 و قلم‌های موجود در پوشه‌های assets\fonts و global\fonts و زیرپوشه‌های آن‌ها برای ارائه در دسترس هستند
+    // فونت‌های CustomFont1، CustomFont2، و فونت‌های موجود در پوشه‌های assets\fonts و global\fonts و زیرپوشه‌های آن‌ها برای ارائه در دسترس هستند
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **مدیریت قلم‌ها به‌صورت خارجی**
+## **مدیریت فونت‌ها به‌صورت خارجی**
 
-Aspose.Slides متد [loadExternalFont](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) را برای بارگذاری قلم‌های خارجی از داده‌های باینری ارائه می‌دهد.
+Aspose.Slides متد [loadExternalFont](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) را فراهم می‌کند تا بتوانید فونت‌های خارجی را از داده‌های باینری بارگذاری کنید.
 
-کد Java زیر فرآیند بارگذاری قلم از آرایه بایت را نشان می‌دهد:
+این کد Java فرآیند بارگذاری فونت از آرایه بایت را نمایش می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
@@ -127,7 +141,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // قلم خارجی در طول عمر ارائه بارگذاری شده است
+        //      فونت خارجی در طول زمان زندگی ارائه بارگذاری می‌شود
     } finally {
         
     }
@@ -140,22 +154,22 @@ finally
 
 ## **سوالات متداول**
 
-**آیا قلم‌های سفارشی بر صادرات به تمام فرمت‌ها (PDF, PNG, SVG, HTML) تأثیر می‌گذارند؟**
+### آیا فونت‌های سفارشی بر خروجی به تمام قالب‌ها (PDF، PNG، SVG، HTML) تاثیر می‌گذارند؟
 
-بله. قلم‌های متصل توسط رندرر در تمام فرمت‌های خروجی استفاده می‌شوند.
+بله. فونت‌های متصل شده توسط رندرر در تمام قالب‌های خروجی استفاده می‌شوند.
 
-**آیا قلم‌های سفارشی به‌صورت خودکار در PPTX نهایی جاسازی می‌شوند؟**
+### آیا فونت‌های سفارشی به‌صورت خودکار در فایل PPTX نهایی جاسازی می‌شوند؟
 
-خیر. ثبت یک قلم برای رندر شدن برابر با جاسازی آن در PPTX نیست. اگر نیاز دارید قلم داخل فایل ارائه ذخیره شود، باید از ویژگی‌های [جاسازی صریح](/slides/fa/androidjava/embedded-font/) استفاده کنید.
+خیر. ثبت یک فونت برای رندرینگ برابر با جاسازی آن در فایل PPTX نیست. در صورتی که نیاز باشد فونت داخل فایل ارائه نگهداری شود، باید از ویژگی‌های **جاسازی صریح** استفاده کنید.
 
-**آیا می‌توانم رفتار fallback را زمانی که یک قلم سفارشی برخی گلیف‌ها را ندارد، کنترل کنم؟**
+### آیا می‌توانم رفتار پیش‌فرض هنگام نبود گلیف‌های خاص در یک فونت سفارشی را کنترل کنم؟
 
-بله. می‌توانید [جایگزینی قلم](/slides/fa/androidjava/font-substitution/)، [قوانین جایگزینی](/slides/fa/androidjava/font-replacement/) و [مجموعه‌های fallback](/slides/fa/androidjava/fallback-font/) را پیکربندی کنید تا دقیقاً مشخص کنید هنگام عدم وجود گلیف درخواست‌شده از کدام قلم استفاده شود.
+بله. می‌توانید با پیکربندی [font substitution](/slides/fa/androidjava/font-substitution/)، [replacement rules](/slides/fa/androidjava/font-replacement/) و [fallback sets](/slides/fa/androidjava/fallback-font/) دقیقاً تعیین کنید که هنگام نبود گلیف موردنظر، از کدام فونت استفاده شود.
 
-**آیا می‌توانم در محیط‌های Linux/Docker بدون نصب قلم‌ها در سطح سیستم از آن‌ها استفاده کنم؟**
+### آیا می‌توانم فونت‌ها را در کانتینرهای Linux/Docker بدون نصب سراسری استفاده کنم؟
 
-بله. می‌توانید به پوشه‌های قلم خود اشاره کنید یا قلم‌ها را از آرایه‌های بایت بارگذاری کنید. این کار هرگونه وابستگی به دایرکتوری‌های قلم سیستمی در تصویر کانتینر را حذف می‌کند.
+بله. می‌توانید به پوشه‌های فونت خود اشاره کنید یا فونت‌ها را از آرایه‌های بایت بارگذاری کنید. این کار وابستگی به دایرکتوری‌های فونت سیستم در تصویر کانتینر را حذف می‌کند.
 
-**در مورد مجوزها—آیا می‌توانم هر قلم سفارشی را بدون محدودیت جاسازی کنم؟**
+### در مورد مجوزها—آیا می‌توانم هر فونت سفارشی را بدون محدودیت جاسازی کنم؟
 
-شما مسئول رعایت قوانین مجوز قلم هستید. شرایط متفاوت است؛ برخی مجوزها جاسازی یا استفاده تجاری را ممنوع می‌کنند. همیشه قبل از توزیع خروجی‌ها، قرارداد مجوز (EULA) قلم را بررسی کنید.
+شما مسئول رعایت شرایط مجوز فونت هستید. شرایط متفاوت است؛ برخی مجوزها جاسازی یا استفاده تجاری را منع می‌کنند. پیش از توزیع خروجی‌ها همیشه شرایط **EULA** فونت را بررسی کنید.

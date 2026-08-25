@@ -1,94 +1,186 @@
 ---
-title: Dodawanie cyfrowych podpisów do prezentacji w PHP
-linktitle: Cyfrowy podpis
+title: Dodaj podpisy cyfrowe do prezentacji w PHP
+linktitle: Podpis cyfrowy
 type: docs
 weight: 10
 url: /pl/php-java/digital-signature-in-powerpoint/
 keywords:
-- cyfrowy podpis
+- podpis cyfrowy
 - certyfikat cyfrowy
 - urząd certyfikacji
 - certyfikat PFX
+- PKCS#12
+- weryfikacja podpisu
 - PowerPoint
-- OpenDocument
-- prezentacja
+- PPTX
+- bezpieczeństwo prezentacji
 - PHP
 - Aspose.Slides
-description: "Dowiedz się, jak cyfrowo podpisać pliki PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP via Java. Zabezpiecz swoje slajdy w kilka sekund dzięki przejrzystym przykładom kodu."
+description: "Dowiedz się, jak podpisywać istniejące prezentacje PPTX przy użyciu certyfikatów PFX oraz korzystać z Aspose.Slides dla PHP przez Java, aby weryfikować lub usuwać podpisy cyfrowe."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-**Cyfrowy certyfikat** służy do utworzenia prezentacji PowerPoint chronionej hasłem, oznaczonej jako utworzonej przez określoną organizację lub osobę. Cyfrowy certyfikat można uzyskać, kontaktując się z autoryzowaną organizacją – wystawcą certyfikatu. Po zainstalowaniu cyfrowego certyfikatu w systemie można go użyć do dodania cyfrowego podpisu do prezentacji za pomocą Plik -> Informacje -> Ochrona prezentacji:
+Podpis cyfrowy pomaga odbiorcy określić, kto podpisał prezentację i czy podpisana zawartość uległa zmianie. Trzy powiązane koncepcje bezpieczeństwa są tutaj istotne:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **Certyfikat cyfrowy** to elektroniczne poświadczenie, które łączy tożsamość z kluczem publicznym. Zaufany urząd certyfikacji (CA) może wydać certyfikat, albo organizacja może używać certyfikatu samopodpisanego w wewnętrznych przepływach pracy.
+- **Podpis cyfrowy** jest tworzony z zawartości prezentacji oraz prywatnego klucza posiadacza certyfikatu. Publiczny klucz certyfikatu może następnie zostać użyty do weryfikacji podpisu. Podpis dostarcza dowodu pochodzenia i integralności; nie szyfruje prezentacji.
+- **Ochrona hasłem** kontroluje, czy użytkownik może otworzyć lub modyfikować prezentację. Jest ona odrębna od podpisywania cyfrowego i jest opisana w [Prezentacje chronione hasłem](/slides/pl/php-java/password-protected-presentation/).
 
-Prezentacja może zawierać więcej niż jeden cyfrowy podpis. Po dodaniu cyfrowego podpisu do prezentacji w PowerPoincie pojawi się specjalna wiadomość:
+PowerPoint udostępnia polecenie **Dodaj podpis cyfrowy** w sekcji **Plik > Informacje > Ochrona prezentacji**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Menu Ochrona prezentacji w PowerPoint z podświetnioną opcją Dodaj podpis cyfrowy](add-digital-signature-in-powerpoint.png)
 
-Aby podpisać prezentację lub sprawdzić autentyczność podpisów w prezentacji, **Aspose.Slides API** udostępnia klasę [**DigitalSignature**](https://reference.aspose.com/slides/pl/php-java/aspose.slides/DigitalSignature), klasę [**DigitalSignatureCollection**](https://reference.aspose.com/slides/pl/php-java/aspose.slides/DigitalSignatureCollection) oraz metodę [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/pl/php-java/aspose.slides/Presentation/#getDigitalSignatures). Obecnie cyfrowe podpisy są obsługiwane tylko dla formatu PPTX.
+Po otwarciu podpisanej prezentacji PowerPoint może wyświetlić powiadomienie o stanie podpisu.
 
-## **Dodaj cyfrowy podpis z certyfikatu PFX**
+![Powiadomienie PowerPoint informujące, że prezentacja zawiera prawidłowe podpisy](digital-signature-status-in-powerpoint.png)
 
-Poniższy przykład kodu pokazuje, jak dodać cyfrowy podpis z certyfikatu PFX:
+Aspose.Slides udostępnia podpisy poprzez [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#getDigitalSignatures), który zwraca [DigitalSignatureCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignaturecollection/) którego elementy są reprezentowane przez obiekty [DigitalSignature](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignature/). Prezentacja może zawierać wiele podpisów.
 
-1. Otwórz plik PFX i przekaż hasło PFX do obiektu [**DigitalSignature**](https://reference.aspose.com/slides/pl/php-java/aspose.slides/DigitalSignature).
-1. Dodaj utworzony podpis do obiektu prezentacji.
+## **Zrozumienie certyfikatów PFX i haseł**
 
-```php
-  # Otwieranie pliku prezentacji
-  $pres = new Presentation();
-  try {
-    # Utwórz obiekt DigitalSignature z plikiem PFX i hasłem PFX
-    $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    # Skomentuj nowy cyfrowy podpis
-    $signature->setComments("Aspose.Slides digital signing test.");
-    # Dodaj cyfrowy podpis do prezentacji
-    $pres->getDigitalSignatures()->add($signature);
-    # Zapisz prezentację
-    $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+Plik PFX, znany również jako plik PKCS#12 i zazwyczaj oznaczany rozszerzeniem `.pfx` lub `.p12`, może zawierać certyfikat X.509, jego prywatny klucz oraz łańcuch certyfikatów. Prywatny klucz umożliwia posiadaczowi stworzenie podpisu. Certyfikat bez dostępnego prywatnego klucza nie może być użyty do podpisania prezentacji.
 
-Teraz można sprawdzić, czy prezentacja została cyfrowo podpisana i nie została zmodyfikowana:
+Hasło PFX chroni pakiet certyfikatu i prywatny klucz. Nie jest ono **hasłem** do otwierania lub edytowania prezentacji. Nie zapisuj plików PFX ani ich haseł w systemie kontroli wersji. W środowisku produkcyjnym ogranicz dostęp do pliku certyfikatu i pobieraj jego hasło z magazynu tajemnic lub innego zabezpieczonego źródła konfiguracji. Poniższe przykłady używają zmiennej środowiskowej jedynie w celu uniknięcia osadzania hasła w kodzie.
+
+## **Dodanie podpisu cyfrowego do prezentacji**
+
+Aby podpisać rzeczywisty przepływ pracy prezentacji, wczytaj istniejący plik PPTX, utwórz [DigitalSignature](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignature/) z certyfikatu PFX i jego hasła, dodaj podpis do kolekcji prezentacji i zapisz jako plik PPTX.
 
 ```php
-  # Otwórz prezentację
-  $pres = new Presentation("SomePresentationSigned.pptx");
-  try {
-    if (java_values($pres->getDigitalSignatures()->size()) > 0) {
-      $allSignaturesAreValid = true;
-      echo("Signatures used to sign the presentation: ");
-      # Sprawdź, czy wszystkie cyfrowe podpisy są prawidłowe
-      foreach($pres->getDigitalSignatures() as $signature) {
-        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
-        $allSignaturesAreValid &= $signature->isValid();
-      }
-      if ($allSignaturesAreValid) {
-        echo("Presentation is genuine, all signatures are valid.");
-      } else {
-        echo("Presentation has been modified since signing.");
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$certificatePassword = getenv("PFX_PASSWORD");
+if ($certificatePassword === false || $certificatePassword === "") {
+    throw new RuntimeException("Set the PFX_PASSWORD environment variable.");
+}
+
+$presentation = new Presentation("InputPresentation.pptx");
+try {
+    $signature = new DigitalSignature("signing-certificate.pfx", $certificatePassword);
+    $signature->setComments("Approved for release.");
+
+    $presentation->getDigitalSignatures()->add($signature);
+    $presentation->save("InputPresentation-signed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Zapisanie wyniku pod nową nazwą zachowuje niepodpisany plik źródłowy. Wartość ustawiona przez [DigitalSignature::setComments](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignature/setcomments/) opisuje cel podpisu; nie jest mechanizmem bezpieczeństwa.
+
+## **Walidacja podpisów cyfrowych**
+
+Po wczytaniu podpisanego pliku PPTX, sprawdź każdy element zwrócony przez [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#getDigitalSignatures). Metoda [DigitalSignature::isValid](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignature/isvalid/) wskazuje, czy wbudowany podpis jest prawidłowy dla bieżącej zawartości prezentacji.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $signatures = $presentation->getDigitalSignatures();
+    $signatureCount = java_values($signatures->size());
+
+    if ($signatureCount === 0) {
+        echo "The presentation does not contain digital signatures." . PHP_EOL;
+    } else {
+        $allSignaturesAreValid = true;
+        $signTimeFormat = new Java("java.text.SimpleDateFormat", "yyyy-MM-dd HH:mm:ss");
+        $certificateFactoryClass = new JavaClass("java.security.cert.CertificateFactory");
+        $certificateFactory = $certificateFactoryClass->getInstance("X.509");
+
+        for ($index = 0; $index < $signatureCount; $index++) {
+            $signature = $signatures->get_Item($index);
+            $signatureIsValid = java_values($signature->isValid());
+            $signatureStatus = $signatureIsValid ? "VALID" : "INVALID";
+            $formattedSignTime = java_values($signTimeFormat->format($signature->getSignTime()));
+
+            $certificateData = $signature->getCertificate();
+            $certificateStream = new Java("java.io.ByteArrayInputStream", $certificateData);
+            try {
+                $certificate = $certificateFactory->generateCertificate($certificateStream);
+                $signerName = java_values($certificate->getSubjectX500Principal()->getName());
+            } finally {
+                $certificateStream->close();
+            }
+
+            echo $signerName . ", " . $formattedSignTime . " -- " . $signatureStatus . PHP_EOL;
+
+            $allSignaturesAreValid = $allSignaturesAreValid && $signatureIsValid;
+        }
+
+        if ($allSignaturesAreValid) {
+            echo "All embedded signatures are valid for the current presentation." . PHP_EOL;
+        } else {
+            echo "At least one embedded signature is invalid." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nieprawidłowy wynik zwykle oznacza, że zawartość podpisanej prezentacji lub dane podpisu zmieniły się po podpisaniu, lub plik jest uszkodzony. Usunięcie wszystkich podpisów tworzy niepodpisaną prezentację, więc sprawdzanie jedynie ważności elementów nie wystarczy: wrażliwy na bezpieczeństwo przepływ pracy musi również zweryfikować, czy występuje oczekiwana liczba podpisów i oczekiwane tożsamości podpisujących.
+
+Ten wynik ważności nie powinien być traktowany jako pełna decyzja o zaufaniu do certyfikatu. W zależności od polityki bezpieczeństwa, aplikacja może również potrzebować zbudować i zweryfikować łańcuch certyfikatów X.509, sprawdzić daty ważności i status odwołania certyfikatu, potwierdzić oczekiwany podmiot lub odcisk palca, zweryfikować użycie klucza oraz ocenić zaufany znacznik czasu. Wartość [DigitalSignature::getSignTime](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignature/getsigntime/) sama w sobie nie jest dowodem od zaufanego organu znaczników czasu.
+
+## **Usuwanie podpisów cyfrowych**
+
+Usunięcie podpisów zmienia stan bezpieczeństwa prezentacji. Poniższy przykład wczytuje podpisany plik PPTX, usuwa wszystkie podpisy przy użyciu [DigitalSignatureCollection::clear](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignaturecollection/clear/), i zapisuje niepodpisaną kopię.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $presentation->getDigitalSignatures()->clear();
+    $presentation->save("InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Aby usunąć tylko jeden podpis, wywołaj [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignaturecollection/removeat/) z jego indeksem zerowym. Zapisz do nowego pliku, chyba że nadpisywanie podpisanego oryginału jest wyraźną częścią twojego przepływu pracy.
+
+## **Rozważania dotyczące edycji i formatu**
+
+- Podpis nie sprawia, że prezentacja staje się tylko do odczytu. Użytkownicy i aplikacje nadal mogą edytować plik, ale zmiany w podpisanej zawartości zazwyczaj unieważniają istniejący podpis.
+- Wykonaj wszystkie planowane edycje przed podpisaniem. Jeśli prezentacja musi zostać zmieniona, zapisz zaktualizowaną wersję i ponownie ją podpisz.
+- Zachowaj ostateczny wynik w formacie PPTX. Konwersja podpisanej prezentacji do innego formatu nie przenosi oryginalnego podpisu PPTX jako ważnego podpisu dla pliku przekonwertowanego.
+- Traktuj prywatny klucz certyfikatu jako wrażliwy. Każdy, kto uzyska prywatny klucz i jego hasło, może tworzyć podpisy wyglądające, jakby pochodziły od tego posiadacza certyfikatu.
+- Zachowaj niepodpisane źródło lub inną kontrolowaną kopię, gdy wymaga tego polityka przechowywania dokumentów.
 
 ## **FAQ**
 
-**Czy mogę usunąć istniejące podpisy z pliku?**
+**Czy podpis cyfrowy szyfruje prezentację?**
 
-Tak. Kolekcja podpisów cyfrowych obsługuje [usuwanie poszczególnych elementów](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignaturecollection/removeat/) i [czyszczenie całej kolekcji](https://reference.aspose.com/slides/pl/php-java/aspose.slides/digitalsignaturecollection/clear/); po zapisaniu pliku prezentacja nie będzie zawierała żadnych podpisów.
+Nie. Podpis cyfrowy dostarcza dowodu o pochodzeniu i integralności, ale zawartość prezentacji pozostaje czytelna, chyba że zastosowano oddzielne szyfrowanie. Użyj [ochrony hasłem](/slides/pl/php-java/password-protected-presentation/), gdy dostęp do treści musi być ograniczony.
 
-**Czy plik staje się „read-only” po podpisaniu?**
+**Czy hasło PFX jest tym samym co hasło prezentacji?**
 
-Nie. Podpis zapewnia integralność i autorstwo, ale nie blokuje edycji. Aby ograniczyć edytowanie, połącz go z ["Read-only" or a password](/slides/pl/php-java/password-protected-presentation/).
+Nie. Hasło PFX odblokowuje prywatny klucz przechowywany w pakiecie certyfikatu. Nie kontroluje ono, kto może otworzyć lub edytować plik PPTX.
 
-**Czy podpis będzie wyświetlany prawidłowo w różnych wersjach programu PowerPoint?**
+**Czy mogę użyć certyfikatu samopodpisanego?**
 
-Podpis jest tworzony dla kontenera OOXML (PPTX). Nowoczesne wersje PowerPointa, które obsługują podpisy OOXML, wyświetlają ich status poprawnie.
+Technicznie, certyfikat samopodpisany może być użyty, jeśli zawiera dostępny prywatny klucz. Odbiorcy nie będą go automatycznie ufać, chyba że certyfikat zostanie explicite dodany do ich zaufanego środowiska. Publiczne lub międzyorganizacyjne przepływy pracy zazwyczaj używają certyfikatu wydanego przez zaufany urząd certyfikacji (CA).
+
+**Co sprawia, że podpis jest nieprawidłowy?**
+
+Zmiana podpisanej zawartości prezentacji lub danych podpisu po podpisaniu może unieważnić podpis. Uszkodzenie pliku może również spowodować niepowodzenie weryfikacji. Jeśli wszystkie podpisy zostaną usunięte, prezentacja jest niepodpisana, a nie zawiera nieprawidłowego podpisu.
+
+**Czy prawidłowy podpis oznacza, że powinienem ufać podpisującemu?**
+
+Nie sam w sobie. Integralność podpisu i zaufanie do podpisującego to odrębne decyzje. Polityka weryfikacji w środowisku produkcyjnym powinna również sprawdzać łańcuch certyfikatów, okres ważności, status odwołania, oczekiwaną tożsamość, użycie klucza oraz wymogi dotyczące zaufanych znaczników czasu.
+
+**Co się dzieje, gdy certyfikat wygasa?**
+
+Wygasanie certyfikatu nie zmienia bajtów prezentacji, ale wpływa na ocenę zaufania do certyfikatu. Czy podpis pozostaje akceptowalny, zależy od twojej polityki oraz od tego, czy ważny zaufany znacznik czasu potwierdza, że podpis został wykonany, gdy certyfikat był ważny. Nie polegaj wyłącznie na wyświetlonym czasie podpisu jako na zaufanym znaczniku czasu.
+
+**Czy podpisana prezentacja może być dalej edytowana?**
+
+Tak. Podpisanie nie blokuje pliku. Edycja podpisanej zawartości zazwyczaj unieważnia istniejący podpis, więc najpierw zakończ prezentację i podpisz finalną wersję.
+
+**Czy prezentacja może zawierać więcej niż jeden podpis?**
+
+Tak. Dodaj każdy podpis do kolekcji zwróconej przez [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#getDigitalSignatures) przed zapisaniem. Podczas weryfikacji sprawdź każdy podpis i potwierdź, że wszyscy wymagani podpisujący są obecni.
+
+**Które formaty prezentacji obsługują te operacje?**
+
+Aspose.Slides obsługuje opisane tutaj operacje podpisu cyfrowego wyłącznie dla formatu PPTX. Format PPT oraz formaty prezentacji OpenDocument nie są obsługiwane w tym przepływie pracy API.
+
+**Czy mogę usunąć podpis bez wpływu na slajdy?**
+
+Tak. Możesz usunąć jeden podpis lub wyczyścić całą kolekcję, a następnie zapisać prezentację. Zawartość slajdów pozostaje dostępna, ale zapisany plik nie zawiera już dowodów usuniętego podpisu.

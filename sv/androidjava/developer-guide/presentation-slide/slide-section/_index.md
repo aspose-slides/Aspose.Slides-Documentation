@@ -1,93 +1,218 @@
 ---
-title: Hantera bildavsnitt i presentationer på Android
-linktitle: Bildavsnitt
+title: Hantera bildsektioner i presentationer på Android
+linktitle: Bildsektion
 type: docs
 weight: 90
 url: /sv/androidjava/slide-section/
 keywords:
-- skapa avsnitt
-- lägga till avsnitt
-- redigera avsnitt
-- ändra avsnitt
-- avsnittsnamn
+- skapa sektion
+- lägga till sektion
+- redigera sektion
+- ändra sektion
+- sektionens namn
+- hämta sektionens bilder
+- behandla sektionbilder
 - PowerPoint
-- OpenDocument
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Effektivisera bildavsnitt i PowerPoint och OpenDocument med Aspose.Slides för Android via Java—dela, döp om och omordna för att optimera PPTX- och ODP-arbetsflöden."
+description: "Hantera bildsektioner med Aspose.Slides för Android via Java: skapa, byta namn, omordna, hämta och bearbeta sektionbilder i PPTX-presentationer."
 ---
 ## **Introduktion**
 
-Med Aspose.Slides for Android via Java kan du organisera en PowerPoint‑presentation i avsnitt. Du kan skapa avsnitt som innehåller specifika bilder.
+Sektioner organiserar på varandra följande bilder i namngivna grupper utan att ändra bildinnehållet. Med Aspose.Slides för Android via Java kan du skapa, omordna, byta namn, inspektera och ta bort sektioner via metoden [Presentation.getSections](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSections--).
 
-Du kan vilja skapa avsnitt och använda dem för att organisera eller dela upp bilder i en presentation i logiska delar i följande situationer:
+Sektioner är särskilt användbara när:
 
-- När du arbetar med en stor presentation tillsammans med andra eller ett team – och du behöver tilldela vissa bilder till en kollega eller några teammedlemmar. 
-- När du hanterar en presentation som innehåller många bilder – och du har svårt att hantera eller redigera dess innehåll på en gång.
+- en stor presentation behöver delas in i logiska ämnen eller kapitel;
+- olika grupper av bilder tilldelas olika medarbetare;
+- bilder måste bearbetas, flyttas eller slås samman som grupper.
 
-Idealiskt bör du skapa ett avsnitt som innehåller liknande bilder – bilderna har något gemensamt eller de kan finnas i en grupp baserad på en regel – och ge avsnittet ett namn som beskriver bilderna i det. 
+Välj koncisa sektionnamn som beskriver syftet med de grupperade bilderna. Eftersom sektioner är en del av presentationsstrukturen, använd sektion‑API:erna för att avgöra medlemskap istället för att härleda det från bildpositioner.
 
-## **Skapa avsnitt i presentationer**
+## **Skapa och hantera sektioner**
 
-För att lägga till ett avsnitt som ska innehålla bilder i en presentation tillhandahåller Aspose.Slides for Android via Java metoden [addSection()](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) som låter dig ange namnet på avsnittet du vill skapa och bilden från vilken avsnittet startar.
+Använd [ISectionCollection.addSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) för att skapa en sektion genom att ange dess namn och startbild. Aspose.Slides avgör vilka bilder som tillhör sektionen utifrån presentationens aktuella sektionstruktur.
 
-Denna exempelkod visar hur du skapar ett avsnitt i en presentation i Java:
+Samma [ISectionCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/) låter dig också:
+
+- flytta en sektion tillsammans med dess bilder genom att använda [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-);
+- ta bara bort sektionens definition med [ISectionCollection.removeSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-), vilket behåller dess bilder;
+- ta bort en sektion och dess bilder med [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-);
+- lägga till en tom sektion i slutet med [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-).
+
+Följande exempel skapar två sektioner, flyttar en av dem, tar bort den tillsammans med dess bilder och lägger till en tom sektion:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 avslutas vid newSlide2 och därefter startar section2   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ändra namn på avsnitt**
+Efter dessa operationer innehåller presentationen `Introduction`-sektionen med dess bilder och en tom `Appendix`-sektion. `Results`-sektionen och dess bilder har tagits bort.
 
-Efter att du har skapat ett avsnitt i en PowerPoint‑presentation kan du bestämma dig för att ändra dess namn. 
+## **Byta namn på sektioner**
 
-Denna exempelkod visar hur du ändrar namn på ett avsnitt i en presentation i Java med Aspose.Slides:
+För att byta namn på en sektion, anropa dess [ISection.setName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#setName-java.lang.String-)‑metod. Sektionens bilder och position förblir oförändrade.
+
+Följande exempel skapar en sektion och ändrar dess namn:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Hämta bilder från sektioner**
+
+Metoden [Presentation.getSections](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSections--) returnerar en [ISectionCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectioncollection/) som du kan iterera över. För varje [ISection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/), anropa [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) för att hämta de bilder som för närvarande tillhör den. Metoden returnerar en [ISectionSlideCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectionslidecollection/), som tillhandahåller en räknare, indexerad åtkomst och iteration.
+
+Följande exempel skapar två ifyllda sektioner och en tom sektion, och skriver sedan ut varje sektionens [namn](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getName--), [identifierare](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getSectionId--), [startbild](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getStartedFromSlide--), bildantal och bildnummer. Det använder [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isectionslidecollection/#get_Item-int-) för att läsa den första bilden och ett förbättrat `for`‑statement för att bearbeta varje bild. För den tomma sektionen har den returnerade samlingen storlek noll, metoden anropas inte och iterationen utför inga operationer.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Sektionstillhörighet bestäms av presentationens sektionstruktur. Räkna inte ut en sektons intervall manuellt från [ISection.getStartedFromSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getStartedFromSlide--), bildindex och nästa sektons startbild.
+
+Strukturella redigeringar kan ändra både de bilder som returneras för en sektion och deras bildnummer. Detta inkluderar omordning av bilder, kloning av en bild till en sektion, flytt av en sektion tillsammans med dess bilder, borttagning av bilder och borttagning av sektioner. Nästa exempel anropar [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) efter varje sådan förändring istället för att behålla antaganden om sektionens tidigare gränser.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Anropa [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) igen när bilder eller sektioner har omordnats, klonats, flyttats eller tagits bort. Detta håller efterföljande bearbetning i linje med den aktuella presentationsstrukturen.
+
+PPT‑formatet (PowerPoint 97–2003) bevarar inte sektionmetadata. Använd detta arbetsflöde med ett format som stödjer sektioner, till exempel PPTX; konvertering till PPT tar bort den sektionstruktur som behövs för senare iteration.
 
 ## **Vanliga frågor**
 
-**Behålls avsnitt när man sparar till PPT (PowerPoint 97–2003)-formatet?**
+**Behålls sektioner när man sparar till PPT (PowerPoint 97–2003)-formatet?**
 
-Nej. PPT-formatet stöder inte avsnittmetadata, så avsnittsgruppning går förlorad när du sparar till .ppt.
+Nej. PPT‑formatet stöder inte sektionmetadata, så sektionerna försvinner när man sparar till .ppt.
 
-**Kan ett helt avsnitt göras "dolt"?**
+**Kan en hel sektion "gömmas"?**
 
-Nej. Endast enskilda bilder kan döljas. Ett avsnitt som enhet har inget "dolt"-tillstånd.
+Nej. En sektion har inget synlighetstillstånd. För att gömma dess innehåll, anropa [ISlide.setHidden](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islide/#setHidden-boolean-) för varje bild i sektionen.
 
-**Kan jag snabbt hitta ett avsnitt via en bild och, omvänt, den första bilden i ett avsnitt?**
+**Hur kan jag hitta sektionen som innehåller en bild?**
 
-Ja. Ett avsnitt definieras unikt av sin startbild; givet en bild kan du avgöra vilket avsnitt den tillhör, och för ett avsnitt kan du komma åt dess första bild.
+Iterera över samlingen som returneras av [Presentation.getSections](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSections--), anropa [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) för varje sektion och jämför de returnerade bilderna med målbilden. För en icke‑tom sektion returnerar [ISection.getStartedFromSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isection/#getStartedFromSlide--) dess första bild; för en tom sektion returnerar den `null`.

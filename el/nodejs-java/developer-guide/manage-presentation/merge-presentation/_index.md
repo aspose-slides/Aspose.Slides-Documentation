@@ -11,273 +11,353 @@ keywords:
 - συγχώνευση PPT
 - συγχώνευση PPTX
 - συγχώνευση ODP
-- συνδυασμός PowerPoint
-- συνδυασμός παρουσιάσεων
-- συνδυασμός διαφανειών
-- συνδυασμός PPT
-- συνδυασμός PPTX
-- συνδυασμός ODP
+- συνένωση PowerPoint
+- συνένωση παρουσιάσεων
+- συνένωση διαφανειών
+- συνένωση PPT
+- συνένωση PPTX
+- συνένωση ODP
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Συγχωνεύστε αβίαστα παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) σε JavaScript με το Aspose.Slides για Node.js, βελτιώνοντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να συγχωνεύετε παρουσιάσεις PowerPoint και OpenDocument σε JavaScript κλωνοποιώντας διαφάνειες, ελέγχοντας masters και layouts, αλλάζοντας το μέγεθος του περιεχομένου των διαφανειών, διατηρώντας τις ενότητες και διαχειριζόμενοι προστατευμένα ή μεγάλα αρχεία."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σας επιτρέπει να συγχωνεύετε παρουσιάσεις κλωνοποιώντας διαφάνειες από μία παρουσίαση σε άλλη. Αυτό το άρθρο εξηγεί πώς να συγχωνεύετε ολόκληρες παρουσιάσεις ή επιλεγμένες διαφάνειες, να χρησιμοποιείτε έναν κύριο πρότυπο διαφάνειας ή μια συγκεκριμένη διάταξη κατά τη συγχώνευση, να διαχειρίζεστε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών, και να προσθέτετε τις συγχωνευμένες διαφάνειες σε μια ενότητα παρουσίασης. Περιλαμβάνει επίσης πρακτικές σημειώσεις σχετικά με το συγχωνευμένο περιεχόμενο, όπως σημειώσεις ομιλητή, σχόλια, αρχεία πηγής με κωδικό πρόσβασης και χρήση νημάτων.
+Το Aspose.Slides for Node.js μέσω Java συγχωνεύει παρουσιάσεις κλωνοποιώντας διαφάνειες από ένα [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) σε άλλο. Η κύρια λειτουργία είναι [SlideCollection.addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), η οποία μπορεί να διατηρήσει τη μορφοποίηση της διαφάνειας‑προέλευσης ή να συνδέσει τη κλωνοποιημένη διαφάνεια με ένα master ή layout στην προοριστική παρουσίαση.
 
-## **Συγχώνευση Παρουσιάσεων**
+Αυτό το άρθρο καλύπτει τις πιο κοινές ροές εργασίας συγχώνευσης:
 
-Όταν συγχωνεύετε μία παρουσίαση με άλλη, συνδυάζετε ουσιαστικά τις διαφάνειές τους σε μία ενιαία παρουσίαση για να παράγετε ένα αρχείο. 
+- συγχώνευση όλων των διαφανειών διατηρώντας τη μορφοποίηση της πηγής·
+- συγχώνευση επιλεγμένων διαφανειών·
+- εφαρμογή master από την προοριστική παρουσίαση·
+- εφαρμογή συγκεκριμένου layout από την προοριστική παρουσίαση·
+- ομαλοποίηση διαφορετικών μεγεθών διαφανειών πριν τη συγχώνευση·
+- προσθήκη κλωνοποιημένων διαφανειών σε ενότητα·
+- συγχώνευση πολλαπλών παρουσιάσεων σε μια ολοκληρωμένη ροή εργασίας·
+- διαχείριση masters, πόρων, σημειώσεων, σχολίων, πολυμέσων, γραμματοσειρών, κωδικών πρόσβασης, μεγάλων αρχείων και θεμάτων πολυνηματικότητας.
 
-{{% alert title="Πληροφορίες" color="info" %}}
+## **Πώς η κλωνοποίηση διαφανειών επηρεάζει Masters και Layouts**
 
-Τα περισσότερα προγράμματα παρουσίασης (PowerPoint ή OpenOffice) δεν διαθέτουν λειτουργίες που επιτρέπουν στους χρήστες να συνδυάζουν παρουσιάσεις με αυτόν τον τρόπο. 
+Μια διαφάνεια κληρονομεί μεγάλο μέρος της εμφάνισής της από το layout και το master της. Για το λόγο αυτό, η υπερφόρτωση κλωνοποίησης που επιλέγετε καθορίζει πώς η συγχωνευμένη διαφάνεια ενσωματώνεται στην προοριστική παρουσίαση.
 
-[**Aspose.Slides για Node.js μέσω Java**](https://products.aspose.com/slides/el/nodejs-java/), όμως, επιτρέπει τη συγχώνευση παρουσιάσεων με διάφορους τρόπους. Μπορείτε να συγχωνεύσετε παρουσιάσεις με όλα τα σχήματα, στυλ, κείμενα, μορφοποιήσεις, σχόλια, κινήσεις κ.λπ., χωρίς να ανησυχείτε για απώλεια ποιότητας ή δεδομένων.
+Χρησιμοποιήστε [SlideCollection.addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/) με έναν από τους ακόλουθους τρόπους:
 
-**Δείτε επίσης**
+- `addClone(sourceSlide)` — διατηρεί το layout και τη μορφοποίηση της διαφάνειας‑προέλευσης. Όταν απαιτείται, το master της προέλευσης μπορεί να κλωνοποιηθεί αυτόματα στην προοριστική παρουσίαση. Το Aspose.Slides παρακολουθεί αυτόματα κλωνοποιημένα masters ώστε επαναλαμβανόμενες διαφάνειες που χρησιμοποιούν το ίδιο master προέλευσης να μην προκαλούν επαναλαμβανόμενο κλωνοποίηση του master.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — συνδέει τη κλωνοποιημένη διαφάνεια με ένα συγκεκριμένο [MasterSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslide/) προορισμού. Το Aspose.Slides αναζητά ένα ταιριαστό layout κάτω από αυτό το master με βάση τον τύπο ή το όνομα του layout.
+- `addClone(sourceSlide, destinationLayout)` — συνδέει τη κλωνοποιημένη διαφάνεια άμεσα με ένα συγκεκριμένο [LayoutSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/) προορισμού.
 
-[Αντιγραφή Διαφανειών](https://docs.aspose.com/slides/el/nodejs-java/clone-slides/).
+Το master ή το layout που περνιέται σε μια υπερφόρτωση `addClone` πρέπει να ανήκει στην **προοριστική** παρουσίαση, όχι στην παρουσίαση‑προέλευση.
 
-{{% /alert %}}
+## **Συγχώνευση ολόκληρων παρουσιάσεων και διατήρηση μορφοποίησης προέλευσης**
 
-### **Τι Μπορεί να Συγχωνευθεί**
-
-Με το Aspose.Slides, μπορείτε να συγχωνεύσετε 
-
-* ολόκληρες παρουσιάσεις. Όλες οι διαφάνειες από τις παρουσιάσεις καταλήγουν σε μία παρουσίαση
-* συγκεκριμένες διαφάνειες. Οι επιλεγμένες διαφάνειες καταλήγουν σε μία παρουσίαση
-* παρουσιάσεις σε μία μορφή (PPT σε PPT, PPTX σε PPTX, κλπ.) και σε διαφορετικές μορφές (PPT σε PPTX, PPTX σε ODP, κλπ.) μεταξύ τους. 
-
-### **Επιλογές Συγχώνευσης**
-
-Μπορείτε να εφαρμόσετε επιλογές που καθορίζουν αν
-
-* κάθε διαφάνεια στην τελική παρουσίαση διατηρεί μοναδικό στυλ
-* ένα συγκεκριμένο στυλ χρησιμοποιείται για όλες τις διαφάνειες στην τελική παρουσίαση. 
-
-Για τη συγχώνευση παρουσιάσεων, το Aspose.Slides παρέχει τις μεθόδους [addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (από την κλάση [SlideCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideCollection)). Υπάρχουν διάφορες υλοποιήσεις των μεθόδων `addClone` που ορίζουν τις παραμέτρους της διαδικασίας συγχώνευσης παρουσίασης. Κάθε αντικείμενο Presentation έχει μια συλλογή [Slides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation#getSlides--)· έτσι μπορείτε να καλέσετε μια μέθοδο `addClone` από την παρουσίαση στην οποία θέλετε να συγχωνεύσετε διαφάνειες.
-
-Η μέθοδος `addClone` επιστρέφει ένα αντικείμενο `Slide`, το οποίο είναι ένα κλώνο της διαφάνειας πηγής. Οι διαφάνειες στην τελική παρουσίαση είναι απλώς αντίγραφα των διαφανειών της πηγής. Συνεπώς, μπορείτε να κάνετε αλλαγές στις προκύπτουσες διαφάνειες (π.χ., να εφαρμόσετε στυλ, επιλογές μορφοποίησης ή διατάξεις) χωρίς να επηρεαστούν οι πηγές παρουσιάσεις. 
-
-## **Συγχώνευση Παρουσιάσεων** 
-
-Το Aspose.Slides παρέχει τη μέθοδο [**AddClone(ISlide)**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) που επιτρέπει τον συνδυασμό διαφανειών ενώ διατηρούν τις διατάξεις και τα στυλ τους (προεπιλεγμένες παράμετροι).
-
-Αυτός είναι ο κώδικας JavaScript που δείχνει πώς να συγχωνεύσετε παρουσιάσεις:
+Η πιο απλή συγχώνευση αντιγράφει κάθε διαφάνεια από την παρουσίαση‑προέλευση στην προοριστική παρουσίαση. Αυτή είναι η κατάλληλη επιλογή όταν οι εισαγόμενες διαφάνειες πρέπει να διατηρήσουν το αρχικό θέμα, το master και τις σχέσεις layout.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Κύριο Πρότυπο Διαφάνειας**
+Η προκύπτουσα παρουσίαση μπορεί να περιέχει πολλαπλά masters όταν η προέλευση και ο προορισμός χρησιμοποιούν διαφορετικά σχέδια. Αυτό είναι αναμενόμενο όταν η μορφοποίηση της προέλευσης διατηρείται σκόπιμα.
 
-Το Aspose.Slides παρέχει τη μέθοδο [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) που επιτρέπει τον συνδυασμό διαφανειών εφαρμόζοντας ένα πρότυπο κύριου διαφάνειας. Με αυτόν τον τρόπο, εάν χρειαστεί, μπορείτε να αλλάξετε το στυλ των διαφανειών στην τελική παρουσίαση.
+## **Συγχώνευση επιλεγμένων διαφανειών**
 
-Αυτός ο κώδικας JavaScript επιδεικνύει την περιγραφείσα λειτουργία:
+Δεν χρειάζεται να κλωνοποιήσετε κάθε διαφάνεια. Το παρακάτω παράδειγμα εισάγει μόνο επιλεγμένους δείκτες διαφανειών από την παρουσίαση‑προέλευση.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Σημείωση" color="warning" %}} 
+Επικυρώστε τους δείκτες διαφανειών πριν την κλωνοποίηση όταν προέρχονται από είσοδο χρήστη ή εξωτερική διαμόρφωση.
 
-Η διάταξη της διαφάνειας για το κύριο πρότυπο καθορίζεται αυτόματα. Όταν δεν μπορεί να προσδιοριστεί κατάλληλη διάταξη, εάν η boolean παράμετρος `allowCloneMissingLayout` της μεθόδου `addClone` είναι ορισμένη σε true, χρησιμοποιείται η διάταξη της διαφάνειας πηγής. Διαφορετικά, θα πεταχθεί η εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PptxEditException). 
+## **Συγχώνευση διαφανειών χρησιμοποιώντας Master προορισμού**
 
-{{% /alert %}}
-
-Αν θέλετε οι διαφάνειες στην τελική παρουσίαση να έχουν διαφορετική διάταξη, χρησιμοποιήστε τη μέθοδο [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) αντί για αυτήν κατά τη συγχώνευση.
-
-## **Συγχώνευση Συγκεκριμένων Διαφανειών από Παρουσιάσεις**
-
-Η συγχώνευση συγκεκριμένων διαφανειών από πολλαπλές παρουσιάσεις είναι χρήσιμη για τη δημιουργία προσαρμοσμένων σετ διαφανειών. Το Aspose.Slides για Node.js μέσω Java επιτρέπει την επιλογή και εισαγωγή μόνο των διαφανειών που χρειάζεστε. Το API διατηρεί τη μορφοποίηση, τη διάταξη και το σχέδιο των αρχικών διαφανειών.
-
-Ο παρακάτω κώδικας JavaScript δημιουργεί μια νέα παρουσίαση, προσθέτει διαφάνειες τίτλου από δύο άλλες παρουσιάσεις και αποθηκεύει το αποτέλεσμα σε αρχείο:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **Συγχώνευση Παρουσιάσεων με Διάταξη Διαφάνειας**
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να συνδυάσετε διαφάνειες από παρουσιάσεις εφαρμόζοντας τη επιθυμητή διάταξη διαφάνειας για να πάρετε μία τελική παρουσίαση:
+Χρησιμοποιήστε την υπερφόρτωση [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) όταν οι εισαγόμενες διαφάνειες πρέπει να ακολουθούν ένα master που ήδη ανήκει στην προοριστική παρουσίαση.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφανειών**
+Το Aspose.Slides επιλέγει ένα κατάλληλο layout κάτω από το καθορισμένο master ταιριάζοντας με τον τύπο ή το όνομα του layout της προέλευσης. Αν δεν υπάρχει κατάλληλο layout και το `allowCloneMissingLayout` είναι `true`, το layout της προέλευσης κλωνοποιείται ώστε η διαφάνεια να προστεθεί. Αν είναι `false`, ρίχνεται μια [PptxEditException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pptxeditexception/).
 
-{{% alert title="Σημείωση" color="warning" %}} 
+Χρησιμοποιήστε `false` όταν θέλετε η συγχώνευση να αποτύχει αντί να προσθέσει ένα επιπλέον layout στο master προορισμού.
 
-Δεν μπορείτε να συγχωνεύσετε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών. 
+## **Συγχώνευση διαφανειών χρησιμοποιώντας συγκεκριμένο Layout προορισμού**
 
-{{% /alert %}}
-
-Για να συγχωνεύσετε 2 παρουσιάσεις με διαφορετικά μεγέθη διαφανειών, πρέπει να αλλάξετε το μέγεθος της μίας από τις παρουσιάσεις ώστε να ταιριάζει με το μέγεθος της άλλης.
-
-Αυτός είναι ο κώδικας δείγματος που επιδεικνύει την περιγραφείσα λειτουργία:
+Χρησιμοποιήστε την υπερφόρτωση [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) όταν γνωρίζετε ακριβώς ποιο layout προορισμού πρέπει να χρησιμοποιούν οι εισαγόμενες διαφάνειες.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης**
+Η εφαρμογή ενός layout προορισμού αλλάζει τη κληρονομική σχέση layout· δεν επανασχεδιάζει το περιεχόμενο της διαφάνειας‑προέλευσης. Αν τα layout προέλευσης και προορισμού έχουν διαφορετικές δομές placeholders, εξετάστε το αποτέλεσμα για να επιβεβαιώσετε ότι η κληρονομική μορφοποίηση και η συμπεριφορά των placeholders είναι κατάλληλες.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να συγχωνεύσετε μια συγκεκριμένη διαφάνεια σε μια ενότητα παρουσίασης:
+## **Συγχώνευση παρουσιάσεων με διαφορετικά μεγέθη διαφανειών**
+
+Παραστάσεις με διαφορετικές διαστάσεις διαφάνειας μπορούν να συγχωνευτούν, αλλά η κλωνοποίηση μιας διαφάνειας σε παρουσίαση με άλλο μέγεθος διαφάνειας δεν επανασχεδιάζει αυτόματα το περιεχόμενό της για το νέο καμβά. Έτσι τα σχήματα μπορεί να εμφανιστούν μετατοπισμένα, κλιμακωμένα ανεξήγητα ή εκτός του ορατού τμήματος της διαφάνειας.
+
+Μια πρακτική προσέγγιση είναι να αλλάξετε το μέγεθος της παρουσίασης‑προέλευσης πριν την κλωνοποίηση. Η μέθοδος [SlideSize.setSize](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) μπορεί να κλιμακώσει το υπάρχον περιεχόμενο ενώ αλλάζει τις διαστάσεις της διαφάνειας. Το [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidesizescaletype/) κλιμακώνει το περιεχόμενο ώστε να ταιριάζει στο απαιτούμενο μέγεθος.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-Η διαφάνεια προστίθεται στο τέλος της ενότητας. 
+Η αλλαγή μεγέθους τροποποιεί το αντικείμενο της παρουσίασης‑προέλευσης στη μνήμη. Αν χρειάζεστε την αρχική παρουσίαση‑προέλευση αμετάβλητη για άλλες εργασίες, ανοίξτε ένα ξεχωριστό αντίγραφο για τη συγχώνευση.
 
-## **Συχνές Ερωτήσεις**
+## **Συγχώνευση διαφανειών σε ενότητα παρουσίασης**
 
-**Διατηρούνται οι σημειώσεις ομιλητή κατά τη συγχώνευση;**
+Ο βασικός βρόχος κλωνοποίησης διαφανειών δεν αναδημιουργεί την ιεραρχία ενοτήτων της παρουσίασης‑προέλευσης. Αν οι ενότητες έχουν σημασία στο αποτέλεσμα, δημιουργήστε ή επιλέξτε ενότητες στην προοριστική παρουσίαση και κλωνοποιήστε τις διαφάνειες σε αυτές ρητά με [addClone(Slide, Section)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
 
-Ναι. Κατά την κλωνοποίηση διαφανειών, το Aspose.Slides μεταφέρει όλα τα στοιχεία της διαφάνειας, συμπεριλαμβανομένων των σημειώσεων, της μορφοποίησης και των κινήσεων.
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-**Μεταφέρονται τα σχόλια και οι συγγραφείς τους;**
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
 
-Τα σχόλια, ως μέρος του περιεχομένου της διαφάνειας, αντιγράφονται με τη διαφάνεια. Οι ετικέτες συγγραφέα σχολίου διατηρούνται ως αντικείμενα σχολίων στην προκύπτουσα παρουσίαση.
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
 
-**Τι γίνεται αν η πηγή παρουσίασης είναι προστατευμένη με κωδικό;**
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
 
-Πρέπει να ανοιχτεί με τον κωδικό [από εδώ](/slides/el/nodejs-java/password-protected-presentation/) μέσω της μεθόδου [LoadOptions.setPassword](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/setpassword/). Μετά τη φόρτωση, οι διαφάνειες μπορούν να κλωνοποιηθούν με ασφάλεια σε ένα μη προστατευμένο αρχείο προορισμού (ή και σε προστατευμένο).
+Οι κλωνοποιημένες διαφάνειες προσαρτώνται στην καθορισμένη ενότητα προορισμού. Για να διατηρήσετε πολλές ενότητες προέλευσης, επαναλάβετε [Presentation.getSections](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getSections), ανακτήστε τις τρέχουσες διαφάνειες κάθε ενότητας με [Section.getSlidesListOfSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/section/#getSlidesListOfSection), δημιουργήστε ξανά τις ενότητες στην προοριστική παρουσίαση και κλωνοποιήστε κάθε διαφάνεια στην αντίστοιχη ενότητα προορισμού. Δείτε το [Manage Slide Sections](/slides/el/nodejs-java/slide-section/) για ένα πλήρες παράδειγμα καταμέτρησης ενοτήτων, συμπεριλαμβανομένων κενών ενοτήτων και δομικών αλλαγών.
 
-**Πόσο ασφαλής είναι η λειτουργία συγχώνευσης ως προς τα νήματα;**
+## **Ασφαλής συγχώνευση πολλαπλών παρουσιάσεων**
 
-Μην χρησιμοποιείτε το ίδιο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) από [πολλά νήματα](/slides/el/nodejs-java/multithreading/). Ο κανόνας είναι «ένα έγγραφο — ένα νήμα»· διαφορετικά αρχεία μπορούν να επεξεργαστούν παράλληλα σε ξεχωριστά νήματα.
+Το παρακάτω παράδειγμα πλήρους ροής χρησιμοποιεί την πρώτη παρουσίαση ως προορισμό, ομαλοποιεί το μέγεθος διαφάνειας κάθε πρόσθετης προέλευσης, κρατά κάθε προέλευση ανοικτή μόνο όσο αντιγράφεται, και αποθηκεύει το τελικό αρχείο μία φορά.
 
-## **Δείτε επίσης**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-Το Aspose προσφέρει ένα [ΔΩΡΕΑΝ Online Collage Maker](https://products.aspose.app/slides/el/collage). Χρησιμοποιώντας αυτήν την online υπηρεσία, μπορείτε να συγχωνεύσετε [JPG σε JPG](https://products.aspose.app/slides/el/collage/jpg) ή PNG σε PNG εικόνες, να δημιουργήσετε [πλέγμα φωτογραφιών](https://products.aspose.app/slides/el/collage/photo-grid) και άλλα.
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-Δοκιμάστε το [ΔΩΡΕΑΝ Online Merger του Aspose](https://products.aspose.app/slides/el/merger). Σας επιτρέπει να συγχωνεύσετε παρουσιάσεις PowerPoint στην ίδια μορφή (π.χ., PPT σε PPT, PPTX σε PPTX) ή μεταξύ διαφορετικών μορφών (π.χ., PPT σε PPTX, PPTX σε ODP).
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/el/merger)
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Αυτή είναι μια χρήσιμη βάση για τη διατήρηση της μορφοποίησης της πηγής των εισαγόμενων διαφανειών. Αν το αποτέλεσμα πρέπει να χρησιμοποιεί ένα ενιαίο θέμα προορισμού, αντικαταστήστε την απλή κλήση `addClone(sourceSlide)` με την κατάλληλη υπερφόρτωση master‑προορισμού ή layout‑προορισμού που παρουσιάστηκε νωρίτερα.
+
+## **Πρακτικές παρατηρήσεις**
+
+### **Masters, Layouts και πιστότητα μορφοποίησης**
+
+Η προεπιλεγμένη κλωνοποίηση διαφάνειας μπορεί αυτόματα να φέρει ένα απαιτούμενο master προέλευσης στην προοριστική παρουσίαση. Το Aspose.Slides διατηρεί ένα εσωτερικό μητρώο για αυτόματα κλωνοποιημένα masters ώστε να αποφεύγεται η επαναλαμβανόμενη κλωνοποίηση του ίδιου master. Τα χειροκίνητα κλωνοποιημένα masters δεν καταγράφονται σε αυτό το μητρώο, οπότε αποφεύγετε την προ-κλωνοποίηση masters εκτός αν χρειάζεστε ρητό έλεγχο της δομής του master.
+
+Μην υποθέτετε ότι δύο masters ή layouts με το ίδιο όνομα είναι οπτικά ισοδύναμα. Αν ένα εταιρικό πρότυπο πρέπει να ελέγχει την τελική εμφάνιση, επιλέξτε ρητά ένα master ή layout προορισμού και επαληθεύστε το αποτέλεσμα μετά τη συγχώνευση.
+
+### **Σημειώσεις και σχόλια**
+
+Οι σημειώσεις ομιλητή και τα σχόλια διαφάνειας συνδέονται με το περιεχόμενο της διαφάνειας και αντιγράφονται όταν κλωνοποιείται η διαφάνεια. Το Aspose.Slides παρέχει επίσης ειδικά API για [presentation notes](/slides/el/nodejs-java/presentation-notes/) και [presentation comments](/slides/el/nodejs-java/presentation-comments/).
+
+Αν η μορφοποίηση της σελίδας σημειώσεων είναι σημαντική, επιβεβαιώστε την συγχωνευμένη παρουσίαση επειδή οι masters σημειώσεων είναι αντικείμενα επιπέδου παρουσίασης και μπορεί να διαφέρουν μεταξύ αρχείων‑προέλευσης. Για διαδικασίες ελέγχου, ελέγξτε επίσης τους συγγραφείς σχολίων και τα νήματα σχολίων μετά τη συνένωση αρχείων από διαφορετικούς συγγραφείς ή πρότυπα.
+
+### **Εικόνες, Ήχος, Βίντεο, Αντικείμενα OLE και εξωτερικοί σύνδεσμοι**
+
+Οι διαφάνειες μπορούν να αναφέρονται σε πόρους επιπέδου παρουσίασης όπως εικόνες, ενσωματωμένο ήχο, ενσωματωμένο βίντεο και δεδομένα OLE. Κλωνοποιήστε τη διαφάνεια ίδιανυδς αντί να αντιγράψετε μόνο τα ορατά σχήματα ώστε το Aspose.Slides να διατηρήσει τις σχέσεις της διαφάνειας με τους πόρους της.
+
+Οι ενσωματωμένοι και οι συνδεδεμένοι πόροι πρέπει να αντιμετωπίζονται διαφορετικά. Ένας συνδεδεμένος ήχος, βίντεο, αντικείμενο OLE ή υπερσύνδεσμος παραμένει εξαρτημένος από τον εξωτερικό του στόχο· η κλωνοποίηση μιας διαφάνειας δεν μετατρέπει έναν εξωτερικό σύνδεσμο σε ενσωματωμένο περιεχόμενο. Δοκιμάστε τις διαδρομές και τις URL των συνδεδεμένων πόρων στο περιβάλλον όπου θα ανοίξει η συγχωνευμένη παρουσίαση.
+
+Το Aspose.Slides παρακολουθεί αυτόματα κλωνοποιημένα masters, αλλά αυτό δεν αποτελεί γενική εγγύηση ότι τα ίδια δυαδικά αρχεία από ανεξάρτητες πηγές θα αφαιρεθούν αυτόματα. Αν το μέγεθος του αρχείου εξόδου είναι σημαντικό, ελέγξτε το συγχωνευμένο πακέτο και μετρήστε το αποτέλεσμα αντί να βασίζεστε σε άμεση αφαίρεση διπλοτύπων.
+
+### **Ενσωματωμένες γραμματοσειρές και διαθεσιμότητα γραμματοσειρών**
+
+Οι γραμματοσειρές διαχειρίζονται σε επίπεδο παρουσίασης. Αν η τυπογραφία πρέπει να παραμείνει συνεπής μεταξύ συσκευών, μην υποθέτετε ότι η κλωνοποίηση διαφανειών μόνη της εγγυάται ότι κάθε απαιτούμενη γραμματοσειρά είναι διαθέσιμη στο περιβάλλον προορισμού. Μπορείτε να ελέγξετε τις ενσωματωμένες γραμματοσειρές με [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) και να διαχειριστείτε την ενσωμάτωση όπως περιγράφεται στο [Embed Fonts in Presentations](/slides/el/nodejs-java/embedded-font/).
+
+Επίσης, βεβαιωθείτε ότι έχετε το δικαίωμα να ενσωματώσετε τις γραμματοσειρές που χρησιμοποιούν τα αρχεία‑προέλευσης. Οι άδειες γραμματοσειρών μπορεί να περιορίζουν την ενσωμάτωση.
+
+### **Παρουσιάσεις με κωδικό πρόσβασης**
+
+Μια πηγή προστατευμένη με κωδικό πρέπει να ανοίξει επιτυχώς πριν τις διαφάνειές της μπορούν να κλωνοποιηθούν. Πάρετε τον κωδικό μέσω [LoadOptions.setPassword](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
+} finally {
+    source.dispose();
+}
+```
+
+Το άνοιγμα ενός κρυπτογραφημένου αρχείου δεν εφαρμόζει αυτόματα την ίδια προστασία στην προοριστική παρουσίαση. Διαμορφώστε την προστασία εξόδου ξεχωριστά όταν απαιτείται.
+
+### **Μεγάλες παρουσιάσεις και χρήση μνήμης**
+
+Μεγάλες παρουσιάσεις που περιέχουν εικόνες υψηλής ανάλυσης, ήχο, βίντεο ή άλλα μεγάλα δυαδικά αντικείμενα μπορούν να καταναλώσουν σημαντική μνήμη. Η μέθοδος [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) παρέχει ελέγχους για τη διαχείριση BLOB και τη χρήση προσωρινών αρχείων. Δείτε τη σελίδα [Manage Presentation BLOBs](/slides/el/nodejs-java/manage-blob/) για στρατηγικές μεγάλων αρχείων.
+
+Για μεγάλα αρχεία, προτιμήστε τη φόρτωση από μονοπάτια αρχείων όταν είναι δυνατόν, απελευθερώστε κάθε παρουσίαση‑προέλευση μόλις ολοκληρωθεί η συγχώνευσή της, και αποφύγετε την επανειλημμένη αποθήκευση ενδιάμεσων αποτελεσμάτων εκτός αν η ροή εργασίας απαιτεί σημεία ελέγχου.
+
+### **Ασφάλεια νήματος**
+
+Μην φορτώνετε, αποθηκεύετε ή κλωνοποιείτε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) σε πολλαπλά νήματα. Οι λειτουργίες αυτές δεν υποστηρίζονται για πολυνηματική χρήση. Αν χρειαστεί να παράλληλες ανεξάρτητες εργασίες συγχώνευσης, χρησιμοποιήστε πολλαπλές διαδικασίες μονόνημα, καθεμία με τα δικά της αντικείμενα παρουσίασης, και ακολουθήστε τις οδηγίες πολυνηματικότητας του [Aspose.Slides](/slides/el/nodejs-java/multithreading/).
+
+## **Συχνές ερωτήσεις**
+
+**Πώς διατηρώ το αρχικό σχέδιο κάθε παρουσίασης‑προέλευσης;**
+
+Χρησιμοποιήστε το [addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) χωρίς να παράσχετε master ή layout προορισμού. Το Aspose.Slides μπορεί αυτόματα να κλωνοποιήσει το master προέλευσης όταν το απαιτεί η εισαγόμενη διαφάνεια.
+
+**Πώς κάνω τις εισαγόμενες διαφάνειες να χρησιμοποιούν το θέμα προορισμού;**
+
+Χρησιμοποιήστε την υπερφόρτωση που δέχεται ένα master προορισμού. Περάστε ένα master από την προοριστική παρουσίαση, όχι από την πηγή. Το Aspose.Slides θα προσπαθήσει να αντιστοιχίσει κάθε διαφάνεια‑προέλευσης σε ένα κατάλληλο layout κάτω από αυτό το master.
+
+**Πότε πρέπει να χρησιμοποιήσω συγκεκριμένο layout προορισμού αντί για master προορισμού;**
+
+Χρησιμοποιήστε ένα συγκεκριμένο layout όταν κάθε εισαγόμενη διαφάνεια πρέπει να χρησιμοποιεί ένα γνωστό layout. Χρησιμοποιήστε master όταν θέλετε το Aspose.Slides να επιλέξει μεταξύ των layout του master με βάση τον τύπο ή το όνομα του layout προέλευσης.
+
+**Μπορούν να συγχωνευτούν παρουσιάσεις με διαφορετικά μεγέθη διαφανειών;**
+
+Ναι, αλλά το περιεχόμενο της διαφάνειας δεν επανασχεδιάζεται αυτόματα για τις διαστάσεις προορισμού. Αλλάξτε το μέγεθος της παρουσίασης‑προέλευσης πρώτα όταν χρειάζεστε προβλέψιμη τοποθέτηση, π.χ. με [SlideSize.setSize](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) και [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidesizescaletype/).
+
+**Μπορώ να συγχωνεύσω αρχεία PPT, PPTX και ODP σε ένα αρχείο;**
+
+Ναι. Φορτώστε κάθε παρουσίαση‑προέλευση, κλωνοποιήστε τις απαιτούμενες διαφάνειες σε έναν προορισμό, και αποθηκεύστε τον προορισμό σε υποστηριζόμενη μορφή εξόδου. Επειδή οι μορφές παρουσίασης δεν υποστηρίζουν ακριβώς το ίδιο σύνολο λειτουργιών, επαληθεύστε το σύνθετο περιεχόμενο μετά από διαμορφώσεις μεταξύ μορφών. Δείτε τη σελίδα [Supported File Formats](/slides/el/nodejs-java/supported-file-formats/).
+
+**Διατηρούνται αυτόματα οι ενότητες προέλευσης;**
+
+Όχι με έναν βασικό βρόχο που κλωνοποιεί μόνο διαφάνειες. Δημιουργήστε ξανά τις απαιτούμενες ενότητες στην προοριστική παρουσίαση και χρησιμοποιήστε την υπερφόρτωση ενότητας του [addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) όταν η δομή ενότητας πρέπει να διατηρηθεί.
+
+**Διατηρούνται οι σημειώσεις ομιλητή και τα σχόλια;**
+
+Αντιγράφονται μαζί με τη κλωνοποιημένη διαφάνεια. Για ροές εργασίας που εξαρτώνται από το στυλ του notes‑master, τους συγγραφείς σχολίων ή τα νήματα ανασκόπησης, επαληθεύστε το συγχωνευμένο αποτέλεσμα επειδή αυτά τα σενάρια αφορούν δομές επιπέδου παρουσίασης καθώς και περιεχόμενο διαφάνειας.
+
+**Τι γίνεται με ήχο, βίντεο, αντικείμενα OLE και υπερσυνδέσμους;**
+
+Το ενσωματωμένο περιεχόμενο μεταφέρεται ως μέρος των σχέσεων πόρων της κλωνοποιημένης διαφάνειας. Οι εξωτερικοί σύνδεσμοι παραμένουν εξωτερικοί, οπότε τα αρχεία ή οι URL προορισμού τους πρέπει να είναι διαθέσιμα μετά τη συγχώνευση.
+
+**Εγγυάνονται οι ενσωματωμένες γραμματοσειρές από κάθε πηγή στο τελικό έγγραφο;**
+
+Μην βασίζεστε μόνο στην κλωνοποίηση διαφανειών για την ανάπτυξη γραμματοσειρών. Ελέγξτε τις ενσωματωμένες γραμματοσειρές στον προορισμό και διαχειριστείτε ρητά την ενσωμάτωση ή τη διαθεσιμότητα εξωτερικών γραμματοσειρών όταν η τυπογραφία είναι σημαντική.
+
+**Πώς συγχωνεύω ένα αρχείο προστατευμένο με κωδικό;**
+
+Ανοίξτε το με το κατάλληλο [LoadOptions.setPassword](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), στη συνέχεια κλωνοποιήστε τις διαφάνειές του κανονικά. Η προστασία εξόδου ρυθμίζεται ξεχωριστά.
+
+**Πώς πρέπει να αντιμετωπίζω πολύ μεγάλες παρουσιάσεις;**
+
+Χρησιμοποιήστε τη διαχείριση BLOB όταν τα μεγάλα δυαδικά αρχεία κυριαρχούν στη μνήμη, προτιμήστε τη φόρτωση από διαδρομές αρχείων για πολύ μεγάλα αρχεία, απελευθερώστε τις πηγές παρουσίασης άμεσα και αποθηκεύστε το τελικό αποτέλεσμα μόνο όταν είναι απαραίτητο.
+
+**Μπορώ να συγχωνεύσω διαφάνειες από πολλαπλά νήματα;**
+
+Μην φορτώνετε, αποθηκεύετε ή κλωνοποιείτε αντικείμενα παρουσίασης σε πολλαπλά νήματα. Για παράλληλες εργασίες συγχώνευσης, χρησιμοποιήστε ξεχωριστές διαδικασίες μονόνημα και ανεξάρτητα αντικείμενα παρουσίασης.

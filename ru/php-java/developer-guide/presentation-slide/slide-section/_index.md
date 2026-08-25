@@ -1,6 +1,6 @@
 ---
-title: Управление разделами слайдов в презентациях с помощью PHP
-linktitle: Раздел слайдов
+title: Управление разделами слайдов в презентациях с PHP
+linktitle: Раздел слайда
 type: docs
 weight: 90
 url: /ru/php-java/slide-section/
@@ -9,79 +9,205 @@ keywords:
 - добавить раздел
 - редактировать раздел
 - изменить раздел
-- название раздела
+- имя раздела
+- получить слайды раздела
+- обработать слайды раздела
 - PowerPoint
-- OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Оптимизируйте разделы слайдов в PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java — разделяйте, переименовывайте и переупорядочивайте для улучшения рабочих процессов PPTX и ODP."
+description: "Управляйте разделами слайдов с помощью Aspose.Slides for PHP via Java: создавайте, переименовывайте, переупорядочивайте, получайте и обрабатывайте слайды разделов в презентациях PPTX."
 ---
+## **Введение**
 
-С помощью Aspose.Slides for PHP via Java вы можете организовать презентацию PowerPoint по разделам. Вы можете создавать разделы, которые содержат определённые слайды.
+Разделы упорядочивают последовательные слайды в именованные группы, не изменяя содержимое слайдов. С помощью Aspose.Slides for PHP via Java вы можете создавать, переупорядочивать, переименовывать, просматривать и удалять разделы через метод [Presentation::getSections](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Presentation/#getSections).
 
-В следующих ситуациях вам может потребоваться создать разделы и использовать их для организации или разделения слайдов в презентации на логические части:
+Разделы особенно полезны, когда:
 
-- Когда вы работаете над большой презентацией вместе с другими людьми или командой — и вам необходимо назначить определённые слайды коллеге или членам команды. 
-- Когда у вас есть презентация, содержащая много слайдов — и вам трудно управлять её содержимым или редактировать его целиком.
+- большая презентация должна быть разбита на логические темы или главы;
+- разные группы слайдов назначаются разным сотрудникам;
+- слайды нужно обрабатывать, перемещать или объединять группами.
 
-Оптимально создавать раздел, в котором находятся схожие слайды — слайды, имеющие что‑то общее или которые могут быть сгруппированы по какому‑то правилу, — и давать разделу название, описывающее содержащиеся в нём слайды. 
+Выбирайте короткие названия разделов, которые описывают назначение сгруппированных слайдов. Поскольку разделы являются частью структуры презентации, используйте API разделов для определения принадлежности, а не выводите её из позиций слайдов.
 
-## **Создание разделов в презентациях**
-Чтобы добавить раздел, содержащий слайды в презентации, Aspose.Slides for PHP via Java предоставляет метод [addSection()](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection), который позволяет указать имя создаваемого раздела и слайд, с которого начинается раздел.
+## **Создание и управление разделами**
 
-Этот пример кода показывает, как создать раздел в презентации:
+Используйте [SectionCollection::addSection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/#addSection) для создания раздела, указав его имя и начальный слайд. Aspose.Slides определяет, какие слайды входят в раздел, основываясь на текущей структуре разделов презентации.
+
+Тот же объект [SectionCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/) также позволяет:
+
+- переместить раздел вместе с его слайдами, используя [SectionCollection::reorderSectionWithSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/#reorderSectionWithSlides);
+- удалить только определение раздела с помощью [SectionCollection::removeSection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/#removeSection), при этом слайды сохраняются;
+- удалить раздел и его слайды с помощью [SectionCollection::removeSectionWithSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/#removeSectionWithSlides);
+- добавить пустой раздел в конец с помощью [SectionCollection::appendEmptySection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/#appendEmptySection).
+
+В следующем примере создаются два раздела, один из них перемещается, затем удаляется вместе со своими слайдами, и добавляется пустой раздел:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $defaultSlide = $pres->getSlides()->get_Item(0);
-    $newSlide1 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide2 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide3 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide4 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
-    $section2 = $pres->getSections()->addSection("Section 2", $newSlide3);// section1 будет завершён на newSlide2, а после него начнётся section2
+use aspose\slides\Presentation;
 
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
-    $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
-    $pres->getSections()->removeSectionWithSlides($section2);
-    $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $titleSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $resultsSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $titleSlide);
+    $resultsSection = $presentation->getSections()->addSection("Results", $resultsSlide);
+
+    $presentation->getSections()->reorderSectionWithSlides($resultsSection, 0);
+    $presentation->getSections()->removeSectionWithSlides($resultsSection);
+    $presentation->getSections()->appendEmptySection("Appendix");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+После этих операций презентация содержит раздел `Introduction` со своими слайдами и пустой раздел `Appendix`. Раздел `Results` и его слайды были удалены.
 
-## **Изменение имён разделов**
-После создания раздела в презентации PowerPoint вы можете решить изменить его имя. 
+## **Переименование разделов**
 
-Этот пример кода показывает, как изменить имя раздела в презентации с помощью Aspose.Slides:
+Чтобы переименовать раздел, вызовите его метод [Section::setName](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#setName). Слайды раздела и его позиция остаются без изменений.
+
+В следующем примере создаётся раздел и меняется его имя:
+
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $section = $pres->getSections()->get_Item(0);
-    $section->setName("My section");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $section = $presentation->getSections()->addSection("Overview", $slide);
+    $section->setName("Introduction");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Получение слайдов из разделов**
+
+Метод [Presentation::getSections](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Presentation/#getSections) возвращает объект [SectionCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/), которым можно работать по индексу. Для каждого [Section](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/) вызывайте [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getSlidesListOfSection), чтобы получить слайды, принадлежащие данному разделу в текущий момент. Метод возвращает объект [SectionSlideCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionSlideCollection/), предоставляющий количество элементов и доступ по индексу.
+
+В следующем примере создаются два заполненных раздела и один пустой раздел, затем выводятся [name](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getName), [identifier](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getSectionId), [starting slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getStartedFromSlide), количество слайдов и номера слайдов каждого раздела. Для доступа по индексу используются [SectionCollection::get_Item](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionCollection/#get_Item) и [SectionSlideCollection::get_Item](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SectionSlideCollection/#get_Item). Для пустого раздела возвращаемая коллекция имеет размер ноль, и `get_Item` не вызывается.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $firstSlide);
+    $presentation->getSections()->addSection("Details", $thirdSlide);
+    $presentation->getSections()->appendEmptySection("Appendix");
+
+    $sections = $presentation->getSections();
+    $sectionCount = java_values($sections->size());
+    for ($sectionIndex = 0; $sectionIndex < $sectionCount; $sectionIndex++) {
+        $section = $sections->get_Item($sectionIndex);
+        $sectionSlides = $section->getSlidesListOfSection();
+        $startingSlide = java_is_null($section->getStartedFromSlide()) ? "none" : java_values($section->getStartedFromSlide()->getSlideNumber());
+        $slideCount = java_values($sectionSlides->size());
+
+        echo "Section: " . java_values($section->getName()) . PHP_EOL;
+        echo "ID: " . java_values($section->getSectionId()) . PHP_EOL;
+        echo "Starting slide: " . $startingSlide . PHP_EOL;
+        echo "Slide count: " . $slideCount . PHP_EOL;
+
+        if ($slideCount > 0) {
+            echo "First slide via get_Item: " . java_values($sectionSlides->get_Item(0)->getSlideNumber()) . PHP_EOL;
+        }
+
+        echo "Slide numbers:";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Принадлежность к разделу определяется структурой разделов презентации. Не вычисляйте диапазон раздела вручную, исходя из [Section::getStartedFromSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getStartedFromSlide), индексов слайдов и начального слайда следующего раздела.
+
+Структурные изменения могут изменить как набор слайдов, возвращаемых для раздела, так и их номера. К таким изменениям относятся переупорядочивание слайдов, клонирование слайда в раздел, перемещение раздела вместе с его слайдами, удаление слайдов и удаление разделов. В следующем примере после каждого такого изменения вызывается [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getSlidesListOfSection), вместо того чтобы полагаться на прежние границы раздела.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $firstSection = $presentation->getSections()->addSection("First", $firstSlide);
+    $secondSection = $presentation->getSections()->addSection("Second", $thirdSlide);
+
+    $printSectionSlides = function ($label, $section) {
+        $sectionSlides = $section->getSlidesListOfSection();
+        $slideCount = java_values($sectionSlides->size());
+        echo $label . " (" . $slideCount . " slides):";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    };
+
+    $printSectionSlides("Initially", $firstSection);
+
+    $slidesBeforeClone = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->addClone($slidesBeforeClone->get_Item(0), $firstSection);
+    $printSectionSlides("After cloning into the section", $firstSection);
+
+    $slidesBeforeReorder = $firstSection->getSlidesListOfSection();
+    $firstSectionPosition = java_values($slidesBeforeReorder->get_Item(0)->getSlideNumber()) - 1;
+    $lastSlideIndex = java_values($slidesBeforeReorder->size()) - 1;
+    $presentation->getSlides()->reorder($firstSectionPosition, $slidesBeforeReorder->get_Item($lastSlideIndex));
+    $printSectionSlides("After reordering slides", $firstSection);
+
+    $presentation->getSections()->reorderSectionWithSlides($firstSection, 1);
+    $printSectionSlides("After moving the section", $firstSection);
+
+    $slidesBeforeRemoval = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->remove($slidesBeforeRemoval->get_Item(0));
+    $printSectionSlides("After removing a slide", $firstSection);
+
+    $presentation->getSections()->removeSectionWithSlides($secondSection);
+    $remainingSections = $presentation->getSections();
+    $remainingSectionCount = java_values($remainingSections->size());
+    for ($sectionIndex = 0; $sectionIndex < $remainingSectionCount; $sectionIndex++) {
+        $section = $remainingSections->get_Item($sectionIndex);
+        $printSectionSlides("Remaining section", $section);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Вызывайте [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getSlidesListOfSection) снова каждый раз, когда слайды или разделы переупорядочиваются, клонируются, перемещаются или удаляются. Это обеспечивает согласованность последующей обработки с текущей структурой презентации.
+
+Формат PPT (PowerPoint 97–2003) не сохраняет метаданные разделов. Используйте этот рабочий процесс с форматом, поддерживающим разделы, например PPTX; преобразование в PPT удаляет структуру разделов, необходимую для последующей итерации.
 
 ## **Часто задаваемые вопросы**
-**Сохраняются ли разделы при сохранении в формат PPT (PowerPoint 97–2003)?**
 
-Нет. Формат PPT не поддерживает метаданные разделов, поэтому группировка разделов теряется при сохранении в .ppt.
+**Сохраняются ли разделы при сохранении в формате PPT (PowerPoint 97–2003)?**
 
-**Можно ли "скрыть" весь раздел?**
+Нет. Формат PPT не поддерживает метаданные разделов, поэтому группировка по разделам теряется при сохранении в .ppt.
 
-Нет. Можно скрывать только отдельные слайды. У раздела как объекта нет состояния "скрыт".
+**Можно ли полностью «скрыть» раздел?**
 
-**Можно ли быстро найти раздел по слайду и, наоборот, первый слайд раздела?**
+Нет. У раздела нет состояния видимости. Чтобы скрыть его содержимое, вызовите [Slide::setHidden](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Slide/#setHidden) для каждого слайда в разделе.
 
-Да. Раздел однозначно определяется своим первым слайдом; по слайду можно определить, к какому разделу он относится, а для раздела можно получить его первый слайд.
+**Как найти раздел, содержащий определённый слайд?**
+
+Переберите коллекцию, возвращаемую [Presentation::getSections](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Presentation/#getSections), вызовите [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getSlidesListOfSection) для каждого раздела и сравните полученные слайды с целым слайдом. Для непустого раздела [Section::getStartedFromSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/Section/#getStartedFromSlide) возвращает его первый слайд; для пустого раздела возвращается `null`.
