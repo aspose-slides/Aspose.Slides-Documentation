@@ -1,43 +1,42 @@
 ---
-title: "Eccezioni e errori comuni relativi ai font su Linux"
+title: Eccezioni e errori comuni relativi ai caratteri su Linux
 type: docs
 weight: 200
 url: /it/java/common-errors-involving-fonts/
-keywords: "Eccezione del font, Errore del font, Linux, Java, Aspose.Slides per Java"
-description: "Eccezioni e errori dei font su Linux"
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "Eccezione del font, Errore del font, Linux, Java, Aspose.Slides for Java"
+description: "Eccezioni ed errori dei font su Linux"
 ---
 ## **Panoramica**
 
-Quando Aspose.Slides viene utilizzato su Linux, possono verificarsi problemi relativi ai caratteri se il processo Java non riesce ad accedere alle cartelle dei font richiesti o alla directory temporanea, se non sono installati font sul sistema, oppure se mancano librerie di sistema necessarie come fontconfig o libfreetype.
+Quando Aspose.Slides viene utilizzato su Linux, possono verificarsi problemi relativi ai caratteri se il processo Java non può accedere alle cartelle dei caratteri richieste o alla directory temporanea, se non sono installati caratteri sul sistema, o se mancano librerie di sistema necessarie come fontconfig o libfreetype.
 
-Questo articolo descrive gli errori e le eccezioni più comuni relativi ai font su Linux e fornisce soluzioni per risolverli. Spiega come verificare l’accesso alle directory dei font e TEMP, installare i font e le librerie richieste e utilizzare `FontsLoader` per caricare i font senza installarli a livello di sistema.
+Questo articolo descrive gli errori e le eccezioni comuni relativi ai caratteri su Linux e fornisce soluzioni per risolverli. Spiega come verificare l'accesso alle directory dei caratteri e TEMP, installare i caratteri e le librerie richieste, e utilizzare `FontsLoader` per caricare i caratteri senza installarli a livello di sistema.
 
 ## **Testo o Immagini Mancanti (EMF o WMF) Quando il Codice Viene Eseguito su Linux**
 
 Questo problema si verifica in sistemi con restrizioni nei seguenti casi:
 
-1. Quando non sono installati font o la cartella dei font per il processo Java non è accessibile
-2. Quando la directory TEMP non è accessibile.
+1. Quando non ci sono caratteri installati o quando la cartella dei caratteri per il processo java non può essere accessa
+2. Quando la directory TEMP non può essere accessa.
 
 ### **Soluzione**
 
-Verificare e confermare che l’accesso alla directory TEMP e alla cartella dei font sia stato concesso. 
+Verifica e conferma che l'accesso alla directory TEMP e alla cartella dei caratteri sia stato garantito. 
 
 {{% alert color="warning" %}}
-
-In alcuni casi potresti non essere in grado di concedere l’accesso alle cartelle a causa di restrizioni imposte dall’ambiente o da una policy di sicurezza. Prova queste soluzioni alternative: 
-
+In alcuni casi, potresti non essere in grado di concedere l'accesso alle cartelle a causa di restrizioni imposte dall'ambiente o da una politica di sicurezza. Prova queste soluzioni alternative: 
 {{% /alert %}}
 
 **Soluzione alternativa**
 
-Usa [FontsLoader](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsLoader) per caricare i font richiesti senza installarli:
-
+Usa [FontsLoader](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsLoader) per caricare i caratteri richiesti senza installarli:
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-Se la directory TEMP non è accessibile, usa questo codice per specificare un’altra directory come TEMP per Java:
+Se la directory TEMP non può essere accessa, usa questo codice per specificare un'altra directory come TEMP per Java:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -57,20 +56,20 @@ try {
 }
 ```
 
-## **Eccezione: InvalidOperationException: Impossibile Trovare Nessun Font Installato sul Sistema**
+## **Eccezione: InvalidOperationException: Impossibile Trovare Alcuni Caratteri Installati sul Sistema**
 
 Questa eccezione si verifica quando
 
-1) il processo Java non può accedere alla cartella dei font  
-2) non sono stati installati font.
+1) il processo Java non può accedere alla cartella dei caratteri  
+2) non sono stati installati caratteri.
 
 ### **Soluzione**
 
-1. Verificare e confermare che l’accesso alla cartella dei font per il processo Java sia stato concesso.
+1. Verifica e conferma che l'accesso alla cartella dei caratteri per il processo Java sia stato garantito.
 
-2. Installare alcuni font o utilizzare [FontsLoader](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsLoader).
+2. Installa alcuni caratteri o utilizza [FontsLoader](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsLoader).
 
-3. Installare i font.
+3. Installa i caratteri.
 
    * Ubuntu: 
 
@@ -88,19 +87,31 @@ Questa eccezione si verifica quando
      fc-cache -fv
 ```
 
-   * Utilizzando [FontsLoader](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsLoader): 
+   * Using [FontsLoader](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
-     ```
+```
 
-## **Eccezione: NoClassDefFoundError: Impossibile Inizializzare la Classe com.aspose.slides.internal.ey.this**
+## **Eccezione: InternalError: InvocationTargetException**
 
-Questa eccezione si verifica su un sistema Linux privo di fontconfig e font. 
+Durante la conversione di un file PPTX in PDF su Linux, la conversione potrebbe fallire con `java.lang.InternalError: java.lang.reflect.InvocationTargetException`. Se l'errore sottostante indica `Cannot load from short array because "sun.awt.FontConfiguration.head" is null`, la configurazione dei caratteri di Linux non è disponibile o la sua cache non è stata inizializzata.
 
 ### **Soluzione**
 
-Installare fontconfig:
+Installa fontconfig e ricostruisci la cache dei caratteri:
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
+## **Eccezione: NoClassDefFoundError: Impossibile Inizializzare la Classe com.aspose.slides.internal.ey.this**
+
+Questa eccezione si verifica su un sistema Linux che manca di fontconfig e caratteri. 
+
+### **Soluzione**
+
+Installa fontconfig:
 
 * Ubuntu:
 
@@ -116,7 +127,7 @@ Installare fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Inoltre, alcune versioni di open‑jdk (ad esempio, **alpine JDK**) richiedono anche **font installati**.
+Inoltre, alcune versioni di open-jdk (ad esempio, **alpine JDK**) richiedono anche **caratteri installati**.
 
 * Ubuntu:
 
@@ -132,13 +143,13 @@ Inoltre, alcune versioni di open‑jdk (ad esempio, **alpine JDK**) richiedono a
   fc-cache -fv
   ```
 
-## **Eccezione: UnsatisfiedLinkError: libfreetype.so.6: Impossibile Aprire il File Object Condiviso: Nessun File o Directory di Questo Tipo**
+## **Eccezione: UnsatisfiedLinkError: libfreetype.so.6: Impossibile Aprire il File Oggetto Condiviso: Nessun File o Directory Trovato**
 
-Questa eccezione si verifica su un sistema Linux privo della libreria libfreetype. 
+Questa eccezione si verifica su un sistema Linux che manca della libreria libfreetype. 
 
 ### **Soluzione**
 
-Installare libfreetype e fontconfig:
+Installa libfreetype e fontconfig:
 
 * Ubuntu: 
 
@@ -156,8 +167,6 @@ Installare libfreetype e fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="SUGGERIMENTO" color="primary" %}} 
-
-Non dimenticare di installare i font o di utilizzare FontsLoader.
-
-{{% /alert %}}  
+{{% alert title="TIP" color="info" %}} 
+Non dimenticare di installare i caratteri o utilizzare FontsLoader.
+{{% /alert %}}

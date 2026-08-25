@@ -1,35 +1,37 @@
 ---
-title: Vanliga undantag och fel relaterade till typsnitt på Linux
+title: Vanliga undantag och fel relaterade till teckensnitt på Linux
 type: docs
 weight: 200
 url: /sv/java/common-errors-involving-fonts/
-keywords: "Typsnittsunantag, Typsnittsfel, Linux, Java, Aspose.Slides för Java"
-description: "Typsnittsunantag och fel på Linux"
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "Teckensnitt undantag, Teckensnitt fel, Linux, Java, Aspose.Slides för Java"
+description: "Teckensnitt undantag och fel på Linux"
 ---
 ## **Översikt**
 
-När Aspose.Slides används på Linux kan problem relaterade till typsnitt uppstå om Java‑processen inte kan komma åt de nödvändiga typsnittsmapparna eller den temporära katalogen, om inga typsnitt är installerade på systemet, eller om nödvändiga systembibliotek såsom fontconfig eller libfreetype saknas.
+När Aspose.Slides används på Linux kan problem relaterade till teckensnitt uppstå om Java‑processen inte kan komma åt de nödvändiga teckensnittsmapparna eller den temporära katalogen, om inga teckensnitt är installerade på systemet, eller om nödvändiga systembibliotek såsom fontconfig eller libfreetype saknas.
 
-Denna artikel beskriver vanliga fel och undantag relaterade till typsnitt på Linux och ger lösningar för att åtgärda dem. Den förklarar hur man kontrollerar åtkomst till typsnitt‑ och TEMP‑katalogerna, installerar de erforderliga typsnitten och biblioteken, samt använder `FontsLoader` för att läsa in typsnitt utan att installera dem systemomfattande.
+Denna artikel beskriver vanliga fel och undantag relaterade till teckensnitt på Linux och ger lösningar för att åtgärda dem. Den förklarar hur man kontrollerar åtkomst till teckensnitts‑ och TEMP‑kataloger, installerar de nödvändiga teckensnitten och biblioteken samt använder `FontsLoader` för att ladda teckensnitt utan att installera dem systemomfattande.
 
 ## **Saknad text eller bilder (EMF eller WMF) när kod körs på Linux**
 
 Detta problem uppstår i system med begränsningar i följande fall:
 
-1. När inga typsnitt är installerade eller när typsnittsmappen för java‑processen inte kan nås
+1. När inga teckensnitt är installerade eller när teckensnittsmappen för Java‑processen inte kan nås
 2. När TEMP‑katalogen inte kan nås.
 
 ### **Lösning**
 
-Kontrollera och bekräfta att åtkomst till TEMP‑katalogen och typsnittsmappen har beviljats. 
+Kontrollera och bekräfta att åtkomst till TEMP‑katalogen och teckensnittsmappen har beviljats. 
 
 {{% alert color="warning" %}}
-I vissa fall kan du vara oförmögen att bevilja åtkomst till mappar på grund av begränsningar som miljön eller en säkerhetspolicy pålägger. Prova följande lösningar: 
+I vissa fall kan du vara oförmögen att bevilja åtkomst till mappar på grund av begränsningar som införts av miljön eller en säkerhetspolicy. Prova dessa lösningar: 
 {{% /alert %}}
 
-**Alternativ lösning**
+**Tillfällig lösning**
 
-Använd [FontsLoader](https://reference.aspose.com/slides/sv/java/com.aspose.slides/FontsLoader) för att läsa in de nödvändiga typsnitten utan att installera dem:
+Använd [FontsLoader](https://reference.aspose.com/slides/sv/java/com.aspose.slides/FontsLoader) för att ladda de nödvändiga teckensnitten utan att installera dem:
 
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
@@ -55,20 +57,18 @@ try {
 }
 ```
 
-## **Undantag: InvalidOperationException: Kan inte hitta några typsnitt installerade på systemet**
+## **Undantag: InvalidOperationException: Kan inte hitta några teckensnitt installerade på systemet**
 
 Detta undantag uppstår när
 
-1) Java‑processen inte kan komma åt typsnittsmappen  
-2) inga typsnitt har installerats.
+1) Java‑processen inte kan komma åt teckensnittsmappen  
+2) inga teckensnitt har installerats.
 
 ### **Lösning**
 
-1. Kontrollera och bekräfta att åtkomst till typsnittsmappen för Java‑processen har beviljats.
-
-2. Installera några typsnitt eller använd [FontsLoader](https://reference.aspose.com/slides/sv/java/com.aspose.slides/FontsLoader).
-
-3. Installera typsnitt.
+1. Kontrollera och bekräfta att åtkomst till teckensnittsmappen för Java‑processen har beviljats.  
+2. Installera några teckensnitt eller använd [FontsLoader](https://reference.aspose.com/slides/sv/java/com.aspose.slides/FontsLoader).  
+3. Installera teckensnitt.
 
    * Ubuntu: 
 
@@ -76,7 +76,7 @@ Detta undantag uppstår när
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
-     ```
+```
 
    * CentOS: 
 
@@ -84,17 +84,30 @@ Detta undantag uppstår när
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
-     ```
+```
 
-   * Använda [FontsLoader](https://reference.aspose.com/slides/sv/java/com.aspose.slides/FontsLoader): 
+   * Med hjälp av [FontsLoader](https://reference.aspose.com/slides/sv/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
-     ```
+```
 
-## **Undantag: NoClassDefFoundError: Kunde inte initiera klassen com.aspose.slides.internal.ey.this**
+## **Undantag: InternalError: InvocationTargetException**
 
-Detta undantag uppstår på ett Linux‑system som saknar fontconfig och typsnitt. 
+När en PPTX‑fil konverteras till PDF på Linux kan konverteringen misslyckas med `java.lang.InternalError: java.lang.reflect.InvocationTargetException`. Om det underliggande felet visar `Cannot load from short array because "sun.awt.FontConfiguration.head" is null`, är Linux‑teckensnittskonfigurationen otillgänglig eller har inte initierat sin cache.
+
+### **Lösning**
+
+Installera fontconfig och bygg om teckensnittscachen:
+
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
+## **Undantag: NoClassDefFoundError: Kunde inte initiera klass com.aspose.slides.internal.ey.this**
+
+Detta undantag uppstår på ett Linux‑system som saknar fontconfig och teckensnitt. 
 
 ### **Lösning**
 
@@ -114,7 +127,7 @@ Installera fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Dessutom kräver vissa open‑jdk‑versioner (t.ex. **alpine JDK**) också **installerade typsnitt**.
+Dessutom kräver vissa versioner av open‑jdk (t.ex. **alpine JDK**) också **installerade teckensnitt**.
 
 * Ubuntu:
 
@@ -130,7 +143,7 @@ Dessutom kräver vissa open‑jdk‑versioner (t.ex. **alpine JDK**) också **in
   fc-cache -fv
   ```
 
-## **Undantag: UnsatisfiedLinkError: libfreetype.so.6: Kan inte öppna delad objektfil: Filen finns inte**
+## **Undantag: UnsatisfiedLinkError: libfreetype.so.6: Kan inte öppna delad objektfil: Ingen sådan fil eller katalog**
 
 Detta undantag uppstår på ett Linux‑system som saknar libfreetype‑biblioteket. 
 
@@ -154,6 +167,6 @@ Installera libfreetype och fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
-Glöm inte att installera typsnitt eller använda FontsLoader. 
+{{% alert title="TIP" color="info" %}} 
+Glöm inte att installera teckensnitt eller använda FontsLoader.
 {{% /alert %}}

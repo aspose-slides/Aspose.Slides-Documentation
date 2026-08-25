@@ -3,36 +3,41 @@ title: Běžné výjimky a chyby související s fonty na Linuxu
 type: docs
 weight: 200
 url: /cs/java/common-errors-involving-fonts/
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
 keywords: "Výjimka fontu, Chyba fontu, Linux, Java, Aspose.Slides pro Java"
 description: "Výjimky a chyby fontů na Linuxu"
 ---
 ## **Přehled**
 
-Když je Aspose.Slides používán na Linuxu, mohou se vyskytnout problémy související s fonty, pokud Java proces nemůže získat přístup k požadovaným složkám s fonty nebo dočasnému adresáři, pokud nejsou ve systému nainstalovány žádné fonty, nebo pokud chybí požadované systémové knihovny, jako je fontconfig nebo libfreetype.
+Když je Aspose.Slides používán na Linuxu, mohou se vyskytnout problémy související s fonty, pokud proces Java nemá přístup k požadovaným složkám s fonty nebo dočasnému adresáři, pokud nejsou v systému nainstalovány žádné fonty, nebo pokud chybí požadované systémové knihovny, jako jsou fontconfig nebo libfreetype.
 
-## **Chybějící text nebo obrázky (EMF nebo WMF) při spouštění kódu na Linuxu**
+Článek popisuje běžné chyby a výjimky související s fonty na Linuxu a poskytuje řešení pro jejich odstranění. Vysvětluje, jak zkontrolovat přístup k adresářům s fonty a TEMP, nainstalovat požadované fonty a knihovny a použít `FontsLoader` k načtení fontů bez jejich systémové instalace.
 
-Tento problém se vyskytuje v systémech s omezeními v těchto případech:
+## **Chybějící text nebo obrázky (EMF nebo WMF) při spuštění kódu na Linuxu**
 
-1. Když nejsou nainstalovány žádné fonty nebo když není přístupná složka s fonty pro Java proces
-2. Když není přístupný adresář TEMP.
+Problém se vyskytuje v systémech s omezeními v následujících případech:
+
+1. Když nejsou nainstalovány žádné fonty nebo když proces java nemá přístup ke složce s fonty
+2. Když nelze přistupovat k adresáři TEMP.
 
 ### **Řešení**
 
 Zkontrolujte a potvrďte, že přístup k adresáři TEMP a složce s fonty byl povolen. 
 
 {{% alert color="warning" %}}
-V některých případech může být přidělení přístupu ke složkám omezeno prostředím nebo bezpečnostní politikou. Vyzkoušejte následující řešení: 
+V některých případech nemusíte být schopni povolit přístup ke složkám kvůli omezením prostředí nebo bezpečnostní politice. Vyzkoušejte následující řešení: 
 {{% /alert %}}
 
 **Obcházení**
 
 Použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader) k načtení požadovaných fontů bez jejich instalace:
+
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-Pokud není přístup k adresáři TEMP, použijte tento kód k určení jiného adresáře jako TEMP pro Javu:
+Pokud nelze přistupovat k adresáři TEMP, použijte tento kód k určení jiného adresáře jako TEMP pro Javu:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -54,18 +59,18 @@ try {
 
 ## **Výjimka: InvalidOperationException: Nelze najít žádné nainstalované fonty v systému**
 
-Tato výjimka nastává, když
+Příčina této výjimky je:
 
-1) Java proces nemůže získat přístup ke složce s fonty  
-2) nebyly nainstalovány žádné fonty.
+1) proces Java nemá přístup ke složce s fonty  
+2) nejsou nainstalovány žádné fonty.
 
 ### **Řešení**
 
-1. Zkontrolujte a potvrďte, že přístup ke složce s fonty pro Java proces byl povolen.
+1. Zkontrolujte a potvrďte, že přístup ke složce s fonty pro proces Java byl povolen.
 
-2. Nainstalujte nějaké fonty nebo použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader).
+2. Nainstalujte některé fonty nebo použijte [FontsLoader](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FontsLoader).
 
-3. Instalace fontů.
+3. Nainstalujte fonty.
 
    * Ubuntu: 
 
@@ -89,9 +94,22 @@ Tato výjimka nastává, když
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
+## **Výjimka: InternalError: InvocationTargetException**
+
+Při převodu souboru PPTX na PDF na Linuxu může konverze selhat s chybou `java.lang.InternalError: java.lang.reflect.InvocationTargetException`. Pokud podkladová chyba uvádí `Cannot load from short array because "sun.awt.FontConfiguration.head" is null`, konfigurace fontů na Linuxu není k dispozici nebo nebyla inicializována její cache.
+
+### **Řešení**
+
+Nainstalujte fontconfig a přestavte mezipaměť fontů:
+
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
 ## **Výjimka: NoClassDefFoundError: Nepodařilo se inicializovat třídu com.aspose.slides.internal.ey.this**
 
-Tato výjimka nastává na Linux systému, který postrádá fontconfig a fonty. 
+Tato výjimka nastává na Linuxovém systému, který postrádá fontconfig a fonty. 
 
 ### **Řešení**
 
@@ -111,7 +129,7 @@ Nainstalujte fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Navíc některé verze open-jdk (například **alpine JDK**) také **vyžadují nainstalované fonty**.
+Kromě toho některé verze open-jdk (například **alpine JDK**) také **vyžadují nainstalované fonty**.
 
 * Ubuntu:
 
@@ -127,9 +145,9 @@ Navíc některé verze open-jdk (například **alpine JDK**) také **vyžadují 
   fc-cache -fv
   ```
 
-## **Výjimka: UnsatisfiedLinkError: libfreetype.so.6: Nelze otevřít sdílený objekt: Soubor nebo adresář neexistuje**
+## **Výjimka: UnsatisfiedLinkError: libfreetype.so.6: Nelze otevřít sdílený soubor: Soubor nebo adresář neexistuje**
 
-Tato výjimka nastává na Linux systému, který postrádá knihovnu libfreetype. 
+Tato výjimka nastává na Linuxovém systému, který postrádá knihovnu libfreetype. 
 
 ### **Řešení**
 
@@ -151,6 +169,6 @@ Nainstalujte libfreetype a fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
+{{% alert title="TIP" color="info" %}} 
 Nezapomeňte nainstalovat fonty nebo použít FontsLoader.
 {{% /alert %}}

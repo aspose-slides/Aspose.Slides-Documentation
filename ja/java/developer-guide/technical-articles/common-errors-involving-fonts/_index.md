@@ -1,36 +1,43 @@
 ---
-title: Linuxでのフォントに関する一般的な例外とエラー
+title: Linux におけるフォントに関する一般的な例外とエラー
 type: docs
 weight: 200
-url: /ja/java/technical-articles/common-errors-involving-fonts
+url: /ja/java/common-errors-involving-fonts/
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
 keywords: "フォント例外, フォントエラー, Linux, Java, Aspose.Slides for Java"
-description: "Linux上のフォント例外とエラー"
+description: "Linux 上のフォント例外とエラー"
 ---
+## **概要**
 
-## **Linux上でコードが実行されたときのテキストまたは画像（EMFまたはWMF）の欠落**
+Aspose.Slides を Linux で使用する場合、Java プロセスが必要なフォント フォルダーや一時ディレクトリにアクセスできない、システムにフォントがインストールされていない、または fontconfig や libfreetype といった必須のシステム ライブラリが欠如していると、フォントに関する問題が発生する可能性があります。
 
-この問題は、次のような制限があるシステムで発生します。
+本記事では、Linux 上のフォントに関連する一般的なエラーと例外を説明し、解決策を提示します。フォントおよび TEMP ディレクトリへのアクセス確認方法、必要なフォントとライブラリのインストール手順、そして `FontsLoader` を使用してシステム全体にインストールせずにフォントを読み込む方法を解説します。
 
-1. フォントがインストールされていない場合、またはJavaプロセスのフォントフォルダーにアクセスできない場合
-2. TEMPディレクトリにアクセスできない場合。
+## **Linux でコードを実行した際のテキストまたは画像 (EMF または WMF) の欠落**
 
-### **Solution**
+この問題は、次のいずれかの制限があるシステムで発生します。
 
-TEMPディレクトリとフォントフォルダーへのアクセスが許可されていることを確認してください。 
+1. フォントがインストールされていない、または Java プロセス用のフォント フォルダーにアクセスできない場合  
+2. TEMP ディレクトリにアクセスできない場合
+
+### **解決策**
+
+TEMP ディレクトリとフォント フォルダーへのアクセスが許可されていることを確認してください。
 
 {{% alert color="warning" %}}
-環境やセキュリティポリシーによってフォルダーへのアクセスを許可できない場合があります。以下の回避策を試してください:
+環境やセキュリティ ポリシーによってフォルダーへのアクセス権を付与できない場合があります。そのような場合は以下の回避策をお試しください。
 {{% /alert %}}
 
-**Workaround**
+**回避策**
 
-インストールせずに必要なフォントをロードするには、[FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader)を使用します:
+[FontsLoader](https://reference.aspose.com/slides/ja/java/com.aspose.slides/FontsLoader) を使用して、フォントをシステム全体にインストールせずに必要なフォントを読み込みます。
+
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-
-TEMPディレクトリにアクセスできない場合は、JavaのTEMPとして別のディレクトリを指定するためにこのコードを使用してください:
+TEMP ディレクトリにアクセスできない場合は、以下のコードで Java 用の別のディレクトリを TEMP として指定してください。
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -43,113 +50,126 @@ try {
     FontsLoader.loadExternalFonts(pathToFontsFolders);
 
     Presentation pres = ...
-    // 省略
+    // ....
 
 } finally {
     System.setProperty("java.io.tmpdir", oldValue);
 }
 ```
 
+## **例外: InvalidOperationException: システムにインストールされたフォントが見つかりません**
 
-## **Exception: InvalidOperationException: Cannot Find Any Fonts Installed on the System**
+この例外は、次の場合に発生します。
 
-この例外は以下の場合に発生します
+1. Java プロセスがフォント フォルダーにアクセスできない  
+2. フォントがインストールされていない
 
-1) Javaプロセスがフォントフォルダーにアクセスできない  
-2) フォントがインストールされていない。
+### **解決策**
 
-### **Solution**
+1. Java プロセス用のフォント フォルダーへのアクセスが許可されていることを確認してください。
 
-1. Javaプロセスのフォントフォルダーへのアクセスが許可されていることを確認してください。
+2. フォントをインストールするか、[FontsLoader](https://reference.aspose.com/slides/ja/java/com.aspose.slides/FontsLoader) を使用してください。
 
-2. フォントをいくつかインストールするか、[FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader)を使用してください。
+3. フォントをインストールします。
 
-3. フォントをインストールしてください。
+   * Ubuntu:
 
-   * Ubuntu: 
      ```
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
      ```
 
+   * CentOS:
 
-   * CentOS: 
      ```
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
      ```
 
+   * [FontsLoader](https://reference.aspose.com/slides/ja/java/com.aspose.slides/FontsLoader) を使用する場合:
 
-   * [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) を使用する場合: 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
+## **例外: InternalError: InvocationTargetException**
 
-## **Exception: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
+Linux で PPTX ファイルを PDF に変換する際、`java.lang.InternalError: java.lang.reflect.InvocationTargetException` が発生して変換に失敗することがあります。根本的なエラーが `Cannot load from short array because "sun.awt.FontConfiguration.head" is null` と表示された場合、Linux のフォント設定が利用できないか、キャッシュが初期化されていません。
 
-フォント構成(fontconfig)とフォントがないLinuxシステムでこの例外が発生します。 
+### **解決策**
 
-### **Solution**
+fontconfig をインストールし、フォント キャッシュを再構築してください。
 
-fontconfig をインストールしてください:
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
+## **例外: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
+
+この例外は、fontconfig およびフォントが不足している Linux システムで発生します。
+
+### **解決策**
+
+fontconfig をインストールしてください。
 
 * Ubuntu:
+
   ```
   sudo apt-get update
   sudo apt-get -y install fontconfig
   ```
 
-
 * CentOS:
+
   ```
   sudo yum makecache
   sudo yum -y install fontconfig
   ```
 
-
-また、一部の OpenJDK バージョン（例: **alpine JDK**）でも **インストールされたフォントが必要** です。
+さらに、一部の OpenJDK バージョン（例: **alpine JDK**）でも **フォントのインストールが必要** です。
 
 * Ubuntu:
+
   ```
   sudo apt-get install -y fonts-dejavu-core
   fc-cache -fv
   ```
 
-
 * CentOS:
+
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
-  ```
+  
+```
 
+## **例外: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
 
-## **Exception: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
+この例外は、libfreetype ライブラリが欠如している Linux システムで発生します。
 
-libfreetype ライブラリがない Linux システムでこの例外が発生します。 
+### **解決策**
 
-### **Solution**
+libfreetype と fontconfig をインストールしてください。
 
-libfreetype と fontconfig をインストールしてください:
+* Ubuntu:
 
-* Ubuntu: 
   ```
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
   ```
 
+* CentOS:
 
-* CentOS: 
   ```
   sudo yum makecache
   sudo yum install libfreetype6
   sudo yum -y install fontconfig
   ```
 
-
-{{% alert title="TIP" color="primary" %}} 
-フォントをインストールするか、FontsLoader を使用することを忘れないでください。
+{{% alert title="TIP" color="info" %}} 
+フォントのインストールまたは FontsLoader の使用を忘れないでください。
 {{% /alert %}}

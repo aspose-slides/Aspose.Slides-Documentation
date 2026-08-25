@@ -1,18 +1,20 @@
 ---
-title: Exceções e Erros Comuns Relacionados a Fontes no Linux
+title: Exceções e Erros Comuns Envolvendo Fontes no Linux
 type: docs
 weight: 200
 url: /pt/java/common-errors-involving-fonts/
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
 keywords: "Exceção de fonte, Erro de fonte, Linux, Java, Aspose.Slides for Java"
-description: "Exceções e erros de fonte no Linux"
+description: "Exceções e erros de fontes no Linux"
 ---
 ## **Visão geral**
 
-Quando o Aspose.Slides é usado no Linux, podem ocorrer problemas relacionados a fontes se o processo Java não puder acessar as pastas de fontes necessárias ou o diretório temporário, se nenhuma fonte estiver instalada no sistema ou se bibliotecas de sistema necessárias, como fontconfig ou libfreetype, estiverem ausentes.
+Quando o Aspose.Slides é usado no Linux, podem ocorrer problemas relacionados a fontes se o processo Java não puder acessar as pastas de fontes necessárias ou o diretório temporário, se nenhuma fonte estiver instalada no sistema, ou se bibliotecas do sistema necessárias, como fontconfig ou libfreetype, estiverem ausentes.
 
-Este artigo descreve erros e exceções comuns relacionados a fontes no Linux e fornece soluções para resolvê-los. Ele explica como verificar o acesso aos diretórios de fontes e TEMP, instalar as fontes e bibliotecas necessárias e usar `FontsLoader` para carregar fontes sem instalá‑las em todo o sistema.
+Este artigo descreve erros e exceções comuns relacionados a fontes no Linux e fornece soluções para resolvê‑los. Ele explica como verificar o acesso aos diretórios de fontes e TEMP, instalar as fontes e bibliotecas necessárias e usar `FontsLoader` para carregar fontes sem instalá‑las globalmente.
 
-## **Texto ou imagens ausentes (EMF ou WMF) quando o código é executado no Linux**
+## **Texto ou Imagens Ausentes (EMF ou WMF) Quando o Código é Executado no Linux**
 
 Este problema ocorre em sistemas com restrições nos seguintes casos:
 
@@ -24,9 +26,7 @@ Este problema ocorre em sistemas com restrições nos seguintes casos:
 Verifique e confirme que o acesso ao diretório TEMP e à pasta de fontes foi concedido. 
 
 {{% alert color="warning" %}}
-
-Em alguns casos, pode ser impossível conceder acesso às pastas devido a restrições impostas pelo ambiente ou por uma política de segurança. Experimente estas soluções alternativas: 
-
+Em alguns casos, pode ser impossível conceder acesso às pastas devido a restrições impostas pelo ambiente ou por uma política de segurança. Experimente as seguintes soluções alternativas: 
 {{% /alert %}}
 
 **Solução alternativa**
@@ -37,8 +37,8 @@ Use [FontsLoader](https://reference.aspose.com/slides/pt/java/com.aspose.slides/
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-Se o diretório TEMP não puder ser acessado, use este código para especificar outro diretório como TEMP para o Java:
-```java
+Se o diretório TEMP não puder ser acessado, use este código para especificar outro diretório como TEMP para Java:
+```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
 java.io.File file = new java.io.File(newTempFolder);
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-## **Exceção: InvalidOperationException: Não foi possível encontrar fontes instaladas no sistema**
+## **Exception: InvalidOperationException: Cannot Find Any Fonts Installed on the System**
 
 Esta exceção ocorre quando
 
@@ -86,15 +86,28 @@ Esta exceção ocorre quando
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
-```
+     ```
 
-   * Using [FontsLoader](https://reference.aspose.com/slides/pt/java/com.aspose.slides/FontsLoader): 
+   * Usando [FontsLoader](https://reference.aspose.com/slides/pt/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
-## **Exceção: NoClassDefFoundError: Não foi possível inicializar a classe com.aspose.slides.internal.ey.this**
+## **Exception: InternalError: InvocationTargetException**
+
+Ao converter um arquivo PPTX para PDF no Linux, a conversão pode falhar com `java.lang.InternalError: java.lang.reflect.InvocationTargetException`. Se o erro subjacente indicar `Cannot load from short array because "sun.awt.FontConfiguration.head" is null`, a configuração de fontes do Linux está indisponível ou seu cache não foi inicializado.
+
+### **Solução**
+
+Instale fontconfig e reconstrua o cache de fontes:
+
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
+## **Exception: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
 
 Esta exceção ocorre em um sistema Linux que não possui fontconfig e fontes. 
 
@@ -116,7 +129,7 @@ Instale fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Além disso, algumas versões do open-jdk (por exemplo, **alpine JDK**) também **requerem fontes instaladas**.
+Além disso, algumas versões do open‑jdk (por exemplo, **alpine JDK**) também **exigem fontes instaladas**.
 
 * Ubuntu:
 
@@ -132,7 +145,7 @@ Além disso, algumas versões do open-jdk (por exemplo, **alpine JDK**) também 
   fc-cache -fv
   ```
 
-## **Exceção: UnsatisfiedLinkError: libfreetype.so.6: Não foi possível abrir o arquivo de objeto compartilhado: Nenhum arquivo ou diretório encontrado**
+## **Exception: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
 
 Esta exceção ocorre em um sistema Linux que não possui a biblioteca libfreetype. 
 
@@ -156,8 +169,6 @@ Instale libfreetype e fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
-
+{{% alert title="TIP" color="info" %}} 
 Não se esqueça de instalar fontes ou usar FontsLoader.
-
 {{% /alert %}}

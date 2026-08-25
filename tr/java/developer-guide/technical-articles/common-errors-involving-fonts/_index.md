@@ -1,43 +1,45 @@
 ---
-title: Linux'ta Yazı Tipleriyle İlgili Ortak İstisnalar ve Hatalar
+title: Linux'ta Yazı Tipleriyle İlgili Yaygın İstisnalar ve Hatalar
 type: docs
 weight: 200
 url: /tr/java/common-errors-involving-fonts/
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
 keywords: "Yazı tipi istisnası, Yazı tipi hatası, Linux, Java, Aspose.Slides for Java"
 description: "Linux'ta yazı tipi istisnaları ve hataları"
 ---
 ## **Genel Bakış**
 
-Aspose.Slides Linux'ta kullanıldığında, Java işlemi gerekli yazı tipi klasörlerine veya geçici dizine erişemezse, sistemde hiç yazı tipi yüklü değilse veya fontconfig veya libfreetype gibi gerekli sistem kütüphaneleri eksikse, yazı tipiyle ilgili sorunlar ortaya çıkabilir.
+Aspose.Slides Linux üzerinde kullanıldığında, Java işlemi gerekli yazı tipi klasörlerine veya geçici klasöre erişemiyorsa, sistemde hiçbir yazı tipi yüklü değilse veya fontconfig ya da libfreetype gibi gerekli sistem kütüphaneleri eksikse, yazı tipiyle ilgili sorunlar ortaya çıkabilir.
 
-Bu makale, Linux'ta yazı tipleriyle ilgili yaygın hata ve istisnaları açıklar ve çözüm önerileri sunar. Yazı tipi ve TEMP dizinlerine erişimin nasıl kontrol edileceğini, gerekli yazı tipleri ve kütüphanelerin nasıl yükleneceğini ve `FontsLoader` kullanarak sistem genelinde yüklemeden yazı tiplerini nasıl yükleyeceğinizi anlatır.
+Bu makale, Linux'ta yazı tipleriyle ilgili yaygın hataları ve istisnaları açıklar ve bunları çözmek için çözümler sunar. Yazı tipi ve TEMP klasörlerine erişimin nasıl kontrol edileceğini, gerekli yazı tiplerinin ve kütüphanelerin nasıl yükleneceğini ve `FontsLoader`ı kullanarak sistem genelinde kurulum yapmadan yazı tiplerini nasıl yükleneceğini açıklar.
 
-## **Linux'ta Kod Çalıştırıldığında Eksik Metin veya Görüntüler (EMF veya WMF)**
+## **Linux'ta Kod Çalıştırıldığında Metin veya Görüntü (EMF veya WMF) Eksikliği**
 
-Bu sorun aşağıdaki durumlarda kısıtlamalar bulunan sistemlerde oluşur:
+Bu sorun aşağıdaki durumlarda sınırlamalara sahip sistemlerde meydana gelir:
 
-1. Yazı tipi yüklü olmadığında veya Java işlemi için yazı tipi klasörüne erişilemediğinde
-2. TEMP dizinine erişilemediğinde.
+1. Hiç yazı tipi yüklü değilse veya Java işlemi için yazı tipi klasörüne erişilemiyorsa
+2. TEMP klasörüne erişilemiyorsa.
 
 ### **Çözüm**
 
-TEMP dizinine ve yazı tipi klasörüne erişimin sağlandığını kontrol edin ve onaylayın. 
+TEMP klasörüne ve yazı tipi klasörüne erişimin verildiğini kontrol edin ve doğrulayın. 
 
 {{% alert color="warning" %}}
 
-Bazı durumlarda, ortam veya güvenlik politikası kaynaklı kısıtlamalar nedeniyle klasörlere erişim izni veremeyebilirsiniz. Bu çözüm yollarını deneyin: 
+Bazı durumlarda ortam veya güvenlik politikası tarafından uygulanan kısıtlamalar nedeniyle klasörlere erişim sağlanamayabilir. Aşağıdaki geçici çözümleri deneyin: 
 
 {{% /alert %}}
 
 **Geçici Çözüm**
 
-Yüklemeye gerek kalmadan gerekli yazı tiplerini yüklemek için [FontsLoader](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsLoader) kullanın:
+Gerekli yazı tiplerini sistem genelinde kurmadan yüklemek için [FontsLoader](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsLoader)ı kullanın:
 
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-Eğer TEMP dizinine erişilemiyorsa, Java için TEMP'i başka bir dizin olarak belirlemek üzere bu kodu kullanın:
+TEMP klasörüne erişilemiyorsa, Java için TEMP olarak kullanılacak başka bir klasörü belirlemek için şu kodu kullanın:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -57,18 +59,18 @@ try {
 }
 ```
 
-## **İstisna: InvalidOperationException: Sistemde Yüklü Hiçbir Yazı Tipi Bulunamıyor**
+## **İstisna: InvalidOperationException: Sistem üzerinde yüklü hiçbir yazı tipi bulunamıyor**
 
-Bu istisna aşağıdaki durumlarda ortaya çıkar:
+Bu istisna aşağıdaki durumlarda ortaya çıkar
 
-1) Java işlemi yazı tipi klasörüne erişemediğinde  
-2) hiçbir yazı tipi yüklü olmadığında.
+1) Java işlemi yazı tipi klasörüne erişemiyor
+2) Hiç yazı tipi yüklü değil.
 
 ### **Çözüm**
 
-1. Java işlemi için yazı tipi klasörüne erişimin sağlandığını kontrol edin ve onaylayın.
+1. Java işlemi için yazı tipi klasörüne erişimin verildiğini kontrol edin ve doğrulayın.
 
-2. Bazı yazı tipleri yükleyin veya [FontsLoader](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsLoader) kullanın.
+2. Birkaç yazı tipi yükleyin veya [FontsLoader](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsLoader)ı kullanın.
 
 3. Yazı tiplerini yükleyin.
 
@@ -78,7 +80,7 @@ Bu istisna aşağıdaki durumlarda ortaya çıkar:
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
-     ```
+```
 
    * CentOS: 
 
@@ -92,11 +94,24 @@ Bu istisna aşağıdaki durumlarda ortaya çıkar:
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
-     ```
+```
 
-## **İstisna: NoClassDefFoundError: com.aspose.slides.internal.ey.this Sınıfı Başlatılamadı**
+## **İstisna: InternalError: InvocationTargetException**
 
-Bu istisna, fontconfig ve yazı tipleri bulunmayan bir Linux sisteminde ortaya çıkar. 
+Linux'ta bir PPTX dosyasını PDF'ye dönüştürürken, dönüşüm `java.lang.InternalError: java.lang.reflect.InvocationTargetException` hatasıyla başarısız olabilir. Altta yatan hata `Cannot load from short array because "sun.awt.FontConfiguration.head" is null` ise, Linux yazı tipi yapılandırması kullanılamaz durumdadır veya önbelleği henüz oluşturulmamıştır.
+
+### **Çözüm**
+
+fontconfig paketini yükleyin ve yazı tipi önbelleğini yeniden oluşturun:
+
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
+## **İstisna: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
+
+Bu istisna, fontconfig ve yazı tiplerinin eksik olduğu bir Linux sisteminde ortaya çıkar. 
 
 ### **Çözüm**
 
@@ -116,7 +131,7 @@ fontconfig paketini yükleyin:
   sudo yum -y install fontconfig
   ```
 
-Ayrıca, bazı open-jdk sürümleri (örneğin, **alpine JDK**) da **yüklü yazı tiplerine** ihtiyaç duyar.
+Ayrıca bazı open-jdk sürümleri (örneğin **alpine JDK**) **yüklenmiş yazı tiplerini** gerektirir.
 
 * Ubuntu:
 
@@ -132,9 +147,9 @@ Ayrıca, bazı open-jdk sürümleri (örneğin, **alpine JDK**) da **yüklü yaz
   fc-cache -fv
   ```
 
-## **İstisna: UnsatisfiedLinkError: libfreetype.so.6: Paylaşılan Nesne Dosyası Açılmadı: Böyle Bir Dosya ya da Dizin Yok**
+## **İstisna: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
 
-Bu istisna, libfreetype kütüphanesi bulunmayan bir Linux sisteminde ortaya çıkar. 
+Bu istisna, libfreetype kütüphanesinin eksik olduğu bir Linux sisteminde ortaya çıkar. 
 
 ### **Çözüm**
 
@@ -156,8 +171,8 @@ libfreetype ve fontconfig paketlerini yükleyin:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
+{{% alert title="TIP" color="info" %}} 
 
-Yazı tiplerini yüklemeyi veya FontsLoader kullanmayı unutmayın.
+Yazı tiplerini yüklemeyi veya FontsLoaderı kullanmayı unutmayın.
 
 {{% /alert %}}
