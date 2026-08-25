@@ -170,7 +170,7 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-The cloned slides are appended to the specified destination section. To preserve several source sections, recreate those sections in the destination with [SectionCollection.append_empty_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/append_empty_section/) and map each source slide to the corresponding destination section.
+The cloned slides are appended to the specified destination section. To preserve several source sections, enumerate [Presentation.sections](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/sections/), retrieve each source section's current slides with [Section.get_slides_list_of_section](https://reference.aspose.com/slides/python-net/aspose.slides/section/get_slides_list_of_section/), recreate the sections in the destination, and clone each returned slide into its corresponding destination section. See [Manage Slide Sections](/slides/python-net/slide-section/) for a complete section-enumeration example, including empty sections and structural changes.
 
 ## **Merge Multiple Presentations Safely**
 
@@ -211,7 +211,7 @@ Do not assume that two masters or layouts with the same name are visually equiva
 
 ### **Notes and Comments**
 
-Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](https://docs.aspose.com/slides/python-net/presentation-notes/) and [presentation comments](https://docs.aspose.com/slides/python-net/presentation-comments/).
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](/slides/python-net/presentation-notes/) and [presentation comments](/slides/python-net/presentation-comments/).
 
 If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
 
@@ -225,7 +225,7 @@ Aspose.Slides explicitly tracks automatically cloned masters, but this should no
 
 ### **Embedded Fonts and Font Availability**
 
-Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) and manage embedding explicitly as described in [Embed Fonts in Presentations](https://docs.aspose.com/slides/python-net/embedded-font/).
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) and manage embedding explicitly as described in [Embed Fonts in Presentations](/slides/python-net/embedded-font/).
 
 Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
 
@@ -247,19 +247,19 @@ Opening an encrypted source does not automatically apply the same protection to 
 
 ### **Large Presentations and Memory Use**
 
-Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](https://docs.aspose.com/slides/python-net/manage-blob/) for large-file strategies.
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](/slides/python-net/manage-blob/) for large-file strategies.
 
 For large files, prefer loading from file paths when possible, close each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints. Using `with slides.Presentation(...)` ensures that presentation resources are released when the context exits.
 
 ### **Thread Safety**
 
-Do not load, save, or clone a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each merge operation single-threaded. If you parallelize independent merge jobs, use separate single-threaded processes and independent presentation instances as described in the [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/python-net/multithreading/).
+Do not load, save, or clone a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each merge operation single-threaded. If you parallelize independent merge jobs, use separate single-threaded processes and independent presentation instances as described in the [Aspose.Slides multithreading guidance](/slides/python-net/multithreading/).
 
 ## **FAQ**
 
 **How do I keep each source presentation's original design?**
 
-Use [`add_clone(source_slide)`](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
+Use [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
 
 **How do I make imported slides use the destination theme?**
 
@@ -275,7 +275,7 @@ Yes, but slide content is not automatically redesigned for the destination dimen
 
 **Can I merge PPT, PPTX, and ODP presentations into one file?**
 
-Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](https://docs.aspose.com/slides/python-net/supported-file-formats/).
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](/slides/python-net/supported-file-formats/).
 
 **Are source sections preserved automatically?**
 
