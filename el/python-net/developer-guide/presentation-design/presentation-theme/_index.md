@@ -11,30 +11,58 @@ keywords:
 - Ορισμός θέματος
 - Αλλαγή θέματος
 - Διαχείριση θέματος
+- Εξωτερικό θέμα
+- THMX
 - Χρώμα θέματος
-- Πρόσθετη παλέτα
+- Επιπλέον παλέτα
 - Γραμματοσειρά θέματος
 - Στυλ θέματος
 - Εφέ θέματος
 - PowerPoint
+- OpenDocument
 - Παρουσίαση
 - Python
 - Aspose.Slides
-description: "Διαχείριση θεμάτων παρουσίασης σε Aspose.Slides για Python μέσω .NET για δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή εμπορική ταυτότητα."
+description: "Κύρια θέματα παρουσίασης στο Aspose.Slides για Python μέσω .NET για δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπής εταιρική ταυτότητα."
 ---
 ## **Εισαγωγή**
 
-Ένα θέμα παρουσίασης ορίζει τις ιδιότητες των στοιχείων σχεδίασής του. Όταν επιλέγετε ένα θέμα, επιλέγετε ένα συντονισμένο σύνολο οπτικών στοιχείων και τις ιδιότητές τους.
+Ένα θέμα παρουσίασης ορίζει ένα συντονισμένο σύνολο χρωμάτων, γραμματοσειρών, στυλ φόντου, γεμίσματα, γραμμές και εφέ. Τα αντικείμενα που είναι ενήμερα για το θέμα αναφέρονται σε αυτές τις κοινές ορισμούς αντί να αποθηκεύουν κάθε οπτική ιδιότητα ως σταθερή τιμή, ώστε μια αλλαγή θέματος να μπορεί να ενημερώσει πολλά αντικείμενα ταυτόχρονα.
 
-Στο PowerPoint, ένα θέμα περιλαμβάνει χρώματα, [γραμματοσειρές](/slides/el/python-net/powerpoint-fonts/), [στυλ φόντου](/slides/el/python-net/presentation-background/), και εφέ.
+Στο Aspose.Slides, το θέμα επιπέδου παρουσίασης είναι διαθέσιμο μέσω της ιδιότητας [Presentation.master_theme](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/master_theme/). Μια παρουσίαση μπορεί επίσης να περιέχει παρακάμψεις θέματος σε χαμηλότερα επίπεδα. Ένας κύριος (master) μπορεί να παρακάμψει το θέμα παρουσίασης μέσω του [MasterThemeManager.override_theme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/masterthememanager/override_theme/), μια διάταξη μπορεί να παρακάμψει το κληρονομημένο της θέμα μέσω του [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), και μια μεμονωμένη διαφάνεια μπορεί να κάνει το ίδιο. Στην πράξη, το αποτελεσματικό θέμα για μια διαφάνεια επιλύεται μέσω αυτής της αλυσίδας κληρονομικότητας: θέμα παρουσίασης, παράκαμψη master, παράκαμψη διάταξης και παράκαμψη διαφάνειας.
 
-![theme-constituents](theme-constituents.png)
+![Συνιστώσες θέματος: χρώματα, γραμματοσειρές, στυλ φόντου και εφέ](theme-constituents.png)
 
-## **Αλλαγή Χρώματος Θέματος**
+Τα τμήματα παρακάτω παρουσιάζουν τις πιο κοινές ροές εργασίας με θέματα: επιθεώρηση θέματος, αλλαγή χρωμάτων και γραμματοσειρών, αντιγραφή ή εφαρμογή θέματος, ενημέρωση στυλ φόντου και εφέ, και ανάγνωση αποτελεσματικών τιμών μετά την κληρονομικότητα και τις παρακάμψεις.
 
-Ένα θέμα PowerPoint χρησιμοποιεί συγκεκριμένο σύνολο χρωμάτων για διαφορετικά στοιχεία σε μια διαφάνεια. Αν δεν σας αρέσουν τα προεπιλεγμένα, μπορείτε να τα αλλάξετε εφαρμόζοντας νέα χρώματα θέματος. Για να σας επιτρέψει η Aspose.Slides την επιλογή νέου χρώματος θέματος, παρέχει τιμές στην αρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/python-net/aspose.slides/schemecolor/).
+## **Επιθεώρηση Θέματος**
 
-Αυτός ο κώδικας Python δείχνει πώς να αλλάξετε το χρώμα έμφασης ενός θέματος:
+Το αντικείμενο [MasterTheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/mastertheme/) εκθέτει τις ιδιότητες [color_scheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/mastertheme/font_scheme/) και [format_scheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/mastertheme/format_scheme/). Η επιθεώρηση αυτών των συλλογών πριν από την αλλαγή τους είναι ιδιαίτερα χρήσιμη όταν μια παρουσίαση προέρχεται από εξωτερική πηγή, επειδή ο αριθμός και το περιεχόμενο των καταχωρήσεων στυλ μπορούν να διαφέρουν.
+
+Το παρακάτω παράδειγμα διαβάζει τις κύριες ιδιότητες του θέματος και αναφέρει πόσα στυλ φόντου, γεμίσματος, γραμμής και εφέ είναι αποθηκευμένα στο θέμα:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    theme = presentation.master_theme
+    print(f"Theme name: {theme.name}")
+    print(f"Accent 1: {theme.color_scheme.accent1.color}")
+    print(f"Major Latin font: {theme.font_scheme.major.latin_font.font_name}")
+    print(f"Minor Latin font: {theme.font_scheme.minor.latin_font.font_name}")
+    print(f"Background fill styles: {len(theme.format_scheme.background_fill_styles)}")
+    print(f"Fill styles: {len(theme.format_scheme.fill_styles)}")
+    print(f"Line styles: {len(theme.format_scheme.line_styles)}")
+    print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
+```
+
+Αν ένα αρχείο χρησιμοποιεί πολλαπλούς masters, μη υποθέτετε ότι κάθε διαφάνεια έχει το ίδιο αποτελεσματικό θέμα. Επιθεωρήστε τον master που σχετίζεται με τη διαφάνεια και χρησιμοποιήστε τη ροή εργασίας αποτελεσματικού θέματος που φαίνεται αργότερα σε αυτό το άρθρο όταν μπορεί να υπάρχουν παρακάμψεις διάταξης ή διαφάνειας.
+
+## **Αλλαγή Χρωμάτων Θέματος**
+
+Τα γεμίσματα, οι γραμμές και το κείμενο που είναι ενήμερα για το θέμα μπορούν να αναφέρονται σε ένα λογικό χρώμα από την απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/python-net/aspose.slides/schemecolor/). Όταν αλλάζετε την αντίστοιχη καταχώρηση στο [ColorScheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/colorscheme/) του θέματος, όλα τα αντικείμενα που εξακολουθούν να αναφέρονται σε αυτό το χρώμα θέματος λύνουν την τιμή τους με τη νέα τιμή. Τα αντικείμενα που χρησιμοποιούν άμεσο χρώμα RGB δεν αλλάζουν με μια ενημέρωση χρώματος θέματος.
+
+Το παρακάτω ολοκληρωμένο παράδειγμα δημιουργεί ένα σχήμα που χρησιμοποιεί το `ACCENT4`, αλλάζει το χρώμα `accent4` του θέματος σε κόκκινο, αποθηκεύει την παρουσίαση, την ανοίγει ξανά και εκτυπώνει το αποτελεσματικό χρώμα γεμίσματος:
 
 ```python
 import aspose.pydrawing as draw
@@ -42,216 +70,348 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    presentation.master_theme.color_scheme.accent4.color = draw.Color.red
+    presentation.save("theme-color.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("theme-color.pptx") as saved_presentation:
+    saved_slide = saved_presentation.slides[0]
+    saved_shape = saved_slide.shapes[0]
+    effective_fill = saved_shape.fill_format.get_effective()
+    print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Μπορείτε να προσδιορίσετε την αποτελεσματική τιμή του προκύπτοντος χρώματος ως εξής:
+Επειδή το ορθογώνιο παραμένει συνδεδεμένο στο `ACCENT4`, το ορατό του χρώμα γίνεται κόκκινο μετά την αλλαγή του θέματος. Αν αντικαταστήσετε το χρώμα σχήματος με άμεσο χρώμα στο σχήμα, οι μεταγενέστερες αλλαγές στο `accent4` δεν θα επηρεάσουν πλέον αυτό το γέμισμα.
 
-```python
-fill_effective = shape.fill_format.get_effective()
-print("{0} ({1})".format(fill_effective.solid_fill_color.name, fill_effective.solid_fill_color))
+### **Χρήση Χρωμάτων από το Επιπλέον Παλέτο**
 
-# Η έξοδος του παραδείγματος:
-#
-# ff8064a2 (Χρώμα [A=255, R=128, G=100, B=162])
-```
+Το PowerPoint παράγει πιο ανοιχτές και πιο σκούρες παραλλαγές από ένα χρώμα θέματος εφαρμόζοντας μετασχηματισμούς χρωμάτων. Το Aspose.Slides εκθέτει αυτούς τους μετασχηματισμούς μέσω της απαρίθμησης [ColorTransformOperation](https://reference.aspose.com/slides/el/python-net/aspose.slides/colortransformoperation/).
 
-Για να επιδείξουμε περαιτέρω την αλλαγή χρώματος, δημιουργούμε ένα άλλο στοιχείο, του αναθέτουμε το χρώμα έμφασης από το αρχικό βήμα και, στη συνέχεια, ενημερώνουμε το χρώμα θέματος.
+![Κύρια χρώματα θέματος και πιο ανοιχτές/σκούρες χρώματα που δημιουργούνται από το επιπλέον παλέτο](additional-palette-colors.png)
 
-```python
-other_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
-other_shape.fill_format.fill_type = slides.FillType.SOLID
-other_shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+**1** – Κύρια χρώματα θέματος.
 
-presentation.master_theme.color_scheme.accent4.color = draw.Color.red
-```
+**2** – Πιο ανοιχτές και πιο σκούρες παραλλαγές που προέρχονται από τα κύρια χρώματα θέματος.
 
-Το νέο χρώμα εφαρμόζεται αυτόματα και στα δύο στοιχεία.
-
-### **Ορισμός Χρώματος Θέματος από την Πρόσθετη Παλέτα**
-
-Όταν εφαρμόζετε μετασχηματισμούς φωτεινότητας στο κύριο χρώμα θέματος (1), δημιουργούνται χρώματα από την πρόσθετη παλέτα (2). Στη συνέχεια μπορείτε να ορίσετε και να αποκτήσετε πρόσβαση σε αυτά τα χρώματα θέματος.
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** — Κύρια χρώματα θέματος  
-**2** — Χρώματα από την πρόσθετη παλέτα
-
-Αυτός ο κώδικας Python δείχνει πώς τα χρώματα της πρόσθετης παλέτας προέρχονται από το κύριο χρώμα θέματος και στη συνέχεια χρησιμοποιούνται σε σχήματα:
+Το παρακάτω παράδειγμα δημιουργεί έξι ορθογώνια βασισμένα στο `ACCENT4`, εφαρμόζει μετασχηματισμούς φωτεινότητας σε πέντε από αυτά και αποθηκεύει το αποτέλεσμα:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-
-    # Έμφαση 4
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 50, 50)
-
     shape1.fill_format.fill_type = slides.FillType.SOLID
     shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
-
-    # Έμφαση 4, Φωτεινότερο 80%
     shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
-
     shape2.fill_format.fill_type = slides.FillType.SOLID
     shape2.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
-
-    # Έμφαση 4, Φωτεινότερο 60%
     shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
-
     shape3.fill_format.fill_type = slides.FillType.SOLID
     shape3.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
-
-    # Έμφαση 4, Φωτεινότερο 40%
     shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
-
     shape4.fill_format.fill_type = slides.FillType.SOLID
     shape4.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.6)
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.4)
-
-    # Έμφαση 4, Σκοτεινότερο 25%
     shape5 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 250, 50, 50)
-
     shape5.fill_format.fill_type = slides.FillType.SOLID
     shape5.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape5.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.75)
-
-    # Έμφαση 4, Σκοτεινότερο 50%
     shape6 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 50, 50)
-
     shape6.fill_format.fill_type = slides.FillType.SOLID
     shape6.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape6.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.5)
-
-    presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Αντιστοίχιση `SchemeColor` σε Χρώματα `ColorScheme`**
+Αυτές οι παραλλαγές παραμένουν βασισμένες στο χρώμα θέματος. Αν το `accent4` αλλάξει αργότερα, τα μετασχηματισμένα χρώματα υπολογίζονται εκ νέου από τη νέα τιμή `accent4`.
 
-Όταν εργάζεστε με [SchemeColor](https://reference.aspose.com/slides/el/python-net/aspose.slides/schemecolor/), ίσως παρατηρήσετε ότι περιέχει τις ακόλουθες τιμές χρώματος θέματος:
+### **Αντιστοίχιση Τιμών `SchemeColor` σε Θέσεις `ColorScheme`**
 
-`BACKGROUND1`, `BACKGROUND2`, `TEXT1` και `TEXT2`.
-
-Ωστόσο, `Presentation.master_theme.color_scheme` επιστρέφει [ColorScheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/colorscheme/), το οποίο αποκαλύπτει τα αντίστοιχα χρώματα ως:
-
-`dark1`, `dark2`, `light1` και `light2`.
-
-Αυτή η διαφορά είναι μόνο στο ονομαστικό σύστημα. Οι τιμές αναφέρονται στα ίδια slots χρώματος θέματος και η αντιστοίχιση είναι σταθερή:
+Η απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/python-net/aspose.slides/schemecolor/) χρησιμοποιεί τα `TEXT1`, `BACKGROUND1`, `TEXT2` και `BACKGROUND2`, ενώ το [ColorScheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/colorscheme/) εκθέτει τις ίδιες θέσεις θέματος ως `dark1`, `light1`, `dark2` και `light2`. Η αντιστοίχιση είναι σταθερή:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Δεν υπάρχει δυναμική μετατροπή μεταξύ `TEXT`/`BACKGROUND` και `dark`/`light`. Απλώς είναι εναλλακτικά ονόματα για τα ίδια χρώματα θέματος.
+Αυτές είναι εναλλακτικές ονομασίες για τις ίδιες θέσεις θέματος· δεν πρόκειται για τιμές που μετατρέπονται δυναμικά από τη μία μορφή στην άλλη.
 
-Αυτή η διαφορά ονομασίας προέρχεται από την ορολογία του Microsoft Office. Παλαιότερες εκδόσεις του Office χρησιμοποιούσαν `Dark 1`, `Light 1`, `Dark 2` και `Light 2`, ενώ οι νεότερες εκδόσεις UI εμφανίζουν τα ίδια slots ως `Text 1`, `Background 1`, `Text 2` και `Background 2`.
+## **Αλλαγή Γραμματοσειρών Θέματος**
 
-## **Αλλαγή Γραμματοσειράς Θέματος**
+Ένα σχήμα γραμματοσειρών θέματος περιέχει ένα κύριο σύνολο γραμματοσειρών για τις επικεφαλίδες και ένα δευτερεύον σύνολο για το κυρίως κείμενο. Οι ιδιότητες [FontScheme.major](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/fontscheme/major/) και [FontScheme.minor](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/fontscheme/minor/) εκθέτουν αυτά τα σύνολα.
 
-Για να μπορείτε να επιλέγετε γραμματοσειρές για θέματα και άλλους σκοπούς, η Aspose.Slides χρησιμοποιεί τα παρακάτω ειδικά αναγνωριστικά (παρόμοια με αυτά του PowerPoint):
+Οι ταυτοποιητές γραμματοσειρών θέματος συμβατοί με το PowerPoint μπορούν να χρησιμοποιηθούν σε μορφοποίηση κειμένου:
 
-- **+mn-lt** — Γραμματοσειρά σώματος Latin (Minor Latin Font)
-- **+mj-lt** — Γραμματοσειρά κεφαλίδας Latin (Major Latin Font)
-- **+mn-ea** — Γραμματοσειρά σώματος Ανατολικής Ασίας (Minor East Asian Font)
-- **+mj-ea** — Γραμματοσειρά κεφαλίδας Ανατολικής Ασίας (Major East Asian Font)
+* `+mn-lt` – Σώμα κειμένου Λατινικό (Μικρή Λατινική Γραμματοσειρά)
+* `+mj-lt` – Επικεφαλίδα Λατινική (Μεγάλη Λατινική Γραμματοσειρά)
+* `+mn-ea` – Σώμα κειμένου Ανατολική Ασία (Μικρή Ασιατική Γραμματοσειρά)
+* `+mj-ea` – Επικεφαλίδα Ανατολική Ασία (Μεγάλη Ασιατική Γραμματοσειρά)
 
-Αυτός ο κώδικας Python δείχνει πώς να αντιστοιχίσετε τη γραμματοσειρά Latin σε στοιχείο θέματος:
-
-```python
-portion = slides.Portion("Theme text format")
-portion.portion_format.latin_font = slides.FontData("+mn-lt")
-
-paragraph = slides.Paragraph()
-paragraph.portions.add(portion)
-
-shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-shape.text_frame.paragraphs.add(paragraph)
-```
-
-Αυτό το παράδειγμα Python δείχνει πώς να αλλάξετε τη γραμματοσειρά θέματος της παρουσίασης:
+Το παρακάτω παράδειγμα δημιουργεί μια επικεφαλίδα που χρησιμοποιεί τη μεγαλύτερη λατινική γραμματοσειρά θέματος και μια γραμμή σώματος που χρησιμοποιεί τη μικρότερη λατινική γραμματοσειρά θέματος. Στη συνέχεια αλλάζει τις γραμματοσειρές θέματος και αποθηκεύει το αποτέλεσμα:
 
 ```python
-presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
-```
+import aspose.slides as slides
 
-Όλα τα πλαίσια κειμένου θα ενημερωθούν στη νέα γραμματοσειρά.
-
-{{% alert color="primary" title="ΣΥΜΒΟΥΛΗ" %}}
-Για περισσότερες πληροφορίες, δείτε [Κύριες Γραμματοσειρές PowerPoint με Python](/slides/el/python-net/powerpoint-fonts/).
-{{% /alert %}}
-
-## **Αλλαγή Στυλ Φόντου Θέματος**
-
-Από προεπιλογή, το PowerPoint παρέχει 12 προκαθορισμένα φόντα, αλλά μια τυπική παρουσίαση αποθηκεύει μόνο 3 από αυτά.
-
-![todo:image_alt_text](presentation-design_8.png)
-
-Για παράδειγμα, αφού αποθηκεύσετε μια παρουσίαση στο PowerPoint, μπορείτε να εκτελέσετε τον παρακάτω κώδικα Python για να προσδιορίσετε πόσα προκαθορισμένα φόντα περιέχει:
-
-```python
 with slides.Presentation() as presentation:
-    number_of_background_fills = len(presentation.master_theme.format_scheme.background_fill_styles)
-    print(f"Number of theme background fill styles: {number_of_background_fills}")
+    slide = presentation.slides[0]
+    heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 500, 60)
+    heading.text_frame.text = "Theme heading"
+    heading.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mj-lt")
+    body = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 120, 500, 60)
+    body.text_frame.text = "Theme body text"
+    body.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mn-lt")
+    presentation.master_theme.font_scheme.major.latin_font = slides.FontData("Aptos Display")
+    presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
+    presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" %}}
-Χρησιμοποιώντας την ιδιότητα `background_fill_styles` από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/formatscheme/), μπορείτε να προσθέσετε ή να προσπελάσετε στυλ φόντου σε ένα θέμα PowerPoint.
+Η επικεφαλίδα ακολουθεί τη μεγάλη γραμματοσειρά και το κυρίως κείμενο τη μικρή γραμματοσειρά. Το κείμενο που έχει ρητό όνομα γραμματοσειράς αντί για ταυτοποιητή θέματος δεν θα αλλάξει αυτόματα όταν το σχήμα γραμματοσειρών θέματος αλλάξει.
+
+Οι μεγάλες και μικρές συλλογές γραμματοσειρών μπορούν επίσης να περιέχουν αντιστοιχίσεις γραμματοσειρών για μεμονωμένα συστήματα γραφής, όπως κυριλλικό, αραβικό, ιαπωνικό, γεωργιανό και θανα. Για επιθεώρηση, προσθήκη, αντικατάσταση ή αφαίρεση αυτών των αντιστοιχίσεων, δείτε [Script-Specific Theme Fonts](/slides/el/python-net/script-specific-font-mappings/).
+
+{{% alert color="info" title="Συμβουλή" %}}
+
+Για περισσότερες πληροφορίες σχετικά με τις γραμματοσειρές παρουσίασης, δείτε [PowerPoint Fonts](/slides/el/python-net/powerpoint-fonts/).
+
 {{% /alert %}}
 
-Αυτό το παράδειγμα Python δείχνει πώς να ορίσετε το φόντο της παρουσίασης:
+## **Αντιγραφή ή Εφαρμογή Θέματος**
+
+Οι παρακάτω ροές εργασίας λύνουν διαφορετικά προβλήματα που σχετίζονται με θέματα.
+
+### **Εφαρμογή Εξωτερικού Θέματος σε Διαφάνειες Εξαρτώμενες από Master**
+
+Χρησιμοποιήστε το [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) όταν έχετε ένα αρχείο θέματος PowerPoint (`.thmx`) και θέλετε να αλλάξετε το στυλ κάθε διαφάνειας που εξαρτάται από έναν συγκεκριμένο master. Επιλέξτε τον master από τη συλλογή [Presentation.masters](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/masters/), η οποία υλοποιεί το [MasterSlideCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslidecollection/), και περάστε το μονοπάτι του αρχείου θέματος στη μέθοδο.
+
+Η μέθοδος εκτελεί τις ακόλουθες εργασίες:
+
+1. Δημιουργεί μια νέα master διαφάνεια βασισμένη στον επιλεγμένο master.  
+2. Εφαρμόζει το εξωτερικό θέμα στη νέα master.  
+3. Αναθέτει τη νέα master σε όλες τις διαφάνειες που προηγουμένως εξαρτώνταν από τον επιλεγμένο master.  
+4. Επιστρέφει το νεοδημιουργημένο [IMasterSlide](https://reference.aspose.com/slides/el/python-net/aspose.slides/imasterslide/).
+
+Το παρακάτω παράδειγμα εφαρμόζει ένα εξωτερικό θέμα στις διαφάνειες που εξαρτώνται από τον πρώτο master και αποθηκεύει την παρουσίαση:
 
 ```python
-presentation.masters[0].background.style_index = 2  # 0 δηλώνει χωρίς γέμισμα· η αρίθμηση ξεκινά από 1.
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    selected_master = presentation.masters[0]
+    themed_master = selected_master.apply_external_theme_to_depending_slides("corporate-theme.thmx")
+
+    print(f"Created master: {themed_master.name}")
+    presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="ΣΥΜΒΟΥΛΗ" %}}
-Για περισσότερες πληροφορίες, δείτε [Διαχείριση Φόντων Παρουσίασης σε Python](/slides/el/python-net/presentation-background/).
+Ένα μη έγκυρο, κατεστραμμένο ή μη υποστηριζόμενο θέμα μπορεί να προκαλέσει [PptxException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxexception/) ή μία από τις υποκλάσεις του που σχετίζονται με μορφές. Επικυρώστε τις διαδρομές που παρέχονται από χρήστες, χειριστείτε αποτυχίες πρόσβασης στο σύστημα αρχείων και αποθηκεύστε την παρουσίαση μόνο αφού το θέμα εφαρμοστεί με επιτυχία.
+
+Μόνον οι διαφάνειες που εξαρτώνταν από τον επιλεγμένο master επανατοποθετούνται. Διαφάνειες που σχετίζονται με άλλους masters διατηρούν τους υπάρχοντες masters και θέματα τους. Τα χρώματα, γραμματοσειρές, γεμίσματα, γραμμές, φόντοι και εφέ που είναι ενήμερα για το θέμα λύνωνται με βάση το εξωτερικό θέμα. Τα χρώματα, γραμματοσειρές, γεμίσματα και άλλες άμεσες μορφοποιήσεις που έχουν δοθεί απευθείας ενδέχεται να μείνουν αμετάβλητα. Οι παρακάμψεις σε επίπεδο διάταξης και διαφάνειας μπορούν επίσης να προτεραιοποιηθούν έναντι των τιμών που κληρονομούνται από το νέο master.
+
+Το θέμα μπορεί να αναφέρεται σε γραμματοσειρές που δεν είναι διαθέσιμες στο περιβάλλον εκτέλεσης. Για συνεπή απόδοση και εξαγωγή, εγκαταστήστε τις απαιτούμενες γραμματοσειρές, προσφέρετέ τες μέσω [custom font sources](/slides/el/python-net/custom-font/), ή ρυθμίστε την [font substitution](/slides/el/python-net/font-substitution/).
+
+Αυτή είναι μια άμεση ροή εργασίας σε επίπεδο master: η μέθοδος δέχεται μονοπάτι αρχείου `.thmx` και δεν απαιτεί τη χειροκίνητη δημιουργία παρακάμψεων σε επίπεδο διαφάνειας ή διάταξης.
+
+### **Εφαρμογή Διαφορετικών Εξωτερικών Θεμάτων σε Παρουσίαση Πολλαπλών Masters**
+
+Όταν ο σχετικός master δεν είναι γνωστός εκ των προτέρων, αποκτήστε τον από μια αντιπροσωπευτική διαφάνεια μέσω του [Slide.layout_slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/layout_slide/) και του [LayoutSlide.master_slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/master_slide/). Αποθηκεύστε τις αρχικές αναφορές master πριν εφαρμόσετε τυχόν θέματα, επειδή κάθε κλήση δημιουργεί έναν νέο master στην παρουσίαση.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί διαφάνειες από δύο ενότητες για να εντοπίσει τους masters τους και εφαρμόζει διαφορετικό εξωτερικό θέμα σε κάθε ομάδα:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("multi-master-presentation.pptx") as presentation:
+    if len(presentation.slides) < 5:
+        print("The presentation does not contain the expected representative slides.")
+    else:
+        first_group_master = presentation.slides[0].layout_slide.master_slide
+        second_group_master = presentation.slides[4].layout_slide.master_slide
+
+        if first_group_master.slide_id == second_group_master.slide_id:
+            print("The representative slides use the same master.")
+        else:
+            first_themed_master = first_group_master.apply_external_theme_to_depending_slides("blue-theme.thmx")
+            second_themed_master = second_group_master.apply_external_theme_to_depending_slides("green-theme.thmx")
+
+            print(f"First themed master: {first_themed_master.name}")
+            print(f"Second themed master: {second_themed_master.name}")
+            presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Η πρώτη κλήση επηρεάζει μόνο τις διαφάνειες που εξαρτώνται από το `first_group_master`, και η δεύτερη κλήση επηρεάζει μόνο τις διαφάνειες που εξαρτώνται από το `second_group_master`. Διαφάνειες που ανήκουν σε οποιονδήποτε άλλο master δεν επανασχεδιάζονται.
+
+### **Διατήρηση Πηγής Θέματος κατά τη Μετακίνηση Διαφανειών**
+
+Αν θέλετε να μετακινήσετε μια διαφάνεια σε άλλη παρουσίαση και να διατηρήσετε το αρχικό της σχέδιο, κλωνοποιήστε τον source master στην προοριστική παρουσίαση με το [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslidecollection/add_clone/), έπειτα κλωνοποιήστε τη διαφάνεια με το [SlideCollection.add_clone](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidecollection/add_clone/) και τον κλωνοποιημένο master. Αυτό μεταφέρει μαζί του τον master, τις διατάξεις του και το σχετικό θέμα.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        source_slide = source.slides[0]
+        source_master = source_slide.layout_slide.master_slide
+        cloned_master = target.masters.add_clone(source_master)
+        target.slides.add_clone(source_slide, cloned_master, True)
+        target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Αυτή είναι η προτιμώμενη ροή εργασίας όταν η πηγαία διαφάνεια πρέπει να μοιάζει ακριβώς με την προοριστική. Η απλή κλωνοποίηση περιεχομένου σε έναν μη σχετικό master προορισμού μπορεί να αλλάξει χρώματα, γραμματοσειρές, φόντους και εφέ που καθορίζονται από το θέμα.
+
+### **Εφαρμογή Τιμών Θέματος σε Υφιστάμενη Διαφάνεια**
+
+Αν η διαφάνεια-στόχος πρέπει να παραμείνει στον τρέχοντα master και διάταξη, αρχικοποιήστε μια παράκαμψη επιπέδου διαφάνειας από το πηγαίο θέμα. Οι μέθοδοι [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) και [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) αντιγράφουν τα τρία κύρια συστατικά του θέματος στην παράκαμψη.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        target_slide = target.slides[0]
+        override_theme = target_slide.theme_manager.override_theme
+        override_theme.init_color_scheme_from(source.master_theme.color_scheme)
+        override_theme.init_font_scheme_from(source.master_theme.font_scheme)
+        override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+        target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Αυτό αλλάζει το θέμα που χρησιμοποιείται από εκείνη τη διαφάνεια χωρίς να αλλάζει το θέμα που κληρονομείται από άλλες διαφάνειες. Για να αφαιρέσετε την τοπική παράκαμψη και να επιστρέψετε στις κληρονομημένες τιμές, καλέστε το [OverrideTheme.clear](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/overridetheme/clear/).
+
+### **Εφαρμογή Παρακάμψης Θέματος σε Διάταξη**
+
+Μια παράκαμψη σε επίπεδο διάταξης εφαρμόζεται σε διαφάνειες που χρησιμοποιούν εκείνη τη διάταξη, εκτός εάν μια συγκεκριμένη διαφάνεια έχει τη δική της παράκαμψη. Οι ίδιες μέθοδοι αρχικοποίησης μπορούν να χρησιμοποιηθούν μέσω του [LayoutSlideThemeManager](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/layoutslidethememanager/):
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        target_slide = target.slides[0]
+        override_theme = target_slide.layout_slide.theme_manager.override_theme
+        override_theme.init_color_scheme_from(source.master_theme.color_scheme)
+        override_theme.init_font_scheme_from(source.master_theme.font_scheme)
+        override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+        target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Χρησιμοποιήστε ένα θέμα σε επίπεδο master ή παρουσίασης όταν πολλές διατάξεις και διαφάνειες πρέπει να μοιράζονται το ίδιο βασικό σχέδιο, μια παράκαμψη διάταξης όταν μία οικογένεια διατάξεων χρειάζεται διαφορετικό στυλ, και μια παράκαμψη διαφάνειας μόνο για πραγματικές εξαιρέσεις. Η υπερβολική χρήση παρακάμψεων επιπέδου διαφάνειας κάνει τις μεταγενέστερες παγκόσμιες αλλαγές θέματος πιο δύσκολες στην πρόβλεψη.
+
+## **Ενημέρωση Στυλ Φόντου Θέματος**
+
+Τα στυλ φόντου του θέματος αποθηκεύονται στο [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). Το PowerPoint μπορεί να παρουσιάσει περισσότερες επιλογές φόντου στη διεπαφή χρήστη του από τον αριθμό των γεμίσεων που αποθηκεύονται φυσικά σε αυτή τη συλλογή, επειδή η διεπαφή μπορεί να συνδυάσει γεμίσεις θέματος με χρώματα θέματος και άλλες αναφορές στυλ.
+
+![Γκαλερί στυλ φόντου PowerPoint για ένα θέμα παρουσίασης](presentation-design_8.png)
+
+Προτού χρησιμοποιήσετε ένα στυλ φόντου, επιθεωρήστε τη αποθηκευμένη συλλογή και το τρέχον [Background.style_index](https://reference.aspose.com/slides/el/python-net/aspose.slides/background/style_index/). Το `style_index` χρησιμοποιεί το `0` για κανένα θέμα γεμίσματος· οι θετικές τιμές είναι αναφορές σε στυλ φόντου θέματος. Αυτό διαφέρει από την απευθείας πρόσβαση σε μια συλλογή Python, όπου το `[0]` σημαίνει το πρώτο αποθηκευμένο στοιχείο. Μην υποθέτετε ότι κάθε παρουσίαση περιέχει τον ίδιο αριθμό στυλ φόντου.
+
+Το παρακάτω παράδειγμα αναφέρει τον διαθέσιμο αριθμό γεμίσεων φόντου, αναθέτει μια αναφορά φόντου θέματος στον πρώτο master και αποθηκεύει την παρουσίαση:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    background_styles = presentation.master_theme.format_scheme.background_fill_styles
+    print(f"Background fill styles: {len(background_styles)}")
+    if len(background_styles) == 0:
+        raise RuntimeError("The presentation theme does not contain background fill styles.")
+    master_slide = presentation.masters[0]
+    master_slide.background.type = slides.BackgroundType.THEMED
+    master_slide.background.style_index = 1
+    presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Το ορατό αποτέλεσμα εξαρτάται από την καταχώρηση θέματος που αναφέρεται από τον master και από τυχόν παρακάμψεις φόντου στη διάταξη ή στη διαφάνεια. Αν μια διαφάνεια χρησιμοποιεί το δικό της φόντο, η αλλαγή μόνο του φόντου του master μπορεί να μην αλλάξει εκείνη τη διαφάνεια. Χρησιμοποιήστε το [Background.get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/background/get_effective/) όταν χρειάζεστε την τελική φόντο μετά την εφαρμογή κληρονομικότητας.
+
+{{% alert color="warning" title="Προειδοποίηση" %}}
+
+Μην αντιμετωπίζετε το `style_index` ως δείκτη μηδενικής βάσης. Αποφύγετε επίσης την σκληρή κωδικοποίηση ενός αριθμού στυλ από ένα αρχείο και την υπόθεση ότι θα έχει την ίδια εμφάνιση σε άλλο αρχείο· οι ορισμοί στυλ θέματος είναι ειδικοί για κάθε παρουσίαση.
+
 {{% /alert %}}
 
-## **Αλλαγή Εφέ Θέματος**
+{{% alert color="info" title="Συμβουλή" %}}
 
-Ένα θέμα PowerPoint περιλαμβάνει συνήθως τρεις τιμές σε κάθε σειρά στυλ. Αυτές οι σειρές συνδυάζονται σε τρία επίπεδα εφέ: λεπτό, μετριοπαφές και έντονα. Για παράδειγμα, εδώ είναι το αποτέλεσμα όταν αυτά τα εφέ εφαρμόζονται σε ένα συγκεκριμένο σχήμα:
+Για άμεση μορφοποίηση φόντου και κληρονομικότητα φόντου, δείτε το [Presentation Background](/slides/el/python-net/presentation-background/).
 
-![todo:image_alt_text](presentation-design_10.png)
+{{% /alert %}}
 
-Χρησιμοποιώντας τις τρεις ιδιότητες—`FillStyles`, `LineStyles` και `EffectStyles`—από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/formatscheme/), μπορείτε να τροποποιήσετε στοιχεία θέματος (ακόμη πιο ευέλικτα από το PowerPoint).
+## **Ενημέρωση Εφέ Θέματος**
 
-Αυτός ο κώδικας Python δείχνει πώς να αλλάξετε ένα εφέ θέματος τροποποιώντας τμήματα αυτών των στοιχείων:
+Ένα σχήμα μορφοποίησης θέματος περιλαμβάνει ξεχωριστές συλλογές [FormatScheme.fill_styles](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/formatscheme/line_styles/) και [FormatScheme.effect_styles](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/formatscheme/effect_styles/). Τα τυπικά θέματα Office συχνά περιέχουν τρεις κύριες καταχωρήσεις στυλ που αντιστοιχούν οπτικά σε διακριτά, μέτρια και έντονα μορφοποιημένα στυλ, αλλά ο κώδικας πρέπει να επιθεωρεί κάθε συλλογή αντί να υποθέτει σταθερό αριθμό.
+
+![Διακριτά, μέτρια και έντονα εφέ θέματος που εφαρμόζονται στο ίδιο σχήμα](presentation-design_10.png)
+
+Όταν προσπελάζετε αυτές τις συλλογές σε Python, ο δείκτης της συλλογής είναι μηδενικής βάσης: το `[0]` είναι το πρώτο αποθηκευμένο στυλ και το `[2]` το τρίτο. Οι δείκτες αναφοράς στυλ ενός σχήματος είναι ξεχωριστή έννοια, εκτεθειμένη μέσω του [IShapeStyle](https://reference.aspose.com/slides/el/python-net/aspose.slides/ishapestyle/). Η τροποποίηση ενός στυλ θέματος επηρεάζει τα σχήματα που αναφέρονται σε αυτό το στυλ θέματος· τα σχήματα με άμεση μορφοποίηση μπορεί να μείνουν αμετάβλητα.
+
+Το παρακάτω παράδειγμα ελέγχει αν οι απαιτούμενες καταχωρήσεις στυλ υπάρχουν, αλλάζει το πρώτο στυλ γραμμής, το τρίτο στυλ γεμίσματος, ενεργοποιεί μια εξωτερική σκιά στο τρίτο στυλ εφέ, και αποθηκεύει το αποτέλεσμα:
 
 ```python
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
-    presentation.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
-    presentation.master_theme.format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
-    presentation.master_theme.format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
+    format_scheme = presentation.master_theme.format_scheme
+    if len(format_scheme.line_styles) < 1 or len(format_scheme.fill_styles) < 3 or len(format_scheme.effect_styles) < 3:
+        raise RuntimeError("The theme does not contain the style entries required by this example.")
+    format_scheme.line_styles[0].fill_format.fill_type = slides.FillType.SOLID
+    format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
+    format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
+    format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
+    format_scheme.effect_styles[2].effect_format.enable_outer_shadow_effect()
+    format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+    presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Οι αλλαγές που προκύπτουν περιλαμβάνουν ενημερώσεις στο χρώμα γεμίσματος, τύπο γεμίσματος, εφέ σκιάς και άλλες ιδιότητες:
+Για σχήματα που αναφέρονται σε αυτές τις θέσεις, η πρώτη γραμμή θέματος γίνεται κόκκινη, το τρίτο γέμισμα θέματος γίνεται συμπαγές δάσος πράσινο, και το τρίτο στυλ εφέ αποκτά εξωτερική σκιά με απόσταση 10 μονάδων. Το ακριβές οπτικό αποτέλεσμα εξακολουθεί να εξαρτάται από το ποια θέσεις στυλ αναφέρονται κάθε σχήμα και αν η άμεση μορφοποίηση παρακάμπτει το θέμα.
 
-![todo:image_alt_text](presentation-design_11.png)
+![Στυλ εφέ θέματος μετά την αλλαγή γραμμής, γεμίσματος και σκιάς](presentation-design_11.png)
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Ανάγνωση Αποτελεσματικών Τιμών Θέματος**
 
-**Μπορώ να εφαρμόσω ένα θέμα σε μία μόνο διαφάνεια χωρίς να αλλάξω το master;**
+Τα ακατέργαστα αντικείμενα θέματος σας λένε τι ορίζεται σε ένα συγκεκριμένο επίπεδο. Οι αποτελεσματικές τιμές σας λένε τι χρησιμοποιεί πραγματικά μια διαφάνεια ή σχήμα μετά την κληρονομικότητα και τις τοπικές παρακάμψεις. Για μια διαφάνεια, καλέστε το [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Για φόντο, χρησιμοποιήστε το [Background.get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/background/get_effective/), και για γέμισμα, το [FillFormat.get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/fillformat/get_effective/).
 
-Ναι. Η Aspose.Slides υποστηρίζει παραμετροποίηση θέματος σε επίπεδο διαφάνειας, ώστε να μπορείτε να εφαρμόσετε τοπικό θέμα μόνο σε αυτή τη διαφάνεια διατηρώντας αμετάβλητο το master theme (μέσω του [SlideThemeManager](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/slidethememanager/)).
+Το παρακάτω παράδειγμα διαβάζει το αποτελεσματικό θέμα, το φόντο και το πρώτο γέμισμα σχήματος από μια διαφάνεια:
 
-**Ποιος είναι ο ασφαλέστερος τρόπος για να μεταφέρω ένα θέμα από μια παρουσίαση σε άλλη;**
+```python
+import aspose.slides as slides
 
-[Clone slides](/slides/el/python-net/clone-slides/) μαζί με το master τους στην προοριστική παρουσίαση. Αυτό διατηρεί το αρχικό master, τις διατάξεις και το συσχετισμένο θέμα ώστε η εμφάνιση να παραμένει συνεπής.
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    effective_theme = slide.theme_manager.create_theme_effective()
+    effective_background = slide.background.get_effective()
+    print(f"Effective major Latin font: {effective_theme.font_scheme.major.latin_font.font_name}")
+    print(f"Effective minor Latin font: {effective_theme.font_scheme.minor.latin_font.font_name}")
+    print(f"Effective background fill type: {effective_background.fill_format.fill_type}")
+    if len(slide.shapes) > 0:
+        effective_fill = slide.shapes[0].fill_format.get_effective()
+        print(f"First shape effective fill type: {effective_fill.fill_type}")
+        if effective_fill.fill_type == slides.FillType.SOLID:
+            print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
+```
 
-**Πώς μπορώ να δω τις «αποτελεσματικές» τιμές μετά από όλες τις κληρονομήσεις και υπερκαλύψεις;**
+Χρησιμοποιήστε αποτελεσματικά δεδομένα για διαγνωστικούς σκοπούς απόδοσης, επαλήθευση και συγκρίσεις. Αν επιθεωρήσετε μόνο το [Presentation.master_theme](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/master_theme/), μπορεί να χάσετε έναν master, διάταξη, διαφάνεια ή παράκαμψη σχήματος που αλλάζει την τελική εμφάνιση.
 
-Χρησιμοποιήστε τις «αποτελεσματικές» προβολές του API [/slides/el/python-net/shape-effective-properties/] για θέμα/χρώμα/γραμματοσειρά/εφέ. Αυτές επιστρέφουν τις επιλυμένες, τελικές ιδιότητες μετά την εφαρμογή του master και τυχόν τοπικών υπερκαλύψεων.
+## **Συχνές Ερωτήσεις**
+
+**Επηρεάζει η εφαρμογή εξωτερικού θέματος κάθε διαφάνεια στην παρουσίαση;**
+
+Όχι. Το [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) επαναλαμβάνει μόνο τις διαφάνειες που εξαρτώνται από τον επιλεγμένο master. Οι διαφάνειες που χρησιμοποιούν άλλους masters διατηρούν τα υπάρχοντα θέματα τους.
+
+**Μπορώ να εφαρμόσω ένα θέμα σε μία μόνο διαφάνεια χωρίς να αλλάξω τον master;**
+
+Ναι. Χρησιμοποιήστε το [SlideThemeManager](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/slidethememanager/) της διαφάνειας και αρχικοποιήστε το θέμα παράκαμψης της. Η αλλαγή παραμένει τοπική σε αυτή τη διαφάνεια· οι άλλες διαφάνειες συνεχίζουν να κληρονομούν τα υπάρχοντα θέματα τους.
+
+**Ποιος είναι ο ασφαλέστερος τρόπος για να μεταφέρω ένα θέμα από μία παρουσίαση σε άλλη;**
+
+Κατά τη μετακίνηση μιας διαφάνειας και τη διατήρηση της αρχικής εμφάνισής της, κλωνοποιήστε τον source master στον προορισμό και κλωνοποιήστε τη διαφάνεια με αυτόν τον master χρησιμοποιώντας τα [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslidecollection/add_clone/) και [SlideCollection.add_clone](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidecollection/add_clone/). Αυτό διατηρεί τον master, τις διατάξεις και το θέμα μαζί.
+
+**Πώς μπορώ να δω τις αποτελεσματικές τιμές μετά την κληρονομικότητα και τις παρακάμψεις;**
+
+Χρησιμοποιήστε το [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) για ένα θέμα διαφάνειας ή διάταξης και τις αντίστοιχες μεθόδους αποτελεσματικών δεδομένων για αντικείμενα μορφοποίησης όπως το [Background.get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/background/get_effective/) και το [FillFormat.get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/fillformat/get_effective/). Αυτά τα APIs επιστρέφουν τις επιλυμένες τιμές μετά την εφαρμογή κληρονομικότητας και παρακάμψεων.
