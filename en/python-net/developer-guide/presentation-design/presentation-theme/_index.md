@@ -11,6 +11,8 @@ keywords:
 - set theme
 - change theme
 - manage theme
+- external theme
+- THMX
 - theme color
 - additional palette
 - theme font
@@ -184,7 +186,68 @@ For more information about presentation fonts, see [PowerPoint Fonts](/slides/py
 
 ## **Copy or Apply a Theme**
 
-There are two common workflows, and they solve different problems.
+The workflows below solve different theme-related problems.
+
+### **Apply an External Theme to a Master's Dependent Slides**
+
+Use [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) when you have a PowerPoint theme file (`.thmx`) and want to restyle every slide that depends on a particular master. Select the master from the [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) collection, which implements [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/), and pass the theme file path to the method.
+
+The method performs the following operations:
+
+1. Creates a new master slide based on the selected master.
+1. Applies the external theme to the new master.
+1. Assigns the new master to all slides that previously depended on the selected master.
+1. Returns the newly created [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/).
+
+The following example applies an external theme to the slides that depend on the first master and saves the presentation:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    selected_master = presentation.masters[0]
+    themed_master = selected_master.apply_external_theme_to_depending_slides("corporate-theme.thmx")
+
+    print(f"Created master: {themed_master.name}")
+    presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
+```
+
+An invalid, corrupted, or unsupported theme can cause [PptxException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxexception/) or one of its format-related subclasses. Validate paths supplied by users, handle file-system access failures, and save the presentation only after the theme has been applied successfully.
+
+Only the slides that depended on the selected master are reassigned. Slides associated with other masters retain their existing masters and themes. Theme-aware colors, fonts, fills, lines, backgrounds, and effects are resolved against the external theme. Directly assigned colors, fonts, fills, and other explicit formatting may remain unchanged. Layout-level and slide-level overrides can also take precedence over values inherited from the new master.
+
+The theme can reference fonts that are not available in the runtime environment. For consistent rendering and export, install the required fonts, provide them through [custom font sources](/slides/python-net/custom-font/), or configure [font substitution](/slides/python-net/font-substitution/).
+
+This is a direct master-level workflow: the method accepts a file path to a `.thmx` file and does not require manually creating slide-level or layout-level theme overrides.
+
+### **Apply Different External Themes in a Multi-Master Presentation**
+
+When the relevant master is not known in advance, obtain it from a representative slide through [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) and [LayoutSlide.master_slide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/master_slide/). Store the original master references before applying any themes because each call creates another master in the presentation.
+
+The following example uses slides from two sections to locate their masters and applies a different external theme to each group:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("multi-master-presentation.pptx") as presentation:
+    if len(presentation.slides) < 5:
+        print("The presentation does not contain the expected representative slides.")
+    else:
+        first_group_master = presentation.slides[0].layout_slide.master_slide
+        second_group_master = presentation.slides[4].layout_slide.master_slide
+
+        if first_group_master.slide_id == second_group_master.slide_id:
+            print("The representative slides use the same master.")
+        else:
+            first_themed_master = first_group_master.apply_external_theme_to_depending_slides("blue-theme.thmx")
+            second_themed_master = second_group_master.apply_external_theme_to_depending_slides("green-theme.thmx")
+
+            print(f"First themed master: {first_themed_master.name}")
+            print(f"Second themed master: {second_themed_master.name}")
+            presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The first call affects only slides that depended on `first_group_master`, and the second call affects only slides that depended on `second_group_master`. Slides belonging to any other master are not restyled.
 
 ### **Preserve a Source Theme When Moving Slides**
 
@@ -337,6 +400,10 @@ with slides.Presentation("input.pptx") as presentation:
 Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation.master_theme](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/master_theme/), you can miss a master, layout, slide, or shape override that changes the final appearance.
 
 ## **FAQ**
+
+**Does applying an external theme affect every slide in the presentation?**
+
+No. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) reassigns only the slides that depend on the selected master. Slides that use other masters retain their existing themes.
 
 **Can I apply a theme to a single slide without changing the master?**
 

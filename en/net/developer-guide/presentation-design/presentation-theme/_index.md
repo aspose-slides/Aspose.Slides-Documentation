@@ -11,6 +11,8 @@ keywords:
 - set theme
 - change theme
 - manage theme
+- external theme
+- THMX
 - theme color
 - additional palette
 - theme font
@@ -202,7 +204,81 @@ For more information about presentation fonts, see [PowerPoint Fonts](/slides/ne
 
 ## **Copy or Apply a Theme**
 
-There are two common workflows, and they solve different problems.
+The workflows below solve different theme-related problems.
+
+### **Apply an External Theme to a Master's Dependent Slides**
+
+Use [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) when you have a PowerPoint theme file (`.thmx`) and want to restyle every slide that depends on a particular master. Select the master from the [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/), and pass the theme file path to the method.
+
+The method performs the following operations:
+
+1. Creates a new master slide based on the selected master.
+1. Applies the external theme to the new master.
+1. Assigns the new master to all slides that previously depended on the selected master.
+1. Returns the newly created [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/).
+
+The following example applies an external theme to the slides that depend on the first master, saves the presentation, and reopens the result:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var selectedMaster = presentation.Masters[0];
+var themedMaster = selectedMaster.ApplyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+Console.WriteLine($"Created master: {themedMaster.Name}");
+presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+```
+
+An invalid, corrupted, or unsupported theme can cause [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) or one of its format-related subclasses. Validate paths supplied by users, handle file-system access failures, and save the presentation only after the theme has been applied successfully.
+
+Only the slides that depended on the selected master are reassigned. Slides associated with other masters retain their existing masters and themes. Theme-aware colors, fonts, fills, lines, backgrounds, and effects are resolved against the external theme. Directly assigned colors, fonts, fills, and other explicit formatting may remain unchanged. Layout-level and slide-level overrides can also take precedence over values inherited from the new master.
+
+The theme can reference fonts that are not available in the runtime environment. For consistent rendering and export, install the required fonts, provide them through [custom font sources](/slides/net/custom-font/), or configure [font substitution](/slides/net/font-substitution/).
+
+This is a direct master-level workflow: the method accepts a file path to a `.thmx` file and does not require manually creating slide-level or layout-level theme overrides.
+
+### **Apply Different External Themes in a Multi-Master Presentation**
+
+When the relevant master is not known in advance, obtain it from a representative slide through [ISlide.LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/islide/layoutslide/) and [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/masterslide/). Store the original master references before applying any themes because each call creates another master in the presentation.
+
+The following example uses slides from two sections to locate their masters and applies a different external theme to each group:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("multi-master-presentation.pptx");
+
+if (presentation.Slides.Count < 5)
+{
+    Console.WriteLine("The presentation does not contain the expected representative slides.");
+}
+else
+{
+    var firstGroupMaster = presentation.Slides[0].LayoutSlide.MasterSlide;
+    var secondGroupMaster = presentation.Slides[4].LayoutSlide.MasterSlide;
+
+    if (ReferenceEquals(firstGroupMaster, secondGroupMaster))
+    {
+        Console.WriteLine("The representative slides use the same master.");
+    }
+    else
+    {
+        var firstThemedMaster = firstGroupMaster.ApplyExternalThemeToDependingSlides("blue-theme.thmx");
+        var secondThemedMaster = secondGroupMaster.ApplyExternalThemeToDependingSlides("green-theme.thmx");
+
+        Console.WriteLine($"First themed master: {firstThemedMaster.Name}");
+        Console.WriteLine($"Second themed master: {secondThemedMaster.Name}");
+        presentation.Save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+The first call affects only slides that depended on `firstGroupMaster`, and the second call affects only slides that depended on `secondGroupMaster`. Slides belonging to any other master are not restyled.
 
 ### **Preserve a Source Theme When Moving Slides**
 
@@ -384,6 +460,10 @@ if (slide.Shapes.Count > 0)
 Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation.MasterTheme](https://reference.aspose.com/slides/net/aspose.slides/presentation/mastertheme/), you can miss a master, layout, slide, or shape override that changes the final appearance.
 
 ## **FAQ**
+
+**Does applying an external theme affect every slide in the presentation?**
+
+No. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) reassigns only the slides that depend on the selected master. Slides that use other masters retain their existing themes.
 
 **Can I apply a theme to a single slide without changing the master?**
 
