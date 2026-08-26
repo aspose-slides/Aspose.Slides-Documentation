@@ -10,232 +10,374 @@ keywords:
 - commentaires PowerPoint
 - commentaires de présentation
 - commentaires de diapositive
-- ajouter commentaire
-- accéder commentaire
-- modifier commentaire
-- répondre commentaire
-- supprimer commentaire
-- effacer commentaire
+- ajouter un commentaire
+- accéder au commentaire
+- modifier le commentaire
+- répondre au commentaire
+- supprimer le commentaire
+- effacer le commentaire
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Maîtrisez les commentaires de présentation avec Aspose.Slides pour Python via .NET : ajoutez, lisez, modifiez et supprimez les commentaires dans les fichiers PowerPoint rapidement et facilement."
+description: "Gérez les commentaires de présentation avec Aspose.Slides for Python via .NET : ajoutez, lisez, modifiez, répondez et supprimez les commentaires dans les présentations PowerPoint."
 ---
+## **Vue d'ensemble**
 
-Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur une diapositive. Lorsqu’un commentaire est cliqué, son contenu ou ses messages sont révélés. 
+Cet article explique comment gérer les commentaires de présentation avec Aspose.Slides for Python via .NET. Il présente les principaux types liés aux commentaires et montre comment ajouter des commentaires aux diapositives, accéder aux commentaires existants, travailler avec les réponses et les commentaires modernes, et supprimer les commentaires d'une présentation.
+
+Les exemples couvrent des scénarios courants de révision et de collaboration dans PowerPoint, tels que l’attribution de commentaires aux auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses et la suppression de commentaires sélectionnés ou de tous les commentaires.
+
+Dans PowerPoint, les commentaires apparaissent comme des annotations sur les diapositives. Sélectionner un commentaire affiche son texte et la discussion associée.
 
 ## **Pourquoi ajouter des commentaires aux présentations ?**
 
-Vous pouvez vouloir utiliser les commentaires pour fournir des retours ou communiquer avec vos collègues lors de la révision de présentations.
+Vous pouvez utiliser les commentaires pour fournir des retours et collaborer avec des collègues lors de la révision des présentations.
 
-Pour vous permettre d’utiliser les commentaires dans les présentations PowerPoint, Aspose.Slides for Python via .NET fournit
+Aspose.Slides for Python via .NET fournit les API suivantes pour travailler avec les commentaires :
 
-* The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class, qui contient les collections d’auteurs (provenant de la propriété [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/)). Les auteurs ajoutent des commentaires aux diapositives. 
-* The [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) class, qui contient la collection de commentaires pour chaque auteur. 
-* The [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) class, qui contient des informations sur les auteurs et leurs commentaires : qui a ajouté le commentaire, l’heure à laquelle il a été ajouté, la position du commentaire, etc. 
-* The [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) class, qui contient des informations sur chaque auteur : le nom de l’auteur, ses initiales, les commentaires associés au nom de l’auteur, etc. 
+* The [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) classe, qui donne accès aux auteurs de commentaires de la présentation.
+* The [CommentCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/commentcollection/) classe, qui représente les commentaires associés à un auteur individuel.
+* The [Comment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/comment/) classe, qui fournit des informations sur un commentaire, notamment son auteur, son heure de création, sa position et son texte.
+* The [CommentAuthor](https://reference.aspose.com/slides/fr/python-net/aspose.slides/commentauthor/) classe, qui fournit des informations sur un auteur, y compris son nom, ses initiales et les commentaires associés.
 
-## **Ajouter un commentaire à la diapositive**
-Ce code Python montre comment ajouter un commentaire à une diapositive dans une présentation PowerPoint :
+## **Ajouter des commentaires aux diapositives**
+
+L'exemple suivant montre comment ajouter des commentaires aux diapositives d'une présentation PowerPoint :
+
 ```python
-import aspose.slides as slides
+from datetime import datetime
+
 import aspose.pydrawing as draw
-import datetime
+import aspose.slides as slides
 
-# Instancie la classe Presentation
 with slides.Presentation() as presentation:
-    # Ajoute une diapositive vide
-    presentation.slides.add_empty_slide(presentation.layout_slides[0])
-
-    # Ajoute un auteur
+    first_slide = presentation.slides[0]
+    second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
     author = presentation.comment_authors.add_author("Jawad", "MF")
+    position = draw.PointF(0.2, 0.2)
+    created_time = datetime.now()
 
-    # Définit la position des commentaires
-    point = draw.PointF(0.2, 0.2)
+    author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
+    author.comments.add_comment("Hello Jawad, this is the second slide comment", second_slide, position, created_time)
 
-    # Ajoute un commentaire de diapositive pour un auteur sur la diapositive 1
-    author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
+    comments = first_slide.get_slide_comments(author)
+    if len(comments) > 0:
+        first_comment = comments[0]
+        print(first_comment.text)
 
-    # Ajoute un commentaire de diapositive pour un auteur sur la diapositive 2
-    author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
-
-    # Accès à ISlide 1
-    slide = presentation.slides[0]
-
-    # Lorsque null est passé en argument, les commentaires de tous les auteurs sont récupérés pour la diapositive sélectionnée
-    comments = slide.get_slide_comments(author)
-
-    # Accède au commentaire à l'index 0 pour la diapositive 1
-    str = comments[0].text
+        comment_text = first_comment.author.comments[0].text
+        print(comment_text)
 
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
-
-    if comments.length > 0:
-        # Sélectionne la collection de commentaires de l'auteur à l'index 0
-        commentCollection = comments[0].author.comments
-        print(commentCollection[0].text)
 ```
 
+## **Accéder aux commentaires des diapositives**
 
+L'exemple suivant montre comment accéder aux commentaires existants dans une présentation PowerPoint :
 
-
-## **Accéder aux commentaires de la diapositive**
-Ce code Python montre comment accéder à un commentaire existant sur une diapositive dans une présentation PowerPoint :
 ```python
 import aspose.slides as slides
 
-# Instancie la classe Presentation
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
-            print("ISlide :" + str(comment.slide.slide_number) + 
-            " has comment: " + comment.text + 
-            " with Author: " + comment.author.name + 
-            " posted on time :" + str(comment.created_time) + "\n")
+            print("Slide: " + str(comment.slide.slide_number))
+            print("Comment: " + comment.text)
+            print("Author: " + comment.author.name)
+            print("Posted at: " + str(comment.created_time))
+            print()
 ```
-
-
 
 ## **Répondre aux commentaires**
-Un commentaire parent est le commentaire principal ou original dans une hiérarchie de commentaires ou de réponses. En utilisant la propriété `parent_comment` (de la classe [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/)), vous pouvez définir ou obtenir un commentaire parent. 
 
-Ce code Python montre comment ajouter des commentaires et récupérer leurs réponses :
+Un commentaire parent est le commentaire original au sommet d'une hiérarchie de réponses. La propriété [parent_comment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/comment/parent_comment/) de la classe [Comment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/comment/) vous permet d'obtenir ou de définir le parent d'un commentaire.
+
+L'exemple suivant montre comment ajouter des réponses et inspecter la hiérarchie de commentaires résultante :
+
 ```python
-import aspose.slides as slides
+from datetime import datetime
+
 import aspose.pydrawing as draw
-import datetime
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Ajoute un commentaire
-    author1 = pres.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    position = draw.PointF(10, 10)
+    created_time = datetime.now()
 
-    # Ajoute une réponse à comment1
-    author2 = pres.comment_authors.add_author("Autror_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
+    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+
+    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
+    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
     reply1.parent_comment = comment1
 
-    # Ajoute une autre réponse à comment1
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
     reply2.parent_comment = comment1
 
-    # Ajoute une réponse à la réponse existante
-    subReply = author1.comments.add_comment("subreply 3 for reply 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
-    subReply.parent_comment = reply2
+    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = reply2
 
-    comment2 = author2.comments.add_comment("comment 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
-    comment3 = author2.comments.add_comment("comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    author2.comments.add_comment("comment 2", slide, position, created_time)
+    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
     reply3.parent_comment = comment3
 
-    # Affiche la hiérarchie des commentaires sur la console
-    slide = pres.slides[0]
     comments = slide.get_slide_comments(None)
-    for i in range(comments.length):
-        comment = comments[i]
+    for current_comment in comments:
+        comment = current_comment
         while comment.parent_comment is not None:
-            print("\t")
+            print("\t", end="")
             comment = comment.parent_comment
 
-        print(comments[i].author.name + " : " + comments[i].text)
-        print("\r\n")
+        print(current_comment.author.name + ": " + current_comment.text)
 
-    pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    # Supprime comment1 et toutes les réponses associées
     comment1.remove()
-
-    pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-{{% alert color="warning" title="Attention" %}} 
-* Lorsque la méthode `remove` (de la classe [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/)) est utilisée pour supprimer un commentaire, les réponses au commentaire sont également supprimées. 
-* Si le paramètre `parent_comment` entraîne une référence circulaire, une `PptxEditException` sera levée.
+{{% alert color="warning" title="Warning" %}}
+* Lorsque la méthode [remove](https://reference.aspose.com/slides/fr/python-net/aspose.slides/comment/remove/) de la classe [Comment] est utilisée pour supprimer un commentaire, toutes les réponses à ce commentaire sont également supprimées.
+* Si la propriété [parent_comment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/comment/parent_comment/) crée une référence circulaire, une [PptxEditException](https://reference.aspose.com/slides/fr/python-net/aspose.slides/pptxeditexception/) est levée.
 {{% /alert %}}
 
-## **Ajouter un commentaire moderne**
+## **Ajouter des commentaires modernes**
 
-En 2021, Microsoft a introduit les *commentaires modernes* dans PowerPoint. La fonction de commentaires modernes améliore considérablement la collaboration dans PowerPoint. Grâce aux commentaires modernes, les utilisateurs de PowerPoint peuvent résoudre les commentaires, ancrer les commentaires à des objets et du texte, et interagir beaucoup plus facilement qu’auparavant. 
+Les commentaires modernes peuvent être associés à la diapositive elle-même, à une forme spécifique ou à une plage de texte à l'intérieur d'un AutoShape. La méthode [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/commentcollection/add_modern_comment/) accepte un argument [Shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/) en plus de la diapositive et des coordonnées du marqueur de commentaire.
 
-Nous avons implémenté la prise en charge des commentaires modernes en ajoutant la classe [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/). Les méthodes `add_modern_comment` et `insert_modern_comment` ont été ajoutées à la classe [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/). 
+Lorsque `None` est passé pour l'argument shape, le commentaire est un commentaire au niveau de la diapositive. Son marqueur est positionné selon les coordonnées fournies, mais il n'est pas associé à une forme particulière, ainsi [ModernComment.shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/shape/) renvoie `None`. Lorsqu'une [Shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l'association à la forme peut être récupérée via [ModernComment.shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/shape/).
 
-Ce code Python montre comment ajouter un commentaire moderne à une diapositive dans une présentation PowerPoint :
+### **Ancrer un commentaire moderne à une forme**
+
+L'exemple suivant crée à la fois un commentaire moderne au niveau de la diapositive et un commentaire moderne ancré à un AutoShape spécifique. Il lit ensuite la forme associée à chaque commentaire.
+
 ```python
+from datetime import datetime
+
 import aspose.pydrawing as draw
 import aspose.slides as slides
-from datetime import date
 
-with slides.Presentation() as pres:
-    newAuthor = pres.comment_authors.add_author("Some Author", "SA")
-    modernComment = newAuthor.comments.add_modern_comment("This is a modern comment", pres.slides[0], None, draw.PointF(100, 100), date.today())
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
+    shape.name = "Revenue title"
+    shape.text_frame.text = "Quarterly revenue"
 
-    pres.save("example.pptx", slides.export.SaveFormat.PPTX)
+    created_time = datetime.now()
+    slide_comment_position = draw.PointF(20, 20)
+    shape_comment_position = draw.PointF(60, 60)
+    slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
+    shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
+
+    print(slide_comment.shape is None)
+    print(shape_comment.shape.name)
+
+    presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Ancrer des commentaires à différents types de forme**
 
-## **Supprimer un commentaire**
+Tout objet de diapositive dérivé de [Shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/) peut être utilisé comme ancre de forme. Des exemples courants incluent les instances [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/fr/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/fr/python-net/aspose.slides/connector/) et [GraphicalObject](https://reference.aspose.com/slides/fr/python-net/aspose.slides/graphicalobject/) telles que les graphiques.
 
-### **Supprimer tous les commentaires et auteurs**
+L'exemple suivant crée plusieurs types de formes courantes et associe un commentaire moderne à chacune d'elles.
 
-Ce code Python montre comment supprimer tous les commentaires et auteurs d’une présentation :
+```python
+import base64
+from datetime import datetime
+
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    created_time = datetime.now()
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
+    auto_shape.text_frame.text = "AutoShape"
+    auto_shape_comment_position = draw.PointF(30, 30)
+    author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
+
+    image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
+    image_data = base64.b64decode(image_base64)
+    image = presentation.images.add_image(image_data)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
+    picture_comment_position = draw.PointF(230, 30)
+    author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
+
+    group_shape = slide.shapes.add_group_shape()
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
+    group_comment_position = draw.PointF(40, 150)
+    author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
+
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
+    connector_comment_position = draw.PointF(240, 150)
+    author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
+
+    chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
+    chart_comment_position = draw.PointF(420, 40)
+    author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
+
+    presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Ancrer un commentaire à du texte et définir son statut**
+
+Pour un commentaire moderne associé à un [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/text_selection_start/) spécifie la position de départ du texte sélectionné dans le cadre de texte de la forme, tandis que [ModernComment.text_selection_length](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/text_selection_length/) indique la longueur de la sélection. Ensemble, ces propriétés associent le commentaire à une plage de texte spécifique à l'intérieur de l'AutoShape.
+
+La propriété [ModernComment.status](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/status/) peut être lue ou mise à jour avec une valeur de l'énumération [ModernCommentStatus](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncommentstatus/) :
+
+- `NOT_DEFINED` — aucun statut de commentaire moderne spécifique n'est défini.
+- `ACTIVE` — le commentaire est actif.
+- `RESOLVED` — le commentaire a été résolu.
+- `CLOSED` — le commentaire est fermé.
+
+L'exemple suivant crée un commentaire moderne ancré à une forme, l'associe à une sélection de texte, le marque comme résolu, enregistre la présentation et vérifie les valeurs après avoir rouvert le fichier.
+
+```python
+from datetime import datetime
+
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+output_file = "modern_comment_text_anchor.pptx"
+shape_text = "Review the quarterly revenue forecast."
+selected_text = "quarterly revenue"
+expected_selection_start = shape_text.index(selected_text)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
+    shape.name = "Forecast text"
+    shape.text_frame.text = shape_text
+
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    comment_position = draw.PointF(60, 60)
+    comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
+    comment.text_selection_start = expected_selection_start
+    comment.text_selection_length = len(selected_text)
+    comment.status = slides.ModernCommentStatus.RESOLVED
+
+    presentation.save(output_file, slides.export.SaveFormat.PPTX)
+
+with slides.Presentation(output_file) as reopened_presentation:
+    reopened_slide = reopened_presentation.slides[0]
+    reopened_comments = reopened_slide.get_slide_comments(None)
+
+    for reopened_comment in reopened_comments:
+        if not isinstance(reopened_comment, slides.ModernComment):
+            continue
+
+        shape_matches = reopened_comment.shape.name == "Forecast text"
+        selection_start_matches = reopened_comment.text_selection_start == expected_selection_start
+        selection_length_matches = reopened_comment.text_selection_length == len(selected_text)
+        status_matches = reopened_comment.status == slides.ModernCommentStatus.RESOLVED
+
+        print("Shape anchor preserved: " + str(shape_matches))
+        print("Text selection start preserved: " + str(selection_start_matches))
+        print("Text selection length preserved: " + str(selection_length_matches))
+        print("Resolved status preserved: " + str(status_matches))
+```
+
+### **Inspecter les commentaires modernes existants**
+
+Pour examiner une présentation existante, vérifiez quels commentaires sont des instances de [ModernComment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/), puis examinez [ModernComment.shape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/text_selection_length/) et [ModernComment.status](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/status/). Une forme `None` indique un commentaire au niveau de la diapositive. Pour une ancre [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/), les propriétés de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("comments.pptx") as presentation:
+    for slide in presentation.slides:
+        comments = slide.get_slide_comments(None)
+        for comment in comments:
+            if not isinstance(comment, slides.ModernComment):
+                continue
+
+            print("Slide: " + str(slide.slide_number))
+            print("Text: " + comment.text)
+            print("Status: " + str(comment.status))
+
+            shape = comment.shape
+            if shape is None:
+                print("Anchor: slide level")
+            else:
+                print("Anchor shape: " + shape.name)
+                print("Anchor type: " + type(shape).__name__)
+
+                if isinstance(shape, slides.AutoShape):
+                    print("Text selection start: " + str(comment.text_selection_start))
+                    print("Text selection length: " + str(comment.text_selection_length))
+
+            print()
+```
+
+## **Supprimer les commentaires**
+
+### **Supprimer tous les commentaires et auteurs de commentaires**
+
+L'exemple suivant montre comment supprimer tous les commentaires et auteurs de commentaires d'une présentation :
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("example.pptx") as presentation:
-    # Supprime tous les commentaires de la présentation
     for author in presentation.comment_authors:
         author.comments.clear()
 
-    # Supprime tous les auteurs
     presentation.comment_authors.clear()
-
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ### **Supprimer des commentaires spécifiques**
 
-Ce code Python montre comment supprimer des commentaires spécifiques sur une diapositive :
+L'exemple suivant montre comment supprimer des commentaires spécifiques d'une diapositive :
+
 ```python
+from datetime import datetime
+
 import aspose.pydrawing as draw
 import aspose.slides as slides
-from datetime import date
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
-    # ajouter des commentaires...
     author = presentation.comment_authors.add_author("Author", "A")
-    author.comments.add_comment("comment 1", slide, draw.PointF(0.2, 0.2), date.today())
-    author.comments.add_comment("comment 2", slide, draw.PointF(0.3, 0.2), date.today())
-    
-    # supprime tous les commentaires contenant le texte "comment 1"
-    for commentAuthor in presentation.comment_authors:
-        toRemove = []
-        for comment in slide.get_slide_comments(commentAuthor):
+    created_time = datetime.now()
+
+    first_comment_position = draw.PointF(0.2, 0.2)
+    second_comment_position = draw.PointF(0.3, 0.2)
+    author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
+    author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
+
+    for comment_author in presentation.comment_authors:
+        comments_to_remove = []
+        comments = slide.get_slide_comments(comment_author)
+
+        for comment in comments:
             if comment.text == "comment 1":
-                toRemove.append(comment)
-        
-        for comment in toRemove:
-            commentAuthor.comments.remove(comment)
-    
+                comments_to_remove.append(comment)
+
+        for comment in comments_to_remove:
+            comment_author.comments.remove(comment)
+
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **FAQ**
 
-**Aspose.Slides prend‑il en charge un état comme « résolu » pour les commentaires modernes ?**
+**Aspose.Slides prend‑il en charge un statut résolu pour les commentaires modernes ?**
 
-Oui. Les [commentaires modernes](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) exposent une propriété [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) ; vous pouvez lire et définir l’état d’un [commentaire](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) (par exemple, le marquer comme résolu), et cet état est enregistré dans le fichier et reconnu par PowerPoint.
+Oui. [ModernComment.status](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncomment/status/) peut être lu et défini avec une valeur [ModernCommentStatus](https://reference.aspose.com/slides/fr/python-net/aspose.slides/moderncommentstatus/), y compris `RESOLVED`. Le statut est stocké dans la présentation et peut être relu après la réouverture du fichier.
 
 **Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et existe‑t‑il une limite de profondeur ?**
 
-Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/), ce qui permet des chaînes de réponses arbitraires. L’API ne spécifie pas de limite de profondeur d’imbrication.
+Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/fr/python-net/aspose.slides/comment/parent_comment/), permettant des chaînes de réponses. L'API ne définit pas de limite spécifique de profondeur d'imbrication.
 
-**Dans quel système de coordonnées la position du marqueur de commentaire est‑elle définie sur une diapositive ?**
+**Dans quel système de coordonnées la position d'un marqueur de commentaire est‑elle définie sur une diapositive ?**
 
-La position est stockée sous forme de point à virgule flottante dans le système de coordonnées de la diapositive. Cela vous permet de placer le marqueur de commentaire exactement où vous le souhaitez.
+La position du marqueur est définonnée par des coordonnées à virgule flottante dans le système de coordonnées de la diapositive, ce qui vous permet de le placer avec précision sur la diapositive.

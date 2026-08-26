@@ -10,258 +10,477 @@ keywords:
 - PowerPoint-kommentarer
 - presentationskommentarer
 - bildkommentarer
-- lägga till kommentar
+- lägg till kommentar
 - åtkomst till kommentar
 - redigera kommentar
 - svara på kommentar
 - ta bort kommentar
 - radera kommentar
 - PowerPoint
-- OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Mästra presentationskommentarer med Aspose.Slides för Java: lägg till, läs, redigera och radera kommentarer i PowerPoint-filer snabbt och enkelt."
+description: "Hantera presentationskommentarer med Aspose.Slides för Java: lägg till, läs, redigera, svara på och ta bort kommentarer i PowerPoint-presentationer snabbt och enkelt."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du hanterar presentationskommentarer i Aspose.Slides. Den visar de viktigaste typ‑relaterade kommentarerna och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar, använder moderna kommentarer och tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur man hanterar presentationskommentarer med Aspose.Slides för Java. Den introducerar de huvudsakliga typerna relaterade till kommentarer och demonstrerar hur man lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
-Exemplen fokuserar på vanliga gransknings‑ och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentarers innehåll och metadata, bygga svarskedjor samt rensa alla kommentarer eller ta bort utvalda.
+Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas en kommentar som en anteckning eller markering på en bild. När en kommentar klickas visas dess innehåll eller meddelanden.
+I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
 
 ## **Varför lägga till kommentarer i presentationer?**
 
-Du kanske vill använda kommentarer för att ge återkoppling eller kommunicera med dina kollegor när du granskar presentationer.
+Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor när du granskar presentationer.
 
-För att du ska kunna använda kommentarer i PowerPoint‑presentationer tillhandahåller Aspose.Slides for Java
+Aspose.Slides för Java tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation)‑klassen, som innehåller samlingarna av författare (från [ICommentAuthorCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICommentAuthorCollection)‑gränssnittet). Författarna lägger till kommentarer på bilder.  
-* [ICommentCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICommentCollection)‑gränssnittet, som innehåller samlingen av kommentarer för enskilda författare.  
-* [IComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment)‑klassen, som innehåller information om författare och deras kommentarer: vem som lade till kommentaren, tidpunkten då kommentaren lades till, kommentarmärkets position osv.  
-* [CommentAuthor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/CommentAuthor)‑klassen, som innehåller information om enskilda författare: författarens namn, initialer, kommentarer som är kopplade till författarens namn osv.  
+* Klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) ger åtkomst till presentationens kommentarförfattare.
+* Interface [ICommentCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icommentcollection/) som representerar kommentarer som är associerade med en enskild författare.
+* Interface [IComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/) som tillhandahåller information om en kommentar, inklusive dess författare, skapningstid, position och text.
+* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
 
 ## **Lägg till bildkommentarer**
-Denna Java‑kod visar hur du lägger till en kommentar på en bild i en PowerPoint‑presentation:
+
+Följande exempel visar hur man lägger till kommentarer på bilder i en PowerPoint-presentation:
 
 ```java
-// Instansierar Presentation‑klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ICommentCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
 try {
-    // Lägger till en tom bild
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
+    Date createdTime = new Date();
 
-    // Lägger till en författare
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-    // Anger positionen för kommentarer
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
+    IComment[] comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        IComment firstComment = comments[0];
+        System.out.println(firstComment.getText());
 
-    // Lägger till bildkommentar för en författare på bild 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // Lägger till bildkommentar för en författare på bild 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // Kommer åt ISlide 1
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // När null skickas som argument hämtas kommentarer från alla författare till den valda bilden
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // Kommer åt kommentaren på index 0 för bild 1
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // Väljer författarens kommentarsamling på index 0
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+        ICommentCollection authorComments = firstComment.getAuthor().getComments();
+        String commentText = authorComments.get_Item(0).getText();
+        System.out.println(commentText);
     }
+
+    presentation.save("Comments_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Kom åt bildkommentarer**
-Denna Java‑kod visar hur du får åtkomst till en befintlig kommentar på en bild i en PowerPoint‑presentation:
+## **Få åtkomst till bildkommentarer**
+
+Följande exempel visar hur man får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
 
 ```java
-// Instansierar Presentation-klassen
-Presentation pres = new Presentation("Comments1.pptx");
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Comments1.pptx");
 try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        for (IComment comment : author.getComments()) {
+            System.out.println("Slide: " + comment.getSlide().getSlideNumber());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Author: " + comment.getAuthor().getName());
+            System.out.println("Posted at: " + comment.getCreatedTime());
+            System.out.println();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Svara på kommentarer**
-En föräldrakommentar är den översta eller den ursprungliga kommentaren i en hierarki av kommentarer eller svar. Med metoderna [getParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment#getParentComment--) eller [setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (från [IComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment)-gränssnittet) kan du hämta eller ange en föräldrakommentar.
 
-Denna Java‑kod visar hur du lägger till kommentarer och får svar på dem:
+En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller ange föräldern för en kommentar.
+
+Följande exempel visar hur man lägger till svar och undersöker den resulterande kommentarshierarkin:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Lägger till en kommentar
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
 
-    // Lägger till ett svar på kommentar1
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Point2D.Float position = new Point2D.Float(10, 10);
+    Date createdTime = new Date();
+
+    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
 
-    // Lägger till ett annat svar på kommentar1
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
 
-    // Lägger till ett svar på ett befintligt svar
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
 
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
 
-    // Visar kommentarshierarkin i konsolen
-    ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
+    for (int i = 0; i < comments.length; i++) {
         IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
+        while (comment.getParentComment() != null) {
             System.out.print("\t");
             comment = comment.getParentComment();
         }
 
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        System.out.println(comments[i].getAuthor().getName() + ": " + comments[i].getText());
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Tar bort kommentar1 och alla svar på den
+    presentation.save("parent_comment.pptx", SaveFormat.Pptx);
+
     comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* När [Remove](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment#remove--)‑metoden (från [IComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment)-gränssnittet) används för att ta bort en kommentar, tas även svaren på kommentaren bort.  
-* Om inställningen [setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) resulterar i en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/java/com.aspose.slides/PptxEditException).  
+{{% alert color="warning" title="Warning" %}}
+* När metoden [IComment.remove](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#remove--) används för att radera en kommentar, tas alla svar på den kommentaren också bort.
+* Om [IComment.setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-År 2021 introducerade Microsoft *moderna kommentarer* i PowerPoint. Funktionen för moderna kommentarer förbättrar samarbetet i PowerPoint avsevärt. Genom moderna kommentarer kan PowerPoint‑användare lösa kommentarer, förankra kommentarer till objekt och texter samt interagera mycket enklare än tidigare.
+Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textintervall i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/)‑argument utöver bild‑ och kommentarmarkörkoordinaterna.
 
-I [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/sv/java/aspose-slides-for-java-21-11-release-notes/) implementerade vi stöd för moderna kommentarer genom att lägga till [ModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ModernComment)-klassen. Metoderna [addModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) och [insertModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) lades till i [CommentCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/CommentCollection)-klassen.
+När `null` skickas för formargumentet är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till en specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) anges, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formkopplingen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--).
 
-Denna Java‑kod visar hur du lägger till en modern kommentar på en bild i en PowerPoint‑presentation:
+### **Förankra en modern kommentar till en form**
+
+Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Date;
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
+
+    Date createdTime = new Date();
+    Point2D.Float slideCommentPosition = new Point2D.Float(20, 20);
+    Point2D.Float shapeCommentPosition = new Point2D.Float(60, 60);
+    IModernComment slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    IModernComment shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    System.out.println(slideComment.getShape() == null);
+    System.out.println(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+### **Förankra kommentarer till olika formtyper**
+
+Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) kan användas som en formförankring. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igraphicalobject/)‑instanser såsom diagram.
+
+Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
+
+```java
+import com.aspose.slides.ChartType;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IChart;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IConnector;
+import com.aspose.slides.IGroupShape;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.IPictureFrame;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Base64;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Date createdTime = new Date();
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    IPPImage image = presentation.getImages().addImage(imageData);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+    Point2D.Float pictureCommentPosition = new Point2D.Float(230, 30);
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    IGroupShape groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+    Point2D.Float groupCommentPosition = new Point2D.Float(40, 150);
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+    Point2D.Float connectorCommentPosition = new Point2D.Float(240, 150);
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+    Point2D.Float chartCommentPosition = new Point2D.Float(420, 40);
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Förankra en kommentar till text och ange dess status**
+
+För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/), ger [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) åtkomst till startpositionen för den markerade texten i formens textruta. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) ger åtkomst till urvalets längd. Tillsammans associerar dessa värden kommentaren med ett specifikt textintervall i AutoShape.
+
+Metoderna [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setStatus-byte--) hämtar ett värde från konstanten [ModernCommentStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — ingen specifik modern‑kommentarstatus är definierad.
+- `Active` — kommentaren är aktiv.
+- `Resolved` — kommentaren har lösts.
+- `Closed` — kommentaren är stängd.
+
+Följande exempel skapar en modern kommentar förankrad till en form, associerar den med ett texturval, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ModernCommentStatus;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+String outputFile = "modern_comment_text_anchor.pptx";
+String shapeText = "Review the quarterly revenue forecast.";
+String selectedText = "quarterly revenue";
+int expectedSelectionStart = shapeText.indexOf(selectedText);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Point2D.Float commentPosition = new Point2D.Float(60, 60);
+    IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length());
+    comment.setStatus(ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation(outputFile);
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IComment[] reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (IComment reopenedComment : reopenedComments) {
+        if (!(reopenedComment instanceof IModernComment)) {
+            continue;
+        }
+
+        IModernComment modernComment = (IModernComment) reopenedComment;
+        boolean shapeMatches = modernComment.getShape() != null && "Forecast text".equals(modernComment.getShape().getName());
+        boolean selectionStartMatches = modernComment.getTextSelectionStart() == expectedSelectionStart;
+        boolean selectionLengthMatches = modernComment.getTextSelectionLength() == selectedText.length();
+        boolean statusMatches = modernComment.getStatus() == ModernCommentStatus.Resolved;
+
+        System.out.println("Shape anchor preserved: " + shapeMatches);
+        System.out.println("Text selection start preserved: " + selectionStartMatches);
+        System.out.println("Text selection length preserved: " + selectionLengthMatches);
+        System.out.println("Resolved status preserved: " + statusMatches);
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **Inspektera befintliga moderna kommentarer**
+
+För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/), och undersök sedan [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--). En `null`‑form indikerar en kommentar på bildnivå. För en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/)‑förankring identifierar texturval‑metoderna det associerade intervallet i formens textruta.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.IShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        IComment[] comments = slide.getSlideComments(null);
+        for (IComment comment : comments) {
+            if (!(comment instanceof IModernComment)) {
+                continue;
+            }
+
+            IModernComment modernComment = (IModernComment) comment;
+            System.out.println("Slide: " + slide.getSlideNumber());
+            System.out.println("Text: " + modernComment.getText());
+            System.out.println("Status: " + modernComment.getStatus());
+
+            IShape shape = modernComment.getShape();
+            if (shape == null) {
+                System.out.println("Anchor: slide level");
+            } else {
+                System.out.println("Anchor shape: " + shape.getName());
+                System.out.println("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (shape instanceof IAutoShape) {
+                    System.out.println("Text selection start: " + modernComment.getTextSelectionStart());
+                    System.out.println("Text selection length: " + modernComment.getTextSelectionLength());
+                }
+            }
+
+            System.out.println();
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Ta bort kommentarer**
 
-### **Ta bort alla kommentarer och författare**
+### **Ta bort alla kommentarer och kommentarförfattare**
 
-Denna Java‑kod visar hur du tar bort alla kommentarer och författare i en presentation:
+Följande exempel visar hur man tar bort alla kommentarer och kommentarförfattare från en presentation:
 
 ```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("example.pptx");
 try {
-    // Tar bort alla kommentarer från presentationen
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
         author.getComments().clear();
     }
 
-    // Tar bort alla författare
     presentation.getCommentAuthors().clear();
-
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Ta bort specifika kommentarer**
 
-Denna Java‑kod visar hur du tar bort specifika kommentarer på en bild:
+Följande exempel visar hur man tar bort specifika kommentarer från en bild:
 
 ```java
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-
-    // lägger till kommentarer...
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+    Date createdTime = new Date();
 
-    // tar bort alla kommentarer som innehåller texten "comment 1"
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+    Point2D.Float firstCommentPosition = new Point2D.Float(0.2f, 0.2f);
+    Point2D.Float secondCommentPosition = new Point2D.Float(0.3f, 0.2f);
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors()) {
+        List<IComment> commentsToRemove = new ArrayList<IComment>();
+        IComment[] comments = slide.getSlideComments(commentAuthor);
+
+        for (IComment comment : comments) {
+            if ("comment 1".equals(comment.getText())) {
+                commentsToRemove.add(comment);
             }
         }
 
-        for (IComment comment : toRemove)
-        {
+        for (IComment comment : commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
 
     presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Stöder Aspose.Slides ett statusvärde som “lösta” för moderna kommentarer?**
+**Stöder Aspose.Slides ett löst-status för moderna kommentarer?**
 
-Ja. [Modern comments](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncomment/) exponerar en [setStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncomment/#setStatus-byte-)‑metod; du kan ange en [kommentarstatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncommentstatus/) (t.ex. markera den som löst), och detta tillstånd sparas i filen och känns igen av PowerPoint.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setStatus-byte--) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats igen.
 
-**Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för djupet?**
+**Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för nästning?**
 
-Ja. Varje kommentar kan referera sin [parent comment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/comment/#getParentComment--), vilket möjliggör godtyckliga svarskedjor. API‑et anger ingen specifik begränsning för nästlingsdjupet.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API:et definierar ingen specifik gräns för nästningsdjup.
 
-**I vilket koordinatsystem definieras en kommentarmärkas position på en bild?**
+**I vilket koordinatsystem är en kommentarmarkörs position definierad på en bild?**
 
-Positionen lagras som ett flyttalspunkt i bildens koordinatsystem. Detta gör att du kan placera kommentarmärket exakt där du behöver det.
+Markörens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
