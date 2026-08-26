@@ -1,5 +1,5 @@
 ---
-title: Administrar comentarios de presentación en .NET
+title: Gestionar comentarios de presentaciones en .NET
 linktitle: Comentarios de presentación
 type: docs
 weight: 100
@@ -10,8 +10,8 @@ keywords:
 - comentarios de PowerPoint
 - comentarios de presentación
 - comentarios de diapositiva
-- agregar comentario
-- acceder comentario
+- añadir comentario
+- acceder al comentario
 - editar comentario
 - responder comentario
 - eliminar comentario
@@ -21,234 +21,409 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Domina los comentarios de presentación con Aspose.Slides para .NET: agrega, lee, edita y elimina comentarios en archivos de PowerPoint de forma rápida y sencilla."
+description: "Gestione los comentarios de presentaciones con Aspose.Slides para .NET: añada, lea, edite, responda y elimine comentarios en presentaciones de PowerPoint de forma rápida y sencilla."
 ---
+## **Visión general**
 
-En PowerPoint, un comentario aparece como una nota o anotación en una diapositiva. Cuando se hace clic en un comentario, se revelan sus contenidos o mensajes. 
+Este artículo explica cómo gestionar los comentarios de una presentación con Aspose.Slides para .NET. Presenta los principales tipos relacionados con los comentarios y muestra cómo añadir comentarios a diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
 
-## **¿Por qué agregar comentarios a las presentaciones?**
+Los ejemplos cubren escenarios habituales de revisión y colaboración en PowerPoint, como asignar comentarios a autores, leer el texto y los metadatos de los comentarios, crear cadenas de respuestas y eliminar comentarios seleccionados o todos los comentarios.
 
-Puede que desee usar comentarios para proporcionar retroalimentación o comunicarse con sus colegas al revisar presentaciones.
+En PowerPoint, los comentarios aparecen como anotaciones en las diapositivas. Al seleccionar un comentario se muestra su texto y la discusión relacionada.
 
-Para permitirle usar comentarios en presentaciones de PowerPoint, Aspose.Slides para .NET ofrece
+## **¿Por qué añadir comentarios a las presentaciones?**
 
-* La clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) que contiene las colecciones de autores (de la propiedad [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)). Los autores añaden comentarios a las diapositivas. 
-* La interfaz [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) que contiene la colección de comentarios para autores individuales. 
-* La clase [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) que contiene información sobre los autores y sus comentarios: quién agregó el comentario, la hora en que se agregó, la posición del comentario, etc. 
-* La clase [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) que contiene información sobre autores individuales: el nombre del autor, sus iniciales, los comentarios asociados al nombre del autor, etc. 
+Puedes usar los comentarios para proporcionar retroalimentación y colaborar con colegas al revisar presentaciones.
 
-## **Agregar comentarios a diapositivas**
-Este código C# le muestra cómo agregar un comentario a una diapositiva en una presentación de PowerPoint:
-```c#
-// Instancia la clase Presentation
-using (Presentation presentation = new Presentation())
+Aspose.Slides para .NET proporciona las siguientes API para trabajar con comentarios:
+
+* La clase [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation) que proporciona acceso a los autores de comentarios de la presentación.
+* La interfaz [ICommentCollection](https://reference.aspose.com/slides/es/net/aspose.slides/icommentcollection) que representa los comentarios asociados a un autor individual.
+* La interfaz [IComment](https://reference.aspose.com/slides/es/net/aspose.slides/icomment) que proporciona información sobre un comentario, incluido su autor, hora de creación, posición y texto.
+* La clase [CommentAuthor](https://reference.aspose.com/slides/es/net/aspose.slides/commentauthor) que proporciona información sobre un autor, incluidos su nombre, iniciales y comentarios asociados.
+
+## **Añadir comentarios a diapositivas**
+
+El siguiente ejemplo muestra cómo añadir comentarios a diapositivas en una presentación de PowerPoint:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
+var position = new PointF(0.2f, 0.2f);
+var createdTime = DateTime.Now;
+
+author.Comments.AddComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+author.Comments.AddComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
+
+var comments = firstSlide.GetSlideComments(author);
+if (comments.Length > 0)
 {
-    // Añade una diapositiva vacía
-    presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+    var firstComment = comments[0];
+    Console.WriteLine(firstComment.Text);
 
-    // Añade un autor
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
-
-    // Establece la posición de los comentarios
-    PointF point = new PointF();
-    point.X = 0.2f;
-    point.Y = 0.2f;
-
-    // Añade un comentario de diapositiva para un autor en la diapositiva 1
-    author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
-
-    // Añade un comentario de diapositiva para un autor en la diapositiva 2
-    author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
-
-    // Accede a ISlide 1
-    ISlide slide = presentation.Slides[0];
-
-    // Cuando se pasa null como argumento, se traen los comentarios de todos los autores a la diapositiva seleccionada
-    IComment[] Comments = slide.GetSlideComments(author);
-
-    // Accede al comentario en el índice 0 para la diapositiva 1
-    String str = Comments[0].Text;
-
-    presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.GetLength(0) > 0)
-    {
-        // Selecciona la colección de comentarios del autor en el índice 0
-        ICommentCollection commentCollection = Comments[0].Author.Comments;
-        String Comment = commentCollection[0].Text;
-    }
+    var commentText = firstComment.Author.Comments[0].Text;
+    Console.WriteLine(commentText);
 }
-```
 
+presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
+```
 
 ## **Acceder a los comentarios de diapositivas**
-Este código C# le muestra cómo acceder a un comentario existente en una diapositiva de una presentación de PowerPoint:
-```c#
-// Instancia la clase Presentation
-using (Presentation presentation = new Presentation("Comments1.pptx"))
+
+El siguiente ejemplo muestra cómo acceder a los comentarios existentes en una presentación de PowerPoint:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Comments1.pptx");
+
+foreach (var author in presentation.CommentAuthors)
 {
-    foreach (var commentAuthor in presentation.CommentAuthors)
+    foreach (var comment in author.Comments)
     {
-        var author = (CommentAuthor) commentAuthor;
-        foreach (var comment1 in author.Comments)
-        {
-            var comment = (Comment) comment1;
-            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " has comment: " + comment.Text + " with Author: " + comment.Author.Name + " posted on time :" + comment.CreatedTime + "\n");
-        }
-    }
-}
-```
-
-
-## **Responder a los comentarios**
-Un comentario principal es el comentario superior u original en una jerarquía de comentarios o respuestas. Usando la propiedad [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) (de la interfaz [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)), puede establecer u obtener un comentario principal. 
-
-Este código C# le muestra cómo agregar comentarios y obtener sus respuestas:
-```c#
-using (Presentation pres = new Presentation())
-{
-    // Añade un comentario
-    ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
-    // Añade una respuesta al comentario1
-    ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply1.ParentComment = comment1;
-
-    // Añade otra respuesta al comentario1
-    IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply2.ParentComment = comment1;
-
-    // Añade una respuesta a la respuesta existente
-    IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    subReply.ParentComment = reply2;
-
-    IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
-    IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply3.ParentComment = comment3;
-
-    // Muestra la jerarquía de comentarios en la consola
-    ISlide slide = pres.Slides[0];
-    var comments = slide.GetSlideComments(null);
-    for (int i = 0; i < comments.Length; i++)
-    {
-        IComment comment = comments[i];
-        while (comment.ParentComment != null)
-        {
-            Console.Write("\t");
-            comment = comment.ParentComment;
-        }
-
-        Console.Write("{0} : {1}", comments[i].Author.Name, comments[i].Text);
+        Console.WriteLine($"Slide: {comment.Slide.SlideNumber}");
+        Console.WriteLine($"Comment: {comment.Text}");
+        Console.WriteLine($"Author: {comment.Author.Name}");
+        Console.WriteLine($"Posted at: {comment.CreatedTime}");
         Console.WriteLine();
     }
-
-    pres.Save("parent_comment.pptx",SaveFormat.Pptx);
-
-    // Elimina comment1 y todas sus respuestas
-    comment1.Remove();
-
-    pres.Save("remove_comment.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Responder a los comentarios**
 
-{{% alert color="warning" title="Atención" %}} 
+Un comentario principal es el comentario original en la parte superior de una jerarquía de respuestas. La propiedad [ParentComment](https://reference.aspose.com/slides/es/net/aspose.slides/icomment/properties/parentcomment) de la interfaz [IComment](https://reference.aspose.com/slides/es/net/aspose.slides/icomment) permite obtener o establecer el comentario padre.
 
-* Cuando se usa el método [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) (de la interfaz [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)) para eliminar un comentario, también se eliminan las respuestas al comentario. 
-* Si la configuración [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) produce una referencia circular, se lanzará una [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
+El siguiente ejemplo muestra cómo añadir respuestas e inspeccionar la jerarquía de comentarios resultante:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var position = new PointF(10, 10);
+var createdTime = DateTime.Now;
+
+var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+
+var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+reply1.ParentComment = comment1;
+
+var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+reply2.ParentComment = comment1;
+
+var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = reply2;
+
+author2.Comments.AddComment("comment 2", slide, position, createdTime);
+var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+
+var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+reply3.ParentComment = comment3;
+
+var comments = slide.GetSlideComments(null);
+for (var i = 0; i < comments.Length; i++)
+{
+    var comment = comments[i];
+    while (comment.ParentComment != null)
+    {
+        Console.Write("\t");
+        comment = comment.ParentComment;
+    }
+
+    Console.WriteLine($"{comments[i].Author.Name}: {comments[i].Text}");
+}
+
+presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
+
+comment1.Remove();
+presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
+```
+
+{{% alert color="warning" title="Attention" %}} 
+
+* Cuando se utiliza el método [Remove](https://reference.aspose.com/slides/es/net/aspose.slides/icomment/methods/remove) de la interfaz [IComment](https://reference.aspose.com/slides/es/net/aspose.slides/icomment), para eliminar un comentario, también se eliminan todas las respuestas a ese comentario.
+* Si la propiedad [ParentComment](https://reference.aspose.com/slides/es/net/aspose.slides/icomment/properties/parentcomment) crea una referencia circular, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/net/aspose.slides/pptxeditexception).
 
 {{% /alert %}}
 
-## **Agregar comentarios modernos**
+## **Añadir comentarios modernos**
 
-En 2021, Microsoft introdujo *comentarios modernos* en PowerPoint. La función de comentarios modernos mejora significativamente la colaboración en PowerPoint. A través de los comentarios modernos, los usuarios de PowerPoint pueden resolver comentarios, anclar comentarios a objetos y textos, y participar en interacciones de forma mucho más sencilla que antes. 
+Los comentarios modernos pueden asociarse a la propia diapositiva, a una forma específica o a un rango de texto dentro de un AutoShape. El método [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/es/net/aspose.slides/icommentcollection/addmoderncomment/) acepta un argumento [IShape](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/) además de la diapositiva y las coordenadas del marcador de comentario.
 
-En [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/), implementamos soporte para comentarios modernos mediante la adición de la clase [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment). Se agregaron los métodos [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) y [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) a la clase [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection). 
+Cuando se pasa `null` como argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona mediante las coordenadas proporcionadas, pero no está asociado a una forma concreta, por lo que [IModernComment.Shape](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/shape/) devuelve `null`. Cuando se suministra un [IShape](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/), el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador de comentario en la diapositiva, mientras que la asociación de forma puede obtenerse a través de [IModernComment.Shape](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/shape/).
 
-Este código C# le muestra cómo agregar un comentario moderno a una diapositiva en una presentación de PowerPoint: 
-```c#
-using (Presentation pres = new Presentation())
+### **Anclar un comentario moderno a una forma**
+
+El siguiente ejemplo crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a un AutoShape específico. Luego lee la forma asociada a cada comentario.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+shape.Name = "Revenue title";
+shape.TextFrame.Text = "Quarterly revenue";
+
+var createdTime = DateTime.Now;
+var slideCommentPosition = new PointF(20, 20);
+var shapeCommentPosition = new PointF(60, 60);
+var slideComment = author.Comments.AddModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+var shapeComment = author.Comments.AddModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+Console.WriteLine(slideComment.Shape == null);
+Console.WriteLine(shapeComment.Shape?.Name);
+
+presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
+```
+
+### **Anclar comentarios a diferentes tipos de forma**
+
+Cualquier objeto de diapositiva que implemente [IShape](https://reference.aspose.com/slides/es/net/aspose.slides/ishape/) puede usarse como ancla de forma. Los ejemplos comunes incluyen instancias de [IAutoShape](https://reference.aspose.com/slides/es/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/es/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/es/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/es/net/aspose.slides/iconnector/) y [IGraphicalObject](https://reference.aspose.com/slides/es/net/aspose.slides/igraphicalobject/) como gráficos.
+
+El siguiente ejemplo crea varios tipos de forma comunes y asocia un comentario moderno a cada uno.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var createdTime = DateTime.Now;
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+autoShape.TextFrame.Text = "AutoShape";
+var autoShapeCommentPosition = new PointF(30, 30);
+author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+var imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+var imageData = Convert.FromBase64String(imageBase64);
+var image = presentation.Images.AddImage(imageData);
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+var pictureCommentPosition = new PointF(230, 30);
+author.Comments.AddModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+var groupShape = slide.Shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+groupShape.Shapes.AddAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+var groupCommentPosition = new PointF(40, 150);
+author.Comments.AddModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+var connectorCommentPosition = new PointF(240, 150);
+author.Comments.AddModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+var chartCommentPosition = new PointF(420, 40);
+author.Comments.AddModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+```
+
+### **Anclar un comentario a texto y establecer su estado**
+
+Para un comentario moderno asociado a un [IAutoShape](https://reference.aspose.com/slides/es/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/textselectionstart/) indica la posición inicial del texto seleccionado en el marco de texto de la forma, mientras que [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/textselectionlength/) indica la longitud de la selección. Juntas, estas propiedades asocian el comentario con un rango de texto específico dentro del AutoShape.
+
+La propiedad [IModernComment.Status](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/status/) puede leerse o actualizarse con un valor de la enumeración [ModernCommentStatus](https://reference.aspose.com/slides/es/net/aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — no se ha definido ningún estado específico de comentario moderno.
+- `Active` — el comentario está activo.
+- `Resolved` — el comentario se ha resuelto.
+- `Closed` — el comentario está cerrado.
+
+El siguiente ejemplo crea un comentario moderno anclado a una forma, lo asocia a una selección de texto, lo marca como resuelto, guarda la presentación y verifica los valores después de volver a abrir el archivo.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputFile = "modern_comment_text_anchor.pptx";
+const string shapeText = "Review the quarterly revenue forecast.";
+const string selectedText = "quarterly revenue";
+var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Ordinal);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.Name = "Forecast text";
+shape.TextFrame.Text = shapeText;
+
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var commentPosition = new PointF(60, 60);
+var comment = author.Comments.AddModernComment("Verify this forecast wording.", slide, shape, commentPosition, DateTime.Now);
+comment.TextSelectionStart = expectedSelectionStart;
+comment.TextSelectionLength = selectedText.Length;
+comment.Status = ModernCommentStatus.Resolved;
+
+presentation.Save(outputFile, SaveFormat.Pptx);
+
+using var reopenedPresentation = new Presentation(outputFile);
+var reopenedSlide = reopenedPresentation.Slides[0];
+var reopenedComments = reopenedSlide.GetSlideComments(null);
+
+foreach (var reopenedComment in reopenedComments)
 {
-     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
-     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
- 
-     pres.Save("pres.pptx", SaveFormat.Pptx);
+    if (reopenedComment is not IModernComment modernComment)
+    {
+        continue;
+    }
+
+    var shapeMatches = modernComment.Shape?.Name == "Forecast text";
+    var selectionStartMatches = modernComment.TextSelectionStart == expectedSelectionStart;
+    var selectionLengthMatches = modernComment.TextSelectionLength == selectedText.Length;
+    var statusMatches = modernComment.Status == ModernCommentStatus.Resolved;
+
+    Console.WriteLine($"Shape anchor preserved: {shapeMatches}");
+    Console.WriteLine($"Text selection start preserved: {selectionStartMatches}");
+    Console.WriteLine($"Text selection length preserved: {selectionLengthMatches}");
+    Console.WriteLine($"Resolved status preserved: {statusMatches}");
 }
 ```
 
+### **Inspeccionar comentarios modernos existentes**
+
+Para inspeccionar una presentación existente, comprueba qué comentarios implementan [IModernComment](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/), luego examina [IModernComment.Shape](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/textselectionlength/) y [IModernComment.Status](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/status/). Una forma `null` indica un comentario a nivel de diapositiva. Para un ancla de [IAutoShape](https://reference.aspose.com/slides/es/net/aspose.slides/iautoshape/), las propiedades de selección de texto identifican el rango asociado en el marco de texto de la forma.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("comments.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var comments = slide.GetSlideComments(null);
+    foreach (var comment in comments)
+    {
+        if (comment is not IModernComment modernComment)
+        {
+            continue;
+        }
+
+        Console.WriteLine($"Slide: {slide.SlideNumber}");
+        Console.WriteLine($"Text: {modernComment.Text}");
+        Console.WriteLine($"Status: {modernComment.Status}");
+
+        var shape = modernComment.Shape;
+        if (shape == null)
+        {
+            Console.WriteLine("Anchor: slide level");
+        }
+        else
+        {
+            Console.WriteLine($"Anchor shape: {shape.Name}");
+            Console.WriteLine($"Anchor type: {shape.GetType().Name}");
+
+            if (shape is IAutoShape)
+            {
+                Console.WriteLine($"Text selection start: {modernComment.TextSelectionStart}");
+                Console.WriteLine($"Text selection length: {modernComment.TextSelectionLength}");
+            }
+        }
+
+        Console.WriteLine();
+    }
+}
+```
 
 ## **Eliminar comentarios**
 
-### **Eliminar todos los comentarios y autores**
+### **Eliminar todos los comentarios y autores de comentarios**
 
-Este código C# le muestra cómo eliminar todos los comentarios y autores de una presentación:
-```c#
-using (var presentation = new Presentation("example.pptx"))
+El siguiente ejemplo muestra cómo eliminar todos los comentarios y autores de comentarios de una presentación:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("example.pptx");
+
+foreach (var author in presentation.CommentAuthors)
 {
-    // Elimina todos los comentarios de la presentación
-    foreach (var author in presentation.CommentAuthors)
-    {
-        author.Comments.Clear();
-    }
-
-    // Elimina todos los autores
-    presentation.CommentAuthors.Clear();
-
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
+    author.Comments.Clear();
 }
-```
 
+presentation.CommentAuthors.Clear();
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
+```
 
 ### **Eliminar comentarios específicos**
 
-Este código C# le muestra cómo eliminar comentarios específicos de una diapositiva:
-```c#
-using (var presentation = new Presentation())
+El siguiente ejemplo muestra cómo eliminar comentarios específicos de una diapositiva:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Author", "A");
+var createdTime = DateTime.Now;
+
+var firstCommentPosition = new PointF(0.2f, 0.2f);
+var secondCommentPosition = new PointF(0.3f, 0.2f);
+author.Comments.AddComment("comment 1", slide, firstCommentPosition, createdTime);
+author.Comments.AddComment("comment 2", slide, secondCommentPosition, createdTime);
+
+foreach (var commentAuthor in presentation.CommentAuthors)
 {
-    ISlide slide = presentation.Slides[0];
-    
-    // agregar comentarios...
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
-    author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
-    author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
-    
-    // eliminar todos los comentarios que contengan el texto "comment 1"
-    foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
+    var commentsToRemove = new List<IComment>();
+    var comments = slide.GetSlideComments(commentAuthor);
+
+    foreach (var comment in comments)
     {
-        List<IComment> toRemove = new List<IComment>();
-        foreach (IComment comment in slide.GetSlideComments(commentAuthor))
+        if (comment.Text == "comment 1")
         {
-            if (comment.Text == "comment 1")
-            {
-                toRemove.Add(comment);
-            }
-        }
-        
-        foreach (IComment comment in toRemove)
-        {
-            commentAuthor.Comments.Remove(comment);
+            commentsToRemove.Add(comment);
         }
     }
-    
-    presentation.Save("pres.pptx", SaveFormat.Pptx);
+
+    foreach (var comment in commentsToRemove)
+    {
+        commentAuthor.Comments.Remove(comment);
+    }
 }
+
+presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
+## **FAQ**
 
-## **Preguntas frecuentes**
+**¿Aspose.Slides admite un estado resuelto para los comentarios modernos?**
 
-**¿Aspose.Slides admite un estado como “resuelto” para los comentarios modernos?**
+Sí. La [IModernComment.Status](https://reference.aspose.com/slides/es/net/aspose.slides/imoderncomment/status/) puede leerse y establecerse con un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/net/aspose.slides/moderncommentstatus/), incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
 
-Sí. Los [comentarios modernos](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) exponen una propiedad [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/); puede leer y establecer el [estado del comentario](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) (por ejemplo, marcarlo como resuelto), y este estado se guarda en el archivo y es reconocido por PowerPoint.
+**¿Se admiten discusiones en hilos (cadenas de respuestas) y hay un límite de anidamiento?**
 
-**¿Se admiten discusiones en hilos (cadenas de respuestas) y existe un límite de anidamiento?**
-
-Sí. Cada comentario puede referenciar su [comentario principal](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), lo que permite cadenas de respuestas arbitrarias. La API no declara un límite específico de profundidad de anidamiento.
+Sí. Cada comentario puede hacer referencia a su [parent comment](https://reference.aspose.com/slides/es/net/aspose.slides/comment/parentcomment/), lo que permite cadenas de respuestas. La API no define un límite específico de profundidad de anidamiento.
 
 **¿En qué sistema de coordenadas se define la posición del marcador de un comentario en una diapositiva?**
 
-La posición se almacena como un punto de coma flotante en el sistema de coordenadas de la diapositiva. Esto le permite colocar el marcador de comentario exactamente donde lo necesite.
+La posición del marcador se define mediante coordenadas de punto flotante en el sistema de coordenadas de la diapositiva, lo que permite colocarlo con precisión en la diapositiva.

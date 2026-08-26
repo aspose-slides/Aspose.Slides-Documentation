@@ -1,6 +1,6 @@
 ---
-title: จัดการความคิดเห็นงานนำเสนอด้วย JavaScript
-linktitle: ความคิดเห็นงานนำเสนอ
+title: จัดการความคิดเห็นพรีเซนเทชันใน Node.js
+linktitle: ความคิดเห็นพรีเซนเทชัน
 type: docs
 weight: 100
 url: /th/nodejs-java/presentation-comments/
@@ -8,7 +8,7 @@ keywords:
 - ความคิดเห็น
 - ความคิดเห็นสมัยใหม่
 - ความคิดเห็น PowerPoint
-- ความคิดเห็นงานนำเสนอ
+- ความคิดเห็นพรีเซนเทชัน
 - ความคิดเห็นสไลด์
 - เพิ่มความคิดเห็น
 - เข้าถึงความคิดเห็น
@@ -17,233 +17,439 @@ keywords:
 - ลบความคิดเห็น
 - ลบความคิดเห็น
 - PowerPoint
-- OpenDocument
-- งานนำเสนอ
+- พรีเซนเทชัน
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เชี่ยวชาญการจัดการความคิดเห็นงานนำเสนอด้วย Aspose.Slides สำหรับ Node.js: เพิ่ม อ่าน แก้ไข และลบความคิดเห็นในไฟล์ PowerPoint ด้วย JavaScript อย่างเร็วและง่าย."
+description: "จัดการความคิดเห็นพรีเซนเทชันด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับและลบความคิดเห็นในพรีเซนเทชัน PowerPoint."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides โดยแสดงประเภทที่เกี่ยวข้องกับความคิดเห็นหลักและสาธิตวิธีเพิ่มความคิดเห็นในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับ, ใช้ความคิดเห็นสมัยใหม่, และลบความคิดเห็นจากงานนำเสนอ
+บทความนี้อธิบายวิธีจัดการความคิดเห็นในการพรีเซนเทชันด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java. มันแนะนำประเภทหลักที่เกี่ยวข้องกับความคิดเห็นและสาธิตวิธีการเพิ่มความคิดเห็นไปยังสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นจากพรีเซนเทชัน
 
-ตัวอย่างมุ่งเน้นไปที่สถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านเนื้อหาและเมตาดาต้าของความคิดเห็น, การสร้างชุดการตอบกลับ, และการลบความคิดเห็นทั้งหมดหรือการลบเฉพาะที่เลือก
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและความร่วมมือทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างห่วงโซ่การตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด
 
-ใน PowerPoint ความคิดเห็นจะแสดงเป็นบันทึกหรือคำอธิบายบนสไลด์ เมื่อคลิกที่ความคิดเห็นจะทำให้เนื้อหาหรือข้อความของมันปรากฏขึ้น
+ใน PowerPoint, ความคิดเห็นปรากฏเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
 
-## **ทำไมต้องเพิ่มความคิดเห็นในงานนำเสนอ?**
+## **ทำไมต้องเพิ่มความคิดเห็นในพรีเซนเทชัน?**
 
-คุณอาจต้องการใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะหรือสื่อสารกับเพื่อนร่วมงานเมื่อทำการตรวจทานงานนำเสนอ
+คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจสอบพรีเซนเทชัน
 
-เพื่อให้คุณสามารถใช้ความคิดเห็นในงานนำเสนอ PowerPoint, Aspose.Slides for Node.js via Java มีให้
+Aspose.Slides for Node.js via Java ให้ API ดังต่อไปนี้สำหรับการทำงานกับความคิดเห็น:
 
-* คลาส [Presentation] ซึ่งมีคอลเลกชันของผู้เขียน (จากคลาส [CommentAuthorCollection]) ผู้เขียนจะเพิ่มความคิดเห็นลงในสไลด์
-* คลาส [CommentCollection] ซึ่งมีคอลเลกชันของความคิดเห็นสำหรับผู้เขียนแต่ละคน
-* คลาส [Comment] ซึ่งบรรจุข้อมูลเกี่ยวกับผู้เขียนและความคิดเห็นของพวกเขา: ใครเพิ่มความคิดเห็น, เวลาที่เพิ่ม, ตำแหน่งของความคิดเห็น ฯลฯ
-* คลาส [CommentAuthor] ซึ่งบรรจุข้อมูลของผู้เขียนแต่ละคน: ชื่อผู้เขียน, ย่อชื่อ, ความคิดเห็นที่เชื่อมโยงกับชื่อผู้เขียน ฯลฯ
+* คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ที่ให้การเข้าถึงผู้เขียนความคิดเห็นของพรีเซนเทชัน
+* คลาส [CommentCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentcollection/) ที่แสดงความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* คลาส [Comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/) ที่ให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน, เวลาในการสร้าง, ตำแหน่ง, และข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, อักษรย่อ, และความคิดเห็นที่เกี่ยวข้อง
 
-## **เพิ่มความคิดเห็นสไลด์**
-โค้ด JavaScript นี้แสดงวิธีเพิ่มความคิดเห็นลงในสไลด์ของงานนำเสนอ PowerPoint:
+## **เพิ่มความคิดเห็นบนสไลด์**
+
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นไปยังสไลด์ในพรีเซนเทชัน PowerPoint:
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์เปล่า
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    // เพิ่มผู้เขียน
-    var author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
-    // ตั้งค่าตำแหน่งสำหรับความคิดเห็น
-    var point = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
-    // เพิ่มความคิดเห็นสไลด์สำหรับผู้เขียนบนสไลด์ที่ 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, java.newInstanceSync("java.util.Date"));
-    // เพิ่มความคิดเห็นสไลด์สำหรับผู้เขียนบนสไลด์ที่ 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("java.util.Date"));
-    // เข้าถึง ISlide 1
-    var slide = pres.getSlides().get_Item(0);
-    // เมื่อส่งค่า null เป็นอาร์กิวเมนต์ ความคิดเห็นจากผู้เขียนทั้งหมดจะถูกดึงมาในสไลด์ที่เลือก
-    var Comments = slide.getSlideComments(author);
-    // เข้าถึงความคิดเห็นที่ตำแหน่งดัชนี 0 สำหรับสไลด์ 1
-    var str = Comments[0].getText();
-    pres.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
-    if (Comments.length > 0) {
-        // เลือกคอลเลกชันความคิดเห็นของผู้เขียนที่ดัชนี 0
-        var commentCollection = Comments[0].getAuthor().getComments();
-        var Comment = commentCollection.get_Item(0).getText();
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
+
+    const comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        const firstComment = comments[0];
+        console.log(firstComment.getText());
+
+        const authorComments = firstComment.getAuthor().getComments();
+        const commentText = authorComments.get_Item(0).getText();
+        console.log(commentText);
     }
+
+    presentation.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **เข้าถึงความคิดเห็นสไลด์**
-โค้ด JavaScript นี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่บนสไลด์ของงานนำเสนอ PowerPoint:
+## **เข้าถึงความคิดเห็นบนสไลด์**
+
+ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่ในพรีเซนเทชัน PowerPoint:
 
 ```javascript
-var pres = new aspose.slides.Presentation("Comments1.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("Comments1.pptx");
 try {
-    for (let i = 0; i < pres.getCommentAuthors().size(); i++) {
-        let commentAuthor = pres.getCommentAuthors().get_Item(i);
-        for (let j = 0; j < commentAuthor.getComments().size(); j++) {
-            const comment = commentAuthor.getComments().get_Item(j);
-            console.log("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() + " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    const authors = presentation.getCommentAuthors();
+    for (let authorIndex = 0; authorIndex < authors.size(); authorIndex++) {
+        const author = authors.get_Item(authorIndex);
+        const comments = author.getComments();
+
+        for (let commentIndex = 0; commentIndex < comments.size(); commentIndex++) {
+            const comment = comments.get_Item(commentIndex);
+            console.log("Slide: " + comment.getSlide().getSlideNumber());
+            console.log("Comment: " + comment.getText());
+            console.log("Author: " + comment.getAuthor().getName());
+            console.log("Posted at: " + comment.getCreatedTime());
+            console.log();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **ตอบกลับความคิดเห็น**
-ความคิดเห็นพาเรนต์คือความคิดเห็นต้นหรือความคิดเห็นเดิมในลำดับชั้นของความคิดเห็นหรือการตอบกลับ โดยใช้เมธอด [getParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Comment#getParentComment--) หรือ [setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) (จากคลาส [Comment]) คุณสามารถตั้งหรือรับความคิดเห็นพาเรนต์ได้
 
-โค้ด JavaScript นี้แสดงวิธีเพิ่มความคิดเห็นและรับการตอบกลับจากความคิดเห็น:
+ความคิดเห็นหลักคือความคิดเห็นต้นฉบับที่อยู่บนสุดของลำดับการตอบกลับ. เมธอด [Comment.getParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) และ [Comment.setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/setparentcomment/) ให้คุณรับหรือกำหนดความคิดเห็นหลักของความคิดเห็น
+
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างความคิดเห็นที่ได้:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มความคิดเห็น
-    var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    // เพิ่มการตอบกลับให้กับ comment1
-    var author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+    const slide = presentation.getSlides().get_Item(0);
+    const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
-    // เพิ่มการตอบกลับอื่นให้กับ comment1
-    var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
-    // เพิ่มการตอบกลับให้กับการตอบกลับที่มีอยู่
-    var subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
-    var comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    var comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    var reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+
+    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
-    // แสดงลำดับขั้นของความคิดเห็นบนคอนโซล
-    var slide = pres.getSlides().get_Item(0);
-    var comments = slide.getSlideComments(null);
-    for (var i = 0; i < comments.length; i++) {
-        var comment = comments[i];
+
+    const comments = slide.getSlideComments(null);
+    for (let index = 0; index < comments.length; index++) {
+        let comment = comments[index];
+        let indentation = "";
         while (comment.getParentComment() != null) {
-            console.log("\t");
+            indentation += "\t";
             comment = comment.getParentComment();
         }
-        console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
-        console.log();
+
+        console.log(indentation + comments[index].getAuthor().getName() + ": " + comments[index].getText());
     }
-    pres.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
-    // ลบ comment1 และการตอบกลับทั้งหมดของมัน
+
+    presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
+
     comment1.remove();
-    pres.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* เมื่อใช้เมธอด [Remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Comment#remove--) (จากคลาส [Comment]) เพื่อลบความคิดเห็น การตอบกลับของความคิดเห็นนั้นก็จะถูกลบด้วย
-* หากการตั้งค่า [setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) ทำให้เกิดการอ้างอิงแบบวงกลม จะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PptxEditException)
+{{% alert color="warning" title="คำเตือน" %}}
+* เมื่อใช้เมธอด [Comment.remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/remove/) เพื่อทำการลบความคิดเห็น ทุกการตอบกลับของความคิดเห็นนั้นจะถูกลบด้วย
+* หาก [Comment.setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/setparentcomment/) สร้างการอ้างอิงวงจร จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
 ## **เพิ่มความคิดเห็นสมัยใหม่**
 
-ในปี 2021 Microsoft ได้นำเสนอ *ความคิดเห็นสมัยใหม่* ใน PowerPoint ฟีเจอร์ความคิดเห็นสมัยใหม่ช่วยปรับปรุงการทำงานร่วมกันใน PowerPoint อย่างมีนัยสำคัญ ผ่านความคิดเห็นสมัยใหม่ ผู้ใช้ PowerPoint สามารถแก้ไขสถานะของความคิดเห็น, ฝังความคิดเห็นกับวัตถุและข้อความ, และมีปฏิสัมพันธ์ได้ง่ายกว่าที่เคย
+ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปทรงเฉพาะ, หรือกับช่วงข้อความภายใน [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ได้. เมธอด [CommentCollection.addModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) ยอมรับอาร์กิวเมนต์ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) นอกเหนือจากสไลด์และพิกัดของเครื่องหมายความคิดเห็น
 
-Aspose.Slides รองรับความคิดเห็นสมัยใหม่ด้วยคลาส [ModernComment] เมธอด [addModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) และ [insertModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) ถูกเพิ่มเข้ามาในคลาส [CommentCollection]
+เมื่อ `null` ถูกส่งเป็นอาร์กิวเมนต์ของ shape, ความคิดเห็นนั้นเป็นความคิดเห็นระดับสไลด์. เครื่องหมายของมันจะกำหนดตำแหน่งโดยพิกัดที่ให้ไว้ แต่จะไม่เชื่อมโยงกับรูปทรงใดเป็นพิเศษ ดังนั้น [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/) จะคืนค่า `null`. เมื่อมีการระบุ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/), ความคิดเห็นจะยึดติดกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายบนสไลด์, ในขณะที่การเชื่อมโยงรูปทรงสามารถดึงข้อมูลได้ผ่าน [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/)
 
-โค้ด JavaScript นี้แสดงวิธีเพิ่มความคิดเห็นสมัยใหม่ลงในสไลด์ของงานนำเสนอ PowerPoint:
+### **ผูกความคิดเห็นสมัยใหม่กับรูปทรง**
+
+ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดติดกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) เฉพาะ จากนั้นอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(100), java.newFloat(100)), java.newInstanceSync("java.util.Date"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
+
+    const createdTime = java.newInstanceSync("java.util.Date");
+    const slideCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+    const shapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(60), java.newFloat(60));
+    const slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    const shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    console.log(slideComment.getShape() == null);
+    console.log(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    presentation.dispose();
+}
+```
+
+### **ผูกความคิดเห็นกับประเภทรูปทรงต่างๆ**
+
+รูปทรงใด ๆ ที่สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) สามารถใช้เป็นจุดเชื่อมต่อได้ ตัวอย่างทั่วไปได้แก่ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/connector/), และอินสแตนซ์ของ [GraphicalObject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/graphicalobject/) เช่น แผนภูมิ
+
+ตัวอย่างต่อไปนี้สร้างรูปทรงหลายประเภทที่พบบ่อยและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    const imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    const imageData = java.newArray("byte", Array.from(Buffer.from(imageBase64, "base64")));
+    const image = presentation.getImages().addImage(imageData);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 220, 20, 120, 80, image);
+    const pictureCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(230), java.newFloat(30));
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    const groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 100, 0, 80, 40);
+    const groupCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(40), java.newFloat(150));
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 220, 150, 140, 40);
+    const connectorCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(240), java.newFloat(150));
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 400, 20, 250, 180);
+    const chartCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(420), java.newFloat(40));
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ผูกความคิดเห็นกับข้อความและตั้งค่าสถานะ**
+
+สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/), เมธอด [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) และ [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปทรง. เมธอด [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) และ [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) เข้าถึงความยาวของการเลือก. ค่าทั้งสองนี้ทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/)
+
+เมธอด [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment.setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncommentstatus/) :
+
+- `NotDefined` — ไม่ได้กำหนดสถานะความคิดเห็นสมัยใหม่เฉพาะ
+- `Active` — ความคิดเห็นอยู่ในสถานะใช้งาน
+- `Resolved` — ความคิดเห็นได้รับการแก้ไขแล้ว
+- `Closed` — ความคิดเห็นถูกปิด
+
+ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดติดกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ตั้งค่าสถานะเป็นแก้ไขแล้ว, บันทึกพรีเซนเทชัน, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const outputFile = "modern_comment_text_anchor.pptx";
+const shapeText = "Review the quarterly revenue forecast.";
+const selectedText = "quarterly revenue";
+const expectedSelectionStart = shapeText.indexOf(selectedText);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const commentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(60), java.newFloat(60));
+    const createdTime = java.newInstanceSync("java.util.Date");
+    const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length);
+    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopenedPresentation = new aspose.slides.Presentation(outputFile);
+try {
+    const reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    const reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (let index = 0; index < reopenedComments.length; index++) {
+        const reopenedComment = reopenedComments[index];
+        if (!java.instanceOf(reopenedComment, "com.aspose.slides.IModernComment")) {
+            continue;
+        }
+
+        const shapeMatches = reopenedComment.getShape() != null && reopenedComment.getShape().getName() === "Forecast text";
+        const selectionStartMatches = reopenedComment.getTextSelectionStart() === expectedSelectionStart;
+        const selectionLengthMatches = reopenedComment.getTextSelectionLength() === selectedText.length;
+        const statusMatches = reopenedComment.getStatus() === aspose.slides.ModernCommentStatus.Resolved;
+
+        console.log("Shape anchor preserved: " + shapeMatches);
+        console.log("Text selection start preserved: " + selectionStartMatches);
+        console.log("Text selection length preserved: " + selectionLengthMatches);
+        console.log("Resolved status preserved: " + statusMatches);
     }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
+
+เพื่อสอบถามพรีเซนเทชันที่มีอยู่, ให้ตรวจสอบว่าอินสแตนซ์เป็น [ModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/) หรือไม่, จากนั้นดูที่ [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), และ [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/). รูปทรงที่เป็น `null` แสดงว่าความคิดเห็นระดับสไลด์. สำหรับการยึดกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) วิธีการเลือกข้อความจะระบุช่วงที่เชื่อมโยงในกรอบข้อความของรูปทรง
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("comments.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const comments = slide.getSlideComments(null);
+
+        for (let commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            const comment = comments[commentIndex];
+            if (!java.instanceOf(comment, "com.aspose.slides.IModernComment")) {
+                continue;
+            }
+
+            console.log("Slide: " + slide.getSlideNumber());
+            console.log("Text: " + comment.getText());
+            console.log("Status: " + comment.getStatus());
+
+            const shape = comment.getShape();
+            if (shape == null) {
+                console.log("Anchor: slide level");
+            } else {
+                console.log("Anchor shape: " + shape.getName());
+                console.log("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                    console.log("Text selection start: " + comment.getTextSelectionStart());
+                    console.log("Text selection length: " + comment.getTextSelectionLength());
+                }
+            }
+
+            console.log();
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **ลบความคิดเห็น**
 
-### **ลบความคิดเห็นและผู้เขียนทั้งหมด**
+### **ลบความคิดเห็นทั้งหมดและผู้เขียนความคิดเห็น**
 
-โค้ด JavaScript นี้แสดงวิธีลบความคิดเห็นและผู้เขียนทั้งหมดในงานนำเสนอ:
+ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมดจากพรีเซนเทชัน:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("example.pptx");
 try {
-    // ลบความคิดเห็นทั้งหมดจากงานนำเสนอ
-    for (let i = 0; i < presentation.getCommentAuthors().size(); i++) {
-    var author = presentation.getCommentAuthors().get_Item(i)
-        author.getComments().clear();
+    const authors = presentation.getCommentAuthors();
+    for (let index = 0; index < authors.size(); index++) {
+        authors.get_Item(index).getComments().clear();
     }
-    // ลบผู้เขียนทั้งหมด
-    presentation.getCommentAuthors().clear();
+
+    authors.clear();
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ### **ลบความคิดเห็นเฉพาะ**
 
-โค้ด JavaScript นี้แสดงวิธีลบความคิดเห็นบางส่วนบนสไลด์:
+ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นเฉพาะจากสไลด์:
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // เพิ่มความคิดเห็น...
-    var author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    // ลบความคิดเห็นทั้งหมดที่มีข้อความ "comment 1" 
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    
-    for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
-        var commentAuthor = presentation.getCommentAuthors().get_Item(i);
-        var toRemove = java.newInstanceSync("java.util.ArrayList");
-        for (let j = 0; j < slide.getSlideComments(commentAuthor).size(); j++) {
-            let comment = slide.getSlideComments(commentAuthor).get_Item(j);
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Author", "A");
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const firstCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
+    const secondCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.3), java.newFloat(0.2));
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    const authors = presentation.getCommentAuthors();
+    for (let authorIndex = 0; authorIndex < authors.size(); authorIndex++) {
+        const commentAuthor = authors.get_Item(authorIndex);
+        const commentsToRemove = [];
+        const comments = slide.getSlideComments(commentAuthor);
+
+        for (let commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            const comment = comments[commentIndex];
             if (comment.getText() === "comment 1") {
-                toRemove.add(comment);
+                commentsToRemove.push(comment);
             }
         }
-        for (var i = 0; i < toRemove.length; i++) {
-            var comment = toRemove.get_Item(i);
+
+        for (const comment of commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
+
     presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Aspose.Slides รองรับสถานะเช่น 'resolved' สำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
 
-ใช่. [Modern comments](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/) มีเมธอด [getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setStatus/) คุณสามารถอ่านและตั้งค่าสถานะของความคิดเห็น (เช่น ทำเครื่องหมายว่าแก้ไขแล้ว) และสถานะนี้จะถูกบันทึกในไฟล์และ PowerPoint จะรับรู้
+ใช่. เมธอด [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment.setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าของ [ModernCommentStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncommentstatus/) รวมถึง `Resolved`. สถานะจะถูกบันทึกในพรีเซนเทชันและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
 
-**รองรับการสนทนาที่เป็นเธรด (ชุดการตอบกลับ) หรือไม่, และมีขีดจำกัดการซ้อนระดับใดหรือไม่?**
+**การสนทนาที่ต่อเนื่อง (ห่วงโซ่การตอบกลับ) รองรับหรือไม่ และมีขีดจำกัดการซ้อนกันหรือไม่?**
 
-ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) ของมัน ทำให้สามารถสร้างชุดการตอบกลับได้โดยอิสระ API ไม่ได้กำหนดขีดจำกัดระดับการซ้อนเฉพาะ
+ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) ของมัน, ทำให้สามารถสร้างห่วงโซ่การตอบกลับได้. API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นค่าเฉพาะ
 
 **ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดใด?**
 
-ตำแหน่งถูกเก็บเป็นจุดเลขลอยในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางเครื่องหมายความคิดเห็นได้อย่างแม่นยำตรงตามที่ต้องการ
+ตำแหน่งของเครื่องหมายกำหนดโดยพิกัดแบบ floating‑point ในระบบพิกัดของสไลด์, ซึ่งทำให้คุณสามารถวางเครื่องหมายได้อย่างแม่นยำบนสไลด์

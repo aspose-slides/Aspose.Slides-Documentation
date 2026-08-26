@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunum Yorumlarını Yönetme
+title: PHP'de Sunum Yorumlarını Yönetin
 linktitle: Sunum Yorumları
 type: docs
 weight: 100
@@ -10,238 +10,441 @@ keywords:
 - PowerPoint yorumları
 - sunum yorumları
 - slayt yorumları
-- yorum ekle
+- yorumu ekle
 - yoruma eriş
-- yorum düzenle
-- yorum yanıtla
-- yorum kaldır
-- yorum sil
+- yorumu düzenle
+- yoruma yanıtla
+- yorumu kaldır
+- yorumu sil
 - PowerPoint
-- OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile sunum yorumlarını yönetin: PowerPoint dosyalarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin ve silin."
+description: "Aspose.Slides for PHP via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri gösterir ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlarla çalışma, modern yorumları kullanma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for PHP via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint’te yaygın inceleme ve işbirliği senaryolarına odaklanır; örneğin yorumları yazarlarla ilişkilendirme, yorum içeriğini ve meta verilerini okuma, yanıt zincirleri oluşturma ve tüm yorumları temizleme veya seçilenleri silme.
+Örnekler, PowerPoint'teki yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin yorumları yazarlara atama, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
 
-PowerPoint’te bir yorum, bir slayt üzerindeki not veya açıklama olarak görünür. Bir yorum tıklandığında, içeriği veya mesajları gösterilir. 
+PowerPoint'te yorumlar slaytlar üzerindeki ek açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
 
 ## **Sunumlara Neden Yorum Eklemeliyiz?**
 
-Sunumları incelerken geri bildirim sağlamak veya meslektaşlarınızla iletişim kurmak için yorumları kullanmak isteyebilirsiniz.
+Yorumları, sunumları incelerken geri bildirim sağlamak ve meslektaşlarınızla iş birliği yapmak için kullanabilirsiniz.
 
-PowerPoint sunumlarında yorumları kullanabilmeniz için Aspose.Slides for PHP via Java aşağıdakileri sağlar:
+Aspose.Slides for PHP via Java, yorumlarla çalışmak için aşağıdaki API'leri sağlar:
 
-* The [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı, yazar koleksiyonlarını ([CommentAuthorCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentauthorcollection/) sınıfından) içerir. Yazarlar slaytlara yorum ekler.
-* The [CommentCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/) sınıfı, bireysel yazarlar için yorum koleksiyonunu içerir.
-* The [Comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/) sınıfı, yazarlar ve yorumları hakkında bilgi içerir: yorumu kimin eklediği, eklenme zamanı, yorumun konumu vb.
-* The [CommentAuthor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentauthor/) sınıfı, bireysel yazarlar hakkında bilgi içerir: yazarın adı, baş harfleri, yazar adının ilişkili olduğu yorumlar vb.
+* The [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
+* The [CommentCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/) sınıfı, belirli bir yazarla ilişkili yorumları temsil eder.
+* The [Comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/) sınıfı, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sunar.
+* The [CommentAuthor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentauthor/) sınıfı, ad, baş harfler ve ilişkili yorumlar gibi yazar bilgisini sağlar.
 
-## **Slayt Yorumları Ekleme**
-Bu PHP kodu, PowerPoint sunumundaki bir slayta nasıl yorum ekleneceğini gösterir:
+## **Slayt Yorumları Ekle**
+
+Aşağıdaki örnek, PowerPoint sunumundaki slaytlara yorum eklemenin nasıl yapılacağını gösterir:
 
 ```php
-  # Presentation sınıfını örnekler
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Boş bir slayt ekler
-    $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    # Bir yazar ekler
-    $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    # Yorumların konumunu ayarlar
-    $point = new Point2DFloat(0.2, 0.2);
-    # Yazar için slayt 1'de slayt yorumu ekler
-    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    # Yazar için slayt 2'de slayt yorumu ekler
-    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
-    # ISlide 1'e erişir
-    $slide = $pres->getSlides()->get_Item(0);
-    # Argüman olarak null gönderildiğinde, tüm yazarların yorumları seçilen slayta getirilir
-    $Comments = $slide->getSlideComments($author);
-    # Slayt 1 için 0. indeksteki yoruma erişir
-    $str = $Comments[0]->getText();
-    $pres->save("Comments_out.pptx", SaveFormat::Pptx);
-    if (java_values($Array->getLength($Comments)) > 0) {
-      # Yazarın yorum koleksiyonunu 0. indekste seçer
-      $commentCollection = $Comments[0]->getAuthor()->getComments();
-      $Comment = $commentCollection->get_Item(0)->getText();
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+    $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
+    $position = new Point2DFloat(0.2, 0.2);
+    $createdTime = new Java("java.util.Date");
+
+    $author->getComments()->addComment("Hello Jawad, this is a slide comment", $firstSlide, $position, $createdTime);
+    $author->getComments()->addComment("Hello Jawad, this is the second slide comment", $secondSlide, $position, $createdTime);
+
+    $comments = $firstSlide->getSlideComments($author);
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    if ($commentCount > 0) {
+        $firstComment = $comments[0];
+        echo java_values($firstComment->getText()) . PHP_EOL;
+
+        $authorComments = $firstComment->getAuthor()->getComments();
+        $commentText = $authorComments->get_Item(0)->getText();
+        echo java_values($commentText) . PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Comments_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Slayt Yorumlarına Erişme**
-Bu PHP kodu, PowerPoint sunumundaki bir slaytta mevcut bir yoruma nasıl erişileceğini gösterir:
+
+Aşağıdaki örnek, PowerPoint sunumundaki mevcut yorumlara nasıl erişileceğini gösterir:
 
 ```php
-  # Presentation sınıfının bir örneğini oluşturur
-  $pres = new Presentation("Comments1.pptx");
-  try {
-    foreach($pres->getCommentAuthors() as $commentAuthor) {
-      $author = $commentAuthor;
-      foreach($author->getComments() as $comment1) {
-        $comment = $comment1;
-        echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Comments1.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        foreach ($author->getComments() as $comment) {
+            echo "Slide: " . java_values($comment->getSlide()->getSlideNumber()) . PHP_EOL;
+            echo "Comment: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Author: " . java_values($comment->getAuthor()->getName()) . PHP_EOL;
+            echo "Posted at: " . java_values($comment->getCreatedTime()->toString()) . PHP_EOL;
+            echo PHP_EOL;
+        }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Yorumlara Yanıt Verme**
-Üst yorum, bir yorum hiyerarşisindeki en üst veya orijinal yorumdur. [Comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/) sınıfındaki [getParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) veya [setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) yöntemlerini kullanarak bir üst yorum ayarlayabilir veya alabilirsiniz.
 
-Bu PHP kodu, yorum eklemeyi ve onlara yanıt almayı gösterir:
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. The [Comment::getParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) ve [Comment::setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) yöntemleri bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
+
+Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Yorumu ekler
-    $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
-    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    # comment1'e yanıt ekler
-    $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
-    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $position = new Point2DFloat(10, 10);
+    $createdTime = new Java("java.util.Date");
+
+    $author1 = $presentation->getCommentAuthors()->addAuthor("Author_1", "A.A.");
+    $comment1 = $author1->getComments()->addComment("comment 1", $slide, $position, $createdTime);
+
+    $author2 = $presentation->getCommentAuthors()->addAuthor("Author_2", "B.B.");
+    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $slide, $position, $createdTime);
     $reply1->setParentComment($comment1);
-    # comment1'e başka bir yanıt ekler
-    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $slide, $position, $createdTime);
     $reply2->setParentComment($comment1);
-    # Mevcut bir yanıta yanıt ekler
-    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $slide, $position, $createdTime);
     $subReply->setParentComment($reply2);
-    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $author2->getComments()->addComment("comment 2", $slide, $position, $createdTime);
+    $comment3 = $author2->getComments()->addComment("comment 3", $slide, $position, $createdTime);
+
+    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $slide, $position, $createdTime);
     $reply3->setParentComment($comment3);
-    # Yorum hiyerarşisini konsola gösterir
-    $slide = $pres->getSlides()->get_Item(0);
+
     $comments = $slide->getSlideComments(null);
-    for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
-      $comment = $comments[$i];
-      while (!java_is_null($comment->getParentComment())) {
-        System->out->print("\t");
-        $comment = $comment->getParentComment();
-      } 
-      echo($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
-      echo();
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    for ($i = 0; $i < $commentCount; $i++) {
+        $comment = $comments[$i];
+        while (!java_is_null($comment->getParentComment())) {
+            echo "\t";
+            $comment = $comment->getParentComment();
+        }
+
+        echo java_values($comments[$i]->getAuthor()->getName()) . ": " . java_values($comments[$i]->getText()) . PHP_EOL;
     }
-    $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # comment1'i ve ona ait tüm yanıtları kaldırır
+
+    $presentation->save("parent_comment.pptx", SaveFormat::Pptx);
+
     $comment1->remove();
-    $pres->save("remove_comment.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $presentation->save("remove_comment.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-
-* [remove](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/remove/) yöntemi ([Comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/) sınıfından) bir yorumu silmek için kullanıldığında, yorumun yanıtları da silinir.
-* [setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) ayarı dairesel bir başvuru oluşturursa, [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) istisnası fırlatılır.
-
+{{% alert color="warning" title="Uyarı" %}}
+* [Comment::remove](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/remove/) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
+* [Comment::setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) fırlatılır.
 {{% /alert %}}
 
-## **Modern Yorumlar Ekleme**
+## **Modern Yorumlar Ekle**
 
-2021 yılında Microsoft, PowerPoint’te *modern yorumlar* özelliğini tanıttı. Modern yorumlar özelliği, PowerPoint’te iş birliğini önemli ölçüde iyileştirir. Modern yorumlar sayesinde PowerPoint kullanıcıları yorumları çözümleyebilir, yorumları nesnelere ve metinlere bağlayabilir ve etkileşimleri çok daha kolay bir şekilde gerçekleştirebilir.
+Modern yorumlar slaytın kendisiyle, belirli bir şekilyle veya bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. The [CommentCollection::addModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) argümansını kabul eder.
 
-Aspose Slides, [ModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/) sınıfı ile modern yorumları destekler. [CommentCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/) sınıfına [addModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/addmoderncomment/) ve [insertModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/insertmoderncomment/) yöntemleri eklenmiştir.
+`null` şekil argümanı verildiğinde yorum bir slayt‑seviyesi yorum olur. İşaretleyicisi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez, bu yüzden [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/) `null` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sağlandığında yorum o şekle sabitlenir. Koordinatlar hâlâ yorum işaretleyicisinin slayt üzerindeki konumunu tanımlar, şekil ilişkisi ise [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/) üzerinden alınabilir.
 
-Bu PHP kodu, PowerPoint sunumundaki bir slayta modern yorum nasıl eklenir gösterir:
+### **Modern Yorumları Bir Şekle Bağlama**
+
+Aşağıdaki örnek, hem slayt‑seviyesi modern yorum hem de belirli bir AutoShape'e sabitlenmiş modern yorum oluşturur. Ardından her iki yorumdan da ilişkili şekli okur.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $newAuthor = $pres->getCommentAuthors()->addAuthor("Some Author", "SA");
-    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2DFloat(100, 100), new Java("java.util.Date"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
+    $shape->setName("Revenue title");
+    $shape->getTextFrame()->setText("Quarterly revenue");
+
+    $createdTime = new Java("java.util.Date");
+    $slideCommentPosition = new Point2DFloat(20, 20);
+    $shapeCommentPosition = new Point2DFloat(60, 60);
+    $slideComment = $author->getComments()->addModernComment("Review the overall slide layout.", $slide, null, $slideCommentPosition, $createdTime);
+    $shapeComment = $author->getComments()->addModernComment("Check this title.", $slide, $shape, $shapeCommentPosition, $createdTime);
+
+    echo (java_is_null($slideComment->getShape()) ? "true" : "false") . PHP_EOL;
+    echo java_values($shapeComment->getShape()->getName()) . PHP_EOL;
+
+    $presentation->save("modern_comments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Yorumları Kaldırma**
+### **Yorumları Farklı Şekil Türlerine Bağlama**
 
-### **Tüm Yorumları ve Yazarları Sil**
+[Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfı ile temsil edilen herhangi bir slayt nesnesi şekil bağlantısı olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/) ve grafik nesneleri (örneğin grafikler) bulunur.
 
-Bu PHP kodu, bir sunumdaki tüm yorumları ve yazarları nasıl kaldıracağınızı gösterir:
+Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum ilişkilendirir.
 
 ```php
-  $presentation = new Presentation("example.pptx");
-  try {
-    # Sunumdaki tüm yorumları siler
-    foreach($presentation->getCommentAuthors() as $author) {
-      $author->getComments()->clear();
+use aspose\slides\ChartType;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $createdTime = new Java("java.util.Date");
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
+    $autoShape->getTextFrame()->setText("AutoShape");
+    $autoShapeCommentPosition = new Point2DFloat(30, 30);
+    $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
+
+    $imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    $base64Class = new JavaClass("java.util.Base64");
+    $imageData = $base64Class->getDecoder()->decode($imageBase64);
+    $image = $presentation->getImages()->addImage($imageData);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 220, 20, 120, 80, $image);
+    $pictureCommentPosition = new Point2DFloat(230, 30);
+    $author->getComments()->addModernComment("Comment on a picture.", $slide, $pictureFrame, $pictureCommentPosition, $createdTime);
+
+    $groupShape = $slide->getShapes()->addGroupShape();
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 80, 40);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Ellipse, 100, 0, 80, 40);
+    $groupCommentPosition = new Point2DFloat(40, 150);
+    $author->getComments()->addModernComment("Comment on a group.", $slide, $groupShape, $groupCommentPosition, $createdTime);
+
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 220, 150, 140, 40);
+    $connectorCommentPosition = new Point2DFloat(240, 150);
+    $author->getComments()->addModernComment("Comment on a connector.", $slide, $connector, $connectorCommentPosition, $createdTime);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 400, 20, 250, 180);
+    $chartCommentPosition = new Point2DFloat(420, 40);
+    $author->getComments()->addModernComment("Comment on a graphical object.", $slide, $chart, $chartCommentPosition, $createdTime);
+
+    $presentation->save("modern_comment_shape_types.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Yorumu Metne Bağlama ve Durumunu Ayarlama**
+
+Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ile ilişkili modern yorum için [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionstart/) ve [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/settextselectionstart/) şeklin metin çerçevesindeki seçili metnin başlangıç konumunu alır ve ayarlar. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/settextselectionlength/) seçimin uzunluğunu alır. Bu değerler birlikte yorumu AutoShape içinde belirli bir metin aralığıyla ilişkilendirir.
+
+[ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment::setStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/setstatus/) yöntemleri, [ModernCommentStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncommentstatus/) sabitlerinden bir değer alır:
+
+- `NotDefined` — özel bir modern‑yorum durumu tanımlanmamış.
+- `Active` — yorum etkin.
+- `Resolved` — yorum çözülmüş.
+- `Closed` — yorum kapalı.
+
+Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosya yeniden açıldıktan sonra değerleri doğrular.
+
+```php
+use aspose\slides\ModernCommentStatus;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$outputFile = "modern_comment_text_anchor.pptx";
+$shapeText = "Review the quarterly revenue forecast.";
+$selectedText = "quarterly revenue";
+$expectedSelectionStart = strpos($shapeText, $selectedText);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->setName("Forecast text");
+    $shape->getTextFrame()->setText($shapeText);
+
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $commentPosition = new Point2DFloat(60, 60);
+    $comment = $author->getComments()->addModernComment("Verify this forecast wording.", $slide, $shape, $commentPosition, new Java("java.util.Date"));
+    $comment->setTextSelectionStart($expectedSelectionStart);
+    $comment->setTextSelectionLength(strlen($selectedText));
+    $comment->setStatus(ModernCommentStatus::Resolved);
+
+    $presentation->save($outputFile, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$reopenedPresentation = new Presentation($outputFile);
+try {
+    $reopenedSlide = $reopenedPresentation->getSlides()->get_Item(0);
+    $reopenedComments = $reopenedSlide->getSlideComments(null);
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+
+    foreach ($reopenedComments as $reopenedComment) {
+        if (!java_instanceof($reopenedComment, $modernCommentClass)) {
+            continue;
+        }
+
+        $shape = $reopenedComment->getShape();
+        $shapeMatches = !java_is_null($shape) && java_values($shape->getName()) === "Forecast text";
+        $selectionStartMatches = java_values($reopenedComment->getTextSelectionStart()) === $expectedSelectionStart;
+        $selectionLengthMatches = java_values($reopenedComment->getTextSelectionLength()) === strlen($selectedText);
+        $statusMatches = java_values($reopenedComment->getStatus()) === ModernCommentStatus::Resolved;
+
+        echo "Shape anchor preserved: " . ($shapeMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection start preserved: " . ($selectionStartMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection length preserved: " . ($selectionLengthMatches ? "true" : "false") . PHP_EOL;
+        echo "Resolved status preserved: " . ($statusMatches ? "true" : "false") . PHP_EOL;
     }
-    # Tüm yazarları siler
+} finally {
+    $reopenedPresentation->dispose();
+}
+```
+
+### **Mevcut Modern Yorumları İnceleme**
+
+Mevcut bir sunumu incelerken, her yorumun bir [ModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/) olup olmadığını kontrol edin, ardından [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) incelenir. `null` bir şekil, slayt‑seviyesi yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) bağlantısı için metin‑seçim yöntemleri, şeklin metin çerçevesindeki ilgili aralığı belirler.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("comments.pptx");
+try {
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+
+    foreach ($presentation->getSlides() as $slide) {
+        $comments = $slide->getSlideComments(null);
+        foreach ($comments as $comment) {
+            if (!java_instanceof($comment, $modernCommentClass)) {
+                continue;
+            }
+
+            echo "Slide: " . java_values($slide->getSlideNumber()) . PHP_EOL;
+            echo "Text: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Status: " . java_values($comment->getStatus()) . PHP_EOL;
+
+            $shape = $comment->getShape();
+            if (java_is_null($shape)) {
+                echo "Anchor: slide level" . PHP_EOL;
+            } else {
+                echo "Anchor shape: " . java_values($shape->getName()) . PHP_EOL;
+                echo "Anchor type: " . java_values($shape->getClass()->getSimpleName()) . PHP_EOL;
+
+                if (java_instanceof($shape, $autoShapeClass)) {
+                    echo "Text selection start: " . java_values($comment->getTextSelectionStart()) . PHP_EOL;
+                    echo "Text selection length: " . java_values($comment->getTextSelectionLength()) . PHP_EOL;
+                }
+            }
+
+            echo PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Yorumları Kaldır**
+
+### **Tüm Yorumları ve Yorum Yazarlarını Kaldır**
+
+Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını kaldırmayı gösterir:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("example.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        $author->getComments()->clear();
+    }
+
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Belirli Yorumları Sil**
+### **Belirli Yorumları Kaldır**
 
-Bu PHP kodu, bir slayttaki belirli yorumların nasıl silineceğini gösterir:
+Aşağıdaki örnek, bir slayttan belirli yorumları kaldırmayı gösterir:
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # yorumları ekle...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
-    $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
-    $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # \"comment 1\" metnini içeren tüm yorumları kaldır
-    foreach($presentation->getCommentAuthors() as $commentAuthor) {
-      $toRemove = new Java("java.util.ArrayList");
-      foreach($slide->getSlideComments($commentAuthor) as $comment) {
-        if ($comment->getText()->equals("comment 1")) {
-          $toRemove->add($comment);
+    $createdTime = new Java("java.util.Date");
+
+    $firstCommentPosition = new Point2DFloat(0.2, 0.2);
+    $secondCommentPosition = new Point2DFloat(0.3, 0.2);
+    $author->getComments()->addComment("comment 1", $slide, $firstCommentPosition, $createdTime);
+    $author->getComments()->addComment("comment 2", $slide, $secondCommentPosition, $createdTime);
+
+    foreach ($presentation->getCommentAuthors() as $commentAuthor) {
+        $commentsToRemove = new Java("java.util.ArrayList");
+        $comments = $slide->getSlideComments($commentAuthor);
+
+        foreach ($comments as $comment) {
+            if ($comment->getText()->equals("comment 1")) {
+                $commentsToRemove->add($comment);
+            }
         }
-      }
-      foreach($toRemove as $comment) {
-        $commentAuthor->getComments()->remove($comment);
-      }
+
+        foreach ($commentsToRemove as $comment) {
+            $commentAuthor->getComments()->remove($comment);
+        }
     }
+
     $presentation->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **SSS**
 
-**Aspose.Slides, modern yorumlar için 'çözülmüş' gibi bir durumu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözülmüş bir durum desteği sağlar mı?**
 
-Evet. [Modern comments](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/) sınıfı bir [setStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/setstatus/) yöntemi sunar; bir [yorumun durumunu](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncommentstatus/) (örneğin çözülmüş olarak işaretlemek) yazabilir ve bu durum dosyada kaydedilir, PowerPoint tarafından tanınır.
+Evet. [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment::setStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/setstatus/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncommentstatus/) değeri, `Resolved` dahil, erişir. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
 
-**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içe limit var mı?**
+**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içe derinlik sınırı var mı?**
 
-Evet. Her yorum, kendi [parent comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) referansını tutabilir, bu da isteğe bağlı yanıt zincirleri oluşturur. API belirli bir derinlik sınırı belirtmez.
+Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) referansı ile yanıt zincirleri oluşturabilir. API, belirli bir iç içe derinlik sınırı tanımlamaz.
 
-**Bir slayttaki yorum işaretinin konumu hangi koordinat sisteminde tanımlanır?**
+**Bir slaytta yorum işaretleyicisinin konumu hangi koordinat sistemine göre tanımlanır?**
 
-Konum, slaydın koordinat sisteminde kayan noktalı bir nokta olarak saklanır. Bu, yorum işaretini tam olarak istediğiniz yere yerleştirmenizi sağlar.
+İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu, işaretleyiciyi slayt üzerinde tam olarak konumlandırmanıza olanak tanır.

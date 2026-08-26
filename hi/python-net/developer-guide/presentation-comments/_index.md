@@ -11,235 +11,373 @@ keywords:
 - प्रस्तुति टिप्पणियाँ
 - स्लाइड टिप्पणियाँ
 - टिप्पणी जोड़ें
-- टिप्पणी पहुँचें
+- टिप्पणी तक पहुँचें
 - टिप्पणी संपादित करें
-- टिप्पणी उत्तर दें
+- टिप्पणी का उत्तर दें
 - टिप्पणी हटाएँ
-- टिप्पणी मिटाएँ
+- टिप्पणी हटाएँ
 - PowerPoint
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ प्रस्तुति टिप्पणियों को सहजता से नियंत्रित करें: PowerPoint फ़ाइलों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें और हटाएँ।"
+description: "Aspose.Slides for Python via .NET के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियों को जोड़ना, पढ़ना, संपादित करना, उत्तर देना और हटाना।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख Aspose.Slides में प्रस्तुति टिप्पणियों को प्रबंधित करने के तरीकों की व्याख्या करता है। यह मुख्य टिप्पणी‑से संबंधित प्रकारों को दिखाता है और स्लाइड्स में टिप्पणियाँ जोड़ने, मौजूदा टिप्पणियों तक पहुँचने, प्रतिक्रियाओं के साथ काम करने, आधुनिक टिप्पणियों का उपयोग करने, और प्रस्तुति से टिप्पणियों को हटाने का प्रदर्शन करता है।
+यह लेख Aspose.Slides for Python via .NET के साथ प्रस्तुति टिप्पणियों के प्रबंधन का विवरण देता है। यह मुख्य टिप्पणी‑से‑संबंधित प्रकारों का परिचय कराता है और स्लाइड्स में टिप्पणियाँ जोड़ना, मौजूदा टिप्पणियों तक पहुँच, उत्तरों और आधुनिक टिप्पणियों के साथ काम करना, तथा प्रस्तुति से टिप्पणियाँ हटाना दर्शाता है।
 
-उदाहरण सामान्य समीक्षा और सहयोग परिदृश्यों पर केंद्रित हैं, जैसे लेखकों को टिप्पणियाँ सौंपना, टिप्पणी सामग्री और मेटाडेटा पढ़ना, उत्तर शृंखलाएँ बनाना, तथा सभी टिप्पणियों को साफ़ करना या चयनित टिप्पणियों को हटाना।
+उदाहरण सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे कि लेखकों को टिप्पणियाँ नियोजित करना, टिप्पणी पाठ और मेटाडेटा पढ़ना, उत्तर शृंखलाएँ बनाना, तथा चयनित या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, टिप्पणी स्लाइड पर नोट या एनोटेशन के रूप में दिखाई देती है। जब टिप्पणी पर क्लिक किया जाता है, तो उसकी सामग्री या संदेश प्रदर्शित होते हैं।
+PowerPoint में, टिप्पणियाँ स्लाइडों पर एनोटेशन के रूप में दिखती हैं। टिप्पणी का चयन करने से उसका पाठ और संबंधित चर्चा प्रदर्शित होती है।
 
-## **प्रस्तुतियों में टिप्पणी क्यों जोड़ें?**
+## **प्रस्तुति में टिप्पणियाँ जोड़ने का कारण**
 
-आप प्रस्तुति की समीक्षा करते समय अपने सहयोगियों को प्रतिक्रिया देने या संवाद करने के लिए टिप्पणियों का उपयोग करना चाह सकते हैं।
+आप प्रस्तुति की समीक्षा के दौरान फीडबैक देने और सहयोगियों के साथ सहयोग करने के लिये टिप्पणियों का उपयोग कर सकते हैं।
 
-PowerPoint प्रस्तुतियों में टिप्पणी का उपयोग करने के लिए, Aspose.Slides for Python via .NET प्रदान करता है
+Aspose.Slides for Python via .NET टिप्पणी के साथ काम करने के लिये निम्नलिखित API प्रदान करता है:
 
-* The [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) class, जो लेखकों (from the [CommentAuthorCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentauthorcollection/) property) के संग्रह को शामिल करता है। लेखक स्लाइड्स पर टिप्पणी जोड़ते हैं। 
-* The [CommentCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentcollection/) class, जो व्यक्तिगत लेखकों के लिए टिप्पणियों के संग्रह को शामिल करता है। 
-* The [Comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/) class, जो लेखकों और उनकी टिप्पणियों की जानकारी रखता है: किसने टिप्पणी जोड़ी, टिप्पणी कब जोड़ी गई, टिप्पणी की स्थिति आदि। 
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentauthor/) class, जो व्यक्तिगत लेखकों की जानकारी रखता है: लेखक का नाम, उनके आरंभाक्षर, लेखक के नाम से जुड़ी टिप्पणियाँ आदि। 
+* वह [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास, जो प्रस्तुति के टिप्पणी लेखकों तक पहुँच प्रदान करती है।
+* वह [CommentCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentcollection/) क्लास, जो व्यक्तिगत लेखक से संबंधित टिप्पणियों को दर्शाती है।
+* वह [Comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/) क्लास, जो टिप्पणी की जानकारी देती है, जिसमें लेखक, निर्माण समय, स्थिति और पाठ शामिल हैं।
+* वह [CommentAuthor](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentauthor/) क्लास, जो एक लेखक की जानकारी देती है, जिसमें उनका नाम, आरम्भ अक्षर और संबंधित टिप्पणियाँ शामिल हैं।
 
-## **स्लाइड टिप्पणी जोड़ें**
-यह Python कोड दिखाता है कि PowerPoint प्रस्तुति में स्लाइड पर टिप्पणी कैसे जोड़ें:
+## **स्लाइड टिप्पणियाँ जोड़ें**
+
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स पर टिप्पणियाँ कैसे जोड़ें:
 
 ```python
-import aspose.slides as slides
+from datetime import datetime
+
 import aspose.pydrawing as draw
-import datetime
+import aspose.slides as slides
 
-# Presentation क्लास का एक उदाहरण बनाता है
 with slides.Presentation() as presentation:
-    # एक खाली स्लाइड जोड़ता है
-    presentation.slides.add_empty_slide(presentation.layout_slides[0])
-
-    # एक लेखक जोड़ता है
+    first_slide = presentation.slides[0]
+    second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
     author = presentation.comment_authors.add_author("Jawad", "MF")
+    position = draw.PointF(0.2, 0.2)
+    created_time = datetime.now()
 
-    # टिप्पणियों के लिए स्थिति निर्धारित करता है
-    point = draw.PointF(0.2, 0.2)
+    author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
+    author.comments.add_comment("Hello Jawad, this is the second slide comment", second_slide, position, created_time)
 
-    # स्लाइड 1 पर लेखक के लिए स्लाइड टिप्पणी जोड़ता है
-    author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
+    comments = first_slide.get_slide_comments(author)
+    if len(comments) > 0:
+        first_comment = comments[0]
+        print(first_comment.text)
 
-    # स्लाइड 2 पर लेखक के लिए स्लाइड टिप्पणी जोड़ता है
-    author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
-
-    # ISlide 1 तक पहुँच रहा है
-    slide = presentation.slides[0]
-
-    # जब null को तर्क के रूप में पास किया जाता है, तो सभी लेखकों की टिप्पणियाँ चयनित स्लाइड में लाई जाती हैं
-    comments = slide.get_slide_comments(author)
-
-    # स्लाइड 1 के लिए इंडेक्स 0 पर टिप्पणी तक पहुँचता है
-    str = comments[0].text
+        comment_text = first_comment.author.comments[0].text
+        print(comment_text)
 
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
-
-    if comments.length > 0:
-        # इंडेक्स 0 पर लेखक की टिप्पणी संग्रह चुनता है
-        commentCollection = comments[0].author.comments
-        print(commentCollection[0].text)
 ```
 
 ## **स्लाइड टिप्पणियों तक पहुँचें**
-यह Python कोड दिखाता है कि PowerPoint प्रस्तुति में स्लाइड पर मौजूदा टिप्पणी तक कैसे पहुँचें:
+
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक कैसे पहुँचें:
 
 ```python
 import aspose.slides as slides
 
-# Presentation क्लास का एक उदाहरण बनाता है
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
-            print("ISlide :" + str(comment.slide.slide_number) + 
-            " has comment: " + comment.text + 
-            " with Author: " + comment.author.name + 
-            " posted on time :" + str(comment.created_time) + "\n")
+            print("Slide: " + str(comment.slide.slide_number))
+            print("Comment: " + comment.text)
+            print("Author: " + comment.author.name)
+            print("Posted at: " + str(comment.created_time))
+            print()
 ```
 
-## **टिप्पणियों का उत्तर देना**
-किसी टिप्पणी को पैरेंट टिप्पणी कहा जाता है जो टिप्पणी या उत्तर की पदानुक्रम में शीर्ष या मूल टिप्पणी होती है। आप `parent_comment` प्रॉपर्टी (from the [Comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/) class) का उपयोग करके पैरेंट टिप्पणी सेट या प्राप्त कर सकते हैं। 
+## **टिप्पणियों का उत्तर दें**
 
-यह Python कोड दिखाता है कि टिप्पणियाँ जोड़ें और उनके उत्तर प्राप्त करें:
+एक मूल टिप्पणी वह मूल टिप्पणी है जो उत्तर श्रेणी के शीर्ष पर होती है। [Comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/) क्लास की [parent_comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/parent_comment/) प्रॉपर्टी आपको टिप्पणी के मूल टिप्पणी को प्राप्त या सेट करने की अनुमति देती है।
+
+निम्न उदाहरण दर्शाता है कि उत्तर कैसे जोड़ें और परिणामी टिप्पणी श्रेणी का निरीक्षण कैसे करें:
 
 ```python
-import aspose.slides as slides
+from datetime import datetime
+
 import aspose.pydrawing as draw
-import datetime
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # एक टिप्पणी जोड़ता है
-    author1 = pres.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    position = draw.PointF(10, 10)
+    created_time = datetime.now()
 
-    # comment1 के लिए एक उत्तर जोड़ता है
-    author2 = pres.comment_authors.add_author("Autror_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
+    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+
+    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
+    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
     reply1.parent_comment = comment1
 
-    # comment1 के लिए एक और उत्तर जोड़ता है
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
     reply2.parent_comment = comment1
 
-    # मौजूदा उत्तर के लिए एक उत्तर जोड़ता है
-    subReply = author1.comments.add_comment("subreply 3 for reply 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
-    subReply.parent_comment = reply2
+    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = reply2
 
-    comment2 = author2.comments.add_comment("comment 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
-    comment3 = author2.comments.add_comment("comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    author2.comments.add_comment("comment 2", slide, position, created_time)
+    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
     reply3.parent_comment = comment3
 
-    # कंसोल पर टिप्पणी पदानुक्रम दिखाता है
-    slide = pres.slides[0]
     comments = slide.get_slide_comments(None)
-    for i in range(comments.length):
-        comment = comments[i]
+    for current_comment in comments:
+        comment = current_comment
         while comment.parent_comment is not None:
-            print("\t")
+            print("\t", end="")
             comment = comment.parent_comment
 
-        print(comments[i].author.name + " : " + comments[i].text)
-        print("\r\n")
+        print(current_comment.author.name + ": " + current_comment.text)
 
-    pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    # comment1 और इसके सभी उत्तरों को हटाता है
     comment1.remove()
-
-    pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" title="ध्यान" %}} 
-
-* जब `remove` मेथड (from the [Comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/) class) का उपयोग करके टिप्पणी को हटाया जाता है, तो टिप्पणी के उत्तर भी हटा दिए जाते हैं। 
-* यदि `parent_comment` सेटिंग के कारण एक चक्रीय संदर्भ बनता है, तो `PptxEditException` फेंका जाएगा।
-
+{{% alert color="warning" title="चेतावनी" %}}
+* जब [Comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/) क्लास की [remove](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/remove/) विधि का उपयोग करके किसी टिप्पणी को हटाया जाता है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
+* यदि [parent_comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/parent_comment/) प्रॉपर्टी एक चक्रीय संदर्भ बनाती है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pptxeditexception/) उत्पन्न होती है।
 {{% /alert %}}
 
-## **आधुनिक टिप्पणी जोड़ें**
+## **आधुनिक टिप्पणियाँ जोड़ें**
 
-2021 में, Microsoft ने PowerPoint में *आधुनिक टिप्पणियों* का परिचय कराया। आधुनिक टिप्पणी सुविधा PowerPoint में सहयोग को काफी बेहतर बनाती है। आधुनिक टिप्पणियों के ज़रिए PowerPoint उपयोगकर्ता आसानी से टिप्पणियों को हल कर सकते हैं, टिप्पणियों को ऑब्जेक्ट और टेक्स्ट से जोड़ सकते हैं, और बातचीत को अधिक सहजता से कर सकते हैं। 
+आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशेष आकार, या AutoShape के भीतर किसी पाठ श्रेणी से जोड़ा जा सकता है। [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentcollection/add_modern_comment/) विधि स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अलावा एक [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) तर्क को भी स्वीकार करती है।
 
-हमने आधुनिक टिप्पणियों के समर्थन को लागू करने के लिए [ModernComment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/) क्लास जोड़ा है। `add_modern_comment` और `insert_modern_comment` मेथड्स को [CommentCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/commentcollection/) क्लास में जोड़ा गया है। 
+जब `None` को आकार तर्क के लिए पास किया जाता है, तो टिप्पणी एक स्लाइड‑स्तरीय टिप्पणी होती है। इसका मार्कर प्रदान किए गए निर्देशांक द्वारा स्थित किया जाता है, लेकिन यह किसी विशिष्ट आकार से जुड़ा नहीं होता, इसलिए [ModernComment.shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/shape/) `None` लौटाता है। जब कोई [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) दिया जाता है, तो टिप्पणी उस आकार से जुड़ी होती है। निर्देशांक अभी भी स्लाइड पर टिप्पणी‑मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार‑संबंध को [ModernComment.shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/shape/) के माध्यम से प्राप्त किया जा सकता है।
 
-यह Python कोड दिखाता है कि PowerPoint प्रस्तुति में स्लाइड पर आधुनिक टिप्पणी कैसे जोड़ें:
+### **आधुनिक टिप्पणी को आकार से जोड़ें**
+
+निम्न उदाहरण एक स्लाइड‑स्तरीय आधुनिक टिप्पणी और एक विशिष्ट AutoShape से जुड़ी आधुनिक टिप्पणी बनाता है। फिर प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
 
 ```python
+from datetime import datetime
+
 import aspose.pydrawing as draw
 import aspose.slides as slides
-from datetime import date
 
-with slides.Presentation() as pres:
-    newAuthor = pres.comment_authors.add_author("Some Author", "SA")
-    modernComment = newAuthor.comments.add_modern_comment("This is a modern comment", pres.slides[0], None, draw.PointF(100, 100), date.today())
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
+    shape.name = "Revenue title"
+    shape.text_frame.text = "Quarterly revenue"
 
-    pres.save("example.pptx", slides.export.SaveFormat.PPTX)
+    created_time = datetime.now()
+    slide_comment_position = draw.PointF(20, 20)
+    shape_comment_position = draw.PointF(60, 60)
+    slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
+    shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
+
+    print(slide_comment.shape is None)
+    print(shape_comment.shape.name)
+
+    presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **टिप्पणी हटाएँ**
+### **विभिन्न आकार प्रकारों से टिप्पणियाँ जोड़ें**
 
-### **सभी टिप्पणियों और लेखकों को हटाएँ**
+[Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) से व्युत्पन्न कोई भी स्लाइड वस्तु आकार एंकर के रूप में उपयोग की जा सकती है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/python-net/aspose.slides/connector/), और चार्ट जैसे [GraphicalObject](https://reference.aspose.com/slides/hi/python-net/aspose.slides/graphicalobject/) के उदाहरण शामिल हैं।
 
-यह Python कोड दिखाता है कि प्रस्तुति में सभी टिप्पणियों और लेखकों को कैसे हटाएँ:
+निम्न उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी जोड़ता है।
+
+```python
+import base64
+from datetime import datetime
+
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    created_time = datetime.now()
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
+    auto_shape.text_frame.text = "AutoShape"
+    auto_shape_comment_position = draw.PointF(30, 30)
+    author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
+
+    image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
+    image_data = base64.b64decode(image_base64)
+    image = presentation.images.add_image(image_data)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
+    picture_comment_position = draw.PointF(230, 30)
+    author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
+
+    group_shape = slide.shapes.add_group_shape()
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
+    group_comment_position = draw.PointF(40, 150)
+    author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
+
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
+    connector_comment_position = draw.PointF(240, 150)
+    author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
+
+    chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
+    chart_comment_position = draw.PointF(420, 40)
+    author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
+
+    presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **टिप्पणी को पाठ से जोड़ें और उसकी स्थिति निर्धारित करें**
+
+एक AutoShape से जुड़ी आधुनिक टिप्पणी के लिये, [ModernComment.text_selection_start](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/text_selection_start/) आकार के पाठ फ़्रेम में चयनित पाठ की प्रारम्भिक स्थिति निर्दिष्ट करता है, जबकि [ModernComment.text_selection_length](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/text_selection_length/) चयन की लंबाई निर्दिष्ट करता है। ये दोनों प्रॉपर्टी टिप्पणी को AutoShape के भीतर विशिष्ट पाठ श्रेणी से जोड़ती हैं।
+
+[ModernComment.status](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/status/) प्रॉपर्टी को [ModernCommentStatus](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncommentstatus/) enumeration के मान से पढ़ा या अपडेट किया जा सकता है:
+
+- `NOT_DEFINED` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति निर्धारित नहीं है।
+- `ACTIVE` — टिप्पणी सक्रिय है।
+- `RESOLVED` — टिप्पणी हल हो गई है।
+- `CLOSED` — टिप्पणी बंद है।
+
+निम्न उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे पाठ चयन से जोड़ता है, उसे हल के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल को पुनः खोलने के बाद मानों की पुष्टि करता है।
+
+```python
+from datetime import datetime
+
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+output_file = "modern_comment_text_anchor.pptx"
+shape_text = "Review the quarterly revenue forecast."
+selected_text = "quarterly revenue"
+expected_selection_start = shape_text.index(selected_text)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
+    shape.name = "Forecast text"
+    shape.text_frame.text = shape_text
+
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    comment_position = draw.PointF(60, 60)
+    comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
+    comment.text_selection_start = expected_selection_start
+    comment.text_selection_length = len(selected_text)
+    comment.status = slides.ModernCommentStatus.RESOLVED
+
+    presentation.save(output_file, slides.export.SaveFormat.PPTX)
+
+with slides.Presentation(output_file) as reopened_presentation:
+    reopened_slide = reopened_presentation.slides[0]
+    reopened_comments = reopened_slide.get_slide_comments(None)
+
+    for reopened_comment in reopened_comments:
+        if not isinstance(reopened_comment, slides.ModernComment):
+            continue
+
+        shape_matches = reopened_comment.shape.name == "Forecast text"
+        selection_start_matches = reopened_comment.text_selection_start == expected_selection_start
+        selection_length_matches = reopened_comment.text_selection_length == len(selected_text)
+        status_matches = reopened_comment.status == slides.ModernCommentStatus.RESOLVED
+
+        print("Shape anchor preserved: " + str(shape_matches))
+        print("Text selection start preserved: " + str(selection_start_matches))
+        print("Text selection length preserved: " + str(selection_length_matches))
+        print("Resolved status preserved: " + str(status_matches))
+```
+
+### **मौजूदा आधुनिक टिप्पणियों का निरीक्षण करें**
+
+किसी मौजूदा प्रस्तुति का निरीक्षण करने के लिये, देखें कि कौन सी टिप्पणियाँ [ModernComment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/) उदाहरण हैं, फिर [ModernComment.shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/text_selection_length/), और [ModernComment.status](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/status/) की जाँच करें। `None` आकार का अर्थ है स्लाइड‑स्तरीय टिप्पणी। किसी [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) एंकर के लिये, पाठ‑चयन प्रॉपर्टी आकार के पाठ फ़्रेम में सम्बंधित श्रेणी को पहचानती है।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("comments.pptx") as presentation:
+    for slide in presentation.slides:
+        comments = slide.get_slide_comments(None)
+        for comment in comments:
+            if not isinstance(comment, slides.ModernComment):
+                continue
+
+            print("Slide: " + str(slide.slide_number))
+            print("Text: " + comment.text)
+            print("Status: " + str(comment.status))
+
+            shape = comment.shape
+            if shape is None:
+                print("Anchor: slide level")
+            else:
+                print("Anchor shape: " + shape.name)
+                print("Anchor type: " + type(shape).__name__)
+
+                if isinstance(shape, slides.AutoShape):
+                    print("Text selection start: " + str(comment.text_selection_start))
+                    print("Text selection length: " + str(comment.text_selection_length))
+
+            print()
+```
+
+## **टिप्पणियाँ हटाएँ**
+
+### **सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाएँ**
+
+निम्न उदाहरण दर्शाता है कि प्रस्तुति से सभी टिप्पणियाँ और टिप्पणी लेखकों को कैसे हटाएँ:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("example.pptx") as presentation:
-    # प्रस्तुति से सभी टिप्पणियों को हटाता है
     for author in presentation.comment_authors:
         author.comments.clear()
 
-    # सभी लेखकों को हटाता है
     presentation.comment_authors.clear()
-
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **विशिष्ट टिप्पणियों को हटाएँ**
+### **विशिष्ट टिप्पणियाँ हटाएँ**
 
-यह Python कोड दिखाता है कि स्लाइड पर विशिष्ट टिप्पणियों को कैसे हटाएँ:
+निम्न उदाहरण दर्शाता है कि स्लाइड से विशिष्ट टिप्पणियाँ कैसे हटाएँ:
 
 ```python
+from datetime import datetime
+
 import aspose.pydrawing as draw
 import aspose.slides as slides
-from datetime import date
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
-    # टिप्पणियाँ जोड़ें...
     author = presentation.comment_authors.add_author("Author", "A")
-    author.comments.add_comment("comment 1", slide, draw.PointF(0.2, 0.2), date.today())
-    author.comments.add_comment("comment 2", slide, draw.PointF(0.3, 0.2), date.today())
-    
-    # सभी टिप्पणियों को हटाएँ जिनमें "comment 1" पाठ हो
-    for commentAuthor in presentation.comment_authors:
-        toRemove = []
-        for comment in slide.get_slide_comments(commentAuthor):
+    created_time = datetime.now()
+
+    first_comment_position = draw.PointF(0.2, 0.2)
+    second_comment_position = draw.PointF(0.3, 0.2)
+    author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
+    author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
+
+    for comment_author in presentation.comment_authors:
+        comments_to_remove = []
+        comments = slide.get_slide_comments(comment_author)
+
+        for comment in comments:
             if comment.text == "comment 1":
-                toRemove.append(comment)
-        
-        for comment in toRemove:
-            commentAuthor.comments.remove(comment)
-    
+                comments_to_remove.append(comment)
+
+        for comment in comments_to_remove:
+            comment_author.comments.remove(comment)
+
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए 'resolved' जैसी स्थिति को सपोर्ट करता है?**
+**क्या Aspose.Slides आधुनिक टिप्पणियों के लिये हल की स्थिति का समर्थन करता है?**
 
-हां। [Modern comments](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/) में एक [status](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/status/) प्रॉपर्टी उपलब्ध है; आप एक [comment’s state](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncommentstatus/) (उदाहरण के लिए, इसे resolved के रूप में चिह्नित) पढ़ और सेट कर सकते हैं, और यह स्थिति फ़ाइल में सहेजी जाती है तथा PowerPoint द्वारा पहचानी जाती है।
+हां। [ModernComment.status](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/status/) को [ModernCommentStatus](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncommentstatus/) मान, जिसमें `RESOLVED` भी शामिल है, से पढ़ा और सेट किया जा सकता है। स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल को पुनः खोलने के बाद पुनः पढ़ी जा सकती है।
 
-**क्या थ्रेडेड चर्चा (उत्तर शृंखलाएँ) समर्थित हैं, और क्या इसमें नेस्टिंग सीमा है?**
+**क्या थ्रेडेड चर्चाएँ (उत्तर शृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
 
-हां। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/moderncomment/parent_comment/) को संदर्भित कर सकती है, जिससे 任意 उत्तर शृंखलाएँ संभव होती हैं। API कोई विशिष्ट नेस्टिंग गहराई सीमा निर्धारित नहीं करता।
+हां। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/comment/parent_comment/) को संदर्भित कर सकती है, जिससे उत्तर शृंखलाएँ बनती हैं। API कोई विशिष्ट नेस्टिंग‑गहराई सीमा परिभाषित नहीं करता।
 
-**स्लाइड पर टिप्पणी मार्कर की स्थिति किस निर्देशांक प्रणाली में निर्धारित की गई है?**
+**किस निर्देशांक प्रणाली में स्लाइड पर टिप्पणी‑मार्कर की स्थिति निर्धारित की जाती है?**
 
-स्थिति स्लाइड की निर्देशांक प्रणाली में एक फ्लोटिंग‑पॉइंट बिंदु के रूप में संग्रहीत होती है। यह आपको टिप्पणी मार्कर को ठीक वहीँ रखने की सुविधा देता है जहाँ आपको आवश्यकता है।
+मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांक द्वारा परिभाषित होती है, जिससे आप इसे स्लाइड पर सटीक रूप से स्थित कर सकते हैं।

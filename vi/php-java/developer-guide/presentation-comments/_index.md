@@ -1,248 +1,450 @@
 ---
-title: Quản lý bình luận trong bài thuyết trình bằng PHP
-linktitle: Bình luận bài thuyết trình
+title: Quản lý nhận xét bài thuyết trình trong PHP
+linktitle: Nhận xét bài thuyết trình
 type: docs
 weight: 100
 url: /vi/php-java/presentation-comments/
 keywords:
-- bình luận
-- bình luận hiện đại
-- bình luận PowerPoint
-- bình luận bài thuyết trình
-- bình luận slide
-- thêm bình luận
-- truy cập bình luận
-- chỉnh sửa bình luận
-- phản hồi bình luận
-- xóa bình luận
-- xoá bình luận
+- nhận xét
+- nhận xét hiện đại
+- nhận xét PowerPoint
+- nhận xét bài thuyết trình
+- nhận xét slide
+- thêm nhận xét
+- truy cập nhận xét
+- chỉnh sửa nhận xét
+- trả lời nhận xét
+- xóa nhận xét
+- xoá nhận xét
 - PowerPoint
-- OpenDocument
 - bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Thành thạo việc quản lý bình luận trong bài thuyết trình với Aspose.Slides cho PHP qua Java: thêm, đọc, chỉnh sửa và xoá bình luận trong file PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý nhận xét bài thuyết trình bằng Aspose.Slides cho PHP thông qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong bản trình bày PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý bình luận trong bài thuyết trình bằng Aspose.Slides. Nó hiển thị các kiểu liên quan đến bình luận chính và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với phản hồi, sử dụng bình luận hiện đại, và xóa bình luận khỏi một bài thuyết trình.
+Bài viết này giải thích cách quản lý nhận xét trong bài thuyết trình bằng Aspose.Slides cho PHP thông qua Java. Nó giới thiệu các kiểu liên quan đến nhận xét chính và trình bày cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với trả lời và nhận xét hiện đại, và xóa nhận xét khỏi một bài thuyết trình.
 
-Các ví dụ tập trung vào các kịch bản xem xét và cộng tác thông thường trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi phản hồi, và xóa toàn bộ bình luận hoặc xóa các bình luận đã chọn.
+Các ví dụ bao gồm các kịch bản xem xét và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xóa các nhận xét đã chọn hoặc tất cả các nhận xét.
 
-Trong PowerPoint, bình luận xuất hiện như một ghi chú hoặc chú thích trên slide. Khi một bình luận được nhấp, nội dung hoặc tin nhắn của nó sẽ được hiển thị.
+Trong PowerPoint, nhận xét xuất hiện dưới dạng chú thích trên các slide. Khi chọn một nhận xét, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao nên thêm bình luận vào bài thuyết trình?**
+## **Tại sao cần thêm nhận xét vào bài thuyết trình?**
 
-Bạn có thể muốn sử dụng bình luận để cung cấp phản hồi hoặc giao tiếp với đồng nghiệp khi bạn xem xét các bài thuyết trình.
+Bạn có thể sử dụng nhận xét để đưa ra phản hồi và cộng tác với đồng nghiệp khi xem xét bài thuyết trình.
 
-Để cho phép bạn sử dụng bình luận trong các bài thuyết trình PowerPoint, Aspose.Slides for PHP via Java cung cấp
+Aspose.Slides cho PHP thông qua Java cung cấp các API sau để làm việc với nhận xét:
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) chứa các bộ sưu tập của các tác giả (từ lớp [CommentAuthorCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentauthorcollection/)). Các tác giả thêm bình luận vào các slide.
-* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/) chứa bộ sưu tập các bình luận cho từng tác giả.
-* Lớp [Comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/) chứa thông tin về các tác giả và bình luận của họ: ai đã thêm bình luận, thời gian bình luận được thêm, vị trí của bình luận, v.v.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentauthor/) chứa thông tin về từng tác giả: tên tác giả, chữ viết tắt của họ, các bình luận liên quan tới tên tác giả, v.v.
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bài thuyết trình.
+* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/) đại diện cho các nhận xét được liên kết với một tác giả cụ thể.
+* Lớp [Comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các nhận xét liên quan.
 
-## **Thêm bình luận vào slide**
+## **Thêm nhận xét vào slide**
 
-Đoạn mã PHP này cho bạn thấy cách thêm một bình luận vào slide trong một bản trình chiếu PowerPoint:
+Ví dụ sau cho thấy cách thêm nhận xét vào các slide trong một bản trình bày PowerPoint:
 
 ```php
-  # Khởi tạo lớp Presentation
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Thêm một slide trống
-    $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    # Thêm một tác giả
-    $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    # Đặt vị trí cho các bình luận
-    $point = new Point2DFloat(0.2, 0.2);
-    # Thêm bình luận slide cho tác giả trên slide 1
-    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    # Thêm bình luận slide cho tác giả trên slide 2
-    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
-    # Truy cập ISlide 1
-    $slide = $pres->getSlides()->get_Item(0);
-    # Khi truyền null làm đối số, các bình luận từ tất cả tác giả sẽ được đưa lên slide đã chọn
-    $Comments = $slide->getSlideComments($author);
-    # Truy cập bình luận tại chỉ mục 0 cho slide 1
-    $str = $Comments[0]->getText();
-    $pres->save("Comments_out.pptx", SaveFormat::Pptx);
-    if (java_values($Array->getLength($Comments)) > 0) {
-      # Chọn bộ sưu tập bình luận của Tác giả tại chỉ mục 0
-      $commentCollection = $Comments[0]->getAuthor()->getComments();
-      $Comment = $commentCollection->get_Item(0)->getText();
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+    $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
+    $position = new Point2DFloat(0.2, 0.2);
+    $createdTime = new Java("java.util.Date");
+
+    $author->getComments()->addComment("Hello Jawad, this is a slide comment", $firstSlide, $position, $createdTime);
+    $author->getComments()->addComment("Hello Jawad, this is the second slide comment", $secondSlide, $position, $createdTime);
+
+    $comments = $firstSlide->getSlideComments($author);
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    if ($commentCount > 0) {
+        $firstComment = $comments[0];
+        echo java_values($firstComment->getText()) . PHP_EOL;
+
+        $authorComments = $firstComment->getAuthor()->getComments();
+        $commentText = $authorComments->get_Item(0)->getText();
+        echo java_values($commentText) . PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Comments_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Truy cập bình luận của slide**
+## **Truy cập nhận xét slide**
 
-Đoạn mã PHP này cho bạn thấy cách truy cập một bình luận hiện có trên slide trong một bản trình chiếu PowerPoint:
+Ví dụ sau cho thấy cách truy cập các nhận xét hiện có trong một bản trình bày PowerPoint:
 
 ```php
-  # Khởi tạo lớp Presentation
-  $pres = new Presentation("Comments1.pptx");
-  try {
-    foreach($pres->getCommentAuthors() as $commentAuthor) {
-      $author = $commentAuthor;
-      foreach($author->getComments() as $comment1) {
-        $comment = $comment1;
-        echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Comments1.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        foreach ($author->getComments() as $comment) {
+            echo "Slide: " . java_values($comment->getSlide()->getSlideNumber()) . PHP_EOL;
+            echo "Comment: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Author: " . java_values($comment->getAuthor()->getName()) . PHP_EOL;
+            echo "Posted at: " . java_values($comment->getCreatedTime()->toString()) . PHP_EOL;
+            echo PHP_EOL;
+        }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Phản hồi bình luận**
+## **Trả lời nhận xét**
 
-Một bình luận gốc là bình luận đầu tiên hoặc gốc trong một cấp độ của các bình luận hoặc phản hồi. Sử dụng các phương pháp [getParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/) hoặc [setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) (từ lớp [Comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/)), bạn có thể thiết lập hoặc lấy một bình luận gốc.
+Một nhận xét cha là nhận xét gốc ở đầu một cây phân cấp trả lời. Các phương thức [Comment::getParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/) và [Comment::setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) cho phép bạn lấy hoặc đặt cha của một nhận xét.
 
-Đoạn mã PHP này cho bạn thấy cách thêm bình luận và nhận phản hồi cho chúng:
+Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc nhận xét kết quả:
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Thêm một bình luận
-    $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
-    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    # Thêm một phản hồi cho comment1
-    $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
-    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $position = new Point2DFloat(10, 10);
+    $createdTime = new Java("java.util.Date");
+
+    $author1 = $presentation->getCommentAuthors()->addAuthor("Author_1", "A.A.");
+    $comment1 = $author1->getComments()->addComment("comment 1", $slide, $position, $createdTime);
+
+    $author2 = $presentation->getCommentAuthors()->addAuthor("Author_2", "B.B.");
+    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $slide, $position, $createdTime);
     $reply1->setParentComment($comment1);
-    # Thêm một phản hồi khác cho comment1
-    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $slide, $position, $createdTime);
     $reply2->setParentComment($comment1);
-    # Thêm một phản hồi cho phản hồi đã tồn tại
-    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $slide, $position, $createdTime);
     $subReply->setParentComment($reply2);
-    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $author2->getComments()->addComment("comment 2", $slide, $position, $createdTime);
+    $comment3 = $author2->getComments()->addComment("comment 3", $slide, $position, $createdTime);
+
+    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $slide, $position, $createdTime);
     $reply3->setParentComment($comment3);
-    # Hiển thị cấu trúc cây bình luận trên console
-    $slide = $pres->getSlides()->get_Item(0);
+
     $comments = $slide->getSlideComments(null);
-    for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
-      $comment = $comments[$i];
-      while (!java_is_null($comment->getParentComment())) {
-        System->out->print("\t");
-        $comment = $comment->getParentComment();
-      } 
-      echo($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
-      echo();
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    for ($i = 0; $i < $commentCount; $i++) {
+        $comment = $comments[$i];
+        while (!java_is_null($comment->getParentComment())) {
+            echo "\t";
+            $comment = $comment->getParentComment();
+        }
+
+        echo java_values($comments[$i]->getAuthor()->getName()) . ": " . java_values($comments[$i]->getText()) . PHP_EOL;
     }
-    $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # Xóa comment1 và tất cả các phản hồi của nó
+
+    $presentation->save("parent_comment.pptx", SaveFormat::Pptx);
+
     $comment1->remove();
-    $pres->save("remove_comment.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $presentation->save("remove_comment.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Khi phương pháp [remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/remove/) (từ lớp [Comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/)) được sử dụng để xóa một bình luận, các phản hồi của bình luận cũng sẽ bị xóa.
-* Nếu cài đặt [setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/) sẽ được ném.
+{{% alert color="warning" title="Warning" %}}
+* Khi phương thức [Comment::remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/remove/) được sử dụng để xóa một nhận xét, tất cả các trả lời cho nhận xét đó cũng sẽ bị xóa.
+* Nếu [Comment::setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/) sẽ được ném.
 {{% /alert %}}
 
-## **Thêm bình luận hiện đại**
+## **Thêm nhận xét hiện đại**
 
-Vào năm 2021, Microsoft đã giới thiệu *bình luận hiện đại* trong PowerPoint. Tính năng bình luận hiện đại cải thiện đáng kể việc cộng tác trong PowerPoint. Thông qua bình luận hiện đại, người dùng PowerPoint có thể giải quyết bình luận, gắn bình luận vào các đối tượng và văn bản, và tương tác một cách dễ dàng hơn rất nhiều so với trước đây. 
+Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản trong AutoShape. Phương thức [CommentCollection::addModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/addmoderncomment/) nhận một đối số [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) bổ sung cho slide và tọa độ dấu nhận xét.
 
-Aspose Slides hỗ trợ bình luận hiện đại bằng lớp [ModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/). Các phương pháp [addModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/addmoderncomment/) và [insertModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/insertmoderncomment/) đã được thêm vào lớp [CommentCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/). 
+Khi `null` được truyền cho đối số shape, nhận xét sẽ là nhận xét cấp slide. Dấu nhận xét được định vị bằng các tọa độ đã cung cấp, nhưng nó không được gắn với một shape cụ thể, vì vậy [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/) trả về `null`. Khi một [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) được cung cấp, nhận xét sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi mối liên kết shape có thể được lấy thông qua [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/).
 
-Đoạn mã PHP này cho bạn thấy cách thêm một bình luận hiện đại vào slide trong một bản trình chiếu PowerPoint:
+### **Định vị một nhận xét hiện đại vào hình dạng**
+
+Ví dụ sau tạo cả một nhận xét hiện đại cấp slide và một nhận xét hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên kết từ mỗi nhận xét.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $newAuthor = $pres->getCommentAuthors()->addAuthor("Some Author", "SA");
-    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2DFloat(100, 100), new Java("java.util.Date"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
+    $shape->setName("Revenue title");
+    $shape->getTextFrame()->setText("Quarterly revenue");
+
+    $createdTime = new Java("java.util.Date");
+    $slideCommentPosition = new Point2DFloat(20, 20);
+    $shapeCommentPosition = new Point2DFloat(60, 60);
+    $slideComment = $author->getComments()->addModernComment("Review the overall slide layout.", $slide, null, $slideCommentPosition, $createdTime);
+    $shapeComment = $author->getComments()->addModernComment("Check this title.", $slide, $shape, $shapeCommentPosition, $createdTime);
+
+    echo (java_is_null($slideComment->getShape()) ? "true" : "false") . PHP_EOL;
+    echo java_values($shapeComment->getShape()->getName()) . PHP_EOL;
+
+    $presentation->save("modern_comments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Xóa bình luận**
+### **Định vị nhận xét vào các loại hình dạng khác nhau**
 
-### **Xóa toàn bộ bình luận và tác giả**
+Bất kỳ đối tượng slide nào được đại diện bởi lớp [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) đều có thể được dùng làm neo cho shape. Các ví dụ thường gặp bao gồm [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/php-java/aspose.slides/connector/), và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/graphicalobject/) như biểu đồ.
 
-Đoạn mã PHP này cho bạn thấy cách xóa tất cả bình luận và tác giả trong một bản trình chiếu:
+Ví dụ sau tạo một vài loại shape phổ biến và gắn một nhận xét hiện đại vào mỗi shape.
 
 ```php
-  $presentation = new Presentation("example.pptx");
-  try {
-    # Xóa tất cả bình luận khỏi bài thuyết trình
-    foreach($presentation->getCommentAuthors() as $author) {
-      $author->getComments()->clear();
+use aspose\slides\ChartType;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $createdTime = new Java("java.util.Date");
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
+    $autoShape->getTextFrame()->setText("AutoShape");
+    $autoShapeCommentPosition = new Point2DFloat(30, 30);
+    $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
+
+    $imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    $base64Class = new JavaClass("java.util.Base64");
+    $imageData = $base64Class->getDecoder()->decode($imageBase64);
+    $image = $presentation->getImages()->addImage($imageData);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 220, 20, 120, 80, $image);
+    $pictureCommentPosition = new Point2DFloat(230, 30);
+    $author->getComments()->addModernComment("Comment on a picture.", $slide, $pictureFrame, $pictureCommentPosition, $createdTime);
+
+    $groupShape = $slide->getShapes()->addGroupShape();
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 80, 40);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Ellipse, 100, 0, 80, 40);
+    $groupCommentPosition = new Point2DFloat(40, 150);
+    $author->getComments()->addModernComment("Comment on a group.", $slide, $groupShape, $groupCommentPosition, $createdTime);
+
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 220, 150, 140, 40);
+    $connectorCommentPosition = new Point2DFloat(240, 150);
+    $author->getComments()->addModernComment("Comment on a connector.", $slide, $connector, $connectorCommentPosition, $createdTime);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 400, 20, 250, 180);
+    $chartCommentPosition = new Point2DFloat(420, 40);
+    $author->getComments()->addModernComment("Comment on a graphical object.", $slide, $chart, $chartCommentPosition, $createdTime);
+
+    $presentation->save("modern_comment_shape_types.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Định vị nhận xét vào văn bản và đặt trạng thái**
+
+Đối với một nhận xét hiện đại được liên kết với một [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), các phương thức [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionstart/) và [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/settextselectionstart/) truy cập vị trí bắt đầu của đoạn văn bản đã chọn trong khung văn bản của shape. Các phương thức [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/settextselectionlength/) truy cập độ dài của đoạn chọn. Cùng nhau, các giá trị này liên kết nhận xét với một đoạn văn bản cụ thể trong AutoShape.
+
+Các phương thức [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/) và [ModernComment::setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — không được xác định — không có trạng thái nhận xét hiện đại cụ thể nào được định nghĩa.
+- `Active` — đang hoạt động — nhận xét đang hoạt động.
+- `Resolved` — đã giải quyết — nhận xét đã được giải quyết.
+- `Closed` — đã đóng — nhận xét đã đóng.
+
+Ví dụ sau tạo một nhận xét hiện đại neo vào shape, liên kết nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bài thuyết trình và xác minh các giá trị sau khi mở lại tệp.
+
+```php
+use aspose\slides\ModernCommentStatus;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$outputFile = "modern_comment_text_anchor.pptx";
+$shapeText = "Review the quarterly revenue forecast.";
+$selectedText = "quarterly revenue";
+$expectedSelectionStart = strpos($shapeText, $selectedText);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->setName("Forecast text");
+    $shape->getTextFrame()->setText($shapeText);
+
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $commentPosition = new Point2DFloat(60, 60);
+    $comment = $author->getComments()->addModernComment("Verify this forecast wording.", $slide, $shape, $commentPosition, new Java("java.util.Date"));
+    $comment->setTextSelectionStart($expectedSelectionStart);
+    $comment->setTextSelectionLength(strlen($selectedText));
+    $comment->setStatus(ModernCommentStatus::Resolved);
+
+    $presentation->save($outputFile, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$reopenedPresentation = new Presentation($outputFile);
+try {
+    $reopenedSlide = $reopenedPresentation->getSlides()->get_Item(0);
+    $reopenedComments = $reopenedSlide->getSlideComments(null);
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+
+    foreach ($reopenedComments as $reopenedComment) {
+        if (!java_instanceof($reopenedComment, $modernCommentClass)) {
+            continue;
+        }
+
+        $shape = $reopenedComment->getShape();
+        $shapeMatches = !java_is_null($shape) && java_values($shape->getName()) === "Forecast text";
+        $selectionStartMatches = java_values($reopenedComment->getTextSelectionStart()) === $expectedSelectionStart;
+        $selectionLengthMatches = java_values($reopenedComment->getTextSelectionLength()) === strlen($selectedText);
+        $statusMatches = java_values($reopenedComment->getStatus()) === ModernCommentStatus::Resolved;
+
+        echo "Shape anchor preserved: " . ($shapeMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection start preserved: " . ($selectionStartMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection length preserved: " . ($selectionLengthMatches ? "true" : "false") . PHP_EOL;
+        echo "Resolved status preserved: " . ($statusMatches ? "true" : "false") . PHP_EOL;
     }
-    # Xóa tất cả tác giả
+} finally {
+    $reopenedPresentation->dispose();
+}
+```
+
+### **Kiểm tra nhận xét hiện đại hiện có**
+
+Để kiểm tra một bài thuyết trình hiện có, kiểm tra mỗi nhận xét có phải là [ModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/) không, sau đó xem xét [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionlength/), và [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/). Một shape `null` cho biết đây là nhận xét cấp slide. Đối với neo vào [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), các phương thức lựa chọn văn bản xác định phạm vi liên kết trong khung văn bản của shape.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("comments.pptx");
+try {
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+
+    foreach ($presentation->getSlides() as $slide) {
+        $comments = $slide->getSlideComments(null);
+        foreach ($comments as $comment) {
+            if (!java_instanceof($comment, $modernCommentClass)) {
+                continue;
+            }
+
+            echo "Slide: " . java_values($slide->getSlideNumber()) . PHP_EOL;
+            echo "Text: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Status: " . java_values($comment->getStatus()) . PHP_EOL;
+
+            $shape = $comment->getShape();
+            if (java_is_null($shape)) {
+                echo "Anchor: slide level" . PHP_EOL;
+            } else {
+                echo "Anchor shape: " . java_values($shape->getName()) . PHP_EOL;
+                echo "Anchor type: " . java_values($shape->getClass()->getSimpleName()) . PHP_EOL;
+
+                if (java_instanceof($shape, $autoShapeClass)) {
+                    echo "Text selection start: " . java_values($comment->getTextSelectionStart()) . PHP_EOL;
+                    echo "Text selection length: " . java_values($comment->getTextSelectionLength()) . PHP_EOL;
+                }
+            }
+
+            echo PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Xóa nhận xét**
+
+### **Xóa tất cả nhận xét và tác giả nhận xét**
+
+Ví dụ sau cho thấy cách xóa tất cả nhận xét và tác giả nhận xét khỏi một bài thuyết trình:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("example.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        $author->getComments()->clear();
+    }
+
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Xóa bình luận cụ thể**
+### **Xóa các nhận xét cụ thể**
 
-Đoạn mã PHP này cho bạn thấy cách xóa các bình luận cụ thể trên một slide:
+Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # thêm bình luận...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
-    $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
-    $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # xóa tất cả bình luận chứa văn bản "comment 1"
-    foreach($presentation->getCommentAuthors() as $commentAuthor) {
-      $toRemove = new Java("java.util.ArrayList");
-      foreach($slide->getSlideComments($commentAuthor) as $comment) {
-        if ($comment->getText()->equals("comment 1")) {
-          $toRemove->add($comment);
+    $createdTime = new Java("java.util.Date");
+
+    $firstCommentPosition = new Point2DFloat(0.2, 0.2);
+    $secondCommentPosition = new Point2DFloat(0.3, 0.2);
+    $author->getComments()->addComment("comment 1", $slide, $firstCommentPosition, $createdTime);
+    $author->getComments()->addComment("comment 2", $slide, $secondCommentPosition, $createdTime);
+
+    foreach ($presentation->getCommentAuthors() as $commentAuthor) {
+        $commentsToRemove = new Java("java.util.ArrayList");
+        $comments = $slide->getSlideComments($commentAuthor);
+
+        foreach ($comments as $comment) {
+            if ($comment->getText()->equals("comment 1")) {
+                $commentsToRemove->add($comment);
+            }
         }
-      }
-      foreach($toRemove as $comment) {
-        $commentAuthor->getComments()->remove($comment);
-      }
+
+        foreach ($commentsToRemove as $comment) {
+            $commentAuthor->getComments()->remove($comment);
+        }
     }
+
     $presentation->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Aspose.Slides có hỗ trợ trạng thái như 'đã giải quyết' cho bình luận hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
 
-Có. [Bình luận hiện đại](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/) cung cấp phương pháp [setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/); bạn có thể ghi lại [trạng thái của bình luận](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/) (ví dụ, đánh dấu là đã giải quyết), và trạng thái này được lưu trong tệp và được PowerPoint nhận dạng.
+Có. Các phương thức [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/) và [ModernComment::setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bài thuyết trình và có thể được đọc lại sau khi tệp được mở lại.
 
-**Các cuộc thảo luận dạng chuỗi (chuỗi phản hồi) có được hỗ trợ không, và có giới hạn độ sâu không?**
+**Liệu các cuộc thảo luận dạng chuỗi (chuỗi trả lời) có được hỗ trợ và có giới hạn độ lồng nhau không?**
 
-Có. Mỗi bình luận có thể tham chiếu đến [bình luận gốc](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi phản hồi tùy ý. API không quy định giới hạn độ sâu cụ thể.
+Có. Mỗi nhận xét có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi trả lời. API không xác định một giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của dấu đánh dấu bình luận trên slide được định nghĩa trong hệ tọa độ nào?**
+**Vị trí của dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
 
-Vị trí được lưu dưới dạng điểm số thực trong hệ tọa độ của slide. Điều này cho phép bạn đặt dấu đánh dấu bình luận chính xác ở vị trí mong muốn.
+Vị trí dấu nhận xét được định nghĩa bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

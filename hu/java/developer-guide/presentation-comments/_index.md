@@ -1,269 +1,484 @@
 ---
-title: Prezentáció megjegyzések kezelése Java-ban
-linktitle: Prezentációs megjegyzések
+title: "Prezentációs megjegyzések kezelése Java-ban"
+linktitle: "Prezentációs megjegyzések"
 type: docs
 weight: 100
 url: /hu/java/presentation-comments/
 keywords:
-- megjegyzés
-- modern megjegyzés
-- PowerPoint megjegyzések
-- prezentációs megjegyzések
-- dia megjegyzések
-- megjegyzés hozzáadása
-- megjegyzés elérése
-- megjegyzés szerkesztése
-- megjegyzésre válasz
-- megjegyzés eltávolítása
-- megjegyzés törlése
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Java
-- Aspose.Slides
-description: "Kezeld a prezentációs megjegyzéseket az Aspose.Slides for Java-val: hozzáadj, olvass, szerkessz és törölj megjegyzéseket PowerPoint fájlokban gyorsan és egyszerűen."
+- "megjegyzés"
+- "modern megjegyzés"
+- "PowerPoint megjegyzések"
+- "prezentációs megjegyzések"
+- "dia megjegyzések"
+- "megjegyzés hozzáadása"
+- "megjegyzés elérése"
+- "megjegyzés szerkesztése"
+- "megjegyzésre válasz"
+- "megjegyzés eltávolítása"
+- "megjegyzés törlése"
+- "PowerPoint"
+- "prezentáció"
+- "Java"
+- "Aspose.Slides"
+description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Java segítségével: gyorsan és egyszerűen adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket a PowerPoint prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a megjegyzések egy prezentációban az Aspose.Slides használatával. Megmutatja a fő megjegyzésekkel kapcsolatos típusokat, és demonstrálja, hogyan adhatunk megjegyzéseket a diákhoz, hogyan érhetjük el a meglévő megjegyzéseket, hogyan dolgozhatunk válaszokkal, hogyan használhatunk modern megjegyzéseket, illetve hogyan távolíthatunk el megjegyzéseket egy prezentációból.
+Ez a cikk bemutatja, hogyan kezelhetők a prezentáció megjegyzései az Aspose.Slides for Java használatával. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és demonstrálja, hogyan lehet megjegyzéseket hozzáadni a diákhoz, meglévő megjegyzéseket elérni, válaszokkal és modern megjegyzésekkel dolgozni, valamint megjegyzéseket eltávolítani egy prezentációból.
 
-A példák a gyakori felülvizsgálati és együttműködési forgatókönyvekre összpontosítanak a PowerPointban, mint például a megjegyzések szerzőkhöz rendelése, a megjegyzés tartalmának és metaadatainak olvasása, válaszláncok építése, valamint az összes megjegyzés törlése vagy a kiválasztottak eltávolítása.
+A példák lefedik a PowerPointban előforduló gyakori felülvizsgálati és együttműködési helyzeteket, például a megjegyzések szerzőkhöz való hozzárendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszképek építését, valamint kiválasztott vagy az összes megjegyzés eltávolítását.
 
-A PowerPointban a megjegyzés jegyzet vagy annotáció formájában jelenik meg egy dián. Amikor egy megjegyzésre kattintanak, annak tartalma vagy üzenetei megjelennek.
+A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó beszélgetést.
 
-## **Miért adunk megjegyzéseket a prezentációkhoz?**
+## **Miért Adjunk Megjegyzéseket a Prezentációkhoz?**
 
-Lehet, hogy a megjegyzéseket szeretnéd használni visszajelzés nyújtására vagy a kollégáiddal való kommunikációra a prezentációk felülvizsgálata során.
+A megjegyzéseket visszajelzés nyújtására és a kollégákkal való együttműködésre használhatja a prezentációk felülvizsgálata során.
 
-Annak érdekében, hogy a PowerPoint prezentációkban megjegyzéseket használhass, az Aspose.Slides for Java a következőket biztosítja
+Az Aspose.Slides for Java a következő API-kat biztosítja a megjegyzésekkel való munkához:
+* A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés szerzőihez.
+* Az [ICommentCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icommentcollection/) interfész, amely egy adott szerzőhöz tartozó megjegyzéseket képviseli.
+* Az [IComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/) interfész, amely információt nyújt egy megjegyzésről, beleértve a szerzőjét, létrehozási időt, pozíciót és szöveget.
+* A [CommentAuthor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/commentauthor/) osztály, amely információt ad egy szerzőről, beleértve a nevét, monogramját és a kapcsolódó megjegyzéseket.
 
-* A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztály, amely a szerzők gyűjteményét (az [ICommentAuthorCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ICommentAuthorCollection) interfészből) tartalmazza. A szerzők megjegyzéseket adnak a diákhoz. 
-* Az  [ICommentCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ICommentCollection) interfész, amely az egyes szerzők megjegyzéseinek gyűjteményét tartalmazza. 
-* A  [IComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment) osztály, amely a szerzőkről és a megjegyzéseikről tartalmaz információkat: ki adta a megjegyzést, mikor került hozzáadásra, a megjegyzés pozíciója stb. 
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/CommentAuthor) osztály, amely egyes szerzőkről tartalmaz információkat: a szerző neve, monogramja, a szerző nevéhez kapcsolódó megjegyzések stb. 
+## **Dia Megjegyzések Hozzáadása**
 
-## **Dia megjegyzések hozzáadása**
-Ez a Java kód bemutatja, hogyan adhatunk megjegyzést egy diahoz egy PowerPoint prezentációban:
+Az alábbi példa bemutatja, hogyan adhat megjegyzéseket a diákhoz egy PowerPoint prezentációban:
 
 ```java
-// Példányosítja a Presentation osztályt
-Presentation pres = new Presentation();
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ICommentCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
 try {
-    // Hozzáad egy üres diát
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
+    Date createdTime = new Date();
 
-    // Hozzáad egy szerzőt
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-    // Beállítja a megjegyzések pozícióját
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
+    IComment[] comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        IComment firstComment = comments[0];
+        System.out.println(firstComment.getText());
 
-    // Megjegyzést ad a szerzőnek az 1. dián
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // Megjegyzést ad a szerzőnek a 2. dián
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // Eléri az ISlide 1-et
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Ha null értéket adunk át argumentumként, akkor az összes szerző megjegyzései megjelennek a kiválasztott dián
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // Eléri a 0. indexű megjegyzést az 1. dián
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // Kiválasztja a szerző 0. indexű megjegyzésgyűjteményét
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+        ICommentCollection authorComments = firstComment.getAuthor().getComments();
+        String commentText = authorComments.get_Item(0).getText();
+        System.out.println(commentText);
     }
+
+    presentation.save("Comments_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Dia megjegyzések elérése**
-Ez a Java kód bemutatja, hogyan érhetjük el egy meglévő megjegyzést egy dián egy PowerPoint prezentációban:
+## **Dia Megjegyzések Elérése**
+
+Az alábbi példa bemutatja, hogyan érheti el a meglévő megjegyzéseket egy PowerPoint prezentációban:
 
 ```java
-// Példányosítja a Presentation osztályt
-Presentation pres = new Presentation("Comments1.pptx");
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Comments1.pptx");
 try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        for (IComment comment : author.getComments()) {
+            System.out.println("Slide: " + comment.getSlide().getSlideNumber());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Author: " + comment.getAuthor().getName());
+            System.out.println("Posted at: " + comment.getCreatedTime());
+            System.out.println();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Megjegyzések válasza**
-A szülő megjegyzés a hierarchia legfelső vagy eredeti megjegyzése a megjegyzések vagy válaszok között. A [getParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment#getParentComment--) vagy a [setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) metódusok (az [IComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment) interfészből) használatával beállíthat vagy lekérdezhet egy szülő megjegyzést.
+## **Válasz a Megjegyzésekre**
 
-Ez a Java kód bemutatja, hogyan adhatunk megjegyzéseket és hogyan kaphatunk válaszokat rájuk:
+A szülő megjegyzés az eredeti megjegyzés a válaszhierarchia tetején. Az [IComment.getParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#getParentComment--) és az [IComment.setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metódusok lehetővé teszik a megjegyzés szülőjének lekérését vagy beállítását.
+
+Az alábbi példa bemutatja, hogyan adhat hozzá válaszokat, és hogyan vizsgálhatja meg a resulting megjegyzés hierarchiát:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Megjegyzést ad hozzá
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
 
-    // Válasz hozzáadása a comment1-hez
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Point2D.Float position = new Point2D.Float(10, 10);
+    Date createdTime = new Date();
+
+    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
 
-    // Egy másik választ ad hozzá a comment1-hez
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
 
-    // Válasz hozzáadása egy meglévő válaszhoz
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
 
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
 
-    // Megjeleníti a megjegyzések hierarchiáját a konzolon
-    ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
+    for (int i = 0; i < comments.length; i++) {
         IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
+        while (comment.getParentComment() != null) {
             System.out.print("\t");
             comment = comment.getParentComment();
         }
 
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        System.out.println(comments[i].getAuthor().getName() + ": " + comments[i].getText());
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Eltávolítja a comment1-et és az összes rá válaszolt megjegyzést
+    presentation.save("parent_comment.pptx", SaveFormat.Pptx);
+
     comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-
-* Amikor a [Remove](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment#remove--) metódust (az [IComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment) interfészből) használják egy megjegyzés törlésére, a megjegyzésre adott válaszok is törlődnek. 
-* Ha a [setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) beállítás körkörös hivatkozást eredményez, [PptxEditException](https://reference.aspose.com/slides/hu/java/com.aspose.slides/PptxEditException) lesz dobva.
-
+{{% alert color="warning" title="Warning" %}}
+* Amikor az [IComment.remove](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#remove--) metódust használják egy megjegyzés törlésére, a megjegyzéshez tartozó összes válasz is törlődik.
+* Ha az [IComment.setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxeditexception/) lesz dobva.
 {{% /alert %}}
 
-## **Modern megjegyzések hozzáadása**
+## **Modern Megjegyzések Hozzáadása**
 
-2021-ben a Microsoft bevezetett *modern megjegyzéseket* a PowerPointban. A modern megjegyzések funkció jelentősen javítja az együttműködést a PowerPointban. A modern megjegyzéseken keresztül a PowerPoint felhasználók könnyebben oldhatnak fel megjegyzéseket, rögzíthetik azokat objektumokhoz és szövegekhez, és sokkal egyszerűbben léphetnek interakcióba.
+A modern megjegyzések a diával, egy konkrét alakzattal vagy egy AutoShape belüli szövegtartománnyal társíthatók. Az [ICommentCollection.addModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) metódus egy [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) argumentumot is elfogad a dia és a megjegyzésjelző koordinátákon kívül.
 
-A [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/hu/java/aspose-slides-for-java-21-11-release-notes/) kiadásban a modern megjegyzések támogatását valósítottuk meg a [ModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ModernComment) osztály hozzáadásával. A [addModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) és a [insertModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) metódusok a [CommentCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/CommentCollection) osztályhoz lettek hozzáadva. 
+Ha a shape argumentumnak `null` értéket adunk, a megjegyzés diaszintű megjegyzés lesz. Jelzője a megadott koordináták alapján helyezkedik el, de nem kapcsolódik konkrét alakzathoz, így az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--) `null`-t ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) kerül megadásra, a megjegyzés erre az alakzatra lesz rögzítve. A koordináták továbbra is a megjegyzésjelző helyét határozzák meg a dián, míg az alakzatkapcsolat a [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--) segítségével kérhető le.
 
-Ez a Java kód bemutatja, hogyan adhatunk modern megjegyzést egy diához egy PowerPoint prezentációban: 
+### **Modern Megjegyzés Rögzítése egy Alakzatra**
 
-```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Megjegyzések eltávolítása**
-
-### **Minden megjegyzés és szerző törlése**
-
-Ez a Java kód bemutatja, hogyan távolíthatók el egy prezentációban az összes megjegyzés és szerző:
+Az alábbi példa létrehoz egy diaszintű modern megjegyzést és egy konkrét AutoShape-hez rögzített modern megjegyzést is. Ezután minden megjegyzéshez kiolvassa a kapcsolódó alakzatot.
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // Törli a prezentáció összes megjegyzését
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
-    }
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Date;
 
-    // Törli az összes szerzőt
-    presentation.getCommentAuthors().clear();
-
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-### **Specifikus megjegyzések törlése**
-
-Ez a Java kód bemutatja, hogyan törölhetők specifikus megjegyzések egy dián:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
 
-    // megjegyzések hozzáadása...
+    Date createdTime = new Date();
+    Point2D.Float slideCommentPosition = new Point2D.Float(20, 20);
+    Point2D.Float shapeCommentPosition = new Point2D.Float(60, 60);
+    IModernComment slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    IModernComment shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    System.out.println(slideComment.getShape() == null);
+    System.out.println(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Megjegyzések Rögzítése Különböző Alakzattípusokhoz**
+
+Bármely diakép, amely megvalósítja az [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) interfészt, használható alakzatankerületi horgonyként. Gyakori példák a [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iconnector/) és a diagramokhoz hasonló [IGraphicalObject](https://reference.aspose.com/slides/hu/java/com.aspose.slides/igraphicalobject/) példányok.
+
+Az alábbi példa létrehoz több gyakori alakzattípust, és mindegyikhez modern megjegyzést rendel.
+
+```java
+import com.aspose.slides.ChartType;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IChart;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IConnector;
+import com.aspose.slides.IGroupShape;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.IPictureFrame;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Base64;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Date createdTime = new Date();
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    IPPImage image = presentation.getImages().addImage(imageData);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+    Point2D.Float pictureCommentPosition = new Point2D.Float(230, 30);
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    IGroupShape groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+    Point2D.Float groupCommentPosition = new Point2D.Float(40, 150);
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+    Point2D.Float connectorCommentPosition = new Point2D.Float(240, 150);
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+    Point2D.Float chartCommentPosition = new Point2D.Float(420, 40);
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Megjegyzés Rögzítése Szöveghez és Állapotának Beállítása**
+
+Egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/)‑hez társított modern megjegyzés esetén az [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) és az [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) a szövegkeretben a kiválasztott szöveg kezdőpozícióját adják. Az [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és az [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) a kiválasztás hosszát adják meg. Ezek együtt a megjegyzést egy adott szövegtartománnyal kötik az AutoShape‑ben.
+
+Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setStatus-byte--) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) konstansok egyik értékét adják vissza:
+- `NotDefined` — nincs meghatározott modern megjegyzés állapot.
+- `Active` — a megjegyzés aktív.
+- `Resolved` — a megjegyzés megoldott.
+- `Closed` — a megjegyzés lezárt.
+
+Az alábbi példa létrehoz egy alakzatra rögzített modern megjegyzést, szövegkiválasztáshoz társítja, megoldottként jelöli, elmenti a prezentációt, és a fájl újranyitása után ellenőrzi az értékeket.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ModernCommentStatus;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+String outputFile = "modern_comment_text_anchor.pptx";
+String shapeText = "Review the quarterly revenue forecast.";
+String selectedText = "quarterly revenue";
+int expectedSelectionStart = shapeText.indexOf(selectedText);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Point2D.Float commentPosition = new Point2D.Float(60, 60);
+    IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length());
+    comment.setStatus(ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation(outputFile);
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IComment[] reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (IComment reopenedComment : reopenedComments) {
+        if (!(reopenedComment instanceof IModernComment)) {
+            continue;
+        }
+
+        IModernComment modernComment = (IModernComment) reopenedComment;
+        boolean shapeMatches = modernComment.getShape() != null && "Forecast text".equals(modernComment.getShape().getName());
+        boolean selectionStartMatches = modernComment.getTextSelectionStart() == expectedSelectionStart;
+        boolean selectionLengthMatches = modernComment.getTextSelectionLength() == selectedText.length();
+        boolean statusMatches = modernComment.getStatus() == ModernCommentStatus.Resolved;
+
+        System.out.println("Shape anchor preserved: " + shapeMatches);
+        System.out.println("Text selection start preserved: " + selectionStartMatches);
+        System.out.println("Text selection length preserved: " + selectionLengthMatches);
+        System.out.println("Resolved status preserved: " + statusMatches);
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **Létező Modern Megjegyzések Ellenőrzése**
+
+Egy meglévő prezentáció ellenőrzéséhez vizsgálja meg, mely megjegyzések valósítják meg az [IModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/) interfészt, majd tekintse meg az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) értékeket. A `null` alakzat diaszintű megjegyzést jelez. Egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) horgony esetén a szövegkiválasztási metódusok a alakzat szövegtömbjében a kapcsolódó tartományt azonosítják.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.IShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        IComment[] comments = slide.getSlideComments(null);
+        for (IComment comment : comments) {
+            if (!(comment instanceof IModernComment)) {
+                continue;
+            }
+
+            IModernComment modernComment = (IModernComment) comment;
+            System.out.println("Slide: " + slide.getSlideNumber());
+            System.out.println("Text: " + modernComment.getText());
+            System.out.println("Status: " + modernComment.getStatus());
+
+            IShape shape = modernComment.getShape();
+            if (shape == null) {
+                System.out.println("Anchor: slide level");
+            } else {
+                System.out.println("Anchor shape: " + shape.getName());
+                System.out.println("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (shape instanceof IAutoShape) {
+                    System.out.println("Text selection start: " + modernComment.getTextSelectionStart());
+                    System.out.println("Text selection length: " + modernComment.getTextSelectionLength());
+                }
+            }
+
+            System.out.println();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Megjegyzések Eltávolítása**
+
+### **Minden Megjegyzés és Megjegyzés Szerző Eltávolítása**
+
+Az alábbi példa bemutatja, hogyan távolíthatók el egy prezentációból az összes megjegyzés és megjegyzés szerző:
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("example.pptx");
+try {
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        author.getComments().clear();
+    }
+
+    presentation.getCommentAuthors().clear();
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Különálló Megjegyzések Eltávolítása**
+
+Az alábbi példa bemutatja, hogyan távolíthatók el konkrét megjegyzések egy diáról:
+
+```java
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+    Date createdTime = new Date();
 
-    // eltávolítja az összes megjegyzést, amely a "comment 1" szöveget tartalmazza
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+    Point2D.Float firstCommentPosition = new Point2D.Float(0.2f, 0.2f);
+    Point2D.Float secondCommentPosition = new Point2D.Float(0.3f, 0.2f);
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors()) {
+        List<IComment> commentsToRemove = new ArrayList<IComment>();
+        IComment[] comments = slide.getSlideComments(commentAuthor);
+
+        for (IComment comment : comments) {
+            if ("comment 1".equals(comment.getText())) {
+                commentsToRemove.add(comment);
             }
         }
 
-        for (IComment comment : toRemove)
-        {
+        for (IComment comment : commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
 
     presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Támogatja-e az Aspose.Slides a 'megoldva' állapotot a modern megjegyzéseknél?**
+**Támogatja-e az Aspose.Slides a megoldott állapotot a modern megjegyzéseknél?**
 
-Igen. A [Modern comments](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncomment/) egy [setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncomment/#setStatus-byte-) metódust biztosít; ezzel beállítható egy [megjegyzés állapota](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) (például megjelölhető megoldottként), és ez az állapot elmentésre kerül a fájlba, valamint a PowerPoint felismeri.
+Igen. Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setStatus-byte--) a [ModernCommentStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) értékét adja vissza, beleértve a `Resolved` értéket. Az állapot a prezentációban tárolódik, és a fájl újranyitása után újra leolvasható.
 
-**Támogatottak-e a szálas viták (válaszláncok), és van-e mélységkorlát?**
+**Támogatottak-e a szálas megbeszélések (válaszképek), és van-e mélységi korlát?**
 
-Igen. Minden megjegyzés hivatkozhat a saját [parent comment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/comment/#getParentComment--) (szülő megjegyzésére), lehetővé téve tetszőleges válaszláncok létrehozását. Az API nem határoz meg konkrét mélységkorlátot.
+Igen. Minden megjegyzés hivatkozhat a saját [szülő megjegyzésére](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#getParentComment--), lehetővé téve a válaszképeket. Az API nem definiál konkrét beágyazási mélységkorlátot.
 
-**Milyen koordináta-rendszerben van meghatározva egy megjegyzés jelzőjének pozíciója a dián?**
+**Milyen koordináta‑rendszerben van meghatározva egy megjegyzésjelző pozíciója a dián?**
 
-A pozíció lebegőpontos pontként van tárolva a dia koordináta-rendszerében. Ez lehetővé teszi, hogy a megjegyzés jelzőjét pontosan oda helyezd, ahol szükséges.
+A jelző pozíciója lebegőpontos koordinátákkal van meghatározva a dia koordináta‑rendszerében, ami lehetővé teszi a pontos elhelyezést a dián.
