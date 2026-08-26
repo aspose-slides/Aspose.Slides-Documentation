@@ -42,9 +42,9 @@ Do not introduce `color="primary"`.
 
 ## Links
 
-- Verify every link in a changed article. Internal documentation links must use the published
-  `/slides<front-matter-url>` form; fragments must match a heading or explicit anchor; relative
-  resources must exist.
+- Verify every link in a changed article. Cross-article documentation links must use the root-relative
+  published `/slides<front-matter-url>` form; never use an absolute `https://docs.aspose.com/...`
+  URL. Fragments must match a heading or explicit anchor, and relative resources must exist.
 - External links must reach the intended page, not an error, generic home page, or unrelated redirect.
 - Use plain Markdown labels: `[Presentation](url)`, never ``[`Presentation`](url)``.
 - Do not add links inside code blocks.
