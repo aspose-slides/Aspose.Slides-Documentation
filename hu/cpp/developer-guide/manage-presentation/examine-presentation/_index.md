@@ -1,6 +1,6 @@
 ---
-title: Prezentációs információk lekérése és frissítése C++-ban
-linktitle: Prezentációs információk
+title: Prezentáció információinak lekérése és frissítése C++-ban
+linktitle: Prezentáció információi
 type: docs
 weight: 30
 url: /hu/cpp/examine-presentation/
@@ -11,7 +11,7 @@ keywords:
 - tulajdonságok lekérése
 - tulajdonságok olvasása
 - tulajdonságok módosítása
-- tulajdonságok módosítása
+- tulajdonságok szerkesztése
 - tulajdonságok frissítése
 - PPTX vizsgálata
 - PPT vizsgálata
@@ -21,21 +21,28 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fedezze fel a diák, a felépítés és a metaadatok a PowerPoint és OpenDocument prezentációkban C++ használatával a gyorsabb betekintés és az intelligensebb tartalomelemzés érdekében."
+description: "Fedezze fel a diákat, a szerkezetet és a metaadatokat PowerPoint és OpenDocument prezentációkban C++ használatával a gyorsabb betekintés és az okosabb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan ellenőrizhetők a bemutató információi az Aspose.Slides használatával. Ismerteti, hogyan határozható meg egy bemutató aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók a dokumentum tulajdonságai, és hogyan frissíthetők ezek a tulajdonságok szükség esetén.
+Ez a cikk bemutatja, hogyan lehet megvizsgálni egy bemutató információit az Aspose.Slides-ban. Ismerteti, hogyan lehet meghatározni a bemutató aktuális formátumát a teljes fájl betöltése nélkül, elolvasni a dokumentumtulajdonságokat, és szükség esetén frissíteni azokat.
 
-A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/documentproperties/) API-kon alapulnak, és tipikus műveleteket mutatnak be a prezentáció metaadataival való munka során.
+A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/documentproperties/) API-kra épülnek, és bemutatják a bemutató metaadataival való munka tipikus műveleteit.
 
-## **A prezentáció formátumának ellenőrzése**
+## **Ellenőrizze a bemutató formátumát**
 
-Mielőtt egy prezentációval dolgozna, előfordulhat, hogy meg szeretné tudni, milyen formátumban (PPT, PPTX, ODP és egyebek) van a prezentáció jelenleg.
+Mielőtt a bemutatóval dolgozna, megtudhatja, hogy milyen formátumú (PPT, PPTX, ODP és egyéb) a bemutató jelenleg.
 
-Ellenőrizheti a prezentáció formátumát a fájl betöltése nélkül. Lásd a következő C++ kódot:
+A bemutató formátumát betöltés nélkül is ellenőrizheti. Lásd ezt a C++ kódot:
 
 ``` cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
 Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
@@ -49,30 +56,45 @@ auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
-## **A prezentáció tulajdonságainak lekérése**
+## **Szerezze meg a bemutató tulajdonságait**
 
-Ez a C++ kód bemutatja, hogyan kérhetőek le a prezentáció tulajdonságai (információk a prezentációról):
+Ez a C++ kód megmutatja, hogyan lehet lekérni a bemutató tulajdonságait (információk a bemutatóról):
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
 Console::WriteLine(props->get_Subject());
 Console::WriteLine(props->get_Title());
-// .. 
+// ...
 ```
 
-## **A prezentáció tulajdonságainak frissítése**
+## **A bemutató tulajdonságainak frissítése**
 
-Az Aspose.Slides a [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) metódust biztosítja, amely lehetővé teszi a prezentáció tulajdonságainak módosítását.
+Az Aspose.Slides biztosítja a [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) metódust, amely lehetővé teszi a bemutató tulajdonságainak módosítását.
 
-Tegyük fel, hogy van egy PowerPoint prezentáció, amelynek a dokumentum tulajdonságai az alábbiek.
+Tegyük fel, hogy van egy PowerPoint bemutató a lenti dokumentumtulajdonságokkal.
 
-![A PowerPoint prezentáció eredeti dokumentumtulajdonságai](input_properties.png)
+![A PowerPoint bemutató eredeti dokumentumtulajdonságai](input_properties.png)
 
-Ez a kódpélda bemutatja, hogyan szerkeszthető néhány prezentáció tulajdonság:
+Ez a kódpélda megmutatja, hogyan szerkeszthet néhány bemutató tulajdonságot:
 
 ```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
@@ -85,37 +107,35 @@ info->UpdateDocumentProperties(properties);
 info->WriteBindedPresentation(fileName);
 ```
 
-A dokumentumtulajdonságok módosításának eredménye az alábbiakban látható.
+A dokumentumtulajdonságok módosításának eredménye alább látható.
 
-![A PowerPoint prezentáció módosított dokumentumtulajdonságai](output_properties.png)
+![A PowerPoint bemutató módosított dokumentumtulajdonságai](output_properties.png)
 
 ## **Hasznos hivatkozások**
 
-További információkért a prezentációról és annak biztonsági attribútumairól, az alábbi hivatkozások lehetnek hasznosak:
+További információkért egy bemutatóról és annak biztonsági attribútumairól, a következő hivatkozások lehetnek hasznosak:
 
-- [Annak ellenőrzése, hogy a prezentáció titkosított-e](https://docs.aspose.com/slides/hu/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Annak ellenőrzése, hogy a prezentáció írásvédelem alatt áll-e (csak olvasható)](https://docs.aspose.com/slides/hu/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Annak ellenőrzése, hogy a prezentáció jelszóval védett-e betöltés előtt](https://docs.aspose.com/slides/hu/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [A prezentáció védéséhez használt jelszó megerősítése](https://docs.aspose.com/slides/hu/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Jelszóval védett bemutatók](/slides/hu/cpp/password-protected-presentation/)
+- [Írásvédett bemutatók](/slides/hu/cpp/write-protected-presentation/)
 
 ## **GYIK**
 
 **Hogyan ellenőrizhetem, hogy a betűkészletek be vannak-e ágyazva, és melyek azok?**
 
-Keresse a [beágyazott betűtípusra vonatkozó információkat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getembeddedfonts/) a prezentáció szintjén, majd hasonlítsa össze ezeket a bejegyzéseket a [tartalomban ténylegesen használt betűtípusok](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getfonts/) halmazával, hogy azonosítsa, mely betűtípusok kritikusak a megjelenítéshez.
+Keresse a [ágyazott betűkészlet információ](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getembeddedfonts/) a bemutató szintjén, majd hasonlítsa össze ezeket a bejegyzéseket a [valóban a tartalommal használt betűkészletek](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getfonts/) halmazával, hogy azonosítsa, mely betűkészletek kritikusak a megjelenítéshez.
 
-**Hogyan tudom gyorsan megállapítani, hogy a fájl rejtett diákot tartalmaz-e, és hány darabot?**
+**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz-e rejtett diákat, és hány van?**
 
-Iteráljon a [dia gyűjteményen](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slidecollection/) és vizsgálja meg minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slide/get_hidden/).
+Iteráljon a [dia gyűjtemény](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slidecollection/) kollekción, és vizsgálja meg minden dia [visibility flag](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slide/get_hidden/) attribútumát.
 
-**Felderíthető-e, hogy egyedi dia méret és tájolás van-e használatban, és eltérnek-e az alapértelmezettektől?**
+**Felismerhetem-e, hogy egyéni dia méret és tájolás van használatban, és eltérnek-e az alapértelmezettektől?**
 
-Igen. Hasonlítsa össze a jelenlegi [dia méretet és tájolást](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slidesize/) a szabványos előrebeállított értékekkel; ez segít előre jelezni a nyomtatás és exportálás viselkedését.
+Igen. Hasonlítsa össze a jelenlegi [slide size and orientation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slidesize/) beállítást a szabványos előbeállításokkal; ez segít előre jelezni a nyomtatás és az export viselkedését.
 
-**Van-e gyors módszer annak megállapítására, hogy a diagramok külső adatforrásokra hivatkoznak-e?**
+**Van-e gyors módja annak, hogy megállapítsam, a diagramok külső adatforrásokra hivatkoznak-e?**
 
-Igen. Járja be az összes [diagramot](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/), ellenőrizze azok [adatforrását](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdata/get_datasourcetype/), és jegyezze fel, hogy az adat belső vagy hivatkozáson alapuló, beleértve a hibás hivatkozásokat is.
+Igen. Járja be az összes [charts](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/) elemet, ellenőrizze azok [data source](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) beállítását, és vegye fel, hogy az adat belső vagy hivatkozás-alapú, beleértve a hibás hivatkozásokat is.
 
-**Hogyan értékelhetem a ‘nehéz’ diákat, amelyek lassíthatják a renderelést vagy a PDF exportot?**
+**Hogyan értékelhetem a 'nehéz' diákot, amelyek lassíthatják a renderelést vagy a PDF exportot?**
 
-Minden diához számolja össze az objektumok számát, és keressen nagy képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon hozzá egy durva összetettségi pontszámot, hogy jelölje a lehetséges teljesítményproblémákat.
+Minden egyes dián számolja meg az objektumok számát, és keressen nagy képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon hozzá egy durva komplexitási pontszámot, hogy jelölje a lehetséges teljesítménybeli problémákat.

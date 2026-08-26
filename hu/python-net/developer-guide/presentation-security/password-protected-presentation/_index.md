@@ -1,264 +1,186 @@
 ---
-title: Prezentációk jelszóval történő védelme Python használatával
+title: Jelszóval védett bemutatók Pythonban
 linktitle: Jelszóvédelem
 type: docs
 weight: 20
 url: /hu/python-net/password-protected-presentation/
 keywords:
-- PowerPoint zárolása
-- prezentáció zárolása
-- PowerPoint feloldása
-- prezentáció feloldása
-- PowerPoint védelme
-- prezentáció védelme
-- jelszó beállítása
-- jelszó hozzáadása
+- jelszóval védett bemutató
+- nyitó jelszó
 - PowerPoint titkosítása
-- prezentáció titkosítása
 - PowerPoint visszafejtése
-- prezentáció visszafejtése
-- írásvédelem
-- PowerPoint biztonság
-- prezentáció biztonság
-- jelszó eltávolítása
-- védelem eltávolítása
+- bemutató jelszó érvényesítése
+- bemutató jelszó ellenőrzése
+- titkosított bemutató megnyitása
 - titkosítás eltávolítása
-- jelszó letiltása
-- védelem letiltása
-- írásvédelem eltávolítása
-- PowerPoint prezentáció
+- PowerPoint
+- PPT
+- PPTX
+- bemutató
 - Python
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet könnyedén zárolni és feloldani jelszóval védett PowerPoint és OpenDocument prezentációkat az Aspose.Slides for Python segítségével .NET-en keresztül. Növelje a termelékenységét és biztosítsa prezentációi védelmét lépésről lépésre útmutatónkkal."
+description: "Titkosítsa, észlelje, ellenőrizze, nyissa meg, és fejtsa vissza a jelszóval védett PowerPoint PPT és PPTX bemutatókat Pythonban az Aspose.Slides segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Amikor jelszóval véd egy prezentációt, egy jelszót állít be, amely bizonyos korlátozásokat kényszerít ki a prezentáción. A korlátozások eltávolításához a jelszót meg kell adni. A jelszóval védett prezentáció zárolt prezentációnak számít.
+Az nyitó jelszó titkosítja a bemutatót. A helyes jelszó szükséges a bemutató tartalmának betöltéséhez és megtekintéséhez, ezért ez a védelem titkosságot biztosít.
 
-Általában beállíthat jelszót a prezentáció ezen korlátozásainak érvényesítéséhez:
+Az nyitó jelszó különbözik a írásvédelmi jelszóktól. Az írásvédelem korlátozza a módosítást, de nem titkosítja a tartalmat, és nem akadályozza a bemutató betöltését. A bemutatók módosításához szükséges jelszavak kezeléséhez lásd [Write-Protect Presentations](/slides/hu/python-net/write-protected-presentation/).
 
-- **Módosítás**
+Az alábbi munkafolyamatok a PPT és PPTX bemutatókra egyaránt vonatkoznak. A példák mindkét formát használják, ahol a fájl alapú és a folyam alapú viselkedés fontos.
 
-  Ha csak bizonyos felhasználóknak szeretné engedélyezni a prezentáció módosítását, beállíthat egy módosítási korlátozást. Ez a korlátozás megakadályozza, hogy a felhasználók módosítsák, változtassák vagy másolják a prezentáció elemeit (kivéve, ha megadják a jelszót).
+## **Nyitó jelszóval való bemutató titkosítása**
 
-  Ebben az esetben a jelszó hiányában a felhasználó továbbra is hozzáfér a dokumentumhoz, és megnyithatja azt. Olvasási módban a felhasználó megtekintheti a tartalmat, a hivatkozásokat, animációkat, effektusokat stb., de nem másolhat elemeket, és nem mentheti a prezentációt.
+Használja a [ProtectionManager.encrypt](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/encrypt/) függvényt nyitó jelszó hozzárendeléséhez. Ezután használja a [Presentation.save](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/save/) metódust a titkosított bemutató mentéséhez.
 
-- **Megnyitás**
-
-  Ha csak bizonyos felhasználóknak szeretné engedélyezni a prezentáció megnyitását, beállíthat egy megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy bárki megnézze a prezentáció tartalmát (kivéve, ha megadja a jelszót).
-
-  Technikai szempontból a megnyitási korlátozás megakadályozza a felhasználókat a prezentáció módosításában is: ha a felhasználók nem tudják megnyitni a prezentációt, nem tudnak változtatásokat végezni rajta.
-
-  **Megjegyzés**: ha jelszóval védi a prezentációt a megnyitás megakadályozására, a fájl titkosítva lesz.
-
-## Hogyan védjük jelszóval a prezentációt online
-
-1. Látogassa meg a [**Aspose.Slides Lock**](https://products.aspose.app/slides/hu/lock) oldalt.  
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Kattintson a **Drop or upload your files** gombra.
-
-3. Válassza ki a számítógépéről a jelszóval védendő fájlt.
-
-4. Adja meg a kívánt jelszót a szerkesztési védelemhez; adja meg a kívánt jelszót a megtekintési védelemhez.
-
-5. Ha azt szeretné, hogy a felhasználók a prezentációt végleges másolatként lássák, jelölje be a **Mark as final** jelölőnégyzetet.
-
-6. Kattintson a **PROTECT NOW.** gombra.
-
-7. Kattintson a **DOWNLOAD NOW.** gombra.
-
-## **Jelszóvédelem a prezentációkhoz az Aspose.Slides-ban**
-**Támogatott formátumok**
-
-Az Aspose.Slides a következő formátumú prezentációk jelszóvédelmét, titkosítását és hasonló műveleteit támogatja:
-
-- PPTX és PPT – Microsoft PowerPoint prezentáció
-- ODP – OpenDocument prezentáció
-- OTP – OpenDocument prezentációs sablon
-
-**Támogatott műveletek**
-
-Az Aspose.Slides lehetővé teszi a jelszóvédelem használatát a prezentációk módosításának megakadályozására a következő módokon:
-
-- Prezentáció titkosítása
-- Írásvédettség beállítása a prezentációban
-
-**Egyéb műveletek**
-
-Az Aspose.Slides a következő módon teszi lehetővé egyéb, jelszóvédelemmel és titkosítással kapcsolatos feladatok végrehajtását:
-
-- Prezentáció visszafejtése; titkosított prezentáció megnyitása
-- Titkosítás eltávolítása; jelszóvédelem letiltása
-- Írásvédelem eltávolítása a prezentációból
-- Titkosított prezentáció tulajdonságainak lekérdezése
-- Annak ellenőrzése, hogy a prezentáció titkosított‑e
-- Annak ellenőrzése, hogy a prezentáció jelszóval védett‑e.
-
-## **Prezentáció titkosítása**
-
-A prezentáció titkosítható jelszó megadásával. Ezután a zárolt prezentáció módosításához a felhasználónak meg kell adnia a jelszót.
-
-A prezentáció titkosításához vagy jelszóval való védelméhez a `encrypt` metódust kell használni (a [ProtectionManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) osztályból). A jelszót a `encrypt` metódusnak kell átadni, majd a `save` metódussal menteni a most titkosított prezentációt.
-
-Ez a minta kód bemutatja, hogyan kell titkosítani egy prezentációt:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Írásvédettség beállítása a prezentációban** 
-
-Hozzáadhat egy „Ne módosítsa” feliratot a prezentációhoz. Így jelezheti a felhasználóknak, hogy nem kívánja, hogy módosítsák a prezentációt.
-
-**Megjegyzés**: az írásvédettségi folyamat nem titkosítja a prezentációt. Ezért a felhasználók – ha akarják – módosíthatják a prezentációt, de a változtatások mentéséhez másik névvel kell menteniük a fájlt.
-
-Az írásvédettség beállításához a `setWriteProtection` metódust kell használni. Ez a minta kód bemutatja, hogyan kell írásvédettséget beállítani egy prezentációra:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Prezentáció visszafejtése; Titkosított prezentáció megnyitása**
-
-Az Aspose.Slides lehetővé teszi egy titkosított fájl betöltését a jelszó átadásával. A prezentáció visszafejtéséhez a [remove_encryption](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) metódust kell hívni paraméterek nélkül. Ezután a helyes jelszót kell megadni a prezentáció betöltéséhez.
-
-Ez a minta kód bemutatja, hogyan kell visszafejteni egy prezentációt:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-## **Titkosítás eltávolítása; Jelszóvédelem letiltása**
-
-Eltávolíthatja a titkosítást vagy a jelszóvédelmet egy prezentációról. Így a felhasználók a korlátozások nélkül férhetnek hozzá vagy módosíthatják a prezentációt.
-
-A titkosítás vagy jelszóvédelem eltávolításához a [remove_encryption](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) metódust kell meghívni. Ez a minta kód mutatja, hogyan kell titkosítást eltávolítani egy prezentációról:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Írásvédelem eltávolítása a prezentációból**
-
-Az Aspose.Slides használatával eltávolíthatja a prezentáció fájlra alkalmazott írásvédettséget. Így a felhasználók szabadon módosíthatják a prezentációt, és nem kapnak figyelmeztetést a módosításkor.
-
-Az írásvédelem eltávolításához a [remove_write_protection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) metódust kell használni. Ez a minta kód bemutatja, hogyan kell eltávolítani az írásvédettséget egy prezentációról:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Az titkosított prezentáció tulajdonságainak lekérdezése**
-
-Általában a felhasználók nehezen férnek hozzá egy titkosított vagy jelszóval védett prezentáció dokumentumtulajdonságaihoz. Az Aspose.Slides azonban olyan mechanizmust kínál, amely lehetővé teszi a prezentáció jelszóval való védelmét, miközben a felhasználók továbbra is elérhetik a dokumentum‑tulajdonságokat.
-
-**Megjegyzés**: amikor az Aspose.Slides titkosít egy prezentációt, a prezentáció dokumentumtulajdonságai is alapértelmezés szerint jelszóval védettek lesznek. Ha azonban a prezentáció titkosítása után is hozzá kell férni a tulajdonságokhoz, az Aspose.Slides ezt lehetővé teszi.
-
-Ha azt szeretné, hogy a felhasználók a titkosított prezentáció tulajdonságaihoz is hozzáférhessenek, állítsa a [EncryptDocumentProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) tulajdonságot `True`‑ra. Ez a minta kód bemutatja, hogyan kell titkosítani egy prezentációt, miközben a felhasználók hozzáférhetnek a dokumentumtulajdonságokhoz:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
-    pres.protection_manager.encrypt("123123")
-```
-
-## **Ellenőrzés, hogy a prezentáció jelszóval védett‑e betöltés előtt**
-
-Mielőtt betöltene egy prezentációt, előfordulhat, hogy ellenőrizni szeretné, hogy a prezentáció nincs‑e jelszóval védve. Így elkerülhetők a hibák és az ehhez hasonló problémák, amelyek akkor fordulnak elő, ha egy jelszóval védett prezentációt jelszó nélkül próbálunk betölteni.
-
-Ez a Python kód megmutatja, hogyan vizsgálhatók meg a prezentációk, hogy jelszóval védettek‑e (a prezentáció tényleges betöltése nélkül):
+A következő példa egy PPTX bemutatót titkosít:
 
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ellenőrzés, hogy a prezentáció titkosított‑e**
+## **Titkosított bemutató betöltése**
 
-Az Aspose.Slides lehetővé teszi annak ellenőrzését, hogy egy prezentáció titkosított‑e. Ehhez használja az [is_encrypted](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) tulajdonságot, amely `True`‑t ad vissza, ha a prezentáció titkosított, egyébként `False`‑t.
+Állítsa be a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) értékét a nyitó jelszóra, és adja át a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) konstruktorának a betöltési opciókat. A betöltés sikertelen, ha nyitó jelszó szükséges, de a megadott jelszó hiányzik vagy helytelen.
 
-Ez a minta kód bemutatja, hogyan kell ellenőrizni, hogy egy prezentáció titkosított‑e:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # Dolgozz a visszafejtett bemutatóval.
+    pass
 ```
 
-## **Ellenőrzés, hogy a prezentáció írásvédett‑e**
+## **Titkosítás eltávolítása egy bemutatóból**
 
-Az Aspose.Slides lehetővé teszi annak ellenőrzését, hogy egy prezentáció írásvédett‑e. Ehhez használja az [is_write_protected](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/) tulajdonságot, amely `True`‑t ad vissza, ha a prezentáció írásvédett, egyébként `False`‑t.
+Töltse be a bemutatót a nyitó jelszóval, hívja meg a [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/remove_encryption/) metódust, majd mentse az eredményt. A mentett bemutató ezután jelszó nélkül betölthető.
 
-Ez a minta kód bemutatja, hogyan kell ellenőrizni, hogy egy prezentáció írásvédett‑e:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Egy adott jelszó használatának ellenőrzése a prezentáció védelméhez**
+## **Nyitó jelszó ellenőrzése betöltés előtt**
 
-Lehet, hogy ellenőrizni és megerősíteni akarja, hogy egy konkrét jelszót használtak a prezentáció védelméhez. Az Aspose.Slides lehetőséget biztosít a jelszó validálására.
+Használja a [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/) függvényt a [PresentationInfo](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/) lekérdezéséhez anélkül, hogy teljes bemutató példányt hozna létre. Ellenőrizze a [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/is_password_protected/) értékét, mielőtt jelszót kérne vagy validálná azt. Ha védelem van jelen, validálja a megadott értéket a [PresentationInfo.check_password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/check_password/) segítségével.
 
-Ez a minta kód megmutatja, hogyan lehet validálni egy jelszót:
+### **Fájlúton végzett munkafolyamat**
 
-```py
+A következő példa egy PPTX fájl nyitó jelszavát ellenőrzi, a validált értéket átadja a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) beállításnak, majd betölti a teljes bemutatót:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # ellenőrzi, hogy a "pass" egyezik-e
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
-`True`‑t ad vissza, ha a prezentációt a megadott jelszóval titkosították. Egyébként `False`‑t ad vissza.
+### **Folam alapú munkafolyamat**
 
-{{% alert color="primary" title="See also" %}} 
+A [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/) folyam túlterhelése ugyanazt a munkafolyamatot biztosítja. Állítsa vissza egy kereshető (seekable) folyam pozícióját, mielőtt a teljes bemutatót betöltené a folyamról.
+
+A következő példa egy PPT fájlt használ:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **CheckPassword visszatérési értékek**
+
+A [PresentationInfo.check_password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/check_password/) `True` értéket ad vissza csak akkor, ha a bemutató rendelkezik nyitó jelszóval, és a megadott jelszó helyes. `False` értéket ad a következő esetekben:
+
+- A jelszó helytelen.
+- A bemutató nem rendelkezik nyitó jelszóval.
+- A megadott jelszó `None` vagy üres.
+
+A viselkedés PPT és PPTX bemutatók esetén is ugyanaz.
+
+## **Ellenőrizze, hogy a betöltött bemutató titkosított-e**
+
+A megfelelő jelszóval betöltött bemutató után vizsgálja meg a [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/is_encrypted/) állapotát, hogy megerősítse, a forrás bemutató titkosítva volt-e. A nyitó jelszavas védelem betöltés előtti észleléséhez használja a `PresentationInfo.is_password_protected`-t, ahogyan fentebb látható.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **Biztonsági ajánlások**
+
+{{% alert color="warning" title="Security" %}}
+Ne naplózza a nyitó jelszavakat, és ne tartalmazza őket diagnosztikai üzenetekben. Kerülje a felesleges ismételt ellenőrzési kísérleteket, csak a szükséges időtartamig tartsa a jelszavakat a memóriában, és használja újra a sikeres ellenőrzés eredményét, amikor azonnal betölti a bemutatót.
+{{% /alert %}}
+
+## **Bemutató jelszóval való védelme online**
+
+1. Nyissa meg az [Aspose.Slides Lock](https://products.aspose.app/slides/hu/lock) alkalmazást.
+1. Válassza ki vagy töltse fel a bemutatót.
+1. Adjon meg egy jelszót a megtekintési védelemhez.
+1. Opcionálisan adjon meg külön jelszót a szerkesztési védelemhez.
+1. Alkalmazza a védelmet, és töltse le a kapott fájlt.
+
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/hu/python-net/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/hu/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **GYIK**
 
-**Milyen titkosítási módszereket támogat az Aspose.Slides?**
+**Mi a különbség a nyitó jelszó és az írásvédelmi jelszó között?**
 
-Az Aspose.Slides modern titkosítási módszereket támogat, köztük AES‑alapú algoritmusokat, ami magas szintű adatbiztonságot biztosít a prezentációk számára.
+Az nyitó jelszó titkosítja a bemutatót, és a tartalom betöltéséhez szükséges. Az írásvédelmi jelszó a módosítást korlátozza anélkül, hogy titkosítaná a tartalmat.
 
-**Mi történik, ha helytelen jelszót adnak meg a prezentáció megnyitásakor?**
+**Érvényesíthetek nyitó jelszót anélkül, hogy az összes diát betölteném?**
 
-Hibát dob, ha helytelen jelszót használnak, jelezve, hogy a prezentációhoz való hozzáférés megtagadva. Ez segít megelőzni az illetéktelen hozzáférést és védi a prezentáció tartalmát.
+Igen. Szerezze be a bemutató információit, ellenőrizze, hogy van-e nyitó jelszavas védelem, és validálja a jelszót, mielőtt teljes bemutató példányt hozna létre.
 
-**Vannak‑e teljesítménybeli hatások a jelszóval védett prezentációk használatakor?**
+**Támogatják a jelszó-ellenőrző munkafolyamatok a PPT és PPTX formátumokat is?**
 
-A titkosítási és visszafejtési folyamat kis mértékű túlterhelést okozhat a megnyitási és mentési műveletek során. A legtöbb esetben ez a hatás minimális, és nem befolyásolja jelentősen a prezentációfeldolgozás általános idejét.
+Igen. A fájlúton és a folyam alapú jelszódetektálás és validálás ugyanúgy működik PPT és PPTX bemutatók esetén.

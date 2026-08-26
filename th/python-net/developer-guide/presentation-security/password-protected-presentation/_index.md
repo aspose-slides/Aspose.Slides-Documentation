@@ -1,264 +1,186 @@
 ---
-title: ปกป้องการนำเสนอด้วยรหัสผ่านโดยใช้ Python
+title: การป้องกันการนำเสนอด้วยรหัสผ่านใน Python
 linktitle: การป้องกันรหัสผ่าน
 type: docs
 weight: 20
 url: /th/python-net/password-protected-presentation/
 keywords:
-- ล็อก PowerPoint
-- ล็อกการนำเสนอ
-- ปลดล็อก PowerPoint
-- ปลดล็อกการนำเสนอ
-- ปกป้อง PowerPoint
-- ปกป้องการนำเสนอ
-- ตั้งรหัสผ่าน
-- เพิ่มรหัสผ่าน
+- การนำเสนอที่ป้องกันด้วยรหัสผ่าน
+- รหัสผ่านเปิด
 - เข้ารหัส PowerPoint
-- เข้ารหัสการนำเสนอ
 - ถอดรหัส PowerPoint
-- ถอดรหัสการนำเสนอ
-- การป้องกันการเขียน
-- ความปลอดภัย PowerPoint
-- ความปลอดภัยการนำเสนอ
-- ลบรหัสผ่าน
-- ลบการป้องกัน
+- ตรวจสอบความถูกต้องของรหัสผ่านการนำเสนอ
+- ตรวจสอบรหัสผ่านการนำเสนอ
+- เปิดการนำเสนอที่เข้ารหัส
 - ลบการเข้ารหัส
-- ปิดการใช้งานรหัสผ่าน
-- ปิดการใช้งานการป้องกัน
-- ลบการป้องกันการเขียน
-- การนำเสนอ PowerPoint
+- PowerPoint
+- PPT
+- PPTX
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีการล็อกและปลดล็อกการนำเสนอ PowerPoint และ OpenDocument ที่ป้องกันด้วยรหัสผ่านอย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน .NET เพิ่มผลิตภาพของคุณและปกป้องการนำเสนอของคุณด้วยคู่มือทีละขั้นตอนของเรา."
+description: "เข้ารหัส, ตรวจจับ, ตรวจสอบ, เปิดและถอดรหัสการนำเสนอ PowerPoint PPT และ PPTX ที่ป้องกันด้วยรหัสผ่านใน Python ด้วย Aspose.Slides."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เมื่อคุณป้องกันการนำเสนอด้วยรหัสผ่าน หมายความว่าคุณกำลังตั้งรหัสผ่านเพื่อบังคับใช้ข้อจำกัดบางอย่างบนการนำเสนอ หากต้องการเอาข้อจำกัดออก จะต้องป้อนรหัสผ่าน การนำเสนอที่ป้องกันด้วยรหัสผ่านถือเป็นการนำเสนอที่ถูกล็อก
+รหัสผ่านเปิดทำการเข้ารหัสการนำเสนอ จำเป็นต้องใช้รหัสผ่านที่ถูกต้องเพื่อโหลดและดูเนื้อหาการนำเสนอ ดังนั้นการป้องกันนี้จึงให้ความลับ.
 
-โดยปกติคุณสามารถตั้งรหัสผ่านเพื่อบังคับใช้ข้อจำกัดเหล่านี้บนการนำเสนอได้:
+รหัสผ่านเปิดต่างจากรหัสผ่านป้องกันการเขียน การป้องกันการเขียนจำกัดการแก้ไขแต่ไม่เข้ารหัสเนื้อหา nor ไม่ป้องกันการโหลดการนำเสนอ เพื่อจัดการรหัสผ่านสำหรับการแก้ไขการนำเสนอ ดูที่ [Write-Protect Presentations](/slides/th/python-net/write-protected-presentation/).
 
-- **การแก้ไข**
+กระบวนการทำงานด้านล่างใช้ได้กับการนำเสนอทั้งในรูปแบบ PPT และ PPTX ตัวอย่างใช้ทั้งสองรูปแบบเมื่อพฤติกรรมตามไฟล์และตามสตรีมมีความสำคัญ.
 
-  หากคุณต้องการให้ผู้ใช้บางคนเท่านั้นที่สามารถแก้ไขการนำเสนอของคุณได้ คุณสามารถตั้งข้อจำกัดการแก้ไข ข้อจำกัดนี้จะป้องกันไม่ให้ผู้คนทำการแก้ไข เปลี่ยนแปลง หรือคัดลอกสิ่งต่าง ๆ ในการนำเสนอของคุณ (หากไม่ระบุรหัสผ่าน).
+## **เข้ารหัสการนำเสนอด้วยรหัสผ่านเปิด**
 
-  อย่างไรก็ตามในกรณีนี้ แม้ไม่มีรหัสผ่าน ผู้ใช้ก็จะสามารถเข้าถึงเอกสารของคุณและเปิดได้ ในโหมดอ่านอย่างเดียวนี้ ผู้ใช้สามารถดูเนื้อหา หรือสิ่งต่าง ๆ เช่น ลิงก์, แอนิเมชัน, เอฟเฟกต์ ฯลฯ ภายในการนำเสนอของคุณได้ แต่ไม่สามารถคัดลอกรายการหรือบันทึกการนำเสนอได้.
+ใช้ [ProtectionManager.encrypt](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/encrypt/) เพื่อกำหนดรหัสผ่านเปิด จากนั้นใช้ [Presentation.save](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/save/) เพื่อบันทึกการนำเสนอที่เข้ารหัส.
 
-- **การเปิด**
-
-  หากคุณต้องการให้ผู้ใช้บางคนเท่านั้นที่สามารถเปิดการนำเสนอของคุณได้ คุณสามารถตั้งข้อจำกัดการเปิด ข้อจำกัดนี้จะป้องกันไม่ให้ผู้คนดูเนื้อหาของการนำเสนอของคุณเลย (หากไม่ระบุรหัสผ่าน).
-
-  โดยเทคนิค ข้อจำกัดการเปิดยังป้องกันผู้ใช้จากการแก้ไขการนำเสนอของคุณด้วย: เมื่อผู้คนไม่สามารถเปิดการนำเสนอได้ พวกเขาจึงไม่สามารถทำการแก้ไขหรือเปลี่ยนแปลงได้.
-
-  **หมายเหตุ**ว่าหากคุณป้องกันการนำเสนอด้วยรหัสผ่านเพื่อป้องกันการเปิดไฟล์ การนำเสนอจะถูกเข้ารหัส.
-
-## วิธีป้องกันการนำเสนอด้วยรหัสผ่านออนไลน์
-
-1. ไปที่หน้า [**Aspose.Slides Lock**](https://products.aspose.app/slides/th/lock) ของเรา. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. คลิก **Drop or upload your files**.
-
-3. เลือกไฟล์ที่คุณต้องการป้องกันด้วยรหัสผ่านบนคอมพิวเตอร์ของคุณ. 
-
-4. ใส่รหัสผ่านที่คุณต้องการสำหรับการป้องกันการแก้ไข; ใส่รหัสผ่านที่คุณต้องการสำหรับการป้องกันการดู. 
-
-5. หากคุณต้องการให้ผู้ใช้เห็นการนำเสนอของคุณเป็นสำเนาสุดท้าย ให้ทำเครื่องหมายที่ช่องทำเครื่องหมาย **Mark as final**.
-
-6. คลิก **PROTECT NOW.** 
-
-7. คลิก **DOWNLOAD NOW.**
-
-## **การป้องกันด้วยรหัสผ่านสำหรับการนำเสนอใน Aspose.Slides**
-**รูปแบบที่รองรับ**
-
-Aspose.Slides รองรับการป้องกันด้วยรหัสผ่าน การเข้ารหัส และการดำเนินการคล้าย ๆ กันสำหรับการนำเสนอในรูปแบบต่อไปนี้: 
-
-- PPTX และ PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**การดำเนินการที่รองรับ**
-
-Aspose.Slides ให้คุณใช้การป้องกันด้วยรหัสผ่านบนการนำเสนอเพื่อป้องกันการแก้ไขได้ตามวิธีต่อไปนี้:
-
-- การเข้ารหัสการนำเสนอ
-- การตั้งการป้องกันการเขียนบนการนำเสนอ
-
-**การดำเนินการอื่น ๆ**
-
-Aspose.Slides ให้คุณทำงานอื่น ๆ ที่เกี่ยวข้องกับการป้องกันด้วยรหัสผ่านและการเข้ารหัสได้ดังนี้:
-
-- การถอดรหัสการนำเสนอ; การเปิดการนำเสนอที่เข้ารหัส
-- การลบการเข้ารหัส; ปิดการป้องกันด้วยรหัสผ่าน
-- การลบการป้องกันการเขียนจากการนำเสนอ
-- การดึงคุณสมบัติเขาของการนำเสนอที่เข้ารหัส
-- การตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่
-- การตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านหรือไม่.
-
-## **การเข้ารหัสการนำเสนอ**
-
-คุณสามารถเข้ารหัสการนำเสนอโดยตั้งรหัสผ่าน จากนั้นเพื่อแก้ไขการนำเสนอที่ถูกล็อก ผู้ใช้ต้องระบุรหัสผ่าน
-
-เพื่อเข้ารหัสหรือป้องกันการนำเสนอด้วยรหัสผ่าน คุณต้องใช้เมธอด encrypt (จาก [ProtectionManager](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/)) เพื่อกำหนดรหัสผ่านให้กับการนำเสนอ คุณจะส่งรหัสผ่านไปยังเมธอด encrypt แล้วใช้เมธอด save เพื่อบันทึกการนำเสนอที่เพิ่งเข้ารหัส
-
-This sample code shows you how to encrypt a presentation:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **การตั้งการป้องกันการเขียนบนการนำเสนอ** 
-
-คุณสามารถเพิ่มเครื่องหมายระบุว่า “Do not modify” บนการนำเสนอได้ วิธีนี้ทำให้คุณบอกผู้ใช้ว่าคุณไม่ต้องการให้พวกเขาทำการเปลี่ยนแปลงการนำเสนอ
-
-**หมายเหตุ** ว่ากระบวนการป้องกันการเขียนไม่ได้ทำให้การนำเสนอถูกเข้ารหัส ดังนั้นผู้ใช้—หากต้องการ—สามารถแก้ไขการนำเสนอได้ แต่เมื่อต้องการบันทึกการเปลี่ยนแปลง พวกเขาจะต้องสร้างการนำเสนอใหม่ด้วยชื่อที่แตกต่าง
-
-เพื่อกำหนดการป้องกันการเขียน คุณต้องใช้เมธอด setWriteProtection ตัวอย่างโค้ดนี้แสดงวิธีตั้งการป้องกันการเขียนบนการนำเสนอ:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **การถอดรหัสการนำเสนอ; การเปิดการนำเสนอที่เข้ารหัส**
-
-Aspose.Slides ให้คุณโหลดไฟล์ที่เข้ารหัสโดยส่งรหัสผ่านของมัน เพื่อถอดรหัสการนำเสนอ คุณต้องเรียกเมธอด [remove_encryption](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/) โดยไม่มีพารามิเตอร์ จากนั้นคุณจะต้องใส่รหัสผ่านที่ถูกต้องเพื่อโหลดการนำเสนอ
-
-This sample code shows you how to decrypt a presentation: 
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-## **การลบการเข้ารหัส; ปิดการป้องกันด้วยรหัสผ่าน**
-
-คุณสามารถลบการเข้ารหัสหรือการป้องกันด้วยรหัสผ่านบนการนำเสนอได้ วิธีนี้ทำให้ผู้ใช้สามารถเข้าถึงหรือแก้ไขการนำเสนอได้โดยไม่มีข้อจำกัด
-
-เพื่อทำการลบการเข้ารหัสหรือการป้องกันด้วยรหัสผ่าน คุณต้องเรียกเมธอด [remove_encryption](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/) ตัวอย่างโค้ดนี้แสดงวิธีลบการเข้ารหัสจากการนำเสนอ:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **การลบการป้องกันการเขียนจากการนำเสนอ**
-
-คุณสามารถใช้ Aspose.Slides เพื่อลบการป้องกันการเขียนที่ใช้บนไฟล์การนำเสนอได้ วิธีนี้ทำให้ผู้ใช้สามารถแก้ไขตามต้องการและไม่รับการเตือนใด ๆ เมื่อทำการดังกล่าว
-
-คุณสามารถลบการป้องกันการเขียนจากการนำเสนอโดยใช้เมธอด [remove_write_protection](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/) ตัวอย่างโค้ดนี้แสดงวิธีลบการป้องกันการเขียนจากการนำเสนอ:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **การดึงคุณสมบัติเขของการนำเสนอที่เข้ารหัส**
-
-โดยทั่วไปผู้ใช้มักพบปัญหาในการดึงคุณสมบัติของเอกสารของการนำเสนอที่เข้ารหัสหรือป้องกันด้วยรหัสผ่าน อย่างไรก็ตาม Aspose.Slides มีกลไกที่ให้คุณป้องกันการนำเสนอด้วยรหัสผ่านพร้อมยังคงให้ผู้ใช้เข้าถึงคุณสมบัติของการนำเสนอนั้นได้
-
-**หมายเหตุ**ว่าเมื่อ Aspose.Slides เข้ารหัสการนำเสนอ คุณสมบัติเอกสารของการนำเสนอจะถูกป้องกันด้วยรหัสผ่านเช่นกันโดยค่าเริ่มต้น แต่หากคุณต้องการทำให้คุณสมบัติของการนำเสนอสามารถเข้าถึงได้ (แม้การนำเสนอจะถูกเข้ารหัส) Aspose.Slides อนุญาตให้ทำได้อย่างตรงนั้น
-
-หากคุณต้องการให้ผู้ใช้ยังคงสามารถเข้าถึงคุณสมบัติของการนำเสนอที่คุณเข้ารหัสได้ คุณสามารถตั้งค่า property [EncryptDocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/) เป็น `True` ตัวอย่างโค้ดนี้แสดงวิธีเข้ารหัสการนำเสนอพร้อมให้วิธีการให้ผู้ใช้เข้าถึงคุณสมบัติเอกสารของมัน:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
-    pres.protection_manager.encrypt("123123")
-```
-
-## **การตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านก่อนโหลด**
-
-ก่อนที่คุณจะโหลดการนำเสนอ คุณอาจต้องการตรวจสอบและยืนยันว่าการนำเสนอไม่ได้ถูกป้องกันด้วยรหัสผ่าน วิธีนี้ช่วยหลีกเลี่ยงข้อผิดพลาดและปัญหาอื่น ๆ ที่เกิดขึ้นเมื่โหลดการนำเสนอที่ป้องกันด้วยรหัสผ่านโดยไม่ได้ใส่รหัสผ่าน
-
-โค้ด Python นี้แสดงวิธีตรวจสอบการนำเสนอเพื่อดูว่าถูกป้องกันด้วยรหัสผ่านหรือไม่ (โดยไม่โหลดการนำเสนอเอง):
+ตัวอย่างต่อไปนี้ทำการเข้ารหัสการนำเสนอ PPTX:
 
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **การตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่**
+## **โหลดการนำเสนอที่เข้ารหัส**
 
-Aspose.Slides ให้คุณตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่ เพื่อทำงานนี้ คุณสามารถใช้ property [is_encrypted](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/) ซึ่งจะคืนค่า `True` หากการนำเสนอถูกเข้ารหัสหรือ `False` หากไม่ถูกเข้ารหัส
+กำหนดค่า [LoadOptions.password](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/password/) ให้เป็นรหัสผ่านเปิดและส่งตัวเลือกเหล่านั้นไปยัง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) เมื่อโหลดไฟล์ การโหลดจะล้มเหลือเมื่อจำเป็นต้องใช้รหัสผ่านเปิดแต่รหัสที่ให้มาขาดหายหรือไม่ถูกต้อง.
 
-ตัวอย่างโค้ดนี้แสดงวิธีตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # ทำงานกับการนำเสนอที่ถอดรหัสแล้ว.
+    pass
 ```
 
-## **การตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่**
+## **ลบการเข้ารหัสออกจากการนำเสนอ**
 
-Aspose.Slides ให้คุณตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่ เพื่อทำงานนี้ คุณสามารถใช้ property [is_write_protected](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/) ซึ่งจะคืนค่า `True` หากการนำเสนอถูกป้องกันการเขียนหรือ `False` หากไม่ได้
+โหลดการนำเสนอพร้อมรหัสผ่านเปิด, เรียกใช้ [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/remove_encryption/), แล้วบันทึกผลลัพธ์ การนำเสนอที่บันทึกแล้วสามารถโหลดได้โดยไม่ต้องใช้รหัสผ่าน.
 
-ตัวอย่างโค้ดนี้แสดงวิธีตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **การตรวจสอบหรือยืนยันว่ามีการใช้รหัสผ่านเฉพาะเพื่อป้องกันการนำเสนอ**
+## **ตรวจสอบรหัสผ่านเปิดก่อนการโหลด**
 
-คุณอาจต้องการตรวจสอบและยืนยันว่ามีการใช้รหัสผ่านเฉพาะเพื่อป้องกันเอกสารการนำเสนอ Aspose.Slides มีวิธีการให้คุณตรวจสอบรหัสผ่าน
+ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) เพื่อรับ [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) โดยไม่ต้องสร้างอินสแตนซ์การนำเสนอเต็มรูปแบบ ตรวจสอบ [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/is_password_protected/) ก่อนขอหรือยืนยันรหัสผ่าน เมื่อมีการป้องกันอยู่ ให้ตรวจสอบค่าที่ให้ด้วย [PresentationInfo.check_password](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/check_password/).
 
-ตัวอย่างโค้ดนี้แสดงวิธีตรวจสอบรหัสผ่าน:
+### **กระบวนการทำงานด้วยเส้นทางไฟล์**
 
-```py
+ตัวอย่างต่อไปนี้ตรวจสอบรหัสผ่านเปิดสำหรับไฟล์ PPTX, ส่งค่าที่ตรวจสอบแล้วไปยัง [LoadOptions.password](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/password/), จากนั้นโหลดการนำเสนอเต็มรูปแบบ:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # ตรวจสอบว่า "pass" ตรงกับหรือไม่
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
-มันจะคืนค่า `True` หากการนำเสนอถูกเข้ารหัสด้วยรหัสผ่านที่ระบุ มิฉะนั้นจะคืนค่า `False`.
+### **กระบวนการทำงานด้วยสตรีม**
 
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
+การ overload ด้วยสตรีมของ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) ให้กระบวนการทำงานแบบเดียวกัน รีเซ็ตตำแหน่งของสตรีมที่สามารถค้นหาได้ก่อนโหลดการนำเสนอเต็มรูปแบบจากสตรีมนั้น.
+
+ตัวอย่างต่อไปนี้ใช้ไฟล์ PPT:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **ค่าที่คืนจาก CheckPassword**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/check_password/) คืนค่า `True` เฉพาะเมื่อการนำเสนอมีรหัสผ่านเปิดและรหัสที่ให้มาถูกต้อง จะคืนค่า `False` ในกรณีต่อไปนี้:
+
+- รหัสผ่านไม่ถูกต้อง.
+- การนำเสนอไม่มีรหัสผ่านเปิด.
+- รหัสผ่านที่ให้เป็น `None` หรือว่างเปล่า.
+
+พฤติกรรมนี้เหมือนกันสำหรับการนำเสนอ PPT และ PPTX.
+
+## **ตรวจสอบว่าการนำเสนอที่โหลดแล้วถูกเข้ารหัสหรือไม่**
+
+หลังจากโหลดการนำเสนอด้วยรหัสผ่านที่ถูกต้อง ให้ตรวจสอบ [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/th/python-net/aspose.slides/protectionmanager/is_encrypted/) เพื่อยืนยันว่าการนำเสนอแหล่งที่มาถูกเข้ารหัส เพื่อตรวจจับการป้องกันด้วยรหัสผ่านเปิดก่อนการโหลด ให้ใช้ `PresentationInfo.is_password_protected` ตามที่แสดงข้างต้น.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **คำแนะนำด้านความปลอดภัย**
+
+{{% alert color="warning" title="Security" %}}
+ห้ามบันทึกรหัสผ่านเปิดหรือใส่ไว้ในข้อความวินิจฉัย หลีกเลี่ยงการตรวจสอบซ้ำโดยไม่จำเป็น เก็บรหัสผ่านในหน่วยความจำเพียงเท่าที่จำเป็น และใช้ผลการตรวจสอบที่สำเร็จซ้ำเมื่อโหลดการนำเสนอโดยทันที.
+{{% /alert %}}
+
+## **ป้องกันการนำเสนอด้วยรหัสผ่านออนไลน์**
+
+1. เปิดแอปพลิเคชัน [Aspose.Slides Lock](https://products.aspose.app/slides/th/lock).
+2. เลือกหรืออัปโหลดการนำเสนอ.
+3. ป้อนรหัสผ่านสำหรับการป้องกันการดู.
+4. หากต้องการ สามารถป้อนรหัสผ่านแยกต่างหากสำหรับการป้องกันการแก้ไข.
+5. ใช้การป้องกันและดาวน์โหลดไฟล์ที่ได้.
+
+{{% alert color="info" title="See also" %}}
+- [การป้องกันการเขียนการนำเสนอ](/slides/th/python-net/write-protected-presentation/)
 - [ลายเซ็นดิจิทัลใน PowerPoint](/slides/th/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**วิธีการเข้ารหัสที่ Aspose.Slides รองรับคืออะไร?**
+**ความแตกต่างระหว่างรหัสผ่านเปิดกับรหัสผ่านป้องกันการเขียนคืออะไร?**
 
-Aspose.Slides รองรับวิธีการเข้ารหัสสมัยใหม่ รวมถึงอัลกอริทึมที่ใช้ AES ซึ่งรับประกันระดับความปลอดภัยของข้อมูลสูงสำหรับการนำเสนอของคุณ.
+รหัสผ่านเปิดทำการเข้ารหัสการนำเสนอและจำเป็นต้องใช้เพื่อโหลดเนื้อหา ส่วนรหัสผ่านป้องกันการเขียนจำกัดการแก้ไขโดยไม่เข้ารหัสเนื้อหา.
 
-**จะเกิดอะไรขึ้นหากใส่รหัสผ่านที่ไม่ถูกต้องเมื่อพยายามเปิดการนำเสนอ?**
+**ฉันสามารถตรวจสอบรหัสผ่านเปิดโดยไม่ต้องโหลดสไลด์ทั้งหมดได้หรือไม่?**
 
-ระบบจะโยนข้อยกเว้นหากใช้รหัสผ่านไม่ถูกต้อง แจ้งให้คุณทราบว่าการเข้าถึงการนำเสนอถูกปฏิเสธ ซึ่งช่วยป้องกันการเข้าถึงโดยไม่ได้รับอนุญาตและคุ้มครองเนื้อหาการนำเสนอ.
+ได้ ใช่ ให้รับข้อมูลการนำเสนอ ตรวจสอบว่ามีการป้องกันด้วยรหัสผ่านเปิดหรือไม่ และตรวจสอบรหัสผ่านก่อนสร้างอินสแตนซ์การนำเสนอเต็มรูปแบบ.
 
-**มีผลต่อประสิทธิภาพหรือไม่เมื่อทำงานกับการนำเสนอที่ป้องกันด้วยรหัสผ่าน?**
+**กระบวนการตรวจสอบรหัสผ่านสนับสนุนทั้ง PPT และ PPTX หรือไม่?**
 
-กระบวนการเข้ารหัสและถอดรหัสอาจทำให้เกิดภาระงานเพิ่มขึ้นเล็กน้อยในระหว่างการเปิดและบันทึก ในส่วนใหญ่ผลกระทบต่อประสิทธิภาพจะเล็กน้อยและไม่ส่งผลอย่างมีนัยสำคัญต่อเวลาในการประมวลผลทั้งหมดของงานการนำเสนอของคุณ.
+ได้เช่นกัน การตรวจจับและตรวจสอบรหัสผ่านตามเส้นทางไฟล์และตามสตรีมทำงานเหมือนกันสำหรับการนำเสนอ PPT และ PPTX.

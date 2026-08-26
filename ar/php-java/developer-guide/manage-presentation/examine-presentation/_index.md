@@ -1,5 +1,5 @@
 ---
-title: استرجاع وتحديث معلومات العرض التقديمي في PHP
+title: استرجاع وتحديث معلومات العرض التقديمي بلغة PHP
 linktitle: معلومات العرض التقديمي
 type: docs
 weight: 30
@@ -21,22 +21,20 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP للحصول على رؤى أسرع وتدقيق محتوى أذكى."
+description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة PHP للحصول على رؤى أسرع وتدقيق محتوى أكثر ذكاءً."
 ---
+## **نظرة عامة**
 
-Aspose.Slides for PHP عبر Java يسمح لك بفحص عرض تقديمي لمعرفة خصائصه وفهم سلوكه.
+تظهر هذه المقالة كيفية فحص معلومات العرض التقديمي في Aspose.Slides. توضح كيفية تحديد تنسيق العرض الحالي دون تحميل الملف بالكامل، قراءة خصائص المستند الخاصة به، وتحديث تلك الخصائص عند الحاجة.
 
-{{% alert title="Info" color="info" %}} 
-
-تحتوي الفئات [PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo) و [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) على الخصائص والطرق المستخدمة في العمليات هنا.
-
-{{% /alert %}} 
+تستند الأمثلة إلى واجهات برمجة التطبيقات [PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/) و[DocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/) وتظهر عمليات شائعة للعمل مع بيانات التعريف الخاصة بالعرض التقديمي.
 
 ## **التحقق من تنسيق العرض التقديمي**
 
-قبل العمل على عرض تقديمي، قد ترغب في معرفة التنسيق (PPT، PPTX، ODP وغيرها) الذي يكون فيه العرض في الوقت الحالي.
+قبل العمل على عرض تقديمي، قد ترغب في معرفة ما هو التنسيق (PPT، PPTX، ODP، وغيرها) الذي يكون فيه العرض في الوقت الحالي.
 
-يمكنك التحقق من تنسيق العرض التقديمي دون تحميله. شاهد هذا الكود PHP:
+يمكنك التحقق من تنسيق العرض دون تحميله. انظر إلى هذا الكود PHP:
+
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
   echo($info->getLoadFormat());// PPTX
@@ -48,10 +46,10 @@ Aspose.Slides for PHP عبر Java يسمح لك بفحص عرض تقديمي ل�
   echo($info3->getLoadFormat());// ODP
 ```
 
-
 ## **الحصول على خصائص العرض التقديمي**
 
 يعرض لك هذا الكود PHP كيفية الحصول على خصائص العرض التقديمي (معلومات حول العرض):
+
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
   $props = $info->readDocumentProperties();
@@ -61,18 +59,18 @@ Aspose.Slides for PHP عبر Java يسمح لك بفحص عرض تقديمي ل�
   # ..
 ```
 
-
-قد ترغب في رؤية [الخصائص الموجودة في DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#DocumentProperties--) الفئة.
+قد ترغب في رؤية [الخصائص ضمن فئة DocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#DocumentProperties--) .
 
 ## **تحديث خصائص العرض التقديمي**
 
-توفر Aspose.Slides الطريقة [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) التي تسمح لك بإجراء تغييرات على خصائص العرض التقديمي.
+يوفر Aspose.Slides طريقة [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) التي تسمح لك بإجراء تغييرات على خصائص العرض التقديمي.
 
-لنفترض أن لدينا عرض PowerPoint يحتوي على خصائص المستند الموضحة أدناه.
+لنفرض أن لدينا عرض PowerPoint مع خصائص المستند الموضحة أدناه.
 
-![الخصائص الأصلية للمستند في عرض PowerPoint](input_properties.png)
+![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
 
-يعرض لك مثال الكود هذا كيفية تعديل بعض خصائص العرض التقديمي:
+يظهر لك مثال الكود هذا كيفية تعديل بعض خصائص العرض التقديمي:
+
 ```php
 $fileName = "sample.pptx";
 
@@ -86,38 +84,35 @@ $info->updateDocumentProperties($properties);
 $info->writeBindedPresentation($fileName);
 ```
 
-
 تظهر نتائج تغيير خصائص المستند أدناه.
 
-![الخصائص المتغيرة للمستند في عرض PowerPoint](output_properties.png)
+![خصائص المستند المعدلة لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للحصول على مزيد من المعلومات حول العرض التقديمي وسماته الأمنية، قد تجد الروابط التالية مفيدة:
+للحصول على مزيد من المعلومات حول العرض التقديمي وخصائص الأمان الخاصة به، قد تجد هذه الروابط مفيدة:
 
-- [التحقق مما إذا كان العرض التقديمي مشفرًا](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [التحقق مما إذا كان العرض التقديمي محميًا للكتابة (قراءة فقط)](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [التحقق مما إذا كان العرض التقديمي محميًا بكلمة مرور قبل تحميله](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تأكيد كلمة المرور المستخدمة لحماية العرض التقديمي](https://docs.aspose.com/slides/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [حماية العروض التقديمية بكلمة مرور](/slides/ar/php-java/password-protected-presentation/)
+- [حماية العروض التقديمية من الكتابة](/slides/ar/php-java/write-protected-presentation/)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وأيها؟**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مدمجة وأيها هي؟**
 
-ابحث عن [معلومات الخطوط المضمنة](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getembeddedfonts/) على مستوى العرض التقديمي، ثم قارن تلك الإدخالات مع مجموعة [الخطوط المستخدمة فعليًا عبر المحتوى](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/getfonts/) لتحديد الخطوط الحرجة للعرض.
+ابحث عن [معلومات الخطوط المدمجة](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getembeddedfonts/) على مستوى العرض، ثم قارن تلك الإدخالات مع مجموعة [الخطوط المستخدمة فعليًا عبر المحتوى](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/getfonts/) لتحديد الخطوط الضرورية للعرض.
 
 **كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-استعرض مجموعة [slide collection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) وتفحص [visibility flag](https://reference.aspose.com/slides/php-java/aspose.slides/slide/gethidden/) لكل شريحة.
+قم بالتكرار عبر [مجموعة الشرائح](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidecollection/) وتفقد علامة [المرئية لكل شريحة](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/gethidden/) .
 
-**هل يمكنني اكتشاف ما إذا تم استخدام حجم واتجاه شريحة مخصصين، وما إذا كانا يختلفان عن الإعدادات الافتراضية؟**
+**هل يمكنني اكتشاف ما إذا كان يتم استخدام حجم واتجاه شريحة مخصص، وما إذا كان يختلف عن الإعدادات الافتراضية؟**
 
-نعم. قارن [slide size](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslidesize/) الحالي والاتجاه مع الإعدادات المسبقة القياسية؛ يساعد ذلك في توقع السلوك عند الطباعة والتصدير.
+نعم. قارن [حجم الشريحة](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/getslidesize/) الحالي والاتجاه مع القيم المسبقة القياسية؛ هذا يساعد في توقع السلوك عند الطباعة والتصدير.
 
 **هل هناك طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. استعرض جميع [charts](https://reference.aspose.com/slides/php-java/aspose.slides/chart/)، تحقق من [data source](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/)، ولاحظ ما إذا كان البيانات داخلية أو مرتبطة، بما في ذلك أي روابط مكسورة.
+نعم. استعرض جميع [المخططات](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/)، تحقق من [مصدر البيانات](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getdatasourcetype/) الخاص بها، وسجل ما إذا كانت البيانات داخلية أو مرتبطة بروابط، بما في ذلك أي روابط مكسورة.
 
-**كيف يمكنني تقييم الشرائح 'الثقيلة' التي قد تبطئ عملية العرض أو تصدير PDF؟**
+**كيف يمكنني تقييم الشرائح "الثقيلة" التي قد تبطئ عملية العرض أو تصدير PDF؟**
 
-لكل شريحة، احسب عدد الكائنات وابحث عن صور كبيرة، شفافية، ظلال، حركات، ووسائط متعددة؛ قم بتعيين درجة تعقيد تقريبية لتحديد نقاط الاختناق المحتملة في الأداء.
+لكل شريحة، احصر عدد الكائنات وابحث عن صور كبيرة، شفافية، ظلال، رسوم متحركة، ووسائط متعددة؛ اعطِ تقديرًا تقريبيًا للتعقيد لتحديد النقاط المحتملة لأداء ضعيف.

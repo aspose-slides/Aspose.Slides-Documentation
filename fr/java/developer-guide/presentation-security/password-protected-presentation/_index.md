@@ -1,283 +1,228 @@
 ---
-title: Sécuriser les présentations avec des mots de passe en Java
+title: Présentations protégées par mot de passe en Java
 linktitle: Protection par mot de passe
 type: docs
 weight: 20
 url: /fr/java/password-protected-presentation/
 keywords:
-- verrouiller PowerPoint
-- verrouiller présentation
-- déverrouiller PowerPoint
-- déverrouiller présentation
-- protéger PowerPoint
-- protéger présentation
-- définir un mot de passe
-- ajouter un mot de passe
+- présentation protégée par mot de passe
+- mot de passe d'ouverture
 - chiffrer PowerPoint
-- chiffrer présentation
 - déchiffrer PowerPoint
-- déchiffrer présentation
-- protection en écriture
-- sécurité PowerPoint
-- sécurité de la présentation
-- supprimer le mot de passe
-- supprimer la protection
+- valider le mot de passe de la présentation
+- vérifier le mot de passe de la présentation
+- ouvrir une présentation chiffrée
 - supprimer le chiffrement
-- désactiver le mot de passe
-- désactiver la protection
-- supprimer la protection en écriture
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - présentation
 - Java
 - Aspose.Slides
-description: "Découvrez comment verrouiller et déverrouiller facilement les présentations PowerPoint et OpenDocument protégées par mot de passe avec Aspose.Slides pour Java. Sécurisez vos présentations."
+description: "Chiffrez, détectez, validez, ouvrez et déchiffrez des présentations PowerPoint PPT et PPTX protégées par mot de passe en Java avec Aspose.Slides."
 ---
+## **Vue d'ensemble**
 
-## **À propos de la protection par mot de passe**
-### **Comment la protection par mot de passe d’une présentation fonctionne‑t‑elle ?**
-Lorsque vous protégez une présentation par mot de passe, vous définissez un mot de passe qui impose certaines restrictions sur la présentation. Pour supprimer les restrictions, le mot de passe doit être saisi. Une présentation protégée par mot de passe est considérée comme une présentation verrouillée.
+Un mot de passe d'ouverture chiffre une présentation. Le mot de passe correct est nécessaire pour charger et visualiser le contenu de la présentation, de sorte que cette protection assure la confidentialité.
 
-Typiquement, vous pouvez définir un mot de passe pour imposer ces restrictions sur une présentation :
+Un mot de passe d'ouverture est différent d'un mot de passe de protection en écriture. La protection en écriture restreint la modification mais ne chiffre pas le contenu et n'empêche pas le chargement de la présentation. Pour gérer les mots de passe de modification des présentations, voir [Protection en écriture des présentations](/slides/fr/java/write-protected-presentation/).
 
-- **Modification**
+Les flux de travail ci‑dessous s'appliquent tant aux présentations PPT qu'aux présentations PPTX. Les exemples utilisent les deux formats lorsque le comportement basé sur le fichier et le flux est important.
 
-  Si vous souhaitez que seuls certains utilisateurs puissent modifier votre présentation, vous pouvez définir une restriction de modification. Cette restriction empêche les personnes de modifier, changer ou copier des éléments de votre présentation (sauf si elles renseignent le mot de passe).
+## **Chiffrer une présentation avec un mot de passe d'ouverture**
 
-  Cependant, dans ce cas, même sans le mot de passe, un utilisateur pourra accéder à votre document et l’ouvrir. En mode lecture seule, l’utilisateur peut consulter le contenu ou les éléments — hyperliens, animations, effets, etc. — de votre présentation, mais il ne peut pas copier d’éléments ni enregistrer la présentation.
+Utilisez [IProtectionManager.encrypt](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) pour attribuer un mot de passe d'ouverture. Puis utilisez [IPresentation.save](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) pour persister la présentation chiffrée.
 
-- **Ouverture**
+L'exemple suivant chiffre une présentation PPTX :
 
-  Si vous souhaitez que seuls certains utilisateurs puissent ouvrir votre présentation, vous pouvez définir une restriction d’ouverture. Cette restriction empêche les personnes de voir le contenu de votre présentation (sauf si elles renseignent le mot de passe).
-
-  Techniquement, la restriction d’ouverture empêche également les utilisateurs de modifier vos présentations : lorsqu’ils ne peuvent pas ouvrir une présentation, ils ne peuvent pas la modifier.
-
-  **Note** : lorsque vous protégez une présentation par mot de passe pour empêcher son ouverture, le fichier de présentation devient chiffré.
-
-## **Comment protéger par mot de passe une présentation en ligne**
-
-1. Accédez à notre page [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock).
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Cliquez sur **Drop or upload your files**.
-
-3. Sélectionnez le fichier que vous souhaitez protéger par mot de passe sur votre ordinateur.
-
-4. Saisissez le mot de passe que vous souhaitez utiliser pour la protection en écriture ; saisissez le mot de passe que vous souhaitez utiliser pour la protection en lecture.
-
-5. Si vous voulez que les utilisateurs voient votre présentation comme la copie finale, cochez la case **Mark as final**.
-
-6. Cliquez sur **PROTECT NOW.**
-
-7. Cliquez sur **DOWNLOAD NOW.**
-
-## **Protection par mot de passe des présentations dans Aspose.Slides**
-**Formats pris en charge**
-
-Aspose.Slides prend en charge la protection par mot de passe, le chiffrement et des opérations similaires pour les présentations dans les formats suivants :
-
-- PPTX et PPT – Présentation Microsoft PowerPoint
-- ODP – Présentation OpenDocument
-- OTP – Modèle de présentation OpenDocument
-
-**Opérations prises en charge**
-
-Aspose.Slides vous permet d’utiliser la protection par mot de passe sur les présentations afin d’empêcher les modifications de ces manières :
-
-- Chiffrer une présentation
-- Définir une protection en écriture sur une présentation
-
-**Autres opérations**
-
-Aspose.Slides vous permet d’effectuer d’autres tâches impliquant la protection par mot de passe et le chiffrement de ces manières :
-
-- Déchiffrer une présentation ; ouvrir une présentation chiffrée
-- Supprimer le chiffrement ; désactiver la protection par mot de passe
-- Supprimer la protection en écriture d’une présentation
-- Obtenir les propriétés d’une présentation chiffrée
-- Vérifier si une présentation est chiffrée
-- Vérifier si une présentation est protégée par mot de passe.
-
-## **Chiffrer une présentation**
-
-Vous pouvez chiffrer une présentation en définissant un mot de passe. Ensuite, pour modifier la présentation verrouillée, l’utilisateur doit fournir le mot de passe.
-
-Pour chiffrer ou protéger par mot de passe une présentation, vous devez utiliser la méthode encrypt (à partir de [IProtectionManager](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager)) afin de définir un mot de passe pour la présentation. Vous transmettez le mot de passe à la méthode encrypt et utilisez la méthode save pour enregistrer la présentation désormais chiffrée.
-
-Ce code d’exemple montre comment chiffrer une présentation :
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
-
-
-## **Définir une protection en écriture sur une présentation**
-
-Vous pouvez ajouter une mention « Ne pas modifier » à une présentation. Ainsi, vous indiquez aux utilisateurs que vous ne souhaitez pas qu’ils modifient la présentation.
-
-**Note** : le processus de protection en écriture ne chiffre pas la présentation. Par conséquent, les utilisateurs — s’ils le souhaitent réellement — peuvent modifier la présentation, mais pour enregistrer les modifications, ils devront créer une présentation avec un nom différent.
-
-Pour définir une protection en écriture, vous devez utiliser la méthode [setWriteProtection](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Ce code d’exemple montre comment définir une protection en écriture sur une présentation :
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
 
 ## **Charger une présentation chiffrée**
 
-Aspose.Slides vous permet de charger un fichier chiffré en transmettant son mot de passe. Pour déchiffrer une présentation, vous devez appeler la méthode [removeEncryption](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) sans paramètres. Vous devrez alors saisir le mot de passe correct pour charger la présentation.
+Définissez [ILoadOptions.setPassword](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) sur le mot de passe d'ouverture et transmettez les options à [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) lors du chargement du fichier. Le chargement échoue lorsqu'un mot de passe d'ouverture est requis mais que le mot de passe fourni est absent ou incorrect.
 
-Ce code d’exemple montre comment déchiffrer une présentation :
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // travail avec la présentation déchiffrée
+    // Travaillez avec la présentation déchiffrée.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
+## **Supprimer le chiffrement d'une présentation**
 
-## **Supprimer le chiffrement d’une présentation**
+Chargez la présentation avec son mot de passe d'ouverture, appelez [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iprotectionmanager/#removeEncryption--), puis enregistrez le résultat. La présentation enregistrée peut alors être chargée sans mot de passe.
 
-Vous pouvez supprimer le chiffrement ou la protection par mot de passe d’une présentation. Ainsi, les utilisateurs peuvent accéder à la présentation ou la modifier sans restriction.
-
-Pour supprimer le chiffrement ou la protection par mot de passe, vous devez appeler la méthode [removeEncryption](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--). Ce code d’exemple montre comment supprimer le chiffrement d’une présentation :
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Valider un mot de passe d'ouverture avant le chargement**
 
-## **Supprimer la protection en écriture d’une présentation**
+Utilisez [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) pour obtenir [IPresentationInfo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentationinfo/) sans créer d'instance complète de présentation. Vérifiez [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) avant de demander ou de valider un mot de passe. Lorsque la protection est présente, validez la valeur fournie avec [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-Vous pouvez utiliser Aspose.Slides pour supprimer la protection en écriture appliquée à un fichier de présentation. Ainsi, les utilisateurs peuvent le modifier comme ils le souhaitent — et aucune alerte ne s’affiche lorsqu’ils effectuent ces actions.
+### **Flux de travail avec chemin de fichier**
 
-Vous pouvez supprimer la protection en écriture d’une présentation en utilisant la méthode [removeWriteProtection](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeWriteProtection--). Ce code d’exemple montre comment supprimer la protection en écriture d’une présentation :
+L'exemple suivant valide un mot de passe d'ouverture pour un fichier PPTX, transmet la valeur validée à [ILoadOptions.setPassword](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), puis charge la présentation complète :
+
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **Flux de travail par flux**
+
+La surcharge flux de [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) fournit le même flux de travail. Réinitialisez la position d'un flux recherchable avant de charger la présentation complète depuis ce flux.
+
+L'exemple suivant utilise un fichier PPT :
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
+### **Valeurs de retour de checkPassword**
 
-## **Obtenir les propriétés d’une présentation chiffrée**
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) renvoie `true` uniquement lorsque la présentation possède un mot de passe d'ouverture et que le mot de passe fourni est correct. Il renvoie `false` dans chaque cas suivant :
 
-Typiquement, les utilisateurs ont du mal à obtenir les propriétés du document d’une présentation chiffrée ou protégée par mot de passe. Aspose.Slides, cependant, propose un mécanisme qui vous permet de protéger par mot de passe une présentation tout en conservant la possibilité pour les utilisateurs d’accéder aux propriétés de cette présentation.
+- Le mot de passe est incorrect.
+- La présentation ne possède pas de mot de passe d'ouverture.
+- Le mot de passe fourni est `null` ou vide.
 
-**Note** : lorsque Aspose.Slides chiffre une présentation, les propriétés du document de la présentation sont également protégées par mot de passe par défaut. Mais si vous devez rendre les propriétés de la présentation accessibles (même après le chiffrement), Aspose.Slides vous le permet.
+Le comportement est identique pour les présentations PPT et PPTX.
 
-Si vous voulez que les utilisateurs conservent la capacité d’accéder aux propriétés d’une présentation que vous avez chiffrée, vous pouvez définir la propriété [encryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) sur `true`. Ce code d’exemple montre comment chiffrer une présentation tout en permettant aux utilisateurs d’accéder à ses propriétés de document :
+## **Vérifier si une présentation chargée est chiffrée**
+
+Après avoir chargé une présentation avec le mot de passe correct, inspectez [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) pour confirmer que la présentation source était chiffrée. Pour détecter la protection par mot de passe d'ouverture avant le chargement, utilisez `IPresentationInfo.isPasswordProtected` comme indiqué ci‑dessus.
+
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-## **Vérifier si une présentation est protégée par mot de passe**
-
-Avant de charger une présentation, vous pouvez vérifier et confirmer que la présentation n’est pas protégée par un mot de passe. Ainsi, vous évitez les erreurs et les problèmes similaires qui surviennent lorsqu’une présentation protégée est chargée sans son mot de passe.
-
-Ce code Java montre comment examiner une présentation pour voir si elle est protégée par mot de passe (sans charger la présentation elle‑même) :
-```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
-
-
-## **Vérifier si une présentation est chiffrée**
-
-Aspose.Slides vous permet de vérifier si une présentation est chiffrée. Pour effectuer cette tâche, vous pouvez utiliser la propriété [isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isEncrypted--) qui renvoie `true` si la présentation est chiffrée ou `false` si elle ne l’est pas.
-
-Ce code d’exemple montre comment vérifier si une présentation est chiffrée :
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Recommandations de sécurité**
 
-## **Vérifier si une présentation est protégée en écriture**
+{{% alert color="warning" title="Sécurité" %}}
+Ne consignez pas les mots de passe d'ouverture et ne les incluez pas dans les messages de diagnostic. Évitez les tentatives de validation répétées inutiles, ne conservez les mots de passe en mémoire que le temps nécessaire, et réutilisez un résultat de validation réussi lors du chargement immédiat de la présentation.
+{{% /alert %}}
 
-Aspose.Slides vous permet de vérifier si une présentation est protégée en écriture. Pour effectuer cette tâche, vous pouvez utiliser la propriété [isWriteProtected](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isWriteProtected--) qui renvoie `true` si la présentation est chiffrée ou `false` si elle ne l’est pas.
+## **Protéger une présentation par mot de passe en ligne**
 
-Ce code d’exemple montre comment vérifier si une présentation est protégée en écriture :
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. Ouvrez l'application [Aspose.Slides Lock](https://products.aspose.app/slides/fr/lock).
+2. Sélectionnez ou téléversez la présentation.
+3. Saisissez un mot de passe pour la protection en visualisation.
+4. Saisissez éventuellement un mot de passe distinct pour la protection en modification.
+5. Appliquez la protection et téléchargez le fichier résultant.
 
-
-## **Valider ou confirmer qu’un mot de passe spécifique a été utilisé**
-
-Vous pouvez vouloir vérifier et confirmer qu’un mot de passe précis a été utilisé pour protéger un document de présentation. Aspose.Slides fournit les moyens de valider un mot de passe.
-
-Ce code d’exemple montre comment valider un mot de passe :
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // vérifier si "pass" correspond
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-Il renvoie `true` si la présentation a été chiffrée avec le mot de passe indiqué. Sinon, il renvoie `false`.
-
-{{% alert color="primary" title="Voir aussi" %}} 
+{{% alert color="info" title="Voir aussi" %}}
+- [Protection en écriture des présentations](/slides/fr/java/write-protected-presentation/)
 - [Signature numérique dans PowerPoint](/slides/fr/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Quelles méthodes de chiffrement sont prises en charge par Aspose.Slides ?**
+**Quelle est la différence entre un mot de passe d'ouverture et un mot de passe de protection en écriture ?**
 
-Aspose.Slides prend en charge des méthodes de chiffrement modernes, notamment les algorithmes basés sur AES, garantissant un haut niveau de sécurité des données pour vos présentations.
+Un mot de passe d'ouverture chiffre la présentation et est requis pour charger son contenu. Un mot de passe de protection en écriture restreint la modification sans chiffrer le contenu.
 
-**Que se passe‑t‑il si un mot de passe incorrect est saisi lors de la tentative d’ouverture d’une présentation ?**
+**Puis-je valider un mot de passe d'ouverture sans charger toutes les diapositives ?**
 
-Une exception est levée si le mot de passe est incorrect, vous indiquant que l’accès à la présentation est refusé. Cela contribue à empêcher tout accès non autorisé et à protéger le contenu de la présentation.
+Oui. Obtenez les informations de la présentation, vérifiez si une protection par mot de passe d'ouverture est présente, puis validez le mot de passe avant de créer une instance complète de présentation.
 
-**Y a‑t‑il des impacts sur les performances lors du travail avec des présentations protégées par mot de passe ?**
+**Les flux de travail de vérification du mot de passe prennent-ils en charge à la fois PPT et PPTX ?**
 
-Le processus de chiffrement et de déchiffrement peut introduire un léger surcoût lors des opérations d’ouverture et d’enregistrement. Dans la plupart des cas, cet impact sur les performances est minime et n’affecte pas de manière significative le temps de traitement global de vos tâches de présentation.
+Oui. La détection et la validation du mot de passe basées sur le chemin de fichier ou le flux se comportent de la même manière pour les présentations PPT et PPTX.

@@ -1,264 +1,228 @@
 ---
-title: 在 Java 中使用密碼保護安全投影片
+title: 在 Java 中對簡報進行密碼保護
 linktitle: 密碼保護
 type: docs
 weight: 20
 url: /zh-hant/java/password-protected-presentation/
 keywords:
-- 鎖定 PowerPoint
-- 鎖定投影片
-- 解除鎖定 PowerPoint
-- 解除鎖定投影片
-- 保護 PowerPoint
-- 保護投影片
-- 設定密碼
-- 新增密碼
+- 已加密簡報
+- 開啟密碼
 - 加密 PowerPoint
-- 加密投影片
 - 解密 PowerPoint
-- 解密投影片
-- 寫入保護
-- PowerPoint 安全性
-- 投影片安全性
-- 移除密碼
-- 移除保護
+- 驗證簡報密碼
+- 檢查簡報密碼
+- 開啟已加密簡報
 - 移除加密
-- 停用密碼
-- 停用保護
-- 移除寫入保護
 - PowerPoint
-- OpenDocument
-- 投影片
+- PPT
+- PPTX
+- 簡報
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 輕鬆鎖定與解除鎖定受密碼保護的 PowerPoint 與 OpenDocument 投影片。確保您的投影片安全。"
+description: "在 Java 中使用 Aspose.Slides 加密、偵測、驗證、開啟及解密受密碼保護的 PowerPoint PPT 與 PPTX 簡報。"
 ---
-## **簡介**
+## **概覽**
 
-當您使用密碼保護投影片時，表示您設定了一組密碼以對投影片施加特定限制。要移除這些限制，必須輸入密碼。受密碼保護的投影片被視為已鎖定的投影片。
+開啟密碼會加密簡報。必須提供正確的密碼才能載入及檢視簡報內容，因而此保護提供機密性。
 
-通常，您可以設定密碼以對投影片施加以下限制：
+開啟密碼不同於寫入保護密碼。寫入保護限制修改，但不會加密內容或阻止簡報載入。若要管理修改簡報的密碼，請參閱[寫入保護簡報](/slides/zh-hant/java/write-protected-presentation/)。
 
-- **修改**
+以下工作流程適用於 PPT 與 PPTX 簡報。示例在需要檔案基礎與串流基礎行為時同時使用兩種格式。
 
-如果您只想讓特定使用者修改投影片，可以設定修改限制。此限制會阻止使用者在未提供密碼的情況下修改、變更或複製投影片中的元素。
+## **使用開啟密碼加密簡報**
 
-但是，即使沒有密碼，使用者仍然可以存取並開啟您的文件。在此唯讀模式下，使用者可以檢視內容——包括超連結、動畫、效果和其他元素——但無法複製項目或儲存投影片。
+使用[IProtectionManager.encrypt](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) 指定開啟密碼。然後使用[IPresentation.save](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) 來保存加密後的簡報。
 
-- **開啟**
-
-如果您只想讓特定使用者開啟投影片，可以設定開啟限制。此限制會阻止使用者在未提供密碼的情況下甚至檢視投影片內容。
-
-從技術上說，開啟限制也會阻止使用者修改投影片——如果無法開啟投影片，就無法進行任何修改。
-
-**註**：當您以防止開啟的方式對投影片設定密碼保護時，投影片檔案會被加密。
-
-## **Aspose.Slides 中的密碼保護**
-**支援的格式**
-
-Aspose.Slides 支援以下格式的投影片密碼保護、加密及類似操作：
-
-- PPTX 和 PPT - Microsoft PowerPoint 投影片
-- ODP - OpenDocument 投影片
-- OTP - OpenDocument 投影片範本
-
-**支援的操作**
-
-Aspose.Slides 允許您以以下方式使用密碼保護投影片以防止修改：
-
-- 加密投影片
-- 為投影片設定寫入保護
-
-**其他操作**
-
-Aspose.Slides 允許您以以下方式執行其他與密碼保護和加密相關的任務：
-
-- 解密投影片；開啟已加密的投影片
-- 移除加密；停用密碼保護
-- 移除投影片的寫入保護
-- 取得已加密投影片的屬性
-- 檢查投影片是否已加密
-- 檢查投影片是否受密碼保護。
-
-## **使用密碼保護投影片**
-
-您可以透過設定密碼來加密投影片。之後，要修改已鎖定的投影片，使用者必須提供密碼。
-
-要加密或以密碼保護投影片，必須使用 encrypt 方法（來自[IProtectionManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager)）為投影片設定密碼。將密碼傳遞給 encrypt 方法，並使用 save 方法儲存已加密的投影片。
-
-此範例程式碼示範如何加密投影片：
+以下範例會加密 PPTX 簡報：
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **為投影片設定寫入保護**
+## **載入已加密的簡報**
 
-您可以在投影片上添加「請勿修改」的標記。如此一來，您即可告訴使用者您不希望他們對投影片進行變更。
-
-**註**寫入保護過程不會加密投影片。因此，使用者—如果真的想—仍然可以修改投影片，但若要儲存變更，必須以不同的名稱建立新投影片。
-
-要設定寫入保護，必須使用[setWriteProtection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) 方法。此範例程式碼示範如何為投影片設定寫入保護：
+將[ILoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) 設為開啟密碼，並在載入檔案時將此選項傳遞給[Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/)。若需要開啟密碼卻未提供或密碼不正確，載入將失敗。
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **載入已加密的投影片**
-
-Aspose.Slides 允許您在傳入密碼後載入加密檔案。要解密投影片，必須呼叫[removeEncryption](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#removeEncryption--) 方法且不傳遞任何參數。之後必須輸入正確的密碼才能載入投影片。
-
-此範例程式碼示範如何解密投影片：
-
-```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // 處理已解密的投影片
+    // 使用已解密的簡報。
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-## **從投影片移除加密**
+## **移除簡報的加密**
 
-您可以移除投影片的加密或密碼保護。如此一來，使用者即可在沒有任何限制的情況下存取或修改投影片。
-
-要移除加密或密碼保護，必須呼叫[removeEncryption](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#removeEncryption--) 方法。此範例程式碼示範如何從投影片移除加密：
+使用開啟密碼載入簡報，呼叫[IProtectionManager.removeEncryption](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iprotectionmanager/#removeEncryption--)，然後保存結果。保存後的簡報即可在不提供密碼的情況下載入。
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **從投影片移除寫入保護**
+## **載入前驗證開啟密碼**
 
-您可以使用 Aspose.Slides 移除投影片檔案上的寫入保護。如此一來，使用者可隨意修改，且在執行此類操作時不會收到任何警告。
+使用[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) 取得[IPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationinfo/)，而不必建立完整的簡報實例。於請求或驗證密碼之前，先檢查[IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--)。若存在保護，則使用[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) 來驗證提供的密碼。
 
-您可以透過使用[removeWriteProtection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) 方法移除投影片的寫入保護。此範例程式碼示範如何從投影片移除寫入保護：
+### **檔案路徑工作流程**
+
+以下範例驗證 PPTX 檔案的開啟密碼，將驗證後的值傳遞給[ILoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)，然後載入完整的簡報：
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **串流工作流程**
+
+透過[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) 的串流重載可提供相同的工作流程。在從該串流載入完整簡報之前，先重設可搜尋串流的位置。
+
+以下範例使用 PPT 檔案：
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **取得已加密投影片的屬性**
+### **checkPassword 回傳值**
 
-通常使用者很難取得已加密或受密碼保護投影片的文件屬性。Aspose.Slides 提供了一種機制，允許您在對投影片設定密碼保護的同時，仍保留使用者存取該投影片屬性的方式。
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) 只有在簡報具備開啟密碼且提供的密碼正確時才會回傳 `true`。在以下情況皆會回傳 `false`：
 
-**註**當 Aspose.Slides 加密投影片時，投影片的文件屬性預設也會受到密碼保護。但如果您需要在投影片加密後仍能讓屬性可存取，Aspose.Slides 允許您精確執行此操作。
+- 密碼不正確。
+- 簡報沒有開啟密碼。
+- 提供的密碼為 `null` 或空字串。
 
-如果您希望使用者在您加密的投影片中仍能存取其屬性，可以將[encryptDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) 屬性設為 `true`。此範例程式碼示範如何在加密投影片的同時提供使用者存取文件屬性的方式：
+此行為在 PPT 與 PPTX 簡報中相同。
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **檢查已載入的簡報是否已加密**
 
-## **檢查投影片是否受密碼保護**
-
-在載入投影片之前，您可能想先檢查並確認投影片未受到密碼保護。如此一來，可避免在未提供密碼的情況下載入受密碼保護的投影片時所產生的錯誤與相關問題。
-
-此 Java 程式碼示範如何在不載入投影片本身的前提下檢查投影片是否受密碼保護：
+使用正確密碼載入簡報後，檢查[IProtectionManager.isEncrypted](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) 以確認來源簡報已加密。若要在載入前偵測開啟密碼保護，請如前所示使用 `IPresentationInfo.isPasswordProtected`。
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **檢查投影片是否已加密**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Aspose.Slides 允許您檢查投影片是否已加密。要執行此作業，可使用[isEncrypted](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#isEncrypted--) 屬性，若投影片已加密則回傳 `true`，未加密則回傳 `false`。
-
-此範例程式碼示範如何檢查投影片是否已加密：
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **檢查投影片是否受寫入保護**
+## **安全性建議**
 
-Aspose.Slides 允許您檢查投影片是否受寫入保護。要執行此作業，可使用[isWriteProtected](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IProtectionManager#isWriteProtected--) 屬性，若投影片受寫入保護則回傳 `true`，未受寫入保護則回傳 `false`。
+{{% alert color="warning" title="安全性" %}}
+不要記錄開啟密碼或將其包含在診斷訊息中。避免不必要的重複驗證嘗試，僅在需要時將密碼保留於記憶體中，並在立即載入簡報時重複使用成功的驗證結果。
+{{% /alert %}}
 
-此範例程式碼示範如何檢查投影片是否受寫入保護：
+## **在線保護簡報的密碼**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. 開啟 [Aspose.Slides Lock](https://products.aspose.app/slides/zh-hant/lock) 應用程式。
+2. 選取或上傳簡報。
+3. 輸入檢視保護的密碼。
+4. （可選）輸入用於編輯保護的另一個密碼。
+5. 套用保護並下載產生的檔案。
 
-## **驗證或確認已使用特定密碼**
-
-您可能想檢查並確認已使用特定密碼來保護投影片文件。Aspose.Slides 提供驗證密碼的功能。
-
-此範例程式碼示範如何驗證密碼：
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // 檢查是否與 "pass" 匹配
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-若投影片已使用指定密碼加密，會回傳 `true`；否則回傳 `false`。
-
-{{% alert color="primary" title="另請參閱" %}} 
-- [PowerPoint 中的數位簽章](/slides/zh-hant/java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="另請參閱" %}}
+- [寫入保護簡報](/slides/zh-hant/java/write-protected-presentation/)
+- [PowerPoint 數位簽章](/slides/zh-hant/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **常見問題**
 
-**Aspose.Slides 支援哪些加密方法？**
+**開啟密碼與寫入保護密碼有何不同？**
 
-Aspose.Slides 支援現代加密方法，包括基於 AES 的演算法，確保您的投影片資料具備高水準的安全性。
+開啟密碼會加密簡報，且必須提供才能載入其內容。寫入保護密碼限制修改，但不會加密內容。
 
-**如果在嘗試開啟投影片時輸入錯誤的密碼會發生什麼情況？**
+**我可以在不載入所有投影片的情況下驗證開啟密碼嗎？**
 
-系統會拋出例外，提示存取投影片被拒絕。此機制可防止未授權的存取並保護投影片內容。
+可以。取得簡報資訊，檢查是否存在開啟密碼保護，並在建立完整簡報實例前驗證密碼。
 
-**在處理受密碼保護的投影片時是否會有效能影響？**
+**密碼檢查工作流程是否同時支援 PPT 與 PPTX？**
 
-加密與解密過程可能在開啟和儲存時帶來輕微的開銷。大多數情況下，這種效能影響較小，對整體投影片處理時間的影響不顯著。
+可以。檔案路徑與串流方式的密碼偵測與驗證在 PPT 與 PPTX 簡報中行為相同。

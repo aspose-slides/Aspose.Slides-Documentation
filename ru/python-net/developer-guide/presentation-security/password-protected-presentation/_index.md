@@ -1,265 +1,186 @@
 ---
-title: Защита презентаций паролем с помощью Python
+title: Защита презентаций паролем в Python
 linktitle: Защита паролем
 type: docs
 weight: 20
 url: /ru/python-net/password-protected-presentation/
 keywords:
-- блокировать PowerPoint
-- блокировать презентацию
-- разблокировать PowerPoint
-- разблокировать презентацию
-- защитить PowerPoint
-- защитить презентацию
-- установить пароль
-- добавить пароль
-- зашифровать PowerPoint
-- зашифровать презентацию
-- расшифровать PowerPoint
-- расшифровать презентацию
-- защита от записи
-- безопасность PowerPoint
-- безопасность презентации
-- удалить пароль
-- удалить защиту
-- удалить шифрование
-- отключить пароль
-- отключить защиту
-- удалить защиту от записи
-- презентация PowerPoint
+- презентация с паролем
+- открывающий пароль
+- шифрование PowerPoint
+- дешифрование PowerPoint
+- валидация пароля презентации
+- проверка пароля презентации
+- открытие зашифрованной презентации
+- удаление шифрования
+- PowerPoint
+- PPT
+- PPTX
+- презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как легко блокировать и разблокировать презентации PowerPoint и OpenDocument, защищённые паролем, с помощью Aspose.Slides для Python через .NET. Повышайте продуктивность и защищайте свои презентации с нашим пошаговым руководством."
+description: "Шифрование, обнаружение, проверка, открытие и дешифрование презентаций PowerPoint PPT и PPTX, защищённых паролем, в Python с помощью Aspose.Slides."
 ---
+## **Обзор**
 
-## **О защите паролем**
-### **Как работает защита паролем презентации?**
-Когда вы защищаете презентацию паролем, вы задаёте пароль, который накладывает определённые ограничения на презентацию. Чтобы снять ограничения, необходимо ввести пароль. Презентация, защищённая паролем, считается заблокированной презентацией.
+Открывающий пароль шифрует презентацию. Правильный пароль необходим для загрузки и просмотра содержимого презентации, поэтому эта защита обеспечивает конфиденциальность.
 
-Обычно вы можете задать пароль, чтобы наложить эти ограничения на презентацию:
+Открывающий пароль отличается от пароля защиты от записи. Защита от записи ограничивает изменение, но не шифрует содержимое и не препятствует загрузке презентации. Чтобы управлять паролями для изменения презентаций, см. [Защита презентаций от записи](/slides/ru/python-net/write-protected-presentation/).
 
-- **Изменение**
+Приведённые ниже рабочие процессы применимы как к презентациям PPT, так и PPTX. В примерах используются оба формата, когда важно их файловое и потоковое поведение.
 
-  Если вы хотите, чтобы только определённые пользователи могли изменять вашу презентацию, вы можете установить ограничение на изменение. Это ограничение препятствует людям изменять, менять или копировать элементы в вашей презентации (если только они не введут пароль).  
+## **Шифрование презентации открывающим паролем**
 
-  Однако в этом случае, даже без пароля, пользователь сможет получить доступ к вашему документу и открыть его. В режиме только для чтения пользователь может просматривать содержимое или элементы — гиперссылки, анимацию, эффекты и т. д. — внутри вашей презентации, но он не может копировать элементы или сохранять презентацию. 
+Используйте [ProtectionManager.encrypt](https://reference.aspose.com/slides/ru/python-net/aspose.slides/protectionmanager/encrypt/) для назначения открывающего пароля. Затем используйте [Presentation.save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/save/) для сохранения зашифрованной презентации.
 
-- **Открытие**
+Следующий пример шифрует презентацию PPTX:
 
-  Если вы хотите, чтобы только определённые пользователи могли открывать вашу презентацию, вы можете установить ограничение на открытие. Это ограничение препятствует людям даже просматривать содержание вашей презентации (если только они не введут пароль).  
-
-  Технически ограничение на открытие также мешает пользователям изменять ваши презентации: если люди не могут открыть презентацию, они не могут вносить в неё изменения.  
-
-  **Примечание** что когда вы защищаете презентацию паролем, чтобы запретить её открытие, файл презентации становится зашифрованным.
-
-## Как защитить презентацию паролем онлайн
-
-1. Перейдите на страницу [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock).  
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Нажмите **Drop or upload your files**.
-
-3. Выберите файл, который вы хотите защитить паролем, на вашем компьютере. 
-
-4. Введите желаемый пароль для защиты от редактирования; введите желаемый пароль для защиты от просмотра. 
-
-5. Если вы хотите, чтобы пользователи видели вашу презентацию как окончательную копию, установите флажок **Mark as final**.
-
-6. Нажмите **PROTECT NOW.** 
-
-7. Нажмите **DOWNLOAD NOW.**
-
-## **Защита паролем презентаций в Aspose.Slides**
-**Поддерживаемые форматы**
-
-Aspose.Slides поддерживает защиту паролем, шифрование и похожие операции для презентаций в следующих форматах: 
-
-- PPTX и PPT — Microsoft PowerPoint Presentation 
-- ODP — OpenDocument Presentation 
-- OTP — OpenDocument Presentation Template 
-
-**Поддерживаемые операции**
-
-Aspose.Slides позволяет использовать защиту паролем презентаций, чтобы предотвратить изменения следующими способами:
-
-- Шифрование презентации
-- Установка защиты от записи для презентации
-
-**Другие операции**
-
-Aspose.Slides позволяет выполнять другие задачи, связанные с защитой паролем и шифрованием, следующими способами:
-
-- Расшифровка презентации; открытие зашифрованной презентации
-- Удаление шифрования; отключение защиты паролем
-- Снятие защиты от записи с презентации
-- Получение свойств зашифрованной презентации
-- Проверка, зашифрована ли презентация
-- Проверка, защищена ли презентация паролем.
-
-## **Шифрование презентации**
-
-Вы можете зашифровать презентацию, задав пароль. Затем, чтобы изменить заблокированную презентацию, пользователь должен ввести пароль.  
-
-Чтобы зашифровать или защитить паролем презентацию, вам необходимо использовать метод encrypt (из [ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/)), чтобы задать пароль для презентации. Вы передаёте пароль методу encrypt и используете метод save для сохранения теперь зашифрованной презентации.  
-
-Этот пример кода показывает, как зашифровать презентацию:
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Установка защиты от записи для презентации** 
-
-Вы можете добавить пометку «Не изменять» к презентации. Таким образом, вы сообщаете пользователям, что не хотите, чтобы они вносили изменения в презентацию.  
-
-**Примечание** что процесс защиты от записи не шифрует презентацию. Поэтому пользователи — если они действительно захотят — могут изменять презентацию, но чтобы сохранить изменения, им придётся создать презентацию с другим именем.  
-
-Чтобы установить защиту от записи, вам необходимо использовать метод setWriteProtection. Этот пример кода показывает, как установить защиту от записи для презентации:
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Расшифровка презентации; открытие зашифрованной презентации**
-
-Aspose.Slides позволяет загрузить зашифрованный файл, передав его пароль. Чтобы расшифровать презентацию, необходимо вызвать метод [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) без параметров. Затем вам потребуется ввести правильный пароль для загрузки презентации.  
-
-Этот пример кода показывает, как расшифровать презентацию: 
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-
-## **Удаление шифрования; отключение защиты паролем**
-
-Вы можете удалить шифрование или защиту паролем с презентации. Таким образом, пользователи смогут получить доступ к презентации или изменить её без ограничений.  
-
-Чтобы удалить шифрование или защиту паролем, необходимо вызвать метод [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/). Этот пример кода показывает, как удалить шифрование из презентации:
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Снятие защиты от записи с презентации**
-
-Вы можете использовать Aspose.Slides для снятия защиты от записи, использованной в файле презентации. Таким образом, пользователи могут изменять её как захотят — и им не будет показано никаких предупреждений при выполнении таких действий.  
-
-Вы можете снять защиту от записи с презентации, используя метод [remove_write_protection](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/). Этот пример кода показывает, как снять защиту от записи с презентации:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Получение свойств зашифрованной презентации**
-
-Обычно пользователи сталкиваются с трудностями при получении свойств документа зашифрованной или защищённой паролем презентации. Однако Aspose.Slides предоставляет механизм, позволяющий защищать презентацию паролем, одновременно сохраняя возможность пользователей получать свойства этой презентации.  
-
-**Примечание** что когда Aspose.Slides шифрует презентацию, свойства документа презентации также по умолчанию защищаются паролем. Но если вам нужно, чтобы свойства презентации оставались доступными (даже после шифрования презентации), Aspose.Slides позволяет именно это сделать.  
-
-Если вы хотите, чтобы пользователи сохраняли возможность доступа к свойствам зашифрованной презентации, вы можете установить свойство [EncryptDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) в `True`. Этот пример кода показывает, как зашифровать презентацию, предоставив пользователям возможность доступа к её свойствам документа:
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
-    pres.protection_manager.encrypt("123123")
-```
-
-
-## **Проверка, защищена ли презентация паролем, перед её загрузкой**
-
-Прежде чем загрузить презентацию, вы можете захотеть проверить и убедиться, что презентация не защищена паролем. Таким образом, вы избежите ошибок и подобных проблем, которые возникают при загрузке защищённой паролем презентации без пароля.  
-
-Этот код на Python показывает, как проверить презентацию, защищена ли она паролем (не загружая саму презентацию):
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Загрузка зашифрованной презентации**
 
-## **Проверка, зашифрована ли презентация**
+Установите [LoadOptions.password](https://reference.aspose.com/slides/ru/python-net/aspose.slides/loadoptions/password/) в открывающий пароль и передайте параметры в [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) при загрузке файла. Загрузка завершится ошибкой, если требуется открывающий пароль, а предоставленный пароль отсутствует или неверен.
 
-Aspose.Slides позволяет проверить, зашифрована ли презентация. Для выполнения этой задачи вы можете использовать свойство [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/), которое возвращает `True`, если презентация зашифрована, и `False`, если презентация не зашифрована.  
-
-Этот пример кода показывает, как проверить, зашифрована ли презентация:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # Работа с расшифрованной презентацией.
+    pass
 ```
 
+## **Удаление шифрования из презентации**
 
-## **Проверка, защищена ли презентация от записи**
+Загрузите презентацию с её открывающим паролем, вызовите [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/ru/python-net/aspose.slides/protectionmanager/remove_encryption/), и сохраните результат. Сохранённую презентацию затем можно загрузить без пароля.
 
-Aspose.Slides позволяет проверить, защищена ли презентация от записи. Для выполнения этой задачи вы можете использовать свойство [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/), которое возвращает `True`, если презентация защищена, и `False`, если презентация не защищена.  
-
-Этот пример кода показывает, как проверить, защищена ли презентация от записи:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Проверка открывающего пароля перед загрузкой**
 
-## **Проверка или подтверждение того, что конкретный пароль использовался для защиты презентации**
+Используйте [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationfactory/get_presentation_info/) для получения [PresentationInfo](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/) без создания полного экземпляра презентации. Проверьте [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/is_password_protected/) перед запросом или проверкой пароля. Когда защита присутствует, проверьте предоставленное значение с помощью [PresentationInfo.check_password](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/check_password/).
 
-Возможно, вы захотите проверить и подтвердить, что конкретный пароль был использован для защиты документа презентации. Aspose.Slides предоставляет средства для проверки пароля.  
+### **Рабочий процесс с указанием пути к файлу**
 
-Этот пример кода показывает, как проверить пароль:
-```py
+Следующий пример проверяет открывающий пароль для файла PPTX, передаёт проверенное значение в [LoadOptions.password](https://reference.aspose.com/slides/ru/python-net/aspose.slides/loadoptions/password/), а затем загружает полную презентацию:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # проверка, совпадает ли "pass" с
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
+### **Рабочий процесс с потоком**
 
-Он возвращает `True`, если презентация зашифрована указанным паролем. В противном случае он возвращает `False`.  
+Перегрузка потока метода [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationfactory/get_presentation_info/) обеспечивает тот же рабочий процесс. Сбросьте позицию ищущегося потока перед загрузкой полной презентации из этого потока.
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Digital Signature in PowerPoint](/slides/ru/python-net/digital-signature-in-powerpoint/)
+Следующий пример использует файл PPT:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **Возвращаемые значения CheckPassword**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/check_password/) возвращает `True` только когда у презентации есть открывающий пароль и предоставленный пароль верен. Он возвращает `False` в каждом из следующих случаев:
+
+- Пароль неверен.
+- У презентации нет открывающего пароля.
+- Предоставленный пароль равен `None` или пустой строке.
+
+Поведение одинаково для презентаций PPT и PPTX.
+
+## **Проверка, зашифрована ли загруженная презентация**
+
+После загрузки презентации с правильным паролем проверьте [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/ru/python-net/aspose.slides/protectionmanager/is_encrypted/) для подтверждения, что исходная презентация была зашифрована. Чтобы обнаружить защиту открывающим паролем до загрузки, используйте `PresentationInfo.is_password_protected`, как показано выше.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **Рекомендации по безопасности**
+
+{{% alert color="warning" title="Безопасность" %}}
+Не записывайте открывающие пароли в журналы и не включайте их в диагностические сообщения. Избегайте ненужных повторных попыток проверки, храните пароли в памяти только столько, сколько требуется, и переиспользуйте результат успешной проверки при немедленной загрузке презентации.
+{{% /alert %}}
+
+## **Защита презентации паролем онлайн**
+
+1. Откройте приложение [Aspose.Slides Lock](https://products.aspose.app/slides/ru/lock).
+2. Выберите или загрузите презентацию.
+3. Введите пароль для защиты просмотра.
+4. При желании введите отдельный пароль для защиты редактирования.
+5. Примените защиту и скачайте полученный файл.
+
+{{% alert color="info" title="См. также" %}}
+- [Защита презентаций от записи](/slides/ru/python-net/write-protected-presentation/)
+- [Электронная подпись в PowerPoint](/slides/ru/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Какие методы шифрования поддерживает Aspose.Slides?**
+**В чём разница между открывающим паролем и паролем защиты от записи?**
 
-Aspose.Slides поддерживает современные методы шифрования, включая алгоритмы на базе AES, обеспечивая высокий уровень безопасности данных ваших презентаций.
+Открывающий пароль шифрует презентацию и требуется для загрузки её содержимого. Пароль защиты от записи ограничивает изменения без шифрования содержимого.
 
-**Что происходит, если при попытке открыть презентацию вводится неверный пароль?**
+**Можно ли проверить открывающий пароль без загрузки всех слайдов?**
 
-Если используется неверный пароль, генерируется исключение, уведомляющее вас о том, что доступ к презентации отказан. Это помогает предотвратить неавторизованный доступ и защищает содержимое презентации.
+Да. Получите информацию о презентации, проверьте наличие защиты открывающим паролем и проверьте пароль перед созданием полного экземпляра презентации.
 
-**Есть ли какие‑либо последствия для производительности при работе с презентациями, защищёнными паролем?**
+**Поддерживают ли рабочие процессы проверки пароля как PPT, так и PPTX?**
 
-Процесс шифрования и расшифровки может вызвать небольшие задержки при операциях открытия и сохранения. В большинстве случаев воздействие на производительность минимально и не оказывает существенного влияния на общее время обработки ваших задач с презентациями.
+Да. Обнаружение и проверка пароля по пути к файлу и по потоку ведут себя одинаково для презентаций PPT и PPTX.

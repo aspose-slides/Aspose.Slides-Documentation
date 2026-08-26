@@ -1,244 +1,238 @@
 ---
-title: Sicher Präsentationen mit Passwörtern in C++
+title: Passwortschutz für Präsentationen in C++
 linktitle: Passwortschutz
 type: docs
 weight: 20
 url: /de/cpp/password-protected-presentation/
 keywords:
-- PowerPoint sperren
-- Präsentation sperren
-- PowerPoint entsperren
-- Präsentation entsperren
-- PowerPoint schützen
-- Präsentation schützen
-- Passwort festlegen
-- Passwort hinzufügen
+- passwortgeschützte Präsentation
+- Öffnungspasswort
 - PowerPoint verschlüsseln
-- Präsentation verschlüsseln
 - PowerPoint entschlüsseln
-- Präsentation entschlüsseln
-- Schreibschutz
-- PowerPoint Sicherheit
-- Präsentationssicherheit
-- Passwort entfernen
-- Schutz entfernen
+- Präsentationspasswort validieren
+- Präsentationspasswort prüfen
+- verschlüsselte Präsentation öffnen
 - Verschlüsselung entfernen
-- Passwort deaktivieren
-- Schutz deaktivieren
-- Schreibschutz entfernen
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für C++ mühelos passwortgeschützte PowerPoint- und OpenDocument-Präsentationen sperren und entsperren können. Sichern Sie Ihre Präsentationen."
+description: "Verschlüsseln, Erkennen, Validieren, Öffnen und Entschlüsseln passwortgeschützter PowerPoint PPT- und PPTX-Präsentationen in C++ mit Aspose.Slides."
 ---
+## **Übersicht**
 
-## **Über Passwortschutz**
-### **Wie funktioniert Passwortschutz für Präsentationen?**
-Wenn Sie eine Präsentation mit einem Passwort schützen, legen Sie ein Passwort fest, das bestimmte Einschränkungen für die Präsentation durchsetzt. Um die Einschränkungen zu entfernen, muss das Passwort eingegeben werden. Eine passwortgeschützte Präsentation wird als gesperrte Präsentation betrachtet.
+Ein Öffnungspasswort verschlüsselt eine Präsentation. Das korrekte Passwort ist erforderlich, um die Präsentationsinhalte zu laden und anzuzeigen, sodass dieser Schutz Vertraulichkeit bietet.
 
-Typischerweise können Sie ein Passwort festlegen, um diese Einschränkungen für eine Präsentation zu erzwingen:
+Ein Öffnungspasswort unterscheidet sich von einem Schreibschutz‑Passwort. Der Schreibschutz beschränkt die Bearbeitung, verschlüsselt jedoch nicht den Inhalt und verhindert nicht das Laden der Präsentation. Um Passwörter für die Bearbeitung von Präsentationen zu verwalten, siehe [Write-Protect Presentations](/slides/de/cpp/write-protected-presentation/).
 
-- **Änderung**
+Die nachstehenden Workflows gelten sowohl für PPT- als auch für PPTX-Präsentationen. Die Beispiele verwenden beide Formate, wo ihr dateibasiertes und strombasiertes Verhalten wichtig ist.
 
-  Wenn Sie nur bestimmten Benutzern erlauben möchten, Ihre Präsentation zu bearbeiten, können Sie eine Änderungsbeschränkung festlegen. Diese Beschränkung verhindert, dass Personen Ihre Präsentation ändern, anpassen oder Inhalte kopieren (es sei denn, sie geben das Passwort ein).  
+## **Verschlüsseln einer Präsentation mit einem Öffnungspasswort**
 
-  Allerdings kann ein Benutzer in diesem Fall das Dokument auch ohne Passwort öffnen und darauf zugreifen. Im Nur-Lese-Modus kann der Benutzer die Inhalte Ihrer Präsentation – Hyperlinks, Animationen, Effekte und weitere – ansehen, jedoch keine Elemente kopieren oder die Präsentation speichern. 
+Verwenden Sie [IProtectionManager::Encrypt](https://reference.aspose.com/slides/de/cpp/aspose.slides/iprotectionmanager/encrypt/), um ein Öffnungspasswort zuzuweisen. Verwenden Sie anschließend [IPresentation::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/save/), um die verschlüsselte Präsentation zu speichern.
 
-- **Öffnen**
+Das folgende Beispiel verschlüsselt eine PPTX‑Präsentation:
 
-  Wenn Sie nur bestimmten Benutzern das Öffnen Ihrer Präsentation erlauben möchten, können Sie eine Öffnungsbeschränkung festlegen. Diese Beschränkung verhindert, dass Personen überhaupt den Inhalt Ihrer Präsentation sehen können (es sei denn, sie geben das Passwort ein).
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  Technisch verhindert die Öffnungsbeschränkung ebenfalls, dass Benutzer Ihre Präsentation ändern: Wenn Personen eine Präsentation nicht öffnen können, können sie sie auch nicht bearbeiten oder ändern.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **Hinweis**: Wenn Sie eine Präsentation mit einem Passwort schützen, um das Öffnen zu verhindern, wird die Präsentationsdatei verschlüsselt.
-
-## **Wie Sie eine Präsentation online mit einem Passwort schützen**
-1. Rufen Sie unsere Seite [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) auf.  
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klicken Sie auf **Drop or upload your files**.
-
-3. Wählen Sie die Datei aus, die Sie auf Ihrem Computer mit einem Passwort schützen möchten.
-
-4. Geben Sie Ihr gewünschtes Passwort für den Bearbeitungsschutz ein; geben Sie Ihr gewünschtes Passwort für den Ansichtsschutz ein.
-
-5. Wenn Sie möchten, dass Benutzer Ihre Präsentation als endgültige Kopie sehen, aktivieren Sie das Kontrollkästchen **Mark as final**.
-
-6. Klicken Sie auf **PROTECT NOW.** 
-
-7. Klicken Sie auf **DOWNLOAD NOW.**
-
-## **Passwortschutz für Präsentationen in Aspose.Slides**
-**Unterstützte Formate**
-
-Aspose.Slides unterstützt Passwortschutz, Verschlüsselung und ähnliche Vorgänge für Präsentationen in den folgenden Formaten: 
-
-- PPTX und PPT – Microsoft PowerPoint-Präsentation 
-- ODP – OpenDocument-Präsentation 
-- OTP – OpenDocument-Präsentationsvorlage 
-
-**Unterstützte Vorgänge**
-
-Aspose.Slides ermöglicht Passwortschutz für Präsentationen, um Änderungen auf folgende Weise zu verhindern:
-
-- Verschlüsseln einer Präsentation
-- Festlegen eines Schreibschutzes für eine Präsentation
-
-**Weitere Vorgänge**
-
-Aspose.Slides ermöglicht weitere Aufgaben im Zusammenhang mit Passwortschutz und Verschlüsselung auf folgende Weise:
-
-- Entschlüsseln einer Präsentation; Öffnen einer verschlüsselten Präsentation
-- Entfernen der Verschlüsselung; Deaktivieren des Passwortschutzes
-- Entfernen des Schreibschutzes von einer Präsentation
-- Abrufen der Eigenschaften einer verschlüsselten Präsentation
-- Prüfen, ob eine Präsentation verschlüsselt ist
-- Prüfen, ob eine Präsentation passwortgeschützt ist.
-
-## **Eine Präsentation verschlüsseln**
-Sie können eine Präsentation verschlüsseln, indem Sie ein Passwort festlegen. Um die gesperrte Präsentation zu ändern, muss der Benutzer das Passwort angeben.
-
-Um eine Präsentation zu verschlüsseln oder passwortzuschützen, müssen Sie die encrypt‑Methode (aus [ProtectionManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager)) verwenden, um ein Passwort für die Präsentation festzulegen. Sie übergeben das Passwort an die encrypt‑Methode und verwenden die save‑Methode, um die nun verschlüsselte Präsentation zu speichern.
-
-Der Beispielcode zeigt, wie Sie eine Präsentation verschlüsseln:
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
+## **Laden einer verschlüsselten Präsentation**
 
-## **Schreibschutz für eine Präsentation festlegen**
-Sie können einer Präsentation einen Hinweis „Do not modify“ hinzufügen. Auf diese Weise teilen Sie den Benutzern mit, dass Sie nicht möchten, dass sie Änderungen an der Präsentation vornehmen.
+Setzen Sie [LoadOptions::set_Password](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/set_password/) auf das Öffnungspasswort und übergeben Sie die Optionen beim Laden der Datei an [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/). Das Laden schlägt fehl, wenn ein Öffnungspasswort erforderlich ist, das bereitgestellte Passwort jedoch fehlt oder falsch ist.
 
-**Hinweis**: Der Schreibschutzvorgang verschlüsselt die Präsentation nicht. Daher können Benutzer – falls sie möchten – die Präsentation ändern, müssen jedoch zum Speichern der Änderungen eine Präsentation unter einem anderen Namen erstellen.
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-Um einen Schreibschutz festzulegen, müssen Sie die setWriteProtection‑Methode verwenden. Der Beispielcode zeigt, wie Sie einer Präsentation einen Schreibschutz hinzufügen:
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
 
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// Arbeiten Sie mit der entschlüsselten Präsentation.
 ```
 
+## **Entfernen der Verschlüsselung aus einer Präsentation**
 
-## **Eine verschlüsselte Präsentation laden**
-Aspose.Slides ermöglicht das Laden einer verschlüsselten Datei, indem das Passwort übergeben wird. Zum Entschlüsseln einer Präsentation müssen Sie die [RemoveEncryption](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d)-Methode ohne Parameter aufrufen. Anschließend müssen Sie das richtige Passwort eingeben, um die Präsentation zu laden.
+Laden Sie die Präsentation mit ihrem Öffnungspasswort, rufen Sie [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/de/cpp/aspose.slides/iprotectionmanager/removeencryption/) auf und speichern Sie das Ergebnis. Die gespeicherte Präsentation kann anschließend ohne Passwort geladen werden.
 
-Der Beispielcode zeigt, wie Sie eine Präsentation entschlüsseln:
-``` cpp
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// Arbeit mit entschlüsselter Präsentation
-```
-
-
-## **Verschlüsselung einer Präsentation entfernen**
-Sie können die Verschlüsselung oder den Passwortschutz einer Präsentation entfernen. Damit können Benutzer die Präsentation ohne Einschränkungen öffnen oder ändern.
-
-Um die Verschlüsselung oder den Passwortschutz zu entfernen, müssen Sie die [RemoveEncryption](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d)-Methode aufrufen. Der Beispielcode zeigt, wie Sie die Verschlüsselung einer Präsentation entfernen:
-``` cpp
-auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
+## **Validieren eines Öffnungspassworts vor dem Laden**
 
-## **Schreibschutz einer Präsentation entfernen**
-Mit Aspose.Slides können Sie den Schreibschutz einer Präsentationsdatei entfernen. Damit können Benutzer nach Belieben Änderungen vornehmen, ohne dass Warnungen angezeigt werden.
+Verwenden Sie [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/), um [IPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/) zu erhalten, ohne eine vollständige Präsentationsinstanz zu erstellen. Prüfen Sie [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/), bevor Sie ein Passwort anfordern oder validieren. Ist ein Schutz vorhanden, validieren Sie den bereitgestellten Wert mit [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/checkpassword/).
 
-Sie können den Schreibschutz einer Präsentation mit der [RemoveWriteProtection](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50)-Methode entfernen. Der Beispielcode zeigt, wie Sie den Schreibschutz einer Präsentation entfernen:
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+### **Dateipfad-Workflow**
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
+Das folgende Beispiel validiert ein Öffnungspasswort für eine PPTX‑Datei, übergibt den validierten Wert an [LoadOptions::set_Password](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/set_password/) und lädt anschließend die vollständige Präsentation:
+
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
+### **Strom-Workflow**
 
-## **Eigenschaften einer verschlüsselten Präsentation abrufen**
-In der Regel haben Benutzer Schwierigkeiten, die Dokumenteigenschaften einer verschlüsselten oder passwortgeschützten Präsentation abzurufen. Aspose.Slides bietet jedoch einen Mechanismus, mit dem Sie eine Präsentation schützen können, während Benutzer weiterhin Zugriff auf deren Eigenschaften haben.
+Die Stream‑Überladung von [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) bietet denselben Workflow. Setzen Sie die Position eines seekfähigen Streams zurück, bevor Sie die vollständige Präsentation aus diesem Stream laden.
 
-**Hinweis**: Wenn Aspose.Slides eine Präsentation verschlüsselt, werden die Dokumenteigenschaften der Präsentation standardmäßig ebenfalls passwortgeschützt. Wenn Sie jedoch die Eigenschaften der Präsentation auch nach der Verschlüsselung zugänglich machen müssen, ermöglicht Aspose.Slides genau das.
+Das folgende Beispiel verwendet eine PPT‑Datei:
 
-Wenn Sie möchten, dass Benutzer weiterhin die Möglichkeit haben, die Eigenschaften einer verschlüsselten Präsentation abzurufen, können Sie `true` an die [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d)-Methode übergeben. Der Beispielcode zeigt, wie Sie eine Präsentation verschlüsseln und gleichzeitig den Zugriff auf deren Dokumenteigenschaften ermöglichen:
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
+### **CheckPassword Rückgabewerte**
 
-## **Prüfen, ob eine Präsentation passwortgeschützt ist**
-Bevor Sie eine Präsentation laden, möchten Sie möglicherweise prüfen, ob die Präsentation nicht mit einem Passwort geschützt ist. So können Sie Fehler und ähnliche Probleme vermeiden, die auftreten, wenn eine passwortgeschützte Präsentation ohne Passwort geladen wird.
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/checkpassword/) gibt `true` zurück, nur wenn die Präsentation ein Öffnungspasswort hat und das bereitgestellte Passwort korrekt ist. Es gibt `false` zurück in jedem dieser Fälle:
 
-Der folgende C++‑Code zeigt, wie Sie eine Präsentation überprüfen können, ob sie passwortgeschützt ist (ohne die Präsentation selbst zu laden):
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
-```
+- Das Passwort ist falsch.
+- Die Präsentation hat kein Öffnungspasswort.
+- Das bereitgestellte Passwort ist null oder leer.
 
+Das Verhalten ist für PPT‑ und PPTX‑Präsentationen identisch.
 
-## **Prüfen, ob eine Präsentation verschlüsselt ist**
-Aspose.Slides ermöglicht die Prüfung, ob eine Präsentation verschlüsselt ist. Dafür können Sie die Methode [get_IsEncrypted()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) verwenden, die `true` zurückgibt, wenn die Präsentation verschlüsselt ist, und `false`, wenn sie nicht verschlüsselt ist.
+## **Prüfen, ob eine geladene Präsentation verschlüsselt ist**
 
-Der Beispielcode zeigt, wie Sie prüfen, ob eine Präsentation verschlüsselt ist:
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Nachdem Sie eine Präsentation mit dem korrekten Passwort geladen haben, prüfen Sie [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/de/cpp/aspose.slides/iprotectionmanager/get_isencrypted/), um zu bestätigen, dass die Quellpräsentation verschlüsselt war. Um den Öffnungspasswortschutz vor dem Laden zu erkennen, verwenden Sie `IPresentationInfo::get_IsPasswordProtected` wie oben gezeigt.
+
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
+## **Sicherheitsempfehlungen**
 
-## **Prüfen, ob eine Präsentation schreibgeschützt ist**
-Aspose.Slides ermöglicht die Prüfung, ob eine Präsentation schreibgeschützt ist. Dafür können Sie die Methode [get_IsWriteProtected()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) verwenden, die `true` zurückgibt, wenn die Präsentation schreibgeschützt ist, und `false`, wenn sie nicht schreibgeschützt ist.
+{{% alert color="warning" title="Sicherheit" %}}
+Protokollieren Sie Öffnungspasswörter nicht und fügen Sie sie nicht in Diagnosemeldungen ein. Vermeiden Sie unnötige wiederholte Validierungsversuche, halten Sie Passwörter nur so lange im Speicher, wie sie benötigt werden, und verwenden Sie ein erfolgreiches Validierungsergebnis erneut, wenn die Präsentation sofort geladen wird.
+{{% /alert %}}
 
-Der Beispielcode zeigt, wie Sie prüfen, ob eine Präsentation schreibgeschützt ist:
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+## **Präsentation online mit einem Passwort schützen**
 
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
+1. Öffnen Sie die Anwendung [Aspose.Slides Lock](https://products.aspose.app/slides/de/lock).
+1. Wählen Sie die Präsentation aus oder laden Sie sie hoch.
+1. Geben Sie ein Passwort zum Schutz der Anzeige ein.
+1. Geben Sie optional ein separates Passwort zum Schutz der Bearbeitung ein.
+1. Wenden Sie den Schutz an und laden Sie die resultierende Datei herunter.
 
-
-## **Verifizieren der Passwortverwendung für eine Präsentation**
-Möglicherweise möchten Sie prüfen, ob ein bestimmtes Passwort zum Schutz eines Präsentationsdokuments verwendet wurde. Aspose.Slides bietet die Möglichkeit, ein Passwort zu validieren.
-
-Der Beispielcode zeigt, wie Sie ein Passwort validieren:
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// prüfen ob "pass" übereinstimmt
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-
-Er gibt `true` zurück, wenn die Präsentation mit dem angegebenen Passwort verschlüsselt wurde. Andernfalls gibt er `false` zurück.
-
-{{% alert color="primary" title="Siehe auch" %}} 
-- [Digitale Signatur in PowerPoint](/slides/de/cpp/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Siehe auch" %}}
+- [Write-Protect Presentations](/slides/de/cpp/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/de/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Welche Verschlüsselungsmethoden unterstützt Aspose.Slides?**  
-Aspose.Slides unterstützt moderne Verschlüsselungsmethoden, einschließlich AES-basierter Algorithmen, und bietet so ein hohes Maß an Datensicherheit für Ihre Präsentationen.
+**Was ist der Unterschied zwischen einem Öffnungspasswort und einem Schreibschutz‑Passwort?**
 
-**Was passiert, wenn ein falsches Passwort beim Versuch, eine Präsentation zu öffnen, eingegeben wird?**  
-Eine Ausnahme wird ausgelöst, wenn ein falsches Passwort verwendet wird, und warnt Sie, dass der Zugriff auf die Präsentation verweigert wird. Dies verhindert unbefugten Zugriff und schützt den Inhalt der Präsentation.
+Ein Öffnungspasswort verschlüsselt die Präsentation und ist zum Laden des Inhalts erforderlich. Ein Schreibschutz‑Passwort beschränkt die Bearbeitung, ohne den Inhalt zu verschlüsseln.
 
-**Gibt es Leistungsauswirkungen beim Arbeiten mit passwortgeschützten Präsentationen?**  
-Der Verschlüsselungs‑ und Entschlüsselungsprozess kann beim Öffnen und Speichern einen geringen Mehraufwand verursachen. In den meisten Fällen ist diese Auswirkung minimal und beeinträchtigt die Gesamtverarbeitungszeit Ihrer Präsentationsaufgaben kaum.
+**Kann ich ein Öffnungspasswort validieren, ohne alle Folien zu laden?**
+
+Ja. Holen Sie Präsentationsinformationen, prüfen Sie, ob ein Öffnungspasswortschutz vorhanden ist, und validieren Sie das Passwort, bevor Sie eine vollständige Präsentationsinstanz erstellen.
+
+**Unterstützen die Passwort‑Überprüfungs‑Workflows sowohl PPT als auch PPTX?**
+
+Ja. Dateipfad‑ und strombasierte Passworterkennung und -validierung verhalten sich für PPT‑ und PPTX‑Präsentationen identisch.

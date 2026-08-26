@@ -1,5 +1,5 @@
 ---
-title: Получить и обновить информацию о презентации в Python
+title: Получение и обновление информации о презентации в Python
 linktitle: Информация о презентации
 type: docs
 weight: 30
@@ -9,34 +9,32 @@ keywords:
 - свойства презентации
 - свойства документа
 - получить свойства
-- прочитать свойства
+- читать свойства
 - изменить свойства
 - модифицировать свойства
 - обновить свойства
-- изучить PPTX
-- изучить PPT
-- изучить ODP
+- анализировать PPTX
+- анализировать PPT
+- анализировать ODP
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Aspose.Slides
-description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью Python для более быстрых аналитических выводов и более умных проверок контента."
+description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью Python для более быстрых инсайтов и более умных аудитов контента."
 ---
+## **Обзор**
 
-Aspose.Slides for Python via .NET позволяет исследовать презентацию, чтобы узнать её свойства и понять её поведение. 
+В этой статье показано, как просматривать информацию о презентации в Aspose.Slides. Описывается, как определить текущий формат презентации без загрузки полного файла, читать её свойства документа и при необходимости обновлять эти свойства.
 
-{{% alert title="Info" color="info" %}} 
-
-Классы [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) и [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) содержат свойства и методы, используемые в приведённых ниже операциях.
-
-{{% /alert %}} 
+Примеры основаны на API [PresentationInfo](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/) и [DocumentProperties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/documentproperties/) и демонстрируют типичные операции работы с метаданными презентации.
 
 ## **Проверка формата презентации**
 
-Перед работой с презентацией вы можете узнать, в каком формате (PPT, PPTX, ODP и др.) она находится в данный момент.
+Прежде чем работать с презентацией, вы можете захотеть узнать, в каком формате (PPT, PPTX, ODP и др.) она находится в данный момент.
 
-Вы можете проверить формат презентации без её загрузки. См. этот код на Python:
+Можно проверить формат презентации без её загрузки. См. следующий код на Python:
+
 ```py
 import aspose.slides as slides
 
@@ -50,10 +48,10 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
-
 ## **Получение свойств презентации**
 
-Этот пример кода на Python показывает, как получить свойства презентации (информацию о презентации):
+Этот код на Python показывает, как получить свойства презентации (информацию о презентации):
+
 ```py
 import aspose.slides as slides
 
@@ -64,63 +62,63 @@ print(props.subject)
 print(props.title)
 ```
 
-
-Вы также можете ознакомиться со [свойствами класса DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties).
+Вы также можете посмотреть [properties under the DocumentProperties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/documentproperties/#properties) класс.
 
 ## **Обновление свойств презентации**
 
-Aspose.Slides предоставляет метод [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties), позволяющий вносить изменения в свойства презентации.
+Aspose.Slides предоставляет метод [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties), позволяющий вносить изменения в свойства презентации.
 
-Предположим, у нас есть презентация PowerPoint со следующими свойствами документа.
+Предположим, у нас есть презентация PowerPoint со свойствами документа, показанными ниже.
 
-![Исходные свойства документа презентации PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-В этом примере кода показано, как изменить некоторые свойства презентации:
+Этот пример кода показывает, как отредактировать некоторые свойства презентации:
+
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
 ```
 
-
 Результаты изменения свойств документа показаны ниже.
 
-![Изменённые свойства документа презентации PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **Полезные ссылки**
 
-Для получения дополнительной информации о презентации и её параметрах безопасности вы можете воспользоваться следующими ссылками:
+Чтобы получить больше информации о презентации и её атрибутах безопасности, могут быть полезны следующие ссылки:
 
-- [Проверка, зашифрована ли презентация](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Проверка, защищена ли презентация от записи (только чтение)](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Проверка, защищена ли презентация паролем перед загрузкой](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Подтверждение пароля, используемого для защиты презентации](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/ru/python-net/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/ru/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Как проверить, встроены ли шрифты и какие именно?**
+**Как проверить, внедрены ли шрифты и какие именно?**
 
-Ищите информацию о [встроенных шрифтах](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) на уровне презентации, затем сравните эти записи с набором [фактически используемых шрифтов](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_fonts/), чтобы определить, какие шрифты критичны для рендеринга.
+Ищите информацию о [embedded-font information](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) на уровне презентации, затем сравните эти записи с набором [fonts actually used across content](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_fonts/), чтобы определить, какие шрифты критичны для рендеринга.
 
-**Как быстро определить, есть ли скрытые слайды и сколько их?**
+**Как быстро узнать, есть ли скрытые слайды и сколько их?**
 
-Пройдитесь по [коллекции слайдов](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) и проверьте флаг [видимости каждого слайда](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/).
+Пройдитесь по [slide collection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slidecollection/) и проверьте [visibility flag](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/hidden/) каждого слайда.
 
-**Можно ли обнаружить, используют ли пользовательский размер и ориентацию слайда, отличающиеся от стандартных?**
+**Можно ли обнаружить, используются ли пользовательские размеры и ориентация слайдов, и отличаются ли они от стандартных?**
 
-Да. Сравните текущий [размер слайда](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slide_size/) и ориентацию со стандартными предустановками; это поможет предвидеть поведение при печати и экспорте.
+Да. Сравните текущий [slide size](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/slide_size/) и ориентацию со стандартными предустановками; это помогает предвидеть поведение при печати и экспорте.
 
 **Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**
 
-Да. Пройдитесь по всем [диаграммам](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), проверьте их [источник данных](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) и определите, является ли он внутренним или ссылкой, включая любые битые ссылки.
+Да. Пройдитесь по всем [charts](https://reference.aspose.com/slides/ru/python-net/aspose.slides.charts/chart/), проверьте их [data source](https://reference.aspose.com/slides/ru/python-net/aspose.slides.charts/chartdata/data_source_type/), и обратите внимание, является ли источник внутренним или связанным, включая любые неисправные ссылки.
 
 **Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
 
-Для каждого слайда подсчитайте количество объектов и ищите большие изображения, прозрачность, тени, анимацию и мультимедиа; назначьте приблизительный показатель сложности, чтобы отметить потенциальные узкие места производительности.
+Для каждого слайда подсчитайте количество объектов и ищите большие изображения, прозрачность, тени, анимацию и мультимедиа; присвойте приблизительный коэффициент сложности, чтобы отметить потенциальные узкие места производительности.

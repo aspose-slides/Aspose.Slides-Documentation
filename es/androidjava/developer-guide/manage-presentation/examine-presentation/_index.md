@@ -22,23 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Explore diapositivas, estructura y metadatos en presentaciones PowerPoint y OpenDocument usando Java para obtener insights más rápidos y auditorías de contenido más inteligentes."
+description: "Explore diapositivas, estructura y metadatos en presentaciones de PowerPoint y OpenDocument usando Java para obtener información más rápida y auditorías de contenido más inteligentes."
 ---
+## **Visión general**
 
-Aspose.Slides for Android via Java le permite examinar una presentación para conocer sus propiedades y comprender su comportamiento.
+Este artículo muestra cómo inspeccionar la información de una presentación en Aspose.Slides. Explica cómo determinar el formato actual de una presentación sin cargar el archivo completo, leer sus propiedades de documento y actualizar esas propiedades cuando sea necesario.
 
-{{% alert title="Información" color="info" %}} 
-
-Las clases [PresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) y [DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/) contienen las propiedades y métodos utilizados en las operaciones aquí descritas.
-
-{{% /alert %}} 
+Los ejemplos se basan en las API [PresentationInfo](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentationinfo/) y [DocumentProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/documentproperties/) y demuestran operaciones típicas para trabajar con los metadatos de una presentación.
 
 ## **Comprobar el formato de una presentación**
 
-Antes de trabajar con una presentación, es posible que desee averiguar en qué formato (PPT, PPTX, ODP, y otros) se encuentra en ese momento.
+Antes de trabajar con una presentación, puede que desee averiguar en qué formato (PPT, PPTX, ODP y otros) se encuentra la presentación en ese momento.
 
-Puede comprobar el formato de una presentación sin cargarla. vea este código Java:
+Puede comprobar el formato de una presentación sin cargar la presentación. Vea este código Java:
+
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -49,11 +49,13 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-
 ## **Obtener propiedades de la presentación**
 
-Este código Java le muestra cómo obtener las propiedades de la presentación (información sobre la presentación):
+Este código Java le muestra cómo obtener las propiedades de una presentación (información sobre la presentación):
+
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
@@ -62,19 +64,22 @@ System.out.println(props.getTitle());
 // .. 
 ```
 
-
-Puede consultar las [propiedades en la clase DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Puede que desee consultar las [propiedades bajo la clase DocumentProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) .
 
 ## **Actualizar propiedades de la presentación**
 
-Aspose.Slides proporciona el método [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) que permite realizar cambios en las propiedades de la presentación.
+Aspose.Slides proporciona el método [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) que permite realizar cambios en las propiedades de la presentación.
 
-Supongamos que tenemos una presentación de PowerPoint con las propiedades del documento que se muestran a continuación.
+Supongamos que tenemos una presentación de PowerPoint con las propiedades del documento mostradas a continuación.
 
 ![Propiedades originales del documento de la presentación PowerPoint](input_properties.png)
 
 Este ejemplo de código le muestra cómo editar algunas propiedades de la presentación:
+
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -87,38 +92,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-
 Los resultados de cambiar las propiedades del documento se muestran a continuación.
 
 ![Propiedades modificadas del documento de la presentación PowerPoint](output_properties.png)
 
 ## **Enlaces útiles**
 
-Para obtener más información sobre una presentación y sus atributos de seguridad, pueden resultarle útiles los siguientes enlaces:
+Para obtener más información sobre una presentación y sus atributos de seguridad, puede que le resulten útiles los siguientes enlaces:
 
-- [Comprobar si una presentación está cifrada](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Comprobar si una presentación está protegida contra escritura (solo lectura)](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Comprobar si una presentación está protegida por contraseña antes de cargarla](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirmar la contraseña utilizada para proteger una presentación](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentaciones protegidas con contraseña](/slides/es/androidjava/password-protected-presentation/)
+- [Presentaciones protegidas contra escritura](/slides/es/androidjava/write-protected-presentation/)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cómo puedo comprobar si las fuentes están incrustadas y cuáles son?**
 
-Busque la información de [embedded-font](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a nivel de la presentación, luego compare esas entradas con el conjunto de [fuentes realmente usadas en el contenido](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getFonts--) para identificar qué fuentes son críticas para la renderización.
+Busque la información de [fuentes incrustadas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a nivel de presentación y compárela con el conjunto de [fuentes realmente utilizadas en el contenido](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fontsmanager/#getFonts--) para identificar qué fuentes son críticas para la renderización.
 
 **¿Cómo puedo saber rápidamente si el archivo tiene diapositivas ocultas y cuántas?**
 
-Itere a través de la [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) y examine la [bandera de visibilidad](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#getHidden--) de cada diapositiva.
+Recorra la [colección de diapositivas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slidecollection/) e inspeccione la [bandera de visibilidad](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slide/#getHidden--) de cada diapositiva.
 
-**¿Puedo detectar si se utilizan tamaños y orientaciones de diapositiva personalizados, y si difieren de los predeterminados?**
+**¿Puedo detectar si se usa un tamaño y orientación de diapositiva personalizados, y si difieren de los valores predeterminados?**
 
-Sí. Compare el [slide size](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideSize--) y la orientación actuales con los valores estándar; esto ayuda a anticipar el comportamiento al imprimir y exportar.
+Sí. Compare el [tamaño de diapositiva](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/#getSlideSize--) y la orientación actuales con los valores predeterminados; esto ayuda a anticipar el comportamiento al imprimir y exportar.
 
 **¿Existe una forma rápida de ver si los gráficos hacen referencia a fuentes de datos externas?**
 
-Sí. Recorra todos los [charts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/), verifique su [data source](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) y observe si los datos son internos o basados en enlaces, incluidos los enlaces rotos.
+Sí. Recorra todos los [gráficos](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/chart/), verifique su [fuente de datos](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) y determine si los datos son internos o basados en enlaces, incluyendo cualquier enlace roto.
 
 **¿Cómo puedo evaluar las diapositivas “pesadas” que pueden ralentizar la renderización o la exportación a PDF?**
 
-Para cada diapositiva, contabilice la cantidad de objetos y busque imágenes grandes, transparencias, sombras, animaciones y contenido multimedia; asigne una puntuación de complejidad aproximada para señalar posibles cuellos de botella de rendimiento.
+Para cada diapositiva, contabilice el número de objetos y busque imágenes grandes, transparencias, sombras, animaciones y contenido multimedia; asigne una puntuación de complejidad aproximada para identificar posibles puntos críticos de rendimiento.

@@ -1,264 +1,228 @@
 ---
-title: Bảo mật bản trình bày bằng mật khẩu trong Java
-linktitle: Bảo vệ bằng mật khẩu
+title: Bảo vệ mật khẩu cho bản trình chiếu bằng Java
+linktitle: Bảo vệ mật khẩu
 type: docs
 weight: 20
 url: /vi/java/password-protected-presentation/
 keywords:
-- khóa PowerPoint
-- khóa bản trình bày
-- mở khóa PowerPoint
-- mở khóa bản trình bày
-- bảo vệ PowerPoint
-- bảo vệ bản trình bày
-- đặt mật khẩu
-- thêm mật khẩu
-- mã hóa PowerPoint
-- mã hóa bản trình bày
+- bản trình chiếu được bảo vệ bằng mật khẩu
+- mật khẩu mở khóa
+- mã hoá PowerPoint
 - giải mã PowerPoint
-- giải mã bản trình bày
-- bảo vệ ghi
-- bảo mật PowerPoint
-- bảo mật bản trình bày
-- xóa mật khẩu
-- xóa bảo vệ
-- xóa mã hóa
-- vô hiệu hoá mật khẩu
-- vô hiệu hoá bảo vệ
-- xóa bảo vệ ghi
+- xác thực mật khẩu bản trình chiếu
+- kiểm tra mật khẩu bản trình chiếu
+- mở bản trình chiếu đã mã hoá
+- gỡ bỏ mã hoá
 - PowerPoint
-- OpenDocument
-- bản trình bày
+- PPT
+- PPTX
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách dễ dàng khóa và mở khóa các bản trình bày PowerPoint và OpenDocument được bảo vệ bằng mật khẩu với Aspose.Slides cho Java. Bảo mật các bản trình bày của bạn."
+description: "Mã hoá, phát hiện, xác thực, mở và giải mã các bản trình chiếu PowerPoint PPT và PPTX được bảo vệ bằng mật khẩu trong Java với Aspose.Slides."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khi bạn bảo vệ mật khẩu cho một bản trình bày, có nghĩa là bạn đang đặt một mật khẩu để thực thi một số hạn chế nhất định trên bản trình bày. Để gỡ bỏ các hạn chế này, cần nhập mật khẩu. Một bản trình bày được bảo vệ bằng mật khẩu được coi là bản trình bày bị khóa.
+Mật khẩu mở khóa mã hoá một bản trình chiếu. Mật khẩu đúng là bắt buộc để tải và xem nội dung bản trình chiếu, vì vậy bảo vệ này cung cấp tính bảo mật.
 
-Thông thường, bạn có thể đặt mật khẩu để thực thi các hạn chế này trên một bản trình bày:
+Mật khẩu mở khóa khác với mật khẩu bảo vệ ghi. Bảo vệ ghi hạn chế việc sửa đổi nhưng không mã hoá nội dung hoặc ngăn bản trình chiếu được tải. Để quản lý mật khẩu cho việc sửa đổi bản trình chiếu, xem [Write-Protect Presentations](/slides/vi/java/write-protected-presentation/).
 
-- **Chỉnh sửa**
+Các quy trình công việc dưới đây áp dụng cho cả bản trình chiếu PPT và PPTX. Các ví dụ sử dụng cả hai định dạng khi hành vi dựa trên tệp và dựa trên luồng của chúng quan trọng.
 
-Nếu bạn muốn chỉ một số người dùng nhất định có thể chỉnh sửa bản trình bày của mình, bạn có thể đặt hạn chế chỉnh sửa. Hạn chế này ngăn người khác chỉnh sửa, thay đổi hoặc sao chép các yếu tố trong bản trình bày trừ khi họ cung cấp mật khẩu. 
+## **Mã hoá bản trình chiếu bằng mật khẩu mở khóa**
 
-Tuy nhiên, ngay cả khi không có mật khẩu, người dùng vẫn có thể truy cập và mở tài liệu của bạn. Trong chế độ chỉ đọc này, người dùng có thể xem nội dung — bao gồm các siêu liên kết, hoạt ảnh, hiệu ứng và các yếu tố khác — trong bản trình bày, nhưng họ không thể sao chép mục nào hoặc lưu bản trình bày.
+Sử dụng [IProtectionManager.encrypt](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) để gán một mật khẩu mở khóa. Sau đó sử dụng [IPresentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) để lưu bản trình chiếu đã được mã hoá.
 
-- **Mở**
-
-Nếu bạn muốn chỉ một số người dùng nhất định có thể mở bản trình bày của mình, bạn có thể đặt hạn chế mở. Hạn chế này ngăn người khác thậm chí không thể xem nội dung của bản trình bày trừ khi họ cung cấp mật khẩu.
-
-Về mặt kỹ thuật, hạn chế mở cũng ngăn người dùng chỉnh sửa bản trình bày của bạn — nếu người không thể mở một bản trình bày, họ không thể chỉnh sửa hoặc thực hiện thay đổi nào.
-
-**Lưu ý:** Khi bạn bảo vệ mật khẩu cho một bản trình bày để ngăn mở, tệp bản trình bày sẽ được mã hóa.
-
-## **Bảo vệ mật khẩu trong Aspose.Slides**
-**Định dạng được hỗ trợ**
-
-Aspose.Slides hỗ trợ bảo vệ mật khẩu, mã hóa và các thao tác tương tự cho các bản trình bày ở các định dạng sau: 
-
-- PPTX và PPT - Bản trình bày Microsoft PowerPoint 
-- ODP - Bản trình bày OpenDocument 
-- OTP - Mẫu bản trình bày OpenDocument 
-
-**Các thao tác được hỗ trợ**
-
-Aspose.Slides cho phép bạn sử dụng bảo vệ mật khẩu trên các bản trình bày để ngăn chỉnh sửa theo các cách sau:
-
-- Mã hóa một bản trình bày
-- Đặt bảo vệ ghi cho một bản trình bày
-
-**Các thao tác khác**
-
-Aspose.Slides cho phép bạn thực hiện các nhiệm vụ khác liên quan đến bảo vệ mật khẩu và mã hóa theo các cách sau:
-
-- Giải mã một bản trình bày; mở một bản trình bày đã mã hóa
-- Gỡ bỏ mã hóa; tắt bảo vệ mật khẩu
-- Gỡ bỏ bảo vệ ghi khỏi một bản trình bày
-- Lấy các thuộc tính của một bản trình bày đã mã hóa
-- Kiểm tra xem một bản trình bày có được mã hóa không
-- Kiểm tra xem một bản trình bày có được bảo vệ bằng mật khẩu không.
-
-## **Bảo vệ một bản trình bày bằng mật khẩu**
-
-Bạn có thể mã hóa một bản trình bày bằng cách đặt mật khẩu. Sau đó, để chỉnh sửa bản trình bày bị khóa, người dùng phải cung cấp mật khẩu. 
-
-Để mã hóa hoặc bảo vệ bằng mật khẩu một bản trình bày, bạn phải sử dụng phương thức encrypt (từ [IProtectionManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager)) để đặt mật khẩu cho bản trình bày. Bạn truyền mật khẩu vào phương thức encrypt và sử dụng phương thức save để lưu bản trình bày đã được mã hóa. 
-
-Đoạn mã mẫu này cho bạn thấy cách mã hóa một bản trình bày:
+Ví dụ sau mã hoá một bản trình chiếu PPTX:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt bảo vệ ghi cho một bản trình bày**
+## **Tải bản trình chiếu đã được mã hoá**
 
-Bạn có thể thêm một dấu hiệu ghi “Không chỉnh sửa” vào một bản trình bày. Như vậy, bạn sẽ thông báo cho người dùng rằng bạn không muốn họ thay đổi bản trình bày.  
-
-**Lưu ý** rằng quá trình bảo vệ ghi không mã hóa bản trình bày. Do đó, người dùng — nếu họ thực sự muốn — có thể chỉnh sửa bản trình bày, nhưng để lưu các thay đổi, họ phải tạo một bản trình bày với tên khác. 
-
-Để đặt bảo vệ ghi, bạn phải sử dụng phương thức [setWriteProtection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Đoạn mã mẫu này cho bạn thấy cách đặt bảo vệ ghi cho một bản trình bày:
+Đặt [ILoadOptions.setPassword](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) thành mật khẩu mở khóa và truyền các tùy chọn này cho [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) khi tải tệp. Việc tải sẽ thất bại khi cần mật khẩu mở khóa nhưng mật khẩu được cung cấp thiếu hoặc không đúng.
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Tải một bản trình bày đã mã hóa**
-
-Aspose.Slides cho phép bạn tải một tệp đã mã hóa bằng cách truyền mật khẩu của nó. Để giải mã một bản trình bày, bạn phải gọi phương thức [removeEncryption](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#removeEncryption--) không có tham số. Sau đó bạn sẽ phải nhập mật khẩu đúng để tải bản trình bày. 
-
-Đoạn mã mẫu này cho bạn thấy cách giải mã một bản trình bày: 
-
-```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // làm việc với bản trình bày đã giải mã
+    // Làm việc với bản trình chiếu đã giải mã.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-## **Gỡ bỏ mã hóa khỏi một bản trình bày**
+## **Xóa mã hoá khỏi bản trình chiếu**
 
-Bạn có thể gỡ bỏ mã hóa hoặc bảo vệ mật khẩu trên một bản trình bày. Như vậy, người dùng sẽ có thể truy cập hoặc chỉnh sửa bản trình bày mà không có hạn chế. 
-
-Để gỡ bỏ mã hóa hoặc bảo vệ mật khẩu, bạn phải gọi phương thức [removeEncryption](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#removeEncryption--). Đoạn mã mẫu này cho bạn cách gỡ bỏ mã hóa khỏi một bản trình bày:
+Tải bản trình chiếu bằng mật khẩu mở khóa của nó, gọi [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprotectionmanager/#removeEncryption--), và lưu kết quả. Bản trình chiếu đã lưu sau đó có thể được tải mà không cần mật khẩu.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Gỡ bỏ bảo vệ ghi khỏi một bản trình bày**
+## **Xác thực mật khẩu mở khóa trước khi tải**
 
-Bạn có thể sử dụng Aspose.Slides để gỡ bỏ bảo vệ ghi đã được áp dụng trên tệp bản trình bày. Như vậy, người dùng có thể chỉnh sửa tùy ý — và không nhận được cảnh báo khi thực hiện các thao tác đó.
+Sử dụng [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) để lấy [IPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/) mà không tạo một thể hiện hoàn chỉnh của bản trình chiếu. Kiểm tra [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) trước khi yêu cầu hoặc xác thực mật khẩu. Khi bảo vệ tồn tại, xác thực giá trị đã cung cấp bằng [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-Bạn có thể gỡ bỏ bảo vệ ghi khỏi một bản trình bày bằng cách sử dụng phương thức [removeWriteProtection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#removeWriteProtection--). Đoạn mã mẫu này cho bạn cách gỡ bỏ bảo vệ ghi khỏi một bản trình bày:
+### **Quy trình làm việc theo Đường dẫn Tệp**
+
+Ví dụ sau xác thực một mật khẩu mở khóa cho tệp PPTX, truyền giá trị đã xác thực cho [ILoadOptions.setPassword](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), và sau đó tải bản trình chiếu hoàn chỉnh:
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **Quy trình làm việc với Luồng**
+
+Phiên bản overload dựa trên luồng của [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) cung cấp cùng một quy trình công việc. Đặt lại vị trí của một luồng có thể di chuyển trước khi tải bản trình chiếu hoàn chỉnh từ luồng đó.
+
+Ví dụ sau sử dụng một tệp PPT:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **Lấy các thuộc tính của một bản trình bày đã mã hóa**
+### **Giá trị trả về của checkPassword**
 
-Thông thường, người dùng gặp khó khăn trong việc lấy các thuộc tính tài liệu của một bản trình bày đã được mã hóa hoặc bảo vệ bằng mật khẩu. Tuy nhiên, Aspose.Slides cung cấp một cơ chế cho phép bạn bảo vệ mật khẩu một bản trình bày đồng thời vẫn cho phép người dùng truy cập các thuộc tính của bản trình bày đó.
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) trả về `true` chỉ khi bản trình chiếu có mật khẩu mở khóa và mật khẩu được cung cấp là đúng. Nó trả về `false` trong mỗi trường hợp sau:
 
-**Lưu ý** rằng khi Aspose.Slides mã hóa một bản trình bày, các thuộc tính tài liệu của bản trình bày cũng sẽ được bảo vệ bằng mật khẩu theo mặc định. Nhưng nếu bạn cần làm cho các thuộc tính của bản trình bày có thể truy cập được (ngay cả sau khi bản trình bày đã được mã hóa), Aspose.Slides cho phép bạn thực hiện điều đó. 
+- Mật khẩu không đúng.
+- Bản trình chiếu không có mật khẩu mở khóa.
+- Mật khẩu được cung cấp là `null` hoặc rỗng.
 
-Nếu bạn muốn người dùng vẫn có khả năng truy cập các thuộc tính của một bản trình bày bạn đã mã hóa, bạn có thể đặt thuộc tính [encryptDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) thành `true`. Đoạn mã mẫu này cho bạn cách mã hóa một bản trình bày đồng thời cung cấp cho người dùng khả năng truy cập các thuộc tính tài liệu của nó:
+Hành vi này giống nhau đối với các bản trình chiếu PPT và PPTX.
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **Kiểm tra bản trình chiếu đã tải có được mã hoá hay không**
 
-## **Kiểm tra xem một bản trình bày có được bảo vệ bằng mật khẩu hay không**
-
-Trước khi bạn tải một bản trình bày, bạn có thể muốn kiểm tra và xác nhận rằng bản trình bày không được bảo vệ bằng mật khẩu. Như vậy, bạn tránh được các lỗi và vấn đề tương tự, xảy ra khi tải một bản trình bày được bảo vệ bằng mật khẩu mà không có mật khẩu.
-
-Đoạn mã Java này cho bạn thấy cách kiểm tra một bản trình bày để xem nó có được bảo vệ bằng mật khẩu hay không (mà không cần tải bản trình bày):
+Sau khi tải một bản trình chiếu bằng mật khẩu đúng, kiểm tra [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) để xác nhận rằng bản trình chiếu nguồn đã được mã hoá. Để phát hiện bảo vệ bằng mật khẩu mở khóa trước khi tải, sử dụng `IPresentationInfo.isPasswordProtected` như đã mô tả ở trên.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Kiểm tra xem một bản trình bày có được mã hóa hay không**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Aspose.Slides cho phép bạn kiểm tra xem một bản trình bày có được mã hóa hay không. Để thực hiện việc này, bạn có thể sử dụng thuộc tính [isEncrypted](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#isEncrypted--) , trả về `true` nếu bản trình bày được mã hóa hoặc `false` nếu không được mã hóa.
-
-Đoạn mã mẫu này cho bạn cách kiểm tra xem một bản trình bày có được mã hóa hay không:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Kiểm tra xem một bản trình bày có được bảo vệ ghi hay không**
+## **Khuyến nghị Bảo mật**
 
-Aspose.Slides cho phép bạn kiểm tra xem một bản trình bày có được bảo vệ ghi hay không. Để thực hiện việc này, bạn có thể sử dụng thuộc tính [isWriteProtected](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IProtectionManager#isWriteProtected--) , trả về `true` nếu bản trình bày được bảo vệ ghi hoặc `false` nếu không được bảo vệ ghi. 
+{{% alert color="warning" title="Security" %}}
+Không ghi lại mật khẩu mở khóa hoặc đưa chúng vào các thông điệp chẩn đoán. Tránh các lần xác thực lặp lại không cần thiết, giữ mật khẩu trong bộ nhớ chỉ trong thời gian cần thiết, và tái sử dụng kết quả xác thực thành công khi tải bản trình chiếu ngay lập tức.
+{{% /alert %}}
 
-Đoạn mã mẫu này cho bạn cách kiểm tra xem một bản trình bày có được bảo vệ ghi hay không:
+## **Bảo vệ mật khẩu cho bản trình chiếu trực tuyến**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. Mở ứng dụng [Aspose.Slides Lock](https://products.aspose.app/slides/vi/lock).
+2. Chọn hoặc tải lên bản trình chiếu.
+3. Nhập mật khẩu để bảo vệ chế độ xem.
+4. Tùy chọn nhập một mật khẩu riêng biệt để bảo vệ chỉnh sửa.
+5. Áp dụng bảo vệ và tải xuống tệp kết quả.
 
-## **Xác thực hoặc xác nhận rằng một mật khẩu cụ thể đã được sử dụng**
-
-Bạn có thể muốn kiểm tra và xác nhận rằng một mật khẩu cụ thể đã được sử dụng để bảo vệ tài liệu bản trình bày. Aspose.Slides cung cấp cách để bạn xác thực mật khẩu. 
-
-Đoạn mã mẫu này cho bạn cách xác thực một mật khẩu:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // kiểm tra xem "pass" có khớp với không
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-Nó trả về `true` nếu bản trình bày đã được mã hóa bằng mật khẩu đã chỉ định. Ngược lại, nó trả về `false`. 
-
-{{% alert color="primary" title="Xem thêm" %}} 
-- [Chữ ký số trong PowerPoint](/slides/vi/java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/vi/java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/vi/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Các phương pháp mã hóa nào được Aspose.Slides hỗ trợ?**
+**Sự khác nhau giữa mật khẩu mở khóa và mật khẩu bảo vệ ghi là gì?**
 
-Aspose.Slides hỗ trợ các phương pháp mã hóa hiện đại, bao gồm các thuật toán dựa trên AES, đảm bảo mức độ bảo mật dữ liệu cao cho các bản trình bày của bạn.
+Mật khẩu mở khóa mã hoá bản trình chiếu và là bắt buộc để tải nội dung của nó. Mật khẩu bảo vệ ghi hạn chế việc sửa đổi mà không mã hoá nội dung.
 
-**Điều gì xảy ra nếu nhập sai mật khẩu khi cố gắng mở một bản trình bày?**
+**Tôi có thể xác thực mật khẩu mở khóa mà không tải tất cả các slide không?**
 
-Một ngoại lệ sẽ được ném ra nếu mật khẩu không đúng được sử dụng, thông báo cho bạn rằng truy cập vào bản trình bày bị từ chối. Điều này giúp ngăn chặn việc truy cập trái phép và bảo vệ nội dung bản trình bày.
+Có. Lấy thông tin bản trình chiếu, kiểm tra xem bảo vệ bằng mật khẩu mở khóa có tồn tại hay không, và xác thực mật khẩu trước khi tạo một thể hiện hoàn chỉnh của bản trình chiếu.
 
-**Có bất kỳ ảnh hưởng về hiệu năng nào khi làm việc với các bản trình bày được bảo vệ bằng mật khẩu không?**
+**Các quy trình xác thực mật khẩu có hỗ trợ cả PPT và PPTX không?**
 
-Quá trình mã hóa và giải mã có thể gây ra một chút tiêu tốn tài nguyên trong quá trình mở và lưu. Trong hầu hết các trường hợp, ảnh hưởng về hiệu năng này là tối thiểu và không ảnh hưởng đáng kể đến thời gian xử lý tổng thể của các nhiệm vụ trình bày của bạn.
+Có. Phát hiện và xác thực mật khẩu dựa trên đường dẫn tệp và dựa trên luồng hoạt động giống nhau đối với các bản trình chiếu PPT và PPTX.

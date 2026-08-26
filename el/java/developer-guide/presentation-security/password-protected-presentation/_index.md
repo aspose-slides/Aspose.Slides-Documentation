@@ -1,264 +1,228 @@
 ---
-title: Ασφαλείς Παρουσιάσεις με Κωδικούς σε Java
-linktitle: Προστασία με Κωδικό
+title: Προστασία Παρουσιάσεων με Κωδικό Πρόσβασης σε Java
+linktitle: Προστασία Κωδικού Πρόσβασης
 type: docs
 weight: 20
 url: /el/java/password-protected-presentation/
 keywords:
-- κλείδωμα PowerPoint
-- κλείδωμα παρουσίασης
-- ξεκλείδωμα PowerPoint
-- ξεκλείδωμα παρουσίασης
-- προστασία PowerPoint
-- προστασία παρουσίασης
-- ορισμός κωδικού
-- προσθήκη κωδικού
+- παρουσίαση με προστασία κωδικού
+- κωδικός πρόσβασης έναρξης
 - κρυπτογράφηση PowerPoint
-- κρυπτογράφηση παρουσίασης
 - αποκρυπτογράφηση PowerPoint
-- αποκρυπτογράφηση παρουσίασης
-- προστασία εγγραφής
-- ασφάλεια PowerPoint
-- ασφάλεια παρουσίασης
-- αφαίρεση κωδικού
-- αφαίρεση προστασίας
+- επικύρωση κωδικού πρόσβασης παρουσίασης
+- έλεγχος κωδικού πρόσβασης παρουσίασης
+- άνοιγμα κρυπτογραφημένης παρουσίασης
 - αφαίρεση κρυπτογράφησης
-- απενεργοποίηση κωδικού
-- απενεργοποίηση προστασίας
-- αφαίρεση προστασίας εγγραφής
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε εύκολα παρουσιάσεις PowerPoint και OpenDocument που προστατεύονται με κωδικό, χρησιμοποιώντας το Aspose.Slides για Java. Εξασφαλίστε την ασφάλεια των παρουσιάσεων σας."
+description: "Κρυπτογράφηση, εντοπισμός, επικύρωση, άνοιγμα και αποκρυπτογράφηση παρουσιάσεων PowerPoint PPT και PPTX με προστασία κωδικού πρόσβασης σε Java με Aspose.Slides."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Όταν προστατεύετε έναν παρουσίαση με κωδικό πρόσβασης, σημαίνει ότι θέτετε έναν κωδικό που επιβάλλει συγκεκριμένους περιορισμούς στην παρουσίαση. Για να αφαιρεθούν αυτοί οι περιορισμοί, πρέπει να εισαχθεί ο κωδικός. Μια παρουσίαση που προστατεύεται με κωδικό θεωρείται κλειδωμένη παρουσίαση.
+Ένας κωδικός πρόσβασης έναρξης κρυπτογραφεί μια παρουσίαση. Ο σωστός κωδικός πρόσβασης απαιτείται για τη φόρτωση και προβολή του περιεχομένου της παρουσίασης, έτσι αυτή η προστασία παρέχει εμπιστευτικότητα.
 
-Συνήθως, μπορείτε να ορίσετε έναν κωδικό για να επιβάλλετε αυτούς τους περιορισμούς σε μια παρουσίαση:
+Ο κωδικός πρόσβασης έναρξης διαφέρει από τον κωδικό προστασίας εγγραφής. Η προστασία εγγραφής περιορίζει την τροποποίηση αλλά δεν κρυπτογραφεί το περιεχόμενο ούτε αποτρέπει τη φόρτωση της παρουσίασης. Για τη διαχείριση κωδικών πρόσβασης για τροποποίηση παρουσιάσεων, δείτε [Write-Protect Presentations](/slides/el/java/write-protected-presentation/).
 
-- **Τροποποίηση**
+Οι παρακάτω ροές εργασίας ισχύουν για παρουσιάσεις PPT και PPTX. Τα παραδείγματα χρησιμοποιούν και τις δύο μορφές όταν η συμπεριφορά βάσει αρχείου ή ροής είναι σημαντική.
 
-Αν θέλετε μόνο ορισμένοι χρήστες να τροποποιούν την παρουσίασή σας, μπορείτε να ορίσετε περιορισμό τροποποίησης. Αυτός ο περιορισμός αποτρέπει τους ανθρώπους από το να τροποποιούν, αλλάζουν ή αντιγράφουν στοιχεία στην παρουσίασή σας εκτός εάν παρέχουν τον κωδικό.
+## **Κρυπτογράφηση Παρουσίασης με Κωδικό Πρόσβασης Έναρξης**
 
-Ωστόσο, ακόμη και χωρίς τον κωδικό, ένας χρήστης θα μπορεί να έχει πρόσβαση και να ανοίξει το έγγραφό σας. Σε αυτή τη λειτουργία μόνο για ανάγνωση, ο χρήστης μπορεί να δει το περιεχόμενο—συμπεριλαμβανομένων των υπερσυνδέσμων, των κινούμενων σχεδίων, των εφέ και άλλων στοιχείων—μέσα στην παρουσίαση, αλλά δεν μπορεί να αντιγράψει στοιχεία ή να αποθηκεύσει την παρουσίαση.
+Χρησιμοποιήστε το [IProtectionManager.encrypt](https://reference.aspose.com/slides/el/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) για να ορίσετε έναν κωδικό πρόσβασης έναρξης. Στη συνέχεια χρησιμοποιήστε το [IPresentation.save](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) για να αποθηκεύσετε την κρυπτογραφημένη παρουσίαση.
 
-- **Άνοιγμα**
-
-Αν θέλετε μόνο ορισμένοι χρήστες να ανοίγουν την παρουσίασή σας, μπορείτε να ορίσετε περιορισμό ανοίγματος. Αυτός ο περιορισμός αποτρέπει τους ανθρώπους ακόμη και από το να δουν το περιεχόμενο της παρουσίασής σας εκτός εάν παρέχουν τον κωδικό.
-
-Τεχνικά, ο περιορισμός ανοίγματος εμποδίζει επίσης τους χρήστες από το να τροποποιούν τις παρουσιάσεις σας—αν οι άνθρωποι δεν μπορούν να ανοίξουν μια παρουσίαση, δεν μπορούν να την τροποποιήσουν ή να κάνουν αλλαγές σε αυτήν.
-
-**Σημείωση:** Όταν προστατεύετε με κωδικό μια παρουσίαση για να εμποδίσετε το άνοιγμα, το αρχείο της παρουσίασης κρυπτογραφείται.
-
-## **Προστασία με κωδικό πρόσβασης στο Aspose.Slides**
-**Υποστηριζόμενες μορφές**
-
-Το Aspose.Slides υποστηρίζει προστασία με κωδικό, κρυπτογράφηση και παρόμοιες λειτουργίες για παρουσιάσεις σε αυτές τις μορφές:
-
-- PPTX και PPT – Microsoft PowerPoint Presentation
-- ODP – OpenDocument Presentation
-- OTP – OpenDocument Presentation Template
-
-**Υποστηριζόμενες λειτουργίες**
-
-Το Aspose.Slides σάς επιτρέπει να χρησιμοποιήσετε προστασία με κωδικό σε παρουσιάσεις για να αποτρέψετε τροποποιήσεις με τους εξής τρόπους:
-
-- Κρυπτογράφηση μια παρουσίασης
-- Ορισμός προστασίας εγγραφής σε μια παρουσίαση
-
-**Άλλες λειτουργίες**
-
-Το Aspose.Slides σάς επιτρέπει να εκτελέσετε άλλες εργασίες που αφορούν προστασία με κωδικό και κρυπτογράφηση με τους εξής τρόπους:
-
-- Αποκρυπτογράφηση μια παρουσίασης· άνοιγμα μιας κρυπτογραφημένης παρουσίασης
-- Απομάκρυνση κρυπτογράφησης· απενεργοποίηση προστασίας με κωδικό
-- Απομάκρυνση προστασίας εγγραφής από μια παρουσίαση
-- Λήψη των ιδιοτήτων μιας κρυπτογραφημένης παρουσίασης
-- Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη
-- Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό.
-
-## **Προστασία μιας παρουσίασης με κωδικό**
-
-Μπορείτε να κρυπτογραφήσετε μια παρουσίαση ορίζοντας έναν κωδικό. Στη συνέχεια, για να τροποποιήσετε την κλειδωμένη παρουσίαση, ο χρήστης πρέπει να παρέχει τον κωδικό.
-
-Για να κρυπτογραφήσετε ή να προστατεύσετε μια παρουσίαση με κωδικό, πρέπει να χρησιμοποιήσετε τη μέθοδο encrypt (από [IProtectionManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager)) για να ορίσετε έναν κωδικό στην παρουσίαση. Περνάτε τον κωδικό στη μέθοδο encrypt και χρησιμοποιείτε τη μέθοδο save για να αποθηκεύσετε την πλέον κρυπτογραφημένη παρουσίαση.
-
-Αυτό το παράδειγμα κώδικα δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση:
+Το παρακάτω παράδειγμα κρυπτογραφεί μια παρουσίαση PPTX:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός προστασίας εγγραφής σε μια παρουσίαση**
+## **Φόρτωση Κρυπτογραφημένης Παρουσίασης**
 
-Μπορείτε να προσθέσετε μια σημείωση «Do not modify» σε μια παρουσίαση. Με αυτόν τον τρόπο, ενημερώνετε τους χρήστες ότι δεν θέλετε να κάνουν αλλαγές στην παρουσίαση.
-
-**Σημείωση** ότι η διαδικασία προστασίας εγγραφής δεν κρυπτογραφεί την παρουσίαση. Συνεπώς, οι χρήστες—αν το θέλουν—μπορούν να τροποποιήσουν την παρουσίαση, αλλά για να αποθηκεύσουν τις αλλαγές θα πρέπει να δημιουργήσουν μια παρουσίαση με διαφορετικό όνομα.
-
-Για να ορίσετε προστασία εγγραφής, πρέπει να χρησιμοποιήσετε τη μέθοδο [setWriteProtection](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Αυτό το παράδειγμα κώδικα δείχνει πώς να ορίσετε προστασία εγγραφής σε μια παρουσίαση:
+Ορίστε το [ILoadOptions.setPassword](https://reference.aspose.com/slides/el/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) στον κωδικό πρόσβασης έναρξης και περάστε τις επιλογές στο [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) κατά τη φόρτωση του αρχείου. Η φόρτωση αποτυγχάνει όταν απαιτείται κωδικός πρόσβασης έναρξης, αλλά ο παρεχόμενος κωδικός λείπει ή είναι λανθασμένος.
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Φόρτωση κρυπτογραφημένης παρουσίασης**
-
-Το Aspose.Slides σάς επιτρέπει να φορτώσετε ένα κρυπτογραφημένο αρχείο περνώντας τον κωδικό του. Για να αποκρυπτογραφήσετε μια παρουσίαση, πρέπει να καλέσετε τη μέθοδο [removeEncryption](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#removeEncryption--) χωρίς παραμέτρους. Θα πρέπει στη συνέχεια να εισάγετε τον σωστό κωδικό για να φορτώσετε την παρουσίαση.
-
-Αυτό το παράδειγμα κώδικα δείχνει πώς να αποκρυπτογραφήσετε μια παρουσίαση:
-
-```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // εργασία με την αποκρυπτογραφημένη παρουσίαση
+    // Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-## **Αφαίρεση κρυπτογράφησης από μια παρουσίαση**
+## **Αφαίρεση Κρυπτογράφησης από Παρουσίαση**
 
-Μπορείτε να αφαιρέσετε την κρυπτογράφηση ή την προστασία με κωδικό από μια παρουσίαση. Με αυτόν τον τρόπο, οι χρήστες μπορούν να έχουν πρόσβαση ή να τροποποιήσουν την παρουσίαση χωρίς περιορισμούς.
-
-Για να αφαιρέσετε την κρυπτογράφηση ή την προστασία με κωδικό, πρέπει να καλέσετε τη μέθοδο [removeEncryption](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#removeEncryption--). Αυτό το παράδειγμα κώδικα δείχνει πώς να αφαιρέσετε την κρυπτογράφηση από μια παρουσίαση:
+Φορτώστε την παρουσίαση με τον κωδικό πρόσβασης έναρξης, καλέστε το [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/el/java/com.aspose.slides/iprotectionmanager/#removeEncryption--), και αποθηκεύστε το αποτέλεσμα. Η αποθηκευμένη παρουσίαση μπορεί στη συνέχεια να φορτωθεί χωρίς κωδικό πρόσβασης.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Αφαίρεση προστασίας εγγραφής από μια παρουσίαση**
+## **Επικύρωση Κωδικού Πρόσβασης Έναρξης Πριν τη Φόρτωση**
 
-Μπορείτε να χρησιμοποιήσετε το Aspose.Slides για να αφαιρέσετε την προστασία εγγραφής που χρησιμοποιείται σε ένα αρχείο παρουσίασης. Με αυτόν τον τρόπο, οι χρήστες μπορούν να τροποποιούν ελεύθερα—και δεν λαμβάνουν προειδοποιήσεις όταν εκτελούν αυτές τις ενέργειες.
+Χρησιμοποιήστε το [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) για να λάβετε το [IPresentationInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationinfo/) χωρίς να δημιουργήσετε πλήρη παράδειγμα παρουσίασης. Ελέγξτε το [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) πριν ζητήσετε ή επικυρώσετε κωδικό πρόσβασης. Όταν υπάρχει προστασία, επικυρώστε την παρεχόμενη τιμή με το [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-Μπορείτε να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση χρησιμοποιώντας τη μέθοδο [removeWriteProtection](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#removeWriteProtection--). Αυτό το παράδειγμα κώδικα δείχνει πώς να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση:
+### **Ροή Εργασίας Βάσει Διαδρομής Αρχείου**
+
+Το παρακάτω παράδειγμα επικυρώνει έναν κωδικό πρόσβασης έναρξης για αρχείο PPTX, περνά την επικυρωμένη τιμή στο [ILoadOptions.setPassword](https://reference.aspose.com/slides/el/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), και στη συνέχεια φορτώνει την πλήρη παρουσίαση:
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **Ροή Εργασίας Ροής**
+
+Η υπερφόρτωση ροής του [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) παρέχει την ίδια ροή εργασίας. Επαναρύθμιση της θέσης μιας ρεύσιμης ροής προτού φορτωθεί η πλήρης παρουσίαση από αυτή τη ροή.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί αρχείο PPT:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **Λήψη των ιδιοτήτων μιας κρυπτογραφημένης παρουσίασης**
+### **Τιμές Επιστροφής checkPassword**
 
-Συνήθως, οι χρήστες δυσκολεύονται να λάβουν τις ιδιότητες εγγράφου μιας κρυπτογραφημένης ή προστατευμένης με κωδικό παρουσίασης. Το Aspose.Slides, ωστόσο, προσφέρει έναν μηχανισμό που σας επιτρέπει να προστατεύσετε μια παρουσίαση με κωδικό διατηρώντας ταυτόχρονα τη δυνατότητα των χρηστών να έχουν πρόσβαση στις ιδιότητες της παρουσίασης.
+Το [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) επιστρέφει `true` μόνο όταν η παρουσίαση έχει κωδικό πρόσβασης έναρξης και ο παρεχόμενος κωδικός είναι σωστός. Επιστρέφει `false` σε καθένα από τις παρακάτω περιπτώσεις:
 
-**Σημείωση** ότι όταν το Aspose.Slides κρυπτογραφεί μια παρουσίαση, οι ιδιότητες εγγράφου της παρουσίασης κρυπτογραφούνται επίσης εξ ορισμού. Αλλά εάν χρειάζεται να κάνετε τις ιδιότητες της παρουσίασης προσβάσιμες (ακόμα και μετά την κρυπτογράφηση), το Aspose.Slides σας επιτρέπει ακριβώς αυτό.
+- Ο κωδικός πρόσβασης είναι λανθασμένος.
+- Η παρουσίαση δεν έχει κωδικό πρόσβασης έναρξης.
+- Ο παρεχόμενος κωδικός πρόσβασης είναι `null` ή κενός.
 
-Αν θέλετε οι χρήστες να διατηρήσουν τη δυνατότητα πρόσβασης στις ιδιότητες μιας παρουσίασης που έχετε κρυπτογραφήσει, μπορείτε να ορίσετε την ιδιότητα [encryptDocumentProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) σε `true`. Αυτό το παράδειγμα κώδικα δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση παρέχοντας ταυτόχρονα στους χρήστες τη δυνατότητα πρόσβασης στις ιδιότητες εγγράφου:
+Η συμπεριφορά είναι η ίδια για παρουσιάσεις PPT και PPTX.
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **Έλεγχος Εάν Η Φορτωμένη Παρουσίαση Είναι Κρυπτογραφημένη**
 
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό**
-
-Πριν φορτώσετε μια παρουσίαση, ενδέχεται να θέλετε να ελέγξετε και να επιβεβαιώσετε ότι η παρουσίαση δεν είναι προστατευμένη με κωδικό. Με αυτόν τον τρόπο αποφεύγετε σφάλματα και παρόμοια προβλήματα που προκύπτουν όταν μια παρουσίαση προστατευμένη με κωδικό φορτώνεται χωρίς τον κωδικό της.
-
-Αυτός ο κώδικας Java δείχνει πώς να εξετάσετε μια παρουσίαση για να δείτε αν είναι προστατευμένη με κωδικό (χωρίς να φορτώσετε την παρουσίαση):
+Μετά τη φόρτωση μιας παρουσίασης με τον σωστό κωδικό πρόσβασης, ελέγξτε το [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/el/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) για να επιβεβαιώσετε ότι η πηγή παρουσίασης κρυπτογραφήθηκε. Για να εντοπίσετε προστασία κωδικού πρόσβασης έναρξης πριν από τη φόρτωση, χρησιμοποιήστε το `IPresentationInfo.isPasswordProtected` όπως φαίνεται παραπάνω.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Το Aspose.Slides σάς επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη. Για αυτήν την εργασία, μπορείτε να χρησιμοποιήσετε την ιδιότητα [isEncrypted](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#isEncrypted--), η οποία επιστρέφει `true` αν η παρουσίαση είναι κρυπτογραφημένη ή `false` αν δεν είναι.
-
-Αυτό το παράδειγμα κώδικα δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη από εγγραφή**
+## **Συστάσεις Ασφαλείας**
 
-Το Aspose.Slides σάς επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη από εγγραφή. Για αυτήν την εργασία, μπορείτε να χρησιμοποιήσετε την ιδιότητα [isWriteProtected](https://reference.aspose.com/slides/el/java/com.aspose.slides/IProtectionManager#isWriteProtected--), η οποία επιστρέφει `true` αν η παρουσίαση είναι κρυπτογραφημένη ή `false` αν δεν είναι.
+{{% alert color="warning" title="Security" %}}
+Μην καταγράφετε τους κωδικούς πρόσβασης έναρξης ή τους συμπεριλαμβάνετε σε διαγνωστικά μηνύματα. Αποφύγετε περιττές επαναλαμβανόμενες προσπάθειες επικύρωσης, κρατήστε τους κωδικούς πρόσβασης στη μνήμη μόνο όσο απαιτείται, και επαναχρησιμοποιήστε ένα επιτυχές αποτέλεσμα επικύρωσης όταν φορτώνετε αμέσως την παρουσίαση.
+{{% /alert %}}
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη από εγγραφή:
+## **Προστασία Παρουσίασης με Κωδικό Πρόσβασης Online**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. Ανοίξτε την εφαρμογή [Aspose.Slides Lock](https://products.aspose.app/slides/el/lock).
+1. Επιλέξτε ή ανεβάστε την παρουσίαση.
+1. Εισάγετε έναν κωδικό πρόσβασης για προστασία προβολής.
+1. Προαιρετικά εισάγετε έναν ξεχωριστό κωδικό πρόσβασης για προστασία επεξεργασίας.
+1. Εφαρμόστε την προστασία και κατεβάστε το παραγόμενο αρχείο.
 
-## **Επικύρωση ή επιβεβαίωση ότι χρησιμοποιήθηκε συγκεκριμένος κωδικός**
-
-Μπορεί να θέλετε να ελέγξετε και να επιβεβαιώσετε ότι έχει χρησιμοποιηθεί συγκεκριμένος κωδικός για την προστασία ενός εγγράφου παρουσίασης. Το Aspose.Slides παρέχει τα μέσα για να επικυρώσετε έναν κωδικό.
-
-Αυτό το παράδειγμα κώδικα δείχνει πώς να επικυρώσετε έναν κωδικό:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // ελέγξτε αν το "pass" ταιριάζει με
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-Επιστρέφει `true` εάν η παρουσίαση έχει κρυπτογραφηθεί με τον καθορισμένο κωδικό. Διαφορετικά, επιστρέφει `false`.
-
-{{% alert color="primary" title="Δείτε επίσης" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/el/java/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/el/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Ποιες μέθοδοι κρυπτογράφησης υποστηρίζονται από το Aspose.Slides;**
+**Ποια είναι η διαφορά μεταξύ κωδικού πρόσβασης έναρξης και κωδικού προστασίας εγγραφής;**
 
-Το Aspose.Slides υποστηρίζει σύγχρονες μεθόδους κρυπτογράφησης, συμπεριλαμβανομένων αλγορίθμων βασισμένων σε AES, εξασφαλίζοντας υψηλό επίπεδο ασφάλειας δεδομένων για τις παρουσιάσεις σας.
+Ένας κωδικός πρόσβασης έναρξης κρυπτογραφεί την παρουσίαση και απαιτείται για τη φόρτωση του περιεχομένου της. Ένας κωδικός προστασίας εγγραφής περιορίζει την τροποποίηση χωρίς να κρυπτογραφεί το περιεχόμενο.
 
-**Τι συμβαίνει αν εισαχθεί λανθασμένος κωδικός κατά το άνοιγμα μιας παρουσίασης;**
+**Μπορώ να επικυρώσω έναν κωδικό πρόσβασης έναρξης χωρίς να φορτώσω όλες τις διαφάνειες;**
 
-Ρίχνεται μια εξαίρεση εάν χρησιμοποιηθεί λανθασμένος κωδικός, ενημερώνοντάς σας ότι η πρόσβαση στην παρουσίαση απορρίφθηκε. Αυτό βοηθά στην αποτροπή μη εξουσιοδοτημένης πρόσβασης και προστατεύει το περιεχόμενο της παρουσίασης.
+Ναι. Λάβετε πληροφορίες παρουσίασης, ελέγξτε εάν υπάρχει προστασία κωδικού πρόσβασης έναρξης, και επικυρώστε τον κωδικό πρόσβασης πριν δημιουργήσετε πλήρες αντίτυπο παρουσίασης.
 
-**Υπάρχουν επιπτώσεις στην απόδοση όταν εργάζεστε με παρουσιάσεις προστατευμένες με κωδικό;**
+**Υποστηρίζουν οι ροές εργασίας ελέγχου κωδικού πρόσβασης και τα PPT και PPTX;**
 
-Η διαδικασία κρυπτογράφησης και αποκρυπτογράφησης μπορεί να προσθέσει ελαφρύ φορτίο κατά το άνοιγμα και την αποθήκευση. Στις περισσότερες περιπτώσεις, αυτή η επίπτωση στην απόδοση είναι ελάχιστη και δεν επηρεάζει σημαντικά το συνολικό χρόνο επεξεργασίας των εργασιών σας με τις παρουσιάσεις.
+Ναι. Η ανίχνευση και επικύρωση κωδικού πρόσβασης βάσει διαδρομής αρχείου ή ροής συμπεριφέρεται με τον ίδιο τρόπο για παρουσιάσεις PPT και PPTX.

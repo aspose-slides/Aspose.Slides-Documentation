@@ -1,18 +1,18 @@
 ---
-title: بازیابی و به‌روزرسانی اطلاعات ارائه در Android
+title: دریافت و به‌روزرسانی اطلاعات ارائه در Android
 linktitle: اطلاعات ارائه
 type: docs
 weight: 30
 url: /fa/androidjava/examine-presentation/
 keywords:
-- فرمت ارائه
-- ویژگی‌های ارائه
-- ویژگی‌های سند
-- دریافت ویژگی‌ها
-- خواندن ویژگی‌ها
-- تغییر ویژگی‌ها
-- ویرایش ویژگی‌ها
-- به‌روزرسانی ویژگی‌ها
+- قالب ارائه
+- خصوصیات ارائه
+- خصوصیات سند
+- دریافت خصوصیات
+- خواندن خصوصیات
+- تغییر خصوصیات
+- اصلاح خصوصیات
+- به‌روزرسانی خصوصیات
 - بررسی PPTX
 - بررسی PPT
 - بررسی ODP
@@ -22,21 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "اسلایدها، ساختار و فراداده‌ها را در ارائه‌های PowerPoint و OpenDocument با استفاده از Java بررسی کنید تا بینش‌های سریع‌تری به دست آورید و ممیزی‌های محتوا هوشمندانه‌تری انجام دهید."
+description: "کاوش اسلایدها، ساختار و متادیتا در ارائه‌های PowerPoint و OpenDocument با استفاده از Java برای دریافت سریع‌تر بینش‌ها و ارزیابی هوشمند محتوا."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله نشان می‌دهد چگونه اطلاعات ارائه را در Aspose.Slides بررسی کنید. روش تعیین فرمت فعلی یک ارائه را بدون بارگذاری کامل فایل، خواندن ویژگی‌های سند آن و به‌روزرسانی این ویژگی‌ها در صورت نیاز توضیح می‌دهد.
+این مقاله نشان می‌دهد چگونه می‌توان اطلاعات ارائه را در Aspose.Slides بررسی کرد. توضیح می‌دهد چطور می‌توان قالب فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کرد، خصوصیات سند آن را خواند و در صورت نیاز این خصوصیات را به‌روزرسانی کرد.
 
-مثال‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/documentproperties/) هستند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
+مثال‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/documentproperties/) هستند و عملیات معمول کار با متادیتای ارائه را نشان می‌دهند.
 
-## **بررسی فرمت ارائه**
+## **بررسی قالب یک ارائه**
 
-قبل از کار بر روی یک ارائه، ممکن است بخواهید فرمت فعلی ارائه (PPT، PPTX، ODP و دیگران) را مشخص کنید.
+قبل از کار با یک ارائه ممکن است بخواهید بفهمید قالب (PPT، PPTX، ODP و ...) در حال حاضر چیست.
 
-می‌توانید فرمت ارائه را بدون بارگذاری آن بررسی کنید. کد Java زیر را ببینید:
+می‌توانید قالب ارائه را بدون بارگذاری آن بررسی کنید. به این کد Java نگاه کنید:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -47,32 +49,37 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **دریافت ویژگی‌های ارائه**
+## **دریافت خصوصیات ارائه**
 
-این کد Java نشان می‌دهد چگونه ویژگی‌های ارائه (اطلاعات دربارهٔ ارائه) را دریافت کنید:
+این کد Java نشان می‌دهد چگونه می‌توان خصوصیات ارائه (اطلاعات دربارهٔ ارائه) را به‌دست آورد:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ..
+// ادامه
 ```
 
-ممکن است بخواهید [ویژگی‌های موجود در کلاس DocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) را ببینید.
+ممکن است بخواهید به [خصوصیات موجود در کلاس DocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) نگاهی بیندازید.
 
-## **به‌روزرسانی ویژگی‌های ارائه**
+## **به‌روزرسانی خصوصیات ارائه**
 
-Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) را فراهم می‌کند که امکان اعمال تغییرات بر ویژگی‌های ارائه را می‌دهد.
+Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) را ارائه می‌دهد که امکان تغییر خصوصیات ارائه را فراهم می‌کند.
 
-فرض کنید یک ارائه PowerPoint داریم که ویژگی‌های سند آن در زیر نشان داده شده است.
+فرض کنید یک ارائه PowerPoint داریم که خصوصیات سند آن به‌صورت زیر نشان داده شده است.
 
-![ویژگی‌های سند اصلی ارائه PowerPoint](input_properties.png)
+![خصوصیات سند اصلی ارائه PowerPoint](input_properties.png)
 
-این مثال کد نشان می‌دهد چگونه برخی از ویژگی‌های ارائه را ویرایش کنید:
+این مثال کد نشان می‌دهد چگونه برخی از خصوصیات ارائه را ویرایش کنیم:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -85,37 +92,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-نتایج تغییر ویژگی‌های سند در زیر نشان داده شده است.
+نتایج تغییر خصوصیات سند در زیر نشان داده شده‌اند.
 
-![ویژگی‌های سند تغییر یافته ارائه PowerPoint](output_properties.png)
+![خصوصیات سند تغییر یافتهٔ ارائه PowerPoint](output_properties.png)
 
 ## **لینک‌های مفید**
 
-برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها مفید باشند:
+برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها برای شما مفید باشند:
 
-- [بررسی اینکه آیا یک ارائه رمزگذاری شده است](https://docs.aspose.com/slides/fa/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [بررسی اینکه آیا یک ارائه از نوشتن محافظت شده (فقط‑خواندنی) است](https://docs.aspose.com/slides/fa/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [بررسی اینکه آیا یک ارائه قبل از بارگذاری رمز عبور دارد](https://docs.aspose.com/slides/fa/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تأیید رمز عبور استفاده‌شده برای محافظت از ارائه](https://docs.aspose.com/slides/fa/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [رمزگذاری ارائه‌ها](/slides/fa/androidjava/password-protected-presentation/)
+- [قفل‌گذاری نوشتاری ارائه‌ها](/slides/fa/androidjava/write-protected-presentation/)
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدامیک هستند؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌یک هستند؟**
 
-به دنبال [اطلاعات قلم‌های جاسازی‌شده](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) در سطح ارائه بگردید، سپس آن ورودی‌ها را با مجموعهٔ [قلم‌های واقعاً استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsmanager/#getFonts--) مقایسه کنید تا قلم‌های مهم برای رندرینگ را شناسایی کنید.
+به دنبال اطلاعات [embedded-font](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) در سطح ارائه بگردید، سپس آن ورودی‌ها را با مجموعهٔ [قلم‌های واقعاً استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsmanager/#getFonts--) مقایسه کنید تا قلم‌های بحرانی برای رندر را شناسایی کنید.
 
-**چگونه می‌توانم به سرعت تشخیص دهم آیا فایل اسلایدهای مخفی دارد و چه تعداد؟**
+**چگونه می‌توانم به سرعت بگویم فایل اسلایدهای مخفی دارد و چندتا هستند؟**
 
-از طریق [مجموعه اسلایدها](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidecollection/) پیمایش کنید و پرچم [قابلیت مشاهده](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slide/#getHidden--) هر اسلاید را بررسی کنید.
+از طریق [slide collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidecollection/) پیمایش کنید و پرچم [visibility](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slide/#getHidden--) هر اسلاید را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم که آیا اندازه و جهت سفارشی اسلاید استفاده شده است و آیا با مقادیر پیش‌فرض متفاوت است؟**
+**آیا می‌توانم تشخیص دهم که اندازه و جهت سفارشی اسلاید استفاده شده است و آیا متفاوت از مقدار پیش‌فرض هستند؟**
 
-بله. [اندازه اسلاید](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlideSize--) و جهت فعلی را با تنظیمات پیش‌فرض مقایسه کنید؛ این کار به پیش‌بینی رفتار هنگام چاپ و خروجی‌گیری کمک می‌کند.
+بله. اندازهٔ فعلی [slide size](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlideSize--) و جهت آن را با پیش‌تنظیم‌های استاندارد مقایسه کنید؛ این به پیش‌بینی رفتار برای چاپ و خروجی کمک می‌کند.
 
-**آیا راهی سریع برای مشاهده این که آیا نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
+**آیا راه سریعی برای دیدن این‌که نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. تمام [نمودارها](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/) را مرور کنید، [منبع داده](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) آنها را بررسی کنید و توجه کنید که داده داخلی است یا مبتنی بر لینک، از جمله هر لینک خراب.
+بله. تمام [charts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/) را عبور دهید، منبع دادهٔ آن‌ها را بررسی کنید ([data source](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getDataSourceType--)) و توجه کنید که داده داخلی است یا بر پایهٔ لینک، شامل هر لینکی که خراب باشد.
 
-**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندرینگ یا خروجی PDF را کند کنند ارزیابی کنم؟**
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
 
-برای هر اسلاید، تعداد اشیاء را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و رسانه‌های چندرسانه‌ای باشید؛ سپس یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط بحرانی عملکردی ممکن را نشان دهد.
+برای هر اسلاید، تعداد اشیا را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و مولتی‌مدیا باشید؛ یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط بحرانی عملکرد را علامت‌گذاری کنید.

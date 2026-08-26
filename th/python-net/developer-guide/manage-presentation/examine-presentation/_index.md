@@ -1,5 +1,5 @@
 ---
-title: ดึงและอัปเดตข้อมูลการนำเสนอใน Python
+title: เรียกคืนและอัปเดตข้อมูลการนำเสนอใน Python
 linktitle: ข้อมูลการนำเสนอ
 type: docs
 weight: 30
@@ -11,7 +11,7 @@ keywords:
 - รับคุณสมบัติ
 - อ่านคุณสมบัติ
 - เปลี่ยนคุณสมบัติ
-- แก้ไขคุณสมบัติ
+- ปรับแต่งคุณสมบัติ
 - อัปเดตคุณสมบัติ
 - ตรวจสอบ PPTX
 - ตรวจสอบ PPT
@@ -21,19 +21,19 @@ keywords:
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "สำรวจสไลด์ โครงสร้าง และเมตาดาต้าในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Python เพื่อให้ได้ข้อมูลเชิงลึกที่เร็วขึ้นและการตรวจสอบเนื้อหาที่ชาญฉลาดยิ่งขึ้น."
+description: "สำรวจสไลด์, โครงสร้างและเมทาดาต้าในการนำเสนอ PowerPoint และ OpenDocument ด้วย Python เพื่อรับข้อมูลเชิงลึกที่รวดเร็วและการตรวจสอบเนื้อหาที่ฉลาดขึ้น."
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีตรวจสอบข้อมูลการนำเสนอใน Aspose.Slides โดยอธิบายวิธีกำหนดรูปแบบปัจจุบันของการนำเสนอโดยไม่ต้องโหลดไฟล์เต็ม อ่านคุณสมบัติเ�เอกสารของมัน และอัปเดตคุณสมบัติเหล่านั้นเมื่อจำเป็น
+บทความนี้แสดงวิธีตรวจสอบข้อมูลการนำเสนอใน Aspose.Slides โดยอธิบายวิธีกำหนดรูปแบบปัจจุบันของการนำเสนอโดยไม่ต้องโหลดไฟล์เต็ม, อ่านคุณสมบัติของเอกสาร, และอัปเดตคุณสมบัติเหล่านั้นเมื่อจำเป็น
 
-ตัวอย่างอ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/) เพื่อแสดงการดำเนินการทั่วไปสำหรับการทำงานกับข้อมูลเมตาของการนำเสนอ
+ตัวอย่างอ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/) และแสดงการดำเนินการทั่วไปสำหรับทำงานกับเมทาดาต้าการนำเสนอ
 
 ## **ตรวจสอบรูปแบบการนำเสนอ**
 
-ก่อนที่จะทำงานกับการนำเสนอ คุณอาจต้องการทราบว่าการนำเสนออยู่ในรูปแบบใด (PPT, PPTX, ODP และอื่นๆ) ขณะนี้
+ก่อนทำงานกับการนำเสนอ คุณอาจต้องการทราบว่าการนำเสนออยู่ในรูปแบบใด (PPT, PPTX, ODP และอื่น ๆ) ในขณะนี้
 
-คุณสามารถตรวจสอบรูปแบบของการนำเสนอโดยไม่ต้องโหลดการนำเสนอ ดูโค้ด Python นี้ได้:
+คุณสามารถตรวจสอบรูปแบบของการนำเสนอโดยไม่ต้องโหลดการนำเสนอได้ ดูโค้ด Python นี้:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 
 ## **รับคุณสมบัติการนำเสนอ**
 
-โค้ด Python นี้จะแสดงวิธีรับคุณสมบัติการนำเสนอ (ข้อมูลเกี่ยวกับการนำเสนอ):
+โค้ด Python นี้แสดงวิธีรับคุณสมบัติการนำเสนอ (ข้อมูลเกี่ยวกับการนำเสนอ):
 
 ```py
 import aspose.slides as slides
@@ -62,62 +62,63 @@ print(props.subject)
 print(props.title)
 ```
 
-คุณอาจต้องการดู [properties under the DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/#properties) class
+คุณอาจต้องการดูคุณสมบัติภายในคลาส [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/#properties)
 
 ## **อัปเดตคุณสมบัติการนำเสนอ**
 
-Aspose.Slides มีเมธอด [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) ที่ให้คุณเปลี่ยนแปลงคุณสมบัติการนำเสนอได้
+Aspose.Slides มีเมธอด [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) ที่ให้คุณแก้ไขคุณสมบัติการนำเสนอได้
 
-สมมติว่าเรามีการนำเสนอ PowerPoint ที่มีคุณสมบัติเข้าเอกสารแสดงด้านล่าง
+สมมติว่าเรามีการนำเสนอ PowerPoint ที่มีคุณสมบัติของเอกสารแสดงด้านล่าง
 
 ![คุณสมบัติเอกสารต้นฉบับของการนำเสนอ PowerPoint](input_properties.png)
 
-ตัวอย่างโค้ดนี้แสดงวิธีแก้ไขคุณสมบัติบางอย่างของการนำเสนอ:
+โค้ดตัวอย่างนี้แสดงวิธีแก้ไขบางคุณสมบัติของการนำเสนอ:
 
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
 ```
 
-ผลลัพธ์ของการเปลี่ยนแปลงคุณสมบัติเข้าเอกสารแสดงด้านล่าง
+ผลลัพธ์ของการเปลี่ยนคุณสมบัติเอกสารถูกแสดงด้านล่าง
 
 ![คุณสมบัติเอกสารที่เปลี่ยนแปลงของการนำเสนอ PowerPoint](output_properties.png)
 
 ## **ลิงก์ที่เป็นประโยชน์**
 
-เพื่อขอข้อมูลเพิ่มเกี่ยวกับการนำเสนอและคุณลักษณะความปลอดภัย คุณอาจพอใจกับลิงก์ต่อไปนี้:
+เพื่อรับข้อมูลเพิ่มเติมเกี่ยวกับการนำเสนอและแอตริบิวต์ด้านความปลอดภัย คุณอาจพบว่าลิงก์ต่อไปนี้มีประโยชน์:
 
-- [ตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่](https://docs.aspose.com/slides/th/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันการเขียน (อ่านเท่านั้น) หรือไม่](https://docs.aspose.com/slides/th/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านก่อนโหลดหรือไม่](https://docs.aspose.com/slides/th/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [ยืนยันรหัสผ่านที่ใช้ปกป้องการนำเสนอ](https://docs.aspose.com/slides/th/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+- [การปกป้องการนำเสนอด้วยรหัสผ่าน](/slides/th/python-net/password-protected-presentation/)
+- [การป้องกันการเขียนของการนำเสนอ](/slides/th/python-net/write-protected-presentation/)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบว่าแบบอักษรถูกฝังอยู่หรือไม่และเป็นแบบใด?**
+**ฉันจะตรวจสอบได้อย่างไรว่าฟอนต์ถูกฝังไว้และเป็นฟอนต์ใด?**
 
-ตรวจสอบข้อมูล [embedded-font information](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) ที่ระดับการนำเสนอ แล้วเปรียบเทียบรายการนั้นกับชุด [fonts actually used across content](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_fonts/) เพื่อระบุว่าแบบอักษรใดจำเป็นต่อการแสดงผล
+ค้นหา [embedded-font information](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) ที่ระดับการนำเสนอ แล้วเปรียบเทียบรายการเหล่านั้นกับชุด [fonts actually used across content](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_fonts/) เพื่อระบุฟอนต์ที่สำคัญสำหรับการเรนเดอร์
 
-**ฉันจะบอกได้อย่างรวดเร็วว่าไฟล์มีสไลด์ซ่อนอยู่หรือไม่และจำนวนเท่าใด?**
+**ฉันจะสามารถบอกได้อย่างรวดเร็วว่าไฟล์มีสไลด์ที่ซ่อนอยู่หรือไม่และจำนวนเท่าไหร่?**
 
-วนผ่าน [slide collection](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidecollection/) และตรวจสอบ [visibility flag](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/hidden/) ของแต่ละสไลด์
+วนรอบผ่าน [slide collection](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidecollection/) และตรวจสอบ [visibility flag](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/hidden/) ของแต่ละสไลด์
 
-**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและการกำหนดทิศทางสไลด์ที่กำหนดเองและว่ามันแตกต่างจากค่าเริ่มต้นหรือไม่?**
+**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและแนวตั้งของสไลด์ที่กำหนดเองหรือไม่ และว่าต่างจากค่าเริ่มต้นหรือไม่?**
 
-ได้ – เปรียบเทียบ [slide size](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slide_size/) และการกำหนดทิศทางปัจจุบันกับค่าตั้งต้นมาตรฐาน; จะช่วยคาดการณ์พฤติกรรมเมื่อพิมพ์และส่งออก
+ได้. เปรียบเทียบ [slide size](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slide_size/) และแนวตั้งปัจจุบันกับค่าพรีเซ็ตมาตรฐาน; สิ่งนี้ช่วยคาดการณ์พฤติกรรมสำหรับการพิมพ์และการส่งออก
 
-**มีวิธีเร็วๆ ที่จะดูว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
+**มีวิธีรวดเร็วในการดูว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
 
-ได้ – ท่องทุก [charts](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/) ตรวจสอบ [data source](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/data_source_type/) ของพวกมัน และบันทึกว่าข้อมูลเป็นภายในหรือเชื่อมโยง พร้อมระบุลิงก์ที่เสียหายหากมี
+ได้. เดินทางผ่านทุก [charts](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/) ตรวจสอบ [data source](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/data_source_type/) ของพวกมัน และบันทึกว่าข้อมูลเป็นภายในหรือเชื่อมโยงจากภายนอก รวมถึงลิงก์ที่เสีย
 
-**ฉันจะประเมินสไลด์ 'หนัก' ที่อาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าได้อย่างไร?**
+**ฉันจะประเมินสไลด์ที่ 'หนัก' ที่อาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าได้อย่างไร?**
 
-สำหรับแต่ละสไลด์นับจำนวนอ็อบเจ็กต์และมองหาภาพขนาดใหญ่, ความโปร่งแสง, เงา, แอนิเมชันและสื่อมัลติมีเดีย; กำหนดคะแนนความซับซ้อนโดยประมาณเพื่อชี้ให้เห็นจุดรบกวนด้านประสิทธิภาพที่อาจเกิดขึ้น
+สำหรับแต่ละสไลด์ ให้นับจำนวนวัตถุและมองหาภาพขนาดใหญ่, ความโปร่งแสง, เงา, แอนิเมชัน, และมัลติมีเดีย; กำหนดคะแนนความซับซ้อนโดยประมาณเพื่อระบุจุดบอดที่อาจส่งผลต่อประสิทธิภาพ

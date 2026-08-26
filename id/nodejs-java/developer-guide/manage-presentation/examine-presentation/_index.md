@@ -8,7 +8,7 @@ keywords:
 - format presentasi
 - properti presentasi
 - properti dokumen
-- mendapatkan properti
+- mengambil properti
 - membaca properti
 - mengubah properti
 - memodifikasi properti
@@ -24,19 +24,22 @@ keywords:
 - Aspose.Slides
 description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan JavaScript untuk wawasan lebih cepat dan audit konten yang lebih cerdas."
 ---
-## **Ringkasan**
+## **Overview**
 
-Artikel ini memperlihatkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format presentasi saat ini tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
+Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format saat ini dari sebuah presentasi tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
 
-Contoh-contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/documentproperties/) serta menunjukkan operasi umum untuk bekerja dengan metadata presentasi.
+Contoh-contoh didasarkan pada API PresentationInfo dan DocumentProperties serta menunjukkan operasi umum untuk bekerja dengan metadata presentasi.
 
-## **Periksa Format Presentasi**
+## **Check a Presentation Format**
 
-Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format apa (PPT, PPTX, ODP, dan lainnya) yang sedang digunakan oleh presentasi tersebut.
+Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format (PPT, PPTX, ODP, dan lain-lain) presentasi tersebut saat ini.
 
 Anda dapat memeriksa format presentasi tanpa memuat presentasi. Lihat kode JavaScript berikut:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -45,11 +48,14 @@ var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(
 console.log(info3.getLoadFormat());// ODP
 ```
 
-## **Dapatkan Properti Presentasi**
+## **Get Presentation Properties**
 
 Kode JavaScript ini menunjukkan cara mendapatkan properti presentasi (informasi tentang presentasi):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -58,19 +64,21 @@ console.log(props.getTitle());
 // ..
 ```
 
-Anda mungkin ingin melihat [properti di bawah kelas DocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Anda mungkin ingin melihat properti di bawah kelas DocumentProperties.
 
-## **Perbarui Properti Presentasi**
+## **Update Presentation Properties**
 
-Aspose.Slides menyediakan metode [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) yang memungkinkan Anda melakukan perubahan pada properti presentasi.
+Aspose.Slides menyediakan metode PresentationInfo.updateDocumentProperties yang memungkinkan Anda melakukan perubahan pada properti presentasi.
 
-Misalkan kita memiliki sebuah presentasi PowerPoint dengan properti dokumen seperti yang ditunjukkan di bawah.
+Misalkan kita memiliki sebuah presentasi PowerPoint dengan properti dokumen yang ditampilkan di bawah.
 
 ![Properti dokumen asli dari presentasi PowerPoint](input_properties.png)
 
-Contoh kode ini menunjukkan cara mengedit beberapa properti presentasi:
-
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -87,33 +95,31 @@ Hasil perubahan properti dokumen ditampilkan di bawah.
 
 ![Properti dokumen yang diubah dari presentasi PowerPoint](output_properties.png)
 
-## **Tautan Berguna**
+## **Useful Links**
 
 Untuk mendapatkan informasi lebih lanjut tentang sebuah presentasi dan atribut keamanannya, Anda mungkin menemukan tautan berikut berguna:
 
-- [Memeriksa apakah sebuah Presentasi dienkripsi](https://docs.aspose.com/slides/id/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Memeriksa apakah sebuah Presentasi dilindungi Tulisan (hanya-baca)](https://docs.aspose.com/slides/id/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Memeriksa apakah sebuah Presentasi dilindungi Kata Sandi Sebelum Memuatnya](https://docs.aspose.com/slides/id/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Mengonfirmasi Kata Sandi yang Digunakan untuk Melindungi Presentasi](https://docs.aspose.com/slides/id/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentasi yang Dilindungi Kata Sandi](/slides/id/nodejs-java/password-protected-presentation/)
+- [Presentasi yang Dilindungi Penulisan](/slides/id/nodejs-java/write-protected-presentation/)
 
 ## **FAQ**
 
-**Bagaimana saya dapat memeriksa apakah font di-embed dan mana saja yang di-embed?**
+**Bagaimana cara saya memeriksa apakah font tertanam dan yang mana?**
 
-Cari informasi [embedded-font information](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) pada tingkat presentasi, kemudian bandingkan entri tersebut dengan kumpulan [fonts actually used across content](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fontsmanager/getfonts/) untuk mengidentifikasi font mana yang penting untuk rendering.
+Carilah informasi font-tertanam pada level presentasi, lalu bandingkan entri tersebut dengan kumpulan font yang sebenarnya digunakan dalam konten untuk mengidentifikasi font mana yang penting untuk rendering.
 
-**Bagaimana saya dapat dengan cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
+**Bagaimana cara cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
 
-Iterasikan melalui [slide collection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidecollection/) dan periksa [visibility flag](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/gethidden/) setiap slide.
+Iterasikan koleksi slide dan periksa flag visibilitas setiap slide.
 
-**Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah mereka berbeda dari nilai default?**
+**Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide khusus digunakan, serta apakah berbeda dari default?**
 
-Ya. Bandingkan [slide size](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getslidesize/) dan orientasi saat ini dengan preset standar; ini membantu memprediksi perilaku saat pencetakan dan ekspor.
+Ya. Bandingkan ukuran dan orientasi slide saat ini dengan preset standar; ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
 
-**Apakah ada cara cepat untuk melihat apakah diagram mengacu pada sumber data eksternal?**
+**Apakah ada cara cepat untuk melihat apakah diagram merujuk ke sumber data eksternal?**
 
-Ya. Telusuri semua [charts](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chart/), periksa [data source](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
+Ya. Telusuri semua diagram, periksa sumber data mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
 
 **Bagaimana saya dapat menilai slide 'berat' yang dapat memperlambat rendering atau ekspor PDF?**
 
-Untuk setiap slide, hitung jumlah objek dan cari gambar besar, transparansi, bayangan, animasi, serta multimedia; berikan skor kompleksitas kasar untuk menandai potensi hotspot kinerja.
+Untuk setiap slide, hitung jumlah objek dan periksa gambar besar, transparansi, bayangan, animasi, dan multimedia; berikan skor kompleksitas kasar untuk menandai potensi titik panas kinerja.

@@ -1,265 +1,229 @@
 ---
-title: ปกป้องการนำเสนอด้วยรหัสผ่านบน Android
-linktitle: การปกป้องด้วยรหัสผ่าน
+title: ป้องกันการนำเสนอด้วยรหัสผ่านบน Android
+linktitle: การป้องกันรหัสผ่าน
 type: docs
 weight: 20
 url: /th/androidjava/password-protected-presentation/
 keywords:
-- ล็อก PowerPoint
-- ล็อกการนำเสนอ
-- ปลดล็อก PowerPoint
-- ปลดล็อกการนำเสนอ
-- ปกป้อง PowerPoint
-- ปกป้องการนำเสนอ
-- ตั้งรหัสผ่าน
-- เพิ่มรหัสผ่าน
+- การนำเสนอที่ป้องกันด้วยรหัสผ่าน
+- รหัสผ่านเปิด
 - เข้ารหัส PowerPoint
-- เข้ารหัสการนำเสนอ
 - ถอดรหัส PowerPoint
-- ถอดรหัสการนำเสนอ
-- การป้องกันการเขียน
-- ความปลอดภัย PowerPoint
-- ความปลอดภัยการนำเสนอ
-- ลบรหัสผ่าน
-- ลบการปกป้อง
+- ตรวจสอบความถูกต้องของรหัสผ่านการนำเสนอ
+- ตรวจสอบรหัสผ่านการนำเสนอ
+- เปิดการนำเสนอที่เข้ารหัส
 - ลบการเข้ารหัส
-- ปิดการใช้รหัสผ่าน
-- ปิดการปกป้อง
-- ลบการป้องกันการเขียน
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ล็อกและปลดล็อกการนำเสนอ PowerPoint และ OpenDocument ที่ปกป้องด้วยรหัสผ่านได้อย่างง่ายดายด้วย Aspose.Slides สำหรับ Android ผ่าน Java. ปกป้องการนำเสนอของคุณ."
+description: "เข้ารหัส, ตรวจจับ, ตรวจสอบความถูกต้อง, เปิดและถอดรหัสการนำเสนอ PowerPoint PPT และ PPTX ที่ป้องกันด้วยรหัสผ่านด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เมื่อคุณปกป้องการนำเสนอด้วยรหัสผ่าน หมายความว่าคุณกำหนดรหัสผ่านเพื่อบังคับใช้ข้อจำกัดบางอย่างบนการนำเสนอ หากต้องการลบข้อจำกัดเหล่านั้น จำเป็นต้องป้อนรหัสผ่าน การนำเสนอที่ปกป้องด้วยรหัสผ่านถือเป็นการนำเสนอที่ถูกล็อก
+รหัสผ่านเปิดทำให้การนำเสนอถูกเข้ารหัส จำเป็นต้องใช้รหัสผ่านที่ถูกต้องเพื่อโหลดและดูเนื้อหาการนำเสนอ ดังนั้นการป้องกันนี้ช่วยให้ข้อมูลเป็นความลับ
 
-โดยทั่วไป คุณสามารถตั้งรหัสผ่านเพื่อบังคับใช้ข้อจำกัดเหล่านี้บนการนำเสนอได้:
+รหัสผ่านเปิดแตกต่างจากรหัสผ่านป้องกันการเขียน การป้องกันการเขียนจำกัดการแก้ไขแต่ไม่ได้เข้ารหัสเนื้อหาหรือป้องกันการนำเสนอจากการโหลด หากต้องการจัดการรหัสผ่านสำหรับการแก้ไขการนำเสนอ ดูที่ [Write-Protect Presentations](/slides/th/androidjava/write-protected-presentation/)
 
-- **การแก้ไข**
+ขั้นตอนการทำงานด้านล่างใช้ได้กับการนำเสนอทั้งรูปแบบ PPT และ PPTX ตัวอย่างใช้ทั้งสองรูปแบบเมื่อพฤติกรรมตามไฟล์และสตรีมมีความสำคัญ
 
-  หากคุณต้องการให้ผู้ใช้บางคนเท่านั้นที่สามารถแก้ไขการนำเสนอของคุณได้ คุณสามารถตั้งข้อจำกัดการแก้ไข ข้อจำกัดนี้จะป้องกันไม่ให้คนอื่นแก้ไข, เปลี่ยนแปลง หรือคัดลอกสิ่งต่าง ๆ ในการนำเสนอของคุณ (หากไม่ได้ให้รหัสผ่าน) 
+## **เข้ารหัสการนำเสนอด้วยรหัสผ่านเปิด**
 
-  อย่างไรก็ตาม ในกรณีนี้ แม้ไม่มีรหัสผ่าน ผู้ใช้ก็ยังสามารถเข้าถึงเอกสารของคุณและเปิดได้ ในโหมดอ่าน‑เท่านั้น ผู้ใช้สามารถดูเนื้อหา หรือสิ่งต่าง ๆ เช่น ลิงก์, เอฟเฟกต์การเคลื่อนไหว, เอฟเฟกต์ และอื่น ๆ ภายในการนำเสนอของคุณ แต่ไม่สามารถคัดลอกรายการหรือบันทึกการนำเสนอได้ 
+ใช้ [IProtectionManager.encrypt](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) เพื่อตั้งรหัสผ่านเปิด แล้วใช้ [IPresentation.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-) เพื่อบันทึกการนำเสนอที่ถูกเข้ารหัส
 
-- **การเปิด**
-
-  หากคุณต้องการให้ผู้ใช้บางคนเท่านั้นที่สามารถเปิดการนำเสนอของคุณได้ คุณสามารถตั้งข้อจำกัดการเปิดได้ ข้อจำกัดนี้จะป้องกันไม่ให้ผู้คนแม้แต่ดูเนื้อหาการนำเสนอของคุณ (หากไม่ได้ให้รหัสผ่าน) 
-
-  โดยเทคนิคแล้ว ข้อจำกัดการเปิดยังป้องกันไม่ให้ผู้ใช้แก้ไขการนำเสนอของคุณ: เมื่อผู้คนไม่สามารถเปิดการนำเสนอได้ พวกเขาไม่สามารถทำการแก้ไขหรือเปลี่ยนแปลงใด ๆ ได้  
-
-  **หมายเหตุ** หากคุณปกป้องการนำเสนอด้วยรหัสผ่านเพื่อป้องกันการเปิด ไฟล์การนำเสนอจะถูกเข้ารหัส
-
-## **การปกป้องด้วยรหัสผ่านสำหรับการนำเสนอใน Aspose.Slides**
-**รูปแบบที่รองรับ**
-
-Aspose.Slides รองรับการปกป้องด้วยรหัสผ่าน การเข้ารหัส และการดำเนินการคล้ายกันสำหรับการนำเสนอในรูปแบบต่อไปนี้: 
-
-- PPTX และ PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**การดำเนินการที่รองรับ**
-
-Aspose.Slides อนุญาตให้คุณใช้การปกป้องด้วยรหัสผ่านบนการนำเสนอเพื่อป้องกันการแก้ไขได้ด้วยวิธีต่อไปนี้:
-
-- การเข้ารหัสการนำเสนอ
-- การตั้งการป้องกันการเขียนสำหรับการนำเสนอ
-
-**การดำเนินการอื่น ๆ**
-
-Aspose.Slides อนุญาตให้คุณทำงานอื่น ๆ ที่เกี่ยวข้องกับการปกป้องด้วยรหัสผ่านและการเข้ารหัสได้ดังนี้:
-
-- การถอดรหัสการนำเสนอ; การเปิดการนำเสนอที่เข้ารหัส
-- การลบการเข้ารหัส; การปิดการปกป้องด้วยรหัสผ่าน
-- การลบการป้องกันการเขียนจากการนำเสนอ
-- การดึงคุณสมบัติของการนำเสนอที่เข้ารหัส
-- การตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่
-- การตรวจสอบว่าการนำเสนอถูกปกป้องด้วยรหัสผ่านหรือไม่
-
-## **เข้ารหัสการนำเสนอ**
-
-คุณสามารถเข้ารหัสการนำเสนอโดยตั้งรหัสผ่าน จากนั้นเพื่อแก้ไขการนำเสนอที่ถูกล็อก ผู้ใช้ต้องใส่รหัสผ่าน 
-
-เพื่อเข้ารหัสหรือปกป้องการนำเสนอด้วยรหัสผ่าน คุณต้องใช้เมธอด encrypt (จาก[IProtectionManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager)) เพื่อกำหนดรหัสผ่านให้กับการนำเสนอ คุณส่งรหัสผ่านไปยังเมธอด encrypt แล้วใช้เมธอด save เพื่อบันทึกการนำเสนอที่ถูกเข้ารหัสแล้ว
-
-โค้ดตัวอย่างนี้แสดงวิธีการเข้ารหัสการนำเสนอ:
+ตัวอย่างต่อไปนี้เข้ารหัสการนำเสนอ PPTX:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตั้งการป้องกันการเขียนสำหรับการนำเสนอ**
+## **โหลดการนำเสนอที่ถูกเข้ารหัส**
 
-คุณสามารถเพิ่มเครื่องหมายที่ระบุว่า “ห้ามแก้ไข” ลงในการนำเสนอได้ วิธีนี้ทำให้คุณบอกผู้ใช้ว่าคุณไม่ต้องการให้พวกเขาแก้ไขการนำเสนอ  
-
-**หมายเหตุ** กระบวนการป้องกันการเขียนไม่ได้ทำให้การนำเสนอเข้ารหัส ดังนั้นผู้ใช้—หากต้องการจริง ๆ—สามารถแก้ไขการนำเสนอได้ แต่เพื่อบันทึกการเปลี่ยนแปลง พวกเขาต้องสร้างการนำเสนอด้วยชื่อใหม่ 
-
-เพื่อกำหนดการป้องกันการเขียน คุณต้องใช้เมธอด[setWriteProtection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) นี้ โค้ดตัวอย่างแสดงวิธีการตั้งการป้องกันการเขียนสำหรับการนำเสนอ:
+ตั้งค่า [ILoadOptions.setPassword](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) เป็นรหัสผ่านเปิดและส่งตัวเลือกนี้ไปยัง [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) เมื่อโหลดไฟล์ การโหลดจะล้มเหลือเมื่อต้องการรหัสผ่านเปิดแต่ไม่ได้กำหนดหรือกำหนดไม่ถูกต้อง
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **โหลดการนำเสนอที่เข้ารหัส**
-
-Aspose.Slides อนุญาตให้คุณโหลดไฟล์ที่เข้ารหัสโดยส่งรหัสผ่านของไฟล์นั้น หากต้องการถอดรหัสการนำเสนอ คุณต้องเรียกเมธอด[removeEncryption](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) โดยไม่มีพารามิเตอร์ หลังจากนั้นคุณต้องใส่รหัสผ่านที่ถูกต้องเพื่อโหลดการนำเสนอ
-
-โค้ดตัวอย่างนี้แสดงวิธีการถอดรหัสการนำเสนอ: 
-
-```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // ทำงานกับการนำเสนอที่ถอดรหัสแล้ว
+    // ทำงานกับการนำเสนอที่ถอดรหัสแล้ว.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-## **ลบการเข้ารหัสจากการนำเสนอ**
+## **ลบการเข้ารหัสออกจากการนำเสนอ**
 
-คุณสามารถลบการเข้ารหัสหรือการปกป้องด้วยรหัสผ่านจากการนำเสนอได้ วิธีนี้ทำให้ผู้ใช้สามารถเข้าถึงหรือแก้ไขการนำเสนอโดยไม่มีข้อจำกัด 
-
-เพื่อเลิกการเข้ารหัสหรือการปกป้องด้วยรหัสผ่าน คุณต้องเรียกเมธอด[removeEncryption](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) นี้ โค้ดตัวอย่างแสดงวิธีลบการเข้ารหัสจากการนำเสนอ:
+โหลดการนำเสนอพร้อมรหัสผ่านเปิด เรียกใช้ [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--) แล้วบันทึกผล การนำเสนอที่บันทึกแล้วสามารถโหลดได้โดยไม่ต้องใช้รหัสผ่าน
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ลบการป้องกันการเขียนจากการนำเสนอ**
+## **ตรวจสอบรหัสผ่านเปิดก่อนการโหลด**
 
-คุณสามารถใช้ Aspose.Slides เพื่อลบการป้องกันการเขียนที่ใช้กับไฟล์การนำเสนอ วิธีนี้ทำให้ผู้ใช้สามารถแก้ไขตามต้องการโดยไม่มีการเตือนใด ๆ  
+ใช้ [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) เพื่อรับ [IPresentationInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationinfo/) โดยไม่ต้องสร้างอินสแตนซ์การนำเสนอเต็มรูปแบบ ตรวจสอบ [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) ก่อนขอหรือยืนยันรหัสผ่าน เมื่อมีการป้องกัน ให้ตรวจสอบค่าที่ส่งด้วย [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-)
 
-คุณสามารถลบการป้องกันการเขียนจากการนำเสนอโดยใช้เมธอด[removeWriteProtection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) นี้ โค้ดตัวอย่างแสดงวิธีลบการป้องกันการเขียนจากการนำเสนอ:
+### **ขั้นตอนทำงานโดยใช้เส้นทางไฟล์**
+
+ตัวอย่างต่อไปนี้ตรวจสอบรหัสผ่านเปิดสำหรับไฟล์ PPTX ส่งค่าที่ตรวจสอบแล้วไปยัง [ILoadOptions.setPassword](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) แล้วโหลดการนำเสนอเต็มรูปแบบ:
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **ขั้นตอนทำงานโดยใช้สตรีม**
+
+การโอเวอร์โหลดสตรีมของ [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) ให้ขั้นตอนทำงานเดียวกัน รีเซ็ตตำแหน่งของสตรีมที่สามารถเลื่อนได้ก่อนโหลดการนำเสนอเต็มรูปแบบจากสตรีมนั้น
+
+ตัวอย่างต่อไปนี้ใช้ไฟล์ PPT:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **รับคุณสมบัติของการนำเสนอที่เข้ารหัส**
+### **ค่า Return ของ checkPassword**
 
-โดยทั่วไป ผู้ใช้มักประสบปัญหาในการดึงคุณสมบัติของเอกสารจากการนำเสนอที่เข้ารหัสหรือถูกปกป้องด้วยรหัสผ่าน อย่างไรก็ตาม Aspose.Slides มีกลไกที่ให้คุณปกป้องการนำเสนอด้วยรหัสผ่านพร้อมยังคงให้ผู้ใช้เข้าถึงคุณสมบัติของการนำเสนอนั้นได้  
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) จะคืนค่า `true` ก็ต่อเมื่อการนำเสนอมีรหัสผ่านเปิดและรหัสที่ให้มาถูกต้อง จะคืนค่า `false` ในกรณีต่อไปนี้
 
-**หมายเหตุ** เมื่อ Aspose.Slides เข้ารหัสการนำเสนอ คุณสมบัติของเอกสารการนำเสนอจะถูกปกป้องด้วยรหัสผ่านโดยอัตโนมัติด้วย อย่างไรก็ตาม หากคุณต้องการให้คุณสมบัติของการนำเสนอสามารถเข้าถึงได้ (แม้หลังจากการนำเสนอถูกเข้ารหัส) Aspose.Slides อนุญาตให้ทำเช่นนั้นได้  
+- รหัสผ่านไม่ถูกต้อง
+- การนำเสนอไม่มีรหัสผ่านเปิด
+- รหัสที่ให้เป็น `null` หรือว่างเปล่า
 
-หากคุณต้องการให้ผู้ใช้ยังคงสามารถเข้าถึงคุณสมบัติของการนำเสนอที่คุณได้เข้ารหัสไว้ คุณสามารถตั้งค่า property[encryptDocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) เป็น `true` โค้ดตัวอย่างนี้แสดงวิธีการเข้ารหัสการนำเสนอพร้อมให้ผู้ใช้เข้าถึงคุณสมบัติของเอกสารได้:
+พฤติกรรมนี้เหมือนกันสำหรับการนำเสนอ PPT และ PPTX
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **ตรวจสอบว่าการนำเสนอที่โหลดแล้วถูกเข้ารหัสหรือไม่**
 
-## **ตรวจสอบว่าการนำเสนอได้รับการปกป้องด้วยรหัสผ่านหรือไม่**
-
-ก่อนที่คุณจะโหลดการนำเสนอ คุณอาจต้องการตรวจสอบและยืนยันว่าการนำเสนอไม่ได้ถูกปกป้องด้วยรหัสผ่าน วิธีนี้ช่วยหลีกเลี่ยงข้อผิดพลาดและปัญหาอื่น ๆ ที่เกิดขึ้นเมื่อโหลดการนำเสนอที่ปกป้องด้วยรหัสผ่านโดยไม่ได้ใส่รหัสผ่าน
-
-โค้ด Java นี้แสดงวิธีการตรวจสอบการนำเสนอเพื่อดูว่ามีการปกป้องด้วยรหัสผ่านหรือไม่ (โดยไม่ต้องโหลดการนำเสนอเอง):
+หลังจากโหลดการนำเสนอด้วยรหัสผ่านที่ถูกต้อง ให้ตรวจสอบ [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) เพื่อยืนยันว่าการนำแหล่งที่มาถูกเข้ารหัส หากต้องการตรวจจับการป้องกันรหัสผ่านเปิดก่อนการโหลด ให้ใช้ `IPresentationInfo.isPasswordProtected` ตามที่แสดงด้านบน
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **ตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Aspose.Slides ให้คุณตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่ เพื่อทำงานนี้คุณสามารถใช้ property[isEncrypted](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) ซึ่งจะคืนค่า `true` หากการนำเสนอถูกเข้ารหัส หรือ `false` หากไม่ได้เข้ารหัส
-
-โค้ดตัวอย่างนี้แสดงวิธีตรวจสอบว่าการนำเข้าสั้นเข้ารหัสหรือไม่:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่**
+## **คำแนะนำด้านความปลอดภัย**
 
-Aspose.Slides ให้คุณตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่ เพื่อทำงานนี้คุณสามารถใช้ property[isWriteProtected](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) ซึ่งจะคืนค่า `true` หากการนำเสนอถูกเข้ารหัส หรือ `false` หากไม่ได้เข้ารหัส
+{{% alert color="warning" title="Security" %}}
+อย่าเก็บบันทึกรหัสผ่านเปิดหรือใส่รหัสผ่านในข้อความวินิจฉัย หลีกเลี่ยงการตรวจสอบซ้ำโดยไม่จำเป็น เก็บรหัสผ่านในหน่วยความจำเฉพาะช่วงที่ต้องใช้เท่านั้น และใช้ผลการตรวจสอบที่สำเร็จซ้ำเมื่อโหลดการนำเสนอโดยทันที
+{{% /alert %}}
 
-โค้ดตัวอย่างนี้แสดงวิธีตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่:
+## **ป้องกันการนำเสนอด้วยรหัสผ่านออนไลน์**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. เปิดแอปพลิเคชัน [Aspose.Slides Lock](https://products.aspose.app/slides/th/lock)
+2. เลือกหรืออัปโหลดการนำเสนอ
+3. ป้อนรหัสผ่านสำหรับการป้องกันการดู
+4. หากต้องการ สามารถป้อนรหัสผ่านแยกต่างหากสำหรับการป้องกันการแก้ไข
+5. ใช้การป้องกันและดาวน์โหลดไฟล์ที่ได้
 
-## **ตรวจสอบหรือยืนยันว่ามีการใช้รหัสผ่านเฉพาะ**
-
-คุณอาจต้องการตรวจสอบและยืนยันว่ามีการใช้รหัสผ่านเฉพาะเพื่อปกป้องเอกสารการนำเสนอ Aspose.Slides ให้วิธีการตรวจสอบรหัสผ่าน
-
-โค้ดตัวอย่างนี้แสดงวิธีการตรวจสอบรหัสผ่าน:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // ตรวจสอบว่า "pass" ตรงกับ
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-มันจะคืนค่า `true` หากการนำเสนอถูกเข้ารหัสด้วยรหัสผ่านที่ระบุ มิฉะนั้นจะคืนค่า `false`. 
-
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
-- [ลายเซ็นดิจิทัลใน PowerPoint](/slides/th/androidjava/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/th/androidjava/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/th/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**วิธีการเข้ารหัสที่ Aspose.Slides สนับสนุนคืออะไร?**
+**รหัสผ่านเปิดและรหัสผ่านป้องกันการเขียนต่างกันอย่างไร?**
 
-Aspose.Slides รองรับวิธีการเข้ารหัสสมัยใหม่ รวมถึงอัลกอริทึมที่ใช้ AES ซึ่งรับประกันระดับความปลอดภัยของข้อมูลสูงสำหรับการนำเสนอของคุณ  
+รหัสผ่านเปิดทำให้การนำเสนอถูกเข้ารหัสและจำเป็นต้องใช้เพื่อโหลดเนื้อหา ส่วนรหัสผ่านป้องกันการเขียนจำกัดการแก้ไขโดยไม่เข้ารหัสเนื้อหา
 
-**จะเกิดอะไรขึ้นหากใส่รหัสผ่านไม่ถูกต้องเมื่อพยายามเปิดการนำเสนอ?**
+**ฉันสามารถตรวจสอบรหัสผ่านเปิดโดยไม่ต้องโหลดสไลด์ทั้งหมดได้หรือไม่?**
 
-ข้อยกเว้นจะถูกโยนออกถ้ารหัสผ่านไม่ถูกต้อง ทำให้คุณได้รับการแจ้งว่าไม่สามารถเข้าถึงการนำเสนอได้ ซึ่งช่วยป้องกันการเข้าถึงโดยไม่ได้รับอนุญาตและรักษาเนื้อหาการนำเสนอไว้  
+ได้ สามารถรับข้อมูลการนำเสนอ ตรวจสอบว่ามีการป้องกันรหัสผ่านเปิดหรือไม่ และตรวจสอบรหัสผ่านก่อนสร้างอินสแตนซ์การนำเสนอเต็มรูปแบบ
 
-**การทำงานกับการนำเสนอที่ปกป้องด้วยรหัสผ่านมีผลต่อประสิทธิภาพหรือไม่?**
+**ขั้นตอนการตรวจสอบรหัสผ่านทำงานกับทั้ง PPT และ PPTX หรือไม่?**
 
-กระบวนการเข้ารหัสและถอดรหัสอาจเพิ่มภาระการทำงานเล็กน้อยในระหว่างการเปิดและบันทึก ในหลายกรณี ผลกระทบต่อประสิทธิภาพนี้เล็กน้อยและไม่ส่งผลอย่างมีนัยสำคัญต่อเวลาการประมวลผลรวมของงานการนำเสนอของคุณ
+ทำงานได้ทั้งคู่ การตรวจจับและตรวจสอบรหัสผ่านโดยใช้เส้นทางไฟล์หรือสตรีมทำงานเช่นเดียวกันสำหรับการนำเสนอ PPT และ PPTX

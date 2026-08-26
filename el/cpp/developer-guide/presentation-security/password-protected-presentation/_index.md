@@ -1,257 +1,238 @@
 ---
-title: Ασφαλισμένες Παρουσιάσεις με Κωδικούς σε C++
-linktitle: Προστασία Κωδικού
+title: Προστασία Παρουσιάσεων με Κωδικό Πρόσβασης σε C++
+linktitle: Προστασία Κωδικού Πρόσβασης
 type: docs
 weight: 20
 url: /el/cpp/password-protected-presentation/
 keywords:
-- κλείδωμα PowerPoint
-- κλείδωμα παρουσίασης
-- ξεκλείδωμα PowerPoint
-- ξεκλείδωμα παρουσίασης
-- προστασία PowerPoint
-- προστασία παρουσίασης
-- ορισμός κωδικού
-- προσθήκη κωδικού
+- προστατευμένη με κωδικό παρουσίαση
+- κωδικός πρόσβασης ανοίγματος
 - κρυπτογράφηση PowerPoint
-- κρυπτογράφηση παρουσίασης
 - αποκρυπτογράφηση PowerPoint
-- αποκρυπτογράφηση παρουσίασης
-- προστασία εγγραφής
-- ασφάλεια PowerPoint
-- ασφάλεια παρουσίασης
-- αφαίρεση κωδικού
-- αφαίρεση προστασίας
+- επικύρωση κωδικού παρουσίασης
+- έλεγχος κωδικού παρουσίασης
+- άνοιγμα κρυπτογραφημένης παρουσίασης
 - αφαίρεση κρυπτογράφησης
-- απενεργοποίηση κωδικού
-- απενεργοποίηση προστασίας
-- αφαίρεση προστασίας εγγραφής
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε εύκολα παρουσιάσεις PowerPoint και OpenDocument που είναι προστατευμένες με κωδικό, χρησιμοποιώντας το Aspose.Slides για C++. Ασφαλίστε τις παρουσιάσεις σας."
+description: "Κρυπτογραφήστε, εντοπίστε, επικυρώστε, ανοίξτε και αποκρυπτογραφήστε παρουσιάσεις PowerPoint PPT και PPTX με προστασία κωδικού σε C++ με το Aspose.Slides."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Όταν προστατεύετε μια παρουσίαση με κωδικό, ορίζετε έναν κωδικό που επιβάλλει ορισμένους περιορισμούς στην παρουσίαση. Για να αφαιρεθούν οι περιορισμοί, πρέπει να εισαχθεί ο κωδικός. Μια παρουσίαση με προστασία κωδικού θεωρείται κλειδωμένη παρουσίαση.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί μια παρουσίαση. Ο σωστός κωδικός πρόσβασης απαιτείται για τη φόρτωση και προβολή του περιεχομένου της παρουσίασης, επομένως αυτή η προστασία παρέχει εμπιστευτικότητα.
 
-Συνήθως, μπορείτε να ορίσετε έναν κωδικό για να επιβάλετε αυτούς τους περιορισμούς σε μια παρουσίαση:
+Ο κωδικός πρόσβασης ανοίγματος διαφέρει από τον κωδικό πρόσβασης προστασίας εγγραφής. Η προστασία εγγραφής περιορίζει την τροποποίηση, αλλά δεν κρυπτογραφεί το περιεχόμενο ή εμποδίζει τη φόρτωση της παρουσίασης. Για τη διαχείριση κωδικών πρόσβασης για τροποποίηση παρουσιάσεων, δείτε [Write-Protect Presentations](/slides/el/cpp/write-protected-presentation/).
 
-- **Τροποποίηση**
+Οι ροές εργασίας παρακάτω εφαρμόζονται και στις παρουσιάσεις PPT και PPTX. Τα παραδείγματα χρησιμοποιούν και τις δύο μορφές όταν η συμπεριφορά τους βάσει αρχείου ή ροής είναι σημαντική.
 
-  Αν θέλετε μόνο ορισμένοι χρήστες να τροποποιούν την παρουσίασή σας, μπορείτε να ορίσετε περιορισμό τροποποίησης. Ο περιορισμός αυτός εμποδίζει τους χρήστες από το να τροποποιούν, αλλάζουν ή αντιγράφουν στοιχεία στην παρουσίασή σας (εκτός εάν εισάγουν τον κωδικό).  
+## **Κρυπτογράφηση μιας Παρουσίασης με Κωδικό Πρόσβασης Ανοίγματος**
 
-  Ωστόσο, σε αυτή την περίπτωση, ακόμη και χωρίς τον κωδικό, ένας χρήστης θα μπορεί να έχει πρόσβαση στο έγγραφό σας και να το ανοίξει. Σε αυτή τη λειτουργία μόνο για ανάγνωση, ο χρήστης μπορεί να δει το περιεχόμενο ή στοιχεία — συνδέσμους, animation, εφέ κ.λπ. — μέσα στην παρουσίαση, αλλά δεν μπορεί να αντιγράψει αντικείμενα ή να αποθηκεύσει την παρουσίαση.  
+Χρησιμοποιήστε το [IProtectionManager::Encrypt](https://reference.aspose.com/slides/el/cpp/aspose.slides/iprotectionmanager/encrypt/) για να ορίσετε έναν κωδικό πρόσβασης ανοίγματος. Μετά χρησιμοποιήστε το [IPresentation::Save](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/save/) για να αποθηκεύσετε την κρυπτογραφημένη παρουσίαση.
 
-- **Άνοιγμα**
+Το παρακάτω παράδειγμα κρυπτογραφεί μια παρουσίαση PPTX:
 
-  Αν θέλετε μόνο ορισμένοι χρήστες να ανοίγουν την παρουσίασή σας, μπορείτε να ορίσετε περιορισμό ανοίγματος. Ο περιορισμός αυτός εμποδίζει τους χρήστες ακόμη και από την προβολή του περιεχομένου της παρουσίασης (εκτός εάν εισάγουν τον κωδικό).
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  Τεχνικά, ο περιορισμός ανοίγματος αποτρέπει επίσης τους χρήστες από το να τροποποιούν τις παρουσιάσεις σας: όταν οι χρήστες δεν μπορούν να ανοίξουν μια παρουσίαση, δεν μπορούν να κάνουν τροποποιήσεις ή αλλαγές σε αυτήν.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **Σημείωση** ότι όταν προστατεύετε μια παρουσίαση με κωδικό για αποτροπή ανοίγματος, το αρχείο παρουσίασης κρυπτογραφείται.
-
-## **Πώς να προστατεύσετε με κωδικό μια παρουσίαση online**
-
-1. Μεταβείτε στη σελίδα μας [**Aspose.Slides κλείδωμα**](https://products.aspose.app/slides/el/lock). 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Κάντε κλικ στο **Σύρετε ή ανεβάστε τα αρχεία σας**.
-
-3. Επιλέξτε το αρχείο που θέλετε να προστατεύσετε με κωδικό από τον υπολογιστή σας. 
-
-4. Καταχωρίστε τον επιθυμητό κωδικό για προστασία επεξεργασίας· Καταχωρίστε τον επιθυμητό κωδικό για προστασία προβολής. 
-
-5. Εάν θέλετε οι χρήστες να δουν την παρουσίασή σας ως τελική αντίγραφο, τσεκάρετε το πεδίο ελέγχου **Σήμανση ως τελικό**.
-
-6. Κάντε κλικ στο **ΠΡΟΣΤΑΣΙΑ ΤΩΡΑ.** 
-
-7. Κάντε κλικ στο **ΛΗΨΗ ΤΩΡΑ.**
-
-## **Προστασία κωδικού για παρουσιάσεις στο Aspose.Slides**
-**Υποστηριζόμενες μορφές**
-
-Το Aspose.Slides υποστηρίζει προστασία κωδικού, κρυπτογράφηση και παρόμοιες λειτουργίες για παρουσιάσεις στις ακόλουθες μορφές: 
-
-- PPTX και PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**Υποστηριζόμενες λειτουργίες**
-
-Το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε προστασία κωδικού σε παρουσιάσεις για την αποτροπή τροποποιήσεων με τους παρακάτω τρόπους:
-
-- Κρυπτογράφηση μιας παρουσίασης
-- Ορισμός προστασίας εγγραφής για μια παρουσίαση
-
-**Άλλες λειτουργίες**
-
-Το Aspose.Slides σας επιτρέπει να εκτελέσετε άλλες εργασίες που αφορούν προστασία κωδικού και κρυπτογράφηση με τους παρακάτω τρόπους:
-
-- Αποκρυπτογράφηση μιας παρουσίασης· άνοιγμα κρυπτογραφημένης παρουσίασης
-- Αφαίρεση κρυπτογράφησης· απενεργοποίηση προστασίας κωδικού
-- Αφαίρεση προστασίας εγγραφής από μια παρουσίαση
-- Λήψη των ιδιοτήτων μιας κρυπτογραφημένης παρουσίασης
-- Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη
-- Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό.
-
-## **Κρυπτογράφηση μιας παρουσίασης**
-
-Μπορείτε να κρυπτογραφήσετε μια παρουσίαση ορίζοντας έναν κωδικό. Στη συνέχεια, για να τροποποιήσετε την κλειδωμένη παρουσίαση, ο χρήστης πρέπει να εισάγει τον κωδικό. 
-
-Για να κρυπτογραφήσετε ή να προστατεύσετε με κωδικό μια παρουσίαση, πρέπει να χρησιμοποιήσετε τη μέθοδο encrypt (από [ProtectionManager](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager)) για να ορίσετε κωδικό στην παρουσίαση. Περάστε τον κωδικό στη μέθοδο encrypt και χρησιμοποιήστε τη μέθοδο save για να αποθηκεύσετε την πλέον κρυπτογραφημένη παρουσίαση. 
-
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Ορισμός προστασίας εγγραφής για μια παρουσίαση** 
+## **Φόρτωση Κρυπτογραφημένης Παρουσίασης**
 
-Μπορείτε να προσθέσετε μια σημείωση «Μην τροποποιείτε» σε μια παρουσίαση. Με αυτόν τον τρόπο, ενημερώνετε τους χρήστες ότι δεν θέλετε να κάνουν αλλαγές στην παρουσίαση.  
+Ορίστε το [LoadOptions::set_Password](https://reference.aspose.com/slides/el/cpp/aspose.slides/loadoptions/set_password/) στον κωδικό πρόσβασης ανοίγματος και περάστε τις επιλογές στη [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) κατά τη φόρτωση του αρχείου. Η φόρτωση αποτυγχάνει όταν απαιτείται κωδικός πρόσβασης ανοίγματος αλλά ο παρεχόμενος κωδικός λείπει ή είναι λανθασμένος.
 
-**Σημείωση** ότι η διαδικασία προστασίας εγγραφής δεν κρυπτογραφεί την παρουσίαση. Συνεπώς, οι χρήστες—εάν το επιθυμούν—μπορούν να τροποποιήσουν την παρουσίαση, αλλά για να αποθηκεύσουν τις αλλαγές θα πρέπει να δημιουργήσουν μια παρουσίαση με διαφορετικό όνομα. 
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-Για να ορίσετε προστασία εγγραφής, πρέπει να χρησιμοποιήσετε τη μέθοδο setWriteProtection. Αυτό το παράδειγμα κώδικα σας δείχνει πώς να ορίσετε προστασία εγγραφής σε μια παρουσίαση:
+using namespace Aspose::Slides;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
 ```
 
-## **Φόρτωση κρυπτογραφημένης παρουσίασης**
+## **Αφαίρεση Κρυπτογράφησης από Παρουσίαση**
 
-Το Aspose.Slides σας επιτρέπει να φορτώσετε ένα κρυπτογραφημένο αρχείο περνώντας τον κωδικό του. Για να αποκρυπτογραφήσετε μια παρουσίαση, πρέπει να καλέσετε τη μέθοδο [RemoveEncryption](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) χωρίς παραμέτρους. Στη συνέχεια, θα πρέπει να εισάγετε τον σωστό κωδικό για να φορτώσετε την παρουσίαση. 
+Φορτώστε την παρουσίαση με τον κωδικό πρόσβασης ανοίγματος, καλέστε το [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/el/cpp/aspose.slides/iprotectionmanager/removeencryption/), και αποθηκεύστε το αποτέλεσμα. Η αποθηκευμένη παρουσίαση μπορεί μετά να φορτωθεί χωρίς κωδικό πρόσβασης.
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να αποκρυπτογραφήσετε μια παρουσίαση: 
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// εργασία με την αποκρυπτογραφημένη παρουσίαση
-```
-
-## **Αφαίρεση κρυπτογράφησης από μια παρουσίαση**
-
-Μπορείτε να αφαιρέσετε την κρυπτογράφηση ή την προστασία κωδικού από μια παρουσίαση. Με αυτόν τον τρόπο, οι χρήστες αποκτούν τη δυνατότητα πρόσβασης ή τροποποίησης της παρουσίασης χωρίς περιορισμούς. 
-
-Για να αφαιρέσετε την κρυπτογράφηση ή την προστασία κωδικού, πρέπει να καλέσετε τη μέθοδο [RemoveEncryption](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d). Αυτό το παράδειγμα κώδικα σας δείχνει πώς να αφαιρέσετε την κρυπτογράφηση από μια παρουσίαση:
-
-``` cpp
-auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Αφαίρεση προστασίας εγγραφής από μια παρουσίαση**
+## **Επικύρωση Κωδικού Πρόσβασης Ανοίγματος Πριν τη Φόρτωση**
 
-Μπορείτε να χρησιμοποιήσετε το Aspose.Slides για να αφαιρέσετε την προστασία εγγραφής που χρησιμοποιείται σε ένα αρχείο παρουσίασης. Με αυτόν τον τρόπο, οι χρήστες μπορούν να τροποποιούν όπως θέλουν—χωρίς προειδοποιήσεις κατά τις ενέργειές τους.
+Χρησιμοποιήστε το [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) για να αποκτήσετε το [IPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/) χωρίς τη δημιουργία πλήρους αντικειμένου παρουσίασης. Ελέγξτε το [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) πριν ζητήσετε ή επικυρώσετε έναν κωδικό πρόσβασης. Όταν υπάρχει προστασία, επικυρώστε την παρεχόμενη τιμή με το [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/checkpassword/).
 
-Μπορείτε να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση χρησιμοποιώντας τη μέθοδο [RemoveWriteProtection](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50). Αυτό το παράδειγμα κώδικα σας δείχνει πώς να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση:
+### **Ροή Εργασίας με Διαδρομή Αρχείου**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Το παρακάτω παράδειγμα επικυρώνει έναν κωδικό πρόσβασης ανοίγματος για ένα αρχείο PPTX, περνά την επικυρωμένη τιμή στο [LoadOptions::set_Password](https://reference.aspose.com/slides/el/cpp/aspose.slides/loadoptions/set_password/), και στη συνέχεια φορτώνει την πλήρη παρουσίαση:
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **Λήψη ιδιοτήτων κρυπτογραφημένης παρουσίασης**
+### **Ροή Εργασίας με Ροή**
 
-Συνήθως, οι χρήστες δυσκολεύονται να λάβουν τις ιδιότητες του εγγράφου μιας κρυπτογραφημένης ή προστατευμένης με κωδικό παρουσίασης. Το Aspose.Slides, ωστόσο, προσφέρει έναν μηχανισμό που επιτρέπει την προστασία κωδικού μιας παρουσίασης διατηρώντας τη δυνατότητα πρόσβασης των χρηστών στις ιδιότητες της παρουσίασης.
+Η υπερφόρτωση με ροή του [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) παρέχει την ίδια ροή εργασίας. Επαναφέρετε τη θέση μιας ρευσιμιζόμενης ροής πριν φορτώσετε την πλήρη παρουσίαση από αυτήν τη ροή.
 
-**Σημείωση** ότι όταν το Aspose.Slides κρυπτογραφεί μια παρουσίαση, οι ιδιότητες του εγγράφου της παρουσίασης προστατεύονται επίσης με κωδικό από προεπιλογή. Αλλά αν χρειαστεί να κάνετε τις ιδιότητες της παρουσίασης προσβάσιμες (ακόμη και μετά την κρυπτογράφηση), το Aspose.Slides σας επιτρέπει να το κάνετε ακριβώς αυτό. 
+Το παρακάτω παράδειγμα χρησιμοποιεί ένα αρχείο PPT:
 
-Εάν θέλετε οι χρήστες να διατηρήσουν τη δυνατότητα πρόσβασης στις ιδιότητες μιας παρουσίασης που κρυπτογραφήσατε, μπορείτε να περάσετε `true` στη μέθοδο [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d). Αυτό το παράδειγμα κώδικα σας δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση ενώ παρέχετε τα μέσα για πρόσβαση στις ιδιότητες του εγγράφου:
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό**
+### **Τιμές Επιστροφής του CheckPassword**
 
-Πριν φορτώσετε μια παρουσίαση, ίσως θελήσετε να ελέγξετε και να επιβεβαιώσετε ότι η παρουσίαση δεν είναι προστατευμένη με κωδικό. Με αυτόν τον τρόπο, αποφεύγετε σφάλματα και παρόμοια ζητήματα που προκύπτουν όταν μια παρουσίαση προστατευμένη με κωδικό φορτώνεται χωρίς τον κωδικό της.
+Το [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/checkpassword/) επιστρέφει `true` μόνο όταν η παρουσίαση έχει κωδικό πρόσβασης ανοίγματος και ο παρεχόμενος κωδικός είναι σωστός. Επιστρέφει `false` σε κάθε μία από τις ακόλουθες περιπτώσεις:
 
-Αυτός ο κώδικας C++ σας δείχνει πώς να εξετάσετε μια παρουσίαση για να διαπιστώσετε εάν είναι προστατευμένη με κωδικό (χωρίς να φορτώνετε την ίδια την παρουσίαση):
+- Ο κωδικός πρόσβασης είναι λανθασμένος.
+- Η παρουσίαση δεν διαθέτει κωδικό πρόσβασης ανοίγματος.
+- Ο παρεχόμενος κωδικός πρόσβασης είναι null ή κενός.
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
-```
+Η συμπεριφορά είναι η ίδια για παρουσιάσεις PPT και PPTX.
 
-## **Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη**
+## **Έλεγχος Αν Η Φορτωμένη Παρουσίαση Είναι Κρυπτογραφημένη**
 
-Το Aspose.Slides σας επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη. Για αυτήν την ενέργεια, μπορείτε να χρησιμοποιήσετε τη μέθοδο [get_IsEncrypted()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68), η οποία επιστρέφει `true` εάν η παρουσίαση είναι κρυπτογραφημένη ή `false` εάν δεν είναι κρυπτογραφημένη. 
+Μετά τη φόρτωση μιας παρουσίασης με τον σωστό κωδικό πρόσβασης, ελέγξτε το [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/el/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) για να επιβεβαιώσετε ότι η πηγαία παρουσίαση ήταν κρυπτογραφημένη. Για τον εντοπισμό προστασίας κωδικού πρόσβασης ανοίγματος πριν τη φόρτωση, χρησιμοποιήστε το `IPresentationInfo::get_IsPasswordProtected` όπως φαίνεται παραπάνω.
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη:
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη από εγγραφή**
+## **Συστάσεις Ασφάλειας**
 
-Το Aspose.Slides σας επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη από εγγραφή. Για αυτήν την ενέργεια, μπορείτε να χρησιμοποιήσετε τη μέθοδο [get_IsWriteProtected()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2), η οποία επιστρέφει `true` εάν η παρουσίαση είναι προστατευμένη από εγγραφή ή `false` εάν δεν είναι. 
+{{% alert color="warning" title="Security" %}}
+Μην καταγράφετε τους κωδικούς πρόσβασης ανοίγματος ή τους συμπεριλαμβάνετε σε διαγνωστικά μηνύματα. Αποφύγετε περιττές επαναλαμβανόμενες προσπάθειες επικύρωσης, διατηρείτε τους κωδικούς πρόσβασης στη μνήμη μόνο όσο είναι απαραίτητο, και επαναχρησιμοποιήστε ένα επιτυχές αποτέλεσμα επικύρωσης όταν φορτώνετε αμέσως την παρουσίαση.
+{{% /alert %}}
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη από εγγραφή:
+## **Προστασία Παρουσίασης με Κωδικό Πρόσβασης Online**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+1. Ανοίξτε την εφαρμογή [Aspose.Slides Lock](https://products.aspose.app/slides/el/lock).
+1. Επιλέξτε ή ανεβάστε την παρουσίαση.
+1. Εισάγετε έναν κωδικό πρόσβασης για προστασία προβολής.
+1. Προαιρετικά εισάγετε ξεχωριστό κωδικό πρόσβασης για προστασία επεξεργασίας.
+1. Εφαρμόστε την προστασία και κατεβάστε το δημιουργημένο αρχείο.
 
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **Επαλήθευση χρήσης κωδικού παρουσίασης**
-
-Μπορείτε να θέλετε να ελέγξετε και να επιβεβαιώσετε ότι ένας συγκεκριμένος κωδικός χρησιμοποιήθηκε για την προστασία ενός εγγράφου παρουσίασης. Το Aspose.Slides παρέχει τα μέσα για την επικύρωση ενός κωδικού. 
-
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να επικυρώσετε έναν κωδικό:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// ελέγξτε αν το "pass" ταιριάζει με
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-Επιστρέφει `true` εάν η παρουσίαση έχει κρυπτογραφηθεί με τον συγκεκριμένο κωδικό. Διαφορετικά, επιστρέφει `false`. 
-
-{{% alert color="primary" title="Δείτε επίσης" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/el/cpp/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/el/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Συχνές ερωτήσεις**
+## **FAQ**
 
-**Ποιες μέθοδοι κρυπτογράφησης υποστηρίζονται από το Aspose.Slides;**
+**Ποια είναι η διαφορά μεταξύ κωδικού πρόσβασης ανοίγματος και κωδικού πρόσβασης προστασίας εγγραφής;**
 
-Το Aspose.Slides υποστηρίζει σύγχρονες μεθόδους κρυπτογράφησης, συμπεριλαμβανομένων αλγορίθμων βασισμένων σε AES, εξασφαλίζοντας υψηλό επίπεδο ασφάλειας δεδομένων για τις παρουσιάσεις σας.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί την παρουσίαση και απαιτείται για τη φόρτωση του περιεχομένου της. Ένας κωδικός πρόσβασης προστασίας εγγραφής περιορίζει την τροποποίηση χωρίς να κρυπτογραφεί το περιεχόμενο.
 
-**Τι συμβαίνει εάν εισαχθεί λανθασμένος κωδικός κατά το άνοιγμα μιας παρουσίασης;**
+**Μπορώ να επικυρώσω έναν κωδικό πρόσβασης ανοίγματος χωρίς να φορτώσω όλες τις διαφάνειες;**
 
-Γίνεται εξαίρεση εάν εισαχθεί εσφαλμένος κωδικός, προειδοποιώντας ότι η πρόσβαση στην παρουσίαση απορρίπτεται. Αυτό βοηθά στην αποτροπή μη εξουσιοδοτημένης πρόσβασης και προστατεύει το περιεχόμενο της παρουσίασης.
+Ναι. Αποκτήστε πληροφορίες παρουσίασης, ελέγξτε αν υπάρχει προστασία κωδικού πρόσβασης ανοίγματος, και επικυρώστε τον κωδικό πριν δημιουργήσετε ένα πλήρες αντικείμενο παρουσίασης.
 
-**Υπάρχουν επιπτώσεις στην απόδοση όταν εργάζεστε με παρουσιάσεις προστατευμένες με κωδικό;**
+**Υποστηρίζουν οι ροές επαλήθευσης κωδικού πρόσβασης και τα PPT και PPTX;**
 
-Η διαδικασία κρυπτογράφησης και αποκρυπτογράφησης μπορεί να προσθέσει ελαφρύ φόρτο κατά τις λειτουργίες ανοίγματος και αποθήκευσης. Στις περισσότερες περιπτώσεις, αυτός ο αντίκτυπος στην απόδοση είναι ελάχιστος και δεν επηρεάζει σημαντικά το συνολικό χρόνο επεξεργασίας των εργασιών σας.
+Ναί. Η ανίχνευση και επικύρωση κωδικού πρόσβασης βάσει διαδρομής αρχείου ή ροής συμπεριφέρονται τα ίδια για παρουσιάσεις PPT και PPTX.

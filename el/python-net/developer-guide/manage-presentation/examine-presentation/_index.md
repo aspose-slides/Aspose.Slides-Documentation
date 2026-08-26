@@ -21,19 +21,19 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Python για ταχύτερη κατανόηση και πιο έξυπνες αξιολογήσεις περιεχομένου."
+description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Python για πιο γρήγορη κατανόηση και εξυπνότερους ελέγχους περιεχομένου."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να επιθεωρήσετε τις πληροφορίες παρουσίασης στο Aspose.Slides. Εξηγεί πώς να προσδιορίσετε τη τρέχουσα μορφή μιας παρουσίασης χωρίς να φορτώσετε το πλήρες αρχείο, να διαβάσετε τις ιδιότητες εγγράφου της και να ενημερώσετε αυτές τις ιδιότητες όταν χρειάζεται.
+Αυτό το άρθρο δείχνει πώς να ελέγξετε τις πληροφορίες παρουσίασης στο Aspose.Slides. Εξηγεί πώς να προσδιορίσετε το τρέχον φορμάτ μιας παρουσίασης χωρίς να φορτώσετε ολόκληρο το αρχείο, να διαβάσετε τις ιδιότητες εγγράφου της και να ενημερώσετε αυτές τις ιδιότητες όταν χρειάζεται.
 
-Τα παραδείγματα βασίζονται στα API [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/) και [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/) και δείχνουν τυπικές λειτουργίες για την εργασία με τα μεταδεδομένα παρουσίασης.
+Τα παραδείγματα βασίζονται στις διεπαφές [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/) και [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/) και δείχνουν τυπικές ενέργειες για εργασία με μεταδεδομένα παρουσίασης.
 
-## **Έλεγχος Μορφής Παρουσίασης**
+## **Έλεγχος μορφής παρουσίασης**
 
-Πριν εργαστείτε σε μια παρουσίαση, ίσως θέλετε να μάθετε σε ποια μορφή (PPT, PPTX, ODP και άλλες) βρίσκεται η παρουσίαση αυτή τη στιγμή.
+Πριν εργαστείτε με μια παρουσίαση, ίσως θέλετε να μάθετε σε ποιο φορμάτ (PPT, PPTX, ODP και άλλα) βρίσκεται η παρουσίαση αυτή τη στιγμή.
 
-Μπορείτε να ελέγξετε τη μορφή μιας παρουσίασης χωρίς να την φορτώσετε. Δείτε αυτόν τον κώδικα Python:
+Μπορείτε να ελέγξετε το φορμάτ μιας παρουσίασης χωρίς να την φορτώσετε. Δείτε αυτόν τον κώδικα Python:
 
 ```py
 import aspose.slides as slides
@@ -48,7 +48,7 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
-## **Λήψη Ιδιοτήτων Παρουσίασης**
+## **Λήψη ιδιοτήτων παρουσίασης**
 
 Αυτός ο κώδικας Python σας δείχνει πώς να λάβετε τις ιδιότητες της παρουσίασης (πληροφορίες σχετικά με την παρουσίαση):
 
@@ -62,26 +62,29 @@ print(props.subject)
 print(props.title)
 ```
 
-Μπορείτε να δείτε τις [ιδιότητες στην κλάση DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/#properties).
+Ίσως θελήσετε να δείτε τις [ιδιότητες στην κλάση DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/#properties).
 
-## **Ενημέρωση Ιδιοτήτων Παρουσίασης**
+## **Ενημέρωση ιδιοτήτων παρουσίασης**
 
-Το Aspose.Slides παρέχει τη μέθοδο [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) που σας επιτρέπει να κάνετε αλλαγές στις ιδιότητες της παρουσίασης.
+Το Aspose.Slides παρέχει τη μέθοδο [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) που επιτρέπει την τροποποίηση των ιδιοτήτων της παρουσίασης.
 
-Ας πούμε ότι έχουμε μια παρουσίαση PowerPoint με τις ιδιότητες εγγράφου που φαίνονται παρακάτω.
+Ας υποθέσουμε ότι έχουμε μια παρουσίαση PowerPoint με τις ιδιότητες εγγράφου που φαίνονται παρακάτω.
 
 ![Αρχικές ιδιότητες εγγράφου της παρουσίασης PowerPoint](input_properties.png)
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να επεξεργαστείτε ορισμένες ιδιότητες παρουσίασης:
+Αυτό το παράδειγμα κώδικα σας δείχνει πώς να επεξεργαστείτε ορισμένες ιδιότητες της παρουσίασης:
 
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
@@ -91,33 +94,31 @@ info.write_binded_presentation(file_name)
 
 ![Αλλαγμένες ιδιότητες εγγράφου της παρουσίασης PowerPoint](output_properties.png)
 
-## **Χρήσιμοι Σύνδεσμοι**
+## **Χρήσιμοι σύνδεσμοι**
 
-Για περισσότερες πληροφορίες σχετικά με μια παρουσίαση και τα χαρακτηριστικά ασφαλείας της, μπορεί να βρείτε χρήσιμο αυτούς τους συνδέσμους:
+Για να λάβετε περισσότερες πληροφορίες σχετικά με μια παρουσίαση και τα χαρακτηριστικά ασφαλείας της, μπορεί να βρείτε αυτούς τους συνδέσμους χρήσιμους:
 
-- [Έλεγχος αν μια παρουσίαση είναι κρυπτογραφημένη](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Έλεγχος αν μια παρουσίαση προστατεύεται από εγγραφή (μόνο για ανάγνωση)](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Έλεγχος αν μια παρουσίαση είναι προστατευμένη με κωδικό πριν τη φόρτωση](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Επιβεβαίωση του κωδικού που χρησιμοποιήθηκε για την προστασία μιας παρουσίασης](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Προστασία παρουσίασης με κωδικό](/slides/el/python-net/password-protected-presentation/)
+- [Προστασία παρουσίασης από εγγραφή](/slides/el/python-net/write-protected-presentation/)
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές ερωτήσεις**
 
 **Πώς μπορώ να ελέγξω αν οι γραμματοσειρές είναι ενσωματωμένες και ποιες είναι;**
 
-Αναζητήστε τις [πληροφορίες ενσωματωμένων γραμματοσειρών](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) στο επίπεδο της παρουσίασης, έπειτα συγκρίνετε αυτές τις καταχωρήσεις με το σύνολο των [γραμματοσειρών που χρησιμοποιούνται πραγματικά σε όλο το περιεχόμενο](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_fonts/) για να εντοπίσετε ποιες γραμματοσειρές είναι κρίσιμες για την απόδοση.
+Αναζητήστε τις [πληροφορίες ενσωματωμένων γραμματοσειρών](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) σε επίπεδο παρουσίασης, έπειτα συγκρίνετε αυτές τις εγγραφές με το σύνολο των [γραμματοσειρών που χρησιμοποιούνται πραγματικά στο περιεχόμενο](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_fonts/) για να εντοπίσετε ποιες γραμματοσειρές είναι κρίσιμες για την απόδοση.
 
 **Πώς μπορώ γρήγορα να διαπιστώ αν το αρχείο έχει κρυφές διαφάνειες και πόσες;**
 
-Διέλθετε τη [συλλογή διαφανειών](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidecollection/) και ελέγξτε τη [σημαία ορατότητας](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/hidden/) κάθε διαφάνειας.
+Περιηγηθείτε στη [συλλογή διαφανειών](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidecollection/) και εξετάστε τη [σημαία ορατότητας](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/hidden/) κάθε διαφάνειας.
 
-**Μπορώ να εντοπίσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας, και αν διαφέρουν από τις προεπιλογές;**
+**Μπορώ να ανιχνεύσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας, και αν διαφέρουν από τα προεπιλεγμένα;**
 
-Ναι. Συγκρίνετε το τρέχον [μέγεθος διαφάνειας](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slide_size/) και προσανατολισμό με τις τυπικές προεπιλογές· αυτό βοηθά στην πρόβλεψη της συμπεριφοράς για εκτύπωση και εξαγωγή.
+Ναι. Συγκρίνετε το τρέχον [μέγεθος διαφάνειας](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slide_size/) και προσανατολισμό με τα τυπικά προεπιλεγμένα, ώστε να προβλέψετε τη συμπεριφορά κατά την εκτύπωση και εξαγωγή.
 
-**Υπάρχει γρήγορος τρόπος να διαπιστώ αν τα γραφήματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
+**Υπάρχει γρήγορος τρόπος να δειτε αν τα γραφήματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
 
-Ναι. Περιηγηθείτε σε όλα τα [γράφημα](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/), ελέγξτε την [πηγή δεδομένων](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/data_source_type/), και σημειώστε αν τα δεδομένα είναι εσωτερικά ή βασισμένα σε σύνδεσμο, συμπεριλαμβανομένων τυχόν σπασμένων συνδέσμων.
+Ναι. Περιηγηθείτε σε όλα τα [γράφηματα](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/), ελέγξτε την [πηγή δεδομένων](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/data_source_type/) και παρατηρήστε αν τα δεδομένα είναι εσωτερικά ή βασισμένα σε σύνδεσμο, συμπεριλαμβανομένων τυχόν σπασμένων συνδέσμων.
 
-**Πώς μπορώ να αξιολογήσω τις «βαριές» διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή PDF;**
+**Πώς μπορώ να αξιολογήσω τις 'βαριές' διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή PDF;**
 
-Για κάθε διαφάνεια, μετρήστε τον αριθμό των αντικειμένων και ψάξτε για μεγάλες εικόνες, διαφάνειες, σκιές, κινούμενα σχέδια και πολυμέσα· δώστε μια κατά προσέγγιση βαθμολογία πολυπλοκότητας ώστε να επισημάνετε πιθανά σημεία επιβάρυνσης απόδοσης.
+Για κάθε διαφάνεια, μετρήστε τα αντικείμενα και ψάξτε για μεγάλες εικόνες, διαφάνειες, σκιές, κινήσεις και πολυμέσα· δώστε μια κατά προσέγγιση βαθμολογία πολυπλοκότητας για να επισημάνετε πιθανά σημεία συμφόρησης απόδοσης.

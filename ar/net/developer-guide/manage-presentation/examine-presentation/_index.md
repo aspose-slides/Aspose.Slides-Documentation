@@ -5,8 +5,8 @@ type: docs
 weight: 30
 url: /ar/net/examine-presentation/
 keywords:
-- تنسيق العرض التقديمي
-- خصائص العرض التقديمي
+- تنسيق العرض
+- خصائص العرض
 - خصائص المستند
 - الحصول على الخصائص
 - قراءة الخصائص
@@ -22,21 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام .NET للحصول على رؤى أسرع وتدقيق محتوى أذكى."
+description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام .NET للحصول على رؤى أسرع ومراجعات محتوى أذكى."
 ---
+## **نظرة عامة**
 
-تتيح لك Aspose.Slides for .NET فحص عرض تقديمي لاكتشاف خصائصه وفهم سلوكه. 
+توضح هذه المقالة كيفية فحص معلومات العرض التقديمي في Aspose.Slides. تشرح كيفية تحديد تنسيق العرض التقديمي الحالي دون تحميل الملف بالكامل، قرائة خصائص المستند، وتحديث تلك الخصائص عند الحاجة.
 
-{{% alert title="Info" color="info" %}} 
-تحتوي الفئات [PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) و[DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) على الخصائص والطرق المستخدمة في العمليات هنا.
-{{% /alert %}} 
+تستند الأمثلة إلى واجهات برمجة التطبيقات [PresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationinfo/) و[DocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/documentproperties/) وتوضح العمليات الشائعة للتعامل مع بيانات التعريف الخاصة بالعروض التقديمية.
 
-## **تحقق من تنسيق العرض التقديمي**
+## **التحقق من تنسيق العرض التقديمي**
 
-قبل العمل على عرض تقديمي، قد ترغب في معرفة ما هو تنسيق العرض (PPT، PPTX، ODP، وغيرها) في الوقت الحالي.
+قبل العمل على عرض تقديمي، قد ترغب في معرفة ما هو التنسيق (PPT، PPTX، ODP، وغيرها) الذي يكون عليه العرض في الوقت الحالي.
 
 يمكنك التحقق من تنسيق العرض التقديمي دون تحميله. راجع هذا الكود C#:
+
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
 
@@ -47,32 +49,36 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
+## **الحصول على خصائص العرض التقديمي**
 
-## **احصل على خصائص العرض التقديمي**
+يظهر لك هذا الكود C# كيفية الحصول على خصائص العرض التقديمي (معلومات حول العرض):
 
-يعرض لك هذا الكود C# كيفية الحصول على خصائص العرض التقديمي (معلومات حول العرض):
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
 Console.WriteLine(props.Subject);
 Console.WriteLine(props.Title);
-// ...
+// ..
 ```
 
-
-قد ترغب في الاطلاع على [الخصائص ضمن فئة DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) فئة.
+قد ترغب في الاطلاع على [الخصائص ضمن فئة DocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/documentproperties/#properties).
 
 ## **تحديث خصائص العرض التقديمي**
 
-توفر Aspose.Slides طريقة [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) التي تتيح لك تعديل خصائص العرض التقديمي.
+توفر Aspose.Slides طريقة [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) التي تتيح لك إجراء تغييرات على خصائص العرض التقديمي.
 
-لنفترض أن لدينا عرض PowerPoint يحتوي على خصائص المستند الموضحة أدناه.
+لنفترض أن لدينا عرض PowerPoint مع خصائص المستند الموضحة أدناه.
 
 ![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
 
-يوضح لك مثال الكود هذا كيفية تعديل بعض خصائص العرض التقديمي:
+يعرض مثال الكود هذا كيفية تعديل بعض خصائص العرض التقديمي:
+
 ```c#
+using Aspose.Slides;
+
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
@@ -85,38 +91,35 @@ info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-
 تظهر نتائج تغيير خصائص المستند أدناه.
 
-![خصائص المستند المتغيرة لعرض PowerPoint](output_properties.png)
+![خصائص المستند المعدلة لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للحصول على مزيد من المعلومات حول عرض تقديمي وسماته الأمنية، قد تجد الروابط التالية مفيدة:
+للحصول على مزيد من المعلومات حول العرض التقديمي وسماته الأمنية، قد تجد هذه الروابط مفيدة:
 
-- [التحقق مما إذا كان العرض مشفرًا](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [التحقق مما إذا كان العرض محميًا ضد الكتابة (للقراءة فقط)](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [التحقق مما إذا كان العرض محميًا بكلمة مرور قبل تحميله](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تأكيد كلمة المرور المستخدمة لحماية العرض](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [حماية العروض التقديمية بكلمة مرور](/slides/ar/net/password-protected-presentation/)
+- [حماية العروض التقديمية من الكتابة](/slides/ar/net/write-protected-presentation/)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني التحقق مما إذا كانت الخطوط مضمّنة وأيها؟**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مضمّنة وما هي الخطوط المضمنة؟**
 
-ابحث عن [معلومات الخطوط المضمّنة](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) على مستوى العرض، ثم قارن تلك الإدخالات مع مجموعة [الخطوط المستخدمة فعليًا عبر المحتوى](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) لتحديد أي الخطوط حرجة للعرض.
+ابحث عن معلومات [embedded-font](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getembeddedfonts/) على مستوى العرض التقديمي، ثم قارن تلك الإدخالات مع مجموعة [الخطوط المستخدمة فعليًا عبر المحتوى](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getfonts/) لتحديد الخطوط الحرجة للعرض.
 
 **كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-تصفح [مجموعة الشرائح](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) وتفقد [علامة الظهور](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) لكل شريحة.
+قم بالتكرار عبر [slide collection](https://reference.aspose.com/slides/ar/net/aspose.slides/slidecollection/) وتفحص علامة [visibility flag](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/hidden/) لكل شريحة.
 
 **هل يمكنني اكتشاف ما إذا تم استخدام حجم وشكل مخصص للشرائح، وما إذا كان يختلف عن الإعدادات الافتراضية؟**
 
-نعم. قارن [حجم الشريحة](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) الحالي والاتجاه مع الإعدادات الافتراضية؛ يساعد ذلك في توقع السلوك عند الطباعة والتصدير.
+نعم. قارن حجم [slide size](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slidesize/) الحالي والاتجاه مع القيم المسبقة القياسية؛ هذا يساعد على توقع السلوك عند الطباعة والتصدير.
 
 **هل هناك طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. استعرض جميع [المخططات](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/)، تحقق من [مصدر البيانات](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) الخاص بها، ولاحظ ما إذا كانت البيانات داخلية أو مرتبطة بروابط، بما في ذلك الروابط المعطوبة.
+نعم. استعرض جميع [charts](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/)، وتحقق من [data source](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/datasourcetype/) الخاص بها، ولاحظ ما إذا كانت البيانات داخلية أو مرتبطة بروابط، بما في ذلك أي روابط مكسورة.
 
-**كيف يمكنني تقييم الشرائح 'الثقيلة' التي قد تبطئ العرض أو تصدير PDF؟**
+**كيف يمكنني تقييم "الشرائح الثقيلة" التي قد تبطئ عملية العرض أو تصدير PDF؟**
 
-لكل شريحة، احسب عدد الكائنات وابحث عن الصور الكبيرة، والشفافية، والظلال، والرسوم المتحركة، والوسائط المتعددة؛ ثم أعطِ درجة تعقيد تقريبية لتحديد نقاط الأداء المحتملة.
+بالنسبة لكل شريحة، احسب عدد الكائنات وابحث عن الصور الكبيرة، والشفافية، والظلال، والرسوم المتحركة، والوسائط المتعددة؛ ثم أعطِ كل شريحة درجة تعقيد تقريبية لتحديد النقاط الساخنة المحتملة للأداء.

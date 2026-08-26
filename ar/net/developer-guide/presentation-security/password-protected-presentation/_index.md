@@ -1,257 +1,200 @@
 ---
-title: تأمين العروض التقديمية باستخدام كلمات المرور في .NET
+title: حماية العروض التقديمية بكلمة مرور في .NET
 linktitle: حماية كلمة المرور
 type: docs
 weight: 20
 url: /ar/net/password-protected-presentation/
 keywords:
-- قفل PowerPoint
-- قفل العرض التقديمي
-- إلغاء قفل PowerPoint
-- إلغاء قفل العرض التقديمي
-- حماية PowerPoint
-- حماية العرض التقديمي
-- تعيين كلمة مرور
-- إضافة كلمة مرور
+- عرض تقديمي محمي بكلمة مرور
+- كلمة مرور الفتح
 - تشفير PowerPoint
-- تشفير العرض التقديمي
 - فك تشفير PowerPoint
-- فك تشفير العرض التقديمي
-- حماية كتابة
-- أمان PowerPoint
-- أمان العرض التقديمي
-- إزالة كلمة المرور
-- إزالة الحماية
+- التحقق من كلمة مرور العرض التقديمي
+- فحص كلمة مرور العرض التقديمي
+- فتح عرض تقديمي مشفر
 - إزالة التشفير
-- تعطيل كلمة المرور
-- تعطيل الحماية
-- إزالة حماية الكتابة
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرّف على كيفية قفل وإلغاء قفل العروض التقديمية المحمية بكلمة مرور في PowerPoint وOpenDocument بسهولة باستخدام Aspose.Slides لـ .NET. احمِ عروضك التقديمية."
+description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير العروض التقديمية المحمية بكلمة مرور لملفات PowerPoint PPT و PPTX باستخدام C# مع Aspose.Slides لـ .NET."
 ---
-
 ## **نظرة عامة**
 
-عند حماية عرض تقديمي بكلمة مرور، يعني أنك تقوم بتعيين كلمة مرور تفرض قيودًا معينة على العرض التقديمي. لإزالة هذه القيود، يجب إدخال كلمة المرور. يُعتبر العرض التقديمي المحمي بكلمة مرور عرضًا مؤمنًا.
+كلمة مرور الفتح تقوم بتشفير العرض التقديمي. يلزم تقديم كلمة المرور الصحيحة لتحميل وعرض محتوى العرض التقديمي، وبالتالي توفر هذه الحماية السرية.
 
-عادةً، يمكنك تعيين كلمة مرور لفرض هذه القيود على العرض التقديمي:
+كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. الحماية من الكتابة تقيد التعديل لكنها لا تشفر المحتوى ولا تمنع تحميل العرض التقديمي. لإدارة كلمات المرور لتعديل العروض التقديمية، راجع [Write-Protect Presentations](/slides/ar/net/write-protected-presentation/).
 
-- **التعديل**
+تطبق سير العمل أدناه على كل من عروض PPT و PPTX. تستخدم الأمثلة كلا التنسيقين حيث يكون سلوكهما القائم على الملفات أو التيار مهمًا.
 
-إذا كنت تريد أن يتمكن بعض المستخدمين فقط من تعديل العرض التقديمي الخاص بك، يمكنك تعيين قيد تعديل. يمنع هذا القيد الأشخاص من تعديل أو تغيير أو نسخ العناصر في العرض التقديمي ما لم يقدموا كلمة المرور. 
+## **تشفير عرض تقديمي باستخدام كلمة مرور الفتح**
 
-مع ذلك، حتى بدون كلمة المرور، سيظل المستخدم قادرًا على الوصول إلى مستندك وفتحه. في وضع القراءة فقط، يمكن للمستخدم عرض المحتوى—بما في ذلك الروابط التشعبية، والرسوم المتحركة، والتأثيرات، والعناصر الأخرى—داخل العرض التقديمي، لكنه لا يمكنه نسخ العناصر أو حفظ العرض التقديمي.
+استخدم [IProtectionManager.Encrypt](https://reference.aspose.com/slides/ar/net/aspose.slides/iprotectionmanager/encrypt/) لتعيين كلمة مرور الفتح. ثم استخدم [IPresentation.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentation/save/) لحفظ العرض المشفر.
 
-- **الفتح**
+المثال التالي يشفر عرض PPTX:
 
-إذا كنت تريد أن يتمكن بعض المستخدمين فقط من فتح العرض التقديمي الخاص بك، يمكنك تعيين قيد فتح. يمنع هذا القيد الأشخاص من حتى مشاهدة محتويات العرض التقديمي ما لم يقدموا كلمة المرور.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-تقنيًا، يمنع قيد الفتح أيضًا المستخدمين من تعديل العروض التقديمية—إذا لم يتمكن الأشخاص من فتح عرض تقديمي، فلا يمكنهم تعديل أو إجراء تغييرات فيه.
+using var presentation = new Presentation("pres.pptx");
 
-**ملاحظة:** عند حماية عرض تقديمي بكلمة مرور لمنع الفتح، يصبح ملف العرض التقديمي مشفرًا.
-
-## **حماية بكلمة مرور في Aspose.Slides**
-
-**الصيغ المدعومة**
-
-Aspose.Slides يدعم حماية كلمة المرور، التشفير، والعمليات المشابهة للعروض التقديمية بهذه الصيغ:
-
-- PPTX و PPT – عروض مايكروسوفت PowerPoint
-- ODP – عروض OpenDocument
-- OTP – قوالب عروض OpenDocument
-
-**العمليات المدعومة**
-
-Aspose.Slides يسمح لك باستخدام حماية كلمة المرور على العروض التقديمية لمنع التعديلات بالطرق التالية:
-
-- تشفير عرض تقديمي
-- تعيين حماية كتابة على عرض تقديمي
-
-**عمليات أخرى**
-
-Aspose.Slides يسمح لك بأداء مهام إضافية تتعلق بحماية كلمة المرور والتشفير بالطرق التالية:
-
-- فك تشفير عرض تقديمي؛ فتح عرض تقديمي مشفر
-- إزالة التشفير؛ تعطيل حماية كلمة المرور
-- إزالة حماية الكتابة من عرض تقديمي
-- استخراج خصائص عرض تقديمي مشفر
-- التحقق مما إذا كان العرض التقديمي محميًا بكلمة مرور قبل تحميله
-- التحقق مما إذا كان العرض التقديمي مشفرًا
-- التحقق مما إذا كان العرض التقديمي محميًا بكلمة مرور
-
-## **حماية عرض تقديمي بكلمة مرور**
-
-يمكنك تشفير عرض تقديمي عن طريق تعيين كلمة مرور. ثم، لتعديل العرض التقديمي المؤمن، يجب على المستخدم تقديم كلمة المرور.
-
-لتشفير (أو حماية بكلمة مرور) عرض تقديمي، استخدم طريقة `Encrypt` من [ProtectionManager](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager) لتعيين كلمة مرور. مرّر كلمة المرور إلى طريقة `Encrypt`، ثم استخدم طريقة `Save` لحفظ العرض التقديمي المشفر الآن.
-
-يعرض لك هذا المثال البرمجي كيفية تشفير عرض تقديمي:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
-
-
-## **تعيين حماية كتابة على عرض تقديمي** 
-
-يمكنك إضافة علامة تقول "Do not modify" إلى عرض تقديمي. هذا يُعلم المستخدمين بأنك لا تريدهم إجراء تغييرات على العرض التقديمي.
-
-**ملاحظة:** عملية حماية الكتابة لا تشفر العرض التقديمي. لذلك، يمكن للمستخدمين—إذا اختاروا—تعديل العرض التقديمي، ولكن لحفظ التغييرات، سيتعين عليهم حفظه باسم مختلف.
-
-لتعيين حماية الكتابة، استخدم طريقة `SetWriteProtection`. يعرض لك هذا المثال البرمجي كيفية تعيين حماية الكتابة على عرض تقديمي:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
 
 ## **تحميل عرض تقديمي مشفر**
 
-Aspose.Slides يسمح لك بتحميل عرض تقديمي مشفر بتمرير كلمة المرور الصحيحة. يعرض لك هذا المثال البرمجي كيفية تحميل عرض تقديمي مشفر:
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // العمل مع العرض التقديمي المفكوك.
-}
-```
+قم بتعيين [LoadOptions.Password](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/password/) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) عند تحميل الملف. سيفشل التحميل عندما تكون كلمة مرور الفتح مطلوبة لكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
 
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+// العمل مع العرض التقديمي المفكك التشفير.
+```
 
 ## **إزالة التشفير من عرض تقديمي**
 
-يمكنك إزالة التشفير أو حماية كلمة المرور من عرض تقديمي، مما يسمح للمستخدمين بالوصول إليه أو تعديله دون قيود.
+حمّل العرض التقديمي باستخدام كلمة مرور الفتح، استدعِ [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/ar/net/aspose.slides/iprotectionmanager/removeencryption/)، واحفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
 
-لإزالة التشفير أو حماية كلمة المرور، استدعِ طريقة [RemoveEncryption](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removeencryption). يعرض لك هذا المثال البرمجي كيفية إزالة التشفير من عرض تقديمي:
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **التحقق من كلمة مرور الفتح قبل التحميل**
+
+استخدم [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationfactory/getpresentationinfo/) للحصول على [IPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/) دون إنشاء نسخة كاملة من العرض التقديمي. تحقق من [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/ispasswordprotected/) قبل طلب أو التحقق من كلمة المرور. عندما تكون الحماية موجودة، تحقق من القيمة التي تم التحقق منها باستخدام [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/checkpassword/).
+
+### **سير عمل عبر مسار الملف**
+
+المثال التالي يتحقق من كلمة مرور الفتح لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [LoadOptions.Password](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/password/)، ثم يحمل العرض التقديمي بالكامل:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
+### **سير عمل عبر التيار**
 
-## **إزالة حماية الكتابة من عرض تقديمي**
+الإصدار المتعدد للتيار من [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationfactory/getpresentationinfo/) يوفر نفس سير العمل. أعد ضبط موضع التيار القابل للبحث قبل تحميل العرض التقديمي الكامل من ذلك التيار.
 
-يمكنك استخدام Aspose.Slides لإزالة حماية الكتابة من ملف عرض تقديمي. بهذه الطريقة، يمكن للمستخدمين تعديلها كما يشاءون—ولن يتلقوا أي تحذيرات عند إجراء مثل هذه المهام.
+المثال التالي يستخدم ملف PPT:
 
-يمكنك إزالة حماية الكتابة باستخدام طريقة [RemoveWriteProtection](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removewriteprotection). يعرض لك هذا المثال البرمجي كيفية إزالة حماية الكتابة من عرض تقديمي:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
+### **قيم الإرجاع لـ CheckPassword**
 
-## **استخراج خصائص عرض تقديمي مشفر**
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/checkpassword/) يرجع `true` فقط عندما يحتوي العرض التقديمي على كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. يرجع `false` في كل من الحالات التالية:
 
-عادةً، يواجه المستخدمون صعوبة في استرجاع خصائص المستند لعرض تقديمي مشفر أو محمي بكلمة مرور. ومع ذلك، يوفر Aspose.Slides آلية تسمح لك بحماية عرض تقديمي بكلمة مرور مع الحفاظ على قدرة المستخدمين على الوصول إلى خصائصه.
+- كلمة المرور غير صحيحة.
+- العرض التقديمي لا يحتوي على كلمة مرور فتح.
+- كلمة المرور المقدمة هي `null` أو فارغة.
 
-**ملاحظة:** بشكل افتراضي، عندما يقوم Aspose.Slides بتشفير عرض تقديمي، تكون خصائص مستند العرض التقديمي محمية أيضًا بكلمة مرور. إذا كنت بحاجة إلى جعل خصائص المستند متاحة حتى بعد التشفير، يتيح لك Aspose.Slides القيام بذلك بالضبط.
+السلوك نفسه ينطبق على عروض PPT و PPTX.
 
-إذا كنت ترغب في أن يحتفظ المستخدمون بقدرة الوصول إلى خصائص عرض تقديمي مشفر، يمكنك تعيين الخاصية [EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) إلى `true`. يعرض لك هذا المثال البرمجي كيفية تشفير عرض تقديمي مع إبقاء المستخدمين قادرين على الوصول إلى خصائص المستند الخاصة به:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
-}
+## **التحقق مما إذا كان العرض المحمل مشفرًا**
+
+بعد تحميل عرض تقديمي باستخدام كلمة المرور الصحيحة، افحص [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/ar/net/aspose.slides/iprotectionmanager/isencrypted/) للتحقق من أن العرض الأصلي كان مشفرًا. لاكتشاف حماية كلمة مرور الفتح قبل التحميل، استخدم `IPresentationInfo.IsPasswordProtected` كما هو موضح أعلاه.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
+## **توصيات الأمان**
 
-## **التحقق مما إذا كان العرض التقديمي محميًا بكلمة مرور**
-
-قبل تحميل عرض تقديمي، قد ترغب في التحقق من أنه لم يتم حمايته بكلمة مرور. فهذا يساعدك على تجنب الأخطاء والمشكلات المشابهة التي تحدث عندما يتم تحميل عرض تقديمي محمي بكلمة مرور دون كلمة المرور الصحيحة.
-
-تعرض لك هذه الشفرة C# كيفية فحص عرض تقديمي لمعرفة ما إذا كان محميًا بكلمة مرور دون تحميله فعليًا:
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
-
-
-## **التحقق مما إذا كان العرض التقديمي مشفرًا**
-
-يتيح لك Aspose.Slides التحقق مما إذا كان العرض التقديمي مشفرًا. للقيام بهذه المهمة، يمكنك استخدام الخاصية [IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/isencrypted)، التي تُعيد `true` إذا كان العرض التقديمي مشفرًا أو `false` إذا لم يكن كذلك.
-
-يعرض لك هذا المثال البرمجي كيفية التحقق مما إذا كان العرض التقديمي مشفرًا:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
-}
-```
-
-
-## **التحقق مما إذا كان العرض التقديمي محميًا من الكتابة**
-
-يتيح لك Aspose.Slides التحقق مما إذا كان العرض التقديمي محميًا من الكتابة. للقيام بهذه المهمة، يمكنك استخدام الخاصية [IsWriteProtected](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/iswriteprotected)، التي تُعيد `true` إذا كان العرض التقديمي محميًا من الكتابة أو `false` إذا لم يكن كذلك.
-
-يعرض لك هذا المثال البرمجي كيفية التحقق مما إذا كان العرض التقديمي محميًا من الكتابة:
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
-```
-
-
-## **التحقق من استخدام كلمة مرور للعرض التقديمي**
-
-قد ترغب في التحقق والتأكيد من أن كلمة مرور معينة قد استخدمت لحماية مستند العرض التقديمي. يوفر لك Aspose.Slides الوسيلة للتحقق من صحة كلمة المرور.
-
-يعرض لك هذا المثال البرمجي كيفية التحقق من صحة كلمة مرور:
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // التحقق مما إذا كانت كلمة المرور مطابقة.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-
-إنها تُعيد `true` إذا تم تشفير العرض التقديمي باستخدام كلمة المرور المحددة؛ وإلا تُعيد `false`.
-
-{{% alert color="primary" title="انظر أيضًا" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/ar/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+لا تقم بتسجيل كلمات مرور الفتح أو تضمينها في رسائل التشخيص. تجنّب محاولات التحقق المتكررة غير الضرورية، احتفظ بكلمات المرور في الذاكرة فقط طالما كان ذلك ضروريًا، وأعد استخدام نتيجة التحقق الناجحة عند تحميل العرض التقديمي مباشرة.
 {{% /alert %}}
 
-## **حماية عرض تقديمي بكلمة مرور على الإنترنت**
+## **حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
 
-1. انتقل إلى صفحة [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) الخاصة بنا. 
-1. انقر **اسحب أو قم بتحميل ملفاتك**.
-1. حدد الملف الذي تريد حمايته بكلمة مرور على جهازك. 
-1. أدخل كلمة المرور المفضلة للحماية من التعديل وكلمة المرور المفضلة للحماية من العرض.
-1. إذا كنت ترغب أن يرى المستخدمون العرض التقديمي كنسخة نهائية، ضع علامة على خانة **Mark as final**.
-1. انقر **PROTECT NOW.** 
-1. انقر **DOWNLOAD NOW.**
+1. افتح تطبيق [Aspose.Slides Lock](https://products.aspose.app/slides/ar/lock).
+1. اختر أو حمّل العرض التقديمي.
+1. أدخل كلمة مرور لحماية العرض.
+1. اختياريًا أدخل كلمة مرور منفصلة لحماية التعديل.
+1. طبق الحماية وحمّل الملف الناتج.
 
-![حماية عروض PowerPoint بكلمة مرور](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/ar/net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/ar/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما هي طرق التشفير المدعومة من قبل Aspose.Slides؟**
+**ما هو الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
 
-يدعم Aspose.Slides طرق تشفير حديثة، بما في ذلك الخوارزميات المستندة إلى AES، مما يضمن مستوى عالٍ من أمان البيانات لعروضك التقديمية.
+كلمة مرور الفتح تقوم بتشفير العرض التقديمي وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
 
-**ماذا يحدث إذا تم إدخال كلمة مرور غير صحيحة عند محاولة فتح عرض تقديمي؟**
+**هل يمكنني التحقق من كلمة مرور الفتح دون تحميل جميع الشرائح؟**
 
-يتم إلقاء استثناء إذا تم استخدام كلمة مرور غير صحيحة، مما يُنبهك بأن الوصول إلى العرض التقديمي مرفوض. يساعد ذلك في منع الوصول غير المصرح به ويحمي محتوى العرض التقديمي.
+نعم. احصل على معلومات العرض التقديمي، وتحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، وقم بالتحقق من كلمة المرور قبل إنشاء نسخة كاملة من العرض التقديمي.
 
-**هل هناك أي تأثيرات على الأداء عند العمل مع عروض تقديمية محمية بكلمة مرور؟**
+**هل تدعم سير عمل التحقق من كلمة المرور كل من PPT و PPTX؟**
 
-قد يضيف عملية التشفير وفك التشفير بعض الحمل البسيط أثناء عمليات الفتح والحفظ. في معظم الحالات، يكون هذا التأثير على الأداء ضئيلًا ولا يؤثر بشكل كبير على الوقت الكلي لمعالجة مهام العرض التقديمي.
+نعم. اكتشاف كلمة مرور الفتح والتحقق منها عبر مسار الملف أو التيار يعملان بنفس الطريقة لكل من عروض PPT و PPTX.

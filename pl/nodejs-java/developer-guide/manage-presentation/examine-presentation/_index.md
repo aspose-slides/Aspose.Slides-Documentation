@@ -13,30 +13,33 @@ keywords:
 - zmiana właściwości
 - modyfikacja właściwości
 - aktualizacja właściwości
-- badanie PPTX
-- badanie PPT
-- badanie ODP
+- analiza PPTX
+- analiza PPT
+- analiza ODP
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Poznaj slajdy, strukturę i metadane w prezentacjach PowerPoint i OpenDocument przy użyciu JavaScript, aby uzyskać szybsze wnioski i bardziej inteligentne audyty treści."
+description: "Poznaj slajdy, strukturę i metadane w prezentacjach PowerPoint i OpenDocument przy użyciu JavaScript, aby szybciej uzyskać informacje i przeprowadzać bardziej inteligentne audyty treści."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak przeglądać informacje o prezentacji w Aspose.Slides. Wyjaśnia, jak określić bieżący format prezentacji bez ładowania całego pliku, odczytać jej właściwości dokumentu i w razie potrzeby zaktualizować te właściwości.
+Ten artykuł pokazuje, jak przeglądać informacje o prezentacji w Aspose.Slides. Wyjaśnia, jak określić bieżący format prezentacji bez ładowania całego pliku, odczytać jej właściwości dokumentu i zaktualizować te właściwości w razie potrzeby.
 
-Przykłady oparte są na interfejsach API [PresentationInfo](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentationinfo/) i [DocumentProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/documentproperties/) i demonstrują typowe operacje pracy z metadanymi prezentacji.
+Przykłady opierają się na interfejsach API [PresentationInfo](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentationinfo/) i [DocumentProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/documentproperties/) oraz demonstrują typowe operacje pracy z metadanymi prezentacji.
 
 ## **Sprawdź format prezentacji**
 
-Przed pracą z prezentacją możesz chcieć dowiedzieć się, w jakim formacie (PPT, PPTX, ODP i innych) znajduje się prezentacja w danej chwili.
+Przed rozpoczęciem pracy z prezentacją możesz chcieć dowiedzieć się, w jakim formacie (PPT, PPTX, ODP i inne) znajduje się obecnie plik.
 
 Możesz sprawdzić format prezentacji bez jej ładowania. Zobacz ten kod JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -45,32 +48,39 @@ var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(
 console.log(info3.getLoadFormat());// ODP
 ```
 
-## **Uzyskaj właściwości prezentacji**
+## **Pobierz właściwości prezentacji**
 
-Ten kod JavaScript pokazuje, jak uzyskać właściwości prezentacji (informacje o prezentacji):
+Ten kod JavaScript pokazuje, jak pobrać właściwości prezentacji (informacje o prezentacji):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
 console.log(props.getSubject());
 console.log(props.getTitle());
-// ..
+// ...
 ```
 
-Możesz chcieć zobaczyć [właściwości w klasie DocumentProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--).
+Możesz chcieć zobaczyć [właściwości w klasie DocumentProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) .
 
 ## **Zaktualizuj właściwości prezentacji**
 
-Aspose.Slides udostępnia metodę [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), która pozwala wprowadzać zmiany w właściwościach prezentacji.
+Aspose.Slides udostępnia metodę [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), która umożliwia wprowadzanie zmian w właściwościach prezentacji.
 
-Załóżmy, że mamy prezentację PowerPoint z właściwościami dokumentu przedstawionymi poniżej.
+Załóżmy, że mamy prezentację PowerPoint z właściwościami dokumentu pokazanymi poniżej.
 
 ![Oryginalne właściwości dokumentu prezentacji PowerPoint](input_properties.png)
 
 Ten przykład kodu pokazuje, jak edytować niektóre właściwości prezentacji:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -85,16 +95,14 @@ info.writeBindedPresentation(fileName);
 
 Wyniki zmiany właściwości dokumentu przedstawiono poniżej.
 
-![Zmienione właściwości dokumentu prezentacji PowerPoint](output_properties.png)
+![Zmodyfikowane właściwości dokumentu prezentacji PowerPoint](output_properties.png)
 
 ## **Przydatne linki**
 
-Aby uzyskać więcej informacji o prezentacji i jej atrybutach bezpieczeństwa, mogą przydać się następujące linki:
+Aby uzyskać więcej informacji o prezentacji i jej atrybutach bezpieczeństwa, mogą Ci się przydać następujące linki:
 
-- [Sprawdzanie, czy prezentacja jest zaszyfrowana](https://docs.aspose.com/slides/pl/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Sprawdzanie, czy prezentacja jest chroniona przed zapisem (tylko do odczytu)](https://docs.aspose.com/slides/pl/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Sprawdzanie, czy prezentacja jest chroniona hasłem przed jej załadowaniem](https://docs.aspose.com/slides/pl/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Potwierdzanie hasła użytego do ochrony prezentacji](https://docs.aspose.com/slides/pl/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Prezentacje zabezpieczone hasłem](/slides/pl/nodejs-java/password-protected-presentation/)
+- [Prezentacje zabezpieczone przed zapisem](/slides/pl/nodejs-java/write-protected-presentation/)
 
 ## **FAQ**
 
@@ -104,16 +112,16 @@ Poszukaj [informacji o osadzonych czcionkach](https://reference.aspose.com/slide
 
 **Jak szybko stwierdzić, czy plik zawiera ukryte slajdy i ile ich jest?**
 
-Iteruj po [kolekcji slajdów](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidecollection/) i sprawdź flagę [widoczności](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/gethidden/) każdego slajdu.
+Iteruj przez [kolekcję slajdów](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidecollection/) i sprawdzaj [flagi widoczności](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/gethidden/) każdego slajdu.
 
-**Czy mogę wykryć, czy używany jest niestandardowy rozmiar i orientacja slajdu oraz czy różnią się od ustawień domyślnych?**
+**Czy mogę wykryć, czy użyto niestandardowego rozmiaru i orientacji slajdu oraz czy różnią się od wartości domyślnych?**
 
-Tak. Porównaj bieżący [rozmiar slajdu](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getslidesize/) i orientację ze standardowymi ustawieniami; pomaga to przewidzieć zachowanie przy drukowaniu i eksporcie.
+Tak. Porównaj bieżący [rozmiar slajdu](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getslidesize/) i orientację ze standardowymi ustawieniami; pomoże to przewidzieć zachowanie przy drukowaniu i eksporcie.
 
 **Czy istnieje szybki sposób, aby sprawdzić, czy wykresy odwołują się do zewnętrznych źródeł danych?**
 
-Tak. Przejdź przez wszystkie [wykresy](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/), sprawdź ich [źródło danych](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), i zauważ, czy dane są wewnętrzne czy oparte na odnośnikach, włączając ewentualne uszkodzone linki.
+Tak. Przejdź przez wszystkie [wykresy](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/), sprawdź ich [źródło danych](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) i zanotuj, czy dane są wewnętrzne, czy odwołują się do linków, włączając ewentualne uszkodzone odnośniki.
 
-**Jak mogę ocenić „ciężkie” slajdy, które mogą spowalniać renderowanie lub eksport do PDF?**
+**Jak ocenić „ciężkie” slajdy, które mogą spowolnić renderowanie lub eksport do PDF?**
 
-Dla każdego slajdu policz liczbę obiektów i poszukaj dużych obrazów, przezroczystości, cieni, animacji oraz multimediów; przydziel przybliżoną ocenę złożoności, aby oznaczyć potencjalne wąskie gardła wydajności.
+Dla każdego slajdu podlicz liczbę obiektów i wyszukaj duże obrazy, przejrzystość, cienie, animacje oraz multimedia; przydziel przybliżoną ocenę złożoności, aby oznaczyć potencjalne wąskie gardła wydajności.

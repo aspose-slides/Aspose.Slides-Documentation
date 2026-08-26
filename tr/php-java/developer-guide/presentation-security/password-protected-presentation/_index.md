@@ -1,298 +1,225 @@
 ---
-title: Parolalarla PHP'de Sunuları Güvenceye Alın
-linktitle: Şifre Koruması
+title: PHP'de Sunumları Parola ile Koruma
+linktitle: Parola Koruması
 type: docs
 weight: 20
 url: /tr/php-java/password-protected-presentation/
 keywords:
-- PowerPoint kilitle
-- sunuyu kilitle
-- PowerPoint kilidini aç
-- sununun kilidini aç
-- PowerPoint koru
-- sunuyu koru
-- parola ayarla
-- parola ekle
-- PowerPoint şifrele
-- sunuyu şifrele
-- PowerPoint şifresini çöz
-- sununun şifresini çöz
-- yazma koruması
-- PowerPoint güvenliği
-- sunum güvenliği
-- parolayı kaldır
-- korumayı kaldır
-- şifrelemeyi kaldır
-- parolayı devre dışı bırak
-- korumayı devre dışı bırak
-- yazma korumasını kaldır
+- parola korumalı sunum
+- açma parolası
+- PowerPoint şifreleme
+- PowerPoint şifre çözme
+- sunum parolasını doğrulama
+- sunum parolasını kontrol etme
+- şifreli sunumu açma
+- şifrelemeyi kaldırma
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP ile şifre korumalı PowerPoint ve OpenDocument sunularını kolayca kilitleyip açmayı öğrenin. Sunularınızı güvene alın."
+description: "PHP'de Aspose.Slides ile parola korumalı PowerPoint PPT ve PPTX sunumlarını şifreleme, algılama, doğrulama, açma ve şifre çözme."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir sunumu şifreyle koruduğunuzda, sunuma belirli kısıtlamalar getiren bir şifre belirlediğiniz anlamına gelir. Kısıtlamaları kaldırmak için şifre girilmelidir. Şifre korumalı bir sunum kilitli bir sunum olarak kabul edilir.
+Bir açma parolası bir sunumu şifreler. Sunum içeriğini yüklemek ve görüntülemek için doğru parola gereklidir; bu koruma gizliliği sağlar.
 
-Genellikle, bu kısıtlamaları bir sunuya uygulamak için bir şifre belirleyebilirsiniz:
+Açma parolası, yazma koruma parolasından farklıdır. Yazma koruması, değişikliği kısıtlar ancak içeriği şifrelemez ve sunumun yüklenmesini engellemez. Sunumları değiştirmek için parolaları yönetmek istiyorsanız, bakınız [Sunumları Yazma Koruması](/slides/tr/php-java/write-protected-presentation/).
 
-- **Değiştirme**
+Aşağıdaki iş akışı hem PPT hem de PPTX sunumları için geçerlidir. Örnekler, dosya tabanlı ve akış tabanlı davranışlarının önemli olduğu her iki formatı da kullanır.
 
-  Sadece belirli kullanıcıların sununuzu düzenlemesini istiyorsanız, bir düzenleme kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, insanların (şifreyi sağlamaları durumunda haricinde) sununuzdaki öğeleri değiştirmesini, düzenlemesini veya kopyalamasını engeller. 
+## **Açma Parolasıyla Sunumu Şifreleme**
 
-  Ancak bu durumda, şifre olmadan da bir kullanıcı belgenize erişebilir ve açabilir. Bu yalnızca okuma modunda, kullanıcı sununuzdaki içerikleri veya öğeleri—hiperlinkler, animasyonlar, efektler ve diğerleri—görebilir, ancak öğeleri kopyalayamaz veya sunuyu kaydedemez. 
+Açma parolası atamak için [ProtectionManager::encrypt](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#encrypt) kullanın. Ardından şifreli sunumu kalıcı hâle getirmek için [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) metodunu çağırın.
 
-- **Açma**
-
-  Sadece belirli kullanıcıların sununuzu açmasını istiyorsanız, bir açma kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, insanların (şifreyi sağlamaları durumunda hariç) sununuzun içeriğini bile görmesini engeller.
-
-  Teknik olarak, açma kısıtlaması aynı zamanda kullanıcıların sunularınızı düzenlemesini de engeller: İnsanlar bir sunuyu açamadıklarında, üzerinde değişiklik yapamazlar. 
-
-  **Not**: Bir sunuyu açmayı engelleyecek şekilde şifreyle koruduğunuzda, sunu dosyası şifrelenir.
-
-## **Sunuyu Çevrimiçi Şifreyle Koruma**
-
-1. [**Aspose.Slides Kilitle**](https://products.aspose.app/slides/tr/lock) sayfasına gidin.
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. **Dosyalarınızı bırakın veya yükleyin** üzerine tıklayın.
-
-3. Bilgisayarınızda şifreyle korumak istediğiniz dosyayı seçin.
-
-4. Düzenleme koruması için tercih ettiğiniz şifreyi girin; Görüntüleme koruması için tercih ettiğiniz şifreyi girin.
-
-5. Kullanıcıların sununuzu son kopya olarak görmesini istiyorsanız, **Son olarak işaretle** onay kutusunu işaretleyin.
-
-6. **PROTECT NOW.** üzerine tıklayın.
-
-7. **DOWNLOAD NOW.** üzerine tıklayın.
-
-## **Aspose.Slides'ta Sunular İçin Şifre Koruması**
-**Desteklenen formatlar**
-
-Aspose.Slides, aşağıdaki formatlardaki sunular için şifre koruması, şifreleme ve benzeri işlemleri destekler: 
-
-- PPTX ve PPT - Microsoft PowerPoint Sunumu 
-- ODP - OpenDocument Sunumu 
-- OTP - OpenDocument Sunum Şablonu 
-
-**Desteklenen işlemler**
-
-Aspose.Slides, bir sunuyu şifreleyerek veya yazma koruması ekleyerek düzenlemeleri şu şekillerde engelleyebilir:
-
-- Bir sunuyu şifreleme
-- Bir sunuya yazma koruması ayarlama
-
-**Diğer işlemler**
-
-Aspose.Slides, şifre koruması ve şifreleme ile ilgili diğer görevleri şu şekillerde gerçekleştirebilir:
-
-- Bir sununun şifresini çözme; şifrelenmiş bir sunuyu açma
-- Şifrelemeyi kaldırma; şifre korumasını devre dışı bırakma
-- Bir sunudan yazma korumasını kaldırma
-- Şifrelenmiş bir sununun özelliklerini alma
-- Bir sununun şifrelenip şifrelenmediğini kontrol etme
-- Bir sununun şifreyle korunduğunu kontrol etme.
-
-## **Bir Sunuyu Şifreleme**
-
-Bir sunuyu şifre ayarlayarak şifreleyebilirsiniz. Ardından, kilitli sunuyu değiştirmek için kullanıcının şifreyi sağlaması gerekir.
-
-Bir sunuyu şifrelemek veya şifreyle korumak için, sunuya şifre ayarlamak amacıyla encrypt metodunu ([ProtectionManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/)) kullanmanız gerekir. Şifreyi encrypt metoduna geçirirsiniz ve ardından şifrelenmiş sunuyu kaydetmek için save metodunu kullanırsınız.
-
-Bu örnek kod bir sunuyu nasıl şifreleyeceğinizi gösterir:
+Aşağıdaki örnek bir PPTX sunumunu şifreler:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->encrypt("123123");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->getProtectionManager()->encrypt("open_password");
     $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Bir Sunuya Yazma Koruması Ayarlama**
+## **Şifreli Sunumu Yükleme**
 
-Sunuya “Değiştirmeyin” ifadesi ekleyebilirsiniz. Böylece, kullanıcılara sunuyu değiştirmelerini istemediğinizi bildirebilirsiniz.  
-
-**Not**: Yazma koruma işlemi sunuyu şifrelemez. Bu nedenle, kullanıcılar—gerçekten isterlerse—sunuyu değiştirebilir, ancak değişiklikleri kaydetmek için farklı bir adla yeni bir sunu oluşturmak zorundadır. 
-
-Bir sunuya yazma koruması ayarlamak için [setWriteProtection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#setWriteProtection) metodunu kullanmanız gerekir. Bu örnek kod bir sunuya yazma koruması nasıl ayarlanacağını gösterir:
+Açma parolasını [LoadOptions::setPassword](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setPassword) ile ayarlayın ve dosyayı yüklerken seçenekleri [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) nesnesine geçirin. Bir açma parolası gerekli olduğunda fakat sağlanan parola eksik ya da hatalıysa yükleme başarısız olur.
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    # Şifre çözülmüş sunumla çalışın.
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Şifrelenmiş Bir Sunu Yükleme**
+## **Sunumdan Şifrelemeyi Kaldırma**
 
-Aspose.Slides, şifresini girerek şifreli bir dosyayı yüklemenize olanak tanır. Bir sununun şifresini çözmek için [removeEncryption](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#removeEncryption) metodunu parametresiz olarak çağırmanız gerekir. Daha sonra sunuyu yüklemek için doğru şifreyi girmeniz gerekir.
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # şifre çözülmüş sunuyla çalış
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Bir Sunudan Şifrelemeyi Kaldırma**
-
-Bir sunudaki şifreleme veya şifre korumasını kaldırabilirsiniz. Böylece, kullanıcılar sunuya sınırsız erişebilir veya değiştirebilir.
-
-Şifrelemeyi veya şifre korumasını kaldırmak için [removeEncryption](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#removeEncryption) metodunu çağırmanız gerekir. Bu örnek kod bir sunudan şifrelemenin nasıl kaldırılacağını gösterir:
+Sunumu açma parolasıyla yükleyin, [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#removeEncryption) metodunu çağırın ve sonucu kaydedin. Kaydedilen sunum artık parola olmadan yüklenebilir.
 
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $presentation->getProtectionManager()->removeEncryption();
     $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Yüklemeden Önce Açma Parolasını Doğrulama**
+
+Tam bir sunum örneği oluşturmadan [PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/) elde etmek için [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/#getPresentationInfo) kullanın. Parola talep etmeden veya doğrulamadan önce [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#isPasswordProtected) kontrol edin. Koruma mevcutsa, sağlanan değeri [PresentationInfo::checkPassword](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#checkPassword) ile doğrulayın.
+
+### **Dosya Yolu İş Akışı**
+
+Aşağıdaki örnek bir PPTX dosyası için açma parolasını doğrular, doğrulanan değeri [LoadOptions::setPassword](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setPassword) metoduna geçirir ve ardından tam sunumu yükler:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$filePath = "protected-presentation.pptx";
+$password = "open_password";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+
+if (!$presentationInfo->isPasswordProtected()) {
+    echo("The presentation does not have an opening password.\n");
+} elseif (!$presentationInfo->checkPassword($password)) {
+    echo("The opening password is incorrect.\n");
+} else {
+    $loadOptions = new LoadOptions();
+    $loadOptions->setPassword($password);
+
+    $presentation = new Presentation($filePath, $loadOptions);
+    try {
+        echo("The presentation was validated and loaded successfully.\n");
+    } finally {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Bir Sunudan Yazma Korumasını Kaldırma**
+### **Akış İş Akışı**
 
-Aspose.Slides'ı kullanarak bir sunu dosyasındaki yazma korumasını kaldırabilirsiniz. Böylece, kullanıcılar istedikleri gibi değişiklik yapabilir ve bu işlemlerde uyarı almazlar.
+[PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/#getPresentationInfo) akış aşırı yüklemesi aynı iş akışını sağlar. Tam sunumu bu akıştan yüklemeden önce, aranabilir bir akışın konumunu sıfırlayın.
 
-Bir sunudan yazma korumasını kaldırmak için [removeWriteProtection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#removeWriteProtection) metodunu kullanabilirsiniz. Bu örnek kod bir sunudan yazma korumasının nasıl kaldırılacağını gösterir:
+Aşağıdaki örnek bir PPT dosyası kullanır:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$password = "open_password";
+
+$presentationStream = new Java("java.io.FileInputStream", "protected-presentation.ppt");
+try {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($presentationStream);
+
+    if (!$presentationInfo->isPasswordProtected()) {
+        echo("The presentation does not have an opening password.\n");
+    } elseif (!$presentationInfo->checkPassword($password)) {
+        echo("The opening password is incorrect.\n");
+    } else {
+        $presentationStream->getChannel()->position(0);
+
+        $loadOptions = new LoadOptions();
+        $loadOptions->setPassword($password);
+
+        $presentation = new Presentation($presentationStream, $loadOptions);
+        try {
+            echo("The presentation was validated and loaded successfully.\n");
+        } finally {
+            $presentation->dispose();
+        }
     }
-  }
+} finally {
+    $presentationStream->close();
+}
 ```
 
-## **Şifrelenmiş Bir Sununun Özelliklerini Alma**
+### **checkPassword Dönüş Değerleri**
 
-Genellikle, kullanıcılar şifrelenmiş veya şifreyle korunan bir sununun belge özelliklerini almada zorlanırlar. Ancak Aspose.Slides, bir sunuyu şifreyle korurken kullanıcıların bu sununun özelliklerine erişebilmesini sağlayan bir mekanizma sunar.
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#checkPassword) sadece sunumun bir açma parolası olduğu ve sağlanan parola doğru olduğunda `true` döndürür. Aşağıdaki durumlarda `false` döner:
 
-**Not**: Aspose.Slides bir sunuyu şifrelediğinde, sununun belge özellikleri de varsayılan olarak şifreyle korunur. Ancak sununun özelliklerini (sunucu şifrelendikten sonra bile) erişilebilir kılmanız gerekiyorsa, Aspose.Slides bunu yapmanızı sağlar. 
+- Parola yanlıştır.
+- Sunumun bir açma parolası yoktur.
+- Sağlanan parola `null` veya boştur.
 
-Şifrelediğiniz bir sununun özelliklerine erişim yetisini kullanıcıların koruması için, `true` değeriyle [encryptDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#getEncryptDocumentProperties) metodunu kullanabilirsiniz. Bu örnek kod, kullanıcıların belge özelliklerine erişebilmesini sağlayarak bir sunuyu nasıl şifreleyeceğinizi gösterir:
+Davranış PPT ve PPTX sunumları için aynıdır.
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setEncryptDocumentProperties(true);
-    $presentation->getProtectionManager()->encrypt("123123");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+## **Yüklenen Sunumun Şifreli Olup Olmadığını Kontrol Etme**
 
-## **Bir Sununun Şifreyle Korunduğunu Kontrol Etme**
-
-Bir sunuyu yüklemeden önce, sununun şifreyle korunup korunmadığını kontrol edip doğrulamak isteyebilirsiniz. Bu sayede, şifreli bir sunu şifresi olmadan yüklendiğinde ortaya çıkabilecek hataları ve benzer sorunları önleyebilirsiniz.
-
-Bu PHP kodu, sunuyu (kendisini yüklemeden) şifreyle korunup korunmadığını incelemenizi gösterir:
+Doğru parola ile bir sunum yükledikten sonra, kaynağın şifreli olduğunu teyit etmek için [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#isEncrypted) incelenir. Yüklemeden önce açma‑parola korumasını tespit etmek için yukarıda gösterildiği gibi [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#isPasswordProtected) kullanın.
 
 ```php
-  $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-```
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
 
-## **Bir Sununun Şifrelenip Şifrelenmediğini Kontrol Etme**
-
-Aspose.Slides bir sununun şifrelenip şifrelenmediğini kontrol etmenizi sağlar. Bu işlemi yapmak için [isEncrypted](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#isEncrypted) metodunu kullanabilirsiniz; bu metod sunu şifrelenmişse `true`, şifrelenmemişse `false` döndürür.
-
-Bu örnek kod bir sununun şifreli olup olmadığını nasıl kontrol edeceğinizi gösterir:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    echo("The presentation is encrypted: " . ($isEncrypted ? "true" : "false") . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Bir Sununun Yazma Koruması Olduğunu Kontrol Etme**
+## **Güvenlik Önerileri**
 
-Aspose.Slides bir sununun yazma koruması olup olmadığını kontrol etmenizi sağlar. Bu işlemi yapmak için [isWriteProtected](https://reference.aspose.com/slides/tr/php-java/aspose.slides/protectionmanager/#isWriteProtected) metodunu kullanabilirsiniz; bu metod sunu yazma korumalıysa `true`, değilse `false` döndürür.
+{{% alert color="warning" title="Güvenlik" %}}
+Açma parolalarını günlüğe kaydetmeyin veya tanı mesajlarında bulundurmayın. Gereksiz tekrarlanan doğrulama girişimlerinden kaçının, parolaları yalnızca gerektiği sürece bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+{{% /alert %}}
 
-Bu örnek kod bir sununun yazma korumalı olup olmadığını nasıl kontrol edeceğinizi gösterir:
+## **Sunumu Çevrimiçi Parola ile Koruma**
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/tr/lock) uygulamasını açın.
+2. Sunumu seçin veya yükleyin.
+3. Görüntüleme koruması için bir parola girin.
+4. İsteğe bağlı olarak düzenleme koruması için ayrı bir parola girin.
+5. Koruma uygulayın ve ortaya çıkan dosyayı indirin.
 
-## **Belirli Bir Şifrenin Kullanıldığını Doğrulama veya Onaylama**
-
-Bir sunu belgesini korumak için belirli bir şifrenin kullanıldığını kontrol edip onaylamak isteyebilirsiniz. Aspose.Slides, bir şifreyi doğrulamanız için gerekli yöntemi sunar. 
-
-Bu örnek kod bir şifreyi nasıl doğrulayacağınızı gösterir:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    # "pass" ile eşleşip eşleşmediğini kontrol et
-    $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-Belirtilen şifreyle şifrelenmişse `true` döndürür; aksi takdirde `false` döndürür. 
-
-{{% alert color="primary" title="Ayrıca bakınız" %}} 
-- [PowerPoint'ta Dijital İmza](/slides/tr/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Ayrıca Bakınız" %}}
+- [Sunumları Yazma Koruması](/slides/tr/php-java/write-protected-presentation/)
+- [PowerPoint’te Dijital İmza](/slides/tr/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **SSS**
 
-**Aspose.Slides tarafından hangi şifreleme yöntemleri destekleniyor?**
+**Açma parolası ile yazma koruma parolası arasındaki fark nedir?**
 
-Aspose.Slides, AES tabanlı algoritmalar dahil olmak üzere modern şifreleme yöntemlerini destekler ve sunularınız için yüksek veri güvenliği sağlar.
+Açma parolası sunumu şifreler ve içeriğini yüklemek için gereklidir. Yazma koruma parolası, içeriği şifrelemeden değişikliği sınırlar.
 
-**Bir sunuyu açmaya çalışırken yanlış bir şifre girilirse ne olur?**
+**Tüm slaytları yüklemeden açma parolasını doğrulayabilir miyim?**
 
-Yanlış bir şifre kullanıldığında bir istisna fırlatılır ve sunuya erişimin reddedildiği konusunda sizi uyarır. Bu, yetkisiz erişimi önlemeye ve sunu içeriğini korumaya yardımcı olur.
+Evet. Sunum bilgilerini alın, açma‑parola korumasının varlığını kontrol edin ve tam bir sunum örneği oluşturmadan önce parolayı doğrulayın.
 
-**Şifre korumalı sunularla çalışırken performans açısından herhangi bir etkisi var mı?**
+**Parola‑kontrol iş akışları hem PPT hem de PPTX için destekleniyor mu?**
 
-Şifreleme ve şifre çözme işlemleri, açma ve kaydetme sırasında hafif bir ek yük oluşturabilir. Çoğu durumda bu performans etkisi minimaldir ve sunu görevlerinizin genel işleme süresine önemli ölçüde etki etmez.
+Evet. Dosya‑yolu ve akış‑tabanlı parola tespiti ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.

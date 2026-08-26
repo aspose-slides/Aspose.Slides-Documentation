@@ -1,6 +1,6 @@
 ---
-title: Ανάκτηση και Ενημέρωση Πληροφοριών Παρουσίασης σε Java
-linktitle: Πληροφορίες Παρουσίασης
+title: Ανάκτηση και ενημέρωση πληροφοριών παρουσίασης σε Java
+linktitle: Πληροφορίες παρουσίασης
 type: docs
 weight: 30
 url: /el/java/examine-presentation/
@@ -21,13 +21,13 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Εξερευνήστε διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Java για ταχύτερη ανάλυση και πιο έξυπνους ελέγχους περιεχομένου."
+description: "Εξερευνήστε διαφάνειες, δομή και μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Java για ταχύτερη κατανόηση και πιο έξυπνες αξιολογήσεις περιεχομένου."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να εξετάζετε πληροφορίες παρουσίασης στο Aspose.Slides. Εξηγεί πώς να καθορίζετε την τρέχουσα μορφή μιας παρουσίασης χωρίς να φορτώνετε ολόκληρο το αρχείο, να διαβάζετε τις ιδιότητες εγγράφου της και να ενημερώνετε αυτές τις ιδιότητες όταν χρειάζεται.
+Αυτό το άρθρο δείχνει πώς να ελέγξετε τις πληροφορίες παρουσίασης στο Aspose.Slides. Εξηγεί πώς να προσδιορίσετε τη τρέχουσα μορφή μιας παρουσίασης χωρίς να φορτώσετε ολόκληρο το αρχείο, να διαβάσετε τις ιδιότητες του εγγράφου της και να ενημερώσετε αυτές τις ιδιότητες όταν χρειάζεται.
 
-Τα παραδείγματα βασίζονται στα APIs [PresentationInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationinfo/) και [DocumentProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/documentproperties/) και δείχνουν τυπικές λειτουργίες για εργασία με μεταδεδομένα παρουσίασης.
+Τα παραδείγματα βασίζονται στα API [PresentationInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationinfo/) και [DocumentProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/documentproperties/) και δείχνουν τυπικές λειτουργίες για εργασία με μεταδεδομένα παρουσίασης.
 
 ## **Έλεγχος μορφής παρουσίασης**
 
@@ -36,6 +36,8 @@ description: "Εξερευνήστε διαφάνειες, τη δομή και 
 Μπορείτε να ελέγξετε τη μορφή μιας παρουσίασης χωρίς να τη φορτώσετε. Δείτε αυτόν τον κώδικα Java:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -48,15 +50,17 @@ System.out.println(info3.getLoadFormat()); // ODP
 
 ## **Λήψη ιδιοτήτων παρουσίασης**
 
-Αυτός ο κώδικας Java σας δείχνει πώς να λάβετε τις ιδιότητες της παρουσίασης (πληροφορίες σχετικά με την παρουσίαση):
+Αυτός ο κώδικας Java σας δείχνει πώς να λάβετε τις ιδιότητες της παρουσίασης (πληροφορίες για την παρουσίαση):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ..
+// …
 ```
 
 Ίσως θέλετε να δείτε τις [ιδιότητες στην κλάση DocumentProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/documentproperties/#DocumentProperties--) .
@@ -65,13 +69,16 @@ System.out.println(props.getTitle());
 
 Το Aspose.Slides παρέχει τη μέθοδο [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) που σας επιτρέπει να κάνετε αλλαγές στις ιδιότητες της παρουσίασης.
 
-Ας υποθέσουμε ότι έχουμε μια παρουσίαση PowerPoint με τις ιδιότητες εγγράφου όπως φαίνονται παρακάτω.
+Ας υποθέσουμε ότι έχουμε μια παρουσίαση PowerPoint με τις ιδιότητες εγγράφου που εμφανίζονται παρακάτω.
 
 ![Αρχικές ιδιότητες εγγράφου της παρουσίασης PowerPoint](input_properties.png)
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να επεξεργαστείτε κάποιες ιδιότητες της παρουσίασης:
+Αυτό το παράδειγμα κώδικα σας δείχνει πώς να επεξεργαστείτε ορισμένες ιδιότητες παρουσίασης:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -90,31 +97,29 @@ info.writeBindedPresentation(fileName);
 
 ## **Χρήσιμοι σύνδεσμοι**
 
-Για να λάβετε περισσότερες πληροφορίες σχετικά με μια παρουσίαση και τα χαρακτηριστικά ασφαλείας της, αυτά τα συνδέσμους μπορεί να βρείτε χρήσιμα:
+Για να λάβετε περισσότερες πληροφορίες σχετικά με μια παρουσίαση και τα χαρακτηριστικά ασφαλείας της, μπορεί να βρείτε χρήσιμους αυτούς συνδέσμους:
 
-- [Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη](https://docs.aspose.com/slides/el/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Έλεγχος εάν μια παρουσίαση είναι προστατευμένη από εγγραφή (μόνο ανάγνωση)](https://docs.aspose.com/slides/el/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό πριν τη φόρτωση](https://docs.aspose.com/slides/el/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Επιβεβαίωση του κωδικού που χρησιμοποιήθηκε για την προστασία μιας παρουσίασης](https://docs.aspose.com/slides/el/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Πρόσβαση με κωδικό στις παρουσιάσεις](/slides/el/java/password-protected-presentation/)
+- [Προστασία εγγραφής παρουσιάσεων](/slides/el/java/write-protected-presentation/)
 
 ## **Συχνές ερωτήσεις**
 
 **Πώς μπορώ να ελέγξω αν οι γραμματοσειρές είναι ενσωματωμένες και ποιες είναι;**
 
-Αναζητήστε τις [πληροφορίες ενσωματωμένων γραμματοσειρών](https://reference.aspose.com/slides/el/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) στο επίπεδο της παρουσίασης, στη συνέχεια συγκρίνετε αυτές τις εγγραφές με το σύνολο των [γραφμάτων που χρησιμοποιούνται πραγματικά στο περιεχόμενο](https://reference.aspose.com/slides/el/java/com.aspose.slides/fontsmanager/#getFonts--) για να προσδιορίσετε ποιες γραμματοσειρές είναι κρίσιμες για την απόδοση.
+Αναζητήστε τις [πληροφορίες ενσωματωμένων γραμματοσειρών](https://reference.aspose.com/slides/el/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) στο επίπεδο της παρουσίασης, έπειτα συγκρίνετε αυτές τις καταγραφές με το σύνολο των [πραγματικά χρησιμοποιούμενων γραμματοσειρών στο περιεχόμενο](https://reference.aspose.com/slides/el/java/com.aspose.slides/fontsmanager/#getFonts--) για να εντοπίσετε ποιες γραμματοσειρές είναι κρίσιμες για την απόδοση.
 
-**Πώς μπορώ γρήγορα να διαπιστώ αν το αρχείο έχει κρυφές διαφάνειες και πόσες;**
+**Πώς μπορώ γρήγορα να διαπιστώ αν το αρχείο περιέχει κρυφές διαφάνειες και πόσες;**
 
-Περιηγηθείτε στη [συλλογή διαφανειών](https://reference.aspose.com/slides/el/java/com.aspose.slides/slidecollection/) και ελέγξτε τη [σημαία ορατότητας](https://reference.aspose.com/slides/el/java/com.aspose.slides/slide/#getHidden--) κάθε διαφάνειας.
+Διέξτε τη [συλλογή διαφανειών](https://reference.aspose.com/slides/el/java/com.aspose.slides/slidecollection/) και ελέγξτε τη [σημαία ορατότητας](https://reference.aspose.com/slides/el/java/com.aspose.slides/slide/#getHidden--) κάθε διαφάνειας.
 
-**Μπορώ να εντοπίσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας, και αν διαφέρουν από τις προεπιλογές;**
+**Μπορώ να ανιχνεύσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος διαφάνειας και προσανατολισμός, και αν διαφέρουν από τις προεπιλογές;**
 
-Ναι. Συγκρίνετε το τρέχον [μέγεθος διαφάνειας](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getSlideSize--) και προσανατολισμό με τις τυπικές προεπιλογές· αυτό βοηθά στην πρόβλεψη της συμπεριφοράς για εκτύπωση και εξαγωγή.
+Ναι. Συγκρίνετε το τρέχον [μέγεθος διαφάνειας](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getSlideSize--) και προσανατολισμό με τις τυπικές προρυθμίσεις· αυτό βοηθά στην πρόβλεψη της συμπεριφοράς κατά την εκτύπωση και την εξαγωγή.
 
-**Υπάρχει γρήγορος τρόπος να διαπιστώ αν τα γραφήματα παραπέμπουν σε εξωτερικές πηγές δεδομένων;**
+**Υπάρχει ένας γρήγορος τρόπος να δω αν τα γραφήματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
 
-Ναι. Διασχίστε όλα τα [γράφηματα](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/), ελέγξτε την [πηγή δεδομένων](https://reference.aspose.com/slides/el/java/com.aspose.slides/chartdata/#getDataSourceType--) τους και σημειώστε αν τα δεδομένα είναι εσωτερικά ή βασισμένα σε σύνδεσμο, συμπεριλαμβανομένων τυχόν σπασμένων συνδέσμων.
+Ναι. Διέλθετε όλα τα [γραφήματα](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/), ελέγξτε την [πηγή δεδομένων](https://reference.aspose.com/slides/el/java/com.aspose.slides/chartdata/#getDataSourceType--) και σημειώστε αν τα δεδομένα είναι εσωτερικά ή βασισμένα σε σύνδεσμο, συμπεριλαμβανομένων τυχόν σπασμένων συνδέσμων.
 
-**Πώς μπορώ να αξιολογήσω τις «βαριές» διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή σε PDF;**
+**Πώς μπορώ να αξιολογήσω τις «βαριές» διαφάνειες που μπορεί να καθυστερούν την απόδοση ή την εξαγωγή σε PDF;**
 
-Για κάθε διαφάνεια, καταμετρήστε τα αντικείμενα και ψάξτε για μεγάλες εικόνες, διαφάνειες, σκιές, κινούμενα εφέ και πολυμέσα· εκχωρήστε μια ενδεικτική βαθμολογία πολυπλοκότητας για να επισημάνετε πιθανά σημεία συμφόρησης απόδοσης.
+Για κάθε διαφάνεια, μετρήστε τον αριθμό αντικειμένων και ψάξτε για μεγάλες εικόνες, διαφάνεια, σκιές, εφέ κίνησης και πολυμέσα· αποδώστε έναν κατά προσέγγιση δείκτη πολυπλοκότητας για να επισημάνετε πιθανά κρίσιμα σημεία απόδοσης.

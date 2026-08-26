@@ -1,264 +1,186 @@
 ---
-title: Presentaties beveiligen met wachtwoorden met Python
+title: Presentaties met wachtwoord beveiligen in Python
 linktitle: Wachtwoordbeveiliging
 type: docs
 weight: 20
 url: /nl/python-net/password-protected-presentation/
 keywords:
-- PowerPoint vergrendelen
-- presentatie vergrendelen
-- PowerPoint ontgrendelen
-- presentatie ontgrendelen
-- PowerPoint beschermen
-- presentatie beschermen
-- wachtwoord instellen
-- wachtwoord toevoegen
+- wachtwoordbeveiligde presentatie
+- openingswachtwoord
 - PowerPoint versleutelen
-- presentatie versleutelen
 - PowerPoint ontsleutelen
-- presentatie ontsleutelen
-- schrijfbescherming
-- PowerPoint-beveiliging
-- presentatiebeveiliging
-- wachtwoord verwijderen
-- beveiliging verwijderen
+- presentatiewachtwoord valideren
+- presentatiewachtwoord controleren
+- versleutelde presentatie openen
 - versleuteling verwijderen
-- wachtwoord uitschakelen
-- beveiliging uitschakelen
-- schrijfbescherming verwijderen
-- PowerPoint-presentatie
+- PowerPoint
+- PPT
+- PPTX
+- presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u moeiteloos PowerPoint- en OpenDocument-presentaties met wachtwoordbeveiliging kunt vergrendelen en ontgrendelen met Aspose.Slides voor Python via .NET. Verhoog uw productiviteit en beveilig uw presentaties met onze stapsgewijze handleiding."
+description: "Versleutel, detecteer, valideer, open en ontsleutel wachtwoordbeveiligde PowerPoint PPT- en PPTX-presentaties in Python met Aspose.Slides."
 ---
-## **Introductie**
+## **Overzicht**
 
-Wanneer je een presentatie met een wachtwoord beveiligt, stel je een wachtwoord in dat bepaalde beperkingen op de presentatie afdwingt. Om de beperkingen te verwijderen, moet het wachtwoord worden ingevoerd. Een met wachtwoord beveiligde presentatie wordt beschouwd als een vergrendelde presentatie.
+Een openingswachtwoord versleutelt een presentatie. Het juiste wachtwoord is vereist om de presentatie‑inhoud te laden en te bekijken, waardoor deze bescherming vertrouwelijkheid biedt.
 
-Typisch kun je een wachtwoord instellen om deze beperkingen op een presentatie af te dwingen:
+Een openingswachtwoord verschilt van een schrijfbeveiligingswachtwoord. Schrijfbeveiliging beperkt modificatie maar versleutelt de inhoud niet en verhindert niet dat de presentatie wordt geladen. Voor het beheren van wachtwoorden om presentaties te wijzigen, zie [Presentaties met schrijfbescherming](/slides/nl/python-net/write-protected-presentation/).
 
-- **Wijziging**
+De workflows hieronder zijn van toepassing op zowel PPT‑ als PPTX‑presentaties. De voorbeelden gebruiken beide formaten wanneer hun bestand‑gebaseerde en stream‑gebaseerde gedrag belangrijk is.
 
-  Als je wilt dat alleen bepaalde gebruikers je presentatie mogen wijzigen, kun je een wijzigingsbeperking instellen. Deze beperking voorkomt dat mensen de inhoud van je presentatie aanpassen, wijzigen of kopiëren (tenzij ze het wachtwoord invoeren). 
+## **Een presentatie versleutelen met een openingswachtwoord**
 
-  In dit geval kan een gebruiker echter, zelfs zonder wachtwoord, het document openen. In deze alleen-lezen modus kan de gebruiker de inhoud of elementen—hyperlinks, animaties, effecten, enz.—in je presentatie bekijken, maar hij/zij kan geen items kopiëren of de presentatie opslaan. 
+Gebruik [ProtectionManager.encrypt](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/encrypt/) om een openingswachtwoord toe te wijzen. Gebruik vervolgens [Presentation.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/save/) om de versleutelde presentatie op te slaan.
 
-- **Openen**
-
-  Als je wilt dat alleen bepaalde gebruikers je presentatie mogen openen, kun je een openingsbeperking instellen. Deze beperking voorkomt dat mensen de inhoud van je presentatie kunnen bekijken (tenzij ze het wachtwoord invoeren).
-
-  Technisch gezien voorkomt de openingsbeperking ook dat gebruikers je presentaties wijzigen: wanneer mensen een presentatie niet kunnen openen, kunnen ze deze ook niet aanpassen. 
-  
-  **Opmerking** dat wanneer je een presentatie met een wachtwoord beveiligt om openen te voorkomen, het presentatiebestand wordt versleuteld.
-
-## Hoe een presentatie online met wachtwoord beveiligen
-
-1. Ga naar onze [**Aspose.Slides Lock**](https://products.aspose.app/slides/nl/lock) pagina. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klik op **Drop of upload your files**.
-
-3. Selecteer het bestand dat je op je computer wilt beveiligen met een wachtwoord. 
-
-4. Voer je gewenste wachtwoord in voor bewerkingsbeveiliging; voer je gewenste wachtwoord in voor weergavebeveiliging. 
-
-5. Als je wilt dat gebruikers je presentatie zien als het definitieve exemplaar, vink dan het selectievakje **Mark as final** aan.
-
-6. Klik op **PROTECT NOW.** 
-
-7. Klik op **DOWNLOAD NOW.**
-
-## **Wachtwoordbeveiliging voor presentaties in Aspose.Slides**
-**Ondersteunde formaten**
-
-Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en vergelijkbare bewerkingen voor presentaties in de volgende formaten: 
-
-- PPTX en PPT - Microsoft PowerPoint-presentatie 
-- ODP - OpenDocument-presentatie 
-- OTP - OpenDocument-presentatiesjabloon 
-
-**Ondersteunde bewerkingen**
-
-Aspose.Slides stelt je in staat om wachtwoordbeveiliging op presentaties toe te passen om wijzigingen te voorkomen op de volgende manieren:
-
-- Een presentatie versleutelen
-- Schrijfbescherming instellen voor een presentatie
-
-**Andere bewerkingen**
-
-Aspose.Slides maakt het mogelijk om andere taken met betrekking tot wachtwoordbeveiliging en versleuteling uit te voeren op de volgende manieren:
-
-- Een presentatie ontsleutelen; een versleutelde presentatie openen
-- Versleuteling verwijderen; wachtwoordbeveiliging uitschakelen
-- Schrijfbescherming van een presentatie verwijderen
-- De eigenschappen van een versleutelde presentatie ophalen
-- Controleren of een presentatie versleuteld is
-- Controleren of een presentatie met een wachtwoord is beveiligd.
-
-## **Een presentatie versleutelen**
-
-Je kunt een presentatie versleutelen door een wachtwoord in te stellen. Om vervolgens de vergrendelde presentatie te wijzigen, moet een gebruiker het wachtwoord invoeren. 
-
-Om een presentatie te versleutelen of met een wachtwoord te beveiligen, moet je de `encrypt`‑methode (van [ProtectionManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/)) gebruiken om een wachtwoord voor de presentatie in te stellen. Je geeft het wachtwoord door aan de `encrypt`‑methode en gebruikt vervolgens de `save`‑methode om de nu versleutelde presentatie op te slaan. 
-
-De volgende voorbeeldcode laat zien hoe je een presentatie versleutelt:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Schrijfbescherming instellen voor een presentatie** 
-
-Je kunt een markering “Niet wijzigen” aan een presentatie toevoegen. Op deze manier kun je gebruikers duidelijk maken dat je niet wilt dat ze wijzigingen aanbrengen in de presentatie.  
-
-**Opmerking** dat het proces van schrijfbescherming de presentatie niet versleutelt. Gebruikers kunnen – indien ze dat willen – de presentatie wijzigen, maar om de wijzigingen op te slaan moeten ze een presentatie met een andere naam opslaan. 
-
-Om een schrijfbescherming in te stellen, moet je de `setWriteProtection`‑methode gebruiken. Deze voorbeeldcode laat zien hoe je een schrijfbescherming voor een presentatie instelt:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Een presentatie ontsleutelen; een versleutelde presentatie openen**
-
-Aspose.Slides maakt het mogelijk om een versleuteld bestand te laden door het wachtwoord door te geven. Om een presentatie te ontsleutelen, moet je de [remove_encryption](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/)‑methode zonder parameters aanroepen. Vervolgens moet je het juiste wachtwoord invoeren om de presentatie te laden. 
-
-De volgende voorbeeldcode laat zien hoe je een presentatie ontsleutelt: 
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-## **Versleuteling verwijderen; wachtwoordbeveiliging uitschakelen**
-
-Je kunt de versleuteling of wachtwoordbeveiliging van een presentatie verwijderen. Op deze manier kunnen gebruikers de presentatie zonder beperkingen openen of wijzigen. 
-
-Om de versleuteling of wachtwoordbeveiliging te verwijderen, moet je de [remove_encryption](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/)‑methode aanroepen. Deze voorbeeldcode laat zien hoe je de versleuteling van een presentatie verwijdert:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Schrijfbescherming van een presentatie verwijderen**
-
-Je kunt met Aspose.Slides de schrijfbescherming van een presentatietbestand verwijderen. Op deze manier kunnen gebruikers de presentatie naar wens wijzigen en krijgen ze geen waarschuwingen meer bij dergelijke handelingen.
-
-Je kunt de schrijfbescherming van een presentatie verwijderen met de [remove_write_protection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/)‑methode. Deze voorbeeldcode laat zien hoe je de schrijfbescherming van een presentatie verwijdert:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **De eigenschappen van een versleutelde presentatie ophalen**
-
-Gebruikers hebben vaak moeite om de documenteigenschappen van een versleutelde of met een wachtwoord beveiligde presentatie op te halen. Aspose.Slides biedt echter een mechanisme waarmee je een presentatie kunt beveiligen met een wachtwoord terwijl je de mogelijkheid behoudt voor gebruikers om de eigenschappen van die presentatie te bekijken.
-
-**Opmerking** dat wanneer Aspose.Slides een presentatie versleutelt, de documenteigenschappen van de presentatie standaard ook met een wachtwoord worden beveiligd. Als je echter wilt dat de eigenschappen van de presentatie toegankelijk blijven (zelfs nadat de presentatie is versleuteld), biedt Aspose.Slides precies die mogelijkheid. 
-
-Als je wilt dat gebruikers de mogelijkheid behouden om de eigenschappen van een door jou versleutelde presentatie te bekijken, kun je de eigenschap [EncryptDocumentProperties](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/) instellen op `True`. Deze voorbeeldcode laat zien hoe je een presentatie versleutelt en tegelijkertijd de toegang tot de documenteigenschappen mogelijk maakt:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
-    pres.protection_manager.encrypt("123123")
-```
-
-## **Controleren of een presentatie met een wachtwoord is beveiligd voordat deze wordt geladen**
-
-Voordat je een presentatie laadt, wil je mogelijk controleren of de presentatie niet met een wachtwoord is beveiligd. Op deze manier kun je fouten en soortgelijke problemen vermijden, die optreden wanneer een met een wachtwoord beveiligde presentatie zonder wachtwoord wordt geladen.
-
-Deze Python‑code laat zien hoe je een presentatie kunt onderzoeken om te bepalen of deze met een wachtwoord is beveiligd (zonder de presentatie zelf te laden):
+Het volgende voorbeeld versleutelt een PPTX‑presentatie:
 
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Controleren of een presentatie versleuteld is**
+## **Een versleutelde presentatie laden**
 
-Aspose.Slides maakt het mogelijk om te controleren of een presentatie versleuteld is. Om deze taak uit te voeren, kun je de eigenschap [is_encrypted](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/) gebruiken, die `True` retourneert als de presentatie versleuteld is of `False` als de presentatie niet versleuteld is. 
+Stel [LoadOptions.password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/password/) in op het openingswachtwoord en geef de opties door aan [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) bij het laden van het bestand. Het laden mislukt wanneer een openingswachtwoord vereist is maar het opgegeven wachtwoord ontbreekt of onjuist is.
 
-Deze voorbeeldcode laat zien hoe je kunt controleren of een presentatie versleuteld is:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # Werken met de ontcijferde presentatie.
+    pass
 ```
 
-## **Controleren of een presentatie schrijfbeschermd is**
+## **Versleuteling van een presentatie verwijderen**
 
-Aspose.Slides maakt het mogelijk om te controleren of een presentatie schrijfbeschermd is. Om deze taak uit te voeren, kun je de eigenschap [is_write_protected](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/) gebruiken, die `True` retourneert als de presentatie versleuteld is of `False` als de presentatie niet versleuteld is. 
+Laad de presentatie met het bijbehorende openingswachtwoord, roep [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/remove_encryption/) aan en sla het resultaat op. De opgeslagen presentatie kan vervolgens zonder wachtwoord worden geladen.
 
-Deze voorbeeldcode laat zien hoe je kunt controleren of een presentatie schrijfbeschermd is:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Valideren of bevestigen dat een specifiek wachtwoord is gebruikt om een presentatie te beveiligen**
+## **Een openingswachtwoord valideren voordat geladen wordt**
 
-Je wilt misschien nagaan en bevestigen dat een specifiek wachtwoord is gebruikt om een presentatiedocument te beveiligen. Aspose.Slides biedt de mogelijkheid om een wachtwoord te valideren. 
+Gebruik [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentationfactory/get_presentation_info/) om [PresentationInfo](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentationinfo/) te verkrijgen zonder een volledige presentatiefunctie te maken. Controleer [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentationinfo/is_password_protected/) voordat een wachtwoord wordt aangevraagd of gevalideerd. Wanneer bescherming aanwezig is, valideer de opgegeven waarde met [PresentationInfo.check_password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentationinfo/check_password/).
 
-Deze voorbeeldcode laat zien hoe je een wachtwoord valideert:
+### **Bestandspad‑workflow**
 
-```py
+Het volgende voorbeeld valideert een openingswachtwoord voor een PPTX‑bestand, geeft de gevalideerde waarde door aan [LoadOptions.password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/password/), en laadt vervolgens de volledige presentatie:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # controleer of "pass" overeenkomt met
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
-Hij retourneert `True` als de presentatie is versleuteld met het opgegeven wachtwoord. Anders retourneert hij `False`. 
+### **Stream‑workflow**
 
-{{% alert color="primary" title="Zie ook" %}} 
+De stream‑overload van [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentationfactory/get_presentation_info/) biedt dezelfde workflow. Reset de positie van een doorzoekbare stream voordat de volledige presentatie uit die stream wordt geladen.
+
+Het volgende voorbeeld gebruikt een PPT‑bestand:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **Return‑waarden van CheckPassword**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentationinfo/check_password/) retourneert `True` alleen wanneer de presentatie een openingswachtwoord heeft en het opgegeven wachtwoord correct is. Het retourneert `False` in elk van de volgende gevallen:
+
+- Het wachtwoord is onjuist.
+- De presentatie heeft geen openingswachtwoord.
+- Het opgegeven wachtwoord is `None` of leeg.
+
+Het gedrag is hetzelfde voor PPT‑ en PPTX‑presentaties.
+
+## **Controleren of een geladen presentatie versleuteld is**
+
+Na het laden van een presentatie met het juiste wachtwoord, inspecteer [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/nl/python-net/aspose.slides/protectionmanager/is_encrypted/) om te bevestigen dat de bronpresentatie versleuteld was. Om openings‑wachtwoordbescherming te detecteren voordat geladen wordt, gebruik `PresentationInfo.is_password_protected` zoals hierboven getoond.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **Beveiligingsaanbevelingen**
+
+{{% alert color="warning" title="Beveiliging" %}}
+Log geen openingswachtwoorden en voeg ze niet op in diagnostische berichten. Vermijd onnodige herhaalde validatiepogingen, bewaar wachtwoorden alleen in het geheugen zolang dat nodig is, en hergebruik een geslaagde validatieresultaat bij het direct laden van de presentatie.
+{{% /alert %}}
+
+## **Een presentatie online met een wachtwoord beveiligen**
+
+1. Open de applicatie [Aspose.Slides Lock](https://products.aspose.app/slides/nl/lock).
+1. Selecteer of upload de presentatie.
+1. Voer een wachtwoord in voor weergavebescherming.
+1. Voer eventueel een apart wachtwoord in voor bewerkingsbescherming.
+1. Pas de bescherming toe en download het resulterende bestand.
+
+{{% alert color="info" title="Zie ook" %}}
+- [Presentaties met schrijfbescherming](/slides/nl/python-net/write-protected-presentation/)
 - [Digitale handtekening in PowerPoint](/slides/nl/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Welke versleutelingsmethoden ondersteunt Aspose.Slides?**
+**Wat is het verschil tussen een openingswachtwoord en een schrijfbeveiligingswachtwoord?**
 
-Aspose.Slides ondersteunt moderne versleutelingsmethoden, waaronder AES‑gebaseerde algoritmen, waardoor een hoog beveiligingsniveau voor je presentaties wordt gegarandeerd.
+Een openingswachtwoord versleutelt de presentatie en is vereist om de inhoud te laden. Een schrijfbeveiligingswachtwoord beperkt bewerking zonder de inhoud te versleutelen.
 
-**Wat gebeurt er als een verkeerd wachtwoord wordt ingevoerd bij het openen van een presentatie?**
+**Kan ik een openingswachtwoord valideren zonder alle dia's te laden?**
 
-Er wordt een uitzondering gegooid als een onjuist wachtwoord wordt gebruikt, waardoor je wordt gewaarschuwd dat de toegang tot de presentatie wordt geweigerd. Dit helpt onbevoegde toegang te voorkomen en beschermt de inhoud van de presentatie.
+Ja. Verkrijg presentatiesinformatie, controleer of er een openings‑wachtwoordbescherming aanwezig is, en valideer het wachtwoord voordat een volledige presentatiefunctie wordt aangemaakt.
 
-**Zijn er prestatie‑implicaties bij het werken met met wachtwoord beveiligde presentaties?**
+**Ondersteunen de wachtwoord‑controleworkflows zowel PPT als PPTX?**
 
-Het versleutelings‑ en ontsleutelingsproces kan een lichte overhead veroorzaken tijdens het openen en opslaan. In de meeste gevallen is de impact minimaal en beïnvloedt het de totale verwerkingstijd van je presentatietaken niet aanzienlijk.
+Ja. Bestandspad‑ en stream‑gebaseerde wachtwoorddetectie en -validatie gedragen zich hetzelfde voor PPT‑ en PPTX‑presentaties.

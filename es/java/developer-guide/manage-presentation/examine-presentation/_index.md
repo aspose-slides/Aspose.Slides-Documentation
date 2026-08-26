@@ -1,39 +1,43 @@
 ---
-title: Examinar Presentación
+title: Recuperar y actualizar información de la presentación en Java
+linktitle: Información de la presentación
 type: docs
 weight: 30
 url: /es/java/examine-presentation/
 keywords:
-- PowerPoint
-- presentación
 - formato de presentación
-- propiedades de presentación
+- propiedades de la presentación
 - propiedades del documento
 - obtener propiedades
 - leer propiedades
 - cambiar propiedades
 - modificar propiedades
-- PPTX
-- PPT
+- actualizar propiedades
+- examinar PPTX
+- examinar PPT
+- examinar ODP
+- PowerPoint
+- OpenDocument
+- presentación
 - Java
-description: "Leer y modificar propiedades de presentaciones de PowerPoint en Java"
+- Aspose.Slides
+description: "Explore diapositivas, estructura y metadatos en presentaciones de PowerPoint y OpenDocument usando Java para obtener información más rápida y auditorías de contenido más inteligentes."
 ---
+## **Visión general**
 
-Aspose.Slides para Java te permite examinar una presentación para descubrir sus propiedades y entender su comportamiento.
+Este artículo muestra cómo inspeccionar la información de una presentación en Aspose.Slides. Explica cómo determinar el formato actual de una presentación sin cargar el archivo completo, leer sus propiedades de documento y actualizar esas propiedades cuando sea necesario.
 
-{{% alert title="Información" color="info" %}} 
+Los ejemplos se basan en las API [PresentationInfo](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentationinfo/) y [DocumentProperties](https://reference.aspose.com/slides/es/java/com.aspose.slides/documentproperties/) y demuestran operaciones típicas para trabajar con los metadatos de una presentación.
 
-Las clases [PresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/PresentationInfo) y [DocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/) contienen las propiedades y métodos utilizados en las operaciones aquí.
+## **Comprobar el formato de la presentación**
 
-{{% /alert %}} 
+Antes de trabajar con una presentación, es posible que desee averiguar en qué formato (PPT, PPTX, ODP y otros) se encuentra la presentación en este momento.
 
-## **Verificar un Formato de Presentación**
-
-Antes de trabajar en una presentación, es posible que desees averiguar en qué formato (PPT, PPTX, ODP, entre otros) se encuentra la presentación en este momento.
-
-Puedes comprobar el formato de una presentación sin cargar la presentación. Ve este código Java:
+Puede comprobar el formato de una presentación sin cargarla. Vea este código Java:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -44,38 +48,43 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **Obtener Propiedades de la Presentación**
+## **Obtener propiedades de la presentación**
 
-Este código Java te muestra cómo obtener propiedades de la presentación (información sobre la presentación):
+Este código Java le muestra cómo obtener las propiedades de la presentación (información sobre la presentación):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ..
+// .. 
 ```
 
-Es posible que desees ver las [propiedades bajo la clase DocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Es posible que desee ver las [propiedades bajo la clase DocumentProperties](https://reference.aspose.com/slides/es/java/com.aspose.slides/documentproperties/#DocumentProperties--).
 
-## **Actualizar Propiedades de la Presentación**
+## **Actualizar propiedades de la presentación**
 
-Aspose.Slides proporciona el método [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) que te permite realizar cambios en las propiedades de la presentación.
+Aspose.Slides ofrece el método [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/es/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) que le permite realizar cambios en las propiedades de la presentación.
 
 Supongamos que tenemos una presentación de PowerPoint con las propiedades del documento que se muestran a continuación.
 
-![Propiedades del documento originales de la presentación de PowerPoint](input_properties.png)
+![Propiedades originales del documento de la presentación PowerPoint](input_properties.png)
 
-Este ejemplo de código te muestra cómo editar algunas propiedades de la presentación:
+Este ejemplo de código le muestra cómo editar algunas propiedades de la presentación:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
 
 IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("Mi título");
+properties.setTitle("My title");
 properties.setLastSavedTime(new Date());
 
 info.updateDocumentProperties(properties);
@@ -84,13 +93,33 @@ info.writeBindedPresentation(fileName);
 
 Los resultados de cambiar las propiedades del documento se muestran a continuación.
 
-![Propiedades del documento cambiadas de la presentación de PowerPoint](output_properties.png)
+![Propiedades modificadas del documento de la presentación PowerPoint](output_properties.png)
 
-## **Enlaces Útiles**
+## **Enlaces útiles**
 
-Para obtener más información sobre una presentación y sus atributos de seguridad, es posible que encuentres útiles estos enlaces:
+Para obtener más información sobre una presentación y sus atributos de seguridad, es posible que encuentre útiles los siguientes enlaces:
 
-- [Verificar si una Presentación está Encriptada](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Verificar si una Presentación está Protegida contra Escritura (solo lectura)](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Verificar si una Presentación está Protegida por Contraseña Antes de Cargarla](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirmar la Contraseña Usada para Proteger una Presentación](https://docs.aspose.com/slides/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentaciones protegidas con contraseña](/slides/es/java/password-protected-presentation/)
+- [Presentaciones protegidas contra escritura](/slides/es/java/write-protected-presentation/)
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo comprobar si las fuentes están incrustadas y cuáles son?**
+
+Busque la [información de fuentes incrustadas](https://reference.aspose.com/slides/es/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a nivel de la presentación, y luego compare esas entradas con el conjunto de [fuentes realmente utilizadas en el contenido](https://reference.aspose.com/slides/es/java/com.aspose.slides/fontsmanager/#getFonts--) para identificar qué fuentes son críticas para la renderización.
+
+**¿Cómo puedo saber rápidamente si el archivo tiene diapositivas ocultas y cuántas?**
+
+Recorra la [colección de diapositivas](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidecollection/) y examine la [bandera de visibilidad](https://reference.aspose.com/slides/es/java/com.aspose.slides/slide/#getHidden--) de cada diapositiva.
+
+**¿Puedo detectar si se usa un tamaño y orientación de diapositiva personalizados, y si difieren de los valores predeterminados?**
+
+Sí. Compare el [tamaño de diapositiva](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getSlideSize--) y la orientación actuales con los valores estándar; esto ayuda a anticipar el comportamiento al imprimir y exportar.
+
+**¿Existe una forma rápida de ver si los gráficos hacen referencia a fuentes de datos externas?**
+
+Sí. Recorra todos los [gráficos](https://reference.aspose.com/slides/es/java/com.aspose.slides/chart/), compruebe su [fuente de datos](https://reference.aspose.com/slides/es/java/com.aspose.slides/chartdata/#getDataSourceType--), y observe si los datos son internos o basados en enlaces, incluyendo los enlaces rotos.
+
+**¿Cómo puedo evaluar las diapositivas 'pesadas' que pueden ralentizar la renderización o la exportación a PDF?**
+
+Para cada diapositiva, cuente los objetos y busque imágenes de gran tamaño, transparencias, sombras, animaciones y contenido multimedia; asigne una puntuación de complejidad aproximada para señalar posibles puntos críticos de rendimiento.

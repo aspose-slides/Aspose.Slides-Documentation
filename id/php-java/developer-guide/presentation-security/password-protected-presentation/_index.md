@@ -1,300 +1,225 @@
 ---
-title: Amankan Presentasi dengan Kata Sandi di PHP
-linktitle: Perlindungan Kata Sandi
+title: Proteksi Presentasi dengan Kata Sandi di PHP
+linktitle: Proteksi Kata Sandi
 type: docs
 weight: 20
 url: /id/php-java/password-protected-presentation/
 keywords:
-- mengunci PowerPoint
-- mengunci presentasi
-- membuka kunci PowerPoint
-- membuka kunci presentasi
-- melindungi PowerPoint
-- melindungi presentasi
-- menetapkan kata sandi
-- menambahkan kata sandi
-- menenkripsi PowerPoint
-- menenkripsi presentasi
-- mendekripsi PowerPoint
-- mendekripsi presentasi
-- perlindungan penulisan
-- keamanan PowerPoint
-- keamanan presentasi
-- menghapus kata sandi
-- menghapus perlindungan
-- menghapus enkripsi
-- menonaktifkan kata sandi
-- menonaktifkan perlindungan
-- menghapus perlindungan penulisan
+- presentasi terlindungi kata sandi
+- kata sandi pembuka
+- enkripsi PowerPoint
+- dekripsi PowerPoint
+- validasi kata sandi presentasi
+- periksa kata sandi presentasi
+- buka presentasi terenkripsi
+- hapus enkripsi
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara dengan mudah mengunci dan membuka kunci presentasi PowerPoint dan OpenDocument yang dilindungi kata sandi dengan Aspose.Slides untuk PHP. Amankan presentasi Anda."
+description: "Enkripsi, deteksi, validasi, membuka, dan mendekripsi presentasi PowerPoint PPT dan PPTX yang dilindungi kata sandi di PHP dengan Aspose.Slides."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Saat Anda melindungi presentasi dengan kata sandi, berarti Anda menetapkan kata sandi yang menerapkan pembatasan tertentu pada presentasi. Untuk menghapus pembatasan tersebut, kata sandi harus dimasukkan. Presentasi yang dilindungi kata sandi dianggap sebagai presentasi terkunci.
+Kata sandi pembuka mengenkripsi presentasi. Kata sandi yang benar diperlukan untuk memuat dan melihat konten presentasi, sehingga perlindungan ini memberikan kerahasiaan.
 
-Biasanya, Anda dapat mengatur kata sandi untuk menerapkan pembatasan ini pada presentasi:
+Kata sandi pembuka berbeda dari kata sandi perlindungan penulisan. Perlindungan penulisan membatasi modifikasi namun tidak mengenkripsi konten atau mencegah presentasi dimuat. Untuk mengelola kata sandi untuk memodifikasi presentasi, lihat [Write-Protect Presentations](/slides/id/php-java/write-protected-presentation/).
 
-- **Modifikasi**
+Alur kerja di bawah ini berlaku untuk presentasi PPT dan PPTX. Contoh-contoh menggunakan kedua format tersebut ketika perilaku berbasis file dan berbasis aliran penting.
 
-  Jika Anda hanya ingin pengguna tertentu dapat memodifikasi presentasi Anda, Anda dapat menetapkan pembatasan modifikasi. Pembatasan ini mencegah orang memodifikasi, mengubah, atau menyalin isi presentasi Anda (kecuali mereka memberikan kata sandi).
+## **Enkripsi Presentasi dengan Kata Sandi Pembuka**
 
-  Namun, dalam kasus ini, bahkan tanpa kata sandi, pengguna tetap dapat mengakses dokumen Anda dan membukanya. Dalam mode baca saja, pengguna dapat melihat konten atau hal‑hal—tautan, animasi, efek, dan lainnya—di dalam presentasi, tetapi tidak dapat menyalin item atau menyimpan presentasi.
+Gunakan [ProtectionManager::encrypt](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#encrypt) untuk menetapkan kata sandi pembuka. Kemudian gunakan [Presentation::save](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#save) untuk menyimpan presentasi yang telah dienkripsi.
 
-- **Pembukaan**
-
-  Jika Anda hanya ingin pengguna tertentu dapat membuka presentasi Anda, Anda dapat menetapkan pembatasan pembukaan. Pembatasan ini mencegah orang bahkan melihat konten presentasi Anda (kecuali mereka memberikan kata sandi).
-
-  Secara teknis, pembatasan pembukaan juga mencegah pengguna memodifikasi presentasi Anda: Ketika orang tidak dapat membuka presentasi, mereka tidak dapat mengubah atau membuat perubahan pada presentasi tersebut.  
-
-  **Catatan** bahwa ketika Anda melindungi presentasi dengan kata sandi untuk mencegah pembukaan, file presentasi menjadi terenkripsi.
-
-## **Cara Melindungi Presentasi dengan Kata Sandi Secara Online**
-
-1. Buka halaman [**Aspose.Slides Lock**](https://products.aspose.app/slides/id/lock) kami. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klik **Drop or upload your files**.
-
-3. Pilih file yang ingin Anda lindungi dengan kata sandi di komputer Anda. 
-
-4. Masukkan kata sandi pilihan Anda untuk perlindungan edit; Masukkan kata sandi pilihan Anda untuk perlindungan tampilan. 
-
-5. Jika Anda ingin pengguna melihat presentasi Anda sebagai salinan final, centang kotak **Mark as final**.
-
-6. Klik **PROTECT NOW.** 
-
-7. Klik **DOWNLOAD NOW.**
-
-## **Perlindungan Kata Sandi untuk Presentasi di Aspose.Slides**
-**Format yang Didukung**
-
-Aspose.Slides mendukung perlindungan kata sandi, enkripsi, dan operasi serupa untuk presentasi dalam format berikut: 
-
-- PPTX dan PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**Operasi yang Didukung**
-
-Aspose.Slides memungkinkan Anda menggunakan perlindungan kata sandi pada presentasi untuk mencegah modifikasi dengan cara berikut:
-
-- Mengenkripsi presentasi
-- Menetapkan perlindungan penulisan pada presentasi
-
-**Operasi Lainnya**
-
-Aspose.Slides memungkinkan Anda melakukan tugas lain yang melibatkan perlindungan kata sandi dan enkripsi dengan cara berikut:
-
-- Mendekripsi presentasi; membuka presentasi terenkripsi
-- Menghapus enkripsi; menonaktifkan perlindungan kata sandi
-- Menghapus perlindungan penulisan dari presentasi
-- Mendapatkan properti presentasi terenkripsi
-- Memeriksa apakah presentasi terenkripsi
-- Memeriksa apakah presentasi dilindungi kata sandi.
-
-## **Enkripsi Presentasi**
-
-Anda dapat mengenkripsi presentasi dengan menetapkan kata sandi. Kemudian, untuk memodifikasi presentasi terkunci, pengguna harus memberikan kata sandi. 
-
-Untuk mengenkripsi atau melindungi presentasi dengan kata sandi, Anda harus menggunakan metode encrypt (dari [ProtectionManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/)) untuk menetapkan kata sandi pada presentasi. Anda mengirimkan kata sandi ke metode encrypt dan menggunakan metode save untuk menyimpan presentasi yang kini terenkripsi.
-
-Contoh kode ini menunjukkan cara mengenkripsi presentasi:
+Contoh berikut mengenkripsi presentasi PPTX:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->encrypt("123123");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->getProtectionManager()->encrypt("open_password");
     $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Menetapkan Perlindungan Penulisan pada Presentasi**
+## **Muat Presentasi yang Dienkripsi**
 
-Anda dapat menambahkan tanda “Do not modify” pada presentasi. Dengan cara ini, Anda memberi tahu pengguna bahwa Anda tidak menginginkan mereka membuat perubahan pada presentasi.  
-
-**Catatan** bahwa proses perlindungan penulisan tidak mengenkripsi presentasi. Oleh karena itu, pengguna—jika mereka memang ingin—dapat memodifikasi presentasi, tetapi untuk menyimpan perubahan, mereka harus membuat presentasi dengan nama yang berbeda. 
-
-Untuk menetapkan perlindungan penulisan, Anda harus menggunakan metode [setWriteProtection](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#setWriteProtection). Contoh kode ini menunjukkan cara menetapkan perlindungan penulisan pada presentasi:
+Setel [LoadOptions::setPassword](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setPassword) ke kata sandi pembuka dan berikan opsi tersebut ke [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) saat memuat file. Proses pemuatan gagal ketika kata sandi pembuka diperlukan tetapi kata sandi yang diberikan tidak ada atau salah.
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    # Bekerja dengan presentasi yang sudah didekripsi.
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Membuka Presentasi yang Terenkripsi**
+## **Hapus Enkripsi dari Presentasi**
 
-Aspose.Slides memungkinkan Anda membuka file terenkripsi dengan memasukkan kata sandinya. Untuk mendekripsi presentasi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#removeEncryption) tanpa parameter. Anda kemudian harus memasukkan kata sandi yang benar untuk membuka presentasi.
-
-Contoh kode ini menunjukkan cara mendekripsi presentasi: 
+Muat presentasi dengan kata sandi pembukanya, panggil [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#removeEncryption), dan simpan hasilnya. Presentasi yang disimpan kemudian dapat dimuat tanpa kata sandi.
 
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # bekerja dengan presentasi yang didekripsi
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Menghapus Enkripsi dari Presentasi**
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
 
-Anda dapat menghapus enkripsi atau perlindungan kata sandi pada presentasi. Dengan cara ini, pengguna dapat mengakses atau memodifikasi presentasi tanpa pembatasan. 
-
-Untuk menghapus enkripsi atau perlindungan kata sandi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#removeEncryption). Contoh kode ini menunjukkan cara menghapus enkripsi dari presentasi:
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $presentation->getProtectionManager()->removeEncryption();
     $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Validasi Kata Sandi Pembuka Sebelum Memuat**
+
+Gunakan [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationfactory/#getPresentationInfo) untuk memperoleh [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/) tanpa membuat instance presentasi secara lengkap. Periksa [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/#isPasswordProtected) sebelum meminta atau memvalidasi kata sandi. Ketika perlindungan ada, validasi nilai yang diberikan dengan [PresentationInfo::checkPassword](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **Alur Kerja Jalur Berkas**
+
+Contoh berikut memvalidasi kata sandi pembuka untuk file PPTX, mengirim nilai yang divalidasi ke [LoadOptions::setPassword](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setPassword), dan kemudian memuat presentasi lengkap:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$filePath = "protected-presentation.pptx";
+$password = "open_password";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+
+if (!$presentationInfo->isPasswordProtected()) {
+    echo("The presentation does not have an opening password.\n");
+} elseif (!$presentationInfo->checkPassword($password)) {
+    echo("The opening password is incorrect.\n");
+} else {
+    $loadOptions = new LoadOptions();
+    $loadOptions->setPassword($password);
+
+    $presentation = new Presentation($filePath, $loadOptions);
+    try {
+        echo("The presentation was validated and loaded successfully.\n");
+    } finally {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Menghapus Perlindungan Penulisan dari Presentasi**
+### **Alur Kerja Aliran**
 
-Anda dapat menggunakan Aspose.Slides untuk menghapus perlindungan penulisan yang digunakan pada file presentasi. Dengan cara ini, pengguna dapat memodifikasi sesukanya—dan tidak akan menerima peringatan saat melakukan tugas tersebut.
+Overload aliran dari [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationfactory/#getPresentationInfo) menyediakan alur kerja yang sama. Reset posisi aliran yang dapat dicari sebelum memuat presentasi lengkap dari aliran tersebut.
 
-Anda dapat menghapus perlindungan penulisan dari presentasi dengan menggunakan metode [removeWriteProtection](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#removeWriteProtection). Contoh kode ini menunjukkan cara menghapus perlindungan penulisan dari presentasi:
+Contoh berikut menggunakan file PPT:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$password = "open_password";
+
+$presentationStream = new Java("java.io.FileInputStream", "protected-presentation.ppt");
+try {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($presentationStream);
+
+    if (!$presentationInfo->isPasswordProtected()) {
+        echo("The presentation does not have an opening password.\n");
+    } elseif (!$presentationInfo->checkPassword($password)) {
+        echo("The opening password is incorrect.\n");
+    } else {
+        $presentationStream->getChannel()->position(0);
+
+        $loadOptions = new LoadOptions();
+        $loadOptions->setPassword($password);
+
+        $presentation = new Presentation($presentationStream, $loadOptions);
+        try {
+            echo("The presentation was validated and loaded successfully.\n");
+        } finally {
+            $presentation->dispose();
+        }
     }
-  }
+} finally {
+    $presentationStream->close();
+}
 ```
 
-## **Mendapatkan Properti Presentasi yang Terenkripsi**
+### **Nilai Kembali checkPassword**
 
-Biasanya, pengguna kesulitan mendapatkan properti dokumen dari presentasi yang terenkripsi atau dilindungi kata sandi. Aspose.Slides, bagaimanapun, menawarkan mekanisme yang memungkinkan Anda melindungi presentasi dengan kata sandi sambil tetap memberi cara bagi pengguna mengakses properti presentasi tersebut.
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/#checkPassword) mengembalikan `true` hanya ketika presentasi memiliki kata sandi pembuka dan kata sandi yang diberikan benar. Ia mengembalikan `false` dalam masing‑mata kasus berikut:
 
-**Catatan** bahwa ketika Aspose.Slides mengenkripsi presentasi, properti dokumen presentasi secara default juga dilindungi kata sandi. Tetapi jika Anda perlu membuat properti presentasi dapat diakses (bahkan setelah presentasi dienkripsi), Aspose.Slides memungkinkan Anda melakukannya.
+- Kata sandi salah.
+- Presentasi tidak memiliki kata sandi pembuka.
+- Kata sandi yang diberikan `null` atau kosong.
 
-Jika Anda ingin pengguna tetap dapat mengakses properti presentasi yang Anda enkripsi, Anda dapat menggunakan metode [encryptDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#getEncryptDocumentProperties) dengan nilai `true`. Contoh kode ini menunjukkan cara mengenkripsi presentasi sambil memberi cara bagi pengguna mengakses properti dokumennya:
+Perilaku ini sama untuk presentasi PPT dan PPTX.
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setEncryptDocumentProperties(true);
-    $presentation->getProtectionManager()->encrypt("123123");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+## **Periksa Apakah Presentasi yang Dimuat Dienkripsi**
 
-## **Memeriksa Apakah Presentasi Dilindungi Kata Sandi**
-
-Sebelum Anda membuka presentasi, Anda mungkin ingin memeriksa dan memastikan bahwa presentasi tidak dilindungi kata sandi. Dengan cara ini, Anda dapat menghindari kesalahan dan masalah serupa yang muncul ketika presentasi yang dilindungi kata sandi dibuka tanpa kata sandinya.
-
-Kode PHP ini menunjukkan cara memeriksa presentasi untuk melihat apakah ia dilindungi kata sandi (tanpa membuka presentasi itu sendiri):
+Setelah memuat presentasi dengan kata sandi yang benar, periksa [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#isEncrypted) untuk memastikan bahwa presentasi sumber telah dienkripsi. Untuk mendeteksi perlindungan kata sandi pembuka sebelum memuat, gunakan [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/#isPasswordProtected) seperti yang ditunjukkan di atas.
 
 ```php
-  $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-```
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
 
-## **Memeriksa Apakah Presentasi Terenkripsi**
-
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi terenkripsi. Untuk melakukan tugas ini, Anda dapat menggunakan metode [isEncrypted](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#isEncrypted), yang mengembalikan `true` jika presentasi terenkripsi atau `false` jika tidak.
-
-Contoh kode ini menunjukkan cara memeriksa apakah presentasi terenkripsi:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    echo("The presentation is encrypted: " . ($isEncrypted ? "true" : "false") . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Memeriksa Apakah Presentasi Dilindungi Penulisan**
+## **Rekomendasi Keamanan**
 
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dilindungi penulisan. Untuk melakukan tugas ini, Anda dapat menggunakan metode [isWriteProtected](https://reference.aspose.com/slides/id/php-java/aspose.slides/protectionmanager/#isWriteProtected), yang mengembalikan `true` jika presentasi dilindungi penulisan atau `false` jika tidak.
+{{% alert color="warning" title="Security" %}}
+Jangan mencatat kata sandi pembuka atau menyertakannya dalam pesan diagnostik. Hindari upaya validasi berulang yang tidak perlu, simpan kata sandi dalam memori hanya selama diperlukan, dan gunakan kembali hasil validasi yang berhasil ketika segera memuat presentasi.
+{{% /alert %}}
 
-Contoh kode ini menunjukkan cara memeriksa apakah presentasi dilindungi penulisan:
+## **Lindungi Presentasi dengan Kata Sandi Secara Online**
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+1. Buka aplikasi [Aspose.Slides Lock](https://products.aspose.app/slides/id/lock).
+2. Pilih atau unggah presentasi.
+3. Masukkan kata sandi untuk perlindungan tampilan.
+4. Opsional, masukkan kata sandi terpisah untuk perlindungan edit.
+5. Terapkan perlindungan dan unduh file yang dihasilkan.
 
-## **Validasi atau Konfirmasi bahwa Kata Sandi Tertentu Telah Digunakan**
-
-Anda mungkin ingin memeriksa dan memastikan bahwa kata sandi tertentu telah digunakan untuk melindungi dokumen presentasi. Aspose.Slides menyediakan cara untuk memvalidasi kata sandi. 
-
-Contoh kode ini menunjukkan cara memvalidasi kata sandi:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    # periksa apakah "pass" cocok dengan
-    $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-Ia mengembalikan `true` jika presentasi telah dienkripsi dengan kata sandi yang ditentukan. Jika tidak, ia mengembalikan `false`. 
-
-{{% alert color="primary" title="See also" %}} 
-- [Tanda Tangan Digital di PowerPoint](/slides/id/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/id/php-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/id/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Metode enkripsi apa yang didukung oleh Aspose.Slides?**
+**Apa perbedaan antara kata sandi pembuka dan kata sandi perlindungan penulisan?**
 
-Aspose.Slides mendukung metode enkripsi modern, termasuk algoritma berbasis AES, yang memastikan tingkat keamanan data yang tinggi untuk presentasi Anda.
+Kata sandi pembuka mengenkripsi presentasi dan diperlukan untuk memuat kontennya. Kata sandi perlindungan penulisan membatasi modifikasi tanpa mengenkripsi konten.
 
-**Apa yang terjadi jika kata sandi yang salah dimasukkan ketika mencoba membuka presentasi?**
+**Bisakah saya memvalidasi kata sandi pembuka tanpa memuat semua slide?**
 
-Sebuah pengecualian dilemparkan jika kata sandi yang salah digunakan, memberi tahu Anda bahwa akses ke presentasi ditolak. Ini membantu mencegah akses tidak sah dan melindungi konten presentasi.
+Ya. Dapatkan informasi presentasi, periksa apakah perlindungan kata sandi pembuka hadir, dan validasi kata sandi sebelum membuat instance presentasi secara lengkap.
 
-**Apakah ada dampak kinerja saat bekerja dengan presentasi yang dilindungi kata sandi?**
+**Apakah alur kerja pemeriksaan kata sandi mendukung PPT dan PPTX?**
 
-Proses enkripsi dan dekripsi dapat menimbulkan sedikit overhead selama operasi membuka dan menyimpan. Dalam kebanyakan kasus, dampak kinerja ini minimal dan tidak secara signifikan memengaruhi waktu pemrosesan keseluruhan tugas presentasi Anda.
+Ya. Deteksi dan validasi kata sandi berbasis jalur berkas maupun aliran berperilaku sama untuk presentasi PPT dan PPTX.

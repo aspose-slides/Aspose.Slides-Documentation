@@ -1,13 +1,13 @@
 ---
-title: Prezentációs információk lekérése és frissítése .NET-ben
-linktitle: Prezentációs információk
+title: Prezentáció információinak lekérése és frissítése .NET-ben
+linktitle: Prezentáció információk
 type: docs
 weight: 30
 url: /hu/net/examine-presentation/
 keywords:
 - prezentáció formátum
 - prezentáció tulajdonságok
-- dokumentum tulajdonságok
+- dokumentumtulajdonságok
 - tulajdonságok lekérése
 - tulajdonságok olvasása
 - tulajdonságok módosítása
@@ -22,21 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel a diák, a szerkezet és a metaadatok állapotát PowerPoint és OpenDocument prezentációkban .NET használatával a gyorsabb betekintés és az intelligensebb tartalom-ellenőrzés érdekében."
+description: "Fedezze fel a diák, a szerkezet és a metaadatok részleteit PowerPoint és OpenDocument prezentációkban .NET használatával a gyorsabb betekintés és az intelligensebb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan ellenőrizhetők a prezentáció adatai az Aspose.Slides-ben. Leírja, hogyan határozható meg egy prezentáció aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók ki a dokumentumtulajdonságai, és hogyan frissíthetők ezek a tulajdonságok szükség esetén.
+Ez a cikk bemutatja, hogyan lehet ellenőrizni a prezentáció információkat az Aspose.Slides-ban. Ismerteti, hogyan határozható meg egy prezentáció aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók a dokumentum tulajdonságai, és hogyan frissíthetők ezek a tulajdonságok szükség esetén.
 
-A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/documentproperties/) API-kon alapulnak, és bemutatják a prezentáció metaadataival való tipikus műveleteket.
+A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/documentproperties/) API-kon alapulnak, és tipikus műveleteket mutatnak be a prezentáció metaadatokkal való munka során.
 
-## **Ellenőrizze a prezentáció formátumát**
+## **A prezentáció formátumának ellenőrzése**
 
-Mielőtt dolgozna egy prezentáción, érdemes megtudni, hogy jelenleg milyen formátumban (PPT, PPTX, ODP és egyéb) van a prezentáció.
+Mielőtt a prezentációval dolgozna, érdemes megtudni, milyen formátumban (PPT, PPTX, ODP és egyebek) van a prezentáció jelenleg.
 
 A prezentáció formátuma betöltés nélkül ellenőrizhető. Lásd ezt a C# kódot:
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
 
@@ -47,20 +49,22 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
-## **Szerezze meg a prezentáció tulajdonságait**
+## **A prezentáció tulajdonságainak lekérése**
 
-Ez a C# kód megmutatja, hogyan szerezhetők meg a prezentáció tulajdonságai (információk a prezentációról):
+Ez a C# kód bemutatja, hogyan lehet lekérni a prezentáció tulajdonságait (információk a prezentációról):
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
 Console.WriteLine(props.Subject);
 Console.WriteLine(props.Title);
-// ..
+// .. 
 ```
 
-Érdemes megtekinteni a [tulajdonságokat a DocumentProperties alatt](https://reference.aspose.com/slides/hu/net/aspose.slides/documentproperties/#properties) osztály.
+Érdemes megtekinteni a [DocumentProperties osztály alatti tulajdonságokat](https://reference.aspose.com/slides/hu/net/aspose.slides/documentproperties/#properties).
 
 ## **A prezentáció tulajdonságainak frissítése**
 
@@ -68,11 +72,13 @@ Az Aspose.Slides biztosítja a [PresentationInfo.UpdateDocumentProperties](https
 
 Tegyük fel, hogy van egy PowerPoint prezentáció a lenti dokumentumtulajdonságokkal.
 
-![Az eredeti dokumentumtulajdonságok a PowerPoint prezentációban](input_properties.png)
+![A PowerPoint prezentáció eredeti dokumentumtulajdonságai](input_properties.png)
 
-Ez a kódrészlet bemutatja, hogyan szerkeszthető néhány prezentáció tulajdonság:
+Ez a kódrészlet bemutatja, hogyan lehet szerkeszteni néhány prezentációtulajdonságot:
 
 ```c#
+using Aspose.Slides;
+
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
@@ -85,37 +91,35 @@ info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-A dokumentumtulajdonságok módosításának eredménye alább látható.
+A dokumentumtulajdonságok módosításának eredményei alább láthatók.
 
-![Megváltozott dokumentumtulajdonságok a PowerPoint prezentációban](output_properties.png)
+![A PowerPoint prezentáció módosított dokumentumtulajdonságai](output_properties.png)
 
 ## **Hasznos hivatkozások**
 
-További információkért egy prezentációról és biztonsági attribútumairól az alábbi hivatkozások lehetnek hasznosak:
+A prezentációról és annak biztonsági attribútumairól további információkért hasznosak lehetnek a következő hivatkozások:
 
-- [A prezentáció titkosítva van-e](https://docs.aspose.com/slides/hu/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [A prezentáció írásvédett (csak olvasható) állapotban van-e](https://docs.aspose.com/slides/hu/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [A prezentáció jelszóval védett-e, mielőtt betöltenénk](https://docs.aspose.com/slides/hu/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [A prezentáció védéséhez használt jelszó megerősítése](https://docs.aspose.com/slides/hu/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+- [Jelszóval védett prezentációk](/slides/hu/net/password-protected-presentation/)
+- [Írásvédett prezentációk](/slides/hu/net/write-protected-presentation/)
 
 ## **GYIK**
 
-**Hogyan ellenőrizhetem, hogy a betűkészletek be vannak-e ágyazva és melyek azok?**
+**Hogyan ellenőrizhetem, hogy a betűtípusok be vannak-e ágyazva, és melyek azok?**
 
-Keresse a [beágyazott betűkészlet információkat](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsmanager/getembeddedfonts/) a prezentáció szintjén, majd hasonlítsa össze ezeket a [valóban a tartalomban használt betűkészletek](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsmanager/getfonts/) listájával, hogy azonosítsa, mely betűkészletek kritikusak a megjelenítéshez.
+Keresse a [beágyazott betűtípus információkat](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsmanager/getembeddedfonts/) a prezentáció szintjén, majd hasonlítsa össze ezeket a [valóban a tartalomban használt betűtípusok](https://reference.aspose.com/slides/hu/net/aspose.slides/fontsmanager/getfonts/) halmazával, hogy azonosítsa, mely betűtípusok kritikusak a megjelenítéshez.
 
-**Hogyan ellenőrizhetem gyorsan, hogy a fájl rejtett diákot tartalmaz-e és hányat?**
+**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz rejtett diáket, és hány?**
 
-Iteráljon a [diák gyűjteményén](https://reference.aspose.com/slides/hu/net/aspose.slides/slidecollection/), és vizsgálja meg minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/net/aspose.slides/slide/hidden/).
+Iteráljon a [diakollekción](https://reference.aspose.com/slides/hu/net/aspose.slides/slidecollection/) és ellenőrizze minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/net/aspose.slides/slide/hidden/).
 
-**Felderíthetem-e, hogy egyedi dia méret és tájolás van-e használatban, és eltérnek-e az alapértelmezettektől?**
+**Felismerhető-e, hogy egyedi dia méret és tájolás van-e használatban, és eltérnek-e az alapértelmezettektől?**
 
-Igen. Hasonlítsa össze a jelenlegi [dia méretet](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slidesize/) és tájolást a szabványos beállításokkal; ez segít előre jelezni a nyomtatásra és exportálásra vonatkozó viselkedést.
+Igen. Hasonlítsa össze a jelenlegi [dia méretet](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slidesize/) és tájolást a szabványos előbeállításokkal; ez segít előre jelezni a nyomtatási és exportálási viselkedést.
 
-**Van-e gyors módja annak, hogy lássam, a diagramok külső adatforrásokra hivatkoznak-e?**
+**Van-e gyors módszer annak megtekintésére, hogy a diagramok külső adatforrásokra hivatkoznak-e?**
 
-Igen. Járja be az összes [diagramot](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chart/), ellenőrizze azok [adatelérési típusát](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/datasourcetype/), és vegye figyelembe, hogy az adatok belsőek vagy hivatkozáson alapulnak, beleértve a hibás hivatkozásokat is.
+Igen. Böngéssze végig az összes [diagramot](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chart/), ellenőrizze azok [adatforrását](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/datasourcetype/), és jegyezze fel, hogy az adat belső vagy hivatkozáson alapuló, beleértve a törött hivatkozásokat is.
 
-**Hogyan értékelhetem a „nehéz” diákokat, amelyek lassíthatják a renderelést vagy a PDF exportot?**
+**Hogyan értékelhetem a 'nehéz' diákat, amelyek lassíthatják a renderelést vagy a PDF exportot?**
 
-Minden dián számolja meg az objektumok mennyiségét, és keressen nagy képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon egy durva összetettségi pontszámot, amely jelzi a lehetséges teljesítményproblémákat.
+Minden diához számolja meg az objektumok számát, és keressen nagy képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon hozzá nagyjából kiszámított komplexitási pontszámot, hogy jelezze a lehetséges teljesítményproblémákat.

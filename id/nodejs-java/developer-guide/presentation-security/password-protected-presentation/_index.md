@@ -1,300 +1,222 @@
 ---
-title: "Amankan Presentasi dengan Kata Sandi di JavaScript"
-linktitle: "Perlindungan Kata Sandi"
+title: Proteksi Password pada Presentasi di JavaScript
+linktitle: Proteksi Password
 type: docs
 weight: 20
 url: /id/nodejs-java/password-protected-presentation/
 keywords:
-- "kunci PowerPoint"
-- "kunci presentasi"
-- "buka kunci PowerPoint"
-- "buka kunci presentasi"
-- "lindungi PowerPoint"
-- "lindungi presentasi"
-- "atur kata sandi"
-- "tambahkan kata sandi"
-- "enkripsi PowerPoint"
-- "enkripsi presentasi"
-- "dekripsi PowerPoint"
-- "dekripsi presentasi"
-- "perlindungan tulis"
-- "keamanan PowerPoint"
-- "keamanan presentasi"
-- "hapus kata sandi"
-- "hapus perlindungan"
-- "hapus enkripsi"
-- "nonaktifkan kata sandi"
-- "nonaktifkan perlindungan"
-- "hapus perlindungan tulis"
-- "PowerPoint"
-- "OpenDocument"
-- "presentasi"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Dengan mudah kunci dan buka kunci presentasi PowerPoint dan OpenDocument yang dilindungi kata sandi menggunakan Aspose.Slides untuk Node.js lewat Java. Amankan presentasi Anda."
+- presentasi terlindungi password
+- password pembuka
+- enkripsi PowerPoint
+- dekripsi PowerPoint
+- validasi password presentasi
+- cek password presentasi
+- buka presentasi terenkripsi
+- hapus enkripsi
+- PowerPoint
+- PPT
+- PPTX
+- presentasi
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Enkripsi, deteksi, validasi, membuka, dan dekripsi presentasi PowerPoint PPT dan PPTX yang dilindungi password dalam JavaScript dengan Aspose.Slides."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Ketika Anda melindungi presentasi dengan kata sandi, itu berarti Anda menetapkan kata sandi yang memberlakukan batasan tertentu pada presentasi. Untuk menghapus batasan tersebut, kata sandi harus dimasukkan. Presentasi yang dilindungi kata sandi dianggap sebagai presentasi yang terkunci.
+Password pembuka mengenkripsi presentasi. Password yang benar diperlukan untuk memuat dan melihat konten presentasi, sehingga perlindungan ini memberikan kerahasiaan.
 
-Biasanya, Anda dapat menetapkan kata sandi untuk memberlakukan batasan ini pada sebuah presentasi:
+Password pembuka berbeda dari password perlindungan tulis. Perlindungan tulis membatasi perubahan tetapi tidak mengenkripsi konten atau mencegah presentasi dimuat. Untuk mengelola password bagi modifikasi presentasi, lihat [Write-Protect Presentations](/slides/id/nodejs-java/write-protected-presentation/).
 
-- **Modifikasi**
+Alur kerja di bawah ini berlaku untuk presentasi PPT dan PPTX. Contoh menggunakan kedua format ketika perilaku berbasis file dan berbasis aliran penting.
 
-  Jika Anda hanya ingin pengguna tertentu dapat memodifikasi presentasi Anda, Anda dapat menetapkan batasan modifikasi. Batasan ini mencegah orang memodifikasi, mengubah, atau menyalin elemen dalam presentasi Anda (kecuali mereka memasukkan kata sandi).
+## **Enkripsi Presentasi dengan Password Pembuka**
 
-  Namun, dalam kasus ini, bahkan tanpa kata sandi, pengguna masih dapat mengakses dokumen Anda dan membukanya. Dalam mode baca-saja, pengguna dapat melihat konten atau elemen—tautan hiper, animasi, efek, dan lainnya—di dalam presentasi, tetapi mereka tidak dapat menyalin item atau menyimpan presentasi.
+Gunakan [ProtectionManager.encrypt](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/protectionmanager/#encrypt) untuk menetapkan password pembuka. Kemudian gunakan [Presentation.save](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#save) untuk menyimpan presentasi yang telah dienkripsi.
 
-- **Pembukaan**
-
-  Jika Anda hanya ingin pengguna tertentu dapat membuka presentasi Anda, Anda dapat menetapkan batasan pembukaan. Batasan ini mencegah orang bahkan melihat konten presentasi Anda (kecuali mereka memasukkan kata sandi).
-
-  Secara teknis, batasan pembukaan juga mencegah pengguna memodifikasi presentasi Anda: Ketika orang tidak dapat membuka presentasi, mereka tidak dapat melakukan perubahan apapun.
-
-  **Catatan** bahwa ketika Anda melindungi presentasi dengan kata sandi untuk mencegah pembukaan, file presentasi menjadi terenkripsi.
-
-## **Cara Melindungi Presentasi dengan Kata Sandi secara Online**
-
-1. Buka halaman [**Aspose.Slides Lock**](https://products.aspose.app/slides/id/lock) kami. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klik **Drop or upload your files**.
-
-3. Pilih file yang ingin Anda lindungi dengan kata sandi pada komputer Anda. 
-
-4. Masukkan kata sandi yang Anda inginkan untuk perlindungan edit; Masukkan kata sandi yang Anda inginkan untuk perlindungan tampilan. 
-
-5. Jika Anda ingin pengguna melihat presentasi Anda sebagai salinan final, centang kotak **Mark as final**.
-
-6. Klik **PROTECT NOW.** 
-
-7. Klik **DOWNLOAD NOW.**
-
-## **Perlindungan Kata Sandi untuk Presentasi di Aspose.Slides**
-**Format yang Didukung**
-
-Aspose.Slides mendukung perlindungan kata sandi, enkripsi, dan operasi serupa untuk presentasi dalam format berikut:
-
-- PPTX dan PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**Operasi yang Didukung**
-
-Aspose.Slides memungkinkan Anda menggunakan perlindungan kata sandi pada presentasi untuk mencegah modifikasi dengan cara berikut:
-
-- Mengenkripsi sebuah presentasi
-- Menetapkan perlindungan tulis pada sebuah presentasi
-
-**Operasi Lainnya**
-
-Aspose.Slides memungkinkan Anda melakukan tugas lain yang melibatkan perlindungan kata sandi dan enkripsi dengan cara berikut:
-
-- Mendekripsi sebuah presentasi; membuka presentasi yang terenkripsi
-- Menghapus enkripsi; menonaktifkan perlindungan kata sandi
-- Menghapus perlindungan tulis dari sebuah presentasi
-- Mendapatkan properti sebuah presentasi yang terenkripsi
-- Memeriksa apakah sebuah presentasi terenkripsi
-- Memeriksa apakah sebuah presentasi dilindungi kata sandi.
-
-## **Mengenkripsi Sebuah Presentasi**
-
-Anda dapat mengenkripsi sebuah presentasi dengan menetapkan kata sandi. Kemudian, untuk memodifikasi presentasi yang terkunci, pengguna harus memberikan kata sandi.
-
-Untuk mengenkripsi atau melindungi presentasi dengan kata sandi, Anda harus menggunakan metode encrypt (dari [ProtectionManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager)) untuk menetapkan kata sandi pada presentasi. Anda melewatkan kata sandi ke metode encrypt dan menggunakan metode save untuk menyimpan presentasi yang kini terenkripsi.
-
-Contoh kode ini menunjukkan cara mengenkripsi sebuah presentasi:
+Contoh berikut mengenkripsi presentasi PPTX:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("encrypted-pres.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Menetapkan Perlindungan Tulis pada Sebuah Presentasi**
+## **Muat Presentasi yang Dienkripsi**
 
-Anda dapat menambahkan tanda “Jangan ubah” pada sebuah presentasi. Dengan cara ini, Anda memberi tahu pengguna bahwa Anda tidak menginginkan mereka mengubah presentasi.
-
-**Catatan** bahwa proses perlindungan tulis tidak mengenkripsi presentasi. Oleh karena itu, pengguna—jika mereka memang ingin—dapat memodifikasi presentasi, tetapi untuk menyimpan perubahan, mereka harus membuat presentasi dengan nama yang berbeda.
-
-Untuk menetapkan perlindungan tulis, Anda harus menggunakan metode [setWriteProtection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#setWriteProtection-java.lang.String-) . Contoh kode ini menunjukkan cara menetapkan perlindungan tulis pada sebuah presentasi:
+Setel [LoadOptions.setPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setPassword) ke password pembuka dan berikan opsi tersebut ke [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) saat memuat file. Pemuatan gagal ketika password pembuka diperlukan tetapi password yang diberikan tidak ada atau salah.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    // Bekerja dengan presentasi yang telah didekripsi.
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Mendekripsi Sebuah Presentasi; Membuka Presentasi yang Terenkripsi**
+## **Hapus Enkripsi dari Presentasi**
 
-Aspose.Slides memungkinkan Anda memuat file terenkripsi dengan memasukkan kata sandinya. Untuk mendekripsi sebuah presentasi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) tanpa parameter. Selanjutnya Anda harus memasukkan kata sandi yang benar untuk memuat presentasi.
-
-Contoh kode ini menunjukkan cara mendekripsi sebuah presentasi:
+Muat presentasi dengan password pembukanya, panggil [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/protectionmanager/#removeEncryption), dan simpan hasilnya. Presentasi yang disimpan kemudian dapat dimuat tanpa password.
 
 ```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
-try {
-    // bekerja dengan presentasi yang telah didekripsi
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
 
-## **Menghapus Enkripsi; Menonaktifkan Perlindungan Kata Sandi**
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
 
-Anda dapat menghapus enkripsi atau perlindungan kata sandi pada sebuah presentasi. Dengan cara ini, pengguna dapat mengakses atau memodifikasi presentasi tanpa batasan.
-
-Untuk menghapus enkripsi atau perlindungan kata sandi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) . Contoh kode ini menunjukkan cara menghapus enkripsi dari sebuah presentasi:
-
-```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("encryption-removed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
+    presentation.dispose();
+}
+```
+
+## **Validasi Password Pembuka Sebelum Memuat**
+
+Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) untuk memperoleh [PresentationInfo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/) tanpa membuat instance presentasi lengkap. Periksa [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) sebelum meminta atau memvalidasi password. Ketika perlindungan ada, validasi nilai yang diberikan dengan [PresentationInfo.checkPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **Alur Kerja Jalur File**
+
+Contoh berikut memvalidasi password pembuka untuk file PPTX, meneruskan nilai yang sudah divalidasi ke [LoadOptions.setPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setPassword), dan kemudian memuat presentasi lengkap:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "protected-presentation.pptx";
+const password = "open_password";
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    console.log("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    console.log("The opening password is incorrect.");
+} else {
+    const loadOptions = new slides.LoadOptions();
+    loadOptions.setPassword(password);
+
+    const presentation = new slides.Presentation(filePath, loadOptions);
+    try {
+        console.log("The presentation was validated and loaded successfully.");
+    } finally {
         presentation.dispose();
     }
 }
 ```
 
-## **Menghapus Perlindungan Tulis dari Sebuah Presentasi**
+### **Alur Kerja Aliran**
 
-Anda dapat menggunakan Aspose.Slides untuk menghapus perlindungan tulis yang digunakan pada file presentasi. Dengan cara ini, pengguna dapat memodifikasi sesuka hati—dan tidak ada peringatan saat mereka melakukan tugas tersebut.
+Gunakan [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) untuk memeriksa aliran dapat baca Node.js. Setelah aliran inspeksi dikonsumsi, buat aliran baru sebelum memuat presentasi lengkap dengan [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
 
-Anda dapat menghapus perlindungan tulis dari sebuah presentasi dengan menggunakan metode [removeWriteProtection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#removeWriteProtection--) . Contoh kode ini menunjukkan cara menghapus perlindungan tulis dari sebuah presentasi:
+Contoh berikut menggunakan file PPT:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const filePath = "protected-presentation.ppt";
+const password = "open_password";
+const presentationFactory = slides.PresentationFactory.getInstance();
+const infoStream = fs.createReadStream(filePath);
+
+slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, infoStream, function(infoError, presentationInfo) {
+    if (infoError) {
+        console.log("The presentation information could not be read: " + infoError.message);
+    } else if (!presentationInfo.isPasswordProtected()) {
+        console.log("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        console.log("The opening password is incorrect.");
+    } else {
+        const loadOptions = new slides.LoadOptions();
+        loadOptions.setPassword(password);
+        const presentationStream = fs.createReadStream(filePath);
+
+        slides.Presentation.createPresentationFromStream(presentationStream, loadOptions, function(loadError, presentation) {
+            if (loadError) {
+                console.log("The presentation could not be loaded: " + loadError.message);
+            } else {
+                try {
+                    console.log("The presentation was validated and loaded successfully.");
+                } finally {
+                    presentation.dispose();
+                }
+            }
+        });
+    }
+});
+```
+
+### **Nilai Kembalian checkPassword**
+
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/#checkPassword) mengembalikan `true` hanya ketika presentasi memiliki password pembuka dan password yang diberikan benar. Ia mengembalikan `false` dalam masing‑mata kasus berikut:
+
+- Password salah.
+- Presentasi tidak memiliki password pembuka.
+- Password yang diberikan `null` atau kosong.
+
+Perilaku ini sama untuk presentasi PPT dan PPTX.
+
+## **Periksa Apakah Presentasi yang Dimuat Telah Dienkripsi**
+
+Setelah memuat presentasi dengan password yang benar, periksa [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) untuk memastikan bahwa presentasi sumber telah dienkripsi. Untuk mendeteksi perlindungan password pembuka sebelum memuat, gunakan [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) seperti yang ditunjukkan di atas.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    const isEncrypted = presentation.getProtectionManager().isEncrypted();
+    console.log("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Mendapatkan Properti Sebuah Presentasi yang Terenkripsi**
+## **Rekomendasi Keamanan**
 
-Biasanya, pengguna kesulitan mendapatkan properti dokumen dari presentasi yang terenkripsi atau dilindungi kata sandi. Aspose.Slides, bagaimanapun, menawarkan mekanisme yang memungkinkan Anda melindungi presentasi dengan kata sandi sambil tetap memberi pengguna cara untuk mengakses properti presentasi tersebut.
+{{% alert color="warning" title="Keamanan" %}}
+Jangan mencatat password pembuka atau menyertakannya dalam pesan diagnostik. Hindari upaya validasi berulang yang tidak perlu, simpan password dalam memori hanya selama diperlukan, dan gunakan kembali hasil validasi yang berhasil saat langsung memuat presentasi.
+{{% /alert %}}
 
-**Catatan** bahwa ketika Aspose.Slides mengenkripsi sebuah presentasi, properti dokumen presentasi juga dilindungi kata sandi secara default. Tetapi jika Anda perlu membuat properti presentasi dapat diakses (bahkan setelah presentasi dienkripsi), Aspose.Slides memungkinkan Anda melakukan hal itu.
+## **Lindungi Presentasi dengan Password Secara Online**
 
-Jika Anda ingin pengguna tetap dapat mengakses properti sebuah presentasi yang Anda enkripsi, Anda dapat menetapkan properti [encryptDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#getEncryptDocumentProperties--) menjadi `true`. Contoh kode ini menunjukkan cara mengenkripsi sebuah presentasi sambil menyediakan cara bagi pengguna mengakses properti dokumennya:
+1. Buka aplikasi [Aspose.Slides Lock](https://products.aspose.app/slides/id/lock).
+1. Pilih atau unggah presentasi.
+1. Masukkan password untuk perlindungan tampilan.
+1. Opsional, masukkan password terpisah untuk perlindungan edit.
+1. Terapkan perlindungan dan unduh file hasilnya.
 
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Memeriksa Apakah Sebuah Presentasi Dilindungi Kata Sandi Sebelum Memuatnya**
-
-Sebelum Anda memuat sebuah presentasi, Anda mungkin ingin memeriksa dan memastikan bahwa presentasi tidak dilindungi kata sandi. Dengan cara ini, Anda menghindari kesalahan dan masalah serupa yang muncul saat presentasi yang dilindungi kata sandi dimuat tanpa kata sandinya.
-
-Kode JavaScript ini menunjukkan cara memeriksa sebuah presentasi untuk melihat apakah ia dilindungi kata sandi (tanpa memuat presentasi itu sendiri):
-
-```javascript
-var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
-
-## **Memeriksa Apakah Sebuah Presentasi Terenkripsi**
-
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi terenkripsi. Untuk melakukan tugas ini, Anda dapat menggunakan properti [isEncrypted](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#isEncrypted--) , yang mengembalikan `true` jika presentasi terenkripsi atau `false` jika tidak.
-
-Contoh kode ini menunjukkan cara memeriksa apakah sebuah presentasi terenkripsi:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isEncrypted();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Memeriksa Apakah Sebuah Presentasi Dilindungi Tulis**
-
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dilindungi tulis. Untuk melakukan tugas ini, Anda dapat menggunakan properti [isWriteProtected](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ProtectionManager#isWriteProtected--) , yang mengembalikan `true` jika presentasi dilindungi tulis atau `false` jika tidak.
-
-Contoh kode ini menunjukkan cara memeriksa apakah sebuah presentasi dilindungi tulis:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Memvalidasi atau Mengonfirmasi bahwa Kata Sandi Tertentu Telah Digunakan untuk Melindungi Sebuah Presentasi**
-
-Anda mungkin ingin memeriksa dan mengonfirmasi bahwa kata sandi tertentu telah digunakan untuk melindungi dokumen presentasi. Aspose.Slides menyediakan cara bagi Anda untuk memvalidasi sebuah kata sandi.
-
-Contoh kode ini menunjukkan cara memvalidasi sebuah kata sandi:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    // periksa apakah "pass" cocok dengan
-    var isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-Ia mengembalikan `true` jika presentasi telah dienkripsi dengan kata sandi yang ditentukan. Jika tidak, ia mengembalikan `false`.
-
-{{% alert color="primary" title="See also" %}} 
-- [Tanda Tangan Digital di PowerPoint](/slides/id/net/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Lihat juga" %}}
+- [Write-Protect Presentations](/slides/id/nodejs-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/id/nodejs-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Metode enkripsi apa yang didukung oleh Aspose.Slides?**
+**Apa perbedaan antara password pembuka dan password perlindungan tulis?**
 
-Aspose.Slides mendukung metode enkripsi modern, termasuk algoritma berbasis AES, yang memastikan tingkat keamanan data tinggi untuk presentasi Anda.
+Password pembuka mengenkripsi presentasi dan diperlukan untuk memuat kontennya. Password perlindungan tulis membatasi modifikasi tanpa mengenkripsi konten.
 
-**Apa yang terjadi jika kata sandi yang salah dimasukkan saat mencoba membuka sebuah presentasi?**
+**Bisakah saya memvalidasi password pembuka tanpa memuat semua slide?**
 
-Sebuah pengecualian dilemparkan jika kata sandi yang salah digunakan, memberi tahu Anda bahwa akses ke presentasi ditolak. Ini membantu mencegah akses tidak sah dan melindungi isi presentasi.
+Ya. Dapatkan informasi presentasi, periksa apakah ada perlindungan password pembuka, dan validasi password sebelum membuat instance presentasi lengkap.
 
-**Apakah ada dampak performa saat bekerja dengan presentasi yang dilindungi kata sandi?**
+**Apakah alur kerja pemeriksaan password mendukung baik PPT maupun PPTX?**
 
-Proses enkripsi dan dekripsi dapat menambah sedikit overhead selama operasi pembukaan dan penyimpanan. Dalam kebanyakan kasus, dampak performa ini minimal dan tidak memengaruhi secara signifikan waktu pemrosesan keseluruhan tugas presentasi Anda.
+Ya. Deteksi dan validasi password berbasis jalur file maupun aliran berperilaku sama untuk presentasi PPT dan PPTX.

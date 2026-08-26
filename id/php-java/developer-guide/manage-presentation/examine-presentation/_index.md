@@ -1,5 +1,5 @@
 ---
-title: Mengambil dan Memperbarui Informasi Presentasi dalam PHP
+title: Mengambil dan Memperbarui Informasi Presentasi di PHP
 linktitle: Informasi Presentasi
 type: docs
 weight: 30
@@ -21,19 +21,19 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP untuk wawasan yang lebih cepat dan audit konten yang lebih pintar."
+description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP untuk wawasan lebih cepat dan audit konten yang lebih cerdas."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format saat ini dari sebuah presentasi tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
+Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format presentasi saat ini tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
 
-Contoh-contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/) serta menunjukkan operasi tipikal untuk bekerja dengan metadata presentasi.
+Contoh‑contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/) serta memperlihatkan operasi tipikal untuk bekerja dengan metadata presentasi.
 
 ## **Periksa Format Presentasi**
 
-Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format apa (PPT, PPTX, ODP, dan lainnya) yang sedang digunakan oleh presentasi tersebut.
+Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format (PPT, PPTX, ODP, dan lain‑lain) yang sedang digunakan presentasi tersebut.
 
-Anda dapat memeriksa format presentasi tanpa memuat presentasi. Lihat kode PHP berikut:
+Anda dapat memeriksa format presentasi tanpa memuat presentasi. Lihat kode PHP ini:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -59,10 +59,9 @@ Kode PHP ini menunjukkan cara mendapatkan properti presentasi (informasi tentang
   echo($props->getSubject());
   echo($props->getTitle());
   # ..
-
 ```
 
-Anda mungkin ingin melihat [properti di bawah kelas DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Anda mungkin ingin melihat [properti di bawah DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/#DocumentProperties--) kelas.
 
 ## **Perbarui Properti Presentasi**
 
@@ -70,7 +69,7 @@ Aspose.Slides menyediakan metode [PresentationInfo.updateDocumentProperties](htt
 
 Misalkan kita memiliki presentasi PowerPoint dengan properti dokumen yang ditampilkan di bawah ini.
 
-![Properti dokumen asli dari presentasi PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
 Contoh kode ini menunjukkan cara mengedit beberapa properti presentasi:
 
@@ -89,35 +88,33 @@ $info->writeBindedPresentation($fileName);
 
 Hasil perubahan properti dokumen ditampilkan di bawah ini.
 
-![Properti dokumen yang diubah dari presentasi PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **Tautan Berguna**
 
-Untuk mendapatkan informasi lebih lanjut tentang presentasi dan atribut keamanannya, Anda mungkin menemukan tautan berikut berguna:
+Untuk mendapatkan informasi lebih lanjut tentang sebuah presentasi dan atribut keamanannya, Anda mungkin menemukan tautan‑tautan berikut berguna:
 
-- [Memeriksa apakah Presentasi terenkripsi](https://docs.aspose.com/slides/id/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Memeriksa apakah Presentasi dilindungi dari penulisan (hanya-baca)](https://docs.aspose.com/slides/id/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Memeriksa apakah Presentasi dilindungi kata sandi sebelum dimuat](https://docs.aspose.com/slides/id/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Mengonfirmasi Kata Sandi yang Digunakan untuk Melindungi Presentasi](https://docs.aspose.com/slides/id/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/id/php-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/id/php-java/write-protected-presentation/)
 
 ## **FAQ**
 
-**Bagaimana saya dapat memeriksa apakah font di-embed dan font mana saja?**
+**Bagaimana saya dapat memeriksa apakah font tersemat dan font apa saja?**
 
-Cari [informasi font ter-embed](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getembeddedfonts/) pada tingkat presentasi, lalu bandingkan entri tersebut dengan kumpulan [font yang benar-benar digunakan dalam konten](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getfonts/) untuk mengidentifikasi font mana yang penting untuk proses rendering.
+Cari informasi [embedded-font information](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getembeddedfonts/) pada level presentasi, kemudian bandingkan entri‑entri tersebut dengan set [fonts actually used across content](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getfonts/) untuk mengidentifikasi font mana yang krusial untuk rendering.
 
-**Bagaimana saya dapat dengan cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
+**Bagaimana cara cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
 
-Iterasikan melalui [kumpulan slide](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/) dan periksa [bendera visibilitas](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/gethidden/) pada setiap slide.
+Iterasi melalui [slide collection](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/) dan periksa setiap [visibility flag](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/gethidden/) pada slide.
 
-**Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah berbeda dari nilai default?**
+**Bisakah saya mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah berbeda dari default?**
 
-Ya. Bandingkan [ukuran slide](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/getslidesize/) dan orientasi saat ini dengan preset standar; hal ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
+Ya. Bandingkan [slide size](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/getslidesize/) dan orientasi saat ini dengan preset standar; ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
 
-**Apakah ada cara cepat untuk melihat apakah grafik merujuk ke sumber data eksternal?**
+**Apakah ada cara cepat untuk melihat apakah chart merujuk ke sumber data eksternal?**
 
-Ya. Telusuri semua [grafik](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/), periksa [sumber data](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getdatasourcetype/) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
+Ya. Telusuri semua [charts](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/), periksa [data source](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getdatasourcetype/), dan catat apakah data internal atau berbasis tautan, termasuk tautan yang rusak.
 
-**Bagaimana saya dapat menilai slide 'berat' yang dapat memperlambat proses rendering atau ekspor PDF?**
+**Bagaimana saya dapat menilai slide “berat” yang mungkin memperlambat rendering atau ekspor PDF?**
 
-Untuk setiap slide, hitung jumlah objek dan periksa adanya gambar besar, transparansi, bayangan, animasi, serta multimedia; berikan skor kompleksitas kasar untuk menandai potensi titik panas kinerja.
+Untuk setiap slide, hitung jumlah objek dan cari gambar besar, transparansi, bayangan, animasi, serta multimedia; berikan skor kompleksitas kasar untuk menandai potensi hotspot kinerja.

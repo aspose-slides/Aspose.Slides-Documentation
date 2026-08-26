@@ -1,255 +1,238 @@
 ---
-title: "C++ में पासवर्ड के साथ प्रस्तुतियों को सुरक्षित करें"
-linktitle: "पासवर्ड सुरक्षा"
+title: C++ में प्रस्तुतियों की पासवर्ड सुरक्षा
+linktitle: पासवर्ड सुरक्षा
 type: docs
 weight: 20
 url: /hi/cpp/password-protected-presentation/
 keywords:
-- "PowerPoint को लॉक करें"
-- "प्रस्तुति को लॉक करें"
-- "PowerPoint को अनलॉक करें"
-- "प्रस्तुति को अनलॉक करें"
-- "PowerPoint की सुरक्षा करें"
-- "प्रस्तुति की सुरक्षा करें"
-- "पासवर्ड सेट करें"
-- "पासवर्ड जोड़ें"
-- "PowerPoint को एन्क्रिप्ट करें"
-- "प्रस्तुति को एन्क्रिप्ट करें"
-- "PowerPoint को डिक्रिप्ट करें"
-- "प्रस्तुति को डिक्रिप्ट करें"
-- "लेखन सुरक्षा"
-- "PowerPoint सुरक्षा"
-- "प्रस्तुति सुरक्षा"
-- "पासवर्ड हटाएँ"
-- "सुरक्षा हटाएँ"
-- "एन्क्रिप्शन हटाएँ"
-- "पासवर्ड अक्षम करें"
-- "सुरक्षा अक्षम करें"
-- "लेखन सुरक्षा हटाएँ"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ के साथ पासवर्ड-सुरक्षित PowerPoint और OpenDocument प्रस्तुतियों को आसानी से लॉक और अनलॉक करना सीखें। अपनी प्रस्तुतियों को सुरक्षित बनाएँ।"
+- पासवर्ड-रक्षित प्रस्तुति
+- ओपनिंग पासवर्ड
+- PowerPoint एन्क्रिप्ट करें
+- PowerPoint डिक्रिप्ट करें
+- प्रस्तुति पासवर्ड मान्य करें
+- प्रस्तुति पासवर्ड जांचें
+- एन्क्रिप्टेड प्रस्तुति खोलें
+- एन्क्रिप्शन हटाएँ
+- PowerPoint
+- PPT
+- PPTX
+- प्रस्तुति
+- C++
+- Aspose.Slides
+description: "Aspose.Slides के साथ C++ में पासवर्ड-रक्षित PowerPoint PPT और PPTX प्रस्तुतियों को एन्क्रिप्ट, पहचान, मान्य, खोलें और डिक्रिप्ट करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-जब आप एक प्रस्तुति को पासवर्ड से सुरक्षित करते हैं, तो इसका अर्थ है कि आप एक पासवर्ड सेट कर रहे हैं जो प्रस्तुति पर कुछ प्रतिबंधों को लागू करता है। प्रतिबंध हटाने के लिए पासवर्ड दर्ज करना आवश्यक होता है। पासवर्ड‑सुरक्षित प्रस्तुति को एक लॉक की गई प्रस्तुति माना जाता है।
+एक ओपनिंग पासवर्ड प्रस्तुति को एन्क्रिप्ट करता है। प्रस्तुति सामग्री को लोड और देखने के लिए सही पासवर्ड आवश्यक है, इसलिए यह सुरक्षा गोपनीयता प्रदान करती है।
 
-आमतौर पर, आप एक प्रस्तुति पर इन प्रतिबंधों को लागू करने के लिए पासवर्ड सेट कर सकते हैं:
+एक ओपनिंग पासवर्ड write‑protection पासवर्ड से अलग होता है। Write‑protection संशोधन को सीमित करता है लेकिन सामग्री को एन्क्रिप्ट नहीं करता या प्रस्तुति को लोड होने से नहीं रोकता। प्रस्तुतियों को संशोधित करने के पासवर्ड प्रबंधित करने के लिए, देखें [Write‑Protect Presentations](/slides/hi/cpp/write-protected-presentation/)।
 
-- **संशोधन**
+नीचे दिए गए वर्कफ़्लो दोनों PPT और PPTX प्रस्तुतियों पर लागू होते हैं। उदाहरण दोनों फ़ॉर्मैट का उपयोग करते हैं जहाँ फ़ाइल‑आधारित और स्ट्रीम‑आधारित व्यवहार महत्वपूर्ण है।
 
-  यदि आप केवल कुछ उपयोगकर्ताओं को अपनी प्रस्तुति में संशोधन की अनुमति देना चाहते हैं, तो आप संशोधन प्रतिबंध सेट कर सकते हैं। यह प्रतिबंध लोगों को आपकी प्रस्तुति में संशोधन, परिवर्तन या वस्तुओं को कॉपी करने से रोकता है (जब तक वे पासवर्ड प्रदान न करें)।  
+## **एक ओपनिंग पासवर्ड के साथ प्रस्तुति को एन्क्रिप्ट करें**
 
-  हालांकि, इस मामले में, पासवर्ड के बिना भी उपयोगकर्ता आपके दस्तावेज़ को खोलकर एक्सेस कर पाएगा। इस पढ़ने‑के‑लिए‑केवल मोड में, उपयोगकर्ता आपके प्रस्तुति की सामग्री या चीज़ें—हाइपरलिंक, एनीमेशन, इफ़ेक्ट आदि—देख सकता है, लेकिन वे आइटम कॉपी नहीं कर सकते या प्रस्तुति सहेज नहीं सकते।  
+एक ओपनिंग पासवर्ड सौंपने के लिए [IProtectionManager::Encrypt](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprotectionmanager/encrypt/) का उपयोग करें। फिर एन्क्रिप्टेड प्रस्तुति को सहेजने के लिए [IPresentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/save/) का उपयोग करें।
 
-- **खोलना**
+निम्न उदाहरण एक PPTX प्रस्तुति को एन्क्रिप्ट करता है:
 
-  यदि आप केवल कुछ उपयोगकर्ताओं को अपनी प्रस्तुति खोलने की अनुमति देना चाहते हैं, तो आप खोलने का प्रतिबंध सेट कर सकते हैं। यह प्रतिबंध लोगों को आपकी प्रस्तुति की सामग्री देखने से रोकता है (जब तक वे पासवर्ड प्रदान न करें)।  
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  तकनीकी रूप से, खोलने का प्रतिबंध उपयोगकर्ताओं को आपकी प्रस्तुतियों को संशोधित करने से भी रोकता है: जब लोग प्रस्तुति नहीं खोल सकते, तो वे उसमें कोई बदलाव या संशोधन नहीं कर सकते।  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **ध्यान दें** कि जब आप प्रस्तुति को खोलने से रोकने के लिए पासवर्ड से सुरक्षित करते हैं, तो प्रस्तुति फ़ाइल एन्क्रिप्ट हो जाती है।
-
-## **ऑनलाइन प्रस्तुति को पासवर्ड से सुरक्षित करने का तरीका**
-
-1. हमारे [**Aspose.Slides Lock**](https://products.aspose.app/slides/hi/lock) पृष्ठ पर जाएँ।  
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. **Drop or upload your files** पर क्लिक करें।
-
-3. अपने कंप्यूटर से वह फ़ाइल चुनें जिसे आप पासवर्ड से सुरक्षित करना चाहते हैं।
-
-4. संपादन सुरक्षा के लिए अपना इच्छित पासवर्ड दर्ज करें; दृश्य सुरक्षा के लिए अपना इच्छित पासवर्ड दर्ज करें।
-
-5. यदि आप चाहते हैं कि उपयोगकर्ता आपकी प्रस्तुति को अंतिम प्रतिलिपि के रूप में देखें, तो **Mark as final** चेकबॉक्स को चुनें।
-
-6. **PROTECT NOW.** पर क्लिक करें।  
-
-7. **DOWNLOAD NOW.** पर क्लिक करें।
-
-## **Aspose.Slides में प्रस्तुतियों के लिए पासवर्ड सुरक्षा**
-
-**समर्थित स्वरूप**
-
-Aspose.Slides इन स्वरूपों में प्रस्तुतियों के लिए पासवर्ड सुरक्षा, एन्क्रिप्शन और समान ऑपरेशन्स को समर्थन देता है:
-
-- PPTX और PPT - Microsoft PowerPoint Presentation
-- ODP - OpenDocument Presentation
-- OTP - OpenDocument Presentation Template
-
-**समर्थित ऑपरेशन्स**
-
-Aspose.Slides आपको प्रस्तुतियों पर पासवर्ड सुरक्षा उपयोग करने की अनुमति देता है ताकि इन तरीकों से संशोधन रोका जा सके:
-
-- प्रस्तुति को एन्क्रिप्ट करना
-- प्रस्तुति पर लिखने की सुरक्षा सेट करना
-
-**अन्य ऑपरेशन्स**
-
-Aspose.Slides आपको पासवर्ड सुरक्षा और एन्क्रिप्शन से संबंधित अन्य कार्य इन तरीकों से करने देता है:
-
-- प्रस्तुति को डिक्रिप्ट करना; एन्क्रिप्टेड प्रस्तुति खोलना
-- एन्क्रिप्शन हटाना; पासवर्ड सुरक्षा निष्क्रिय करना
-- प्रस्तुति से लिखने की सुरक्षा हटाना
-- एन्क्रिप्टेड प्रस्तुति के गुण प्राप्त करना
-- यह जांचना कि प्रस्तुति एन्क्रिप्टेड है या नहीं
-- यह जांचना कि प्रस्तुति पासवर्ड‑सुरक्षित है या नहीं।
-
-## **एक प्रस्तुति को एन्क्रिप्ट करें**
-
-आप पासवर्ड सेट करके एक प्रस्तुति को एन्क्रिप्ट कर सकते हैं। फिर, लॉक की गई प्रस्तुति को संशोधित करने के लिए उपयोगकर्ता को पासवर्ड प्रदान करना होगा।
-
-एक प्रस्तुति को एन्क्रिप्ट या पासवर्ड सुरक्षा करने के लिए, आपको एन्क्रिप्ट मेथड ( [ProtectionManager](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager) से) का उपयोग करके प्रस्तुति के लिए पासवर्ड सेट करना होगा। आप पासवर्ड को एन्क्रिप्ट मेथड को पास करते हैं और फिर सेव मेथड का उपयोग करके अब एन्क्रिप्ट की गई प्रस्तुति को सहेजते हैं।
-
-यह नमूना कोड आपको दिखाता है कि प्रस्तुति को कैसे एन्क्रिप्ट किया जाता है:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
-```
-
-## **एक प्रस्तुति पर लिखने की सुरक्षा सेट करें**
-
-आप प्रस्तुति में “Do not modify” (संशोधित न करें) का चिन्ह जोड़ सकते हैं। इस प्रकार, आप उपयोगकर्ताओं को बता सकते हैं कि आप चाहते हैं कि वे प्रस्तुति में कोई बदलाव न करें।
-
-**ध्यान दें** कि लिखने की सुरक्षा प्रक्रिया प्रस्तुति को एन्क्रिप्ट नहीं करती है। इसलिए, उपयोगकर्ता—यदि वे चाहते हैं—प्रस्तुति को संशोधित कर सकते हैं, लेकिन परिवर्तन सहेजने के लिए उन्हें एक अलग नाम वाली प्रस्तुति बनानी होगी।
-
-लिखने की सुरक्षा सेट करने के लिए, आपको setWriteProtection मेथड का उपयोग करना होगा। यह नमूना कोड आपको दिखाता है कि प्रस्तुति पर लिखने की सुरक्षा कैसे सेट की जाती है:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **एक एन्क्रिप्टेड प्रस्तुति लोड करें**
 
-Aspose.Slides आपको पासवर्ड पास कर एन्क्रिप्टेड फ़ाइल लोड करने की अनुमति देता है। प्रस्तुति को डिक्रिप्ट करने के लिए, आपको [RemoveEncryption](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) मेथड को बिना किसी पैरामीटर के कॉल करना होगा। इसके बाद प्रस्तुति को लोड करने के लिए आपको सही पासवर्ड दर्ज करना होगा।
+[LoadOptions::set_Password](https://reference.aspose.com/slides/hi/cpp/aspose.slides/loadoptions/set_password/) को ओपनिंग पासवर्ड पर सेट करें और फ़ाइल लोड करते समय विकल्प को [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) में पास करें। जब ओपनिंग पासवर्ड आवश्यक होता है लेकिन दिया गया पासवर्ड अनुपलब्ध या गलत होता है, तो लोडिंग विफल हो जाती है।
 
-यह नमूना कोड आपको दिखाता है कि प्रस्तुति को कैसे डिक्रिप्ट किया जाता है:
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-``` cpp
+using namespace Aspose::Slides;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// डिक्रिप्ट की गई प्रस्तुति के साथ काम करें
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// डिक्रिप्टेड प्रस्तुति के साथ काम करें।
 ```
 
 ## **एक प्रस्तुति से एन्क्रिप्शन हटाएँ**
 
-आप प्रस्तुति से एन्क्रिप्शन या पासवर्ड सुरक्षा हटा सकते हैं। इस प्रकार, उपयोगकर्ता बिना किसी प्रतिबंध के प्रस्तुति को एक्सेस या संशोधित कर सकते हैं।
+प्रस्तुति को उसके ओपनिंग पासवर्ड के साथ लोड करें, [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprotectionmanager/removeencryption/) को कॉल करें, और परिणाम को सहेजें। सहेजी गई प्रस्तुति को तब पासवर्ड के बिना लोड किया जा सकता है।
 
-एन्क्रिप्शन या पासवर्ड सुरक्षा हटाने के लिए, आपको [RemoveEncryption](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) मेथड को कॉल करना होगा। यह नमूना कोड आपको एक प्रस्तुति से एन्क्रिप्शन हटाने का तरीका दिखाता है:
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
+
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **एक प्रस्तुति से लिखने की सुरक्षा हटाएँ**
+## **लोड करने से पहले ओपनिंग पासवर्ड को मान्य करें**
 
-आप Aspose.Slides का उपयोग करके प्रस्तुति फ़ाइल पर लागू लिखने की सुरक्षा हटा सकते हैं। इस प्रकार, उपयोगकर्ता अपनी इच्छा अनुसार संशोधित कर सकते हैं—और उन्हें ऐसा करने पर कोई चेतावनी नहीं मिलती।
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) का उपयोग करके पूरा प्रस्तुति इंस्टेंस बनाए बिना [IPresentationInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentationinfo/) प्राप्त करें। पासवर्ड अनुरोध या मान्यकरण से पहले [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) को जांचें। जब सुरक्षा मौजूद हो, तो प्रदान किए गए मान को [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentationinfo/checkpassword/) से मान्य करें।
 
-आप [RemoveWriteProtection](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) मेथड का उपयोग करके प्रस्तुति से लिखने की सुरक्षा हटा सकते हैं। यह नमूना कोड आपको एक प्रस्तुति से लिखने की सुरक्षा हटाने का तरीका दिखाता है:
+### **फ़ाइल‑पथ वर्कफ़्लो**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+निम्न उदाहरण एक PPTX फ़ाइल के लिए ओपनिंग पासवर्ड को मान्य करता है, मान्य किए गए मान को [LoadOptions::set_Password](https://reference.aspose.com/slides/hi/cpp/aspose.slides/loadoptions/set_password/) को पास करता है, और फिर पूरी प्रस्तुति को लोड करता है:
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **एक एन्क्रिप्टेड प्रस्तुति के गुण प्राप्त करें**
+### **स्ट्रीम वर्कफ़्लो**
 
-आमतौर पर, उपयोगकर्ताओं को एन्क्रिप्टेड या पासवर्ड‑सुरक्षित प्रस्तुति के दस्तावेज़ गुण प्राप्त करने में कठिनाई होती है। Aspose.Slides, हालांकि, एक ऐसा तंत्र प्रदान करता है जो आपको प्रस्तुति को पासवर्ड‑सुरक्षित करने की अनुमति देता है जबकि उपयोगकर्ताओं को उस प्रस्तुति के गुणों तक पहुँच प्रदान करता है।
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) का स्ट्रीम ओवरलोड वही वर्कफ़्लो प्रदान करता है। स्ट्रीम से पूरी प्रस्तुति लोड करने से पहले एक seekable स्ट्रीम की स्थिति रीसेट करें।
 
-**ध्यान दें** कि जब Aspose.Slides एक प्रस्तुति को एन्क्रिप्ट करता है, तो प्रस्तुति के दस्तावेज़ गुण भी डिफ़ॉल्ट रूप से पासवर्ड‑सुरक्षित हो जाते हैं। लेकिन यदि आपको प्रस्तुति के गुणों को सुलभ बनाना हो (भले ही प्रस्तुति एन्क्रिप्ट हो गई हो), तो Aspose.Slides आपको यह करने की अनुमति देता है।
+निम्न उदाहरण एक PPT फ़ाइल का उपयोग करता है:
 
-यदि आप चाहते हैं कि उपयोगकर्ता एन्क्रिप्ट की गई प्रस्तुति के गुणों तक पहुँच बनाए रखें, तो आप [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d) मेथड को `true` पास कर सकते हैं। यह नमूना कोड आपको दिखाता है कि प्रस्तुति को एन्क्रिप्ट करने के साथ-साथ उपयोगकर्ताओं को इसके दस्तावेज़ गुणों तक पहुँच कैसे प्रदान की जाए:
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **जाँचें कि प्रस्तुति पासवर्ड‑सुरक्षित है या नहीं**
+### **CheckPassword रिटर्न वैल्यूज़**
 
-किसी प्रस्तुति को लोड करने से पहले, आप जाँच और पुष्टि करना चाह सकते हैं कि प्रस्तुति पासवर्ड से सुरक्षित नहीं है। इस तरह, आप उन त्रुटियों और समान समस्याओं से बच सकते हैं जो तब आती हैं जब पासवर्ड‑सुरक्षित प्रस्तुति को बिना पासवर्ड के लोड किया जाता है।
+जब प्रस्तुति में ओपनिंग पासवर्ड हो और दिया गया पासवर्ड सही हो, तभी [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentationinfo/checkpassword/) `true` लौटाता है। यह निम्नलिखित मामलों में `false` लौटाता है:
 
-यह C++ कोड आपको दिखाता है कि प्रस्तुति की जाँच कैसे करें कि वह पासवर्ड‑सुरक्षित है या नहीं (बिना स्वयं प्रस्तुति को लोड किए):
+- पासवर्ड गलत है।
+- प्रस्तुति में ओपनिंग पासवर्ड नहीं है।
+- प्रदान किया गया पासवर्ड null या खाली है।
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
-```
+यह व्यवहार PPT और PPTX प्रस्तुतियों के लिए समान है।
 
-## **जाँचें कि प्रस्तुति एन्क्रिप्टेड है या नहीं**
+## **क्या लोड की गई प्रस्तुति एन्क्रिप्टेड है, जांचें**
 
-Aspose.Slides आपको यह जाँचने की अनुमति देता है कि प्रस्तुति एन्क्रिप्टेड है या नहीं। इस कार्य को करने के लिए, आप [get_IsEncrypted()](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) मेथड का उपयोग कर सकते हैं, जो `true` लौटाता है यदि प्रस्तुति एन्क्रिप्टेड है और `false` यदि प्रस्तुति एन्क्रिप्टेड नहीं है।
+सही पासवर्ड के साथ प्रस्तुति लोड करने के बाद, यह पुष्टि करने के लिए [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) को देखें कि स्रोत प्रस्तुति एन्क्रिप्टेड थी। लोड करने से पहले ओपनिंग‑पासवर्ड सुरक्षा का पता लगाने के लिए, ऊपर दिखाए अनुसार `IPresentationInfo::get_IsPasswordProtected` का उपयोग करें।
 
-यह नमूना कोड आपको दिखाता है कि प्रस्तुति एन्क्रिप्टेड है या नहीं:
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **जाँचें कि प्रस्तुति लिखने‑सुरक्षित है या नहीं**
+## **सुरक्षा सिफ़ारिशें**
 
-Aspose.Slides आपको यह जाँचने की अनुमति देता है कि प्रस्तुति लिखने‑सुरक्षित है या नहीं। इस कार्य को करने के लिए, आप [get_IsWriteProtected()](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) मेथड का उपयोग कर सकते हैं, जो `true` लौटाता है यदि प्रस्तुति लिखने‑सुरक्षित है और `false` यदि नहीं है।
+{{% alert color="warning" title="Security" %}}
+ओपनिंग पासवर्ड को लॉग न करें या निदान संदेशों में शामिल न करें। अनावश्यक पुनः‑मान्यकरण प्रयासों से बचें, पासवर्ड को केवल आवश्यक अवधि तक मेमोरी में रखें, और प्रस्तुति को तुरंत लोड करते समय सफल मान्यकरण परिणाम को पुनः प्रयोग करें।
+{{% /alert %}}
 
-यह नमूना कोड आपको दिखाता है कि प्रस्तुति लिखने‑सुरक्षित है या नहीं:
+## **ऑनलाइन प्रस्तुति को पासवर्ड‑प्रोटेक्ट करें**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/hi/lock) एप्लिकेशन खोलें।
+2. प्रस्तुति का चयन करें या उसे अपलोड करें।
+3. व्यू प्रोटेक्शन के लिए पासवर्ड दर्ज करें।
+4. वैकल्पिक रूप से संपादन सुरक्षा के लिए एक अलग पासवर्ड दर्ज करें।
+5. सुरक्षा लागू करें और परिणामी फ़ाइल डाउनलोड करें।
 
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **प्रस्तुति पासवर्ड उपयोग को सत्यापित करें**
-
-आप जाँच और पुष्टि करना चाह सकते हैं कि किसी विशिष्ट पासवर्ड का उपयोग प्रस्तुति दस्तावेज़ को सुरक्षित करने के लिए किया गया है। Aspose.Slides आपको पासवर्ड सत्यापित करने का साधन प्रदान करता है।
-
-यह नमूना कोड आपको दिखाता है कि पासवर्ड कैसे वैध किया जाए:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// जाँचें कि "pass" के साथ मेल खाता है या नहीं
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-यह `true` वापस करता है यदि प्रस्तुति निर्दिष्ट पासवर्ड से एन्क्रिप्ट की गई है। अन्यथा, यह `false` लौटाता है।
-
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write‑Protect Presentations](/slides/hi/cpp/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/hi/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides द्वारा किन एन्क्रिप्शन विधियों का समर्थन किया जाता है?**  
-Aspose.Slides आधुनिक एन्क्रिप्शन विधियों का समर्थन करता है, जिसमें AES‑आधारित एल्गोरिदम शामिल हैं, जिससे आपके प्रस्तुतियों के डेटा सुरक्षा का उच्च स्तर सुनिश्चित होता है।
+**ओपनिंग पासवर्ड और write‑protection पासवर्ड में क्या अंतर है?**
 
-**प्रस्तुति खोलने का प्रयास करते समय यदि गलत पासवर्ड दर्ज किया जाए तो क्या होता है?**  
-यदि गलत पासवर्ड उपयोग किया जाता है तो एक अपवाद उत्पन्न होता है, जो आपको सूचित करता है कि प्रस्तुति तक पहुंच अस्वीकार कर दी गई है। यह अनधिकृत पहुंच को रोकने और प्रस्तुति सामग्री को सुरक्षित रखने में मदद करता है।
+एक ओपनिंग पासवर्ड प्रस्तुति को एन्क्रिप्ट करता है और इसकी सामग्री लोड करने के लिए आवश्यक होता है। एक write‑protection पासवर्ड सामग्री को एन्क्रिप्ट किए बिना संशोधन को सीमित करता है।
 
-**पासवर्ड‑सुरक्षित प्रस्तुतियों के साथ काम करने पर क्या कोई प्रदर्शन संबंधी प्रभाव पड़ते हैं?**  
-एन्क्रिप्शन और डिक्रिप्शन प्रक्रिया खोलने और सहेजने के दौरान थोड़ा ओवरहेड जोड़ सकती है। अधिकांश मामलों में, यह प्रदर्शन प्रभाव न्यूनतम होता है और आपके प्रस्तुति कार्यों के कुल प्रसंस्करण समय को महत्वपूर्ण रूप से नहीं प्रभावित करता।
+**क्या मैं सभी स्लाइड्स लोड किए बिना ओपनिंग पासवर्ड को मान्य कर सकता हूँ?**
+
+हां। प्रस्तुति जानकारी प्राप्त करें, देखें कि ओपनिंग‑पासवर्ड सुरक्षा मौजूद है या नहीं, और पूर्ण प्रस्तुति इंस्टेंस बनाने से पहले पासवर्ड को मान्य करें।
+
+**क्या पासवर्ड‑जांच वर्कफ़्लो PPT और PPTX दोनों को सपोर्ट करते हैं?**
+
+हां। फ़ाइल‑पथ और स्ट्रीम‑आधारित पासवर्ड का पता लगाने और मान्यकरण का व्यवहार PPT और PPTX प्रस्तुतियों के लिए समान है।

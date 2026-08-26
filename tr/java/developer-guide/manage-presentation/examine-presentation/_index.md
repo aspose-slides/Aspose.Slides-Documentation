@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Bilgilerini Al ve Güncelle
+title: Java'da Sunum Bilgilerini Alın ve Güncelleyin
 linktitle: Sunum Bilgileri
 type: docs
 weight: 30
@@ -21,21 +21,23 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Java kullanarak PowerPoint ve OpenDocument sunumlarındaki slaytları, yapıyı ve meta verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri için."
+description: "Java kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin; daha hızlı içgörüler ve akıllı içerik denetimleri sağlayın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum bilgilerini nasıl inceleyeceğinizi gösterir. Sunumun tam dosyasını yüklemeden mevcut biçimini belirlemeyi, belge özelliklerini okumayı ve gerektiğinde bu özellikleri güncellemeyi açıklar.
+Bu makale Aspose.Slides'ta sunum bilgilerini nasıl inceleyeceğinizi gösterir. Sunumun tam dosyasını yüklemeden mevcut biçimini nasıl belirleyeceğinizi, belge özelliklerini nasıl okuyacağınızı ve gerektiğinde bu özellikleri nasıl güncelleyeceğinizi açıklar.
 
 Örnekler, [PresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationinfo/) ve [DocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/documentproperties/) API'lerine dayanmaktadır ve sunum meta verileriyle çalışmak için tipik işlemleri göstermektedir.
 
-## **Sunum Biçimini Kontrol Et**
+## **Sunum Biçimini Kontrol Etme**
 
-Bir sunum üzerinde çalışmadan önce, sunumun şu anda hangi biçimde (PPT, PPTX, ODP ve diğerleri) olduğunu öğrenmek isteyebilirsiniz.
+Bir sunumla çalışmadan önce, mevcut olarak hangi biçimde (PPT, PPTX, ODP ve diğerleri) olduğunu öğrenmek isteyebilirsiniz.
 
 Sunumun biçimini, sunumu yüklemeden kontrol edebilirsiniz. Aşağıdaki Java koduna bakın:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -46,32 +48,37 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **Sunum Özelliklerini Al**
+## **Sunum Özelliklerini Almak**
 
-Bu Java kodu, sunum özelliklerini (sunumla ilgili bilgiler) nasıl alacağınızı gösterir:
+Bu Java kodu, sunum özelliklerini (sunum hakkındaki bilgileri) nasıl alacağınızı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ..
+// .. 
 ```
 
-[DocumentProperties sınıfının özelliklerini](https://reference.aspose.com/slides/tr/java/com.aspose.slides/documentproperties/#DocumentProperties--) görmek isteyebilirsiniz.
+[DocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/documentproperties/#DocumentProperties--) sınıfındaki özellikleri görmek isteyebilirsiniz.
 
-## **Sunum Özelliklerini Güncelle**
+## **Sunum Özelliklerini Güncelleme**
 
-Aspose.Slides, sunum özelliklerinde değişiklik yapmanıza olanak tanıyan [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) metodunu sağlar.
+Aspose.Slides, sunum özelliklerinde değişiklik yapmanıza olanak tanıyan [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) yöntemini sağlar.
 
-Aşağıda gösterilen belge özelliklerine sahip bir PowerPoint sunumumuz olduğunu varsayalım.
+Aşağıdaki gibi belge özellikleri gösterilen bir PowerPoint sunumumuz olduğunu varsayalım.
 
 ![PowerPoint sunumunun orijinal belge özellikleri](input_properties.png)
 
 Bu kod örneği, bazı sunum özelliklerini nasıl düzenleyeceğinizi gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -86,30 +93,33 @@ info.writeBindedPresentation(fileName);
 
 Belge özelliklerini değiştirme sonuçları aşağıda gösterilmiştir.
 
-![PowerPoint sunumunun değiştirilen belge özellikleri](output_properties.png)
+![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
 
-## **Faydalı Bağlantılar**
+## **Yararlı Bağlantılar**
 
 Bir sunum ve güvenlik nitelikleri hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılar faydalı olabilir:
 
-- [Bir Sunumun Şifrelenip Şifrelenmediğini Kontrol Et](https://docs.aspose.com/slides/tr/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Bir Sunumun Yazma Koruması (yalnızca okunur) olup olmadığını Kontrol Et](https://docs.aspose.com/slides/tr/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Bir Sunumun Yüklemeden Önce Şifreyle Korunup Korunmadığını Kontrol Et](https://docs.aspose.com/slides/tr/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bir Sunumu Korumak İçin Kullanılan Şifreyi Doğrulama](https://docs.aspose.com/slides/tr/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Parola Korumalı Sunumlar](/slides/tr/java/password-protected-presentation/)
+- [Yazma Koruması Olan Sunumlar](/slides/tr/java/write-protected-presentation/)
 
 ## **SSS**
 
-**Sunularda gömülü fontların olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**  
-Sunum düzeyinde [embedded-font bilgilerini](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) arayın, ardından bu girişleri [içerik genelinde gerçekten kullanılan fontlar](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#getFonts--) ile karşılaştırarak hangi fontların render için kritik olduğunu belirleyin.
+**Yazı tiplerinin gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
 
-**Dosyanın gizli slaytları olup olmadığını ve kaç tane olduğunu nasıl hızlıca öğrenebilirim?**  
-[slide collection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidecollection/) içinde döngü kurun ve her slaydın [visibility flag](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slide/#getHidden--) özelliğini inceleyin.
+Sunum düzeyinde [embedded-font information](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) arayın, ardından bu girdileri içerik boyunca kullanılan [fonts actually used across content](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsmanager/#getFonts--) ile karşılaştırarak hangi yazı tiplerinin render için kritik olduğunu belirleyin.
 
-**Özel slayt boyutu ve yöneliminin kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**  
-Evet. Mevcut [slide size](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlideSize--) ve yönelimi standart ön ayarlarla karşılaştırın; bu, baskı ve dışa aktarma davranışını öngörmeye yardımcı olur.
+**Dosyanın gizli slaytları olup olmadığını ve sayısını nasıl hızlıca öğrenebilirim?**
 
-**Grafiklerin harici veri kaynaklarına referans verip vermediğini hızlıca görmenin bir yolu var mı?**  
-Evet. Tüm [charts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chart/) üzerinden geçin, [data source](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chartdata/#getDataSourceType--) özelliklerini kontrol edin ve verinin içsel mi yoksa bağlantı temelli mi olduğunu, kırık bağlantılar dahil, not edin.
+[slide collection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidecollection/) üzerinden yineleyin ve her slaydın [visibility flag](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slide/#getHidden--) özelliğini inceleyin.
 
-**Render veya PDF dışa aktarımını yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**  
-Her slayt için nesne sayılarını sayın, büyük görüntüler, şeffaflık, gölgeler, animasyonlar ve multimedya öğelerini izleyin; potansiyel performans sorunlarını işaretlemek için kabaca bir karmaşıklık puanı atayın.
+**Özel slayt boyutu ve yönlendirmesi kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
+
+Evet. Mevcut [slide size](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlideSize--) ve yönlendirmeyi standart ön ayarlarla karşılaştırın; bu, yazdırma ve dışa aktarma davranışını önceden tahmin etmenize yardımcı olur.
+
+**Grafiklerin harici veri kaynaklarına başvurduğunu hızlıca görebilir miyim?**
+
+Evet. Tüm [charts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chart/) üzerinde dolaşın, [data source](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chartdata/#getDataSourceType--) öğesini kontrol edin ve verinin dahili mi yoksa bağlantı‑tabanlı mı olduğunu, ayrıca kırık bağlantılar olup olmadığını not edin.
+
+**Render veya PDF dışa aktarma sırasında yavaşlayabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+
+Her slayt için nesne sayılarını sayın ve büyük resimler, şeffaflık, gölgeler, animasyonlar ve multimedya öğelerini arayın; potansiyel performans sorunlarını işaretlemek için kaba bir karmaşıklık puanı atayın.

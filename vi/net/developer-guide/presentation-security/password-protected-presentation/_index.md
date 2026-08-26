@@ -1,256 +1,200 @@
 ---
-title: Bảo mật bản trình chiếu bằng mật khẩu trong .NET
-linktitle: Bảo vệ bằng mật khẩu
+title: Bảo vệ bản trình bày bằng mật khẩu trong .NET
+linktitle: Bảo vệ mật khẩu
 type: docs
 weight: 20
 url: /vi/net/password-protected-presentation/
 keywords:
-- khóa PowerPoint
-- khóa bản trình chiếu
-- mở khóa PowerPoint
-- mở khóa bản trình chiếu
-- bảo vệ PowerPoint
-- bảo vệ bản trình chiếu
-- đặt mật khẩu
-- thêm mật khẩu
+- bản trình bày được bảo vệ bằng mật khẩu
+- mật khẩu mở khóa
 - mã hoá PowerPoint
-- mã hoá bản trình chiếu
 - giải mã PowerPoint
-- giải mã bản trình chiếu
-- bảo vệ ghi
-- bảo mật PowerPoint
-- bảo mật bản trình chiếu
-- gỡ mật khẩu
-- gỡ bảo vệ
-- gỡ mã hoá
-- vô hiệu hoá mật khẩu
-- vô hiệu hoá bảo vệ
-- gỡ bảo vệ ghi
+- xác thực mật khẩu bản trình bày
+- kiểm tra mật khẩu bản trình bày
+- mở bản trình bày đã mã hoá
+- gỡ bỏ mã hoá
 - PowerPoint
-- OpenDocument
-- bản trình chiếu
+- PPT
+- PPTX
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách khóa và mở khóa dễ dàng các bản trình chiếu PowerPoint và OpenDocument được bảo vệ bằng mật khẩu với Aspose.Slides cho .NET. Bảo mật các bản trình chiếu của bạn."
+description: "Mã hoá, phát hiện, xác thực, mở và giải mã các bản trình bày PowerPoint PPT và PPTX được bảo vệ bằng mật khẩu trong C# với Aspose.Slides cho .NET."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khi bạn bảo vệ một bản trình chiếu bằng mật khẩu, nghĩa là bạn đang đặt một mật khẩu áp dụng các hạn chế nhất định lên bản trình chiếu. Để gỡ bỏ các hạn chế này, người dùng phải nhập mật khẩu. Một bản trình chiếu có mật khẩu được coi là bản trình chiếu đã khóa.
+Mật khẩu mở khóa mã hoá một bản trình bày. Mật khẩu đúng là bắt buộc để tải và xem nội dung bản trình bày, do đó bảo vệ này cung cấp tính bảo mật.
 
-Thông thường, bạn có thể đặt mật khẩu để áp dụng các hạn chế sau cho bản trình chiếu:
+Mật khẩu mở khóa khác với mật khẩu bảo vệ ghi. Bảo vệ ghi hạn chế việc sửa đổi nhưng không mã hoá nội dung hoặc ngăn bản trình bày được tải. Để quản lý mật khẩu cho việc chỉnh sửa bản trình bày, xem [Write-Protect Presentations](/slides/vi/net/write-protected-presentation/).
 
-- **Sửa đổi**
+Các quy trình làm việc dưới đây áp dụng cho cả bản trình bày PPT và PPTX. Các ví dụ sử dụng cả hai định dạng khi hành vi dựa trên tệp và dựa trên luồng của chúng quan trọng.
 
-Nếu bạn muốn chỉ một số người dùng nhất định có thể sửa đổi bản trình chiếu, bạn có thể thiết lập hạn chế sửa đổi. Hạn chế này ngăn người dùng sửa đổi, thay đổi hoặc sao chép các thành phần trong bản trình chiếu trừ khi họ cung cấp mật khẩu.
+## **Mã hoá bản trình bày bằng mật khẩu mở khóa**
 
-Tuy nhiên, ngay cả khi không có mật khẩu, người dùng vẫn có thể truy cập và mở tài liệu của bạn. Trong chế độ chỉ đọc này, người dùng có thể xem nội dung — bao gồm siêu liên kết, hoạt ảnh, hiệu ứng và các yếu tố khác — trong bản trình chiếu, nhưng họ không thể sao chép mục nào hoặc lưu bản trình chiếu.
+Sử dụng [IProtectionManager.Encrypt](https://reference.aspose.com/slides/vi/net/aspose.slides/iprotectionmanager/encrypt/) để chỉ định một mật khẩu mở khóa. Sau đó sử dụng [IPresentation.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentation/save/) để lưu bản trình bày đã được mã hoá.
 
-- **Mở**
+Ví dụ sau mã hoá một bản trình bày PPTX:
 
-Nếu bạn muốn chỉ một số người dùng nhất định có thể mở bản trình chiếu, bạn có thể thiết lập hạn chế mở. Hạn chế này ngăn người dùng thậm chí xem nội dung của bản trình chiếu nếu họ không cung cấp mật khẩu.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Về mặt kỹ thuật, hạn chế mở cũng ngăn người dùng sửa đổi bản trình chiếu — nếu người dùng không thể mở bản trình chiếu, họ cũng không thể sửa đổi hay thay đổi nó.
+using var presentation = new Presentation("pres.pptx");
 
-**Lưu ý:** Khi bạn bảo vệ bản trình chiếu bằng mật khẩu để ngăn mở, tệp bản trình chiếu sẽ được mã hoá.
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+```
 
-## **Bảo vệ bằng mật khẩu trong Aspose.Slides**
+## **Tải bản trình bày đã mã hoá**
 
-**Định dạng được hỗ trợ**
+Đặt [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/) thành mật khẩu mở khóa và truyền các tùy chọn này vào [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) khi tải tệp. Việc tải sẽ thất bại khi cần mật khẩu mở khóa nhưng mật khẩu cung cấp bị thiếu hoặc không đúng.
 
-Aspose.Slides hỗ trợ bảo vệ mật khẩu, mã hoá và các thao tác tương tự cho các bản trình chiếu ở các định dạng sau:
+```csharp
+using Aspose.Slides;
 
-- PPTX và PPT – Bản trình chiếu Microsoft PowerPoint
-- ODP – Bản trình chiếu OpenDocument
-- OTP – Mẫu bản trình chiếu OpenDocument
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-**Các thao tác được hỗ trợ**
+// Làm việc với bản trình bày đã giải mã.
+```
 
-Aspose.Slides cho phép bạn sử dụng bảo vệ bằng mật khẩu trên bản trình chiếu để ngăn sửa đổi theo các cách sau:
+## **Gỡ bỏ mã hoá khỏi bản trình bày**
 
-- Mã hoá bản trình chiếu
-- Thiết lập bảo vệ ghi trên bản trình chiếu
+Tải bản trình bày với mật khẩu mở khóa của nó, gọi [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/vi/net/aspose.slides/iprotectionmanager/removeencryption/), và lưu kết quả. Bản trình bày đã lưu sau đó có thể được tải mà không cần mật khẩu.
 
-**Các thao tác khác**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Aspose.Slides cho phép bạn thực hiện các nhiệm vụ bổ sung liên quan đến bảo vệ mật khẩu và mã hoá theo các cách sau:
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-- Giải mã bản trình chiếu; mở bản trình chiếu đã mã hoá
-- Gỡ bỏ mã hoá; tắt bảo vệ mật khẩu
-- Gỡ bỏ bảo vệ ghi khỏi bản trình chiếu
-- Truy xuất các thuộc tính của bản trình chiếu đã mã hoá
-- Kiểm tra xem một bản trình chiếu có được bảo vệ mật khẩu hay không trước khi tải
-- Kiểm tra xem một bản trình chiếu có được mã hoá hay không
-- Kiểm tra xem một bản trình chiếu có được bảo vệ mật khẩu hay không
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
 
-## **Bảo vệ một bản trình chiếu bằng mật khẩu**
+## **Xác thực mật khẩu mở khóa trước khi tải**
 
-Bạn có thể mã hoá một bản trình chiếu bằng cách đặt mật khẩu. Sau đó, để sửa đổi bản trình chiếu đã khóa, người dùng phải cung cấp mật khẩu.
+Sử dụng [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationfactory/getpresentationinfo/) để lấy [IPresentationInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationinfo/) mà không tạo một thể hiện bản trình bày đầy đủ. Kiểm tra [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationinfo/ispasswordprotected/) trước khi yêu cầu hoặc xác thực mật khẩu. Khi bảo vệ tồn tại, xác thực giá trị đã cung cấp bằng [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationinfo/checkpassword/).
 
-Để mã hoá (hoặc bảo vệ bằng mật khẩu) một bản trình chiếu, sử dụng phương thức `Encrypt` từ [ProtectionManager](https://reference.aspose.com/slides/vi/net/aspose.slides/protectionmanager) để đặt mật khẩu. Truyền mật khẩu vào phương thức `Encrypt`, sau đó dùng phương thức `Save` để lưu bản trình chiếu đã được mã hoá.
+### **Quy trình làm việc theo Đường dẫn Tệp**
 
-Mẫu mã nguồn dưới đây cho thấy cách mã hoá một bản trình chiếu:
+Ví dụ sau xác thực mật khẩu mở khóa cho tệp PPTX, truyền giá trị đã xác thực vào [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/), và sau đó tải bản trình bày đầy đủ:
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Thiết lập bảo vệ ghi trên bản trình chiếu** 
+### **Quy trình làm việc Dòng**
 
-Bạn có thể thêm một dấu hiệu “Không sửa đổi” vào bản trình chiếu. Điều này thông báo cho người dùng rằng bạn không muốn họ thực hiện thay đổi trên bản trình chiếu.
+Phiên bản quá tải dựa trên luồng của [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationfactory/getpresentationinfo/) cung cấp cùng một quy trình làm việc. Đặt lại vị trí của luồng có thể tìm kiếm trước khi tải bản trình bày đầy đủ từ luồng đó.
 
-**Lưu ý:** Quá trình bảo vệ ghi không mã hoá bản trình chiếu. Do đó, người dùng — nếu họ muốn — vẫn có thể sửa đổi bản trình chiếu, nhưng để lưu các thay đổi, họ sẽ phải lưu dưới một tên khác.
+Ví dụ sau sử dụng một tệp PPT:
 
-Để thiết lập bảo vệ ghi, sử dụng phương thức `SetWriteProtection`. Mẫu mã nguồn dưới đây cho thấy cách thiết lập bảo vệ ghi trên bản trình chiếu:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Tải một bản trình chiếu đã mã hoá**
+### **Giá trị Trả về của CheckPassword**
 
-Aspose.Slides cho phép bạn tải một bản trình chiếu đã mã hoá bằng cách truyền mật khẩu chính xác. Mẫu mã nguồn dưới đây cho thấy cách tải một bản trình chiếu đã mã hoá:
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationinfo/checkpassword/) trả về `true` chỉ khi bản trình bày có mật khẩu mở khóa và mật khẩu cung cấp là đúng. Nó trả về `false` trong mỗi trường hợp sau:
 
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // Làm việc với bản trình chiếu đã giải mã.
-}
+- Mật khẩu không đúng.
+- Bản trình bày không có mật khẩu mở khóa.
+- Mật khẩu cung cấp là `null` hoặc rỗng.
+
+Hành vi này giống nhau đối với bản trình bày PPT và PPTX.
+
+## **Kiểm tra xem bản trình bày đã tải có được mã hoá hay không**
+
+Sau khi tải bản trình bày với mật khẩu đúng, kiểm tra [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/vi/net/aspose.slides/iprotectionmanager/isencrypted/) để xác nhận rằng bản trình bày nguồn đã được mã hoá. Để phát hiện bảo vệ mật khẩu mở khóa trước khi tải, sử dụng `IPresentationInfo.IsPasswordProtected` như đã trình bày ở trên.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **Gỡ bỏ mã hoá khỏi bản trình chiếu**
+## **Khuyến nghị Bảo mật**
 
-Bạn có thể gỡ bỏ mã hoá hoặc bảo vệ mật khẩu khỏi một bản trình chiếu, cho phép người dùng truy cập hoặc sửa đổi nó mà không có bất kỳ hạn chế nào.
-
-Để gỡ bỏ mã hoá hoặc bảo vệ mật khẩu, gọi phương thức [RemoveEncryption](https://reference.aspose.com/slides/vi/net/aspose.slides/protectionmanager/methods/removeencryption). Mẫu mã nguồn dưới đây cho thấy cách gỡ bỏ mã hoá khỏi một bản trình chiếu:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Gỡ bỏ bảo vệ ghi khỏi bản trình chiếu**
-
-Bạn có thể sử dụng Aspose.Slides để gỡ bỏ bảo vệ ghi khỏi tệp bản trình chiếu. Khi đó, người dùng có thể sửa đổi nó theo ý muốn và sẽ không nhận được bất kỳ cảnh báo nào khi thực hiện các thao tác đó.
-
-Bạn có thể gỡ bỏ bảo vệ ghi bằng cách sử dụng phương thức [RemoveWriteProtection](https://reference.aspose.com/slides/vi/net/aspose.slides/protectionmanager/methods/removewriteprotection). Mẫu mã nguồn dưới đây cho thấy cách gỡ bỏ bảo vệ ghi khỏi một bản trình chiếu:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Lấy các thuộc tính của một bản trình chiếu đã mã hoá**
-
-Thông thường, người dùng gặp khó khăn trong việc truy xuất các thuộc tính tài liệu của một bản trình chiếu đã được mã hoá hoặc bảo vệ mật khẩu. Tuy nhiên, Aspose.Slides cung cấp một cơ chế cho phép bạn bảo vệ mật khẩu một bản trình chiếu đồng thời vẫn cho phép người dùng truy cập các thuộc tính của nó.
-
-**Lưu ý:** Mặc định, khi Aspose.Slides mã hoá một bản trình chiếu, các thuộc tính tài liệu của bản trình chiếu cũng được bảo vệ mật khẩu. Nếu bạn cần cho phép các thuộc tính tài liệu có thể truy cập ngay cả sau khi mã hoá, Aspose.Slides cho phép bạn làm điều đó.
-
-Nếu bạn muốn người dùng vẫn có thể truy cập các thuộc tính của một bản trình chiếu đã mã hoá, bạn có thể đặt thuộc tính [EncryptDocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) thành `true`. Mẫu mã nguồn dưới đây cho thấy cách mã hoá một bản trình chiếu đồng thời vẫn cung cấp cho người dùng quyền truy cập các thuộc tính tài liệu:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
-}
-```
-
-## **Kiểm tra xem một bản trình chiếu có được bảo vệ mật khẩu hay không**
-
-Trước khi tải một bản trình chiếu, bạn có thể muốn kiểm tra xem nó có bị bảo vệ bằng mật khẩu hay không. Điều này giúp bạn tránh các lỗi và các vấn đề tương tự xảy ra khi một bản trình chiếu được bảo vệ mật khẩu được tải mà không có mật khẩu đúng.
-
-Mã C# dưới đây cho thấy cách kiểm tra một bản trình chiếu có được bảo vệ mật khẩu mà không thực sự tải nó:
-
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
-
-## **Kiểm tra xem một bản trình chiếu có được mã hoá hay không**
-
-Aspose.Slides cho phép bạn kiểm tra xem một bản trình chiếu có được mã hoá hay không. Để thực hiện việc này, bạn có thể sử dụng thuộc tính [IsEncrypted](https://reference.aspose.com/slides/vi/net/aspose.slides/protectionmanager/properties/isencrypted), trả về `true` nếu bản trình chiếu đã được mã hoá hoặc `false` nếu chưa.
-
-Mẫu mã nguồn dưới đây cho thấy cách kiểm tra xem một bản trình chiếu có được mã hoá hay không:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
-}
-```
-
-## **Kiểm tra xem một bản trình chiếu có được bảo vệ ghi hay không**
-
-Aspose.Slides cho phép bạn kiểm tra xem một bản trình chiếu có được bảo vệ ghi hay không. Để thực hiện việc này, bạn có thể sử dụng thuộc tính [IsWriteProtected](https://reference.aspose.com/slides/vi/net/aspose.slides/protectionmanager/properties/iswriteprotected), trả về `true` nếu bản trình chiếu được bảo vệ ghi hoặc `false` nếu không.
-
-Mẫu mã nguồn dưới đây cho thấy cách kiểm tra xem một bản trình chiếu có được bảo vệ ghi hay không:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
-```
-
-## **Xác minh việc sử dụng mật khẩu cho bản trình chiếu**
-
-Bạn có thể muốn kiểm tra và xác nhận rằng một mật khẩu cụ thể đã được sử dụng để bảo vệ tài liệu bản trình chiếu. Aspose.Slides cung cấp cách để bạn xác thực mật khẩu.
-
-Mẫu mã nguồn dưới đây cho thấy cách xác thực một mật khẩu:
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // Kiểm tra xem mật khẩu có khớp hay không.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-Phương thức trả về `true` nếu bản trình chiếu đã được mã hoá bằng mật khẩu được chỉ định; ngược lại, trả về `false`.
-
-{{% alert color="primary" title="Xem thêm" %}} 
-- [Chữ ký kỹ thuật số trong PowerPoint](/slides/vi/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+Không ghi lại mật khẩu mở khóa hoặc bao gồm chúng trong các thông điệp chẩn đoán. Tránh các nỗ lực xác thực lặp lại không cần thiết, giữ mật khẩu trong bộ nhớ chỉ trong thời gian cần thiết, và tái sử dụng kết quả xác thực thành công khi ngay lập tức tải bản trình bày.
 {{% /alert %}}
 
-## **Bảo vệ bản trình chiếu bằng mật khẩu trực tuyến**
+## **Bảo vệ Bản trình bày Bằng Mật khẩu Trực tuyến**
 
-1. Truy cập trang [**Aspose.Slides Lock**](https://products.aspose.app/slides/vi/lock). 
-2. Nhấp **Drop or upload your files**. 
-3. Chọn tệp bạn muốn bảo vệ bằng mật khẩu trên máy tính. 
-4. Nhập mật khẩu bạn muốn dùng cho việc bảo vệ chỉnh sửa và mật khẩu bạn muốn dùng cho việc bảo vệ xem. 
-5. Nếu bạn muốn người dùng xem bản trình chiếu như bản sao cuối cùng, đánh dấu vào hộp kiểm **Mark as final**. 
-6. Nhấp **PROTECT NOW.** 
-7. Nhấp **DOWNLOAD NOW.**
+1. Mở ứng dụng [Aspose.Slides Lock](https://products.aspose.app/slides/vi/lock).
+2. Chọn hoặc tải lên bản trình bày.
+3. Nhập mật khẩu để bảo vệ việc xem.
+4. Tùy chọn nhập một mật khẩu riêng để bảo vệ việc chỉnh sửa.
+5. Áp dụng bảo vệ và tải xuống tệp kết quả.
 
-![Password protect PowerPoint presentations](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Bảo vệ ghi Bản trình bày](/slides/vi/net/write-protected-presentation/)
+- [Chữ ký số trong PowerPoint](/slides/vi/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides hỗ trợ các phương pháp mã hoá nào?**
+**Sự khác nhau giữa mật khẩu mở khóa và mật khẩu bảo vệ ghi là gì?**
 
-Aspose.Slides hỗ trợ các phương pháp mã hoá hiện đại, bao gồm các thuật toán dựa trên AES, đảm bảo mức độ bảo mật cao cho dữ liệu của bạn.
+Mật khẩu mở khóa mã hoá bản trình bày và cần để tải nội dung của nó. Mật khẩu bảo vệ ghi hạn chế việc sửa đổi mà không mã hoá nội dung.
 
-**Nếu nhập sai mật khẩu khi cố gắng mở bản trình chiếu thì sẽ xảy ra điều gì?**
+**Tôi có thể xác thực mật khẩu mở khóa mà không tải tất cả các slide không?**
 
-Một ngoại lệ sẽ được ném ra khi mật khẩu không đúng, thông báo rằng việc truy cập bản trình chiếu bị từ chối. Điều này giúp ngăn chặn truy cập trái phép và bảo vệ nội dung bản trình chiếu.
+Có. Lấy thông tin bản trình bày, kiểm tra xem có bảo vệ bằng mật khẩu mở khóa hay không, và xác thực mật khẩu trước khi tạo một thể hiện bản trình bày đầy đủ.
 
-**Có ảnh hưởng gì đến hiệu năng khi làm việc với các bản trình chiếu được bảo vệ mật khẩu không?**
+**Các quy trình kiểm tra mật khẩu có hỗ trợ cả PPT và PPTX không?**
 
-Quá trình mã hoá và giải mã có thể tạo ra một chút overhead khi mở và lưu file. Trong hầu hết các trường hợp, tác động này là tối thiểu và không ảnh hưởng đáng kể đến thời gian xử lý tổng thể của các tác vụ liên quan đến bản trình chiếu.
+Có. Phát hiện và xác thực mật khẩu dựa trên đường dẫn tệp và dựa trên luồng hoạt động giống nhau cho bản trình bày PPT và PPTX.

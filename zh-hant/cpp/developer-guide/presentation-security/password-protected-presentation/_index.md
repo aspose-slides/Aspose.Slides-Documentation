@@ -1,257 +1,238 @@
 ---
-title: 在 C++ 中使用密碼保護簡報
+title: 在 C++ 中對簡報設定密碼保護
 linktitle: 密碼保護
 type: docs
 weight: 20
 url: /zh-hant/cpp/password-protected-presentation/
 keywords:
-- 鎖定 PowerPoint
-- 鎖定簡報
-- 解除鎖定 PowerPoint
-- 解除鎖定簡報
-- 保護 PowerPoint
-- 保護簡報
-- 設定密碼
-- 新增密碼
+- 已受密碼保護的簡報
+- 開啟密碼
 - 加密 PowerPoint
-- 加密簡報
 - 解密 PowerPoint
-- 解密簡報
-- 寫入保護
-- PowerPoint 安全性
-- 簡報安全性
-- 移除密碼
-- 移除保護
+- 驗證簡報密碼
+- 檢查簡報密碼
+- 開啟已加密的簡報
 - 移除加密
-- 停用密碼
-- 停用保護
-- 移除寫入保護
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for C++ 輕鬆鎖定與解除鎖定受密碼保護的 PowerPoint 與 OpenDocument 簡報。保護您的簡報安全。"
+description: 在 C++ 中使用 Aspose.Slides 加密、偵測、驗證、開啟及解密受密碼保護的 PowerPoint PPT 與 PPTX 簡報。
 ---
-## **簡介**
+## **概觀**
 
-當您對簡報設定密碼保護時，表示您正在設定一組密碼，以對簡報施加特定限制。若要解除這些限制，必須輸入密碼。受密碼保護的簡報被視為已鎖定的簡報。
+開啟密碼會加密簡報。必須提供正確的密碼才能載入並檢視簡報內容，因此此保護提供機密性。
 
-通常，您可以設定密碼以對簡報施加以下限制：
+開啟密碼與寫入保護密碼不同。寫入保護限制修改，但不會加密內容或阻止載入簡報。若要管理修改簡報的密碼，請參閱[Write-Protect Presentations](/slides/zh-hant/cpp/write-protected-presentation/)。
 
-- **修改**
+以下工作流程適用於 PPT 和 PPTX 簡報。範例同時使用兩種格式，以說明檔案式與串流式行為的重要性。
 
-  若您只希望某些使用者能修改簡報，可設定修改限制。此限制會阻止未提供密碼的人修改、變更或複製簡報中的內容。
+## **使用開啟密碼加密簡報**
 
-  但是，即使未輸入密碼，使用者仍可以存取並開啟文件。此時處於唯讀模式，使用者可以檢視簡報內的內容或項目（如超連結、動畫、效果等），但無法複製項目或儲存簡報。
+使用[IProtectionManager::Encrypt](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iprotectionmanager/encrypt/)指定開啟密碼。然後使用[IPresentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/save/)儲存加密後的簡報。
 
-- **開啟**
+以下範例會加密 PPTX 簡報：
 
-  若您只希望特定使用者能開啟簡報，可設定開啟限制。此限制會阻止未提供密碼的人檢視簡報內容。
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  從技術上來說，開啟限制同時也會阻止使用者修改簡報：當使用者無法開啟簡報時，亦無法對其進行修改。
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **注意** 當您以防止開啟的方式為簡報設定密碼保護時，簡報檔案會被加密。
-
-## **線上為簡報設定密碼保護的方式**
-
-1. 前往我們的[**Aspose.Slides Lock**](https://products.aspose.app/slides/zh-hant/lock)頁面。
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. 點選**Drop or upload your files**。
-
-3. 從電腦中選取您要設定密碼保護的檔案。
-
-4. 輸入您偏好的編輯保護密碼；輸入您偏好的檢視保護密碼。
-
-5. 若您希望使用者將簡報視為最終版本，請勾選**Mark as final**核取方塊。
-
-6. 點選**PROTECT NOW.**  
-
-7. 點選**DOWNLOAD NOW.**
-
-## **Aspose.Slides 中的簡報密碼保護**
-**支援的格式**
-
-Aspose.Slides 支援以下格式的簡報之密碼保護、加密及類似操作：
-
-- PPTX 與 PPT - Microsoft PowerPoint 簡報  
-- ODP - OpenDocument 簡報  
-- OTP - OpenDocument 簡報範本  
-
-**支援的操作**
-
-Aspose.Slides 允許您以以下方式對簡報設定密碼保護，以防止修改：
-
-- 加密簡報  
-- 設定簡報的寫入保護  
-
-**其他操作**
-
-Aspose.Slides 允許您以以下方式執行其他與密碼保護與加密相關的工作：
-
-- 解密簡報；開啟已加密的簡報  
-- 移除加密；停用密碼保護  
-- 移除簡報的寫入保護  
-- 取得已加密簡報的屬性  
-- 檢查簡報是否已加密  
-- 檢查簡報是否受密碼保護  
-
-## **加密簡報**
-
-您可以透過設定密碼來加密簡報。之後，若要修改已鎖定的簡報，使用者必須提供密碼。
-
-要加密或為簡報設定密碼保護，必須使用 [ProtectionManager](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager) 的 encrypt 方法為簡報設定密碼。將密碼傳入 encrypt 方法，然後使用 save 方法儲存已加密的簡報。
-
-以下範例程式碼示範如何加密簡報：
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **為簡報設定寫入保護** 
+## **載入加密的簡報**
 
-您可以在簡報上加入「請勿修改」標記，告知使用者您不希望他們對簡報進行變更。
+將[LoadOptions::set_Password](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/loadoptions/set_password/)設定為開啟密碼，並在載入檔案時將此選項傳遞給[Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/)。當需要開啟密碼但未提供或提供的密碼不正確時，載入將失敗。
 
-**注意** 寫入保護的過程不會加密簡報。因此，使用者若真的想修改簡報，仍可進行修改，只是儲存變更時需要另存為不同名稱的檔案。
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-要設定寫入保護，必須使用 setWriteProtection 方法。以下範例程式碼示範如何為簡報設定寫入保護：
+using namespace Aspose::Slides;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// 與已解密的簡報一起工作。
 ```
 
-## **載入已加密的簡報**
+## **移除簡報的加密**
 
-Aspose.Slides 允許您在傳入密碼後載入已加密的檔案。若要解密簡報，必須呼叫 [RemoveEncryption](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) 方法且不帶參數，之後再輸入正確的密碼以載入簡報。
+使用開啟密碼載入簡報，呼叫[IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iprotectionmanager/removeencryption/)，並儲存結果。此後即可在不需密碼的情況下載入已儲存的簡報。
 
-以下範例程式碼示範如何解密簡報：
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// 使用已解密的簡報
-```
-
-## **從簡報中移除加密**
-
-您可以移除簡報的加密或密碼保護，讓使用者能在不受限制的情況下存取或修改簡報。
-
-要移除加密或密碼保護，必須呼叫 [RemoveEncryption](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) 方法。以下範例程式碼示範如何從簡報中移除加密：
-
-``` cpp
-auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **從簡報中移除寫入保護**
+## **在載入之前驗證開啟密碼**
 
-您可以使用 Aspose.Slides 移除簡報檔案上的寫入保護。這樣使用者即可自由修改，且不會在執行此類操作時收到任何警告。
+使用[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/)取得[IPresentationInfo](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentationinfo/)，而不必建立完整的簡報實例。在請求或驗證密碼之前，先檢查[IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/)。若存在保護，請使用[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentationinfo/checkpassword/)驗證提供的值。
 
-您可以透過呼叫 [RemoveWriteProtection](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) 方法來移除寫入保護。以下範例程式碼示範如何從簡報中移除寫入保護：
+### **檔案路徑工作流程**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+以下範例驗證 PPTX 檔案的開啟密碼，將驗證後的值傳遞給[LoadOptions::set_Password](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/loadoptions/set_password/)，然後載入完整的簡報：
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **取得已加密簡報的屬性**
+### **串流工作流程**
 
-通常使用者難以取得已加密或受密碼保護的簡報之文件屬性。Aspose.Slides 提供了一種機制，讓您在為簡報設定密碼保護的同時，仍保留使用者存取該簡報屬性的方式。
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/)的串流重載提供相同的工作流程。載入完整簡報前，先重設可搜尋串流的位置。
 
-**注意** 當 Aspose.Slides 加密簡報時，簡報的文件屬性也會預設受到密碼保護。但若您需要在簡報加密後仍讓屬性可被存取，Aspose.Slides 允許您如此操作。
+以下範例使用 PPT 檔案：
 
-若您希望使用者在您加密的簡報上仍能存取屬性，可將 `true` 傳入 [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d) 方法。以下範例程式碼示範如何在加密簡報的同時，提供使用者存取文件屬性的功能：
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **檢查簡報是否受密碼保護**
+### **CheckPassword 回傳值**
 
-在載入簡報之前，您可能想先檢查並確認該簡報未被密碼保護。如此可避免在未提供密碼的情況下載入受保護簡報時產生錯誤或類似問題。
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentationinfo/checkpassword/)僅在簡報具有開啟密碼且提供的密碼正確時回傳 `true`。在以下情況皆會回傳 `false`：
 
-以下 C++ 程式碼示範如何在不載入簡報本體的情況下，檢查簡報是否受密碼保護：
+- 密碼不正確。
+- 簡報沒有開啟密碼。
+- 提供的密碼為 null 或空字串。
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
-```
+此行為在 PPT 與 PPTX 簡報中相同。
 
-## **檢查簡報是否已加密**
+## **檢查已載入的簡報是否已加密**
 
-Aspose.Slides 允許您檢查簡報是否已加密。為執行此任務，可使用 [get_IsEncrypted()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) 方法，若簡報已加密則回傳 `true`，未加密則回傳 `false`。
+使用正確密碼載入簡報後，檢查[IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iprotectionmanager/get_isencrypted/)以確認來源簡報已被加密。若要在載入前偵測開啟密碼保護，請如上使用`IPresentationInfo::get_IsPasswordProtected`。
 
-以下範例程式碼示範如何檢查簡報是否已加密：
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **檢查簡報是否受寫入保護**
+## **安全性建議**
 
-Aspose.Slides 允許您檢查簡報是否受寫入保護。為執行此任務，可使用 [get_IsWriteProtected()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) 方法，若簡報受寫入保護則回傳 `true`，未受保護則回傳 `false`。
+{{% alert color="warning" title="Security" %}}
+請勿記錄開啟密碼或在診斷訊息中包含它們。避免不必要的重複驗證嘗試，僅在需要時將密碼保留在記憶體中，並在立即載入簡報時重複使用成功的驗證結果。
+{{% /alert %}}
 
-以下範例程式碼示範如何檢查簡報是否受寫入保護：
+## **線上為簡報設定密碼保護**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+1. 開啟 [Aspose.Slides Lock](https://products.aspose.app/slides/zh-hant/lock) 應用程式。
+1. 選取或上傳簡報。
+1. 輸入用於檢視保護的密碼。
+1. 可選擇輸入另一個用於編輯保護的密碼。
+1. 套用保護並下載產生的檔案。
 
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **驗證簡報密碼的使用情況**
-
-您可能想確認特定密碼是否已用於保護簡報文件。Aspose.Slides 提供驗證密碼的功能。
-
-以下範例程式碼示範如何驗證密碼：
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// 檢查 "pass" 是否匹配
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-若簡報已使用指定密碼加密，會回傳 `true`；否則回傳 `false`。
-
-{{% alert color="primary" title="See also" %}} 
-- [PowerPoint 中的數位簽章](/slides/zh-hant/cpp/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/zh-hant/cpp/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/zh-hant/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **常見問題**
 
-**Aspose.Slides 支援哪些加密方法？**
+**開啟密碼與寫入保護密碼有何不同？**
 
-Aspose.Slides 支援現代加密方法，包括基於 AES 的演算法，確保您的簡報資料具備高度安全性。
+開啟密碼會加密簡報，且在載入內容時必須提供。寫入保護密碼僅限制修改，並不會加密內容。
 
-**如果在開啟簡報時輸入錯誤的密碼會發生什麼情況？**
+**我可以在不載入所有投影片的情況下驗證開啟密碼嗎？**
 
-系統會拋出例外，提示存取簡報被拒絕，從而防止未授權的存取並保護簡報內容。
+可以。取得簡報資訊，檢查是否存在開啟密碼保護，然後在建立完整簡報實例之前驗證密碼。
 
-**在處理受密碼保護的簡報時會有性能影響嗎？**
+**密碼檢查工作流程是否同時支援 PPT 與 PPTX？**
 
-加密與解密過程可能在開啟與儲存時帶來輕微的額外開銷。在大多數情況下，這種性能影響微乎其微，不會顯著影響簡報任務的整體處理時間。
+可以。檔案路徑和串流式的密碼偵測與驗證在 PPT 與 PPTX 簡報中皆以相同方式運作。

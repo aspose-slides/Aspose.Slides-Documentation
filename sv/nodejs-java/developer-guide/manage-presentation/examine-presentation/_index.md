@@ -26,7 +26,7 @@ description: "Utforska bilder, struktur och metadata i PowerPoint- och OpenDocum
 ---
 ## **Översikt**
 
-Denna artikel visar hur man inspekterar presentationsinformation i Aspose.Slides. Den förklarar hur man bestämmer en presentations aktuella format utan att läsa in hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
+Den här artikeln visar hur man inspekterar presentationsinformation i Aspose.Slides. Den förklarar hur man bestämmer en presentations aktuella format utan att ladda hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
 
 Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties/) och demonstrerar typiska operationer för att arbeta med presentationsmetadata.
 
@@ -34,9 +34,12 @@ Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.c
 
 Innan du arbetar med en presentation kan du vilja ta reda på vilket format (PPT, PPTX, ODP och andra) presentationen för närvarande har.
 
-Du kan kontrollera en presentations format utan att läsa in presentationen. Se den här JavaScript-koden:
+Du kan kontrollera en presentations format utan att ladda presentationen. Se den här JavaScript-koden:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -50,6 +53,9 @@ console.log(info3.getLoadFormat());// ODP
 Denna JavaScript-kod visar hur du hämtar presentationsegenskaper (information om presentationen):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -62,7 +68,7 @@ Du kanske vill se [egenskaperna under DocumentProperties](https://reference.aspo
 
 ## **Uppdatera presentationsegenskaper**
 
-Aspose.Slides tillhandahåller metoden [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) som låter dig göra ändringar i presentations egenskaper.
+Aspose.Slides tillhandahåller metoden [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) som gör att du kan göra ändringar i presentationsegenskaper.
 
 Låt oss säga att vi har en PowerPoint-presentation med dokumentegenskaperna som visas nedan.
 
@@ -71,6 +77,10 @@ Låt oss säga att vi har en PowerPoint-presentation med dokumentegenskaperna so
 Detta kodexempel visar hur du redigerar vissa presentationsegenskaper:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -89,18 +99,16 @@ Resultaten av att ändra dokumentegenskaperna visas nedan.
 
 ## **Användbara länkar**
 
-För att få mer information om en presentation och dess säkerhetsegenskaper kan du finna dessa länkar användbara:
+För att få mer information om en presentation och dess säkerhetsattribut kan du finna dessa länkar användbara:
 
-- [Kontrollera om en presentation är krypterad](https://docs.aspose.com/slides/sv/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrollera om en presentation är skrivskyddad (endast läsning)](https://docs.aspose.com/slides/sv/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrollera om en presentation är lösenordsskyddad innan den läses in](https://docs.aspose.com/slides/sv/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bekräfta lösenordet som används för att skydda en presentation](https://docs.aspose.com/slides/sv/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Lösenordsskydda presentationer](/slides/sv/nodejs-java/password-protected-presentation/)
+- [Skrivskydda presentationer](/slides/sv/nodejs-java/write-protected-presentation/)
 
 ## **Vanliga frågor**
 
-**Hur kan jag kontrollera om typsnitt är inbäddade och vilka de är?**
+**Hur kan jag kontrollera om teckensnitt är inbäddade och vilka de är?**
 
-Leta efter [information om inbäddade typsnitt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) på presentationsnivå, jämför sedan dessa poster med mängden [typsnitt som faktiskt används i innehållet](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getfonts/) för att identifiera vilka typsnitt som är kritiska för rendering.
+Leta efter [information om inbäddade teckensnitt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) på presentationsnivå, jämför sedan dessa poster med mängden [teckensnitt som faktiskt används i innehållet](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getfonts/) för att identifiera vilka teckensnitt som är kritiska för rendering.
 
 **Hur kan jag snabbt avgöra om filen har dolda bilder och hur många?**
 
@@ -112,8 +120,8 @@ Ja. Jämför den aktuella [bildstorleken](https://reference.aspose.com/slides/sv
 
 **Finns det ett snabbt sätt att se om diagram refererar till externa datakällor?**
 
-Ja. Gå igenom alla [diagram](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/), kontrollera deras [datakälla](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), och notera om data är intern eller länkbunden, inklusive eventuella brutna länkar.
+Ja. Gå igenom alla [diagram](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/), kontrollera deras [datakälla](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), och notera om datan är intern eller länkbaserad, inklusive eventuella brutna länkar.
 
-**Hur kan jag bedöma 'tunga' bilder som kan sakta ner rendering eller PDF-export?**
+**Hur kan jag bedöma “tunga” bilder som kan sakta ner rendering eller PDF-export?**
 
-För varje bild räknar du objektantalet och letar efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett grovt komplexitetsbetyg för att flagga potentiella prestandaflaskhalsar.
+För varje bild räknar du antalet objekt och letar efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett grovt komplexitetspoäng för att markera potentiella prestandaproblem.

@@ -16,24 +16,24 @@ keywords:
 - بررسی PPTX
 - بررسی PPT
 - بررسی ODP
-- PowerPoint
+- پاورپوینت
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "اسلایدها، ساختار و فراداده‌ها را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای PHP بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندانه‌تری داشته باشید."
+description: "اسلایدها، ساختار و فراداده‌های ارائه‌های PowerPoint و OpenDocument را با استفاده از Aspose.Slides برای PHP بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های هوشمندانه‌تر محتوا به دست آورید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله نشان می‌دهد چگونه می‌توان اطلاعات ارائه را در Aspose.Slides بررسی کرد. توضیح می‌دهد چگونه بدون بارگیری کامل فایل، قالب فعلی یک ارائه را تعیین کنید، ویژگی‌های سند آن را بخوانید و در صورت لزوم این ویژگی‌ها را به‌روز کنید.
+این مقاله نشان می‌دهد چگونه اطلاعات ارائه را در Aspose.Slides بررسی کنیم. توضیح می‌دهد چگونه قالب فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کنیم، ویژگی‌های سند آن را بخوانیم و در صورت نیاز آن ویژگی‌ها را به‌روزرسانی کنیم.
 
-مثال‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/) هستند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
+مثال‌ها بر پایه APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/) هستند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
 
-## **بررسی قالب یک ارائه**
+## **بررسی قالب ارائه**
 
-قبل از کار با یک ارائه، ممکن است بخواهید بدانید که در حال حاضر این ارائه در چه قالبی (PPT، PPTX، ODP و سایرین) است.
+قبل از کار بر روی یک ارائه، ممکن است بخواهید فرمت فعلی (PPT، PPTX، ODP و سایر) ارائه را بفهمید.
 
-می‌توانید قالب ارائه را بدون بارگیری آن بررسی کنید. کد PHP زیر را ببینید:
+می‌توانید فرمت ارائه را بدون بارگذاری آن بررسی کنید. کد PHP زیر را ببینید:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -44,11 +44,13 @@ description: "اسلایدها، ساختار و فراداده‌ها را در
 
   $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
   echo($info3->getLoadFormat());// ODP
+
+
 ```
 
 ## **دریافت ویژگی‌های ارائه**
 
-این کد PHP نشان می‌دهد چگونه ویژگی‌های ارائه (اطلاعات درباره ارائه) را دریافت کنید:
+این کد PHP نشان می‌دهد چگونه ویژگی‌های ارائه (اطلاعات دربارهٔ ارائه) را دریافت کنید:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -57,15 +59,16 @@ description: "اسلایدها، ساختار و فراداده‌ها را در
   echo($props->getSubject());
   echo($props->getTitle());
   # ..
+
 ```
 
-شاید بخواهید [ویژگی‌های موجود در DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#DocumentProperties--) را ببینید.
+ممکن است بخواهید [ویژگی‌ها تحت DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#DocumentProperties--) کلاس را ببینید.
 
 ## **به‌روزرسانی ویژگی‌های ارائه**
 
-Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) را فراهم می‌کند که امکان اعمال تغییرات بر روی ویژگی‌های ارائه را می‌دهد.
+Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) را فراهم می‌کند که امکان تغییر ویژگی‌های ارائه را می‌دهد.
 
-فرض کنید یک ارائه PowerPoint داریم که ویژگی‌های سند آن در زیر نشان داده شده است.
+فرض کنید یک ارائه PowerPoint با ویژگی‌های سند زیر داریم.
 
 ![ویژگی‌های سند اصلی ارائه PowerPoint](input_properties.png)
 
@@ -84,37 +87,30 @@ $info->updateDocumentProperties($properties);
 $info->writeBindedPresentation($fileName);
 ```
 
-نتایج تغییر ویژگی‌های سند در زیر نشان داده شده‌اند.
+نتایج تغییر ویژگی‌های سند در ادامه نمایش داده شده است.
 
 ![ویژگی‌های سند تغییر یافته ارائه PowerPoint](output_properties.png)
 
-## **لینک‌های مفید**
+## **پیوندهای مفید**
 
-برای دریافت اطلاعات بیشتر درباره یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها مفید باشند:
+برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این پیوندها مفید باشند:
 
-- [بررسی اینکه آیا یک ارائه رمزگذاری شده است](https://docs.aspose.com/slides/fa/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [بررسی اینکه آیا یک ارائه محافظت شده از نوشتن (فقط-خواندنی) است](https://docs.aspose.com/slides/fa/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [بررسی اینکه آیا یک ارائه قبل از بارگیری محافظت شده با رمز عبور است](https://docs.aspose.com/slides/fa/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تأیید رمز عبوری که برای محافظت از یک ارائه استفاده شده است](https://docs.aspose.com/slides/fa/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [محافظت از ارائه‌ها با رمز عبور](/slides/fa/php-java/password-protected-presentation/)
+- [محافظت از ارائه‌ها در نوشتن](/slides/fa/php-java/write-protected-presentation/)
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توانم بررسی کنم که آیا قلم‌ها تعبیه شده‌اند و کدام‌ها هستند؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌ها؟**  
+به دنبال اطلاعات [embedded-font] در سطح ارائه بگردید، سپس آن ورودی‌ها را با مجموعهٔ [fonts actually used across content] مقایسه کنید تا قلم‌های ضروری برای رندر را شناسایی کنید.
 
-به دنبال [اطلاعات قلم‌های تعبیه‌شده](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsmanager/getembeddedfonts/) در سطح ارائه بگردید، سپس این ورودی‌ها را با مجموعهٔ [قلم‌های واقعاً استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsmanager/getfonts/) مقایسه کنید تا قلم‌های بحرانی برای رندر را شناسایی کنید.
+**چگونه می‌توانم به سرعت بفهمم آیا فایل اسلایدهای مخفی دارد و تعداد آن‌ها چقدر است؟**  
+در [slide collection] پیمایش کنید و برای هر اسلاید پرچم [visibility flag] آن را بررسی کنید.
 
-**چگونه می‌توانم به سرعت تشخیص دهم که آیا فایل اسلایدهای مخفی دارد و تعداد آن‌ها چقدر است؟**
+**آیا می‌توانم تشخیص دهم آیا اندازه و جهت‌گیری سفارشی اسلایدها استفاده شده‌اند و آیا با پیش‌فرض‌ها متفاوت هستند؟**  
+بله. اندازهٔ فعلی [slide size] و جهت‌گیری را با پیش‌فرض‌های استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار برای چاپ و خروجی کمک می‌کند.
 
-از طریق [مجموعه اسلایدها](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidecollection/) عبور کنید و پرچم [قابلیت نمایش](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/gethidden/) هر اسلاید را بررسی کنید.
+**آیا روش سریعی وجود دارد تا ببینم آیا نمودارها به منابع دادهٔ خارجی ارجاع می‌دهند؟**  
+بله. تمام [charts] را مرور کنید، منبع دادهٔ آن‌ها را با [data source] بررسی کنید و ببینید آیا داده داخلی است یا بر پایهٔ لینک، شامل لینک‌های خراب.
 
-**آیا می‌توانم تشخیص دهم که آیا اندازه و جهت سفارشی اسلاید استفاده شده است و آیا از پیش‌فرض‌ها متفاوت است؟**
-
-بله. اندازه و جهت فعلی [اسلاید](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/getslidesize/) را با پیش‌تنظیمات استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار برای چاپ و خروجی کمک می‌کند.
-
-**آیا راه سریع برای مشاهده اینکه نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
-
-بله. همهٔ [نمودارها](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/) را مرور کنید، [منبع داده](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getdatasourcetype/) آن‌ها را بررسی کنید و مشخص کنید که داده داخلی است یا مبتنی بر لینک، شامل هر لینک شکسته‌ای.
-
-**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
-
-برای هر اسلاید، تعداد اشیاء را حساب کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و محتواهای چندرسانه‌ای باشید؛ یک امتیاز کلی پیچیدگی تخمینی اختصاص دهید تا نقاط بحرانی عملکردی را شناسایی کنید.
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**  
+برای هر اسلاید، تعداد اشیا را بشمارید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و مدیاهای چندرسانه‌ای بگردید؛ سپس امتیاز پیچیدگی تقریبی بدهید تا نقاط ضعف عملکردی شناسایی شوند.

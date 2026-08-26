@@ -1,256 +1,200 @@
 ---
-title: ارائه‌های امن با رمز عبور در .NET
-linktitle: حفاظت با رمز عبور
+title: "محافظت با رمز عبور از ارائه‌ها در .NET"
+linktitle: "محافظت رمز عبور"
 type: docs
 weight: 20
 url: /fa/net/password-protected-presentation/
 keywords:
-- قفل کردن پاورپوینت
-- قفل کردن ارائه
-- قفل‌گشایی پاورپوینت
-- قفل‌گشایی ارائه
-- محافظت از پاورپوینت
-- محافظت از ارائه
-- تنظیم رمز عبور
-- افزودن رمز عبور
-- رمزنگاری پاورپوینت
-- رمزنگاری ارائه
-- رمزگشایی پاورپوینت
-- رمزگشایی ارائه
-- محافظت نوشتن
-- امنیت پاورپوینت
-- امنیت ارائه
-- حذف رمز عبور
-- حذف محافظت
-- حذف رمزنگاری
-- غیرفعال کردن رمز عبور
-- غیرفعال کردن محافظت
-- حذف محافظت نوشتن
-- پاورپوینت
-- OpenDocument
-- ارائه
-- .NET
-- C#
-- Aspose.Slides
-description: "بیاموزید چگونه به راحتی ارائه‌های پاورپوینت و OpenDocument محافظت‌شده با رمز عبور را با Aspose.Slides برای .NET قفل و حذف قفل کنید. ارائه‌های خود را ایمن کنید."
+- "ارائه محافظت‌شده با رمز عبور"
+- "رمز عبور باز کردن"
+- "رمزنگاری پاورپوینت"
+- "رمزگشایی پاورپوینت"
+- "اعتبارسنجی رمز عبور ارائه"
+- "بررسی رمز عبور ارائه"
+- "باز کردن ارائه رمزنگاری‌شده"
+- "حذف رمزنگاری"
+- "PowerPoint"
+- "PPT"
+- "PPTX"
+- "ارائه"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "رمزنگاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های پاورپوینت PPT و PPTX محافظت‌شده با رمز عبور در C# با Aspose.Slides برای .NET."
 ---
-## **مقدمه**
+## **بررسی کلی**
 
-زمانی که یک ارائه را با رمز عبور محافظت می‌کنید، به این معنی است که رمز عبوری تعیین می‌کنید که محدودیت‌های خاصی را بر روی ارائه اعمال می‌کند. برای حذف این محدودیت‌ها باید رمز عبور وارد شود. یک ارائهٔ محافظت‌شده با رمز عبور به‌عنوان یک ارائهٔ قفل‌شده در نظر گرفته می‌شود.
+یک رمز عبور بازکردن ارائه را رمزنگاری می‌کند. برای بارگذاری و مشاهده محتوای ارائه، نیاز به رمز عبور صحیح است، بنابراین این حفاظت محرمانگی را فراهم می‌کند.
 
-به‌طور معمول، می‌توانید برای اعمال این محدودیت‌ها بر یک ارائه، رمز عبور تنظیم کنید:
+یک رمز عبور بازکردن با رمز عبور حفاظت نوشتاری متفاوت است. حفاظت نوشتاری محدودیت در ویرایش ایجاد می‌کند اما محتوا را رمزنگاری نمی‌کند و مانع بارگذاری ارائه نمی‌شود. برای مدیریت رمزهای عبور برای ویرایش ارائه‌ها، به [محافظت از ارائه با نوشتن](/slides/fa/net/write-protected-presentation/) مراجعه کنید.
 
-- **تغییر**
+جریان‌های کاری زیر برای ارائه‌های PPT و PPTX اعمال می‌شود. مثال‌ها هر دو قالب را استفاده می‌کنند وقتی رفتار مبتنی بر فایل و جریان مهم است.
 
-اگر می‌خواهید فقط کاربران مشخصی بتوانند ارائهٔ شما را تغییر دهند، می‌توانید یک محدودیت تغییر تنظیم کنید. این محدودیت جلوگیری می‌کند از این که افراد بدون وارد کردن رمز عبور، عناصر ارائهٔ شما را تغییر دهند، ویرایش کنند یا کپی کنند.
+## **رمزنگاری یک ارائه با رمز عبور بازکردن**
 
-با این حال، حتی بدون رمز عبور، کاربر همچنان می‌تواند به سند شما دسترسی پیدا کرده و آن را باز کند. در این حالت فقط‑خواندنی، کاربر می‌تواند محتوای ارائه—از جمله پیوندها، انیمیشن‌ها، افکت‌ها و سایر عناصر—را مشاهده کند، اما نمی‌تواند موارد را کپی یا ارائه را ذخیره کند.
+از [IProtectionManager.Encrypt](https://reference.aspose.com/slides/fa/net/aspose.slides/iprotectionmanager/encrypt/) برای اختصاص یک رمز عبور بازکردن استفاده کنید. سپس از [IPresentation.Save](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentation/save/) برای ذخیره کردن ارائه رمزنگاری‌شده استفاده کنید.
 
-- **باز کردن**
+مثال زیر یک ارائه PPTX را رمزنگاری می‌کند:
 
-اگر می‌خواهید فقط کاربران مشخصی بتوانند ارائهٔ شما را باز کنند، می‌توانید یک محدودیت باز کردن تنظیم کنید. این محدودیت جلوگیری می‌کند از این که افراد بدون وارد کردن رمز عبور، حتی محتوای ارائهٔ شما را ببینند.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-از نظر فنی، محدودیت باز کردن همچنین مانع از تغییر ارائه‌ها توسط کاربران می‌شود—اگر افراد نتوانند یک ارائه را باز کنند، نمی‌توانند آن را ویرایش یا تغییر دهند.
+using var presentation = new Presentation("pres.pptx");
 
-**نکته:** وقتی یک ارائه را برای جلوگیری از باز کردن رمزگذاری می‌کنید، فایل ارائه رمزنگاری می‌شود.
-
-## **حفاظت‌رمز عبور در Aspose.Slides**
-
-**قالب‌های پشتیبانی‌شده**
-
-Aspose.Slides از محافظت‌رمز عبور، رمزنگاری و عملیات مشابه برای ارائه‌ها در این قالب‌ها پشتیبانی می‌کند:
-
-- PPTX و PPT – ارائه‌های Microsoft PowerPoint
-- ODP – ارائه‌های OpenDocument
-- OTP – قالب‌های ارائه OpenDocument
-
-**عملیات پشتیبانی‌شده**
-
-Aspose.Slides به شما امکان می‌دهد با استفاده از محافظت‌رمز عبور، از تغییرات ارائه‌ها به روش‌های زیر جلوگیری کنید:
-
-- رمزنگاری یک ارائه
-- تنظیم محافظت‌نوشتن بر یک ارائه
-
-**عملیات دیگر**
-
-Aspose.Slides به شما امکان می‌دهد کارهای اضافی مرتبط با محافظت‌رمز عبور و رمزنگاری را به روش‌های زیر انجام دهید:
-
-- رمزگشایی یک ارائه؛ باز کردن یک ارائهٔ رمزنگاری‌شده
-- حذف رمزنگاری؛ غیرفعال‌سازی محافظت‌رمز عبور
-- حذف محافظت‌نوشتن از یک ارائه
-- بازیابی ویژگی‌های یک ارائهٔ رمزنگاری‌شده
-- بررسی اینکه آیا یک ارائه قبل از بارگذاری رمز عبور دارد یا خیر
-- بررسی اینکه آیا یک ارائه رمزنگاری شده است
-- بررسی اینکه آیا یک ارائه محافظت‌رمز عبور دارد
-
-## **محافظت از یک ارائه با رمز عبور**
-
-می‌توانید با تنظیم یک رمز عبور، یک ارائه را رمزنگاری کنید. سپس برای تغییر یک ارائهٔ قفل‌شده، کاربر باید رمز عبور را وارد کند.
-
-برای رمزنگاری (یا محافظت‌رمز عبور) یک ارائه، از متد `Encrypt` در [ProtectionManager](https://reference.aspose.com/slides/fa/net/aspose.slides/protectionmanager) استفاده کنید تا رمز عبور را تنظیم کنید. رمز عبور را به متد `Encrypt` پاس دهید، سپس از متد `Save` برای ذخیرهٔ ارائهٔ اکنون رمزنگاری‌شده استفاده کنید.
-
-این نمونه کد نشان می‌دهد چگونه یک ارائه را رمزنگاری کنید:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم محافظت‌نوشتن بر یک ارائه** 
+## **بارگذاری یک ارائه رمزنگاری‌شده**
 
-می‌توانید یک علامت «تغییر نکنید» به یک ارائه اضافه کنید. این به کاربران اطلاع می‌دهد که شما نمی‌خواهید آن‌ها تغییراتی در ارائه ایجاد کنند.
+[LoadOptions.Password](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/password/) را روی رمز عبور بازکردن تنظیم کنید و گزینه‌ها را هنگام بارگذاری فایل به [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) پاس دهید. در صورتی که رمز عبور بازکردن لازم باشد اما رمز ارائه نشده یا نادرست باشد، بارگذاری شکست می‌خورد.
 
-**نکته:** فرآیند محافظت‌نوشتن ارائه را رمزنگاری نمی‌کند. بنابراین، کاربران—در صورتی که بخواهند—می‌توانند ارائه را تغییر دهند، اما برای ذخیرهٔ تغییرات باید آن را با نام دیگری ذخیره کنند.
+```csharp
+using Aspose.Slides;
 
-برای تنظیم محافظت‌نوشتن، از متد `SetWriteProtection` استفاده کنید. این نمونه کد نشان می‌دهد چگونه محافظت‌نوشتن را بر یک ارائه تنظیم کنید:
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **بارگذاری یک ارائهٔ رمزنگاری‌شده**
-
-Aspose.Slides به شما امکان می‌دهد یک ارائهٔ رمزنگاری‌شده را با پاس دادن رمز عبور صحیح بارگذاری کنید. این نمونه کد نشان می‌دهد چگونه یک ارائهٔ رمزنگاری‌شده را بارگذاری کنید:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // کار با ارائه رمزگشایی‌شده.
-}
+// کار با ارائه رمزگشایی‌شده.
 ```
 
 ## **حذف رمزنگاری از یک ارائه**
 
-می‌توانید رمزنگاری یا محافظت‌رمز عبور را از یک ارائه حذف کنید تا کاربران بدون محدودیت به آن دسترسی داشته یا آن را ویرایش کنند.
+ارائه را همراه با رمز عبور بازکردن بارگذاری کنید، [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/fa/net/aspose.slides/iprotectionmanager/removeencryption/) را فراخوانی کنید و نتیجه را ذخیره کنید. ارائه ذخیره‌شده سپس می‌تواند بدون رمز عبور بارگذاری شود.
 
-برای حذف رمزنگاری یا محافظت‌رمز عبور، متد [RemoveEncryption](https://reference.aspose.com/slides/fa/net/aspose.slides/protectionmanager/methods/removeencryption) را فراخوانی کنید. این نمونه کد نشان می‌دهد چگونه رمزنگاری را از یک ارائه حذف کنید:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **اعتبارسنجی یک رمز عبور بازکردن قبل از بارگذاری**
+
+از [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationfactory/getpresentationinfo/) برای به‌دست آوردن [IPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/) بدون ایجاد یک نمونه کامل از ارائه استفاده کنید. قبل از درخواست یا اعتبارسنجی یک رمز عبور، [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/ispasswordprotected/) را بررسی کنید. زمانی که حفاظتی وجود دارد، مقدار ارائه‌شده را با [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/checkpassword/) اعتبارسنجی کنید.
+
+### **جریان کاری مسیر فایل**
+
+مثال زیر یک رمز عبور بازکردن برای فایل PPTX را اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [LoadOptions.Password](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/password/) می‌گذارد و سپس تمام ارائه را بارگذاری می‌کند:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **حذف محافظت‌نوشتن از یک ارائه**
+### **جریان کاری جریان**
 
-می‌توانید با استفاده از Aspose.Slides محافظت‌نوشتن را از یک فایل ارائه حذف کنید. بدین ترتیب، کاربران می‌توانند همان‌طور که می‌خواهند آن را ویرایش کنند و هیچ هشداری هنگام انجام این کار دریافت نخواهند کرد.
+بارگذاری بازنویسی [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationfactory/getpresentationinfo/) همان جریان کاری را فراهم می‌کند. قبل از بارگذاری کامل ارائه از همان جریان، موقعیت یک جریان قابل جستجو را بازنشانی کنید.
 
-محافظت‌نوشتن را می‌توانید با استفاده از متد [RemoveWriteProtection](https://reference.aspose.com/slides/fa/net/aspose.slides/protectionmanager/methods/removewriteprotection) حذف کنید. این نمونه کد نشان می‌دهد چگونه محافظت‌نوشتن را از یک ارائه حذف کنید:
+مثال زیر از یک فایل PPT استفاده می‌کند:
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **دریافت ویژگی‌های یک ارائهٔ رمزنگاری‌شده**
+### **مقادیر بازگشتی CheckPassword**
 
-معمولاً کاربران برای دریافت ویژگی‌های سند یک ارائهٔ رمزنگاری‌شده یا محافظت‌رمز عبور مشکل دارند. با این حال، Aspose.Slides مکانیزمی ارائه می‌دهد که به شما اجازه می‌دهد یک ارائه را با رمز عبور محافظت کنید و همچنان قابلیت دسترسی کاربران به ویژگی‌های آن را حفظ کنید.
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/checkpassword/) تنها زمانی `true` برمی‌گرداند که ارائه دارای رمز عبور بازکردن باشد و رمز ارائه‌شده صحیح باشد. در هر یک از موارد زیر `false` برمی‌گرداند:
 
-**نکته:** به‌صورت پیش‌فرض، وقتی Aspose.Slides یک ارائه را رمزنگاری می‌کند، ویژگی‌های سند ارائه نیز محافظت‌رمز عبور می‌شوند. اگر نیاز دارید ویژگی‌های سند حتی پس از رمزنگاری قابل دسترس باشند، Aspose.Slides این امکان را برای شما فراهم می‌کند.
+- رمز عبور نادرست است.
+- ارائه رمز عبور بازکردن ندارد.
+- رمز عبور ارائه‌شده `null` یا خالی است.
 
-اگر می‌خواهید کاربران بتوانند ویژگی‌های یک ارائهٔ رمزنگاری‌شده را دسترسی داشته باشند، می‌توانید ویژگی [EncryptDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) را روی `true` تنظیم کنید. این نمونه کد نشان می‌دهد چگونه یک ارائه را رمزنگاری کنید و همزمان به کاربران دسترسی به ویژگی‌های سند آن بدهید:
+رفتار برای ارائه‌های PPT و PPTX یکسان است.
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
-}
+## **بررسی اینکه آیا یک ارائه بارگذاری‌شده رمزنگاری شده است**
+
+پس از بارگذاری یک ارائه با رمز عبور صحیح، [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/fa/net/aspose.slides/iprotectionmanager/isencrypted/) را بررسی کنید تا تأیید کنید که ارائه منبع رمزنگاری شده است. برای کشف حفاظت رمز عبور بازکردن قبل از بارگذاری، از `IPresentationInfo.IsPasswordProtected` همان‌طور که در بالا نشان داده شد، استفاده کنید.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **بررسی وجود محافظت‌رمز عبور در یک ارائه**
+## **توصیه‌های امنیتی**
 
-قبل از بارگذاری یک ارائه، ممکن است بخواهید بررسی کنید که آیا با رمز عبور محافظت شده است یا خیر. این کار به شما کمک می‌کند از خطاها و مشکلات مشابهی که هنگام بارگذاری یک ارائهٔ محافظت‌شده بدون رمز صحیح رخ می‌دهد، جلوگیری کنید.
-
-این کد C# نشان می‌دهد چگونه بدون بارگذاری واقعی، یک ارائه را بررسی کنید تا ببینید آیا محافظت‌رمز عبور دارد یا نه:
-
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
-
-## **بررسی اینکه آیا یک ارائه رمزنگاری شده است**
-
-Aspose.Slides به شما امکان می‌دهد بررسی کنید آیا یک ارائه رمزنگاری شده است یا خیر. برای انجام این کار، می‌توانید از ویژگی [IsEncrypted](https://reference.aspose.com/slides/fa/net/aspose.slides/protectionmanager/properties/isencrypted) استفاده کنید که در صورت رمزنگاری شدن ارائه `true` و در غیر این صورت `false` برمی‌گرداند.
-
-این نمونه کد نشان می‌دهد چگونه بررسی کنید که آیا یک ارائه رمزنگاری شده است:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
-}
-```
-
-## **بررسی اینکه آیا یک ارائه محافظت‌نوشتن است**
-
-Aspose.Slides به شما امکان می‌دهد بررسی کنید آیا یک ارائه محافظت‌نوشتن است یا نه. برای انجام این کار، می‌توانید از ویژگی [IsWriteProtected](https://reference.aspose.com/slides/fa/net/aspose.slides/protectionmanager/properties/iswriteprotected) استفاده کنید که در صورت وجود محافظت‌نوشتن `true` و در غیر این صورت `false` برمی‌گرداند.
-
-این نمونه کد نشان می‌دهد چگونه بررسی کنید که آیا یک ارائه محافظت‌نوشتن است:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
-```
-
-## **تأیید استفاده از رمز عبور در ارائه**
-
-ممکن است بخواهید بررسی و تأیید کنید که یک رمز عبور خاص برای محافظت از سند ارائه استفاده شده است. Aspose.Slides ابزارهایی برای اعتبارسنجی رمز عبور در اختیار شما قرار می‌دهد.
-
-این نمونه کد نشان می‌دهد چگونه یک رمز عبور را اعتبارسنجی کنید:
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // بررسی اینکه آیا رمز عبور مطابقت دارد.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-این مقدار `true` برمی‌گرداند اگر ارائه با رمز عبور مشخص شده رمزنگاری شده باشد؛ در غیر این صورت `false`.
-
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/fa/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+رمزهای عبور بازکردن را لاگ نکنید و در پیام‌های تشخیصی گنجانده نشوند. از تلاش‌های تکراری غیرضروری برای اعتبارسنجی جلوگیری کنید، رمزها را فقط به مدت لازم در حافظه نگه دارید و نتایج اعتبارسنجی موفق را زمانی که بلافاصله ارائه را بارگذاری می‌کنید، مجدداً استفاده کنید.
 {{% /alert %}}
 
-## **محافظت‌رمز عبور یک ارائه به‌صورت آنلاین**
+## **رمزگذاری یک ارائه به صورت آنلاین**
 
-1. به صفحهٔ [**Aspose.Slides Lock**](https://products.aspose.app/slides/fa/lock) ما بروید. 
-1. **Drop or upload your files** را کلیک کنید.
-1. فایلی که می‌خواهید رمز عبور بگذارید را از رایانهٔ خود انتخاب کنید. 
-1. رمز عبور دلخواه خود برای محافظت از ویرایش و رمز عبور دلخواه برای محافظت از نمایش را وارد کنید.
-1. اگر می‌خواهید کاربران ارائهٔ شما را به‌عنوان نسخهٔ نهایی ببینند، گزینهٔ **Mark as final** را علامت بزنید.
-1. **PROTECT NOW.** را کلیک کنید. 
-1. **DOWNLOAD NOW.** را کلیک کنید.
+1. برنامه [Aspose.Slides Lock](https://products.aspose.app/slides/fa/lock) را باز کنید.
+1. ارائه را انتخاب یا بارگذاری کنید.
+1. برای حفاظت نمایشی یک رمز عبور وارد کنید.
+1. در صورت نیاز یک رمز عبور جداگانه برای حفاظت ویرایش وارد کنید.
+1. حفاظت را اعمال کنید و فایل حاصل را دانلود کنید.
 
-![Password protect PowerPoint presentations](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [محافظت از ارائه با نوشتن](/slides/fa/net/write-protected-presentation/)
+- [امضای دیجیتال در پاورپوینت](/slides/fa/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **سوالات متداول**
 
-**متدهای رمزنگاری پشتیبانی‌شده توسط Aspose.Slides چه هستند؟**
+**تفاوت بین رمز عبور بازکردن و رمز عبور حفاظت نوشتاری چیست؟**
 
-Aspose.Slides از متدهای رمزنگاری مدرن، از جمله الگوریتم‌های مبتنی بر AES، پشتیبانی می‌کند و سطح بالایی از امنیت داده برای ارائه‌های شما فراهم می‌سازد.
+یک رمز عبور بازکردن ارائه را رمزنگاری می‌کند و برای بارگذاری محتوای آن لازم است. یک رمز عبور حفاظت نوشتاری بدون رمزنگاری محتوا، محدودیت در ویرایش ایجاد می‌کند.
 
-**اگر هنگام باز کردن یک ارائه رمز عبور نادرست وارد شود چه اتفاقی می‌افتد؟**
+**آیا می‌توانم یک رمز عبور بازکردن را بدون بارگذاری تمام اسلایدها اعتبارسنجی کنم؟**
 
-در صورت استفاده از رمز عبور نادرست، یک استثنا پرتاب می‌شود که نشان می‌دهد دسترسی به ارائه رد شده است. این کار از دسترسی غیرمجاز جلوگیری می‌کند و محتوای ارائه را محافظت می‌نماید.
+بله. اطلاعات ارائه را به‌دست آورده، بررسی می‌کنید که آیا حفاظت رمز عبور بازکردن وجود دارد یا نه و قبل از ایجاد یک نمونه کامل از ارائه، رمز را اعتبارسنجی می‌کنید.
 
-**آیا استفاده از ارائه‌های محافظت‌شده با رمز عبور تأثیرات عملکردی دارد؟**
+**آیا جریان‌های کاری بررسی رمز عبور برای هر دو فرمت PPT و PPTX پشتیبانی می‌شود؟**
 
-فرآیند رمزنگاری و رمزگشایی ممکن است بار کمی را هنگام عملیات باز کردن و ذخیره‌سازی اضافه کند. در بیشتر موارد، این تأثیر عملکردی کم است و به‌طور قابل توجهی زمان کلی پردازش وظایف ارائه شما را تحت‌اثر نمی‌گذارد.
+بله. شناسایی و اعتبارسنجی رمز عبور بر پایه مسیر فایل و جریان برای ارائه‌های PPT و PPTX یکسان عمل می‌کند.

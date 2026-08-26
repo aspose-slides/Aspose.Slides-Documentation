@@ -1,300 +1,225 @@
 ---
-title: Bảo mật bản trình chiếu bằng mật khẩu trong PHP
-linktitle: Bảo vệ bằng mật khẩu
+title: Bảo vệ mật khẩu cho bản trình chiếu trong PHP
+linktitle: Bảo mật mật khẩu
 type: docs
 weight: 20
 url: /vi/php-java/password-protected-presentation/
 keywords:
-- khóa PowerPoint
-- khóa bản trình chiếu
-- mở khóa PowerPoint
-- mở khóa bản trình chiếu
-- bảo vệ PowerPoint
-- bảo vệ bản trình chiếu
-- đặt mật khẩu
-- thêm mật khẩu
+- bản trình chiếu được bảo vệ bằng mật khẩu
+- mật khẩu mở khóa
 - mã hoá PowerPoint
-- mã hoá bản trình chiếu
 - giải mã PowerPoint
-- giải mã bản trình chiếu
-- bảo vệ ghi
-- bảo mật PowerPoint
-- bảo mật bản trình chiếu
-- gỡ mật khẩu
-- gỡ bảo vệ
-- gỡ mã hoá
-- vô hiệu hoá mật khẩu
-- vô hiệu hoá bảo vệ
-- gỡ bảo vệ ghi
+- xác thực mật khẩu bản trình chiếu
+- kiểm tra mật khẩu bản trình chiếu
+- mở bản trình chiếu đã mã hoá
+- gỡ bỏ mã hoá
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách dễ dàng khóa và mở khóa các bản trình chiếu PowerPoint và OpenDocument được bảo vệ bằng mật khẩu với Aspose.Slides cho PHP. Bảo mật bản trình chiếu của bạn."
+description: "Mã hoá, phát hiện, xác thực, mở và giải mã các bản trình chiếu PowerPoint PPT và PPTX được bảo vệ bằng mật khẩu trong PHP với Aspose.Slides."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Khi bạn bảo vệ một bản trình chiếu bằng mật khẩu, có nghĩa là bạn đặt một mật khẩu để thực thi một số hạn chế trên bản trình chiếu. Để gỡ bỏ các hạn chế, cần nhập mật khẩu. Một bản trình chiếu được bảo vệ bằng mật khẩu được coi là bản trình chiếu bị khóa.
+Mật khẩu mở khóa mã hoá một bản trình chiếu. Mật khẩu đúng cần thiết để tải và xem nội dung bản trình chiếu, do đó bảo vệ này cung cấp tính bảo mật.
 
-Thông thường, bạn có thể đặt mật khẩu để thực thi các hạn chế này trên một bản trình chiếu:
+Mật khẩu mở khóa khác với mật khẩu bảo vệ ghi. Bảo vệ ghi hạn chế việc sửa đổi nhưng không mã hoá nội dung hoặc ngăn bản trình chiếu được tải. Để quản lý mật khẩu cho việc chỉnh sửa bản trình chiếu, xem [Write-Protect Presentations](/slides/vi/php-java/write-protected-presentation/).
 
-- **Modification**
+Các quy trình làm việc dưới đây áp dụng cho cả bản trình chiếu PPT và PPTX. Các ví dụ sử dụng cả hai định dạng khi hành vi dựa trên tệp và dựa trên luồng của chúng là quan trọng.
 
-  Nếu bạn muốn chỉ một số người dùng nhất định có thể chỉnh sửa bản trình chiếu của mình, bạn có thể đặt một hạn chế chỉnh sửa. Hạn chế này ngăn người khác chỉnh sửa, thay đổi hoặc sao chép nội dung trong bản trình chiếu (trừ khi họ cung cấp mật khẩu).
+## **Mã hoá bản trình chiếu bằng mật khẩu mở khóa**
 
-  Tuy nhiên, trong trường hợp này, ngay cả khi không có mật khẩu, người dùng vẫn có thể truy cập tài liệu và mở nó. Ở chế độ chỉ đọc, người dùng có thể xem nội dung hoặc các yếu tố—liên kết, hoạt ảnh, hiệu ứng và các thứ khác—trong bản trình chiếu, nhưng họ không thể sao chép mục nào hoặc lưu bản trình chiếu.
+Sử dụng [ProtectionManager::encrypt](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#encrypt) để gán mật khẩu mở khóa. Sau đó sử dụng [Presentation::save](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#save) để lưu bản trình chiếu đã được mã hoá.
 
-- **Opening**
-
-  Nếu bạn muốn chỉ một số người dùng nhất định có thể mở bản trình chiếu, bạn có thể đặt một hạn chế mở. Hạn chế này ngăn người dùng thậm chí không thể xem nội dung của bản trình chiếu (trừ khi họ cung cấp mật khẩu).
-
-  Về mặt kỹ thuật, hạn chế mở cũng ngăn người dùng chỉnh sửa bản trình chiếu: Khi người dùng không thể mở bản trình chiếu, họ không thể thực hiện sửa đổi hay thay đổi nào.
-
-  **Lưu ý** rằng khi bạn bảo vệ một bản trình chiếu bằng mật khẩu để ngăn mở, tệp bản trình chiếu sẽ được mã hoá.
-
-## **Cách bảo vệ bản trình chiếu bằng mật khẩu trực tuyến**
-
-1. Đi đến trang [**Aspose.Slides Lock**](https://products.aspose.app/slides/vi/lock) của chúng tôi. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Nhấp vào **Kéo thả hoặc tải lên tệp của bạn**.
-
-3. Chọn tệp bạn muốn bảo vệ bằng mật khẩu trên máy tính của mình. 
-
-4. Nhập mật khẩu bạn muốn dùng cho việc bảo vệ chỉnh sửa; Nhập mật khẩu bạn muốn dùng cho việc bảo vệ xem. 
-
-5. Nếu bạn muốn người dùng nhìn thấy bản trình chiếu của bạn dưới dạng bản sao cuối cùng, đánh dấu vào hộp kiểm **Mark as final**.
-
-6. Nhấp vào **PROTECT NOW.** 
-
-7. Nhấp vào **DOWNLOAD NOW.**
-
-## **Bảo vệ mật khẩu cho bản trình chiếu trong Aspose.Slides**
-**Định dạng được hỗ trợ**
-
-Aspose.Slides hỗ trợ bảo vệ mật khẩu, mã hoá và các thao tác tương tự cho các bản trình chiếu ở các định dạng sau: 
-
-- PPTX và PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**Các thao tác được hỗ trợ**
-
-Aspose.Slides cho phép bạn sử dụng bảo vệ mật khẩu trên bản trình chiếu để ngăn sửa đổi theo các cách sau:
-
-- Mã hoá một bản trình chiếu
-- Đặt bảo vệ ghi cho một bản trình chiếu
-
-**Các thao tác khác**
-
-Aspose.Slides cho phép bạn thực hiện các tác vụ khác liên quan đến bảo vệ mật khẩu và mã hoá theo các cách sau:
-
-- Giải mã một bản trình chiếu; mở một bản trình chiếu đã mã hoá
-- Gỡ bỏ mã hoá; tắt bảo vệ mật khẩu
-- Gỡ bỏ bảo vệ ghi khỏi một bản trình chiếu
-- Lấy các thuộc tính của một bản trình chiếu đã mã hoá
-- Kiểm tra xem một bản trình chiếu có được mã hoá hay không
-- Kiểm tra xem một bản trình chiếu có được bảo vệ bằng mật khẩu hay không.
-
-## **Mã hoá một bản trình chiếu**
-
-Bạn có thể mã hoá một bản trình chiếu bằng cách đặt mật khẩu. Sau đó, để sửa đổi bản trình chiếu đã bị khóa, người dùng phải cung cấp mật khẩu. 
-
-Để mã hoá hoặc bảo vệ bằng mật khẩu một bản trình chiếu, bạn phải sử dụng phương thức encrypt (từ [ProtectionManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/)) để đặt mật khẩu cho bản trình chiếu. Bạn truyền mật khẩu vào phương thức encrypt và sử dụng phương thức save để lưu bản trình chiếu đã được mã hoá.
-
-Mã mẫu sau cho thấy cách bạn mã hoá một bản trình chiếu:
+Ví dụ sau mã hoá một bản trình chiếu PPTX:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->encrypt("123123");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->getProtectionManager()->encrypt("open_password");
     $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Đặt bảo vệ ghi cho một bản trình chiếu**
+## **Tải một bản trình chiếu đã được mã hoá**
 
-Bạn có thể thêm một ghi chú “Không chỉnh sửa” vào một bản trình chiếu. Bằng cách này, bạn thông báo cho người dùng rằng bạn không muốn họ thực hiện thay đổi trên bản trình chiếu.  
-
-**Lưu ý** rằng quá trình bảo vệ ghi không mã hoá bản trình chiếu. Do đó, người dùng—nếu họ thực sự muốn—có thể chỉnh sửa bản trình chiếu, nhưng để lưu các thay đổi, họ sẽ phải tạo một bản trình chiếu với tên khác. 
-
-Để đặt bảo vệ ghi, bạn phải sử dụng phương thức [setWriteProtection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#setWriteProtection). Mã mẫu sau cho thấy cách bạn đặt bảo vệ ghi cho một bản trình chiếu:
+Đặt [LoadOptions::setPassword](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setPassword) thành mật khẩu mở khóa và truyền tùy chọn này cho [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) khi tải tệp. Việc tải sẽ thất bại khi mật khẩu mở khóa được yêu cầu nhưng mật khẩu cung cấp bị thiếu hoặc không đúng.
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    # Làm việc với bản trình chiếu đã giải mã.
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Tải một bản trình chiếu đã mã hoá**
+## **Xóa mã hoá khỏi bản trình chiếu**
 
-Aspose.Slides cho phép bạn tải một tệp đã mã hoá bằng cách truyền mật khẩu của nó. Để giải mã một bản trình chiếu, bạn phải gọi phương thức [removeEncryption](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#removeEncryption) mà không có tham số. Sau đó bạn sẽ phải nhập đúng mật khẩu để tải bản trình chiếu.
-
-Mã mẫu sau cho thấy cách bạn giải mã một bản trình chiếu: 
+Tải bản trình chiếu bằng mật khẩu mở khóa của nó, gọi [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#removeEncryption), và lưu kết quả. Bản trình chiếu đã lưu sau đó có thể được tải mà không cần mật khẩu.
 
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # làm việc với bản trình chiếu đã giải mã
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Gỡ bỏ mã hoá khỏi một bản trình chiếu**
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
 
-Bạn có thể gỡ bỏ mã hoá hoặc bảo vệ mật khẩu trên một bản trình chiếu. Bằng cách này, người dùng có thể truy cập hoặc chỉnh sửa bản trình chiếu mà không bị hạn chế. 
-
-Để gỡ bỏ mã hoá hoặc bảo vệ mật khẩu, bạn phải gọi phương thức [removeEncryption](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#removeEncryption). Mã mẫu sau cho thấy cách gỡ bỏ mã hoá khỏi một bản trình chiếu:
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $presentation->getProtectionManager()->removeEncryption();
     $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Xác thực mật khẩu mở khóa trước khi tải**
+
+Sử dụng [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationfactory/#getPresentationInfo) để lấy [PresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/) mà không tạo một thể hiện đầy đủ của bản trình chiếu. Kiểm tra [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/#isPasswordProtected) trước khi yêu cầu hoặc xác thực mật khẩu. Khi có bảo vệ, xác thực giá trị đã cung cấp bằng [PresentationInfo::checkPassword](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **Quy trình làm việc Đường dẫn tệp**
+
+Ví dụ sau xác thực mật khẩu mở khóa cho một tệp PPTX, truyền giá trị đã xác thực cho [LoadOptions::setPassword](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setPassword), và sau đó tải bản trình chiếu đầy đủ:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$filePath = "protected-presentation.pptx";
+$password = "open_password";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+
+if (!$presentationInfo->isPasswordProtected()) {
+    echo("The presentation does not have an opening password.\n");
+} elseif (!$presentationInfo->checkPassword($password)) {
+    echo("The opening password is incorrect.\n");
+} else {
+    $loadOptions = new LoadOptions();
+    $loadOptions->setPassword($password);
+
+    $presentation = new Presentation($filePath, $loadOptions);
+    try {
+        echo("The presentation was validated and loaded successfully.\n");
+    } finally {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Gỡ bỏ bảo vệ ghi khỏi một bản trình chiếu**
+### **Quy trình làm việc Luồng**
 
-Bạn có thể sử dụng Aspose.Slides để gỡ bỏ bảo vệ ghi được dùng trên tệp bản trình chiếu. Bằng cách này, người dùng có thể chỉnh sửa theo ý muốn—và họ sẽ không nhận được cảnh báo khi thực hiện các thao tác đó.
+Phiên bản overload luồng của [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationfactory/#getPresentationInfo) cung cấp cùng một quy trình làm việc. Đặt lại vị trí của luồng có thể tìm kiếm trước khi tải bản trình chiếu đầy đủ từ luồng đó.
 
-Bạn có thể gỡ bỏ bảo vệ ghi khỏi một bản trình chiếu bằng cách sử dụng phương thức [removeWriteProtection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#removeWriteProtection). Mã mẫu sau cho thấy cách gỡ bỏ bảo vệ ghi khỏi một bản trình chiếu:
+Ví dụ sau sử dụng một tệp PPT:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$password = "open_password";
+
+$presentationStream = new Java("java.io.FileInputStream", "protected-presentation.ppt");
+try {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($presentationStream);
+
+    if (!$presentationInfo->isPasswordProtected()) {
+        echo("The presentation does not have an opening password.\n");
+    } elseif (!$presentationInfo->checkPassword($password)) {
+        echo("The opening password is incorrect.\n");
+    } else {
+        $presentationStream->getChannel()->position(0);
+
+        $loadOptions = new LoadOptions();
+        $loadOptions->setPassword($password);
+
+        $presentation = new Presentation($presentationStream, $loadOptions);
+        try {
+            echo("The presentation was validated and loaded successfully.\n");
+        } finally {
+            $presentation->dispose();
+        }
     }
-  }
+} finally {
+    $presentationStream->close();
+}
 ```
 
-## **Lấy các thuộc tính của một bản trình chiếu đã mã hoá**
+### **Giá trị trả về của checkPassword**
 
-Thông thường, người dùng gặp khó khăn khi lấy các thuộc tính tài liệu của một bản trình chiếu đã được mã hoá hoặc bảo vệ bằng mật khẩu. Tuy nhiên, Aspose.Slides cung cấp một cơ chế cho phép bạn bảo vệ mật khẩu một bản trình chiếu đồng thời vẫn cho phép người dùng truy cập các thuộc tính của bản trình chiếu đó.
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/#checkPassword) trả về `true` chỉ khi bản trình chiếu có mật khẩu mở khóa và mật khẩu được cung cấp là đúng. Nó trả về `false` trong mỗi trường hợp sau:
 
-**Lưu ý** rằng khi Aspose.Slides mã hoá một bản trình chiếu, các thuộc tính tài liệu của bản trình chiếu cũng sẽ được bảo vệ bằng mật khẩu theo mặc định. Nhưng nếu bạn cần làm cho các thuộc tính của bản trình chiếu có thể truy cập được (ngay cả sau khi bản trình chiếu đã được mã hoá), Aspose.Slides cho phép bạn thực hiện chính xác điều đó. 
+- Mật khẩu không đúng.
+- Bản trình chiếu không có mật khẩu mở khóa.
+- Mật khẩu được cung cấp là `null` hoặc rỗng.
 
-Nếu bạn muốn người dùng vẫn có thể truy cập các thuộc tính của một bản trình chiếu bạn đã mã hoá, bạn có thể sử dụng phương thức [encryptDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#getEncryptDocumentProperties) với giá trị `true`. Mã mẫu sau cho thấy cách bạn mã hoá một bản trình chiếu đồng thời cung cấp cách để người dùng truy cập các thuộc tính tài liệu của nó:
+Hành vi này giống nhau cho các bản trình chiếu PPT và PPTX.
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setEncryptDocumentProperties(true);
-    $presentation->getProtectionManager()->encrypt("123123");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+## **Kiểm tra xem một bản trình chiếu đã tải có được mã hoá không**
 
-## **Kiểm tra xem một bản trình chiếu có được bảo vệ bằng mật khẩu không**
-
-Trước khi tải một bản trình chiếu, bạn có thể muốn kiểm tra và xác nhận rằng bản trình chiếu chưa bị bảo vệ bằng mật khẩu. Bằng cách này, bạn tránh được các lỗi và vấn đề tương tự, xuất hiện khi một bản trình chiếu được bảo vệ bằng mật khẩu được tải mà không có mật khẩu.
-
-Mã PHP này cho thấy cách bạn kiểm tra một bản trình chiếu để xem nó có được bảo vệ bằng mật khẩu hay không (không tải bản trình chiếu thực tế):
+Sau khi tải một bản trình chiếu bằng mật khẩu đúng, kiểm tra [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#isEncrypted) để xác nhận rằng bản trình chiếu nguồn đã được mã hoá. Để phát hiện bảo vệ bằng mật khẩu mở khóa trước khi tải, sử dụng [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/#isPasswordProtected) như đã mô tả ở trên.
 
 ```php
-  $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-```
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
 
-## **Kiểm tra xem một bản trình chiếu có được mã hoá không**
-
-Aspose.Slides cho phép bạn kiểm tra xem một bản trình chiếu có được mã hoá hay không. Để thực hiện việc này, bạn có thể sử dụng phương thức [isEncrypted](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#isEncrypted), phương thức này trả về `true` nếu bản trình chiếu được mã hoá hoặc `false` nếu bản trình chiếu không được mã hoá.
-
-Mã mẫu này cho thấy cách bạn kiểm tra xem một bản trình chiếu có được mã hoá không:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    echo("The presentation is encrypted: " . ($isEncrypted ? "true" : "false") . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Kiểm tra xem một bản trình chiếu có được bảo vệ ghi không**
+## **Khuyến nghị bảo mật**
 
-Aspose.Slides cho phép bạn kiểm tra xem một bản trình chiếu có được bảo vệ ghi hay không. Để thực hiện việc này, bạn có thể sử dụng phương thức [isWriteProtected](https://reference.aspose.com/slides/vi/php-java/aspose.slides/protectionmanager/#isWriteProtected), phương thức này trả về `true` nếu bản trình chiếu được bảo vệ ghi hoặc `false` nếu không.
+{{% alert color="warning" title="Security" %}}
+Không ghi lại mật khẩu mở khóa hoặc bao gồm chúng trong các thông điệp chẩn đoán. Tránh các lần xác thực lặp lại không cần thiết, giữ mật khẩu trong bộ nhớ chỉ trong thời gian cần thiết, và tái sử dụng kết quả xác thực thành công khi tải bản trình chiếu ngay lập tức.
+{{% /alert %}}
 
-Mã mẫu này cho thấy cách bạn kiểm tra xem một bản trình chiếu có được bảo vệ ghi không:
+## **Bảo vệ mật khẩu cho bản trình chiếu trực tuyến**
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+1. Mở ứng dụng [Aspose.Slides Lock](https://products.aspose.app/slides/vi/lock).
+2. Chọn hoặc tải lên bản trình chiếu.
+3. Nhập mật khẩu để bảo vệ chế độ xem.
+4. Tùy chọn nhập một mật khẩu riêng cho bảo vệ chỉnh sửa.
+5. Áp dụng bảo vệ và tải xuống tệp kết quả.
 
-## **Xác thực hoặc xác nhận rằng một mật khẩu cụ thể đã được sử dụng**
-
-Bạn có thể muốn kiểm tra và xác nhận rằng một mật khẩu cụ thể đã được dùng để bảo vệ tài liệu bản trình chiếu. Aspose.Slides cung cấp phương tiện để bạn xác thực một mật khẩu. 
-
-Mã mẫu này cho thấy cách bạn xác thực một mật khẩu:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    # kiểm tra nếu "pass" khớp với
-    $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-Nó trả về `true` nếu bản trình chiếu đã được mã hoá bằng mật khẩu đã chỉ định. Ngược lại, nó trả về `false`. 
-
-{{% alert color="primary" title="See also" %}} 
-- [Chữ ký số trong PowerPoint](/slides/vi/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Xem thêm" %}}
+- [Write-Protect Presentations](/slides/vi/php-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/vi/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides hỗ trợ các phương pháp mã hoá nào?**
+**What is the difference between an opening password and a write-protection password?**
 
-Aspose.Slides hỗ trợ các phương pháp mã hoá hiện đại, bao gồm các thuật toán dựa trên AES, đảm bảo mức độ bảo mật cao cho dữ liệu bản trình chiếu của bạn.
+Mật khẩu mở khóa mã hoá bản trình chiếu và cần thiết để tải nội dung của nó. Mật khẩu bảo vệ ghi hạn chế việc sửa đổi mà không mã hoá nội dung.
 
-**Điều gì xảy ra nếu nhập sai mật khẩu khi cố gắng mở một bản trình chiếu?**
+**Can I validate an opening password without loading all slides?**
 
-Một ngoại lệ sẽ được ném ra nếu mật khẩu không đúng, thông báo rằng việc truy cập vào bản trình chiếu đã bị từ chối. Điều này giúp ngăn chặn truy cập trái phép và bảo vệ nội dung bản trình chiếu.
+Có. Lấy thông tin bản trình chiếu, kiểm tra xem có bảo vệ bằng mật khẩu mở khóa hay không, và xác thực mật khẩu trước khi tạo một thể hiện đầy đủ của bản trình chiếu.
 
-**Có bất kỳ tác động nào đến hiệu năng khi làm việc với bản trình chiếu được bảo vệ bằng mật khẩu không?**
+**Do the password-checking workflows support both PPT and PPTX?**
 
-Quá trình mã hoá và giải mã có thể gây ra một chút chi phí bổ sung trong quá trình mở và lưu. Trong hầu hết các trường hợp, ảnh hưởng đến hiệu năng là tối thiểu và không ảnh hưởng đáng kể đến thời gian xử lý chung của các tác vụ liên quan đến bản trình chiếu.
+Có. Phát hiện và xác thực mật khẩu dựa trên đường dẫn tệp và luồng hoạt động giống nhau cho các bản trình chiếu PPT và PPTX.

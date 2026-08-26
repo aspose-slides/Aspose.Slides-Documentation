@@ -1,6 +1,6 @@
 ---
 title: Récupérer et mettre à jour les informations de présentation en Python
-linktitle: Informations de présentation
+linktitle: Informations sur la présentation
 type: docs
 weight: 30
 url: /fr/python-net/examine-presentation/
@@ -11,7 +11,6 @@ keywords:
 - obtenir les propriétés
 - lire les propriétés
 - modifier les propriétés
-- modifier les propriétés
 - mettre à jour les propriétés
 - examiner PPTX
 - examiner PPT
@@ -21,22 +20,20 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Explorez les diapositives, la structure et les métadonnées des présentations PowerPoint et OpenDocument à l'aide de Python pour des analyses plus rapides et des audits de contenu plus intelligents."
+description: "Explorez les diapositives, la structure et les métadonnées des présentations PowerPoint et OpenDocument avec Python pour obtenir des informations plus rapides et des audits de contenu plus intelligents."
 ---
+## **Vue d'ensemble**
 
-Aspose.Slides pour Python via .NET vous permet d'examiner une présentation afin d'en connaître les propriétés et de comprendre son comportement. 
+Cet article montre comment examiner les informations de présentation dans Aspose.Slides. Il explique comment déterminer le format actuel d’une présentation sans charger le fichier complet, lire ses propriétés de document, et mettre à jour ces propriétés si nécessaire.
 
-{{% alert title="Info" color="info" %}} 
+Les exemples sont basés sur les API [PresentationInfo](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/) et [DocumentProperties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/) et illustrent les opérations typiques de manipulation des métadonnées d’une présentation.
 
-Les classes [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) et [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) contiennent les propriétés et les méthodes utilisées dans les opérations présentées ici.
+## **Vérifier le format d’une présentation**
 
-{{% /alert %}} 
+Avant de travailler sur une présentation, vous pouvez vouloir connaître le format (PPT, PPTX, ODP, etc.) de la présentation à ce moment.
 
-## **Vérifier le format d'une présentation**
+Vous pouvez vérifier le format d’une présentation sans la charger. Voir ce code Python :
 
-Avant de travailler sur une présentation, vous pouvez vouloir savoir dans quel format (PPT, PPTX, ODP, etc.) elle se trouve actuellement.
-
-Vous pouvez vérifier le format d'une présentation sans la charger. Voir ce code Python :
 ```py
 import aspose.slides as slides
 
@@ -50,10 +47,10 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
-
 ## **Obtenir les propriétés de la présentation**
 
-Ce code Python vous montre comment obtenir les propriétés de la présentation (informations sur la présentation) :
+Ce code Python montre comment obtenir les propriétés de la présentation (informations sur la présentation) :
+
 ```py
 import aspose.slides as slides
 
@@ -64,63 +61,63 @@ print(props.subject)
 print(props.title)
 ```
 
-
-Vous pouvez également consulter les [propriétés de la classe DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties).
+Vous pouvez consulter les [propriétés de la classe DocumentProperties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/#properties).
 
 ## **Mettre à jour les propriétés de la présentation**
 
-Aspose.Slides fournit la méthode [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) qui permet de modifier les propriétés d'une présentation.
+Aspose.Slides fournit la méthode [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) qui permet de modifier les propriétés de la présentation.
 
-Imaginons que nous ayons une présentation PowerPoint avec les propriétés de document illustrées ci‑dessous.
+Supposons que nous ayons une présentation PowerPoint avec les propriétés de document ci‑dessous.
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![Propriétés de document d’origine de la présentation PowerPoint](input_properties.png)
 
 Cet exemple de code montre comment modifier certaines propriétés de la présentation :
+
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
 ```
 
+Les résultats du changement des propriétés de document sont affichés ci‑dessous.
 
-Les résultats de la modification des propriétés de document sont présentés ci‑dessous.
-
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![Propriétés de document modifiées de la présentation PowerPoint](output_properties.png)
 
 ## **Liens utiles**
 
-Pour obtenir davantage d'informations sur une présentation et ses attributs de sécurité, ces liens peuvent vous être utiles :
+Pour obtenir davantage d’informations sur une présentation et ses attributs de sécurité, ces liens peuvent vous être utiles :
 
-- [Vérifier si une présentation est chiffrée](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Vérifier si une présentation est protégée en écriture (lecture seule)](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Vérifier si une présentation est protégée par mot de passe avant son chargement](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirmer le mot de passe utilisé pour protéger une présentation](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Présentations protégées par mot de passe](/slides/fr/python-net/password-protected-presentation/)
+- [Présentations protégées en écriture](/slides/fr/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Comment vérifier si les polices sont incorporées et lesquelles ?**
+**Comment puis‑je vérifier si les polices sont incorporées et lesquelles ?**
 
-Recherchez les [informations sur les polices incorporées](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) au niveau de la présentation, puis comparez ces entrées avec l’ensemble des [polices réellement utilisées dans le contenu](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_fonts/) pour identifier les polices essentielles au rendu.
+Recherchez les informations sur les [polices incorporées](https://reference.aspose.com/slides/fr/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) au niveau de la présentation, puis comparez ces entrées avec l’ensemble des [polices réellement utilisées dans le contenu](https://reference.aspose.com/slides/fr/python-net/aspose.slides/fontsmanager/get_fonts/) pour identifier les polices critiques pour le rendu.
 
-**Comment savoir rapidement si le fichier contient des diapositives masquées et combien ?**
+**Comment savoir rapidement si le fichier comporte des diapositives cachées et combien ?**
 
-Parcourez la [collection de diapositives](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) et inspectez le [drapeau de visibilité](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/) de chaque diapositive.
+Parcourez la [collection de diapositives](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) et inspectez le [drapeau de visibilité](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slide/hidden/) de chaque diapositive.
 
-**Puis‑je détecter si une taille ou une orientation de diapositive personnalisée est utilisée, et si elle diffère des paramètres par défaut ?**
+**Puis‑je détecter si une taille et une orientation de diapositive personnalisées sont utilisées, et si elles diffèrent des valeurs par défaut ?**
 
-Oui. Comparez la [taille de diapositive actuelle](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slide_size/) et son orientation avec les préréglages standards ; cela permet d’anticiper le comportement lors de l’impression ou de l’exportation.
+Oui. Comparez la [taille de diapositive](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/slide_size/) et l’orientation actuelles avec les préréglages standards ; cela aide à anticiper le comportement lors de l’impression et de l’exportation.
 
-**Existe‑t‑il un moyen rapide de voir si des graphiques font référence à des sources de données externes ?**
+**Existe‑t‑il un moyen rapide de voir si les graphiques font référence à des sources de données externes ?**
 
-Oui. Parcourez tous les [graphiques](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), vérifiez leur [source de données](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) et notez si les données sont internes ou liées, y compris les liens cassés.
+Oui. Parcourez tous les [graphiques](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chart/), vérifiez leur [source de données](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/data_source_type/), et notez si les données sont internes ou basées sur un lien, y compris les liens cassés.
 
-**Comment évaluer les diapositives « lourdes » qui peuvent ralentir le rendu ou l’exportation PDF ?**
+**Comment évaluer les diapositives « lourdes » qui peuvent ralentir le rendu ou l’export PDF ?**
 
-Pour chaque diapositive, comptez les objets et repérez les images volumineuses, les transparences, les ombres, les animations et les contenus multimédias ; attribuez un score de complexité approximatif afin d’identifier les points de performance potentiels.
+Pour chaque diapositive, comptez le nombre d’objets et recherchez les images volumineuses, la transparence, les ombres, les animations et les multimédias ; attribuez un score de complexité approximatif pour identifier les points chauds de performance potentiels.

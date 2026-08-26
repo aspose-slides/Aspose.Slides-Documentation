@@ -1,301 +1,218 @@
 ---
-title: تأمين العروض التقديمية بكلمات مرور في PHP
+title: حماية عروض تقديمية بكلمة مرور في PHP
 linktitle: حماية كلمة المرور
 type: docs
 weight: 20
 url: /ar/php-java/password-protected-presentation/
 keywords:
-- قفل PowerPoint
-- قفل العرض التقديمي
-- إلغاء قفل PowerPoint
-- إلغاء قفل العرض التقديمي
-- حماية PowerPoint
-- حماية العرض التقديمي
-- تعيين كلمة مرور
-- إضافة كلمة مرور
+- عرض تقديمي محمي بكلمة مرور
+- كلمة مرور الفتح
 - تشفير PowerPoint
-- تشفير العرض التقديمي
 - فك تشفير PowerPoint
-- فك تشفير العرض التقديمي
-- حماية الكتابة
-- أمان PowerPoint
-- أمان العرض التقديمي
-- إزالة كلمة المرور
-- إزالة الحماية
+- التحقق من كلمة مرور العرض
+- فحص كلمة مرور العرض
+- فتح عرض مشفر
 - إزالة التشفير
-- تعطيل كلمة المرور
-- تعطيل الحماية
-- إزالة حماية الكتابة
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية قفل وإلغاء قفل العروض التقديمية المحمية بكلمة مرور في PowerPoint وOpenDocument بسهولة باستخدام Aspose.Slides لـ PHP. قم بتأمين عروضك التقديمية."
+description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير عروض PowerPoint PPT و PPTX المحمية بكلمة مرور في PHP باستخدام Aspose.Slides."
 ---
+## **نظرة عامة**
 
-## **حول حماية كلمة المرور**
-### **كيف تعمل حماية كلمة المرور للعرض التقديمي؟**
-عند حماية عرض تقديمي بكلمة مرور، يعني ذلك أنك تحدد كلمة مرور تفرض قيودًا معينة على العرض. لإزالة هذه القيود، يجب إدخال كلمة المرور. يُعتبر العرض المحمي بكلمة مرور عرضًا مقفلًا.
+كلمة مرور الفتح تقوم بتشفير العرض التقديمي. يلزم كلمة المرور الصحيحة لتحميل وعرض محتوى العرض التقديمي، وبالتالي توفر هذه الحماية السرية.
 
-عادةً يمكنك تعيين كلمة مرور لفرض هذه القيود على العرض:
+كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. الحماية من الكتابة تقيد التعديل لكنها لا تقوم بتشفير المحتوى ولا تمنع تحميل العرض التقديمي. لإدارة كلمات المرور لتعديل العروض التقديمية، راجع [Write-Protect Presentations](/slides/ar/php-java/write-protected-presentation/).
 
-- **التعديل**
+تطبق سير العمل أدناه على كل من عروض PPT و PPTX. تستخدم الأمثلة كلا الشكلين حيث يكون سلوكهما القائم على الملفات أو التدفقات مهمًا.
 
-  إذا كنت تريد أن يتمكن بعض المستخدمين فقط من تعديل عرضك التقديمي، يمكنك تعيين قيد تعديل. القيد هنا يمنع الأشخاص من تعديل أو تغيير أو نسخ محتويات العرض (ما لم يقدموا كلمة المرور). 
+## **تشفير عرض تقديمي بكلمة مرور فتح**
 
-  ومع ذلك، في هذه الحالة، حتى بدون كلمة المرور، سيتمكن المستخدم من الوصول إلى المستند وفتحه. في وضع القراءة فقط، يمكن للمستخدم مشاهدة المحتوى أو العناصر—الروابط، الرسوم المتحركة، التأثيرات، وغيرها—داخل العرض، لكنه لا يستطيع نسخ العناصر أو حفظ العرض. 
+استخدم [ProtectionManager::encrypt](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#encrypt) لتعيين كلمة مرور الفتح. ثم استخدم [Presentation::save](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#save) لحفظ العرض المشفر.
 
-- **الفتح**
-
-  إذا كنت تريد أن يتمكن بعض المستخدمين فقط من فتح عرضك التقديمي، يمكنك تعيين قيد فتح. القيد هنا يمنع الأشخاص من حتى مشاهدة محتويات العرض (ما لم يقدموا كلمة المرور).
-
-  تقنيًا، قيد الفتح يمنع أيضًا المستخدمين من تعديل عروضك: عندما لا يستطيع الأشخاص فتح العرض، لا يمكنهم تعديل أو إجراء تغييرات عليه. 
-  
-  **ملاحظة** أنه عندما تحمي عرضًا تقديميًا بكلمة مرور لمنع الفتح، يصبح ملف العرض مشفرًا.
-
-## **كيفية حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
-
-1. انتقل إلى صفحة [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock). 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. انقر على **اسحب أو حمّل ملفاتك**.
-
-3. اختر الملف الذي تريد حمايته بكلمة مرور على جهازك. 
-
-4. أدخل كلمة المرور التي تفضلها لحماية التعديل؛ أدخل كلمة المرور التي تفضلها لحماية العرض. 
-
-5. إذا أردت أن يرى المستخدمون عرضك التقديمي كنسخة نهائية، ضع علامة في خانة **تعليم كنهائي**.
-
-6. انقر على **PROTECT NOW.** 
-
-7. انقر على **DOWNLOAD NOW.**
-
-## **حماية كلمة المرور للعرض التقديمي في Aspose.Slides**
-**الصياغات المدعومة**
-
-يدعم Aspose.Slides حماية كلمة المرور، والتشفير، والعمليات المماثلة للعرض التقديمي بهذه الصياغات: 
-
-- PPTX و PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP -  OpenDocument Presentation Template 
-
-**العمليات المدعومة**
-
-يسمح Aspose.Slides باستخدام حماية كلمة المرور للعرض التقديمي لمنع التعديلات بهذه الطرق:
-
-- تشفير العرض التقديمي
-- تعيين حماية كتابة للعرض التقديمي
-
-**عمليات أخرى**
-
-يسمح Aspose.Slides بأداء مهام أخرى تتعلق بحماية كلمة المرور والتشفير بهذه الطرق:
-
-- فك تشفير عرض تقديمي؛ فتح عرض مشفر
-- إزالة التشفير؛ تعطيل حماية كلمة المرور
-- إزالة حماية الكتابة من عرض تقديمي
-- الحصول على خصائص عرض مشفر
-- التحقق ما إذا كان العرض مشفرًا
-- التحقق ما إذا كان العرض محميًا بكلمة مرور.
-
-## **تشفير عرض تقديمي**
-
-يمكنك تشفير عرض تقديمي عن طريق تعيين كلمة مرور. ثم، لتعديل العرض المقفل، يجب على المستخدم تقديم كلمة المرور. 
-
-لتشفير أو حماية عرض تقديمي بكلمة مرور، عليك استخدام طريقة `encrypt` (من [ProtectionManager](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/)) لتعيين كلمة مرور للعرض. تقوم بتمرير كلمة المرور إلى طريقة `encrypt` وتستخدم طريقة `save` لحفظ العرض المشفر الآن.
-
-يعرض هذا المثال البرمجي كيفية تشفير عرض تقديمي:
+المثال التالي يشفر عرض PPTX:
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->encrypt("123123");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("pres.pptx");
+try {
+    $presentation->getProtectionManager()->encrypt("open_password");
     $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
-
-
-## **تعيين حماية كتابة للعرض التقديمي**
-
-يمكنك إضافة علامة “لا تعديل” إلى عرض تقديمي. بهذه الطريقة، تخبر المستخدمين أنك لا تريد منهم إجراء تغييرات على العرض.  
-
-**ملاحظة** أن عملية حماية الكتابة لا تشفر العرض. لذلك، يمكن للمستخدمين—إذا أرادوا—تعديل العرض، لكن لحفظ التغييرات، سيتعين عليهم إنشاء عرض باسم مختلف. 
-
-لتعيين حماية كتابة، عليك استخدام طريقة [setWriteProtection](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setWriteProtection). يعرض هذا المثال البرمجي كيفية تعيين حماية كتابة للعرض التقديمي:
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
 
 ## **تحميل عرض مشفر**
 
-يسمح Aspose.Slides بتحميل ملف مشفر بتمرير كلمة مروره. لفك تشفير عرض تقديمي، عليك استدعاء طريقة [removeEncryption](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#removeEncryption) بدون معلمات. بعد ذلك سيتعين عليك إدخال كلمة المرور الصحيحة لتحميل العرض.
-
-يعرض هذا المثال البرمجي كيفية فك تشفير عرض تقديمي: 
+قم بضبط [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) عند تحميل الملف. يفشل التحميل عندما تكون كلمة مرور الفتح مطلوبة ولكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # العمل مع العرض التقديمي المفكوك
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    # العمل مع العرض المفكوك.
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **إزالة التشفير من عرض تقديمي**
 
-يمكنك إزالة التشفير أو حماية كلمة المرور على عرض تقديمي. بهذه الطريقة، يصبح بإمكان المستخدمين الوصول إلى العرض أو تعديله دون قيود. 
-
-لإزالة التشفير أو حماية كلمة المرور، عليك استدعاء طريقة [removeEncryption](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#removeEncryption). يعرض هذا المثال البرمجي كيفية إزالة التشفير من عرض تقديمي:
+حمّل العرض باستخدام كلمة مرور الفتح، استدعِ [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#removeEncryption)، واحفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
 ```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $presentation->getProtectionManager()->removeEncryption();
     $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **التحقق من صحة كلمة مرور الفتح قبل التحميل**
+
+استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/#getPresentationInfo) للحصول على [PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/) دون إنشاء نسخة كاملة من العرض. افحص [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#isPasswordProtected) قبل طلب أو التحقق من كلمة مرور. عندما تكون الحماية موجودة، تحقق من صحة القيمة المقدمة باستخدام [PresentationInfo::checkPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **سير العمل باستخدام مسار الملف**
+
+المثال التالي يتحقق من صحة كلمة مرور الفتح لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword)، ثم يحمل العرض الكامل:
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$filePath = "protected-presentation.pptx";
+$password = "open_password";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+
+if (!$presentationInfo->isPasswordProtected()) {
+    echo("The presentation does not have an opening password.\n");
+} elseif (!$presentationInfo->checkPassword($password)) {
+    echo("The opening password is incorrect.\n");
+} else {
+    $loadOptions = new LoadOptions();
+    $loadOptions->setPassword($password);
+
+    $presentation = new Presentation($filePath, $loadOptions);
+    try {
+        echo("The presentation was validated and loaded successfully.\n");
+    } finally {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
+### **سير العمل باستخدام التدفق**
 
-## **إزالة حماية الكتابة من عرض تقديمي**
+الإصدار المتعدد التدفقات من [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/#getPresentationInfo) يوفر نفس سير العمل. أعد ضبط موضع تدفق قابل للبحث قبل تحميل العرض الكامل من ذلك التدفق.
 
-يمكنك استخدام Aspose.Slides لإزالة حماية الكتابة المستخدمة على ملف عرض تقديمي. بهذه الطريقة، يمكن للمستخدمين تعديل ما يشاؤون ولا يتلقون أي تحذيرات عند تنفيذ مثل هذه المهام.
-
-يمكنك إزالة حماية الكتابة من عرض تقديمي باستخدام طريقة [removeWriteProtection](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#removeWriteProtection). يعرض هذا المثال البرمجي كيفية إزالة حماية الكتابة من عرض تقديمي:
+المثال التالي يستخدم ملف PPT:
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$password = "open_password";
+
+$presentationStream = new Java("java.io.FileInputStream", "protected-presentation.ppt");
+try {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($presentationStream);
+
+    if (!$presentationInfo->isPasswordProtected()) {
+        echo("The presentation does not have an opening password.\n");
+    } elseif (!$presentationInfo->checkPassword($password)) {
+        echo("The opening password is incorrect.\n");
+    } else {
+        $presentationStream->getChannel()->position(0);
+
+        $loadOptions = new LoadOptions();
+        $loadOptions->setPassword($password);
+
+        $presentation = new Presentation($presentationStream, $loadOptions);
+        try {
+            echo("The presentation was validated and loaded successfully.\n");
+        } finally {
+            $presentation->dispose();
+        }
     }
-  }
+} finally {
+    $presentationStream->close();
+}
 ```
 
+### **قيم الإرجاع للدالة checkPassword**
 
-## **الحصول على خصائص عرض مشفر**
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#checkPassword) ترجع `true` فقط عندما يكون للعرض كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. ترجع `false` في كل من الحالات التالية:
+- كلمة المرور غير صحيحة.
+- العرض لا يحتوي على كلمة مرور فتح.
+- كلمة المرور المقدمة هي `null` أو فارغة.
 
-عادةً ما يواجه المستخدمون صعوبة في الحصول على خصائص مستند عرض مشفر أو محمي بكلمة مرور. Aspose.Slides، مع ذلك، يقدم آلية تسمح لك بحماية عرض تقديمي بكلمة مرور مع تمكين المستخدمين من الوصول إلى خصائص ذلك العرض.
+السلوك نفسه للعرضين PPT و PPTX.
 
-**ملاحظة** أنه عندما يقوم Aspose.Slides بتشفير عرض تقديمي، يتم حماية خصائص المستند أيضًا بكلمة مرور بشكل افتراضي. ولكن إذا كنت بحاجة إلى جعل خصائص العرض قابلة للوصول (حتى بعد تشفير العرض)، يسمح لك Aspose.Slides بذلك بالضبط. 
+## **التحقق مما إذا كان العرض المحمل مشفرًا**
 
-إذا كنت تريد تمكين المستخدمين من الوصول إلى خصائص عرض قمت بتشفيره، يمكنك استخدام طريقة [encryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#getEncryptDocumentProperties) مع القيمة `true`. يعرض هذا المثال البرمجي كيفية تشفير عرض تقديمي مع إتاحة وصول المستخدمين إلى خصائص المستند:
+بعد تحميل عرض باستخدام كلمة المرور الصحيحة، فحص [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#isEncrypted) لتأكيد أن العرض الأصلي كان مشفرًا. لاكتشاف حماية كلمة مرور الفتح قبل التحميل، استخدم [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#isPasswordProtected) كما هو موضح أعلاه.
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setEncryptDocumentProperties(true);
-    $presentation->getProtectionManager()->encrypt("123123");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
 
-## **التحقق مما إذا كان العرض محميًا بكلمة مرور**
-
-قبل تحميل عرض تقديمي، قد ترغب في التحقق والتأكد من أن العرض لم يتم حمايته بكلمة مرور. بهذه الطريقة، تتجنب الأخطاء والمشكلات المماثلة التي تظهر عند تحميل عرض محمي بدون كلمة مروره.
-
-يعرض هذا الكود PHP كيفية فحص عرض تقديمي لمعرفة ما إذا كان محميًا بكلمة مرور (دون تحميل العرض نفسه):
-```php
-  $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
-
-```
-
-
-## **التحقق مما إذا كان العرض مشفرًا**
-
-يسمح Aspose.Slides بالتحقق مما إذا كان العرض مشفرًا. لتنفيذ هذه المهمة، يمكنك استخدام طريقة [isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isEncrypted) التي تُعيد `true` إذا كان العرض مشفرًا أو `false` إذا لم يكن مشفرًا.
-
-يعرض هذا المثال البرمجي كيفية التحقق مما إذا كان العرض مشفرًا:
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    echo("The presentation is encrypted: " . ($isEncrypted ? "true" : "false") . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **توصيات الأمان**
 
-## **التحقق مما إذا كان العرض محميًا من الكتابة**
+{{% alert color="warning" title="Security" %}}
+لا تقم بتسجيل كلمات مرور الفتح أو تضمينها في رسائل التشخيص. تجنّب محاولات التحقق المتكررة غير الضرورية، واحتفظ بكلمات المرور في الذاكرة فقط للمدة المطلوبة، وأعد استخدام نتيجة التحقق الناجحة عند تحميل العرض مباشرةً.
+{{% /alert %}}
 
-يسمح Aspose.Slides بالتحقق مما إذا كان العرض محميًا من الكتابة. لتنفيذ هذه المهمة، يمكنك استخدام طريقة [isWriteProtected](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isWriteProtected) التي تُعيد `true` إذا كان العرض مشفرًا أو `false` إذا لم يكن مشفرًا.
+## **حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
 
-يعرض هذا المثال البرمجي كيفية التحقق مما إذا كان العرض محميًا من الكتابة:
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
-  finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+1. افتح تطبيق [Aspose.Slides Lock](https://products.aspose.app/slides/ar/lock).
+1. اختر أو قم بتحميل العرض التقديمي.
+1. أدخل كلمة مرور لحماية العرض.
+1. اختيارياً أدخل كلمة مرور منفصلة لحماية التعديل.
+1. طبق الحماية وحمّل الملف الناتج.
 
-
-## **التحقق أو التأكيد على أن كلمة مرور معينة قد استُخدمت**
-
-قد ترغب في التحقق والتأكد من أن كلمة مرور محددة قد استُستخدمت لحماية مستند عرض تقديمي. يوفر Aspose.Slides وسائل للتحقق من صحة كلمة المرور. 
-
-يعرض هذا المثال البرمجي كيفية التحقق من صحة كلمة مرور:
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    # تحقق مما إذا كان "pass" متطابقًا مع
-    $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-
-إنه يُعيد `true` إذا تم تشفير العرض باستخدام كلمة المرور المحددة. وإلا، يُعيد `false`. 
-
-{{% alert color="primary" title="انظر أيضا" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/ar/php-java/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/ar/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما هي طرق التشفير التي يدعمها Aspose.Slides؟**
+**ما هو الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
 
-يدعم Aspose.Slides طرق تشفير حديثة، بما في ذلك الخوارزميات القائمة على AES، مما يضمن مستوى عالٍ من أمان البيانات لعروضك التقديمية.
+كلمة مرور الفتح تشفر العرض التقديمي وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
 
-**ماذا يحدث إذا تم إدخال كلمة مرور غير صحيحة عند محاولة فتح عرض تقديمي؟**
+**هل يمكنني التحقق من صحة كلمة مرور الفتح دون تحميل جميع الشرائح؟**
 
-يتم إلقاء استثناء إذا تم استخدام كلمة مرور غير صحيحة، مما ينبهك إلى أن الوصول إلى العرض مرفوض. يساعد ذلك على منع الوصول غير المصرح به ويحمي محتوى العرض.
+نعم. احصل على معلومات العرض، وتحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، وحقق من صحة كلمة المرور قبل إنشاء نسخة كاملة من العرض.
 
-**هل هناك أي تأثيرات أداء عند العمل مع عروض محمية بكلمة مرور؟**
+**هل تدعم سير العمل للتحقق من كلمة المرور كلاً من PPT و PPTX؟**
 
-قد يضيف عملية التشفير وفك التشفير تحميلًا بسيطًا أثناء عمليات الفتح والحفظ. في معظم الحالات، يكون تأثير الأداء ضئيلًا ولا يؤثر بشكل كبير على الوقت الكلي لمعالجة مهام العرض.
+نعم. اكتشاف كلمة المرور والتحقق منها عبر مسار الملف أو عبر التدفق يعمل بنفس الطريقة لكل من عروض PPT و PPTX.

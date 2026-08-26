@@ -1,253 +1,200 @@
 ---
-title: รักษาความปลอดภัยการนำเสนอด้วยรหัสผ่านใน .NET
+title: ป้องกันการเข้าถึงงานนำเสนอด้วยรหัสผ่านใน .NET
 linktitle: การป้องกันด้วยรหัสผ่าน
 type: docs
 weight: 20
 url: /th/net/password-protected-presentation/
 keywords:
-- ล็อค PowerPoint
-- ล็อคการนำเสนอ
-- ปลดล็อค PowerPoint
-- ปลดล็อคการนำเสนอ
-- ปกป้อง PowerPoint
-- ปกป้องการนำเสนอ
-- ตั้งรหัสผ่าน
-- เพิ่มรหัสผ่าน
+- งานนำเสนอที่ป้องกันด้วยรหัสผ่าน
+- รหัสผ่านเปิดไฟล์
 - เข้ารหัส PowerPoint
-- เข้ารหัสการนำเสนอ
 - ถอดรหัส PowerPoint
-- ถอดรหัสการนำเสนอ
-- การป้องกันการเขียน
-- ความปลอดภัย PowerPoint
-- ความปลอดภัยการนำเสนอ
-- ลบรหัสผ่าน
-- ลบการป้องกัน
+- ตรวจสอบรหัสผ่านงานนำเสนอ
+- ตรวจรหัสผ่านงานนำเสนอ
+- เปิดงานนำเสนอที่เข้ารหัส
 - ลบการเข้ารหัส
-- ปิดใช้งานรหัสผ่าน
-- ปิดใช้งานการป้องกัน
-- ลบการป้องกันการเขียน
 - PowerPoint
-- OpenDocument
-- การนำเสนอ
+- PPT
+- PPTX
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีล็อคและปลดล็อคการนำเสนอ PowerPoint และ OpenDocument ที่ป้องกันด้วยรหัสผ่านอย่างง่ายดายด้วย Aspose.Slides สำหรับ .NET. รักษาความปลอดภัยการนำเสนอของคุณ."
+description: "เข้ารหัส, ตรวจจับ, ตรวจสอบ, เปิด, และถอดรหัสงานนำเสนอ PowerPoint PPT และ PPTX ที่ป้องกันด้วยรหัสผ่านใน C# ด้วย Aspose.Slides สำหรับ .NET."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เมื่อคุณตั้งรหัสผ่านเพื่อป้องกันการนำเสนอ หมายความว่าคุณกำลังตั้งรหัสผ่านซึ่งบังคับใช้ข้อจำกัดบางอย่างกับการนำเสนอ การลบข้อจำกัดเหล่านี้จำเป็นต้องใส่รหัสผ่าน การนำเสนอที่ป้องกันด้วยรหัสผ่านจะถือว่าเป็นการนำเสนอที่ถูกล็อค
+รหัสผ่านเปิดไฟล์จะทำการเข้ารหัสงานนำเสนอ รหัสผ่านที่ถูกต้องจำเป็นต้องใช้เพื่อโหลดและดูเนื้อหาของงานนำเสนอ ดังนั้นการป้องกันนี้จึงให้ความลับของข้อมูล
 
-โดยทั่วไป คุณสามารถตั้งรหัสผ่านเพื่อบังคับใช้ข้อจำกัดเหล่านี้กับการนำเสนอได้:
+รหัสผ่านเปิดไฟล์แตกต่างจากรหัสผ่านการป้องกันการเขียน การป้องกันการเขียนจำกัดการแก้ไขแต่ไม่ได้เข้ารหัสเนื้อหา หรือป้องกันไม่ให้โหลดงานนำเสนอ เพื่อจัดการรหัสผ่านสำหรับการแก้ไขงานนำเสนอ ดูที่ [Write‑Protect Presentations](/slides/th/net/write-protected-presentation/)
 
-- **การแก้ไข**
+การทำงานด้านล่างนี้ใช้ได้กับงานนำเสนอทั้งในรูปแบบ PPT และ PPTX ตัวอย่างใช้ทั้งสองรูปแบบเมื่อพฤติกรรมตามไฟล์และสตรีมมีความสำคัญ
 
-  หากคุณต้องการให้ผู้ใช้บางคนเท่านั้นที่สามารถแก้ไขการนำเสนอของคุณได้ คุณสามารถตั้งข้อจำกัดการแก้ไขได้ ข้อจำกัดนี้จะป้องกันไม่ให้คนอื่นแก้ไข เปลี่ยนแปลง หรือคัดลอกองค์ประกอบในการนำเสนอของคุณ เว้นแต่พวกเขาจะใส่รหัสผ่าน  
+## **เข้ารหัสงานนำเสนอด้วยรหัสผ่านเปิดไฟล์**
 
-  อย่างไรก็ตาม แม้ไม่มีรหัสผ่าน ผู้ใช้ยังคงสามารถเข้าถึงและเปิดเอกสารของคุณได้ ในโหมดอ่านอย่างเดียวนี้ผู้ใช้สามารถดูเนื้อหารวมถึงลิงก์, ภาพเคลื่อนไหว, เอฟเฟกต์และองค์ประกอบอื่น ๆ ภายในการนำเสนอของคุณได้ แต่ไม่สามารถคัดลอกรายการหรือบันทึกการนำเสนอได้
+ใช้ [IProtectionManager.Encrypt](https://reference.aspose.com/slides/th/net/aspose.slides/iprotectionmanager/encrypt/) เพื่อกำหนดรหัสผ่านเปิดไฟล์ แล้วใช้ [IPresentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/save/) เพื่อบันทึกงานนำเสนอที่เข้ารหัส
 
-- **การเปิด**
+ตัวอย่างต่อไปนี้เข้ารหัสงานนำเสนอ PPTX:
 
-  หากคุณต้องการให้ผู้ใช้บางคนเท่านั้นที่สามารถเปิดการนำเสนอของคุณได้ คุณสามารถตั้งข้อจำกัดการเปิดได้ ข้อจำกัดนี้จะป้องกันไม่ให้คนอื่นมองเห็นเนื้อหาของการนำเสนอของคุณเลย เว้นแต่พวกเขาจะใส่รหัสผ่าน  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-  โดยเทคนิค ข้อจำกัดการเปิดยังป้องกันผู้ใช้จากการแก้ไขการนำเสนอของคุณด้วย — หากคนไม่สามารถเปิดการนำเสนอได้ พวกเขาก็ไม่สามารถแก้ไขหรือทำการเปลี่ยนแปลงใด ๆ ได้  
+using var presentation = new Presentation("pres.pptx");
 
-**หมายเหตุ:** เมื่อคุณป้องกันการนำเสนอด้วยรหัสผ่านเพื่อป้องกันการเปิด ไฟล์การนำเสนอจะถูกเข้ารหัส
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+```
 
-## **การป้องกันด้วยรหัสผ่านใน Aspose.Slides**
+## **โหลดงานนำเสนอที่เข้ารหัส**
 
-### **รูปแบบที่รองรับ**
+ตั้งค่า [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/) เป็นรหัสผ่านเปิดไฟล์และส่งตัวเลือกนี้ไปยัง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เมื่อโหลดไฟล์ การโหลดจะล้มเหลือเมื่อมีการต้องการรหัสผ่านเปิดไฟล์แต่ไม่มีหรือรหัสผ่านที่ให้มาผิด
 
-Aspose.Slides รองรับการป้องกันด้วยรหัสผ่าน การเข้ารหัส และการดำเนินการที่คล้ายกันสำหรับการนำเสนอในรูปแบบต่อไปนี้:
+```csharp
+using Aspose.Slides;
 
-- PPTX และ PPT – การนำเสนอ Microsoft PowerPoint
-- ODP – การนำเสนอ OpenDocument
-- OTP – แม่แบบการนำเสนอ OpenDocument
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-### **การดำเนินการที่รองรับ**
+// ทำงานกับงานนำเสนอที่ถอดรหัสแล้ว.
+```
 
-Aspose.Slides อนุญาตให้คุณใช้การป้องกันด้วยรหัสผ่านบนการนำเสนอเพื่อป้องกันการแก้ไขตามวิธีต่อไปนี้:
+## **ลบการเข้ารหัสจากงานนำเสนอ**
 
-- การเข้ารหัสการนำเสนอ
-- การตั้งการป้องกันการเขียนบนการนำเสนอ
+โหลดงานนำเสนอพร้อมด้วยรหัสผ่านเปิดไฟล์, เรียกใช้ [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/th/net/aspose.slides/iprotectionmanager/removeencryption/), แล้วบันทึกผล งานนำเสนอที่บันทึกแล้วสามารถโหลดได้โดยไม่ต้องใช้รหัสผ่าน
 
-### **การดำเนินการอื่น ๆ**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Aspose.Slides อนุญาตให้คุณทำภารกิจเพิ่มเติมที่เกี่ยวกับการป้องกันด้วยรหัสผ่านและการเข้ารหัสตามวิธีต่อไปนี้:
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-- การถอดรหัสการนำเสนอ; การเปิดการนำเสนอที่เข้ารหัส
-- การลบการเข้ารหัส; การปิดการทำงานของการป้องกันด้วยรหัสผ่าน
-- การลบการป้องกันการเขียนจากการนำเสนอ
-- การดึงคุณสมบัติของการนำเสนอที่เข้ารหัส
-- การตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านหรือไม่ก่อนโหลด
-- การตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่
-- การตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านหรือไม่
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
 
-## **ป้องกันการนำเสนอด้วยรหัสผ่าน**
+## **ตรวจสอบรหัสผ่านเปิดไฟล์ก่อนการโหลด**
 
-คุณสามารถเข้ารหัสการนำเสนอโดยตั้งรหัสผ่านได้ จากนั้น เพื่อแก้ไขการนำเสนอที่ล็อค ผู้ใช้ต้องใส่รหัสผ่าน
+ใช้ [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationfactory/getpresentationinfo/) เพื่อรับ [IPresentationInfo](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationinfo/) โดยไม่ต้องสร้างอินสแตนซ์งานนำเสนอเต็มรูปแบบ ตรวจสอบ [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationinfo/ispasswordprotected/) ก่อนขอหรือยืนยันรหัสผ่าน เมื่อมีการป้องกันอยู่ให้ตรวจสอบค่าที่ให้มาด้วย [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationinfo/checkpassword/)
 
-เพื่อเข้ารหัส (หรือป้องกันด้วยรหัสผ่าน) การนำเสนอ ให้ใช้เมธอด `Encrypt` จาก [ProtectionManager](https://reference.aspose.com/slides/th/net/aspose.slides/protectionmanager) เพื่อกำหนดรหัสผ่าน ส่งรหัสผ่านให้เมธอด `Encrypt` แล้วใช้เมธอด `Save` เพื่อบันทึกการนำเสนอที่เพิ่งเข้ารหัส
+### **ขั้นตอนทำงานด้วยไฟล์พาธ**
 
-ตัวอย่างโค้ดนี้แสดงวิธีการเข้ารหัสการนำเสนอ:
+ตัวอย่างต่อไปนี้ตรวจสอบรหัสผ่านเปิดไฟล์สำหรับไฟล์ PPTX, ส่งค่าที่ตรวจสอบแล้วไปยัง [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/), แล้วโหลดงานนำเสนอเต็มรูปแบบ:
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **ตั้งการป้องกันการเขียนบนการนำเสนอ**
+### **ขั้นตอนทำงานด้วยสตรีม**
 
-คุณสามารถเพิ่มเครื่องหมายที่ระบุว่า “ห้ามแก้ไข” ลงในการนำเสนอได้ สิ่งนี้บ่งชี้ให้ผู้ใช้ทราบว่าคุณไม่ต้องการให้พวกเขาแก้ไขการนำเสนอ  
+การ overload ของสตรีมสำหรับ [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationfactory/getpresentationinfo/) ให้ขั้นตอนเดียวกัน ตั้งตำแหน่งของสตรีมที่สามารถเลื่อนตำแหน่งได้ใหม่ก่อนโหลดงานนำเสนอเต็มรูปแบบจากสตรีมนั้น
 
-**หมายเหตุ:** กระบวนการป้องกันการเขียนไม่ได้เข้ารหัสการนำเสนอ ดังนั้นผู้ใช้ — หากพวกเขาต้องการ — สามารถแก้ไขการนำเสนอได้ แต่เมื่อต้องการบันทึกการเปลี่ยนแปลง พวกเขาต้องบันทึกเป็นชื่อไฟล์อื่น  
+ตัวอย่างต่อไปนี้ใช้ไฟล์ PPT:
 
-เพื่อกำหนดการป้องกันการเขียน ให้ใช้เมธอด `SetWriteProtection` ตัวอย่างโค้ดนี้แสดงวิธีการตั้งการป้องกันการเขียนบนการนำเสนอ:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **โหลดการนำเสนอที่เข้ารหัส**
+### **ค่าที่คืนจาก CheckPassword**
 
-Aspose.Slides อนุญาตให้คุณโหลดการนำเสนอที่เข้ารหัสโดยส่งรหัสผ่านที่ถูกต้อง ตัวอย่างโค้ดนี้แสดงวิธีการโหลดการนำเสนอที่เข้ารหัส:
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationinfo/checkpassword/) จะคืนค่า `true` ก็ต่อเมื่องานนำมีรหัสผ่านเปิดไฟล์และรหัสผ่านที่ให้มาถูกต้อง จะคืนค่า `false` ในกรณีต่อไปนี้
 
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // ทำงานกับการนำเสนอที่ถอดรหัสแล้ว.
-}
+- รหัสผ่านไม่ถูกต้อง
+- งานนำเสนอไม่มีรหัสผ่านเปิดไฟล์
+- รหัสผ่านที่ให้มาเป็น `null` หรือว่างเปล่า
+
+พฤติกรรมนี้เหมือนกันสำหรับงานนำเสนอ PPT และ PPTX
+
+## **ตรวจสอบว่างานนำเสนอที่โหลดแล้วถูกเข้ารหัสหรือไม่**
+
+หลังจากโหลดงานนำเสนอด้วยรหัสผ่านที่ถูกต้อง ให้ตรวจสอบ [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/th/net/aspose.slides/iprotectionmanager/isencrypted/) เพื่อยืนยันว่าต้นฉบับงานนำเสนอถูกเข้ารหัส เพื่อตรวจจับการป้องกันด้วยรหัสผ่านเปิดไฟล์ก่อนการโหลด ให้ใช้ `IPresentationInfo.IsPasswordProtected` ตามที่แสดงข้างต้น
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **ลบการเข้ารหัสจากการนำเสนอ**
+## **คำแนะนำด้านความปลอดภัย**
 
-คุณสามารถลบการเข้ารหัสหรือการป้องกันด้วยรหัสผ่านจากการนำเสนอได้ ทำให้ผู้ใช้สามารถเข้าถึงหรือแก้ไขได้โดยไม่มีข้อจำกัด
-
-เพื่อทำการลบการเข้ารหัสหรือการป้องกันด้วยรหัสผ่าน ให้เรียกเมธอด [RemoveEncryption](https://reference.aspose.com/slides/th/net/aspose.slides/protectionmanager/methods/removeencryption) ตัวอย่างโค้ดนี้แสดงวิธีลบการเข้ารหัสจากการนำเสนอ:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ลบการป้องกันการเขียนจากการนำเสนอ**
-
-คุณสามารถใช้ Aspose.Slides เพื่อลบการป้องกันการเขียนจากไฟล์การนำเสนอได้ วิธีนี้ผู้ใช้สามารถแก้ไขตามต้องการ — และจะไม่แสดงคำเตือนใด ๆ ขณะทำเช่นนั้น  
-
-คุณสามารถลบการป้องกันการเขียนโดยใช้เมธอด [RemoveWriteProtection](https://reference.aspose.com/slides/th/net/aspose.slides/protectionmanager/methods/removewriteprotection) ตัวอย่างโค้ดนี้แสดงวิธีลบการป้องกันการเขียนจากการนำเสนอ:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ดึงคุณสมบัติของการนำเสนอที่เข้ารหัส**
-
-โดยทั่วไป ผู้ใช้มักประสบปัญหาในการดึงคุณสมบัติของเอกสารจากการนำเสนอที่เข้ารหัสหรือถูกป้องกันด้วยรหัสผ่าน อย่างไรก็ตาม Aspose.Slides มีกลไกที่ให้คุณป้องกันการนำเสนอด้วยรหัสผ่านในขณะที่ยังคงให้ผู้ใช้เข้าถึงคุณสมบัติของมันได้  
-
-**หมายเหตุ:** โดยค่าเริ่มต้นเมื่อ Aspose.Slides เข้ารหัสการนำเสนอ คุณสมบัติของเอกสารการนำเสนอจะถูกป้องกันด้วยรหัสผ่านด้วย หากคุณต้องการให้คุณสมบัติของเอกสารสามารถเข้าถึงได้แม้หลังจากการเข้ารหัส Aspose.Slides อนุญาตให้ทำเช่นนั้นได้  
-
-หากคุณต้องการให้ผู้ใช้ยังคงสามารถเข้าถึงคุณสมบัติของการนำเสนอที่เข้ารหัสได้ คุณสามารถตั้งค่าคุณสมบัติ [EncryptDocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) เป็น `true` ตัวอย่างโค้ดนี้แสดงวิธีการเข้ารหัสการนำเสนอพร้อมยังคงให้ผู้ใช้เข้าถึงคุณสมบัติของเอกสารได้:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
-}
-```
-
-## **ตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านหรือไม่**
-
-ก่อนที่คุณจะโหลดการนำเสนอ คุณอาจต้องการตรวจสอบว่ามันไม่ได้ถูกป้องกันด้วยรหัสผ่าน สิ่งนี้ช่วยหลีกเลี่ยงข้อผิดพลาดและปัญหาอื่น ๆ ที่เกิดขึ้นเมื่อการนำเสนอที่ป้องกันด้วยรหัสผ่านถูกโหลดโดยไม่มีรหัสผ่านที่ถูกต้อง  
-
-โค้ด C# นี้แสดงวิธีตรวจสอบการนำเสนอว่าได้รับการป้องกันด้วยรหัสผ่านหรือไม่โดยไม่ต้องโหลดจริง:
-
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
-
-## **ตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่**
-
-Aspose.Slides อนุญาตให้คุณตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่ เพื่อทำภารกิจนี้คุณสามารถใช้คุณสมบัติ [IsEncrypted](https://reference.aspose.com/slides/th/net/aspose.slides/protectionmanager/properties/isencrypted) ซึ่งจะคืนค่า `true` หากการนำเสนอถูกเข้ารหัสหรือ `false` หากไม่ถูกเข้ารหัส  
-
-ตัวอย่างโค้ดนี้แสดงวิธีตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
-}
-```
-
-## **ตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่**
-
-Aspose.Slides อนุญาตให้คุณตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่ เพื่อทำภารกิจนี้คุณสามารถใช้คุณสมบัติ [IsWriteProtected](https://reference.aspose.com/slides/th/net/aspose.slides/protectionmanager/properties/iswriteprotected) ซึ่งจะคืนค่า `true` หากการนำเสนอถูกป้องกันการเขียนหรือ `false` หากไม่ถูกป้องกัน  
-
-ตัวอย่างโค้ดนี้แสดงวิธีตรวจสอบว่าการนำเสนอถูกป้องกันการเขียนหรือไม่:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
-```
-
-## **ตรวจสอบการใช้รหัสผ่านของการนำเสนอ**
-
-คุณอาจต้องการตรวจสอบและยืนยันว่ารหัสผ่านเฉพาะได้ถูกใช้เพื่อป้องกันเอกสารการนำเสนอหรือไม่ Aspose.Slides มีวิธีให้คุณตรวจสอบรหัสผ่าน  
-
-ตัวอย่างโค้ดนี้แสดงวิธีการตรวจสอบรหัสผ่าน:
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // ตรวจสอบว่ารหัสผ่านตรงกันหรือไม่.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-มันจะคืนค่า `true` หากการนำเสนอถูกเข้ารหัสด้วยรหัสผ่านที่ระบุ; มิฉะนั้นจะคืนค่า `false`.
-
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
-- [ลายเซ็นดิจิทัลใน PowerPoint](/slides/th/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+อย่าบันทึกรหัสผ่านเปิดไฟล์หรือใส่ในข้อความ diagnostics หลีกเลี่ยงการตรวจสอบรหัสผ่านซ้ำโดยไม่จำเป็น เก็บรหัสผ่านในหน่วยความจำเฉพาะเวลาที่ต้องใช้เท่านั้น และใช้ผลการตรวจสอบที่สำเร็จซ้ำเมื่อโหลดงานนำเสนอโดยทันที
 {{% /alert %}}
 
-## **ป้องกันการนำเสนอด้วยรหัสผ่านออนไลน์**
+## **ตั้งค่าการป้องกันด้วยรหัสผ่านให้กับงานนำเสนอออนไลน์**
 
-1. ไปที่หน้า [**Aspose.Slides Lock**](https://products.aspose.app/slides/th/lock) ของเรา. 
-2. คลิก **วางหรืออัปโหลดไฟล์ของคุณ**. 
-3. เลือกไฟล์ที่คุณต้องการป้องกันด้วยรหัสผ่านบนคอมพิวเตอร์ของคุณ. 
-4. ป้อนรหัสผ่านที่คุณต้องการสำหรับการป้องกันการแก้ไขและรหัสผ่านที่คุณต้องการสำหรับการป้องกันการดู. 
-5. หากคุณต้องการให้ผู้ใช้เห็นการนำเสนอของคุณเป็นสำเนาสุดท้าย ให้ทำเครื่องหมายในช่อง **Mark as final**. 
-6. คลิก **PROTECT NOW.** 
-7. คลิก **DOWNLOAD NOW.**
+1. เปิดแอปพลิเคชัน [Aspose.Slides Lock](https://products.aspose.app/slides/th/lock)
+2. เลือกหรืออัปโหลดงานนำเสนอ
+3. ป้อนรหัสผ่านเพื่อป้องกันการดู
+4. ป้อนรหัสผ่านแยกต่างหากเพื่อป้องกันการแก้ไข (ถ้าต้องการ)
+5. ใช้การป้องกันและดาวน์โหลดไฟล์ที่ได้
 
-![ป้องกันรหัสผ่านการนำเสนอ PowerPoint](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Write‑Protect Presentations](/slides/th/net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/th/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**วิธีการเข้ารหัสที่ Aspose.Slides รองรับคืออะไร?**  
-Aspose.Slides รองรับวิธีการเข้ารหัสสมัยใหม่ รวมถึงอัลกอริทึมที่ใช้ AES ทำให้มั่นใจในระดับความปลอดภัยของข้อมูลสูงสำหรับการนำเสนอของคุณ  
+**รหัสผ่านเปิดไฟล์กับรหัสผ่านการป้องกันการเขียนต่างกันอย่างไร?**
 
-**จะเกิดอะไรขึ้นหากใส่รหัสผ่านไม่ถูกต้องเมื่อพยายามเปิดการนำเสนอ?**  
-ข้อยกเว้นจะถูกโยนออกหากใช้รหัสผ่านไม่ถูกต้อง ซึ่งจะเตือนว่าการเข้าถึงการนำเสนอถูกปฏิเสธ นี้ช่วยป้องกันการเข้าถึงโดยไม่ได้รับอนุญาตและปกป้องเนื้อหาการนำเสนอ  
+รหัสผ่านเปิดไฟล์จะเข้ารหัสงานนำเสนอและจำเป็นต้องใช้เพื่อโหลดเนื้อหา รหัสผ่านการป้องกันการเขียนจะจำกัดการแก้ไขโดยไม่เข้ารหัสเนื้อหา
 
-**มีผลกระทบต่อประสิทธิภาพหรือไม่เมื่อทำงานกับการนำเสนอที่ป้องกันด้วยรหัสผ่าน?**  
-กระบวนการเข้ารหัสและถอดรหัสอาจทำให้เกิดภาระเล็กน้อยในระหว่างการเปิดและบันทึก โดยส่วนใหญ่ผลกระทบต่อประสิทธิภาพนี้จะแตกต่างกันเล็กน้อยและไม่กระทบต่อเวลาการประมวลผลโดยรวมของงานการนำเสนอของคุณอย่างมีนัยสำคัญ
+**ฉันสามารถตรวจสอบรหัสผ่านเปิดไฟล์โดยไม่ต้องโหลดสไลด์ทั้งหมดได้หรือไม่?**
+
+ทำได้ ให้รับข้อมูลงานนำเสนอ ตรวจสอบว่ามีการป้องกันด้วยรหัสผ่านเปิดไฟล์หรือไม่ และตรวจสอบรหัสผ่านก่อนสร้างอินสแตนซ์งานนำเสนอเต็มรูปแบบ
+
+**ขั้นตอนการตรวจสอบรหัสผ่านทำงานได้กับทั้ง PPT และ PPTX หรือไม่?**
+
+ทำได้ ทั้งการตรวจจับและตรวจสอบรหัสผ่านตามพาธไฟล์และสตรีมทำงานเหมือนกันสำหรับงานนำเสนอ PPT และ PPTX

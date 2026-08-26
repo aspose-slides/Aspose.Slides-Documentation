@@ -1,265 +1,228 @@
 ---
-title: Java'da Şifrelerle Güvenli Sunumlar
+title: Java'da Sunumları Şifreyle Koruma
 linktitle: Şifre Koruması
 type: docs
 weight: 20
 url: /tr/java/password-protected-presentation/
 keywords:
-- PowerPoint'i kilitle
-- sunumu kilitle
-- PowerPoint'i aç
-- sunumu aç
-- PowerPoint'i koru
-- sunumu koru
-- şifre ayarla
-- şifre ekle
-- PowerPoint'i şifrele
-- sunumu şifrele
-- PowerPoint'i şifre çöz
-- sunumu şifre çöz
-- yazma koruması
-- PowerPoint güvenliği
-- sunum güvenliği
-- şifreyi kaldır
-- korumayı kaldır
-- şifrelemeyi kaldır
-- şifreyi devre dışı bırak
-- korumayı devre dışı bırak
-- yazma korumasını kaldır
+- şifre korumalı sunum
+- açma şifresi
+- PowerPoint şifreleme
+- PowerPoint şifre çözme
+- sunum şifresini doğrulama
+- sunum şifresini kontrol et
+- şifreli sunumu açma
+- şifrelemeyi kaldırma
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile şifre korumalı PowerPoint ve OpenDocument sunumlarını kolayca kilitleyip açmayı öğrenin. Sunumlarınızı güvence altına alın."
+description: "Aspose.Slides ile Java'da şifre korumalı PowerPoint PPT ve PPTX sunumlarını şifrele, tespit et, doğrula, aç ve şifresini çöz."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir sunumu şifreyle koruduğunuzda, sunuma belirli kısıtlamalar getiren bir şifre ayarladığınız anlamına gelir. Bu kısıtlamaları kaldırmak için şifre girilmelidir. Şifreyle korunan bir sunum kilitli bir sunum olarak kabul edilir.
+Açma şifresi bir sunumu şifreler. Sunum içeriğini yüklemek ve görüntülemek için doğru şifre gereklidir; bu koruma gizliliği sağlar.
 
-Genellikle, bir sunum üzerinde bu kısıtlamaları uygulamak için bir şifre belirleyebilirsiniz:
+Açma şifresi, yazma koruma şifresinden farklıdır. Yazma koruması değişikliği kısıtlar ancak içeriği şifrelemez ya da sunumun yüklenmesini engellemez. Sunumları değiştirmek için şifreleri yönetmek üzere, [Write-Protect Presentations](/slides/tr/java/write-protected-presentation/) bölümüne bakın.
 
-- **Değiştirme**
+Aşağıdaki iş akışları PPT ve PPTX sunumları için geçerlidir. Örneklerde, dosya tabanlı ve akış tabanlı davranışların önemli olduğu her iki biçim de kullanılmıştır.
 
-Eğer sadece belirli kullanıcıların sunumunuzu değiştirmesini istiyorsanız, bir değiştirme kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, şifreyi sağlayana kadar kişilerin sunumunuzdaki öğeleri değiştirmesini, düzenlemesini veya kopyalamasını engeller.  
+## **Açma Şifresi ile Sunumu Şifreleme**
 
-Ancak, şifre olmadan bile bir kullanıcı belgenize erişebilir ve açabilir. Bu yalnızca okuma modunda, kullanıcı sunumunuzdaki içeriği—hiperbağlantılar, animasyonlar, efektler ve diğer öğeler dahil—görebilir, ancak öğeleri kopyalayamaz veya sunumu kaydedemez.
+Açma şifresi atamak için [IProtectionManager.encrypt](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) yöntemini kullanın. Ardından şifreli sunumu kalıcı hâle getirmek için [IPresentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) yöntemini kullanın.
 
-- **Açma**
-
-Eğer sadece belirli kullanıcıların sunumunuzu açmasını istiyorsanız, bir açma kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, şifreyi sağlayana kadar kişilerin sunumun içeriğini hatta görüntülemesini engeller.  
-
-Teknik olarak, açma kısıtlaması aynı zamanda kullanıcıların sunumlarınızı değiştirmesini engeller—eğer bir sunum açılamıyorsa, üzerinde değişiklik yapılamaz.
-
-**Not:** Sunumu açmayı engellemek için şifreyle koruduğunuzda, sunum dosyası şifrelenir.
-
-## **Aspose.Slides'ta Şifre Koruması**
-
-**Desteklenen formatlar**
-
-Aspose.Slides, bu formatlardaki sunumlar için şifre koruması, şifreleme ve benzeri işlemleri destekler: 
-
-- PPTX ve PPT - Microsoft PowerPoint Sunumu 
-- ODP - OpenDocument Sunumu 
-- OTP - OpenDocument Sunum Şablonu 
-
-**Desteklenen işlemler**
-
-Aspose.Slides, sunumlarda şifre korumasını kullanarak değişiklikleri önlemenize aşağıdaki yöntemlerle izin verir:
-
-- Bir sunumu şifreleme
-- Sunuma yazma koruması ayarlama
-
-**Diğer işlemler**
-
-Aspose.Slides, şifre koruması ve şifreleme ile ilgili diğer görevleri aşağıdaki şekilde gerçekleştirmenizi sağlar:
-
-- Sunumu şifre çözme; şifrelenmiş bir sunumu açma
-- Şifrelemeyi kaldırma; şifre korumasını devre dışı bırakma
-- Sunumdan yazma korumasını kaldırma
-- Şifrelenmiş bir sunumun özelliklerini alma
-- Bir sunumun şifrelenip şifrelenmediğini kontrol etme
-- Bir sunumun şifreyle korunup korunmadığını kontrol etme.
-
-## **Bir Sunumu Şifreyle Korumak**
-
-Bir şifre ayarlayarak bir sunumu şifreleyebilirsiniz. Ardından, kilitli sunumu değiştirmek için kullanıcı şifreyi sağlamalıdır. 
-
-Bir sunumu şifrelemek veya şifreyle korumak için, sunuma şifre ayarlamak amacıyla encrypt yöntemini ([IProtectionManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager)) kullanmanız gerekir. Şifreyi encrypt yöntemine geçirir ve ardından şifreli sunumu kaydetmek için save yöntemini kullanırsınız. 
-
-Bu örnek kod, bir sunumu nasıl şifreleyeceğinizi gösterir:
+Aşağıdaki örnek bir PPTX sunumunu şifreler:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Sunuma Yazma Koruması Ayarlama**
+## **Şifreli Sunumu Yükleme**
 
-Sunuma “Değiştirmeyin” ifadesini ekleyebilirsiniz. Bu sayede, kullanıcılara sunumu değiştirmelerini istemediğinizi bildirirsiniz.  
-
-**Not**: Yazma koruma süreci sunumu şifrelemez. Bu nedenle, kullanıcılar—gerçekten istiyorlarsa—sunumu değiştirebilir, ancak değişiklikleri kaydetmek için farklı bir adla yeni bir sunum oluşturmak zorunda kalacaklardır. 
-
-Yazma koruması ayarlamak için [setWriteProtection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) yöntemini kullanmanız gerekir. Bu örnek kod, bir sunuma yazma koruması nasıl ayarlanacağını gösterir:
+[ILoadOptions.setPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) özelliğine açma şifresini atayın ve dosyayı yüklerken seçenekleri [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfına geçirin. Açma şifresi gerekli ancak verilen şifre eksik ya da hatalı ise yükleme başarısız olur.
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Şifreli Bir Sunumu Yükleme**
-
-Aspose.Slides, şifresini belirterek şifreli bir dosyayı yüklemenize izin verir. Bir sunumu şifre çözmek için, parametresiz olarak [removeEncryption](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#removeEncryption--) yöntemini çağırmanız gerekir. Ardından sunumu yüklemek için doğru şifreyi girmeniz istenir. 
-
-Bu örnek kod, bir sunumu nasıl şifre çözeceğinizi gösterir: 
-
-```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // şifre çözülmüş sunumla çalış
+    // Şifre çözülmüş sunumla çalış.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-## **Bir Sunumdan Şifrelemeyi Kaldırma**
+## **Sunumdan Şifrelemeyi Kaldırma**
 
-Bir sunumdaki şifreleme veya şifre korumasını kaldırabilirsiniz. Böylece, kullanıcılar sunuma kısıtlama olmadan erişebilir veya değiştirebilir. 
-
-Şifreleme veya şifre korumasını kaldırmak için [removeEncryption](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#removeEncryption--) yöntemini çağırmanız gerekir. Bu örnek kod, bir sunumdan şifrelemeyi nasıl kaldıracağınızı gösterir:
+Sunumu açma şifresi ile yükleyin, [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprotectionmanager/#removeEncryption--) yöntemini çağırın ve sonucu kaydedin. Kaydedilen sunum daha sonra şifre olmadan yüklenebilir.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Sunumdan Yazma Korumasını Kaldırma**
+## **Yüklemeden Önce Açma Şifresini Doğrulama**
 
-Aspose.Slides'i kullanarak bir sunum dosyasındaki yazma korumasını kaldırabilirsiniz. Böylece, kullanıcılar istedikleri gibi değiştirebilir ve bu tür işlemler sırasında hiçbir uyarı almazlar.
+Tam bir sunum örneği oluşturmadan [IPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/) elde etmek için [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) yöntemini kullanın. Şifre isteği veya doğrulama yapmadan önce [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) özelliğini kontrol edin. Koruma mevcutsa, verilen değeri [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) ile doğrulayın.
 
-Sunumdan yazma korumasını [removeWriteProtection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) yöntemiyle kaldırabilirsiniz. Bu örnek kod, bir sunumdan yazma korumasını nasıl kaldıracağınızı gösterir:
+### **Dosya Yolu İş Akışı**
+
+Aşağıdaki örnek bir PPTX dosyası için açma şifresini doğrular, doğrulanan değeri [ILoadOptions.setPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) yöntemine geçirir ve ardından tam sunumu yükler:
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **Akış İş Akışı**
+
+[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) yönteminin akış aşırı yüklemesi aynı iş akışını sağlar. Tam sunumu o akıştan yüklemeden önce, aranabilir bir akışın konumunu sıfırlayın.
+
+Aşağıdaki örnek bir PPT dosyası kullanır:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **Şifreli Bir Sunumun Özelliklerini Almak**
+### **checkPassword Geri Dönüş Değerleri**
 
-Genellikle, kullanıcılar şifreli veya şifreyle korunan bir sunumun belge özelliklerini almada zorlanırlar. Ancak Aspose.Slides, bir sunumu şifreyle korurken kullanıcıların bu sunumun özelliklerine erişimini sağlayan bir mekanizma sunar.  
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) yalnızca sunumun bir açma şifresi olduğu ve verilen şifrenin doğru olduğu durumlarda `true` döndürür. Aşağıdaki durumlarda `false` döner:
 
-**Not**: Aspose.Slides bir sunumu şifrelediğinde, sunumun belge özellikleri de varsayılan olarak şifre korumasına alınır. Ancak, sunumun özelliklerini (sunum şifrelendikten sonra bile) erişilebilir kılmanız gerekiyorsa, Aspose.Slides tam olarak bunu yapmanıza izin verir.  
+- Şifre yanlıştır.
+- Sunumun bir açma şifresi yoktur.
+- Verilen şifre `null` ya da boştur.
 
-Şifrelediğiniz bir sunumun özelliklerine erişim yeteneğini kullanıcıların korumasını istiyorsanız, [encryptDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) özelliğini `true` olarak ayarlayabilirsiniz. Bu örnek kod, bir sunumu şifrelerken kullanıcıların belge özelliklerine erişmesini nasıl sağlayacağınızı gösterir:
+Davranış PPT ve PPTX sunumları için aynıdır.
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **Yüklenmiş Sunumun Şifrelenip Şifrelenmediğini Kontrol Etme**
 
-## **Bir Sunumun Şifreyle Korunup Korunmadığını Kontrol Etme**
-
-Bir sunumu yüklemeden önce, sunumun şifreyle korunup korunmadığını kontrol edip doğrulamak isteyebilirsiniz. Böylece, şifre korumalı bir sunum şifresi olmadan yüklendiğinde ortaya çıkan hataları ve benzer sorunları önlersiniz.  
-
-Bu Java kodu, bir sunumun şifreyle korunup korunmadığını (sunumu kendisini yüklemeden) incelemenizi gösterir:
+Doğru şifre ile bir sunumu yükledikten sonra, kaynağın şifreli olduğunu onaylamak için [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) özelliğine bakın. Yüklemeden önce açma şifresi korumasını tespit etmek için yukarıda gösterildiği gibi `IPresentationInfo.isPasswordProtected` kullanın.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Bir Sunumun Şifrelenip Şifrelenmediğini Kontrol Etme**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Aspose.Slides, bir sunumun şifrelenip şifrelenmediğini kontrol etmenizi sağlar. Bu işlemi gerçekleştirmek için, sunum şifrelenmişse `true`, şifrelenmemişse `false` döndüren [isEncrypted](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#isEncrypted--) özelliğini kullanabilirsiniz.  
-
-Bu örnek kod, bir sunumun şifrelenip şifrelenmediğini nasıl kontrol edeceğinizi gösterir:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Sunumun Yazma Koruması Alıp Almadığını Kontrol Etme**
+## **Güvenlik Önerileri**
 
-Aspose.Slides, bir sunumun yazma korumalı olup olmadığını kontrol etmenizi sağlar. Bu işlemi gerçekleştirmek için, sunum yazma korumalıysa `true`, değilse `false` döndüren [isWriteProtected](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IProtectionManager#isWriteProtected--) özelliğini kullanabilirsiniz.  
+{{% alert color="warning" title="Security" %}}
+Açma şifrelerini günlük kaydına almaktan veya tanılayıcı mesajlarda bulundurmaktan kaçının. Gereksiz tekrar doğrulama girişimlerinden kaçının, şifreleri yalnızca gerektiği sürece bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+{{% /alert %}}
 
-Bu örnek kod, bir sunumun yazma korumalı olup olmadığını nasıl kontrol edeceğinizi gösterir:
+## **Sunumu Çevrimiçi Şifreleme**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/tr/lock) uygulamasını açın.
+1. Sunumu seçin ya da yükleyin.
+1. Görüntüleme koruması için bir şifre girin.
+1. İsteğe bağlı olarak düzenleme koruması için ayrı bir şifre girin.
+1. Korumayı uygulayın ve oluşan dosyayı indirin.
 
-## **Belirli Bir Şifrenin Kullanıldığını Doğrulama veya Onaylama**
-
-Bir sunum belgesini korumak için belirli bir şifrenin kullanılıp kullanılmadığını kontrol edip doğrulamak isteyebilirsiniz. Aspose.Slides, bir şifreyi doğrulamanız için gerekli yöntemi sunar.  
-
-Bu örnek kod, bir şifreyi nasıl doğrulayacağınızı gösterir:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // "pass" ile eşleşip eşleşmediğini kontrol et
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-Belirtilen şifreyle sunum şifrelenmişse `true`, aksi takdirde `false` döndürür.  
-
-{{% alert color="primary" title="Ayrıca bakınız" %}} 
-- [PowerPoint'ta Dijital İmza](/slides/tr/java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/tr/java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/tr/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **SSS**
 
-**Aspose.Slides tarafından hangi şifreleme yöntemleri destekleniyor?**
+**Açma şifresi ile yazma koruma şifresi arasındaki fark nedir?**
 
-Aspose.Slides, AES tabanlı algoritmalar dahil olmak üzere modern şifreleme yöntemlerini destekler ve bu sayede sunumlarınız için yüksek düzeyde veri güvenliği sağlar.  
+Açma şifresi sunumu şifreler ve içeriğini yüklemek için gereklidir. Yazma koruma şifresi, içeriği şifrelemeden değişikliği kısıtlar.
 
-**Bir sunumu açmaya çalışırken yanlış bir şifre girilirse ne olur?**
+**Tüm slaytları yüklemeden bir açma şifresini doğrulayabilir miyim?**
 
-Yanlış bir şifre kullanıldığında bir istisna fırlatılır ve sunuma erişimin reddedildiği bildirilir. Bu, yetkisiz erişimi önlemeye ve sunum içeriğini korumaya yardımcı olur.  
+Evet. Sunum bilgilerini alın, açma şifresi korumasının mevcut olup olmadığını kontrol edin ve tam bir sunum örneği oluşturmadan şifreyi doğrulayın.
 
-**Şifreyle korunan sunumlarla çalışırken performans açısından bir etkisi var mı?**
+**Şifre kontrol iş akışları PPT ve PPTX için destekleniyor mu?**
 
-Şifreleme ve şifre çözme işlemleri, açma ve kaydetme sırasında hafif bir ek yük oluşturabilir. Çoğu durumda bu performans etkisi çok azdır ve sunum görevlerinizin genel işleme süresini önemli ölçüde etkilemez.
+Evet. Dosya yolu ve akış tabanlı şifre algılama ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.

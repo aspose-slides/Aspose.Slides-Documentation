@@ -1,273 +1,222 @@
 ---
-title: عرض تقديمي محمي بكلمة مرور
+title: حماية العروض التقديمية بكلمة مرور في JavaScript
+linktitle: حماية كلمة المرور
 type: docs
 weight: 20
 url: /ar/nodejs-java/password-protected-presentation/
-keywords: "قفل عرض PowerPoint في JavaScript"
-description: "قفل عرض PowerPoint. عرض PowerPoint محمي بكلمة مرور في JavaScript"
+keywords:
+- عرض تقديمي محمي بكلمة مرور
+- كلمة مرور الفتح
+- تشفير PowerPoint
+- فك تشفير PowerPoint
+- تحقق من صحة كلمة مرور العرض
+- فحص كلمة مرور العرض
+- فتح عرض مشفر
+- إزالة التشفير
+- PowerPoint
+- PPT
+- PPTX
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: تشفير، اكتشاف، التحقق، فتح، وفك تشفير العروض التقديمية المحمية بكلمة مرور بصيغة PowerPoint PPT و PPTX في JavaScript باستخدام Aspose.Slides.
 ---
+## **نظرة عامة**
 
-## **حول حماية كلمة المرور**
-### **كيف تعمل حماية كلمة المرور للعرض التقديمي؟**
-عند حماية عرض تقديمي بكلمة مرور، يعني ذلك أنك تقوم بتعيين كلمة مرور تفرض قيودًا معينة على العرض. لإزالة هذه القيود، يجب إدخال كلمة المرور. يُعتبر العرض المحمي بكلمة مرور عرضًا مقفلًا.
+كلمة مرور الفتح تقوم بتشفير عرض تقديمي. يلزم وجود كلمة المرور الصحيحة لتحميل محتوى العرض وعرضه، وبالتالي توفر هذه الحماية السرية.
 
-عادةً، يمكنك تعيين كلمة مرور لفرض هذه القيود على العرض:
+كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. الحماية من الكتابة تقيّد التعديل لكنها لا تشفر المحتوى ولا تمنع تحميل العرض. لإدارة كلمات المرور الخاصة بتعديل العروض، راجع [Write-Protect Presentations](/slides/ar/nodejs-java/write-protected-presentation/).
 
-- **التعديل**
+تطبق سير العمل أدناه على كل من عروض PPT و PPTX. تُظهر الأمثلة كلا التنسيقين حيث يكون سلوكهما القائم على الملفات أو التيارات مهمًا.
 
-  إذا كنت تريد أن يتمكن بعض المستخدمين فقط من تعديل عرضك التقديمي، يمكنك تعيين قيد تعديل. يمنع هذا القيد الأشخاص من تعديل أو تغيير أو نسخ محتوى العرض (ما لم يقدموا كلمة المرور).
+## **تشفير عرض تقديمي باستخدام كلمة مرور الفتح**
 
-  ومع ذلك، في هذه الحالة، حتى بدون كلمة المرور، سيتمكن المستخدم من الوصول إلى مستندك وفتحه. في وضع القراءة فقط، يمكن للمستخدم عرض المحتويات أو العناصر—مثل الروابط، والرسوم المتحركة، والمؤثرات، وغيرها— داخل عرضك التقديمي، لكنه لا يستطيع نسخ العناصر أو حفظ العرض.
+استخدم [ProtectionManager.encrypt](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/protectionmanager/#encrypt) لتعيين كلمة مرور الفتح. ثم استخدم [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save) لحفظ العرض المشفر.
 
-- **الفتح**
+المثال التالي يقوم بتشفير عرض PPTX:
 
-  إذا كنت تريد أن يتمكن بعض المستخدمين فقط من فتح عرضك التقديمي، يمكنك تعيين قيد فتح. يمنع هذا القيد الأشخاص من حتى مشاهدة محتويات العرض (ما لم يقدموا كلمة المرور).
-
-  تقنياً، يمنع قيد الفتح أيضًا المستخدمين من تعديل عروضك: عندما لا يستطيع الأشخاص فتح العرض، لا يمكنهم إجراء تعديلات أو تغييرات عليه.  
-
-  **ملاحظة** أنه عندما تحمِِّي عرضًا تقديميًا بكلمة مرور لمنع الفتح، يصبح ملف العرض مشفرًا.
-
-## **كيفية حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
-
-1. اذهب إلى صفحة [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) الخاصة بنا. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. انقر على **اسحب أو حمّل ملفاتك**.
-
-3. اختر الملف الذي تريد حمايته بكلمة مرور على جهاز الكمبيوتر الخاص بك. 
-
-4. أدخل كلمة المرور المفضلة لديك لحماية التعديل؛ أدخل كلمة المرور المفضلة لديك لحماية العرض. 
-
-5. إذا كنت تريد أن يرى المستخدمون عرضك كنسخة نهائية، ضع علامة على خانة **Mark as final**.
-
-6. انقر على **PROTECT NOW.** 
-
-7. انقر على **DOWNLOAD NOW.**
-
-## **حماية كلمة المرور للعروض التقديمية في Aspose.Slides**
-**الصيغ المدعومة**
-
-Aspose.Slides يدعم حماية كلمة المرور، التشفير، وغيرها من العمليات للعروض التقديمية بالصيغات التالية: 
-
-- PPTX و PPT - عرض Microsoft PowerPoint 
-- ODP - عرض OpenDocument 
-- OTP - قالب عرض OpenDocument 
-
-**العمليات المدعومة**
-
-Aspose.Slides يتيح لك استخدام حماية كلمة المرور على العروض لمنع التعديلات بهذه الطرق:
-
-- تشفير عرض تقديمي
-- تعيين حماية كتابة للعرض
-
-**عمليات أخرى**
-
-Aspose.Slides يسمح لك بأداء مهام أخرى تتعلق بحماية كلمة المرور والتشفير بهذه الطرق:
-
-- فك تشفير عرض تقديمي؛ فتح عرض مشفر
-- إزالة التشفير؛ تعطيل حماية كلمة المرور
-- إزالة حماية الكتابة من العرض
-- الحصول على خصائص عرض مشفر
-- التحقق مما إذا كان العرض مشفرًا
-- التحقق مما إذا كان العرض محميًا بكلمة مرور.
-
-## **تشفير عرض تقديمي**
-
-يمكنك تشفير عرض تقديمي عن طريق تعيين كلمة مرور. ثم، لتعديل العرض المقفل، يجب على المستخدم تقديم كلمة المرور. 
-
-لتشفير أو حماية عرض تقديمي بكلمة مرور، عليك استخدام طريقة encrypt (من [ProtectionManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager)) لتعيين كلمة مرور للعرض. تمرر كلمة المرور إلى طريقة encrypt وتستخدم طريقة save لحفظ العرض المشفر الآن.
-
-يظهر لك هذا المثال البرمجي كيفية تشفير عرض تقديمي:
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("encrypted-pres.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تحميل عرض مشفر**
 
-## **تعيين حماية كتابة للعرض**
+عيّن [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setPassword) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) عند تحميل الملف. سيفشل التحميل إذا كانت كلمة مرور الفتح مطلوبة ولكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
 
-يمكنك إضافة علامة تقول “Do not modify” إلى العرض. بهذه الطريقة، تخبر المستخدمين أنك لا تريدهم أن يجروا تغييرات على العرض.  
-
-**ملاحظة** أن عملية حماية الكتابة لا تقوم بتشفير العرض. لذلك، يمكن للمستخدمين—إذا رغبوا فعلاً—تعديل العرض، ولكن لحفظ التغييرات، سيتعين عليهم إنشاء عرض باسم مختلف. 
-
-لتعيين حماية كتابة، عليك استخدام طريقة [setWriteProtection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setWriteProtection-java.lang.String-). يوضح لك هذا المثال البرمجي كيفية تعيين حماية كتابة للعرض:
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    // العمل مع العرض المفكوك.
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **إزالة التشفير من عرض تقديمي**
 
-## **فك تشفير عرض تقديمي؛ فتح عرض مشفر**
+حمّل العرض باستخدام كلمة مرور الفتح الخاصة به، واستدعِ [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/protectionmanager/#removeEncryption)، ثم احفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
 
-Aspose.Slides يسمح لك بتحميل ملف مشفر عن طريق تمرير كلمة مروره. لفك تشفير عرض تقديمي، عليك استدعاء طريقة [removeEncryption](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) دون أي معاملات. ثم سيتعين عليك إدخال كلمة المرور الصحيحة لتحميل العرض.
-
-يوضح لك هذا المثال البرمجي كيفية فك تشفير عرض تقديمي:
 ```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
-try {
-    // العمل مع العرض المفكوك
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
 
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
 
-## **إزالة التشفير؛ تعطيل حماية كلمة المرور**
-
-يمكنك إزالة التشفير أو حماية كلمة المرور على عرض تقديمي. بهذه الطريقة، يصبح بإمكان المستخدمين الوصول إلى العرض أو تعديله دون قيود.
-
-لإزالة التشفير أو حماية كلمة المرور، عليك استدعاء طريقة [removeEncryption](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--). يوضح لك هذا المثال البرمجي كيفية إزالة التشفير من عرض تقديمي:
-```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("encryption-removed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
+    presentation.dispose();
+}
+```
+
+## **التحقق من كلمة مرور الفتح قبل التحميل**
+
+استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/) دون إنشاء نسخة كاملة من العرض. تحقق من [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) قبل طلب أو التحقق من كلمة مرور. عندما تكون الحماية موجودة، تحقق من القيمة التي تم تقديمها باستخدام [PresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **سير عمل المسار الملف**
+
+المثال التالي يتحقق من صحة كلمة مرور الفتح لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setPassword)، ثم يحمل العرض الكامل:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "protected-presentation.pptx";
+const password = "open_password";
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    console.log("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    console.log("The opening password is incorrect.");
+} else {
+    const loadOptions = new slides.LoadOptions();
+    loadOptions.setPassword(password);
+
+    const presentation = new slides.Presentation(filePath, loadOptions);
+    try {
+        console.log("The presentation was validated and loaded successfully.");
+    } finally {
         presentation.dispose();
     }
 }
 ```
 
+### **سير عمل التيار**
 
-## **إزالة حماية الكتابة من عرض تقديمي**
+استخدم [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) لفحص تيار قراءة Node.js. بعد استهلاك تيار الفحص، أنشئ تيارًا جديدًا قبل تحميل العرض الكامل باستخدام [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
 
-يمكنك استخدام Aspose.Slides لإزالة حماية الكتابة المستخدمة في ملف عرض تقديمي. بهذه الطريقة، يستطيع المستخدمون تعديل العرض كما يشاؤون—دون أي تحذير عند تنفيذ هذه المهام.
+المثال التالي يستخدم ملف PPT:
 
-يمكنك إزالة حماية الكتابة من عرض تقديمي باستخدام طريقة [removeWriteProtection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeWriteProtection--). يوضح لك هذا المثال البرمجي كيفية إزالة حماية الكتابة من عرض تقديمي:
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const filePath = "protected-presentation.ppt";
+const password = "open_password";
+const presentationFactory = slides.PresentationFactory.getInstance();
+const infoStream = fs.createReadStream(filePath);
+
+slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, infoStream, function(infoError, presentationInfo) {
+    if (infoError) {
+        console.log("The presentation information could not be read: " + infoError.message);
+    } else if (!presentationInfo.isPasswordProtected()) {
+        console.log("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        console.log("The opening password is incorrect.");
+    } else {
+        const loadOptions = new slides.LoadOptions();
+        loadOptions.setPassword(password);
+        const presentationStream = fs.createReadStream(filePath);
+
+        slides.Presentation.createPresentationFromStream(presentationStream, loadOptions, function(loadError, presentation) {
+            if (loadError) {
+                console.log("The presentation could not be loaded: " + loadError.message);
+            } else {
+                try {
+                    console.log("The presentation was validated and loaded successfully.");
+                } finally {
+                    presentation.dispose();
+                }
+            }
+        });
+    }
+});
+```
+
+### **قيم إرجاع checkPassword**
+
+تُعيد [PresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/#checkPassword) القيمة `true` فقط عندما يحتوي العرض على كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. تُعيد `false` في كل من الحالات التالية:
+
+- كلمة المرور غير صحيحة.
+- العرض لا يحتوي على كلمة مرور فتح.
+- كلمة المرور المقدمة هي `null` أو فارغة.
+
+السلوك هو نفسه لعروض PPT و PPTX.
+
+## **التحقق مما إذا كان العرض المحمّل مشفرًا**
+
+بعد تحميل عرض باستخدام كلمة المرور الصحيحة، افحص [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) للتأكد من أن العرض الأصلي كان مشفرًا. لاكتشاف حماية كلمة مرور الفتح قبل التحميل، استخدم [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) كما هو موضح أعلاه.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    const isEncrypted = presentation.getProtectionManager().isEncrypted();
+    console.log("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **توصيات الأمان**
 
-## **الحصول على خصائص عرض مشفر**
-
-عادةً، يواجه المستخدمون صعوبة في الحصول على خصائص المستند لعروض مشفرة أو محمية بكلمة مرور. ومع ذلك، يقدم Aspose.Slides آلية تسمح لك بحماية عرض تقديمي بكلمة مرور مع الحفاظ على إمكانية وصول المستخدمين إلى خصائص ذلك العرض.
-
-**ملاحظة** عندما يقوم Aspose.Slides بتشفير عرض تقديمي، يتم حماية خصائص مستند العرض أيضًا بكلمة مرور بشكل افتراضي. ولكن إذا كنت بحاجة إلى جعل خصائص العرض متاحة (حتى بعد تشفير العرض)، يتيح لك Aspose.Slides القيام بذلك تمامًا.
-
-إذا كنت تريد أن يحتفظ المستخدمون بالقدرة على الوصول إلى خصائص عرض قمت بتشفيره، يمكنك تعيين الخاصية [encryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#getEncryptDocumentProperties--) إلى `true`. يوضح لك هذا المثال البرمجي كيفية تشفير عرض تقديمي مع تمكين المستخدمين من الوصول إلى خصائص المستند الخاصة به:
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **التحقق مما إذا كان العرض محميًا بكلمة مرور قبل تحميله**
-
-قبل تحميل عرض تقديمي، قد ترغب في التحقق والتأكد من أن العرض لم يُحمى بكلمة مرور. بهذه الطريقة، يمكنك تجنب الأخطاء والمشاكل المشابهة التي تحدث عندما يتم تحميل عرض محمي بكلمة مرور دون كلمة المرور.
-
-يوضح لك هذا الكود JavaScript كيفية فحص عرض تقديمي لمعرفة ما إذا كان محميًا بكلمة مرور (دون تحميل العرض نفسه):
-```javascript
-var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
-
-
-## **التحقق مما إذا كان العرض مشفرًا**
-
-Aspose.Slides يتيح لك التحقق مما إذا كان العرض مشفرًا. للقيام بذلك، يمكنك استخدام الخاصية [isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isEncrypted--) التي تُعيد `true` إذا كان العرض مشفرًا أو `false` إذا لم يكن مشفرًا.
-
-يظهر لك هذا المثال البرمجي كيفية التحقق مما إذا كان العرض مشفرًا:
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isEncrypted();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **التحقق مما إذا كان العرض محميًا من الكتابة**
-
-Aspose.Slides يتيح لك التحقق مما إذا كان العرض محميًا من الكتابة. للقيام بذلك، يمكنك استخدام الخاصية [isWriteProtected](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isWriteProtected--) التي تُعيد `true` إذا كان العرض محميًا من الكتابة أو `false` إذا لم يكن محميًا.
-
-يوضح لك هذا المثال البرمجي كيفية التحقق مما إذا كان العرض محميًا من الكتابة:
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **التحقق أو التأكد من أن كلمة مرور محددة قد استُخدمت لحماية عرض تقديمي**
-
-قد ترغب في التحقق والتأكد من أن كلمة مرور محددة قد استُخدمت لحماية مستند عرض تقديمي. يوفر لك Aspose.Slides الوسيلة للتحقق من صحة كلمة المرور.  
-
-يوضح لك هذا المثال البرمجي كيفية التحقق من صحة كلمة المرور:
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    // تحقق مما إذا كانت كلمة المرور "pass" مطابقة
-    var isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-يُعيد `true` إذا تم تشفير العرض باستخدام كلمة المرور المحددة. وإلا، يُعيد `false`. 
-
-{{% alert color="primary" title="انظر أيضًا" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/ar/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+لا تُسجّل كلمات مرور الفتح أو تُدرجها في رسائل التشخيص. تجنّب محاولات التحقق المتكررة غير الضرورية، احتفظ بكلمات المرور في الذاكرة فقط للمدة المطلوبة، وأعِد استخدام نتيجة تحقق ناجحة عند تحميل العرض فورًا.
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
 
-**ما هي طرق التشفير التي يدعمها Aspose.Slides؟**
+1. افتح تطبيق [Aspose.Slides Lock](https://products.aspose.app/slides/ar/lock).
+2. اختر أو حمّل العرض.
+3. أدخل كلمة مرور لحماية العرض.
+4. (اختياري) أدخل كلمة مرور منفصلة لحماية التحرير.
+5. طبق الحماية وحمّل الملف الناتج.
 
-Aspose.Slides يدعم طرق تشفير حديثة، بما في ذلك الخوارزميات القائمة على AES، مما يضمن مستوى عالٍ من أمان البيانات لعروضك التقديمية.
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/ar/nodejs-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/ar/nodejs-java/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-**ماذا يحدث إذا تم إدخال كلمة مرور غير صحيحة عند محاولة فتح عرض تقديمي؟**
+## **FAQ**
 
-يتم إلقاء استثناء إذا تم استخدام كلمة مرور غير صحيحة، مما يُنبهك بأن الوصول إلى العرض مرفوض. يساعد ذلك في منع الوصول غير المصرح به ويحمي محتوى العرض.
+**ما الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
 
-**هل هناك أي تأثير على الأداء عند العمل مع عروض محمية بكلمة مرور؟**
+كلمة مرور الفتح تقوم بتشفير العرض وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
 
-قد يؤدي عملية التشفير وفك التشفير إلى إحداث تحميل طفيف أثناء عمليات الفتح والحفظ. في معظم الحالات، يكون لهذا التأثير على الأداء حدٌ ضئيل ولا يؤثر بشكل كبير على الوقت الإجمالي لمعالجة مهام العرض التقديمي.
+**هل يمكنني التحقق من كلمة مرور الفتح دون تحميل جميع الشرائح؟**
+
+نعم. احصل على معلومات العرض، تحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، وحقق من كلمة المرور قبل إنشاء نسخة كاملة من العرض.
+
+**هل تدعم سير عمل التحقق من كلمة المرور كلًا من PPT و PPTX؟**
+
+نعم. اكتشاف كلمة المرور والتحقق منها بناءً على مسار الملف أو التيار يعمل بنفس الطريقة لعروض PPT و PPTX.

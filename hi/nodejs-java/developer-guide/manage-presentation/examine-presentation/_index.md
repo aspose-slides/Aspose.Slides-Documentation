@@ -1,42 +1,45 @@
 ---
-title: जावास्क्रिप्ट में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें
+title: JavaScript में प्रस्तुति जानकारी प्राप्त करना और अद्यतन करना
 linktitle: प्रस्तुति जानकारी
 type: docs
 weight: 30
 url: /hi/nodejs-java/examine-presentation/
 keywords:
-- प्रस्तुति प्रारूप
+- प्रस्तुति फ़ॉर्मेट
 - प्रस्तुति गुण
 - दस्तावेज़ गुण
 - गुण प्राप्त करें
 - गुण पढ़ें
 - गुण बदलें
 - गुण संशोधित करें
-- गुण अपडेट करें
-- PPTX का परीक्षण
-- PPT का परीक्षण
-- ODP का परीक्षण
+- गुण अद्यतन करें
+- PPTX जांचें
+- PPT जांचें
+- ODP जांचें
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "जावास्क्रिप्ट का उपयोग करके पावरपॉइंट और ओपनडॉक्यूमेंट प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का पता लगाएँ, तेज़ अंतर्दृष्टि और अधिक समझदार सामग्री ऑडिट के लिए।"
+description: "JavaScript का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, जिससे तेज़ अंतर्दृष्टि और अधिक बुद्धिमान सामग्री ऑडिट प्राप्त हों।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में प्रस्तुति जानकारी की जांच कैसे की जाए, दर्शाता है। यह बताता है कि पूर्ण फ़ाइल लोड किए बिना प्रस्तुति का वर्तमान प्रारूप कैसे निर्धारित किया जाए, उसके दस्तावेज़ गुण पढ़ें, और आवश्यक होने पर उन गुणों को अपडेट करें।
+यह लेख Aspose.Slides में प्रस्तुति जानकारी की जाँच करने का तरीका दिखाता है। यह समझाता है कि पूरी फ़ाइल को लोड किए बिना प्रस्तुति के वर्तमान फ़ॉर्मेट को कैसे निर्धारित किया जाए, उसके दस्तावेज़ गुणों को पढ़ा जाए, और आवश्यकता पड़ने पर उन गुणों को अपडेट किया जाए।
 
-उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/documentproperties/) APIs पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ काम करने के सामान्य संचालन को प्रदर्शित करते हैं।
+उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/documentproperties/) API पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ कार्य करने के सामान्य संचालन प्रदर्शित करते हैं।
 
-## **प्रस्तुति प्रारूप जाँचें**
+## **प्रेजेंटेशन फ़ॉर्मेट जांचें**
 
-किसी प्रस्तुति पर काम करने से पहले, आप यह पता लगाना चाह सकते हैं कि वर्तमान में प्रस्तुति किस प्रारूप (PPT, PPTX, ODP, आदि) में है।
+प्रेजेंटेशन पर काम करने से पहले आप यह जानना चाह सकते हैं कि वर्तमान में प्रस्तुति किस फ़ॉर्मेट (PPT, PPTX, ODP, आदि) में है।
 
-आप प्रस्तुति को लोड किए बिना उसके प्रारूप की जाँच कर सकते हैं। इस JavaScript कोड को देखें:
+आप प्रस्तुति को लोड किए बिना उसके फ़ॉर्मेट की जाँच कर सकते हैं। इस JavaScript कोड को देखें:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -45,11 +48,14 @@ var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(
 console.log(info3.getLoadFormat());// ODP
 ```
 
-## **प्रस्तुति गुण प्राप्त करें**
+## **प्रेजेंटेशन प्रॉपर्टीज़ प्राप्त करें**
 
-यह JavaScript कोड आपको दिखाता है कि प्रस्तुति गुण (प्रस्तुति के बारे में जानकारी) कैसे प्राप्त करें:
+यह JavaScript कोड आपको दिखाता है कि प्रेजेंटेशन प्रॉपर्टीज़ (प्रेजेंटेशन के बारे में जानकारी) कैसे प्राप्त की जाए:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -58,19 +64,23 @@ console.log(props.getTitle());
 // ..
 ```
 
-आप [DocumentProperties वर्ग](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) के तहत गुण देखना चाह सकते हैं।
+आप [DocumentProperties वर्ग के अंतर्गत प्रॉपर्टीज़](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) देखना चाह सकते हैं।
 
-## **प्रस्तुति गुण अपडेट करें**
+## **प्रेजेंटेशन प्रॉपर्टीज़ अपडेट करें**
 
-Aspose.Slides [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) मेथड प्रदान करता है जो प्रस्तुति गुणों में परिवर्तन करने की अनुमति देता है।
+Aspose.Slides [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) विधि प्रदान करता है जो आपको प्रेजेंटेशन प्रॉपर्टीज़ में परिवर्तन करने की अनुमति देती है।
 
-मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ गुणों वाला एक PowerPoint प्रस्तुति है।
+मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ प्रॉपर्टीज़ वाली एक PowerPoint प्रेजेंटेशन है।
 
-![PowerPoint प्रस्तुति के मूल दस्तावेज़ गुण](input_properties.png)
+![PowerPoint प्रस्तुति की मूल दस्तावेज़ प्रॉपर्टीज़](input_properties.png)
 
-यह कोड उदाहरण आपको कुछ प्रस्तुति गुणों को संपादित करने का तरीका दिखाता है:
+यह कोड उदाहरण दिखाता है कि कुछ प्रेजेंटेशन प्रॉपर्टीज़ को कैसे संपादित किया जाए:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -83,37 +93,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-दस्तावेज़ गुणों को बदलने के परिणाम नीचे दिखाए गए हैं।
+दस्तावेज़ प्रॉपर्टीज़ बदलने के परिणाम नीचे दिखाए गए हैं।
 
-![PowerPoint प्रस्तुति के बदले हुए दस्तावेज़ गुण](output_properties.png)
+![PowerPoint प्रस्तुति की बदली हुई दस्तावेज़ प्रॉपर्टीज़](output_properties.png)
 
 ## **उपयोगी लिंक**
 
-प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी प्राप्त करने के लिए, ये लिंक उपयोगी हो सकते हैं:
+प्रेजेंटेशन और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी प्राप्त करने के लिए आप इन लिंक को उपयोगी पा सकते हैं:
 
-- [जाँचें कि क्या प्रस्तुति एन्क्रिप्टेड है](https://docs.aspose.com/slides/hi/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [जाँचें कि क्या प्रस्तुति लिखने से संरक्षित (केवल‑पढ़ने योग्य) है](https://docs.aspose.com/slides/hi/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [लोड करने से पहले जाँचें कि क्या प्रस्तुति पासवर्ड‑सुरक्षित है](https://docs.aspose.com/slides/hi/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [प्रस्तुति को सुरक्षित करने के लिए उपयोग किए गए पासवर्ड की पुष्टि करें](https://docs.aspose.com/slides/hi/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [प्रेजेंटेशन्स को पासवर्ड से सुरक्षित करें](/slides/hi/nodejs-java/password-protected-presentation/)
+- [प्रेजेंटेशन्स को लिखित रूप से सुरक्षित रखें](/slides/hi/nodejs-java/write-protected-presentation/)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं यह कैसे जांच सकता हूँ कि फॉन्ट एंबेड हैं और कौन से हैं?**
+**मैं कैसे जाँच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं और कौन से हैं?**
 
-प्रस्तुति स्तर पर [embedded-font जानकारी](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) देखें, फिर इन प्रविष्टियों की तुलना उस सेट से करें जो वास्तविक सामग्री में उपयोग किए गए फॉन्ट ([फ़ॉन्ट्स प्राप्त करें](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getfonts/)) से है, ताकि यह पहचान सकें कि कौन से फॉन्ट रेंडरिंग के लिए महत्वपूर्ण हैं।
+प्रेजेंटेशन स्तर पर [एम्बेडेड फ़ॉन्ट जानकारी](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) देखें, फिर उन प्रविष्टियों की तुलना [वास्तविक रूप से सामग्री में उपयोग किए गए फ़ॉन्ट्स](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getfonts/) के सेट से करें ताकि यह पहचाना जा सके कि कौन से फ़ॉन्ट रेंडरिंग के लिये महत्वपूर्ण हैं।
 
-**मैं जल्दी से कैसे पता लगा सकता हूँ कि फ़ाइल में छिपी स्लाइड्स हैं और उनकी संख्या क्या है?**
+**मैं जल्दी से कैसे पता कर सकता हूँ कि फ़ाइल में छिपी हुई स्लाइड्स हैं और कितनी?**
 
-[slide collection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slidecollection/) के माध्यम से इटरेट करें और प्रत्येक स्लाइड के [visibility flag](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slide/gethidden/) की जाँच करें।
+[स्लाइड कलेक्शन](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slidecollection/) के माध्यम से इटरेट करें और प्रत्येक स्लाइड के [विज़िबिलिटी फ़्लैग](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slide/gethidden/) की जाँच करें।
 
-**क्या मैं कस्टम स्लाइड आकार और अभिविन्यास का पता लगा सकता हूँ, और क्या वे डिफ़ॉल्ट से अलग हैं?**
+**क्या मैं कस्टम स्लाइड आकार और अभिविन्यास का पता लगा सकता हूँ, और क्या वे डिफॉल्ट से अलग हैं?**
 
-हाँ। वर्तमान [slide size](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/getslidesize/) और अभिविन्यास की मानक प्रीसेट्स से तुलना करें; यह प्रिंटिंग और निर्यात के दौरान व्यवहार का अनुमान लगाने में मदद करता है।
+हाँ। वर्तमान [स्लाइड आकार](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/getslidesize/) और अभिविन्यास की मानक प्रीसेट्स से तुलना करें; यह प्रिंटिंग और एक्सपोर्ट के लिए व्यवहार का पूर्वानुमान लगाने में मदद करता है।
 
-**क्या कोई त्वरित तरीका है जिससे पता चल सके कि चार्ट बाहरी डेटा स्रोतों को संदर्भित करते हैं?**
+**क्या चार्ट्स के बाहरी डेटा स्रोतों की जाँच का कोई तेज़ तरीका है?**
 
-हाँ। सभी [charts](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chart/) को ट्रैवर्स करें, उनके [data source](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) की जाँच करें, और यह नोट करें कि डेटा आंतरिक है या लिंक‑आधारित, साथ ही टूटे हुए लिंक भी।
+हाँ। सभी [चार्ट्स](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chart/) को ट्रैवर्स करें, उनके [डेटा स्रोत](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) की जाँच करें, और नोट करें कि डेटा आंतरिक है या लिंक‑आधारित, जिसमें टूटे हुए लिंक भी शामिल हैं।
 
-**मैं 'भारी' स्लाइड्स का मूल्यांकन कैसे करूं जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
+**मैं 'हेवी' स्लाइड्स का मूल्यांकन कैसे कर सकता हूँ जो रेंडरिंग या PDF एक्सपोर्ट को धीमा कर सकती हैं?**
 
-प्रत्येक स्लाइड के लिए ऑब्जेक्ट काउंट गिनें और बड़े चित्र, ट्रांसपैरेंसी, शैडो, एनीमेशन, और मल्टीमीडिया की तलाश करें; संभावित प्रदर्शन मुद्दों को चिन्हित करने के लिए एक मोटा जटिलता स्कोर असाइन करें।
+प्रत्येक स्लाइड के लिए ऑब्जेक्ट काउंट का कुल जोड़ें और बड़े चित्र, ट्रांसपरेंसी, शैडो, एनीमेशन, और मल्टीमीडिया की तलाश करें; संभावित परफॉर्मेंस हॉटस्पॉट्स को दर्शाने के लिये एक मोटा जटिलता स्कोर असाइन करें।

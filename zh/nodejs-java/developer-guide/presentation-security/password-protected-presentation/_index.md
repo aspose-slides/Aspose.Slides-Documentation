@@ -1,272 +1,222 @@
 ---
-title: 受密码保护的演示文稿
+title: 在 JavaScript 中对演示文稿进行密码保护
+linktitle: 密码保护
 type: docs
 weight: 20
 url: /zh/nodejs-java/password-protected-presentation/
-keywords: "在 JavaScript 中锁定 PowerPoint 演示文稿"
-description: "锁定 PowerPoint 演示文稿。JavaScript 中的受密码保护的 PowerPoint"
+keywords:
+- 受密码保护的演示文稿
+- 打开密码
+- 加密 PowerPoint
+- 解密 PowerPoint
+- 验证演示文稿密码
+- 检查演示文稿密码
+- 打开加密的演示文稿
+- 移除加密
+- PowerPoint
+- PPT
+- PPTX
+- 演示文稿
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 JavaScript 中加密、检测、验证、打开和解密受密码保护的 PowerPoint PPT 和 PPTX 演示文稿。"
 ---
+## **概述**
 
-## **关于密码保护**
-### **演示文稿的密码保护是如何工作的？**
-当您对演示文稿进行密码保护时，即是设置一个密码来强制对演示文稿施加某些限制。要移除这些限制，需要输入密码。受密码保护的演示文稿被视为已锁定的演示文稿。
+打开密码会对演示文稿进行加密。必须提供正确的密码才能加载和查看演示文稿内容，因此此保护提供了机密性。
 
-通常，您可以设置密码来对演示文稿实施以下限制：
+打开密码不同于写保护密码。写保护限制修改，但不加密内容，也不阻止加载演示文稿。要管理修改演示文稿的密码，请参阅[Write-Protect Presentations](/slides/zh/nodejs-java/write-protected-presentation/)。
 
-- **修改**
+以下工作流适用于 PPT 和 PPTX 演示文稿。在示例中，当文件方式和流方式的行为重要时，均使用这两种格式。
 
-  如果您只希望特定用户修改您的演示文稿，可以设置修改限制。此限制阻止人们在未提供密码的情况下修改、变更或复制演示文稿中的内容。
+## **使用打开密码加密演示文稿**
 
-  但是，即使没有密码，用户仍然能够访问并打开文档。在只读模式下，用户可以查看演示文稿中的内容或元素——超链接、动画、效果等——但无法复制项目或保存演示文稿。
+使用[ProtectionManager.encrypt](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/protectionmanager/#encrypt)分配打开密码。然后使用[Presentation.save](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/#save)保存加密后的演示文稿。
 
-- **打开**
+以下示例对 PPTX 演示文稿进行加密：
 
-  如果您只希望特定用户打开您的演示文稿，可以设置打开限制。此限制阻止人们在未提供密码的情况下查看演示文稿的内容。
-
-  从技术上讲，打开限制也会阻止用户修改演示文稿：当人们无法打开演示文稿时，他们也就无法对其进行修改或更改。
-
-  **注意** 当您对演示文稿进行密码保护以阻止打开时，演示文稿文件会被加密。
-
-## **如何在线为演示文稿设置密码保护**
-1. 前往我们的[**Aspose.Slides Lock**](https://products.aspose.app/slides/lock)页面。
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. 点击 **拖放或上传您的文件**。
-
-3. 在计算机上选择您想要进行密码保护的文件。
-
-4. 输入您用于编辑保护的首选密码；输入您用于查看保护的首选密码。
-
-5. 如果您希望用户将演示文稿视为最终稿，请勾选 **标记为最终版** 复选框。
-
-6. 点击 **立即保护**。
-
-7. 点击 **立即下载**。
-
-## **Aspose.Slides 中的演示文稿密码保护**
-**支持的格式**
-
-Aspose.Slides 支持对以下格式的演示文稿进行密码保护、加密及类似操作：
-
-- PPTX 和 PPT - Microsoft PowerPoint 演示文稿
-- ODP - OpenDocument 演示文稿
-- OTP - OpenDocument 演示文稿模板
-
-**支持的操作**
-
-Aspose.Slides 允许您通过以下方式使用密码保护来防止演示文稿被修改：
-
-- 加密演示文稿
-- 为演示文稿设置写保护
-
-**其他操作**
-
-Aspose.Slides 还允许您以以下方式执行其他涉及密码保护和加密的任务：
-
-- 解密演示文稿；打开加密的演示文稿
-- 移除加密；禁用密码保护
-- 从演示文稿中移除写保护
-- 获取加密演示文稿的属性
-- 检查演示文稿是否已加密
-- 检查演示文稿是否受密码保护
-
-## **加密演示文稿**
-
-您可以通过设置密码来加密演示文稿。随后，要修改已锁定的演示文稿，用户必须提供密码。
-
-要加密或密码保护演示文稿，您需要使用 [ProtectionManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager) 中的 encrypt 方法为演示文稿设置密码。将密码传递给 encrypt 方法后，使用 save 方法保存已加密的演示文稿。
-
-以下示例代码演示了如何加密演示文稿：
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("encrypted-pres.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **加载已加密的演示文稿**
 
-## **为演示文稿设置写保护**
+将[LoadOptions.setPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setPassword)设为打开密码，并在加载文件时将该选项传递给[Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/)。如果需要打开密码但提供的密码缺失或不正确，加载将失败。
 
-您可以在演示文稿中添加 “请勿修改” 标记，以告知用户您不希望其对演示文稿进行更改。
-
-**注意** 写保护过程并不加密演示文稿。因此，用户——如果真的想——仍然可以修改演示文稿，但若要保存更改，必须另存为不同的文件名。
-
-要设置写保护，您需要使用 [setWriteProtection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setWriteProtection-java.lang.String-) 方法。以下示例代码演示了如何为演示文稿设置写保护：
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    // 对已解密的演示文稿进行操作。
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **移除演示文稿的加密**
 
-## **解密演示文稿；打开加密的演示文稿**
+使用打开密码加载演示文稿，调用[ProtectionManager.removeEncryption](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/protectionmanager/#removeEncryption)，并保存结果。随后即可在无需密码的情况下加载保存后的演示文稿。
 
-Aspose.Slides 允许您在加载加密文件时传入密码。要解密演示文稿，需调用 [removeEncryption](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) 方法（无参数），随后输入正确的密码以加载演示文稿。
-
-以下示例代码演示了如何解密演示文稿：
 ```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
-try {
-    // 对已解密的演示文稿进行操作
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
 
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
 
-## **移除加密；禁用密码保护**
-
-您可以移除演示文稿的加密或密码保护，从而使用户能够在没有任何限制的情况下访问或修改演示文稿。
-
-要移除加密或密码保护，需调用 [removeEncryption](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) 方法。以下示例代码演示了如何从演示文稿中移除加密：
-```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("encryption-removed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
+    presentation.dispose();
+}
+```
+
+## **在加载前验证打开密码**
+
+使用[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo)获取[PresentationInfo](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationinfo/)，无需创建完整的演示文稿实例。在请求或验证密码之前，检查[PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected)。如果存在保护，则使用[PresentationInfo.checkPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationinfo/#checkPassword)验证提供的值。
+
+### **文件路径工作流**
+
+以下示例验证 PPTX 文件的打开密码，将验证后的值传递给[LoadOptions.setPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setPassword)，随后加载完整的演示文稿：
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "protected-presentation.pptx";
+const password = "open_password";
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    console.log("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    console.log("The opening password is incorrect.");
+} else {
+    const loadOptions = new slides.LoadOptions();
+    loadOptions.setPassword(password);
+
+    const presentation = new slides.Presentation(filePath, loadOptions);
+    try {
+        console.log("The presentation was validated and loaded successfully.");
+    } finally {
         presentation.dispose();
     }
 }
 ```
 
+### **流工作流**
 
-## **从演示文稿中移除写保护**
+使用[PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream)检查 Node.js 可读流。检查流被消费后，在使用[Presentation.createPresentationFromStream](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/#createPresentationFromStream)加载完整演示文稿之前，创建一个新流。
 
-您可以使用 Aspose.Slides 移除演示文稿文件上的写保护。这样，用户即可随意修改且不会收到任何警告。
+以下示例使用 PPT 文件：
 
-要移除写保护，请使用 [removeWriteProtection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeWriteProtection--) 方法。以下示例代码演示了如何从演示文稿中移除写保护：
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const filePath = "protected-presentation.ppt";
+const password = "open_password";
+const presentationFactory = slides.PresentationFactory.getInstance();
+const infoStream = fs.createReadStream(filePath);
+
+slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, infoStream, function(infoError, presentationInfo) {
+    if (infoError) {
+        console.log("The presentation information could not be read: " + infoError.message);
+    } else if (!presentationInfo.isPasswordProtected()) {
+        console.log("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        console.log("The opening password is incorrect.");
+    } else {
+        const loadOptions = new slides.LoadOptions();
+        loadOptions.setPassword(password);
+        const presentationStream = fs.createReadStream(filePath);
+
+        slides.Presentation.createPresentationFromStream(presentationStream, loadOptions, function(loadError, presentation) {
+            if (loadError) {
+                console.log("The presentation could not be loaded: " + loadError.message);
+            } else {
+                try {
+                    console.log("The presentation was validated and loaded successfully.");
+                } finally {
+                    presentation.dispose();
+                }
+            }
+        });
+    }
+});
+```
+
+### **checkPassword 返回值**
+
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationinfo/#checkPassword)仅在演示文稿具有打开密码且提供的密码正确时返回 `true`。在以下情况均返回 `false`：
+
+- 密码不正确。
+- 演示文稿没有打开密码。
+- 提供的密码为 `null` 或为空。
+
+该行为对 PPT 和 PPTX 演示文稿相同。
+
+## **检查加载的演示文稿是否已加密**
+
+使用正确密码加载演示文稿后，检查[ProtectionManager.isEncrypted](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/protectionmanager/#isEncrypted)以确认源演示文稿已加密。要在加载前检测打开密码保护，请使用上述的[PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected)。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    const isEncrypted = presentation.getProtectionManager().isEncrypted();
+    console.log("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **安全建议**
 
-## **获取加密演示文稿的属性**
+{{% alert color="warning" title="Security" %}}
+不要记录打开密码或将其包含在诊断信息中。避免不必要的重复验证尝试，仅在需要时将密码保留在内存中，并在立即加载演示文稿时复用成功的验证结果。
+{{% /alert %}}
 
-通常，用户在获取加密或受密码保护的演示文稿的文档属性时会遇到困难。Aspose.Slides 提供了一种机制，允许您在对演示文稿进行密码保护的同时，仍然让用户访问该演示文稿的属性。
+## **在线为演示文稿设置密码保护**
 
-**注意** 当 Aspose.Slides 加密演示文稿时，演示文稿的文档属性默认也会被密码保护。不过，如果您需要在演示文稿加密后仍能访问其属性，Aspose.Slides 允许您实现此需求。
+1. 打开 [Aspose.Slides Lock](https://products.aspose.app/slides/zh/lock) 应用程序。
+1. 选择或上传演示文稿。
+1. 输入用于查看保护的密码。
+1. （可选）输入用于编辑保护的另一个密码。
+1. 应用保护并下载生成的文件。
 
-如果您希望用户在您加密的演示文稿中仍能访问属性，可将 [encryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#getEncryptDocumentProperties--) 属性设置为 `true`。以下示例代码演示了如何在加密演示文稿的同时提供访问文档属性的方式：
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **在加载演示文稿之前检查其是否受密码保护**
-
-在加载演示文稿之前，您可能需要检查并确认该演示文稿未被密码保护。这样可以避免在未提供密码的情况下加载受密码保护的演示文稿时出现错误等问题。
-
-以下 JavaScript 代码演示了如何在不加载演示文稿本身的情况下检查其是否受密码保护：
-```javascript
-var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
-
-
-## **检查演示文稿是否已加密**
-
-Aspose.Slides 允许您检查演示文稿是否已加密。为此，您可以使用 [isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isEncrypted--) 属性；如果演示文稿已加密则返回 `true`，否则返回 `false`。
-
-以下示例代码演示了如何检查演示文稿是否已加密：
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isEncrypted();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **检查演示文稿是否受写保护**
-
-Aspose.Slides 允许您检查演示文稿是否受写保护。为此，您可以使用 [isWriteProtected](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isWriteProtected--) 属性；如果演示文稿受写保护则返回 `true`，否则返回 `false`。
-
-以下示例代码演示了如何检查演示文稿是否受写保护：
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-## **验证或确认已使用特定密码保护演示文稿**
-
-您可能需要检查并确认已使用特定密码对演示文稿进行保护。Aspose.Slides 提供了验证密码的功能。
-
-以下示例代码演示了如何验证密码：
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    // 检查 "pass" 是否匹配
-    var isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-
-如果演示文稿已使用指定密码加密，则返回 `true`。否则返回 `false`。
-
-{{% alert color="primary" title="另请参阅" %}} 
-- [PowerPoint 中的数字签名](/slides/zh/net/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/zh/nodejs-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/zh/nodejs-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **常见问题**
 
-**Aspose.Slides 支持哪些加密方法？**
+**打开密码和写保护密码有什么区别？**
 
-Aspose.Slides 支持现代加密方法，包括基于 AES 的算法，能够为您的演示文稿提供高水平的数据安全性。
+打开密码会对演示文稿进行加密，并且需要该密码才能加载其内容。写保护密码限制修改，但不加密内容。
 
-**尝试打开演示文稿时输入错误密码会怎样？**
+**我可以在不加载所有幻灯片的情况下验证打开密码吗？**
 
-如果使用了错误的密码，系统会抛出异常，提示访问演示文稿被拒绝。这有助于防止未授权访问并保护演示文稿内容。
+可以。获取演示文稿信息，检查是否存在打开密码保护，然后在创建完整的演示文稿实例之前验证密码。
 
-**在使用受密码保护的演示文稿时会有性能影响吗？**
+**密码检查工作流是否同时支持 PPT 和 PPTX？**
 
-加密和解密过程可能在打开和保存操作时带来轻微的开销。在大多数情况下，这种性能影响很小，不会显著影响演示文稿任务的整体处理时间。
+支持。文件路径和基于流的密码检测与验证对 PPT 和 PPTX 演示文稿的行为相同。

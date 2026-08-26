@@ -1,300 +1,222 @@
 ---
-title: "Presentaties beveiligen met wachtwoorden in JavaScript"
-linktitle: "Wachtwoordbeveiliging"
+title: Wachtwoordbeveiligde presentaties in JavaScript
+linktitle: Wachtwoordbeveiliging
 type: docs
 weight: 20
 url: /nl/nodejs-java/password-protected-presentation/
 keywords:
-- vergrendel PowerPoint
-- vergrendel presentatie
-- ontgrendel PowerPoint
-- ontgrendel presentatie
-- bescherm PowerPoint
-- bescherm presentatie
-- wachtwoord instellen
-- wachtwoord toevoegen
-- versleutel PowerPoint
-- versleutel presentatie
-- ontsleutel PowerPoint
-- ontsleutel presentatie
-- schrijfbeveiliging
-- PowerPoint-beveiliging
-- presentatiebeveiliging
-- wachtwoord verwijderen
-- beveiliging verwijderen
+- wachtwoordbeveiligde presentatie
+- openingswachtwoord
+- PowerPoint versleutelen
+- PowerPoint ontsleutelen
+- presentatiewachtwoord valideren
+- presentatiewachtwoord controleren
+- versleutelde presentatie openen
 - versleuteling verwijderen
-- wachtwoord uitschakelen
-- beveiliging uitschakelen
-- schrijfbeveiliging verwijderen
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Vergrendel en ontgrendel moeiteloos wachtwoordbeveiligde PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Node.js via Java. Bescherm uw presentaties."
+description: "Versleutel, detecteer, valideer, open en ontsleutel wachtwoordbeveiligde PowerPoint PPT en PPTX-presentaties in JavaScript met Aspose.Slides."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Wanneer u een presentatie met een wachtwoord beveiligt, stelt u een wachtwoord in dat bepaalde beperkingen op de presentatie afdwingt. Om de beperkingen te verwijderen, moet het wachtwoord worden ingevoerd. Een met wachtwoord beveiligde presentatie wordt beschouwd als een vergrendelde presentatie.
+Een openingswachtwoord versleutelt een presentatie. Het juiste wachtwoord is vereist om de presentatie‑inhoud te laden en te bekijken, zodat deze bescherming vertrouwelijkheid biedt.
 
-Meestal kunt u een wachtwoord instellen om deze beperkingen op een presentatie af te dwingen:
+Een openingswachtwoord verschilt van een schrijfbeschermingswachtwoord. Schrijfbescherming beperkt wijziging, maar versleutelt de inhoud niet en verhindert niet dat de presentatie wordt geladen. Om wachtwoorden voor het wijzigen van presentaties te beheren, zie [Presentaties met schrijfbescherming](/slides/nl/nodejs-java/write-protected-presentation/).
 
-- **Wijziging**
+De onderstaande werkwijzen zijn van toepassing op zowel PPT‑ als PPTX‑presentaties. De voorbeelden gebruiken beide formaten wanneer hun bestands‑ en stroomgebaseerde gedrag belangrijk is.
 
-  Als u wilt dat alleen bepaalde gebruikers uw presentatie mogen wijzigen, kunt u een wijzigingsbeperking instellen. Deze beperking voorkomt dat mensen de presentatie wijzigen, aanpassen of kopiëren (tenzij ze het wachtwoord invoeren). 
+## **Een presentatie versleutelen met een openingswachtwoord**
 
-  In dit geval kan een gebruiker echter, zelfs zonder wachtwoord, wel uw document openen. In de alleen‑lezen‑modus kan de gebruiker de inhoud – hyperlinks, animaties, effecten en andere elementen – binnen uw presentatie bekijken, maar hij kan geen items kopiëren of de presentatie opslaan. 
+Gebruik [ProtectionManager.encrypt](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/protectionmanager/#encrypt) om een openingswachtwoord toe te wijzen. Gebruik vervolgens [Presentation.save](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#save) om de versleutelde presentatie op te slaan.
 
-- **Openen**
-
-  Als u wilt dat alleen bepaalde gebruikers uw presentatie mogen openen, kunt u een openingsbeperking instellen. Deze beperking voorkomt dat mensen de inhoud van uw presentatie kunnen bekijken (tenzij ze het wachtwoord invoeren).
-
-  Technisch gezien voorkomt de openingsbeperking ook dat gebruikers de presentatie wijzigen: wanneer mensen een presentatie niet kunnen openen, kunnen ze deze niet aanpassen of wijzigen. 
-  
-  **Opmerking** dat wanneer u een presentatie met een wachtwoord beveiligt om openen te voorkomen, het presentatiebestand wordt versleuteld.
-
-## **Een presentatie online met wachtwoord beveiligen**
-
-1. Ga naar onze [**Aspose.Slides Lock**](https://products.aspose.app/slides/nl/lock)‑pagina. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klik op **Drop or upload your files**.
-
-3. Selecteer het bestand dat u op uw computer wilt beveiligen met een wachtwoord. 
-
-4. Voer uw gewenste wachtwoord in voor bewerkingsbeveiliging; voer uw gewenste wachtwoord in voor weergave‑beveiliging. 
-
-5. Als u wilt dat gebruikers uw presentatie zien als het definitieve exemplaar, schakelt u het selectievak **Mark as final** in.
-
-6. Klik op **PROTECT NOW.** 
-
-7. Klik op **DOWNLOAD NOW.**
-
-## **Wachtwoordbeveiliging voor presentaties in Aspose.Slides**
-**Ondersteunde formaten**
-
-Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en vergelijkbare bewerkingen voor presentaties in de volgende formaten: 
-
-- PPTX en PPT – Microsoft PowerPoint‑presentatie 
-- ODP – OpenDocument‑presentatie 
-- OTP – OpenDocument‑presentatiesjabloon 
-
-**Ondersteunde bewerkingen**
-
-Aspose.Slides stelt u in staat om wachtwoordbeveiliging op presentaties toe te passen om wijzigingen te voorkomen op de volgende manieren:
-
-- Een presentatie versleutelen
-- Een schrijfbeveiliging instellen voor een presentatie
-
-**Andere bewerkingen**
-
-Aspose.Slides biedt de mogelijkheid om andere taken met betrekking tot wachtwoordbeveiliging en versleuteling uit te voeren op de volgende manieren:
-
-- Een presentatie ontsleutelen; een versleutelde presentatie openen
-- Versleuteling verwijderen; wachtwoordbeveiliging uitschakelen
-- Schrijfbeveiliging van een presentatie verwijderen
-- De eigenschappen van een versleutelde presentatie opvragen
-- Controleren of een presentatie versleuteld is
-- Controleren of een presentatie met wachtwoord beveiligd is.
-
-## **Een presentatie versleutelen**
-
-U kunt een presentatie versleutelen door een wachtwoord in te stellen. Vervolgens moet een gebruiker het wachtwoord invoeren om de vergrendelde presentatie te wijzigen. 
-
-Om een presentatie te versleutelen of met wachtwoord te beveiligen, moet u de encrypt‑methode gebruiken (van [ProtectionManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager)) om een wachtwoord voor de presentatie in te stellen. U geeft het wachtwoord door aan de encrypt‑methode en gebruikt vervolgens de save‑methode om de nu versleutelde presentatie op te slaan.
-
-Deze voorbeeldcode laat zien hoe u een presentatie versleutelt:
+Het volgende voorbeeld versleutelt een PPTX‑presentatie:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("encrypted-pres.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Schrijfbeveiliging instellen voor een presentatie**
+## **Een versleutelde presentatie laden**
 
-U kunt een markering “Niet wijzigen” aan een presentatie toevoegen. Op deze manier kunt u gebruikers duidelijk maken dat u niet wilt dat ze wijzigingen aanbrengen in de presentatie.  
-
-**Opmerking** dat het proces van schrijfbeveiliging de presentatie niet versleutelt. Gebruikers – als ze dat willen – kunnen de presentatie wel wijzigen, maar om de wijzigingen op te slaan moeten ze een presentatie met een andere naam aanmaken. 
-
-Om een schrijfbeveiliging in te stellen, moet u de [setWriteProtection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#setWriteProtection-java.lang.String-)‑methode gebruiken. Deze voorbeeldcode laat zien hoe u een schrijfbeveiliging voor een presentatie instelt:
+Stel [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#setPassword) in op het openingswachtwoord en geef de opties door aan [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) bij het laden van het bestand. Het laden mislukt wanneer een openingswachtwoord vereist is maar het opgegeven wachtwoord ontbreekt of onjuist is.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", aspose.slides.SaveFormat.Pptx);
+    // Werk met de ontsleutelde presentatie.
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Een presentatie ontsleutelen; een versleutelde presentatie openen**
+## **Versleuteling van een presentatie verwijderen**
 
-Aspose.Slides stelt u in staat een versleuteld bestand te laden door het wachtwoord door te geven. Om een presentatie te ontsleutelen, roept u de [removeEncryption](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--)‑methode aan zonder parameters. Vervolgens moet u het juiste wachtwoord invoeren om de presentatie te laden.
-
-Deze voorbeeldcode laat zien hoe u een presentatie ontsleutelt: 
+Laad de presentatie met het bijbehorende openingswachtwoord, roep [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) aan en sla het resultaat op. De opgeslagen presentatie kan vervolgens zonder wachtwoord worden geladen.
 
 ```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
-try {
-    // werk met ontsleutelde presentatie
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
 
-## **Versleuteling verwijderen; wachtwoordbeveiliging uitschakelen**
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
 
-U kunt de versleuteling of wachtwoordbeveiliging van een presentatie verwijderen. Op deze manier kunnen gebruikers de presentatie zonder beperkingen openen of wijzigen. 
-
-Om versleuteling of wachtwoordbeveiliging te verwijderen, roept u de [removeEncryption](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--)‑methode aan. Deze voorbeeldcode laat zien hoe u versleuteling van een presentatie verwijdert:
-
-```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("encryption-removed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
+    presentation.dispose();
+}
+```
+
+## **Een openingswachtwoord valideren vóór het laden**
+
+Gebruik [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) om [PresentationInfo](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationinfo/) te verkrijgen zonder een volledige presentatie‑instantie aan te maken. Controleer [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) voordat u een wachtwoord aanvraagt of valideert. Wanneer bescherming aanwezig is, valideer dan de opgegeven waarde met [PresentationInfo.checkPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **Bestandspad‑werkwijze**
+
+Het volgende voorbeeld valideert een openingswachtwoord voor een PPTX‑bestand, geeft de gevalideerde waarde door aan [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/#setPassword), en laadt vervolgens de volledige presentatie:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "protected-presentation.pptx";
+const password = "open_password";
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    console.log("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    console.log("The opening password is incorrect.");
+} else {
+    const loadOptions = new slides.LoadOptions();
+    loadOptions.setPassword(password);
+
+    const presentation = new slides.Presentation(filePath, loadOptions);
+    try {
+        console.log("The presentation was validated and loaded successfully.");
+    } finally {
         presentation.dispose();
     }
 }
 ```
 
-## **Schrijfbeveiliging van een presentatie verwijderen**
+### **Stroom‑werkwijze**
 
-U kunt Aspose.Slides gebruiken om de schrijfbeveiliging van een presentatiedocument te verwijderen. Op deze manier kunnen gebruikers wijzigen zoals ze willen – zonder waarschuwingen bij het uitvoeren van dergelijke handelingen.
+Gebruik [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) om een leesbare Node.js‑stroom te inspecteren. Nadat de inspectiestroom is verbruikt, maak een nieuwe stroom aan voordat u de volledige presentatie laadt met [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
 
-U verwijdert de schrijfbeveiliging van een presentatie met de [removeWriteProtection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#removeWriteProtection--)‑methode. Deze voorbeeldcode laat zien hoe u de schrijfbeveiliging van een presentatie verwijdert:
+Het volgende voorbeeld gebruikt een PPT‑bestand:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const filePath = "protected-presentation.ppt";
+const password = "open_password";
+const presentationFactory = slides.PresentationFactory.getInstance();
+const infoStream = fs.createReadStream(filePath);
+
+slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, infoStream, function(infoError, presentationInfo) {
+    if (infoError) {
+        console.log("The presentation information could not be read: " + infoError.message);
+    } else if (!presentationInfo.isPasswordProtected()) {
+        console.log("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        console.log("The opening password is incorrect.");
+    } else {
+        const loadOptions = new slides.LoadOptions();
+        loadOptions.setPassword(password);
+        const presentationStream = fs.createReadStream(filePath);
+
+        slides.Presentation.createPresentationFromStream(presentationStream, loadOptions, function(loadError, presentation) {
+            if (loadError) {
+                console.log("The presentation could not be loaded: " + loadError.message);
+            } else {
+                try {
+                    console.log("The presentation was validated and loaded successfully.");
+                } finally {
+                    presentation.dispose();
+                }
+            }
+        });
+    }
+});
+```
+
+### **Returnwaarden van checkPassword**
+
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationinfo/#checkPassword) retourneert `true` alleen wanneer de presentatie een openingswachtwoord heeft en het opgegeven wachtwoord correct is. Het retourneert `false` in elk van de volgende gevallen:
+
+- Het wachtwoord is onjuist.
+- De presentatie heeft geen openingswachtwoord.
+- Het opgegeven wachtwoord is `null` of leeg.
+
+Het gedrag is hetzelfde voor PPT‑ en PPTX‑presentaties.
+
+## **Controleren of een geladen presentatie versleuteld is**
+
+Nadat u een presentatie hebt geladen met het juiste wachtwoord, controleer [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) om te bevestigen dat de oorspronkelijke presentatie versleuteld was. Om openings‑wachtwoordbescherming vóór het laden te detecteren, gebruik [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) zoals hierboven weergegeven.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    const isEncrypted = presentation.getProtectionManager().isEncrypted();
+    console.log("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **De eigenschappen van een versleutelde presentatie opvragen**
+## **Beveiligingsaanbevelingen**
 
-Gebruikers hebben vaak moeite om de document‑eigenschappen van een versleutelde of met wachtwoord beveiligde presentatie op te vragen. Aspose.Slides biedt echter een mechanisme waarmee u een presentatie kunt beveiligen en tegelijkertijd gebruikers de mogelijkheid geeft de eigenschappen van die presentatie te benaderen.
+{% alert color="warning" title="Beveiliging" %}
+Log geen openingswachtwoorden en neem ze niet op in diagnostische berichten. Vermijd onnodige herhaalde validatie‑pogingen, bewaar wachtwoorden alleen in het geheugen zolang dat nodig is, en hergebruik een succesvolle validatie‑resultaat bij het direct laden van de presentatie.
+{% /alert %}
 
-**Opmerking** dat wanneer Aspose.Slides een presentatie versleutelt, de document‑eigenschappen van de presentatie standaard ook met wachtwoord worden beveiligd. Maar als u de eigenschappen van de presentatie toegankelijk wilt maken (zelfs nadat de presentatie is versleuteld), biedt Aspose.Slides precies die functionaliteit. 
+## **Een presentatie online met een wachtwoord beschermen**
 
-Wilt u dat gebruikers de mogelijkheid behouden om de eigenschappen van een door u versleutelde presentatie te benaderen, stelt u de [encryptDocumentProperties](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#getEncryptDocumentProperties--)‑eigenschap in op `true`. Deze voorbeeldcode laat zien hoe u een presentatie versleutelt en tegelijk gebruikers toegang geeft tot de document‑eigenschappen:
+1. Open de toepassing [Aspose.Slides Lock](https://products.aspose.app/slides/nl/lock).
+2. Selecteer of upload de presentatie.
+3. Voer een wachtwoord in voor weergavebescherming.
+4. Voer eventueel een afzonderlijk wachtwoord in voor bewerkingsbescherming.
+5. Pas de bescherming toe en download het resulterende bestand.
 
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
+{% alert color="info" title="Zie ook" %}
+- [Presentaties met schrijfbescherming](/slides/nl/nodejs-java/write-protected-presentation/)
+- [Digitale handtekening in PowerPoint](/slides/nl/nodejs-java/digital-signature-in-powerpoint/)
+{% /alert %}
 
-## **Controleren of een presentatie met een wachtwoord beveiligd is vóór het laden**
+## **Veelgestelde vragen**
 
-Voordat u een presentatie laadt, wilt u wellicht controleren of de presentatie niet met een wachtwoord is beveiligd. Op deze manier voorkomt u fouten en soortgelijke problemen die ontstaan wanneer een met wachtwoord beveiligde presentatie zonder wachtwoord wordt geladen.
+**Wat is het verschil tussen een openingswachtwoord en een schrijf‑beschermingswachtwoord?**
 
-Deze JavaScript‑code laat zien hoe u een presentatie kunt onderzoeken om te zien of deze met een wachtwoord beveiligd is (zonder de presentatie zelf te laden):
+Een openingswachtwoord versleutelt de presentatie en is vereist om de inhoud te laden. Een schrijfbeschermingswachtwoord beperkt wijziging zonder de inhoud te versleutelen.
 
-```javascript
-var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+**Kan ik een openingswachtwoord valideren zonder alle dia's te laden?**
 
-## **Controleren of een presentatie versleuteld is**
+Ja. Verkrijg presentatiesinformatie, controleer of er een openings‑wachtwoordbescherming aanwezig is, en valideer het wachtwoord voordat u een volledige presentaties­instantie maakt.
 
-Aspose.Slides stelt u in staat om te controleren of een presentatie versleuteld is. Hiervoor kunt u de [isEncrypted](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#isEncrypted--)‑eigenschap gebruiken, die `true` teruggeeft als de presentatie versleuteld is en `false` als dat niet zo is.
+**Ondersteunen de wachtwoord‑controlescenari’s zowel PPT als PPTX?**
 
-Deze voorbeeldcode toont hoe u controleert of een presentatie versleuteld is:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isEncrypted();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Controleren of een presentatie schrijfbeveiligd is**
-
-Aspose.Slides maakt het mogelijk om te controleren of een presentatie schrijfbeveiligd is. Hiervoor kunt u de [isWriteProtected](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ProtectionManager#isWriteProtected--)‑eigenschap gebruiken, die `true` teruggeeft als de presentatie versleuteld is en `false` als dat niet zo is.
-
-Deze voorbeeldcode laat zien hoe u controleert of een presentatie schrijfbeveiligd is:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Valideren of bevestigen dat een specifiek wachtwoord is gebruikt om een presentatie te beveiligen**
-
-U wilt wellicht controleren en bevestigen dat een specifiek wachtwoord is gebruikt om een presentatiedocument te beveiligen. Aspose.Slides biedt de middelen om een wachtwoord te valideren. 
-
-Deze voorbeeldcode laat zien hoe u een wachtwoord valideert:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    // controleer of "pass" overeenkomt met
-    var isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-Het resultaat is `true` als de presentatie is versleuteld met het opgegeven wachtwoord. Anders is het `false`. 
-
-{{% alert color="primary" title="Zie ook" %}} 
-- [Digitale handtekening in PowerPoint](/slides/nl/net/digital-signature-in-powerpoint/)
-{{% /alert %}}
-
-## **FAQ**
-
-**Welke versleutelingsmethoden ondersteunt Aspose.Slides?**
-
-Aspose.Slides ondersteunt moderne versleutelingsmethoden, waaronder AES‑gebaseerde algoritmen, waardoor een hoog beveiligingsniveau voor uw presentaties wordt gegarandeerd.
-
-**Wat gebeurt er als een onjuist wachtwoord wordt ingevoerd bij het openen van een presentatie?**
-
-Er wordt een uitzondering opgegooid als een onjuist wachtwoord wordt gebruikt, waarmee wordt aangegeven dat de toegang tot de presentatie wordt geweigerd. Dit helpt ongeautoriseerde toegang te voorkomen en beschermt de inhoud van de presentatie.
-
-**Zijn er prestatie‑implicaties bij het werken met met wachtwoord beveiligde presentaties?**
-
-Het versleutelings‑ en ontsleutelingsproces kan een lichte overhead veroorzaken tijdens het openen en opslaan. In de meeste gevallen is de impact minimaal en heeft deze geen significante invloed op de totale verwerkingstijd van uw presentatietaken.
+Ja. Wachtwoorddetectie en -validatie op basis van bestandspad en stroom werken hetzelfde voor PPT‑ en PPTX‑presentaties.

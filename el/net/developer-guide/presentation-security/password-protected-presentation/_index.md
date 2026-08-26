@@ -1,252 +1,200 @@
 ---
-title: Ασφαλείς παρουσιάσεις με κωδικούς στο .NET
-linktitle: Προστασία κωδικού
+title: Προστασία Παρουσιάσεων με Κωδικό στην .NET
+linktitle: Προστασία Κωδικού
 type: docs
 weight: 20
 url: /el/net/password-protected-presentation/
 keywords:
-- κλείδωμα PowerPoint
-- κλείδωμα παρουσίασης
-- ξεκλείδωμα PowerPoint
-- ξεκλείδωμα παρουσίασης
-- προστασία PowerPoint
-- προστασία παρουσίασης
-- ορισμός κωδικού
-- προσθήκη κωδικού
-- κρυπτογράφηση PowerPoint
-- κρυπτογράφηση παρουσίασης
-- αποκρυπτογράφηση PowerPoint
-- αποκρυπτογράφηση παρουσίασης
-- προστασία εγγραφής
-- ασφάλεια PowerPoint
-- ασφάλεια παρουσίασης
-- αφαίρεση κωδικού
-- αφαίρεση προστασίας
-- αφαίρεση κρυπτογράφησης
-- απενεργοποίηση κωδικού
-- απενεργοποίηση προστασίας
-- αφαίρεση προστασίας εγγραφής
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- .NET
-- C#
-- Aspose.Slides
-description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε με ευκολία παρουσιάσεις PowerPoint και OpenDocument προστατευμένες με κωδικό, χρησιμοποιώντας το Aspose.Slides για .NET. Διασφαλίστε τις παρουσιάσεις σας."
+  - παρουσίαση με προστασία κωδικού
+  - κωδικός ανοίγματος
+  - κρυπτογράφηση PowerPoint
+  - αποκρυπτογράφηση PowerPoint
+  - επικύρωση κωδικού παρουσίασης
+  - έλεγχος κωδικού παρουσίασης
+  - άνοιγμα κρυπτογραφημένης παρουσίασης
+  - αφαίρεση κρυπτογράφησης
+  - PowerPoint
+  - PPT
+  - PPTX
+  - παρουσίαση
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Κρυπτογραφήστε, εντοπίστε, επικυρώστε, ανοίξτε και αποκρυπτογραφήστε παρουσιάσεις PowerPoint PPT και PPTX με προστασία κωδικού στην C# με το Aspose.Slides για .NET."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Όταν προστατεύετε μια παρουσίαση με κωδικό πρόσβασης, αυτό σημαίνει ότι ορίζετε έναν κωδικό που επιβάλλει ορισμένους περιορισμούς στην παρουσίαση. Για να αφαιρέσετε αυτούς τους περιορισμούς, πρέπει να εισαχθεί ο κωδικός. Μια παρουσίαση που προστατεύεται με κωδικό θεωρείται κλειδωμένη παρουσίαση.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί μια παρουσίαση. Ο σωστός κωδικός πρόσβασης απαιτείται για τη φόρτωση και προβολή του περιεχομένου της παρουσίασης, έτσι αυτή η προστασία παρέχει εμπιστευτικότητα.
 
-Συνήθως, μπορείτε να ορίσετε έναν κωδικό για να επιβάλετε αυτούς τους περιορισμούς σε μια παρουσίαση:
+Ένας κωδικός πρόσβασης ανοίγματος διαφέρει από έναν κωδικό πρόσβασης προστασίας εγγραφής. Η προστασία εγγραφής περιορίζει την τροποποίηση, αλλά δεν κρυπτογραφεί το περιεχόμενο ή εμποδίζει τη φόρτωση της παρουσίασης. Για τη διαχείριση κωδικών πρόσβασης για την τροποποίηση παρουσιάσεων, δείτε [Προστασία Παρουσιάσεων κατά την εγγραφή](/slides/el/net/write-protected-presentation/).
 
-- **Τροποποίηση**
+Οι παρακάτω ροές εργασίας εφαρμόζονται τόσο σε παρουσιάσεις PPT όσο και PPTX. Τα παραδείγματα χρησιμοποιούν και τις δύο μορφές όταν η συμπεριφορά τους βάσει αρχείου και ροής είναι σημαντική.
 
-Αν θέλετε μόνο ορισμένοι χρήστες να τροποποιούν την παρουσίασή σας, μπορείτε να ορίσετε έναν περιορισμό τροποποίησης. Αυτός ο περιορισμός αποτρέπει τους ανθρώπους από το να τροποποιούν, να αλλάζουν ή να αντιγράφουν στοιχεία στην παρουσίασή σας, εκτός εάν παράσχουν τον κωδικό. Ωστόσο, ακόμη και χωρίς τον κωδικό, ένας χρήστης μπορεί ακόμη να έχει πρόσβαση και να ανοίξει το έγγραφό σας. Σε αυτή τη λειτουργία μόνο-ανάγνωσης, ο χρήστης μπορεί να δει το περιεχόμενο —συμπεριλαμβανομένων των υπερσυνδέσμων, των κινούμενων σχεδίων, των εφέ και άλλων στοιχείων— μέσα στην παρουσίασή σας, αλλά δεν μπορεί να αντιγράψει αντικείμενα ή να αποθηκεύσει την παρουσίαση.
+## **Κρυπτογράφηση Παρουσίας με Κωδικό Πρόσβασης Ανοίγματος**
 
-- **Άνοιγμα**
+Χρησιμοποιήστε το [IProtectionManager.Encrypt](https://reference.aspose.com/slides/el/net/aspose.slides/iprotectionmanager/encrypt/) για να ορίσετε έναν κωδικό πρόσβασης ανοίγματος. Στη συνέχεια, χρησιμοποιήστε το [IPresentation.Save](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentation/save/) για να αποθηκεύσετε την κρυπτογραφημένη παρουσίαση.
 
-Αν θέλετε μόνο ορισμένοι χρήστες να ανοίγουν την παρουσίασή σας, μπορείτε να ορίσετε έναν περιορισμό ανοίγματος. Αυτός ο περιορισμός αποτρέπει τους ανθρώπους ακόμη και από το να βλέπουν τα περιεχόμενα της παρουσίασής σας, εκτός εάν παράσχουν τον κωδικό. Τεχνικά, ο περιορισμός ανοίγματος εμποδίζει επίσης τους χρήστες από το να τροποποιούν τις παρουσιάσεις σας—αν οι άνθρωποι δεν μπορούν να ανοίξουν μία παρουσίαση, δεν μπορούν να την τροποποιήσουν ή να κάνουν αλλαγές.
+Το παρακάτω παράδειγμα κρυπτογραφεί μια παρουσίαση PPTX:
 
-**Σημείωση:** Όταν προστατεύετε με κωδικό πρόσβασης μια παρουσίαση ώστε να αποτρέψετε το άνοιγμα, το αρχείο παρουσίασης κρυπτογραφείται.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Προστασία με κωδικό πρόσβασης στο Aspose.Slides**
+using var presentation = new Presentation("pres.pptx");
 
-**Υποστηριζόμενες μορφές**
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+```
 
-Aspose.Slides υποστηρίζει κωδική προστασία, κρυπτογράφηση και παρόμοιες λειτουργίες για παρουσιάσεις σε αυτές τις μορφές:
+## **Φόρτωση Κρυπτογραφημένης Παρουσίας**
 
-- PPTX και PPT – παρουσιάσεις Microsoft PowerPoint
-- ODP – παρουσιάσεις OpenDocument
-- OTP – πρότυπα παρουσιάσεων OpenDocument
+Ορίστε το [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/) στον κωδικό πρόσβασης ανοίγματος και περάστε τις επιλογές στο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) κατά τη φόρτωση του αρχείου. Η φόρτωση αποτυγχάνει όταν απαιτείται κωδικός πρόσβασης ανοίγματος αλλά ο παρεχόμενος κωδικός λείπει ή είναι λανθασμένος.
 
-**Υποστηριζόμενες λειτουργίες**
+```csharp
+using Aspose.Slides;
 
-Το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε προστασία με κωδικό πρόσβασης σε παρουσιάσεις για να αποτρέψετε τροποποιήσεις με τους παρακάτω τρόπους:
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-- Κρυπτογράφηση μιας παρουσίασης
-- Ορισμός προστασίας εγγραφής σε μια παρουσίαση
+// Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
+```
 
-**Άλλες λειτουργίες**
+## **Αφαίρεση Κρυπτογράφησης από Παρουσίαση**
 
-Το Aspose.Slides σας επιτρέπει να εκτελέσετε πρόσθετες εργασίες που αφορούν προστασία με κωδικό πρόσβασης και κρυπτογράφηση με τους παρακάτω τρόπους:
+Φορτώστε την παρουσίαση με τον κωδικό πρόσβασης ανοίγματος, καλέστε το [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/el/net/aspose.slides/iprotectionmanager/removeencryption/), και αποθηκεύστε το αποτέλεσμα. Η αποθηκευμένη παρουσίαση μπορεί στη συνέχεια να φορτωθεί χωρίς κωδικό πρόσβασης.
 
-- Αποκρυπτογράφηση μιας παρουσίασης· άνοιγμα μιας κρυπτογραφημένης παρουσίασης
-- Αφαίρεση κρυπτογράφησης· απενεργοποίηση προστασίας με κωδικό
-- Αφαίρεση προστασίας εγγραφής από μια παρουσίαση
-- Ανάκτηση των ιδιοτήτων μιας κρυπτογραφημένης παρουσίασης
-- Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό πριν τη φόρτωση
-- Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη
-- Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Προστασία μιας παρουσίασης με κωδικό πρόσβασης**
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-Μπορείτε να κρυπτογραφήσετε μια παρουσίαση ορίζοντας έναν κωδικό. Στη συνέχεια, για να τροποποιήσετε την κλειδωμένη παρουσίαση, ένας χρήστης πρέπει να παράσχει τον κωδικό.
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
 
-Για να κρυπτογραφήσετε (ή να προστατεύσετε με κωδικό) μια παρουσίαση, χρησιμοποιήστε τη μέθοδο `Encrypt` από [ProtectionManager](https://reference.aspose.com/slides/el/net/aspose.slides/protectionmanager) για να ορίσετε έναν κωδικό. Πέρασμα του κωδικού στη μέθοδο `Encrypt`, έπειτα χρησιμοποιήστε τη μέθοδο `Save` για να αποθηκεύσετε την πλέον κρυπτογραφημένη παρουσίαση.
+## **Επικύρωση Κωδικού Πρόσβασης Ανοίγματος Πριν τη Φόρτωση**
 
-Αυτό το δείγμα κώδικα δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση:
+Χρησιμοποιήστε το [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationfactory/getpresentationinfo/) για να αποκτήσετε το [IPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/) χωρίς τη δημιουργία πλήρους παρουσιαστικού αντικειμένου. Ελέγξτε το [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/ispasswordprotected/) πριν ζητήσετε ή επαληθεύσετε έναν κωδικό πρόσβασης. Όταν υπάρχει προστασία, επικυρώστε την παρεχόμενη τιμή με το [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/checkpassword/).
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+### **Ροή Εργασίας με Διαδρομή Αρχείου**
+
+Το παρακάτω παράδειγμα επικυρώνει έναν κωδικό πρόσβασης ανοίγματος για ένα αρχείο PPTX, περνά την επικυρωμένη τιμή στο [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/), και στη συνέχεια φορτώνει την πλήρη παρουσίαση:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Ορισμός προστασίας εγγραφής σε μια παρουσίαση** 
+### **Ροή Εργασίας με Ροή**
 
-Μπορείτε να προσθέσετε μια ένδειξη που δηλώνει "Μην τροποποιήσετε" σε μια παρουσίαση. Αυτό ενημερώνει τους χρήστες ότι δεν θέλετε να κάνουν αλλαγές στην παρουσίαση.
+Η υπερφόρτωση ροής του [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationfactory/getpresentationinfo/) παρέχει την ίδια ροή εργασίας. Επαναρυθμίστε τη θέση μιας ροής με δυνατότητα αναζήτησης πριν τη φόρτωση της πλήρης παρουσίασης από αυτήν τη ροή.
 
-**Σημείωση:** Η διαδικασία προστασίας εγγραφής δεν κρυπτογραφεί την παρουσίαση. Συνεπώς, οι χρήστες—αν το επιλέξουν—μπορούν να τροποποιήσουν την παρουσίαση, αλλά για να σώσουν τις αλλαγές, πρέπει να την αποθηκεύσουν με διαφορετικό όνομα.
+Το παρακάτω παράδειγμα χρησιμοποιεί ένα αρχείο PPT:
 
-Για να ορίσετε προστασία εγγραφής, χρησιμοποιήστε τη μέθοδο `SetWriteProtection`. Αυτό το δείγμα κώδικα δείχνει πώς να ορίσετε προστασία εγγραφής σε μια παρουσίαση:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Φόρτωση κρυπτογραφημένης παρουσίασης**
+### **Τιμές Επιστροφής CheckPassword**
 
-Το Aspose.Slides σας επιτρέπει να φορτώσετε μια κρυπτογραφημένη παρουσίαση παραδίδοντας τον σωστό κωδικό. Αυτό το δείγμα κώδικα δείχνει πώς να φορτώσετε μια κρυπτογραφημένη παρουσίαση:
+Το [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/checkpassword/) επιστρέφει `true` μόνο όταν η παρουσίαση έχει κωδικό πρόσβασης ανοίγματος και ο παρεχόμενος κωδικός είναι σωστός. Επιστρέφει `false` σε κάθε μία από τις ακόλουθες περιπτώσεις:
 
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // Δουλέψτε με την αποκρυπτογραφημένη παρουσίαση.
-}
+- Ο κωδικός πρόσβασης είναι λανθασμένος.
+- Η παρουσίαση δεν διαθέτει κωδικό πρόσβασης ανοίγματος.
+- Ο παρεχόμενος κωδικός πρόσβασης είναι `null` ή κενός.
+
+Η συμπεριφορά είναι η ίδια για παρουσιάσεις PPT και PPTX.
+
+## **Έλεγχος Εάν μια Φορτωμένη Παρουσίαση είναι Κρυπτογραφημένη**
+
+Αφού φορτώσετε μια παρουσίαση με τον σωστό κωδικό πρόσβασης, ελέγξτε το [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/el/net/aspose.slides/iprotectionmanager/isencrypted/) για να επιβεβαιώσετε ότι η πηγή της παρουσίασης ήταν κρυπτογραφημένη. Για να εντοπίσετε την προστασία με κωδικό πρόσβασης ανοίγματος πριν τη φόρτωση, χρησιμοποιήστε το `IPresentationInfo.IsPasswordProtected` όπως φαίνεται παραπάνω.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **Αφαίρεση κρυπτογράφησης από μια παρουσίαση**
+## **Συστάσεις Ασφάλειας**
 
-Μπορείτε να αφαιρέσετε την κρυπτογράφηση ή την προστασία με κωδικό από μια παρουσίαση, επιτρέποντας στους χρήστες να έχουν πρόσβαση ή να τη τροποποιούν χωρίς περιορισμούς.
-
-Για να αφαιρέσετε την κρυπτογράφηση ή την προστασία με κωδικό, καλέστε τη μέθοδο [RemoveEncryption](https://reference.aspose.com/slides/el/net/aspose.slides/protectionmanager/methods/removeencryption). Αυτό το δείγμα κώδικα δείχνει πώς να αφαιρέσετε την κρυπτογράφηση από μια παρουσίαση:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Αφαίρεση προστασίας εγγραφής από μια παρουσίαση**
-
-Μπορείτε να χρησιμοποιήσετε το Aspose.Slides για να αφαιρέσετε την προστασία εγγραφής από ένα αρχείο παρουσίασης. Με αυτόν τον τρόπο, οι χρήστες μπορούν να το τροποποιήσουν όπως θέλουν—και δεν θα λαμβάνουν προειδοποιήσεις κατά την εκτέλεση τέτοιων εργασιών.
-
-Μπορείτε να αφαιρέσετε την προστασία εγγραφής χρησιμοποιώντας τη μέθοδο [RemoveWriteProtection](https://reference.aspose.com/slides/el/net/aspose.slides/protectionmanager/methods/removewriteprotection). Αυτό το δείγμα κώδικα δείχνει πώς να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Ανάκτηση ιδιοτήτων κρυπτογραφημένης παρουσίασης**
-
-Συνήθως, οι χρήστες δυσκολεύονται να ανακτήσουν τις ιδιότητες του εγγράφου μιας κρυπτογραφημένης ή προστατευμένης με κωδικό παρουσίασης. Ωστόσο, το Aspose.Slides προσφέρει έναν μηχανισμό που σας επιτρέπει να προστατεύσετε με κωδικό μια παρουσίαση ενώ διατηρείτε τη δυνατότητα των χρηστών να έχουν πρόσβαση στις ιδιότητές της.
-
-**Σημείωση:** Από προεπιλογή, όταν το Aspose.Slides κρυπτογραφεί μια παρουσίαση, οι ιδιότητες εγγράφου της παρουσίασης προστατεύονται επίσης με κωδικό. Εάν χρειάζεται να κάνετε τις ιδιότητες εγγράφου προσβάσιμες ακόμη και μετά την κρυπτογράφηση, το Aspose.Slides σας επιτρέπει να το κάνετε ακριβώς αυτό.
-
-Αν θέλετε οι χρήστες να διατηρήσουν τη δυνατότητα πρόσβασης στις ιδιότητες μιας κρυπτογραφημένης παρουσίασης, μπορείτε να ορίσετε την ιδιότητα [EncryptDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) σε `true`. Αυτό το δείγμα κώδικα δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση διασφαλίζοντας ταυτόχρονα την πρόσβαση των χρηστών στις ιδιότητες εγγράφου της:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
-}
-```
-
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό**
-
-Πριν φορτώσετε μια παρουσίαση, ίσως θέλετε να ελέγξετε ότι δεν έχει προστατευτεί με κωδικό. Αυτό σας βοηθά να αποφύγετε σφάλματα και παρόμοια προβλήματα που προκύπτουν όταν μια παρουσίαση προστατευμένη με κωδικό φορτώνуется χωρίς τον σωστό κωδικό.
-
-Αυτός ο κώδικας C# δείχνει πώς να εξετάσετε μια παρουσίαση για να δείτε αν είναι προστατευμένη με κωδικό χωρίς να την φορτώσετε πραγματικά:
-
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
-
-## **Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη**
-
-Το Aspose.Slides σας επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη. Για να εκτελέσετε αυτήν την εργασία, μπορείτε να χρησιμοποιήσετε την ιδιότητα [IsEncrypted](https://reference.aspose.com/slides/el/net/aspose.slides/protectionmanager/properties/isencrypted), η οποία επιστρέφει `true` αν η παρουσίαση είναι κρυπτογραφημένη ή `false` αν δεν είναι.
-
-Αυτό το δείγμα κώδικα δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
-}
-```
-
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη εγγραφής**
-
-Το Aspose.Slides σας επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη εγγραφής. Για να εκτελέσετε αυτήν την εργασία, μπορείτε να χρησιμοποιήσετε την ιδιότητα [IsWriteProtected](https://reference.aspose.com/slides/el/net/aspose.slides/protectionmanager/properties/iswriteprotected), η οποία επιστρέφει `true` αν η παρουσίαση είναι προστατευμένη εγγραφής ή `false` αν δεν είναι.
-
-Αυτό το δείγμα κώδικα δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη εγγραφής:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
-```
-
-## **Επαλήθευση χρήσης κωδικού στην παρουσίαση**
-
-Ίσως θέλετε να ελέγξετε και να επιβεβαιώσετε ότι ένας συγκεκριμένος κωδικός έχει χρησιμοποιηθεί για να προστατεύσει ένα έγγραφο παρουσίασης. Το Aspose.Slides παρέχει τα μέσα για να επικυρώσετε έναν κωδικό.
-
-Αυτό το δείγμα κώδικα δείχνει πώς να επικυρώσετε έναν κωδικό:
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // Ελέγξτε αν ο κωδικός ταιριάζει.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-Επιστρέφει `true` εάν η παρουσίαση έχει κρυπτογραφηθεί με τον συγκεκριμένο κωδικό· διαφορετικά, επιστρέφει `false`.
-
-{{% alert color="primary" title="Δείτε επίσης" %}} 
-- [Ψηφιακή υπογραφή στο PowerPoint](/slides/el/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+Μην καταγράφετε τους κωδικούς πρόσβασης ανοίγματος ούτε τους συμπεριλαμβάνετε σε διαγνωστικά μηνύματα. Αποφύγετε περιττές επαναλαμβανόμενες προσπάθειες επικύρωσης, κρατώντας τους κωδικούς πρόσβασης στη μνήμη μόνο όσο χρειάζεται, και επαναχρησιμοποιήστε ένα επιτυχημένο αποτέλεσμα επικύρωσης κατά τη άμεση φόρτωση της παρουσίασης.
 {{% /alert %}}
 
-## **Προστασία παρουσίασης με κωδικό πρόσβασης online**
+## **Προστασία Παρουσίας με Κωδικό Πρόσβασης Online**
 
-1. Μεταβείτε στη σελίδα μας [**Aspose.Slides Lock**](https://products.aspose.app/slides/el/lock).
-1. Κάντε κλικ στο **Αποθέστε ή ανεβάστε τα αρχεία σας**.
-1. Επιλέξτε το αρχείο που θέλετε να προστατέψετε με κωδικό στον υπολογιστή σας.
-1. Εισάγετε τον προτιμώμενο κωδικό σας για προστασία επεξεργασίας και τον προτιμώμενο κωδικό για προστασία προβολής.
-1. Αν θέλετε οι χρήστες να δουν την παρουσίασή σας ως τελική έκδοση, σημειώστε το πλαίσιο **Mark as final**.
-1. Κάντε κλικ στο **PROTECT NOW.**
-1. Κάντε κλικ στο **DOWNLOAD NOW.**
+1. Ανοίξτε την εφαρμογή [Aspose.Slides Lock](https://products.aspose.app/slides/el/lock).
+1. Επιλέξτε ή ανεβάστε την παρουσίαση.
+1. Εισαγάγετε έναν κωδικό πρόσβασης για προστασία προβολής.
+1. Προαιρετικά, εισαγάγετε έναν ξεχωριστό κωδικό πρόσβασης για προστασία επεξεργασίας.
+1. Εφαρμόστε την προστασία και κατεβάστε το προκύπτον αρχείο.
 
-![Προστασία κωδικού PowerPoint παρουσιάσεων](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Προστασία Παρουσιάσεων κατά την εγγραφή](/slides/el/net/write-protected-presentation/)
+- [Ψηφιακή Υπογραφή στο PowerPoint](/slides/el/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Ποια μέθοδοι κρυπτογράφησης υποστηρίζονται από το Aspose.Slides;**
+**Ποια είναι η διαφορά μεταξύ κωδικού πρόσβασης ανοίγματος και κωδικού πρόσβασης προστασίας εγγραφής;**
 
-Το Aspose.Slides υποστηρίζει σύγχρονες μεθόδους κρυπτογράφησης, συμπεριλαμβανομένων αλγορίθμων βασισμένων στο AES, εξασφαλίζοντας υψηλό επίπεδο ασφάλειας δεδομένων για τις παρουσιάσεις σας.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί την παρουσίαση και απαιτείται για τη φόρτωση του περιεχομένου της. Ένας κωδικός πρόσβασης προστασίας εγγραφής περιορίζει την τροποποίηση χωρίς να κρυπτογραφεί το περιεχόμενο.
 
-**Τι συμβαίνει εάν εισαχθεί εσφαλμένος κωδικός όταν προσπαθείτε να ανοίξετε μια παρουσίαση;**
+**Μπορώ να επικυρώσω έναν κωδικό πρόσβασης ανοίγματος χωρίς τη φόρτωση όλων των διαφανειών;**
 
-Εκτοξεύεται μια εξαίρεση εάν χρησιμοποιηθεί εσφαλμένος κωδικός, ειδοποιώντας ότι η πρόσβαση στην παρουσίαση αρνείται. Αυτό βοηθά στην πρόληψη μη εξουσιοδοτημένης πρόσβασης και προστατεύει το περιεχόμενο της παρουσίασης.
+Ναι. Αποκτήστε πληροφορίες παρουσίασης, ελέγξτε εάν υπάρχει προστασία με κωδικό πρόσβασης ανοίγματος, και επικυρώστε τον κωδικό πριν δημιουργήσετε ένα πλήρες αντικείμενο παρουσίασης.
 
-**Υπάρχουν επιπτώσεις στην απόδοση κατά την εργασία με παρουσιάσεις προστατευμένες με κωδικό;**
+**Υποστηρίζουν οι ροές ελέγχου κωδικού πρόσβασης τόσο PPT όσο και PPTX;**
 
-Η διαδικασία κρυπτογράφησης και αποκρυπτογράφησης μπορεί να προκαλέσει μικρή επιβάρυνση κατά τις λειτουργίες ανοίγματος και αποθήκευσης. Στις περισσότερες περιπτώσεις, αυτή η επίδραση στην απόδοση είναι ελάχιστη και δεν επηρεάζει σημαντικά το συνολικό χρόνο επεξεργασίας των εργασιών της παρουσίασής σας.
+Ναι. Η ανίχνευση και επικύρωση κωδικού πρόσβασης βάσει διαδρομής αρχείου και ροής συμπεριφέρονται με τον ίδιο τρόπο για παρουσιάσεις PPT και PPTX.

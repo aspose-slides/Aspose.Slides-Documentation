@@ -1,17 +1,17 @@
 ---
 title: Prezentációs információk lekérése és frissítése JavaScriptben
-linktitle: Prezentációs információ
+linktitle: Prezentációs információk
 type: docs
 weight: 30
 url: /hu/nodejs-java/examine-presentation/
 keywords:
-- prezentáció formátuma
-- prezentáció tulajdonságai
-- dokumentum tulajdonságai
+- prezentáció formátum
+- prezentáció tulajdonságok
+- dokumentumtulajdonságok
 - tulajdonságok lekérése
 - tulajdonságok olvasása
 - tulajdonságok módosítása
-- tulajdonságok módosítása
+- tulajdonságok átalakítása
 - tulajdonságok frissítése
 - PPTX vizsgálata
 - PPT vizsgálata
@@ -22,21 +22,24 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Fedezze fel a diák, a felépítés és a metaadatok részleteit PowerPoint és OpenDocument prezentációkban JavaScript használatával a gyorsabb betekintés és az okosabb tartalomelemzés érdekében."
+description: "Fedezze fel a diák, a struktúra és a metaadatok PowerPoint és OpenDocument prezentációkban JavaScript segítségével a gyorsabb betekintés és az intelligensebb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet megvizsgálni a prezentáció adatait az Aspose.Slides segítségével. Elmagyarázza, hogyan határozható meg egy prezentáció aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók a dokumentumtulajdonságai, és hogyan frissíthetők ezek a tulajdonságok szükség esetén.
+Ez a cikk bemutatja, hogyan lehet megvizsgálni a prezentáció információit az Aspose.Slides-ban. Ismerteti, hogyan határozható meg egy prezentáció aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók a dokumentum tulajdonságai, és hogyan frissíthetők ezek a tulajdonságok szükség esetén.
 
-A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties/) API‑kon alapulnak, és tipikus műveleteket mutatnak be a prezentáció metaadatainak kezelésére.
+A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties/) API-kon alapulnak, és bemutatják a prezentáció metaadataival való munkavégzés tipikus műveleteit.
 
-## **Prezentáció formátumának ellenőrzése**
+## **Ellenőrizze a prezentáció formátumát**
 
-Mielőtt dolgoznál egy prezentáción, szeretnéd megtudni, hogy jelenleg milyen formátumban (PPT, PPTX, ODP és egyéb) van a fájl.
+Mielőtt dolgozna egy prezentáción, előfordulhat, hogy meg szeretné tudni, milyen formátumban (PPT, PPTX, ODP és egyebek) van a prezentáció jelenleg.
 
-A prezentáció formátuma ellenőrizhető a prezentáció betöltése nélkül. Lásd ezt a JavaScript kódot:
+A prezentáció formátumát a prezentáció betöltése nélkül is ellenőrizheti. Lásd ezt a JavaScript kódot:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -45,11 +48,14 @@ var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(
 console.log(info3.getLoadFormat());// ODP
 ```
 
-## **Prezentáció tulajdonságainak lekérése**
+## **Szerezze meg a prezentáció tulajdonságait**
 
 Ez a JavaScript kód megmutatja, hogyan lehet lekérni a prezentáció tulajdonságait (információk a prezentációról):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -58,19 +64,23 @@ console.log(props.getTitle());
 // ..
 ```
 
-Érdemes megtekinteni a [DocumentProperties osztályban található tulajdonságokat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Megtekintheti a [DocumentProperties osztályban lévő tulajdonságokat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--).
 
-## **Prezentáció tulajdonságainak frissítése**
+## **Frissítse a prezentáció tulajdonságait**
 
 Az Aspose.Slides biztosítja a [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) metódust, amely lehetővé teszi a prezentáció tulajdonságainak módosítását.
 
-Tegyük fel, hogy van egy PowerPoint prezentációnk a lenti dokumentumtulajdonságokkal.
+Tegyük fel, hogy van egy PowerPoint prezentáció a lenti dokumentumtulajdonságokkal.
 
 ![A PowerPoint prezentáció eredeti dokumentumtulajdonságai](input_properties.png)
 
-Ez a kódrészlet bemutatja, hogyan szerkeszthetünk néhány prezentációs tulajdonságot:
+Ez a kódrészlet megmutatja, hogyan szerkeszthet néhány prezentáció tulajdonságot:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -89,31 +99,29 @@ A dokumentumtulajdonságok módosításának eredménye alább látható.
 
 ## **Hasznos hivatkozások**
 
-További információkért a prezentációról és annak biztonsági attribútumairól hasznosak lehetnek a következő hivatkozások:
+A prezentációról és annak biztonsági attribútumairól szóló további információkért a következő hivatkozások lehetnek hasznosak:
 
-- [Annak ellenőrzése, hogy egy prezentáció titkosított-e](https://docs.aspose.com/slides/hu/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Annak ellenőrzése, hogy egy prezentáció írásvédett (csak olvasható)-e](https://docs.aspose.com/slides/hu/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Annak ellenőrzése, hogy egy prezentáció jelszóval védett-e betöltés előtt](https://docs.aspose.com/slides/hu/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [A prezentáció védelméhez használt jelszó megerősítése](https://docs.aspose.com/slides/hu/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Jelszóval védett prezentációk](/slides/hu/nodejs-java/password-protected-presentation/)
+- [Írásvédett prezentációk](/slides/hu/nodejs-java/write-protected-presentation/)
 
 ## **GYIK**
 
-**Hogyan ellenőrizhetem, hogy a betűtípusok beágyazottak-e, és melyek azok?**
+**Hogyan ellenőrizhetem, hogy a betűtípusok be vannak-e ágyazva, és melyek azok?**
 
-Keress a prezentáció szintjén [beágyazott betűtípus információkat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/), majd hasonlítsd össze ezeket a [tartalom által ténylegesen használt betűtípusok](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsmanager/getfonts/) halmazával, hogy azonosítsd, mely betűtípusok kritikusak a megjelenítéshez.
+Keresse a [beágyazott betűtípusok információját](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) a prezentáció szintjén, majd hasonlítsa össze ezeket a bejegyzéseket a [tartalomban ténylegesen használt betűtípusok](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsmanager/getfonts/) halmazával, hogy azonosítsa a megjelenítéshez kritikus betűtípusokat.
 
-**Hogyan tudom gyorsan megállapítani, hogy a fájl rejtett diákot tartalmaz-e, és ha igen, hányat?**
+**Hogyan tudom gyorsan megmondani, hogy a fájl tartalmaz-e rejtett dia(k) és hány darab?**
 
-Iterálj a [dia gyűjteményen](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidecollection/), és ellenőrizd minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/gethidden/) .
+Iteráljon a [dia gyűjteményen](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidecollection/), és vizsgálja meg minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/gethidden/).
 
-**Felismerhető-e, hogy egyedi dia méret és orientáció van-e használatban, és eltérnek-e az alapértelmezettől?**
+**Felderíthetem-e, hogy egyedi dia méret és tájolás van-e használatban, és eltérnek-e az alapértelmezettektől?**
 
-Igen. Hasonlítsd össze a jelenlegi [dia méretet](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getslidesize/) és orientációt a szabványos előbeállításokkal; ez segít előre jelezni a nyomtatás és export viselkedését.
+Igen. Hasonlítsa össze a jelenlegi [dia méretet](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getslidesize/) és tájolást a szabványos előbeállításokkal; ez segít előre jelezni a nyomtatásra és exportálásra vonatkozó viselkedést.
 
-**Van gyors módja annak, hogy megtudjam, a diagramok hivatkoznak-e külső adatforrásokra?**
+**Van gyors mód arra, hogy megtudjam, a diagramok külső adatforrásokra hivatkoznak-e?**
 
-Igen. Járd be az összes [diagramot](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chart/), ellenőrizd azok [adatforrását](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), és jegyezd fel, hogy az adat belső vagy hivatkozáson alapul, beleértve a hibás hivatkozásokat is.
+Igen. Járja be az összes [diagramot](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chart/), ellenőrizze azok [adatforrását](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), és vegye figyelembe, hogy az adatok belsőek vagy hivatkozáson alapulnak, beleértve a hibás hivatkozásokat is.
 
-**Hogyan értékeljem a „nehéz” diákot, amelyek lassíthatják a megjelenítést vagy a PDF exportot?**
+**Hogyan értékelhetem a 'nehéz' diákat, amelyek lassíthatják a megjelenítést vagy a PDF exportálást?**
 
-Minden dia esetén számold meg az objektumok számát, keresd a nagy képeket, átláthatóságot, árnyékokat, animációkat és multimédiát; adj hozzávetőleges bonyolultsági pontszámot, hogy jelöld a potenciális teljesítményproblémákat.
+Minden diánál számolja az objektumok mennyiségét, és keressen nagy méretű képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon hozzávetőleges összetettségi pontszámot, hogy jelölje a potenciális teljesítményproblémákat.

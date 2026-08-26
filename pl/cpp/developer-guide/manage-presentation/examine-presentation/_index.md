@@ -13,29 +13,36 @@ keywords:
 - zmiana właściwości
 - modyfikacja właściwości
 - aktualizacja właściwości
-- analizowanie PPTX
-- analizowanie PPT
-- analizowanie ODP
+- analiza PPTX
+- analiza PPT
+- analiza ODP
 - PowerPoint
 - OpenDocument
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Przeglądaj slajdy, strukturę i metadane w prezentacjach PowerPoint i OpenDocument przy użyciu C++ dla szybszych wglądów i inteligentnych audytów treści."
+description: "Eksploruj slajdy, strukturę i metadane w prezentacjach PowerPoint i OpenDocument przy użyciu C++, aby uzyskać szybszy wgląd i inteligentniejsze audyty treści."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak sprawdzić informacje o prezentacji w Aspose.Slides. Wyjaśnia, jak określić bieżący format prezentacji bez ładowania całego pliku, odczytać jej właściwości dokumentu i zaktualizować je w razie potrzeby.
+Ten artykuł pokazuje, jak sprawdzić informacje o prezentacji w Aspose.Slides. Wyjaśnia, jak określić aktualny format prezentacji bez ładowania całego pliku, odczytać jej właściwości dokumentu oraz zaktualizować te właściwości w razie potrzeby.
 
 Przykłady oparte są na API [PresentationInfo](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentationinfo/) i [DocumentProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/documentproperties/) oraz demonstrują typowe operacje związane z metadanymi prezentacji.
 
 ## **Sprawdź format prezentacji**
 
-Zanim rozpoczniesz pracę nad prezentacją, możesz chcieć dowiedzieć się, w jakim formacie (PPT, PPTX, ODP i inne) znajduje się prezentacja w danym momencie.
+Zanim zaczniesz pracę nad prezentacją, możesz chcieć dowiedzieć się, w jakim formacie (PPT, PPTX, ODP i inne) znajduje się ona w danym momencie.
 
-Możesz sprawdzić format prezentacji bez jej ładowania. Zobacz poniższy kod C++:
+Możesz sprawdzić format prezentacji bez jej ładowania. Zobacz ten kod C++:
 
 ``` cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
 Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
@@ -51,9 +58,17 @@ Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 
 ## **Pobierz właściwości prezentacji**
 
-Ten kod C++ pokazuje, jak pobrać właściwości prezentacji (informacje o prezentacji):
+Ten kod C++ pokazuje, jak uzyskać właściwości prezentacji (informacje o prezentacji):
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
@@ -64,7 +79,7 @@ Console::WriteLine(props->get_Title());
 
 ## **Zaktualizuj właściwości prezentacji**
 
-Aspose.Slides udostępnia metodę [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentationinfo/updatedocumentproperties/), która pozwala wprowadzać zmiany w właściwościach prezentacji.
+Aspose.Slides udostępnia metodę [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentationinfo/updatedocumentproperties/), która pozwala wprowadzić zmiany w właściwościach prezentacji.
 
 Załóżmy, że mamy prezentację PowerPoint z właściwościami dokumentu pokazanymi poniżej.
 
@@ -73,6 +88,13 @@ Załóżmy, że mamy prezentację PowerPoint z właściwościami dokumentu pokaz
 Ten przykład kodu pokazuje, jak edytować niektóre właściwości prezentacji:
 
 ```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
@@ -91,31 +113,29 @@ Wyniki zmiany właściwości dokumentu są pokazane poniżej.
 
 ## **Przydatne linki**
 
-Aby uzyskać więcej informacji o prezentacji i jej atrybutach bezpieczeństwa, przydatne mogą być następujące linki:
+Aby uzyskać więcej informacji o prezentacji i jej atrybutach zabezpieczeń, przydatne mogą być następujące linki:
 
-- [Sprawdzanie, czy prezentacja jest zaszyfrowana](https://docs.aspose.com/slides/pl/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Sprawdzanie, czy prezentacja jest chroniona przed zapisem (tylko do odczytu)](https://docs.aspose.com/slides/pl/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Sprawdzanie, czy prezentacja jest chroniona hasłem przed jej załadowaniem](https://docs.aspose.com/slides/pl/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Potwierdzanie hasła użytego do ochrony prezentacji](https://docs.aspose.com/slides/pl/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Prezentacje chronione hasłem](/slides/pl/cpp/password-protected-presentation/)
+- [Prezentacje chronione przed zapisem](/slides/pl/cpp/write-protected-presentation/)
 
 ## **FAQ**
 
 **Jak mogę sprawdzić, czy czcionki są osadzone i które to są?**
 
-Poszukaj [informacji o osadzonych czcionkach](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getembeddedfonts/) na poziomie prezentacji, a następnie porównaj te wpisy z zestawem [czcionek faktycznie używanych w treści](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getfonts/), aby zidentyfikować, które czcionki są kluczowe dla renderowania.
+Poszukaj informacji o [embedded-font](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getembeddedfonts/) na poziomie prezentacji, a następnie porównaj te wpisy z zestawem [czcionek faktycznie używanych w treści](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/getfonts/), aby określić, które czcionki są kluczowe dla renderowania.
 
-**Jak szybko określić, czy plik zawiera ukryte slajdy i ile ich jest?**
+**Jak szybko stwierdzić, czy plik zawiera ukryte slajdy i ile ich jest?**
 
-Iteruj przez [kolekcję slajdów](https://reference.aspose.com/slides/pl/cpp/aspose.slides/slidecollection/) i sprawdzaj [flagi widoczności](https://reference.aspose.com/slides/pl/cpp/aspose.slides/slide/get_hidden/) każdego slajdu.
+Iteruj po [kolekcji slajdów](https://reference.aspose.com/slides/pl/cpp/aspose.slides/slidecollection/) i sprawdzaj flagę [widoczności każdego slajdu](https://reference.aspose.com/slides/pl/cpp/aspose.slides/slide/get_hidden/).
 
-**Czy mogę wykryć, czy użyto niestandardowego rozmiaru i orientacji slajdów oraz czy różnią się od domyślnych?**
+**Czy mogę wykryć, czy użyto niestandardowego rozmiaru i orientacji slajdu oraz czy różnią się od domyślnych?**
 
-Tak. Porównaj bieżący [rozmiar i orientację slajdu](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_slidesize/) ze standardowymi ustawieniami; pomaga to przewidzieć zachowanie przy drukowaniu i eksporcie.
+Tak. Porównaj bieżący [rozmiar i orientację slajdu](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_slidesize/) ze standardowymi ustawieniami; pomoże to przewidzieć zachowanie przy drukowaniu i eksporcie.
 
-**Czy istnieje szybki sposób, aby zobaczyć, czy wykresy odwołują się do zewnętrznych źródeł danych?**
+**Czy istnieje szybki sposób sprawdzenia, czy wykresy odwołują się do zewnętrznych źródeł danych?**
 
-Tak. Przejrzyj wszystkie [wykresy](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chart/), sprawdź ich [źródło danych](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) i zanotuj, czy dane są wewnętrzne, czy oparte na linkach, w tym ewentualne uszkodzone linki.
+Tak. Przejdź przez wszystkie [wykresy](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chart/), sprawdź ich [źródło danych](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) i zanotuj, czy dane są wewnętrzne, czy oparte na linku, włączając ewentualne zerwane linki.
 
-**Jak ocenić „ciężkie” slajdy, które mogą spowolnić renderowanie lub eksport do PDF?**
+**Jak mogę ocenić „ciężkie” slajdy, które mogą spowalniać renderowanie lub eksport do PDF?**
 
-Dla każdego slajdu policz liczbę obiektów i poszukaj dużych obrazów, przezroczystości, cieni, animacji oraz multimediów; przydziel przybliżoną ocenę złożoności, aby oznaczyć potencjalne wąskie gardła wydajności.
+Dla każdego slajdu zlicz liczbę obiektów i szukaj dużych obrazów, przezroczystości, cieni, animacji oraz multimediów; przyznaj przybliżoną ocenę złożoności, aby zaznaczyć potencjalne wąskie gardła wydajności.

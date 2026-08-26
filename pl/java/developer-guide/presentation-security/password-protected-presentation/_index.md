@@ -1,264 +1,228 @@
 ---
-title: Zabezpiecz prezentacje hasłami w Javie
+title: Zabezpieczanie prezentacji hasłem w Javie
 linktitle: Ochrona hasłem
 type: docs
 weight: 20
 url: /pl/java/password-protected-presentation/
 keywords:
-- zablokuj PowerPoint
-- zablokuj prezentację
-- odblokuj PowerPoint
-- odblokuj prezentację
-- zabezpiecz PowerPoint
-- zabezpiecz prezentację
-- ustaw hasło
-- dodaj hasło
-- zaszyfruj PowerPoint
-- zaszyfruj prezentację
-- odszyfruj PowerPoint
-- odszyfruj prezentację
-- ochrona przed zapisem
-- bezpieczeństwo PowerPoint
-- bezpieczeństwo prezentacji
-- usuń hasło
-- usuń ochronę
-- usuń szyfrowanie
-- wyłącz hasło
-- wyłącz ochronę
-- usuń ochronę przed zapisem
+- prezentacja zabezpieczona hasłem
+- hasło otwierające
+- szyfrowanie PowerPoint
+- odszyfrowywanie PowerPoint
+- walidacja hasła prezentacji
+- sprawdzanie hasła prezentacji
+- otwieranie zaszyfrowanej prezentacji
+- usuwanie szyfrowania
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak łatwo blokować i odblokowywać prezentacje PowerPoint i OpenDocument zabezpieczone hasłem przy użyciu Aspose.Slides dla Javy. Zabezpiecz swoje prezentacje."
+description: "Szyfruj, wykrywaj, weryfikuj, otwieraj i odszyfrowuj prezentacje PowerPoint PPT i PPTX zabezpieczone hasłem w języku Java przy użyciu Aspose.Slides."
 ---
-## **Wstęp**
+## **Przegląd**
 
-Gdy zabezpieczasz prezentację hasłem, oznacza to ustawienie hasła, które egzekwuje określone ograniczenia na prezentacji. Aby usunąć te ograniczenia, należy wprowadzić hasło. Prezentacja zabezpieczona hasłem jest uważana za zablokowaną prezentację.
+Hasło otwierające szyfruje prezentację. Poprawne hasło jest wymagane do załadowania i wyświetlenia zawartości prezentacji, więc ta ochrona zapewnia poufność.
 
-Zazwyczaj możesz ustawić hasło, aby wymusić te ograniczenia na prezentacji:
+Hasło otwierające różni się od hasła ochrony przed zapisem. Ochrona przed zapisem ogranicza modyfikację, ale nie szyfruje zawartości ani nie uniemożliwia załadowania prezentacji. Aby zarządzać hasłami służącymi do modyfikacji prezentacji, zobacz [Write-Protect Presentations](/slides/pl/java/write-protected-presentation/).
 
-- **Modyfikacja**
+Poniższe przepływy pracy mają zastosowanie zarówno do prezentacji PPT, jak i PPTX. Przykłady używają obu formatów, gdy ich zachowanie oparte na plikach i strumieniach ma znaczenie.
 
-Jeśli chcesz, aby tylko określeni użytkownicy mogli modyfikować twoją prezentację, możesz ustawić ograniczenie modyfikacji. Ograniczenie to zapobiega modyfikowaniu, zmianie lub kopiowaniu elementów w prezentacji, chyba że podadzą hasło.  
+## **Szyfrowanie prezentacji przy użyciu hasła otwierającego**
 
-Jednakże, nawet bez hasła, użytkownik nadal będzie mógł uzyskać dostęp i otworzyć dokument. W tym trybie tylko do odczytu użytkownik może przeglądać zawartość — w tym hiperłącza, animacje, efekty i inne elementy — w prezentacji, ale nie może kopiować elementów ani zapisać prezentacji.
+Użyj [IProtectionManager.encrypt](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) aby przypisać hasło otwierające. Następnie użyj [IPresentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) aby zapisać zaszyfrowaną prezentację.
 
-- **Otwieranie**
-
-Jeśli chcesz, aby tylko określeni użytkownicy mogli otworzyć twoją prezentację, możesz ustawić ograniczenie otwierania. Ograniczenie to uniemożliwia nawet podglądanie zawartości prezentacji, chyba że podadzą hasło.  
-
-Technicznie, ograniczenie otwierania również zapobiega modyfikacji prezentacji — jeśli użytkownicy nie mogą otworzyć prezentacji, nie mogą jej modyfikować ani wprowadzać zmian.
-
-**Uwaga:** Gdy zabezpieczasz prezentację hasłem, aby uniemożliwić otwieranie, plik prezentacji staje się zaszyfrowany.
-
-## **Ochrona hasłem w Aspose.Slides**
-**Obsługiwane formaty**
-
-Aspose.Slides obsługuje ochronę hasłem, szyfrowanie i podobne operacje dla prezentacji w następujących formatach: 
-
-- PPTX i PPT – Microsoft PowerPoint Presentation 
-- ODP – Prezentacja OpenDocument 
-- OTP – Szablon prezentacji OpenDocument 
-
-**Obsługiwane operacje**
-
-Aspose.Slides pozwala używać ochrony hasłem w prezentacjach, aby zapobiegać modyfikacjom w następujący sposób:
-
-- Szyfrowanie prezentacji
-- Ustawienie ochrony przed zapisem w prezentacji
-
-**Inne operacje**
-
-Aspose.Slides pozwala wykonywać inne zadania związane z ochroną hasłem i szyfrowaniem w następujący sposób:
-
-- Deszyfrowanie prezentacji; otwieranie zaszyfrowanej prezentacji
-- Usuwanie szyfrowania; wyłączanie ochrony hasłem
-- Usuwanie ochrony przed zapisem z prezentacji
-- Pobieranie właściwości zaszyfrowanej prezentacji
-- Sprawdzanie, czy prezentacja jest zaszyfrowana
-- Sprawdzanie, czy prezentacja jest zabezpieczona hasłem.
-
-## **Zabezpieczenie prezentacji hasłem**
-
-Możesz zaszyfrować prezentację, ustawiając hasło. Następnie, aby zmodyfikować zablokowaną prezentację, użytkownik musi podać hasło. 
-
-Aby zaszyfrować lub zabezpieczyć prezentację hasłem, musisz użyć metody encrypt (z [IProtectionManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager)) aby ustawić hasło dla prezentacji. Przekazujesz hasło do metody encrypt i używasz metody save, aby zapisać teraz zaszyfrowaną prezentację. 
-
-Ten przykładowy kod pokazuje, jak zaszyfrować prezentację:
+Poniższy przykład szyfruje prezentację PPTX:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustaw ochronę przed zapisem w prezentacji**
+## **Ładowanie zaszyfrowanej prezentacji**
 
-Możesz dodać znak „Nie modyfikować” do prezentacji. W ten sposób informujesz użytkowników, że nie chcesz, aby wprowadzali zmiany w prezentacji.  
-
-**Uwaga** że proces ochrony przed zapisem nie szyfruje prezentacji. Dlatego użytkownicy — jeśli naprawdę tego chcą — mogą modyfikować prezentację, ale aby zapisać zmiany, będą musieli utworzyć prezentację pod inną nazwą. 
-
-Aby ustawić ochronę przed zapisem, musisz użyć metody [setWriteProtection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Ten przykładowy kod pokazuje, jak ustawić ochronę przed zapisem w prezentacji:
+Ustaw [ILoadOptions.setPassword](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) na hasło otwierające i przekaż opcje do [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) podczas ładowania pliku. Ładowanie nie powiedzie się, gdy wymagane jest hasło otwierające, ale podane hasło jest nieobecne lub nieprawidłowe.
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Wczytaj zaszyfrowaną prezentację**
-
-Aspose.Slides umożliwia wczytanie zaszyfrowanego pliku, podając jego hasło. Aby odszyfrować prezentację, musisz wywołać metodę [removeEncryption](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#removeEncryption--) bez parametrów. Następnie będziesz musiał podać prawidłowe hasło, aby wczytać prezentację. 
-
-Ten przykładowy kod pokazuje, jak odszyfrować prezentację: 
-
-```java
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // pracuj z odszyfrowaną prezentacją
+    // Pracuj z odszyfrowaną prezentacją.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-## **Usuń szyfrowanie z prezentacji**
+## **Usunięcie szyfrowania z prezentacji**
 
-Możesz usunąć szyfrowanie lub ochronę hasłem z prezentacji. W ten sposób użytkownicy będą mogli uzyskać dostęp lub modyfikować prezentację bez ograniczeń. 
-
-Aby usunąć szyfrowanie lub ochronę hasłem, musisz wywołać metodę [removeEncryption](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#removeEncryption--). Ten przykładowy kod pokazuje, jak usunąć szyfrowanie z prezentacji:
+Załaduj prezentację przy użyciu jej hasła otwierającego, wywołaj [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iprotectionmanager/#removeEncryption--), i zapisz wynik. Zapisana prezentacja może następnie być ładowana bez hasła.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Usuń ochronę przed zapisem z prezentacji**
+## **Walidacja hasła otwierającego przed ładowaniem**
 
-Możesz użyć Aspose.Slides, aby usunąć ochronę przed zapisem zastosowaną w pliku prezentacji. W ten sposób użytkownicy mogą modyfikować ją dowolnie — i nie otrzymują ostrzeżeń przy wykonywaniu takich czynności.
+Użyj [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-), aby uzyskać [IPresentationInfo](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentationinfo/) bez tworzenia pełnej instancji prezentacji. Sprawdź [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) przed żądaniem lub walidacją hasła. Gdy ochrona jest obecna, zweryfikuj podaną wartość za pomocą [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-Możesz usunąć ochronę przed zapisem z prezentacji, używając metody [removeWriteProtection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#removeWriteProtection--). Ten przykładowy kod pokazuje, jak usunąć ochronę przed zapisem z prezentacji:
+### **Przepływ pracy z ścieżką pliku**
+
+Poniższy przykład waliduje hasło otwierające dla pliku PPTX, przekazuje zweryfikowaną wartość do [ILoadOptions.setPassword](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), a następnie ładuje pełną prezentację:
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **Przepływ pracy ze strumieniem**
+
+Przeciążenie strumieniowe [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) zapewnia ten sam przepływ pracy. Zresetuj pozycję strumienia obsługującego szukanie przed załadowaniem pełnej prezentacji z tego strumienia.
+
+Poniższy przykład używa pliku PPT:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **Pobierz właściwości zaszyfrowanej prezentacji**
+### **Wartości zwracane przez checkPassword**
 
-Zazwyczaj użytkownicy mają trudności z uzyskaniem właściwości dokumentu zaszyfrowanej lub zabezpieczonej hasłem prezentacji. Aspose.Slides oferuje jednak mechanizm, który umożliwia zabezpieczenie prezentacji hasłem, jednocześnie zapewniając użytkownikom dostęp do jej właściwości.
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) zwraca `true` tylko wtedy, gdy prezentacja ma hasło otwierające i podane hasło jest prawidłowe. Zwraca `false` we wszystkich następujących przypadkach:
 
-**Uwaga** że gdy Aspose.Slides szyfruje prezentację, właściwości dokumentu tej prezentacji są domyślnie również chronione hasłem. Jednak jeśli potrzebujesz udostępnić właściwości prezentacji (nawet po jej zaszyfrowaniu), Aspose.Slides pozwala to zrobić. 
+- Hasło jest nieprawidłowe.
+- Prezentacja nie posiada hasła otwierającego.
+- Podane hasło jest `null` lub puste.
 
-Jeśli chcesz, aby użytkownicy zachowali możliwość dostępu do właściwości zaszyfrowanej prezentacji, możesz ustawić właściwość [encryptDocumentProperties](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) na `true`. Ten przykładowy kod pokazuje, jak zaszyfrować prezentację, jednocześnie umożliwiając użytkownikom dostęp do jej właściwości dokumentu:
+Zachowanie jest takie samo dla prezentacji PPT i PPTX.
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **Sprawdzenie, czy załadowana prezentacja jest szyfrowana**
 
-## **Sprawdź, czy prezentacja jest zabezpieczona hasłem**
-
-Przed wczytaniem prezentacji możesz chcieć sprawdzić i potwierdzić, że prezentacja nie jest zabezpieczona hasłem. Dzięki temu unikniesz błędów i podobnych problemów, które pojawiają się, gdy zabezpieczona hasłem prezentacja jest wczytywana bez podania hasła.
-
-Ten kod Java pokazuje, jak zbadać prezentację, aby sprawdzić, czy jest zabezpieczona hasłem (bez wczytywania samej prezentacji):
+Po załadowaniu prezentacji przy użyciu prawidłowego hasła, sprawdź [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) aby potwierdzić, że źródłowa prezentacja była zaszyfrowana. Aby wykryć ochronę hasłem otwierającym przed ładowaniem, użyj `IPresentationInfo.isPasswordProtected`, jak pokazano powyżej.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **Sprawdź, czy prezentacja jest zaszyfrowana**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Aspose.Slides umożliwia sprawdzenie, czy prezentacja jest zaszyfrowana. Aby wykonać to zadanie, możesz użyć właściwości [isEncrypted](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#isEncrypted--) , która zwraca `true`, jeśli prezentacja jest zaszyfrowana, lub `false`, jeśli nie jest zaszyfrowana. 
-
-Ten przykładowy kod pokazuje, jak sprawdzić, czy prezentacja jest zaszyfrowana:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Sprawdź, czy prezentacja jest chroniona przed zapisem**
+## **Zalecenia dotyczące bezpieczeństwa**
 
-Aspose.Slides umożliwia sprawdzenie, czy prezentacja jest chroniona przed zapisem. Aby wykonać to zadanie, możesz użyć właściwości [isWriteProtected](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IProtectionManager#isWriteProtected--) , która zwraca `true`, jeśli prezentacja jest chroniona przed zapisem, lub `false`, jeśli nie jest. 
+{{% alert color="warning" title="Security" %}}
+Nie rejestruj haseł otwierających ani nie umieszczaj ich w komunikatach diagnostycznych. Unikaj niepotrzebnych powtarzających się prób weryfikacji, przechowuj hasła w pamięci tylko tak długo, jak jest to potrzebne, i ponownie używaj pomyślnego wyniku weryfikacji przy natychmiastowym ładowaniu prezentacji.
+{{% /alert %}}
 
-Ten przykładowy kod pokazuje, jak sprawdzić, czy prezentacja jest chroniona przed zapisem:
+## **Zabezpieczenie prezentacji hasłem online**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. Otwórz aplikację [Aspose.Slides Lock](https://products.aspose.app/slides/pl/lock).
+1. Wybierz lub prześlij prezentację.
+1. Wprowadź hasło chroniące widok.
+1. Opcjonalnie wprowadź osobne hasło chroniące edycję.
+1. Zastosuj ochronę i pobierz wynikowy plik.
 
-## **Sprawdź lub potwierdź, że użyto określonego hasła**
-
-Możesz chcieć sprawdzić i potwierdzić, że określone hasło zostało użyte do zabezpieczenia dokumentu prezentacji. Aspose.Slides udostępnia możliwości walidacji hasła. 
-
-Ten przykładowy kod pokazuje, jak zweryfikować hasło:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // sprawdź, czy "pass" pasuje
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-Zwraca `true`, jeśli prezentacja została zaszyfrowana podanym hasłem. W przeciwnym razie zwraca `false`. 
-
-{{% alert color="primary" title="Zobacz również" %}} 
-- [Podpis cyfrowy w PowerPoint](/slides/pl/java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/pl/java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/pl/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Jakie metody szyfrowania są wspierane przez Aspose.Slides?**
+**Jaka jest różnica między hasłem otwierającym a hasłem ochrony przed zapisem?**
 
-Aspose.Slides obsługuje nowoczesne metody szyfrowania, w tym algorytmy oparte na AES, zapewniając wysoki poziom bezpieczeństwa danych w twoich prezentacjach.
+Hasło otwierające szyfruje prezentację i jest wymagane do załadowania jej zawartości. Hasło ochrony przed zapisem ogranicza modyfikację bez szyfrowania zawartości.
 
-**Co się dzieje, gdy wprowadzono nieprawidłowe hasło przy próbie otwarcia prezentacji?**
+**Czy mogę zweryfikować hasło otwierające bez ładowania wszystkich slajdów?**
 
-Wyrzucany jest wyjątek, jeśli użyto nieprawidłowego hasła, ostrzegając, że dostęp do prezentacji jest odmówiony. Pomaga to zapobiec nieautoryzowanemu dostępowi i chroni zawartość prezentacji.
+Tak. Uzyskaj informacje o prezentacji, sprawdź, czy istnieje ochrona hasłem otwierającym, i zweryfikuj hasło przed utworzeniem pełnej instancji prezentacji.
 
-**Czy istnieją skutki wydajnościowe przy pracy z prezentacjami zabezpieczonymi hasłem?**
+**Czy przepływy weryfikacji hasła obsługują zarówno PPT, jak i PPTX?**
 
-Proces szyfrowania i odszyfrowywania może wprowadzić niewielkie opóźnienie podczas operacji otwierania i zapisywania. W większości przypadków wpływ na wydajność jest minimalny i nie wpływa znacząco na łączny czas przetwarzania zadań związanych z prezentacjami.
+Tak. Wykrywanie i weryfikacja hasła oparte na ścieżce pliku oraz strumieniu zachowują się tak samo dla prezentacji PPT i PPTX.

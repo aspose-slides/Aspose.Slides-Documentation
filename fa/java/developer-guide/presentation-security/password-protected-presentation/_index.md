@@ -5,260 +5,224 @@ type: docs
 weight: 20
 url: /fa/java/password-protected-presentation/
 keywords:
-- قفل کردن PowerPoint
-- قفل کردن ارائه
-- باز کردن قفل PowerPoint
-- باز کردن قفل ارائه
-- محافظت از PowerPoint
-- محافظت از ارائه
-- تنظیم رمز عبور
-- اضافه کردن رمز عبور
-- رمزگذاری PowerPoint
-- رمزگذاری ارائه
-- رمزگشایی PowerPoint
-- رمزگشایی ارائه
-- حفاظت نوشتن
-- امنیت PowerPoint
-- امنیت ارائه
-- حذف رمز عبور
-- حذف حفاظت
+- ارائه محافظت‌شده با رمز عبور
+- رمز باز کردن
+- رمزگذاری پاورپوینت
+- رمزگشایی پاورپوینت
+- اعتبارسنجی رمز ارائه
+- بررسی رمز ارائه
+- باز کردن ارائه رمزگذاری‌شده
 - حذف رمزگذاری
-- غیرفعال کردن رمز عبور
-- غیرفعال کردن حفاظت
-- حذف حفاظت نوشتن
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- PPT
+- PPTX
 - ارائه
 - جاوا
 - Aspose.Slides
-description: "بیاموزید چگونه به راحتی ارائه‌های PowerPoint و OpenDocument محافظت‌شده با رمز عبور را با Aspose.Slides برای جاوا قفل و بازقفل کنید. ارائه‌های خود را ایمن کنید."
+description: "رمزگذاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های پاورپوینت PPT و PPTX محافظت‌شده با رمز عبور در جاوا با Aspose.Slides."
 ---
-## **مقدمه**
+## **بررسی کلی**
 
-وقتی یک ارائه را با رمز عبور محافظت می‌کنید، به این معناست که رمز عبوری تنظیم می‌کنید که محدودیت‌های خاصی را بر ارائه اعمال می‌کند. برای حذف این محدودیت‌ها، باید رمز عبور وارد شود. یک ارائهٔ محافظت‌شده با رمز عبور به عنوان یک ارائهٔ قفل‌شده در نظر گرفته می‌شود.
+یک رمز باز کردن، ارائه را رمزگذاری می‌کند. برای بارگذاری و مشاهده محتوای ارائه، رمز صحیح لازم است، بنابراین این حفاظت محرمانگی را فراهم می‌کند.
 
-به طور معمول می‌توانید برای اعمال این محدودیت‌ها بر یک ارائه، رمز عبوری تنظیم کنید:
+رمز باز کردن متفاوت از رمز حفاظت نوشتاری است. حفاظت نوشتاری فقط امکان تغییر را محدود می‌کند ولی محتوا را رمزگذاری نمی‌کند و ارائه را از بارگذاری منع نمی‌کند. برای مدیریت رمزها جهت ویرایش ارائه‌ها، به [Write-Protect Presentations](/slides/fa/java/write-protected-presentation/) مراجعه کنید.
 
-- **تغییرات**
+جریان‌های کاری زیر برای هر دو نوع ارائه PPT و PPTX اعمال می‌شوند. مثال‌ها هر دو قالب را استفاده می‌کنند هنگامی که رفتار مبتنی بر فایل و مبتنی بر جریان اهمیت دارد.
 
-اگر می‌خواهید فقط کاربران خاصی بتوانند ارائه شما را تغییر دهند، می‌توانید محدودیت تغییر را تنظیم کنید. این محدودیت مانع از تغییر، اصلاح یا کپی کردن عناصر در ارائه شما می‌شود مگر آنکه رمز عبور را ارائه دهند.
+## **رمزگذاری یک ارائه با رمز باز کردن**
 
-با این حال، حتی بدون رمز عبور، کاربر همچنان می‌تواند به سند شما دسترسی پیدا کرده و آن را باز کند. در این حالت فقط‑خواندنی، کاربر می‌تواند محتوای ارائه را مشاهده کند—including hyperlinks, animations, effects, and other elements—اما نمی‌تواند موارد را کپی کند یا ارائه را ذخیره نماید.
+از [IProtectionManager.encrypt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) برای اختصاص رمز باز کردن استفاده کنید. سپس از [IPresentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) برای ذخیرهٔ ارائهٔ رمزگذاری‌شده استفاده کنید.
 
-- **بازکردن**
-
-اگر می‌خواهید فقط کاربران خاصی بتوانند ارائه شما را باز کنند، می‌توانید محدودیت بازکردن را تنظیم کنید. این محدودیت مانع از حتی مشاهده محتوای ارائه می‌شود مگر این که رمز عبور را ارائه دهند.
-
-از نظر فنی، محدودیت بازکردن همچنین مانع کاربران از تغییر ارائه‌های شما می‌شود—اگر افراد نتوانند ارائه‌ای را باز کنند، نمی‌توانند آن را تغییر دهند یا اصلاح کنند.
-
-**توجه:** وقتی یک ارائه را برای جلوگیری از بازکردن با رمز عبور محافظت می‌کنید، فایل ارائه رمزگذاری می‌شود.
-
-## **حفاظت با رمز عبور در Aspose.Slides**
-**قالب‌های پشتیبانی‌شده**
-
-Aspose.Slides قالب‌های زیر را برای حفاظت با رمز عبور، رمزگذاری و عملیات مشابه پشتیبانی می‌کند:
-
-- PPTX و PPT - ارائه Microsoft PowerPoint  
-- ODP - ارائه OpenDocument  
-- OTP - قالب ارائه OpenDocument  
-
-**عملیات‌های پشتیبانی‌شده**
-
-Aspose.Slides به شما امکان می‌دهد با استفاده از حفاظت با رمز عبور، از تغییرات ارائه‌ها به روش‌های زیر جلوگیری کنید:
-
-- رمزگذاری یک ارائه  
-- تنظیم حفاظت نوشتن برای یک ارائه  
-
-**سایر عملیات**
-
-Aspose.Slides به شما اجازه می‌دهد کارهای دیگری مرتبط با حفاظت با رمز عبور و رمزگذاری را به روش‌های زیر انجام دهید:
-
-- رمزگشایی یک ارائه؛ باز کردن یک ارائهٔ رمزگذاری‌شده  
-- حذف رمزگذاری؛ غیرفعال کردن حفاظت با رمز عبور  
-- حذف حفاظت نوشتن از یک ارائه  
-- دریافت ویژگی‌های یک ارائهٔ رمزگذاری‌شده  
-- بررسی اینکه آیا یک ارائه رمزگذاری شده است یا خیر  
-- بررسی اینکه آیا یک ارائه با رمز عبور محافظت شده است یا خیر.  
-
-## **محافظت از یک ارائه با رمز عبور**
-
-می‌توانید با تنظیم یک رمز عبور، یک ارائه را رمزگذاری کنید. سپس برای تغییر ارائهٔ قفل‌شده، کاربر باید رمز عبور را ارائه دهد.
-
-برای رمزگذاری یا محافظت با رمز عبور یک ارائه، باید از متد encrypt (از [IProtectionManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager)) برای تنظیم رمز عبور استفاده کنید. رمز عبور را به متد encrypt می‌دهید و با استفاده از متد save ارائهٔ حالا رمزگذاری‌شده را ذخیره می‌ کنید.
-
-این کد نمونه نشان می‌دهد چگونه یک ارائه را رمزگذاری کنید:
+مثال زیر یک ارائهٔ PPTX را رمزگذاری می‌کند:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **تنظیم حفاظت نوشتن برای یک ارائه**
-
-می‌توانید علامتی با متن «Do not modify» به یک ارائه اضافه کنید. به این ترتیب به کاربران می‌گویید که نمی‌خواهید آنها تغییراتی در ارائه ایجاد کنند.
-
-**توجه** که فرآیند حفاظت نوشتن، ارائه را رمزگذاری نمی‌کند. بنابراین کاربران—اگر بخواهند—می‌توانند ارائه را تغییر دهند، اما برای ذخیره تغییرات باید یک ارائه با نام متفاوت ایجاد کنند.
-
-برای تنظیم حفاظت نوشتن، باید از متد [setWriteProtection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) استفاده کنید. این کد نمونه نشان می‌دهد چگونه یک حفاظت نوشتن برای یک ارائه تنظیم کنید:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **بارگذاری یک ارائهٔ رمزگذاری‌شده**
 
-Aspose.Slides به شما امکان می‌دهد فایل رمزگذاری‌شده را با عبور دادن رمز عبور آن بارگذاری کنید. برای رمزگشایی یک ارائه، باید متد [removeEncryption](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#removeEncryption--) را بدون پارامتر صدا بزنید. سپس باید رمز عبور صحیح را وارد کنید تا ارائه بارگذاری شود.
-
-این کد نمونه نشان می‌دهد چگونه یک ارائه را رمزگشایی کنید:
+دستور [ILoadOptions.setPassword](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) را به رمز باز کردن تنظیم کنید و هنگام بارگذاری فایل این گزینه‌ها را به کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) منتقل کنید. اگر رمز باز کردن لازم باشد اما رمز ارائه‌شده وجود نداشته باشد یا نادرست باشد، بارگذاری ناموفق خواهد بود.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // کار با ارائه رمزگشایی‌شده
+    // کار با ارائهٔ رمزگشایی‌شده.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
 ## **حذف رمزگذاری از یک ارائه**
 
-می‌توانید رمزگذاری یا حفاظت با رمز عبور یک ارائه را حذف کنید. به این ترتیب کاربران می‌توانند بدون محدودیت به ارائه دسترسی پیدا کنند یا آن را تغییر دهند.
-
-برای حذف رمزگذاری یا حفاظت با رمز عبور، باید متد [removeEncryption](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#removeEncryption--) را صدا بزنید. این کد نمونه نشان می‌دهد چگونه رمزگذاری را از یک ارائه حذف کنید:
+ارائه را با رمز باز کردن آن بارگذاری کنید، متد [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprotectionmanager/#removeEncryption--) را فراخوانی کنید و نتیجه را ذخیره کنید. پس از آن می‌توان ارائه ذخیره‌شده را بدون نیاز به رمز بارگذاری کرد.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **حذف حفاظت نوشتن از یک ارائه**
+## **اعتبارسنجی یک رمز باز کردن پیش از بارگذاری**
 
-می‌توانید با استفاده از Aspose.Slides، حفاظت نوشتن استفاده شده بر روی یک فایل ارائه را حذف کنید. به این ترتیب کاربران می‌توانند به دلخواه اصلاحات کنند—و هنگام انجام این کار هیچ هشدار یا اخطاری دریافت نمی‌کنند.
+از [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) برای بدست آوردن [IPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/) بدون ایجاد یک نمونهٔ کامل از ارائه استفاده کنید. پیش از درخواست یا اعتبارسنجی رمز، متد [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) را بررسی کنید. زمانی که محافظت وجود دارد، مقدار ارائه‌شده را با متد [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) اعتبارسنجی کنید.
 
-برای حذف حفاظت نوشتن از یک ارائه، می‌توانید از متد [removeWriteProtection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) استفاده کنید. این کد نمونه نشان می‌دهد چگونه حفاظت نوشتن را از یک ارائه حذف کنید:
+### **جریان کاری مسیر فایل**
+
+مثال زیر یک رمز باز کردن برای یک فایل PPTX را اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [ILoadOptions.setPassword](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) می‌گذارد و سپس ارائهٔ کامل را بارگذاری می‌کند:
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **جریان کاری جریان**
+
+نسخهٔ جریان‌دار [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) همان جریان کاری را فراهم می‌کند. قبل از بارگذاری ارائهٔ کامل از آن جریان، موقعیت یک جریان قابل جستجو را بازنشانی کنید.
+
+مثال زیر از یک فایل PPT استفاده می‌کند:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
-## **دریافت ویژگی‌های یک ارائهٔ رمزگذاری‌شده**
+### **مقادیر بازگشتی checkPassword**
 
-به طور معمول کاربران برای دریافت ویژگی‌های سند یک ارائهٔ رمزگذاری‌شده یا با رمز عبور محافظت‌شده مشکل دارند. با این حال، Aspose.Slides یک مکانیزم فراهم می‌کند که به شما امکان می‌دهد ارائه را با رمز عبور محافظت کنید در حالی که همچنان کاربران می‌توانند به ویژگی‌های آن دسترسی داشته باشند.
+متد [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) فقط زمانی که ارائه دارای رمز باز کردن باشد و رمز ارائه‌شده صحیح باشد، `true` برمی‌گرداند. در هر یک از موارد زیر `false` برمی‌گرداند:
 
-**توجه** که وقتی Aspose.Slides یک ارائه را رمزگذاری می‌کند، ویژگی‌های سند ارائه به‌صورت پیش‌فرض نیز با رمز عبور محافظت می‌شوند. اما اگر نیاز دارید ویژگی‌های ارائه حتی پس از رمزگذاری در دسترس باشند، Aspose.Slides این امکان را فراهم می‌کند.
+- رمز نادرست است.
+- ارائه دارای رمز باز کردن نیست.
+- رمز ارائه‌شده `null` یا خالی است.
 
-اگر می‌خواهید کاربران همچنان بتوانند به ویژگی‌های یک ارائهٔ رمزگذاری‌شده دسترسی داشته باشند، می‌توانید خاصیت [encryptDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) را روی `true` تنظیم کنید. این کد نمونه نشان می‌دهد چگونه یک ارائه را رمزگذاری کنید در حالی که امکان دسترسی کاربران به ویژگی‌های سند آن فراهم می‌شود:
+این رفتار برای ارائه‌های PPT و PPTX یکسان است.
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+## **بررسی اینکه آیا یک ارائه بارگذاری‌شده رمزگذاری شده است**
 
-## **بررسی اینکه آیا یک ارائه با رمز عبور محافظت شده است**
-
-قبل از بارگذاری یک ارائه، ممکن است بخواهید تأیید کنید که ارائه با رمز عبور محافظت نشده است. به این ترتیب می‌توانید از خطاها و مشکلات مشابهی که هنگام بارگذاری یک ارائهٔ محافظت‌شده بدون داشتن رمز عبور رخ می‌دهد، جلوگیری کنید.
-
-این کد Java نشان می‌دهد چگونه یک ارائه را بررسی کنید تا ببینید آیا با رمز عبور محافظت شده است (بدون بارگذاری خود ارائه):
+پس از بارگذاری یک ارائه با رمز صحیح، متد [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) را بررسی کنید تا تأیید کنید که ارائهٔ منبع رمزگذاری شده است. برای شناسایی محافظت با رمز باز کردن پیش از بارگذاری، همان‌طور که در بالا نشان داده شد، از `IPresentationInfo.isPasswordProtected` استفاده کنید.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-## **بررسی اینکه آیا یک ارائه رمزگذاری شده است**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-Aspose.Slides به شما امکان می‌دهد بررسی کنید آیا یک ارائه رمزگذاری شده است یا نه. برای انجام این کار، می‌توانید از خاصیت [isEncrypted](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#isEncrypted--) استفاده کنید که مقدار `true` را برمی‌گرداند اگر ارائه رمزگذاری شده باشد و `false` اگر نه.
-
-این کد نمونه نشان می‌دهد چگونه بررسی کنید آیا یک ارائه رمزگذاری شده است:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **بررسی اینکه آیا یک ارائه حفاظت نوشتن دارد**
+## **پیشنهادات امنیتی**
 
-Aspose.Slides به شما امکان می‌دهد بررسی کنید آیا یک ارائه حفاظت نوشتن دارد یا نه. برای انجام این کار، می‌توانید از خاصیت [isWriteProtected](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IProtectionManager#isWriteProtected--) استفاده کنید که مقدار `true` را برمی‌گرداند اگر ارائه محافظت نوشتن داشته باشد و `false` اگر نه.
+{{% alert color="warning" title="Security" %}}
+رمزهای باز کردن را در لاگ‌ها ثبت نکنید و در پیام‌های تشخیصی گنجانده نشوند. از تلاش‌های مکرر و غیرضروری برای اعتبارسنجی خودداری کنید، رمزها را در حافظه تنها به مدت لازم نگه دارید و در زمان بارگذاری فوری ارائه، نتیجهٔ اعتبارسنجی موفق را باز استفاده کنید.
+{{% /alert %}}
 
-این کد نمونه نشان می‌دهد چگونه بررسی کنید آیا یک ارائه حفاظت نوشتن دارد:
+## **رمزگذاری یک ارائه به صورت آنلاین**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. برنامهٔ [Aspose.Slides Lock](https://products.aspose.app/slides/fa/lock) را باز کنید.
+1. ارائه را انتخاب یا بارگذاری کنید.
+1. رمز برای حفاظت از نمایش را وارد کنید.
+1. در صورت نیاز، رمز جداگانه‌ای برای حفاظت از ویرایش وارد کنید.
+1. حفاظت را اعمال کنید و فایل حاصل را بارگیری کنید.
 
-## **اعتبارسنجی یا تأیید اینکه رمز عبور خاصی استفاده شده است**
-
-ممکن است بخواهید بررسی کنید و تأیید کنید که یک رمز عبور خاص برای محافظت از سند ارائه استفاده شده است. Aspose.Slides ابزارهایی برای اعتبارسنجی یک رمز عبور فراهم می‌کند.
-
-این کد نمونه نشان می‌دهد چگونه یک رمز عبور را اعتبارسنجی کنید:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // بررسی کنید آیا "pass" مطابقت دارد
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-اگر ارائه با رمز عبور مشخص شده رمزگذاری شود، مقدار `true` برگردانده می‌شود؛ در غیر این صورت مقدار `false` برگردانده می‌شود.
-
-{{% alert color="primary" title="همچنین ببینید" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/fa/java/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/fa/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**روش‌های رمزگذاری پشتیبانی‌شده توسط Aspose.Slides چیست؟**
+**تفاوت رمز باز کردن با رمز حفاظت نوشتاری چیست؟**
 
-Aspose.Slides از روش‌های رمزگذاری مدرن شامل الگوریتم‌های مبتنی بر AES پشتیبانی می‌کند و سطح بالایی از امنیت داده‌ها را برای ارائه‌های شما تضمین می‌نماید.
+یک رمز باز کردن ارائه را رمزگذاری می‌کند و برای بارگذاری محتوا لازم است. یک رمز حفاظت نوشتاری فقط امکان ویرایش را محدود می‌کند بدون اینکه محتوا را رمزگذاری کند.
 
-**اگر هنگام تلاش برای باز کردن یک ارائه، رمز عبور نادرستی وارد شود چه اتفاقی می‌افتد؟**
+**آیا می‌توان رمز باز کردن را بدون بارگذاری تمام اسلایدها اعتبارسنجی کرد؟**
 
-در این صورت یک استثنا ایجاد می‌شود که به شما اطلاع می‌دهد دسترسی به ارائه رد شده است. این امر از دسترسی غیرمجاز جلوگیری می‌کند و محتوای ارائه را محافظت می‌نماید.
+بله. اطلاعات ارائه را به دست آورید، بررسی کنید آیا محافظت با رمز باز کردن وجود دارد یا نه، و قبل از ایجاد یک نمونهٔ کامل از ارائه، رمز را اعتبارسنجی کنید.
 
-**آیا کار با ارائه‌های محافظت‌شده با رمز عبور تأثیری بر عملکرد دارد؟**
+**آیا جریان‌های کاری بررسی رمز برای هر دو قالب PPT و PPTX پشتیبانی می‌شوند؟**
 
-فرآیند رمزگذاری و رمزگشایی ممکن است کمی زمان اضافی هنگام باز کردن و ذخیره‌سازی ایجاد کند. در اکثر موارد این تأثیر بر عملکرد کم است و زمان کلی پردازش وظایف ارائه شما را به‌طور قابل‌توجهی تحت تأثیر قرار نمی‌دهد.
+بله. شناسایی و اعتبارسنجی رمز مبتنی بر مسیر فایل و جریان برای ارائه‌های PPT و PPTX به همان شکل عمل می‌کند.

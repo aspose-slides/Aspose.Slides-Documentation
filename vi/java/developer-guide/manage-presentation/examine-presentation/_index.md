@@ -1,12 +1,12 @@
 ---
-title: Truy xuất và Cập nhật Thông tin Bản trình bày trong Java
-linktitle: Thông tin Bản trình bày
+title: Truy xuất và Cập nhật Thông tin Bản trình chiếu trong Java
+linktitle: Thông tin Bản trình chiếu
 type: docs
 weight: 30
 url: /vi/java/examine-presentation/
 keywords:
-- định dạng bản trình bày
-- thuộc tính bản trình bày
+- định dạng bản trình chiếu
+- thuộc tính bản trình chiếu
 - thuộc tính tài liệu
 - lấy thuộc tính
 - đọc thuộc tính
@@ -18,24 +18,26 @@ keywords:
 - kiểm tra ODP
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Khám phá các slide, cấu trúc và siêu dữ liệu trong các bản trình bày PowerPoint và OpenDocument bằng Java để có những hiểu biết nhanh hơn và kiểm tra nội dung thông minh hơn."
+description: "Khám phá các slide, cấu trúc và siêu dữ liệu trong bản trình chiếu PowerPoint và OpenDocument bằng Java để có cái nhìn nhanh hơn và kiểm tra nội dung thông minh hơn."
 ---
 ## **Tổng quan**
 
-Bài viết này hướng dẫn cách kiểm tra thông tin bản trình bày trong Aspose.Slides. Nó giải thích cách xác định định dạng hiện tại của bản trình bày mà không cần tải toàn bộ tệp, đọc các thuộc tính tài liệu của nó và cập nhật các thuộc tính đó khi cần.  
+Bài viết này hướng dẫn cách kiểm tra thông tin bản trình chiếu trong Aspose.Slides. Nó giải thích cách xác định định dạng hiện tại của bản trình chiếu mà không cần tải toàn bộ tệp, đọc các thuộc tính tài liệu và cập nhật các thuộc tính đó khi cần.
 
-Các ví dụ dựa trên API [PresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationinfo/) và [DocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/documentproperties/) và minh họa các thao tác điển hình khi làm việc với siêu dữ liệu bản trình bày.
+Các ví dụ dựa trên các API [PresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationinfo/) và [DocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/documentproperties/) và minh họa các thao tác phổ biến khi làm việc với siêu dữ liệu của bản trình chiếu.
 
-## **Kiểm tra định dạng bản trình bày**
+## **Kiểm tra định dạng bản trình chiếu**
 
-Trước khi làm việc với một bản trình bày, bạn có thể muốn biết định dạng (PPT, PPTX, ODP và các định dạng khác) hiện tại của bản trình bày.  
+Trước khi làm việc với một bản trình chiếu, bạn có thể muốn biết nó đang ở định dạng nào (PPT, PPTX, ODP, v.v.) vào thời điểm hiện tại.
 
-Bạn có thể kiểm tra định dạng của bản trình bày mà không tải bản trình bày. Xem đoạn mã Java sau:
+Bạn có thể kiểm tra định dạng của bản trình chiếu mà không cần tải nó. Xem đoạn mã Java sau:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -46,32 +48,37 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **Lấy thuộc tính bản trình bày**
+## **Lấy thuộc tính bản trình chiếu**
 
-Đoạn mã Java này cho bạn cách lấy các thuộc tính của bản trình bày (thông tin về bản trình bày):
+Đoạn mã Java này cho bạn cách lấy các thuộc tính của bản trình chiếu (thông tin về bản trình chiếu):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// .. 
+// ..
 ```
 
 Bạn có thể muốn xem [các thuộc tính trong lớp DocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/documentproperties/#DocumentProperties--) .
 
-## **Cập nhật thuộc tính bản trình bày**
+## **Cập nhật thuộc tính bản trình chiếu**
 
-Aspose.Slides cung cấp phương thức [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) cho phép bạn thực hiện các thay đổi đối với thuộc tính của bản trình bày.  
+Aspose.Slides cung cấp phương thức [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) cho phép bạn thay đổi các thuộc tính của bản trình chiếu.
 
-Giả sử chúng ta có một bản trình bày PowerPoint với các thuộc tính tài liệu như dưới đây.
+Giả sử chúng ta có một bản PowerPoint với các thuộc tính tài liệu như dưới đây.
 
-![Thuộc tính tài liệu gốc của bản trình bày PowerPoint](input_properties.png)
+![Thuộc tính tài liệu gốc của bản PowerPoint](input_properties.png)
 
-Ví dụ mã này cho bạn cách chỉnh sửa một số thuộc tính của bản trình bày:
+Đoạn mã mẫu này cho bạn cách chỉnh sửa một số thuộc tính của bản trình chiếu:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -86,35 +93,33 @@ info.writeBindedPresentation(fileName);
 
 Kết quả của việc thay đổi các thuộc tính tài liệu được hiển thị dưới đây.
 
-![Thuộc tính tài liệu đã thay đổi của bản trình bày PowerPoint](output_properties.png)
+![Thuộc tính tài liệu đã thay đổi của bản PowerPoint](output_properties.png)
 
 ## **Liên kết hữu ích**
 
-Để lấy thêm thông tin về bản trình bày và các thuộc tính bảo mật của nó, bạn có thể thấy các liên kết sau hữu ích:
+Để tìm hiểu thêm về bản trình chiếu và các thuộc tính bảo mật của nó, bạn có thể tham khảo các liên kết sau:
 
-- [Kiểm tra xem một bản trình bày có được mã hoá hay không](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kiểm tra xem một bản trình bày có được bảo vệ ghi (chỉ đọc) hay không](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kiểm tra xem một bản trình bày có được bảo vệ bằng mật khẩu trước khi tải hay không](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Xác nhận mật khẩu đã dùng để bảo vệ một bản trình bày](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Bảo vệ mật khẩu cho bản trình chiếu](/slides/vi/java/password-protected-presentation/)
+- [Bảo vệ ghi cho bản trình chiếu](/slides/vi/java/write-protected-presentation/)
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để tôi kiểm tra xem các phông chữ có được nhúng không và chúng là những phông chữ nào?**
+**Làm sao tôi có thể kiểm tra xem phông chữ có được nhúng hay không và chúng là những phông chữ nào?**
 
-Tìm [thông tin phông chữ nhúng](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ở mức độ bản trình bày, sau đó so sánh các mục này với tập hợp [phông chữ thực tế được sử dụng trong nội dung](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getFonts--) để xác định những phông chữ nào là quan trọng cho việc hiển thị.
+Tìm thông tin [embedded-font](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ở mức bản trình chiếu, sau đó so sánh các mục này với tập hợp các [phông chữ thực sự được sử dụng trong nội dung](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getFonts--) để xác định phông chữ nào là quan trọng cho việc hiển thị.
 
-**Làm sao tôi có thể nhanh chóng xác định xem tệp có các slide ẩn và có bao nhiêu không?**
+**Làm sao tôi nhanh chóng biết tệp có slide ẩn và số lượng chúng?**
 
 Duyệt qua [bộ sưu tập slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidecollection/) và kiểm tra [cờ hiển thị](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#getHidden--) của mỗi slide.
 
-**Tôi có thể phát hiện xem kích thước và độ hướng slide tùy chỉnh có được sử dụng không, và chúng có khác so với mặc định không?**
+**Tôi có thể phát hiện xem có sử dụng kích thước và hướng slide tùy chỉnh không, và chúng có khác so với mặc định không?**
 
-Có. So sánh [kích thước slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlideSize--) hiện tại và độ hướng với các cài đặt chuẩn; điều này giúp dự đoán hành vi khi in và xuất.
+Có. So sánh [kích thước slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlideSize--) và hướng hiện tại với các thiết lập tiêu chuẩn; điều này giúp dự đoán hành vi khi in và xuất file.
 
-**Có cách nhanh để kiểm tra xem biểu đồ có tham chiếu tới nguồn dữ liệu bên ngoài không?**
+**Có cách nào nhanh để xem biểu đồ có tham chiếu đến nguồn dữ liệu bên ngoài không?**
 
-Có. Duyệt qua tất cả [biểu đồ](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chart/), kiểm tra [nguồn dữ liệu](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chartdata/#getDataSourceType--) của chúng và ghi chú xem dữ liệu là nội bộ hay dựa trên liên kết, bao gồm cả các liên kết bị phá vỡ.
+Có. Duyệt tất cả các [biểu đồ](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chart/), kiểm tra [nguồn dữ liệu](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chartdata/#getDataSourceType--) của chúng, và ghi nhận liệu dữ liệu là nội bộ hay dựa trên liên kết, bao gồm cả các liên kết bị hỏng.
 
-**Làm sao tôi có thể đánh giá các slide 'nặng' có thể làm chậm việc render hoặc xuất PDF?**
+**Làm sao tôi đánh giá các slide 'nặng' có thể làm chậm việc render hoặc xuất PDF?**
 
-Đối với mỗi slide, đếm số lượng đối tượng và tìm các hình ảnh lớn, độ trong suốt, bóng đổ, hoạt ảnh và đa phương tiện; gán một điểm độ phức tạp sơ bộ để đánh dấu các điểm nóng tiềm năng về hiệu năng.
+Đối với mỗi slide, đếm số lượng đối tượng và tìm các hình ảnh lớn, độ trong suốt, bóng đổ, hoạt ảnh và đa phương tiện; gán một điểm phức tạp sơ bộ để đánh dấu các điểm nóng hiệu suất tiềm năng.

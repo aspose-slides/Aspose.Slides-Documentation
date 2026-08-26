@@ -1,251 +1,186 @@
 ---
-title: Python を使用したパスワード保護付きプレゼンテーションのセキュリティ
+title: Pythonでプレゼンテーションをパスワード保護
 linktitle: パスワード保護
 type: docs
 weight: 20
 url: /ja/python-net/password-protected-presentation/
 keywords:
-- PowerPoint をロック
-- プレゼンテーションをロック
-- PowerPoint のロック解除
-- プレゼンテーションのロック解除
-- PowerPoint を保護
-- プレゼンテーションを保護
-- パスワードを設定
-- パスワードを追加
+- パスワード保護されたプレゼンテーション
+- オープニング パスワード
 - PowerPoint を暗号化
-- プレゼンテーションを暗号化
 - PowerPoint を復号化
-- プレゼンテーションを復号化
-- 書き込み保護
-- PowerPoint のセキュリティ
-- プレゼンテーションのセキュリティ
-- パスワードを削除
-- 保護を削除
-- 暗号化を削除
-- パスワードを無効化
-- 保護を無効化
-- 書き込み保護を削除
-- PowerPoint プレゼンテーション
+- プレゼンテーション パスワードを検証
+- プレゼンテーション パスワードをチェック
+- 暗号化されたプレゼンテーションを開く
+- 暗号化を解除
+- PowerPoint
+- PPT
+- PPTX
+- プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python (via .NET) を使用して、パスワードで保護された PowerPoint および OpenDocument プレゼンテーションを簡単にロックおよびロック解除する方法を学びましょう。生産性を高め、ステップバイステップのガイドでプレゼンテーションを安全に保護できます。"
+description: "Python と Aspose.Slides を使用して、パスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号化します。"
 ---
+## **概要**
 
-## **パスワード保護について**
-### **プレゼンテーションのパスワード保護はどのように機能しますか？**
-プレゼンテーションにパスワード保護を設定すると、プレゼンテーションに対して特定の制限を課すパスワードを設定したことになります。制限を解除するには、パスワードを入力する必要があります。パスワードで保護されたプレゼンテーションは、ロックされたプレゼンテーションとみなされます。
+オープニング パスワードはプレゼンテーションを暗号化します。正しいパスワードが必要で、プレゼンテーションのコンテンツを読み込み表示できるため、この保護は機密性を提供します。
 
-通常、プレゼンテーションに対して次のようにパスワードを設定して制限を課すことができます。
+オープニング パスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、コンテンツを暗号化したりプレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[Write-Protect Presentations](/slides/ja/python-net/write-protected-presentation/) を参照してください。
 
-- **変更**
+以下のワークフローは PPT および PPTX のプレゼンテーションの両方に適用されます。例では、ファイルベースとストリームベースの動作が重要な場合に両方の形式を使用しています。
 
-  特定のユーザーだけにプレゼンテーションの変更を許可したい場合、変更制限を設定できます。この制限は、パスワードを提供しない限り、プレゼンテーション内の変更、編集、コピーを防止します。
+## **オープニング パスワードでプレゼンテーションを暗号化**
 
-  ただし、この場合、パスワードがなくてもユーザーはドキュメントにアクセスして開くことができます。この読み取り専用モードでは、ユーザーはプレゼンテーション内のコンテンツやハイパーリンク、アニメーション、エフェクトなどを見ることができますが、項目のコピーやプレゼンテーションの保存はできません。
+オープニング パスワードを割り当てるには [ProtectionManager.encrypt](https://reference.aspose.com/slides/ja/python-net/aspose.slides/protectionmanager/encrypt/) を使用します。その後、暗号化されたプレゼンテーションを保存するには [Presentation.save](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/save/) を使用します。
 
-- **開く**
+次の例は PPTX プレゼンテーションを暗号化します:
 
-  特定のユーザーだけにプレゼンテーションの開封を許可したい場合、開封制限を設定できます。この制限は、パスワードを提供しない限り、プレゼンテーションの内容を閲覧さえできなくします。
-
-  技術的には、開封制限はプレゼンテーションの変更も防止します。プレゼンテーションを開くことができなければ、変更や編集も行えません。
-
-  **Note** パスワード保護により開封を防止した場合、プレゼンテーションファイルは暗号化されます。
-
-## オンラインでプレゼンテーションにパスワード保護を設定する方法
-
-1. 当社の[**Aspose.Slides Lock**](https://products.aspose.app/slides/lock)ページへ移動します。
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. **ファイルをドロップまたはアップロード**をクリックします。
-
-3. コンピューター上でパスワード保護したいファイルを選択します。
-
-4. 編集保護用に希望のパスワードを入力します；閲覧保護用に希望のパスワードを入力します。
-
-5. ユーザーに最終コピーとしてプレゼンテーションを表示させたい場合は、**Mark as final**チェックボックスにチェックを入れます。
-
-6. **PROTECT NOW.** をクリックします。
-
-7. **DOWNLOAD NOW.** をクリックします。
-
-## **Aspose.Slides におけるプレゼンテーションのパスワード保護**
-### **サポートされている形式**
-Aspose.Slides は以下の形式のプレゼンテーションに対してパスワード保護、暗号化、類似の操作をサポートします。
-
-- PPTX および PPT - Microsoft PowerPoint プレゼンテーション
-- ODP - OpenDocument プレゼンテーション
-- OTP - OpenDocument プレゼンテーションテンプレート
-
-### **サポートされている操作**
-Aspose.Slides は以下の方法でプレゼンテーションへの変更を防止するためにパスワード保護を利用できます。
-
-- プレゼンテーションの暗号化
-- プレゼンテーションへの書き込み保護の設定
-
-### **その他の操作**
-Aspose.Slides は以下の方法でパスワード保護や暗号化に関わるその他のタスクを実行できます。
-
-- プレゼンテーションの復号化; 暗号化されたプレゼンテーションの開封
-- 暗号化の削除; パスワード保護の無効化
-- プレゼンテーションから書き込み保護を削除する
-- 暗号化されたプレゼンテーションのプロパティ取得
-- プレゼンテーションが暗号化されているか確認する
-- プレゼンテーションがパスワードで保護されているか確認する。
-
-## **プレゼンテーションの暗号化**
-パスワードを設定することでプレゼンテーションを暗号化できます。その後、ロックされたプレゼンテーションを変更するには、ユーザーはパスワードを提供しなければなりません。
-
-プレゼンテーションを暗号化またはパスワード保護するには、[ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) の encrypt メソッドを使用してプレゼンテーションにパスワードを設定します。パスワードを encrypt メソッドに渡し、save メソッドで暗号化されたプレゼンテーションを保存します。
-
-このサンプルコードは、プレゼンテーションを暗号化する方法を示しています:
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **プレゼンテーションへの書き込み保護の設定**
-「変更しないでください」というマークをプレゼンテーションに追加できます。これにより、ユーザーに対してプレゼンテーションの変更を希望しないことを伝えることができます。
-
-**Note** 書き込み保護のプロセスはプレゼンテーションを暗号化しません。そのため、ユーザーは実際に変更したい場合はプレゼンテーションを変更できますが、変更を保存するには別名で保存する必要があります。
-
-書き込み保護を設定するには、setWriteProtection メソッドを使用します。このサンプルコードは、プレゼンテーションに書き込み保護を設定する方法を示しています:
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **プレゼンテーションの復号化; 暗号化されたプレゼンテーションの開封**
-Aspose.Slides はパスワードを渡すことで暗号化されたファイルを読み込むことができます。プレゼンテーションを復号化するには、パラメータなしで [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) メソッドを呼び出します。その後、正しいパスワードを入力してプレゼンテーションを読み込む必要があります。
-
-このサンプルコードは、プレゼンテーションを復号化する方法を示しています:
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-
-## **暗号化の削除; パスワード保護の無効化**
-プレゼンテーションの暗号化またはパスワード保護を削除できます。これにより、ユーザーは制限なくプレゼンテーションにアクセスまたは変更できるようになります。
-
-暗号化またはパスワード保護を削除するには、[remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) メソッドを呼び出します。このサンプルコードは、プレゼンテーションから暗号化を削除する方法を示しています:
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **プレゼンテーションから書き込み保護を削除する**
-Aspose.Slides を使用してプレゼンテーションファイルに設定された書き込み保護を削除できます。これにより、ユーザーは好きなように変更でき、タスク実行時に警告が表示されなくなります。
-
-書き込み保護を削除するには、[remove_write_protection](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) メソッドを使用します。このサンプルコードは、プレゼンテーションから書き込み保護を削除する方法を示しています:
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **暗号化されたプレゼンテーションのプロパティ取得**
-通常、ユーザーは暗号化またはパスワード保護されたプレゼンテーションのドキュメントプロパティ取得に苦労します。Aspose.Slides は、プレゼンテーションをパスワード保護しながら、ユーザーがそのプロパティにアクセスできる仕組みを提供します。
-
-**Note** Aspose.Slides がプレゼンテーションを暗号化すると、デフォルトでプレゼンテーションのドキュメントプロパティもパスワード保護されます。ただし、暗号化後もプロパティへのアクセスを可能にしたい場合、Aspose.Slides はその機能を提供します。
-
-暗号化したプレゼンテーションのプロパティへのアクセスを保持したい場合は、[EncryptDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) プロパティを `True` に設定します。このサンプルコードは、プロパティへのアクセスを可能にしながらプレゼンテーションを暗号化する方法を示しています:
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
-    pres.protection_manager.encrypt("123123")
-```
-
-
-## **読み込む前にプレゼンテーションがパスワードで保護されているか確認する**
-プレゼンテーションを読み込む前に、パスワードで保護されていないか確認したい場合があります。これにより、パスワード保護されたプレゼンテーションをパスワードなしで読み込む際に発生するエラーや類似の問題を回避できます。
-
-この Python コードは、プレゼンテーションを実際に読み込まずにパスワード保護されているかどうかを調べる方法を示しています:
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **暗号化されたプレゼンテーションの読み込み**
 
-## **プレゼンテーションが暗号化されているか確認する**
-Aspose.Slides はプレゼンテーションが暗号化されているかどうかを確認できます。このタスクを実行するには、暗号化されていれば `True`、されていなければ `False` を返す [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) プロパティを使用します。
+[LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) にオープニング パスワードを設定し、ファイルを読み込む際にそのオプションを [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) に渡します。オープニング パスワードが必要なのにパスワードが未提供または正しくない場合、読み込みは失敗します。
 
-このサンプルコードは、プレゼンテーションが暗号化されているかどうかを確認する方法を示しています:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # 復号化されたプレゼンテーションで作業します。
+    pass
 ```
 
+## **プレゼンテーションから暗号化を解除**
 
-## **プレゼンテーションが書き込み保護されているか確認する**
-Aspose.Slides はプレゼンテーションが書き込み保護されているかどうかを確認できます。このタスクを実行するには、書き込み保護されていれば `True`、されていなければ `False` を返す [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) プロパティを使用します。
+プレゼンテーションをオープニング パスワードで読み込み、[ProtectionManager.remove_encryption](https://reference.aspose.com/slides/ja/python-net/aspose.slides/protectionmanager/remove_encryption/) を呼び出して結果を保存します。保存されたプレゼンテーションはその後、パスワードなしで読み込むことができます。
 
-このサンプルコードは、プレゼンテーションが書き込み保護されているかどうかを確認する方法を示しています:
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **読み込み前にオープニング パスワードを検証**
 
-## **特定のパスワードがプレゼンテーションの保護に使用されたか検証または確認する**
-特定のパスワードがプレゼンテーションの保護に使用されたかどうかを確認したい場合があります。Aspose.Slides はパスワードを検証する手段を提供します。
+[PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentationfactory/get_presentation_info/) を使用して、完全なプレゼンテーション インスタンスを作成せずに [PresentationInfo](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentationinfo/) を取得します。パスワードの要求または検証を行う前に [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentationinfo/is_password_protected/) を確認してください。保護が存在する場合、提供された値を [PresentationInfo.check_password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentationinfo/check_password/) で検証します。
 
-このサンプルコードは、パスワードを検証する方法を示しています:
-```py
+### **ファイル パス ワークフロー**
+
+次の例は PPTX ファイルのオープニング パスワードを検証し、検証済みの値を [LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) に渡して、完全なプレゼンテーションを読み込みます:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # "pass" が一致するか確認
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
+### **ストリーム ワークフロー**
 
-指定されたパスワードでプレゼンテーションが暗号化されていれば `True` を返します。そうでなければ `False` を返します。
+[PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentationfactory/get_presentation_info/) のストリームオーバーロードは同じワークフローを提供します。ストリームから完全なプレゼンテーションを読み込む前に、シーク可能なストリームの位置をリセットしてください。
 
-{{% alert color="primary" title="参照" %}} 
-- [PowerPoint のデジタル署名](/slides/ja/python-net/digital-signature-in-powerpoint/)
+次の例は PPT ファイルを使用します:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **CheckPassword の戻り値**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentationinfo/check_password/) は、プレゼンテーションにオープニング パスワードが設定されており、提供されたパスワードが正しい場合にのみ `True` を返します。次の場合は `False` を返します:
+
+- パスワードが正しくありません。
+- プレゼンテーションにオープニング パスワードが設定されていません。
+- 提供されたパスワードが `None` または空です。
+
+この動作は PPT と PPTX のプレゼンテーションで同じです。
+
+## **読み込まれたプレゼンテーションが暗号化されているか確認**
+
+正しいパスワードでプレゼンテーションを読み込んだ後、[ProtectionManager.is_encrypted](https://reference.aspose.com/slides/ja/python-net/aspose.slides/protectionmanager/is_encrypted/) を確認して、元のプレゼンテーションが暗号化されていることを確認します。読み込み前にオープニング パスワード保護を検出するには、上記のように `PresentationInfo.is_password_protected` を使用します。
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **セキュリティに関する推奨事項**
+
+{{% alert color="warning" title="セキュリティ" %}}
+オープニング パスワードをログに記録したり診断メッセージに含めたりしないでください。不必要な繰り返し検証を避け、パスワードは必要な間だけメモリに保持し、プレゼンテーションをすぐに読み込む場合は成功した検証結果を再利用してください。
 {{% /alert %}}
 
-## **FAQ**
-**Aspose.Slides がサポートする暗号化方式は何ですか？**
+## **オンラインでプレゼンテーションにパスワード保護**
 
-Aspose.Slides は AES ベースのアルゴリズムを含む最新の暗号化方式をサポートしており、プレゼンテーションのデータセキュリティを高いレベルで確保します。
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/ja/lock) アプリケーションを開きます。
+2. プレゼンテーションを選択するかアップロードします。
+3. 表示保護用のパスワードを入力します。
+4. 必要に応じて、編集保護用の別のパスワードを入力します。
+5. 保護を適用し、結果のファイルをダウンロードします。
 
-**プレゼンテーションを開く際に誤ったパスワードが入力された場合はどうなりますか？**
+{{% alert color="info" title="関連項目" %}}
+- [Write-Protect Presentations](/slides/ja/python-net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/ja/python-net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-誤ったパスワードが使用されると例外がスローされ、プレゼンテーションへのアクセスが拒否されたことが通知されます。これにより不正アクセスが防止され、コンテンツが保護されます。
+## **よくある質問**
 
-**パスワード保護されたプレゼンテーションを扱う際にパフォーマンスへの影響はありますか？**
+**オープニング パスワードと書き込み保護パスワードの違いは何ですか？**
 
-暗号化および復号化のプロセスにより、開く時や保存時に若干のオーバーヘッドが発生する場合がありますが、ほとんどのケースでその影響は最小限であり、全体的な処理時間に大きな影響はありません。
+オープニング パスワードはプレゼンテーションを暗号化し、コンテンツの読み込みに必要です。書き込み保護パスワードはコンテンツを暗号化せずに変更を制限します。
+
+**すべてのスライドを読み込まずにオープニング パスワードを検証できますか？**
+
+はい。プレゼンテーション情報を取得し、オープニング パスワード保護があるか確認し、完全なプレゼンテーション インスタンスを作成する前にパスワードを検証します。
+
+**パスワード検証のワークフローは PPT と PPTX の両方に対応していますか？**
+
+はい。ファイル パスとストリームベースのパスワード検出および検証は、PPT と PPTX のプレゼンテーションで同様に動作します。

@@ -1,284 +1,229 @@
 ---
-title: تأمين العروض التقديمية بكلمات مرور على Android
+title: حماية العروض التقديمية بكلمة مرور على Android
 linktitle: حماية كلمة المرور
 type: docs
 weight: 20
 url: /ar/androidjava/password-protected-presentation/
 keywords:
-- قفل PowerPoint
-- قفل العرض التقديمي
-- فتح قفل PowerPoint
-- فتح القفل للعرض التقديمي
-- حماية PowerPoint
-- حماية العرض التقديمي
-- تعيين كلمة مرور
-- إضافة كلمة مرور
+- عرض تقديمي محمي بكلمة مرور
+- كلمة مرور الفتح
 - تشفير PowerPoint
-- تشفير العرض التقديمي
 - فك تشفير PowerPoint
-- فك تشفير العرض التقديمي
-- حماية الكتابة
-- أمان PowerPoint
-- أمان العرض التقديمي
-- إزالة كلمة المرور
-- إزالة الحماية
+- التحقق من صحة كلمة مرور العرض
+- فحص كلمة مرور العرض
+- فتح عرض مشفر
 - إزالة التشفير
-- تعطيل كلمة المرور
-- تعطيل الحماية
-- إزالة حماية الكتابة
 - PowerPoint
-- OpenDocument
-- العرض التقديمي
+- PPT
+- PPTX
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "قُم بقفل وفتح القفل للعروض التقديمية المحمية بكلمة مرور بصيغ PowerPoint وOpenDocument بسهولة باستخدام Aspose.Slides للـ Android عبر Java. احمِ عروضك التقديمية."
+description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير العروض التقديمية PowerPoint بصيغ PPT و PPTX المحمية بكلمة مرور باستخدام Aspose.Slides لنظام Android عبر Java."
 ---
+## **نظرة عامة**
 
-## **حول الحماية بكلمة المرور**
-### **كيف تعمل الحماية بكلمة مرور للعرض التقديمي؟**
-عند حماية عرض تقديمي بكلمة مرور، يعني ذلك أنك تحدد كلمة مرور تفرض قيودًا معينة على العرض. لإزالة هذه القيود، يجب إدخال كلمة المرور. يُعتبر العرض المحمي بكلمة مرور عرضًا مقفلاً.
+كلمة مرور الفتح تقوم بتشفير العرض التقديمي. يلزم كلمة المرور الصحيحة لتحميل وعرض محتوى العرض، لذلك توفر هذه الحماية السرية.
 
-عادةً، يمكنك تحديد كلمة مرور لفرض هذه القيود على العرض:
+كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. حماية الكتابة تقيد التعديل لكنها لا تشفر المحتوى ولا تمنع تحميل العرض التقديمي. لإدارة كلمات المرور لتعديل العروض، راجع [حماية العروض من الكتابة](/slides/ar/androidjava/write-protected-presentation/).
 
-- **التعديل**
+تطبيقات سير العمل أدناه تنطبق على كل من عروض PPT و PPTX. تستخدم الأمثلة كلا الصيغتين حيث يكون سلوكهما القائم على الملفات أو التدفقات مهمًا.
 
-  إذا كنت تريد أن يتمكن فقط بعض المستخدمين من تعديل عرضك التقديمي، يمكنك ضبط قيد تعديل. القيد هنا يمنع الأشخاص من تعديل أو تغيير أو نسخ المحتويات في عرضك (ما لم يقدموا كلمة المرور).
+## **تشفير عرض تقديمي باستخدام كلمة مرور الفتح**
 
-  ومع ذلك، في هذه الحالة، حتى بدون كلمة المرور، سيتمكن المستخدم من الوصول إلى المستند وفتحه. في وضع القراءة فقط، يمكن للمستخدم عرض المحتويات أو العناصر—الروابط التشعبية، الرسوم المتحركة، التأثيرات وغيرها—داخل العرض، لكنه لا يمكنه نسخ العناصر أو حفظ العرض.
+استخدم [IProtectionManager.encrypt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) لتعيين كلمة مرور الفتح. ثم استخدم [IPresentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-) لحفظ العرض المشفر.
 
-- **الفتح**
+المثال التالي يقوم بتشفير عرض PPTX:
 
-  إذا كنت تريد أن يتمكن فقط بعض المستخدمين من فتح عرضك التقديمي، يمكنك ضبط قيد فتح. القيد هنا يمنع الأشخاص من حتى مشاهدة محتويات عرضك (ما لم يقدموا كلمة المرور).
-
-  تقنيًا، قيد الفتح يمنع أيضًا المستخدمين من تعديل عروضك: عندما لا يستطيع الأشخاص فتح عرض تقديمي، لا يمكنهم تعديل أو إجراء تغييرات عليه.  
-
-  **ملاحظة** أن حماية العرض بكلمة مرور لمنع الفتح تجعل ملف العرض مشفراً.
-
-## **كيفية حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
-
-1. انتقل إلى صفحتنا [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock).
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. انقر فوق **Drop or upload your files**.
-
-3. اختر الملف الذي تريد حمايته بكلمة مرور على جهازك.
-
-4. أدخل كلمة المرور المفضلة للحماية من التحرير؛ أدخل كلمة المرور المفضلة للحماية من العرض.
-
-5. إذا كنت تريد أن يرى المستخدمون عرضك كنسخة نهائية، حدِّد خانة **Mark as final**.
-
-6. انقر فوق **PROTECT NOW.** 
-
-7. انقر فوق **DOWNLOAD NOW.**
-
-## **الحماية بكلمة مرور للعروض التقديمية في Aspose.Slides**
-**الصيغ المدعومة**
-
-يدعم Aspose.Slides الحماية بكلمة مرور، والتشفير، والعمليات المشابهة للعروض التقديمية في هذه الصيغ:
-
-- PPTX و PPT - Microsoft PowerPoint Presentation  
-- ODP - OpenDocument Presentation  
-- OTP - OpenDocument Presentation Template  
-
-**العمليات المدعومة**
-
-يسمح Aspose.Slides باستخدام الحماية بكلمة مرور لمنع التعديلات بهذه الطرق:
-
-- تشفير العرض التقديمي  
-- تعيين حماية كتابة للعرض التقديمي  
-
-**عمليات أخرى**
-
-يسمح Aspose.Slides بأداء مهام أخرى تتعلق بالحماية بكلمة مرور والتشفير بهذه الطرق:
-
-- فك تشفير عرض تقديمي؛ فتح عرض مشفر  
-- إزالة التشفير؛ إلغاء الحماية بكلمة مرور  
-- إزالة حماية الكتابة من العرض التقديمي  
-- الحصول على خصائص عرض مشفر  
-- التحقق مما إذا كان العرض مشفراً  
-- التحقق مما إذا كان العرض محمياً بكلمة مرور.
-
-## **تشفير عرض تقديمي**
-
-يمكنك تشفير عرض تقديمي بتحديد كلمة مرور. بعد ذلك، لتعديل العرض المقفل، يجب على المستخدم تقديم كلمة المرور.
-
-لتشفير أو حماية عرض تقديمي بكلمة مرور، عليك استخدام طريقة `encrypt` (من [IProtectionManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager)) لتعيين كلمة مرور للعرض. تمرّر كلمة المرور إلى طريقة `encrypt` وتستخدم طريقة `save` لحفظ العرض المشفر الآن.
-
-يعرض هذا الكود مثالًا لكيفية تشفير عرض تقديمي:
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
-
-
-## **تعيين حماية كتابة للعرض التقديمي**
-
-يمكنك إضافة علامة “لا تعديل” إلى العرض التقديمي. بهذه الطريقة، تخبر المستخدمين أنك لا تريدهم أن يجرو تعديلات على العرض.
-
-**ملاحظة** أن عملية حماية الكتابة لا تشفر العرض. لذا، يمكن للمستخدمين—إذا أرادوا—تعديل العرض، لكن لحفظ التغييرات سيتعين عليهم إنشاء ملف عرض باسم مختلف.
-
-لتعيين حماية كتابة، عليك استخدام طريقة [setWriteProtection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). يوضح هذا الكود مثالًا لكيفية تعيين حماية كتابة للعرض:
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
 
 ## **تحميل عرض مشفر**
 
-يتيح Aspose.Slides تحميل ملف مشفر بتمرير كلمة مروره. لفك تشفير عرض تقديمي، عليك استدعاء طريقة [removeEncryption](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) دون معاملات. ثم سيتعين عليك إدخال كلمة المرور الصحيحة لتحميل العرض.
+قم بتعيين [ILoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) عند تحميل الملف. يفشل التحميل عندما تكون كلمة مرور الفتح مطلوبة لكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
 
-يعرض هذا الكود مثالًا لكيفية فك تشفير عرض تقديمي:
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // العمل مع العرض المُفك تشفيره
+    // العمل مع العرض المفكك.
 } finally {
-    if (presentation != null) presentation.dispose();
-}
+    presentation.dispose();
 }
 ```
 
-
 ## **إزالة التشفير من عرض تقديمي**
 
-يمكنك إزالة التشفير أو الحماية بكلمة مرور من عرض تقديمي. بهذه الطريقة، يصبح بإمكان المستخدمين الوصول إلى العرض أو تعديله دون قيود.
+حمّل العرض باستخدام كلمة مرور الفتح، واستدعِ [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--)، ثم احفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
 
-لإزالة التشفير أو الحماية بكلمة مرور، عليك استدعاء طريقة [removeEncryption](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--). يوضح هذا الكود كيفية إزالة التشفير من عرض تقديمي:
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     presentation.getProtectionManager().removeEncryption();
     presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+## **التحقق من صحة كلمة مرور الفتح قبل التحميل**
 
-## **إزالة حماية الكتابة من عرض تقديمي**
+استخدم [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) للحصول على [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/) دون إنشاء نسخة كاملة من العرض. تحقق من [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) قبل طلب أو التحقق من كلمة المرور. عندما تكون الحماية موجودة، تحقق من القيمة التي تم التحقق منها باستخدام [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-يمكنك استخدام Aspose.Slides لإزالة حماية الكتابة المستخدمة على ملف عرض تقديمي. بهذه الطريقة، يمكن للمستخدمين تعديل ما يشاؤون دون ظهور تحذيرات.
+### **سير عمل المسار إلى الملف**
 
-لإزالة حماية الكتابة من عرض تقديمي، استخدم طريقة [removeWriteProtection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--). يوضح هذا الكود كيفية إزالة حماية الكتابة من عرض تقديمي:
+المثال التالي يتحقق من صحة كلمة مرور الفتح لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [ILoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)، ثم يقوم بتحميل العرض الكامل:
+
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **سير عمل التدفق**
+
+نسخة التدفق من [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) توفر نفس سير العمل. أعد ضبط موضع تدفق قابل للبحث قبل تحميل العرض الكامل من ذلك التدفق.
+
+المثال التالي يستخدم ملف PPT:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
 try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentationStream.close();
 }
 ```
 
+### **قيم الإرجاع لـ checkPassword**
 
-## **الحصول على خصائص عرض مشفر**
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) تُعيد `true` فقط عندما يكون للعرض كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. تُعيد `false` في كل من الحالات التالية:
 
-عادةً ما يواجه المستخدمون صعوبة في الحصول على خصائص المستند لعرض مشفر أو محمي بكلمة مرور. يقدم Aspose.Slides آلية تتيح لك حماية عرض تقديمي بكلمة مرور مع الحفاظ على إمكانية وصول المستخدمين إلى خصائص ذلك العرض.
+- كلمة المرور غير صحيحة.
+- العرض لا يحتوي على كلمة مرور فتح.
+- كلمة المرور المقدمة هي `null` أو فارغة.
 
-**ملاحظة** أنه عندما يقوم Aspose.Slides بتشفير عرض تقديمي، تُحمي خصائص مستند العرض كلمة مرورًا أيضًا بشكل افتراضي. ولكن إذا كنت تحتاج إلى جعل خصائص العرض متاحة (حتى بعد تشفير العرض)، يسمح لك Aspose.Slides بذلك.
+السلوك نفسه ينطبق على عروض PPT و PPTX.
 
-إذا رغبت في تمكين المستخدمين من الوصول إلى خصائص عرض قمت بتشفيره، يمكنك تعيين خاصية [encryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) إلى `true`. يوضح هذا الكود مثالًا لتشفير عرض تقديمي مع توفير وسيلة للمستخدمين للوصول إلى خصائص مستنده:
+## **التحقق مما إذا كان العرض المحمّل مشفرًا**
+
+بعد تحميل عرض باستخدام كلمة المرور الصحيحة، تحقق من [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) للتأكد من أن العرض الأصلي كان مشفرًا. لاكتشاف حماية كلمة مرور الفتح قبل التحميل، استخدم `IPresentationInfo.isPasswordProtected` كما هو موضح أعلاه.
+
 ```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
-    presentation.getProtectionManager().encrypt("123123");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
 
-## **التحقق مما إذا كان العرض محمياً بكلمة مرور**
-
-قبل تحميل عرض تقديمي، قد ترغب في التحقق والتأكد من أن العرض لم يُحمى بكلمة مرور. بهذه الطريقة، تتجنب الأخطاء والمشكلات المشابهة التي تحدث عند تحميل عرض محمي بكلمة مرور دون كلمة المرور.
-
-يعرض هذا الكود بلغة Java مثالًا لكيفية فحص عرض تقديمي لمعرفة ما إذا كان محمياً بكلمة مرور (دون تحميل العرض نفسه):
-```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
-```
-
-
-## **التحقق مما إذا كان العرض مشفراً**
-
-يسمح Aspose.Slides بالتحقق مما إذا كان العرض مشفراً. للقيام بذلك، يمكنك استخدام خاصية [isEncrypted](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) التي تُرجع `true` إذا كان العرض مشفراً أو `false` إذا لم يكن مشفراً.
-
-يعرض هذا الكود مثالًا للتحقق مما إذا كان العرض مشفراً:
-```java
-Presentation presentation = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+## **توصيات الأمان**
 
-## **التحقق مما إذا كان العرض محمياً من الكتابة**
+{{% alert color="warning" title="الأمان" %}}
+لا تقوم بتسجيل كلمات مرور الفتح أو تضمينها في رسائل التشخيص. تجنب محاولات التحقق المتكررة غير الضرورية، احتفظ بكلمات المرور في الذاكرة فقط طالما كان ذلك مطلوبًا، وأعد استخدام نتيجة التحقق الناجحة عند تحميل العرض مباشرةً.
+{{% /alert %}}
 
-يسمح Aspose.Slides بالتحقق مما إذا كان العرض محمياً من الكتابة. للقيام بذلك، يمكنك استخدام خاصية [isWriteProtected](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) التي تُرجع `true` إذا كان العرض محميًا من الكتابة أو `false` إذا لم يكن كذلك.
+## **حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
 
-يعرض هذا الكود مثالًا للتحقق مما إذا كان العرض محمياً من الكتابة:
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. افتح تطبيق [Aspose.Slides Lock](https://products.aspose.app/slides/ar/lock).
+1. اختر أو حمّل العرض التقديمي.
+1. أدخل كلمة مرور لحماية العرض عند العرض.
+1. اختيارياً، أدخل كلمة مرور منفصلة لحماية التحرير.
+1. طبق الحماية وقم بتنزيل الملف الناتج.
 
-
-## **التحقق أو التأكيد على أن كلمة مرور محددة قد استُخدمَت**
-
-قد ترغب في التحقق والتأكد من أن كلمة مرور محددة قد استُخدمَت لحماية مستند عرض تقديمي. يوفر Aspose.Slides وسيلة للتحقق من صحة كلمة المرور.
-
-يعرض هذا الكود مثالًا للتحقق من صحة كلمة المرور:
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // تحقق مما إذا كان "pass" يطابق
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-يرجع `true` إذا تم تشفير العرض باستخدام كلمة المرور المحددة. وإلا، يرجع `false`.
-
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="انظر أيضًا" %}}
+- [حماية العروض من الكتابة](/slides/ar/androidjava/write-protected-presentation/)
 - [التوقيع الرقمي في PowerPoint](/slides/ar/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**ما طرق التشفير التي يدعمها Aspose.Slides؟**
+**ما الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
 
-يدعم Aspose.Slides طرق تشفير حديثة، بما في ذلك الخوارزميات المعتمدة على AES، مما يضمن مستوى عالٍ من أمان البيانات لعروضك التقديمية.
+كلمة مرور الفتح تقوم بتشفير العرض وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
 
-**ماذا يحدث إذا تم إدخال كلمة مرور غير صحيحة عند محاولة فتح عرض تقديمي؟**
+**هل يمكنني التحقق من صحة كلمة مرور الفتح دون تحميل جميع الشرائح؟**
 
-يتم إطلاق استثناء إذا تم استخدام كلمة مرور غير صحيحة، مما يُنبهك إلى أن الوصول إلى العرض مرفوض. يساعد ذلك في منع الوصول غير المصرح به وحماية محتوى العرض.
+نعم. احصل على معلومات العرض، تحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، واطّق كلمة المرور قبل إنشاء نسخة كاملة من العرض.
 
-**هل هناك أي تأثير على الأداء عند العمل مع عروض تقديمية محمية بكلمة مرور؟**
+**هل تدعم عمليات التحقق من كلمة المرور كلًا من PPT و PPTX؟**
 
-قد تُدخل عملية التشفير وفك التشفير بعض الحمل الإضافي أثناء عمليات الفتح والحفظ. في معظم الحالات، يكون تأثير الأداء ضئيلًا ولا يؤثر بشكل كبير على الوقت الكلي لمعالجة مهام العرض.
+نعم. اكتشاف كلمة المرور والتحقق منها عبر المسار إلى الملف أو التدفق يعملان نفس الطريقة لعرض PPT و PPTX.
