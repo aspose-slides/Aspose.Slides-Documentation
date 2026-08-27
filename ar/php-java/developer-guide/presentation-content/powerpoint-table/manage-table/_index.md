@@ -7,8 +7,8 @@ url: /ar/php-java/manage-table/
 keywords:
 - إضافة جدول
 - إنشاء جدول
-- الوصول إلى جدول
-- نسبة الأبعاد
+- الوصول إلى الجدول
+- نسبة العرض إلى الارتفاع
 - محاذاة النص
 - تنسيق النص
 - نمط الجدول
@@ -16,34 +16,36 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java. اكتشف أمثلة كود بسيطة لتبسيط سير عمل الجداول الخاص بك."
+description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides للغة PHP via Java. اكتشف أمثلة شفرة بسيطة لتبسيط سير عمل الجداول الخاص بك."
 ---
+## **المقدمة**
 
-الجدول في PowerPoint هو طريقة فعّالة لعرض وتوضيح المعلومات. تُعرض المعلومات في شبكة من الخلايا (مرتبة في صفوف وأعمدة) بشكل واضح وسهل الفهم.
+الجدول في PowerPoint هو طريقة فعّالة لعرض وتوضيح المعلومات. المعلومات في شبكة من الخلايا (مرتبة في صفوف وأعمدة) بسيطة وسهلة الفهم.
 
-Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) والفئة [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) وأنواع أخرى لتسمح لك بإنشاء وتحديث وإدارة الجداول في جميع أنواع العروض التقديمية.
+توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Table) والفئة [Cell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/) وأنواع أخرى لتتيح لك إنشاء وتحديث وإدارة الجداول في جميع أنواع العروض التقديمية.
 
-## **Create a Table from Scratch**
+## **إنشاء جدول من الصفر**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. تعريف مصفوفة `columnWidth`.
-4. تعريف مصفوفة `rowHeight`.
-5. إضافة كائن [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) إلى الشريحة عبر الطريقة [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
-6. التكرار عبر كل [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) لتطبيق تنسيق الحدود العلوية والسفلية واليمنى واليسرى.
-7. دمج الخليتين الأوليين في الصف الأول للجدول. 
-8. الوصول إلى [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) الخاص بـ [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/).
-9. إضافة نص إلى [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-10. حفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) .
+2. احصل على مرجع الشريحة عبر فهرسها. 
+3. عرّف مصفوفة `columnWidth`.
+4. عرّف مصفوفة `rowHeight`.
+5. أضف كائن [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/table/) إلى الشريحة عبر الطريقة [addTable](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addtable/) .
+6. تكرّر عبر كل [Cell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/) لتطبيق التنسيق على الحدود العليا والسفلية واليمنى واليسرى.
+7. دمج أول خليتين في الصف الأول من الجدول. 
+8. احصل على [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بـ [Cell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/) .
+9. أضف بعض النص إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) .
+10. احفظ العرض التقديمي المعدل.
 
-هذا الكود PHP يوضح لك كيفية إنشاء جدول في عرض تقديمي:
+يعرض لك هذا الكود PHP كيفية إنشاء جدول في عرض تقديمي:
+
 ```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
+  # ينشئ كائن من فئة Presentation تمثل ملف PPTX
   $pres = new Presentation();
   try {
-    # يصل إلى الشريحة الأولى
+    # يَصل إلى الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # يعرف الأعمدة بعرضها والصفوف بارتفاعها
+    # يحدد الأعمدة بعروضها والصفوف بارتفاعها
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
     # يضيف شكل جدول إلى الشريحة
@@ -79,12 +81,11 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
   }
 ```
 
+## **الترقيم في جدول قياسي**
 
-## **Numbering in a Standard Table**
+في جدول قياسي، يكون ترقيم الخلايا مباشرًا ويبدأ من الصفر. يتم فهرسة الخلية الأولى في الجدول كـ 0,0 (العمود 0، الصف 0).
 
-في جدول قياسي، ترقيم الخلايا يكون بسيطًا ويبدأ من الصفر. يتم فهرسة الخلية الأولى في الجدول كـ 0,0 (العمود 0، الصف 0). 
-
-على سبيل المثال، تُرقم الخلايا في جدول يحتوي على 4 أعمدة و4 صفوف بالشكل التالي:
+على سبيل المثال، تُرقم الخلايا في جدول يحتوي على 4 أعمدة و4 صفوف بهذه الطريقة:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -92,9 +93,10 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-هذا الكود PHP يوضح لك كيفية تحديد ترقيم الخلايا في جدول:
+يعرض لك هذا الكود PHP كيفية تحديد ترقيم الخلايا في جدول:
+
 ```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
+  # ينشئ كائن من فئة Presentation يمثل ملف PPTX
   $pres = new Presentation();
   try {
     # يصل إلى الشريحة الأولى
@@ -104,8 +106,9 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
     $dblRows = array(70, 70, 70, 70 );
     # يضيف شكل جدول إلى الشريحة
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # يحدد تنسيق الحدود لكل خلية
-    foreach($tbl->getRows() as $row) {
+    # يضبط تنسيق الحدود لكل خلية
+    $rows = $tbl->getRows();
+    foreach($rows as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -130,34 +133,30 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
   }
 ```
 
+## **الوصول إلى جدول موجود**
 
-## **Access an Existing Table**
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) .
+2. احصل على مرجع الشريحة التي تحتوي على الجدول عبر فهرسها. 
+3. أنشئ كائن [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Table) وضعه على null.
+4. تكرّر عبر جميع كائنات [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) حتى يتم العثور على الجدول.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
+   إذا كنت تشكّ أن الشريحة التي تتعامل معها تحتوي على جدول واحد، يمكنك ببساطة فحص جميع الأشكال التي تحتويها. عندما يتم التعرف على الشكل كجدول، يمكنك تحويل نوعه إلى كائن [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Table). ولكن إذا كانت الشريحة التي تتعامل معها تحتوي على عدة جداول، فمن الأفضل البحث عن الجدول الذي تحتاجه عبر الخاصية [setAlternativeText(String value)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/setalternativetext/) الخاصة به.
+5. استخدم كائن [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Table) للعمل مع الجدول. في المثال أدناه، أضفنا صفًا جديدًا إلى الجدول.
+6. احفظ العرض التقديمي المعدل.
 
-2. الحصول على مرجع للشريحة التي تحتوي على الجدول عبر فهرسها. 
+يعرض لك هذا الكود PHP كيفية الوصول إلى جدول موجود والعمل معه:
 
-3. إنشاء كائن [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) وتعيينه إلى null.
-
-4. التكرار عبر جميع كائنات [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) حتى يتم العثور على الجدول.
-
-   إذا كنت تشك أن الشريحة التي تتعامل معها تحتوي على جدول واحد فقط، يمكنك ببساطة فحص جميع الأشكال التي تحتويها. عندما يتم التعرف على شكل كجدول، يمكنك تحويله إلى كائن [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table). ولكن إذا كانت الشريحة تحتوي على عدة جداول، فإن البحث عن الجدول المطلوب عبر خاصية [setAlternativeText(String value)](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setalternativetext/) يكون أفضل.
-
-5. استخدام كائن [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) للعمل مع الجدول. في المثال أدناه، أضفنا صفًا جديدًا إلى الجدول.
-
-6. حفظ العرض التقديمي المعدل.
-
-هذا الكود PHP يوضح لك كيفية الوصول إلى جدول موجود والعمل معه:
 ```php
-  # ينشئ فئة Presentation التي تمثل ملف PPTX
+  # ينشئ كائن من فئة Presentation يمثل ملف PPTX
   $pres = new Presentation("UpdateExistingTable.pptx");
   try {
     # يصل إلى الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
     # يهيئ TableEx كقيمة null
     $tbl = null;
-    # يتنقل عبر الأشكال ويحدد مرجعًا للجدول الموجود
-    foreach($sld->getShapes() as $shp) {
+    # يتجول عبر الأشكال ويحدد مرجعًا للجدول الموجود
+    $shapes = $sld->getShapes();
+    foreach($shapes as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
         # يحدد النص للعمود الأول من الصف الثاني
@@ -173,42 +172,50 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
   }
 ```
 
+## **العثور على الخلية التي تملك إطار نص**
 
-## **Align Text in a Table**
+عند استلام كود معالجة نص عام كائن [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) من جدول، استخدم الطريقة [TextFrame::getParentCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentCell) لاسترجاع [Cell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/) المالكة. بالنسبة لإطار نص خلية جدول، تُعيد [TextFrame::getParentCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentCell) المالك وتُعيد [TextFrame::getParentShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentShape) القيمة `null`، على الرغم من أن الجدول نفسه يُعتبر شكلاً.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. إضافة كائن [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) إلى الشريحة.
-4. الوصول إلى كائن [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) من الجدول.
-5. الوصول إلى [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/).
+تتوفر إحداثيات الخلية عبر الطريقتين القارئتين فقط [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/#getFirstColumnIndex) و[Cell::getFirstRowIndex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/#getFirstRowIndex). كما توفر [TextFrame::getParentCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentCell) تنقلاً للقراءة فقط: تُعيد المالك دون تغيير الملكية. تحقق دائمًا من أن الخلية المرتجعة ليست `java_is_null` قبل استخدامها.
+
+للحصول على مثال كامل يحدد مالكي خلية الجدول والشكل، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [البحث واستبدال النص](/slides/ar/php-java/search-and-replace-text/).
+
+## **محاذاة النص في جدول**
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) .
+2. احصل على مرجع الشريحة عبر فهرسها. 
+3. أضف كائن [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Table) إلى الشريحة.
+4. احصل على كائن [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) من الجدول.
+5. احصل على الـ [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) .
 6. محاذاة النص عموديًا.
-7. حفظ العرض التقديمي المعدل.
+7. احفظ العرض التقديمي المعدل.
 
-هذا الكود PHP يوضح لك كيفية محاذاة النص في جدول:
+يعرض لك هذا الكود PHP كيفية محاذاة النص في جدول:
+
 ```php
-  # ينشئ مثالًا لفئة Presentation
+  # ينشئ مثيلًا من فئة Presentation
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى
     $slide = $pres->getSlides()->get_Item(0);
-    # يعرف الأعمدة بعروضها والصفوف بارتفاعها
+    # يحدد الأعمدة بعرضها والصفوف بارتفاعها
     $dblCols = array(120, 120, 120, 120 );
     $dblRows = array(100, 100, 100, 100 );
-    # يضيف شكل جدول إلى الشريحة
+    # يضيف شكل الجدول إلى الشريحة
     $tbl = $slide->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
     $tbl->get_Item(2, 0)->getTextFrame()->setText("20");
     $tbl->get_Item(3, 0)->getTextFrame()->setText("30");
     # يصل إلى إطار النص
     $txtFrame = $tbl->get_Item(0, 0)->getTextFrame();
-    # ينشئ كائن الفقرة لإطار النص
+    # ينشئ كائن Paragraph لإطار النص
     $paragraph = $txtFrame->getParagraphs()->get_Item(0);
     # ينشئ كائن Portion للفقرة
     $portion = $paragraph->getPortions()->get_Item(0);
     $portion->setText("Text here");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # محاذاة النص عموديًا
+    # يضبط محاذاة النص عموديًا
     $cell = $tbl->get_Item(0, 0);
     $cell->setTextAnchorType(TextAnchorType::Center);
     $cell->setTextVerticalType(TextVerticalType::Vertical270);
@@ -221,20 +228,20 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
   }
 ```
 
+## **تعيين تنسيق النص على مستوى الجدول**
 
-## **Set Text Formatting on the Table Level**
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) .
+2. احصل على مرجع الشريحة عبر فهرسها. 
+3. احصل على كائن [Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Table) من الشريحة.
+4. اضبط [setFontHeight(float value)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setFontHeight) للنص.
+5. اضبط [setAlignment(int value)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/setalignment/) و[setMarginRight(float value)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/setmarginright/) .
+6. اضبط [setTextVerticalType(byte value)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/settextverticaltype/) .
+7. احفظ العرض التقديمي المعدل. 
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها. 
-3. الوصول إلى كائن [Table](https://reference.aspose.com/slides/php-java/aspose.slides/Table) من الشريحة.
-4. تعيين [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) للنص.
-5. تعيين [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) و[setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/).
-6. تعيين [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
-7. حفظ العرض التقديمي المعدل. 
+يعرض لك هذا الكود PHP كيفية تطبيق خيارات التنسيق المفضلة على النص في جدول:
 
-هذا الكود PHP يوضح لك كيفية تطبيق خيارات التنسيق المفضلة على النص داخل جدول:
 ```php
-  # ينشئ مثالًا لفئة Presentation
+  # ينشئ مثيلًا من فئة Presentation
   $pres = new Presentation("simpletable.pptx");
   try {
     # لنفترض أن الشكل الأول في الشريحة الأولى هو جدول
@@ -243,12 +250,12 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->setTextFormat($portionFormat);
-    # يضبط محاذاة نص خلايا الجدول والهامش الأيمن في خطوة واحدة
+    # يضبط محاذاة نص خلايا الجدول والهامش الأيمن في استدعاء واحد
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->setTextFormat($paragraphFormat);
-    # يضبط النوع العمودي للنص في خلايا الجدول
+    # يضبط نوع اتجاه النص العمودي لخلايا الجدول
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->setTextFormat($textFrameFormat);
@@ -260,15 +267,15 @@ Aspose.Slides يوفر الفئة [Table](https://reference.aspose.com/slides/ph
   }
 ```
 
+## **الحصول على خصائص نمط الجدول**
 
-## **Get Table Style Properties**
+تمكنك Aspose.Slides من استرجاع خصائص النمط لجدول بحيث يمكنك استخدام هذه التفاصيل لجدول آخر أو في مكان آخر. يظهر لك هذا الكود PHP كيفية الحصول على خصائص النمط من نمط جدول مسبق التعيين:
 
-Aspose.Slides يتيح لك استرجاع خصائص النمط لجدول حتى تتمكن من استخدامها في جدول آخر أو في مكان آخر. هذا الكود PHP يوضح لك كيفية الحصول على خصائص النمط من نمط جدول مسبق:
 ```php
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// تغيير النمط المسبق الافتراضي
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// تغيير سمة نمط الإعداد المسبق الافتراضي
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
@@ -278,18 +285,18 @@ Aspose.Slides يتيح لك استرجاع خصائص النمط لجدول حت
   }
 ```
 
+## **قفل نسبة العرض إلى الارتفاع للجدول**
 
-## **Lock Aspect Ratio of a Table**
+نسبة العرض إلى الارتفاع لشكل هندسي هي نسبة أبعاده المختلفة. وفرت Aspose.Slides الطريقة [setAspectRatioLocked](https://reference.aspose.com/slides/ar/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) لتسمح لك بقفل إعداد نسبة العرض إلى الارتفاع للجداول والأشكال الأخرى.
 
-نسبة الأبعاد لشكل هندسي هي نسبة أُحجامه في الأبعاد المختلفة. Aspose.Slides قدم الطريقة [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) للسماح لك بقفل إعداد نسبة الأبعاد للجداول وغيرها من الأشكال.
+يعرض لك هذا الكود PHP كيفية قفل نسبة العرض إلى الارتفاع لجدول:
 
-هذا الكود PHP يوضح لك كيفية قفل نسبة الأبعاد لجدول:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// عكس
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
 
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
@@ -300,17 +307,16 @@ Aspose.Slides يتيح لك استرجاع خصائص النمط لجدول حت
   }
 ```
 
-
-## **FAQ**
+## **الأسئلة الشائعة**
 
 **هل يمكنني تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
 
-نعم. الجدول يتيح طريقة [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/)، والفقرات لديها [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). استخدام الاثنين يضمن الترتيب الصحيح للـ RTL وعرضه داخل الخلايا.
+نعم. ي expose الجدول طريقة [setRightToLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/table/setrighttoleft/) ، وتحتوي الفقرات على [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/setrighttoleft/). يضمن استخدام الطريقتين ترتيب RTL الصحيح وعرضه داخل الخلايا.
 
-**كيف يمكنني منع المستخدمين من تحريك أو تغيير حجم جدول في الملف النهائي؟**
+**كيف يمكنني منع المستخدمين من نقل أو تعديل حجم الجدول في الملف النهائي؟**
 
-استخدم أقفال الأشكال لتعطيل التحريك، وتغيير الحجم، والاختيار، وما إلى ذلك. هذه الأقفال تُطبق أيضًا على الجداول.
+استخدم أقفال الأشكال لتعطيل النقل، تعديل الحجم، التحديد، وما إلى ذلك. تُطبق هذه الأقفال على الجداول أيضًا.
 
-**هل دعم إدراج صورة داخل خلية كخلفية؟**
+**هل يدعم إدراج صورة داخل خلية كخلفية؟**
 
-نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) لخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المحدد (تمدد أو تجانب).
+نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/ar/php-java/aspose.slides/picturefillformat/) لخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المختار (تمديد أو تكرار).

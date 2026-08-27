@@ -1,130 +1,210 @@
 ---
 title: PowerPoint Sunumlarını .NET'te Markdown'a Dönüştür
-linktitle: PowerPoint'tan Markdown'a
+linktitle: PowerPoint'ten Markdown'a
 type: docs
 weight: 140
 url: /tr/net/convert-powerpoint-to-markdown/
 keywords:
-- PowerPoint dönüştür
+- PowerPoint dönüştürme
 - sunumu dönüştür
 - slaytı dönüştür
 - PPT dönüştür
 - PPTX dönüştür
-- PowerPoint'tan MD'ye
+- PowerPoint'ten MD'ye
 - sunumdan MD'ye
 - slayttan MD'ye
 - PPT'den MD'ye
 - PPTX'ten MD'ye
-- PowerPoint'ı Markdown olarak kaydet
+- PowerPoint'i Markdown olarak kaydet
 - sunumu Markdown olarak kaydet
 - slaytı Markdown olarak kaydet
 - PPT'yi MD olarak kaydet
 - PPTX'i MD olarak kaydet
 - PPT'yi MD'ye dışa aktar
 - PPTX'i MD'ye dışa aktar
+- Markdown görüntü dışa aktarımı
+- CDN görüntü bağlantıları
 - PowerPoint
 - sunum
 - Markdown
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint slaytlarını—PPT, PPTX—Aspose.Slides for .NET ile temiz Markdown'a dönüştürün, belgeleri otomatikleştirin ve biçimlendirmeyi koruyun."
+description: "PPT ve PPTX sunumlarını .NET'te Markdown'a dönüştürün ve dışa aktarılan bitmap, metafile ve SVG görüntülerinin nerede kaydedileceğini ve nasıl referans verileceğini kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarını Markdown'a dönüştürmenize olanak tanır; bu, belge iş akışları, statik site oluşturma, içerik taşıma ve sürüm kontrolü altında metin yayınlama için faydalı olabilir. API, PPT ve PPTX sunumlarından MD dosyalarına doğrudan dışa aktarmayı destekler ve ortaya çıkan Markdown belgesinde slayt içeriğinin nasıl temsil edileceğini kontrol etmek için ek seçenekler sunar.
+Aspose.Slides for .NET, PPT ve PPTX sunumlarını belgelemeye, statik siteye, içerik taşıma ve sürüm kontrolü iş akışlarına uygun Markdown'a dönüştürebilir. Bir Markdown çeşidini seçebilir, slayt içeriğinin nasıl oluşturulacağını kontrol edebilir ve dışa aktarılan görsellerin nerede depolanacağını ve oluşturulan Markdown'ın bunlara nasıl referans vermesini belirleyebilirsiniz.
 
-Sunumları düz Markdown olarak dışa aktarabilir, CommonMark ve GitHub Flavored Markdown gibi birden fazla Markdown çeşidinden seçim yapabilir ve dışa aktarma sırasında görsellerin nasıl işleneceğini yapılandırabilirsiniz. Görsel içerik içeren sunumlar için Aspose.Slides, görselleri ayrı bir klasöre kaydetmenize ve oluşan Markdown dosyasından referans vermenize de olanak tanır.
+Varsayılan olarak, Markdown dışa aktarma sadece metin çıkışı kullanır. Görsel içeriği dışa aktarmak için, [MarkdownSaveOptions.ExportType](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/exporttype/) özelliğini [MarkdownExportType] enum'ında bulunan `Sequential` veya `Visual` değerlerinden birine ayarlayın. `Sequential`, slayt öğelerini ayrı ayrı ve sırayla render ederken, `Visual` görsel ilişkilerini korumak için gruplanmış öğeleri bir arada tutar. `TextOnly` değeri görüntü kaynakları üretmez, bu nedenle bu modda görüntü kaydetme olayları tetiklenmez.
 
-{{% alert color="warning" %}}
-PowerPoint'tan Markdown'a dışa aktarım varsayılan olarak **görseller olmadan** gerçekleşir. Görseller içeren bir PowerPoint belgesini dışa aktarmak istiyorsanız, `ExportType = MarkdownExportType.Visual` ayarını yapmalı ve `BasePath` belirlemelisiniz; böylece Markdown belgesinde referans verilen görseller kaydedilir.
+## **Bir Sunumu Markdown'a Dönüştürme**
+
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı ile yükleyin ve ardından [Presentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemini, [SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) enum'undan `Md` değeriyle çağırın.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.md", SaveFormat.Md);
+```
+
+## **Bir Markdown Çeşidi Seçin**
+
+[MarkdownSaveOptions.Flavor](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/flavor/) özelliği, çıktıda kullanılan Markdown spesifikasyonunu kontrol eder. [Flavor](https://reference.aspose.com/slides/tr/net/aspose.slides.export/flavor/) enum'ı CommonMark, GitHub Flavored Markdown ve diğer desteklenen varyantları içerir.
+
+Aşağıdaki örnek bir sunumu CommonMark olarak dışa aktarır:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    Flavor = Flavor.CommonMark
+};
+
+presentation.Save("presentation.md", SaveFormat.Md, options);
+```
+
+## **Varsayılan Yerel Kaydetme Davranışıyla Görselleri Dışa Aktarma**
+
+[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/) sınıfı, yerel olarak kaydedilen görseller için iki özellik sağlar:
+
+- [BasePath](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/basepath/) Markdown belgesi ve kaynakları için temel dizini belirtir.
+- [ImagesSaveFolderName](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) görsel alt dizinini belirtir. Varsayılan değeri `Images`.
+
+Aşağıdaki örnek görsel içeriği render eder, görselleri `output/assets` dizinine yazar ve Markdown belgesinde göreli görsel referansları oluşturur:
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "assets"
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
+```
+
+Bu davranış, özel bir görüntü kaydetme işleyicisi `false` döndürdüğünde geri dönüş olarak da hizmet verir.
+
+## **Görsel Kaydetmeyi ve Markdown Bağlantılarını Özelleştirme**
+
+Markdown dışa aktarımı sırasında üretilen SVG olmayan bitmap ve metafile kaynakları için [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/imagesaving/) olayını kullanın. Bu olayın [MarkdownImageSavingHandler](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions.markdownimagesavinghandler/) temsilcisi, [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesnesini, onun [ImageFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) değerini ve oluşturulan Markdown bağlantısını `ref string` parametresi olarak alır. Görseli verilen formatta kaydedin veya yükleyin ve `link` değişkenini Markdown çıktısında yer alması gereken referansla değiştirin.
+
+SVG formatında üretilen kaynaklar ayrı olarak işlenir. [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/) olayına abone olun; bu olayın [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions.markdownsvgimagesavinghandler/) temsilcisi bir [ISvgImage](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/) nesnesi ve `ref string link` parametresini alır. Bir SVG'nin `ImageFormat` argümanı yoktur; bunun yerine [ISvgImage.SvgData](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/svgdata/) özelliğinden XML verisini yazın veya yükleyin. Dışa aktarma modu ve görsel gruplamaya bağlı olarak, kaynak sunumdaki bir SVG rasterleştirilebilir veya diğer içeriklerle birleştirilebilir; ortaya çıkan SVG dışı kaynak daha sonra `ImageSaving` e gönderilir. Her dışa aktarılan görsel kaynağın özel işlenmesi gerektiğinde her iki olaya da abone olun.
+
+İşleyicinin dönüş değeri, görüntünün kim tarafından işleneceğini belirler:
+
+- İşleyici görüntüyü kaydettikten, yükledikten, dönüştürdükten veya başka bir şekilde işledikten ve `link`e geçerli bir değer atadıktan sonra `true` döndürün. Aspose.Slides bu değeri Markdown belgesine yazar ve varsayılan yerel kaydetme işlemini yapmaz.
+- `false` döndürerek Aspose.Slides'in görüntüyü yerel olarak kaydetmesine ve bağlantıyı [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/basepath/) ve [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/)'a göre oluşturmasına izin verin.
+
+{{% alert color="warning" title="Important" %}}
+Bir işleyici `true` döndürdüğünde görselin sorumluluğunu alır. Geçerli ve boş olmayan bir bağlantı atamadan `true` döndürürse, dışa aktarma `InvalidOperationException` hatası ile başarısız olur.
 {{% /alert %}}
 
-## **PowerPoint'u Markdown'a Dönüştür**
+### **Görselleri bir CDN Köken Dizini'ne Kaydedin ve Harici URL'ler Kullanın**
 
-1. Bir sunum nesnesini temsil etmek için [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-2. Nesneyi bir markdown dosyası olarak kaydetmek için [Save ](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/methods/save) metodunu kullanın.
+Aşağıdaki örnek `cdn-origin/presentations/quarterly-report` dizinini monte edilmiş veya senkronize bir CDN köken dizini olarak değerlendirir. Her işleyici oluşturulan dosya adını alır, görseli bu özel dizine kaydeder ve oluşturulan yerel referansı halka açık bir CDN URL'siyle değiştirir. Örnek kendisi ağ üzerinden bir yükleme yapmaz: URL, dizin CDN kökeni olarak monte edildikten veya dosyalar CDN'e yayınlandıktan sonra geçerli olur. Nesne depolama için, dosya sistemi yazımını depolama SDK'sının yükleme operasyonu ile değiştirin ve `link`i yalnızca yükleme başarılı olduğunda atayın.
 
-Bu C# kodu, PowerPoint'u markdown'a nasıl dönüştüreceğinizi gösterir:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+const string outputDirectory = "output";
+const string publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+var storageDirectory = Path.Combine("cdn-origin", "presentations", "quarterly-report");
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(storageDirectory);
+
+static string GetFileNameFromLink(string generatedLink)
 {
-    pres.Save("pres.md", SaveFormat.Md);
+    var urlCompatibleLink = generatedLink.Replace('\\', '/');
+    return urlCompatibleLink[(urlCompatibleLink.LastIndexOf('/') + 1)..];
 }
-```
 
-## **PowerPoint'u Markdown Çeşidine Dönüştür**
-
-Aspose.Slides, PowerPoint'u temel sözdizimi içeren markdown, CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab ve diğer 17 markdown çeşidine dönüştürmenize olanak tanır.
-
-Bu C# kodu, PowerPoint'u CommonMark'a nasıl dönüştüreceğinizi gösterir:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+static string BuildPublicUrl(string baseUrl, string fileName)
 {
-    pres.Save("pres.md", SaveFormat.Md, new MarkdownSaveOptions
+    return $"{baseUrl}/{Uri.EscapeDataString(fileName)}";
+}
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "fallback-images"
+};
+
+options.ImageSaving += (IImage image, ImageFormat format, ref string link) =>
+{
+    if (image.Width < 128 || image.Height < 128)
     {
-        Flavor = Flavor.CommonMark
-    });
-}
-```
+        return false;
+    }
 
-Desteklenen 23 markdown çeşidi, [MarkdownSaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) sınıfının [Flavor enumarasyonu](https://reference.aspose.com/slides/tr/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) altında listelenmiştir.
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    image.Save(storagePath, format);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
 
-## **Görseller İçeren Bir Sunumu Markdown'a Dönüştür**
-
-[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) sınıfı, ortaya çıkan markdown dosyası için belirli seçenekleri veya ayarları kullanmanızı sağlayan özellikler ve enumlar sunar. Örneğin, [MarkdownExportType](https://reference.aspose.com/slides/tr/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enumu, görsellerin nasıl işleneceğini veya render edileceğini belirleyen değerler alabilir: `Sequential`, `TextOnly`, `Visual`.
-
-### **Görselleri Sıralı Olarak Dönüştür**
-
-Eğer görsellerin ortaya çıkan markdown'da tek tek, birbiri ardına görünmesini istiyorsanız, sıralı seçeneği seçmelisiniz. Bu C# kodu, görseller içeren bir sunumu markdown'a nasıl dönüştüreceğinizi gösterir:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+options.SvgImageSaving += (ISvgImage svgImage, ref string link) =>
 {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions
-    {
-        ShowHiddenSlides = true,
-        ShowSlideNumber = true,
-        Flavor = Flavor.Github,
-        ExportType = MarkdownExportType.Sequential,
-        NewLineType = NewLineType.Windows
-    };
-    
-    pres.Save("doc.md", new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
-}
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    File.WriteAllBytes(storagePath, svgImage.SvgData);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
 ```
 
-### **Görselleri Görsel Olarak Dönüştür**
+Bitmap işleyici, 128 × 128 pikselden daha küçük görseller için kasıtlı olarak `false` döndürür; böylece Aspose.Slides bu görselleri varsayılan davranışı kullanarak `output/fallback-images` dizinine kaydeder. Daha büyük bitmap ve metafile kaynakları ile SVG kaynakları özel kod tarafından işlenir. Örneğin, `fallback-images/image1.png` gibi oluşturulan bir yerel referans `https://cdn.example.com/presentations/quarterly-report/image1.png` haline gelir. İşleyiciler dosya yazarken yalnızca işletim sistemi yollarını kullanır; Markdown'a yazılan bağlantılar ileri eğik çizgi (`/`) ve URL kodlamalı dosya adları kullanır. Göreli bağlantılar oluştururken aynı kuralı uygulayın: platforma özgü dizin ayırıcı yerine `/` kullanın.
 
-Eğer görsellerin ortaya çıkan markdown'da bir arada görünmesini istiyorsanız, görsel seçeneği seçmelisiniz. Bu durumda, görseller uygulamanın geçerli dizinine kaydedilir (ve markdown belgesinde onlar için göreceli bir yol oluşturulur) veya tercih ettiğiniz yol ve klasör adını belirtebilirsiniz.
+## **SSS**
 
-Bu C# kodu işlemi gösterir:
+**Bir işleyici raster görüntüleri ve SVG görüntülerini birlikte işleyebilir mi?**
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    const string outPath = "c:\\documents";
-    pres.Save(Path.Combine(outPath, "pres.md"), SaveFormat.Md, new MarkdownSaveOptions
-    { 
-        ExportType = MarkdownExportType.Visual,
-        ImagesSaveFolderName = "md-images",
-        BasePath = outPath
-    });
-}
-```
+Hayır. Üretilen bitmap ve metafile kaynakları için [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/imagesaving/); SVG olarak üretilen kaynaklar için [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/) kullanın. İlki bir [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesnesi ve bir [ImageFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) sunar; ikincisi ise SVG verisi [ISvgImage.SvgData](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/svgdata/) üzerinden okunabilen bir [ISvgImage](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/) nesnesi sunar. Dışa aktarım sırasında rasterleştirilen bir kaynak SVG, bunun yerine `ImageSaving` tarafından işlenir.
 
-## **FAQ**
+**Bir görüntü kaydetme işleyicisi `false` döndürdüğünde ne olur?**
 
-**Hipernizolar Markdown'a dışa aktarmada korunur mu?**
+Aspose.Slides varsayılan yerel kaydetme davranışını kullanır. Görselin konumu ve oluşturulan referans [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/basepath/) ve [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/tr/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) tarafından kontrol edilir.
+
+**Bir işleyici görseli yerel olarak kaydetmeden bir URL sağlayabilir mi?**
+
+Evet. İşleyici görseli nesne depolamaya yükleyebilir ya da başka bir hizmete iletebilir, ortaya çıkan URL'yi `link`e atayabilir ve `true` döndürebilir. İşleyicinin işlemi kendisi tamamlaması gerekir; `true` döndürmek varsayılan yerel kaydetmeyi engeller.
+
+**Markdown dışa aktarımı bir işleyiciden `InvalidOperationException` hatası atmasının nedeni nedir?**
+
+Bu istisna, işleyici `true` döndürdüğünde geçerli bir bağlantı sağlamadığında ortaya çıkar. `true` döndürmeden önce Markdown'a yazılması gereken göreli yolu veya harici URL'yi atayın.
+
+**Görsel bağlantıları hangi yol ayırıcıyı kullanmalıdır?**
+
+Markdown bağlantılarında ve URL'lerde ileri eğik çizgi (`/`) kullanın. Dosya sistemi yolları için yalnızca `Path.Combine` kullanın, ardından Markdown referansını ayrı olarak oluşturun veya normalleştirin.
+
+**Markdown dışa aktarımı sırasında köprüler korunur mu?**
 
 Evet. Metin [hyperlinks](/slides/tr/net/manage-hyperlinks/) standart Markdown bağlantıları olarak korunur. Slayt [transitions](/slides/tr/net/slide-transition/) ve [animations](/slides/tr/net/powerpoint-animation/) dönüştürülmez.
 
-**Dönüştürmeyi birden fazla iş parçacığında çalıştırarak hızlandırabilir miyim?**
+**Sunumlar paralel olarak Markdown'a dönüştürülebilir mi?**
 
-Dosyalar arasında paralelleştirme yapabilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini iş parçacıkları arasında [don’t share](/slides/tr/net/multithreading/) etmeyin. Çakışmayı önlemek için dosya başına ayrı örnekler/süreçler kullanın.
-
-**Görseller ne olur—nerede kaydedilir ve yollar göreceli mi?**
-
-[Images](/slides/tr/net/image/) ayrı bir klasöre dışa aktarılır ve Markdown dosyası varsayılan olarak onları göreceli yollarla referans verir. Temel çıktı yolunu ve varlık klasör adını yapılandırarak öngörülebilir bir depo yapısı sürdürebilirsiniz.
+Farklı sunum dosyalarını paralel olarak işleyebilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini thread'ler arasında paylaşmayın. [multithreading guidelines](/slides/tr/net/multithreading/) yönergelerini izleyin ve her dosya için ayrı bir örnek kullanın.

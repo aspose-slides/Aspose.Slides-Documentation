@@ -1,134 +1,245 @@
 ---
 title: Java'da PowerPoint Sunumlarını Markdown'a Dönüştür
-linktitle: PowerPoint'ten Markdown'a
+linktitle: PowerPoint'den Markdown'a
 type: docs
 weight: 140
 url: /tr/java/convert-powerpoint-to-markdown/
 keywords:
 - PowerPoint dönüştür
-- sunumu dönüştür
-- slaytı dönüştür
+- Sunumu dönüştür
+- Slaytı dönüştür
 - PPT dönüştür
 - PPTX dönüştür
-- PowerPoint'ten MD'ye
-- sunumdan MD'ye
-- slayttan MD'ye
+- PowerPoint'tan MD'ye
+- Sunumdan MD'ye
+- Slayttan MD'ye
 - PPT'den MD'ye
-- PPTX'ten MD'ye
+- PPTX'den MD'ye
 - PowerPoint'i Markdown olarak kaydet
-- sunumu Markdown olarak kaydet
-- slaytı Markdown olarak kaydet
+- Sunumu Markdown olarak kaydet
+- Slaytı Markdown olarak kaydet
 - PPT'yi MD olarak kaydet
 - PPTX'i MD olarak kaydet
 - PPT'yi MD'ye aktar
 - PPTX'i MD'ye aktar
+- Markdown görüntü dışa aktarma
+- CDN görüntü bağlantıları
 - PowerPoint
 - sunum
 - Markdown
 - Java
 - Aspose.Slides
-description: "PowerPoint slaytlarını—PPT, PPTX—Aspose.Slides for Java ile temiz Markdown'a dönüştürün, belgeleri otomatikleştirin ve biçimlendirmeyi koruyun."
+description: "Java'da PPT ve PPTX sunumlarını Markdown'a dönüştürün ve dışa aktarılan bitmap, metafile ve SVG görüntülerinin nerede kaydedildiğini ve referans verildiğini kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarını Markdown'a dönüştürmenizi sağlar; bu, belge akışları, statik site oluşturma, içerik taşıma ve sürüm kontrollü metin yayıncılığı için yararlı olabilir. API, PPT ve PPTX sunumlarını doğrudan MD dosyalarına dışa aktarmayı destekler ve elde edilen Markdown belgesinde slayt içeriğinin nasıl temsil edileceğini kontrol eden ek seçenekler sunar.
+Aspose.Slides for Java, PPT ve PPTX sunumlarını belgeleme, sabit site, içerik taşıma ve sürüm kontrolü iş akışları için Markdown'a dönüştürebilir. Bir Markdown çeşidini seçebilir, slayt içeriğinin nasıl renderlanacağını kontrol edebilir ve dışa aktarılan görüntülerin nerede depolanacağını ve oluşturulan Markdown'un bunlara nasıl referans verdiğini belirleyebilirsiniz.
 
-Sunumları düz Markdown olarak dışa aktarabilir, CommonMark ve GitHub Flavored Markdown gibi birden fazla Markdown çeşidinden seçebilir ve dışa aktarım sırasında görsellerin nasıl ele alınacağını yapılandırabilirsiniz. Görsel içeriği olan sunumlar için Aspose.Slides, görselleri ayrı bir klasöre kaydetmenize ve üretilen Markdown dosyasından bu görsellere referans vermenize olanak tanır.
+Varsayılan olarak, Markdown dışa aktarma yalnızca metin çıktısı üretir. Görsel içeriği dışa aktarmak için, dışa aktarma türünü [MarkdownSaveOptions.setExportType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) yöntemiyle [MarkdownExportType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownexporttype/) enum'undan `Sequential` veya `Visual` değerine ayarlayın. `Sequential`, slayt öğelerini ayrı ayrı ve sırayla renderlarken, `Visual` grup içindeki öğeleri bir arada tutarak görsel ilişkilerini korur. `TextOnly` değeri görüntü kaynaklarını üretmez, bu yüzden bu modda görüntü kaydetme geri çağrıları çalıştırılmaz.
 
-{{% alert color="warning" %}}
+## **Bir Sunumu Markdown'a Dönüştür**
 
-PowerPoint'ten markdown dışa aktarımı varsayılan olarak **görseller olmadan**dır. Görseller içeren bir PowerPoint belgesini dışa aktarmak istiyorsanız, `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` kullanmalı ve ayrıca görsellerin markdown belgesinde referans gösterileceği yeri belirlemek için `setBasePath` kullanmalısınız.
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı ile yükleyin ve ardından [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) yöntemini [SaveFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/saveformat/) enum'undan `Md` değeriyle çağırın.
 
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.save("presentation.md", SaveFormat.Md);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Bir Markdown Çeşidi Seçin**
+
+[MarkdownSaveOptions.setFlavor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) yöntemi, çıktıda kullanılan Markdown spesifikasyonunu kontrol eder. [Flavor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/flavor/) enum'ı CommonMark, GitHub Flavored Markdown ve diğer desteklenen varyantları içerir.
+
+Aşağıdaki örnek bir sunumu CommonMark olarak dışa aktarır:
+
+```java
+import com.aspose.slides.Flavor;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setFlavor(Flavor.CommonMark);
+
+    presentation.save("presentation.md", SaveFormat.Md, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Görüntüleri Varsayılan Yerel Kaydetme Davranışıyla Dışa Aktarın**
+
+[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) sınıfı, yerel olarak kaydedilen görüntüleri yapılandırmak için iki yöntem sağlar:
+
+- [setBasePath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) Markdown belgesi ve kaynakları için temel dizini belirler.
+- [setImagesSaveFolderName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) görüntü alt dizinini belirler. Varsayılan değeri `Images`'dır.
+
+Aşağıdaki örnek görsel içeriği renderlar, görüntüleri `output/assets` dizinine yazar ve Markdown belgesinde göreli görüntü referansları oluşturur:
+
+```java
+import com.aspose.slides.MarkdownExportType;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Path outputDirectory = Paths.get("output");
+Files.createDirectories(outputDirectory);
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setExportType(MarkdownExportType.Visual);
+    options.setBasePath(outputDirectory.toString());
+    options.setImagesSaveFolderName("assets");
+
+    Path markdownPath = outputDirectory.resolve("presentation.md");
+    presentation.save(markdownPath.toString(), SaveFormat.Md, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bu davranış, özel bir görüntü kaydetme işleyicisi `false` döndürdüğünde geri dönüş (fallback) olarak da hizmet eder.
+
+## **Görüntü Kaydetmeyi ve Markdown Bağlantılarını Özelleştirin**
+
+[MarkdownSaveOptions.setImageSaving](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) yöntemini, Markdown dışa aktarımı sırasında üretilen SVG olmayan bitmap ve metafile kaynakları için bir geri çağrı kaydetmek üzere kullanın. `MarkdownImageSavingHandler` geri çağrısı, [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) nesnesini, onun [ImageFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imageformat/) değerini ve oluşturulan Markdown bağlantısını tek elemanlı `String[]` parametresi olarak alır. Görüntüyü verilen formatta kaydedin veya yükleyin ve `link[0]` öğesini Markdown çıktısında görünmesi gereken referansla değiştirin.
+
+SVG formatında üretilen kaynaklar ayrı şekilde işlenir. [MarkdownSaveOptions.setSvgImageSaving](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) yöntemiyle bir geri çağrı kaydedin. `MarkdownSvgImageSavingHandler` geri çağrısı bir [ISvgImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isvgimage/) nesnesi ve tek elemanlı `String[] link` parametresini alır. SVG'nin bir `ImageFormat` argümanı yoktur; bunun yerine XML verisini [ISvgImage.getSvgData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isvgimage/) yönteminden yazar veya yüklersiniz. Dışa aktarma modu ve görsel gruplanmasına bağlı olarak, kaynak sunumdaki bir SVG rasterleştirilebilir veya diğer içerikle birleştirilebilir; ortaya çıkan SVG olmayan kaynak daha sonra görüntü kaydetme geri çağrısına iletilir. Her dışa aktarılan görsel kaynağın özelleştirilmiş işlem gerektirdiği durumlarda her iki geri çağırıyı da kaydedin.
+
+İşleyicinin dönüş değeri, görüntüyü kimin işleyeceğini belirler:
+
+- İşleyici görüntüyü kaydettikten, yükledikten, dönüştürdükten veya başka bir şekilde işledikten ve `link[0]`'a geçerli bir değer atadıktan sonra `true` döndürün. Aspose.Slides bu değeri Markdown belgesine yazar ve varsayılan yerel kaydetme işlemini yapmaz.
+- Aspose.Slides'in görüntüyü yerel olarak kaydetmesini ve bağlantıyı [MarkdownSaveOptions.setBasePath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) ve [MarkdownSaveOptions.setImagesSaveFolderName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) ile ayarlanan değerlere göre oluşturmasını sağlamak için `false` döndürün.
+
+{{% alert color="warning" title="Önemli" %}}
+`true` döndüren bir işleyici, görüntünün sorumluluğunu alır. Geçerli ve boş olmayan bir bağlantı atamadan `true` döndürürse, dışa aktarma `InvalidOperationException` hatasıyla başarısız olur.
 {{% /alert %}}
 
-## **PowerPoint'i Markdown'a Dönüştür**
+### **Görüntüleri CDN Kaynak Dizinine Kaydedin ve Dış URL'ler Kullanın**
 
-1. Sunumu temsil eden bir nesne oluşturmak için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Nesneyi markdown dosyası olarak kaydetmek için [Save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)metodunu kullanın.
-
-Bu Java kodu, PowerPoint'i markdown'a nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek `cdn-origin/presentations/quarterly-report` dizinini monte edilmiş veya senkronize bir CDN kaynak dizini olarak ele alır. Her işleyici oluşturulan dosya adını alır, görüntüyü bu özel dizine kaydeder ve oluşturulan yerel referansı genel bir CDN URL'siyle değiştirir. Örnek kendisi ağ üzerinden bir yükleme yapmaz: URL, dizin CDN kaynağı olarak monte edildikten veya dosyaları CDN'ye yayınlandıktan sonra geçerli olur. Nesne depolama için, dosya sistemi yazma işlemini depolama SDK'sının yükleme işlemiyle değiştirin ve yalnızca yükleme başarılı olduğunda `link[0]` atayın.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.MarkdownExportType;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.function.Function;
+
+Path outputDirectory = Paths.get("output");
+String publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+Path storageDirectory = Paths.get("cdn-origin", "presentations", "quarterly-report");
+Files.createDirectories(outputDirectory);
+Files.createDirectories(storageDirectory);
+
+Function<String, String> getFileNameFromLink = generatedLink -> {
+    String urlCompatibleLink = generatedLink.replace('\\', '/');
+    return urlCompatibleLink.substring(urlCompatibleLink.lastIndexOf('/') + 1);
+};
+Function<String, String> buildPublicUrl = fileName -> {
+    try {
+        String encodedFileName = URLEncoder.encode(fileName, "UTF-8").replace("+", "%20");
+        return publicBaseUrl + "/" + encodedFileName;
+    } catch (UnsupportedEncodingException exception) {
+        System.err.println("Could not encode the image file name: " + exception.getMessage());
+        return null;
+    }
+};
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    pres.save("pres.md", SaveFormat.Md);
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setExportType(MarkdownExportType.Visual);
+    options.setBasePath(outputDirectory.toString());
+    options.setImagesSaveFolderName("fallback-images");
+
+    options.setImageSaving((image, format, link) -> {
+        if (image.getWidth() < 128 || image.getHeight() < 128) {
+            return false;
+        }
+
+        String fileName = getFileNameFromLink.apply(link[0]);
+        String publicUrl = buildPublicUrl.apply(fileName);
+        if (publicUrl == null) {
+            return false;
+        }
+        Path storagePath = storageDirectory.resolve(fileName);
+        image.save(storagePath.toString(), format);
+        link[0] = publicUrl;
+        return true;
+    });
+
+    options.setSvgImageSaving((svgImage, link) -> {
+        String fileName = getFileNameFromLink.apply(link[0]);
+        String publicUrl = buildPublicUrl.apply(fileName);
+        if (publicUrl == null) {
+            return false;
+        }
+        Path storagePath = storageDirectory.resolve(fileName);
+        try {
+            Files.write(storagePath, svgImage.getSvgData());
+        } catch (IOException exception) {
+            System.err.println("Could not save the SVG image: " + exception.getMessage());
+            return false;
+        }
+        link[0] = publicUrl;
+        return true;
+    });
+
+    Path markdownPath = outputDirectory.resolve("presentation.md");
+    presentation.save(markdownPath.toString(), SaveFormat.Md, options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **PowerPoint'i Markdown Çeşidine Dönüştür**
-
-Aspose.Slides, PowerPoint'i markdown (temel sözdizimi içeren), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab ve 17 diğer markdown çeşidine dönüştürmenize olanak tanır.
-
-Bu Java kodu, PowerPoint'i CommonMark'a nasıl dönüştüreceğinizi gösterir:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setFlavor(Flavor.CommonMark);
-    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Desteklenen 23 markdown çeşidi, [Flavor enumeration](https://reference.aspose.com/slides/tr/java/com.aspose.slides/flavor/) altında [MarkdownSaveOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) sınıfından listelenmiştir.
-
-## **Görseller İçeren Bir Sunumu Markdown'a Dönüştür**
-
-[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) sınıfı, elde edilen markdown dosyası için belirli seçenekleri veya ayarları kullanmanıza olanak tanıyan özellikler ve enumlar sağlar. Örneğin, [MarkdownExportType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownexporttype/) enumu, görsellerin nasıl işleneceğini belirleyen değerler alabilir: `Sequential`, `TextOnly`, `Visual`.
-
-### **Görselleri Sıralı Olarak Dönüştür**
-
-Görsellerin sonuç markdown dosyasında tek tek, birbiri ardına görünmesini istiyorsanız, sıralı seçeneği seçmeniz gerekir. Bu Java kodu, görseller içeren bir sunumu markdown'a nasıl dönüştüreceğinizi gösterir:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setShowHiddenSlides(true);
-    markdownSaveOptions.setShowSlideNumber(true);
-    markdownSaveOptions.setFlavor(Flavor.Github);
-    markdownSaveOptions.setExportType(MarkdownExportType.Sequential);
-    markdownSaveOptions.setNewLineType(NewLineType.Windows);
-    pres.save("doc.md", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Görselleri Görsel Olarak Dönüştür**
-
-Görsellerin sonuç markdown dosyasında birlikte görünmesini istiyorsanız, görsel seçeneği seçmeniz gerekir. Bu durumda, görseller uygulamanın geçerli dizinine kaydedilir (ve markdown belgesinde onlar için göreceli bir yol oluşturulur) veya tercih ettiğiniz yol ve klasör adını belirtebilirsiniz.
-
-Bu Java kodu, işlemi göstermektedir:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    final String outPath = "c:/documents";
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setExportType(MarkdownExportType.Visual);
-    markdownSaveOptions.setImagesSaveFolderName("md-images");
-    markdownSaveOptions.setBasePath(outPath);
-    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+Bitmap işleyicisi, 128 × 128 pikselden küçük görüntüler için bilinçli olarak `false` döndürür, bu nedenle Aspose.Slides bu görüntüleri varsayılan davranışı kullanarak `output/fallback-images` dizinine kaydeder. Daha büyük bitmap ve metafile kaynakları, ayrıca SVG kaynakları, özel kod tarafından işlenir. Örneğin, `fallback-images/image1.png` gibi bir yerel referans `https://cdn.example.com/presentations/quarterly-report/image1.png` haline gelir. İşleyiciler dosya yazarken yalnızca işletim sistemi yollarını kullanır; Markdown'a yazılan bağlantılar ise ileri eğik çizgi ve URL kodlu dosya adları kullanır. Göreli bağlantılar oluştururken aynı kuralı uygulayın: platforma özgü dizin ayırıcı yerine `/` kullanın.
 
 ## **SSS**
 
-**Hipermetinler Markdown'a dışa aktarıldıktan sonra korunur mu?**
+**Bir işleyici hem raster hem de SVG görüntülerini işleyebilir mi?**
 
-Evet. Metin [hiperbağlantılar](/slides/tr/java/manage-hyperlinks/) standart Markdown bağlantıları olarak korunur. Slayt [geçişler](/slides/tr/java/slide-transition/) ve [animasyonlar](/slides/tr/java/powerpoint-animation/) dönüştürülmez.
+Hayır. Markdown dışa aktarımı sırasında üretilen bitmap ve metafile kaynakları için [MarkdownSaveOptions.setImageSaving](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) kullanın ve SVG olarak üretilen kaynaklar için [MarkdownSaveOptions.setSvgImageSaving](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) kullanın. İlk yöntem bir [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) nesnesi ve bir [ImageFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imageformat/) değeri sağlar; ikincisi ise SVG verisi [ISvgImage.getSvgData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isvgimage/) ile okunabilen bir [ISvgImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isvgimage/) nesnesi sağlar. Dışa aktarma sırasında rasterleştirilen bir kaynak SVG, görüntü kaydetme geri çağrısı tarafından işlenir.
 
-**Dönüşümü birden çok iş parçacığıyla çalıştırarak hızlandırabilir miyim?**
+**Bir görüntü kaydetme işleyicisi `false` döndürdüğünde ne olur?**
 
-Dosyalar arasında paralel işleyebilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneğini iş parçacıkları arasında [paylaşmayın](/slides/tr/java/multithreading/). Çakışmayı önlemek için dosya başına ayrı örnekler/süreçler kullanın.
+Aspose.Slides varsayılan yerel kaydetme davranışını kullanır. Görüntü konumu ve oluşturulan referans, [MarkdownSaveOptions.setBasePath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) ve [MarkdownSaveOptions.setImagesSaveFolderName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/markdownsaveoptions/) ile ayarlanan değerler tarafından kontrol edilir.
 
-**Görseller ne olur—nerede kaydedilir ve yollar göreceli mi?**
+**Bir işleyici yerel olarak görüntüyü kaydetmeden bir URL sağlayabilir mi?**
 
-[Görseller](/slides/tr/java/image/) ayrı bir klasöre aktarılır ve Markdown dosyası varsayılan olarak onları göreceli yollarla referans verir. Temel çıktı yolunu ve varlık klasör adını yapılandırarak öngörülebilir bir depo yapısı oluşturabilirsiniz.
+Evet. İşleyici görüntüyü nesne depolamaya yükleyebilir veya başka bir hizmete gönderebilir, ortaya çıkan URL'yi `link[0]`'a atayabilir ve `true` döndürebilir. İşleyicinin işlemi kendisi tamamlamalıdır; `true` döndürmek varsayılan yerel kaydetmeyi engeller.
+
+**Markdown dışa aktarımı bir işleyiciden neden `InvalidOperationException` hatası fırlatır?**
+
+Bu istisna, işleyicinin `true` döndürdüğü ancak geçerli bir bağlantı sağlamadığı durumlarda ortaya çıkar. `true` döndürmeden önce Markdown'a yazılması gereken göreli yolu veya harici URL'yi `link[0]`'a atayın.
+
+**Görüntü bağlantılarında hangi yol ayırıcı kullanılmalı?**
+
+Markdown bağlantılarında ve URL'lerde ileri eğik çizgi (`/`) kullanın. `Path.resolve`'ı yalnızca dosya sistemi yolları için kullanın, ardından Markdown referansını ayrı olarak oluşturun veya normalleştirin.
+
+**Markdown dışa aktarımı sırasında bağlantılar korunur mu?**
+
+Evet. Metin [hyperlinks](/slides/tr/java/manage-hyperlinks/) standart Markdown bağlantıları olarak korunur. Slayt [transitions](/slides/tr/java/slide-transition/) ve [animations](/slides/tr/java/powerpoint-animation/) dönüştürülmez.
+
+**Sunumlar paralel olarak Markdown'a dönüştürülebilir mi?**
+
+Farklı sunum dosyalarını paralel olarak işleyebilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneğini thread'ler arasında paylaşmayın. [multithreading guidelines](/slides/tr/java/multithreading/) izleyin ve her dosya için ayrı bir örnek kullanın.

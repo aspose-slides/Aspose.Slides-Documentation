@@ -1,5 +1,5 @@
 ---
-title: Gestion des tableaux de présentation en Java
+title: Gestion des tables de présentation en Java
 linktitle: Gérer le tableau
 type: docs
 weight: 10
@@ -10,7 +10,7 @@ keywords:
 - accéder au tableau
 - rapport d'aspect
 - aligner le texte
-- mise en forme du texte
+- formatage du texte
 - style de tableau
 - PowerPoint
 - présentation
@@ -18,26 +18,31 @@ keywords:
 - Aspose.Slides
 description: "Créer et modifier des tableaux dans les diapositives PowerPoint avec Aspose.Slides pour Java. Découvrez des exemples de code simples pour rationaliser vos flux de travail de tableau."
 ---
+## **Introduction**
 
 Un tableau dans PowerPoint est un moyen efficace d'afficher et de présenter des informations. Les informations dans une grille de cellules (organisées en lignes et colonnes) sont simples et faciles à comprendre.
 
-Aspose.Slides fournit la classe [Table](https://reference.aspose.com/slides/java/com.aspose.slides/Table) , l'interface [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) , la classe [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) , l'interface [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) et d'autres types pour vous permettre de créer, mettre à jour et gérer des tableaux dans toutes sortes de présentations. 
+Aspose.Slides fournit la classe [Table](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Table), l'interface [ITable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ITable), la classe [Cell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/cell/) , l'interface [ICell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icell/) et d'autres types pour vous permettre de créer, mettre à jour et gérer des tableaux dans toutes sortes de présentations. 
 
 ## **Créer un tableau à partir de zéro**
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-2. Obtenir une référence à une diapositive via son indice. 
-3. Définir un tableau de `columnWidth` .
-4. Définir un tableau de `rowHeight` .
-5. Ajouter un objet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) à la diapositive via la méthode [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
-6. Itérer sur chaque [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) pour appliquer le formatage aux bordures supérieure, inférieure, droite et gauche.
-7. Fusionner les deux premières cellules de la première ligne du tableau. 
-8. Accéder au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) d'un [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) .
-9. Ajouter du texte au [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) .
-10. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive à l’aide de son index. 
+3. Définissez un tableau de `columnWidth`.
+4. Définissez un tableau de `rowHeight`.
+5. Ajoutez un objet [ITable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ITable) à la diapositive via la méthode [addTable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+6. Parcourez chaque [ICell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icell/) pour appliquer le formatage aux bordures supérieure, inférieure, droite et gauche.
+7. Fusionnez les deux premières cellules de la première ligne du tableau. 
+8. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/textframe/) d'un [ICell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icell/). 
+9. Ajoutez du texte au [TextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/textframe/).
+10. Enregistrez la présentation modifiée.
 
-Ce code Java montre comment créer un tableau dans une présentation :
+Ce code Java vous montre comment créer un tableau dans une présentation:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instancie une classe Presentation qui représente un fichier PPTX
 Presentation pres = new Presentation();
 try {
@@ -76,7 +81,7 @@ try {
         }
     }
     // Fusionne les cellules 1 et 2 de la ligne 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // Ajoute du texte à la cellule fusionnée
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -88,12 +93,11 @@ try {
 }
 ```
 
-
 ## **Numérotation dans un tableau standard**
 
-Dans un tableau standard, la numérotation des cellules est simple et commence à zéro. La première cellule d'un tableau est indexée comme 0,0 (colonne 0, ligne 0). 
+Dans un tableau standard, la numérotation des cellules est simple et commence à zéro. La première cellule d’un tableau est indexée à 0,0 (colonne 0, ligne 0). 
 
-Par exemple, les cellules d'un tableau de 4 colonnes et 4 lignes sont numérotées ainsi :
+Par exemple, les cellules d’un tableau de 4 colonnes et 4 lignes sont numérotées de la façon suivante:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -101,8 +105,12 @@ Par exemple, les cellules d'un tableau de 4 colonnes et 4 lignes sont numéroté
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Ce code Java montre comment spécifier la numérotation des cellules dans un tableau :
+Ce code Java vous montre comment spécifier la numérotation des cellules dans un tableau:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instancie une classe Presentation qui représente un fichier PPTX
 Presentation pres = new Presentation();
 try {
@@ -146,21 +154,27 @@ try {
 }
 ```
 
-
 ## **Accéder à un tableau existant**
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-2. Obtenir une référence à la diapositive contenant le tableau via son indice. 
-3. Créer un objet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) et le définir à null.
-4. Itérer à travers tous les objets [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) jusqu'à ce que le tableau soit trouvé.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation).
 
-   If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can typecast it as a [Table](https://reference.aspose.com/slides/java/com.aspose.slides/Table) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [setAlternativeText(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+2. Obtenez une référence à la diapositive contenant le tableau à l’aide de son index. 
 
-5. Utiliser l'objet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) pour travailler avec le tableau. Dans l'exemple ci‑dessous, nous avons ajouté une nouvelle ligne au tableau.
-6. Enregistrer la présentation modifiée.
+3. Créez un objet [ITable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ITable) et initialisez-le à null.
 
-Ce code Java montre comment accéder à un tableau existant et le manipuler :
+4. Parcourez tous les objets [IShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/) jusqu’à ce que le tableau soit trouvé.
+
+   Si vous pensez que la diapositive que vous traitez ne contient qu’un seul tableau, vous pouvez simplement vérifier toutes les formes qu’elle contient. Lorsqu’une forme est identifiée comme un tableau, vous pouvez la convertir en objet [Table](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Table). Mais si la diapositive contient plusieurs tableaux, il est préférable de rechercher le tableau souhaité via son [setAlternativeText(String value)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+
+5. Utilisez l'objet [ITable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ITable) pour travailler avec le tableau. Dans l'exemple ci‑dessous, nous avons ajouté une nouvelle ligne au tableau.
+
+6. Enregistrez la présentation modifiée.
+
+Ce code Java vous montre comment accéder à un tableau existant et le manipuler:
+
 ```java
+import com.aspose.slides.*;
+
 // Instancie la classe Presentation qui représente un fichier PPTX
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
@@ -168,7 +182,7 @@ try {
     // Accède à la première diapositive
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Initialise TableEx à null
+    // Initialise la TableEx à null
     ITable tbl = null;
 
     // Parcourt les formes et définit une référence vers le tableau trouvé
@@ -189,19 +203,30 @@ try {
 }
 ```
 
+## **Trouver la cellule qui possède un cadre de texte**
+
+Lorsque du code générique de traitement du texte reçoit un [ITextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/) d’un tableau, utilisez la méthode [ITextFrame.getParentCell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/#getParentCell--) pour récupérer le [ICell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icell/) propriétaire. Pour un cadre de texte d’une cellule de tableau, [ITextFrame.getParentCell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/#getParentCell--) renvoie le propriétaire et [ITextFrame.getParentShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/#getParentShape--) renvoie `null`, bien que le tableau lui‑même soit une forme.
+
+Les coordonnées de la cellule sont accessibles via les méthodes en lecture seule [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icell/#getFirstColumnIndex--) et [ICell.getFirstRowIndex](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icell/#getFirstRowIndex--). [ITextFrame.getParentCell](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/#getParentCell--) fournit également une navigation en lecture seule : elle renvoie le propriétaire mais ne modifie pas la propriété. Vérifiez toujours que la cellule renvoyée n’est pas `null` avant de l’utiliser.
+
+Pour un exemple complet qui identifie les propriétaires de cellules de tableau et de formes, y compris les formes associées aux nœuds SmartArt, voir [Search and Replace Text](/slides/fr/java/search-and-replace-text/).
 
 ## **Aligner le texte dans un tableau**
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-2. Obtenir une référence à une diapositive via son indice. 
-3. Ajouter un objet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) à la diapositive. 
-4. Accéder à un objet [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) du tableau. 
-5. Accéder au [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) du [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) .
-6. Aligner le texte verticalement.
-7. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive à l’aide de son index. 
+3. Ajoutez un objet [ITable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ITable) à la diapositive. 
+4. Accédez à un objet [ITextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/) du tableau. 
+5. Accédez au [IParagraph](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraph/) du [ITextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/).
+6. Alignez le texte verticalement.
+7. Enregistrez la présentation modifiée.
 
-Ce code Java montre comment aligner le texte dans un tableau :
+Ce code Java vous montre comment aligner le texte dans un tableau:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crée une instance de la classe Presentation
 Presentation pres = new Presentation();
 try {
@@ -242,23 +267,25 @@ try {
 }
 ```
 
+## **Définir le format du texte au niveau du tableau**
 
-## **Définir le formatage du texte au niveau du tableau**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive à l’aide de son index. 
+3. Accédez à un objet [ITable](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ITable) depuis la diapositive.
+4. Définissez le [setFontHeight(float value)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) pour le texte. 
+5. Définissez le [setAlignment(int value)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) et le [setMarginRight(float value)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
+6. Définissez le [setTextVerticalType(byte value)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+7. Enregistrez la présentation modifiée. 
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-2. Obtenir une référence à une diapositive via son indice. 
-3. Accéder à un objet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) depuis la diapositive.
-4. Définir la méthode [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) pour le texte. 
-5. Définir les méthodes [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) et [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Définir la méthode [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Enregistrer la présentation modifiée. 
+Ce code Java vous montre comment appliquer vos options de formatage préférées au texte d’un tableau:
 
-Ce code Java montre comment appliquer vos options de formatage préférées au texte d'un tableau :
 ```java
+import com.aspose.slides.*;
+
 // Crée une instance de la classe Presentation
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // Supposons que la première forme de la première diapositive est un tableau
+    // Supposons que la première forme de la première diapositive soit un tableau
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
     // Définit la hauteur de police des cellules du tableau
@@ -266,13 +293,13 @@ try {
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // Définit l'alignement du texte et la marge droite des cellules du tableau en un seul appel
+    // Définit l'alignement du texte des cellules du tableau et la marge droite en un seul appel
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
     
-    // Définit le type de texte vertical des cellules du tableau
+    // Définit le type vertical du texte des cellules du tableau
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
     someTable.setTextFormat(textFrameFormat);
@@ -283,28 +310,41 @@ try {
 }
 ```
 
-
 ## **Obtenir les propriétés de style du tableau**
 
-Aspose.Slides vous permet de récupérer les propriétés de style d'un tableau afin de les utiliser pour un autre tableau ou ailleurs. Ce code Java montre comment obtenir les propriétés de style à partir d'un style de tableau prédéfini :
+Aspose.Slides vous permet de récupérer les propriétés de style d’un tableau afin de les utiliser pour un autre tableau ou ailleurs. Ce code Java vous montre comment obtenir les propriétés de style d’un style de tableau prédéfini:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // modifie le thème du style prédéfini par défaut
+    table.setStylePreset(TableStylePreset.DarkStyle1); // modifie le thème de style prédéfini par défaut 
+
+    // Obtient le style prédéfini du tableau
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // Applique le style prédéfini récupéré à un autre tableau
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **Verrouiller le taux d’aspect d’un tableau**
 
-## **Verrouiller le rapport d'aspect d'un tableau**
+Le taux d’aspect d’une forme géométrique est le rapport de ses dimensions. Aspose.Slides fournit la propriété [**setAspectRatioLocked**](https://reference.aspose.com/slides/fr/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) pour vous permettre de verrouiller le réglage du taux d’aspect pour les tableaux et autres formes. 
 
-Le rapport d'aspect d'une forme géométrique est le rapport de ses dimensions dans différentes directions. Aspose.Slides fournit la propriété [**setAspectRatioLocked**](https://reference.aspose.com/slides/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) pour vous permettre de verrouiller le paramètre de rapport d'aspect pour les tableaux et autres formes. 
+Ce code Java vous montre comment verrouiller le taux d’aspect pour un tableau:
 
-Ce code Java montre comment verrouiller le rapport d'aspect d'un tableau :
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -320,17 +360,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Puis-je activer la direction de lecture de droite à gauche (RTL) pour un tableau entier et le texte de ses cellules ?**
+**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
 
-Oui. Le tableau expose une méthode [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-) , et les paragraphes possèdent [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). L'utilisation des deux garantit le bon ordre RTL et le rendu correct à l'intérieur des cellules.
+Oui. Le tableau expose une méthode [setRightToLeft](https://reference.aspose.com/slides/fr/java/com.aspose.slides/table/#setRightToLeft-boolean-), et les paragraphes possèdent [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/fr/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). L’utilisation des deux garantit le bon ordre RTL et le rendu correct à l’intérieur des cellules.
 
-**Comment puis‑je empêcher les utilisateurs de déplacer ou de redimensionner un tableau dans le fichier final ?**
+**How can I prevent users from moving or resizing a table in the final file?**
 
-Utilisez les [verrous de forme](/slides/fr/java/applying-protection-to-presentation/) pour désactiver le déplacement, le redimensionnement, la sélection, etc. Ces verrous s'appliquent également aux tableaux.
+Utilisez les [shape locks](/slides/fr/java/applying-protection-to-presentation/) pour désactiver le déplacement, le redimensionnement, la sélection, etc. Ces verrous s’appliquent également aux tableaux.
 
-**L'insertion d'une image à l'intérieur d'une cellule comme arrière‑plan est‑elle prise en charge ?**
+**Is inserting an image inside a cell as a background supported?**
 
-Oui. Vous pouvez définir un [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) pour une cellule ; l'image couvrira la zone de la cellule selon le mode choisi (étirement ou mosaïque).
+Oui. Vous pouvez définir un [picture fill](https://reference.aspose.com/slides/fr/java/com.aspose.slides/picturefillformat/) pour une cellule ; l’image couvrira la zone de la cellule selon le mode choisi (étirement ou mosaïque).

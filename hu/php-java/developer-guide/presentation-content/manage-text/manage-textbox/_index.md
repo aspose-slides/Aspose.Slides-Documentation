@@ -1,5 +1,5 @@
 ---
-title: Szövegdobozok kezelése prezentációkban PHP-vel
+title: Szövegdobozok kezelése prezentációkban PHP használatával
 linktitle: Szövegdoboz kezelése
 type: docs
 weight: 20
@@ -17,41 +17,41 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP egyszerűvé teszi a szövegdobozok létrehozását, szerkesztését és klónozását PowerPoint és OpenDocument fájlokban, ezáltal javítva a prezentáció automatizálását."
+description: "Az Aspose.Slides for PHP lehetővé teszi szövegdobozok egyszerű létrehozását, szerkesztését és klónozását PowerPoint és OpenDocument fájlokban, elősegítve a prezentáció automatizálását."
 ---
 ## **Bevezetés**
 
-A diákon a szövegek általában szövegdobozokban vagy alakzatokban jelennek meg. Ezért a diára szöveget hozzáadni egy szövegdobozt kell létrehozni, majd szöveget helyezni a dobobozba. Az Aspose.Slides for PHP via Java a [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) osztályt biztosítja, amely lehetővé teszi, hogy szöveget tartalmazó alakzatot adjunk hozzá.
+A diákon lévő szövegek általában szövegdobozokban vagy alakzatokban vannak. Ezért a diára szöveg hozzáadásához először szövegdobozt kell létrehozni, majd szöveget helyezni a dobozba. Az Aspose.Slides for PHP via Java a [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) osztályt biztosítja, amely lehetővé teszi egy szöveget tartalmazó alakzat hozzáadását.
 
 {{% alert title="Info" color="info" %}}
-Az Aspose.Slides emellett a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) osztályt is biztosítja, amely lehetővé teszi alakzatok hozzáadását a diákhoz. Azonban nem minden a `Shape` osztályon keresztül hozzáadott alakzat képes szöveget tárolni. Azonban a [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) osztályon keresztül hozzáadott alakzatok tartalmazhatnak szöveget.
+Az Aspose.Slides emellett a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) osztályt is biztosítja, amely lehetővé teszi alakzatok hozzáadását a diákhoz. Azonban nem minden, a `Shape` osztályon keresztül hozzáadott alakzat tud szöveget tartalmazni. A [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) osztályon keresztül hozzáadott alakzatok azonban tartalmazhatnak szöveget.
 {{% /alert %}}
 
-{{% alert title="Megjegyzés" color="warning" %}} 
-Ezért, ha olyan alakzattal dolgozunk, amelyhez szöveget szeretnénk hozzáadni, ellenőrizni kell, hogy az `AutoShape` osztályon keresztül lett-e létrehozva. Csak ekkor lehet a [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) tulajdonsággal dolgozni, amely az `AutoShape` alatti tulajdonság. Lásd a [Update Text](/slides/hu/php-java/manage-textbox/#update-text) szakaszt ezen az oldalon.
+{{% alert title="Note" color="warning" %}} 
+Ezért, ha egy olyan alakzattal dolgozik, amelyhez szöveget szeretne hozzáadni, ellenőriznie kell, hogy az `AutoShape` osztályon keresztül lett-e létrehozva. Csak ekkor lesz lehetősége a [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) használatára, amely az `AutoShape` tulajdonsága. Tekintse meg a [Update Text](/slides/hu/php-java/manage-textbox/#update-text) szekciót ezen az oldalon.
 {{% /alert %}}
 
-## **Szövegdoboz létrehozása a dián**
+## **Szövegdoboz létrehozása egy dián**
 
-A szövegdoboz létrehozásához a dián kövesse az alábbi lépéseket:
+A szövegdoboz létrehozásához egy dián kövesse ezeket a lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.  
 2. Szerezzen referenciát az újonnan létrehozott prezentáció első diájához.  
-3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) objektumot, amelynek alakzattípusa [Rectangle](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapetype/#Rectangle), a dián megadott pozícióban, és szerezze meg az újonnan hozzáadott `AutoShape` objektum referenciáját.  
-4. Adjon egy `TextFrame` elemet az `AutoShape` objektumhoz, amely szöveget tartalmaz. Az alábbi példában ezt a szöveget adtuk hozzá: *Aspose TextBox*  
+3. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) objektumot, amelynek alakzat típusa [Rectangle](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapetype/#Rectangle), a dián egy megadott pozícióban, és szerezze meg a frissen hozzáadott `AutoShape` objektum referenciáját.  
+4. Adjon egy `TextFrame`-et az `AutoShape` objektumhoz, amely szöveget tartalmaz. Az alábbi példában ezt a szöveget adtuk hozzá: *Aspose TextBox*  
 5. Végül írja ki a PPTX fájlt a `Presentation` objektumon keresztül.  
 
-Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adjon szöveget egy diához:
+Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adhat szöveget egy diához:
 
 ```php
   # Példányosítja a Presentation objektumot
   $pres = new Presentation();
   try {
-    # Lekéri a prezentáció első diáját
+    # Megkapja a prezentáció első diáját
     $sld = $pres->getSlides()->get_Item(0);
-    # Hozzáad egy AutoShape-et típusként Rectangle
+    # Hozzáad egy AutoShape-ot, amelynek típusa Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Hozzáad egy TextFrame-et a Rectangle-hez
+    # Hozzáad egy TextFrame-et a Rectangle objektumhoz
     $ashp->addTextFrame(" ");
     # Eléri a szövegkeretet
     $txtFrame = $ashp->getTextFrame();
@@ -61,7 +61,7 @@ Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adjo
     $portion = $para->getPortions()->get_Item(0);
     # Beállítja a szöveget
     $portion->setText("Aspose TextBox");
-    # Mentés a prezentációt a lemezre
+    # Elmenti a prezentációt a lemezre
     $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -70,13 +70,13 @@ Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adjo
   }
 ```
 
-## **Alakzat ellenőrzése szövegdobozként**
+## **Szövegdoboz alakzat ellenőrzése**
 
-Az Aspose.Slides a [isTextBox](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/istextbox/) metódust biztosítja az [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) osztályból, amely lehetővé teszi az alakzatok vizsgálatát és a szövegdobozok azonosítását.
+Az Aspose.Slides a [isTextBox](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/istextbox/) metódust kínálja a [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) osztályból, amely lehetővé teszi az alakzatok vizsgálatát és a szövegdobozok azonosítását.
 
 ![Szövegdoboz és alakzat](istextbox.png)
 
-Ez a PHP kód megmutatja, hogyan ellenőrizhetjük, hogy egy alakzat szövegdobozként lett-e létrehozva:
+Ez a PHP kód megmutatja, hogyan ellenőrizhető, hogy egy alakzat szövegdobozként lett-e létrehozva:
 
 ```php
 class ShapeCallback {
@@ -90,43 +90,51 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Vegye figyelembe, hogy ha egyszerűen csak egy autoshape‑t ad hozzá a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztály `addAutoShape` metódusával, az autoshape `isTextBox` metódusa `false` értéket ad vissza. Azonban ha szöveget ad a autoshape‑hez a `addTextFrame` vagy a `setText` metódussal, a `isTextBox` tulajdonság `true` értéket ad vissza.
+Fontos megjegyezni, hogy ha egyszerűen csak egy autoshapet ad hozzá a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztály `addAutoShape` metódusával, akkor az autoshape `isTextBox` metódusa `false` értéket ad vissza. Azonban miután szöveget ad az autoshapehöz a `addTextFrame` vagy a `setText` metódussal, a `isTextBox` tulajdonság `true` értéket ad vissza.
 
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
 
 $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->isTextBox() false-t ad vissza
+// shape1->isTextBox() false értéket ad vissza
 $shape1->addTextFrame("shape 1");
-// shape1->isTextBox() true-t ad vissza
+// shape1->isTextBox() true értéket ad vissza
 
 $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->isTextBox() false-t ad vissza
+// shape2->isTextBox() false értéket ad vissza
 $shape2->getTextFrame()->setText("shape 2");
-// shape2->isTextBox() true-t ad vissza
+// shape2->isTextBox() true értéket ad vissza
 
 $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->isTextBox() false-t ad vissza
+// shape3->isTextBox() false értéket ad vissza
 $shape3->addTextFrame("");
-// shape3->isTextBox() false-t ad vissza
+// shape3->isTextBox() false értéket ad vissza
 
 $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->isTextBox() false-t ad vissza
+// shape4->isTextBox() false értéket ad vissza
 $shape4->getTextFrame()->setText("");
-// shape4->isTextBox() false-t ad vissza
+// shape4->isTextBox() false értéket ad vissza
 ```
 
-## **Oszlopok hozzáadása szövegdobozhoz**
+## **Az a alakzat megtalálása, amelyik a TextFrame-et birtokolja**
 
-Az Aspose.Slides a [setColumnCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/setcolumncount/) és a [setColumnSpacing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/setcolumnspacing/) metódusokat biztosítja a [TextFrameFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/) osztályból, amelyek lehetővé teszik oszlopok hozzáadását a szövegdobozokhoz. Megadhatja a szövegdobozban lévő oszlopok számát, és beállíthatja az oszlopok közötti távolságot pontban.
+Általános szövegfeldolgozó kódban előfordulhat, hogy egy [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) objektumot kap, anélkül, hogy tudná, melyik prezentációs objektum tartalmazza azt. Használja a [TextFrame::getParentShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#getParentShape) metódust a tulajdonos [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) visszakereséséhez.
+
+Egy olyan szövegkeret esetén, amely egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) vagy egy másik szöveget tartalmazó alakzat része, a [TextFrame::getParentShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#getParentShape) visszaadja a tulajdonost, míg a [TextFrame::getParentCell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#getParentCell) `null` értéket ad. Mindkét metódus csak olvasási célú navigációt biztosít, ezért hívásuk nem változtatja meg a tulajdonjogot. Mindig ellenőrizze a visszatérő értéket a `java_is_null` függvénnyel, mielőtt a shape-hez hozzáférne.
+
+A shape- és táblacella-tulajdonosokat, valamint a SmartArt csomópontokhoz kapcsolódó alakzatokat bemutató teljes példa a [Search and Replace Text](/slides/hu/php-java/search-and-replace-text/) oldalon található.
+
+## **Oszlopok hozzáadása egy szövegdobozhoz**
+
+Az Aspose.Slides a [setColumnCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/setcolumncount/) és a [setColumnSpacing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/setcolumnspacing/) metódusokat a [TextFrameFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/) osztályból kínálja, amelyek lehetővé teszik oszlopok hozzáadását a szövegdobozokhoz. Megadhatja az oszlopok számát, valamint a pontokban kifejezett oszloptávolságot az oszlopok között.
 
 Ez a kód demonstrálja a leírt műveletet:
 
@@ -135,17 +143,17 @@ Ez a kód demonstrálja a leírt műveletet:
   try {
     # Lekéri a prezentáció első diáját
     $slide = $pres->getSlides()->get_Item(0);
-    # Hozzáad egy AutoShape-et típusként Rectangle
+    # Hozzáad egy AutoShape-ot, amelynek típusa Rectangle
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     # Hozzáad egy TextFrame-et a Rectangle-hez
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
     # Lekéri a TextFrame szövegformátumát
     $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # Meghatározza a oszlopok számát a TextFrame-ben
+    # Megadja az oszlopok számát a TextBox-ban
     $format->setColumnCount(3);
-    # Meghatározza az oszlopok közötti távolságot
+    # Megadja az oszlopok közötti távolságot
     $format->setColumnSpacing(10);
-    # Mentés a prezentációt
+    # Elmenti a prezentációt
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -154,11 +162,10 @@ Ez a kód demonstrálja a leírt műveletet:
   }
 ```
 
-## **Oszlopok hozzáadása szövegkerethez**
+## **Oszlopok hozzáadása egy TextFrame-hez**
+Az Aspose.Slides for PHP via Java a [setColumnCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/setcolumncount/) metódust biztosítja a [TextFrameFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/) osztályból, amely lehetővé teszi oszlopok hozzáadását a szövegkeretekhez. Ezen tulajdonság segítségével megadhatja a kívánt oszlopszámot egy TextFrame-ben.
 
-Az Aspose.Slides for PHP via Java a [setColumnCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/setcolumncount/) metódust biztosítja a [TextFrameFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/) osztályból, amely lehetővé teszi oszlopok hozzáadását a szövegkeretekben. Ezen tulajdonság segítségével megadhatja a kívánt oszlopszámot a szövegkeretben.
-
-Ez a PHP kód megmutatja, hogyan adjon egy oszlopot egy szövegkerethez:
+Ez a PHP kód megmutatja, hogyan adhat egy oszlopot egy szövegkerethez:
 
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
@@ -213,9 +220,9 @@ Ez a PHP kód megmutatja, hogyan adjon egy oszlopot egy szövegkerethez:
 
 ## **Szöveg frissítése**
 
-Az Aspose.Slides lehetővé teszi a szövegdobozban vagy a prezentációban lévő összes szöveg módosítását vagy frissítését.
+Az Aspose.Slides lehetővé teszi egy szövegdobozban vagy egy teljes prezentációban lévő összes szöveg módosítását vagy frissítését.
 
-Ez a PHP kód bemutat egy műveletet, amely a prezentációban lévő összes szöveget frissíti vagy megváltoztatja:
+Ez a PHP kód bemutat egy olyan műveletet, amelyben a prezentáció összes szövege frissítésre vagy módosításra kerül:
 
 ```php
   $pres = new Presentation("text.pptx");
@@ -227,11 +234,11 @@ Ez a PHP kód bemutat egy műveletet, amely a prezentációban lévő összes sz
           $autoShape = $shape;
           # Végigiterál a szövegkeret bekezdésein
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Végigiterál a bekezdés minden részén
+            # Végigiterál a bekezdés minden részletén
             foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// Megváltoztatja a szöveget
+              $portion->setText($portion->getText()->replace("years", "months"));// Módosítja a szöveget
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Megváltoztatja a formázást
+              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Módosítja a formázást
 
             }
           }
@@ -247,38 +254,38 @@ Ez a PHP kód bemutat egy műveletet, amely a prezentációban lévő összes sz
   }
 ```
 
-## **Szövegdoboz hozzáadása hiperhivatkozással**
+## **Szövegdoboz hozzáadása hiperhivatkozással** 
 
-Hiperhivatkozást szúrhat be egy szövegdobozba. Amikor a szövegdobozra kattintanak, a felhasználók a hivatkozás megnyitására kerülnek irányításra.
+Hiperhivatkozást helyezhet el egy szövegdobozban. Amikor a szövegdobozra kattintanak, a felhasználók a link megnyitására kerülnek.
 
-A hivatkozást tartalmazó szövegdoboz hozzáadásához kövesse az alábbi lépéseket:
+A hivatkozást tartalmazó szövegdoboz hozzáadásához kövesse ezeket a lépéseket:
 
-1. Hozzon létre egy példányt a `Presentation` osztályból.  
+1. Hozzon létre egy `Presentation` példányt.  
 2. Szerezzen referenciát az újonnan létrehozott prezentáció első diájához.  
-3. Adjon hozzá egy `AutoShape` objektumot, amelynek `ShapeType` értéke `Rectangle`, a dián megadott pozícióban, és szerezze meg az újonnan hozzáadott AutoShape objektum referenciáját.  
-4. Adjon egy `TextFrame` elemet az `AutoShape` objektumhoz, amely *Aspose TextBox* alapértelmezett szöveget tartalmaz.  
+3. Adjon hozzá egy `AutoShape` objektumot, amelynek `ShapeType`-ja `Rectangle`, a dián egy megadott pozícióban, és szerezze meg a frissen hozzáadott AutoShape objektum referenciáját.  
+4. Adjon egy `TextFrame`-et az `AutoShape` objektumhoz, amely alapértelmezett szövegként *Aspose TextBox*-ot tartalmaz.  
 5. Hozza létre a `HyperlinkManager` osztályt.  
-6. Rendeljen hiperhivatkozást a [setExternalHyperlinkClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) metódus segítségével a `TextFrame` kívánt részéhez.  
+6. Rendeljen hiperhivatkozást a [setExternalHyperlinkClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) metódussal a `TextFrame` kedvenc részehez.  
 7. Végül írja ki a PPTX fájlt a `Presentation` objektumon keresztül.  
 
-Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adjon szövegdobozt hiperhivatkozással egy diához:
+Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adhat hiperhivatkozással ellátott szövegdobozt egy diához:
 
 ```php
-  # Példányosít egy Presentation osztályt, amely egy PPTX-et képvisel
+  # Elindít egy Presentation osztály példányt, amely egy PPTX-et képvisel
   $pres = new Presentation();
   try {
     # Lekéri a prezentáció első diáját
     $slide = $pres->getSlides()->get_Item(0);
     # Hozzáad egy AutoShape objektumot, amelynek típusa Rectangle
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Átalakítja az alakzatot AutoShape típusra
+    # Átkonvertálja az alakzatot AutoShape-re
     $pptxAutoShape = $shape;
-    # Eléri az AutoShape-hez kapcsolódó ITextFrame tulajdonságot
+    # Hozzáfér az AutoShape-hez tartozó ITextFrame tulajdonsághoz
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    # Szöveget ad a kerethez
+    # Hozzáad némi szöveget a kerethez
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Beállítja a hiperhivatkozást a rész szövegéhez
+    # Beállítja a hiperhivatkozást a részlet szövegéhez
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
     # Elmenti a PPTX prezentációt
@@ -292,10 +299,10 @@ Ez a PHP kód – a fenti lépések megvalósítása – megmutatja, hogyan adjo
 
 ## **GYIK**
 
-**Mi a különbség egy szövegdoboz és egy szöveghelyettesítő között, amikor mesterdiákkal dolgozunk?**
+**Mi a különbség egy szövegdoboz és egy szöveghelyőrző között, amikor fődiasorokkal dolgozunk?**
 
-Egy [placeholder](/slides/hu/php-java/manage-placeholder/) örökli a stílust/pozíciót a [master](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) diától, és felülírható a [layouts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/) diáknál, míg egy hagyományos szövegdoboz egy független objektum egy adott dián, és nem változik, amikor elrendezéseket váltunk.
+A [placeholder](/slides/hu/php-java/manage-placeholder/) az [master](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) stílusát/pozícióját örökli, és a [layouts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/) során felülírható, míg egy szabályos szövegdoboz egy önálló objektum egy adott dián, és nem változik, ha elrendezést váltunk.
 
-**Hogyan hajthatok végre tömeges szövegcserét a prezentációban anélkül, hogy a diagramok, táblázatok és SmartArt szövegét módosítanám?**
+**Hogyan végezhetek tömeges szövegcsere műveletet a prezentációban anélkül, hogy a diagramok, táblázatok és SmartArt szövegét érinteném?**
 
-Korlátozza az iterációt azokra az autoshape‑okra, amelyeknek van szövegkerete, és hagyja ki a beágyazott objektumokat ([charts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/hu/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/hu/php-java/aspose.slides/smartart/)) úgy, hogy külön gyűjteményeken járja be őket, vagy kihagyja ezeket az objektumtípusokat.
+Korlátozza az iterációt azokra az autoshapekre, amelyek szövegkerettel rendelkeznek, és hagyja ki a beágyazott objektumokat ([charts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/hu/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/hu/php-java/aspose.slides/smartart/)) úgy, hogy azok gyűjteményeit külön bejárja, vagy egyszerűen kihagyja ezeket az objektumtípusokat.

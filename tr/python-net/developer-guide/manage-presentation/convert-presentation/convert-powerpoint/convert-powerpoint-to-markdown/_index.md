@@ -1,130 +1,146 @@
 ---
-title: PowerPoint Sunumlarını Python'da Markdown'a Dönüştür
-linktitle: PowerPoint'ten Markdown'a
+title: "Python'da PowerPoint Sunumlarını Markdown'a Dönüştür"
+linktitle: "PowerPoint'ten Markdown'a"
 type: docs
 weight: 140
 url: /tr/python-net/convert-powerpoint-to-markdown/
 keywords:
-- PowerPoint'i Markdown'a dönüştür
-- OpenDocument'i Markdown'a dönüştür
-- sunumu Markdown'a dönüştür
-- slaytı Markdown'a dönüştür
-- PPT'yi Markdown'a dönüştür
-- PPTX'i Markdown'a dönüştür
-- ODP'yi Markdown'a dönüştür
-- PowerPoint'i MD'ye dönüştür
-- OpenDocument'i MD'ye dönüştür
-- sunumu MD'ye dönüştür
-- slaytı MD'ye dönüştür
-- PPT'yi MD'ye dönüştür
-- PPTX'i MD'ye dönüştür
-- ODP'yi MD'ye dönüştür
-- PowerPoint
-- OpenDocument
-- sunum
-- Markdown
-- Python
-- Aspose.Slides
-description: "PowerPoint ve OpenDocument slaytlarını—PPT, PPTX, ODP—Aspose.Slides for Python via .NET ile temiz Markdown'a dönüştürün, belgeleri otomatikleştirin ve biçimlendirmeyi koruyun."
+  - PowerPoint dönüştür
+  - sunumu dönüştür
+  - slaytı dönüştür
+  - PPT dönüştür
+  - PPTX dönüştür
+  - PowerPoint'ten MD'ye
+  - sunumdan MD'ye
+  - slayttan MD'ye
+  - PPT'den MD'ye
+  - PPTX'ten MD'ye
+  - PowerPoint'ı Markdown olarak kaydet
+  - sunumu Markdown olarak kaydet
+  - slaytı Markdown olarak kaydet
+  - PPT'yi MD olarak kaydet
+  - PPTX'i MD olarak kaydet
+  - PPT'yi MD'ye dışa aktar
+  - PPTX'i MD'ye dışa aktar
+  - Markdown görüntü dışa aktarımı
+  - CDN görüntü bağlantıları
+  - PowerPoint
+  - sunum
+  - Markdown
+  - Python
+  - Python via .NET
+  - Aspose.Slides
+description: "Python'da PPT ve PPTX sunumlarını Markdown'a dönüştürün ve dışa aktarılan görsellerin nereye kaydedileceğini ve oluşturulan Markdown'ın bunlara nasıl başvuracağını kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarını Markdown'a dönüştürmenize olanak tanır; bu, belge iş akışları, statik site oluşturma, içerik taşıma ve sürüm kontrolüne dayalı metin yayınlama için faydalı olabilir. API, PPT ve PPTX sunumlarını doğrudan MD dosyalarına dışa aktarmayı destekler ve oluşturulan Markdown belgesinde slayt içeriğinin nasıl temsil edileceğini kontrol etmek için ek seçenekler sunar.
+Aspose.Slides for Python via .NET, PPT ve PPTX sunumlarını belgeler, statik‑site, içerik‑taşıma ve sürüm‑kontrolü iş akışları için Markdown’a dönüştürebilir. Bir Markdown çeşidini seçebilir, slayt içeriğinin nasıl oluşturulacağını kontrol edebilir ve dışa aktarılan görsellerin nerede saklanacağını ve oluşturulan Markdown’ın bunlara nasıl başvurduğunu belirleyebilirsiniz.
 
-Sunumları sade Markdown olarak dışa aktarabilir, CommonMark ve GitHub Flavored Markdown gibi birden çok Markdown çeşidinden seçim yapabilir ve dışa aktarım sırasında görsellerin nasıl işleneceğini yapılandırabilirsiniz. Görsel içerik içeren sunumlar için Aspose.Slides, görselleri ayrı bir klasöre kaydetmenize ve oluşturulan Markdown dosyasından başvurmanıza da izin verir.
+Varsayılan olarak, Markdown dışa aktarımı yalnızca metin çıktısı kullanır. Görsel içeriği dışa aktarmak için, [MarkdownSaveOptions.export_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/export_type/) özelliğini [MarkdownExportType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownexporttype/) enum’ından `SEQUENTIAL` veya `VISUAL` değerine ayarlayın. `SEQUENTIAL`, slayt öğelerini ayrı ayrı ve sırayla oluştururken, `VISUAL` gruplanmış öğeleri birlikte tutarak görsel ilişkilerini korur. `TEXT_ONLY` değeri görsel kaynaklarını üretmez.
 
-{{% alert color="warning" %}}
-PowerPoint'ten Markdown'a dışa aktarma varsayılan olarak **görseller olmadan** yapılır. Görseller içeren bir PowerPoint belgesini dışa aktarmak istiyorsanız, `export_type = MarkdownExportType.VISUAL` ayarlamanız ve Markdown belgesinde başvurulan görsellerin kaydedileceği `base_path` belirlemeniz gerekir.
-{{% /alert %}}
+## **Sunumu Markdown'a Dönüştür**
 
-## **Sunumları Markdown'a Dönüştür**
-
-Aşağıdaki örnek, Aspose.Slides for Python via .NET kullanarak PowerPoint sunumunu varsayılan ayarlarla Markdown'a dönüştürmenin en basit yolunu gösterir.
-
-1. Sunumu yüklemek için bir [Sunum](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği oluşturun.
-2. `save` metodunu çağırarak onu bir Markdown dosyası olarak dışa aktarın.
-
-Aşağıdaki Python kod parçacığını kullanarak dönüşümü gerçekleştirin:
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı ile yükleyin ve ardından [Presentation.save](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ipresentation/save/) metodunu, [SaveFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/saveformat/) enum’ından `MD` değeriyle çağırın.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:  
+with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
-## **Sunumları Markdown Çeşidine Dönüştür**
+## **Markdown Çeşidini Seçin**
 
-Aspose.Slides, temel Markdown, CommonMark, GitHub-flavored Markdown, Trello, XWiki, GitLab ve 17 başka Markdown çeşidi dahil olmak üzere sunumları çeşitli Markdown formatlarına dönüştürmenize olanak tanır.
+[MarkdownSaveOptions.flavor](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/flavor/) özelliği, çıktıda kullanılacak Markdown spesifikasyonunu denetler. [Flavor](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/flavor/) enum’ı CommonMark, GitHub Flavored Markdown ve diğer desteklenen varyantları içerir.
 
-Aşağıdaki Python örneği, bir PowerPoint sunumunu CommonMark'a nasıl dönüştüreceğinizi gösterir:
-
-```python
-import aspose.slides as slides
-
-save_options = slides.export.MarkdownSaveOptions()
-save_options.flavor = slides.export.Flavor.COMMON_MARK
-
-with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
-```
-
-Desteklenen 23 Markdown çeşidi, [Flavor](https://reference.aspose.com/slides/tr/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) enumerasyonu ve [MarkdownSaveOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) sınıfı içinde listelenir.
-
-## **Görseller İçeren Sunumları Markdown'a Dönüştür**
-
-[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) sınıfı, oluşturulan Markdown dosyasını yapılandırmanıza olanak sağlayan özellikler ve enumerasyonlar sunar. Örneğin, [MarkdownExportType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enum'ı görsellerin nasıl işleneceğini kontrol eder: `SEQUENTIAL`, `TEXT_ONLY` veya `VISUAL`.
-
-### **Görselleri Sıralı Olarak Dönüştür**
-
-Görsellerin oluşturulan Markdown içinde tek tek—birbiri ardına—görünmesini istiyorsanız, `SEQUENTIAL` seçeneğini seçin. Aşağıdaki Python örneği, görselleri olan bir sunumu Markdown'a nasıl dönüştüreceğinizi gösterir.
+Aşağıdaki örnek sunumu CommonMark olarak dışa aktarır:
 
 ```python
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.show_hidden_slides = True
-save_options.show_slide_number = True
-save_options.flavor = slides.export.Flavor.GITHUB
-save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-save_options.new_line_type = slides.export.NewLineType.WINDOWS
-
-slide_indices = [1, 3, 5]
+options = slides.export.MarkdownSaveOptions()
+options.flavor = slides.export.Flavor.COMMON_MARK
 
 with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, options)
 ```
 
-### **Görselleri Görsel Olarak Dönüştür**
+## **Görselleri Varsayılan Yerel Kaydetme Davranışıyla Dışa Aktarın**
 
-Görsellerin sonuç Markdown'ta birlikte görünmesini istiyorsanız, `VISUAL` seçeneğini seçin. Bu modda, görseller uygulamanın geçerli dizinine kaydedilir (ve Markdown belgesi göreli yollar kullanır) veya özel bir çıktı yolu ve klasör adı belirtebilirsiniz.
+[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/) sınıfı, yerel olarak kaydedilen görseller için iki özellik sağlar:
 
-Aşağıdaki Python örneği bu işlemi gösterir:
+- [base_path](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/base_path/) Markdown belgesi ve kaynakları için temel dizini belirtir.
+- [images_save_folder_name](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) görsel alt dizinini belirtir. Varsayılan değeri `Images`.
+
+Aşağıdaki örnek görsel içeriği oluşturur, görselleri `output/assets` klasörüne yazar ve Markdown belgesinde göreceli görsel referansları oluşturur:
 
 ```python
 import os
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.export_type = slides.export.MarkdownExportType.VISUAL
-save_options.images_save_folder_name = "md-images"
-save_options.base_path = "c:\\documents"
+output_directory = "output"
+os.makedirs(output_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = output_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(output_directory, "presentation.md")
 
 with slides.Presentation("presentation.pptx") as presentation:
-    file_path = os.path.join(save_options.base_path, "presentation.md")
-    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
 ```
+
+Export görsel kaynakları ürettiğinde Aspose.Slides görsel alt dizinini oluşturur, ancak uygulamanın Markdown dosyasını kaydetmeden önce `base_path` dizinini oluşturması gerekir.
+
+## **Yayın İçin Markdown ve Görselleri Hazırlama**
+
+Aspose.Slides for Python via .NET, dışa aktarım sırasında oluşturulan her görsel bağlantısını değiştirmek için .NET görüntü kaydetme geri çağrımlarını açmaz. Bunun yerine, Markdown belgesini ve görsel klasörünü bir yayın dizinine dışa aktarın ve ardından bu dizini göreceli yapısını değiştirmeden yayınlayın.
+
+Aşağıdaki örnek `cdn-origin/presentations/quarterly-report` dizinini bağlanmış veya senkronize bir yayın dizini olarak hazırlar. Örnek kendisi ağ üzerinden bir yükleme yapmaz: oluşturulan bağlantılar, dizin hedef site veya CDN konumunda yayınlandıktan sonra geçerli olur.
+
+```python
+import os
+import aspose.slides as slides
+
+publication_directory = os.path.join(
+    "cdn-origin",
+    "presentations",
+    "quarterly-report")
+os.makedirs(publication_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = publication_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(publication_directory, "presentation.md")
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
+```
+
+`presentation.md` dosyasını `assets` dizini ile birlikte yayınlayın. Markdown belgesi göreceli görsel referansları kullanır, bu yüzden her iki öğenin de hedefte aynı ilişkiyi koruması gerekir. Eğer bir yayın sistemi mutlak dış URL’ler gerektiriyorsa, tüm görsel dosyaları yayınlandıktan sonra oluşturulan bağlantıları ayrı bir son‑işleme adımında yeniden yazın.
 
 ## **SSS**
 
-**Hipermetin bağlantıları Markdown'a dışa aktarımda korunur mu?**
+**Python geri çağrımları Markdown dışa aktarımı sırasında tek tek görüntü dosyalarını ve bağlantılarını özelleştirebilir mi?**
 
-Evet. Metin [hiperbağlantılar](/slides/tr/python-net/manage-hyperlinks/) standart Markdown bağlantıları olarak korunur. Slayt [geçişler](/slides/tr/python-net/slide-transition/) ve [animasyonlar](/slides/tr/python-net/powerpoint-animation/) dönüştürülmez.
+Hayır. Aspose.Slides for Python via .NET, .NET `ImageSaving` ve `SvgImageSaving` geri çağrımlarını açmaz. Yerel çıktıyı [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/base_path/) ve [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) ile yapılandırın, ardından oluşturulan kaynakları yayınlayın veya son‑işlemden geçirin.
 
-**Dönüşümü birden çok iş parçacığında çalıştırarak hızlandırabilir miyim?**
+**Dışa aktarılan görseller nerede kaydedilir?**
 
-Dosyalar arasında paralelleştirme yapabilirsiniz, ancak iş parçacıkları arasında aynı [Sunum](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneğini [paylaşmayın](/slides/tr/python-net/multithreading/). Çakışmayı önlemek için dosya başına ayrı örnekler/süreçler kullanın.
+Görsel konumu, [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/base_path/) ve [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) tarafından kontrol edilir. Markdown belgesi bu görsellere göreceli yollarla başvurur.
 
-**Görseller ne olur—nerede kaydedilir ve yollar göreli mi?**
+**Görsel bağlantıları hangi yol ayıracını kullanmalı?**
 
-[Görseller](/slides/tr/python-net/image/) ayrı bir klasöre dışa aktarılır ve Markdown dosyası varsayılan olarak onları göreli yollarla referans alır. Temel çıktı yolunu ve varlık klasör adını yapılandırarak öngörülebilir bir depo yapısını koruyabilirsiniz.
+Markdown bağlantılarında ve URL’lerde ileri eğik çizgi (`/`) kullanın. Dosya‑sistemi yolları için yalnızca `os.path.join` kullanın ve son‑işlem sırasında oluşturulan bağlantıları ayrı olarak normalleştirin.
+
+**Markdown dışa aktarımı sırasında köprüler korunur mu?**
+
+Evet. Metin [hyperlinks](/slides/tr/python-net/manage-hyperlinks/) standart Markdown bağlantıları olarak korunur. Slayt [transitions](/slides/tr/python-net/slide-transition/) ve [animations](/slides/tr/python-net/powerpoint-animation/) dönüştürülmez.
+
+**Sunumlar paralel olarak Markdown'a dönüştürülebilir mi?**
+
+Farklı sunum dosyalarını paralel olarak işleyebilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneğini birden çok iş parçacığı arasında paylaşmayın. [multithreading guidelines](/slides/tr/python-net/multithreading/) izleyin ve her dosya için ayrı bir örnek kullanın.

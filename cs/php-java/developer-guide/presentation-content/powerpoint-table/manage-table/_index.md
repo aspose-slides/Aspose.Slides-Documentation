@@ -1,5 +1,5 @@
 ---
-title: Správa tabulek v prezentacích v PHP
+title: Spravovat tabulky prezentací v PHP
 linktitle: Spravovat tabulku
 type: docs
 weight: 10
@@ -16,31 +16,31 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Vytvářejte a upravujte tabulky v prezentacích PowerPoint pomocí Aspose.Slides pro PHP přes Java. Objevte jednoduché příklady kódu, které zjednoduší vaše workflow s tabulkami."
+description: "Vytvářejte a upravujte tabulky v PowerPoint snímcích pomocí Aspose.Slides pro PHP přes Java. Objevte jednoduché ukázky kódu, které zjednoduší vaše pracovní postupy s tabulkami."
 ---
 ## **Úvod**
 
-Tabulka v PowerPointu je efektivní způsob, jak zobrazit a vyjádřit informace. Informace v mřížce buněk (uspořádaných v řádcích a sloupcích) jsou přehledné a snadno pochopitelné.
+Tabulka v PowerPointu je efektivní způsob, jak zobrazit a představit informace. Informace v mřížce buněk (uspořádaných do řádků a sloupců) jsou přehledné a snadno pochopitelné.
 
-Aspose.Slides poskytuje třídu [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table) třídu [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/) a další typy, které vám umožní vytvářet, aktualizovat a spravovat tabulky ve všech druzích prezentací.
+Aspose.Slides poskytuje třídu [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table), třídu [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/) a další typy, které vám umožní vytvářet, aktualizovat a spravovat tabulky ve všech druzích prezentací.
 
-## **Vytvoření tabulky od nuly**
+## **Vytvořit tabulku od začátku**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek pomocí jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu. 
 3. Definujte pole `columnWidth`.
 4. Definujte pole `rowHeight`.
 5. Přidejte objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/) na snímek pomocí metody [addTable](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addtable/).
-6. Procházejte každou [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/) , abyste použili formátování na horní, dolní, pravý a levý okraj.
-7. Sloučte první dvě buňky první řady tabulky.
-8. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) buňky [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/).
+6. Procházejte každou [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/) a aplikujte formátování na horní, spodní, pravý a levý okraj.
+7. Sloučte první dvě buňky prvního řádku tabulky. 
+8. Získejte přístup k objektu [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) buňky [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/).
 9. Přidejte text do [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/).
 10. Uložte upravenou prezentaci.
 
-Tento kód PHP vám ukazuje, jak vytvořit tabulku v prezentaci:
+Tento PHP kód ukazuje, jak vytvořit tabulku v prezentaci:
 
 ```php
-  # Instancuje třídu Presentation, která představuje soubor PPTX
+  # Vytvoří instanci třídy Presentation, která představuje soubor PPTX
   $pres = new Presentation();
   try {
     # Přistupuje k prvnímu snímku
@@ -50,7 +50,7 @@ Tento kód PHP vám ukazuje, jak vytvořit tabulku v prezentaci:
     $dblRows = array(50, 30, 30, 30, 30 );
     # Přidá tvar tabulky na snímek
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Nastaví formát okrajů pro každou buňku
+    # Nastaví formát okraje pro každou buňku
     for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
       for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
@@ -83,7 +83,7 @@ Tento kód PHP vám ukazuje, jak vytvořit tabulku v prezentaci:
 
 ## **Číslování ve standardní tabulce**
 
-Ve standardní tabulce je číslování buněk přímé a začíná od nuly. První buňka v tabulce má index 0,0 (sloupec 0, řádek 0).
+Ve standardní tabulce je číslování buněk jednoduché a začíná nulou. První buňka tabulky má index 0,0 (sloupec 0, řádek 0). 
 
 Například buňky v tabulce se 4 sloupci a 4 řádky jsou číslovány takto:
 
@@ -93,10 +93,10 @@ Například buňky v tabulce se 4 sloupci a 4 řádky jsou číslovány takto:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Tento kód PHP vám ukazuje, jak určit číslování buněk v tabulce:
+Tento PHP kód ukazuje, jak určit číslování buněk v tabulce:
 
 ```php
-  # Instancuje třídu Presentation, která představuje soubor PPTX
+  # Vytvoří instanci třídy Presentation, která představuje soubor PPTX
   $pres = new Presentation();
   try {
     # Přistupuje k prvnímu snímku
@@ -106,8 +106,9 @@ Tento kód PHP vám ukazuje, jak určit číslování buněk v tabulce:
     $dblRows = array(70, 70, 70, 70 );
     # Přidá tvar tabulky na snímek
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Nastaví formát okrajů pro každou buňku
-    foreach($tbl->getRows() as $row) {
+    # Nastaví formát okraje pro každou buňku
+    $rows = $tbl->getRows();
+    foreach($rows as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -135,16 +136,14 @@ Tento kód PHP vám ukazuje, jak určit číslování buněk v tabulce:
 ## **Přístup k existující tabulce**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek obsahující tabulku pomocí jeho indexu.
+2. Získejte referenci na snímek obsahující tabulku pomocí jeho indexu. 
 3. Vytvořte objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table) a nastavte jej na null.
-4. Procházejte všechny objekty [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) , dokud není tabulka nalezena.
+4. Procházejte všechny objekty [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) dokud nenajdete tabulku.
 
-   Pokud předpokládáte, že snímek, se kterým pracujete, obsahuje jedinou tabulku, můžete jednoduše zkontrolovat všechny jeho tvary. Když je tvar rozpoznán jako tabulka, můžete jej přetypovat na objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table). Pokud však snímek obsahuje několik tabulek, je lepší hledat požadovanou tabulku pomocí jejího [setAlternativeText(String value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/setalternativetext/).
+   Pokud máte podezření, že snímek, se kterým pracujete, obsahuje jedinou tabulku, můžete jednoduše zkontrolovat všechny tvary, které obsahuje. Když je tvar identifikován jako tabulka, můžete jej přetypovat na objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table). Pokud snímek obsahuje více tabulek, je lepší hledat požadovanou tabulku pomocí jejího [setAlternativeText(String value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/setalternativetext/).
 
 5. Použijte objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table), abyste pracovali s tabulkou. V níže uvedeném příkladu jsme přidali nový řádek do tabulky.
 6. Uložte upravenou prezentaci.
-
-Tento kód PHP vám ukazuje, jak přistupovat k existující tabulce a s ní pracovat:
 
 ```php
   # Vytvoří instanci třídy Presentation, která představuje soubor PPTX
@@ -154,8 +153,9 @@ Tento kód PHP vám ukazuje, jak přistupovat k existující tabulce a s ní pra
     $sld = $pres->getSlides()->get_Item(0);
     # Inicializuje null TableEx
     $tbl = null;
-    # Prochází tvary a nastaví referenci na nalezenou tabulku
-    foreach($sld->getShapes() as $shp) {
+    # Prochází tvary a nastaví odkaz na nalezenou tabulku
+    $shapes = $sld->getShapes();
+    foreach($shapes as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
         # Nastaví text pro první sloupec druhého řádku
@@ -171,17 +171,23 @@ Tento kód PHP vám ukazuje, jak přistupovat k existující tabulce a s ní pra
   }
 ```
 
-## **Zarovnání textu v tabulce**
+## **Najít buňku, které vlastní TextFrame**
+
+Když obecný kód pro zpracování textu získá [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) z tabulky, použijte metodu [TextFrame::getParentCell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentCell), abyste získali vlastnící [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/). U textového rámce buňky tabulky metoda [TextFrame::getParentCell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentCell) vrací vlastníka a [TextFrame::getParentShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentShape) vrací `null`, i když samotná tabulka je tvar.
+
+Souřadnice buňky jsou dostupné prostřednictvím metod jen pro čtení [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/#getFirstColumnIndex) a [Cell::getFirstRowIndex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/#getFirstRowIndex). Metoda [TextFrame::getParentCell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentCell) také poskytuje navigaci jen pro čtení: vrací vlastníka, ale nemění vlastnictví. Vždy před použitím zkontrolujte, zda je vrácená buňka `java_is_null`.
+
+Kompletní příklad, který identifikuje vlastníky buňky tabulky a tvaru, včetně tvarů spojených s uzly SmartArt, najdete v [Search and Replace Text](/slides/cs/php-java/search-and-replace-text/).
+
+## **Zarovnat text v tabulce**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek pomocí jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu. 
 3. Přidejte objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table) na snímek.
-4. Získejte objekt [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) z tabulky.
-5. Získejte [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/).
+4. Získejte přístup k objektu [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) z tabulky.
+5. Získejte přístup k [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/).
 6. Zarovnejte text vertikálně.
 7. Uložte upravenou prezentaci.
-
-Tento kód PHP vám ukazuje, jak zarovnat text v tabulce:
 
 ```php
   # Vytvoří instanci třídy Presentation
@@ -206,7 +212,7 @@ Tento kód PHP vám ukazuje, jak zarovnat text v tabulce:
     $portion->setText("Text here");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Zarovná text vertikálně
+    # Zarovnává text vertikálně
     $cell = $tbl->get_Item(0, 0);
     $cell->setTextAnchorType(TextAnchorType::Center);
     $cell->setTextVerticalType(TextVerticalType::Vertical270);
@@ -219,29 +225,27 @@ Tento kód PHP vám ukazuje, jak zarovnat text v tabulce:
   }
 ```
 
-## **Nastavení formátování textu na úrovni tabulky**
+## **Nastavit formátování textu na úrovni tabulky**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-2. Získejte referenci na snímek pomocí jeho indexu.
-3. Získejte objekt [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table) ze snímku.
+2. Získejte referenci na snímek pomocí jeho indexu. 
+3. Získejte přístup k objektu [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Table) ze snímku.
 4. Nastavte [setFontHeight(float value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setFontHeight) pro text.
 5. Nastavte [setAlignment(int value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setalignment/) a [setMarginRight(float value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setmarginright/).
 6. Nastavte [setTextVerticalType(byte value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/settextverticaltype/).
-7. Uložte upravenou prezentaci.
-
-Tento kód PHP vám ukazuje, jak použít požadované možnosti formátování na text v tabulce:
+7. Uložte upravenou prezentaci. 
 
 ```php
   # Vytvoří instanci třídy Presentation
   $pres = new Presentation("simpletable.pptx");
   try {
-    # Předpokládejme, že první tvar na první snímku je tabulka
+    # Předpokládejme, že první tvar na prvním snímku je tabulka
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Nastaví výšku fontu buněk tabulky
+    # Nastaví výšku písma buněk tabulky
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->setTextFormat($portionFormat);
-    # Nastaví zarovnání textu buněk tabulky a pravý okraj v jednom volání
+    # Nastaví zarovnání textu buněk tabulky a pravý okraj jedním voláním
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
@@ -258,15 +262,15 @@ Tento kód PHP vám ukazuje, jak použít požadované možnosti formátování 
   }
 ```
 
-## **Získání vlastností stylu tabulky**
+## **Získat vlastnosti stylu tabulky**
 
-Aspose.Slides vám umožňuje získat vlastnosti stylu tabulky, abyste je mohli použít pro jinou tabulku nebo jinde. Tento kód PHP vám ukazuje, jak získat vlastnosti stylu z přednastaveného stylu tabulky:
+Aspose.Slides vám umožňuje načíst vlastnosti stylu tabulky, abyste je mohli použít pro jinou tabulku nebo jinde. Tento PHP kód ukazuje, jak získat vlastnosti stylu z předdefinovaného stylu tabulky:
 
 ```php
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// změnit výchozí přednastavený styl
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// změnit výchozí přednastavený styl motivu
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
@@ -276,11 +280,9 @@ Aspose.Slides vám umožňuje získat vlastnosti stylu tabulky, abyste je mohli 
   }
 ```
 
-## **Uzamčení poměru stran tabulky**
+## **Uzamknout poměr stran tabulky**
 
-Poměr stran geometrického tvaru je poměr jeho velikostí v různých rozměrech. Aspose.Slides poskytuje metodu [setAspectRatioLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) , která vám umožní uzamknout nastavení poměru stran pro tabulky a další tvary.
-
-Tento kód PHP vám ukazuje, jak uzamknout poměr stran pro tabulku:
+Poměr stran geometrického tvaru je poměr jeho velikostí v různých rozměrech. Aspose.Slides poskytuje metodu [setAspectRatioLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/), která vám umožní uzamknout nastavení poměru stran pro tabulky a další tvary.
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -300,14 +302,14 @@ Tento kód PHP vám ukazuje, jak uzamknout poměr stran pro tabulku:
 
 ## **Často kladené otázky**
 
-**Mohu povolit směr čtení zprava doleva (RTL) pro celou tabulku a text v jejích buňkách?**
+**Mohu povolit čtení zprava doleva (RTL) pro celou tabulku a text v jejích buňkách?**
 
-Ano. Tabulka poskytuje metodu [setRightToLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/setrighttoleft/) , a odstavce mají [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setrighttoleft/) . Použitím obou zajišťujete správné RTL pořadí a vykreslování uvnitř buněk.
+Ano. Tabulka poskytuje metodu [setRightToLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/setrighttoleft/) a odstavce mají [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setrighttoleft/). Použitím obou zajišťujete správné RTL pořadí a vykreslení uvnitř buněk.
 
-**Jak mohu zabránit uživatelům v přesouvání nebo změně velikosti tabulky v konečném souboru?**
+**Jak mohu zabránit uživatelům v přesunu nebo změně velikosti tabulky v konečném souboru?**
 
-Použijte zamykání tvarů k zakázání přesunu, změny velikosti, výběru atd. Tato zamknutí platí i pro tabulky.
+Použijte zamykání tvarů k deaktivaci přesunu, změny velikosti, výběru atd. Tato zamykání se vztahují i na tabulky.
 
-**Je podporováno vložení obrázku uvnitř buňky jako pozadí?**
+**Je podporováno vložení obrázku do buňky jako pozadí?**
 
-Ano. Můžete nastavit [picture fill](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) , aby buňka měla obrázek jako výplň; obrázek pokryje oblast buňky podle zvoleného režimu (roztažení nebo dlaždice).
+Ano. Pro buňku můžete nastavit [picture fill](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/), obrázek pak pokryje oblast buňky podle zvoleného režimu (roztahování nebo dlaždice).

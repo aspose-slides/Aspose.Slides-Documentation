@@ -1,43 +1,48 @@
 ---
-title: Javaでプレゼンテーションテーブルを管理
-linktitle: テーブル管理
+title: Java でプレゼンテーションの表を管理する
+linktitle: 表の管理
 type: docs
 weight: 10
 url: /ja/java/manage-table/
 keywords:
-- テーブルを追加
-- テーブルを作成
-- テーブルにアクセス
+- 表の追加
+- 表の作成
+- 表へのアクセス
 - アスペクト比
-- テキストを揃える
+- テキストの配置
 - テキスト書式設定
-- テーブルスタイル
+- 表スタイル
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して PowerPoint スライドのテーブルを作成・編集します。テーブル操作を効率化するシンプルなコード例をご紹介します。"
+description: "Aspose.Slides for Java を使用して PowerPoint スライド内の表を作成および編集します。表の操作を効率化するシンプルなコード例をご覧ください。"
 ---
+## **概要**
 
-PowerPoint のテーブルは、情報を表示および表現する効率的な方法です。行と列で構成されたセルのグリッドに入った情報は、シンプルで理解しやすいです。
+PowerPoint の表は情報を効率的に表示・提示する方法です。行と列で構成されたセルのグリッドに入った情報はシンプルで理解しやすいです。
 
-Aspose.Slides は、[Table](https://reference.aspose.com/slides/java/com.aspose.slides/Table) クラス、[ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) インターフェイス、[Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) クラス、[ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) インターフェイス、その他の型を提供し、さまざまなプレゼンテーションでテーブルの作成、更新、および管理が可能です。
+Aspose.Slides は、[Table] クラス、[ITable] インターフェイス、[Cell] クラス、[ICell] インターフェイス、その他の型を提供し、さまざまなプレゼンテーションで表を作成、更新、管理できるようにします。
 
-## **Create a Table from Scratch**
+## **ゼロから表を作成する**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. `columnWidth` の配列を定義します。  
-4. `rowHeight` の配列を定義します。  
-5. [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) メソッドを使用してスライドに [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) オブジェクトを追加します。  
-6. 各 [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) を走査し、上、下、右、左の罫線に書式設定を適用します。  
-7. テーブルの最初の行の最初の 2 つのセルを結合します。  
-8. [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) の [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) にアクセスします。  
-9. [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe/) にテキストを追加します。  
+1. [Presentation] クラスのインスタンスを作成します。
+2. インデックスを使用してスライドへの参照を取得します。 
+3. `columnWidth` の配列を定義します。
+4. `rowHeight` の配列を定義します。
+5. [addTable] メソッドを使用してスライドに [ITable] オブジェクトを追加します。
+6. 各 [ICell] を反復処理し、上・下・右・左の罫線に書式設定を適用します。
+7. 表の最初の行の最初の 2 つのセルを結合します。 
+8. [ICell] の [TextFrame] にアクセスします。 
+9. [TextFrame] にテキストを追加します。
 10. 変更されたプレゼンテーションを保存します。
 
-この Java コードは、プレゼンテーション内にテーブルを作成する方法を示しています:
+この Java コードは、プレゼンテーション内に表を作成する方法を示します。
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
@@ -51,7 +56,7 @@ try {
     // スライドにテーブルシェイプを追加します
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 各セルの枠線書式を設定します
+    // 各セルの罫線書式を設定します
     for (int row = 0; row < tbl.getRows().size(); row++)
     {
         for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
@@ -75,8 +80,8 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // 行 1 のセル 1 と 2 を結合します
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    // 1 行目のセル 1 と 2 を結合します
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // 結合されたセルにテキストを追加します
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -88,12 +93,11 @@ try {
 }
 ```
 
+## **標準的な表の番号付け**
 
-## **Numbering in a Standard Table**
+標準的な表では、セルの番号付けはシンプルで 0 始まりです。表の最初のセルは 0,0（列 0、行 0）とインデックス付けされます。
 
-標準テーブルでは、セルの番号付けはシンプルで 0 から始まります。テーブルの最初のセルは (0,0)（列 0、行 0）としてインデックス付けされます。
-
-たとえば、4 列 4 行のテーブルのセルは次のように番号付けされます:
+たとえば、4 列 4 行の表のセルは次のように番号付けされます:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -101,8 +105,12 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-この Java コードは、テーブル内のセル番号を指定する方法を示しています:
+この Java コードは、表のセルの番号付けを指定する方法を示します。
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
@@ -116,7 +124,7 @@ try {
     // スライドにテーブルシェイプを追加します
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // 各セルの枠線書式を設定します
+    // 各セルの罫線書式を設定します
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -146,21 +154,27 @@ try {
 }
 ```
 
+## **既存の表にアクセスする**
 
-## **Access an Existing Table**
+1. [Presentation] クラスのインスタンスを作成します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してテーブルが含まれるスライドへの参照を取得します。  
-3. [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) オブジェクトを作成し、null に設定します。  
-4. テーブルが見つかるまですべての [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) オブジェクトを走査します。  
+2. インデックスを使用して、表が含まれるスライドへの参照を取得します。 
 
-   スライドに単一のテーブルしか含まれていないと確信できる場合は、含まれるすべてのシェイプをチェックすればよいです。シェイプがテーブルとして識別されたら、[Table](https://reference.aspose.com/slides/java/com.aspose.slides/Table) オブジェクトに型変換できます。複数のテーブルが存在する場合は、[setAlternativeText(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) を使用して目的のテーブルを検索した方が便利です。  
+3. [ITable] オブジェクトを作成し、null に設定します。
 
-5. [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) オブジェクトを使用してテーブルを操作します。以下の例では、テーブルに新しい行を追加しています。  
+4. 表が見つかるまで、すべての [IShape] オブジェクトを反復処理します。
+
+   スライドに単一の表しか含まれていないと疑われる場合は、含まれるすべてのシェイプをチェックすれば済みます。シェイプが表として識別されたら、[Table] オブジェクトに型変換できます。ただし、スライドに複数の表が含まれている場合は、[setAlternativeText(String value)] を使用して目的の表を検索した方が確実です。
+
+5. [ITable] オブジェクトを使用して表を操作します。以下の例では、表に新しい行を追加しています。
+
 6. 変更されたプレゼンテーションを保存します。
 
-この Java コードは、既存のテーブルにアクセスして操作する方法を示しています:
+この Java コードは、既存の表にアクセスして操作する方法を示します。
+
 ```java
+import com.aspose.slides.*;
+
 // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
@@ -171,13 +185,13 @@ try {
     // null の TableEx を初期化します
     ITable tbl = null;
 
-    // 形状を走査し、見つかったテーブルへの参照を設定します
+    // シェイプを反復処理し、見つかった表への参照を設定します
     for (IShape shp : sld.getShapes()) 
     {
         if (shp instanceof ITable) 
         {
             tbl = (ITable) shp;
-            // 第2行の第1列のテキストを設定します
+            // 2 行目の 1 列目のテキストを設定します
             tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
@@ -189,19 +203,30 @@ try {
 }
 ```
 
+## **テキストフレームを所有するセルを見つける**
 
-## **Align Text in a Table**
+汎用的なテキスト処理コードが表から [ITextFrame] を受け取った場合、所有する [ICell] を取得するために [ITextFrame.getParentCell] メソッドを使用します。表セルのテキストフレームでは、[ITextFrame.getParentCell] は所有者を返し、[ITextFrame.getParentShape] は `null` を返します（表自体はシェイプであるにもかかわらず）。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. スライドに [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) オブジェクトを追加します。  
-4. テーブルから [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) オブジェクトにアクセスします。  
-5. [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) の [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) にアクセスします。  
-6. テキストを垂直方向に揃えます。  
+セルの座標は、読み取り専用の [ICell.getFirstColumnIndex] および [ICell.getFirstRowIndex] メソッドで取得できます。[ITextFrame.getParentCell] も読み取り専用のナビゲーションを提供し、所有者を返しますが所有権は変更しません。使用前に返されたセルが `null` でないことを必ず確認してください。
+
+テーブルセルとシェイプの所有者（SmartArt ノードに関連付けられたシェイプを含む）を特定する完全な例については、[Search and Replace Text](/slides/ja/java/search-and-replace-text/) を参照してください。
+
+## **表内のテキストを配置する**
+
+1. [Presentation] クラスのインスタンスを作成します。
+2. インデックスを使用してスライドへの参照を取得します。 
+3. スライドに [ITable] オブジェクトを追加します。 
+4. 表から [ITextFrame] オブジェクトにアクセスします。 
+5. [ITextFrame] の [IParagraph] にアクセスします。
+6. テキストを垂直方向に配置します。
 7. 変更されたプレゼンテーションを保存します。
 
-この Java コードは、テーブル内のテキストを揃える方法を示しています:
+この Java コードは、表内のテキストを配置する方法を示します。
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
@@ -212,7 +237,7 @@ try {
     double[] dblCols = { 120, 120, 120, 120 };
     double[] dblRows = { 100, 100, 100, 100 };
     
-    // スライドにテーブルシェイップを追加します
+    // スライドにテーブルシェイプを追加します
     ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
     tbl.get_Item(1, 0).getTextFrame().setText("10");
     tbl.get_Item(2, 0).getTextFrame().setText("20");
@@ -230,7 +255,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // テキストを垂直方向に揃えます
+    // テキストを垂直方向に配置します
     ICell cell = tbl.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
@@ -242,37 +267,39 @@ try {
 }
 ```
 
+## **表レベルでテキスト書式設定を行う**
 
-## **Set Text Formatting on the Table Level**
+1. [Presentation] クラスのインスタンスを作成します。
+2. インデックスを使用してスライドへの参照を取得します。 
+3. スライドから [ITable] オブジェクトにアクセスします。
+4. テキストの [setFontHeight(float value)] を設定します。 
+5. [setAlignment(int value)] と [setMarginRight(float value)] を設定します。 
+6. [setTextVerticalType(byte value)] を設定します。
+7. 変更されたプレゼンテーションを保存します。 
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. スライドから [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) オブジェクトにアクセスします。  
-4. テキストの [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) を設定します。  
-5. [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) と [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) を設定します。  
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。  
-7. 変更されたプレゼンテーションを保存します。
+この Java コードは、表内のテキストに希望する書式設定オプションを適用する方法を示します。
 
-この Java コードは、テーブル内のテキストに希望の書式設定オプションを適用する方法を示しています:
 ```java
+import com.aspose.slides.*;
+
 // Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // 最初のスライドの最初のシェイプがテーブルであると仮定します
+    // 最初のスライドの最初のシェイプが表であると仮定します
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
-    // テーブルセルのフォント高さを設定します
+    // 表セルのフォント高さを設定します
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // テーブルセルのテキスト配置と右余白を一度に設定します
+    // 表セルのテキスト配置と右余白を一度に設定します
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
     
-    // テーブルセルのテキストの垂直方向タイプを設定します
+    // 表セルのテキスト垂直方向タイプを設定します
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
     someTable.setTextFormat(textFrameFormat);
@@ -283,28 +310,41 @@ try {
 }
 ```
 
+## **表のスタイル プロパティを取得する**
 
-## **Get Table Style Properties**
+Aspose.Slides は、表のスタイル プロパティを取得できるため、別の表や他の場所でその詳細を利用できます。この Java コードは、表のプリセット スタイルからスタイル プロパティを取得する方法を示します。
 
-Aspose.Slides は、テーブルのスタイルプロパティを取得できるため、別のテーブルや他の場所でその詳細を利用できます。この Java コードは、テーブルのプリセットスタイルからスタイルプロパティを取得する方法を示しています:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.setStylePreset(TableStylePreset.DarkStyle1); // デフォルトのスタイルプリセットテーマを変更します
+
+    // テーブルのスタイルプリセットを取得します
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // 取得したスタイルプリセットを別のテーブルに適用します
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **表のアスペクト比をロックする**
 
-## **Lock Aspect Ratio of a Table**
+幾何学的形状のアスペクト比は、異なる次元におけるサイズの比率です。Aspose.Slides は、表やその他のシェイプのアスペクト比設定をロックできるように、[**setAspectRatioLocked**] プロパティを提供しています。 
 
-幾何形状のアスペクト比は、異なる次元におけるサイズの比率です。Aspose.Slides は、テーブルやその他のシェイプのアスペクト比ロック設定を可能にする [**setAspectRatioLocked**](https://reference.aspose.com/slides/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) プロパティを提供します。
+この Java コードは、表のアスペクト比をロックする方法を示します。
 
-この Java コードは、テーブルのアスペクト比をロックする方法を示しています:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -320,17 +360,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**テーブル全体とセル内のテキストに右から左 (RTL) の読み方向を有効にできますか?**
+**テーブル全体とセル内のテキストに右から左 (RTL) の読み方向を設定できますか？**
 
-はい。テーブルは [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-) メソッドを公開しており、段落は [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) を持ちます。両方を使用すると、セル内の正しい RTL 順序とレンダリングが保証されます。
+はい。テーブルは [setRightToLeft] メソッドを公開しており、段落は [ParagraphFormat.setRightToLeft] を持ちます。両方を使用することで、セル内の正しい RTL 順序と描画が保証されます。
 
-**最終ファイルでユーザーがテーブルを移動またはサイズ変更できないようにするにはどうすればよいですか?**
+**最終ファイルでユーザーが表を移動またはサイズ変更できないようにするにはどうすればよいですか？**
 
-[shape locks](/slides/ja/java/applying-protection-to-presentation/) を使用して、移動、サイズ変更、選択などを無効にします。これらのロックはテーブルにも適用されます。
+[shape locks](/slides/ja/java/applying-protection-to-presentation/) を使用して、移動、サイズ変更、選択などを無効にします。これらのロックは表にも適用されます。
 
-**セル内に画像を背景として挿入することはサポートされていますか?**
+**セル内に画像を背景として挿入することはサポートされていますか？**
 
-はい。セルに対して [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) を設定できます。画像は選択したモード（伸縮またはタイル）に従ってセル領域を覆います。
+はい。セルに [picture fill] を設定できます。画像は選択したモード（伸縮またはタイル）に従ってセル領域を覆います。

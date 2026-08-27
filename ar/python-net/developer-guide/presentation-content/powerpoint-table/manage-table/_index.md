@@ -8,7 +8,7 @@ keywords:
 - إضافة جدول
 - إنشاء جدول
 - الوصول إلى جدول
-- نسبة العرض إلى الارتفاع
+- نسبة الأبعاد
 - محاذاة النص
 - تنسيق النص
 - نمط الجدول
@@ -17,82 +17,81 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إنشاء وتعديل الجداول في شرائح PowerPoint و OpenDocument باستخدام Aspose.Slides لـ Python عبر .NET. اكتشف أمثلة شفرة بسيطة لتبسيط تدفقات عمل الجداول."
+description: "إنشاء وتحرير الجداول في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Python عبر .NET. اكتشف أمثلة شفرة بسيطة لتبسيط سير عمل الجداول الخاص بك."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+الجدول في PowerPoint طريقة فعّالة لعرض المعلومات. المعلومات المرتبة في شبكة من الخلايا (صفوف وأعمدة) تكون بسيطة وسهلة الفهم.
 
-الجدول في PowerPoint هو وسيلة فعّالة لتقديم المعلومات. المعلومات المرتبة في شبكة من الخلايا (صفوف وأعمدة) تكون واضحة وسهلة الفهم.
-
-توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) والفئة [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) وأنواعًا أخرى ذات صلة لمساعدتك في إنشاء الجداول وتحديثها وإدارتها في أي عرض تقديمي.
+توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/) والفئة [Cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/) وأنواع أخرى ذات صلة لمساعدتك على إنشاء الجداول وتحديثها وإدارتها في أي عرض تقديمي.
 
 ## **إنشاء جداول من الصفر**
 
-يوضح هذا القسم كيفية إنشاء جدول من الصفر في Aspose.Slides عن طريق إضافة شكل جدول إلى شريحة، وتعريف صفوفه وأعمدته، وتحديد أحجام دقيقة. ستتعرف أيضًا على كيفية ملء الخلايا بالنص، وضبط المحاذاة والحدود، وتخصيص مظهر الجدول.
+يوضح هذا القسم كيفية إنشاء جدول من الصفر في Aspose.Slides عن طريق إضافة شكل جدول إلى شريحة، وتعريف صفوفه وأعمدته، وتحديد الأحجام بدقة. ستتعرف أيضًا على كيفية ملء الخلايا بالنص، وضبط المحاذاة والحدود، وتخصيص مظهر الجدول.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى شريحة بحسب فهرستها.
-3. تعريف مصفوفة لعرض الأعمدة.
-4. تعريف مصفوفة لارتفاع الصفوف.
-5. إضافة [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) إلى الشريحة.
-6. التكرار على كل [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) وتنسيق حدوده العليا والسفلى واليمنى واليسرى.
-7. دمج الخليتين الأوليين في الصف الأول للجدول.
-8. الوصول إلى [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) الخاص بـ [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/).
-9. إضافة نص إلى [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-10. حفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+2. الحصول على مرجع إلى شريحة عبر فهرسها.
+3. تعريف مصفوفة لعروض الأعمدة.
+4. تعريف مصفوفة لارتفاعات الصفوف.
+5. إضافة [Table](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/) إلى الشريحة.
+6. تكرار كل [Cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/) وتنسيق حدها العلوي والسفلي واليمين واليسار.
+7. دمج خلايا الصفين الأولين والعمودين الأولين في خلية واحدة.
+8. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بـ [Cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/).
+9. إضافة نص إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/).
+10. حفظ العرض التقديمي المعدّل.
 
-المثال التالي بلغة Python يظهر كيفية إنشاء جدول في عرض تقديمي:
+المثال التالي بلغة Python يوضح كيفية إنشاء جدول في عرض تقديمي:
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-    # إنشاء كائن الفئة Presentation الذي يمثل ملف عرض تقديمي.
-    with slides.Presentation() as presentation:
-        # الوصول إلى الشريحة الأولى.
-        slide = presentation.slides[0]
+# إنشاء كائن من فئة Presentation الذي يمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
+    # الوصول إلى الشريحة الأولى.
+    slide = presentation.slides[0]
 
-        # تعريف عرض الأعمدة وارتفاع الصفوف.
-        column_widths = [50, 50, 50]
-        row_heights = [50, 30, 30, 30, 30]
+    # تعريف عرض الأعمدة وارتفاع الصفوف.
+    column_widths = [50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-        # إضافة شكل جدول إلى الشريحة.
-        table = slide.shapes.add_table(100, 50, column_widths, row_heights)
+    # إضافة شكل جدول إلى الشريحة.
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-        # تعيين تنسيق الحدود لكل خلية.
-        for row in table.rows:
-            for cell in row:
-                cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-                cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-                cell.cell_format.border_top.width = 5
+    # تعيين تنسيق الحدود لكل خلية.
+    for row in table.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_top.width = 5
 
-                cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-                cell.cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
-                cell.cell_format.border_bottom.width = 5
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
+            cell.cell_format.border_bottom.width = 5
 
-                cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-                cell.cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
-                cell.cell_format.border_left.width = 5
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
+            cell.cell_format.border_left.width = 5
 
-                cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-                cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-                cell.cell_format.border_right.width = 5
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_right.width = 5
         
-        # دمج الخلايا من (الصف 0، العمود 0) إلى (الصف 1، العمود 1).
-        table.merge_cells(table.rows[0][0], table.rows[1][1], False)
+    # دمج الخلايا من (الصف 0، العمود 0) إلى (الصف 1، العمود 1).
+    table.merge_cells(table.rows[0][0], table.rows[1][1], False)
 
-        # إضافة نص إلى الخلية المدمجة.
-        table.rows[0][0].text_frame.text = "Merged Cells"
+    # إضافة نص إلى الخلية المدمجة.
+    table.rows[0][0].text_frame.text = "Merged Cells"
 
-        # حفظ العرض التقديمي إلى القرص.
-        presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **الترقيم في الجداول القياسية**
 
-في جدول قياسي، يكون ترقيم الخلايا بسيطًا ويعتمد على الصفر. أول خلية في الجدول لها الفهرس (0, 0) (العمود 0، الصف 0).
+في جدول قياسي، يكون ترقيم الخلايا بسيطًا ويبدأ من الصفر. تُعد الخلية الأولى في الجدول ذات الفهرس (0, 0) (العمود 0، الصف 0).
 
-على سبيل المثال، في جدول يحتوي على 4 أعمدة و4 صفوف، يتم ترقيم الخلايا كما يلي:
+على سبيل المثال، في جدول يضم 4 أعمدة و4 صفوف، يتم ترقيم الخلايا كما يلي:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -100,73 +99,93 @@ import aspose.slides as slides
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-المثال التالي بلغة Python يوضح كيفية الإشارة إلى الخلايا باستخدام هذا الترّقيم الصفري:
-```python
-for row_index in range(len(table.rows)):
-    for column_index in range(len(table.rows[row_index])):
-        cell = table.rows[row_index][column_index]
-        cell.text_frame.text = f"({column_index}, {row_index})"
-```
+المثال التالي بلغة Python يوضح كيفية الإشارة إلى الخلايا باستخدام هذا الترقيم الصفري:
 
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    # الوصول إلى الشريحة الأولى.
+    slide = presentation.slides[0]
+
+    # إضافة جدول بـ 4 أعمدة و 4 صفوف.
+    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            cell.text_frame.text = f"({column_index}, {row_index})"
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **الوصول إلى جدول موجود**
 
-يوضح هذا القسم كيفية العثور على جدول موجود والعمل معه في عرض تقديمي باستخدام Aspose.Slides. ستتعلم كيفية العثور على الجدول في شريحة، والوصول إلى صفوفه وأعمدته وخلاياه، وتحديث المحتوى أو التنسيق.
+يشرح هذا القسم كيفية تحديد جدول موجود في عرض تقديمي والعمل معه باستخدام Aspose.Slides. ستتعلم كيفية العثور على الجدول في شريحة، والوصول إلى صفوفه وأعمدته وخلاياه، وتحديث المحتوى أو التنسيق.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى الشريحة التي تحتوي على الجدول بحسب فهرستها.
-3. التكرار عبر جميع كائنات [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) حتى تعثر على الجدول.
-4. استخدام كائن [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) للعمل مع الجدول.
-5. حفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة التي تحتوي على الجدول عبر فهرسها.
+3. تكرار جميع كائنات [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) حتى تجد الجدول.
+4. استخدام كائن [Table](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/) للعمل مع الجدول.
+5. حفظ العرض التقديمي المعدّل.
 
-{{% alert color="info" %}}
-إذا كان الشريحة تحتوي على عدة جداول، من الأفضل البحث عن الجدول الذي تحتاجه باستخدام خاصية `alternative_text`.
+{{% alert color="info" title="ملاحظة" %}}
+إذا كانت الشريحة تحتوي على عدة جداول، من الأفضل البحث عن الجدول المطلوب عبر خاصية `alternative_text`.
 {{% /alert %}}
 
 المثال التالي بلغة Python يوضح كيفية الوصول إلى جدول موجود والعمل معه:
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# إنشاء كائن الفئة Presentation لتحميل ملف PPTX.
+# إنشاء كائن من فئة Presentation لتحميل ملف PPTX.
 with slides.Presentation("sample.pptx") as presentation:
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
     table = None
 
-    # التكرار عبر الأشكال والإشارة إلى أول جدول يتم العثور عليه.
+    # تكرار الأشكال والإشارة إلى أول جدول تم العثور عليه.
     for shape in slide.shapes:
         if isinstance(shape, slides.Table):
             table = shape
             break
 
-    # تعيين نص الخلية الأولى في الصف الأول.
+    # تعيين نص أول خلية في الصف الأول.
     if table is not None:
         table.rows[0][0].text_frame.text = "Found"
 
-    # حفظ العرض التقديمي المعدل إلى القرص.
+    # حفظ العرض التقديمي المعدّل إلى القرص.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **العثور على الخلية التي تملك إطار نص**
+
+عند استقبال كود معالجة النص العام لكائن [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) من جدول، استخدم خاصية [TextFrame.parent_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_cell/) لاسترجاع الـ [Cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/) المالك. بالنسبة لإطار نص خلية جدول، يتم تعيين [TextFrame.parent_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_cell/) وتكون [TextFrame.parent_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_shape/) `None`، رغم أن الجدول نفسه يعتبر شكلًا.
+
+تتوفر إحداثيات الخلية عبر خاصيتي القراءة فقط [Cell.first_column_index](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/first_column_index/) و[Cell.first_row_index](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/first_row_index/). الخاصية [TextFrame.parent_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_cell/) أيضًا للقراءة فقط: توفر التنقل إلى المالك دون تغيير الملكية. تأكد دائمًا من أن الخلية المرجعة ليست `None` قبل استخدامها.
+
+للحصول على مثال كامل يحدد مالكي خلايا الجداول والأشكال، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/python-net/search-and-replace-text/).
 
 ## **محاذاة النص في الجداول**
 
-يوضح هذا القسم كيفية التحكم في محاذاة النص داخل خلايا الجداول باستخدام Aspose.Slides. ستتعلم ضبط المحاذاة الأفقية والعمودية للخلايا للحفاظ على وضوح المحتوى واتساقه.
+يعرض هذا القسم كيفية التحكم في موضع النص داخل خلايا الجدول باستخدام Aspose.Slides. ستتعلم كيفية تثبيت النص عموديًا داخل الخلية وتغيير اتجاه النص.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى شريحة بحسب فهرستها.
-3. إضافة كائن [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) إلى الشريحة.
-4. الوصول إلى كائن [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) من الجدول.
-5. محاذاة النص عموديًا.
-6. حفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة عبر فهرسها.
+3. إضافة كائن [Table](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/) إلى الشريحة.
+4. الوصول إلى كائن [Cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/cell/) من الجدول.
+5. توسيط النص عموديًا في الخلية وتعيين اتجاه النص.
+6. حفظ العرض التقديمي المعدّل.
 
 المثال التالي بلغة Python يوضح كيفية محاذاة النص في جدول:
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# إنشاء نسخة من الفئة Presentation.
+# إنشاء كائن من فئة Presentation.
 with slides.Presentation() as presentation:
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
@@ -191,25 +210,25 @@ with slides.Presentation() as presentation:
     presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **تعيين تنسيق النص على مستوى الجدول**
 
-يوضح هذا القسم كيفية تطبيق تنسيق النص على مستوى الجدول في Aspose.Slides بحيث يرث كل خلية نمطًا موحدًا ومتسقًا. ستتعلم ضبط أحجام الخطوط، والمحاذاة، والهوامش على مستوى شامل.
+يعرض هذا القسم كيفية تطبيق تنسيق النص على مستوى الجدول في Aspose.Slides بحيث يرث كل خلية نمطًا موحدًا. ستتعلم كيفية تعيين حجم الخط، والمحاذاة، والهوامش عالميًا.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى شريحة بحسب فهرستها.
-3. إضافة [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) إلى الشريحة.
-4. ضبط حجم الخط (ارتفاع الخط) للنص.
-5. ضبط محاذاة الفقرة والهوامش.
-6. ضبط اتجاه النص العمودي.
-7. حفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة عبر فهرسها.
+3. إضافة كائن [Table](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/) إلى الشريحة.
+4. تعيين حجم الخط (ارتفاع الخط) للنص.
+5. تعيين محاذاة الفقرات والهوامش.
+6. تعيين اتجاه النص العمودي.
+7. حفظ العرض التقديمي المعدّل.
 
 المثال التالي بلغة Python يوضح كيفية تطبيق خيارات التنسيق المفضلة على النص داخل جدول:
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# إنشاء نسخة من الفئة Presentation
+# إنشاء كائن من فئة Presentation
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -220,13 +239,13 @@ with slides.Presentation() as presentation:
     portion_format.font_height = 25
     table.set_text_format(portion_format)
 
-    # تعيين النص محاذًا إلى اليمين وهامش يميني لجميع خلايا الجدول.
+    # تعيين نص محاذى لليمين وهامش يميني لجميع خلايا الجدول.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.set_text_format(paragraph_format)
 
-    # تعيين الاتجاه العمودي للنص لجميع خلايا الجدول.
+    # تعيين اتجاه النص العمودي لجميع خلايا الجدول.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.set_text_format(text_frame_format)
@@ -234,10 +253,10 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تطبيق أنماط الجداول المدمجة**
 
-## **تطبيق الأنماط المدمجة للجداول**
+تتيح Aspose.Slides تنسيق الجداول باستخدام أنماط مسبقة التعريف مباشرة في الكود. يوضح المثال إنشاء جدول، تطبيق نمط مدمج، وحفظ النتيجة—طريقة فعّالة لضمان تنسيق ثابت ومحترف.
 
-تمكنك Aspose.Slides من تنسيق الجداول باستخدام الأنماط المعرفة مسبقًا مباشرةً في الكود. يوضح المثال كيفية إنشاء جدول، وتطبيق نمط مدمج، وحفظ النتيجة—طريقة فعّالة لضمان تنسيق متسق واحترافي.
 ```python
 import aspose.slides as slides
 
@@ -250,12 +269,12 @@ with slides.Presentation() as presentation:
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **قفل نسبة الأبعاد للجداول**
 
-## **قفل نسبة العرض إلى الارتفاع للجداول**
+نسبة أبعاد الشكل هي نسبة أبعادها. توفر Aspose.Slides الخاصية `aspect_ratio_locked` التي تسمح بقفل نسبة الأبعاد للجداول وغيرها من الأشكال.
 
-نسبة العرض إلى الارتفاع لشكل ما هي نسبة أبعاده. توفر Aspose.Slides الخاصية `aspect_ratio_locked` التي تسمح بقفل نسبة العرض إلى الارتفاع للجداول وغيرها من الأشكال.
+المثال التالي بلغة Python يوضح كيفية قفل نسبة الأبعاد لجدول:
 
-المثال التالي بلغة Python يوضح كيفية قفل نسبة العرض إلى الارتفاع لجدول:
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -271,17 +290,16 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة المتداولة**
+**هل يمكن تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
 
-**هل يمكنني تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
+نعم. يتيح الجدول خاصية [right_to_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/right_to_left/)، وتملك الفقرات خاصية [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/right_to_left/). يمنح استخدام كلا الخاصيتين ترتيبًا وعرضًا صحيحًا للـ RTL داخل الخلايا.
 
-نعم. يكشف الجدول عن خاصية [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/)، وتملك الفقرات خاصية [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/). يضمن استخدامهما معًا الترتيب والعرض الصحيحين باتجاه RTL داخل الخلايا.
+**كيف يمكن منع المستخدمين من نقل أو تغيير حجم جدول في الملف النهائي؟**
 
-**كيف يمكنني منع المستخدمين من نقل أو تغيير حجم جدول في الملف النهائي؟**
+استخدم [shape locks](/slides/ar/python-net/applying-protection-to-presentation/) لتعطيل النقل، تغيير الحجم، التحديد، وغيرها. تُطبق هذه الأقفال على الجداول أيضًا.
 
-استخدم [shape locks](/slides/ar/python-net/applying-protection-to-presentation/) لتعطيل النقل، وتغيير الحجم، والاختيار، وما إلى ذلك. تُطبق هذه القواعد على الجداول أيضًا.
+**هل يدعم إدراج صورة داخل خلية كخلفية؟**
 
-**هل يدعم إدخال صورة داخل خلية كخلفية؟**
-
-نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) لخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المختار (تمدد أو تجانب).
+نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/) للخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المحدد (تمديد أو تجانب).

@@ -12,30 +12,32 @@ keywords:
 - จัดแนวข้อความ
 - การจัดรูปแบบข้อความ
 - สไตล์ตาราง
-- พาวเวอร์พอยท์
+- PowerPoint
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "สร้างและแก้ไขตารางในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ค้นพบตัวอย่างโค้ดง่าย ๆ เพื่อทำให้กระบวนการทำงานกับตารางของคุณเป็นระบบและรวดเร็วขึ้น"
+description: "สร้างและแก้ไขตารางในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ค้นพบตัวอย่างโค้ดอย่างง่ายเพื่อเพิ่มประสิทธิภาพกระบวนการทำงานกับตารางของคุณ"
 ---
 ## **บทนำ**
 
-ตารางใน PowerPoint เป็นวิธีที่มีประสิทธิภาพในการแสดงและนำเสนอข้อมูล ข้อมูลในตารางของเซลล์ (จัดเรียงเป็นแถวและคอลัมน์) มีความชัดเจนและเข้าใจง่าย
+ตารางใน PowerPoint เป็นวิธีที่มีประสิทธิภาพในการแสดงและสื่อสารข้อมูล ข้อมูลในตารางที่ประกอบด้วยเซลล์ (จัดเรียงเป็นแถวและคอลัมน์) มีความชัดเจนและเข้าใจง่าย
 
-Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) , คลาส [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) และประเภทอื่น ๆ เพื่อให้คุณสร้าง, ปรับปรุง, และจัดการตารางในงานนำเสนอทุกประเภท
+Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) , [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) และประเภทอื่น ๆ ที่ช่วยให้คุณสร้าง, แก้ไขและจัดการตารางในงานนำเสนอทุกประเภท
 
-## **สร้างตารางตั้งแต่ต้น**
+## **Create a Table from Scratch**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. รับการอ้างอิงสไลด์ผ่านดัชนีของมัน 
-3. กำหนดอาร์เรย์ของ `columnWidth` 
-4. กำหนดอาร์เรย์ของ `rowHeight` 
-5. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/) ลงในสไลด์ผ่านเมธอด [addTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addtable/) 
-6. วนซ้ำผ่านแต่ละ [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) เพื่อกำหนดรูปแบบให้กับเส้นขอบด้านบน, ด้านล่าง, ขวา, และซ้าย 
-7. รวมสองเซลล์แรกของแถวแรกของตาราง 
-8. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) ของ [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) 
-9. เพิ่มข้อความบางส่วนลงใน [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) 
-10. บันทึกงานนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. กำหนดอาเรย์ของ `columnWidth`  
+4. กำหนดอาเรย์ของ `rowHeight`  
+5. เพิ่มออบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/) ลงในสไลด์โดยใช้เมธอด [addTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addtable/)  
+6. วนผ่านแต่ละ [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) เพื่อกำหนดรูปแบบเส้นขอบด้านบน, ด้านล่าง, ด้านขวาและด้านซ้าย  
+7. รวมสองเซลล์แรกของแถวแรกในตาราง  
+8. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) ของ [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/)  
+9. เพิ่มข้อความใน [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/)  
+10. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+
+โค้ด PHP นี้แสดงวิธีสร้างตารางในงานนำเสนอ:
 
 ```php
   # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
@@ -66,9 +68,9 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
         $cellFormat::getBorderRight()->setWidth(5);
       }
     }
-    # ผสานเซลล์ที่ 1 และ 2 ของแถวที่ 1
+    # รวมเซลล์ที่ 1 และ 2 ของแถวที่ 1
     $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
-    # เพิ่มข้อความบางส่วนลงในเซลล์ที่ผสานแล้ว
+    # เพิ่มข้อความบางส่วนลงในเซลล์ที่รวมกัน
     $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
     # บันทึกการนำเสนอลงดิสก์
     $pres->save("table.pptx", SaveFormat::Pptx);
@@ -79,17 +81,19 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
   }
 ```
 
-## **การหมายเลขในตารางมาตรฐาน**
+## **Numbering in a Standard Table**
 
-ในตารางมาตรฐาน การกำหนดหมายเลขของเซลล์ทำได้ง่ายและใช้ศูนย์เป็นจุดเริ่มต้น เซลล์แรกในตารางจะมีดัชนีเป็น 0,0 (คอลัมน์ 0, แถว 0)
+ในตารางมาตรฐาน การจัดลำดับหมายเลขของเซลล์เป็นการนับจากศูนย์ เซลล์แรกในตารางมีดัชนีเป็น 0,0 (คอลัมน์ 0, แถว 0)  
 
-ตัวอย่างเช่น เซลล์ในตารางที่มี 4 คอลัมน์และ 4 แถวจะถูกหมายเลขดังนี้:
+ตัวอย่างเช่น เซลล์ในตารางที่มี 4 คอลัมน์และ 4 แถวจะถูกนับดังนี้:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
 | (0, 1) | (1, 1) | (2, 1) | (3, 1) |
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
+
+โค้ด PHP นี้แสดงวิธีระบุลำดับหมายเลขของเซลล์ในตาราง:
 
 ```php
   # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
@@ -103,7 +107,8 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
     # เพิ่มรูปร่างตารางลงในสไลด์
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     # ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    foreach($tbl->getRows() as $row) {
+    $rows = $tbl->getRows();
+    foreach($rows as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -128,16 +133,19 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
   }
 ```
 
-## **เข้าถึงตารางที่มีอยู่**
+## **Access an Existing Table**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. รับการอ้างอิงสไลด์ที่มีตารางผ่านดัชนีของมัน 
-3. สร้างอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) และตั้งค่าเป็น null 
-4. วนซ้ำผ่านอ็อบเจกต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) ทั้งหมดจนกว่าจะพบตาราง  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ที่มีตารางผ่านดัชนีของมัน  
+3. สร้างอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) แล้วตั้งค่าเป็น null  
+4. วนผ่านออบเจกต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) ทั้งหมดจนกว่าจะพบตาราง  
 
-   หากคุณสงสัยว่าสไลด์ที่ทำงานอยู่มีตารางเดียว คุณสามารถตรวจสอบรูปทรงทั้งหมดที่สไลด์ประกอบอยู่ เมื่อรูปทรงถูกระบุว่าเป็นตาราง คุณสามารถทำการแคสต์เป็นอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ได้ แต่หากสไลด์มีหลายตาราง คุณควรค้นหาตารางที่ต้องการผ่าน [setAlternativeText(String value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/setalternativetext/) 
-5. ใช้อ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) เพื่อทำงานกับตาราง ในตัวอย่างด้านล่าง เราได้เพิ่มแถวใหม่ลงในตาราง 
-6. บันทึกงานนำเสนอที่แก้ไขแล้ว
+   หากคุณสงสัยว่ารูปที่กำลังทำงานอยู่มีเพียงตารางเดียว คุณสามารถตรวจสอบรูปทั้งหมดที่มันมีได้ เมื่อรูปถูกระบุว่าเป็นตาราง คุณสามารถแคสต์เป็นอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) แต่หากสไลด์มีหลายตาราง คุณควรค้นหาตารางที่ต้องการผ่าน [setAlternativeText(String value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/setalternativetext/)  
+
+5. ใช้อ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) เพื่อทำงานกับตาราง ในตัวอย่างด้านล่าง เราเพิ่มแถวใหม่ให้กับตาราง  
+6. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+
+โค้ด PHP นี้แสดงวิธีเข้าถึงและทำงานกับตารางที่มีอยู่:
 
 ```php
   # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
@@ -147,8 +155,9 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
     $sld = $pres->getSlides()->get_Item(0);
     # กำหนดค่าเริ่มต้นให้ TableEx เป็น null
     $tbl = null;
-    # วนลูปผ่านรูปทรงและตั้งค่าการอ้างอิงไปยังตารางที่พบ
-    foreach($sld->getShapes() as $shp) {
+    # วนลูปผ่านรูปร่างทั้งหมดและตั้งค่าอ้างอิงไปยังตารางที่พบ
+    $shapes = $sld->getShapes();
+    foreach($shapes as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
         # ตั้งค่าข้อความสำหรับคอลัมน์แรกของแถวที่สอง
@@ -164,23 +173,33 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
   }
 ```
 
-## **จัดแนวข้อความในตาราง**
+## **Find the Cell That Owns a Text Frame**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. รับการอ้างอิงสไลด์ผ่านดัชนีของมัน 
-3. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ลงในสไลด์ 
-4. เข้าถึงอ็อบเจกต์ [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) จากตาราง 
-5. เข้าถึง [Paragraph](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/) 
-6. จัดแนวข้อความในแนวตั้ง 
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว
+เมื่อโค้ดประมวลผลข้อความทั่วไปได้รับออบเจกต์ [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) จากตาราง ให้ใช้เมธอด [TextFrame::getParentCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentCell) เพื่อดึง [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) เจ้าของ สำหรับ TextFrame ของเซลล์ตาราง, [TextFrame::getParentCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentCell) จะคืนค่าเจ้าของและ [TextFrame::getParentShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentShape) จะคืนค่า `null` แม้ว่าตารางเองเป็น Shape  
+
+พิกัดเซลล์สามารถเข้าถึงได้ผ่านเมธอดอ่าน‑เท่านั้น [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/#getFirstColumnIndex) และ [Cell::getFirstRowIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/#getFirstRowIndex)  [TextFrame::getParentCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentCell) ยังให้การนำทางแบบอ่าน‑เท่านั้น: มันคืนค่าเจ้าของแต่ไม่เปลี่ยนความเป็นเจ้าของ ตรวจสอบว่าเซลล์ที่คืนมาไม่ใช่ `java_is_null` ก่อนใช้งานเสมอ  
+
+สำหรับตัวอย่างสมบูรณ์ที่ระบุเจ้าของของเซลล์ตารางและ Shape รวมถึง Shape ที่เชื่อมโยงกับโหนด SmartArt ให้ดูที่ [Search and Replace Text](/slides/th/php-java/search-and-replace-text/)
+
+## **Align Text in a Table**
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ลงในสไลด์  
+4. เข้าถึงอ็อบเจกต์ [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) จากตาราง  
+5. เข้าถึง [Paragraph](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/)  
+6. จัดแนวข้อความในแนวตั้ง  
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+
+โค้ด PHP นี้แสดงวิธีจัดแนวข้อความในตาราง:
 
 ```php
   # สร้างอินสแตนซ์ของคลาส Presentation
   $pres = new Presentation();
   try {
-    # เข้าถึงสไลด์แรก
+    # ดึงสไลด์แรก
     $slide = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
+    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
     $dblCols = array(120, 120, 120, 120 );
     $dblRows = array(100, 100, 100, 100 );
     # เพิ่มรูปร่างตารางลงในสไลด์
@@ -210,32 +229,34 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
   }
 ```
 
-## **ตั้งค่าการจัดรูปแบบข้อความระดับตาราง**
+## **Set Text Formatting on the Table Level**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. รับการอ้างอิงสไลด์ผ่านดัชนีของมัน 
-3. เข้าถึงอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) จากสไลด์ 
-4. ตั้งค่า [setFontHeight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setFontHeight) สำหรับข้อความ 
-5. ตั้งค่า [setAlignment(int value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setmarginright/) 
-6. ตั้งค่า [setTextVerticalType(byte value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/settextverticaltype/) 
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว
+1. สร้างอินสแตนซ์ของ คลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. เข้าถึงอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) จากสไลด์  
+4. ตั้งค่า [setFontHeight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setFontHeight) สำหรับข้อความ  
+5. ตั้งค่า [setAlignment(int value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setmarginright/)  
+6. ตั้งค่า [setTextVerticalType(byte value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/settextverticaltype/)  
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+
+โค้ด PHP นี้แสดงวิธีปรับใช้ตัวเลือกการจัดรูปแบบที่คุณต้องการให้กับข้อความในตาราง:
 
 ```php
-  # สร้างอินสแทนซ์ของคลาส Presentation
+  # สร้างอินสแตนซ์ของคลาส Presentation
   $pres = new Presentation("simpletable.pptx");
   try {
-    # สมมติว่ารูปร่างแรกบนสไลด์แรกเป็นตาราง
+    # สมมติว่า shape แรกบนสไลด์แรกเป็นตาราง
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # ตั้งค่าความสูงของฟอนต์สำหรับเซลล์ตาราง
+    # ตั้งค่าความสูงของฟอนต์ในเซลล์ตาราง
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->setTextFormat($portionFormat);
-    # ตั้งค่าการจัดแนวข้อความและระยะขอบขวาของเซลล์ตารางในหนึ่งคำสั่ง
+    # ตั้งค่าการจัดแนวข้อความและระยะขวาของเซลล์ตารางในหนึ่งคำสั่ง
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->setTextFormat($paragraphFormat);
-    # ตั้งค่าชนิดการวางข้อความในแนวตั้งของเซลล์ตาราง
+    # ตั้งค่าชนิดการวางแนวข้อความในแนวตั้งของเซลล์ตาราง
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->setTextFormat($textFrameFormat);
@@ -247,15 +268,15 @@ Aspose.Slides ให้คลาส [Table](https://reference.aspose.com/slides/
   }
 ```
 
-## **รับคุณสมบัติสไตล์ของตาราง**
+## **Get Table Style Properties**
 
-Aspose.Slides ให้คุณเรียกคืนคุณสมบัติสไตล์ของตารางเพื่อที่คุณจะใช้รายละเอียดเหล่านั้นกับตารางอื่นหรือที่อื่น โค้ด PHP นี้แสดงวิธีการรับคุณสมบัติสไตล์จากสไตล์ตารางที่กำหนดล่วงหน้า:
+Aspose.Slides ให้คุณดึงคุณสมบัติลักษณะของตารางเพื่อใช้กับตารางอื่นหรือในที่อื่น โค้ด PHP นี้แสดงวิธีดึงคุณสมบัติสไตล์จากตารางที่ใช้สไตล์กำหนดล่วงหน้า:
 
 ```php
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// เปลี่ยนธีม preset สไตล์เริ่มต้น
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// เปลี่ยนธีมสไตล์พรีเซ็ตเริ่มต้น
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
@@ -265,9 +286,11 @@ Aspose.Slides ให้คุณเรียกคืนคุณสมบัต
   }
 ```
 
-## **ล็อกอัตราส่วนของตาราง**
+## **Lock Aspect Ratio of a Table**
 
-อัตราส่วนของรูปทรงเรขาคณิตคืออัตราส่วนของขนาดในมิติที่ต่างกัน Aspose.Slides มีเมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) เพื่อให้คุณล็อกการตั้งค่าอัตราส่วนสำหรับตารางและรูปทรงอื่น ๆ
+อัตราส่วนของรูปร่างเรขาคณิตคือสัดส่วนของขนาดในมิติที่ต่างกัน Aspose.Slides มีเมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) เพื่อให้คุณล็อกการตั้งค่าอัตราส่วนสำหรับตารางและรูปร่างอื่น ๆ  
+
+โค้ด PHP นี้แสดงวิธีล็อกอัตราส่วนของตาราง:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -285,16 +308,13 @@ Aspose.Slides ให้คุณเรียกคืนคุณสมบัต
   }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถเปิดใช้งานทิศทางการอ่านจากขวาไปซ้าย (RTL) สำหรับตารางทั้งหมดและข้อความในเซลล์ของมันได้หรือไม่?**
+**ฉันสามารถเปิดใช้งานทิศทางการอ่านจากขวาไปซ้าย (RTL) สำหรับทั้งตารางและข้อความในเซลล์ได้หรือไม่?**  
+ใช่ ตารางเปิดเผยเมธอด [setRightToLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/setrighttoleft/) และพารากราฟมี [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setrighttoleft/) การใช้ทั้งสองจะทำให้ลำดับ RTL ถูกต้องและแสดงผลภายในเซลล์ได้ถูกต้อง  
 
-ใช่ ตารางมีเมธอด [setRightToLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/setrighttoleft/) และย่อหน้ามี [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setrighttoleft/) การใช้ทั้งสองทำให้แน่ใจว่าลำดับ RTL ถูกต้องและการเรนเดอร์ภายในเซลล์
+**ฉันจะป้องกันผู้ใช้จากการย้ายหรือปรับขนาดตารางในไฟล์สุดท้ายได้อย่างไร?**  
+ใช้การล็อกรูปเพื่อปิดการย้าย, ปรับขนาด, เลือก ฯลฯ การล็อกเหล่านี้ใช้ได้กับตารางเช่นกัน  
 
-**ฉันจะป้องกันไม่ให้ผู้ใช้ย้ายหรือปรับขนาดตารางในไฟล์สุดท้ายได้อย่างไร?**
-
-ใช้การล็อกรูปทรงเพื่อปิดการย้าย, ปรับขนาด, การเลือก ฯลฯ การล็อกเหล่านี้ใช้กับตารางด้วย
-
-**การแทรกรูปภาพภายในเซลล์เป็นพื้นหลังได้รับการสนับสนุนหรือไม่?**
-
-ใช่ คุณสามารถตั้งค่า [picture fill](https://reference.aspose.com/slides/th/php-java/aspose.slides/picturefillformat/) สำหรับเซลล์; รูปภาพจะครอบคลุมพื้นที่เซลล์ตามโหมดที่เลือก (ขยายหรือเรียงรูปต่อเนื่อง)
+**การแทรกรูปภาพเป็นพื้นหลังภายในเซลล์ได้รับการสนับสนุนหรือไม่?**  
+ใช่ คุณสามารถตั้งค่า [picture fill](https://reference.aspose.com/slides/th/php-java/aspose.slides/picturefillformat/) ให้กับเซลล์ได้ ภาพจะครอบพื้นที่เซลล์ตามโมดที่เลือก (ขยายหรือเปลี่ยนเป็นกระเบื้อง)  

@@ -21,23 +21,23 @@ description: "Aspose.Slides för Python via .NET gör det enkelt att skapa, redi
 ---
 ## **Introduktion**
 
-Texter på bilder finns vanligtvis i textrutor eller former. Därför måste du, för att lägga till text på en bild, lägga till en textruta och sedan placera någon text i textrutan. Aspose.Slides för Python tillhandahåller klassen [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) som låter dig lägga till en form som innehåller text.
+Texter på bilder finns vanligtvis i textrutor eller former. Därför måste du, för att lägga till text på en bild, lägga till en textruta och sedan placera lite text i textrutan. Aspose.Slides for Python tillhandahåller klassen [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) som låter dig lägga till en form som innehåller text.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides tillhandahåller också klassen [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/). Men inte alla former kan innehålla text.
+Aspose.Slides tillhandahåller också klassen [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/). Dock kan inte alla former innehålla text.
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}}
-Därför, när du arbetar med en form som du vill lägga till text i, kan du vilja kontrollera och bekräfta att den har kastats via klassen [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/). Endast då kan du arbeta med [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/), som är en egenskap under [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/). Se avsnittet [Update Text](/slides/sv/python-net/manage-textbox/#update-text) på den här sidan.
+Därför, när du hanterar en form som du vill lägga till text i, kan du vilja kontrollera och bekräfta att den kastades via klassen [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/). Endast då kan du arbeta med [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/), som är en egenskap under [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/). Se avsnittet [Uppdatera text](/slides/sv/python-net/manage-textbox/#update-text) på den här sidan.
 {{% /alert %}}
 
 ## **Skapa textrutor på bilder**
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
 2. Hämta en referens till den första bilden.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med `ShapeType.RECTANGLE` på önskad position på bilden.
-4. Ställ in texten i formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-5. Spara presentationen som en PPTX‑fil.
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med `ShapeType.RECTANGLE` på önskad plats på bilden.
+4. Ange texten i formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
+5. Spara presentationen som en PPTX-fil.
 
 Följande Python‑exempel implementerar dessa steg:
 
@@ -50,7 +50,7 @@ with slides.Presentation() as presentation:
     # Hämta den första bilden i presentationen.
     slide = presentation.slides[0]
 
-    # Lägg till en AutoShape av typen RECTANGLE.
+    # Lägg till en AutoShape av typen REKTANGEL.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
     shape.text_frame.text = "Aspose TextBox"
@@ -63,7 +63,7 @@ with slides.Presentation() as presentation:
 
 Aspose.Slides tillhandahåller egenskapen [is_text_box](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/is_text_box/) på klassen [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/), vilket låter dig avgöra om en form är en textruta.
 
-![Textruta och form](istextbox.png)
+![Text box and shape](istextbox.png)
 
 Detta Python‑exempel visar hur du kontrollerar om en form skapades som en textruta:
 
@@ -77,7 +77,7 @@ with slides.Presentation("Sample.pptx") as presentation:
                 print("shape is a text box" if shape.is_text_box else "shape is not a text box")
 ```
 
-Observera att om du lägger till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med hjälp av klassen [ShapeCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/), returnerar formens `is_text_box`‑egenskap `False`. Efter att du har lagt till text—antingen med metoden `add_text_frame` eller genom att sätta `text`‑egenskapen—returnerar `is_text_box` `True`.
+Observera att om du lägger till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med hjälp av klassen [ShapeCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/), returnerar formens `is_text_box`‑egenskap `False`. Efter att du har lagt till text‑antingen med metoden `add_text_frame` eller genom att sätta egenskapen `text`‑returnerar `is_text_box` `True`.
 
 ```py
 import aspose.slides as slides
@@ -106,6 +106,14 @@ with slides.Presentation() as presentation:
     # shape4.is_text_box är falskt
 ```
 
+## **Hitta formen som äger en textram**
+
+I generisk texthanteringskod kan du få en [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) utan att redan veta vilket presentationsobjekt som innehåller den. Använd egenskapen [TextFrame.parent_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_shape/) för att navigera tillbaka till den ägande [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/).
+
+För en textram som tillhör en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) eller en annan textinnehållande form är [TextFrame.parent_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_shape/) satt och [TextFrame.parent_cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_cell/) är `None`. Båda egenskaperna är skrivskyddade navigeringsegenskaper, så att läsa dem förändrar inte ägandet. Kontrollera alltid om det returnerade värdet är `None` innan du kommer åt formen.
+
+För ett komplett exempel som identifierar form‑ och tabellcell‑ägare, inklusive former associerade med SmartArt‑noder, se [Sök och ersätt text](/slides/sv/python-net/search-and-replace-text/).
+
 ## **Lägg till kolumner i textrutor**
 
 Aspose.Slides tillhandahåller egenskaperna [column_count](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframeformat/column_count/) och [column_spacing](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframeformat/column_spacing/) på klassen [TextFrameFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframeformat/) för att lägga till kolumner i textrutor. Du kan ange antalet kolumner och ställa in avståndet (i punkter) mellan kolumnerna.
@@ -120,7 +128,7 @@ with slides.Presentation() as presentation:
 	# Hämta den första bilden i presentationen.
 	slide = presentation.slides[0]
 
-	# Lägg till en AutoShape av typen RECTANGLE.
+	# Lägg till en AutoShape av typen REKTANGEL.
 	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
 
 	# Lägg till en TextFrame i rektangeln.
@@ -158,13 +166,13 @@ with slides.Presentation("Sample.pptx") as presentation:
                 for paragraph in shape.text_frame.paragraphs:
                     for portion in paragraph.portions:
                         portion.text = portion.text.replace("years", "months")
-                        portion.portion_format.font_bold = 1
+                        portion.portion_format.font_bold = slides.NullableBool.TRUE
   
-    # Spara den ändrade presentationen.
+    # Spara den modifierade presentationen.
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lägg till textrutor med hyperlänkar** 
+## **Lägg till textrutor med hyperlänkar**
 
 Du kan infoga en länk i en textruta. När textrutan klickas öppnas länken.
 
@@ -172,8 +180,8 @@ För att lägga till en textruta som innehåller en hyperlänk, följ dessa steg
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
 2. Hämta en referens till den första bilden.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med `ShapeType.RECTANGLE` på önskad position på bilden.
-4. Ställ in texten i formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) med `ShapeType.RECTANGLE` på önskad plats på bilden.
+4. Ange texten i formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
 5. Hämta en referens till [HyperlinkManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/).
 6. Använd egenskapen `hyperlink_manager` för att ange en extern klick‑hyperlänk.
 7. Spara presentationen som en PPTX‑fil.
@@ -189,7 +197,7 @@ with slides.Presentation() as presentation:
     # Hämta den första bilden i presentationen.
     slide = presentation.slides[0]
 
-    # Lägg till en AutoShape av typen RECTANGLE.
+    # Lägg till en AutoShape av typen REKTANGEL.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
 
     text_portion = shape.text_frame.paragraphs[0].portions[0]
@@ -197,20 +205,20 @@ with slides.Presentation() as presentation:
     # Lägg till text i ramen.
     text_portion.text = "Aspose.Slides"
 
-    # Ange en hyperlänk för portions‑texten.
+    # Ange en hyperlänk för deltexten.
     hyperlink_manager = text_portion.portion_format.hyperlink_manager
     hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
 
-    # Spara presentationen som en PPTX‑fil.
+    # Spara presentationen som en PPTX-fil.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vad är skillnaden mellan en textruta och en textplatshållare när du arbetar med masterslides?**
+**Vad är skillnaden mellan en textruta och en textplatshållare när du arbetar med masterns bilder?**
 
-En [placeholder](/slides/sv/python-net/manage-placeholder/) ärver stil/position från [master](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslide/) och kan åsidosättas på [layouts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/layoutslide/), medan en vanlig textruta är ett självständigt objekt på en specifik bild och förändras inte när du byter layout.
+En [platshållare](/slides/sv/python-net/manage-placeholder/) ärver stil/position från [master](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslide/) och kan åsidosättas på [layouter](https://reference.aspose.com/slides/sv/python-net/aspose.slides/layoutslide/), medan en vanlig textruta är ett fristående objekt på en specifik bild och ändras inte när du byter layout.
 
-**Hur kan jag utföra en massändring av text i hela presentationen utan att påverka text i diagram, tabeller och SmartArt?**
+**Hur kan jag utföra en massersättning av text i hela presentationen utan att påverka text i diagram, tabeller och SmartArt?**
 
-Begränsa din iteration till auto‑former som har textramar och uteslut inbäddade objekt ([charts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/sv/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/sv/python-net/aspose.slides.smartart/smartart/)) genom att gå igenom deras samlingar separat eller hoppa över dessa objekttyper.
+Begränsa din iteration till auto‑former som har textramar och uteslut inbäddade objekt ([diagram](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/), [tabeller](https://reference.aspose.com/slides/sv/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/sv/python-net/aspose.slides.smartart/smartart/)) genom att traversera deras samlingar separat eller hoppa över de objekttyperna.

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar caixas de texto em apresentações no .NET
-linktitle: Gerenciar caixa de texto
+title: Gerenciar Caixas de Texto em Apresentações em .NET
+linktitle: Gerenciar Caixa de Texto
 type: docs
 weight: 20
 url: /pt/net/manage-textbox/
@@ -18,72 +18,76 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "O Aspose.Slides for .NET facilita a criação, edição e clonagem de caixas de texto em arquivos PowerPoint e OpenDocument, aprimorando a automação de suas apresentações."
+description: "O Aspose.Slides para .NET facilita a criação, edição e clonagem de caixas de texto em arquivos PowerPoint e OpenDocument, aprimorando a automação de suas apresentações."
 ---
 ## **Introdução**
 
-Os textos nos slides geralmente existem em caixas de texto ou formas. Portanto, para adicionar texto a um slide, você deve primeiro adicionar uma caixa de texto e, em seguida, colocar algum texto dentro da caixa de texto. 
+Os textos nos slides normalmente estão em caixas de texto ou formas. Portanto, para adicionar texto a um slide, você precisa adicionar primeiro uma caixa de texto e depois inserir algum texto dentro da caixa de texto. 
 
-Para permitir que você adicione uma forma que possa conter texto, o Aspose.Slides for .NET fornece a interface [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape). 
+Para permitir que você adicione uma forma que possa conter texto, o Aspose.Slides para .NET fornece a interface [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape). 
 
 {{% alert title="Note" color="warning" %}} 
 
-O Aspose.Slides também fornece a interface [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape) para permitir que você adicione formas aos slides. No entanto, nem todas as formas adicionadas através da interface `IShape` podem conter texto. As formas adicionadas através da interface [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape) tipicamente contêm texto. 
+O Aspose.Slides também fornece a interface [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape) para permitir que você adicione formas aos slides. No entanto, nem todas as formas adicionadas através da interface `IShape` podem conter texto. Formas adicionadas através da interface [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape) normalmente contêm texto. 
 
-Portanto, ao lidar com uma forma existente à qual você deseja adicionar texto, talvez queira verificar e confirmar que ela foi convertida através da interface `IAutoShape`. Só então você poderá trabalhar com [TextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/properties/textframe), que é uma propriedade da `IAutoShape`. Consulte a seção [Update Text](https://docs.aspose.com/slides/pt/net/manage-textbox/#update-text) nesta página. 
+Portanto, ao lidar com uma forma existente à qual você deseja adicionar texto, pode ser necessário verificar e confirmar que ela foi convertida através da interface `IAutoShape`. Só então você poderá trabalhar com [TextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/properties/textframe), que é uma propriedade de `IAutoShape`. Consulte a seção [Update Text](https://docs.aspose.com/slides/pt/net/manage-textbox/#update-text) nesta página. 
 
 {{% /alert %}}
 
 ## **Criar uma Caixa de Texto em um Slide**
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation). 
-2. Obtenha a referência do primeiro slide por meio de seu índice. 
-3. Adicione um objeto [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape) com [ShapeType](https://reference.aspose.com/slides/pt/net/aspose.slides/igeometryshape/properties/shapetype) definido como `Rectangle` em uma posição especificada no slide e obtenha a referência para o objeto `IAutoShape` recém-adicionado. 
+2. Obtenha a referência do primeiro slide através de seu índice. 
+3. Adicione um objeto [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape) com [ShapeType](https://reference.aspose.com/slides/pt/net/aspose.slides/igeometryshape/properties/shapetype) definido como `Rectangle` em uma posição especificada no slide e obtenha a referência para o novo objeto `IAutoShape` adicionado. 
 4. Adicione a propriedade `TextFrame` ao objeto `IAutoShape` que conterá um texto. No exemplo abaixo, adicionamos este texto: *Aspose TextBox*
 5. Finalmente, grave o arquivo PPTX através do objeto `Presentation`. 
 
 Este código C# —uma implementação das etapas acima—mostra como adicionar texto a um slide:
 
 ```c#
- // Instancia PresentationEx
- using (Presentation pres = new Presentation())
- {
- 
-     // Obtém o primeiro slide da apresentação
-     ISlide sld = pres.Slides[0];
- 
-     // Adiciona um AutoShape com o tipo definido como Rectangle
-     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
- 
-     // Adiciona TextFrame ao Rectangle
-     ashp.AddTextFrame(" ");
- 
-     // Acessa o quadro de texto
-     ITextFrame txtFrame = ashp.TextFrame;
- 
-     // Cria o objeto Paragraph para o quadro de texto
-     IParagraph para = txtFrame.Paragraphs[0];
- 
-     // Cria um objeto Portion para o parágrafo
-     IPortion portion = para.Portions[0];
- 
-     // Define o texto
-     portion.Text = "Aspose TextBox";
- 
-     // Salva a apresentação no disco
-     pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
- }
+using Aspose.Slides;
+
+// Instancia PresentationEx
+using (Presentation pres = new Presentation())
+{
+
+    // Obtém o primeiro slide da apresentação
+    ISlide sld = pres.Slides[0];
+
+    // Adiciona um AutoShape com tipo definido como Rectangle
+    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+
+    // Adiciona TextFrame ao Rectangle
+    ashp.AddTextFrame(" ");
+
+    // Acessa o quadro de texto
+    ITextFrame txtFrame = ashp.TextFrame;
+
+    // Cria o objeto Paragraph para o quadro de texto
+    IParagraph para = txtFrame.Paragraphs[0];
+
+    // Cria um objeto Portion para o parágrafo
+    IPortion portion = para.Portions[0];
+
+    // Define o texto
+    portion.Text = "Aspose TextBox";
+
+    // Salva a apresentação no disco
+    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+}
 ```
 
-## **Verificar uma Forma de Caixa de Texto**
+## **Verificar uma Forma Caixa de Texto**
 
-O Aspose.Slides fornece a propriedade [IsTextBox](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/istextbox/) da interface [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), permitindo que você examine formas e identifique caixas de texto. 
+O Aspose.Slides fornece a propriedade [IsTextBox](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/istextbox/) da interface [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), permitindo que você examine formas e identifique caixas de texto.
 
-![Text box and shape](istextbox.png)
+![Caixa de texto e forma](istextbox.png)
 
-Este código C# mostra como verificar se uma forma foi criada como caixa de texto: 
+Este código C# mostra como verificar se uma forma foi criada como uma caixa de texto: 
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
@@ -96,9 +100,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-Observe que se você simplesmente adicionar uma forma automática usando o método `AddAutoShape` da interface [IShapeCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/), a propriedade `IsTextBox` da forma automática retornará `false`. No entanto, depois de adicionar texto à forma automática usando o método `AddTextFrame` ou a propriedade `Text`, a propriedade `IsTextBox` retornará `true`.
+Observe que se você simplesmente adicionar uma autoshape usando o método `AddAutoShape` da interface [IShapeCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/), a propriedade `IsTextBox` da autoshape retornará `false`. Contudo, após adicionar texto à autoshape usando o método `AddTextFrame` ou a propriedade `Text`, a propriedade `IsTextBox` retornará `true`.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -125,13 +131,24 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Encontrar a Forma que Possui um Quadro de Texto**
+
+Em código genérico de processamento de texto, você pode receber um [ITextFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/) sem já saber qual objeto da apresentação o contém. Use a propriedade [ITextFrame.ParentShape](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/parentshape/) para navegar de volta à [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/) proprietária. 
+
+Para um quadro de texto que pertence a um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) ou outra forma que contenha texto, [ITextFrame.ParentShape](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/parentshape/) está definido e [ITextFrame.ParentCell](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/parentcell/) é `null`. Ambas as propriedades são propriedades de navegação somente leitura, portanto, lê‑las não altera a propriedade. Sempre verifique se o valor retornado é `null` antes de acessar a forma. 
+
+Para um exemplo completo que identifica proprietários de forma e de células de tabela, incluindo formas associadas a nós de SmartArt, veja [Search and Replace Text](/slides/pt/net/search-and-replace-text/).
+
 ## **Adicionar Colunas a uma Caixa de Texto**
 
-O Aspose.Slides fornece as propriedades [ColumnCount](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat/properties/columncount) e [ColumnSpacing](https://reference.aspose.com/slides/pt/net/aspose.slides/textframeformat/properties/columnspacing) (da interface [ITextFrameFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat) e da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/textframeformat)) para permitir que você adicione colunas a caixas de texto. Você define o número de colunas em uma caixa de texto e, em seguida, especifica o espaçamento em pontos entre as colunas. 
+O Aspose.Slides fornece as propriedades [ColumnCount](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat/properties/columncount) e [ColumnSpacing](https://reference.aspose.com/slides/pt/net/aspose.slides/textframeformat/properties/columnspacing) (da interface [ITextFrameFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat) e da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/textframeformat)) para permitir que você adicione colunas às caixas de texto. Você pode especificar o número de colunas em uma caixa de texto e então definir o espaçamento em pontos entre as colunas. 
 
 Este código em C# demonstra a operação descrita: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	// Obtém o primeiro slide da apresentação
@@ -149,10 +166,10 @@ using (Presentation presentation = new Presentation())
 	// Obtém o formato de texto do TextFrame
 	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
 
-	// Define o número de colunas no TextFrame
+	// Especifica o número de colunas no TextFrame
 	format.ColumnCount = 3;
 
-	// Define o espaçamento entre as colunas
+	// Especifica o espaçamento entre colunas
 	format.ColumnSpacing = 10;
 
 	// Salva a apresentação
@@ -161,11 +178,15 @@ using (Presentation presentation = new Presentation())
 ```
 
 ## **Adicionar Colunas a um Quadro de Texto**
-O Aspose.Slides for .NET fornece a propriedade [ColumnCount](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat/properties/columncount) (da interface [ITextFrameFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat)) que permite adicionar colunas em quadros de texto. Por meio dessa propriedade, você pode especificar o número desejado de colunas em um quadro de texto. 
+O Aspose.Slides para .NET fornece a propriedade [ColumnCount](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat/properties/columncount) (da interface [ITextFrameFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat)) que permite adicionar colunas em quadros de texto. Por meio desta propriedade, você pode especificar o número desejado de colunas em um quadro de texto. 
 
 Este código C# mostra como adicionar uma coluna dentro de um quadro de texto:
 
 ```c#
+using System.Diagnostics;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 string outPptxFileName = "ColumnsTest.pptx";
 using (Presentation pres = new Presentation())
 {
@@ -182,7 +203,7 @@ using (Presentation pres = new Presentation())
     using (Presentation test = new Presentation(outPptxFileName))
     {
         Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.NaN == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
     }
 
     format.ColumnSpacing = 20;
@@ -208,18 +229,21 @@ using (Presentation pres = new Presentation())
 
 ## **Atualizar Texto**
 
-O Aspose.Slides permite que você altere ou atualize o texto contido em uma caixa de texto ou todos os textos contidos em uma apresentação. 
+O Aspose.Slides permite alterar ou atualizar o texto contido em uma caixa de texto ou todo o texto contido em uma apresentação. 
 
 Este código C# demonstra uma operação em que todos os textos de uma apresentação são atualizados ou alterados:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using(Presentation pres = new Presentation("text.pptx"))
 {
    foreach (ISlide slide in pres.Slides)
    {
        foreach (IShape shape in slide.Shapes)
        {
-           if (shape is IAutoShape autoShape) //Verifica se a forma suporta quadro de texto (IAutoShape). 
+           if (shape is IAutoShape autoShape) //Verifica se a forma suporta quadro de texto (IAutoShape).
            {
               foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Itera pelos parágrafos no quadro de texto
                {
@@ -238,28 +262,30 @@ using(Presentation pres = new Presentation("text.pptx"))
 }
 ```
 
-## **Adicionar uma Caixa de Texto com um Hyperlink** 
+## **Adicionar uma Caixa de Texto com Hyperlink** 
 
-Você pode inserir um link dentro de uma caixa de texto. Quando a caixa de texto é clicada, os usuários são dirigidos a abrir o link. 
+Você pode inserir um link dentro de uma caixa de texto. Quando a caixa de texto é clicada, os usuários são direcionados para abrir o link. 
 
 1. Crie uma instância da classe `Presentation`. 
-2. Obtenha a referência do primeiro slide por meio de seu índice.  
-3. Adicione um objeto `AutoShape` com `ShapeType` definido como `Rectangle` em uma posição especificada no slide e obtenha a referência do objeto AutoShape recém-adicionado.
-4. Adicione um `TextFrame` ao objeto `AutoShape` que contém *Aspose TextBox* como texto padrão. 
+2. Obtenha a referência do primeiro slide através de seu índice.  
+3. Adicione um objeto `AutoShape` com `ShapeType` definido como `Rectangle` em uma posição especificada no slide e obtenha a referência do novo objeto AutoShape adicionado.
+4. Adicione um `TextFrame` ao objeto `AutoShape` que contém *Aspose TextBox* como seu texto padrão. 
 5. Instancie a classe `IHyperlinkManager`. 
-6. Atribua o objeto `IHyperlinkManager` à propriedade [HyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/shape/properties/hyperlinkclick) associada à porção desejada do `TextFrame`. 
+6. Atribua o objeto `IHyperlinkManager` à propriedade [HyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/shape/properties/hyperlinkclick) associada à sua porção preferida do `TextFrame`. 
 7. Finalmente, grave o arquivo PPTX através do objeto `Presentation`. 
 
-Este código C# —uma implementação das etapas acima—mostra como adicionar uma caixa de texto com um hyperlink a um slide:
+Este código C# —uma implementação das etapas acima—mostra como adicionar uma caixa de texto com hyperlink a um slide:
 
 ```c#
-// Instancia uma classe Presentation que representa um PPTX
+using Aspose.Slides;
+
+// Instancia a classe Presentation que representa um PPTX
 Presentation pptxPresentation = new Presentation();
 
 // Obtém o primeiro slide da apresentação
 ISlide slide = pptxPresentation.Slides[0];
 
-// Adiciona um objeto AutoShape com tipo definido como Rectangle
+// Adiciona um objeto AutoShape com o tipo definido como Rectangle
 IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
 // Converte a forma para AutoShape
@@ -283,10 +309,10 @@ pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx
 
 ## **FAQ**
 
-**Qual é a diferença entre uma caixa de texto e um placeholder de texto ao trabalhar com slides mestres?**
+**Qual a diferença entre uma caixa de texto e um placeholder de texto ao trabalhar com slides mestres?**
 
-Um [placeholder](/slides/pt/net/manage-placeholder/) herda estilo/posição do [master](https://reference.aspose.com/slides/pt/net/aspose.slides/masterslide/) e pode ser sobrescrito nos [layouts](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutslide/), enquanto uma caixa de texto regular é um objeto independente em um slide específico e não muda quando você troca de layout.
+Um [placeholder](/slides/pt/net/manage-placeholder/) herda estilo/posição do [master](https://reference.aspose.com/slides/pt/net/aspose.slides/masterslide/) e pode ser sobrescrito nos [layouts](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutslide/), enquanto uma caixa de texto regular é um objeto independente em um slide específico e não muda quando você altera os layouts.
 
 **Como posso realizar uma substituição em massa de texto em toda a apresentação sem alterar o texto dentro de gráficos, tabelas e SmartArt?**
 
-Limite sua iteração a auto-shapes que possuem quadros de texto e exclua objetos incorporados ([gráficos](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/), [tabelas](https://reference.aspose.com/slides/pt/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pt/net/aspose.slides.smartart/smartart/)) percorrendo suas coleções separadamente ou ignorando esses tipos de objeto.
+Limite sua iteração às auto‑shapes que possuem quadros de texto e exclua objetos incorporados ([charts](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/pt/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pt/net/aspose.slides.smartart/smartart/)) percorrendo suas coleções separadamente ou ignorando esses tipos de objeto.

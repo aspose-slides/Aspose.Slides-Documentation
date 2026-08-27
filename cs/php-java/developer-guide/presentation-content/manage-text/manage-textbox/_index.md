@@ -11,41 +11,41 @@ keywords:
 - aktualizovat text
 - vytvořit textové pole
 - zkontrolovat textové pole
-- přidat textový sloupec
+- přidat sloupec textu
 - přidat hyperodkaz
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides pro PHP usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, což zvyšuje automatizaci vašich prezentací."
+description: "Aspose.Slides pro PHP usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, čímž zlepšuje automatizaci vašich prezentací."
 ---
 ## **Úvod**
 
-Texty na snímcích jsou typicky v textových políčkách nebo tvarech. Proto, abyste přidali text na snímek, musíte přidat textové pole a poté do pole umístit text. Aspose.Slides pro PHP via Java poskytuje třídu [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) , která umožňuje přidat tvar obsahující text.
+Texty na snímcích se typicky nacházejí v textových polích nebo tvarech. Proto pro přidání textu na snímek musíte nejprve přidat textové pole a poté do něj vložit text. Aspose.Slides pro PHP via Java poskytuje třídu [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/), která umožňuje přidat tvar obsahující text.
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides také poskytuje třídu [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) , která umožňuje přidávat tvary na snímky. Nicméně ne všechny tvary přidané pomocí třídy `Shape` mohou obsahovat text. Tvary přidané pomocí třídy [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) však mohou text obsahovat.
+Aspose.Slides také poskytuje třídu [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/), která umožňuje přidávat tvary na snímky. Ne všechny tvary přidané pomocí třídy `Shape` však mohou obsahovat text. Tvary přidané pomocí třídy [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) mohou text obsahovat.
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Proto, pokud pracujete s tvarem, ke kterému chcete přidat text, možná budete chtít zkontrolovat a potvrdit, že byl vytvořen pomocí třídy `AutoShape`. Teprve poté budete moci pracovat s [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/), který je vlastností třídy `AutoShape`. Viz sekce [Update Text](/slides/cs/php-java/manage-textbox/#update-text) na této stránce.
+Proto, když pracujete s tvarem, do kterého chcete přidat text, měli byste zkontrolovat a potvrdit, že byl vytvořen pomocí třídy `AutoShape`. Teprve poté budete moci pracovat s [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/), což je vlastnost třídy `AutoShape`. Viz sekce [Update Text](/slides/cs/php-java/manage-textbox/#update-text) na této stránce.
 
 {{% /alert %}}
 
 ## **Vytvoření textového pole na snímku**
 
-Pro vytvoření textového pole na snímku postupujte podle následujících kroků:
+Pro vytvoření textového pole na snímku postupujte následovně:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
-2. Získejte odkaz na první snímek v nově vytvořené prezentaci. 
-3. Přidejte objekt [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) s typem tvaru nastaveným na [Rectangle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapetype/#Rectangle) na určené pozici na snímku a získejte odkaz na nově přidaný objekt `AutoShape` .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+2. Získejte odkaz na první snímek nově vytvořené prezentace. 
+3. Přidejte objekt [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) s typem tvaru nastaveným na [Rectangle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapetype/#Rectangle) na zadané pozici na snímku a získejte odkaz na nově přidaný objekt `AutoShape`.
 4. Přidejte `TextFrame` k objektu `AutoShape`, který bude obsahovat text. V níže uvedeném příkladu jsme přidali tento text: *Aspose TextBox*
-5. Nakonec zapište soubor PPTX přes objekt `Presentation` . 
+5. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
 
-Tento PHP kód — implementace výše uvedených kroků — ukazuje, jak přidat text na snímek:
+Tento PHP kód—implementace výše uvedených kroků—ukazuje, jak přidat text na snímek:
 
 ```php
   # Vytvoří instanci Presentation
@@ -53,11 +53,11 @@ Tento PHP kód — implementace výše uvedených kroků — ukazuje, jak přida
   try {
     # Získá první snímek v prezentaci
     $sld = $pres->getSlides()->get_Item(0);
-    # Přidá AutoShape s typem nastaveným na Rectangle
+    # Přidá AutoShape s typem nastaveným na Obdélník
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Přidá TextFrame do obdélníku
+    # Přidá TextFrame do Obdélníku
     $ashp->addTextFrame(" ");
-    # Získá přístup k textovému rámci
+    # Přistoupí k textovému rámci
     $txtFrame = $ashp->getTextFrame();
     # Vytvoří objekt Paragraph pro textový rámec
     $para = $txtFrame->getParagraphs()->get_Item(0);
@@ -74,13 +74,13 @@ Tento PHP kód — implementace výše uvedených kroků — ukazuje, jak přida
   }
 ```
 
-## **Kontrola textového pole**
+## **Kontrola, zda se jedná o textové pole**
 
-Aspose.Slides poskytuje metodu [isTextBox](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/istextbox/) z třídy [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) , která vám umožní prozkoumat tvary a identifikovat textová pole.
+Aspose.Slides poskytuje metodu [isTextBox](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/istextbox/) ze třídy [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/), která umožňuje prozkoumat tvary a identifikovat textová pole.
 
 ![Text box and shape](istextbox.png)
 
-Tento PHP kód ukazuje, jak zkontrolovat, zda byl tvar vytvořen jako textové pole:
+Tento PHP kód ukazuje, jak zjistit, zda byl tvar vytvořen jako textové pole:
 
 ```php
 class ShapeCallback {
@@ -94,14 +94,14 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Všimněte si, že pokud pouze přidáte auto-tvar pomocí metody `addAutoShape` z třídy [ShapeCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/) , metoda `isTextBox` tohoto auto-tvaru vrátí `false`. Po přidání textu do auto-tvaru pomocí metody `addTextFrame` nebo `setText` však vlastnost `isTextBox` vrátí `true`.
+Všimněte si, že pokud jen přidáte auto‑shape pomocí metody `addAutoShape` ze třídy [ShapeCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/), metoda `isTextBox` vrátí `false`. Po přidání textu do auto‑shape pomocí metody `addTextFrame` nebo `setText` však vlastnost `isTextBox` vrátí `true`.
 
 ```php
 $presentation = new Presentation();
@@ -128,9 +128,17 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() vrací false
 ```
 
+## **Nalezení tvaru, který vlastní TextFrame**
+
+V obecném kódu pro zpracování textu můžete obdržet [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) aniž byste věděli, který objekt prezentace jej obsahuje. Použijte metodu [TextFrame::getParentShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentShape) k návratu k vlastnímu [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/).
+
+Pro textový rámec, který patří k [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) nebo jinému tvaru obsahujícímu text, metoda [TextFrame::getParentShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentShape) vrací vlastníka a metoda [TextFrame::getParentCell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getParentCell) vrací `null`. Obě metody poskytují jen read‑only navigaci, takže jejich volání nezmění vlastnictví. Vždy před přístupem k tvaru zkontrolujte vrácenou hodnotu pomocí `java_is_null`.
+
+Kompletní příklad, který identifikuje vlastníky tvarů i buněk tabulky, včetně tvarů spojených s uzly SmartArt, najdete v sekci [Search and Replace Text](/slides/cs/php-java/search-and-replace-text/).
+
 ## **Přidání sloupců do textového pole**
 
-Aspose.Slides poskytuje metody [setColumnCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setcolumncount/) a [setColumnSpacing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setcolumnspacing/) z třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/) , které umožňují přidat sloupce do textových polí. Můžete zadat počet sloupců v textovém poli a nastavit mezery mezi sloupci v bodech.
+Aspose.Slides poskytuje metody [setColumnCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setcolumncount/) a [setColumnSpacing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setcolumnspacing/) ze třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/), které umožňují přidávat sloupce do textových polí. Můžete určit počet sloupců a nastavit mezery mezi sloupci v bodech.
 
 Tento kód demonstruje popsanou operaci:
 
@@ -139,9 +147,9 @@ Tento kód demonstruje popsanou operaci:
   try {
     # Získá první snímek v prezentaci
     $slide = $pres->getSlides()->get_Item(0);
-    # Přidá AutoShape s typem nastaveným na Rectangle
+    # Přidá AutoShape s typem nastaveným na Obdélník
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Přidá TextFrame do obdélníku
+    # Přidá TextFrame do Obdélníku
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
     # Získá formát textu TextFrame
     $format = $aShape->getTextFrame()->getTextFrameFormat();
@@ -158,11 +166,10 @@ Tento kód demonstruje popsanou operaci:
   }
 ```
 
-## **Přidání sloupců do textového rámce**
+## **Přidání sloupců do TextFrame**
+Aspose.Slides for PHP via Java poskytuje metodu [setColumnCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setcolumncount/) ze třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/), která umožňuje přidávat sloupce v textových rámečcích. Pomocí této vlastnosti můžete nastavit požadovaný počet sloupců v TextFrame.
 
-Aspose.Slides pro PHP via Java poskytuje metodu [setColumnCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setcolumncount/) z třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/) , která umožňuje přidat sloupce v textových rámcích. Pomocí této vlastnosti můžete určit požadovaný počet sloupců v textovém rámci.
-
-Tento PHP kód ukazuje, jak přidat sloupec do textového rámce:
+Tento PHP kód ukazuje, jak přidat sloupec do TextFrame:
 
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
@@ -217,9 +224,9 @@ Tento PHP kód ukazuje, jak přidat sloupec do textového rámce:
 
 ## **Aktualizace textu**
 
-Aspose.Slides vám umožňuje změnit nebo aktualizovat text obsažený v textovém poli nebo všechny texty v celé prezentaci. 
+Aspose.Slides umožňuje změnit nebo aktualizovat text obsažený v textovém poli nebo ve všech textech v celé prezentaci. 
 
-Tento PHP kód demonstruje operaci, při které jsou všechny texty v prezentaci aktualizovány nebo změněny:
+Tento PHP kód ukazuje operaci, při které jsou všechny texty v prezentaci aktualizovány nebo změněny:
 
 ```php
   $pres = new Presentation("text.pptx");
@@ -227,17 +234,15 @@ Tento PHP kód demonstruje operaci, při které jsou všechny texty v prezentaci
     foreach($pres->getSlides() as $slide) {
       foreach($slide->getShapes() as $shape) {
         # Kontroluje, zda tvar podporuje textový rámec (IAutoShape).
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-          $autoShape = $shape;
-          # Prochází odstavce v textovém rámci
-          foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Prochází jednotlivé části v odstavci
-            foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// Mění text
+        $autoShape = $shape;
+        # Prochází odstavce v textovém rámci
+        foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
+          # Prochází každou část (portion) v odstavci
+          foreach($paragraph->getPortions() as $portion) {
+            $portion->setText($portion->getText()->replace("years", "months"));// Změní text
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Mění formátování
+            $portion->getPortionFormat()->setFontBold(NullableBool::True);// Změní formátování
 
-            }
           }
         }
       }
@@ -251,21 +256,21 @@ Tento PHP kód demonstruje operaci, při které jsou všechny texty v prezentaci
   }
 ```
 
-## **Přidání textového pole s hyperodkazem**
+## **Přidání textového pole s hyperodkazem** 
 
-Do textového pole můžete vložit odkaz. Po kliknutí na textové pole se uživatelé přesměrují na otevření odkazu. 
+Do textového pole můžete vložit odkaz. Po kliknutí na textové pole se uživatelé přesměrují na tento odkaz. 
 
-Pro přidání textového pole obsahujícího odkaz postupujte podle těchto kroků:
+Pro přidání textového pole obsahujícího odkaz postupujte takto:
 
-1. Vytvořte instanci třídy `Presentation` . 
-2. Získejte odkaz na první snímek v nově vytvořené prezentaci. 
-3. Přidejte objekt `AutoShape` s `ShapeType` nastaveným na `Rectangle` na určené pozici na snímku a získejte odkaz na nově přidaný objekt AutoShape. 
-4. Přidejte `TextFrame` k objektu `AutoShape`, který obsahuje *Aspose TextBox* jako výchozí text. 
-5. Vytvořte instanci třídy `HyperlinkManager` . 
-6. Přiřaďte hyperodkaz pomocí metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) spojené s požadovanou částí `TextFrame` . 
-7. Nakonec zapište soubor PPTX přes objekt `Presentation` . 
+1. Vytvořte instanci třídy `Presentation`. 
+2. Získejte odkaz na první snímek nově vytvořené prezentace. 
+3. Přidejte objekt `AutoShape` s `ShapeType` nastaveným na `Rectangle` na požadovanou pozici na snímku a získejte odkaz na nově přidaný objekt `AutoShape`.
+4. Přidejte `TextFrame` k objektu `AutoShape`, který bude obsahovat *Aspose TextBox* jako výchozí text. 
+5. Vytvořte instanci třídy `HyperlinkManager`. 
+6. Přiřaďte hyperodkaz pomocí metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) k požadované části `TextFrame`.
+7. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
 
-Tento PHP kód — implementace výše uvedených kroků — ukazuje, jak přidat textové pole s hyperodkazem na snímek:
+Tento PHP kód—implementace výše uvedených kroků—ukazuje, jak přidat textové pole s hyperodkazem na snímek:
 
 ```php
   # Vytvoří instanci třídy Presentation, která představuje PPTX
@@ -273,11 +278,11 @@ Tento PHP kód — implementace výše uvedených kroků — ukazuje, jak přida
   try {
     # Získá první snímek v prezentaci
     $slide = $pres->getSlides()->get_Item(0);
-    # Přidá objekt AutoShape s typem nastaveným na Rectangle
+    # Přidá objekt AutoShape s typem nastaveným na Obdélník
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
     # Přetypuje tvar na AutoShape
     $pptxAutoShape = $shape;
-    # Získá přístup k vlastnosti ITextFrame spojené s AutoShape
+    # Přistoupí k vlastnosti ITextFrame spojené s AutoShape
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
     # Přidá nějaký text do rámce
@@ -296,10 +301,10 @@ Tento PHP kód — implementace výše uvedených kroků — ukazuje, jak přida
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi textovým polem a textovým zástupcem při práci s hlavními snímky?**
+**Jaký je rozdíl mezi textovým polem a zástupným textovým polem při práci s hlavními snímky?**
 
-[placeholder](/slides/cs/php-java/manage-placeholder/) dědí styl/pozici z [master]((https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/)) a může být přepsán na [layouts]((https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/)), zatímco běžné textové pole je nezávislý objekt na konkrétním snímku a nemění se při přepínání rozvržení.
+[Placeholder](/slides/cs/php-java/manage-placeholder/) dědí styl/umístění z [masteru](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/) a může být přepsán v [layoutech](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/), zatímco běžné textové pole je nezávislý objekt na konkrétním snímku a nemění se při přepínání layoutů.
 
-**Jak mohu provést hromadnou výměnu textu v celé prezentaci, aniž bych zasáhl text v grafech, tabulkách a SmartArt?**
+**Jak mohu provést hromadnou náhradu textu v celé prezentaci, aniž bych zasáhl do textu uvnitř grafů, tabulek a SmartArt?**
 
-Omezte iteraci na auto-tvary, které mají textové rámy, a vylučte vložené objekty ([charts]((https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/)), [tables]((https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/)), [SmartArt]((https://reference.aspose.com/slides/cs/php-java/aspose.slides/smartart/))) tím, že projdete jejich kolekce odděleně nebo přeskočíte tyto typy objektů.
+Omezte iteraci jen na auto‑shapes, které mají TextFrame, a vyloučte vložené objekty ([charts](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cs/php-java/aspose.slides/smartart/)) tím, že jejich kolekce projdete odděleně nebo tyto typy objektů přeskočíte.

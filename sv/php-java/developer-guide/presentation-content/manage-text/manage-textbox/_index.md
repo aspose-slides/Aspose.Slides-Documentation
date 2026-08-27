@@ -21,35 +21,37 @@ description: "Aspose.Slides för PHP gör det enkelt att skapa, redigera och klo
 ---
 ## **Introduktion**
 
-Texter på bildspel finns vanligtvis i textrutor eller former. Därför måste du, för att lägga till text på en bild, lägga till en textruta och sedan placera lite text i textrutan. Aspose.Slides för PHP via Java tillhandahåller klassen AutoShape som låter dig lägga till en form som innehåller text.
+Texter på bilder finns vanligtvis i textrutor eller former. Därför, för att lägga till text på en bild, måste du lägga till en textruta och sedan placera någon text i textrutan. Aspose.Slides för PHP via Java tillhandahåller klassen [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) som låter dig lägga till en form som innehåller någon text.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides tillhandahåller även klassen Shape som låter dig lägga till former på bildspel. Dock kan inte alla former som läggs till via `Shape`-klassen hålla text. Formen som läggs till via AutoShape-klassen kan däremot innehålla text.
+Aspose.Slides tillhandahåller också klassen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) som låter dig lägga till former på bilder. Dock kan inte alla former som läggs till via `Shape`-klassen hålla text. Men former som läggs till via klassen [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) kan innehålla text.
 {{% /alert %}}
 
-{{% alert title="Obs" color="warning" %}} 
-Därför, när du arbetar med en form som du vill lägga till text i, bör du kontrollera och bekräfta att den skapades via `AutoShape`-klassen. Endast då kan du arbeta med TextFrame, som är en egenskap under `AutoShape`. Se avsnittet Uppdatera text på den här sidan.
+{{% alert title="Note" color="warning" %}} 
+Därför, när du arbetar med en form till vilken du vill lägga till text, kan du vilja kontrollera och bekräfta att den har kastats genom `AutoShape`-klassen. Endast då kommer du kunna arbeta med [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/), som är en egenskap under `AutoShape`. Se avsnittet [Update Text](/slides/sv/php-java/manage-textbox/#update-text) på den här sidan.
 {{% /alert %}}
 
 ## **Skapa en textruta på en bild**
 
-1. Skapa en instans av klassen Presentation.  
-2. Hämta en referens till den första bilden i den nyss skapade presentationen.  
-3. Lägg till ett AutoShape-objekt med formtypen Rectangle på en angiven position på bilden och hämta referensen till det nyss tillagda `AutoShape`-objektet.  
-4. Lägg till ett `TextFrame` i `AutoShape`-objektet som kommer att innehålla text. I exemplen nedan lade vi till följande text: *Aspose TextBox*  
-5. Till sist skriv PPTX-filen via `Presentation`-objektet.  
+För att skapa en textruta på en bild, gå igenom dessa steg:
 
-Denna PHP‑kod – en implementering av stegen ovan – visar hur du lägger till text på en bild:
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
+2. Hämta en referens till den första bilden i den nyskapade presentationen. 
+3. Lägg till ett [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/)-objekt med formtypen satt till [Rectangle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapetype/#Rectangle) på en specificerad position på bilden och hämta referensen till det nyss tillagda `AutoShape`-objektet.
+4. Lägg till ett `TextFrame` till `AutoShape`-objektet som kommer att innehålla text. I exemplet nedan lade vi till följande text: *Aspose TextBox*
+5. Slutligen, skriv PPTX-filen via `Presentation`-objektet. 
+
+Denna PHP-kod—en implementation av stegen ovan—visar hur du lägger till text på en bild:
 
 ```php
-  # Skapar en instans av Presentation
+  # Instansierar Presentation
   $pres = new Presentation();
   try {
     # Hämtar den första bilden i presentationen
     $sld = $pres->getSlides()->get_Item(0);
-    # Lägger till en AutoShape med typen Rectangle
+    # Lägger till en AutoShape med typen satt till Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Lägger till ett TextFrame i rektangeln
+    # Lägger till TextFrame till rektangeln
     $ashp->addTextFrame(" ");
     # Kommer åt textramen
     $txtFrame = $ashp->getTextFrame();
@@ -57,7 +59,7 @@ Denna PHP‑kod – en implementering av stegen ovan – visar hur du lägger ti
     $para = $txtFrame->getParagraphs()->get_Item(0);
     # Skapar ett Portion-objekt för paragrafen
     $portion = $para->getPortions()->get_Item(0);
-    # Ställer in texten
+    # Anger text
     $portion->setText("Aspose TextBox");
     # Sparar presentationen till disk
     $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
@@ -70,11 +72,11 @@ Denna PHP‑kod – en implementering av stegen ovan – visar hur du lägger ti
 
 ## **Kontrollera om en form är en textruta**
 
-Aspose.Slides tillhandahåller metoden isTextBox från AutoShape-klassen, som låter dig undersöka former och identifiera textrutor.
+Aspose.Slides tillhandahåller metoden [isTextBox](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/istextbox/) från klassen [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/), vilket låter dig undersöka former och identifiera textrutor.
 
-![Textruta och form](istextbox.png)
+![Text box and shape](istextbox.png)
 
-Denna PHP‑kod visar hur du kontrollerar om en form skapades som en textruta:
+Denna PHP-kod visar hur du kontrollerar om en form skapades som en textruta:
 
 ```php
 class ShapeCallback {
@@ -88,14 +90,14 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Observera att om du bara lägger till en autoshape med `addAutoShape`‑metoden från ShapeCollection‑klassen, kommer `isTextBox`‑metoden för autoshapen att returnera `false`. När du däremot har lagt till text i autoshapen med `addTextFrame`‑metoden eller `setText`‑metoden, returnerar `isTextBox`‑egenskapen `true`.
+Observera att om du helt enkelt lägger till en autoshape med metoden `addAutoShape` från klassen [ShapeCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/), kommer `isTextBox`-metoden på autoshapen att returnera `false`. Däremot, efter att du har lagt till text till autoshapen med metoden `addTextFrame` eller `setText`, kommer `isTextBox`-egenskapen att returnera `true`.
 
 ```php
 $presentation = new Presentation();
@@ -122,9 +124,17 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() returnerar false
 ```
 
+## **Hitta formen som äger ett TextFrame**
+
+I generell textbehandlingskod kan du få ett [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) utan att redan veta vilket presentationsobjekt som innehåller det. Använd metoden [TextFrame::getParentShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentShape) för att navigera tillbaka till den ägande [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/).
+
+För ett textområde som tillhör en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) eller en annan form som innehåller text, returnerar [TextFrame::getParentShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentShape) ägaren och [TextFrame::getParentCell](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentCell) returnerar `null`. Båda metoderna ger läs‑endast navigering, så att anropa dem ändrar inte ägandet. Kontrollera alltid det returnerade värdet med `java_is_null` innan du får åtkomst till formen.
+
+För ett komplett exempel som identifierar ägare till former och tabellceller, inklusive former kopplade till SmartArt‑noder, se [Search and Replace Text](/slides/sv/php-java/search-and-replace-text/).
+
 ## **Lägg till kolumner i en textruta**
 
-Aspose.Slides tillhandahåller metoderna setColumnCount och setColumnSpacing från TextFrameFormat‑klassen som låter dig lägga till kolumner i textrutor. Du kan ange antalet kolumner i en textruta och sätta avståndet i punkter mellan kolumnerna.
+Aspose.Slides tillhandahåller metoderna [setColumnCount](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/setcolumncount/) och [setColumnSpacing](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/setcolumnspacing/) från klassen [TextFrameFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/) som låter dig lägga till kolumner i textrutor. Du kan ange antalet kolumner i en textruta och ställa in avståndet i punkter mellan kolumnerna.
 
 Denna kod demonstrerar den beskrivna operationen:
 
@@ -133,15 +143,15 @@ Denna kod demonstrerar den beskrivna operationen:
   try {
     # Hämtar den första bilden i presentationen
     $slide = $pres->getSlides()->get_Item(0);
-    # Lägger till en AutoShape med typen Rectangle
+    # Lägger till en AutoShape med typen satt till Rectangle
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Lägger till ett TextFrame i rektangeln
+    # Lägger till TextFrame till rektangeln
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
     # Hämtar textformatet för TextFrame
     $format = $aShape->getTextFrame()->getTextFrameFormat();
     # Anger antalet kolumner i TextFrame
     $format->setColumnCount(3);
-    # Anger avståndet mellan kolumnerna
+    # Anger avståndet mellan kolumner
     $format->setColumnSpacing(10);
     # Sparar presentationen
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
@@ -152,11 +162,11 @@ Denna kod demonstrerar den beskrivna operationen:
   }
 ```
 
-## **Lägg till kolumner i ett textfält**
+## **Lägg till kolumner i ett TextFrame**
 
-Aspose.Slides för PHP via Java tillhandahåller metoden setColumnCount från TextFrameFormat‑klassen som låter dig lägga till kolumner i textfält. Med denna egenskap kan du ange önskat antal kolumner i ett textfält.
+Aspose.Slides för PHP via Java tillhandahåller metoden [setColumnCount](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/setcolumncount/) från klassen [TextFrameFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/) som låter dig lägga till kolumner i textramar. Via denna egenskap kan du ange önskat antal kolumner i en textram.
 
-Denna PHP‑kod visar hur du lägger till en kolumn i ett textfält:
+Denna PHP-kod visar hur du lägger till en kolumn i en textram:
 
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
@@ -211,9 +221,9 @@ Denna PHP‑kod visar hur du lägger till en kolumn i ett textfält:
 
 ## **Uppdatera text**
 
-Aspose.Slides låter dig ändra eller uppdatera texten som finns i en textruta eller all text som finns i en presentation.
+Aspose.Slides låter dig ändra eller uppdatera texten i en textruta eller all text som finns i en presentation.
 
-Denna PHP‑kod demonstrerar en operation där all text i en presentation uppdateras eller ändras:
+Denna PHP-kod demonstrerar en operation där all text i en presentation uppdateras eller ändras:
 
 ```php
   $pres = new Presentation("text.pptx");
@@ -223,7 +233,7 @@ Denna PHP‑kod demonstrerar en operation där all text i en presentation uppdat
         # Kontrollerar om formen stödjer textram (IAutoShape).
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
           $autoShape = $shape;
-          # Itererar genom stycken i textram
+          # Itererar genom stycken i textramen
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
             # Itererar genom varje del i stycket
             foreach($paragraph->getPortions() as $portion) {
@@ -236,7 +246,7 @@ Denna PHP‑kod demonstrerar en operation där all text i en presentation uppdat
         }
       }
     }
-    # Sparar den ändrade presentationen
+    # Sparar modifierad presentation
     $pres->save("text-changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -245,21 +255,21 @@ Denna PHP‑kod demonstrerar en operation där all text i en presentation uppdat
   }
 ```
 
-## **Lägg till en textruta med hyperlänk** 
+## **Lägg till en textruta med en hyperlänk**
 
-Du kan infoga en länk i en textruta. När textrutan klickas så öppnas länken för användaren. 
+Du kan infoga en länk i en textruta. När textrutan klickas på dirigeras användarna till att öppna länken.
 
-För att lägga till en textruta som innehåller en länk, gå igenom följande steg:
+För att lägga till en textruta som innehåller en länk, gå igenom dessa steg:
 
-1. Skapa en instans av `Presentation`‑klassen.  
-2. Hämta en referens till den första bilden i den nyss skapade presentationen.  
-3. Lägg till ett `AutoShape`‑objekt med `ShapeType` satt till `Rectangle` på en angiven position på bilden och hämta referensen till det nyss tillagda AutoShape‑objektet.  
-4. Lägg till ett `TextFrame` i `AutoShape`‑objektet som innehåller *Aspose TextBox* som standardtext.  
-5. Instansiera `HyperlinkManager`‑klassen.  
-6. Tilldela en hyperlänk med hjälp av metoden setExternalHyperlinkClick som är kopplad till den önskade delen av `TextFrame`.  
-7. Till sist skriv PPTX-filen via `Presentation`‑objektet.  
+1. Skapa en instans av `Presentation`-klassen. 
+2. Hämta en referens till den första bilden i den nyskapade presentationen. 
+3. Lägg till ett `AutoShape`-objekt med `ShapeType` satt till `Rectangle` på en specificerad position på bilden och hämta en referens till det nyss tillagda AutoShape-objektet.
+4. Lägg till ett `TextFrame` till `AutoShape`-objektet som innehåller *Aspose TextBox* som standardtext. 
+5. Instansiera `HyperlinkManager`-klassen. 
+6. Tilldela en hyperlänk med metoden [setExternalHyperlinkClick](https://reference.aspose.com/slides/sv/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) som är kopplad till den del av `TextFrame` du föredrar.
+7. Slutligen, skriv PPTX-filen via `Presentation`-objektet. 
 
-Denna PHP‑kod – en implementering av stegen ovan – visar hur du lägger till en textruta med en hyperlänk på en bild:
+Denna PHP-kod—en implementation av stegen ovan—visar hur du lägger till en textruta med en hyperlänk på en bild:
 
 ```php
   # Instansierar en Presentation-klass som representerar en PPTX
@@ -267,9 +277,9 @@ Denna PHP‑kod – en implementering av stegen ovan – visar hur du lägger ti
   try {
     # Hämtar den första bilden i presentationen
     $slide = $pres->getSlides()->get_Item(0);
-    # Lägger till ett AutoShape-objekt med typen Rectangle
+    # Lägger till ett AutoShape-objekt med typen satt till Rectangle
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Omvandlar formen till AutoShape
+    # Kastar formen till AutoShape
     $pptxAutoShape = $shape;
     # Kommer åt ITextFrame-egenskapen som är kopplad till AutoShape
     $pptxAutoShape->addTextFrame("");
@@ -290,10 +300,10 @@ Denna PHP‑kod – en implementering av stegen ovan – visar hur du lägger ti
 
 ## **FAQ**
 
-**Vad är skillnaden mellan en textruta och en textplatshållare när man arbetar med mastersidor?**
+**Vad är skillnaden mellan en textruta och en textplatshållare när du arbetar med master‑bilder?**
 
-En platshållare ärver stil/position från master‑sidan och kan åsidosättas på layouter, medan en vanlig textruta är ett självständigt objekt på en specifik bild och förändras inte när du byter layout.
+En [placeholder](/slides/sv/php-java/manage-placeholder/) ärver stil/position från [master](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterslide/) och kan åsidosättas på [layouts](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/), medan en vanlig textruta är ett självständigt objekt på en specifik bild och förändras inte när du byter layout.
 
-**Hur kan jag utföra en massbytesoperation av text i hela presentationen utan att röra text i diagram, tabeller och SmartArt?**
+**Hur kan jag utföra en massersättning av text i hela presentationen utan att påverka text i diagram, tabeller och SmartArt?**
 
-Begränsa din iteration till auto‑former som har textramar och uteslut inbäddade objekt (diagram, tabeller, SmartArt) genom att traversera deras samlingar separat eller hoppa över dessa objekttyper.
+Begränsa din iteration till auto‑shapes som har textramar och exkludera inbäddade objekt ([charts](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/sv/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/sv/php-java/aspose.slides/smartart/)) genom att traversera deras samlingar separat eller hoppa över dessa objekttyper.

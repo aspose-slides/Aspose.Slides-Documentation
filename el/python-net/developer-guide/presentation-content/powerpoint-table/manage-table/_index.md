@@ -9,7 +9,7 @@ keywords:
 - δημιουργία πίνακα
 - πρόσβαση πίνακα
 - αναλογία διαστάσεων
-- ευθυγράμμιση κειμένου
+- στοίχιση κειμένου
 - μορφοποίηση κειμένου
 - στυλ πίνακα
 - PowerPoint
@@ -17,28 +17,28 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Δημιουργία & επεξεργασία πινάκων σε διαφάνειες PowerPoint και OpenDocument με Aspose.Slides για Python μέσω .NET. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιώσετε τις ροές εργασίας των πινάκων σας."
+description: "Δημιουργήστε & επεξεργαστείτε πίνακες σε διαφάνειες PowerPoint και OpenDocument με Aspose.Slides για Python μέσω .NET. Ανακαλύψτε απλά παραδείγματα κώδικα για να απλοποιήσετε τις ροές εργασίας με πίνακες."
 ---
 ## **Εισαγωγή**
 
-Ένας πίνακας στο PowerPoint είναι ένας αποδοτικός τρόπος παρουσίασης πληροφοριών. Πληροφορίες που είναι διατεταγμένες σε πλέγμα κελιών (γραμμές και στήλες) είναι απλές και εύκολα κατανοητές.
+Ένας πίνακας στο PowerPoint είναι ένας αποδοτικός τρόπος παρουσίασης πληροφοριών. Πληροφορίες που είναι διαταγμένες σε ένα πλέγμα κελιών (γραμμές και στήλες) είναι απλές και εύκολες στην κατανόηση.
 
-Η Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) , την κλάση [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) , και άλλους σχετικούς τύπους για να σας βοηθήσει να δημιουργήσετε, να ενημερώσετε και να διαχειριστείτε πίνακες σε οποιαδήποτε παρουσίαση.
+Το Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) , την κλάση [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) και άλλους σχετικούς τύπους για να σας βοηθήσει να δημιουργήσετε, να ενημερώσετε και να διαχειριστείτε πίνακες σε οποιαδήποτε παρουσίαση.
 
-## **Δημιουργία Πινάκων από την Αρχή**
+## **Δημιουργία πινάκων από την αρχή**
 
-Αυτή η ενότητα δείχνει πώς να δημιουργήσετε έναν πίνακα από την αρχή στην Aspose.Slides προσθέτοντας ένα σχήμα πίνακα σε μια διαφάνεια, ορίζοντας τις γραμμές και τις στήλες του και ορίζοντας ακριβείς διαστάσεις. Θα δείτε επίσης πώς να γεμίσετε κελιά με κείμενο, να προσαρμόσετε την ευθυγράμμιση και τα περιθώρια, και να προσαρμόσετε την εμφάνιση του πίνακα.
+Αυτή η ενότητα δείχνει πώς να δημιουργήσετε έναν πίνακα από την αρχή στο Aspose.Slides προσθέτοντας ένα σχήμα πίνακα σε μια διαφάνεια, ορίζοντας τις γραμμές και τις στήλες του και καθορίζοντας ακριβείς διαστάσεις. Θα δείτε επίσης πώς να γεμίσετε τα κελιά με κείμενο, να προσαρμόσετε την στοίχιση και τα περιγράμματα και να προσαρμόσετε την εμφάνιση του πίνακα.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
-2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-3. Ορίστε έναν πίνακα με το πλάτος των στηλών.
-4. Ορίστε έναν πίνακα με το ύψος των γραμμών.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
+2. Πάρτε μια αναφορά σε μια διαφάνεια κατά το δείκτη της.
+3. Ορίστε έναν πίνακα με πλάτη στηλών.
+4. Ορίστε έναν πίνακα με ύψη γραμμών.
 5. Προσθέστε έναν [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) στη διαφάνεια.
-6. Επεξεργαστείτε κάθε [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) και μορφοποιήστε τα άνω, κάτω, δεξιά και αριστερά όρια.
-7. Συνένωστε τα πρώτα δύο κελιά στην πρώτη γραμμή του πίνακα.
+6. Περιηγηθείτε σε κάθε [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) και μορφοποιήστε τα άνω, κάτω, δεξιά και αριστερά περιγράμματα.
+7. Συγχωνεύστε τα κελιά των δύο πρώτων γραμμών και των δύο πρώτων στηλών σε ένα ενιαίο κελί.
 8. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) ενός [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) .
-9. Προσθήκη κειμένου στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) .
-10. Αποθήκευση της τροποποιημένης παρουσίασης.
+9. Προσθέστε κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) .
+10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Το παρακάτω παράδειγμα Python δείχνει πώς να δημιουργήσετε έναν πίνακα σε μια παρουσίαση:
 
@@ -46,19 +46,19 @@ description: "Δημιουργία & επεξεργασία πινάκων σε 
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+# Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 with slides.Presentation() as presentation:
     # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Ορίστε τα πλάτη των στηλών και τα ύψη των γραμμών.
+    # Ορισμός πλάτους στηλών και ύψους γραμμών.
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
 
-    # Προσθέστε ένα σχήμα πίνακα στη διαφάνεια.
+    # Προσθήκη σχήματος πίνακα στη διαφάνεια.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Ορίστε τη μορφή περιγράμματος για κάθε κελί.
+    # Ορισμός μορφοποίησης περιγράμματος για κάθε κελί.
     for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
@@ -80,16 +80,16 @@ with slides.Presentation() as presentation:
     # Συγχώνευση κελιών από (γραμμή 0, στήλη 0) έως (γραμμή 1, στήλη 1).
     table.merge_cells(table.rows[0][0], table.rows[1][1], False)
 
-    # Προσθέστε κείμενο στο συγχωνευμένο κελί.
+    # Προσθήκη κειμένου στο συγχωνευμένο κελί.
     table.rows[0][0].text_frame.text = "Merged Cells"
 
-    # Αποθηκεύστε την παρουσίαση στο δίσκο.
+    # Αποθήκευση της παρουσίασης στον δίσκο.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Αρίθμηση σε Τυπικούς Πίνακες**
+## **Αρίθμηση σε τυπικούς πίνακες**
 
-Σε έναν τυπικό πίνακα, η αρίθμηση των κελιών είναι απλή και αρχίζει από το μηδέν. Το πρώτο κελί σε έναν πίνακα έχει δείκτη (0, 0) (στήλη 0, γραμμή 0).
+Σε έναν τυπικό πίνακα, η αρίθμηση των κελιών είναι απλή και βασίζεται στο μηδέν. Το πρώτο κελί σε έναν πίνακα έχει δείκτη (0, 0) (στήλη 0, γραμμή 0).
 
 Για παράδειγμα, σε έναν πίνακα με 4 στήλες και 4 γραμμές, τα κελιά αριθμούνται ως εξής:
 
@@ -99,66 +99,87 @@ with slides.Presentation() as presentation:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Το παρακάτω παράδειγμα Python δείχνει πώς να αναφέρεστε σε κελιά χρησιμοποιώντας αυτήν την αρίθμηση που ξεκινά από το μηδέν:
+Το παρακάτω παράδειγμα Python δείχνει πώς να αναφέρετε κελιά χρησιμοποιώντας αυτήν την αρίθμηση που ξεκινά από το μηδέν:
 
 ```python
-for row_index in range(len(table.rows)):
-    for column_index in range(len(table.rows[row_index])):
-        cell = table.rows[row_index][column_index]
-        cell.text_frame.text = f"({column_index}, {row_index})"
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    # Πρόσβαση στην πρώτη διαφάνεια.
+    slide = presentation.slides[0]
+
+    # Προσθήκη πίνακα με 4 στήλες και 4 γραμμές.
+    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            cell.text_frame.text = f"({column_index}, {row_index})"
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Πρόσβαση σε Υπάρχον Πίνακα**
+## **Πρόσβαση σε υπάρχοντα πίνακα**
 
-Αυτή η ενότητα εξηγεί πώς να εντοπίσετε και να εργαστείτε με έναν υπάρχοντα πίνακα σε μια παρουσίαση χρησιμοποιώντας την Aspose.Slides. Θα μάθετε πώς να βρείτε τον πίνακα σε μια διαφάνεια, να έχετε πρόσβαση στις γραμμές, στήλες και κελιά του, και να ενημερώσετε το περιεχόμενο ή τη μορφοποίηση.
+Αυτή η ενότητα εξηγεί πώς να εντοπίσετε και να εργαστείτε με έναν υπάρχοντα πίνακα σε μια παρουσίαση χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να βρείτε τον πίνακα σε μια διαφάνεια, να έχετε πρόσβαση στις γραμμές, τις στήλες και τα κελιά του και να ενημερώσετε το περιεχόμενο ή τη μορφοποίηση.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
-2. Αποκτήστε αναφορά στη διαφάνεια που περιέχει τον πίνακα με βάση το δείκτη της.
-3. Διατρέξτε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) μέχρι να βρείτε τον πίνακα.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
+2. Πάρτε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα κατά το δείκτη της.
+3. Περιηγηθείτε σε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) έως ότου βρείτε τον πίνακα.
 4. Χρησιμοποιήστε το αντικείμενο [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) για να εργαστείτε με τον πίνακα.
-5. Αποθήκευση της τροποποιημένης παρουσίασης.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-{{% alert color="info" %}}
-Εάν η διαφάνεια περιέχει πολλούς πίνακες, είναι καλύτερο να αναζητήσετε τον πίνακα που χρειάζεστε με βάση την ιδιότητα `alternative_text` .
+{{% alert color="info" title="Note" %}}
+
+Αν η διαφάνεια περιέχει αρκετούς πίνακες, είναι καλύτερο να αναζητήσετε τον πίνακα που χρειάζεστε με βάση την ιδιότητα `alternative_text`.
+
 {{% /alert %}}
 
-Το παρακάτω παράδειγμα Python δείχνει πώς να προσπελάσετε και να εργαστείτε με έναν υπάρχοντα πίνακα:
+Το παρακάτω παράδειγμα Python δείχνει πώς να έχετε πρόσβαση και να εργαστείτε με έναν υπάρχοντα πίνακα:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation για τη φόρτωση αρχείου PPTX.
+# Δημιουργία της κλάσης Presentation για φόρτωση αρχείου PPTX.
 with slides.Presentation("sample.pptx") as presentation:
     # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
     table = None
 
-    # Διατρέξτε τα σχήματα και αναφερθείτε στον πρώτο πίνακα που βρέθηκε.
+    # Επανάληψη μέσω των σχημάτων και αναφορά στον πρώτο πίνακα που βρέθηκε.
     for shape in slide.shapes:
         if isinstance(shape, slides.Table):
             table = shape
             break
 
-    # Ορίστε το κείμενο του πρώτου κελιού στην πρώτη γραμμή.
+    # Ορισμός του κειμένου του πρώτου κελιού της πρώτης γραμμής.
     if table is not None:
         table.rows[0][0].text_frame.text = "Found"
 
-    # Αποθηκεύστε την τροποποιημένη παρουσίαση στο δίσκο.
+    # Αποθήκευση της τροποποιημένης παρουσίασης στον δίσκο.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Στοίχιση Κειμένου σε Πίνακες**
+## **Εύρεση του κελιού που κατέχει ένα πλαίσιο κειμένου**
 
-Αυτή η ενότητα δείχνει πώς να ελέγξετε την ευθυγράμμιση του κειμένου μέσα στα κελιά του πίνακα χρησιμοποιώντας την Aspose.Slides. Θα μάθετε να ορίσετε οριζόντια και κάθετη ευθυγράμμιση για τα κελιά ώστε το περιεχόμενό σας να είναι σαφές και συνεπές.
+Όταν ο γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) από έναν πίνακα, χρησιμοποιήστε την ιδιότητα [TextFrame.parent_cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_cell/) για να ανακτήσετε το ιδιοκτήτη [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/). Για ένα πλαίσιο κειμένου κελιού πίνακα, το [TextFrame.parent_cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_cell/) είναι ορισμένο και το [TextFrame.parent_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_shape/) είναι `None`, ακόμη κι όταν ο ίδιος ο πίνακας είναι σχήμα.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
-2. Αποκτήστε αναφορά στη διαφάνεια με βάση το δείκτη της.
+Οι συντεταγμένες του κελιού είναι διαθέσιμες μέσω των μόνο για ανάγνωση ιδιοτήτων [Cell.first_column_index](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/first_column_index/) και [Cell.first_row_index](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/first_row_index/). Η ιδιότητα [TextFrame.parent_cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_cell/) είναι επίσης μόνο για ανάγνωση: παρέχει πλοήγηση στον ιδιοκτήτη αλλά δεν αλλάζει την ιδιοκτησία. Πάντα ελέγξτε το επιστρεφόμενο κελί για `None` πριν το χρησιμοποιήσετε.
+
+Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες κελιού πίνακα και σχήματος, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε [Search and Replace Text](/slides/el/python-net/search-and-replace-text/) .
+
+## **Στοίχιση κειμένου σε πίνακες**
+
+Αυτή η ενότητα δείχνει πώς να ελέγχετε την τοποθέτηση του κειμένου μέσα σε κελιά πίνακα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε να αγκυροβολείτε το κείμενο κάθετα σε ένα κελί και να αλλάζετε την κατεύθυνση με την οποία τρέχει το κείμενο.
+
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
+2. Πάρτε μια αναφορά στη διαφάνεια κατά το δείκτη της.
 3. Προσθέστε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) στη διαφάνεια.
-4. Πρόσβαση σε ένα αντικείμενο [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) από τον πίνακα.
-5. Ευθυγράμμιση του κειμένου κάθετα.
-6. Αποθήκευση της τροποποιημένης παρουσίασης.
+4. Αποκτήστε ένα αντικείμενο [Cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/) από τον πίνακα.
+5. Κεντράρετε το κείμενο κάθετα στο κελί και ορίστε την κατεύθυνση του κειμένου.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Το παρακάτω παράδειγμα Python δείχνει πώς να ευθυγραμμίσετε το κείμενο σε έναν πίνακα:
 
@@ -166,12 +187,12 @@ with slides.Presentation("sample.pptx") as presentation:
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Δημιουργία ενός αντικειμένου της κλάσης Presentation.
+# Δημιουργία ενός στιγμιότυπου της κλάσης Presentation.
 with slides.Presentation() as presentation:
     # Πρόσβαση στην πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Ορισμός πλάτων των στηλών και υψών των γραμμών.
+    # Ορισμός πλάτους στηλών και ύψους γραμμών.
     column_widths = [40, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
 
@@ -182,26 +203,26 @@ with slides.Presentation() as presentation:
     table.rows[2][0].text_frame.text = "20"
     table.rows[3][0].text_frame.text = "30"
 
-    # Στοίχιση του κειμένου στο κέντρο και ορισμός κάθετης προσανατολισμού.
+    # Στοίχιση κειμένου στο κέντρο και ορισμός κάθετης προσανατολισμού.
     cell = table.rows[0][0]
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-    # Αποθήκευση της παρουσίασης στο δίσκο.
+    # Αποθήκευση της παρουσίασης στον δίσκο.
     presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Πίνακα**
+## **Ορισμός μορφοποίησης κειμένου στο επίπεδο πίνακα**
 
-Αυτή η ενότητα δείχνει πώς να εφαρμόσετε μορφοποίηση κειμένου σε επίπεδο πίνακα στην Aspose.Slides ώστε κάθε κελί να κληρονομεί ένα συνεπές, ενιαίο στυλ. Θα μάθετε να ορίσετε μεγέθη γραμματοσειράς, ευθυγραμμίσεις και περιθώρια παγκοσμίως.
+Αυτή η ενότητα δείχνει πώς να εφαρμόζετε μορφοποίηση κειμένου στο επίπεδο του πίνακα στο Aspose.Slides ώστε κάθε κελί να κληρονομεί ένα συνεπές, ενοποιημένο στυλ. Θα μάθετε να ορίζετε μεγέθη γραμματοσειράς, στοίχιση και περιθώρια παγκοσμίως.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
-2. Αποκτήστε αναφορά στη διαφάνεια με βάση το δείκτη της.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) .
+2. Πάρτε μια αναφορά στη διαφάνεια κατά το δείκτη της.
 3. Προσθέστε ένα [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) στη διαφάνεια.
-4. Ορίστε το μέγεθος γραμματοσειράς (υψος γραμματοσειράς) για το κείμενο.
-5. Ορίστε την ευθυγράμμιση παραγράφου και τα περιθώρια.
+4. Ορίστε το μέγεθος γραμματοσειράς (ύψος γραμματοσειράς) για το κείμενο.
+5. Ορίστε την στοίχιση παραγράφου και τα περιθώρια.
 6. Ορίστε την κάθετη προσανατολισμό κειμένου.
-7. Αποθήκευση της τροποποιημένης παρουσίασης.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Το παρακάτω παράδειγμα Python δείχνει πώς να εφαρμόσετε τις προτιμώμενες επιλογές μορφοποίησης στο κείμενο ενός πίνακα:
 
@@ -209,24 +230,24 @@ with slides.Presentation() as presentation:
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Δημιουργεί ένα αντικείμενο της κλάσης Presentation
+# Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
 
-    # Ορίστε το μέγεθος γραμματοσειράς για όλα τα κελιά του πίνακα.
+    # Ορισμός του μεγέθους γραμματοσειράς για όλα τα κελιά του πίνακα.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.set_text_format(portion_format)
 
-    # Ορίστε κείμενο δεξιά-στηιχισμένο και δεξιό περιθώριο για όλα τα κελιά του πίνακα.
+    # Ορισμός κειμένου με στοίχιση δεξιά και δεξιό περιθώριο για όλα τα κελιά του πίνακα.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.set_text_format(paragraph_format)
 
-    # Ορίστε την κάθετη προσανατολισμό κειμένου για όλα τα κελιά του πίνακα.
+    # Ορισμός κάθετης προσανατολισμού κειμένου για όλα τα κελιά του πίνακα.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.set_text_format(text_frame_format)
@@ -234,9 +255,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Εφαρμογή Προκαθορισμένων Στυλ Πίνακα**
+## **Εφαρμογή ενσωματωμένων στυλ πινάκων**
 
-Η Aspose.Slides σας επιτρέπει να μορφοποιήσετε πίνακες χρησιμοποιώντας προορισμένα στυλ απευθείας στον κώδικα. Το παράδειγμα δείχνει τη δημιουργία ενός πίνακα, την εφαρμογή ενός ενσωματωμένου στυλ και την αποθήκευση του αποτελέσματος — έναν αποδοτικό τρόπο να διασφαλίσετε συνεπή, επαγγελματική μορφοποίηση.
+Το Aspose.Slides σάς επιτρέπει να μορφοποιείτε πίνακες χρησιμοποιώντας προκαθορισμένα στυλ απευθείας στον κώδικα. Το παράδειγμα παρουσιάζει τη δημιουργία ενός πίνακα, την εφαρμογή ενσωματωμένου στυλ και την αποθήκευση του αποτελέσματος — έναν αποδοτικό τρόπο για να διασφαλίσετε συνεπή, επαγγελματική μορφοποίηση.
 
 ```python
 import aspose.slides as slides
@@ -250,9 +271,9 @@ with slides.Presentation() as presentation:
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Κλείδωμα Αναλογίας Διαστάσεων Πινάκων**
+## **Κλείδωμα αναλογίας διαστάσεων πινάκων**
 
-Η αναλογία διαστάσεων ενός σχήματος είναι ο λόγος των διαστάσεών του. Η Aspose.Slides παρέχει την ιδιότητα `aspect_ratio_locked`, η οποία σας επιτρέπει να κλειδώσετε την αναλογία διαστάσεων για πίνακες και άλλα σχήματα.
+Η αναλογία διαστάσεων ενός σχήματος είναι η αναλογία των διαστάσεών του. Το Aspose.Slides παρέχει την ιδιότητα `aspect_ratio_locked`, η οποία σας επιτρέπει να κλειδώσετε την αναλογία διαστάσεων για πίνακες και άλλα σχήματα.
 
 Το παρακάτω παράδειγμα Python δείχνει πώς να κλειδώσετε την αναλογία διαστάσεων για έναν πίνακα:
 
@@ -271,16 +292,16 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ενεργοποιήσω την ανάγνωση από δεξιά προς αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στα κελιά του;**
+**Μπορώ να ενεργοποιήσω την ανάγνωση από δεξιά προς τα αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στα κελιά του;**
 
-Ναι. Ο πίνακας εκθέτει την ιδιότητα [right_to_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/right_to_left/) και οι παράγραφοι έχουν την ιδιότητα [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/right_to_left/). Χρησιμοποιώντας και τις δύο εξασφαλίζετε τη σωστή σειρά RTL και την απόδοση μέσα στα κελιά.
+Ναι. Ο πίνακας εκθέτει την ιδιότητα [right_to_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/right_to_left/) , και οι παράγραφοι έχουν την ιδιότητα [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/right_to_left/). Η χρήση και των δύο εξασφαλίζει τη σωστή σειρά RTL και την απόδοση μέσα στα κελιά.
 
-**Πώς μπορώ να αποτρέψω τους χρήστες από τη μετακίνηση ή την αλλαγή μεγέθους ενός πίνακα στο τελικό αρχείο;**
+**Πώς μπορώ να εμποδίσω τους χρήστες να μετακινούν ή να αλλάζουν το μέγεθος ενός πίνακα στο τελικό αρχείο;**
 
-Χρησιμοποιήστε τα [shape locks](/slides/el/python-net/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, την αλλαγή μεγέθους, την επιλογή κ.λπ. Αυτά τα κλειδώματα ισχύουν και για πίνακες.
+Χρησιμοποιήστε [shape locks](/slides/el/python-net/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, την αλλαγή μεγέθους, την επιλογή κ.λπ. Αυτά τα κλειδώματα ισχύουν και για πίνακες.
 
-**Υποστηρίζεται η εισαγωγή εικόνας μέσα σε κελί ως φόντο;**
+**Υποστηρίζεται η εισαγωγή μιας εικόνας μέσα σε κελί ως φόντο;**
 
-Ναι. Μπορείτε να ορίσετε ένα [picture fill](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύψει την περιοχή του κελιού ανάλογα με την επιλεγμένη λειτουργία (τραντάρισμα ή επικάλυψη).
+Ναι. Μπορείτε να ορίσετε μια [picture fill](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύψει την περιοχή του κελιού ανάλογα με τη επιλεγμένη λειτουργία (τέντωμα ή επανάληψη).

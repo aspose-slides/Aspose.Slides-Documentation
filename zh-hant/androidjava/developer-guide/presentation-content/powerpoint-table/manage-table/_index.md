@@ -21,27 +21,30 @@ description: "使用 Aspose.Slides for Android 在 PowerPoint 投影片中建立
 ---
 ## **簡介**
 
-PowerPoint 中的表格是顯示和呈現資訊的有效方式。以行與列排列的儲存格格子中的資訊直觀且易於理解。
+PowerPoint 中的表格是一種有效的資訊顯示與呈現方式。以格子（按行與列排列）的網格形式呈現的資訊簡潔且易於理解。
 
-Aspose.Slides 提供 [Table](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Table) 類別、[ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 介面、[Cell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/cell/) 類別、[ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/) 介面，以及其他類型，以便您在各種簡報中建立、更新和管理表格。
+Aspose.Slides 提供 [Table](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Table) 類別、[ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 介面、[Cell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/cell/) 類別、[ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/) 介面，以及其他類型，讓您得以在各種簡報中建立、更新與管理表格。
 
 ## **從頭建立表格**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的執行個體。  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
 2. 透過索引取得投影片的參考。  
 3. 定義 `columnWidth` 陣列。  
 4. 定義 `rowHeight` 陣列。  
-5. 透過 [addTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) 方法將 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件新增至投影片。  
-6. 遍歷每個 [ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/) 以套用上、下、右、左邊框的格式設定。  
+5. 使用 [addTable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) 方法將 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件新增至投影片。  
+6. 遍歷每個 [ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/)，對上、下、左、右邊框套用格式。  
 7. 合併表格第一列的前兩個儲存格。  
-8. 存取 [ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell) 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/)。  
-9. 向 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 中加入文字。  
+8. 取得 [ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/)'s [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/)。  
+9. 向 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 新增文字。  
 10. 儲存已修改的簡報。
 
 以下 Java 程式碼示範如何在簡報中建立表格：
 
 ```java
-// 實例化代表 PPTX 檔案的 Presentation 類別
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// 實例化一個代表 PPTX 檔案的 Presentation 類別
 Presentation pres = new Presentation();
 try {
     // 存取第一張投影片
@@ -51,7 +54,7 @@ try {
     double[] dblCols = {50, 50, 50};
     double[] dblRows = {50, 30, 30, 30, 30};
 
-    // 在投影片上加入表格形狀
+    // 將表格形狀新增至投影片
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
     // 設定每個儲存格的邊框格式
@@ -78,10 +81,10 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // 合併第1行的第1與第2個儲存格
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    // 合併第 1 列的第 1 與第 2 個儲存格
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // 在合併的儲存格中加入文字
+    // 向合併的儲存格加入文字
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
 
     // 將簡報儲存至磁碟
@@ -91,11 +94,11 @@ try {
 }
 ```
 
-## **標準表格中的編號**
+## **標準表格的編號**
 
-在標準表格中，儲存格的編號方式簡單且以 0 為起點。表格的第一個儲存格編號為 0,0（第 0 欄，第 0 行）。
+在標準表格中，儲存格的編號方式簡單且以零為起點。表格的第一個儲存格索引為 0,0（第 0 列，第 0 行）。
 
-例如，具有 4 欄 4 行的表格，其儲存格編號如下：
+例如，具有 4 列 4 行的表格，其儲存格編號如下：
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -106,7 +109,10 @@ try {
 以下 Java 程式碼示範如何為表格中的儲存格指定編號：
 
 ```java
-// 實例化代表 PPTX 檔案的 Presentation 類別
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// 實例化一個代表 PPTX 檔案的 Presentation 類別
 Presentation pres = new Presentation();
 try {
     // 存取第一張投影片
@@ -116,7 +122,7 @@ try {
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // 在投影片上加入表格形狀
+    // 將表格形狀新增至投影片
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
     // 為每個儲存格設定邊框格式
@@ -149,19 +155,21 @@ try {
 }
 ```
 
-## **存取現有的表格**
+## **存取現有表格**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的執行個體。  
-2. 透過索引取得包含表格的投影片參考。  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
+2. 透過索引取得包含該表格的投影片參考。  
 3. 建立 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件並將其設為 null。  
-4. 遍歷所有 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 物件，直到找到表格。  
-   如果您懷疑目前的投影片只有一個表格，您可以直接檢查其所有形狀。當形狀被辨識為表格時，您可以將其類型轉換為 [Table](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Table) 物件。但如果投影片包含多個表格，則最好透過其 [setAlternativeText(String value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) 來搜尋所需的表格。  
-5. 使用 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件來操作表格。以下範例中，我們向表格新增了一列。  
+4. 遍歷所有 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 物件，直至找到表格。  
+如果您認為目前的投影片只包含一個表格，您可以直接檢查其所有形狀。當形狀被辨識為表格時，您可以將其型別轉換為 [Table](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Table) 物件。然而，若投影片中包含多個表格，則建議透過其 [setAlternativeText(String value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) 方法搜尋所需的表格。  
+5. 使用 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件操作表格。以下範例中，我們設定表格中儲存格的文字。  
 6. 儲存已修改的簡報。
 
-以下 Java 程式碼示範如何存取並操作現有的表格：
+以下 Java 程式碼示範如何存取並操作現有表格：
 
 ```java
+import com.aspose.slides.*;
+
 // 實例化代表 PPTX 檔案的 Presentation 類別
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
@@ -172,13 +180,13 @@ try {
     // 初始化為 null 的 TableEx
     ITable tbl = null;
 
-    // 遍歷形狀並設定對找到的表格的參考
+    // 逐一檢查形狀並設定對找到的表格的參考
     for (IShape shp : sld.getShapes()) 
     {
         if (shp instanceof ITable) 
         {
             tbl = (ITable) shp;
-            // 設定第二行第一欄的文字
+            // 為第二列第一欄設定文字
             tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
@@ -190,19 +198,30 @@ try {
 }
 ```
 
-## **對齊表格內文字**
+## **找出擁有文字框的儲存格**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的執行個體。  
+當通用文字處理程式碼從表格取得 [ITextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/) 時，請使用 [ITextFrame.getParentCell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/#getParentCell--) 方法取得其所屬的 [ICell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/)。對於表格儲存格的文字框，[ITextFrame.getParentCell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/#getParentCell--) 會返回擁有者，而 [ITextFrame.getParentShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/#getParentShape--) 會返回 `null`，即使表格本身也是一個形狀。
+
+儲存格座標可透過唯讀的 [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) 與 [ICell.getFirstRowIndex](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) 方法取得。[ITextFrame.getParentCell](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/#getParentCell--) 亦提供唯讀的導覽：它返回擁有者但不會變更所有權。使用前務必檢查返回的儲存格是否為 `null`。
+
+欲參考完整範例（識別表格儲存格與形狀的擁有者，包含與 SmartArt 節點相關聯的形狀），請參閱 [Search and Replace Text](/slides/zh-hant/androidjava/search-and-replace-text/)。
+
+## **在表格中對齊文字**
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
 2. 透過索引取得投影片的參考。  
 3. 將 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件新增至投影片。  
-4. 從表格存取 [ITextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/) 物件。  
-5. 存取 [ITextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/) 的 [IParagraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraph/)。  
+4. 從表格取得 [ITextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/) 物件。  
+5. 取得 [ITextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframe/) 的 [IParagraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraph/)。  
 6. 垂直對齊文字。  
 7. 儲存已修改的簡報。
 
-以下 Java 程式碼示範如何對齊表格內的文字：
+以下 Java 程式碼示範如何在表格中對齊文字：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // 建立 Presentation 類別的實例
 Presentation pres = new Presentation();
 try {
@@ -213,13 +232,13 @@ try {
     double[] dblCols = { 120, 120, 120, 120 };
     double[] dblRows = { 100, 100, 100, 100 };
     
-    // 將表格形狀加入投影片
+    // 將表格形狀新增至投影片
     ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
     tbl.get_Item(1, 0).getTextFrame().setText("10");
     tbl.get_Item(2, 0).getTextFrame().setText("20");
     tbl.get_Item(3, 0).getTextFrame().setText("30");
     
-    // 取得文字框
+    // 存取文字框
     ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
     
     // 為文字框建立 Paragraph 物件
@@ -245,29 +264,31 @@ try {
 
 ## **在表格層級設定文字格式**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的執行個體。  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
 2. 透過索引取得投影片的參考。  
-3. 從投影片存取 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件。  
+3. 從投影片取得 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITable) 物件。  
 4. 設定文字的 [setFontHeight(float value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-)。  
-5. 設定 [setAlignment(int value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 以及 [setMarginRight(float value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。  
+5. 設定 [setAlignment(int value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 與 [setMarginRight(float value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-)。  
 6. 設定 [setTextVerticalType(byte value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)。  
-7. 儲存已修改的簡報。
+7. 儲存已修改的簡報。  
 
-以下 Java 程式碼示範如何將您偏好的格式套用於表格內的文字：
+以下 Java 程式碼示範如何將您偏好的格式套用於表格文字：
 
 ```java
+import com.aspose.slides.*;
+
 // 建立 Presentation 類別的實例
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // 假設第一張投影片上的第一個形狀是表格
+    // 假設第一張投影片上的第一個形狀是一個表格
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
-    // 設定表格儲存格的字體高度
+    // 設定表格儲存格的字型高度
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // 在一次呼叫中設定表格儲存格的文字對齊方式與右側邊距
+    // 在一次呼叫中設定表格儲存格的文字對齊方式與右邊距
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
@@ -286,13 +307,24 @@ try {
 
 ## **取得表格樣式屬性**
 
-Aspose.Slides 讓您取得表格的樣式屬性，以便將這些資訊用於其他表格或其他地方。以下 Java 程式碼示範如何從表格預設樣式取得樣式屬性：
+Aspose.Slides 讓您能取得表格的樣式屬性，進而於其他表格或其他地方使用這些資訊。以下 Java 程式碼示範如何從表格預設樣式取得樣式屬性：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.setStylePreset(TableStylePreset.DarkStyle1); // 更改預設樣式預設主題
+
+    // 取得表格的樣式預設
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // 將取得的樣式預設套用到另一個表格
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -301,11 +333,13 @@ try {
 
 ## **鎖定表格的長寬比**
 
-幾何形狀的長寬比是其在不同維度上的尺寸比例。Aspose.Slides 提供了 [**setAspectRatioLocked**](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) 屬性，讓您能鎖定表格及其他形狀的長寬比設定。
+幾何形狀的長寬比是其在不同維度尺寸的比例。Aspose.Slides 提供了 [**setAspectRatioLocked**](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) 屬性，讓您能為表格及其他形狀鎖定長寬比設定。
 
-以下 Java 程式碼示範如何鎖定表格的長寬比：
+以下 Java 程式碼示範如何為表格鎖定長寬比：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -323,14 +357,11 @@ try {
 
 ## **常見問題**
 
-**我可以為整個表格及其儲存格內的文字啟用從右到左 (RTL) 閱讀方向嗎？**
+**我可以為整個表格及其儲存格內的文字啟用從右至左 (RTL) 閱讀方向嗎？**  
+可以。表格提供了 [setRightToLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-) 方法，段落則有 [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-)。同時使用兩者即可確保儲存格內的文字呈現正確的 RTL 順序與渲染。
 
-可以。表格提供了 [setRightToLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-) 方法，段落則有 [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-)。同時使用兩者即可確保儲存格內的 RTL 順序與呈現正確。
+**我該如何防止使用者在最終檔案中移動或調整表格大小？**  
+使用形狀鎖定功能可停用移動、調整大小、選取等行為。此類鎖定同樣適用於表格。
 
-**如何防止使用者在最終檔案中移動或調整表格大小？**
-
-使用形狀鎖定可停用移動、調整大小、選取等功能。這些鎖定同樣適用於表格。
-
-**是否支援在儲存格內插入圖片作為背景？**
-
-可以。您可以為儲存格設定 [picture fill](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/picturefillformat/)，圖片會依所選模式（伸展或平鋪）覆蓋整個儲存格區域。
+**是否支援在儲存格內插入圖片作為背景？**  
+可以。您可以為儲存格設定 [picture fill](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/picturefillformat/)，圖片會依所選模式（拉伸或平鋪）覆蓋整個儲存格區域。

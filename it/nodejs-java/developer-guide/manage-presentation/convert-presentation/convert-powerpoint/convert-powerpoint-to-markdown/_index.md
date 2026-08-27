@@ -22,120 +22,201 @@ keywords:
 - salva PPTX come MD
 - esporta PPT in MD
 - esporta PPTX in MD
+- esportazione immagine Markdown
+- link immagine CDN
 - PowerPoint
 - presentazione
 - Markdown
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Converti le diapositive PowerPoint in JavaScript - PPT, PPTX - in Markdown pulito con Aspose.Slides per Node.js via Java, automatizza la documentazione e mantieni la formattazione."
+description: "Converti le presentazioni PPT e PPTX in Markdown con JavaScript e controlla dove vengono salvate e referenziate le immagini bitmap, metafile e SVG esportate."
 ---
-## **Introduzione**
+## **Panoramica**
 
-Aspose.Slides consente di convertire le presentazioni PowerPoint in Markdown, il che può essere utile per flussi di lavoro di documentazione, generazione di siti statici, migrazione di contenuti e pubblicazione di testo versionata. L'API supporta l'esportazione diretta da presentazioni PPT e PPTX a file MD e fornisce opzioni aggiuntive per controllare come il contenuto delle diapositive viene rappresentato nel documento Markdown risultante.
+Aspose.Slides per Node.js via Java può convertire presentazioni PPT e PPTX in Markdown per documentazione, siti statici, migrazione di contenuti e flussi di lavoro di controllo versione. È possibile scegliere un tipo di Markdown, controllare come viene renderizzato il contenuto delle diapositive e decidere dove vengono memorizzate le immagini esportate e come il Markdown generato le fa riferimento.
 
-È possibile esportare le presentazioni come Markdown semplice, scegliere tra più varianti di Markdown come CommonMark e GitHub Flavored Markdown, e configurare come le immagini vengono gestite durante l'esportazione. Per le presentazioni che contengono contenuti visivi, Aspose.Slides consente anche di salvare le immagini in una cartella separata e di fare riferimento ad esse dal file Markdown generato.
+Per impostazione predefinita, l'esportazione Markdown utilizza output solo testo. Per esportare contenuti visivi, impostare il tipo di esportazione con il metodo [MarkdownSaveOptions.setExportType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) su `Sequential` o `Visual` dall'enumerazione [MarkdownExportType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownexporttype/). `Sequential` rende gli elementi della diapositiva separatamente e in ordine, mentre `Visual` mantiene gli elementi raggruppati insieme per preservare la loro relazione visiva. Il valore `TextOnly` non emette risorse immagine, quindi le callback di salvataggio immagine non vengono invocate in quella modalità.
 
-{{% alert color="warning" %}} 
-L'esportazione da PowerPoint a markdown è **senza immagini** per impostazione predefinita. Se desideri esportare un documento PowerPoint contenente immagini, devi chiamare `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` e impostare anche il `BasePath` dove saranno salvate le immagini referenziate nel documento markdown.
-{{% /alert %}} 
+## **Convertire una presentazione in Markdown**
 
-## **Converti PowerPoint in Markdown**
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) per rappresentare un oggetto presentazione.
-2. Utilizza il metodo [save](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#save-aspose.slides.IXamlOptions-) per salvare l'oggetto come file markdown.
-
-Questo codice JavaScript mostra come convertire PowerPoint in markdown:
+Carica il file sorgente con la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/), quindi chiama il metodo [Presentation.save](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) con il valore `Md` dall'enumerazione [SaveFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/saveformat/).
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    pres.save("pres.md", aspose.slides.SaveFormat.Md);
+    presentation.save("presentation.md", aspose.slides.SaveFormat.Md);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Converti PowerPoint in una variante di Markdown**
+## **Selezionare un tipo di Markdown**
 
-Aspose.Slides consente di convertire PowerPoint in markdown (contenente sintassi di base), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab e altre 17 varianti di markdown.
+Il metodo [MarkdownSaveOptions.setFlavor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) controlla la specifica Markdown usata per l'output. L'enumerazione [Flavor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/flavor/) include CommonMark, GitHub Flavored Markdown e altre varianti supportate.
 
-Questo codice JavaScript mostra come convertire PowerPoint in CommonMark:
+Il seguente esempio esporta una presentazione in CommonMark:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
-    markdownSaveOptions.setFlavor(aspose.slides.Flavor.CommonMark);
-    pres.save("pres.md", aspose.slides.SaveFormat.Md, markdownSaveOptions);
+    var options = new aspose.slides.MarkdownSaveOptions();
+    options.setFlavor(aspose.slides.Flavor.CommonMark);
+
+    presentation.save("presentation.md", aspose.slides.SaveFormat.Md, options);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Le 23 varianti di markdown supportate sono [elencate nella enumerazione Flavor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/flavor/) della classe [MarkdownSaveOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/).
+## **Esportare le immagini usando il comportamento predefinito di salvataggio locale**
 
-## **Converti presentazione contenente immagini in Markdown**
+La classe [MarkdownSaveOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) fornisce due metodi per configurare le immagini salvate localmente:
 
-La classe [MarkdownSaveOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) fornisce proprietà ed enumerazioni che consentono di utilizzare determinate opzioni o impostazioni per il file markdown risultante. L'enumerazione [MarkdownExportType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownexporttype/), ad esempio, può essere impostata su valori che determinano come le immagini vengono renderizzate o gestite: `Sequential`, `TextOnly`, `Visual`.
+- [setBasePath](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) specifica la directory di base per il documento Markdown e le sue risorse.
+- [setImagesSaveFolderName](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) specifica la sotto‑directory delle immagini. Il suo valore predefinito è `Images`.
 
-### **Converti immagini in sequenza**
-
-Se desideri che le immagini compaiano individualmente una dopo l'altra nel markdown risultante, devi scegliere l'opzione sequenziale. Questo codice JavaScript mostra come convertire una presentazione contenente immagini in markdown:
+Il seguente esempio rende il contenuto visivo, scrive le immagini su `output/assets` e crea riferimenti immagine relativi nel documento Markdown:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const path = require("path");
+
+const outputDirectory = "output";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
-    markdownSaveOptions.setShowHiddenSlides(true);
-    markdownSaveOptions.setShowSlideNumber(true);
-    markdownSaveOptions.setFlavor(aspose.slides.Flavor.Github);
-    markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Sequential);
-    markdownSaveOptions.setNewLineType(aspose.slides.NewLineType.Windows);
-    pres.save("doc.md", java.newArray("int", [1, 2, 3, 4, 5, 6, 7, 8, 9]), aspose.slides.SaveFormat.Md, markdownSaveOptions);
+    var options = new aspose.slides.MarkdownSaveOptions();
+    options.setExportType(aspose.slides.MarkdownExportType.Visual);
+    options.setBasePath(outputDirectory);
+    options.setImagesSaveFolderName("assets");
+
+    const markdownPath = path.join(outputDirectory, "presentation.md");
+    presentation.save(markdownPath, aspose.slides.SaveFormat.Md, options);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Converti immagini visivamente**
+Questo comportamento funge anche da fallback quando un handler personalizzato di salvataggio immagine restituisce `false`.
 
-Se desideri che le immagini compaiano insieme nel markdown risultante, devi scegliere l'opzione visiva. In questo caso, le immagini saranno salvate nella directory corrente dell'applicazione (e nel documento markdown verrà creato un percorso relativo), oppure puoi specificare il percorso e il nome della cartella preferiti.
+## **Personalizzare il salvataggio delle immagini e i link Markdown**
 
-Questo codice JavaScript dimostra l'operazione:
+Utilizza il metodo [MarkdownSaveOptions.setImageSaving](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) per registrare una callback per le risorse bitmap e metafile non SVG emesse durante l'esportazione Markdown. La sua callback `MarkdownImageSavingHandler` riceve l'oggetto [IImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/iimage/), il suo valore [ImageFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/imageformat/) e il link Markdown generato come array di stringhe a un elemento. Salva o carica l'immagine con il formato fornito e sostituisci `link[0]` con il riferimento che deve apparire nell'output Markdown.
+
+Le risorse emesse in formato SVG vengono gestite separatamente. Registra una callback con il metodo [MarkdownSaveOptions.setSvgImageSaving](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/). La sua callback `MarkdownSvgImageSavingHandler` riceve un oggetto `ISvgImage` e l'array `link` a un elemento. Un SVG non ha argomento `ImageFormat`; scrivi o carica i suoi dati XML dal metodo `ISvgImage.getSvgData`. A seconda della modalità di esportazione e del raggruppamento visivo, un SVG nella presentazione di origine può essere rasterizzato o combinato con altri contenuti; la risorsa non SVG risultante viene poi passata alla callback di salvataggio immagine. Registra entrambe le callback quando ogni risorsa visiva esportata richiede un'elaborazione personalizzata.
+
+In Node.js, crea implementazioni di queste interfacce di callback con `java.newProxy`.
+
+Il valore di ritorno del handler determina chi elabora l'immagine:
+
+- Restituisci `true` dopo che il handler ha salvato, caricato, trasformato o altrimenti elaborato l'immagine e ha assegnato un valore valido a `link[0]`. Aspose.Slides scrive quel valore nel documento Markdown e non esegue il salvataggio locale predefinito.
+- Restituisci `false` per consentire ad Aspose.Slides di salvare l'immagine localmente e generare il suo link secondo i valori impostati da [MarkdownSaveOptions.setBasePath](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) e [MarkdownSaveOptions.setImagesSaveFolderName](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/).
+
+{{% alert color="warning" title="Importante" %}}
+Un handler che restituisce `true` si assume la responsabilità dell'immagine. Se restituisce `true` senza assegnare un link valido e non vuoto, l'esportazione fallisce con un `InvalidOperationException`.
+{{% /alert %}}
+
+### **Salvare le immagini in una directory di origine CDN e usare URL esterni**
+
+L'esempio seguente tratta `cdn-origin/presentations/quarterly-report` come una directory di origine CDN montata o sincronizzata. Ogni handler estrae il nome file generato, salva l'immagine in quella directory personalizzata e sostituisce il riferimento locale generato con un URL CDN pubblico. L'esempio stesso non effettua alcun upload di rete: l'URL diventa valido solo dopo che la directory è montata come origine CDN o i suoi file sono pubblicati sul CDN. Per lo storage di oggetti, sostituisci la scrittura su file system con l'operazione di upload dell'SDK di storage e assegna `link[0]` solo dopo che l'upload ha avuto successo.
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    final var outPath = "c:/documents";
-    var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
-    markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Visual);
-    markdownSaveOptions.setImagesSaveFolderName("md-images");
-    markdownSaveOptions.setBasePath(outPath);
-    pres.save("pres.md", aspose.slides.SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+const path = require("path");
+
+const outputDirectory = "output";
+const publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+const storageDirectory = path.join("cdn-origin", "presentations", "quarterly-report");
+fs.mkdirSync(outputDirectory, { recursive: true });
+fs.mkdirSync(storageDirectory, { recursive: true });
+
+const getFileNameFromLink = generatedLink => {
+    const urlCompatibleLink = String(generatedLink).replace(/\\/g, "/");
+    return path.posix.basename(urlCompatibleLink);
+};
+const buildPublicUrl = fileName => publicBaseUrl + "/" + encodeURIComponent(fileName);
+
+const imageSavingHandler = java.newProxy("com.aspose.slides.MarkdownSaveOptions$MarkdownImageSavingHandler", {
+    invoke: function(image, format, link) {
+        if (image.getWidth() < 128 || image.getHeight() < 128) {
+            return false;
+        }
+
+        const fileName = getFileNameFromLink(link[0]);
+        const storagePath = path.join(storageDirectory, fileName);
+        image.save(storagePath, format);
+        link[0] = buildPublicUrl(fileName);
+        return true;
     }
+});
+
+const svgImageSavingHandler = java.newProxy("com.aspose.slides.MarkdownSaveOptions$MarkdownSvgImageSavingHandler", {
+    invoke: function(svgImage, link) {
+        const fileName = getFileNameFromLink(link[0]);
+        const storagePath = path.join(storageDirectory, fileName);
+        fs.writeFileSync(storagePath, svgImage.getSvgData());
+        link[0] = buildPublicUrl(fileName);
+        return true;
+    }
+});
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var options = new aspose.slides.MarkdownSaveOptions();
+    options.setExportType(aspose.slides.MarkdownExportType.Visual);
+    options.setBasePath(outputDirectory);
+    options.setImagesSaveFolderName("fallback-images");
+    options.setImageSaving(imageSavingHandler);
+    options.setSvgImageSaving(svgImageSavingHandler);
+
+    const markdownPath = path.join(outputDirectory, "presentation.md");
+    presentation.save(markdownPath, aspose.slides.SaveFormat.Md, options);
+} finally {
+    presentation.dispose();
 }
 ```
+
+Il handler bitmap restituisce deliberatamente `false` per le immagini più piccole di 128 × 128 pixel, così Aspose.Slides salva tali immagini in `output/fallback-images` usando il comportamento predefinito. Risorse bitmap e metafile più grandi, così come le risorse SVG, sono gestite dal codice personalizzato. Per esempio, un riferimento locale generato come `fallback-images/image1.png` diventa `https://cdn.example.com/presentations/quarterly-report/image1.png`. I handler usano percorsi del sistema operativo solo quando scrivono file; i link scritti nel Markdown usano le barre oblique e i nomi file con escape URL. Applica la stessa regola quando costruisci link relativi: usa `/`, non il separatore di directory specifico della piattaforma.
 
 ## **FAQ**
 
-**I collegamenti ipertestuali sopravvivono all'esportazione in Markdown?**
+**Un handler può elaborare sia immagini raster che immagini SVG?**
 
-Sì. I [collegamenti ipertestuali](/slides/it/nodejs-java/manage-hyperlinks/) nel testo vengono conservati come normali link Markdown. Le [transizioni](/slides/it/nodejs-java/slide-transition/) e le [animazioni](/slides/it/nodejs-java/powerpoint-animation/) delle diapositive non vengono convertite.
+No. Usa [MarkdownSaveOptions.setImageSaving](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) per le risorse bitmap e metafile emesse e [MarkdownSaveOptions.setSvgImageSaving](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) per le risorse emesse come SVG. Il primo fornisce un oggetto [IImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/iimage/) e un valore [ImageFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/imageformat/); il secondo fornisce un oggetto `ISvgImage` i cui dati SVG possono essere letti con `ISvgImage.getSvgData`. Un SVG di origine rasterizzato durante l'esportazione viene elaborato dalla callback di salvataggio immagine.
 
-**Posso velocizzare la conversione eseguendola su più thread?**
+**Cosa succede quando un handler di salvataggio immagine restituisce `false`?**
 
-Puoi parallelizzare su più file, ma [non condividere](/slides/it/nodejs-java/multithreading/) la stessa istanza di [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) tra thread. Usa istanze/processi separati per file per evitare conflitti.
+Aspose.Slides utilizza il suo comportamento predefinito di salvataggio locale. La posizione dell'immagine e il riferimento generato sono controllati dai valori impostati con [MarkdownSaveOptions.setBasePath](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/) e [MarkdownSaveOptions.setImagesSaveFolderName](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/markdownsaveoptions/).
 
-**Cosa succede alle immagini—dove vengono salvate e i percorsi sono relativi?**
+**Un handler può fornire un URL senza salvare l'immagine localmente?**
 
-[Immagini](/slides/it/nodejs-java/image/) vengono esportate in una cartella dedicata e il file Markdown le riferisce con percorsi relativi per impostazione predefinita. Puoi configurare il percorso di output di base e il nome della cartella delle risorse per mantenere una struttura di repository prevedibile.
+Sì. Il handler può caricare l'immagine su uno storage di oggetti o passarla a un altro servizio, assegnare l'URL risultante a `link[0]` e restituire `true`. Il handler deve completare l'elaborazione da solo; restituire `true` impedisce il salvataggio locale predefinito.
+
+**Perché l'esportazione Markdown genera un `InvalidOperationException` da parte di un handler?**
+
+Questa eccezione si verifica quando il handler restituisce `true` ma non fornisce un link valido. Assegna il percorso relativo o l'URL esterno che deve essere scritto nel Markdown prima di restituire `true`.
+
+**Quale separatore di percorso devono utilizzare i link alle immagini?**
+
+Usa le barre oblique nei link Markdown e negli URL. Usa `path.join` solo per i percorsi del file system, quindi costruisci o normalizza il riferimento Markdown separatamente.
+
+**I collegamenti ipertestuali vengono preservati durante l'esportazione Markdown?**
+
+Sì. I [collegamenti ipertestuali](/slides/it/nodejs-java/manage-hyperlinks/) nel testo vengono preservati come link Markdown standard. Le [transizioni](/slides/it/nodejs-java/slide-transition/) e le [animazioni](/slides/it/nodejs-java/powerpoint-animation/) delle diapositive non vengono convertite.
+
+**Le presentazioni possono essere convertite in Markdown in parallelo?**
+
+È possibile elaborare diversi file di presentazione in parallelo, ma non condividere la stessa istanza di [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) tra thread. Segui le [linee guida per il multithreading](/slides/it/nodejs-java/multithreading/) e utilizza un'istanza separata per ogni file.

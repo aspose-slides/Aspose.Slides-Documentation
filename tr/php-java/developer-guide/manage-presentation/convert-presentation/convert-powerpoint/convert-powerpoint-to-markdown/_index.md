@@ -1,6 +1,6 @@
 ---
-title: PHP ile PowerPoint Sunumlarını Markdown'a Dönüştürme
-linktitle: PowerPoint'tan Markdown'a
+title: PowerPoint Sunumlarını PHP ile Markdown'a Dönüştür
+linktitle: PowerPoint'ten Markdown'a
 type: docs
 weight: 140
 url: /tr/php-java/convert-powerpoint-to-markdown/
@@ -10,125 +10,275 @@ keywords:
 - slaytı dönüştür
 - PPT dönüştür
 - PPTX dönüştür
-- PowerPoint'tan MD'ye
+- PowerPoint'ten MD'ye
 - sunumdan MD'ye
 - slayttan MD'ye
 - PPT'den MD'ye
-- PPTX'ten MD'ye
+- PPTX'den MD'ye
 - PowerPoint'i Markdown olarak kaydet
 - sunumu Markdown olarak kaydet
 - slaytı Markdown olarak kaydet
 - PPT'yi MD olarak kaydet
 - PPTX'i MD olarak kaydet
 - PPT'yi MD'ye dışa aktar
-- PPTX'yi MD'ye dışa aktar
+- PPTX'i MD'ye dışa aktar
+- Markdown görüntü dışa aktarımı
+- CDN görüntü bağlantıları
 - PowerPoint
 - sunum
 - Markdown
 - PHP
 - Aspose.Slides
-description: "PowerPoint slaytlarını — PPT, PPTX — Aspose.Slides for PHP via Java ile temiz Markdown'a dönüştürün, belge oluşturmayı otomatikleştirin ve biçimlendirmeyi koruyun."
+description: "PPT ve PPTX sunumlarını PHP'de Markdown'a dönüştürün ve dışa aktarılan bitmap, metafile ve SVG görüntülerinin nerede kaydedileceğini ve başvurulacağını kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarını Markdown'a dönüştürmenizi sağlar; bu, belge iş akışları, statik site oluşturma, içerik göçü ve sürüm kontrollü metin yayıncılığı için faydalı olabilir. API, PPT ve PPTX sunumlarından MD dosyalarına doğrudan dışa aktarmayı destekler ve oluşturulan Markdown belgesinde slayt içeriğinin nasıl temsil edileceğini kontrol eden ek seçenekler sunar.
+Aspose.Slides for PHP via Java, PPT ve PPTX sunumlarını belge, statik site, içerik taşıma ve sürüm kontrolü iş akışları için Markdown'a dönüştürebilir. Bir Markdown çeşidi seçebilir, slayt içeriğinin nasıl işleneceğini kontrol edebilir ve dışa aktarılan görüntülerin nerede saklanacağını ve oluşturulan Markdown'ın bunlara nasıl başvurduğunu belirleyebilirsiniz.
 
-Sunumları düz Markdown olarak dışa aktarabilir, CommonMark ve GitHub Flavored Markdown gibi çeşitli Markdown çeşitlerinden seçim yapabilir ve dışa aktarma sırasında görsellerin nasıl işlendiğini yapılandırabilirsiniz. Görsel içerik içeren sunumlar için Aspose.Slides ayrıca görselleri ayrı bir klasöre kaydetmenize ve oluşturulan Markdown dosyasından referans vermenize olanak tanır.
+Varsayılan olarak, Markdown dışa aktarımı yalnızca metin çıktısı üretir. Görsel içeriği dışa aktarmak için, [MarkdownSaveOptions::setExportType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) yöntemini kullanarak ihracat türünü [MarkdownExportType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownexporttype/) enum'undan `Sequential` veya `Visual` değerine ayarlayın. `Sequential`, slayt öğelerini ayrı ayrı ve sırayla render ederken, `Visual` gruplanmış öğeleri birlikte tutarak görsel ilişkilerini korur. `TextOnly` değeri görüntü kaynakları üretmez, bu nedenle bu modda görüntü kaydetme geri aramaları yürütülmez.
 
-{{% alert color="warning" %}}
-PowerPoint'ten Markdown'a dışa aktarma varsayılan olarak **görseller olmadan** yapılır. Görseller içeren bir PowerPoint belgesini dışa aktarmak istiyorsanız, `ExportType = MarkdownExportType::Visual` ayarlamanız ve `BasePath` belirtmeniz gerekir; bu, Markdown belgesinde referans verilen görsellerin kaydedileceği yerdir.
+## **Bir Sunumu Markdown'a Dönüştür**
+
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı ile yükleyin ve ardından [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yöntemini, [SaveFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveformat/) enum'undan `Md` değeriyle çağırın.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.md";
+$presentation = new Presentation($inputPath);
+try {
+    $presentation->save($outputPath, SaveFormat::Md);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Markdown Çeşidini Seçin**
+
+[MarkdownSaveOptions::setFlavor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) yöntemi, çıktıda kullanılan Markdown spesifikasyonunu kontrol eder. [Flavor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/flavor/) enum'ı CommonMark, GitHub Flavored Markdown ve diğer desteklenen varyantları içerir.
+
+Aşağıdaki örnek bir sunumu CommonMark olarak dışa aktarır:
+
+```php
+use aspose\slides\Flavor;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.md";
+$presentation = new Presentation($inputPath);
+try {
+    $options = new MarkdownSaveOptions();
+    $options->setFlavor(Flavor::CommonMark);
+
+    $presentation->save($outputPath, SaveFormat::Md, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Varsayılan Yerel Kaydetme Davranışıyla Görüntüleri Dışa Aktarın**
+
+[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) sınıfı, yerel olarak kaydedilen görüntüleri yapılandırmak için iki yöntem sağlar:
+
+- `setBasePath` temel dizini belirtilir.
+- `setImagesSaveFolderName` görüntü alt dizinini belirtir. Varsayılan değeri `Images`tır.
+
+Aşağıdaki örnek görsel içeriği render eder, görüntüleri `output/assets` klasörüne yazar ve Markdown belgesinde göreli görüntü referansları oluşturur:
+
+```php
+use aspose\slides\MarkdownExportType;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "output";
+if (!is_dir($outputDirectory)) {
+    mkdir($outputDirectory, 0777, true);
+}
+
+$presentation = new Presentation($inputPath);
+try {
+    $options = new MarkdownSaveOptions();
+    $options->setExportType(MarkdownExportType::Visual);
+    $options->setBasePath($outputDirectory);
+    $options->setImagesSaveFolderName("assets");
+
+    $markdownPath = $outputDirectory . DIRECTORY_SEPARATOR . "presentation.md";
+    $presentation->save($markdownPath, SaveFormat::Md, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Bu davranış, özel bir görüntü kaydetme işleyicisi `false` döndürdüğünde geri dönüş olarak da hizmet eder.
+
+## **Görüntü Kaydetmeyi ve Markdown Bağlantılarını Özelleştirin**
+
+Markdown dışa aktarımı sırasında oluşturulan SVG dışı bitmap ve metafile kaynakları için bir geri arama kaydetmek üzere [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) yöntemini kullanın. `MarkdownImageSavingHandler` geri araması, [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) nesnesini, onun [ImageFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imageformat/) değerini ve oluşturulan Markdown bağlantısını tek elemanlı bir Java dizi olarak alır. Görüntüyü verilen formatta kaydedin veya yükleyin ve `$link[0]` değerini Markdown çıktısında yer alması gereken referansla değiştirin.
+
+SVG formatında oluşturulan kaynaklar ayrı olarak işlenir. [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) yöntemiyle bir geri arama kaydedin. `MarkdownSvgImageSavingHandler` geri araması, bir [ISvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/isvgimage/) nesnesi ve tek elemanlı Java dizi `$link` alır. SVG'nin `ImageFormat` argümanı yoktur; bunun yerine [ISvgImage::getSvgData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/isvgimage/) yönteminden XML verisini yazın veya yükleyin. Dışa aktarma modu ve görsel gruplamaya bağlı olarak, kaynak sunumdaki bir SVG rasterleştirilebilir veya diğer içerikle birleştirilebilir; ortaya çıkan SVG olmayan kaynak daha sonra görüntü kaydetme geri aramasına geçirilir. Her dışa aktarılan görsel kaynağın özel işlenmesi gerektiğinde her iki geri aramayı da kaydedin.
+
+PHP üzerinden Java'da, her geri aramayı bir PHP sınıfında uygulayın ve bu nesneyi ilgili Java arayüzü olarak ortaya çıkarmak için `java_closure` kullanın.
+
+{{% alert color="info" title="Note" %}}
+`Java.inc` dosyasını yüklemeden önce `JAVA_PREFER_VALUES` etkinleştirilmiş şekilde PHP/Java Köprüsü'nü başlatın. [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yöntemi `void` döndürür ve köprünün varsayılan akış modu, bu sıraya alınmış çağrı sırasında bir PHP geri aramasını çalıştıramaz. Aşağıdaki tam örnek gerekli başlatmayı içerir.
 {{% /alert %}}
 
-## **Sunumu Markdown'a Dönüştürme**
+İşleyicinin dönüş değeri, görüntüyü kimin işleyeceğini belirler:
 
-Bu bölüm, Aspose.Slides'ın PowerPoint ve OpenDocument sunumlarını (PPT, PPTX, ODP) temiz Markdown'a nasıl dönüştürdüğünü açıklar; orijinal slayt hiyerarşisini, metni ve temel biçimlendirmeyi bozmadan tutar, böylece içeriği belgelemelerde veya sürüm kontrollü iş akışlarında ekstra manuel çaba harcamadan yeniden kullanabilirsiniz.
+- Görüntüyü kaydettikten, yükledikten, dönüştürdükten veya başka bir şekilde işledikten ve `$link[0]`'a geçerli bir değer atadıktan sonra `true` döndürün. Aspose.Slides bu değeri Markdown belgesine yazar ve varsayılan yerel kaydetme işlemini gerçekleştirmez.
+- `false` döndürerek Aspose.Slides'in görüntüyü yerel olarak kaydetmesini ve bağlantısını, [MarkdownSaveOptions::setBasePath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) ve [MarkdownSaveOptions::setImagesSaveFolderName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) ile ayarlanan değerlere göre oluşturmasını sağlayın.
 
-1. Sunumu temsil etmek için [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. [save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) metodunu kullanarak onu bir Markdown dosyası olarak dışa aktarın.
-
-Bu PHP kodu, bir PowerPoint sunumunun Markdown'a nasıl dönüştürüleceğini gösterir:
-```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $presentation->save("presentation.md", SaveFormat::Md);
-} finally {
-    $presentation->dispose();
-}
-```
-
-## **Sunumu Markdown Çeşidine Dönüştürme**
-
-Aspose.Slides, PowerPoint sunumlarını temel sözdizimiyle Markdown'a, ayrıca CommonMark, GitHub‑flavored Markdown, Trello, XWiki, GitLab ve diğer on yedi Markdown çeşidine dönüştürmenizi sağlar.
-
-Aşağıdaki PHP kodu, bir PowerPoint sunumunun CommonMark'a nasıl dönüştürüleceğini gösterir:
-```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $saveOptions = new MarkdownSaveOptions();
-    $saveOptions->setFlavor(Flavor->CommonMark);
-
-    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Desteklenen 23 Markdown çeşidi, [Flavor enumeration](https://reference.aspose.com/slides/tr/php-java/aspose.slides/flavor/) içinde listelenmiştir.
-
-## **Görseller İçeren Sunumu Markdown'a Dönüştürme**
-
-[MarkdownSaveOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) sınıfı, ortaya çıkan Markdown dosyasını yapılandırmanızı sağlayan özellikler ve enum'lar sunar. Örneğin, [MarkdownExportType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownexporttype/) enum'ı görsellerin nasıl işleneceğini belirtir: `Sequential`, `TextOnly` veya `Visual`.
-
-{{% alert color="warning" %}}
-Varsayılan olarak, PowerPoint‑to‑Markdown dışa aktarımı **görselleri içermez**. Görselleri eklemek için `markdownSaveOptions.setExportType(MarkdownExportType::Visual)` çağırın ve Markdown dosyasında referans verilen görsellerin kaydedileceği yeri belirten `BasePath` değerini ayarlayın.
+{{% alert color="warning" title="Important" %}}
+`true` döndüren bir işleyici, görüntünün sorumluluğunu alır. Geçerli ve boş olmayan bir bağlantı atamadan `true` dönerse, dışa aktarma `InvalidOperationException` hatasıyla başarısız olur.
 {{% /alert %}}
 
-### **Görselleri Sıralı Olarak Dönüştürme**
+### **Görüntüleri CDN Kaynak Dizini'ne Kaydedin ve Harici URL'ler Kullanın**
 
-Görsellerin sonuç Markdown'ta tek tek, birbiri ardına görünmesini istiyorsanız, `Sequential` seçeneğini seçmelisiniz. Aşağıdaki PHP kodu, görseller içeren bir sunumun Markdown'a nasıl dönüştürüleceğini gösterir:
+Aşağıdaki örnek, `cdn-origin/presentations/quarterly-report` dizinini bağlanmış veya senkronize edilmiş bir CDN kaynak dizini olarak ele alır. Her işleyici oluşturulan dosya adını çıkarır, görüntüyü bu özel dizine kaydeder ve oluşturulan yerel referansı genel bir CDN URL'siyle değiştirir. Örnek kendisi ağ üzerinden bir yükleme yapmaz: URL, dizin CDN kaynağı olarak bağlandıktan veya dosyaları CDN'ye yayımlandıktan sonra geçerli olur. Nesne depolama için, dosya sistemi yazımını depolama SDK'sının yükleme işlemiyle değiştirin ve `$link[0]`'ı sadece yükleme başarılı olduğunda atayın.
+
 ```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $saveOptions = new MarkdownSaveOptions();
-    $saveOptions->setShowHiddenSlides(true);
-    $saveOptions->setShowSlideNumber(true);
-    $saveOptions->setFlavor(Flavor->Github);
-    $saveOptions->setExportType(MarkdownExportType::Sequential);
-    $saveOptions->setNewLineType(NewLineType::Windows);
+use aspose\slides\MarkdownExportType;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $slideIndices = array(1, 2, 3, 4);
-    $presentation->save("presentation.md", $slideIndices, SaveFormat::Md, $saveOptions);
+define("JAVA_PREFER_VALUES", 1);
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("lib/aspose.slides.php");
+
+function getFileNameFromLink($generatedLink)
+{
+    $urlCompatibleLink = str_replace("\\", "/", java_values($generatedLink));
+    return basename($urlCompatibleLink);
+}
+
+function buildPublicUrl($publicBaseUrl, $fileName)
+{
+    return rtrim($publicBaseUrl, "/") . "/" . rawurlencode($fileName);
+}
+
+class CustomImageSavingHandler
+{
+    private $storageDirectory;
+    private $publicBaseUrl;
+
+    function __construct($storageDirectory, $publicBaseUrl)
+    {
+        $this->storageDirectory = $storageDirectory;
+        $this->publicBaseUrl = $publicBaseUrl;
+    }
+
+    function invoke($image, $format, $link)
+    {
+        if (java_values($image->getWidth()) < 128 || java_values($image->getHeight()) < 128) {
+            return false;
+        }
+
+        $fileName = getFileNameFromLink($link[0]);
+        $storagePath = $this->storageDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $image->save($storagePath, $format);
+        $link[0] = buildPublicUrl($this->publicBaseUrl, $fileName);
+        return true;
+    }
+}
+
+class CustomSvgImageSavingHandler
+{
+    private $storageDirectory;
+    private $publicBaseUrl;
+
+    function __construct($storageDirectory, $publicBaseUrl)
+    {
+        $this->storageDirectory = $storageDirectory;
+        $this->publicBaseUrl = $publicBaseUrl;
+    }
+
+    function invoke($svgImage, $link)
+    {
+        $fileName = getFileNameFromLink($link[0]);
+        $storagePath = $this->storageDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $outputStream = null;
+        try {
+            $outputStream = new Java("java.io.FileOutputStream", $storagePath);
+            $outputStream->write($svgImage->getSvgData());
+        } catch (Throwable $exception) {
+            fwrite(STDERR, "Could not save the SVG image: " . $exception->getMessage() . PHP_EOL);
+            return false;
+        } finally {
+            if ($outputStream !== null) {
+                $outputStream->close();
+            }
+        }
+
+        $link[0] = buildPublicUrl($this->publicBaseUrl, $fileName);
+        return true;
+    }
+}
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "output";
+$publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+$storageDirectory = __DIR__ . DIRECTORY_SEPARATOR . "cdn-origin" . DIRECTORY_SEPARATOR . "presentations" . DIRECTORY_SEPARATOR . "quarterly-report";
+if (!is_dir($outputDirectory)) {
+    mkdir($outputDirectory, 0777, true);
+}
+if (!is_dir($storageDirectory)) {
+    mkdir($storageDirectory, 0777, true);
+}
+
+$presentation = new Presentation($inputPath);
+try {
+    $options = new MarkdownSaveOptions();
+    $options->setExportType(MarkdownExportType::Visual);
+    $options->setBasePath($outputDirectory);
+    $options->setImagesSaveFolderName("fallback-images");
+
+    $imageSavingHandler = java_closure(new CustomImageSavingHandler($storageDirectory, $publicBaseUrl), null, java('com.aspose.slides.MarkdownSaveOptions$MarkdownImageSavingHandler'));
+    $svgImageSavingHandler = java_closure(new CustomSvgImageSavingHandler($storageDirectory, $publicBaseUrl), null, java('com.aspose.slides.MarkdownSaveOptions$MarkdownSvgImageSavingHandler'));
+    $options->setImageSaving($imageSavingHandler);
+    $options->setSvgImageSaving($svgImageSavingHandler);
+
+    $markdownPath = $outputDirectory . DIRECTORY_SEPARATOR . "presentation.md";
+    $presentation->save($markdownPath, SaveFormat::Md, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **Görselleri Görsel Olarak Dönüştürme**
-
-Görsellerin sonuç Markdown'ta birlikte görünmesini istiyorsanız, `Visual` seçeneğini seçmelisiniz. Bu durumda, görseller uygulamanın geçerli dizinine kaydedilir (ve Markdown belgesinde onlar için bir göreli yol oluşturulur) veya istediğiniz dizin ve klasör adını belirtebilirsiniz. Aşağıdaki PHP kodu, işlemi gösterir:
-```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $outPath = "c:/documents";
-
-    $saveOptions = new MarkdownSaveOptions();
-    $saveOptions->setExportType(MarkdownExportType::Visual);
-    $saveOptions->setImagesSaveFolderName("md-images");
-    $saveOptions->setBasePath($outPath);
-
-    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
-} finally {
-    $presentation->dispose();
-}
-```
+Bitmap işleyicisi, 128 × 128 pikselden daha küçük görüntüler için kasıtlı olarak `false` döndürür, böylece Aspose.Slides bu görüntüleri varsayılan davranışı kullanarak `output/fallback-images` klasörüne kaydeder. Daha büyük bitmap ve metafile kaynakları ve SVG kaynakları özel kod tarafından işlenir. Örneğin, `fallback-images/image1.png` gibi bir yerel referans `https://cdn.example.com/presentations/quarterly-report/image1.png` haline gelir. İşleyiciler dosya yazarken yalnızca işletim sistemi yollarını kullanır; Markdown'a yazılan bağlantılar ileri eğik çizgi ve URL kodlu dosya adları içerir. Göreli bağlantılar oluştururken aynı kuralı uygulayın: platforma özgü dizin ayırıcı yerine `/` kullanın.
 
 ## **SSS**
 
-**Hipermetin bağlantıları Markdown'a dışa aktarmada korunur mu?**  
+**Bir işleyici hem raster görüntüleri hem de SVG görüntüleri işleyebilir mi?**
+
+Hayır. Oluşturulan bitmap ve metafile kaynakları için [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) yöntemini, SVG olarak oluşturulan kaynaklar için ise [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) yöntemini kullanın. İlki bir [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) nesnesi ve bir [ImageFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imageformat/) değeri sağlar; ikincisi ise SVG verisi [ISvgImage::getSvgData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/isvgimage/) ile okunabilen bir [ISvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/isvgimage/) nesnesi sağlar. Dışa aktarım sırasında rasterleştirilen bir kaynak SVG, görüntü kaydetme geri araması tarafından işlenir.
+
+**Bir görüntü kaydetme işleyicisi `false` döndürdüğünde ne olur?**
+
+Aspose.Slides varsayılan yerel kaydetme davranışını kullanır. Görüntü konumu ve oluşturulan referans, [MarkdownSaveOptions::setBasePath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) ve [MarkdownSaveOptions::setImagesSaveFolderName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/markdownsaveoptions/) ile ayarlanan değerler tarafından kontrol edilir.
+
+**Bir işleyici, görüntüyü yerel olarak kaydetmeden bir URL sağlayabilir mi?**
+
+Evet. İşleyici görüntüyü nesne depolamaya yükleyebilir veya başka bir servise gönderebilir, ortaya çıkan URL'yi `$link[0]`'a atayabilir ve `true` döndürebilir. İşleyici işleme kendisi tamamlamalıdır; `true` döndürmek varsayılan yerel kaydetmeyi engeller.
+
+**Markdown dışa aktarımı neden bir işleyiciden `InvalidOperationException` hatası fırlatıyor?**
+
+Bu istisna, işleyici `true` döndürdüğünde ancak geçerli bir bağlantı sağlamadığında oluşur. `true` döndürmeden önce Markdown'a yazılması gereken göreli yolu veya harici URL'yi atayın.
+
+**Görüntü bağlantıları hangi yol ayırıcıyı kullanmalı?**
+
+Markdown bağlantılarında ve URL'lerde ileri eğik çizgi (`/`) kullanın. `DIRECTORY_SEPARATOR` sadece dosya sistemi yolları için kullanılmalı, ardından Markdown referansı ayrı olarak oluşturulmalı veya normleştirilmelidir.
+
+**Markdown dışa aktarımı sırasında köprüler korunuyor mu?**
+
 Evet. Metin [hyperlinks](/slides/tr/php-java/manage-hyperlinks/) standart Markdown bağlantıları olarak korunur. Slayt [transitions](/slides/tr/php-java/slide-transition/) ve [animations](/slides/tr/php-java/powerpoint-animation/) dönüştürülmez.
 
-**Dönüşümü birden fazla iş parçacığında çalıştırarak hızlandırabilir miyim?**  
-Dosyalar arasında paralelleştirme yapabilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneğini iş parçacıkları arasında [paylaşmayın](/slides/tr/php-java/multithreading/). Çakışmayı önlemek için dosya başına ayrı örnekler/süreçler kullanın.
+**Sunumlar paralel olarak Markdown'a dönüştürülebilir mi?**
 
-**Görseller ne olur—nerede kaydedilir ve yollar göreli midir?**  
-[Images](/slides/tr/php-java/image/) özel bir klasöre dışa aktarılır ve Markdown dosyası varsayılan olarak onları göreli yollarla referans verir. Öngörülebilir bir depo yapısı için temel çıktı yolunu ve varlık klasör adını yapılandırabilirsiniz.
+Farklı sunum dosyalarını paralel olarak işleyebilirsiniz, ancak aynı [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneğini iş parçacıkları arasında paylaşmayın. [multithreading guidelines](/slides/tr/php-java/multithreading/) yönergelerini izleyin ve her dosya için ayrı bir örnek kullanın.

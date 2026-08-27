@@ -1,18 +1,18 @@
 ---
-title: Administrar cuadros de texto en presentaciones en Android
-linktitle: Administrar cuadro de texto
+title: Gestionar cuadros de texto en presentaciones en Android
+linktitle: Gestionar cuadro de texto
 type: docs
 weight: 20
 url: /es/androidjava/manage-textbox/
 keywords:
 - cuadro de texto
 - marco de texto
-- agregar texto
+- añadir texto
 - actualizar texto
 - crear cuadro de texto
-- verificar cuadro de texto
-- agregar columna de texto
-- agregar hipervínculo
+- comprobar cuadro de texto
+- añadir columna de texto
+- añadir hipervínculo
 - PowerPoint
 - presentación
 - Android
@@ -20,51 +20,59 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides para Android mediante Java facilita la creación, edición y clonación de cuadros de texto en archivos PowerPoint y OpenDocument, mejorando la automatización de sus presentaciones."
 ---
+## **Introducción**
 
-Los textos en las diapositivas normalmente se encuentran en cuadros de texto o formas. Por lo tanto, para añadir texto a una diapositiva, debes agregar un cuadro de texto y luego colocar algo de texto dentro del cuadro. Aspose.Slides para Android a través de Java proporciona la interfaz [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) que permite agregar una forma que contiene texto.
+Los textos en las diapositivas normalmente existen en cuadros de texto o formas. Por lo tanto, para añadir texto a una diapositiva, debes añadir un cuadro de texto y luego colocar algo de texto dentro del cuadro. Aspose.Slides para Android mediante Java proporciona la interfaz [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IAutoShape) que permite agregar una forma que contiene texto.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides también proporciona la interfaz [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape) que permite agregar formas a las diapositivas. Sin embargo, no todas las formas añadidas mediante la interfaz `IShape` pueden contener texto. Pero las formas añadidas mediante la interfaz [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) pueden contener texto.
+
+Aspose.Slides también proporciona la interfaz [IShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IShape) que permite agregar formas a las diapositivas. Sin embargo, no todas las formas añadidas a través de la interfaz `IShape` pueden contener texto. Pero las formas añadidas mediante la interfaz [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IAutoShape) pueden contener texto.
+
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-Por lo tanto, al trabajar con una forma a la que deseas agregar texto, puede que necesites comprobar y confirmar que se haya convertido mediante la interfaz `IAutoShape`. Sólo entonces podrás trabajar con [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame), que es una propiedad bajo `IAutoShape`. Consulta la sección [Update Text](https://docs.aspose.com/slides/androidjava/manage-textbox/#update-text) en esta página.
+
+Por lo tanto, al tratar con una forma a la que deseas añadir texto, puede que quieras comprobar y confirmar que se ha convertido mediante la interfaz `IAutoShape`. Sólo entonces podrás trabajar con [TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/TextFrame), que es una propiedad de `IAutoShape`. Consulta la sección [Update Text](https://docs.aspose.com/slides/es/androidjava/manage-textbox/#update-text) en esta página.
+
 {{% /alert %}}
 
 ## **Crear un cuadro de texto en una diapositiva**
 
 Para crear un cuadro de texto en una diapositiva, sigue estos pasos:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtener una referencia a la primera diapositiva en la presentación recién creada. 
-3. Agregar un objeto [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) con [ShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) establecido como `Rectangle` en una posición especificada en la diapositiva y obtener la referencia al objeto `IAutoShape` recién agregado.
-4. Agregar la propiedad `TextFrame` al objeto `IAutoShape` que contendrá un texto. En el ejemplo a continuación, añadimos este texto: *Aspose TextBox*
-5. Finalmente, guardar el archivo PPTX mediante el objeto `Presentation`. 
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).
+2. Obtén una referencia a la primera diapositiva de la presentación recién creada. 
+3. Agrega un objeto [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IAutoShape) con [ShapeType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) establecido como `Rectangle` en una posición especificada de la diapositiva y obtén la referencia del nuevo objeto `IAutoShape`.
+4. Añade una propiedad `TextFrame` al objeto `IAutoShape` que contendrá texto. En el ejemplo siguiente, añadimos este texto: *Aspose TextBox*
+5. Por último, escribe el archivo PPTX mediante el objeto `Presentation`. 
 
-Este código Java—una implementación de los pasos anteriores—muestra cómo agregar texto a una diapositiva:
+Este código Java—una implementación de los pasos anteriores—muestra cómo añadir texto a una diapositiva:
+
 ```java
-// Instancia Presentation
+import com.aspose.slides.*;
+
+// Instancia la presentación
 Presentation pres = new Presentation();
 try {
     // Obtiene la primera diapositiva de la presentación
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Añade una AutoShape con el tipo establecido como Rectangle
+    // Añade una AutoShape con el tipo establecido como Rectángulo
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Añade TextFrame al Rectangle
+    // Añade un TextFrame al rectángulo
     ashp.addTextFrame(" ");
 
-    // Accede al TextFrame
+    // Accede al marco de texto
     ITextFrame txtFrame = ashp.getTextFrame();
 
-    // Crea el objeto Paragraph para el TextFrame
+    // Crea el objeto Paragraph para el marco de texto
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Crea el objeto Portion para el Paragraph
+    // Crea un objeto Portion para el párrafo
     IPortion portion = para.getPortions().get_Item(0);
 
-    // Establece texto
+    // Establece el texto
     portion.setText("Aspose TextBox");
 
     // Guarda la presentación en disco
@@ -74,15 +82,17 @@ try {
 }
 ```
 
+## **Comprobar si una forma es un cuadro de texto**
 
-## **Comprobar una forma de cuadro de texto**
+Aspose.Slides proporciona el método [isTextBox](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/#isTextBox--) de la interfaz [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IAutoShape) que permite examinar formas e identificar cuadros de texto.
 
-Aspose.Slides proporciona el método [isTextBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#isTextBox--) de la interfaz [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) que permite examinar formas e identificar cuadros de texto.
+![Cuadro de texto y forma](istextbox.png)
 
-![Text box and shape](istextbox.png)
+Este código Java muestra cómo comprobar si una forma se creó como un cuadro de texto: 
 
-Este código Java muestra cómo comprobar si una forma se creó como cuadro de texto: 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ForEach.shape(presentation, (shape, slide, index) -> {
@@ -96,9 +106,11 @@ try {
 }
 ```
 
+Ten en cuenta que si simplemente añades una forma automática usando el método `addAutoShape` de la interfaz [IShapeCollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/), el método `isTextBox` de la forma automática devolverá `false`. Sin embargo, después de añadir texto a la forma automática mediante el método `addTextFrame` o el método `setText`, la propiedad `isTextBox` devolverá `true`.
 
-Tenga en cuenta que si simplemente añades una autoshape usando el método `addAutoShape` de la interfaz [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/), el método `isTextBox` de la autoshape devolverá `false`. Sin embargo, después de agregar texto a la autoshape mediante el método `addTextFrame` o el método `setText`, la propiedad `isTextBox` devolverá `true`.
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -123,22 +135,32 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() devuelve false
 ```
 
+## **Encontrar la forma que posee un marco de texto**
+
+En un código genérico de procesamiento de texto, puedes recibir un [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) sin saber cuál objeto de presentación lo contiene. Utiliza el método [ITextFrame.getParentShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentShape--) para volver a la [IShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/) propietaria.
+
+Para un marco de texto que pertenece a un [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape/) u otra forma que contiene texto, [ITextFrame.getParentShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentShape--) devuelve el propietario y [ITextFrame.getParentCell](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentCell--) devuelve `null`. Ambos métodos proporcionan una navegación de solo lectura, por lo que llamarlos no cambia la propiedad. Siempre verifica que el valor devuelto no sea `null` antes de acceder a la forma.
+
+Para un ejemplo completo que identifica propietarios de formas y celdas de tabla, incluidas las formas asociadas a nodos de SmartArt, consulta [Search and Replace Text](/slides/es/androidjava/search-and-replace-text/).
 
 ## **Agregar columnas a un cuadro de texto**
 
-Aspose.Slides proporciona las propiedades [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) y [ColumnSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (de la interfaz [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) y la clase [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat)) que permiten agregar columnas a los cuadros de texto. Puedes especificar el número de columnas en un cuadro de texto y establecer el espacio entre columnas en puntos.
+Aspose.Slides proporciona las propiedades [ColumnCount](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) y [ColumnSpacing](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (de la interfaz [ITextFrameFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITextFrameFormat) y la clase [TextFrameFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/TextFrameFormat)) que permiten añadir columnas a los cuadros de texto. Puedes especificar el número de columnas en un cuadro de texto y establecer el espaciado en puntos entre columnas.
 
 Este código en Java demuestra la operación descrita: 
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Obtiene la primera diapositiva de la presentación
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Añade una AutoShape con el tipo establecido como Rectangle
+    // Añade una AutoShape con el tipo establecido como Rectángulo
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Añade TextFrame al rectángulo
+    // Añade un TextFrame al Rectángulo
     aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
             "you can add or delete text and the new or remaining text automatically adjusts " +
             "itself to flow within the container. You cannot have text flow from one container " +
@@ -150,7 +172,7 @@ try {
     // Especifica el número de columnas en el TextFrame
     format.setColumnCount(3);
 
-    // Especifica el espacio entre columnas
+    // Especifica el espaciado entre columnas
     format.setColumnSpacing(10);
 
     // Guarda la presentación
@@ -160,13 +182,15 @@ try {
 }
 ```
 
+## **Agregar columnas a un marco de texto**
 
-## **Agregar columnas a un Text Frame**
+Aspose.Slides para Android mediante Java proporciona la propiedad [ColumnCount](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (de la interfaz [ITextFrameFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITextFrameFormat)) que permite añadir columnas en marcos de texto. Con esta propiedad, puedes especificar el número de columnas que prefieras en un marco de texto.
 
-Aspose.Slides para Android a través de Java proporciona la propiedad [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (de la interfaz [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)) que permite agregar columnas en marcos de texto. Con esta propiedad, puedes especificar el número de columnas que deseas en un Text Frame.
+Este código Java muestra cómo añadir una columna dentro de un marco de texto:
 
-Este código Java muestra cómo agregar una columna dentro de un Text Frame:
 ```java
+import com.aspose.slides.*;
+
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
@@ -183,8 +207,8 @@ try {
     Presentation test = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(Double.NaN == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test != null) test.dispose();
     }
@@ -195,8 +219,8 @@ try {
     Presentation test1 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test1 != null) test1.dispose();
     }
@@ -208,8 +232,8 @@ try {
     Presentation test2 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test2 != null) test2.dispose();
     }
@@ -218,28 +242,30 @@ try {
 }
 ```
 
-
 ## **Actualizar texto**
 
-Aspose.Slides permite cambiar o actualizar el texto contenido en un cuadro de texto o todos los textos contenidos en una presentación. 
+Aspose.Slides permite cambiar o actualizar el texto contenido en un cuadro de texto o todos los textos de una presentación. 
 
-Este código Java demuestra una operación donde se actualizan o cambian todos los textos en una presentación:
+Este código Java demuestra una operación en la que se actualizan o cambian todos los textos de una presentación:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("text.pptx");
 try {
     for (ISlide slide : pres.getSlides())
     {
         for (IShape shape : slide.getShapes())
         {
-            if (shape instanceof IAutoShape) //Comprueba si la forma admite un marco de texto (IAutoShape). 
+            if (shape instanceof IAutoShape) //Comprueba si la forma admite marco de texto (IAutoShape). 
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Recorre los párrafos en el marco de texto
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Itera sobre los párrafos del marco de texto
                 {
-                    for (IPortion portion : paragraph.getPortions()) //Recorre cada porción en el párrafo
+                    for (IPortion portion : paragraph.getPortions()) //Itera sobre cada porción del párrafo
                     {
-                        portion.setText(portion.getText().replace("years", "months")); //Cambia el texto
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Cambia el formato
+                        portion.setText(portion.getText().replace("years", "months")); //Modifica el texto
+                        portion.getPortionFormat().setFontBold(NullableBool.True); //Modifica el formato
                     }
                 }
             }
@@ -253,41 +279,43 @@ try {
 }
 ```
 
-
-## **Agregar un cuadro de texto con hipervínculo** 
+## **Agregar un cuadro de texto con un hipervínculo** 
 
 Puedes insertar un enlace dentro de un cuadro de texto. Cuando se hace clic en el cuadro de texto, los usuarios son dirigidos a abrir el enlace. 
 
-Para agregar un cuadro de texto que contenga un enlace, sigue estos pasos:
+Para añadir un cuadro de texto que contenga un enlace, sigue estos pasos:
 
-1. Crear una instancia de la clase `Presentation`. 
-2. Obtener una referencia a la primera diapositiva en la presentación recién creada. 
-3. Agregar un objeto `AutoShape` con `ShapeType` configurado como `Rectangle` en una posición especificada en la diapositiva y obtener una referencia al objeto AutoShape recién agregado.
-4. Agregar un `TextFrame` al objeto `AutoShape` que contenga *Aspose TextBox* como texto predeterminado. 
-5. Instanciar la clase `IHyperlinkManager`. 
-6. Asignar el objeto `IHyperlinkManager` a la propiedad HyperlinkClick asociada con la porción deseada del `TextFrame`.
-7. Finalmente, guardar el archivo PPTX mediante el objeto `Presentation`. 
+1. Crea una instancia de la clase `Presentation`. 
+2. Obtén una referencia a la primera diapositiva de la presentación recién creada. 
+3. Agrega un objeto `AutoShape` con `ShapeType` establecido como `Rectangle` en una posición especificada de la diapositiva y obtén la referencia del nuevo objeto AutoShape.
+4. Añade un `TextFrame` al objeto `AutoShape` y establece el texto de su primera porción. En el ejemplo siguiente, usamos este texto: *Aspose.Slides*
+5. Obtén el objeto [IHyperlinkManager](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ihyperlinkmanager/) del `PortionFormat` de la porción que prefieras del `TextFrame`.
+6. Llama a [setExternalHyperlinkClick](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) en ese objeto para establecer el enlace que se abre al hacer clic en el texto.
+7. Por último, escribe el archivo PPTX mediante el objeto `Presentation`. 
 
-Este código Java—una implementación de los pasos anteriores—muestra cómo agregar un cuadro de texto con hipervínculo a una diapositiva:
+Este código Java—una implementación de los pasos anteriores—muestra cómo añadir un cuadro de texto con un hipervínculo a una diapositiva:
+
 ```java
+import com.aspose.slides.*;
+
 // Instancia una clase Presentation que representa un PPTX
 Presentation pres = new Presentation();
 try {
     // Obtiene la primera diapositiva de la presentación
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agrega un objeto AutoShape con el tipo establecido como Rectangle
+    // Añade un objeto AutoShape con el tipo establecido como Rectángulo
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
     // Convierte la forma a AutoShape
     IAutoShape pptxAutoShape = (IAutoShape)shape;
 
-    // Accede a la propiedad ITextFrame asociada con el AutoShape
+    // Accede a la propiedad ITextFrame asociada al AutoShape
     pptxAutoShape.addTextFrame("");
 
     ITextFrame textFrame = pptxAutoShape.getTextFrame();
 
-    // Agrega texto al marco
+    // Añade texto al marco
     textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
 
     // Establece el hipervínculo para el texto de la porción
@@ -302,13 +330,12 @@ try {
 }
 ```
 
-
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Cuál es la diferencia entre un cuadro de texto y un marcador de posición de texto al trabajar con diapositivas maestras?**
 
-Un [placeholder](/slides/es/androidjava/manage-placeholder/) hereda estilo/posición de la [master](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) y puede ser sobrescrito en [layouts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/), mientras que un cuadro de texto regular es un objeto independiente en una diapositiva específica y no cambia cuando cambias de layout.
+Un [placeholder](/slides/es/androidjava/manage-placeholder/) hereda el estilo/posición de la [master](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/masterslide/) y puede sobrescribirse en los [layouts](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/layoutslide/), mientras que un cuadro de texto regular es un objeto independiente en una diapositiva específica y no cambia al cambiar de diseño.
 
-**¿Cómo puedo realizar un reemplazo masivo de texto en toda la presentación sin tocar el texto dentro de gráficos, tablas y SmartArt?**
+**¿Cómo puedo realizar una sustitución masiva de texto en toda la presentación sin afectar el texto dentro de gráficos, tablas y SmartArt?**
 
-Limita tu iteración a auto‑shapes que tengan marcos de texto y excluye los objetos incrustados ([charts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/)) recorriendo sus colecciones por separado o omitiendo esos tipos de objetos.
+Limita tu iteración a las autoformas que tengan marcos de texto y excluye los objetos incrustados ([charts](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/smartart/)) recorriendo sus colecciones por separado o ignorando esos tipos de objetos.

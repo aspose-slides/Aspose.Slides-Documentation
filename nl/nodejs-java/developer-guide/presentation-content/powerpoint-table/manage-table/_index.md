@@ -7,8 +7,8 @@ url: /nl/nodejs-java/manage-table/
 keywords:
 - tabel toevoegen
 - tabel maken
-- tabel benaderen
-- beeldverhouding
+- tabel openen
+- aspectratio
 - tekst uitlijnen
 - tekstopmaak
 - tabelstijl
@@ -17,38 +17,43 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Maak & bewerk tabellen in PowerPoint‑dia's met JavaScript en Aspose.Slides voor Node.js. Ontdek eenvoudige code‑voorbeelden om uw tabel‑werkstromen te stroomlijnen."
+description: "Tabellen maken en bewerken in PowerPoint-dia's met JavaScript en Aspose.Slides voor Node.js. Ontdek eenvoudige codevoorbeelden om uw tabelwerkstromen te stroomlijnen."
 ---
-## **Introductie**
+## **Inleiding**
 
-Een tabel in PowerPoint is een efficiënte manier om informatie weer te geven en te presenteren. De informatie in een raster van cellen (geordend in rijen en kolommen) is eenvoudig en makkelijk te begrijpen.
+Een tabel in PowerPoint is een efficiënte manier om informatie weer te geven en te presenteren. De informatie in een raster van cellen (geordend in rijen en kolommen) is duidelijk en gemakkelijk te begrijpen.
 
-Aspose.Slides biedt de [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) klasse, [Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/) klasse en andere typen om u in staat te stellen tabellen te maken, bij te werken en te beheren in allerlei presentaties.
+Aspose.Slides biedt de [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) klasse, de [Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/) klasse en andere typen waarmee u tabellen kunt maken, bijwerken en beheren in allerlei presentaties.
 
 ## **Tabel maken vanaf nul**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse.
-2. Haal een verwijzing naar de dia op via de index. 
-3. Definieer een array van `columnWidth`.
-4. Definieer een array van `rowHeight`.
-5. Voeg een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object toe aan de dia via de [addTable](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) methode.
-6. Iterate door elke [Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/) om opmaak toe te passen op de boven-, onder-, rechter- en linkerrand.
-7. Voeg de eerste twee cellen van de eerste rij van de tabel samen.
-8. Benader een [Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/).
-9. Voeg tekst toe aan het [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
+2. Haal een referentie naar een slide op via de index.  
+3. Definieer een array van `columnWidth`.  
+4. Definieer een array van `rowHeight`.  
+5. Voeg een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object toe aan de slide via de [addTable](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) methode.  
+6. Itereer door elke [Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/) om opmaak toe te passen op de boven-, onder-, rechter- en linker randen.  
+7. Voeg de vier cellen in de linkerbovenhoek van de tabel (de eerste twee kolommen van de eerste twee rijen) samen tot één cel.  
+8. Verkrijg de [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) van een [Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/).  
+9. Voeg tekst toe aan de [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/).  
 10. Sla de gewijzigde presentatie op.
 
 Deze JavaScript‑code laat zien hoe u een tabel in een presentatie maakt:
+
 ```javascript
-// Instantieert een Presentation-klasse die een PPTX-bestand vertegenwoordigt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Instantie van de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
 var pres = new aspose.slides.Presentation();
 try {
-    // Benadert de eerste dia
+    // Toegang tot de eerste slide
     var sld = pres.getSlides().get_Item(0);
     // Definieert kolommen met breedtes en rijen met hoogtes
     var dblCols = java.newArray("double", [50, 50, 50]);
     var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Voegt een tabelvorm toe aan de dia
+    // Voegt een tabelvorm toe aan de slide
     var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
     // Stelt het randformaat in voor elke cel
     for (var row = 0; row < tbl.getRows().size(); row++) {
@@ -68,7 +73,7 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Voegt cellen 1 en 2 van rij 1 samen
+    // Voegt het 2x2‑blok linksboven van cellen samen tot één cel
     tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
     // Voegt tekst toe aan de samengevoegde cel
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -81,9 +86,9 @@ try {
 }
 ```
 
-## **Nummering in standaardtabel**
+## **Nummering in een standaardtabel**
 
-In een standaardtabel is de nummering van cellen eenvoudig en nulgebaseerd. De eerste cel in een tabel heeft de index 0,0 (kolom 0, rij 0). 
+In een standaardtabel is de nummering van cellen eenvoudig en nul‑gebaseerd. De eerste cel in een tabel heeft de index 0,0 (kolom 0, rij 0).
 
 Bijvoorbeeld, de cellen in een tabel met 4 kolommen en 4 rijen worden als volgt genummerd:
 
@@ -93,17 +98,22 @@ Bijvoorbeeld, de cellen in een tabel met 4 kolommen en 4 rijen worden als volgt 
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Deze JavaScript‑code laat zien hoe u de nummering voor cellen in een tabel specificeert:
+Deze JavaScript‑code laat zien hoe u de nummering van cellen in een tabel specificeert:
+
 ```javascript
-// Instantieert een Presentation-klasse die een PPTX-bestand vertegenwoordigt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Instantieert een Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
 var pres = new aspose.slides.Presentation();
 try {
-    // Benadert de eerste dia
+    // Toegang tot de eerste slide
     var sld = pres.getSlides().get_Item(0);
     // Definieert kolommen met breedtes en rijen met hoogtes
     var dblCols = java.newArray("double", [70, 70, 70, 70]);
     var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Voegt een tabelvorm toe aan de dia
+    // Voegt een tabelvorm toe aan de slide
     var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
     // Stelt het randformaat in voor elke cel
     for (let i = 0; i < tbl.getRows().size(); i++) {
@@ -135,30 +145,29 @@ try {
 
 ## **Bestaande tabel benaderen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
+2. Haal een referentie naar de slide die de tabel bevat op via de index.  
+3. Maak een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object aan en zet het op null.  
+4. Itereer door alle [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) objecten totdat de tabel gevonden is.  
 
-2. Haal een verwijzing naar de dia die de tabel bevat via de index. 
+   Als u vermoedt dat de slide waarmee u werkt een enkele tabel bevat, kunt u eenvoudig alle shapes die erin zitten controleren. Wanneer een shape wordt geïdentificeerd als een tabel, kunt u deze casten naar een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object. Maar als de slide meerdere tabellen bevat, is het beter om de gewenste tabel te zoeken via zijn [setAlternativeText(String value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).  
 
-3. Maak een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object aan en zet het op null.
-
-4. Iterate door alle [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) objecten totdat de tabel is gevonden.
-
-   Als u vermoedt dat de dia waarmee u werkt één tabel bevat, kunt u eenvoudig alle vormen die de dia bevat controleren. Wanneer een vorm wordt herkend als een tabel, kunt u deze casten naar een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object. Maar als de dia verschillende tabellen bevat, kunt u beter zoeken naar de gewenste tabel via de [setAlternativeText(String value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
-
-5. Gebruik het [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object om met de tabel te werken. In het onderstaande voorbeeld hebben we een nieuwe rij aan de tabel toegevoegd.
-
+5. Gebruik het [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object om met de tabel te werken. In het voorbeeld hieronder stellen we de tekst van een cel in de tabel in.  
 6. Sla de gewijzigde presentatie op.
 
-Deze JavaScript‑code laat zien hoe u een bestaande tabel benadert en ermee werkt:
 ```javascript
-// Instantieert de Presentation-klasse die een PPTX-bestand vertegenwoordigt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Instantieert de Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
 var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // Benadert de eerste dia
+    // Toegang tot de eerste slide
     var sld = pres.getSlides().get_Item(0);
     // Initialiseert null TableEx
     var tbl = null;
-    // Itereert door de vormen en stelt een verwijzing in naar de gevonden tabel
+    // Itereert door de shapes en zet een referentie naar de gevonden tabel
     for (let i = 0; i < sld.getShapes().size(); i++) {
         let shp = sld.getShapes().get_Item(i);
         if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
@@ -167,7 +176,7 @@ try {
             tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
-    // Slaat de gewijzigde presentatie op naar de schijf
+    // Slaat de gewijzigde presentatie op op schijf
     pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -176,32 +185,43 @@ try {
 }
 ```
 
+## **Zoek de cel die een TextFrame bezit**
+
+Wanneer generieke tekstverwerkingscode een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) uit een tabel ontvangt, gebruikt u de [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell--) methode om de eigenaar‑[Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/) op te halen. Voor een textframe in een tabelcel geeft [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell--) de eigenaar terug en geeft [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape--) `null` terug, hoewel de tabel zelf een shape is.
+
+De celcoördinaten zijn beschikbaar via de alleen‑lezen methoden [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) en [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/#getFirstRowIndex--). [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell--) biedt ook alleen‑lezen navigatie: het retourneert de eigenaar maar wijzigt de eigendom niet. Controleer altijd of de geretourneerde cel niet `null` is voordat u deze gebruikt.
+
+Voor een volledig voorbeeld dat tabelcel‑ en shape‑eigenaars identificeert, inclusief shapes die gekoppeld zijn aan SmartArt‑nodes, zie [Search and Replace Text](/slides/nl/nodejs-java/search-and-replace-text/).
+
 ## **Tekst uitlijnen in tabel**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse.
-2. Haal een verwijzing naar de dia op via de index. 
-3. Voeg een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object toe aan de dia.
-4. Benader een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) object uit de tabel.
-5. Benader de [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) [Paragraph](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraph/).
-6. Lijn de tekst verticaal uit.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
+2. Haal een referentie naar een slide op via de index.  
+3. Voeg een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object toe aan de slide.  
+4. Verkrijg een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) object uit de tabel.  
+5. Verkrijg de [Paragraph](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraph/) van het [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/).  
+6. Lijn de tekst verticaal uit.  
 7. Sla de gewijzigde presentatie op.
 
-Deze JavaScript‑code laat zien hoe u de tekst in een tabel uitlijnt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Maakt een instantie van de Presentation-klasse
 var pres = new aspose.slides.Presentation();
 try {
-    // Haalt de eerste dia op
+    // Haalt de eerste slide op
     var slide = pres.getSlides().get_Item(0);
     // Definieert kolommen met breedtes en rijen met hoogtes
     var dblCols = java.newArray("double", [120, 120, 120, 120]);
     var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // Voegt de tabelvorm toe aan de dia
+    // Voegt de tabelvorm toe aan de slide
     var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
     tbl.get_Item(1, 0).getTextFrame().setText("10");
     tbl.get_Item(2, 0).getTextFrame().setText("20");
     tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // Benadert het tekstframe
+    // Toegang tot het tekstframe
     var txtFrame = tbl.get_Item(0, 0).getTextFrame();
     // Maakt het Paragraph-object voor het tekstframe
     var paragraph = txtFrame.getParagraphs().get_Item(0);
@@ -212,8 +232,8 @@ try {
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Lijnt de tekst verticaal uit
     var cell = tbl.get_Item(0, 0);
-    cell.setTextAnchorType(aspose.slides.TextAnchorType.Center);
-    cell.setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
+    cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
+    cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
     // Slaat de presentatie op naar de schijf
     pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -225,33 +245,32 @@ try {
 
 ## **Tekstopmaak instellen op tabelniveau**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse.
-2. Haal een verwijzing naar de dia op via de index. 
-3. Benader een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object van de Slide.
-4. Stel de [setFontHeight(float value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) in voor de tekst.
-5. Stel de [setAlignment(int value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) en [setMarginRight(float value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) in.
-6. Stel de [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) in.
-7. Sla de gewijzigde presentatie op. 
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse aan.  
+2. Haal een referentie naar een slide op via de index.  
+3. Verkrijg een [Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Table) object van de slide.  
+4. Stel de [setFontHeight(float value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) in voor de tekst.  
+5. Stel de [setAlignment(int value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) en [setMarginRight(float value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) in.  
+6. Stel de [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) in.  
+7. Sla de gewijzigde presentatie op.  
 
-Deze JavaScript‑code laat zien hoe u uw gewenste opmaakopties toepast op de tekst in een tabel:
 ```javascript
-// Maakt een instantie van de Presentation-klasse
+// Maakt een instantie van de Presentation‑klasse
 var pres = new aspose.slides.Presentation("simpletable.pptx");
 try {
-    // Laten we aannemen dat de eerste vorm op de eerste dia een tabel is
+    // Laten we aannemen dat de eerste shape op de eerste slide een tabel is
     var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     // Stelt de letterhoogte van de tabelcellen in
     var portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
-    // Stelt de tekstuitlijning en rechter marge van de tabelcellen in één oproep in
+    // Stelt de tekstuitlijning en de rechter marge van de tabelcellen in één oproep in
     var paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
-    // Stelt het verticale type van de tabelceltekst in
+    // Stelt het verticale type van de tabelcellen in
     var textFrameFormat = new aspose.slides.TextFrameFormat();
-    textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
+    textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
     someTable.setTextFormat(textFrameFormat);
     pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -261,14 +280,19 @@ try {
 }
 ```
 
-## **Tabelstijleigenschappen ophalen**
+## **Vooraf ingestelde tabelstijl instellen**
 
-Aspose.Slides stelt u in staat de stijleigenschappen van een tabel op te halen zodat u die details voor een andere tabel of elders kunt gebruiken. Deze JavaScript‑code laat zien hoe u de stijleigenschappen van een vooraf ingestelde tabelstijl verkrijgt:
+Aspose.Slides levert de ingebouwde PowerPoint‑tabelstijlen aan als de [TableStylePreset](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tablestylepreset/) enumeratie, zodat u dezelfde uitstraling op elke tabel kunt toepassen. Deze JavaScript‑code laat zien hoe u de standaardstijl van een tabel vervangt door een vooraf ingestelde stijl:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// wijzig het standaard stijl‑preset thema
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// wijzig het standaard stijlvoorinstellingsthema
     pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -277,12 +301,14 @@ try {
 }
 ```
 
-## **Beeldverhouding van tabel vergrendelen**
+## **Vergrendel Aspectratio van Tabel**
 
-De beeldverhouding van een geometrische vorm is de verhouding van de afmetingen in verschillende dimensies. Aspose.Slides biedt de [**setAspectRatioLocked**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) eigenschap om de beeldverhouding voor tabellen en andere vormen te vergrendelen.
+De aspectratio van een geometrische vorm is de verhouding van de afmetingen in verschillende dimensies. Aspose.Slides biedt de eigenschap [**setAspectRatioLocked**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) om de aspectratio‑instelling voor tabellen en andere vormen te vergrendelen.
 
-Deze JavaScript‑code laat zien hoe u de beeldverhouding voor een tabel vergrendelt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -299,14 +325,14 @@ try {
 
 ## **FAQ**
 
-**Kan ik de lezerichting van rechts naar links (RTL) inschakelen voor een hele tabel en de tekst in de cellen?**
+**Kan ik de leesrichting van rechts naar links (RTL) inschakelen voor een volledige tabel en de tekst in de cellen?**
 
-Ja. De tabel biedt een [setRightToLeft](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/table/setrighttoleft/) methode, en alinea's hebben [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). Het gebruik van beide zorgt voor de juiste RTL‑volgorde en weergave binnen cellen.
+Ja. De tabel biedt een [setRightToLeft](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/table/setrighttoleft/) methode, en alinea's hebben [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). Door beide te gebruiken wordt de correcte RTL‑volgorde en weergave in de cellen gegarandeerd.
 
-**Hoe kan ik voorkomen dat gebruikers een tabel in het uiteindelijke bestand verplaatsen of van grootte wijzigen?**
+**Hoe kan ik voorkomen dat gebruikers een tabel in het uiteindelijke bestand verplaatsen of wijzigen van grootte?**
 
-Gebruik vormvergrendelingen om verplaatsen, grootte wijzigen, selectie, enz. uit te schakelen. Deze vergrendelingen gelden ook voor tabellen.
+Gebruik shape‑vergrendelingen om verplaatsen, vergroten/verkleinen, selecteren, enz. uit te schakelen. Deze vergrendelingen gelden ook voor tabellen.
 
-**Wordt het invoegen van een afbeelding in een cel als achtergrond ondersteund?**
+**Wordt het invoegen van een afbeelding als achtergrond in een cel ondersteund?**
 
-Ja. U kunt een [picture fill](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/) voor een cel instellen; de afbeelding zal het celgebied bedekken volgens de gekozen modus (uitrekken of betegelen).
+Ja. U kunt een [picture fill](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/) instellen voor een cel; de afbeelding bedekt het celgebied volgens de gekozen modus (rekken of tegel).

@@ -1,15 +1,15 @@
 ---
-title: Kelola Tabel Presentasi pada Android
+title: Kelola Tabel Presentasi di Android
 linktitle: Kelola Tabel
 type: docs
 weight: 10
 url: /id/androidjava/manage-table/
 keywords:
-- menambah tabel
-- buat tabel
-- akses tabel
+- menambahkan tabel
+- membuat tabel
+- mengakses tabel
 - rasio aspek
-- ratakan teks
+- menyelaraskan teks
 - pemformatan teks
 - gaya tabel
 - PowerPoint
@@ -17,30 +17,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Buat & edit tabel dalam slide PowerPoint dengan Aspose.Slides untuk Android. Temukan contoh kode Java sederhana untuk mempermudah alur kerja tabel Anda."
+description: "Buat & edit tabel dalam slide PowerPoint dengan Aspose.Slides untuk Android. Temukan contoh kode Java sederhana untuk menyederhanakan alur kerja tabel Anda."
 ---
 ## **Pendahuluan**
 
-Tabel di PowerPoint adalah cara yang efisien untuk menampilkan dan menggambarkan informasi. Informasi dalam kisi sel (disusun dalam baris dan kolom) bersifat langsung dan mudah dipahami.
+Tabel di PowerPoint adalah cara yang efisien untuk menampilkan dan menggambarkan informasi. Informasi dalam kisi sel (diatur dalam baris dan kolom) bersifat langsung dan mudah dipahami.
 
 Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Table), antarmuka [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable), kelas [Cell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/cell/), antarmuka [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/), dan tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel dalam semua jenis presentasi.
 
-## **Buat Tabel dari Awal**
+## **Membuat Tabel dari Awal**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
-3. Definisikan array `columnWidth`.
-4. Definisikan array `rowHeight`.
+3. Tentukan array `columnWidth`.
+4. Tentukan array `rowHeight`.
 5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iterasi setiap [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/) untuk menerapkan pemformatan pada batas atas, bawah, kanan, dan kiri.
+6. Iterasi melalui setiap [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/) untuk menerapkan pemformatan pada batas atas, bawah, kanan, dan kiri.
 7. Gabungkan dua sel pertama pada baris pertama tabel. 
-8. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframe/) dari sebuah [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/).
+8. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframe/) milik sebuah [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/).
 9. Tambahkan teks ke [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframe/).
 10. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java berikut menunjukkan cara membuat tabel dalam sebuah presentasi:
+Kode Java ini menunjukkan cara membuat tabel dalam sebuah presentasi:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
@@ -54,7 +57,7 @@ try {
     // Menambahkan shape tabel ke slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Mengatur format batas untuk setiap sel
+    // Menetapkan format border untuk setiap sel
     for (int row = 0; row < tbl.getRows().size(); row++)
     {
         for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
@@ -79,9 +82,9 @@ try {
         }
     }
     // Menggabungkan sel 1 & 2 pada baris 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // Menambahkan teks ke sel yang digabung
+    // Menambahkan teks ke sel yang digabungkan
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
 
     // Menyimpan presentasi ke Disk
@@ -95,7 +98,7 @@ try {
 
 Dalam tabel standar, penomoran sel bersifat langsung dan berbasis nol. Sel pertama dalam tabel diindeks sebagai 0,0 (kolom 0, baris 0). 
 
-Misalnya, sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor seperti ini:
+Sebagai contoh, sel dalam tabel dengan 4 kolom dan 4 baris dinomori sebagai berikut:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -103,9 +106,12 @@ Misalnya, sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor seperti ini:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Kode Java berikut menunjukkan cara menentukan penomoran untuk sel dalam tabel:
+Kode Java ini menunjukkan cara menentukan penomoran untuk sel dalam sebuah tabel:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
@@ -119,7 +125,7 @@ try {
     // Menambahkan shape tabel ke slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Mengatur format batas untuk setiap sel
+    // Menetapkan format border untuk setiap sel
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -149,21 +155,23 @@ try {
 }
 ```
 
-## **Akses Tabel yang Ada**
+## **Mengakses Tabel yang Ada**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
 2. Dapatkan referensi ke slide yang berisi tabel melalui indeksnya. 
-3. Buat objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) dan setel ke null.
-4. Iterasi semua objek [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) hingga tabel ditemukan.
+3. Buat objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) dan setel menjadi null.
+4. Iterasi melalui semua objek [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) hingga tabel ditemukan.
 
-   Jika Anda menduga slide yang sedang Anda tangani berisi satu tabel, Anda dapat cukup memeriksa semua shape yang ada di dalamnya. Saat sebuah shape teridentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Table). Namun jika slide yang Anda tangani berisi beberapa tabel, maka lebih baik mencari tabel yang Anda perlukan melalui [setAlternativeText(String value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+   Jika Anda menduga slide yang Anda tangani hanya berisi satu tabel, Anda dapat memeriksa semua shape yang ada. Ketika sebuah shape diidentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Table). Namun jika slide tersebut berisi beberapa tabel, lebih baik mencari tabel yang Anda butuhkan melalui [setAlternativeText(String value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
 
-5. Gunakan objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) untuk bekerja dengan tabel. Pada contoh di bawah, kami menambahkan baris baru ke tabel.
+5. Gunakan objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) untuk bekerja dengan tabel. Pada contoh di bawah, kami mengatur teks sebuah sel dalam tabel.
 6. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java berikut menunjukkan cara mengakses dan bekerja dengan tabel yang ada:
+Kode Java ini menunjukkan cara mengakses dan bekerja dengan tabel yang ada:
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
@@ -171,7 +179,7 @@ try {
     // Mengakses slide pertama
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Menginisialisasi TableEx null
+    // Menginisialisasi TableEx menjadi null
     ITable tbl = null;
 
     // Mengiterasi shape dan menetapkan referensi ke tabel yang ditemukan
@@ -192,19 +200,30 @@ try {
 }
 ```
 
-## **Ratakan Teks dalam Tabel**
+## **Temukan Sel yang Memiliki Text Frame**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
+Ketika kode pemrosesan teks umum menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dari sebuah tabel, gunakan metode [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentCell--) untuk mendapatkan [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/) pemiliknya. Untuk text frame sel tabel, [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentCell--) mengembalikan pemilik dan [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentShape--) mengembalikan `null`, meskipun tabel itu sendiri adalah sebuah shape.
+
+Koordinat sel tersedia melalui metode baca-saja [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) dan [ICell.getFirstRowIndex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/#getFirstRowIndex--). [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentCell--) juga menyediakan navigasi baca-saja: ia mengembalikan pemilik tetapi tidak mengubah kepemilikan. Selalu periksa apakah sel yang dikembalikan `null` sebelum menggunakannya.
+
+Untuk contoh lengkap yang mengidentifikasi pemilik sel tabel dan shape, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/androidjava/search-and-replace-text/).
+
+## **Menyelaraskan Teks dalam Tabel**
+
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) ke slide.
 4. Akses objek [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dari tabel.
 5. Akses [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/) dari [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/).
-6. Ratakan teks secara vertikal.
+6. Luruskan teks secara vertikal.
 7. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java berikut menunjukkan cara meratakan teks dalam tabel:
+Kode Java ini menunjukkan cara menyelaraskan teks dalam tabel:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation
 Presentation pres = new Presentation();
 try {
@@ -227,13 +246,13 @@ try {
     // Membuat objek Paragraph untuk text frame
     IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
     
-    // Membuat objek Portion untuk paragraf
+    // Membuat objek Portion untuk paragraph
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // Meratakan teks secara vertikal
+    // Menyelaraskan teks secara vertikal
     ICell cell = tbl.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
@@ -245,9 +264,9 @@ try {
 }
 ```
 
-## **Atur Pemformatan Teks pada Tingkat Tabel**
+## **Setel Pemformatan Teks pada Tingkat Tabel**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Akses objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) dari Slide.
 4. Setel [setFontHeight(float value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) untuk teks.
@@ -255,27 +274,29 @@ try {
 6. Setel [setTextVerticalType(byte value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Simpan presentasi yang telah dimodifikasi. 
 
-Kode Java berikut menunjukkan cara menerapkan opsi pemformatan pilihan Anda pada teks dalam tabel:
+Kode Java ini menunjukkan cara menerapkan opsi pemformatan yang Anda pilih pada teks dalam tabel:
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat instance kelas Presentation
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // Asumsikan bahwa shape pertama pada slide pertama adalah tabel
+    // Misalkan shape pertama pada slide pertama adalah sebuah tabel
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
-    // Mengatur tinggi font sel tabel
+    // Menetapkan tinggi font sel tabel
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // Mengatur perataan teks sel tabel dan margin kanan dalam satu panggilan
+    // Menetapkan perataan teks sel tabel dan margin kanan dalam satu panggilan
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
     
-    // Mengatur tipe vertikal teks sel tabel
+    // Menetapkan tipe vertikal teks sel tabel
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
     someTable.setTextFormat(textFrameFormat);
@@ -288,13 +309,24 @@ try {
 
 ## **Dapatkan Properti Gaya Tabel**
 
-Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode Java berikut menunjukkan cara mendapatkan properti gaya dari preset style tabel:
+Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode Java ini menunjukkan cara mendapatkan properti gaya dari style preset tabel:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // ubah tema preset gaya default
+    table.setStylePreset(TableStylePreset.DarkStyle1); // ubah tema preset gaya default 
+
+    // Dapatkan preset gaya tabel
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // Terapkan preset gaya yang diambil ke tabel lain
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -303,11 +335,13 @@ try {
 
 ## **Kunci Rasio Aspek Tabel**
 
-Rasio aspek suatu bentuk geometris adalah perbandingan ukuran‑ukuran dalam dimensi yang berbeda. Aspose.Slides menyediakan properti [**setAspectRatioLocked**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) untuk memungkinkan Anda mengunci pengaturan rasio aspek pada tabel dan shape lainnya.
+Rasio aspek sebuah shape geometris adalah perbandingan ukuran pada dimensi yang berbeda. Aspose.Slides menyediakan properti [**setAspectRatioLocked**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) untuk memungkinkan Anda mengunci pengaturan rasio aspek pada tabel dan shape lainnya.
 
-Kode Java berikut menunjukkan cara mengunci rasio aspek untuk sebuah tabel:
+Kode Java ini menunjukkan cara mengunci rasio aspek untuk sebuah tabel:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -325,9 +359,9 @@ try {
 
 ## **FAQ**
 
-**Apakah saya dapat mengaktifkan arah baca kanan-ke-kiri (RTL) untuk seluruh tabel dan teks di selnya?**
+**Apakah saya dapat mengaktifkan arah baca kanan-ke-kiri (RTL) untuk seluruh tabel dan teks di dalam selnya?**
 
-Ya. Tabel menyediakan metode [setRightToLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), dan paragraf memiliki [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Menggunakan keduanya memastikan urutan RTL yang benar dan rendering di dalam sel.
+Ya. Tabel menyediakan metode [setRightToLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), dan paragraf memiliki [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Menggunakan keduanya memastikan urutan RTL yang tepat dan rendering di dalam sel.
 
 **Bagaimana saya dapat mencegah pengguna memindahkan atau mengubah ukuran tabel dalam file akhir?**
 

@@ -1,63 +1,67 @@
 ---
-title: Mengelola Kotak Teks dalam Presentasi Menggunakan PHP
+title: Kelola Kotak Teks dalam Presentasi Menggunakan PHP
 linktitle: Kelola Kotak Teks
 type: docs
 weight: 20
 url: /id/php-java/manage-textbox/
 keywords:
 - kotak teks
-- bingkai teks
-- menambahkan teks
-- memperbarui teks
-- membuat kotak teks
-- memeriksa kotak teks
-- menambahkan kolom teks
-- menambahkan tautan
+- frame teks
+- tambahkan teks
+- perbarui teks
+- buat kotak teks
+- periksa kotak teks
+- tambahkan kolom teks
+- tambahkan hyperlink
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides untuk PHP memudahkan pembuatan, penyuntingan, dan penyalinan kotak teks dalam file PowerPoint dan OpenDocument, meningkatkan otomasi presentasi Anda."
+description: "Aspose.Slides untuk PHP memudahkan pembuatan, penyuntingan, dan penyalinan kotak teks dalam file PowerPoint dan OpenDocument, meningkatkan otomatisasi presentasi Anda."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Teks pada slide biasanya berada dalam kotak teks atau bentuk. Oleh karena itu, untuk menambahkan teks ke sebuah slide, Anda harus menambahkan kotak teks dan kemudian menaruh beberapa teks di dalam kotak teks tersebut. Aspose.Slides untuk PHP via Java menyediakan kelas [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) yang memungkinkan Anda menambahkan bentuk yang berisi beberapa teks.
+Teks pada slide biasanya berada di dalam kotak teks atau bentuk. Oleh karena itu, untuk menambahkan teks ke sebuah slide, Anda harus menambahkan kotak teks dan kemudian menempatkan beberapa teks di dalam kotak teks tersebut. Aspose.Slides for PHP via Java menyediakan kelas [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) yang memungkinkan Anda menambahkan bentuk yang berisi teks.
 
 {{% alert title="Info" color="info" %}}
+
 Aspose.Slides juga menyediakan kelas [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) yang memungkinkan Anda menambahkan bentuk ke slide. Namun, tidak semua bentuk yang ditambahkan melalui kelas `Shape` dapat menampung teks. Tetapi bentuk yang ditambahkan melalui kelas [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) dapat berisi teks.
+
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-Oleh karena itu, ketika menangani sebuah bentuk yang ingin Anda tambahkan teks, Anda mungkin ingin memeriksa dan memastikan bahwa bentuk tersebut di‑cast melalui kelas `AutoShape`. Hanya dengan begitu Anda dapat menggunakan [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/), yang merupakan properti di bawah `AutoShape`. Lihat bagian [Update Text](/slides/id/php-java/manage-textbox/#update-text) pada halaman ini.
+
+Karena itu, ketika berurusan dengan bentuk yang ingin Anda tambahkan teks, Anda mungkin perlu memeriksa dan memastikan bahwa bentuk tersebut di‑cast melalui kelas `AutoShape`. Hanya dengan begitu Anda akan dapat bekerja dengan [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/), yang merupakan properti pada `AutoShape`. Lihat bagian [Update Text](/slides/id/php-java/manage-textbox/#update-text) pada halaman ini.
+
 {{% /alert %}}
 
 ## **Buat Kotak Teks pada Slide**
 
-Untuk membuat kotak teks pada slide, ikuti langkah-langkah berikut:
+Untuk membuat kotak teks pada slide, ikuti langkah‑langkah berikut:
 
-1. Buat instansi dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 2. Dapatkan referensi untuk slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) dengan tipe bentuk diatur sebagai [Rectangle](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapetype/#Rectangle) pada posisi tertentu di slide dan dapatkan referensi untuk objek `AutoShape` yang baru ditambahkan.
+3. Tambahkan objek [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) dengan jenis bentuk diatur sebagai [Rectangle](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapetype/#Rectangle) pada posisi yang ditentukan di slide dan dapatkan referensi untuk objek `AutoShape` yang baru ditambahkan.
 4. Tambahkan `TextFrame` ke objek `AutoShape` yang akan berisi teks. Pada contoh di bawah, kami menambahkan teks berikut: *Aspose TextBox*
 5. Akhirnya, tulis file PPTX melalui objek `Presentation`. 
 
-Kode PHP ini—implementasi dari langkah-langkah di atas—menunjukkan cara menambahkan teks ke sebuah slide:
+Kode PHP ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menambahkan teks ke slide:
 
 ```php
-  # Membuat instansi Presentation
+  # Membuat instance Presentation
   $pres = new Presentation();
   try {
     # Mendapatkan slide pertama dalam presentasi
     $sld = $pres->getSlides()->get_Item(0);
-    # Menambah AutoShape dengan tipe diatur sebagai Rectangle
+    # Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Menambah TextFrame ke Rectangle
+    # Menambahkan TextFrame ke Rectangle
     $ashp->addTextFrame(" ");
-    # Mengakses frame teks
+    # Mengakses text frame
     $txtFrame = $ashp->getTextFrame();
-    # Membuat objek Paragraph untuk frame teks
+    # Membuat objek Paragraph untuk text frame
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Membuat objek Portion untuk paragraf
+    # Membuat objek Portion untuk paragraph
     $portion = $para->getPortions()->get_Item(0);
     # Mengatur Teks
     $portion->setText("Aspose TextBox");
@@ -72,7 +76,7 @@ Kode PHP ini—implementasi dari langkah-langkah di atas—menunjukkan cara mena
 
 ## **Periksa Bentuk Kotak Teks**
 
-Aspose.Slides menyediakan metode [isTextBox](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/istextbox/) dari kelas [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), yang memungkinkan Anda memeriksa bentuk dan mengidentifikasi kotak teks.
+Aspose.Slides menyediakan metode [isTextBox](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/istextbox/) dari kelas [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) yang memungkinkan Anda memeriksa bentuk dan mengidentifikasi kotak teks.
 
 ![Text box and shape](istextbox.png)
 
@@ -90,14 +94,14 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Perhatikan bahwa jika Anda hanya menambahkan autoshape menggunakan metode `addAutoShape` dari kelas [ShapeCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/), metode `isTextBox` pada autoshape akan mengembalikan `false`. Namun, setelah Anda menambahkan teks ke autoshape menggunakan metode `addTextFrame` atau metode `setText`, properti `isTextBox` akan mengembalikan `true`.
+Perhatikan bahwa jika Anda hanya menambahkan sebuah autoshape menggunakan metode `addAutoShape` dari kelas [ShapeCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/), metode `isTextBox` pada autoshape akan mengembalikan `false`. Namun, setelah Anda menambahkan teks ke autoshape menggunakan metode `addTextFrame` atau metode `setText`, properti `isTextBox` akan mengembalikan `true`.
 
 ```php
 $presentation = new Presentation();
@@ -124,11 +128,19 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() mengembalikan false
 ```
 
+## **Temukan Bentuk yang Memiliki TextFrame**
+
+Dalam kode pemrosesan teks umum, Anda mungkin menerima sebuah [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/) tanpa mengetahui sebelumnya objek presentasi mana yang menampungnya. Gunakan metode [TextFrame::getParentShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#getParentShape) untuk menavigasi kembali ke [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) pemiliknya.
+
+Untuk sebuah text frame yang tergabung dalam sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) atau bentuk lain yang berisi teks, [TextFrame::getParentShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#getParentShape) mengembalikan pemiliknya dan [TextFrame::getParentCell](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#getParentCell) mengembalikan `null`. Kedua metode menyediakan navigasi read‑only, sehingga pemanggilannya tidak mengubah kepemilikan. Selalu periksa nilai yang dikembalikan dengan `java_is_null` sebelum mengakses bentuk.
+
+Untuk contoh lengkap yang mengidentifikasi pemilik bentuk dan sel‑tabel, termasuk bentuk yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/php-java/search-and-replace-text/).
+
 ## **Tambahkan Kolom ke Kotak Teks**
 
-Aspose.Slides menyediakan metode [setColumnCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/setcolumncount/) dan [setColumnSpacing](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/setcolumnspacing/) dari kelas [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/) yang memungkinkan Anda menambahkan kolom ke kotak teks. Anda dapat menentukan jumlah kolom dalam kotak teks dan mengatur jarak antar kolom dalam poin.
+Aspose.Slides menyediakan metode [setColumnCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/setcolumncount/) dan [setColumnSpacing](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/setcolumnspacing/) dari kelas [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/) yang memungkinkan Anda menambahkan kolom ke kotak teks. Anda dapat menentukan jumlah kolom dalam kotak teks dan mengatur jarak spasi dalam poin antar kolom.
 
-Kode ini menunjukkan operasi yang dijelaskan:
+Kode berikut memperlihatkan operasi yang dijelaskan:
 
 ```php
   $pres = new Presentation();
@@ -143,7 +155,7 @@ Kode ini menunjukkan operasi yang dijelaskan:
     $format = $aShape->getTextFrame()->getTextFrameFormat();
     # Menentukan jumlah kolom dalam TextFrame
     $format->setColumnCount(3);
-    # Menentukan jarak antar kolom
+    # Menentukan jarak spasi antar kolom
     $format->setColumnSpacing(10);
     # Menyimpan presentasi
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
@@ -154,11 +166,11 @@ Kode ini menunjukkan operasi yang dijelaskan:
   }
 ```
 
-## **Tambahkan Kolom ke Bingkai Teks**
+## **Tambahkan Kolom ke TextFrame**
 
-Aspose.Slides untuk PHP via Java menyediakan metode [setColumnCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/setcolumncount/) dari kelas [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/) yang memungkinkan Anda menambahkan kolom dalam bingkai teks. Melalui properti ini, Anda dapat menentukan jumlah kolom yang diinginkan dalam sebuah bingkai teks.
+Aspose.Slides for PHP via Java menyediakan metode [setColumnCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/setcolumncount/) dari kelas [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/) yang memungkinkan Anda menambahkan kolom dalam text frame. Melalui properti ini, Anda dapat menentukan jumlah kolom yang diinginkan dalam sebuah text frame.
 
-Kode PHP ini menunjukkan cara menambahkan kolom di dalam bingkai teks:
+Kode PHP ini menunjukkan cara menambahkan kolom di dalam text frame:
 
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
@@ -211,23 +223,23 @@ Kode PHP ini menunjukkan cara menambahkan kolom di dalam bingkai teks:
   }
 ```
 
-## **Update Text**
+## **Perbarui Teks**
 
 Aspose.Slides memungkinkan Anda mengubah atau memperbarui teks yang terdapat dalam kotak teks atau semua teks yang terdapat dalam sebuah presentasi. 
 
-Kode PHP ini menunjukkan operasi di mana semua teks dalam sebuah presentasi diperbarui atau diubah:
+Kode PHP ini memperlihatkan operasi di mana semua teks dalam presentasi diperbarui atau diubah:
 
 ```php
   $pres = new Presentation("text.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
       foreach($slide->getShapes() as $shape) {
-        # Memeriksa apakah bentuk mendukung bingkai teks (IAutoShape).
+        # Memeriksa apakah shape mendukung text frame (IAutoShape).
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
           $autoShape = $shape;
-          # Mengulangi paragraf dalam bingkai teks
+          # Mengiterasi paragraf dalam text frame
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Mengulangi setiap bagian dalam paragraf
+            # Mengiterasi setiap portion dalam paragraf
             foreach($paragraph->getPortions() as $portion) {
               $portion->setText($portion->getText()->replace("years", "months"));// Mengubah teks
 
@@ -249,39 +261,39 @@ Kode PHP ini menunjukkan operasi di mana semua teks dalam sebuah presentasi dipe
 
 ## **Tambahkan Kotak Teks dengan Hyperlink** 
 
-Anda dapat menyisipkan tautan di dalam kotak teks. Ketika kotak teks diklik, pengguna diarahkan untuk membuka tautan tersebut. 
+Anda dapat menyisipkan tautan di dalam kotak teks. Ketika kotak teks diklik, pengguna akan diarahkan untuk membuka tautan tersebut. 
 
-Untuk menambahkan kotak teks yang berisi tautan, ikuti langkah-langkah berikut:
+Untuk menambahkan kotak teks yang berisi tautan, ikuti langkah‑langkah berikut:
 
-1. Buat instansi dari kelas `Presentation`. 
+1. Buat instance kelas `Presentation`. 
 2. Dapatkan referensi untuk slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek `AutoShape` dengan `ShapeType` diatur sebagai `Rectangle` pada posisi tertentu di slide dan dapatkan referensi objek AutoShape yang baru ditambahkan.
+3. Tambahkan objek `AutoShape` dengan `ShapeType` diatur sebagai `Rectangle` pada posisi yang ditentukan di slide dan dapatkan referensi objek `AutoShape` yang baru ditambahkan.
 4. Tambahkan `TextFrame` ke objek `AutoShape` yang berisi *Aspose TextBox* sebagai teks defaultnya. 
 5. Instansiasi kelas `HyperlinkManager`. 
-6. Tetapkan hyperlink menggunakan metode [setExternalHyperlinkClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) yang terkait dengan bagian yang Anda inginkan dari `TextFrame`.
+6. Tetapkan hyperlink menggunakan metode [setExternalHyperlinkClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) yang terkait dengan bagian `TextFrame` yang Anda inginkan. 
 7. Akhirnya, tulis file PPTX melalui objek `Presentation`. 
 
-Kode PHP ini—implementasi dari langkah-langkah di atas—menunjukkan cara menambahkan kotak teks dengan hyperlink ke sebuah slide:
+Kode PHP ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menambahkan kotak teks dengan hyperlink ke slide:
 
 ```php
-  # Membuat instansi kelas Presentation yang mewakili sebuah PPTX
+  # Membuat instance kelas Presentation yang merepresentasikan PPTX
   $pres = new Presentation();
   try {
     # Mendapatkan slide pertama dalam presentasi
     $slide = $pres->getSlides()->get_Item(0);
     # Menambahkan objek AutoShape dengan tipe diatur sebagai Rectangle
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Meng-cast bentuk menjadi AutoShape
+    # Meng-cast shape menjadi AutoShape
     $pptxAutoShape = $shape;
     # Mengakses properti ITextFrame yang terkait dengan AutoShape
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    # Menambahkan beberapa teks ke bingkai
+    # Menambahkan teks ke dalam frame
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Mengatur Hyperlink untuk teks bagian
+    # Menetapkan Hyperlink untuk teks portion
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # Menyimpan presentasi PPTX
+    # Menyimpan Presentasi PPTX
     $pres->save("hLink_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -292,10 +304,10 @@ Kode PHP ini—implementasi dari langkah-langkah di atas—menunjukkan cara mena
 
 ## **FAQ**
 
-**Apa perbedaan antara kotak teks dan placeholder teks saat bekerja dengan master slide?**
+**Apa perbedaan antara kotak teks dan placeholder teks saat bekerja dengan slide master?**
 
-Sebuah [placeholder](/slides/id/php-java/manage-placeholder/) mewarisi gaya/posisi dari [master](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) dan dapat ditimpa pada [layouts](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/), sedangkan kotak teks biasa adalah objek independen pada slide tertentu dan tidak berubah saat Anda beralih layout.
+Sebuah [placeholder](/slides/id/php-java/manage-placeholder/) mewarisi gaya/posisi dari [master](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) dan dapat ditimpa pada [layout](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/), sedangkan kotak teks biasa merupakan objek independen pada slide tertentu dan tidak berubah ketika Anda beralih layout.
 
-**Bagaimana saya dapat melakukan penggantian teks secara massal di seluruh presentasi tanpa menyentuh teks di dalam chart, tabel, dan SmartArt?**
+**Bagaimana cara melakukan penggantian teks massal di seluruh presentasi tanpa menyentuh teks di dalam bagan, tabel, dan SmartArt?**
 
-Batasi iterasi Anda hanya pada auto‑shape yang memiliki bingkai teks dan kecualikan objek tersemat ([chart](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/), [table](https://reference.aspose.com/slides/id/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/id/php-java/aspose.slides/smartart/)) dengan menelusuri koleksi mereka secara terpisah atau melewati tipe objek tersebut.
+Batasi iterasi Anda hanya pada auto‑shape yang memiliki text frame dan kecualikan objek tertanam (bagan, tabel, SmartArt) dengan menelusuri koleksi mereka secara terpisah atau melewatkan tipe objek tersebut.

@@ -1,115 +1,214 @@
 ---
-title: "C++ में PowerPoint प्रस्तुतियों को Markdown में बदलें"
-linktitle: "PowerPoint को Markdown में"
+title: C++ में PowerPoint प्रस्तुतियों को मार्कडाउन में बदलें
+linktitle: PowerPoint से मार्कडाउन
 type: docs
 weight: 140
 url: /hi/cpp/convert-powerpoint-to-markdown/
 keywords:
-- "PowerPoint बदलें"
-- "प्रेज़ेंटेशन बदलें"
-- "स्लाइड बदलें"
-- "PPT बदलें"
-- "PPTX बदलें"
-- "PowerPoint से MD"
-- "प्रेज़ेंटेशन से MD"
-- "स्लाइड से MD"
-- "PPT से MD"
-- "PPTX से MD"
-- "PowerPoint को Markdown के रूप में सहेजें"
-- "प्रेज़ेंटेशन को Markdown के रूप में सहेजें"
-- "स्लाइड को Markdown के रूप में सहेजें"
-- "PPT को MD के रूप में सहेजें"
-- "PPTX को MD के रूप में सहेजें"
-- "PPT को MD में निर्यात करें"
-- "PPTX को MD में निर्यात करें"
-- "PowerPoint"
-- "प्रेज़ेंटेशन"
-- "Markdown"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint स्लाइड्स—PPT, PPTX—को साफ़ Markdown में बदलें, दस्तावेज़ीकरण को स्वचालित करें और फॉर्मेटिंग बनाए रखें।"
+- PowerPoint रूपांतरित करें
+- प्रस्तुति रूपांतरित करें
+- स्लाइड रूपांतरित करें
+- PPT रूपांतरित करें
+- PPTX रूपांतरित करें
+- PowerPoint से MD
+- प्रस्तुति से MD
+- स्लाइड से MD
+- PPT से MD
+- PPTX से MD
+- PowerPoint को मार्कडाउन के रूप में सहेजें
+- प्रस्तुति को मार्कडाउन के रूप में सहेजें
+- स्लाइड को मार्कडाउन के रूप में सहेजें
+- PPT को MD के रूप में सहेजें
+- PPTX को MD के रूप में सहेजें
+- PPT को MD में निर्यात करें
+- PPTX को MD में निर्यात करें
+- मार्कडाउन इमेज निर्यात
+- CDN इमेज लिंक
+- PowerPoint
+- प्रस्तुति
+- मार्कडाउन
+- C++
+- Aspose.Slides
+description: C++ में PPT और PPTX प्रस्तुतियों को मार्कडाउन में बदलें और नियंत्रित करें कि निर्यात की गई बिटमैप, मेटाफाइल और SVG छवियां कहाँ सहेजी और संदर्भित की जाती हैं।
 ---
 ## **परिचय**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों को Markdown में बदलने की अनुमति देता है, जो दस्तावेज़ीकरण वर्कफ़्लो, स्थैतिक साइट निर्माण, सामग्री माइग्रेशन, और संस्करण‑नियंत्रित टेक्स्ट प्रकाशन के लिए उपयोगी हो सकता है। API PPT और PPTX प्रस्तुतियों को MD फ़ाइलों में सीधे निर्यात करने का समर्थन करता है और परिणामी Markdown दस्तावेज़ में स्लाइड सामग्री को कैसे प्रदर्शित किया जाए, इसे नियंत्रित करने के लिए अतिरिक्त विकल्प प्रदान करता है।
+Aspose.Slides for C++ PPT और PPTX प्रस्तुतियों को दस्तावेज़ीकरण, स्थिर‑साइट, सामग्री‑माइग्रेशन और संस्करण‑नियंत्रण कार्यप्रवाहों के लिए मार्कडाउन में बदल सकता है। आप एक मार्कडाउन फ़्लेवर चुन सकते हैं, स्लाइड सामग्री के रेंडरिंग को नियंत्रित कर सकते हैं, और तय कर सकते हैं कि निर्यात किए गए चित्र कहाँ संग्रहीत हों और उत्पन्न मार्कडाउन उन्हें कैसे संदर्भित करे।
 
-आप प्रस्तुतियों को साधारण Markdown के रूप में निर्यात कर सकते हैं, CommonMark और GitHub Flavored Markdown जैसी कई Markdown फ़्लेवर्स में से चुन सकते हैं, और निर्यात के दौरान छवियों के संचालन को कॉन्फ़िगर कर सकते हैं। उन प्रस्तुतियों के लिए जिनमें दृश्य सामग्री हो, Aspose.Slides आपको छवियों को एक अलग फ़ोल्डर में सहेजने और उत्पन्न Markdown फ़ाइल से उनका संदर्भ करने की भी सुविधा देता है।
+डिफ़ॉल्ट रूप से, मार्कडाउन निर्यात केवल‑पाठ आउटपुट का उपयोग करता है। दृश्य सामग्री निर्यात करने के लिए, [MarkdownSaveOptions::set_ExportType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_exporttype/) मेथड को [MarkdownExportType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownexporttype/) एनोमरेशन के `Sequential` या `Visual` मान पर सेट करें। `Sequential` स्लाइड आइटम्स को अलग‑अलग और क्रम में रेंडर करता है, जबकि `Visual` समूहित आइटम्स को साथ रखता है ताकि उनका दृश्य संबंध बना रहे। `TextOnly` मान चित्र संसाधनों को उत्पन्न नहीं करता, इसलिए इस मोड में इमेज‑सेविंग इवेंट्स को कॉल नहीं किया जाता।
 
-{{% alert color="warning" %}} 
-PowerPoint से markdown निर्यात डिफ़ॉल्ट रूप से **छवियों के बिना** होता है। यदि आप छवियों वाली PowerPoint दस्तावेज़ निर्यात करना चाहते हैं, तो आपको `SaveOptions::MarkdownExportType::Visual)` सेट करना होगा और साथ ही `BasePath` सेट करना होगा जहाँ markdown दस्तावेज़ में संदर्भित छवियों को सहेजा जाएगा।
-{{% /alert %}} 
+## **एक प्रस्तुति को मार्कडाउन में परिवर्तित करें**
 
-## **PowerPoint को Markdown में बदलें**
+स्रोत फ़ाइल को [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास से लोड करें, और फिर [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड को [SaveFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveformat/) एनोमरेशन के `Md` मान के साथ कॉल करें।
 
-1. एक प्रस्तुति ऑब्जेक्ट का प्रतिनिधित्व करने के लिए [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक instance बनाएं।
-2. ऑब्जेक्ट को markdown फ़ाइल के रूप में सहेजने के लिए [Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method) मेथड का उपयोग करें।
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-यह C++ कोड दिखाता है कि PowerPoint को markdown में कैसे बदलें:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.md", SaveFormat::Md);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+presentation->Save(u"presentation.md", SaveFormat::Md);
 ```
 
-## **PowerPoint को Markdown फ़्लेवर में बदलें**
+## **एक मार्कडाउन फ़्लेवर चुनें**
 
-Aspose.Slides आपको PowerPoint को markdown (बुनियादी सिंटैक्स सहित), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, और 17 अन्य markdown फ़्लेवर्स में बदलने की अनुमति देता है।
+[MarkdownSaveOptions::set_Flavor](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_flavor/) मेथड आउटपुट के लिए उपयोग किए जाने वाले मार्कडाउन विनिर्देश को नियंत्रित करता है। [Flavor](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/flavor/) एनोमरेशन में CommonMark, GitHub Flavored Markdown और अन्य समर्थित विविधताएँ शामिल हैं।
 
-यह C++ कोड दिखाता है कि PowerPoint को CommonMark में कैसे बदलें:
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::CommonMark);
-pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
+निम्नलिखित उदाहरण एक प्रस्तुति को CommonMark के रूप में निर्यात करता है:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_Flavor(Flavor::CommonMark);
+
+presentation->Save(u"presentation.md", SaveFormat::Md, options);
 ```
 
-23 समर्थित markdown फ़्लेवर्स [Flavor enumeration के तहत सूचीबद्ध](https://reference.aspose.com/slides/hi/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) हैं, जो [MarkdownSaveOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) क्लास से प्राप्त होते हैं।
+## **डिफ़ॉल्ट स्थानीय‑सहेजने की व्यवहार का उपयोग करके छवियों को निर्यात करें**
 
-## **छवियों वाली प्रस्तुति को Markdown में बदलें**
+[MarkdownSaveOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/) क्लास स्थानीय रूप से सहेजी गई छवियों को कॉन्फ़िगर करने के लिए दो मेथड प्रदान करता है:
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) क्लास उन गुणों और एनेमरेशनों को प्रदान करती है जो आपको परिणामी markdown फ़ाइल के लिए विशिष्ट विकल्प या सेटिंग्स उपयोग करने देती हैं। उदाहरण के लिए, [MarkdownExportType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) एनीम को `Sequential`, `TextOnly`, `Visual` मानों में सेट किया जा सकता है, जो निर्धारित करता है कि छवियों को कैसे रेंडर या संभाला जाए।
+- [set_BasePath](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) मार्कडाउन दस्तावेज़ और उसकी संसाधनों के लिए आधार निर्देशिका निर्दिष्ट करता है।
+- [set_ImagesSaveFolderName](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) छवि उपनिर्देशिका निर्दिष्ट करता है। इसका डिफ़ॉल्ट मान `Images` है।
 
-### **छवियों को क्रमागत रूप से बदलें**
+निम्नलिखित उदाहरण दृश्य सामग्री को रेंडर करता है, छवियों को `output/assets` में लिखता है, और मार्कडाउन दस्तावेज़ में सापेक्ष छवि संदर्भ बनाता है:
 
-यदि आप चाहते हैं कि छवियां क्रमागत रूप से एक के बाद एक परिणामी markdown में दिखाई दें, तो आपको sequential विकल्प चुनना होगा। यह C++ कोड दिखाता है कि छवियों वाली प्रस्तुति को markdown में कैसे बदलें:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
 
-System::SharedPtr<MarkdownSaveOptions> markdownSaveOptions = System::MakeObject<MarkdownSaveOptions>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-markdownSaveOptions->set_ShowHiddenSlides(true);
-markdownSaveOptions->set_ShowSlideNumber(true);
-markdownSaveOptions->set_Flavor(Flavor::Github);
-markdownSaveOptions->set_ExportType(MarkdownExportType::Sequential);
-markdownSaveOptions->set_NewLineType(NewLineType::Windows);
+const System::String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
 
-pres->Save(u"doc.md", System::MakeArray<int32_t>({1, 2, 3, 4, 5, 6, 7, 8, 9}), SaveFormat::Md, markdownSaveOptions);
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_ExportType(MarkdownExportType::Visual);
+options->set_BasePath(outputDirectory);
+options->set_ImagesSaveFolderName(u"assets");
+
+auto markdownPath = Path::Combine(outputDirectory, u"presentation.md");
+presentation->Save(markdownPath, SaveFormat::Md, options);
 ```
 
-### **छवियों को दृश्य रूप से बदलें**
+यह व्यवहार तब भी फ़ॉलबैक के रूप में कार्य करता है जब एक कस्टम इमेज‑सेविंग हैंडलर `false` लौटाता है।
 
-यदि आप चाहते हैं कि छवियां परिणामी markdown में साथ‑साथ दिखाई दें, तो आपको visual विकल्प चुनना होगा। इस स्थिति में, छवियां एप्लिकेशन की वर्तमान डायरेक्टरी में सहेजी जाएंगी (और markdown दस्तावेज़ में उनके लिए एक सापेक्ष पथ बनाया जाएगा), या आप अपना इच्छित पथ और फ़ोल्डर नाम निर्दिष्ट कर सकते हैं।
+## **छवि सहेजना और मार्कडाउन लिंक को अनुकूलित करें**
 
-यह C++ कोड संचालन को दर्शाता है:
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-const System::String outPath = u"x:\\documents";
-auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_ExportType(Aspose::Slides::DOM::Export::Markdown::SaveOptions::MarkdownExportType::Visual);
-opt->set_ImagesSaveFolderName(u"md-images");
-opt->set_BasePath(outPath);
-pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
+मार्कडाउन निर्यात के दौरान उत्पन्न नॉन‑SVG बिटमैप और मेटाफाइल संसाधनों के लिए `MarkdownSaveOptions::ImageSaving` इवेंट का उपयोग करें। इसका [MarkdownImageSavingHandler](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/markdownimagesavinghandler/) डेलीगेट [IImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/) ऑब्जेक्ट, उसका [ImageFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imageformat/) और उत्पन्न मार्कडाउन लिंक को `System::String&` पैरामीटर के रूप में प्राप्त करता है। प्रदान किए गए प्रारूप के साथ छवि को सहेजें या अपलोड करें, और `link` को उस संदर्भ से बदलें जो मार्कडाउन आउटपुट में प्रदर्शित होना चाहिए।
+
+SVG प्रारूप में उत्पन्न संसाधनों को अलग से संभाला जाता है। `MarkdownSaveOptions::SvgImageSaving` इवेंट को सब्सक्राइब करें, जिसका [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/markdownsvgimagesavinghandler/) डेलीगेट एक [ISvgImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/) ऑब्जेक्ट और `System::String& link` पैरामीटर प्राप्त करता है। SVG के पास `ImageFormat` तर्क नहीं होता; इसके बजाय [ISvgImage::get_SvgData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/get_svgdata/) मेथड से उसका XML डेटा लिखें या अपलोड करें। निर्यात मोड और दृश्य समूहबद्धता के आधार पर, स्रोत प्रस्तुति में एक SVG को रास्टराइज़ किया जा सकता है या अन्य सामग्री के साथ संयोजित किया जा सकता है; परिणामी नॉन‑SVG संसाधन फिर `ImageSaving` को पास किया जाता है। जब प्रत्येक निर्यातित दृश्य संसाधन को कस्टम प्रोसेसिंग की आवश्यकता हो तो दोनों इवेंट को सब्सक्राइब करें।
+
+हैंडलर का रिटर्न वैल्यू निर्धारित करता है कि छवि को कौन प्रोसेस करता है:
+
+- यदि हैंडलर ने छवि को सहेजा, अपलोड किया, रूपांतरित किया या अन्यथा प्रोसेस किया और `link` को एक वैध मान सौंपा, तो `true` लौटाएँ। Aspose.Slides उस मान को मार्कडाउन दस्तावेज़ में लिखता है और डिफ़ॉल्ट स्थानीय सहेजना नहीं करता।
+- `false` लौटाएँ ताकि Aspose.Slides छवि को स्थानीय रूप से सहेजे और लिंक को [MarkdownSaveOptions::set_BasePath](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) और [MarkdownSaveOptions::set_ImagesSaveFolderName](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) के अनुसार उत्पन्न करे।
+
+{{% alert color="warning" title="Important" %}}
+`true` लौटाने वाला हैंडलर छवि की ज़िम्मेदारी लेता है। यदि वह वैध, गैर‑खाली लिंक निर्दिष्ट किए बिना `true` लौटाता है, तो निर्यात `InvalidOperationException` के साथ विफल हो जाता है।
+{{% /alert %}}
+
+### **सीडीएन मूल निर्देशिका में छवियाँ सहेजें और बाहरी URL का उपयोग करें**
+
+निम्नलिखित उदाहरण `cdn-origin/presentations/quarterly-report` को एक माउंटेड या सिंक्रनाइज़्ड सीडीएन मूल निर्देशिका के रूप में मानता है। प्रत्येक हैंडलर उत्पन्न फ़ाइल नाम को निकालता है, छवि को उस कस्टम निर्देशिका में सहेजता है, और स्थानीय संदर्भ को सार्वजनिक सीडीएन URL से बदल देता है। स्वयं नमूना कोई नेटवर्क अपलोड नहीं करता: URL केवल तभी मान्य होता है जब निर्देशिका को सीडीएन मूल के रूप में माउंट किया गया हो या उसकी फाइलें सीडीएन पर प्रकाशित हों। ऑब्जेक्ट स्टोरेज के लिए, फ़ाइल‑सिस्टम राइट को स्टोरेज SDK की अपलोड ऑपरेशन से बदलें और अपलोड सफल होने पर ही `link` असाइन करें।
+
+```cpp
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <functional>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+const System::String outputDirectory = u"output";
+const System::String publicBaseUrl = u"https://cdn.example.com/presentations/quarterly-report";
+const System::String storageDirectory = Path::Combine(u"cdn-origin", u"presentations", u"quarterly-report");
+Directory::CreateDirectory_(outputDirectory);
+Directory::CreateDirectory_(storageDirectory);
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_ExportType(MarkdownExportType::Visual);
+options->set_BasePath(outputDirectory);
+options->set_ImagesSaveFolderName(u"fallback-images");
+
+options->ImageSaving.connect(std::function<bool(System::SharedPtr<IImage>, ImageFormat, System::String&)>([storageDirectory, publicBaseUrl](System::SharedPtr<IImage> image, ImageFormat format, System::String& link) -> bool
+{
+    if (image->get_Width() < 128 || image->get_Height() < 128)
+    {
+        return false;
+    }
+
+    auto urlCompatibleLink = link.Replace(u"\\", u"/");
+    auto fileName = urlCompatibleLink.Substring(urlCompatibleLink.LastIndexOf(u'/') + 1);
+    auto storagePath = Path::Combine(storageDirectory, fileName);
+    image->Save(storagePath, format);
+    link = publicBaseUrl + u"/" + System::Uri::EscapeDataString(fileName);
+    return true;
+}));
+
+options->SvgImageSaving.connect(std::function<bool(System::SharedPtr<ISvgImage>, System::String&)>([storageDirectory, publicBaseUrl](System::SharedPtr<ISvgImage> svgImage, System::String& link) -> bool
+{
+    auto urlCompatibleLink = link.Replace(u"\\", u"/");
+    auto fileName = urlCompatibleLink.Substring(urlCompatibleLink.LastIndexOf(u'/') + 1);
+    auto storagePath = Path::Combine(storageDirectory, fileName);
+    File::WriteAllBytes(storagePath, svgImage->get_SvgData());
+    link = publicBaseUrl + u"/" + System::Uri::EscapeDataString(fileName);
+    return true;
+}));
+
+auto markdownPath = Path::Combine(outputDirectory, u"presentation.md");
+presentation->Save(markdownPath, SaveFormat::Md, options);
 ```
+
+बिटमैप हैंडलर जानबूझकर 128 × 128 पिक्सेल से छोटे चित्रों के लिए `false` लौटाता है, इसलिए Aspose.Slides उन छवियों को डिफ़ॉल्ट व्यवहार का उपयोग करके `output/fallback-images` में सहेजता है। बड़े बिटमैप, मेटाफाइल संसाधन और SVG संसाधन कस्टम कोड द्वारा संभाले जाते हैं। उदाहरण के लिए, एक उत्पन्न स्थानीय संदर्भ जैसे `fallback-images/image1.png` बन जाता है `https://cdn.example.com/presentations/quarterly-report/image1.png`। हैंडलर फ़ाइल‑सिस्टम पथ लिखते समय केवल ऑपरेटिंग‑सिस्टम पथ का उपयोग करते हैं; मार्कडाउन में लिखे जाने वाले लिंक फॉरवर्ड स्लैश और URL‑एस्केप्ड फ़ाइल नामों का उपयोग करते हैं। सापेक्ष लिंक बनाते समय भी वही नियम लागू करें: `/` उपयोग करें, प्लेटफ़ॉर्म‑विशिष्ट डायरेक्टरी सेपरेटर नहीं।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या हाइपरलिंक्स Markdown में निर्यात होने पर भी बनाए रहते हैं?**
+**क्या कोई एक हैंडलर रास्टर छवियों और SVG छवियों दोनों को प्रोसेस कर सकता है?**  
+नहीं। नॉन‑SVG बिटमैप और मेटाफाइल संसाधनों के लिए `MarkdownSaveOptions::ImageSaving` का उपयोग करें और SVG के रूप में उत्पन्न संसाधनों के लिए `MarkdownSaveOptions::SvgImageSaving` का उपयोग करें। former एक [IImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/) ऑब्जेक्ट और एक [ImageFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imageformat/) प्रदान करता है; latter एक [ISvgImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/) ऑब्जेक्ट प्रदान करता है जिसका SVG डेटा आप [ISvgImage::get_SvgData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/get_svgdata/) से पढ़ सकते हैं। निर्यात के दौरान रास्टराइज़ किया गया स्रोत SVG `ImageSaving` द्वारा प्रोसेस किया जाता है।
 
-हाँ। टेक्स्ट [hyperlinks](/slides/hi/cpp/manage-hyperlinks/) को मानक Markdown लिंक के रूप में रखा जाता है। स्लाइड [transitions](/slides/hi/cpp/slide-transition/) और [animations](/slides/hi/cpp/powerpoint-animation/) को परिवर्तित नहीं किया जाता है।
+**जब इमेज‑सेविंग हैंडलर `false` लौटाता है तो क्या होता है?**  
+Aspose.Slides अपने डिफ़ॉल्ट स्थानीय‑सहेजने के व्यवहार का उपयोग करता है। छवि स्थान और उत्पन्न संदर्भ को [MarkdownSaveOptions::set_BasePath](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) और [MarkdownSaveOptions::set_ImagesSaveFolderName](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) द्वारा नियंत्रित किया जाता है।
 
-**क्या मैं कई थ्रेड्स में चलाकर रूपांतरण को तेज़ कर सकता हूँ?**
+**क्या एक हैंडलर बिना स्थानीय रूप से छवि सहेजे URL प्रदान कर सकता है?**  
+हाँ। हैंडलर छवि को ऑब्जेक्ट स्टोरेज में अपलोड कर सकता है या किसी अन्य सेवा को पास कर सकता है, परिणामस्वरूप URL को `link` में असाइन कर `true` लौटाएँ। हैंडलर को स्वयं प्रोसेसिंग पूरी करनी होती है; `true` लौटाने से डिफ़ॉल्ट स्थानीय सहेजना रोक दिया जाता है।
 
-आप फ़ाइलों के बीच समानांतरता कर सकते हैं, लेकिन थ्रेड्स के बीच वही [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) instance को [don’t share](/slides/hi/cpp/multithreading/) नहीं करना चाहिए। प्रत्येक फ़ाइल के लिए अलग-अलग instances/processes का उपयोग करें ताकि संघर्ष से बचा जा सके।
+**मार्कडाउन निर्यात हैंडलर से `InvalidOperationException` क्यों फेंकता है?**  
+यह तब होता है जब हैंडलर `true` लौटाता है लेकिन वैध लिंक प्रदान नहीं करता। `true` लौटाने से पहले उस सापेक्ष पथ या बाहरी URL को असाइन करें जो मार्कडाउन में लिखा जाना चाहिए।
 
-**छवियों के साथ क्या होता है—वे कहाँ सहेजी जाती हैं, और क्या पथ सापेक्ष (relative) हैं?**
+**छवि लिंक कौन से पाथ सेपरेटर का उपयोग करें?**  
+मार्कडाउन लिंक और URL में फॉरवर्ड स्लैश (`/`) उपयोग करें। फ़ाइल‑सिस्टम पथों के लिए केवल `Path::Combine` का उपयोग करें, फिर मार्कडाउन संदर्भ को अलग से बनाएं या सामान्यित करें।
 
-[Images](/slides/hi/cpp/image/) एक समर्पित फ़ोल्डर में निर्यात की जाती हैं, और Markdown फ़ाइल उनके संदर्भ को डिफ़ॉल्ट रूप से सापेक्ष पथों के साथ रखती है। आप बेस आउटपुट पथ और एसेट फ़ोल्डर का नाम कॉन्फ़िगर कर सकते हैं ताकि एक पूर्वानुमानित रिपोजिटरी संरचना बनी रहे।
+**क्या मार्कडाउन निर्यात के दौरान हाइपरलिंक संरक्षित रहते हैं?**  
+हाँ। टेक्स्ट [hyperlinks](/slides/hi/cpp/manage-hyperlinks/) को मानक मार्कडाउन लिंक के रूप में संरक्षित रखा जाता है। स्लाइड [transitions](/slides/hi/cpp/slide-transition/) और [animations](/slides/hi/cpp/powerpoint-animation/) को परिवर्तित नहीं किया जाता।
+
+**क्या प्रस्तुतियों को समानांतर में मार्कडाउन में बदला जा सकता है?**  
+आप विभिन्न प्रस्तुति फ़ाइलों को समानांतर में प्रोसेस कर सकते हैं, लेकिन एक ही [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) इंस्टेंस को थ्रेड्स के बीच साझा न करें। [multithreading guidelines](/slides/hi/cpp/multithreading/) का पालन करें और प्रत्येक फ़ाइल के लिए अलग इंस्टेंस उपयोग करें।

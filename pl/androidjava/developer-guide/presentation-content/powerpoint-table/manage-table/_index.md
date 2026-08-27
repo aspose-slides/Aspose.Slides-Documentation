@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie tabelami prezentacji w Androidzie
-linktitle: Zarządzaj tabelą
+title: Zarządzanie tabelami prezentacji w systemie Android
+linktitle: Zarządzanie tabelą
 type: docs
 weight: 10
 url: /pl/androidjava/manage-table/
@@ -17,35 +17,40 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Twórz i edytuj tabele w slajdach PowerPoint przy użyciu Aspose.Slides dla Androida. Odkryj proste przykłady kodu w języku Java, które usprawnią Twoje procesy pracy z tabelami."
+description: "Twórz i edytuj tabele w slajdach PowerPoint przy użyciu Aspose.Slides dla Androida. Odkryj proste przykłady kodu Java, aby usprawnić swoje przepływy pracy z tabelami."
 ---
 ## **Wprowadzenie**
 
-Tabela w programie PowerPoint jest efektywnym sposobem wyświetlania i prezentowania informacji. Informacje w siatce komórek (ustawionych w wierszach i kolumnach) są proste i łatwe do zrozumienia.
+Tabela w programie PowerPoint jest wydajnym sposobem wyświetlania i prezentowania informacji. Informacje w siatce komórek (ustawionych w wierszach i kolumnach) są przejrzyste i łatwe do zrozumienia.
 
-Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Table) , interfejs [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) , klasę [Cell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cell/) , interfejs [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/) oraz inne typy, które umożliwiają tworzenie, aktualizowanie i zarządzanie tabelami we wszystkich rodzajach prezentacji.
+Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Table), interfejs [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable), klasę [Cell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cell/) oraz interfejs [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/) i inne typy, które pozwalają tworzyć, aktualizować i zarządzać tabelami w różnego rodzaju prezentacjach.
 
 ## **Utworzenie tabeli od podstaw**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) .
-2. Uzyskaj odwołanie do slajdu przy użyciu jego indeksu. 
-3. Zdefiniuj tablicę `columnWidth` .
-4. Zdefiniuj tablicę `rowHeight` .
-5. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) do slajdu przy użyciu metody [addTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
-6. Iteruj przez każdy [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/) , aby zastosować formatowanie do górnej, dolnej, prawej i lewej krawędzi.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
+2. Pobierz odwołanie do slajdu za pomocą jego indeksu. 
+3. Zdefiniuj tablicę `columnWidth`.
+4. Zdefiniuj tablicę `rowHeight`.
+5. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) do slajdu metodą [addTable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
+6. Przejdź przez każdą [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/), aby zastosować formatowanie krawędzi: górnej, dolnej, prawej i lewej.
 7. Połącz pierwsze dwie komórki pierwszego wiersza tabeli. 
-8. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/textframe/) komórki [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/) .
-9. Dodaj tekst do [TextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/textframe/) .
+8. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/textframe/) komórki [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/).
+9. Dodaj tekst do [TextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/textframe/).
 10. Zapisz zmodyfikowaną prezentację.
 
+Ten kod Java pokazuje, jak utworzyć tabelę w prezentacji:
+
 ```java
-// Tworzy obiekt klasy Presentation, który reprezentuje plik PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {
-    // Dostęp do pierwszego slajdu
+    // Uzyskuje dostęp do pierwszego slajdu
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Definiuje kolumny o podanych szerokościach i wiersze o podanych wysokościach
+    // Definiuje kolumny o szerokościach i wiersze o wysokościach
     double[] dblCols = {50, 50, 50};
     double[] dblRows = {50, 30, 30, 30, 30};
 
@@ -77,7 +82,7 @@ try {
         }
     }
     // Łączy komórki 1 i 2 wiersza 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // Dodaje tekst do połączonej komórki
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -93,7 +98,7 @@ try {
 
 W standardowej tabeli numeracja komórek jest prosta i zaczyna się od zera. Pierwsza komórka w tabeli ma indeks 0,0 (kolumna 0, wiersz 0). 
 
-Na przykład, komórki w tabeli o 4 kolumnach i 4 wierszach są numerowane w następujący sposób:
+Na przykład komórki w tabeli o 4 kolumnach i 4 wierszach są numerowane w następujący sposób:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -104,13 +109,16 @@ Na przykład, komórki w tabeli o 4 kolumnach i 4 wierszach są numerowane w nas
 Ten kod Java pokazuje, jak określić numerację komórek w tabeli:
 
 ```java
-// Tworzy obiekt klasy Presentation, który reprezentuje plik PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {
-    // Dostęp do pierwszego slajdu
+    // Uzyskuje dostęp do pierwszego slajdu
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
+    // Definiuje kolumny o szerokościach i wiersze o wysokościach
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
@@ -140,7 +148,7 @@ try {
         }
     }
 
-    // Zapisuje prezentację na dysku
+    // Zapisuje prezentację na dysk
     pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -149,22 +157,30 @@ try {
 
 ## **Dostęp do istniejącej tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) .
-2. Uzyskaj odwołanie do slajdu zawierającego tabelę przy użyciu jego indeksu. 
-3. Utwórz obiekt [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) i ustaw go na null.
-4. Iteruj przez wszystkie obiekty [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/) , aż tabela zostanie znaleziona.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
 
-   Jeśli podejrzewasz, że slajd, z którym pracujesz, zawiera jedną tabelę, możesz po prostu sprawdzić wszystkie kształty, które zawiera. Gdy kształt zostanie zidentyfikowany jako tabela, możesz rzutować go na obiekt [Table](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Table) . Jednak jeśli slajd zawiera kilka tabel, lepiej jest wyszukać potrzebną tabelę przy użyciu jej metody [setAlternativeText(String value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+2. Pobierz odwołanie do slajdu zawierającego tabelę za pomocą jego indeksu. 
 
-5. Użyj obiektu [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) , aby pracować z tabelą. W poniższym przykładzie dodaliśmy nowy wiersz do tabeli.
+3. Utwórz obiekt [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) i przypisz mu wartość null.
+
+4. Przejdź przez wszystkie obiekty [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/), aż znajdziesz tabelę.
+
+   Jeśli podejrzewasz, że dany slajd zawiera jedną tabelę, możesz po prostu sprawdzić wszystkie jego kształty. Gdy kształt zostanie zidentyfikowany jako tabela, możesz wykonać rzutowanie do obiektu [Table](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Table). Jeśli natomiast slajd zawiera kilka tabel, lepiej wyszukać potrzebną tabelę przy użyciu jej metody [setAlternativeText(String value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+
+5. Użyj obiektu [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) do pracy z tabelą. W poniższym przykładzie ustawiamy tekst komórki w tabeli.
+
 6. Zapisz zmodyfikowaną prezentację.
 
+Ten kod Java pokazuje, jak uzyskać dostęp i pracować z istniejącą tabelą:
+
 ```java
-// Tworzy obiekt klasy Presentation, który reprezentuje plik PPTX
+import com.aspose.slides.*;
+
+// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
 
-    // Dostęp do pierwszego slajdu
+    // Uzyskuje dostęp do pierwszego slajdu
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Inicjalizuje zmienną TableEx jako null
@@ -176,33 +192,46 @@ try {
         if (shp instanceof ITable) 
         {
             tbl = (ITable) shp;
-            // Ustawia tekst dla pierwszej kolumny drugiego wiersza
+            // Ustawia tekst w pierwszej kolumnie drugiego wiersza
             tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
     
-    // Zapisuje zmodyfikowaną prezentację na dysku
+    // Zapisuje zmodyfikowaną prezentację na dysk
     pres.save("table1_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Wyrównanie tekstu w tabeli**
+## **Znajdowanie komórki, do której należy ramka tekstowa**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) .
-2. Uzyskaj odwołanie do slajdu przy użyciu jego indeksu. 
+Gdy ogólny kod przetwarzający tekst otrzymuje obiekt [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) z tabeli, użyj metody [ITextFrame.getParentCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#getParentCell--) aby uzyskać właściciela – [ICell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/). Dla ramki tekstowej komórki tabeli metoda [ITextFrame.getParentCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#getParentCell--) zwraca właściciela, a metoda [ITextFrame.getParentShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#getParentShape--) zwraca `null`, mimo że sama tabela jest kształtem.
+
+Współrzędne komórki są dostępne poprzez właściwości tylko do odczytu [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) i [ICell.getFirstRowIndex](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icell/#getFirstRowIndex--). Metoda [ITextFrame.getParentCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/#getParentCell--) zapewnia także nawigację tylko do odczytu: zwraca właściciela, ale nie zmienia własności. Zawsze sprawdzaj, czy zwrócona komórka nie jest `null`, zanim jej użyjesz.
+
+Pełny przykład identyfikujący właścicieli komórek tabeli i kształtów, w tym kształty powiązane z węzłami SmartArt, znajduje się w sekcji [Search and Replace Text](/slides/pl/androidjava/search-and-replace-text/).
+
+## **Wyrównywanie tekstu w tabeli**
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
+2. Pobierz odwołanie do slajdu za pomocą jego indeksu. 
 3. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) do slajdu.
 4. Uzyskaj dostęp do obiektu [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) z tabeli.
-5. Uzyskaj dostęp do [IParagraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/) z [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/) .
-6. Wyrównaj tekst pionowo.
+5. Uzyskaj dostęp do [IParagraph](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/) w [ITextFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itextframe/).
+6. Wyrównaj tekst w pionie.
 7. Zapisz zmodyfikowaną prezentację.
 
+Ten kod Java pokazuje, jak wyrównać tekst w tabeli:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Tworzy instancję klasy Presentation
 Presentation pres = new Presentation();
 try {
-    // Pobiera pierwszy slajd
+    // Pobiera pierwszy slajd 
     ISlide slide = pres.getSlides().get_Item(0);
     
     // Definiuje kolumny o szerokościach i wiersze o wysokościach
@@ -232,24 +261,28 @@ try {
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
     
-    // Zapisuje prezentację na dysku
+    // Zapisuje prezentację na dysk
     pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Ustaw formatowanie tekstu na poziomie tabeli**
+## **Ustawienie formatowania tekstu na poziomie tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) .
-2. Uzyskaj odwołanie do slajdu przy użyciu jego indeksu. 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation).
+2. Pobierz odwołanie do slajdu za pomocą jego indeksu. 
 3. Uzyskaj dostęp do obiektu [ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITable) ze slajdu.
 4. Ustaw [setFontHeight(float value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) dla tekstu.
-5. Ustaw [setAlignment(int value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) i [setMarginRight(float value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
+5. Ustaw [setAlignment(int value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) oraz [setMarginRight(float value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
 6. Ustaw [setTextVerticalType(byte value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Zapisz zmodyfikowaną prezentację. 
 
+Ten kod Java pokazuje, jak zastosować wybrane opcje formatowania do tekstu w tabeli:
+
 ```java
+import com.aspose.slides.*;
+
 // Tworzy instancję klasy Presentation
 Presentation pres = new Presentation("simpletable.pptx");
 try {
@@ -261,13 +294,13 @@ try {
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // Ustawia wyrównanie tekstu komórek tabeli i prawy margines w jednym wywołaniu
+    // Ustawia wyrównanie tekstu komórek tabeli i prawy margines w jednej instrukcji
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
     
-    // Ustawia pionowy typ tekstu komórek tabeli
+    // Ustawia pionowy typ tekstu w komórkach tabeli
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
     someTable.setTextFormat(textFrameFormat);
@@ -280,13 +313,24 @@ try {
 
 ## **Pobieranie właściwości stylu tabeli**
 
-Aspose.Slides umożliwia pobranie właściwości stylu tabeli, aby można je było wykorzystać w innej tabeli lub gdzie indziej. Ten kod Java pokazuje, jak uzyskać właściwości stylu z predefiniowanego stylu tabeli:
+Aspose.Slides umożliwia pobranie właściwości stylu tabeli, aby można je było wykorzystać w innej tabeli lub w dowolnym miejscu. Ten kod Java pokazuje, jak uzyskać właściwości stylu z gotowego stylu tabeli:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // zmień domyślny styl presetowy motywu
+    table.setStylePreset(TableStylePreset.DarkStyle1); // zmień domyślny preset stylu
+
+    // Pobierz preset stylu tabeli
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // Zastosuj pobrany preset stylu do innej tabeli
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -295,9 +339,13 @@ try {
 
 ## **Zablokowanie proporcji tabeli**
 
-Proporcje geometrycznego kształtu to stosunek jego wymiarów w różnych kierunkach. Aspose.Slides udostępnia właściwość [**setAspectRatioLocked**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) , która pozwala zablokować ustawienie proporcji dla tabel i innych kształtów.
+Proporcje geometrycznego kształtu określają stosunek jego wymiarów w poszczególnych kierunkach. Aspose.Slides udostępnia właściwość [**setAspectRatioLocked**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-), aby umożliwić zablokowanie ustawienia proporcji dla tabel i innych kształtów.
+
+Ten kod Java pokazuje, jak zablokować proporcje tabeli:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -315,14 +363,14 @@ try {
 
 ## **FAQ**
 
-**Czy mogę włączyć kierunek czytania od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
+**Czy mogę włączyć kierunek od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
 
-Tak. Tabela udostępnia metodę [setRightToLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-) , a akapity mają [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) . Użycie obu zapewnia prawidłową kolejność RTL i renderowanie wewnątrz komórek.
+Tak. Tabela udostępnia metodę [setRightToLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), a akapity mają [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Użycie obu zapewnia poprawny porządek RTL i renderowanie wewnątrz komórek.
 
-**Jak mogę zapobiec przenoszeniu lub zmianie rozmiaru tabeli przez użytkowników w finalnym pliku?**
+**Jak mogę zapobiec przenoszeniu lub zmianie rozmiaru tabeli przez użytkowników w gotowym pliku?**
 
-Użyj blokad kształtu, aby wyłączyć przenoszenie, zmianę rozmiaru, wybór itp. Te blokady dotyczą również tabel.
+Użyj blokad kształtu, aby wyłączyć przenoszenie, zmianę rozmiaru, zaznaczanie itp. Blokady te dotyczą również tabel.
 
-**Czy wstawianie obrazu jako tła wewnątrz komórki jest obsługiwane?**
+**Czy wstawianie obrazu jako tła w komórce jest obsługiwane?**
 
-Tak. Można ustawić [picture fill](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/picturefillformat/) dla komórki; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub kafelkowanie).
+Tak. Możesz ustawić [picture fill](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/picturefillformat/) dla komórki; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub układanie).

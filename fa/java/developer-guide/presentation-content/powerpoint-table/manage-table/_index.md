@@ -8,7 +8,7 @@ keywords:
 - افزودن جدول
 - ایجاد جدول
 - دسترسی به جدول
-- نسبت ابعاد
+- نسبت عرض به ارتفاع
 - تراز متن
 - قالب‌بندی متن
 - سبک جدول
@@ -16,34 +16,35 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "ایجاد و ویرایش جداول در اسلایدهای PowerPoint با Aspose.Slides برای Java. مثال‌های ساده کدنویسی را کشف کنید تا جریان کاری جداول خود را بهبود بخشید."
+description: "ایجاد و ویرایش جداول در اسلایدهای PowerPoint با Aspose.Slides برای Java. مثال‌های کد ساده‌ای را کشف کنید تا گردش کار جداول خود را بهینه‌سازی کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-یک جدول در PowerPoint یک روش کارآمد برای نمایش و بیان اطلاعات است. اطلاعات در یک شبکه‌ی سلول‌ها (آرایه‌بندی شده به صورت ردیف‌ها و ستون‌ها) ساده و به راحتی قابل درک است.
+یک جدول در PowerPoint روشی کارآمد برای نمایش و انتقال اطلاعات است. اطلاعات در یک شبکه‌ی سلول‌ها (مرتب شده در ردیف‌ها و ستون‌ها) ساده و به‌سادگی قابل درک است.
 
-Aspose.Slides کلاس [Table](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Table)، رابط [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable)، کلاس [Cell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/cell/)، رابط [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) و انواع دیگری را ارائه می‌دهد تا بتوانید جداول را در انواع ارائه‌ها ایجاد، به‌روزرسانی و مدیریت کنید. 
+Aspose.Slides کلاس [Table](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Table)، اینترفیس [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable)، کلاس [Cell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/cell/)، اینترفیس [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) و سایر انواع را فراهم می‌کند تا به شما امکان ایجاد، به‌روزرسانی و مدیریت جداول در انواع ارائه‌ها را بدهد.
 
 ## **ایجاد جدول از ابتدا**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک آرایه از `columnWidth` تعریف کنید.  
-4. یک آرایه از `rowHeight` تعریف کنید.  
-5. یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) را با استفاده از متد [addTable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) به اسلاید اضافه کنید.  
-6. در هر [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) پیمایش کنید تا قالب‌بندی مرزهای بالا، پایین، راست و چپ را اعمال کنید.  
+2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
+3. یک آرایه‌ی `columnWidth` تعریف کنید.  
+4. یک آرایه‌ی `rowHeight` تعریف کنید.  
+5. یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) را به اسلاید از طریق متد [addTable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) اضافه کنید.  
+6. بر هر [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) پیمایش کنید تا قالب‌بندی را بر روی حاشیه‌های بالا، پایین، راست و چپ اعمال کنید.  
 7. دو سلول اول ردیف اول جدول را ادغام کنید.  
-8. دسترسی به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) یک [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) داشته باشید.  
-9. متن دلخواهی را به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) اضافه کنید.  
-10. ارائه‌ی تغییر یافته را ذخیره کنید.
-
-این کد Java نشان می‌دهد چگونه یک جدول در یک ارائه ایجاد کنید:
+8. دسترسی به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) یک [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) را داشته باشید.  
+9. متنی را به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) اضافه کنید.  
+10. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
 ```java
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// یک شیء از کلاس Presentation ایجاد می‌کند که فایل PPTX را نمایندگی می‌کند
 Presentation pres = new Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide sld = pres.getSlides().get_Item(0);
 
     // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
@@ -53,7 +54,7 @@ try {
     // یک شکل جدول را به اسلاید اضافه می‌کند
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // فرمت حاشیه را برای هر سلول تنظیم می‌کند
+    // قالب حاشیه را برای هر سلول تنظیم می‌کند
     for (int row = 0; row < tbl.getRows().size(); row++)
     {
         for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
@@ -78,12 +79,12 @@ try {
         }
     }
     // سلول‌های ۱ و ۲ ردیف ۱ را ادغام می‌کند
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // متن‌ای به سلول ادغام‌شده اضافه می‌کند
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
 
-    // ارائه را بر روی دیسک ذخیره می‌کند
+    // ارائه را در دیسک ذخیره می‌کند
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -92,7 +93,7 @@ try {
 
 ## **شماره‌گذاری در جدول استاندارد**
 
-در یک جدول استاندارد، شماره‌گذاری سلول‌ها ساده و مبتنی بر صفر است. اولین سلول در یک جدول به عنوان 0,0 (ستون 0، ردیف 0) اندیس‌گذاری می‌شود. 
+در یک جدول استاندارد، شماره‌گذاری سلول‌ها ساده و از صفر شروع می‌شود. اولین سلول جدول با اندیس 0,0 (ستون 0، ردیف 0) مشخص می‌شود.
 
 به عنوان مثال، سلول‌های یک جدول با ۴ ستون و ۴ ردیف به این شکل شماره‌گذاری می‌شوند:
 
@@ -102,13 +103,14 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-این کد Java نشان می‌دهد چگونه شماره‌گذاری سلول‌های یک جدول را مشخص کنید:
-
 ```java
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// یک شیء از کلاس Presentation ایجاد می‌کند که فایل PPTX را نمایندگی می‌کند
 Presentation pres = new Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide sld = pres.getSlides().get_Item(0);
 
     // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
@@ -118,7 +120,7 @@ try {
     // یک شکل جدول را به اسلاید اضافه می‌کند
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // فرمت حاشیه را برای هر سلول تنظیم می‌کند
+    // قالب حاشیه را برای هر سلول تنظیم می‌کند
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -148,31 +150,32 @@ try {
 }
 ```
 
-## **دسترسی به جدول موجود**
+## **دسترسی به یک جدول موجود**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع اسلاید حاوی جدول را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) ایجاد کنید و آن را به null تنظیم کنید.  
-4. در تمام اشیاء [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) تا پیدا شدن جدول پیمایش کنید.  
-   
-   اگر شک دارید اسلایدی که با آن کار می‌کنید تنها یک جدول دارد، می‌توانید به سادگی تمام شکل‌های موجود در آن را بررسی کنید. وقتی یک شکل به عنوان جدول شناسایی شد، می‌توانید آن را به شیء [Table](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Table) تبدیل کنید. اما اگر اسلاید چندین جدول داشته باشد، بهتر است جدول موردنظرتان را از طریق متد [setAlternativeText(String value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) جستجو کنید.  
-5. از شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) برای کار با جدول استفاده کنید. در مثال زیر یک ردیف جدید به جدول اضافه شد.  
-6. ارائه‌ی تغییر یافته را ذخیره کنید.
+2. از طریق اندیس، مرجع اسلایدی که شامل جدول است را دریافت کنید.  
+3. یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) ایجاد کنید و آن را برابر null تنظیم کنید.  
+4. از میان تمام اشیاء [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) تا زمان پیدا کردن جدول پیمایش کنید.  
 
-این کد Java نشان می‌دهد چگونه به یک جدول موجود دسترسی پیدا کنید و با آن کار کنید:
+   اگر فکر می‌کنید اسلاید موردنظر تنها یک جدول دارد، می‌توانید به سادگی همهٔ اشکال موجود در آن را بررسی کنید. وقتی شکلی به‌عنوان جدول شناسایی شد، می‌توانید آن را به‌عنوان شیء [Table](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Table) تبدیل کنید. اما اگر اسلاید شامل چندین جدول باشد، بهتر است جدول موردنیاز را از طریق متد [setAlternativeText(String value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) جستجو کنید.  
+
+5. از شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) برای کار با جدول استفاده کنید. در مثال زیر، یک ردیف جدید به جدول اضافه کردیم.  
+6. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
 ```java
-// یک شی از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
+import com.aspose.slides.*;
+
+// یک شیء از کلاس Presentation ایجاد می‌کند که فایل PPTX را نمایندگی می‌کند
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
 
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // متغیر TableEx را با مقدار null مقداردهی می‌کند
+    // مقداردهی اولیه null برای TableEx
     ITable tbl = null;
 
-    // از میان اشکال عبور می‌کند و مرجعی به جدول یافت‌شده تنظیم می‌کند
+    // از اشکال پیمایش می‌کند و مرجعی به جدول پیدا شده تنظیم می‌کند
     for (IShape shp : sld.getShapes()) 
     {
         if (shp instanceof ITable) 
@@ -183,27 +186,36 @@ try {
         }
     }
     
-    // ارائه اصلاح‌شده را در دیسک ذخیره می‌کند
+    // ارائهٔ اصلاح‌شده را روی دیسک ذخیره می‌کند
     pres.save("table1_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تراز متن در جدول**
+## **یافتن سلولی که TextFrame را در اختیار دارد**
+
+هنگامی که کد عمومی پردازش متن یک [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) را از یک جدول دریافت می‌کند، از متد [ITextFrame.getParentCell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/#getParentCell--) برای بازیابی [ICell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/) مالک استفاده کنید. برای یک TextFrame سلول جدول، [ITextFrame.getParentCell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/#getParentCell--) مالک را بر می‌گرداند و [ITextFrame.getParentShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/#getParentShape--) مقدار `null` را بر می‌گرداند، حتی اگر جدول خود یک شکل باشد.
+
+مختصات سلول‌ها از طریق متدهای فقط‌خواندنی [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/#getFirstColumnIndex--) و [ICell.getFirstRowIndex](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icell/#getFirstRowIndex--) در دسترس هستند. همچنین [ITextFrame.getParentCell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/#getParentCell--) ناوبری فقط‌خواندنی فراهم می‌کند: مالک را بر می‌گرداند اما مالکیت را تغییر نمی‌دهد. همیشه قبل از استفاده، مقدار برگشتی را برای `null` بررسی کنید.
+
+برای مشاهده مثال کامل که مالکیت سلول جدول و شکل را شناسایی می‌کند، به [Search and Replace Text](/slides/fa/java/search-and-replace-text/) مراجعه کنید.
+
+## **ترازبندی متن در جدول**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
+2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
 3. یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) را به اسلاید اضافه کنید.  
-4. از جدول یک شیء [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) دسترسی پیدا کنید.  
-5. به [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) در [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) دسترسی پیدا کنید.  
-6. متن را به صورت عمودی تراز کنید.  
-7. ارائه‌ی تغییر یافته را ذخیره کنید.
-
-این کد Java نشان می‌دهد چگونه متن را در یک جدول تراز کنید:
+4. از جدول یک شیء [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) بدست آورید.  
+5. به [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) مربوط به [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) دسترسی پیدا کنید.  
+6. متن را به صورت عمودی ترازبندی کنید.  
+7. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
 ```java
-// یک شی از کلاس Presentation ایجاد می‌کند
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation();
 try {
     // اولین اسلاید را دریافت می‌کند
@@ -219,19 +231,19 @@ try {
     tbl.get_Item(2, 0).getTextFrame().setText("20");
     tbl.get_Item(3, 0).getTextFrame().setText("30");
     
-    // به فریم متن دسترسی می‌یابد
+    // به فریم متن دسترسی پیدا می‌کند
     ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
     
-    // شی Paragraph را برای فریم متن ایجاد می‌کند
+    // شیء Paragraph را برای فریم متن ایجاد می‌کند
     IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
     
-    // شی Portion را برای پاراگراف ایجاد می‌کند
+    // شیء Portion را برای پاراگراف ایجاد می‌کند
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // متن را به صورت عمودی تراز می‌کند
+    // متن را به صورت عمودی ترازبندی می‌کند
     ICell cell = tbl.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
@@ -246,20 +258,20 @@ try {
 ## **تنظیم قالب‌بندی متن در سطح جدول**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
-3. از اسلاید یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) دسترسی پیدا کنید.  
-4. متد [setFontHeight(float value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) را برای متن تنظیم کنید.  
+2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
+3. از اسلاید یک شیء [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITable) بدست آورید.  
+4. برای متن، متد [setFontHeight(float value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) را تنظیم کنید.  
 5. متدهای [setAlignment(int value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) و [setMarginRight(float value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) را تنظیم کنید.  
 6. متد [setTextVerticalType(byte value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) را تنظیم کنید.  
-7. ارائه‌ی تغییر یافته را ذخیره کنید. 
-
-این کد Java نشان می‌دهد چگونه گزینه‌های قالب‌بندی دلخواه خود را بر متن در جدول اعمال کنید:
+7. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
 ```java
-// یک شی از کلاس Presentation ایجاد می‌کند
+import com.aspose.slides.*;
+
+// یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // فرض می‌کنیم اولین شکل در اولین اسلاید جدول است
+    // فرض می‌کنیم که اولین شکل در اولین اسلاید یک جدول است
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
     // ارتفاع قلم سلول‌های جدول را تنظیم می‌کند
@@ -267,7 +279,7 @@ try {
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // تراز متن سلول‌های جدول و حاشیه راست را در یک فراخوانی تنظیم می‌کند
+    // ترازبندی متن سلول‌های جدول و حاشیهٔ راست را در یک فراخوانی تنظیم می‌کند
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
@@ -286,26 +298,37 @@ try {
 
 ## **دریافت ویژگی‌های سبک جدول**
 
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های سبک یک جدول را بازیابی کنید تا بتوانید این جزئیات را برای جدول دیگر یا جای دیگری استفاده کنید. این کد Java نشان می‌دهد چگونه ویژگی‌های سبک را از یک سبک پیش‌تنظیم جدول دریافت کنید:
+Aspose.Slides به شما امکان می‌دهد ویژگی‌های سبک یک جدول را دریافت کنید تا بتوانید آن جزئیات را برای جدول دیگر یا مکان دیگری استفاده کنید. این کد Java نشان می‌دهد چگونه ویژگی‌های سبک را از یک سبک پیش‌تنظیم شده جدول دریافت کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // تم پیش‌تنظیم سبک پیش‌فرض را تغییر می‌دهد
+    table.setStylePreset(TableStylePreset.DarkStyle1); // تغییر تم پیش‌فرض پیش‌تنظیم سبک
+
+    // پیش‌تنظیم سبک جدول را دریافت می‌کند
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // پیش‌تنظیم سبک بازیابی‌شده را به جدول دیگری اعمال می‌کند
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **قفل کردن نسبت عرض به طول جدول**
+## **قفل کردن نسبت ابعاد جدول**
 
-نسبت عرض به طول یک شکل هندسی نسبت اندازه‌های آن در ابعاد مختلف است. Aspose.Slides ویژگی [**setAspectRatioLocked**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) را برای قفل کردن تنظیم نسبت عرض به طول برای جداول و سایر شکل‌ها فراهم کرده است. 
-
-این کد Java نشان می‌دهد چگونه نسبت عرض به طول یک جدول را قفل کنید:
+نسبت ابعاد یک شکل هندسی، نسبت اندازه‌های آن در ابعاد مختلف است. Aspose.Slides ویژگی [**setAspectRatioLocked**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) را فراهم کرده است تا بتوانید قفل نسبت ابعاد را برای جداول و سایر شکل‌ها اعمال کنید.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -321,16 +344,16 @@ try {
 }
 ```
 
-## **سؤال‌های متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم جهت خواندن راست به چپ (RTL) را برای یک جدول کامل و متن داخل سلول‌های آن فعال کنم؟**
+**آیا می‌توانم جهت خواندن راست‌به‌چپ (RTL) را برای کل جدول و متن داخل سلول‌های آن فعال کنم؟**  
 
-بله. جدول متد [setRightToLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/table/#setRightToLeft-boolean-) را در اختیار می‌گذارد و پاراگراف‌ها متد [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) دارند. استفاده از هر دو اطمینان می‌دهد که ترتیب و رندر RTL به‌درستی در داخل سلول‌ها اعمال می‌شود.
+بله. جدول متد [setRightToLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/table/#setRightToLeft-boolean-) را در اختیار می‌گذارد و پاراگراف‌ها متد [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) را دارند. استفاده از هر دو اطمینان می‌دهد که ترتیب و رندر صحیح RTL در داخل سلول‌ها برقرار باشد.
 
-**چگونه می‌توانم از جابه‌جایی یا تغییر اندازه جدول توسط کاربران در فایل نهایی جلوگیری کنم؟**
+**چگونه می‌توانم از جابجا یا تغییر اندازه جدول توسط کاربران در فایل نهایی جلوگیری کنم؟**  
 
-از [قفل‌های شکل](/slides/fa/java/applying-protection-to-presentation/) استفاده کنید تا جابه‌جایی، تغییر اندازه، انتخاب و غیره غیرفعال شوند. این قفل‌ها بر جدول‌ها نیز اعمال می‌شوند.
+از [shape locks](/slides/fa/java/applying-protection-to-presentation/) استفاده کنید تا جابجایی، تغییر اندازه، انتخاب و غیره غیرفعال شوند. این قفل‌ها برای جداول نیز اعمال می‌شوند.
 
-**آیا افزودن تصویر به عنوان پس‌زمینه داخل یک سلول پشتیبانی می‌شود؟**
+**آیا درج تصویر در داخل سلول به‌عنوان پس‌زمینه پشتیبانی می‌شود؟**  
 
-بله. می‌توانید برای یک سلول از [picture fill](https://reference.aspose.com/slides/fa/java/com.aspose.slides/picturefillformat/) استفاده کنید؛ تصویر بر اساس حالت انتخابی (کشیده شدن یا کاشی) کل فضای سلول را پوشش می‌دهد.
+بله. می‌توانید برای یک سلول [picture fill](https://reference.aspose.com/slides/fa/java/com.aspose.slides/picturefillformat/) تنظیم کنید؛ تصویر بر اساس حالت انتخابی (کشیدگی یا کاشی) کل فضای سلول را می‌پوشاند.

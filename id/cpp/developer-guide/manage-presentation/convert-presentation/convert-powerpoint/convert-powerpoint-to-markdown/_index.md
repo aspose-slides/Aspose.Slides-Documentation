@@ -1,5 +1,5 @@
 ---
-title: Konversi Presentasi PowerPoint ke Markdown dalam C++
+title: Mengonversi Presentasi PowerPoint ke Markdown dalam C++
 linktitle: PowerPoint ke Markdown
 type: docs
 weight: 140
@@ -22,96 +22,200 @@ keywords:
 - simpan PPTX sebagai MD
 - ekspor PPT ke MD
 - ekspor PPTX ke MD
+- ekspor gambar Markdown
+- tautan gambar CDN
 - PowerPoint
 - presentasi
 - Markdown
 - C++
 - Aspose.Slides
-description: "Konversi slide PowerPoint—PPT, PPTX—menjadi Markdown bersih dengan Aspose.Slides untuk C++, otomatisasi dokumentasi dan mempertahankan format."
+description: "Konversi presentasi PPT dan PPTX ke Markdown dalam C++ serta kontrol dimana gambar bitmap, metafile, dan SVG yang diekspor disimpan dan dirujuk."
 ---
-## **Introduction**
+## **Ikhtisar**
 
-Aspose.Slides memungkinkan Anda mengonversi presentasi PowerPoint ke Markdown, yang dapat berguna untuk alur kerja dokumentasi, pembuatan situs statis, migrasi konten, dan penerbitan teks yang dikontrol versi. API mendukung ekspor langsung dari presentasi PPT dan PPTX ke file MD dan menyediakan opsi tambahan untuk mengontrol cara konten slide direpresentasikan dalam dokumen Markdown yang dihasilkan.
+Aspose.Slides untuk C++ dapat mengonversi presentasi PPT dan PPTX ke Markdown untuk dokumentasi, situs statis, migrasi konten, dan alur kerja kontrol versi. Anda dapat memilih varian Markdown, mengontrol cara konten slide dirender, dan menentukan di mana gambar yang diekspor disimpan serta bagaimana Markdown yang dihasilkan mereferensikannya.
 
-Anda dapat mengekspor presentasi sebagai Markdown biasa, memilih dari berbagai varian Markdown seperti CommonMark dan GitHub Flavored Markdown, serta mengkonfigurasi cara gambar ditangani selama ekspor. Untuk presentasi yang berisi konten visual, Aspose.Slides juga memungkinkan Anda menyimpan gambar ke folder terpisah dan merujuknya dari file Markdown yang dihasilkan.
+Secara default, ekspor Markdown menggunakan output hanya teks. Untuk mengekspor konten visual, atur metode [MarkdownSaveOptions::set_ExportType](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_exporttype/) ke nilai `Sequential` atau `Visual` dari enumerasi [MarkdownExportType](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownexporttype/). `Sequential` merender item slide secara terpisah dan berurutan, sedangkan `Visual` menjaga item yang dikelompokkan bersama untuk mempertahankan hubungan visual mereka. Nilai `TextOnly` tidak menghasilkan sumber daya gambar, sehingga peristiwa penyimpanan gambar tidak dipanggil dalam mode tersebut.
 
-{{% alert color="warning" %}} 
-Ekspor PowerPoint ke markdown secara default **tanpa gambar**. Jika Anda ingin mengekspor dokumen PowerPoint yang berisi gambar, Anda perlu mengatur `SaveOptions::MarkdownExportType::Visual)` dan juga menetapkan `BasePath` tempat gambar yang dirujuk dalam dokumen markdown akan disimpan.
-{{% /alert %}} 
+## **Konversi Presentasi ke Markdown**
 
-## **Convert PowerPoint to Markdown**
+Muat file sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/), lalu panggil metode [Presentation::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) dengan nilai `Md` dari enumerasi [SaveFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveformat/).
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) untuk mewakili objek presentasi.
-2. Gunakan metode [Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method) untuk menyimpan objek sebagai file markdown.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.md", SaveFormat::Md);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+presentation->Save(u"presentation.md", SaveFormat::Md);
 ```
 
-## **Convert PowerPoint to Markdown Flavor**
+## **Pilih Varian Markdown**
 
-Aspose.Slides memungkinkan Anda mengonversi PowerPoint ke markdown (yang berisi sintaks dasar), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, dan 17 varian markdown lainnya.
+Metode [MarkdownSaveOptions::set_Flavor](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_flavor/) mengontrol spesifikasi Markdown yang digunakan untuk output. Enumerasi [Flavor](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/flavor/) mencakup CommonMark, GitHub Flavored Markdown, dan varian lain yang didukung.
 
-Kode C++ berikut menunjukkan cara mengonversi PowerPoint ke CommonMark: 
+Contoh berikut mengekspor presentasi sebagai CommonMark:
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::CommonMark);
-pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_Flavor(Flavor::CommonMark);
+
+presentation->Save(u"presentation.md", SaveFormat::Md, options);
 ```
 
-23 varian markdown yang didukung terdaftar di [enumerasi Flavor](https://reference.aspose.com/slides/id/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) pada kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+## **Ekspor Gambar Menggunakan Perilaku Penyimpanan Lokal Default**
 
-## **Convert a Presentation Containing Images to Markdown**
+Kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/) menyediakan dua metode untuk mengonfigurasi gambar yang disimpan secara lokal:
 
-Kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) menyediakan properti dan enumerasi yang memungkinkan Anda menggunakan opsi atau pengaturan tertentu untuk file markdown yang dihasilkan. Enum [MarkdownExportType](https://reference.aspose.com/slides/id/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/), misalnya, dapat diatur ke nilai yang menentukan bagaimana gambar dirender atau ditangani: `Sequential`, `TextOnly`, `Visual`.
+- [set_BasePath](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) menentukan direktori dasar untuk dokumen Markdown dan sumber dayanya.
+- [set_ImagesSaveFolderName](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) menentukan subdirektori gambar. Nilai defaultnya adalah `Images`.
 
-### **Convert Images Sequentially**
+Contoh berikut merender konten visual, menulis gambar ke `output/assets`, dan membuat referensi gambar relatif dalam dokumen Markdown:
 
-Jika Anda menginginkan gambar muncul secara berurutan satu per satu dalam markdown yang dihasilkan, Anda harus memilih opsi sequential. Kode C++ berikut menunjukkan cara mengonversi presentasi yang berisi gambar ke markdown:
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-System::SharedPtr<MarkdownSaveOptions> markdownSaveOptions = System::MakeObject<MarkdownSaveOptions>();
+const System::String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
 
-markdownSaveOptions->set_ShowHiddenSlides(true);
-markdownSaveOptions->set_ShowSlideNumber(true);
-markdownSaveOptions->set_Flavor(Flavor::Github);
-markdownSaveOptions->set_ExportType(MarkdownExportType::Sequential);
-markdownSaveOptions->set_NewLineType(NewLineType::Windows);
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_ExportType(MarkdownExportType::Visual);
+options->set_BasePath(outputDirectory);
+options->set_ImagesSaveFolderName(u"assets");
 
-pres->Save(u"doc.md", System::MakeArray<int32_t>({1, 2, 3, 4, 5, 6, 7, 8, 9}), SaveFormat::Md, markdownSaveOptions);
+auto markdownPath = Path::Combine(outputDirectory, u"presentation.md");
+presentation->Save(markdownPath, SaveFormat::Md, options);
 ```
 
-### **Convert Images Visually**
+Perilaku ini juga berfungsi sebagai cadangan ketika handler penyimpanan gambar khusus mengembalikan `false`.
 
-Jika Anda menginginkan gambar muncul bersama-sama dalam markdown yang dihasilkan, Anda harus memilih opsi visual. Dalam kasus ini, gambar akan disimpan ke direktori kerja aplikasi (dan jalur relatif akan dibuat untuk mereka dalam dokumen markdown), atau Anda dapat menentukan jalur dan nama folder yang diinginkan.
+## **Sesuaikan Penyimpanan Gambar dan Tautan Markdown**
 
-Kode C++ berikut mendemonstrasikan operasi tersebut: 
+Gunakan peristiwa `MarkdownSaveOptions::ImageSaving` untuk sumber daya bitmap dan metafile non‑SVG yang dihasilkan selama ekspor Markdown. Delegasi [MarkdownImageSavingHandler](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/markdownimagesavinghandler/) menerima objek [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) , objek [ImageFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/imageformat/) , dan tautan Markdown yang dihasilkan sebagai parameter `System::String&`. Simpan atau unggah gambar dengan format yang diberikan, dan gantikan `link` dengan referensi yang harus muncul dalam output Markdown.
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-const System::String outPath = u"x:\\documents";
-auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_ExportType(Aspose::Slides::DOM::Export::Markdown::SaveOptions::MarkdownExportType::Visual);
-opt->set_ImagesSaveFolderName(u"md-images");
-opt->set_BasePath(outPath);
-pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
+Sumber daya yang dihasilkan dalam format SVG ditangani secara terpisah. Berlangganan ke peristiwa `MarkdownSaveOptions::SvgImageSaving`, yang delegasi [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/markdownsvgimagesavinghandler/) menerima objek [ISvgImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/) dan parameter `System::String& link`. SVG tidak memiliki argumen `ImageFormat`; tulis atau unggah data XML‑nya melalui metode [ISvgImage::get_SvgData](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/get_svgdata/) . Bergantung pada mode ekspor dan pengelompokan visual, SVG dalam presentasi sumber dapat diubah menjadi raster atau digabungkan dengan konten lain; sumber daya non‑SVG yang dihasilkan kemudian diteruskan ke `ImageSaving`. Berlangganan kedua peristiwa ketika setiap sumber daya visual yang diekspor memerlukan pemrosesan khusus.
+
+Nilai kembalian handler menentukan siapa yang memproses gambar:
+
+- Kembalikan `true` setelah handler menyimpan, mengunggah, mengubah, atau memproses gambar dengan cara lain dan menetapkan nilai yang valid ke `link`. Aspose.Slides menulis nilai tersebut ke dokumen Markdown dan tidak melakukan penyimpanan lokal default.
+- Kembalikan `false` untuk membiarkan Aspose.Slides menyimpan gambar secara lokal dan menghasilkan tautannya menurut [MarkdownSaveOptions::set_BasePath](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) dan [MarkdownSaveOptions::set_ImagesSaveFolderName](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/).
+
+{{% alert color="warning" title="Important" %}}
+Handler yang mengembalikan `true` mengambil tanggung jawab atas gambar. Jika mengembalikan `true` tanpa menetapkan tautan yang valid dan tidak kosong, ekspor akan gagal dengan `InvalidOperationException`.
+{{% /alert %}}
+
+### **Simpan Gambar ke Direktori Asal CDN dan Gunakan URL Eksternal**
+
+Contoh berikut menganggap `cdn-origin/presentations/quarterly-report` sebagai direktori asal CDN yang dipasang atau disinkronkan. Setiap handler mengekstrak nama file yang dihasilkan, menyimpan gambar ke direktori khusus tersebut, dan menggantikan referensi lokal yang dihasilkan dengan URL CDN publik. Contoh itu sendiri tidak melakukan unggahan jaringan: URL menjadi valid hanya setelah direktori dipasang sebagai asal CDN atau file‑filenya dipublikasikan ke CDN. Untuk penyimpanan objek, ganti penulisan sistem file dengan operasi unggah SDK penyimpanan dan tetapkan `link` hanya setelah unggahan berhasil.
+
+```cpp
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <functional>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+const System::String outputDirectory = u"output";
+const System::String publicBaseUrl = u"https://cdn.example.com/presentations/quarterly-report";
+const System::String storageDirectory = Path::Combine(u"cdn-origin", u"presentations", u"quarterly-report");
+Directory::CreateDirectory_(outputDirectory);
+Directory::CreateDirectory_(storageDirectory);
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_ExportType(MarkdownExportType::Visual);
+options->set_BasePath(outputDirectory);
+options->set_ImagesSaveFolderName(u"fallback-images");
+
+options->ImageSaving.connect(std::function<bool(System::SharedPtr<IImage>, ImageFormat, System::String&)>([storageDirectory, publicBaseUrl](System::SharedPtr<IImage> image, ImageFormat format, System::String& link) -> bool
+{
+    if (image->get_Width() < 128 || image->get_Height() < 128)
+    {
+        return false;
+    }
+
+    auto urlCompatibleLink = link.Replace(u"\\", u"/");
+    auto fileName = urlCompatibleLink.Substring(urlCompatibleLink.LastIndexOf(u'/') + 1);
+    auto storagePath = Path::Combine(storageDirectory, fileName);
+    image->Save(storagePath, format);
+    link = publicBaseUrl + u"/" + System::Uri::EscapeDataString(fileName);
+    return true;
+}));
+
+options->SvgImageSaving.connect(std::function<bool(System::SharedPtr<ISvgImage>, System::String&)>([storageDirectory, publicBaseUrl](System::SharedPtr<ISvgImage> svgImage, System::String& link) -> bool
+{
+    auto urlCompatibleLink = link.Replace(u"\\", u"/");
+    auto fileName = urlCompatibleLink.Substring(urlCompatibleLink.LastIndexOf(u'/') + 1);
+    auto storagePath = Path::Combine(storageDirectory, fileName);
+    File::WriteAllBytes(storagePath, svgImage->get_SvgData());
+    link = publicBaseUrl + u"/" + System::Uri::EscapeDataString(fileName);
+    return true;
+}));
+
+auto markdownPath = Path::Combine(outputDirectory, u"presentation.md");
+presentation->Save(markdownPath, SaveFormat::Md, options);
 ```
+
+Handler bitmap sengaja mengembalikan `false` untuk gambar yang lebih kecil dari 128 × 128 piksel, sehingga Aspose.Slides menyimpan gambar tersebut ke `output/fallback-images` dengan perilaku default. Sumber daya bitmap dan metafile yang lebih besar, serta sumber daya SVG, ditangani oleh kode khusus. Sebagai contoh, referensi lokal yang dihasilkan seperti `fallback-images/image1.png` menjadi `https://cdn.example.com/presentations/quarterly-report/image1.png`. Handler hanya menggunakan path sistem operasi saat menulis file; tautan yang ditulis ke Markdown menggunakan garis miring depan dan nama file yang di‑URL‑encode. Terapkan aturan yang sama saat membangun tautan relatif: gunakan `/`, bukan pemisah direktori spesifik platform.
 
 ## **FAQ**
 
-**Do hyperlinks survive the export to Markdown?**
+**Apakah satu handler dapat memproses gambar raster dan gambar SVG?**
 
-Ya. Teks [hyperlinks](/slides/id/cpp/manage-hyperlinks/) dipertahankan sebagai tautan Markdown standar. [transitions](/slides/id/cpp/slide-transition/) dan [animations](/slides/id/cpp/powerpoint-animation/) slide tidak dikonversi.
+Tidak. Gunakan `MarkdownSaveOptions::ImageSaving` untuk sumber daya bitmap dan metafile yang dihasilkan dan `MarkdownSaveOptions::SvgImageSaving` untuk sumber daya yang dihasilkan sebagai SVG. Yang pertama menyediakan objek [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) dan [ImageFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/imageformat/); yang kedua menyediakan objek [ISvgImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/) yang data SVG‑nya dapat dibaca dengan [ISvgImage::get_SvgData](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/get_svgdata/). SVG sumber yang dirasterisasi selama ekspor diproses oleh `ImageSaving`.
 
-**Can I speed up conversion by running it in multiple threads?**
+**Apa yang terjadi ketika handler penyimpanan gambar mengembalikan `false`?**
 
-Anda dapat memparalelkan proses per file, tetapi [don’t share](/slides/id/cpp/multithreading/) instance [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) yang sama di antara thread. Gunakan instance/proses terpisah per file untuk menghindari kontensi.
+Aspose.Slides menggunakan perilaku penyimpanan lokal default. Lokasi gambar dan referensi yang dihasilkan dikontrol oleh [MarkdownSaveOptions::set_BasePath](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) dan [MarkdownSaveOptions::set_ImagesSaveFolderName](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/).
 
-**What happens to images—where are they saved, and are the paths relative?**
+**Apakah handler dapat memberikan URL tanpa menyimpan gambar secara lokal?**
 
-[Images](/slides/id/cpp/image/) diekspor ke folder khusus, dan file Markdown merujuknya dengan jalur relatif secara default. Anda dapat mengonfigurasi jalur output dasar dan nama folder aset untuk menjaga struktur repositori yang dapat diprediksi.
+Ya. Handler dapat mengunggah gambar ke penyimpanan objek atau meneruskannya ke layanan lain, menetapkan URL hasil ke `link`, dan mengembalikan `true`. Handler harus menyelesaikan pemrosesan sendiri; mengembalikan `true` mencegah penyimpanan lokal default.
+
+**Mengapa ekspor Markdown melempar `InvalidOperationException` dari handler?**
+
+Pengecualian ini terjadi ketika handler mengembalikan `true` tetapi tidak menyediakan tautan yang valid. Tetapkan jalur relatif atau URL eksternal yang harus ditulis ke Markdown sebelum mengembalikan `true`.
+
+**Pemisa jalur mana yang harus digunakan oleh tautan gambar?**
+
+Gunakan garis miring depan dalam tautan Markdown dan URL. Gunakan `Path::Combine` hanya untuk jalur sistem file, kemudian bangun atau normalisasi referensi Markdown secara terpisah.
+
+**Apakah hyperlink dipertahankan selama ekspor Markdown?**
+
+Ya. Teks [hyperlinks](/slides/id/cpp/manage-hyperlinks/) dipertahankan sebagai tautan Markdown standar. Slide [transitions](/slides/id/cpp/slide-transition/) dan [animations](/slides/id/cpp/powerpoint-animation/) tidak dikonversi.
+
+**Apakah presentasi dapat dikonversi ke Markdown secara paralel?**
+
+Anda dapat memproses file presentasi yang berbeda secara paralel, tetapi jangan membagikan instance [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) yang sama antara thread. Ikuti [multithreading guidelines](/slides/id/cpp/multithreading/) dan gunakan instance terpisah untuk setiap file.
